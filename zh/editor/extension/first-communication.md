@@ -1,10 +1,10 @@
-# 第一次交互
+# 第一次数据交互
 
-之前我们介绍了怎么创建扩展，怎么在扩展里定义面板，现在我们来尝试他们之间的互相通讯。
+我们在前面两篇文档 **第一个扩展包** 和 **第一个面板** 中介绍了怎么创建扩展，怎么在扩展中定义面板，接下来我们通过本篇文档来尝试一下它们之间的互相通讯。
 
 ## 在描述文件 package.json 内定义消息
 
-我们先增在 contributions.messages 里增加一条消息 "increasing"，交给 browser 处理。再增加一条 "hello-world:increasing" 消息，交给 default 面板处理：
+首先我们需要在 `contributions.messages` 中增加一条消息 `"increasing"`，交给 browser 处理。再增加一条 `"hello-world:increasing"` 消息，交给 default 面板处理：
 
 ```json
 {
@@ -53,11 +53,11 @@
 
 hello-world:increasing 是指我们监听了一个 hello-world 上的 increasing 消息。"default.increasing" 指的是交给 default 面板的 "increasing" 方法处理。
 
-panel 字段含义可以参考 [编写面板](editor/extension/panel-boot.md)。
+panel 字段含义可以参考 [编写面板](./panel-boot.md)。
 
 ### 在 browser.js 里增加 increasing
 
-然后我们需要在 browser.js 里的 methods 里新增一个 increasing 的方法，负责记录一个 num，并在每次触发的时候递增然后广播出去：
+然后需要在 `browser.js` 的 `methods` 中新增一个 `increasing` 方法，负责记录一个 `num`，并在每次触发的时候递增并广播出去：
 
 ```javascript
 'use strict';
@@ -89,7 +89,7 @@ exports.unload = function() {};
 
 ### 在 panel 里增加 increasing 按钮以及广播处理
 
-我们在界面上增加一个 increasing 按钮，以及展示 num 的区域和接受 num 变化的广播消息：
+接下来在界面上增加一个 **increasing** 按钮，以及展示 num 的区域和接受 num 变化的广播消息：
 
 ```javascript
 'use strict';
@@ -134,6 +134,6 @@ exports.close = function() {};
 
 ## 刷新扩展
 
-我们再次打开 Cocos Creator，找到并打开顶部的 **扩展 -> 扩展管理器**，在面板上选择扩展位置（全局或者项目）。然后在对应插件内，找到刷新按钮，点击一下后，Creator 会重新加载插件内容使之生效。
+以上修改完成并保存后，再次打开 Cocos Creator，找到并打开顶部菜单栏中的 **扩展 -> 扩展管理器**，在面板上选择扩展位置（**全局** 或者 **项目**）。然后找到对应插件并点击刷新按钮，Creator 便会重新加载插件内容使之生效。
 
-接着我们就可以在顶部菜单里的 **面板 -> Custom** 里找打开 **Open Hello World** ，然后点击面板上的按钮试试。
+然后便可以在顶部菜单栏的 **面板 -> Custom** 中看到新增了 **Open Hello World** 选项，点击即可打开。
