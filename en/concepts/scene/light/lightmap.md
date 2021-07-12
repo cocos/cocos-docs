@@ -63,7 +63,7 @@ The description of each parameter on the **Scene** page is as follows:
     >
     > ![materials use lightmap](./lightmap/materials.png)
 
-3. Open the **Lightmap** panel and set the corresponding parameters. Then click the **Lightmap Generate** button, a file storage dialog will pop up, you need to specify a folder (must be in `assets` directory) to store the generated lightmap data information. You can see the baking progress log at the bottom of the **Lightmap** panel.
+3. Open the **Lightmap** panel and set the corresponding parameters. Then click the **Lightmap Generate** button, a file storage dialog will pop up, you need to specify a folder (must be in the `assets` directory) to store the generated lightmap data information. Notice the baking progress log at the bottom of the **Lightmap** panel.
 
     ![bake param](./lightmap/lightmap-generate.png)
 
