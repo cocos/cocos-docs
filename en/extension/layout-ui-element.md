@@ -34,7 +34,7 @@ However, ordinary CSS layout is not suitable for interface elements. For this re
 
 When using horizontal and vertical rows, aligning all sub-elements is necessary. Use `start`, `center` and `end` to align child elements.
 
-For horizontal elements, they represent top, center, and bottom alignment respectively. For vertical elements, they represent left, center, and right alignment respectively.
+For horizontal elements, they represent top, center, and bottom alignment respectively.<br>For vertical elements, they represent left, center, and right alignment respectively.
 
 Taking horizontal layout as an example and look at a set of examples:
 
