@@ -67,6 +67,6 @@ Cocos Creator use the Entity Component in the engine, it allow us extending the 
 
 The above example will mapping the `projectPath/packages/myPackage/path/to/runtime-resource` to our assets path, shows as `[myPackage]-[shared-resource]`.
 
-The resources under the path can be used by other components and scenes. Ususally this package is used to package frequently used resources and components, and shares it almong the projects.
+The resources under the path can be used by other components and scenes. Usually this package is used to package frequently used resources and components, and shares it almong the projects.
 
 For additional details, please review the [Runtime-Resource Reference](reference/package-json-reference.md#runtime-resource-object-) documentation.

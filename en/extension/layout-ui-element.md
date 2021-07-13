@@ -1,6 +1,6 @@
 # Interface layout
 
-Cocos Creator's interface layout is done by writing CSS using `style`. To review CSS, please read the [W3 School's CSS Tutorial](http://www.w3school.com.cn/css/) documentation.
+Cocos Creator's interface layout is done by writing CSS using `style`. To review CSS, please read the [W3 School's CSS Tutorial [cn]](https://www.w3school.com.cn/css/index.asp) documentation.
 
 However, ordinary CSS layout is not suitable for interface elements. For this reason, the latest CSS standard has added [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) layout. With Flex layout, it is easy to arrange the interface elements horizontally and vertically. In order to facilitate developers to use CSS Flex, Cocos Creator also encapsulates it. This section mainly introduces the interface layout method in Cocos Creator.
 
@@ -34,7 +34,7 @@ However, ordinary CSS layout is not suitable for interface elements. For this re
 
 When using horizontal and vertical rows, aligning all sub-elements is necessary. Use `start`, `center` and `end` to align child elements.
 
-For horizontal elements, they represent top, center, and bottom alignment respectively. For vertical elements, they represent left, center, and right alignment respectively.
+For horizontal elements, they represent top, center, and bottom alignment respectively.<br>For vertical elements, they represent left, center, and right alignment respectively.
 
 Taking horizontal layout as an example and look at a set of examples:
 
