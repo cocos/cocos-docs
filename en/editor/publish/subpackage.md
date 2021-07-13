@@ -18,7 +18,7 @@ Once configured, click the **Check** button on the top right and the folder will
 
 ## Build
 
-When building, the **Main Bundle Compression Type** in the **Build** panel should to be set to **Mini Game Subpackage**. For detailed instructions, please refer to the [Asset Bundle - Compression Type](../../asset/bundle.md#compression-type) documentation.
+When building, the **Main Bundle Compression Type** in the **Build** panel should be set to **Mini Game Subpackage**. For detailed instructions, please refer to the [Asset Bundle - Compression Type](../../asset/bundle.md#compression-type) documentation.
 
 After the project is built, this Asset Bundle folder is packaged into the `subpackages` folder in the release package directory of the mini game platform. Each folder contained in this folder is an Asset Bundle.
 

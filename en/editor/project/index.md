@@ -12,7 +12,7 @@ The **Project Settings** panel can be opened by clicking on **Project -> Project
 
 - **ENABLE_TILEDMAP_CULLING**: whether or not to enable TiledMap auto-culling. It's enabled by default. Note that if `skew` and `rotation` are set in the TiledMap, it's necessary to turn it off manually, otherwise it will cause rendering errors.
 
-- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the effect you need, the default value is 5000 ms.
+- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](__APIDOC__/en/modules/core.html#macro-1.touch_timeout) for details.
 
 - **ENABLE_TRANSPARENT_CANVAS**: used to set whether the Canvas background supports alpha channels.
 
@@ -25,7 +25,7 @@ The **Project Settings** panel can be opened by clicking on **Project -> Project
 
 - **ENABLE_MULTI_TOUCH**: whether to enable multi-touch.
 
-- **MAX_LABLE_CANVAS_POOL_SIZE**: the maximum number of Canvas objects used by the Label. Please adjust it according to the number of Labels in the same scene of the project.
+- **MAX_LABLE_CANVAS_POOL_SIZE**: set the maximum number of Canvas object pools used by the Label, and adjust it according to the number of Labels in the same scene of the project.
 
 For more specific information and code about the engine macro module, please refer to the [Engine Macro source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
 
@@ -80,9 +80,9 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 - **Conforming class fields**: if enabled, class fields are implemented using `Define` semantics; otherwise, class fields are implemented using `Set` semantics.
 
-- **Allows declaration of class fields**: if enabled, `declare` keyword may be used to declare class fields. In such case, class fields without explicit initializer would be initialized to undefined, according to the specification.
+- **Allows declaration of class fields**: if enabled, the `declare` keyword may be used to declare class fields in TypeScript scripts. In such case, class fields without explicit initializer would be initialized to `undefined`, according to the specification.
 
-- **Enable relaxed mode**: enable "loose" compilation mode.
+- **Enable relaxed mode**: if enabled, the script will be compiled in non-strict mode.
 
 ## Texture Compression
 
