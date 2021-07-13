@@ -1,9 +1,9 @@
 # Cache Manager
 
-> Text: Santy-Wang, Xunyi
+> Author: Santy-Wang, Xunyi
 
-In the Web platforms, after resources are downloaded, the cache is managed by the browser, not the engine. <br
-In some non-Web platforms, such as WeChat Mini Game, such platforms have a file system that can be used to cache some remote resources, but do not implement a caching mechanism for the resources. In this case, the engine needs to implement a set of caching mechanism to manage the resources downloaded from the network, including caching resources, clearing cached resources, querying cached resources and other features.
+On the Web platforms, after resources are downloaded, the cache is managed by the browser, not the engine. <br/>
+On some non-Web platforms, such as WeChat Mini Game, such platforms have a file system that can be used to cache some remote resources but do not implement a caching mechanism for the resources. In this case, the engine needs to implement a set of caching mechanisms to manage the resources downloaded from the network, including caching resources, clearing cached resources, querying cached resources, and other features.
 
 Starting from v2.4, Creator provides a cache manager on all platforms with file systems to add, delete, and check caches, which can be accessed by developers through `assetManager.cacheManager`.
 
@@ -31,9 +31,9 @@ When the engine's **md5Cache** feature is enabled, the URL of the file will chan
 
 ### Uploading resources to a remote server
 
-If you need to upload resources to a remote server, please configure the Asset Bundle where the resources are located as a remote bundle. Next, let's take the WeChat mini-game as an example and look at the specific steps.
+To upload resources to a remote server, please configure the Asset Bundle where the resources are located as a remote bundle. Next, taking the WeChat mini-game as an example, and look at the specific steps.
 
-1. Reasonably allocate resources, configure the resource folder that needs to be managed modularly as Asset Bundles, and check **Is Remote Bundle**, for details, please refer to the document [Configure Asset Bundle](./bundle.md#configuration).
+1. Reasonably allocate resources, configure the resource folder that needs to be managed modularly as Asset Bundles, and check **Is Remote Bundle**. For additional details, please refer to the [Configure Asset Bundle](./bundle.md#configuration) documentation.
 
     ![bundle_is_remote](./cache-manager/remote-bundle.png)
 
@@ -89,7 +89,7 @@ If the cache resource exceeds the limit and the developer needs to clear the res
 
 - `clearCache` -- clears all cache resources in the cache directory, please use with caution.
 - `clearLRU` -- clears the older resources in the cache directory. The mini-game platform will automatically call `clearLRU` when the cache space is full.
-- ``removeCache`` -- clears a single cache resource. To use it, you need to provide the original path of the resource, e.g.
+- ``removeCache`` -- clears a single cache resource. To use it, provide the original path of the resource, e.g.
 
   ```typescript
   assetManager.loadRemote('http://example.com/background.jpg', function (err, texture) {
