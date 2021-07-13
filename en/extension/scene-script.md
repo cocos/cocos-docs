@@ -76,7 +76,7 @@ Module.exports = {
 };
 ```
 
-> **Note** to use the same module reference mechanism as the project script, you must use `cc.require` in the scene script.
+> **Note**: to use the same module reference mechanism as the project script, you must use `cc.require` in the scene script.
 
 ### Reference plugin script
 
