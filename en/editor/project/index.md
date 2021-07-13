@@ -1,28 +1,28 @@
 # Project Settings
 
-The **Project Settings** panel is opened by clicking on **Projects -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. To synchronize project settings between developers, please add the `settings` directory to version control.
+The **Project Settings** panel can be opened by clicking on **Project -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. To synchronize project settings between developers, please add the `settings` directory to version control.
 
-**Project Settings** consists of several different subpages, including **Macro Config**, **Feature Crop**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
+**Project Settings** consists of several different subpages, including **Macro Config**, **Feature Cropping**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
 
 ## Macro Config
 
-**Macro Config** provides a shortcut to modify the macro configuration, the configured macro will take effect when previewing, building The configured macro will take effect on preview, build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
+**Macro Config** provides a shortcut to modify the macro configuration. The configured macros will take effect on preview and build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
 
 ![macro](./index/macro.png)
 
-- **ENABLE_TILEDMAP_CULLING**: whether or not tiled map auto culling is enabled. If setting the TiledMap skew or rotation, then it is necessary to manually disable this setting, otherwise, the rendering will be wrong.
+- **ENABLE_TILEDMAP_CULLING**: whether or not to enable TiledMap auto-culling, default is on. Note that if `skew` and `rotation` are set in the TiledMap, it's necessary to turn it off manually, otherwise it will cause rendering errors.
 
-- **TOUCH_TIMEOUT**: the timeout to determine whether a touch is no longer active and should be removed. This value can be modified to have a better behavior if necessary.
+- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the effect you need, the default value is 5000 ms.
 
-- **ENABLE_TRANSPARENT_CANVAS**: boolean that indicates if the canvas contains an alpha channel, default sets to false for better performance.
+- **ENABLE_TRANSPARENT_CANVAS**: used to set whether the Canvas background supports alpha channel (transparent and semi-transparent). It's disabled by default, so that it can have higher performance.
 
-- **ENABLE_WEBGL_ANTIALIAS**: boolean that indicates if the WebGL context is created with `antialias` option turned on, default value is false.
+- **ENABLE_WEBGL_ANTIALIAS**: used to set whether to turn on the anti-aliasing option when creating WebGL Context. It's enabled by default.
 
-- **CLEANUP_IMAGE_CACHE**: whether to clear the original image cache after uploaded a texture to GPU. If cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported.
+- **CLEANUP_IMAGE_CACHE**: whether to clear the image cache after uploading a texture to GPU. If the cache is cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported. It's disabled by default.
 
 - **ENABLE_MULTI_TOUCH**: whether to enable multi-touch.
 
-- **MAX_LABLE_CANVAS_POOL_SIZE**: the maximum size of the canvas pool used by Label, please adjust according to the number of label component in the same scene of the project.
+- **MAX_LABLE_CANVAS_POOL_SIZE**: the maximum number of Canvas objects used by the Label. Please adjust it according to the number of Labels in the same scene of the project.
 
 For more specific information and code about the engine macro module, please refer to the [**Engine Macro** source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
 
