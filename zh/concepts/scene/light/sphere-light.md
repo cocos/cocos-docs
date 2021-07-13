@@ -4,6 +4,14 @@ Cocos Creator 3.0 中使用球面光替代 **点光源（Point Light）**，因�
 
 ![sphere light](spherelight/sphere-light.jpg)
 
+球面光会向所有方向均匀的发散光线，接近于蜡烛产生的光线。光照强度会随着跟光源距离的增大而减小。在编辑器中可以看到光源位置和它的照射范围。在到达 **指定距离** 时变为零。光照强度与距光源距离的平方成 **反比**。这被称为“平方反比定律”，类似于光在现实世界中的情况。
+
+用户可以通过修改 **属性检查器** 中 cc.SphereLight 组件的 **Range** 属性来修改球面光的光照范围。
+
+![spot-light-edit](spherelight/spot-light-edit.png)
+
+球面光可用于模拟场景中的灯和其他局部光源。用户还可以用球面光模拟火花照亮周围环境。
+
 在场景中添加球面光的方式可参考 [光照](../light.md)。
 
 球面光组件接口请参考 [SphereLight API](__APIDOC__/zh/classes/component_light.spherelight.html)。
