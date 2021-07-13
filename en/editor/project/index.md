@@ -24,7 +24,7 @@ The **Project Settings** panel can be opened by clicking on **Project -> Project
 
 - **MAX_LABLE_CANVAS_POOL_SIZE**: the maximum number of Canvas objects used by the Label. Please adjust it according to the number of Labels in the same scene of the project.
 
-For more specific information and code about the engine macro module, please refer to the [**Engine Macro** source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
+For more specific information and code about the engine macro module, please refer to the [Engine Macro source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
 
 ## Feature Cropping
 
