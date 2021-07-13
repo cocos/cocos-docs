@@ -1,6 +1,6 @@
 # Extends Inspector
 
-**Inspector** is a component control interface that is displayed in the **Properties** panel. Sometimes it is necessary to define an Inspector for a custom compomnent, and display it in a custom way.For example, the special form of a Widget component is designed by the extending the Inspector.
+**Inspector** is a component control interface that is displayed in the **Properties** panel. Sometimes it is necessary to define an Inspector for a custom compomnent, and display it in a custom way. For example, the special form of a Widget component is designed by extending the Inspector.
 
 ![extend inspector](assets/extend-inspector.png)
 
