@@ -74,6 +74,8 @@ interface PanelSize {
 上面我们注册的时候定义了 panel 入口文件 `panels/default.js`：
 
 ```javascript
+'use strict';
+
 // 监听面板事件
 exports.listeners = {
     // 面板显示的时候触发的钩子
