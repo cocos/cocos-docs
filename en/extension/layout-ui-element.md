@@ -1,6 +1,6 @@
 # Interface layout
 
-Cocos Creator's interface layout is done by writing CSS using `style`. To review CSS, please read the [W3 School's CSS Tutorial](http://www.w3school.com.cn/css/) documentation.
+Cocos Creator's interface layout is done by writing CSS using `style`. To review CSS, please read the [W3 School's CSS Tutorial [cn]](https://www.w3school.com.cn/css/index.asp) documentation.
 
 However, ordinary CSS layout is not suitable for interface elements. For this reason, the latest CSS standard has added [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) layout. With Flex layout, it is easy to arrange the interface elements horizontally and vertically. In order to facilitate developers to use CSS Flex, Cocos Creator also encapsulates it. This section mainly introduces the interface layout method in Cocos Creator.
 
