@@ -133,4 +133,4 @@ Editor.assetdb.move (srcUrl, destUrl);
 Editor.assetdb.delete ([url1, url2]);
 ```
 
-For more information about these interfaces, please refer to the[AssetDB API Main](api/asset-db/asset-db-main.md) and [AssetDB API Renderer](api/asset-db/asset-db-renderer.md) documentation.
+For more information about these interfaces, please refer to the [AssetDB API Main](api/asset-db/asset-db-main.md) and [AssetDB API Renderer](api/asset-db/asset-db-renderer.md) documentation.
