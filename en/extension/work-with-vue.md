@@ -1,8 +1,6 @@
 # Working with Vue
 
-If you have already mastered the interface writing method in the [writing panel interface](writing-your-panel.md) section, one might think that writing the interface is a bit cumbersome. Is it possible to use some front-end interface frameworks to improve the efficiency of interface writing? The answer is yes. Cocos Creator
-supports many interface frameworks such as [Vue](http://vuejs.org/), [React](https://facebook.github.io/react/),
-[Polymer](http://polymer-project.org/) and so on.
+If you have already mastered the interface writing method in the [writing panel interface](writing-your-panel.md) section, one might think that writing the interface is a bit cumbersome. Is it possible to use some front-end interface frameworks to improve the efficiency of interface writing? The answer is yes. Cocos Creator supports many interface frameworks such as [Vue](http://vuejs.org/), [React](https://facebook.github.io/react/), [Polymer](http://polymer-project.org/) and so on.
 
 During testing, [Vue](http://vuejs.org/) was found to be very consistent with the overall design ideas of Cocos Creator. This section will focus on how to use [Vue](http://vuejs.org/) to write a panel interface in Cocos Creator.
 
