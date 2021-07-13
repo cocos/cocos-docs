@@ -12,7 +12,7 @@ The steps are as follows:
 
 ## Register Inspector entry
 
-First,define a Component script, and this script should use the custom Inspector. Example:
+First, define a Component script, and this script should use the custom Inspector. Example:
 
 ```javascript
 cc.Class ({
