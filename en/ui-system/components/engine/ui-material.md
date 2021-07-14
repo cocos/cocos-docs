@@ -4,7 +4,7 @@ Custom materials for 2D rendering objects are a best practice to extend the perf
 
 Most of the 2D rendering components in v3.0 support the use of custom materials, with the following interface (using the Sprite component as an example).
 
-! [UIMaterial](ui-material/UIMaterial.png)
+![UIMaterial](ui-material/UIMaterial.png)
 
 The usage is no different from other built-in materials, just drag and drop the material to be used into the **CustomMaterial** property box, but there are some points to note as follows:
 
@@ -14,7 +14,7 @@ The usage is no different from other built-in materials, just drag and drop the 
 4. The **Grayscale** property on the panel is disabled when a custom material for 2D rendering objects is used, and the user can choose to implement this feature in the material itself.
 5. When a custom material is used, the BlendFactor settings panel on the component will be automatically hidden and the settings will be disabled, and the BlendFactor will be based on the settings in the custom material.
 6. When a custom material is used, the depth detection information of the component will be based on the material. To achieve occlusion with 3D objects, please use custom materials and turn on depth detection. See the example [2d-rendering-in-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d).
-7. For custom materials, getting the uploaded texture requires introducing the `cc-sprite-texture` header file in the shader, where `cc_spriteTexture` corresponds to the SpriteFrame image asset set in the 2D rendering component properties panel. For example, a fragment shader that simply uses the panel to set a SpriteFrame to sample textures should look like the following.
+7. For custom materials, getting the uploaded texture requires introducing the `cc-sprite-texture` header file in the shader, where `cc_spriteTexture` corresponds to the SpriteFrame image asset set in the 2D rendering component properties panel. For example, a fragment shader that simply uses the panel to set a SpriteFrame to sample textures should look like the following:
 
     ```
     CCProgram sprite-fs %{
@@ -51,7 +51,7 @@ The usage is no different from other built-in materials, just drag and drop the 
 
     ![dissolve](ui-material/dissolve.png)
 
-8. If the user wants to assign a `uniform` to a custom material, he can do so by getting the customMaterial on the 2D rendered component. Different interfaces are provided to handle different cases of operations, as shown in the following code: (using Sprite as an example) **(please be sure to read the annotations of the different interfaces!)**
+8. If the user wants to assign a `uniform` to a custom material, it can be done by getting the customMaterial on the 2D renderer component. Creator provides different interfaces for different cases, see the following example code for Sprite:
 
     ```ts
     let spriteComp = this.node.getComponent(Sprite);
@@ -61,3 +61,5 @@ The usage is no different from other built-in materials, just drag and drop the 
     // The material method gets the "example material used by the current rendering component", and operations on the Material Instance will only affect the current component, this operation will instantiate the asset, and once instantiated, this component cannot be combined with other components
     let materialInstance = spriteComp.material;
     ```
+
+> **Note**: please be sure to read the annotations of the different interfaces!
