@@ -56,7 +56,7 @@ Using the above code, the interface looks as follows:
 
 ## Interface layout
 
-The interface layout is done by writing CSS in `style`. In the above example, a simple layout of the interface was demonstrated. To become more familiar with CSS, please review the [W3 School's CSS Tutorial](http://www.w3school.com.cn/css/).
+The interface layout is done by writing CSS in `style`. In the above example, a simple layout of the interface was demonstrated. To become more familiar with CSS, please review the [W3 School's CSS Tutorial](https://www.w3school.com.cn/css/index.asp).
 
 In the process of interface layout, sometimes it is necessary to better express the layout relationship between elements. For example, the height of `Top` and `Bottom` elements may be fixed at 30px, while the height of `Middle` element fills up the remaining space. Use [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) layout to make it.
 
