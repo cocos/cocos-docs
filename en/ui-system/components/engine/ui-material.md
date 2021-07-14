@@ -62,4 +62,4 @@ The usage is no different from other built-in materials, just drag and drop the 
     let materialInstance = spriteComp.material;
     ```
 
-> **Note**: please be sure to read the annotations of the different interfaces!
+    > **Note**: please be sure to read the annotations of the different interfaces!
