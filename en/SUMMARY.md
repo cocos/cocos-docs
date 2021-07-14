@@ -5,6 +5,7 @@
 [Introduction](index.md)
 
 - [Getting Started](getting-started/index.md)
+    - [Installing and Launching](getting-started/install/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello world!](getting-started/helloworld/index.md)
     - [Project Structure](getting-started/project-structure/index.md)
@@ -27,21 +28,6 @@
     - [Cocos Creator 3.0 Material Upgrade Guide](material-system/effect-2.x-to-3.0.md)
 
 ## Editor Manual
-
-- [Editor Introduction](editor/index.md)
-    - [Scene](editor/scene/index.md)
-    - [Hierarchy](editor/hierarchy/index.md)
-    - [Assets](editor/assets/index.md)
-    - [Inspector](editor/inspector/index.md)
-    - [Console](editor/console/index.md)
-    - [Animation](editor/animation/index.md)
-    - [Preferences](editor/preferences/index.md)
-    - [Project Settings](editor/project/index.md)
-        - [Physics Configs](editor/project/physics-configs.md)
-
-- [Preview a Game](editor/preview/index.md)
-    - [Previewing in Browser](editor/preview/browser.md)
-    - [Introduction To Preview Process And Common Error Handling](editor/preview/preview-guid.md)
 
 - [Particle Editor](particle-system/editor/index.md)
     - [Curve Editor](particle-system/editor/curve-editor.md)
