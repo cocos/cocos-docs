@@ -1,12 +1,12 @@
-# 掌握 UI Kit
+# Mastering the UI Kit
 
-Cocos Creator 为开发者提供了非常丰富的界面元素，帮助开发者快速地开发面板界面。与此同时，我们还为开发者提供了控件预览面板，方便开发者在使用控件时，查看控件的各种属性和这些属性对应的效果。
+Cocos Creator provides developers with a wealth of interface elements to help developers develop panel interfaces quickly. At the same time, developers are provided with a control preview panel, which is convenient for developers to view various properties of the control and their corresponding effects when using the control.
 
-要打开控件预览窗口，仅需要在主菜单中选择 **开发者 -> UI Kit Preview**。
+To open the control preview window, select **Developer -> UI Kit Preview** in the main menu.
 
-目前界面元素包括：
+The current interface elements include:
 
-## 控件
+## Controls
 
 - [ui-button](./reference/ui-button.md)
 - [ui-checkbox](./reference/ui-checkbox.md)
@@ -17,18 +17,18 @@ Cocos Creator 为开发者提供了非常丰富的界面元素，帮助开发者
 - [ui-slider](./reference/ui-slider.md)
 - [ui-text-area](./reference/ui-text-area.md)
 
-## 特殊控件
+## Special controls
 
 - [ui-asset](./reference/ui-asset.md)
 - [ui-node](./reference/ui-node.md)
 
-## 控件容器
+## Control container
 
 - [ui-box-container](./reference/ui-box-container.md)
 - [ui-prop](./reference/ui-prop.md)
 - [ui-section](./reference/ui-section.md)
 
-## 视图元素
+## View elements
 
 - [ui-hint](./reference/ui-hint.md)
 - [ui-loader](./reference/ui-loader.md)

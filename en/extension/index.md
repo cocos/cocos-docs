@@ -1,6 +1,6 @@
 # Editor Extension
 
-Cocos Creator provides several methods to help users customize and extend the editor. The user extensions will be loaded by packages. You can install your own package or third party package by putting it to the right place. You may need to manually reload the editor window or restart the editor to make the installed packages work.
+Cocos Creator provides several methods to help users customize and extend the editor. The user extensions will be loaded by packages. Custom packages or third party packages can be installed by putting them into the right place. Extensions may need to be manually reloaded in the editor window or even restart the editor to make the installed packages work.
 
 Cocos Creator inherits the usage of `package.json` that is used in __Node.js__ to manifest the contents and registry in your package.
 
@@ -49,8 +49,8 @@ Cocos Creator inherits the usage of `package.json` that is used in __Node.js__ t
 ## API
 
 - AssetDB
-	- [AssetDB API Main](api/asset-db/asset-db-main.md)
-	- [AssetDB API Renderer](api/asset-db/asset-db-renderer.md)
+  - [AssetDB API Main](api/asset-db/asset-db-main.md)
+  - [AssetDB API Renderer](api/asset-db/asset-db-renderer.md)
 - [Editor](api/editor-framework/index.md)
 
 ## Reference

@@ -1,10 +1,10 @@
-# Define Simple Panel
+# Defining a Simple Panel
 
-Sometimes we wish to create a simple panel, that doesn't need to dock to workspace. This can be done by set the `type` to `simple`.
+To create a simple panel, that doesn't need to dock to workspace, set the `type` to `simple`.
 
 ## Define
 
-In the `panel` field in package.json:
+In the `panel` field in `package.json`:
 
 ```json
 {
@@ -19,9 +19,9 @@ In the `panel` field in package.json:
 }
 ```
 
-By defining the `panel` feild, and set the `type` to `simple`, our panel will be opened as simple panel. The simple panel will accept a html page as its entry point in `main`.
+By defining the `panel` field, and set the `type` to `simple`, the panel will be opened as a simple panel. The simple panel will accept a html page as its entry point in `main`.
 
-The rest of things is just a web page:
+The rest is just a web page:
 
 ```html
 <html>
@@ -53,6 +53,6 @@ The rest of things is just a web page:
 </html>
 ```
 
-Once we done, we can open the panel via `Editor.Panel.open('simple-package')`.
+Once done, open the panel use `Editor.Panel.open('simple-package')`.
 
-The simple panel is similar to web page, it is used when you want to integrate some web app to Cocos Creator.
+The simple panel is similar to a web page, it is used to integrate some web app to Cocos Creator.
