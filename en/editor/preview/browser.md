@@ -4,7 +4,7 @@
 
 Preview supports custom templates for users to customize the preview effect they need, and the custom preview template can be placed in the `preview-template` folder in the project directory. Or click **Project -> Create Preview Template** in the editor main menu to create an updated preview template in the project directory. The preview in the editor also uses the template to inject the latest project data, the preview will look for the index file in the directory and if it exists it will be used as the template for the preview.
 
-The ``preview-template`` folder has a structure similar to
+The `preview-template` folder has a structure similar to
 
 ```js
 project-folder
