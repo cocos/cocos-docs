@@ -8,7 +8,15 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 
 ## CMakeLists 的生成和使用
 
-CMake 第一次运行时将生成 `CMakeLists.txt` 文件。当你选择一个平台进行构建之后，就会在项目目录下 **生成**  `native/engine/当前构建的平台名称`、`native/engine/common`  文件夹。
+当选择某个原生平台进行构建时，项目目录 `native\engine` 目录下会生成 `当前构建的平台名称` 文件夹（例如 `android`），以及 `common` 文件夹。CMake 在第一次运行时将会在这两个目录下分别生成 `CMakeLists.txt` 文件，作用各不相同：
+
+- `当前构建的平台名称` 文件夹：`CMakeLists.txt` 主要用于配置对应的构建平台。以 Android 平台为例：
+
+    ![folder2](./cmak-learning/folder3.png)
+
+- `common` 文件夹：`CMakeLists.txt` 主要用于配置整个项目。
+
+    ![folder2](./cmak-learning/folder4.png)
 
 ![folder2](./cmak-learning/folder2.png)
 
