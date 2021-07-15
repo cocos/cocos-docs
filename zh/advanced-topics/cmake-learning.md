@@ -288,4 +288,4 @@ include $(PREBUILT_SHARED_LIBRARY)
 
 CMake 的指令和用法还有很多，欢迎大家去探寻和学习，本篇文档只是做了简单的示例，开发者可针对自身的实际情况，对自己的工作流进行定制。未来 Cocos Creator 也会将 CMake 更多的功能集成到编辑器的 **构建发布** 面板中，方便使用。
 
-对于 CMake 的语法和接口还有问题的开发者可以学习参考 CMake 官方 [文档](https://cmake.org/cmake/help/v3.16/guide/tutorial/index.html)。
+更多关于 CMake 语法和接口的详细内容，请参考 [CMake 官方文档](https://cmake.org/cmake/help/v3.16/guide/tutorial/index.html)。
