@@ -20,23 +20,15 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 
 ![folder2](./cmak-learning/folder2.png)
 
-打开当前构建的平台名称的文件夹和 `common` 文件夹都可以找到对应的 CMakeLists.txt 文件。当前构建的平台名称的文件夹下的 `CMakeLists.txt` 文件，是用来配置对应的构建平台。这里采用 **安卓平台** 做个示例。
-
-![folder3](./cmak-learning/folder3.png)
-
-而 `common` 文件夹下 `CMakeLists.txt` 是用来配置项目通用配置的。
-
-![folder4](./cmak-learning/folder4.png)
-
 `CMakeLists.txt` 的语法比较简单，由 **命令**、**注释** 和 **空格** 组成。其中命令是不区分大小写的，参数和变量则是大小写敏感的。
 
-那如何利用 CMake 将项目编译成动态库提供给其他项目 **使用** 呢？简单来说就是先把编译信息录入，然后 cmake 命令再根据 `CMakeLists.txt` 中的配置生成编译所需的 Makefile 文件。
+那如何利用 CMake 将项目编译成动态库提供给其他项目 **使用** 呢？简单来说就是先把编译信息录入，然后 CMake 命令再根据 `CMakeLists.txt` 中的配置生成编译所需的 Makefile 文件。
 
 下面我们以 Android 平台为例，具体看一下如何配置项目目录 `native/engine/android` 目录下的 `CMakeLists.txt`。
 
 ```CMake
 
-# 设置 CMake 所需的最低版本。如果使用的 CMake 版本低于该版本，会提醒用户升级到该版本之后再执行 cmake。
+# 设置 CMake 所需的最低版本。如果使用的 CMake 版本低于该版本，会提醒用户升级到该版本之后再执行 CMake。
 cmake_minimum_required(VERSION 3.8)
 # 声明项目名称
 option(APP_NAME "Project Name" "cmakeTest")
@@ -58,7 +50,7 @@ if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cp
     file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp 文件到"
         DESTINATION ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/)
 endif()
-# 添加新 element 到 list 中
+# 添加新 element 到 PROJ_SOURCES 中
 list(APPEND PROJ_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cpp
 )
@@ -99,7 +91,7 @@ include(${RES_DIR}/proj/cfg.CMake)
 
 ![code1](./cmak-learning/code1.png)
 
-然后在编译时，CMake 便会根据 `cfg.make` 中的配置生成 **CMakeCache.txt** 文件，该文件中包含了项目构建时 **需要依赖的各种输入参数**。
+然后在编译时，CMake 便会根据 `CMakeLists.txt` 中的配置（`CMakeLists.txt` 中有引入 `cfg.make` 等配置文件）生成 **CMakeCache.txt** 文件，该文件中包含了项目构建时 **需要依赖的各种输入参数**。
 
 ![code2](./cmak-learning/code2.png)
 
@@ -119,7 +111,7 @@ target_include_directories(<target> [SYSTEM] [BEFORE]
   [<INTERFACE|PUBLIC|PRIVATE> [items2...] ...])
 ```
 
-一般引用库路径使用这个命令，作为外部依赖项引入进来，target 是自己项目生成的 `lib`。例如：
+一般引用库路径使用这个命令，作为外部依赖项引入进来。例如：
 
 ```CMake
 target_include_directories(${LIB_NAME} PRIVATE
@@ -127,18 +119,19 @@ target_include_directories(${LIB_NAME} PRIVATE
 )
 ```
 
-我们将 `Classes` 头文件库路径添加到了 `LIB_NAME` 项目。
+我们将 `Classes` 头文件库路径添加到了 `LIB_NAME` 。
 
 #### 生成 target（执行文件）
 
 上述指令中的 `<target>` 是指通过 `library`、`executable`、`自定义 command` 指令生成的执行文件。
+
 ```CMake
 add_library(<name> [STATIC | SHARED | MODULE]
             [EXCLUDE_FROM_ALL]
             source1 [source2 ...])
 ```
 
-该指令的主要作用就是将指定的源文件生成链接文件，然后添加到工程中去。添加名为 `name` 的库，库的源文件可指定，也可用 `target_sources()` 后续指定。`source1`、`source2` 分别表示各个源文件。
+该指令的主要作用就是将指定的源文件生成链接文件，然后添加到工程中去。添加名为 `name` 的库，库的源文件可指定，也可用 [target_sources()](https://cmake.org/cmake/help/v3.17/command/target_sources.html?highlight=target_sources) 后续指定。`source1`、`source2` 分别表示各个源文件。
 库的类型是 `STATIC(静态库)`/`SHARED(动态库)`/`MODULE(模块库)` 之一。
 
 ```CMake
@@ -158,10 +151,11 @@ add_executable(<name> [WIN32] [MACOSX_BUNDLE]
 ```CMake
 add_executable(hello-world hello-world.cpp)
 ```
+
 自定义 command 指令的主要作用是添加定制命令来生成文件。
 
 ```CMake
-	add_custom_command(TARGET target
+add_custom_command(TARGET target
                    PRE_BUILD | PRE_LINK | POST_BUILD
                    COMMAND command1 [ARGS] [args1...]
                    [COMMAND command2 [ARGS] [args2...] ...]
@@ -226,7 +220,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
 
 ### 使用示例
 
-**Android.mk**  是 Android 源码编译系统的 Makefile，用于编译系统中的 C++ 的动态库、静态库、可执行文件和 apk 等。在这里我们采用一个腾讯云的多媒体引擎 SDK 里的一个 Android.mk 来改写成  `CMakeLists.txt` 做一个简单的示例：
+**Android.mk**  是 Android 源码编译系统的 Makefile，用于编译系统中的 C++ 的动态库、静态库、可执行文件和 apk 等。在这里我们采用一个 [腾讯云的多媒体引擎 SDK](https://cloud.tencent.com/document/product/607/15216#cocos-creator-.E6.8E.A5.E5.85.A5) 里的一个 Android.mk 来改写成  `CMakeLists.txt` 做一个简单的示例：
 
 ```
 LOCAL_PATH := $(call my-dir)
