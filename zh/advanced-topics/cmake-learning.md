@@ -30,7 +30,9 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 
 `CMakeLists.txt` 的语法比较简单，由 **命令**、**注释** 和 **空格** 组成。其中命令是不区分大小写的，参数和变量则是大小写敏感的。
 
-怎样利用 CMake 来将项目编译成动态库提供给其他项目 **使用**。简单的来说 CMake 就是我们把编译信息录入，cmake命令根据CMakeLists.txt 生成编译需要的 Makefile 文件。在这里，我们用新建的一个空包构建安卓版本产生的 `CMakeLists.txt` 来看看具体的编写。
+那如何利用 CMake 将项目编译成动态库提供给其他项目 **使用** 呢？简单来说就是先把编译信息录入，然后 cmake 命令再根据 `CMakeLists.txt` 中的配置生成编译所需的 Makefile 文件。
+
+下面我们以 Android 平台为例，具体看一下如何配置项目目录 `native/engine/android` 目录下的 `CMakeLists.txt`。
 
 ```CMake
 
