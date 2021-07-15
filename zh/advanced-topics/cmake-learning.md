@@ -95,11 +95,9 @@ include(${RES_DIR}/proj/cfg.CMake)
 
 ![code2](./cmak-learning/code2.png)
 
-## CMakeLists 的常用示例
-
 下面将会介绍一些在 `CMakeLists.txt` 文件中的常用编译指令和使用示例。
 
-### 常用编译指令：
+## 常用编译指令：
 
 ### 查找编译头文件
 
@@ -218,7 +216,7 @@ COPY 表示复制文件，目录以及符号链接到一个目标文件夹中。
 include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
 ```
 
-### 使用示例
+## 使用示例
 
 **Android.mk**  是 Android 源码编译系统的 Makefile，用于编译系统中的 C++ 的动态库、静态库、可执行文件和 apk 等。在这里我们采用一个 [腾讯云的多媒体引擎 SDK](https://cloud.tencent.com/document/product/607/15216#cocos-creator-.E6.8E.A5.E5.85.A5) 里的一个 Android.mk 来改写成  `CMakeLists.txt` 做一个简单的示例：
 
