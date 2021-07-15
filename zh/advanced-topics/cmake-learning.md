@@ -36,7 +36,7 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 
 # 设置 CMake 所需的最低版本。如果使用的 CMake 版本低于该版本，会提醒用户升级到该版本之后再执行 cmake。
 cmake_minimum_required(VERSION 3.8)
-#声明了项目的名称
+# 声明项目名称
 option(APP_NAME "Project Name" "cmakeTest")
 #声明了项目的名称和支持的编程语言(CXX代表C++)，如不指定默认支持所有语言。支持的编程语言包括 C、 C++ 和 JAVA
 project(${APP_NAME} CXX)
