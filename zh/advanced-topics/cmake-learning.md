@@ -51,7 +51,7 @@ set(PROJ_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
     ${CMAKE_CURRENT_LIST_DIR}/jni/main.cpp
 )
-#如果在该路径下不存在jsb_module_register.cpp，则复制这个路径下的jsb_module_register.cpp文件链接到一个目标文件夹中
+# 如果在该路径下不存在 jsb_module_register.cpp，则复制这个路径下的 jsb_module_register.cpp 文件到目标文件夹中
 if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cpp，则负责)
     file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp文件到"
         DESTINATION ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/)
