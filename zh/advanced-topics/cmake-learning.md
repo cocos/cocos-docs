@@ -83,6 +83,9 @@ option(USE_SPINE                "Enable Spine"                      ON)
 但是需要注意的是，在 `common` 文件夹下的 `CMakeLists.txt` 文件下中的这些基础配置是 **默认选项**，在 `build/构建的版本（例如: Android）/proj`  下的 cfg.cmake 文件会 **修改** 到这些基础配置，是因为 `CMakeLists.txt` 中有对 `cfg.cmake` 文件进行引入。
 
 ```CMake
+CMakeLists.txt
+
+# 引入 cfg.cmake
 include(${RES_DIR}/proj/cfg.CMake)
 ```
 
