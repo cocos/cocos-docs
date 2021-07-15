@@ -89,7 +89,7 @@ CMakeLists.txt
 include(${RES_DIR}/proj/cfg.CMake)
 ```
 
-而 `cfg.make` 是在引擎点击构建的时候会根据构建的渠道版本 **对应生成**。例如开发者在引擎的项目设置的功能裁剪中取消勾选 Spine 动画功能。
+例如将编辑器主菜单 **项目 -> 项目设置 -> 功能裁剪** 中的 **Spine 动画** 去掉勾选：
 
 ![project](./cmak-learning/project.png)
 
