@@ -38,7 +38,7 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 cmake_minimum_required(VERSION 3.8)
 # 声明项目名称
 option(APP_NAME "Project Name" "cmakeTest")
-#声明了项目的名称和支持的编程语言(CXX代表C++)，如不指定默认支持所有语言。支持的编程语言包括 C、 C++ 和 JAVA
+# 声明项目名称以及支持的编程语言（CXX 代表 C++），若不指定则默认支持所有语言。支持的编程语言包括 C、C++ 和 JAVA。
 project(${APP_NAME} CXX)
 #include 从文件或模块加载和运行 CMake 代码
 include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
