@@ -56,7 +56,7 @@ if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cp
     file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp 文件到"
         DESTINATION ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/)
 endif()
-#添加新element到list中
+# 添加新 element 到 list 中
 list(APPEND PROJ_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cpp
 )
