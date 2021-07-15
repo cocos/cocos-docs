@@ -34,7 +34,7 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 
 ```CMake
 
-#设置CMake所需的最低版本。如果使用的CMake版本低于该版本，会提醒用户升级到该版本之后再执行cmake。
+# 设置 CMake 所需的最低版本。如果使用的 CMake 版本低于该版本，会提醒用户升级到该版本之后再执行 cmake。
 cmake_minimum_required(VERSION 3.8)
 #声明了项目的名称
 option(APP_NAME "Project Name" "cmakeTest")
