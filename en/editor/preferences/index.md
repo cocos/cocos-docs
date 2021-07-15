@@ -75,14 +75,15 @@ The **Asset database** tab is used to set the [Assets](../assets/index.md) panel
 - **Log Level**: used to set the type of information output to the **console** from the asset database in the **Assets** panel. This currently includes **Error Only**, **Error and Warning Only**, **Error, Warning, and Log**, and **Output All Information**.
 - **Ignore (Regular)**: use a regular expression and fill in the path to a specific asset file, then that asset will be ignored.
 - **Default Meta**: used to set the default configuration when importing assets within a project. Please refer to the description below for details.
+- **Update resources automatically**: automatically refresh resources when returning to the editor from outside (new in v3.1.2). See below for details.
 
-### Update resources automatically
+### Update resources automatically (new in v3.1.2)
 
-When we do resource manipulation outside of Creator, back in Creator. Creator does a resource check. When the number of files is too high, or the disk random read and write speed is too low, it will cause the resource system response lag. For example, when you click on a resource, the Inspector takes a while to show up.
+If this option is enabled, all resources will be automatically checked when returning to Creator, regardless of whether resources have been manipulated outside of Creator. Then when the number of files in the project is too high, or the random read and write speed of the hard disk is too low, it will cause the resource system response lag. For example, if a resource is selected in **Assets** panel, the **Inspector** panel will take a while to show the resource-related properties.
 
-At this point, we can turn off the automatic refresh function of Creator, but after turning off this function, we need to click the refresh button in the Assets panel to refresh actively when we have done the resource operation.
+At this point, please disable the automatic refresh feature of Creator. After disabling this feature, if resources are manipulated, then manually click the **Refresh** button at the top right of the **Assets** panel to refresh the resources.
 
-So it is not recommended to turn this option off if you are not experiencing resource system response problems.
+**Note**: it is not recommended to turn this option off if not experiencing resource system response problems.
 
 ### Default Meta
 
