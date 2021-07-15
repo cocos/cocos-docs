@@ -4,7 +4,7 @@
 
 CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 Makefile 或者 Project 文件。CMake 使用 `CMakeLists.txt` 来配置工程文件，开发者可以在这里集成 SDK 或者引用用于编译原生平台的库和配置，详情可参考 [二次开发](../editor/publish/native-options.md#%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91)。
 
-CMake 的输出过程和基础编写已经被 **集成** 在  v3.0 之后的版本当中，因此本篇文档将基于 v3.2 的版本主要介绍 `CMakeLists.txt` 的使用规则和一些简单的例子。
+从 v3.0 开始，Creator 已经集成了 CMake 的输出过程和基础编写，本篇文档主要介绍原生平台上 `CMakeLists.txt` 的使用规则以及一些简单的示例。
 
 ## CMakeLists 的生成和使用
 
