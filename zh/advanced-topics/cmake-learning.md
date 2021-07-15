@@ -260,7 +260,7 @@ LOCAL_PATH := $(call my-dir)
 
 以上代码表示构建系统提供的宏函数 `my-dir` 将返回当前目录（`Android.mk` 文件本身所在的目录）的路径。
 
-在对应 CMakeLists.txt:
+对应在 `CMakeLists.txt` 则表示为：
 
 ```
 set(LOCAL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/..)
