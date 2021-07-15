@@ -60,7 +60,7 @@ endif()
 list(APPEND PROJ_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cpp
 )
-#动态库PROJ_SOURCES生成链接文件 到LIB_NAME中
+# 动态库 PROJ_SOURCES 生成链接文件到 LIB_NAME 中
 add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
 #将目标文件LIB_NAME与库文件cocos2d_jni进行链接
 target_link_libraries(${LIB_NAME}
