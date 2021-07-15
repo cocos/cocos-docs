@@ -67,7 +67,7 @@ target_link_libraries(${LIB_NAME}
     "-Wl,--whole-archive" cocos2d_jni "-Wl,--no-whole-archive"
     cocos2d
 )
-#将包含目录添加到目标。
+# 将包含目录添加到目标文件夹。
 target_include_directories(${LIB_NAME} PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes
 )
