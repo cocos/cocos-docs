@@ -258,7 +258,7 @@ include $(PREBUILT_SHARED_LIBRARY)
 LOCAL_PATH := $(call my-dir)
 ```
 
-此变量表示源文件在开发树中的位置。在上述命令中，构建系统提供的宏函数 `my-dir`  将返回当前目录（`Android.mk`  文件本身所在的目录）的路径。
+以上代码表示构建系统提供的宏函数 `my-dir` 将返回当前目录（`Android.mk` 文件本身所在的目录）的路径。
 
 在对应 CMakeLists.txt:
 
