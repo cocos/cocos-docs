@@ -210,7 +210,7 @@ message(STATUS “my custom debug info”)
 
 COPY 表示复制文件，目录以及符号链接到一个目标文件夹中。输入路径将视为相对于当前源码目录的路径。目标路径则是相对于当前的构建目录。
 
-从文件或模块加载和运行 CMake 代码：
+- 从文件或模块加载和运行 CMake 代码
 
 ```CMake
 include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
