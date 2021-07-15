@@ -62,7 +62,7 @@ list(APPEND PROJ_SOURCES
 )
 # 动态库 PROJ_SOURCES 生成链接文件到 LIB_NAME 中
 add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
-#将目标文件LIB_NAME与库文件cocos2d_jni进行链接
+# 将目标文件 LIB_NAME 与库文件 cocos2d_jni 进行链接
 target_link_libraries(${LIB_NAME}
     "-Wl,--whole-archive" cocos2d_jni "-Wl,--no-whole-archive"
     cocos2d
