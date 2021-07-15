@@ -195,7 +195,7 @@ target_link_libraries(${LIB_NAME}
 
 #### 其他命令
 
- 打印调试日志消息:
+- 打印调试日志消息
 
 ```CMake
 message(STATUS “my custom debug info”)
