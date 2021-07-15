@@ -231,7 +231,7 @@ include $(PREBUILT_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := Pre_TRAE
 LOCAL_SRC_FILES := ./$(TARGET_ARCH_ABI)/libtraeimp.so
-include $(PREBUILT_SHARED_LIBRARY)	
+include $(PREBUILT_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := Pre_PTT
@@ -270,8 +270,8 @@ include $(PREBUILT_SHARED_LIBRARY)
 在对应 CMakeLists.txt:
 
 ```CMake
-	add_library(Pre_GMESDK SHARED IMPORTED GLObal)
-	set_target_properties(Pre_GMESDK PROPERTIES
+add_library(Pre_GMESDK SHARED IMPORTED GLObal)
+set_target_properties(Pre_GMESDK PROPERTIES
   IMPORTED_LOCATION ./${ANDROID_ABI}/libgmesdk.so
 )
 ```
