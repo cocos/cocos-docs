@@ -18,8 +18,6 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 
     ![folder2](./cmak-learning/folder4.png)
 
-![folder2](./cmak-learning/folder2.png)
-
 `CMakeLists.txt` 的语法比较简单，由 **命令**、**注释** 和 **空格** 组成。其中命令是不区分大小写的，参数和变量则是大小写敏感的。
 
 那如何利用 CMake 将项目编译成动态库提供给其他项目 **使用** 呢？简单来说就是先把编译信息录入，然后 CMake 命令再根据 `CMakeLists.txt` 中的配置生成编译所需的 Makefile 文件。
