@@ -193,7 +193,7 @@ target_link_libraries(${LIB_NAME}
 
 #### 其他命令
 
- 打印调试日志消息:
+- 打印调试日志消息
 
 ```CMake
 message(STATUS “my custom debug info”)
@@ -208,7 +208,7 @@ message(STATUS “my custom debug info”)
 
 COPY 表示复制文件，目录以及符号链接到一个目标文件夹中。输入路径将视为相对于当前源码目录的路径。目标路径则是相对于当前的构建目录。
 
-从文件或模块加载和运行 CMake 代码：
+- 从文件或模块加载和运行 CMake 代码
 
 ```CMake
 include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
@@ -242,7 +242,7 @@ LOCAL_SRC_FILES := ./$(TARGET_ARCH_ABI)/libgmecodec.so
 include $(PREBUILT_SHARED_LIBRARY)
 ```
 
-在  Android.mk 中：
+在  `Android.mk` 中有一个 `LOCAL_PATH` 变量，表示源文件在开发树中的位置：
 
 ```
 LOCAL_PATH := $(call my-dir)
