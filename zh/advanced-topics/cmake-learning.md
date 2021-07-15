@@ -111,7 +111,7 @@ include(${RES_DIR}/proj/cfg.CMake)
 
 ### 查找编译头文件
 
-让 CMake 找到我的头文件,指定编译给定目标时要使用的包含目录或目标
+找到编译头文件，CMake 即可指定编译给定目标时要使用的包含目录或目标文件夹：
 
 ```CMake
 target_include_directories(<target> [SYSTEM] [BEFORE]
