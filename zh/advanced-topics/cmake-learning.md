@@ -68,7 +68,7 @@ target_include_directories(${LIB_NAME} PRIVATE
 
 项目目录 `native/engine/common` 目录下的 `CMakeLists.txt` 文件的配置方法也是一致的，但是会多一些基础的配置。例如：
 
-```CMake
+````CMake
 option(USE_SPINE                "Enable Spine"                      ON)
 ```
 
@@ -89,7 +89,7 @@ include(${RES_DIR}/proj/cfg.CMake)
 
 ![code1](./cmak-learning/code1.png)
 
-然后在编译时，CMake 便会根据 `CMakeLists.txt` 中的配置（`CMakeLists.txt` 中有引入 `cfg.make` 等配置文件）生成 **CMakeCache.txt** 文件，该文件中包含了项目构建时 **需要依赖的各种输入参数**。
+然后在编译时，CMake  便会根据配置（例如  `CMakeLists.txt` 以及 `CMakeLists.txt` 中引入的 `cfg.make` 等配置文件）生成 **CMakeCache.txt** 文件，该文件中包含了项目构建时 **需要依赖的各种输入参数**。
 
 ![code2](./cmak-learning/code2.png)
 
@@ -115,65 +115,94 @@ target_include_directories(${LIB_NAME} PRIVATE
 )
 ```
 
-我们将 `Classes` 头文件库路径添加到了 `LIB_NAME` 。
+我们将 `Classes` 头文件库路径添加到了 `LIB_NAME`  中。
 
-#### 生成 target（执行文件）
+### 生成 target（执行文件）
 
 上述指令中的 `<target>` 是指通过 `library`、`executable`、`自定义 command` 指令生成的执行文件。
 
-```CMake
-add_library(<name> [STATIC | SHARED | MODULE]
+- 通过 `library` 指令生成：
+
+   `library` 指令通过将指定的源文件生成链接文件，然后添加到工程中去。
+
+    ```CMake
+    add_library(<name> [STATIC | SHARED | MODULE]
             [EXCLUDE_FROM_ALL]
-            source1 [source2 ...])
-```
+            [source1] [source2 ...])
+    ```
+      - **<name>**：表示添加一个名为 <name> 的目标库，由命令中列出的源文件（source1、source2）构建而成，在项目中是全局唯一的。源文件若是在后续通过 target_sources() 指定，那么这里就可以忽略。
 
-该指令的主要作用就是将指定的源文件生成链接文件，然后添加到工程中去。添加名为 `name` 的库，库的源文件可指定，也可用 [target_sources()](https://cmake.org/cmake/help/v3.17/command/target_sources.html?highlight=target_sources) 后续指定。`source1`、`source2` 分别表示各个源文件。
-库的类型是 `STATIC(静态库)`/`SHARED(动态库)`/`MODULE(模块库)` 之一。
+      - STATIC（静态库）、SHARED（动态库）、MODULE（模块库）：用于指定要创建的库的类型。STATIC 库是对象文件的档案，用于连接其他目标。共享库是动态链接的，并在运行时加载。MODULE 库是插件，不被链接到其他目标中，但可以在运行时使用类似 dlopen 的功能动态加载。
 
-```CMake
-add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
-```
+    例如指定要创建的库为 SHARED：
+    ```CMake
+    add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
+    ```
+   
+    更多关于 `library` 指令的内容，详情请参考 CMake 官方文档 [add_library](https://cmake.org/cmake/help/v3.16/command/add_library.html)。
+   
+- 通过 `executable` 指令生成：
 
-还有一个指令就是：
+    `executable` 指令是使用指定的源文件来生成目标可执行文件。
 
-```CMake
-add_executable(<name> [WIN32] [MACOSX_BUNDLE]
-               [EXCLUDE_FROM_ALL]
-               source1 [source2 ...])
-```
+    ```CMake
+    add_executable(<name> [WIN32] [MACOSX_BUNDLE]
+                   [EXCLUDE_FROM_ALL]
+                   [source1] [source2 ...])
+    ```
+      - **<name>**：可执行目标文件的名字，在一个 CMake 工程中，这个名字必须全局唯一。
+      - **WIN32:**用于 `windows 系统` 下创建一个以 `WinMain` 为入口的可执行目标文件（通常入口函数为 `main`），它不是一个 `控制台应用程序`，而是一个 `GUI 应用程序`。当  `WIN32` 选项使用的时候，可执行目标的 `WIN32_EXECUTABLE` 会被置为 `ON`。
+      - **MACOSX_BUNDLE:**用于 `mac 系统` 或者 `IOS 系统` 下创建一个 GUI 可执行应用程序，当 `MACOSX_BUNDLE` 选项使用的时候，可执行目标的 `MACOSX_BUNDLE` 会被置为 `ON`。
+      - **EXCLUDE_FROM_ALL:**用于指定可执行目标是否会被构建，当该选项使用的时候，可执行目标不会被构建。
+      - **[source1] [source2 ...]:**构建可执行目标文件所需要的源文件。也可以通过 [`target_sources()`](https://cmake.org/cmake/help/latest/command/target_sources.html?highlight=target_sources) 继续为可执行目标文件添加源文件，要求是在调用 `target_sources` 之前，可执行目标文件必须已经通过 `add_executable` 或 `add_library` 定义了。
 
-该指令的主要作用就是使用指定的源文件向项目添加可执行文件。
+    示例如下：
 
-```CMake
-add_executable(hello-world hello-world.cpp)
-```
+    ```CMake
+    add_executable(hello-world hello-world.cpp)
+    ```
 
-自定义 command 指令的主要作用是添加定制命令来生成文件。
+     更多关于 `executable` 指令的内容，详情请参考 CMake 官方文档 [add_executable](https://cmake.org/cmake/help/v3.16/command/add_executable.html?highlight=add_executable)。
 
-```CMake
-add_custom_command(TARGET target
-                   PRE_BUILD | PRE_LINK | POST_BUILD
+- 通过 `自定义 command ` 指令生成：
+
+    `自定义 command` 指令是指将向生成的构建系统添加自定义构建规则。该命令主要用于两种场景下：
+      - 添加定制命令来生成文件。
+      - 为某个目标(如库或可执行程序)添加一个定制命令。
+
+    ```CMake
+    add_custom_command(OUTPUT output1 [output2 ...]
                    COMMAND command1 [ARGS] [args1...]
                    [COMMAND command2 [ARGS] [args2...] ...]
+                   [MAIN_DEPENDENCY depend]
+                   [DEPENDS [depends...]]
+                   [BYPRODUCTS [files...]]
+                   [IMPLICIT_DEPENDS <lang1> depend1
+                                    [<lang2> depend2] ...]
                    [WORKING_DIRECTORY dir]
-                   [COMMENT comment] [VERBATIM])
-```
+                   [COMMENT comment]
+                   [DEPFILE depfile]
+                   [JOB_POOL job_pool]
+                   [VERBATIM] [APPEND] [USES_TERMINAL]
+                   [COMMAND_EXPAND_LISTS])
+    
+    ```
+      - **OUTPUT**：指定命令预期产生的输出文件。如果输出文件的名称是相对路径，即相对于当前的构建的源目录路径。
+      - **COMMAND**：指定要在构建时执行的命令行。
 
-该命令成为目标的一部分，并且仅在构建目标本身时才会执行。如果目标已经构建，则该命令将不会执行。示例如下：
-
-```CMake
-add_custom_command(OUTPUT COPY_RES
+    示例如下：
+    ```CMake
+    add_custom_command(OUTPUT COPY_RES
             COMMAND ${CMAKE_COMMAND} -E copy_if_different ${abs} $<TARGET_FILE_DIR:${LIB_NAME}>/${filename}
         )
-```
+    ```
+    **add_custom_command** 有两个限制:
 
-**add_custom_command** 有两个限制:
+      - 只有在相同的 `CMakeLists.txt` 中，指定了所有依赖于其输出的目标时才有效。
+      - 对于不同的独立目标，使用 `add_custom_command` 的输出可以重新执行定制命令。这可能会导致冲突，应该避免这种情况的发生。
 
-- 只有在相同的 `CMakeLists.txt` 中，指定了所有依赖于其输出的目标时才有效。
-
-- 对于不同的独立目标，使用 `add_custom_command` 的输出可以重新执行定制命令。这可能会导致冲突，应该避免这种情况的发生。
-
-#### 链接库文件
+    更多关于 `add_custom_command` 指令的内容，详情请参考 CMake 官方文档 [add_custom_command](https://cmake.org/cmake/help/v3.16/command/add_custom_command.html?highlight=add_custom_command)。
+### 链接库文件
 
 `target_link_libraries` 里库文件的顺序符合 `gcc` 链接顺序的规则，即被依赖的库放在依赖它的库的后面。
 
@@ -191,32 +220,32 @@ target_link_libraries(${LIB_NAME}
 )
 ```
 
-#### 其他命令
+### 其他命令
 
-- 打印调试日志消息
+- 打印调试日志消息：
 
-```CMake
-message(STATUS “my custom debug info”)
-```
+    ```CMake
+    message(STATUS “my custom debug info”)
+    ```
 
-操作文件命令：
+- 操作文件命令：
 
-```CMake
-  file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp"
+    ```CMake
+    file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp"
         DESTINATION ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/)
-```
+    ```
 
-COPY 表示复制文件，目录以及符号链接到一个目标文件夹中。输入路径将视为相对于当前源码目录的路径。目标路径则是相对于当前的构建目录。
+    COPY 表示复制文件，目录以及符号链接到一个目标文件夹中。输入路径将视为相对于当前源码目录的路径。目标路径则是相对于当前的构建目录。
 
-- 从文件或模块加载和运行 CMake 代码
+- 从文件或模块加载和运行 CMake 代码：
 
-```CMake
-include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
-```
+    ```CMake
+    include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
+    ```
 
 ## 使用示例
 
-**Android.mk**  是 Android 源码编译系统的 Makefile，用于编译系统中的 C++ 的动态库、静态库、可执行文件和 apk 等。在这里我们采用一个 [腾讯云的多媒体引擎 SDK](https://cloud.tencent.com/document/product/607/15216#cocos-creator-.E6.8E.A5.E5.85.A5) 里的一个 Android.mk 来改写成  `CMakeLists.txt` 做一个简单的示例：
+**Android.mk**  是 Android 源码编译系统的 Makefile，用于编译系统中的 C++ 的动态库、静态库、可执行文件和 apk 等。接下来我们通过将 [腾讯云多媒体引擎 SDK](https://cloud.tencent.com/document/product/607/15216#cocos-creator-.E6.8E.A5.E5.85.A5) 中的一个 Android.mk 改写成  `CMakeLists.txt` 做一个简单的示例：
 
 ```
 LOCAL_PATH := $(call my-dir)
