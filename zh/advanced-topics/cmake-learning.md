@@ -93,7 +93,7 @@ include(${RES_DIR}/proj/cfg.CMake)
 
 ![project](./cmak-learning/project.png)
 
-再点击构建，重新生成的 `cfg.make` 中就会出现改变。
+则在再次构建时重新生成的 `cfg.make` 中就会将 `USE_SPINE` 设置为 `OFF`：
 
 ![code1](./cmak-learning/code1.png)
 
