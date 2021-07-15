@@ -47,7 +47,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
 	
 # 定义一个新变量 LIB_NAME 并设置为 “cocos”
 set(LIB_NAME cocos)
-#定义了一个变量PROJ_SOURCES
+# 定义一个变量 PROJ_SOURCES
 set(PROJ_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
