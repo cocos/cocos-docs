@@ -99,7 +99,7 @@ include(${RES_DIR}/proj/cfg.CMake)
 
 ![code1](./cmak-learning/code1.png)
 
-在经过编译之后，CMake 会根据配置生成 **CMakeCache.txt** 文件。这里面拥有开发者构建一个项目 **需要依赖的各种输入参数**。
+然后在编译时，CMake 便会根据 `cfg.make` 中的配置生成 **CMakeCache.txt** 文件，该文件中包含了项目构建时 **需要依赖的各种输入参数**。
 
 ![code2](./cmak-learning/code2.png)
 
