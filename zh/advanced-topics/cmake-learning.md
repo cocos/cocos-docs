@@ -244,7 +244,7 @@ LOCAL_SRC_FILES := ./$(TARGET_ARCH_ABI)/libgmecodec.so
 include $(PREBUILT_SHARED_LIBRARY)
 ```
 
-在  Android.mk 中：
+在  `Android.mk` 中有一个 `LOCAL_PATH` 变量，表示源文件在开发树中的位置：
 
 ```
 LOCAL_PATH := $(call my-dir)
