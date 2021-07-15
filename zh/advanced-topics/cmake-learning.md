@@ -53,7 +53,7 @@ set(PROJ_SOURCES
 )
 # 如果在该路径下不存在 jsb_module_register.cpp，则复制这个路径下的 jsb_module_register.cpp 文件到目标文件夹中
 if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cpp，则负责)
-    file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp文件到"
+    file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp 文件到"
         DESTINATION ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/)
 endif()
 #添加新element到list中
