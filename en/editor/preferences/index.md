@@ -83,7 +83,7 @@ If this option is enabled, all resources will be automatically checked when retu
 
 At this point, please disable the automatic refresh feature of Creator. After disabling this feature, if resources are manipulated, then manually click the **Refresh** button at the top right of the **Assets** panel to refresh the resources.
 
-**Note**: it is not recommended to turn this option off if not experiencing resource system response problems.
+> **Note**: it is not recommended to turn this option off if not experiencing resource system response problems.
 
 ### Default Meta
 
