@@ -107,7 +107,7 @@ target_include_directories(<target> [SYSTEM] [BEFORE]
   [<INTERFACE|PUBLIC|PRIVATE> [items2...] ...])
 ```
 
-一般引用库路径使用这个命令，作为外部依赖项引入进来。例如：
+一般情况下，通过上述指令引用库路径便可作为外部依赖项引入到 CMake 中。例如：
 
 ```CMake
 target_include_directories(${LIB_NAME} PRIVATE
