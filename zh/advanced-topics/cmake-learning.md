@@ -18,21 +18,21 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 
 `CMakeLists.txt` 的语法比较简单，由 **命令**、**注释** 和 **空格** 组成。其中命令是不区分大小写的，但命令中的参数和变量则是大小写敏感的。
 
-那如何利用 CMake 将项目编译成动态库提供给其他项目 **使用** 呢？简单来说就是先把编译信息录入，然后 CMake 命令再根据 `CMakeLists.txt` 中的配置生成编译所需的 Makefile 文件。
+那如何利用 CMake 将项目编译成动态库提供给其他项目使用呢？简单来说就是先录入编译信息，然后 CMake 命令再根据 `CMakeLists.txt` 中的配置生成编译所需的 Makefile 文件。
 
 下面我们以 Android 平台为例，具体看一下如何配置项目目录 `native/engine/android` 目录下的 `CMakeLists.txt`。
 
 ```CMake
-# 设置 CMake 所需的最低版本。如果使用的 CMake 版本低于该版本，会提醒用户升级到该版本之后再执行 CMake。
+# 设置 CMake 所需的最低版本。如果使用的 CMake 版本低于该版本，会提醒用户升级到该版本之后再执行 CMake
 cmake_minimum_required(VERSION 3.8)
 
 # 声明项目名称
 option(APP_NAME "Project Name" "cmakeTest")
 
-# 声明项目名称以及支持的编程语言（CXX 代表 C++），若不指定则默认支持所有语言。支持的编程语言包括 C、C++ 和 JAVA。
+# 声明项目名称以及支持的编程语言，若不指定则默认支持所有编程语言，包括 C、C++ 和 JAVA 三种，分别用 C、CXX、JAVA 表示。
 project(${APP_NAME} CXX)
 
-#include 从文件或模块加载和运行 CMake 代码
+# include 从文件或模块加载和运行 CMake 代码
 include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
 
 # 定义一个新变量 LIB_NAME 并设置为 “cocos”
@@ -46,8 +46,8 @@ set(PROJ_SOURCES
 )
 
 # 如果在该路径下不存在 jsb_module_register.cpp，则复制这个路径下的 jsb_module_register.cpp 文件到目标文件夹中
-if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cpp，则负责)
-    file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp 文件到"
+if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cpp)
+    file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp"
         DESTINATION ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/)
 endif()
 
@@ -77,7 +77,7 @@ target_include_directories(${LIB_NAME} PRIVATE
 option(USE_SPINE                "Enable Spine"                      ON)
 ```
 
-构建后生成的发布包目录（例如 `build/android`）下有一个 `proj/cfg.cmake` 文件，用于存放当前项目的一些配置。因为 `CMakeLists.txt` 中有对 `cfg.cmake` 文件进行引入，所以当 `cfg.cmake` 文件中的配置做了修改，便会同步到 `CMakeLists.txt` 中，若是相同的配置，则直接覆盖。
+构建后生成的发布包目录（例如 `build/android`）下有一个 `proj/cfg.cmake` 文件，用于存放当前项目的一些配置。因为 `CMakeLists.txt` 中有对 `cfg.cmake` 文件进行引入，所以当 `cfg.cmake` 文件中的配置做了修改，便会同步到 `CMakeLists.txt` 中；若是相同的配置，则直接覆盖，以 `cfg.cmake` 文件中的为准。
 
 ```CMake
 CMakeLists.txt
@@ -113,18 +113,19 @@ target_include_directories(<target> [SYSTEM] [BEFORE]
 一般情况下，通过上述指令引用库路径便可作为外部依赖项引入到 CMake 中。例如：
 
 ```CMake
+# 将 Classes 头文件库路径添加到 LIB_NAME 中
 target_include_directories(${LIB_NAME} PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes
 )
 ```
 
-我们将 `Classes` 头文件库路径添加到了 `LIB_NAME` 中。
+更多内容可参考 CMake 官方文档 [target_include_directories](https://cmake.org/cmake/help/latest/command/target_include_directories.html)。
 
 ### 生成 target（执行文件）
 
-上述 **查找编译头文件** 指令中的 `<target>` 是通过 `library`、`executable`、`自定义 command` 指令生成的执行文件。
+上述 **查找编译头文件** 指令中的 `target` 是通过 `library`、`executable`、`自定义 command` 指令生成的执行文件。
 
-- 通过 `library` 指令生成：
+- 通过 `library` 指令生成
 
    `library` 指令通过将指定的源文件生成链接文件，然后添加到工程中去。
 
@@ -138,7 +139,7 @@ target_include_directories(${LIB_NAME} PRIVATE
 
     - `STATIC`（静态库）、`SHARED`（动态库）、`MODULE`（模块库）：用于指定要创建的库的类型。STATIC 库是对象文件的档案，用于连接其他目标。共享库是动态链接的，并在运行时加载。MODULE 库是插件，不被链接到其他目标中，但可以在运行时使用类似 dlopen 的功能动态加载。
 
-    例如指定要创建的库为 SHARED：
+    示例如下：
 
     ```CMake
     add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
@@ -146,7 +147,7 @@ target_include_directories(${LIB_NAME} PRIVATE
 
     更多关于 `library` 指令的内容，详情请参考 CMake 官方文档 [add_library](https://cmake.org/cmake/help/v3.16/command/add_library.html)。
 
-- 通过 `executable` 指令生成：
+- 通过 `executable` 指令生成
 
     `executable` 指令是使用指定的源文件来生成目标可执行文件。
 
@@ -170,9 +171,9 @@ target_include_directories(${LIB_NAME} PRIVATE
 
      更多关于 `executable` 指令的内容，详情请参考 CMake 官方文档 [add_executable](https://cmake.org/cmake/help/v3.16/command/add_executable.html?highlight=add_executable)。
 
-- 通过 `自定义 command` 指令生成：
+- 通过 `自定义 command` 指令生成
 
-    `自定义 command` 指令是指将向生成的构建系统添加自定义构建规则。该命令主要用于两种场景下：
+    `自定义 command` 指令是指将向生成的构建系统添加自定义构建规则。该命令主要用于以下两种场景：
 
     - 添加定制命令来生成文件。
     - 为某个目标（如库或可执行程序）添加一个定制命令。
@@ -231,6 +232,8 @@ target_link_libraries(${LIB_NAME}
     cocos2d
 )
 ```
+
+更多内容可参考 CMake 官方文档 [target_link_libraries](https://cmake.org/cmake/help/latest/command/target_link_libraries.html)。
 
 ### 其他命令
 
