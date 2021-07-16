@@ -85,11 +85,11 @@ Cocos Creator 目前仅支持文件协议的 URL。但由于文件 URL 中指定
 
 #### 条件性导出
 
-在 Node.js 模块解析算法中，[包的条件性导出](https://nodejs.org/api/packages.html#packages_conditional_exports) 特性用于根据一些条件映射包中的子路径。与 Node.js 类似，Cocos Creator 实现了内置条件 `"import"`、`default`；但未实现条件 `"require"`、`"node"`。
+在 Node.js 模块解析算法中，[包的条件性导出](https://nodejs.org/api/packages.html#packages_conditional_exports) 特性用于根据一些条件映射包中的子路径。与 Node.js 类似，Cocos Creator 实现了内置条件 `"import"`、`default`，但未实现条件 `"require"`、`"node"`。
 
-可以通过配置 [项目设置]-[脚本]-[条件导出] 来指定 **额外** 的条件。
+可以通过编辑器主菜单 **项目 -> 项目设置 -> 脚本** 中的 **导出条件** 项来指定 **额外** 的条件，该项默认值为 **browser**，可用 **逗号** 作为分隔符来指定多个额外条件，例如 `browser,bar`。
 
-例如，此选项的默认值是“browser”。当某 npm 包 `foo` 的 `package.json`中包含以下配置时：
+当某 npm 包 `foo` 的 `package.json` 中包含以下配置时：
 
 ```json
 {
@@ -102,13 +102,11 @@ Cocos Creator 目前仅支持文件协议的 URL。但由于文件 URL 中指定
 }
 ```
 
-`import /* whatever */ from "foo"` 将解析为包中路径为 `dist/browser-main.mjs` 的模块。
-
-若将此选项设为空字符串，表示不指定额外条件，上例中的 `"foo"` 将解析为包中路径为 `dist/main.mjs` 的模块。
+`"foo"` 将解析为包中路径为 `dist/browser-main.mjs` 的模块。
 
 > [多玩家框架 Colyseus](https://www.npmjs.com/package/colyseus) 中就为 `"browser"` 条件做了映射配置。
 
-可用逗号作为分隔符来指定多个额外条件。例如， “browser,bar” 指定了额外条件 `"browser"`、`"bar"`。
+若 **导出条件** 项设置为空，则表示不指定任何额外条件，上例中的 `"foo"` 将解析为包中路径为 `dist/main.mjs` 的模块。
 
 ### 后缀与目录导入
 

@@ -226,7 +226,7 @@
     - [Script Creation](scripting/setup.md)
     - [Scripting Basics](scripting/basic.md)
     - [Language Support](scripting/language-support.md)
-    - [Module specification and examples](scripting/modules/index.md)
+    - [Module specifications and examples](scripting/modules/index.md)
     - [ccclass](scripting/ccclass.md)
     - [Attributes](scripting/reference/attributes.md)
     - [Access Node and Other Components](scripting/access-node-component.md)
