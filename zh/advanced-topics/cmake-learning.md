@@ -119,7 +119,7 @@ target_include_directories(${LIB_NAME} PRIVATE
 
 ### 生成 target（执行文件）
 
-上述指令中的 `<target>` 是指通过 `library`、`executable`、`自定义 command` 指令生成的执行文件。
+上述 **查找编译头文件** 指令中的 `<target>` 是通过 `library`、`executable`、`自定义 command` 指令生成的执行文件。
 
 - 通过 `library` 指令生成：
 
