@@ -89,7 +89,7 @@ Cocos Creator 目前仅支持文件协议的 URL。但由于文件 URL 中指定
 
 可以通过编辑器主菜单 **项目 -> 项目设置 -> 脚本** 中的 **导出条件** 项来指定 **额外** 的条件，该项默认值为 **browser**，可用 **逗号** 作为分隔符来指定多个额外条件，例如 `browser,bar`。
 
-当某 npm 包 `foo` 的 `package.json` 中包含以下配置时：
+例如，该项使用默认值 `browser`，当某 npm 包 `foo` 的 `package.json` 中包含以下配置时：
 
 ```json
 {
