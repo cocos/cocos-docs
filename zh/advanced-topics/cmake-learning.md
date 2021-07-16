@@ -243,7 +243,7 @@ target_link_libraries(${LIB_NAME}
     include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
     ```
 
-## 使用示例
+## CMakeLists 使用示例
 
 **Android.mk**  是 Android 源码编译系统的 Makefile，用于编译系统中的 C++ 的动态库、静态库、可执行文件和 apk 等。接下来我们通过将 [腾讯云多媒体引擎 SDK](https://cloud.tencent.com/document/product/607/15216#cocos-creator-.E6.8E.A5.E5.85.A5) 中的一个 Android.mk 改写成  `CMakeLists.txt` 做一个简单的示例：
 
