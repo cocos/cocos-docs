@@ -27,7 +27,7 @@ Drag the skeletal animation asset from the **Assets** panel to the `SkeletonData
 
 ![spine](spine/set_skeleton.png)
 
-## How to load spine remotely from a server
+## How to load Spine remotely from a server
 
 ### Load the Spine assets in json format
 
