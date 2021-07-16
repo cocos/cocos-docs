@@ -95,7 +95,7 @@ include(${RES_DIR}/proj/cfg.CMake)
 
 下面将会介绍一些在 `CMakeLists.txt` 文件中的常用编译指令和使用示例。
 
-## 常用编译指令：
+## CMakeLists 常用编译指令
 
 ### 查找编译头文件
 
