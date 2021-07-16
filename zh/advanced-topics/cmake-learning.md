@@ -68,7 +68,7 @@ target_include_directories(${LIB_NAME} PRIVATE
 
 项目目录 `native/engine/common` 目录下的 `CMakeLists.txt` 文件的配置方法也是一致的，但是会多一些基础的配置。例如：
 
-````CMake
+```CMake
 option(USE_SPINE                "Enable Spine"                      ON)
 ```
 
