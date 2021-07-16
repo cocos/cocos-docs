@@ -26,3 +26,48 @@ The assets required for skeletal animation are:
 Drag the skeletal animation asset from the **Assets** panel to the `SkeletonData` property of the spine component in the **Inspector** panel.
 
 ![spine](spine/set_skeleton.png)
+
+## How to load spine remotely from a server
+
+### Load the Spine assets in json format
+
+```ts
+let comp = this.getComponent('sp.Skeleton') as sp.Skeleton;
+
+let image = "http://localhost/download/spineres/1/1.png";
+let ske = "http://localhost/download/spineres/1/1.json";
+let atlas = "http://localhost/download/spineres/1/1.atlas";
+assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
+    assetManager.loadRemote(image, (error, texture: Texture2D) => {
+        let asset = new sp.SkeletonData();
+        asset.skeletonJson = assets[1];
+        asset.atlasText = assets[0];
+        asset.textures = [texture];
+        asset.textureNames = ['1.png'];
+        skeleton.skeletonData = asset;
+    });
+});
+```
+
+### Load the Spine assets in binary format
+
+```ts
+let comp = this.getComponent('sp.Skeleton') as sp.Skeleton;
+
+let image = "http://localhost/download/spineres/1/1.png";
+let ske = "http://localhost/download/spineres/1/1.skel";
+let atlas = "http://localhost/download/spineres/1/1.atlas";
+assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.bin' }], (error, assets) => {
+    assetManager.loadRemote(image, (error, texture: Texture2D) => {
+        let asset = new sp.SkeletonData();
+        asset._nativeAsset = assets[1];
+        asset.atlasText = assets[0];
+        asset.textures = [texture];
+        asset.textureNames = ['1.png'];
+        asset._uuid = ske; // Any string can be passed in, but it cannot be empty.
+        asset._nativeURL = ske; // Pass in a binary path to be used as the 'filePath' parameter when using 'initSkeleton'.
+        comp.skeletonData = asset;
+        let ani = comp.setAnimation(0, 'walk', true);
+    });
+});
+```
