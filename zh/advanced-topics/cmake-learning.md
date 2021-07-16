@@ -1,7 +1,5 @@
 # CMake 使用简介
 
-## 前言
-
 CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 Makefile 或者 Project 文件。CMake 使用 `CMakeLists.txt` 来配置工程文件，开发者可以在这里集成 SDK 或者引用用于编译原生平台的库和配置，详情可参考 [二次开发](../editor/publish/native-options.md#%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91)。
 
 从 v3.0 开始，Creator 已经集成了 CMake 的输出过程和基础编写，本篇文档主要介绍原生平台上 `CMakeLists.txt` 的使用规则以及一些简单的示例。
@@ -18,7 +16,7 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 
     ![folder2](./cmak-learning/folder4.png)
 
-`CMakeLists.txt` 的语法比较简单，由 **命令**、**注释** 和 **空格** 组成。其中命令是不区分大小写的，参数和变量则是大小写敏感的。
+`CMakeLists.txt` 的语法比较简单，由 **命令**、**注释** 和 **空格** 组成。其中命令是不区分大小写的，但命令中的参数和变量则是大小写敏感的。
 
 那如何利用 CMake 将项目编译成动态库提供给其他项目 **使用** 呢？简单来说就是先把编译信息录入，然后 CMake 命令再根据 `CMakeLists.txt` 中的配置生成编译所需的 Makefile 文件。
 
@@ -27,8 +25,10 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 ```CMake
 # 设置 CMake 所需的最低版本。如果使用的 CMake 版本低于该版本，会提醒用户升级到该版本之后再执行 CMake。
 cmake_minimum_required(VERSION 3.8)
+
 # 声明项目名称
 option(APP_NAME "Project Name" "cmakeTest")
+
 # 声明项目名称以及支持的编程语言（CXX 代表 C++），若不指定则默认支持所有语言。支持的编程语言包括 C、C++ 和 JAVA。
 project(${APP_NAME} CXX)
 
@@ -37,28 +37,34 @@ include(${CMAKE_CURRENT_LIST_DIR}/../common/CMakeLists.txt)
 
 # 定义一个新变量 LIB_NAME 并设置为 “cocos”
 set(LIB_NAME cocos)
+
 # 定义一个变量 PROJ_SOURCES
 set(PROJ_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
     ${CMAKE_CURRENT_LIST_DIR}/jni/main.cpp
 )
+
 # 如果在该路径下不存在 jsb_module_register.cpp，则复制这个路径下的 jsb_module_register.cpp 文件到目标文件夹中
 if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cpp，则负责)
     file(COPY "${COCOS_X_PATH}/cocos/bindings/manual/jsb_module_register.cpp 文件到"
         DESTINATION ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/)
 endif()
+
 # 添加新 element 到 PROJ_SOURCES 中
 list(APPEND PROJ_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/jsb_module_register.cpp
 )
+
 # 动态库 PROJ_SOURCES 生成链接文件到 LIB_NAME 中
 add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
+
 # 将目标文件 LIB_NAME 与库文件 cocos2d_jni 进行链接
 target_link_libraries(${LIB_NAME}
     "-Wl,--whole-archive" cocos2d_jni "-Wl,--no-whole-archive"
     cocos2d
 )
+
 # 将包含目录添加到目标文件夹。
 target_include_directories(${LIB_NAME} PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/../common/Classes
@@ -91,8 +97,6 @@ include(${RES_DIR}/proj/cfg.CMake)
 然后在编译时，CMake 便会根据配置（例如 `CMakeLists.txt` 以及 `CMakeLists.txt` 中引入的 `cfg.make` 等配置文件）生成 **CMakeCache.txt** 文件，该文件中包含了项目构建时 **需要依赖的各种输入参数**。
 
 ![code2](./cmak-learning/code2.png)
-
-下面将会介绍一些在 `CMakeLists.txt` 文件中的常用编译指令和使用示例。
 
 ## CMakeLists 常用编译指令
 
@@ -130,9 +134,9 @@ target_include_directories(${LIB_NAME} PRIVATE
             [source1] [source2 ...])
     ```
 
-    - **<name>**：表示添加一个名为 <name> 的目标库，由命令中列出的源文件（source1、source2）构建而成，在项目中是全局唯一的。源文件若是在后续通过 target_sources() 指定，那么这里就可以忽略。
+    - `name`：表示添加一个名为 <name> 的目标库，由命令中列出的源文件（source1、source2）构建而成，在项目中是全局唯一的。源文件若是在后续通过 [target_sources()](https://cmake.org/cmake/help/latest/command/target_sources.html?highlight=target_sources) 指定，那么这里就可以忽略。
 
-    - STATIC（静态库）、SHARED（动态库）、MODULE（模块库）：用于指定要创建的库的类型。STATIC 库是对象文件的档案，用于连接其他目标。共享库是动态链接的，并在运行时加载。MODULE 库是插件，不被链接到其他目标中，但可以在运行时使用类似 dlopen 的功能动态加载。
+    - `STATIC`（静态库）、`SHARED`（动态库）、`MODULE`（模块库）：用于指定要创建的库的类型。STATIC 库是对象文件的档案，用于连接其他目标。共享库是动态链接的，并在运行时加载。MODULE 库是插件，不被链接到其他目标中，但可以在运行时使用类似 dlopen 的功能动态加载。
 
     例如指定要创建的库为 SHARED：
 
@@ -152,11 +156,11 @@ target_include_directories(${LIB_NAME} PRIVATE
                    [source1] [source2 ...])
     ```
 
-    - **<name>**：可执行目标文件的名字，在一个 CMake 工程中，这个名字必须全局唯一。
-    - **WIN32**：用于在 **Windows** 中创建一个以 `WinMain` 为入口的可执行目标文件（通常入口函数为 `main`），它不是一个 `控制台应用程序`，而是一个 `GUI 应用程序`。当使用 `WIN32` 时，可执行目标的 `WIN32_EXECUTABLE` 会被置为 `ON`。
-    - **MACOSX_BUNDLE**：用于在 `macOS` 或者 `iOS` 下创建一个 GUI 可执行应用程序，当 `MACOSX_BUNDLE` 选项使用的时候，可执行目标的 `MACOSX_BUNDLE` 会被置为 `ON`。
-    - **EXCLUDE_FROM_ALL**：用于指定可执行目标是否会被构建，当该选项使用的时候，可执行目标不会被构建。
-    - **[source1] [source2 ...]**：构建可执行目标文件所需要的源文件。也可以通过 [target_sources()](https://cmake.org/cmake/help/latest/command/target_sources.html?highlight=target_sources) 继续为可执行目标文件添加源文件，要求是在调用 `target_sources` 之前，可执行目标文件必须已经通过 `add_executable` 或 `add_library` 定义了。
+    - `name`：可执行目标文件的名字，在一个 CMake 工程中，这个名字必须全局唯一。
+    - `WIN32`：用于在 **Windows** 中创建一个以 `WinMain` 为入口的可执行目标文件（通常入口函数为 `main`），它不是一个 **控制台应用程序**，而是一个 **GUI 应用程序**。当使用 `WIN32` 时，可执行目标的 `WIN32_EXECUTABLE` 会被置为 `ON`。
+    - `MACOSX_BUNDLE`：用于在 **macOS** 或者 **iOS** 下创建一个 GUI 可执行应用程序，当 `MACOSX_BUNDLE` 选项使用的时候，可执行目标的 `MACOSX_BUNDLE` 会被置为 `ON`。
+    - `EXCLUDE_FROM_ALL`：用于指定可执行目标是否会被构建，当该选项使用的时候，可执行目标不会被构建。
+    - `[source1] [source2 ...]`：构建可执行目标文件所需要的源文件。也可以通过 [target_sources()](https://cmake.org/cmake/help/latest/command/target_sources.html?highlight=target_sources) 继续为可执行目标文件添加源文件，要求是在调用 `target_sources` 之前，可执行目标文件必须已经通过 `add_executable` 或 `add_library` 定义了。
 
     示例如下：
 
@@ -171,7 +175,7 @@ target_include_directories(${LIB_NAME} PRIVATE
     `自定义 command` 指令是指将向生成的构建系统添加自定义构建规则。该命令主要用于两种场景下：
 
     - 添加定制命令来生成文件。
-    - 为某个目标(如库或可执行程序)添加一个定制命令。
+    - 为某个目标（如库或可执行程序）添加一个定制命令。
 
     ```CMake
     add_custom_command(OUTPUT output1 [output2 ...]
@@ -190,9 +194,9 @@ target_include_directories(${LIB_NAME} PRIVATE
                    [COMMAND_EXPAND_LISTS])
     ```
 
-    - **OUTPUT**：指定命令预期产生的输出文件。输出文件名称可以是 **绝对路径** 或者 **相对路径**（相对于当前的构建的源目录路径）。
+    - `OUTPUT`：指定命令预期产生的输出文件。输出文件名称可以是 **绝对路径** 或者 **相对路径**（相对于当前的构建的源目录路径）。
 
-    - **COMMAND**：指定要在构建时执行的命令行。
+    - `COMMAND`：指定要在构建时执行的命令行。
 
     示例如下：
 
@@ -281,10 +285,9 @@ LOCAL_SRC_FILES := ./$(TARGET_ARCH_ABI)/libgmecodec.so
 include $(PREBUILT_SHARED_LIBRARY)
 ```
 
-其中有一个 `LOCAL_PATH` 变量，表示源文件在开发树中的位置：
+其中有一个 `LOCAL_PATH` 变量，表示源文件在开发树中的位置。构建系统提供的宏函数 `my-dir` 将返回当前目录（`Android.mk` 文件本身所在的目录）的路径：
 
 ```
-// 构建系统提供的宏函数 my-dir 将返回当前目录（Android.mk 文件本身所在的目录）的路径。
 LOCAL_PATH := $(call my-dir)
 ```
 
