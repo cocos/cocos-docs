@@ -30,6 +30,8 @@ Cocos Creator 3.0 的引擎部分包括 TypeScript、engine-native 和 adapter �
 
 ![](engine-customization/custom-ts-engine.png)
 
+> **注意**：修改引擎路径后需要重启编辑器。
+
 ### 1.3 安装编译依赖
 
 ```bash
