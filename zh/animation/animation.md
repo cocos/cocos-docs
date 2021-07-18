@@ -4,7 +4,7 @@ Creator 支持在 **动画编辑器** 中直接创建、编辑和预览动画剪
 
 在使用 **动画编辑器** 制作动画之前需要先为节点添加 **动画组件**，并为动画组件挂载 **动画剪辑** 后才可以进行编辑。详情请参考 [创建 Animation 组件和动画剪辑](animation-create.md)。
 
-![animation play](animation/animation.gif)
+![animation play](animation/animation-play.gif)
 
 ## 动画编辑模式
 
