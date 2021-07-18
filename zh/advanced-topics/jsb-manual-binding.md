@@ -63,7 +63,7 @@ jsb.fileDownloader.requestDownload(url, savePath, cookies, options, (success, ur
 
 ### 抽象层
 
-![](jsb/JSB2.0-Architecture.png)
+![JSB2.0-Architecture](jsb/JSB2.0-Architecture.png)
 
 首先先来看一下上图 Cocos 官方提供的一张抽象层架构，在 1.7 版本中，抽象层被设计为一个与引擎没有关系的独立模块，对 JS 引擎的管理从 `ScriptingCore` 被移动到了 `se::ScriptEngine` 类中，`ScriptingCore` 被保留下来是希望通过它把引擎的一些事件传递给封装层，充当适配器的角色。在这个抽象层提供了对 JavaScriptCore、SpiderMonkey、V8、ChakraCore 等多种可选的 JS 执行引擎的封装。JSB 的大部分工作其实就是设定 JS 相关操作的 C++ 回调，在回调函数中关联 C++ 对象。它其实主要包含如下两种类型：
 

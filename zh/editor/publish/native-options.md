@@ -181,6 +181,8 @@ v3.0 做了代码和配置的分离，将一部分代码和配置放入源码管
     - C++：需要在项目目录下的 `native\engine\android\CMakeLists.txt` 中添加引用。
     - Java：需要在项目发布包 `build\android\proj\build.gradle` 中添加引用。
 
+更多关于 CMake 的使用，详情可参考 [CMake 使用简介](../../advanced-topics/cmake-learning.md)。
+
 ## 生成和运行
 
 Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）执行进一步的预览、调试和发布。

@@ -6,6 +6,8 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
 
 ## CMakeLists 的生成和使用
 
+### 生成
+
 当选择某个原生平台进行构建时，项目目录 `native\engine` 目录下会生成 `当前构建的平台名称` 文件夹（例如 `android`），以及 `common` 文件夹。CMake 在第一次运行时将会在这两个目录下分别生成 `CMakeLists.txt` 文件，作用各不相同：
 
 - `当前构建的平台名称` 文件夹：`CMakeLists.txt` 主要用于配置对应的构建平台。以 Android 平台为例：
@@ -17,6 +19,8 @@ CMake 是一个跨平台的构建工具，可根据需要输出各种各样的 M
     ![folder2](./cmak-learning/folder4.png)
 
 `CMakeLists.txt` 的语法比较简单，由 **命令**、**注释** 和 **空格** 组成。其中命令是不区分大小写的，但命令中的参数和变量则是大小写敏感的。
+
+### 使用
 
 那如何利用 CMake 将项目编译成动态库提供给其他项目使用呢？简单来说就是先录入编译信息，然后 CMake 命令再根据 `CMakeLists.txt` 中的配置生成编译所需的 Makefile 文件。
 
@@ -123,11 +127,11 @@ target_include_directories(${LIB_NAME} PRIVATE
 
 ### 生成 target（执行文件）
 
-上述 **查找编译头文件** 指令中的 `target` 是通过 `library`、`executable`、`自定义 command` 指令生成的执行文件。
+上述 **查找编译头文件** 指令中的 `target` 是通过 `add_library`、`add_executable`、`add_custom_command` 指令生成的执行文件。
 
-- 通过 `library` 指令生成
+- 通过 `add_library` 指令生成
 
-   `library` 指令通过将指定的源文件生成链接文件，然后添加到工程中去。
+   `add_library` 指令将指定的源文件生成链接文件，然后添加到工程中。
 
     ```CMake
     add_library(<name> [STATIC | SHARED | MODULE]
@@ -145,11 +149,11 @@ target_include_directories(${LIB_NAME} PRIVATE
     add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
     ```
 
-    更多关于 `library` 指令的内容，详情请参考 CMake 官方文档 [add_library](https://cmake.org/cmake/help/v3.16/command/add_library.html)。
+    更多内容详情请参考 CMake 官方文档 [add_library](https://cmake.org/cmake/help/v3.16/command/add_library.html)。
 
-- 通过 `executable` 指令生成
+- 通过 `add_executable` 指令生成
 
-    `executable` 指令是使用指定的源文件来生成目标可执行文件。
+    `add_executable` 指令通过使用指定的源文件来生成目标可执行文件。
 
     ```CMake
     add_executable(<name> [WIN32] [MACOSX_BUNDLE]
@@ -157,11 +161,11 @@ target_include_directories(${LIB_NAME} PRIVATE
                    [source1] [source2 ...])
     ```
 
-    - `name`：可执行目标文件的名字，在一个 CMake 工程中，这个名字必须全局唯一。
-    - `WIN32`：用于在 **Windows** 中创建一个以 `WinMain` 为入口的可执行目标文件（通常入口函数为 `main`），它不是一个 **控制台应用程序**，而是一个 **GUI 应用程序**。当使用 `WIN32` 时，可执行目标的 `WIN32_EXECUTABLE` 会被置为 `ON`。
-    - `MACOSX_BUNDLE`：用于在 **macOS** 或者 **iOS** 下创建一个 GUI 可执行应用程序，当 `MACOSX_BUNDLE` 选项使用的时候，可执行目标的 `MACOSX_BUNDLE` 会被置为 `ON`。
-    - `EXCLUDE_FROM_ALL`：用于指定可执行目标是否会被构建，当该选项使用的时候，可执行目标不会被构建。
-    - `[source1] [source2 ...]`：构建可执行目标文件所需要的源文件。也可以通过 [target_sources()](https://cmake.org/cmake/help/latest/command/target_sources.html?highlight=target_sources) 继续为可执行目标文件添加源文件，要求是在调用 `target_sources` 之前，可执行目标文件必须已经通过 `add_executable` 或 `add_library` 定义了。
+    - `name`：可执行目标文件的名称，在一个 CMake 工程中，这个名称必须全局唯一。
+    - `WIN32`：用于在 **Windows** 中创建一个以 `WinMain` 为入口的可执行目标文件（通常入口函数为 `main`），该文件是一个 **GUI 应用程序**，而不是 **控制台应用程序**。在使用 `WIN32` 时，可执行目标的 `WIN32_EXECUTABLE` 会被置为 `ON`。
+    - `MACOSX_BUNDLE`：用于在 **macOS** 或者 **iOS** 中创建一个 GUI 可执行应用程序。在使用 `MACOSX_BUNDLE` 时，可执行目标的 `MACOSX_BUNDLE` 会被置为 `ON`。
+    - `EXCLUDE_FROM_ALL`：是否构建指定的可执行目标文件。当使用该项时，可执行目标文件不会被构建。
+    - `[source1] [source2 ...]`：构建可执行目标文件所需要的源文件。也可以通过 [target_sources()](https://cmake.org/cmake/help/latest/command/target_sources.html?highlight=target_sources) 继续为可执行目标文件添加源文件，需要注意的是在调用 `target_sources` 之前，可执行目标文件必须已经通过 `add_executable` 或 `add_library` 定义了。
 
     示例如下：
 
@@ -169,55 +173,76 @@ target_include_directories(${LIB_NAME} PRIVATE
     add_executable(hello-world hello-world.cpp)
     ```
 
-     更多关于 `executable` 指令的内容，详情请参考 CMake 官方文档 [add_executable](https://cmake.org/cmake/help/v3.16/command/add_executable.html?highlight=add_executable)。
+    更多内容详情请参考 CMake 官方文档 [add_executable](https://cmake.org/cmake/help/v3.16/command/add_executable.html?highlight=add_executable)。
 
-- 通过 `自定义 command` 指令生成
+- 通过 `add_custom_command` 指令生成
 
-    `自定义 command` 指令是指将向生成的构建系统添加自定义构建规则。该命令主要用于以下两种场景：
+    `add_custom_command` 指令用于添加自定义构建规则到生成的构建系统中，适用于以下两种情况：
 
-    - 添加定制命令来生成文件。
-    - 为某个目标（如库或可执行程序）添加一个定制命令。
+    1. 添加自定义命令以生成输出文件
 
-    ```CMake
-    add_custom_command(OUTPUT output1 [output2 ...]
+        ```CMake
+        add_custom_command(OUTPUT output1 [output2 ...]
+                    COMMAND command1 [ARGS] [args1...]
+                    [COMMAND command2 [ARGS] [args2...] ...]
+                    [MAIN_DEPENDENCY depend]
+                    [DEPENDS [depends...]]
+                    [BYPRODUCTS [files...]]
+                    [IMPLICIT_DEPENDS <lang1> depend1
+                                        [<lang2> depend2] ...]
+                    [WORKING_DIRECTORY dir]
+                    [COMMENT comment]
+                    [DEPFILE depfile]
+                    [JOB_POOL job_pool]
+                    [VERBATIM] [APPEND] [USES_TERMINAL]
+                    [COMMAND_EXPAND_LISTS])
+        ```
+
+        部分参数含义如下：
+
+        - `OUTPUT`：指定命令预期产生的输出文件。输出文件名称可以是 **绝对路径** 或者 **相对路径**（相对于当前的构建的源目录路径）。
+
+        - `COMMAND`：指定在构建时执行的命令行。
+
+        示例如下：
+
+        ```CMake
+        add_custom_command(OUTPUT COPY_RES
+                COMMAND ${CMAKE_COMMAND} -E copy_if_different ${abs} $<TARGET_FILE_DIR:${LIB_NAME}>/${filename}
+            )
+        ```
+
+        > **注意**：
+        >
+        > 1. 只有在相同的 `CMakeLists.txt` 中指定了所有依赖于其输出的目标时才有效。
+        >
+        > 2. 不要同时在多个相互独立的目标文件中执行上述命令产生相同的文件，主要是为了防止冲突产生。
+
+    2. 在某个目标（例如库或者可执行程序）的构建过程中添加额外执行的定制命令
+
+        ```CMake
+        add_custom_command(TARGET <target>
+                   PRE_BUILD | PRE_LINK | POST_BUILD
                    COMMAND command1 [ARGS] [args1...]
                    [COMMAND command2 [ARGS] [args2...] ...]
-                   [MAIN_DEPENDENCY depend]
-                   [DEPENDS [depends...]]
                    [BYPRODUCTS [files...]]
-                   [IMPLICIT_DEPENDS <lang1> depend1
-                                    [<lang2> depend2] ...]
                    [WORKING_DIRECTORY dir]
                    [COMMENT comment]
-                   [DEPFILE depfile]
-                   [JOB_POOL job_pool]
-                   [VERBATIM] [APPEND] [USES_TERMINAL]
+                   [VERBATIM] [USES_TERMINAL]
                    [COMMAND_EXPAND_LISTS])
-    ```
+        ```
 
-    - `OUTPUT`：指定命令预期产生的输出文件。输出文件名称可以是 **绝对路径** 或者 **相对路径**（相对于当前的构建的源目录路径）。
+        部分参数含义如下：
 
-    - `COMMAND`：指定要在构建时执行的命令行。
+        - `TARGET`：指定命令运行的目标
 
-    示例如下：
+        - `COMMAND`：指定在构建时执行的命令行。
 
-    ```CMake
-    add_custom_command(OUTPUT COPY_RES
-            COMMAND ${CMAKE_COMMAND} -E copy_if_different ${abs} $<TARGET_FILE_DIR:${LIB_NAME}>/${filename}
-        )
-    ```
-
-    使用 **add_custom_command** 时有以下两个限制：
-
-    - 只有在相同的 `CMakeLists.txt` 中，指定了所有依赖于其输出的目标时才有效。
-
-    - 对于不同的独立目标，使用 `add_custom_command` 的输出可以重新执行定制命令。这可能会导致冲突，应该避免这种情况的发生。
-
-    更多关于 `add_custom_command` 指令的内容，详情请参考 CMake 官方文档 [add_custom_command](https://cmake.org/cmake/help/v3.16/command/add_custom_command.html?highlight=add_custom_command)。
+    若需要了解更多关于 `add_custom_command` 指令的内容，详情请参考 CMake 官方文档 [add_custom_command](https://cmake.org/cmake/help/v3.16/command/add_custom_command.html?highlight=add_custom_command)。
 
 ### 链接库文件
 
-`target_link_libraries` 里库文件的顺序符合 `gcc` 链接顺序的规则，即被依赖的库放在依赖它的库的后面。
+`target_link_libraries` 中库文件的顺序符合 `gcc` 链接顺序的规则，即被依赖的库放在依赖它的库的后面。
 
 ```CMake
 target_link_libraries(<target> [item1] [item2] [...]

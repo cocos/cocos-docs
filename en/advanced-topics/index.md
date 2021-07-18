@@ -5,6 +5,7 @@
     - [AssetManager](hot-update-manager.md)
 - [Dynamic Atlas](dynamic-atlas.md)
 - [Engine Customization Workflow](engine-customization.md)
+- [Web Preview Customization Workflow](../editor/preview/browser.md)
 - [Render Pipeline](../render-pipeline/overview.md)
     - [Built-in Pipeline](../render-pipeline/builtin-pipeline.md)
     - [Custom Pipeline](../render-pipeline/user-pipeline.md)
