@@ -5,6 +5,7 @@
 [Introduction](index.md)
 
 - [Getting Started](getting-started/index.md)
+    - [Installing and Launching](getting-started/install/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello world!](getting-started/helloworld/index.md)
     - [Project Structure](getting-started/project-structure/index.md)
@@ -28,21 +29,6 @@
     - [Cocos Creator 3.1 Material Upgrade Guide](material-system/Material-upgrade-documentation-for-v3.0-to-v3.1.md)
 
 ## Editor Manual
-
-- [Editor Introduction](editor/index.md)
-    - [Scene](editor/scene/index.md)
-    - [Hierarchy](editor/hierarchy/index.md)
-    - [Assets](editor/assets/index.md)
-    - [Inspector](editor/inspector/index.md)
-    - [Console](editor/console/index.md)
-    - [Animation](editor/animation/index.md)
-    - [Preferences](editor/preferences/index.md)
-    - [Project Settings](editor/project/index.md)
-        - [Physics Configs](editor/project/physics-configs.md)
-
-- [Preview a Game](editor/preview/index.md)
-    - [Previewing in Browser](editor/preview/browser.md)
-    - [Introduction To Preview Process And Common Error Handling](editor/preview/preview-guid.md)
 
 - [Particle Editor](particle-system/editor/index.md)
     - [Curve Editor](particle-system/editor/curve-editor.md)
@@ -182,6 +168,7 @@
     - [Animation](engine/animation/animation-component.md)
     - [Billboard](particle-system/billboard-component.md)
     - [Line](particle-system/line-component.md)
+    - [MotionStreak](editor/components/motion-streak.md)
     - [ParticleSystem](particle-system/main-module.md)
     - [BoxCollider](physics/physics-component.md#boxcollider)
     - [SphereCollider](physics/physics-component.md#spherecollider)
@@ -307,6 +294,7 @@
     - [AssetManager for Hot Update](advanced-topics/hot-update-manager.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
+    - [Web Preview Customization Workflow](editor/preview/browser.md)
     - [Render Pipeline Overview](render-pipeline/overview.md)
         - [Built-in Render Pipeline](render-pipeline/builtin-pipeline.md)
         - [Custom Render Pipeline](render-pipeline/user-pipeline.md)

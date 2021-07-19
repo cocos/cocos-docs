@@ -26,7 +26,7 @@ Cocos Creator 脚本用于实现用户定义的（游戏）行为。
 - [插件脚本](./external-scripts.md)
 - [脚本进阶参考](./reference-class.md)
 - [添加 Log](./log.md)
-- [废弃API](./deprecated.md)
+- [废弃 API](./deprecated.md)
 
 ## 事件机制
 

@@ -30,6 +30,8 @@ Set the path of the TypeScript engine to be customized via the **Engine Manager*
 
 ![custom-ts-engine](engine-customization/custom-ts-engine.png)
 
+> **Note**: it is necessary to restart Creator after modifying the engine path.
+
 ### 1.3 Install Compilation Dependencies
 
 ```bash

@@ -12,7 +12,7 @@
     - [资源管理器](../editor/assets/index.md)
     - [属性检查器](../editor/inspector/index.md)
     - [控制台](../editor/console/index.md)
-    - [动画编辑器](../editor/animation/index.md)
+    - [动画编辑器](../animation/index.md)
     - [偏好设置](../editor/preferences/index.md)
     - [项目设置](../editor/project/index.md)
     - [编辑器布局](../editor/editor-layout/index.md)

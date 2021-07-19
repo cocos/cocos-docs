@@ -8,7 +8,7 @@ Canvas 节点除了继承自 RenderRoot2D 的数据入口能力，其本身还�
 
 ![](canvas/design-resolution.png)
 
-Canvas 本身和相机并无关系，其更主要的作用是上文叙述的屏幕适配，所以 Canvas 的渲染只取决于和其节点 layer 对应的 camera。所以可以通过控制 camera 的属性来决定 Canvas 下节点的渲染效果。具体可以参考 [相机混合排序](../engine/priority.md#2.-相机混合排序)。
+Canvas 本身和相机并无关系，其更主要的作用是上文叙述的屏幕适配，所以 Canvas 的渲染只取决于和其节点 layer 对应的 camera。所以可以通过控制 camera 的属性来决定 Canvas 下节点的渲染效果。
 
 ## Canvas 属性
 
