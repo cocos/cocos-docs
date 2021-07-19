@@ -4,7 +4,7 @@ TiledMap（地图）用于在游戏中显示 TMX 格式的地图。
 
 ![tiledmap-component](tiledmap/tiledmap-component.png)
 
-点击 **属性检查器** 下方的 **添加组件 -> Components -> TileMap** 按钮，即可添加 TiledMap 组件到节点上。
+点击 **属性检查器** 下方的 **添加组件 -> Components -> TiledMap** 按钮，即可添加 TiledMap 组件到节点上。
 
 ![](./tiledmap/add_tiledmap.png)
 

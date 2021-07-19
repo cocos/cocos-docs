@@ -12,7 +12,7 @@
 - [发布跨平台游戏](editor/publish/index.md)
 - [功能地图](module-map/index.md)
     - [图形渲染](module-map/graphics.md)
-    - [动画系统](engine/animation/index.md)
+    - [动画系统](animation/index.md)
     - [声音系统](audio-system/overview.md)
     - [物理模拟](physics/physics.md)
     - [组件](editor/components/index.md)

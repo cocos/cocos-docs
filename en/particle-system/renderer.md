@@ -1,4 +1,4 @@
-## Particle Renderer
+# Particle Renderer
 
 The particle rendering part is controlled by **ParticleSystemRenderer**, which is divided into **CPU renderer** and **GPU renderer**.
 

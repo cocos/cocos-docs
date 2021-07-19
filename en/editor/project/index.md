@@ -1,14 +1,33 @@
 # Project Settings
 
-The **Project Settings** panel is opened by clicking on **Projects -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. To synchronize project settings between developers, please add the `settings` directory to version control.
+The **Project Settings** panel can be opened by clicking on **Project -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. To synchronize project settings between developers, please add the `settings` directory to version control.
 
-**Project Settings** consists of several different subpages, including **Macro Config**, **Feature Crop**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
+**Project Settings** consists of several different subpages, including **Macro Config**, **Feature Cropping**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
 
 ## Macro Config
 
-For specific information and code about the engine macro module, you can refer to [Engine Macro](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824), which provides a shortcut to modify the macro configuration, the configured macro will take effect when previewing, building The configured macro will take effect on preview, build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
+**Macro Config** provides a shortcut to modify the macro configuration. The configured macros will take effect on preview and build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
 
 ![macro](./index/macro.png)
+
+- **ENABLE_TILEDMAP_CULLING**: whether or not to enable TiledMap auto-culling. It's enabled by default. Note that if `skew` and `rotation` are set in the TiledMap, it's necessary to turn it off manually, otherwise it will cause rendering errors.
+
+- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](__APIDOC__/en/modules/core.html#macro-1.touch_timeout) for details.
+
+- **ENABLE_TRANSPARENT_CANVAS**: used to set whether the Canvas background supports alpha channels.
+
+    - If enabled, the Canvas background will be transparent and show the other DOM elements behind it.
+    - If disabled, it will result in higher performance.
+
+- **ENABLE_WEBGL_ANTIALIAS**: used to set whether to turn on the anti-aliasing option when creating WebGL Context. It's enabled by default.
+
+- **CLEANUP_IMAGE_CACHE**: whether to clear the image cache after uploading a texture to GPU. If the cache is cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported. It's disabled by default.
+
+- **ENABLE_MULTI_TOUCH**: whether to enable multi-touch.
+
+- **MAX_LABLE_CANVAS_POOL_SIZE**: set the maximum number of Canvas object pools used by the Label, and adjust it according to the number of Labels in the same scene of the project.
+
+For more specific information and code about the engine macro module, please refer to the [Engine Macro source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
 
 ## Feature Cropping
 
@@ -58,6 +77,12 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 ## Scripting
 
 ![scripting](./index/scripting.png)
+
+- **Conforming class fields**: if enabled, class fields are implemented using `Define` semantics; otherwise, class fields are implemented using `Set` semantics.
+
+- **Allows declaration of class fields**: if enabled, the `declare` keyword may be used to declare class fields in TypeScript scripts. In such case, class fields without explicit initializer would be initialized to `undefined`, according to the specification.
+
+- **Enable relaxed mode**: if enabled, the script will be compiled in non-strict mode.
 
 ## Texture Compression
 

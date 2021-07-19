@@ -18,6 +18,8 @@ Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **资�
 
 ## 构建
 
+在构建时，需要将 **构建发布** 面板中的 **主包压缩类型** 设置为 **小游戏分包**。具体说明可参考文档 [Asset Bundle — 压缩类型](../../asset/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B)。
+
 项目构建完成后，这个 Asset Bundle 文件夹会被打包到小游戏平台发布包目录下的 **subpackages** 文件夹中。该文件夹中包含的每个文件夹都是一个 Asset Bundle。
 
 例如：将 Hello World 工程中的 `assets/scene` 文件夹在微信小游戏平台配置为 Asset Bundle，那么项目构建后将会在微信小游戏发布包目录下生成 `subpackages/scene` 文件夹。`scene` 文件夹就是一个 Asset Bundle。

@@ -23,7 +23,7 @@ UI 是游戏开发的必要交互部分，一般游戏上的按钮、文字、�
 
 ![add-ui-component](./add-ui-component.png)
 
-UI 渲染组件的先后顺序采用的是广度排序方案，也就是 Canvas 节点下的子节点的排序就已经决定了之后的整个 [渲染排序](../../ui-system/components/engine/priority.md)。
+UI 渲染组件的先后顺序采用的是深度排序方案，也就是 Canvas 节点下的子节点的排序就已经决定了之后的整个 [渲染排序](../../ui-system/components/engine/priority.md)。
 
 在一般的游戏开发中，必要的 UI 元素除了 Sprite（精灵图）、Label（文字）、Mask（遮罩）等基础 2D 渲染组件外，还有用于快速搭建界面的 Layout（布局）、Widget（对齐）等。其中 Sprite 和 Label 用于渲染图片和文字。Mask 主要用于限制显示内容，比较常用的地方是一些聊天框和背包等。Layout 主要用于排版，一般用于按钮单一排列，背包内道具整齐排列等。<br>
 最后一个比较重要的功能其实是 Widget，主要用于显示对齐。这里可能涉及到另外一个功能，那就是多分辨率适配，在我们设计完 UI 需要发布到不同平台时，势必会出现平台的实际设备分辨率和我们的设计分辨率不符的情况，这个时候为了适配不得不做一些取舍，比如头像框，是不能做缩放的，但是我们又希望它没有很大程度受设备影响，那么我们则需要为它添加上 Widget 组件，并且始终保证它对齐在我们的设计分辨率的左上方，具体参考：[对齐策略](../../ui-system/components/engine/widget-align.md) 和 [对齐](../../ui-system/components/editor/widget.md)。
