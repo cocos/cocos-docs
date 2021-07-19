@@ -26,3 +26,48 @@ Creator 中的骨骼动画资源是由 [Spine 编辑器](http://zh.esotericsoftw
 从 **资源管理器** 中将骨骼动画资源拖动到 **属性检查器** Spine 组件的 SkeletonData 属性中：
 
 ![spine](spine/set_skeleton.png)
+
+## 从服务器远程加载 Spine
+
+### 加载文本格式的 Spine 资源
+
+```ts
+let comp = this.getComponent('sp.Skeleton') as sp.Skeleton;
+
+let image = "http://localhost/download/spineres/1/1.png";
+let ske = "http://localhost/download/spineres/1/1.json";
+let atlas = "http://localhost/download/spineres/1/1.atlas";
+assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (error, assets) => {
+    assetManager.loadRemote(image, (error, texture: Texture2D) => {
+        let asset = new sp.SkeletonData();
+        asset.skeletonJson = assets[1];
+        asset.atlasText = assets[0];
+        asset.textures = [texture];
+        asset.textureNames = ['1.png'];
+        skeleton.skeletonData = asset;
+    });
+});
+```
+
+### 加载二进制格式的 Spine 资源
+
+```ts
+let comp = this.getComponent('sp.Skeleton') as sp.Skeleton;
+
+let image = "http://localhost/download/spineres/1/1.png";
+let ske = "http://localhost/download/spineres/1/1.skel";
+let atlas = "http://localhost/download/spineres/1/1.atlas";
+assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.bin' }], (error, assets) => {
+    assetManager.loadRemote(image, (error, texture: Texture2D) => {
+        let asset = new sp.SkeletonData();
+        asset._nativeAsset = assets[1];
+        asset.atlasText = assets[0];
+        asset.textures = [texture];
+        asset.textureNames = ['1.png'];
+        asset._uuid = ske; // 可以传入任意字符串，但不能为空
+        asset._nativeURL = ske; // 传入一个二进制路径用作 initSkeleton 时的 filePath 参数使用
+        comp.skeletonData = asset;
+        let ani = comp.setAnimation(0, 'walk', true);
+    });
+});
+```

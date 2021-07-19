@@ -12,6 +12,7 @@ __Cocos Creator__ includes the following __Components__:
 - [Animation](../../engine/animation/animation-component.md)
 - [Billboard](../../particle-system/billboard-component.md)
 - [Line](../../particle-system/line-component.md)
+- [MotionStreak](motion-streak.md)
 - [ParticleSystem](../../particle-system/main-module.md)
 - [BoxCollider](../../physics/physics-component.md#boxcollidercomponent)
 - [SphereCollider](../../physics/physics-component.md#spherecollidercomponent)
