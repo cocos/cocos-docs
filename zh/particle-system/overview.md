@@ -31,7 +31,7 @@
 
     ![](particle-system/new_ParticleSystemComponent_node.png)
 
-## Inspector 概览
+## 粒子模块
 
 Cocos Creator 粒子系统操作面板如下：
 

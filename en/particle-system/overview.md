@@ -31,7 +31,7 @@ There are two ways to add a particle system:
 
     ![new_ParticleSystemComponent Node](particle-system/new_ParticleSystemComponent_node.png)
 
-## Particle Inspector Panel Overview
+## Particle Modules
 
 The __Cocos Creator__ particle system inspector panel is shown below:
 
