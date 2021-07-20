@@ -36,6 +36,7 @@ rigidbody.linearDamping = damping;
 如果要获取刚体上某个点的移动速度，可以通过  `getLinearVelocityFromWorldPoint` 来获取。比如一个盒子旋转着往前飞，碰到了墙，这时候可能会希望获取盒子在发生碰撞的点的速度。
 
 ```ts
+// 获取刚体上指定点的线性速度
 const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
 
@@ -70,17 +71,17 @@ rigidbody.angularDamping = damping;
 
 旋转、位移与缩放是游戏开发中最常用的功能，几乎每个节点都会对这些属性进行设置。而在物理系统中，系统会自动将节点的这些属性与 Box2D 中对应属性进行同步。
 
-**注意**：
-
-1. Box2D 中只有旋转和位移，并没有缩放，所以如果设置节点的缩放属性时，会重新构建这个刚体依赖的全部碰撞体。一个有效避免这种情况发生的方式是将渲染的节点作为刚体节点的子节点，只对这个渲染节点作缩放，尽量避免对刚体节点进行直接缩放。
-
-2. 在物理系统每次迭代（物理系统是在 postUpdate 进行迭代的）的最后会把所有刚体信息同步到对应节点上去，而出于性能考虑，只有当开发者对刚体所在节点的相关属性进行显示设置时，节点的信息才会同步到刚体上，并且刚体只会监视他所在的节点，也就是说，如果修改了节点的父节点的旋转位移，是不会同步这些信息的。
+> **注意**：
+> 1. Box2D 中只有旋转和位移，并没有缩放，所以如果设置节点的缩放属性时，会重新构建这个刚体依赖的全部碰撞体。一个有效避免这种情况发生的方式是将渲染的节点作为刚体节点的子节点，只对这个渲染节点作缩放，尽量避免对刚体节点进行直接缩放。
+>
+> 2. 在物理系统每次迭代（物理系统是在 postUpdate 进行迭代的）的最后会把所有刚体信息同步到对应节点上去，而出于性能考虑，只有当开发者对刚体所在节点的相关属性进行显示设置时，节点的信息才会同步到刚体上，并且刚体只会监视他所在的节点，也就是说，如果修改了节点的父节点的旋转位移，是不会同步这些信息的。
 
 ### 固定旋转
 
 做平台跳跃游戏时通常都不会希望主角的旋转属性也被加入到物理模拟中，因为这样会导致主角在移动过程中东倒西歪，这时可以设置刚体的 `fixedRotation` 为 true，固定旋转。
 
 ```ts
+// 是否禁止此刚体进行旋转
 rigidbody.fixedRotation = true;
 ```
 
@@ -94,7 +95,7 @@ rigidbody.enabledContactListener = true;
 
 ## 刚体类型
 
-Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**。在 Cocos Creator 3.0 里多添加了一个类型：**Animated**。
+Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**。在 Cocos Creator 里多添加了一个类型：**Animated**。
 
 Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。<br>
 添加 Animated 类型主要是防止对刚体做动画时可能出现的奇怪现象，例如穿透。
@@ -114,6 +115,7 @@ Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **
 - `cc.RigidBodyType.Animated`
 
   动画刚体，在上面已经提到过，从 Kinematic 衍生的类型，主要用于刚体与动画编辑结合使用。
+>**注意** ：如果没有碰撞体，2D 刚体不能相互碰撞。
 
 ## 刚体方法
 
@@ -125,7 +127,7 @@ Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **
 
 ```ts
 // 世界坐标转换到本地坐标
-const localPoint = rigidbody.getLocalPoint(worldPoint);
+let localPoint = rigidbody.getLocalPoint(worldPoint);
 // 或者
 localPoint = new Vec2();
 rigidbody.getLocalPoint(worldPoint, localPoint);
@@ -133,7 +135,7 @@ rigidbody.getLocalPoint(worldPoint, localPoint);
 
 ```ts
 // 本地坐标转换到世界坐标
-const worldPoint = rigidbody.getWorldPoint(localPoint);
+let worldPoint = rigidbody.getWorldPoint(localPoint);
 // 或者
 worldPoint = new Vec2();
 rigidbody.getLocalPoint(localPoint, worldPoint);
@@ -141,7 +143,7 @@ rigidbody.getLocalPoint(localPoint, worldPoint);
 
 ```ts
 // 本地向量转换为世界向量
-const worldVector = rigidbody.getWorldVector(localVector);
+let worldVector = rigidbody.getWorldVector(localVector);
 // 或者
 worldVector = new Vec2();
 rigidbody.getWorldVector(localVector, worldVector);
@@ -149,7 +151,7 @@ rigidbody.getWorldVector(localVector, worldVector);
 
 ```ts
 // 世界向量转换为本地向量
-const localVector = rigidbody.getLocalVector(worldVector);
+let localVector = rigidbody.getLocalVector(worldVector);
 // 或者
 localVector = new Vec2();
 rigidbody.getLocalVector(worldVector, localVector);
@@ -161,14 +163,14 @@ rigidbody.getLocalVector(worldVector, localVector);
 
 ```ts
 // 获取本地坐标系下刚体的质心
-const localCenter = rigidbody.getLocalCenter();
+let localCenter = rigidbody.getLocalCenter();
 
 // 或者通过参数来接收返回值
 localCenter = new Vec2();
 rigidbody.getLocalCenter(localCenter);
 
 // 获取世界坐标系下的刚体质心
-const worldCenter = rigidbody.getWorldCenter();
+let worldCenter = rigidbody.getWorldCenter();
 
 // 或者通过参数来接收返回值
 worldCenter = new Vec2();
@@ -208,5 +210,6 @@ rigidbody.applyAngularImpulse(impulse);
 如果要获取刚体在某一点上的速度时，可以通过 `getLinearVelocityFromWorldPoint` 来获取，比如当物体碰撞到一个平台时，需要根据物体碰撞点的速度来判断物体相对于平台是从上方碰撞的还是下方碰撞的。
 
 ```ts
+// 获取刚体上指定点的线性速度
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```

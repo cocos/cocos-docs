@@ -1,8 +1,8 @@
 # 2D 物理系统
 
-物理系统隐藏了大部分物理模块（Box2D 和 Builtin 模块）实现细节（比如创建刚体，同步刚体信息到节点中等）。
+物理系统隐藏了大部分物理模块（Box2D 和 Builtin 模块）实现细节	（比如创建刚体，同步刚体信息到节点中等）。
 
-可以通过物理系统访问一些物理模块常用的功能，比如点击测试、射线测试、设置测试信息等。
+开发者可以通过物理系统访问一些物理模块常用的功能，比如点击测试、射线测试、设置测试信息等。
 
 ## 物理系统相关设置
 
@@ -29,6 +29,7 @@ PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb |
 ```
 
 设置绘制标志位为 **EPhysics2DDrawFlags.None**，即可以关闭绘制。
+> **注意**：场景内必须要有一个节点下挂载着 `cc.RigidBody2D` 和 `Collider2D`。否则进行绘制物理调试信息会报错。
 
 ```ts
 PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;
@@ -38,7 +39,7 @@ PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;
 
 一般物理模块（Box2D）都是使用 **米 - 千克 - 秒（MKS）** 单位制，Box2D 在这样的单位制下运算的表现是最佳的。但是我们在 2D 游戏运算中一般使用 **世界坐标系中的单位**（简称世界单位）来作为长度单位制，所以我们需要一个比率来进行物理单位到世界单位上的相互转换。
 
-一般情况下我们把这个比率设置为 32，这个值可以通过 `PHYSICS_2D_PTM_RATIO` 获取，并且这个值是只读的。通常用户是不需要关心这个值的，物理系统内部会自动对物理单位与世界单位进行转换，用户访问和设置的都是进行 2d 游戏开发中所熟悉的世界单位。
+一般情况下我们把这个比率设置为 32，这个值可以通过 `PHYSICS_2D_PTM_RATIO` 获取，并且这个值是 **只读** 的。通常用户是不需要关心这个值的，物理系统内部会自动对物理单位与世界单位进行转换，用户访问和设置的都是进行 2d 游戏开发中所熟悉的世界单位。
 
 ### 设置物理重力
 
@@ -47,13 +48,13 @@ PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;
 如果希望重力加速度为 0，可以这样设置：
 
 ```ts
-PhysicsSystem2D.instance.gravity = cc.v2();
+PhysicsSystem2D.instance.gravity = v2();
 ```
 
 如果希望修改重力加速度为其他值，比如每秒加速降落 20m/s，那么可以这样设置：
 
 ```ts
-PhysicsSystem2D.instance.gravity = cc.v2(0, -20 * PHYSICS_2D_PTM_RATIO);
+PhysicsSystem2D.instance.gravity = v2(0, -20 * PHYSICS_2D_PTM_RATIO);
 ```
 
 ### 设置物理步长
@@ -83,11 +84,13 @@ system.positionIterations = 8;
 
 ### 点测试
 
-点测试将测试是否有碰撞体会包含一个世界坐标系下的点，如果测试成功，则会返回一个包含这个点的碰撞体。注意，如果有多个碰撞体同时满足条件，下面的接口只会返回一个随机的结果。
+点测试将测试是否有碰撞体会包含一个世界坐标系下的点，如果测试成功，则会返回一个包含这个点的碰撞体。
 
 ```ts
 const collider = PhysicsSystem2D.instance.testPoint(point);
 ```
+
+> **注意**：如果有多个碰撞体同时满足条件，下面的接口只会返回一个随机的结果。
 
 ### 矩形测试
 
@@ -101,35 +104,37 @@ const colliderList = PhysicsSystem2D.instance.testAABB(rect);
 
 Box2D 物理模块（Builtin 模块没有）提供了射线检测来检测给定的线段穿过哪些碰撞体，我们还可以获取到碰撞体在线段穿过碰撞体的那个点的法线向量和其他一些有用的信息。
 
-```ts
-const results = PhysicsSystem2D.instance.rayCast(p1, p2, type, mask);
+```typescript
+let results = PhysicsSystem2D.instance.raycast(p1, p2, type, mask);
 
-for (const i = 0; i < results.length; i++) {
-    const result = results[i];
-    const collider = result.collider;
-    const point = result.point;
-    const normal = result.normal;
-    const fraction = result.fraction;
+for (let i = 0; i < results.length; i++) {
+    let result = results[i];
+    let collider = result.collider;
+    let point = result.point;
+    let normal = result.normal;
+    let fraction = result.fraction;
 }
 ```
+
+> **注意**：场景内必须要有一个节点下挂载着 `cc.RigidBody2D` 和 `Collider2D`。否则进行射线检测会报错。
 
 射线检测的第三个参数指定检测的类型，射线检测支持四种类型。这是因为 Box2D 的射线检测不是从射线起始点最近的物体开始检测的，所以检测结果不能保证结果是按照物体距离射线起始点远近来排序的。Cocos Creator 物理系统将根据射线检测传入的检测类型来决定是否对 Box2D 检测结果进行排序，这个类型会影响到最后返回给用户的结果。
 
 - ERaycast2DType.Any
 
-  检测射线路径上任意的碰撞体，一旦检测到任何碰撞体，将立刻结束检测其他的碰撞体，最快。
+  检测射线路径上任意的碰撞体，一旦检测到任何碰撞体，将立刻结束检测其他的碰撞体，检测速度最快。
 
 - ERaycast2DType.Closest
 
-  检测射线路径上最近的碰撞体，这是射线检测的默认值，稍慢。
+  检测射线路径上最近的碰撞体，这是射线检测的默认值，检测速度稍慢。
 
 - ERaycast2DType.All
 
-  检测射线路径上的所有碰撞体，检测到的结果顺序不是固定的。在这种检测类型下，一个碰撞体可能会返回多个结果，这是因为 Box2D 是通过检测夹具（fixture）来进行物体检测的，而一个碰撞体中可能由多个夹具（fixture）组成的，慢。
+  检测射线路径上的所有碰撞体，检测到的结果顺序不是固定的。在这种检测类型下，一个碰撞体可能会返回多个结果，这是因为 Box2D 是通过检测夹具（fixture）来进行物体检测的，而一个碰撞体中可能由多个夹具（fixture）组成的，检测速度慢。
 
 - ERaycast2DType.AllClosest
 
-  检测射线路径上所有碰撞体，但是会对返回值进行删选，只返回每一个碰撞体距离射线起始点最近的那个点的相关信息，最慢。
+  检测射线路径上所有碰撞体，但是会对返回值进行删选，只返回每一个碰撞体距离射线起始点最近的那个点的相关信息，检测速度最慢。
 
 #### 射线检测的结果
 
