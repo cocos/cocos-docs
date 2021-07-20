@@ -1,8 +1,23 @@
-# 2D 刚体
+# 2D 刚体组件
 
 刚体是组成物理世界的基本对象，你可以将刚体想象成一个你不能看到（绘制）也不能摸到（碰撞）的带有属性的物体。
 
 由于 Builtin 2D 物理系统只带有碰撞检测的功能，所以刚体对于 Builtin 2D 物理系统是不生效的，本篇设置只对其他 2D 物理系统产生作用。
+
+![rigidBody-Inspector](image/rigidBody-Inspector.png)
+
+属性 | 功能说明
+:---|:---
+**Group** | 分组
+**EnabledContactListener** | 刚体的碰撞监听
+**Bullet**  |  这个刚体是否是一个快速移动的刚体，并且需要禁止穿过其他快速移动的刚体
+**AllowSleep**  |  是否允许物理系统自动休眠，默认为 true
+**GravityScale**  |  缩放应用在此刚体上的重力值
+**AngularDamping**  |  角阻尼，用于减小物体的旋转速率
+**LinearVelocity**  |  刚体在世界坐标下的线性速度
+**AngularVelocity**  |  刚体的角速度体类型
+**FixedRotation**  |  是否禁止此刚体进行旋转
+**AwakeOnLoad**  |  是否在初始化时唤醒此刚体
 
 ## 刚体属性
 

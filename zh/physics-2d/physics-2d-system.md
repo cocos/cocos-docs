@@ -159,3 +159,5 @@ for (let i = 0; i < results.length; i++) {
 可以通过下面这张图更好的理解射线检测的结果。
 
 ![raycasting-output](image/raycasting-output.png)
+
+具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/blob/v3.x/2d/box2d/assets/cases/demo) 范例中的 `raycast` 和 `raycast-reflection` 场景。
