@@ -121,6 +121,6 @@ Then, select the node to add the gizmo in **Level Manager**, select **Add Compon
 
 Please read the next article [Custom Gizmo Advanced](custom-gizmo-advance.md).
 
-For the Gizmo API, please refer to the [Gizmo Api](api/editor-framework/renderer/gizmo.md).
+Please refer to the [Gizmo API](api/editor-framework/renderer/gizmo.md).
 
-For more Gizmo examples, please refer to the [Gizmo Examples](https://github.com/2youyou2/gizmo-example).
+For additional Gizmo examples, please refer to the [Gizmo Examples](https://github.com/2youyou2/gizmo-example).
