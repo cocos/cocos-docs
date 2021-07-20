@@ -1,10 +1,10 @@
-# 界面排版
+# Interface layout
 
-Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。如果对 CSS 不熟悉，推荐大家可以阅读 [W3 School 的 CSS 教程](http://www.w3school.com.cn/css/) 来加强。
+Cocos Creator's interface layout is done by writing CSS using `style`. To review CSS, please read the [W3 School's CSS Tutorial [cn]](https://www.w3school.com.cn/css/index.asp) documentation.
 
-然而普通的 CSS 排版并不适合界面元素，为此，CSS 最新标准中加入了 [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 布局。通过 Flex 布局，我们可以很轻易的对界面元素进行横排和纵排。为了方便开发者使用 CSS Flex，Cocos Creator 也对其进行了一些封装。本章节主要就是介绍 Cocos Creator 中的界面排版方法。
+However, ordinary CSS layout is not suitable for interface elements. For this reason, the latest CSS standard has added [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) layout. With Flex layout, it is easy to arrange the interface elements horizontally and vertically. In order to facilitate developers to use CSS Flex, Cocos Creator also encapsulates it. This section mainly introduces the interface layout method in Cocos Creator.
 
-## 横排和纵排
+## Horizontal and vertical
 
 **layout horizontal**
 
@@ -30,14 +30,13 @@ Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。�
 
 ![layout-vertical](./assets/layout-vertical.png)
 
-## 对齐元素
+## Aligning elements
 
-我们在横排纵排时，会希望对所有子元素进行对齐操作。可以通过 `start`、`center` 和 `end` 来进行子元素的对齐操作。
+When using horizontal and vertical rows, aligning all sub-elements is necessary. Use `start`, `center` and `end` to align child elements.
 
-对于横排元素，它们分别代表上，中，下对齐。
-对于纵排元素，它们分别代表左，中，右对齐。
+For horizontal elements, they represent top, center, and bottom alignment respectively.<br>For vertical elements, they represent left, center, and right alignment respectively.
 
-让我们以横排为例，来看一组例子：
+Taking horizontal layout as an example and look at a set of examples:
 
 ```html
 <div class="layout horizontal start">
@@ -59,9 +58,9 @@ Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。�
 
 ![layout-align-items](./assets/layout-align-items.png)
 
-有时候，我们需要对排版容器中的某个元素进行对齐调整，这个时候就可以通过 `self-` 关键字来操作。在 Cocos Creator 中，我们提供了：`self-start`、`self-center`、`self-end` 和 `self-stretch`。
+Sometimes, it is necessary to adjust the alignment of an element in the typesetting container. Use the `self-` keyword to operate. Cocos Creator provides: `self-start`, `self-center`, `self-end` and `self-stretch`.
 
-让我们以横排为例，来看看这么做的效果：
+Taking a horizontal layout as an example to see the effect of this:
 
 ```html
 <div class="layout horizontal">
@@ -74,13 +73,13 @@ Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。�
 
 ![layout-self-align](./assets/layout-self-align.png)
 
-## 元素分布
+## Element distribution
 
-元素分布主要描述元素在排版方向上如何分布。比如所有元素都从排版容器的左边开始排，或者从右边，或者根据元素大小散布在排版容器中。
+Element distribution mainly describes how the elements are distributed in the layout direction. For example, all elements are arranged from the left side of the typesetting container, or from the right side, or scattered in the typesetting container according to the size of the element.
 
-我们提供了：`justified`，`around-justified`，`start-justified`，`center-justified` 和 `end-justified`。
+Cocos Creator provides: `justified`, `around-justified`, `start-justified`, `center-justified` and `end-justified`.
 
-还是以横排为例，来看一组例子：
+Taking a horizontal layout as an example to see the effect of this:
 
 ```html
 <div class="layout horizontal justified">
@@ -99,11 +98,11 @@ Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。�
 
 ![layout-justified](./assets/layout-justified.png)
 
-## 元素自适应
+## Adaptive Elements
 
-有些时候我们希望元素撑满布局的剩余控件。我们可以通过在布局容器的子元素中使用 `flex-1`，`flex-2`，…… `flex-12` 来操作。
+Sometimes elements need to fill the remaining controls of the layout. This can be done by using `flex-1`, `flex-2`, ... `flex-12` in the child elements of the layout container.
 
-来看一组例子：
+Look at a set of examples:
 
 ```html
 <div class="layout horizontal">
@@ -122,7 +121,7 @@ Cocos Creator 的界面排版是通过在 `style` 中书写 CSS 来完成的。�
 
 ![layout-flex](./assets/layout-flex.png)
 
-还有些时候我们希望元素本身就撑满容器的整个空间。这个时候就可以考虑使用 `fit` 这个 class。方法和效果如下：
+Sometimes the element itself needs to fill the entire space of the container. At this time, consider using the `fit` class. The methods and effects are as follows:
 
 ```html
 <div class="wrapper">

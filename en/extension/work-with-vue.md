@@ -1,20 +1,16 @@
-# 在面板中使用 Vue
+# Working with Vue
 
-如果你已经掌握了 [编写面板界面](writing-your-panel.md) 这章中的界面编写方法，你或许会觉得这样
-编写界面有些繁琐。是否能够使用一些前端界面框架来提升界面编写效率呢？答案是肯定的。Cocos Creator
-支持任何界面框架如 [Vue](http://vuejs.org/)，[React](https://facebook.github.io/react/)，
-[Polymer](http://polymer-project.org/) 等等。
+If you have already mastered the interface writing method in the [writing panel interface](writing-your-panel.md) section, one might think that writing the interface is a bit cumbersome. Is it possible to use some front-end interface frameworks to improve the efficiency of interface writing? The answer is yes. Cocos Creator supports many interface frameworks such as [Vue](http://vuejs.org/), [React](https://facebook.github.io/react/), [Polymer](http://polymer-project.org/) and so on.
 
-在测试过程中，我们发现 [Vue](http://vuejs.org/) 非常符合 Cocos Creator 的整体设计思路，所以
-我们重点介绍一下如何在 Cocos Creator 中使用 [Vue](http://vuejs.org/) 编写面板界面。
+During testing, [Vue](http://vuejs.org/) was found to be very consistent with the overall design ideas of Cocos Creator. This section will focus on how to use [Vue](http://vuejs.org/) to write a panel interface in Cocos Creator.
 
-## 部署 Vue
+## Deploy Vue
 
-事实上你不用做任何准备工作，Cocos Creator 的面板窗口在打开时就会默认加载 Vue。
+In fact, there isn't any preparation work, the panel window of Cocos Creator will load Vue by default when it is opened.
 
-## 初始化 Vue 面板
+## Initialize the Vue panel
 
-我们可以在 `ready()` 函数中初始化 Vue 面板。初始化方式如下：
+The Vue panel can be initialized in the `ready()` function. The initialization method is as follows:
 
 ```javascript
 ready () {
@@ -24,8 +20,9 @@ ready () {
 }
 ```
 
-通过传入 `panel-frame` 的 shadow root 元素，我们可以让 Vue 在该元素节点下生成一份 vm。让我们来
-看一个更详细的使用例子：
+By passing in the shadow root element of `panel-frame`, Vue can generate a vm under the element node.
+
+Look at a more detailed usage example:
 
 ```javascript
 Editor.Panel.extend({
@@ -53,12 +50,12 @@ Editor.Panel.extend({
 });
 ```
 
-## 数据绑定
+## Data binding
 
-我们可以在面板的 `template` 关键字中，定义 Vue 的数据绑定规则。然后通过在 Vue 定义的 `data` 关键字
-中写入绑定数据来完成整个操作。
+Vue's data binding rules can be defined in the `template` keyword of the panel. Then pass the `data` keyword defined in Vue
+Write binding data in to complete the entire operation.
 
-具体例子如下：
+Specific examples are as follows:
 
 ```javascript
 Editor.Panel.extend({
@@ -85,12 +82,11 @@ Editor.Panel.extend({
 });
 ```
 
-## 事件绑定
+## Event binding
 
-除了使用数据绑定，我们还可以通过 Vue 的 `@` 方式来将事件和方法绑定在一起。值得注意的是，绑定的
-方法必须定义在 Vue 定义中的 `methods` 关键字中。
+In addition to using data binding, events and methods can be binded together through Vue's `@` method. It’s worth noting that the bound method must be defined in the `methods` keyword in the Vue definition.
 
-具体例子如下：
+Specific examples are as follows:
 
 ```javascript
 Editor.Panel.extend({
