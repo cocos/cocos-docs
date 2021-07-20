@@ -1,6 +1,6 @@
 # Extends Main Menu
 
-We can extends the Cocos Creator's main menu by putting `main-menu` field in `package.json`, and then add your menu path and options as key-value pair in it. Here is an example:
+Cocos Creator's main menu can be extended by putting `main-menu` field in the `package.json`, and then add the menu path and options as key-value pair in it. Example:
 
 ```json
 {
@@ -15,15 +15,15 @@ We can extends the Cocos Creator's main menu by putting `main-menu` field in `pa
 }
 ```
 
-The snapshot above shows us how to add menu items "Foo" and "Bar" in the path "Example" > "Foobar". When we click the menu item, it will sending the IPC message to our main process which defined in `message` field.
+The snapshot above shows us how to add the menu items "Foo" and "Bar" in the path of **Example -> Foobar**. When the menu item is clicked , it will send the IPC message to the main process which is defined in `message` field.
 
-For instance, when we click "Foo" it will send the message `my-package:foo`.
+For instance, when "Foo" is clicked, it will send the message `my-package:foo`.
 
 ## Menu Path
 
-The keys of `main-menu` is the menu path we want to add to main menu. The menu path uses posix path formation, which use `/` as the separator. When Cocos Creator load package's `main-menu`, it start searching menu item by the menu path we provide. When the target menu item is not found, Cocos Creator will help us create a sub-menu automatically, otherwise it will use the exists menu and insert the menu in it.
+The key `main-menu` is the menu path that needs to be added to the main menu. The menu path uses the POSIX path formation, which is using `/` as the separator. When Cocos Creator loads the `main-menu` package, it starts searching the menu item by the menu path provided. When the target menu item is not found, Cocos Creator will help by creating a sub-menu automatically, otherwise it will use the existing menu and insert the menu in it.
 
-We might meet warnings and errors during main menu reigstry:
+## Warnings and errors during main menu reigstry
 
 ### The menu path already exists
 
@@ -31,7 +31,7 @@ This can be happen when several packages uses the same path. The first loaded pa
 
 ### The ancient path of the menu path already exists, and its type is not a sub-menu
 
-This is similar to the last case, except the conflict come from the parent path or parent's parent:
+This is similar to the last case, except the conflict comes from the parent path or the parent's parent. Example:
 
 ```json
 {
@@ -46,12 +46,12 @@ This is similar to the last case, except the conflict come from the parent path 
 }
 ```
 
-Let's see the example, we first register a menu path "Example/Foobar", after that we try to register "Examples/Foobar/Bar". The second menu path indeed require the "Foobar" to be a sub-menu, but the first time registry already use "Foobar" as a menu-item, and this makes the second menu path register failed.    
+In the example, "Example/Foobar" is registered first. Next, "Examples/Foobar/Bar" is registered. The second menu path does indeed require that "Foobar" be a sub-menu, however the first menu registred already uses "Foobar" as a menu-item. This makes the second menu path fail to register.
 
 ## i18n
 
-The menu path support i18n format. We can write the path as `i18n:examples/i18n:foobar`, Cocos Creator will help us search the i18n ID and replace the path item.
+The menu path supports the i18n format. The path can be written as `i18n:examples/i18n:foobar` and Cocos Creator will help to search the i18n ID and replace the path item.
 
 ## Menu Options
 
-We already use `message` option in our example. There are many other options we can use, like: icon, accelerator, type,... More options, check [main-menu Reference](reference/main-menu-reference.md).
+The `message` option was already used in the above example. There are many other options as well, such as: icon, accelerator, type, etc.. For additional options, please review the [main-menu Reference](reference/main-menu-reference.md) documentation.
