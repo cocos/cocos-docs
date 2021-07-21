@@ -27,17 +27,9 @@ MyProject
   ...
 ```
 
-全选 `hello-world` 的内部文件（`package.json` 和 `browser.js`），将所有文件压缩成 zip 包，并命名为 `hello-world.zip`。
+选取 `hello-world` 内插件所需内容压缩成 zip 包，并命名为 `hello-world.zip`。
 
-zip 包内容格式和文件格式一致：
-
-```
-hello-world.zip
-    |--package.json
-    |--browser.js
-```
-
-**请注意不要在 zip 包内再嵌套一层扩展目录**
+> **注意**：请不要在 zip 包内再嵌套一层扩展目录。
 
 ## 安装扩展包
 

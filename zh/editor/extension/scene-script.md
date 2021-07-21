@@ -1,4 +1,4 @@
-# 调用引擎 API 和项目脚本
+# 场景脚本
 
 在插件中可以声明一个特殊的脚本文件（场景脚本），该脚本和项目中的脚本（`assets\` 目录下的脚本）具有相同的环境，也就是说在这个脚本里可以调用引擎 API 和其他项目脚本，实现：
 
@@ -8,11 +8,10 @@
 
 ## 注册场景脚本
 
-首先在 `pacakge.json` 的 `contributions` 属性中添加 `scene` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
+首先在 `package.json` 的 `contributions` 属性中添加 `scene` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
 
 ```json
 {
-    "name": "engine",
     "contributions": {
         "scene": {
             "script": "./scene.js"
@@ -46,9 +45,21 @@ exports.methods = {
 
 > **注意**：由于升级了脚本系统，原本使用和项目脚本相同的模块引用机制的 `cc.require` 方法被弃用。
 
-## 发送消息到 `scene.js` 
+## 发送消息到 `scene.js`
 
-在扩展包程序的主进程和渲染进程中，都可以使用下方的接口向 `scene.js` 发送消息（假设扩展包名是 `foobar`）：
+在扩展包程序的主进程和渲染进程中，都可以使用下方的接口向 `scene.js` 发送消息（假设扩展包名是 `hello world`）：
+
+```js
+const options = {
+    name: 'hello world',
+    method: 'log',
+    args: []
+};
+
+await Editor.Message.request('scene', 'execute-scene-script', options);
+```
+
+其中，参数类型如下：
 
 ```typescript
 interface ExecuteSceneScriptMethodOptions {
@@ -57,14 +68,6 @@ interface ExecuteSceneScriptMethodOptions {
     method: string;
     args: any[];
 }
-
-const options: ExecuteSceneScriptMethodOptions = {
-    name: 'foobar',
-    method: 'log',
-    args: []
-};
-
-await Editor.Message.request('scene', 'execute-scene-script', options); 
 ```
 
 这样就可以在扩展包中获取到场景所有节点的名字，当然还可以用来对场景节点进行更多的查询和操作。
