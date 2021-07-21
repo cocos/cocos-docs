@@ -33,11 +33,18 @@ There are two ways to add a particle system:
 
 ## Particle Modules
 
+The __Cocos Creator__ particle system inspector panel is shown below:
+
+![](particle-system/inspector_1.png)
+
+![](particle-system/inspector_2.png)
+
 The __Cocos Creator__ particle system uses modules to organize functions, including the following modules:
 
 | Module | Description |
 | :--- | :--- |
+| Node | The particle node, used to modify the particle emitter's position, rotation, scale and render layer. |
 | [ParticleSystem](main-module.md) | It is used to store all the data displayed in the Inspector, manage the related modules of particle generation, update and destruction, and control the particle playback. |
 | [ShapeModule](emitter.md) | Used to control particle emission, including emission direction and speed, and supports predefined emission directions including squares, circles, cones, balls, and hemispheres. |
-| [AnimatorModule](module.md) |  Used to control the state update after particle emission. The supported functions are: size, color, rotation, speed, acceleration, speed limit, texture animation. |
+| [AnimatorModule](module.md) |  Used to control the state update after particle emission. The supported functions are: [VelocityOvertimeModule](velocity-module.md), [ForceOvertimeModule](force-module.md), [SizeOvertimeModule](size-module.md), [RotationOvertimeModule](rotation-module.md), [ColorOvertimeModule](color-module.md), [TextureAnimationModule](texture-animation-module.md), [LimitVelocityOvertimeModule](limit-velocity-module.md), [TrailModule](trail-module.md). |
 | [ParticleSystemRenderer](renderer.md) |  Used to generate the data needed for particle rendering. Including control related to vb, ib, rendering state. |
