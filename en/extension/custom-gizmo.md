@@ -19,7 +19,7 @@ cc.Class({
 });
 ```
 
-2. In the Creator menu bar, select **Extensions -> Create New Extension Plug-in -> Global Extension/Project Dedicated Extension** to create a new extension package and name it `custom-gizmo`.
+Second, in the Creator menu bar, select **Extensions -> Create New Extension Plug-in -> For all projects (in user profile folder)/For current project (in project folder)** to create a new extension package and name it `custom-gizmo`.
 
 3. Click **Project Directory** in the upper right corner of Creator, add a file `custom-gizmo.js` under **package -> custom-gizmo** directory, and add the following content:
 
