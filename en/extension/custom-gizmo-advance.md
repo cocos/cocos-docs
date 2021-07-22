@@ -11,7 +11,7 @@ properties: {
 },
 ```
 
-2. Change `custom-gizmo.js` to the following content and save:
+Second, change `custom-gizmo.js` to the following content and save:
 
 ```javascript
 let ToolType = {
