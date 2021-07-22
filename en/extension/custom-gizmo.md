@@ -31,7 +31,7 @@ class CustomGizmo extends Editor.Gizmo {
 
     onCreateRoot () {
         // Create a callback for the svg root node, you can create your svg tool here
-         // this._root can get the svg root node created by Editor.Gizmo
+         // 'this._root' can get the svg root node created by 'Editor.Gizmo'
 
          // Example:
 
