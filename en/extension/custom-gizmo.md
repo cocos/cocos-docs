@@ -6,7 +6,7 @@ Currently, Gizmo uses [svg.js](http://svgjs.com/) as the operating tool. For the
 
 Let's demonstrate how to create a simple circle that can move and scale with the node:
 
-1. First, create a new JavaScript script named **CustomComponent** in **Explorer**, and add the following content:
+First, create a new JavaScript script named **CustomComponent** in **Assets**, and add the following content:
 
 ```javascript
 // Define a simple component and name it CustomComponent
