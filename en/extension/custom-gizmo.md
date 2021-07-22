@@ -67,7 +67,7 @@ class CustomGizmo extends Editor.Gizmo {
 
         // Convert world coordinates to svg view
         // The coordinate system of svg view is not the same as the node coordinate system,
-        // here we use the built-in function to convert the coordinates
+        // Here we use the built-in function to convert the coordinates
         let viewPosition = this.worldToPixel(worldPosition);
 
         // Align the coordinates to prevent the svg from jittering due to accuracy issues
