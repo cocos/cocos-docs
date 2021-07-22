@@ -1,6 +1,6 @@
 # Custom Gizmo
 
-Currently, Gizmo uses [svg.js](http://svgjs.com/) as the operating tool. For the specific API of `svg.js`, please refer to the [Gizmo](http://documentup.com/wout/svg.js) documentation.
+Currently, Gizmo uses [svg.js](https://github.com/svgdotjs/svg.js) as the operating tool. For the specific API of `svg.js`, please refer to the [Gizmo](http://documentup.com/wout/svg.js) documentation.
 
 ## Creating a custom Gizmo
 
