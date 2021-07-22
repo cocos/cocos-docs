@@ -82,7 +82,7 @@ class CustomGizmo extends Editor.Gizmo {
         this._tool.plot(worldRadius, p);
     }
 
-// If you need to customize the timing of Gizmo display, just rewrite the visible function
+// If you need to customize the timing of Gizmo display, just rewrite the 'visible' function
 //    visible () {
 //        return this.selecting || this.editing;
 //    }
