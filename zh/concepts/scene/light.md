@@ -32,10 +32,10 @@ Cocos Creator 中采用光学度量单位来描述光源参数。基于光学度
 
 光源类型目前包括 **方向光**、**球面光**、**聚光灯**、**环境光** 四种，详情可参考下方文档：
 
-- [方向光](light/dir-light.md)
-- [球面光](light/sphere-light.md)
-- [聚光灯](light/spot-light.md)
-- [环境光](./ambient.md)
+- [方向光](./light/lightType/dir-light.md)
+- [球面光](./light/lightType/sphere-light.md)
+- [聚光灯](./light/lightType/spot-light.md)
+- [环境光](./light/lightType/ambient.md)
 
 ## 光照贴图
 

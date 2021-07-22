@@ -94,10 +94,11 @@
 
 - [光照](concepts/scene/light.md)
     - [基于物理的光照](concepts/scene/light/pbr-lighting.md)
-    - [主方向光](concepts/scene/light/dir-light.md)
-    - [球面光](concepts/scene/light/sphere-light.md)
-    - [聚光灯](concepts/scene/light/spot-light.md)
-    - [环境光](concepts/scene/ambient.md)
+    - [光源类型](concepts/scene/light/lightType/lightIntroduce.md)
+        - [主方向光](concepts/scene/light/lightType/dir-light.md)
+        - [球面光](concepts/scene/light/lightType/sphere-light.md)
+        - [聚光灯](concepts/scene/light/lightType/spot-light.md)
+        - [环境光](concepts/scene/light/lightType/ambient.md)
     - [基于多 Pass 的多光源支持](concepts/scene/light/additive-per-pixel-lights.md)
     - [光照贴图](concepts/scene/light/lightmap.md)
 
