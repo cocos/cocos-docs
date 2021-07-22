@@ -115,7 +115,7 @@ class CustomGizmo extends Editor.Gizmo {
             ;
 
         // Register the svg element that listens to mouse movement events
-        // ToolType.Center is a custom parameter, which will be passed to the mobile callback
+        // 'ToolType.Center' is a custom parameter, which will be passed to the mobile callback
         // in the form of parameters in the mobile callback, so that it is convenient to
         // distinguish which svg element generated the current callback.
         // {cursor:'move'} specify the type of mouse when moving
