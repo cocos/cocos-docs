@@ -2,7 +2,7 @@
 
 [Previous article](custom-gizmo.md) talked about how to customize a Gizmo that moves and zooms with nodes. This document introduces how to implement an editable Gizmo.
 
-1. Define the offset in the `CustomComponent` script of **Explorer**:
+First, define the `offset` in the `CustomComponent` script of **Assets**:
 
 ```js
 properties: {
