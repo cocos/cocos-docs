@@ -39,13 +39,17 @@ cd E:/engine
 npm install -g gulp
 # 安装依赖的模块
 npm install
+# 编译一些数据，包括 debug infos 和 .d.ts
+gulp build
 ```
 
-> **注意**：生成 debuginfos 需要 gulp 构建工具。
+> **注意**：生成 debug infos 需要 gulp 构建工具。
 
 ### 1.4 进行修改然后编译
 
-接下来可以定制引擎修改了，修改完成之后在 Cocos Creator 编辑器的菜单栏中点击 **开发者 -> 编译引擎** 进行编译。
+修改完成之后重启编辑器会重新编译引擎。第一次进入会编译比较久。
+
+接下来如果修改了引擎，可以在 Cocos Creator 编辑器的菜单栏中点击 **开发者 -> 编译引擎** 手动进行编译。
 
 ![](engine-customization/build.png)
 
