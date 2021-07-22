@@ -36,7 +36,7 @@ class CustomGizmo extends Editor.Gizmo {
          // Example:
 
          // Create an svg tool
-         // group function documentation: http://documentup.com/wout/svg.js#groups
+         // 'group' function documentation: http://documentup.com/wout/svg.js#groups
         this._tool = this._root.group();
 
         // draw a circle
