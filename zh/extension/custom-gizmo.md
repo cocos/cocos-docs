@@ -1,6 +1,6 @@
 # 自定义 Gizmo
 
-目前 Gizmo 使用 [svg.js](http://svgjs.com/) 作为操作工具，具体 `svg.js` 的 API 可以参考 <http://documentup.com/wout/svg.js>
+目前 Gizmo 使用 [svg.js](https://github.com/svgdotjs/svg.js) 作为操作工具，具体 `svg.js` 的 API 可以参考 <http://documentup.com/wout/svg.js>
 
 ## 创建自定义 Gizmo
 
