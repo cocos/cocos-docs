@@ -117,7 +117,7 @@ Define the `gizmos` field in **package.json** in your custom **package**, and re
 
 This will register CustomGizmo to CustomComponent.
 
-Then, select the node to add the gizmo in **Level Manager**, select **Add Component -> User Script Component -> CustomComponent** in the **Property Inspector**, notice the gizmo display In the **Scene Editor**. If the gizmo isn't seen, please refresh the editor or restart the editor.
+Then, select the node to add the gizmo in **Node Tree** panel, select **Add Component -> User Script Component -> CustomComponent** in the **Properties** panel, notice the gizmo display In the **Scene** panel. If the gizmo isn't seen, please refresh the editor or restart the editor.
 
 Please read the next article [Custom Gizmo Advanced](custom-gizmo-advance.md).
 
