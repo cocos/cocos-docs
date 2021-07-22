@@ -39,7 +39,7 @@ class CustomGizmo extends Editor.Gizmo {
          // 'group' function documentation: http://documentup.com/wout/svg.js#groups
         this._tool = this._root.group();
 
-        // draw a circle
+        // Draw a circle
          // 'circle' function documentation: http://documentup.com/wout/svg.js#circle
         let circle = this._tool.circle();
 
