@@ -93,7 +93,7 @@ class CustomGizmo extends Editor.Gizmo {
 //        return 'scene';
 //    }
 
-// If Gizmo needs to participate in the click test, just rewrite the rectHitTest function
+// If Gizmo needs to participate in the click test, just rewrite the ’rectHitTest‘ function
 //    rectHitTest (rect, testRectContains) {
 //        return false;
 //    }
