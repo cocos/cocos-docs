@@ -26,7 +26,6 @@ class CustomGizmo extends Editor.Gizmo {
     }
 
     onCreateMoveCallbacks () {
-        // 创建 gizmo 操作回调
 
         // Create gizmo operation callback
 
