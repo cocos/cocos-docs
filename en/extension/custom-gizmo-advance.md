@@ -26,7 +26,6 @@ class CustomGizmo extends Editor.Gizmo {
     }
 
     onCreateMoveCallbacks () {
-
         // Create gizmo operation callback
 
          // Declare some local variables
