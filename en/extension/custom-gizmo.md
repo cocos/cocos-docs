@@ -104,7 +104,7 @@ module.exports = CustomGizmo;
 
 ## Register a custom Gizmo
 
-Define the **gizmos** field in **package.json** in the custom **package**, and register the custom Gizmo, as shown below:
+Define the `gizmos` field in **package.json** in your custom **package**, and register the custom Gizmo, as shown below:
 
 ```json
 "gizmos": {
