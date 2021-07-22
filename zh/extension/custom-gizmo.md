@@ -21,7 +21,7 @@ cc.Class({
 
 2、在 Creator 菜单栏中选择 **扩展 -> 创建新扩展插件 -> 全局扩展／项目专用扩展** 新建一个扩展包，并命名为 `custom-gizmo`。
 
-3、点击 Creator 右上角的 **工程目录**，在 **package -> custom-gizmo** 目录下新增 `custom-gizmo.js` 文件，加入以下内容：
+3、点击 Creator 右上角的 **工程目录**，在 **packages -> custom-gizmo** 目录下新增 `custom-gizmo.js` 文件，加入以下内容：
 
 ```javascript
 class CustomGizmo extends Editor.Gizmo {
