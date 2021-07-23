@@ -41,7 +41,7 @@ cd E:/engine
 npm install -g gulp
 # Install dependent modules
 npm install
-# Compile some data, including `debug infos` and `.d.ts`
+# Compile some data, including 'debug infos' and '.d.ts'
 gulp build
 ```
 
