@@ -117,15 +117,24 @@ If this option is enabled, the game can be packaged into App Bundle format for u
 
 ### Build Options for the Windows Platform
 
-The build options for the **Windows** platform currently have only one **Render BackEnd**, which includes **VULKAN**, **GLES3** and **GLES3**, with **GLES3** checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
+The build options for the Windows platform include **Render BackEnd** and **Target Platform**.
 
 ![Windows build options](publish-native/windows-options.png)
+
+#### Render BackEnd
+
+Currently, **VULKAN**, **GLES3** and **GLES2** are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
+
+#### Target Platform
+
+Set the compilation architecture, both **win32** and **x64** are currently supported.
+
+- If **win32** is selected, both architectures are supported to run on.
+- If **x64** is selected, only **x64** architecture is supported to run on.
 
 ### Build Options for the iOS Platform
 
 The build options for the iOS platform include **Bundle Identifier**, **Orientation** and **Render BackEnd**. The setting of **Orientation** is the same as the Android platform.
-
-The build options for the iOS platform include x, y, and z. The setting of x is the same as **Screen Orientation** for the Android platform.
 
 ![iOS build options](publish-native/ios-options.png)
 
