@@ -92,4 +92,4 @@ There is also support for setting the Skybox, Global Fog, and Shadows in the sce
 
 - [Skybox](./skybox.md)
 - [Global Fog](./fog.md)
-- [Shadow](./shadow.md)
+- [Shadow](./light/shadow.md)
