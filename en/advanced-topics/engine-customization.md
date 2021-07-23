@@ -41,7 +41,7 @@ cd E:/engine
 npm install -g gulp
 # Install dependent modules
 npm install
-# 编译一些数据，包括 debug infos 和 .d.ts
+# Compile some data, including `debug infos` and `.d.ts`
 gulp build
 ```
 
@@ -49,9 +49,9 @@ gulp build
 
 ### 1.4 Make changes and compile
 
-Restarting the editor after the changes are complete recompiles the engine. The first entry takes longer to compile.
+Restarting the editor after the changes are complete recompiles the engine. The first relaunch takes longer to compile.
 
-Next, if you have changed the engine, you can manually compile it by clicking **Developer -> Build Engine** in the menu bar of the Cocos Creator editor.
+Next, if the engine has been changed, it can be manually compiled by clicking **Developer -> Build Engine** in the menu bar of the Cocos Creator editor.
 
 ![build](engine-customization/build.png)
 
