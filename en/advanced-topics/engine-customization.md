@@ -49,9 +49,7 @@ gulp build
 
 ### 1.4 Make changes and compile
 
-Restarting the editor after the changes are complete recompiles the engine. The first relaunch takes longer to compile.
-
-Next, if the engine has been changed, it can be manually compiled by clicking **Developer -> Build Engine** in the menu bar of the Cocos Creator editor.
+Next, customize the engine modifications and then click **Developer -> Compile the engine** in the Cocos Creator editor menu bar to compile.
 
 ![build](engine-customization/build.png)
 
