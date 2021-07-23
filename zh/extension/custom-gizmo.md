@@ -1,6 +1,6 @@
 # 自定义 Gizmo
 
-目前 Gizmo 使用 [svg.js](http://svgjs.com/) 作为操作工具，具体 `svg.js` 的 API 可以参考 <http://documentup.com/wout/svg.js>
+目前 Gizmo 使用 [svg.js](https://github.com/svgdotjs/svg.js) 作为操作工具，具体 `svg.js` 的 API 可以参考 <http://documentup.com/wout/svg.js>
 
 ## 创建自定义 Gizmo
 
@@ -21,7 +21,7 @@ cc.Class({
 
 2、在 Creator 菜单栏中选择 **扩展 -> 创建新扩展插件 -> 全局扩展／项目专用扩展** 新建一个扩展包，并命名为 `custom-gizmo`。
 
-3、点击 Creator 右上角的 **工程目录**，在 **package -> custom-gizmo** 目录下新增 `custom-gizmo.js` 文件，加入以下内容：
+3、点击 Creator 右上角的 **工程目录**，在 **packages -> custom-gizmo** 目录下新增 `custom-gizmo.js` 文件，加入以下内容：
 
 ```javascript
 class CustomGizmo extends Editor.Gizmo {
