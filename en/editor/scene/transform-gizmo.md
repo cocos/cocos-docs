@@ -61,6 +61,23 @@ When the rect transform tool is active:
 
 In UI elements layout, **rect transform tool** is always used to precisely control the position and length of the node's dimensions. As to the image elements that must keep original image aspect ratio, the rectangle transform tool is normally not the best choice for size adjustment.
 
+## Transform Snapping
+When using the transform tool to manipulate object, you can hold down the **Ctrl** key to let the transform tool change the value according to the increment snap value you set.
+
+![transform snap config](images/transform-snap-config.png)
+
+Click the transform snapping config button on the tool bar located at the main window's top left corner, it will pop up a transform snapping config panel.
+
+![transform snap config panel](images/transform-snap-config-panel.png)
+
+You can set the increment snap value for the transform tools, also you can open auto snapping function by toggle on the button for the transform tools.
+
+| 图标 | 描述 |
+| :-- | :-- |
+|  ![position snap](images/position-snap.png)| if toggle on, move transform tool will increase value by increment snap value  |
+|  ![rotation snap](images/rotation-snap.png)| if toggle on, rotate transform tool will increase value by increment snap value |
+|  ![scale snap](images/scale-snap.png)| if toggle on, scale transform tool will increase value by increment snap value |
+
 ## Transform Gizmo Based Point Configure
 
 ![position toggles](images/position-toggles.png)
