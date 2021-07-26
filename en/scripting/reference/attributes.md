@@ -17,6 +17,7 @@ Attributes are used to attach metadata to defined properties, similar to Decorat
 | step | Restrict the step value in the **Inspector** panel | number | undefined | - |
 | range | Set min, max, step | [min, max, step] | undefined | step value optional |
 | slide | Show as a slider in the **Inspector** panel | boolean | false | - |
+| group | Show as a tab group in the **Inspector** panel | { name } or { id, name, displayOrder, style } | undefined | The right coding is `@property({group})` <br>id is groupId, default is 'default'；<br> name is the display name of this group；<br> displayOrder default is Infinity, sorted at the last；<br> style default and has only value: 'tab'；  |
 
 ### Serialization-Related Attributes
 

@@ -17,6 +17,7 @@
 | step | 指定数值在编辑器中调节的步长 | number | undefined | - |
 | range | 一次性设置 min、max、step | [min, max, step] | undefined | step 值可选 |
 | slide | 在 **属性检查器** 面板中显示为滑动条 | boolean | false | - |
+| group | 在 **属性检查器** 面板中显示为分组，样式默认为 tab | { name } 或 { id, name, displayOrder, style } | undefined | 支持的写法为 `@property({group})` <br>id 是分组 id, 默认 'default'；<br> name 是分组显示的组名；<br> displayOrder 默认 Infinity 排在最后面 ；<br> style 目前默认且只提供 'tab' 样式；  |
 
 ## 序列化相关参数
 
