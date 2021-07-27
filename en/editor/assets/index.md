@@ -146,7 +146,8 @@ Also for specific asset types, double-clicking on an asset allows you to enter t
    * FileBasenameNoExtension = <%FileBasenameNoExtension%>
    * URL = <%URL%>
    *
-   */  
+   */
+   ```
 
 ### Rename asset
 
