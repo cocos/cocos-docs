@@ -23,19 +23,13 @@ npm install
 npm run build
 ```
 
-我们生成的扩展是基于 `Typescript` 开发工作流的,开发有完整的提示，我们需要在修改代码后使用 `tsc` 编译代码，编辑器只能读取编译后的js代码，所以在每次修改后需要我们在扩展执行命令 `npm run build` 编译 `ts` 代码或者使用命令 `npm run watch` 在开启监听，在代码改动时自动编译。
+Creator 推荐使用基于 Typescript 的工作流，Creator 内默认提供的大部分扩展模版也都是基于 Typescript。因为这样能够带上完整的代码提示。但 Typescript 需要编译后才能运行，所以需要执行 `npm run build` 进行编译。如果在开发过程中需要持续监听，可以使用 `npm run watch` 监听自动编译。
+> **注意**：扩展的 `tsconfig.json` 开启了 `resolveJsonModule` ，以便通过导入了插件的 `package.json` 来获取插件名称，需要升级 typescript 到 4.3，否则会在导入 `rootDir` 目录以外的 `json` 会出现编译结果路径错误。
 
 ### 启用这个扩展
 
 在扩展创建完成后，在 Creator 的扩展管理器里，能够找到 `first-extension` 扩展，我们可以在这个界面进行扩展的开关，重启等操作。
 
-
 ## 使用这个扩展的功能
 
-根据扩展的 `README` 文档，我们可以知道它的用法
-
-依次点击顶部菜单的 `面板 -> first-extension -> 默认面板` 即可打开面板。
-
-依次点击顶部菜单的 `开发者 -> first-extension -> 发送消息给面板` 即可发送消息给默认面板，如果此时存在默认面板，将会调用面板的 `hello` 方法。
-
-点击 `发送消息给面板` 后，根据 `package.json` 中 `contributions.menu` 的定义将发送一条消息 `send-to-panel` 给扩展。根据 `package.json` 中 `contributions.messages` 的定义当扩展收到 `send-to-panel` 后将会使 `default` 面板调用 `hello` 方法。
+扩展的用法请参考扩展的 `README` 文档。
