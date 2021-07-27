@@ -36,6 +36,7 @@ Currently, when using the command line to build, except for the required build o
   When parameters are not specified after `--build`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. When additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
     - `configPath`: Parameter file path. If define `configPath`, then __Cocos Creator__ will load this file as a build parameter in the `JSON` file format. This parameter can be modified by yourself or exported directly from the **Build** panel.
+    - `logDest`: Specify the log output path.
     - `includedModules`: Customize the engine packaged modules, only the required modules are packaged. The corresponding field of each module can be found in the `features` field in [this file](https://github.com/cocos-creator/engine/blob/3d/cc.config.json) of engine repository.
     - `outputName`: The name of the release folder generated after the build.
     - `name`: Game name.
@@ -48,7 +49,6 @@ Currently, when using the command line to build, except for the required build o
     - `md5Cache`: Enabled or disabled the MD5 Cache, the default is `false`.
     - `mainBundleCompressionType`: Main bundle compression type. For specific option values, please refer to the document [Asset Bundle — compression type](../../asset/bundle.md##compression-type).
     - `mainBundleIsRemote`: Configure the main package as a remote package.
-    - `logDest`: Specify the log output path.
     - `packages`: The build configuration parameters supported by each plugin. What needs to be stored is the serialized string for the data object. For details, please refer to the following.
 
 Each platform's build will be embedded in the **Build** panel as a separate plugin, so each platform's build options are in different locations. The build parameters are configured in the `packages` field, for example, to specify the build options for WeChat Mini Game, the configuration is as follows:

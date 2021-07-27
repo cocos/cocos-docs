@@ -36,6 +36,7 @@
   在 `--build`  后如果没有指定参数，则会使用 Cocos Creator 中 **构建发布** 面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
     - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数。这个参数可以自己修改也可以直接从构建面板导出，当配置和 configPath 内的配置冲突时，configPath 指定的配置将会被覆盖。
+    - `logDest` - 指定日志输出路径
     - `includedModules` - 定制引擎打包功能模块，只打包需要的功能模块。具体有哪些功能模块可以参考引擎仓库根目录下 **cc.config.json**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cc.config.json) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cc.config.json)）文件中的 `features` 字段。
     - `outputName` - 构建后生成的发布包文件夹名称。
     - `name` - 游戏名称
@@ -48,7 +49,6 @@
     - `md5Cache` - 是否开启 md5 缓存，默认关闭
     - `mainBundleCompressionType` - 主包压缩类型，具体选项值可参考文档 [Asset Bundle — 压缩类型](../../asset/bundle.md#压缩类型)。
     - `mainBundleIsRemote` - 配置主包为远程包
-    - `logDest` - 指定日志输出路径
     - `packages` - 各个插件支持的构建配置参数，需要存放的是对于数据对象的序列化字符串，具体可以参考下文。
 
 Cocos Creator 3.0 各个平台的构建会作为独立的插件嵌入到 **构建发布** 面板中，因而各个平台的构建参数位置也不同。各个平台的构建参数会配置在 `packages` 字段中，例如：为微信小游戏指定构建参数，配置大体如下：
