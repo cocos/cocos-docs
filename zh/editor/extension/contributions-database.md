@@ -9,7 +9,6 @@
 在 package.json 里的 contributions 注册 asset-db 数据: 
 
 ```json5
-/// package.json
 {
     "name": "test-package",
     "contributions": {
