@@ -72,7 +72,7 @@ Click the transform snapping config button on the tool bar located at the main w
 
 The increment snap value for the transform tools can be set, and also open the auto snapping function by toggling the button for the transform tools.
 
-| 图标 | 描述 |
+| Icon | Description |
 | :-- | :-- |
 |  ![position snap](images/position-snap.png)| if toggle on, move transform tool will increase value by increment snap value  |
 |  ![rotation snap](images/rotation-snap.png)| if toggle on, rotate transform tool will increase value by increment snap value |
