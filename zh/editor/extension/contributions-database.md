@@ -6,7 +6,7 @@
 
 ## 注册方式
 
-在 package.json 里的 contributions 注册 asset-db 数据: 
+在 package.json 里的 contributions 注册 asset-db 数据:
 
 ```json5
 {
@@ -27,7 +27,7 @@ interface AssetDBConfig {
     mount:{
         //资源的目录，相对于扩展
         path: string；
-        //资源是否只读,默认可读可写
+        //资源是否只读，默认可读可写
         readonly?: boolean;
     }
 }
@@ -35,22 +35,31 @@ interface AssetDBConfig {
 
 ## 在扩展中编写脚本资源
 
-为了在扩展中编写 `ts` 脚本资源，我们需要拷贝`{项目目录}\temp\declarations` 到扩展目录下，
-这样可以获得 `cc` 相关的脚本定义。
+我们可以在刚才注册的 `test-package\assets\` 资源文件夹中定义脚本，我们先创建一个脚本 `foo.ts`，
+
+```typescript
+/// foo.ts
+import { _decorator, Component, Node } from 'cc';
+export const value = 123;
+const { ccclass, property } = _decorator;
+ 
+@ccclass('Foo')
+export class Foo extends Component {
+    start () {
+        console.log('foo');
+    }
+}
+```
+
+> **注意**：为了使用 cc 的定义，我们需要拷贝 `{项目目录}\temp\declarations` 的定义文件到扩展目录下。
 
 ## 导入扩展注入的脚本资源
 
-前面我们新建了一个扩展 `test-package`,该扩展将 `test-package\assets` 路径下的资源注入到了资源数据库。
-我们假设 `test-package\assets` 路径下有一个脚本 `foo.ts`,
+前面我们新建了一个扩展 `test-package`，该扩展将 `test-package\assets` 路径下的资源注入到了资源数据库。
 
-```typescript
-/// test-package\assets\foo.ts
-export const value = 123;
-```
-
-在项目的脚本 `bar.ts` 中我们应该使用如下方式导入该脚本，
+在项目的脚本 `bar.ts` 中我们可以使用如下方式导入 `foo.ts` 脚本。
 
 ```typescript
 /// bar.ts
-import { value } from "db://test-package/foo";
+import { value, Foo } from 'db://test-package/foo';
 ```
