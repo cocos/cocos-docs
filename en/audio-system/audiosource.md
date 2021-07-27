@@ -17,7 +17,7 @@
 
 ## Register AudioSource Event Callback
 
-Since v3.3.0, we supported registering event callback on AudioSource component, with the following usage examples:
+Cocos Creator supports registering event callbacks on AudioSource components, with the following usage examples:
 
 ```javascript
 @ccclass('AudioDemo')
