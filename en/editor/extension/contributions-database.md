@@ -1,4 +1,4 @@
-# Extending the Database(DB)
+# Extending the Database (DB)
 
 There will be a lot of resources in the project, and the resources will come with a lot of data, which is managed by the resource database.
 Extensions can inject resources into the resource database to provide resources like scripts, images, etc.
