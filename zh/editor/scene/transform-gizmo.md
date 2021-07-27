@@ -61,6 +61,24 @@
 
 在 UI 元素的排版中，经常会需要使用 **矩形变换工具** 直接精确控制节点四条边的位置和长度。而对于必须保持原始图片宽高比的图像元素，通常不会使用矩形变换工具来调整尺寸。
 
+## 变换吸附
+使用变换工具操作物体时，可以按住 `Ctrl` 键让变换工具按设定的步长来变化数值。
+
+![transform snap config](images/transform-snap-config.png)
+
+点击主窗口左上角工具栏的变换吸附配置按钮，即可打开变换吸附配置界面。
+
+![transform snap config panel](images/transform-snap-config-panel.png)
+
+可以在这个界面中设置各种变换工具的步长，同时也可以通过按钮来打开自动吸附功能。
+
+| 图标 | 描述 |
+| :-- | :-- |
+|  ![position snap](images/position-snap.png)| 如果打开，移动时以设定的步长来增长 |
+|  ![rotation snap](images/rotation-snap.png)| 如果打开，旋转时以设定的步长来增长 |
+|  ![scale snap](images/scale-snap.png)| 如果打开，缩放时以设定的步长来增长 |
+
+
 ## 变换工具基准点设置
 
 ![position toggles](images/position-toggles.png)

@@ -29,6 +29,12 @@ In 2D view, the view of the **Scene** panel can be moved and positioned by the f
 
 The grid in the scene is an important reference information for the position of the scene elements when we place them. For the relationship between the coordinate system and the position and other node properties, please read the [Coordinate System and Node Transformation](../../concepts/scene/coord.md) documentation.
 
+## Scene Light Configure
+![Scene Light](images/scene-light.png)
+
+- If toggle on, the lights in the scene will be used.
+- If toggle off，lights in the scene will be disabled, a directional light aligned with editor camera will be used.
+
 ## Scene Gizmo
 
 The Scene Gizmo is in the upper right corner of the scene view. It shows the current viewing direction of the scene camera and can be clicked to quickly switch between different viewing angles.
