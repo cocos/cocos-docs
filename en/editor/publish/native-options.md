@@ -44,6 +44,10 @@ Currently, the Cocos Creator installation directory already includes Cocos2d-x s
 
 If this option is checked, the **Make** step will be executed automatically after the build is completed, without manual operation.
 
+#### Job System
+
+This option is currently used by the internal function module of the engine, users do not need to pay attention to this option for the time being, and selecting any of the options in the drop-down box will not have any impact on the project.
+
 #### Encrypt JS
 
 This option is used to encrypt the published script. After build, the `JSC` file is generated in the `assets/` directory, which is encrypted. And the `JS` file will be backed up in the `script-backup` directory for debugging, and will not enter the APP when packaged.
@@ -62,7 +66,7 @@ The build options for the Android platform are as follows:
 
 #### Render BackEnd
 
-Currently, **VULKAN**, **GLES3** and **GLES3** are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
+Currently, [VULKAN](https://www.vulkan.org/), [GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) and [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
 
 #### Game Package Name
 
@@ -119,13 +123,26 @@ If this option is enabled, the game can be packaged into App Bundle format for u
 
 The build options for the **Windows** platform currently have only one **Render BackEnd**, which includes **VULKAN**, **GLES3** and **GLES3**, with **GLES3** checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
 
+<!--The build options for the Windows platform include **Render BackEnd** and **Target Platform**.-->
+
 ![Windows build options](publish-native/windows-options.png)
+
+<!--
+#### Render BackEnd
+
+Currently, **VULKAN**, **GLES3** and **GLES2** are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
+
+#### Target Platform
+
+Set the compilation architecture, both **win32** and **x64** are currently supported.
+
+- If **win32** is selected, both architectures are supported to run on.
+- If **x64** is selected, only **x64** architecture is supported to run on.
+-->
 
 ### Build Options for the iOS Platform
 
-The build options for the iOS platform include **Bundle Identifier**, **Orientation** and **Render BackEnd**. The setting of **Orientation** is the same as the Android platform.
-
-The build options for the iOS platform include x, y, and z. The setting of x is the same as **Screen Orientation** for the Android platform.
+The build options for the iOS platform include **Bundle Identifier**, **Orientation**, **Target iOS Version**, **Render BackEnd** and **Developer Team**. The setting of **Orientation** is the same as the Android platform.
 
 ![iOS build options](publish-native/ios-options.png)
 
@@ -135,17 +152,39 @@ The package name, usually arranged in the reverse order of the product's website
 
 > **Note**: only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underscore or a number.
 
+#### Target iOS Version
+
+The option specifies the version of the iOS software when publishing to the iOS platform and defaults to **12.0**. The version number is recorded in the `TARGET_IOS_VERSION` field of the `proj/cfg.cmake` file in the release package directory after the build.
+
 #### Render BackEnd
 
 Currently, **METAL** and **GLES3** are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
 
+#### Developer Team
+
+This option is used to configure the Development Team signature information when building and compiling iOS projects. If the signature information is manually configured in Xcode when compiling with Xcode, the configuration in Xcode takes precedence. When a rebuild is performed, the value of this option will override the value configured in Xcode.
+
 ### Build Options for the Mac Platform
 
-The build options for the Mac platform include **Bundle Identifier**, **Render BackEnd** and **Support M1**, and the setup method for the first two options is the same as the iOS platform.
+The build options for the Mac platform include **Bundle Identifier**, **Target macOS Version**, **Support M1** and **Render BackEnd**.
 
 ![Mac build options](publish-native/mac-options.png)
 
-v3.1 adds a new **Support M1** option to better flag support issues for some known engine modules on Apple M1 (Silicon) architecture devices.
+#### Bundle Identifier
+
+Package name, usage is consistent with the iOS platform.
+
+#### Target macOS Version
+
+This option specifies the macOS system version when publishing to the Mac platform and defaults to **10.14**. The version number is recorded in the `TARGET_OSX_VERSION` field of the `proj/cfg.cmake` file in the release package directory after the build.
+
+#### Support M1
+
+This option is used to better flag support issues for some known engine modules on Apple M1 (Silicon) architecture devices.
+
+#### Render BackEnd
+
+This option currently uses the **METAL** rendering backend by default, see the official documentation [Metal](https://developer.apple.com/metal/) for details.
 
 ## Build a Native Project
 

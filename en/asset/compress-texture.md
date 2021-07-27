@@ -14,17 +14,19 @@
 | **PVR** | Not Supported | Supported | Supported iOS  | Supported iOS |
 | **ETC1** | Supported | Not Supported | Supported Android  | Supported Android |
 | **ETC2** | Partially Supported | Not Supported | Not Supported | Supported Android |
-| **ASTC** | Partially Supported  | Partially Supported | Not Supported | Partially Supported |
+| **ASTC** | Partially Supported  | Partially Supported | Not Supported (WeChat Mini Game v8.0.3 or above for iOS are supported.) | Partially Supported |
 
 By default, **Cocos Creator** outputs the original image during build. If you need to compress an image during the build process, you can select this image in the **Assets** panel and then manage it in the **Inspector** to edit the compress texture format of the image.
 
 ![compress-texture](compress-texture/compress-texture.png)
 
-The editor will provide a preset by default. If you need to add more presets, you can click the **Edit preset** button to open **Project Settings -> Compress Texture** to add and edit presets. The compression format here is readonly. For how to add texture compression presets, please refer to the [Project Settings](./editor/project/index.md) documentation.
+The `presetId` option defaults to the compression texture preset provided by Creator, and the image compression format shown here is read-only. To add more presets or edit them, click the **Edit Presets** button next to the `presetId` to open the [Project Settings -> Texture Compression](./editor/project/index.md) panel for setting.
 
-![meta](compress-texture/meta.png)
+> **Note**: after configuring texture compression, only images of the corresponding format will be generated at build time, if some image formats are not supported on some devices, it will cause abnormal display. To avoid this problem, when adding texture compression presets, please select additional general image formats (e.g. PNG, JPG) as default images.
 
 The compress-texture options on the image asset will be stored in the asset's meta file. `PresetId` is the ID of the selected compressed texture preset.
+
+![meta](compress-texture/meta.png)
 
 ## Detailed compression textures
 
@@ -56,7 +58,7 @@ Except for the `JPG` and `PNG` supported by all platforms, the details of other 
 | ----------------- | -------------------- |
 | Web Desktop       | ASTC / ETC2 / ETC1 / PVR / WEBP |
 | Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
-| WeChat Mini Game       | ETC1 / PVR           |
+| WeChat Mini Game  | ASTC / ETC1 / PVR           |
 | AliPay Mini Game  | ETC1 / PVR           |
 | Baidu Mini Game   | ETC1 / PVR           |
 | OPPO Mini Game    | ETC1                 |
