@@ -4,7 +4,7 @@
 
 ## 通过模板创建扩展并安装
 
-首先我们点击顶部菜单的 **扩展 -> 打开创建扩展面板**， 
+首先我们点击顶部菜单的 **扩展 -> 创建扩展**
 
 <img src="./image/create-extension-panel.png" alt="create-extension-panel" style="zoom:67%;" />
 
@@ -39,4 +39,3 @@ npm run build
 依次点击顶部菜单的 `开发者 -> first-extension -> 发送消息给面板` 即可发送消息给默认面板，如果此时存在默认面板，将会调用面板的 `hello` 方法。
 
 点击 `发送消息给面板` 后，根据 `package.json` 中 `contributions.menu` 的定义将发送一条消息 `send-to-panel` 给扩展。根据 `package.json` 中 `contributions.messages` 的定义当扩展收到 `send-to-panel` 后将会使 `default` 面板调用 `hello` 方法。
-
