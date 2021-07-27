@@ -135,7 +135,7 @@ Also for specific asset types, double-clicking on an asset allows you to enter t
 ![custom-typescript](img/custom-typescript.png)
 
 - Creating a TypeScript asset with an initial name of `NewComponent`, and with the final name will generate a valid `className` of the TypeScript asset. 
-- Creating a TypeScript asset, you are given a few predefined variables, it would meet some project management requirements.
+- Creating a TypeScript asset, there are a few predefined variables provided, it would meet some project management requirements.
   ```
   /**
    * Predefined variables
