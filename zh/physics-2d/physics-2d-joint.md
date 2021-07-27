@@ -1,6 +1,6 @@
 # 2D 关节组件
 
-物理系统包含了一系列用于连接两个刚体的关节组件。关节组件可以用来模拟真实世界中物体间的交互，比如铰链、活塞、绳子、轮子、滑轮、机动车、链条等。学习如何使用关节组件可以创建一个真实有趣的场景。
+物理系统包含了一系列用于连接两个刚体的关节组件。关节组件依赖于刚体组件。可以用来模拟真实世界中物体间的交互，比如铰链、活塞、绳子、轮子、滑轮、机动车、链条等。学习如何使用关节组件可以创建一个真实有趣的场景。
 
 > **注意**：关节组件在 Builtin 2D 物理模块中是无效的。
 
@@ -23,150 +23,15 @@
 
 ![add component](image/add-comp.png)
 
-## 关节组件属性
+## 2D 关节组件类型
 
-### 各关节组件共有属性
+2D 关节组件类型目前包括上述说明的八种，详情可参考下方文档：
 
-虽然每种关节都有不同的表现，但是它们也有一些共同的属性：
-
-- `Anchor`：关节本端链接的刚体的锚点。
-- `ConnectedAnchor`：关节链接另一端刚体的锚点。
-- `CollideConnected`：关节两端的刚体是否能够互相碰撞。
-- `ConnectedBody`：关节链接的另一端的刚体。
-
-每个关节都需要链接两个刚体才能够发挥它的功能，我们把和关节挂在同一节点下的刚体视为关节的本端，把 **connectedBody** 视为另一端的刚体。通常情况下，每个刚体会选取自身周围的某个位置设定成锚点。根据关节组件类型的不同，锚点决定了物体的旋转中心，或者是用来保持一定距离的坐标点，等等。
-
-**collideConnected** 属性用于确定关节两端的刚体是否需要继续遵循常规的碰撞规则。
-
-如果想要制作一个布娃娃，希望大腿和小腿能够部分重合，然后在膝盖处链接到一起，那么就需要设置 **collideConnected** 属性为 `false`。如果想要做一个升降机，希望升降机平台和地板能够碰撞，那么就需要设置 **collideConnected** 属性为 `true`。
-
-### 各关节属性
-
-#### DistanceJoint2D
-
-![distancejoint2d](image/distancejoint2d.png)
-
-- `MaxLength`：两个刚体之间允许的最长距离。
-- `AutoCalcDistance`：是否自动计算关节连接的两个刚体间的距离。
-
-如果勾选 `AutoCalcDistance` 选项，那么 `MaxLength` 就会自动转为两个刚体之间当前的距离。如果取消勾选，那么 `MaxLength` 就会变回原来手动设定的距离。
-
-距离关节就是使两个物体保持一定的距离之内。类似于生活中的钟摆或者摆锤。
-
-具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `distance-joint` 和 `distance-joint-chain` 场景。
-
-DistanceJoint2D 接口相关请参考 [DistanceJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.distancejoint2d.html)。
-
-#### FixedJoint2D
-
-![FixedJoint2D](image/fixedjoint2d.png)
-
-- `Frequency`：弹性系数。
-- `DampingRatio`：阻尼，表示关节变形后，恢复到初始状态受到的阻力。
-
-固定关节是模拟刚体之间相互附着的一种物理现象，使这些对象保持相对于彼此的位置，确保游戏对象始终以给定位置和角度偏移。如墙上的钉子和粘贴物品等。
-
-具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `fixed-joint-ragdoll` 场景。
-
-FixedJoint2D 接口相关请参考 [FixedJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.fixedjoint2d.html)。
-
-#### HingeJoint2D
-
-![HingeJoint2D](image/hingejoint2d.png)
-
-- `EnableLimit`：是否开启关节的限制。
-- `LowerAngle`：角度的最低限制。
-- `UpperAngle`：角度的最高限制。
-- `EnableMotor`：是否开启关节马达
-- `MaxMotorTorque`：可以施加到刚体的最大扭矩。
-- `MotorSpeed`：期望的马达速度。
-
-HingeJoint2D 如果开启 `EnableMotor` 属性 开启关节马达，则会获得施加到刚体的扭矩，为刚体的运动提供动力。
-
-铰链关节是用途非常广泛，利用铰链关节不仅仅可以做门，风车的模型，甚至可以做机动车的模型。
-
-具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `hinge-joint` 和 `hinge-joint-crank` 场景。
-
-HingeJoint2D 接口相关请参考 [HingeJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.hingejoint2d.html)。
-
-#### MouseJoint2D
-
-![MouseJoint2D](image/mousejoint2d.png)
-
-- `Frequency`：弹性系数。
-- `DampingRatio`：阻尼，表示关节变形后，恢复到初始状态受到的阻力。
-- `MaxForce`：最大阻力值。
-
-鼠标关节可以指定一个最大的力来施加一个柔和的约束。鼠标关节会在触摸移动事件中移动选中的刚体。
-
-具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `mouse-joint` 场景。
-
-MouseJoint2D 接口相关请参考 [MouseJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.mousejoint2d.html)。
-
-#### RelativeJoint2D
-
-![RelativeJoint2D](image/relativejoint2d.png)
-
-- `MaxForce`：最大阻力值。
-- `MaxTorque`：可以应用于刚体的最大扭矩值。
-- `CorrectionFactor`：位置矫正系数，范围为 [0, 1]。
-- `LinearOffset`：关节另一端的刚体相对于起始端刚体的位置偏移量。
-- `AngularOffset`：关节另一端的刚体相对于起始端刚体的角度偏移量。
-- `AutoCalcOffset`：是否自动计算关节连接的两个刚体间的 `angularOffset` 和 `linearOffset`。
-
-相对关节是指将两个物体永远以相对的位置固定在一起，即使发生物理改变，它们之间的相对位置也将不变。例如在游戏中，玩家身后有额外的宠物。这种情况下可以使用相对关节，使宠物在玩家身后一定距离，但让宠物随玩家一起旋转时没有滞后。
-
-具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `relative-joint-human` 和 `relative-joint-linear-offset` 场景。
-
-RelativeJoint2D 接口相关请参考 [RelativeJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.relativejoint2d.html)。
-
-#### SliderJoint2D
-
-![SliderJoint2D](image/sliderjoint2d.png)
-
-- `Angle`：滑动的方向。
-- `AutoCalcAngle`：是否根据连接的两个刚体自动计算滑动方向。
-- `EnableMotor`：是否开启关节马达。
-- `MaxMotorForce`：可以施加到刚体的最大力。
-- `MotorSpeed`：期望的马达速度。
-- `EnableLimit`：是否开启关节的距离限制。
-- `LowerLimit`：刚体能够移动的最小值。
-- `UpperLimit`：刚体能够移动的最大值。
-
-滑动关节是让刚体控制的游戏对象可以沿着指定的一个轴进行滑动。如果开启 `EnableMotor` 属性则会自动往指定的方向滑动。在游戏中可以用于手动或自动的滑块机关或者滑动门等。
-
-具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `slider-joint` 场景。
-
-SliderJoint2D 接口相关请参考 [SliderJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.sliderjoint2d.html)。
-
-#### SpringJoint2D
-
-![SpringJoint2D](image/springjoint2d.png)
-
-- `Frequency`：弹性系数。
-- `DampingRatio`：阻尼，表示关节变形后，恢复到初始状态受到的阻力。
-- `Distance`：关节两端的距离。
-- `AutoCalcDistance`：是否自动计算关节连接的两个刚体间的距离。
-
-顾名思义弹簧关节就是将关节两端物体像弹簧一样连接在一起，保持一定范围距离。挤压它们会得到向外的力，拉伸它们将得到向里的力。例如游戏中的发射弹射器。
-
-具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `spring-joint-damp` 和 `spring-joint-frequency` 场景。
-
-SpringJoint2D 接口相关请参考 [SpringJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.springjoint2d.html)。
-
-#### WheelJoint2D
-
-![WheelJoint2D](image/wheeljoint2d.png)
-
-- `Angle`：轮子震动方向。
-- `EnableMotor`：是否开启关节马达。
-- `MaxMotorTorque`：可以施加到刚体的最大扭矩。
-- `MotorSpeed`：期望的马达速度。
-- `Frequency`：弹性系数。
-- `DampingRatio`：阻尼，表示关节变形后，恢复到初始状态受到的阻力。
-
-车轮关节就是模拟车轮的滚动即车轮以车轴为圆心旋转。通过开启 `EnableMotor` 属性可以获得动力进行滚动。在游戏中经常用于模拟汽车车轮、某些旋转特效等。
-
-具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `wheel-joint` 场景。
-
-WheelJoint2D 接口相关请参考 [WheelJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.wheeljoint2d.html)。
+- [2D 距离关节](joint-2d/distanceJoint2D.md)
+- [2D 固定关节](joint-2d/fixedJoint2D.md)
+- [2D 铰链关节](joint-2d/hingeJoint2D.md)
+- [2D 鼠标关节](joint-2d/mouseJoint2D.md)
+- [2D 相对关节](joint-2d/relativeJoint2D.md)
+- [2D 滑动关节](joint-2d/sliderJoint2D.md)
+- [2D 弹簧关节](joint-2d/springJoint2D.md)
+- [2D 车轮关节](joint-2d/wheelJoint2D.md)

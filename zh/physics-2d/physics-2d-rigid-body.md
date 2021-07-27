@@ -10,14 +10,22 @@
 :---|:---
 **Group** | 分组
 **EnabledContactListener** | 刚体的碰撞监听
-**Bullet**  |  这个刚体是否是一个快速移动的刚体，并且需要禁止穿过其他快速移动的刚体
+**Bullet**  |  这个刚体是否是一个快速移动的刚体，并且需要禁止穿过其他快速移动的刚体。此选项只关注于 动态刚体。
+**Type** | 刚体类型
 **AllowSleep**  |  是否允许物理系统自动休眠，默认为 true
 **GravityScale**  |  缩放应用在此刚体上的重力值
+**LinearDamping**  |  线性阻尼，用于衰减线性速度，值越大，衰减越快
 **AngularDamping**  |  角阻尼，用于减小物体的旋转速率
 **LinearVelocity**  |  刚体在世界坐标下的线性速度
 **AngularVelocity**  |  刚体的角速度体类型
 **FixedRotation**  |  是否禁止此刚体进行旋转
 **AwakeOnLoad**  |  是否在初始化时唤醒此刚体
+
+>**注意：** 应该尽量少的使用 `Bullet` 选项，因为它会增加程序处理时间。
+
+更多的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases) 中的范例。
+
+刚体组件接口请参考 [RigidBody2D API](https://docs.cocos.com/creator/3.2/api/zh/classes/physics2d.rigidbody2d.html)
 
 ## 刚体属性
 
@@ -47,6 +55,8 @@ const damping = rigidbody.linearDamping;
 // 设置移动速度衰减系数
 rigidbody.linearDamping = damping;
 ```
+
+>**注意：** 衰减系数可以大于 1，但是当衰减系数比较大的时候，衰减的效果会变得比较敏感。
 
 如果要获取刚体上某个点的移动速度，可以通过  `getLinearVelocityFromWorldPoint` 来获取。比如一个盒子旋转着往前飞，碰到了墙，这时候可能会希望获取盒子在发生碰撞的点的速度。
 

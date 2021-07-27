@@ -1,10 +1,15 @@
 # 2D 物理系统
 
-物理系统隐藏了大部分物理模块（Box2D 和 Builtin 模块）实现细节	（比如创建刚体，同步刚体信息到节点中等）。
+物理系统隐藏了大部分物理模块（Box2D 和 Builtin 模块）实现细节（比如创建刚体，同步刚体信息到节点中等）。
 
 开发者可以通过物理系统访问一些物理模块常用的功能，比如点击测试、射线测试、设置测试信息等。
 
 ## 物理系统相关设置
+
+### 通过物理配置面板
+
+可以通过面板进行物理系统的默认配置和碰撞矩阵，详情可以参考- [物理系统配置](.././physics/physics-configs.md)
+>**注意：** 目前通过面板配置的默认物理系统参数，2D/3D 共用一个配置。
 
 ### 开启物理系统
 
@@ -28,8 +33,9 @@ PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb |
     EPhysics2DDrawFlags.Shape;
 ```
 
-设置绘制标志位为 **EPhysics2DDrawFlags.None**，即可以关闭绘制。
 > **注意**：场景内必须要有一个节点下挂载着 `cc.RigidBody2D` 和 `Collider2D`。否则进行绘制物理调试信息会报错。
+
+设置绘制标志位为 **EPhysics2DDrawFlags.None**，即可以关闭绘制。
 
 ```ts
 PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;
