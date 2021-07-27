@@ -6,7 +6,7 @@
 
 ## 注册方式
 
-注册资源的方式如下：
+在 package.json 里的 contributions 注册 asset-db 数据: 
 
 ```json5
 /// package.json
