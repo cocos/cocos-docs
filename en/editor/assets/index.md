@@ -88,7 +88,9 @@ The search function can limit the search type and specify the search field， bo
 - **Specify search fields**: the search name is not case sensitive and includes the following search types:
 
     1. **search name or UUID**, support searching extension name
-    ![search-name](img/search-name.png)
+
+        ![search-name](img/search-name.png)
+
     2. **Search UUID**
     3. **Search URL**, start with `db://` protocol
     4. **Search for the use of UUID**, one uuid be used in other asset, for example:
@@ -132,10 +134,12 @@ Also for specific asset types, double-clicking on an asset allows you to enter t
 
 - By default, TypeScript component templates that follow the engine version are provided in the engine repository directory `./editor/assets/default_file_content/ts`.
 - Also provide follow the custom of Project TypeScript component templates, extend the way for the Project disk path (`Editor.Project.path`) `.creator/asset-template/typescript/MyComponent`,  This brings up a secondary menu `Create/TypeScript/MyComponent` in the right click menu. 
-![custom-typescript](img/custom-typescript.png)
+
+  ![custom-typescript](img/custom-typescript.png)
 
 - Creating a TypeScript asset with an initial name of `NewComponent`, and with the final name will generate a valid `className` of the TypeScript asset. 
 - Creating a TypeScript asset, there are a few predefined variables provided, it would meet some project management requirements.
+
   ```
   /**
    * Predefined variables
