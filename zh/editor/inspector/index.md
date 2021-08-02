@@ -32,6 +32,7 @@
 点击节点名称下方的 `Node` 可以将节点的属性折叠或展开。`Node` 右侧有帮助文档和节点设置按钮：
 - 帮助文档按钮可以跳转到节点相关的官方文档
 - 节点设置按钮可以重置节点属性、复制/粘贴节点的值，以及分别重置节点的 `Position`/`Rotation`/`Scale` 属性。
+- 复制/粘贴节点的世界坐标，包括 `worldPosition`/`worldRotation`/`worldScale` 属性。
 
     ![node-menu](index/node-menu.png)
 
