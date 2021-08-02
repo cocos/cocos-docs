@@ -68,7 +68,7 @@ The transform snapping feature can be used to manipulate nodes in a set step siz
 1. Press and hold the <kdb>Ctrl</kdb> key while using transform tools to trigger the transform snapping feature.
 2. In the transform snapping configuration panel, use the button to enable the automatic snapping feature of corresponding transform tools. See below for details.
 
-Click on the fifth **Transform adsorption configuration** button in the toolbar in the upper left corner of the editor's main window:
+Click on the fifth **Transform snapping configuration** button in the toolbar in the upper left corner of the editor's main window:
 
 ![transform snap config](images/transform-snap-config.png)
 

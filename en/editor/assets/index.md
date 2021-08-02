@@ -138,8 +138,6 @@ Also for specific asset types, double-clicking on an asset allows you to enter t
 
 Select the asset to rename, then right-click and select **Rename** to change the asset name, or use the shortcut keys **Enter** or **F2**. Click elsewhere in the panel or press the shortcut **Esc** to cancel the renaming.
 
-Rename TypeScript asset would not modify its exist `className`.
-
 ### Exporting asset package
 
 Select the asset to be exported and right-click on it, then select **Export Asset Package**. The **Export Asset** panel will automatically list the currently selected asset with its dependencies. If you don't need to export related dependent assets, uncheck **Include Dependency** in the lower left corner of the **Export Assets** panel.

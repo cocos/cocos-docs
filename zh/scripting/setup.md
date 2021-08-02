@@ -24,10 +24,10 @@ const { ccclass, property } = _decorator;
  * 
  * Name = SayHello
  * DateTime = Thu Jul 29 2021 15:19:02 GMT+0800 (China Standard Time)
- * Author = <%Author%>
+ * Author = <%Author%> //若未登录则该字段为空
  * FileBasename = say-hello.ts
  * FileBasenameNoExtension = say-hello
- * URL = db://assets/NewComponent.ts
+ * URL = db://assets/say-hello.ts
  *
  */
  
@@ -73,37 +73,6 @@ export class SayHello extends Component {
 
 在代码编写之前，请先阅读 [脚本基础](basic.md) 了解更多关于脚本的内容。
 
-## 自定义脚本模板
-
-从 v3.3 开始，Creator 支持在项目中自定义脚本模板。操作步骤如下：
-
-1. 在项目目录下新建 `.creator/asset-template/typescript` 目录，并在 `typescript` 目录下添加包含了自定义脚本模板内容的文本文件，该文件可以是任意格式或者不带格式的文件。
-
-    ![custom component file](setup/custom-file.png)
-
-    自定义脚本模板的内容可参考上文中的基础组件脚本，其中包含了默认给定的几个预设参数，用于满足部分项目管理的需求：
-
-    ```ts
-    /**
-    * Predefined variables
-    * Name = <%Name%>
-    * DateTime = <%DateTime%>
-    * Author = <%Author%>
-    * FileBasename = <%FileBasename%>
-    * FileBasenameNoExtension = <%FileBasenameNoExtension%>
-    * URL = <%URL%>
-    *
-    */
-    ```
-
-2. 然后回到编辑器，可以看到在 **资源管理器** 创建资源菜单的 **TypeScript** 下出现了二级菜单，其中包含了原先编辑器自带的组件脚本模板（`NewComponent`），以及在上个步骤中添加的三个自定义脚本模板：
-
-    ![add-custom-comp](setup/add-custom-comp.png)
-
-    创建自定义脚本时，编辑器会读取自定义脚本模板中的文本内容，并将其处理为 TypeScript 脚本：
-
-    ![add-custom-comp](setup/add-custom-comp.gif)
-
 ## 添加脚本到场景节点中
 
 将脚本添加到场景节点中，实际上就是为这个节点添加一个脚本组件。在 **层级管理器** 中选中希望添加脚本的场景节点，此时该节点的属性会显示在 **属性检查器** 中，添加脚本组件包括以下两种方式：
@@ -137,3 +106,34 @@ export class Hello extends Component {}
 保存脚本后返回编辑器，可以看到 **属性检查器** 中的脚本组件名变成了 **Hello**，但是脚本文件名还是原来的 `say-hello`：
 
 ![change-class name](setup/change-classname.png)
+
+## 自定义脚本模板
+
+从 v3.3 开始，Creator 支持在项目中自定义脚本模板。操作步骤如下：
+
+1. 在项目目录下新建 `.creator/asset-template/typescript` 目录，并在 `typescript` 目录下添加包含了自定义脚本模板内容的文本文件，该文件可以是任意格式或者不带格式的文件。
+
+    ![custom component file](setup/custom-file.png)
+
+    自定义脚本模板的内容可参考上文中的基础组件脚本，其中包含了默认给定的几个预设参数，用于满足部分项目管理的需求：
+
+    ```ts
+    /**
+    * Predefined variables
+    * Name = <%Name%>
+    * DateTime = <%DateTime%>
+    * Author = <%Author%>
+    * FileBasename = <%FileBasename%>
+    * FileBasenameNoExtension = <%FileBasenameNoExtension%>
+    * URL = <%URL%>
+    *
+    */
+    ```
+
+2. 然后回到编辑器，可以看到在 **资源管理器** 创建资源菜单的 **TypeScript** 下出现了二级菜单，其中包含了原先编辑器自带的组件脚本模板（`NewComponent`），以及在上个步骤中添加的三个自定义脚本模板：
+
+    ![add-custom-comp](setup/add-custom-comp.png)
+
+    创建自定义脚本时，编辑器会读取自定义脚本模板中的文本内容，并将其处理为 TypeScript 脚本：
+
+    ![add-custom-comp](setup/add-custom-comp.gif)

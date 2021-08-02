@@ -24,10 +24,10 @@ const { ccclass, property } = _decorator;
  * 
  * Name = SayHello
  * DateTime = Thu Jul 29 2021 15:19:02 GMT+0800 (China Standard Time)
- * Author = <%Author%>
+ * Author = <%Author%>  // If not logged in, the entry is empty.
  * FileBasename = say-hello.ts
  * FileBasenameNoExtension = say-hello
- * URL = db://assets/NewComponent.ts
+ * URL = db://assets/say-hello.ts
  *
  */
  
@@ -73,37 +73,6 @@ By double-clicking the script resource, the script editor directly opens to allo
 
 Before writing code, please read [Basics of Scripting](basic.md) documentation to learn more about scripts.
 
-## Custom Script Template
-
-Starting from v3.3, Cocos supports custom script templates in the project. The operation steps are as follows:
-
-1. Create a new `.creator/asset-template/typescript` directory in the project directory and add a text file containing the content of the custom script template in the `typescript` directory, which can be in any format or without format.
-
-    ![custom component file](setup/custom-file.png)
-
-    The content of the custom script template can refer to the base component script above, which contains several predefined variables given by default for some of the project management needs.
-
-    ```ts
-    /**
-    * Predefined variables
-    * Name = <%Name%>
-    * DateTime = <%DateTime%>
-    * Author = <%Author%>
-    * FileBasename = <%FileBasename%>
-    * FileBasenameNoExtension = <%FileBasenameNoExtension%>
-    * URL = <%URL%>
-    *
-    */
-    ```
-
-2. Then, returning to the editor, notice that a secondary menu appears under **TypeScript** in the menu for creating assets in the **Assets** panel, containing the component script template that comes with the editor, as well as the three custom script templates added in the previous step.
-
-    ![add-custom-comp](setup/add-custom-comp.png)
-
-    When creating a custom script, the editor will read the text content in the custom script template and process it as an TypeScript script.
-
-    ![add-custom-comp](setup/add-custom-comp.gif)
-
 ## Add a script to a scene node
 
 Adding a script to a scene node is actually adding a script component to that node. Select the scene node to which you wish to add a script in the **Hierarchy** panel, at which point the properties of that node will be displayed in the **Inspector** panel. Adding a script component includes the following two ways:
@@ -137,3 +106,34 @@ export class Hello extends Component {}
 After saving the script and returning to the editor, notice that the script component name in the **Inspector** panel has changed to **Hello**, but the script file name is still the original name, `say-hello`:
 
 ![change-classname](setup/change-classname.png)
+
+## Custom script template
+
+Starting from v3.3, Creator supports custom script templates in the project. The operation steps are as follows:
+
+1. Create a new `.creator/asset-template/typescript` directory in the project directory and add a text file containing the content of the custom script template in the `typescript` directory, which can be in any format or without format.
+
+    ![custom component file](setup/custom-file.png)
+
+    The content of the custom script template can refer to the base component script above, which contains several predefined variables given by default for some of the project management needs.
+
+    ```ts
+    /**
+    * Predefined variables
+    * Name = <%Name%>
+    * DateTime = <%DateTime%>
+    * Author = <%Author%>
+    * FileBasename = <%FileBasename%>
+    * FileBasenameNoExtension = <%FileBasenameNoExtension%>
+    * URL = <%URL%>
+    *
+    */
+    ```
+
+2. Then, returning to the editor, notice that a secondary menu appears under **TypeScript** in the menu for creating assets in the **Assets** panel, containing the component script template (`NewComponent`) that comes with the editor, as well as the three custom script templates added in the previous step.
+
+    ![add-custom-comp](setup/add-custom-comp.png)
+
+    When creating a custom script, the editor will read the text content in the custom script template and process it as an TypeScript script.
+
+    ![add-custom-comp](setup/add-custom-comp.gif)
