@@ -41,7 +41,7 @@ TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列
 3. 在 **资源管理器** 中新建一个 TypeScript 脚本，编写组件脚本。脚本代码如下：
 
     ```ts
-    import { _decorator, Component, Node, TiledLayer, loader, Prefab, v2, instantiate, Vec3, SystemEventType, EventTouch } from 'cc';
+    import { _decorator, Component, Node, TiledLayer, loader, Prefab, v2, instantiate, Vec3, EventTouch } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass('ShieldNode')
@@ -64,7 +64,7 @@ TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列
                 const shieldNode = instantiate(prefab);
                 shieldNode.setPosition(posArr[i].x, posArr[i].y);
                 this.tiledLayer!.addUserNode(shieldNode);
-                shieldNode.on(SystemEventType.TOUCH_MOVE, (event:EventTouch) => {
+                shieldNode.on(Node.EventType.TOUCH_MOVE, (event:EventTouch) => {
                     const deltaMove = event.getDelta();
                     shieldNode.getPosition(tmpP);
                     tmpP.x += deltaMove.x;

@@ -41,7 +41,7 @@ The following is an example of how the TiledLayer and the node can occlude each 
 3. Create a new TypeScript script in **Assets** panel to write component scripts. The script code is as follows:
 
     ```ts
-    import { _decorator, Component, Node, TiledLayer, loader, Prefab, v2, instantiate, Vec3, SystemEventType, EventTouch } from 'cc';
+    import { _decorator, Component, Node, TiledLayer, loader, Prefab, v2, instantiate, Vec3, EventTouch } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass('ShieldNode')
@@ -64,7 +64,7 @@ The following is an example of how the TiledLayer and the node can occlude each 
                 const shieldNode = instantiate(prefab);
                 shieldNode.setPosition(posArr[i].x, posArr[i].y);
                 this.tiledLayer!.addUserNode(shieldNode);
-                shieldNode.on(SystemEventType.TOUCH_MOVE, (event:EventTouch) => {
+                shieldNode.on(Node.EventType.TOUCH_MOVE, (event:EventTouch) => {
                     const deltaMove = event.getDelta();
                     shieldNode.getPosition(tmpP);
                     tmpP.x += deltaMove.x;
