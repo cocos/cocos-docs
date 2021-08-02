@@ -57,7 +57,7 @@
         - [Publish to ByteDance Mini Games](editor/publish/publish-bytedance-mini-game.md)
         - [Publish to QTT Mini Games](editor/publish/publish-qtt.md)
         - [Publish to Cocos Play](editor/publish/publish-cocos-play.md)
-        - [Publish to Huawei Quick Games](editor/publish/publish-huawei-mini-game.md)
+        - [Publish to Huawei Quick Games](editor/publish/publish-huawei-quick-game.md)
         - [Publish to OPPO Mini Games](editor/publish/publish-oppo-mini-game.md)
         - [Publish to vivo Mini Games](editor/publish/publish-vivo-mini-game.md)
         - [Publish to Xiaomi Quick Games](editor/publish/publish-xiaomi-quick-game.md)
