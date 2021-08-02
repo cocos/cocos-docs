@@ -15,7 +15,7 @@
 
 AudioSource 组件在 v3.3.0 支持了事件监听接口，具体使用范例如下：
 
-```javascript
+```typescript
 @ccclass('AudioDemo')
 export class AudioDemo extends Component {
 

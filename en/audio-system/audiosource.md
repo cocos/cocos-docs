@@ -19,7 +19,7 @@
 
 Cocos Creator supports registering event callbacks on AudioSource components, with the following usage examples:
 
-```javascript
+```typescript
 @ccclass('AudioDemo')
 export class AudioDemo extends Component {
 
