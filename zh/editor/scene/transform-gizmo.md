@@ -51,33 +51,36 @@
 
 ![rect tool](images/rect-tool.png)
 
-矩形变换工具由四个顶点控制点、四个边控制点、一个中心控制点组成。
+矩形变换工具适用于 UI 节点，由四个顶点控制点、四个边控制点、一个中心控制点组成。
 
 ![rect gizmo](images/rect-gizmo.png)
 
 矩形变换工具激活时：
 - 拖拽控制手柄的任一顶点控制点，可以在保持对角顶点位置不变的情况下，同时修改 UI 节点尺寸中的 width 和 height 属性。
-- 拖拽控制手柄的任一边控制点，可以在保持对边位置不变的情况下，修改UI节点尺寸中的 width 或 height 属性。
+- 拖拽控制手柄的任一边控制点，可以在保持对边位置不变的情况下，修改 UI 节点尺寸中的 width 或 height 属性。
 
 在 UI 元素的排版中，经常会需要使用 **矩形变换工具** 直接精确控制节点四条边的位置和长度。而对于必须保持原始图片宽高比的图像元素，通常不会使用矩形变换工具来调整尺寸。
 
 ## 变换吸附
-使用变换工具操作物体时，可以按住 `Ctrl` 键让变换工具按设定的步长来变化数值。
+
+变换吸附功能可用于在 **场景编辑器** 中使用移动/旋转/缩放变换工具时按照 **设定的步长** 对节点进行操作。可通过以下两种方式触发变换吸附功能：
+
+1. 在使用变换工具的同时按住 <kdb>Ctrl</kdb> 键即可触发变换吸附功能。
+2. 在变换吸附配置面板通过按钮开启对应变换工具的自动吸附功能，详情请参考下文介绍。
+
+点击编辑器主窗口左上角工具栏中的第五个 **变换吸附配置** 按钮：
 
 ![transform snap config](images/transform-snap-config.png)
 
-点击主窗口左上角工具栏的变换吸附配置按钮，即可打开变换吸附配置界面。
+即可打开变换吸附配置面板，用于设定相应的步长，以及开启自动吸附功能：
 
 ![transform snap config panel](images/transform-snap-config-panel.png)
 
-可以在这个界面中设置各种变换工具的步长，同时也可以通过按钮来打开自动吸附功能。
-
-| 图标 | 描述 |
+| 按钮 | 功能说明 |
 | :-- | :-- |
-|  ![position snap](images/position-snap.png)| 如果打开，移动时以设定的步长来增长 |
-|  ![rotation snap](images/rotation-snap.png)| 如果打开，旋转时以设定的步长来增长 |
-|  ![scale snap](images/scale-snap.png)| 如果打开，缩放时以设定的步长来增长 |
-
+| ![position snap](images/position-snap.png)  | 用于设置是否在使用 **移动变换工具** 时开启自动吸附功能。X、Y、Z 分别用于设置 X、Y、Z 轴上的移动步长，默认 X、Y、Z 统一使用 X 的值，也可以点击 ![position snap](images/position-snap1.png) 按钮分别设置各个轴的步长。   |
+| ![rotation snap](images/rotation-snap.png)  | 用于设置是否在使用 **旋转变换工具** 时开启自动吸附功能。右侧的方框用于设置旋转步长，默认为 1。 |
+| ![scale snap](images/scale-snap.png)        | 用于设置是否在使用 **缩放变换工具** 时开启自动吸附功能。右侧的方框用于设置缩放步长，默认为 1。 |
 
 ## 变换工具基准点设置
 
