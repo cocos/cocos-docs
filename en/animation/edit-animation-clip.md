@@ -1,6 +1,6 @@
 # Editing animation clips
 
-Once you have attached an animation clip on the animation component of a node, click **Enter animation edit mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter animation edit mode and add keyframe data to the animation clip to animate the node. Please [get familiar with the animation editor](animation-editor.md) before editing animation clips.
+Once you have attached an animation clip on the animation component of a node, click **Enter animation edit mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter animation edit mode and add keyframe data to the animation clip to animate the node. Please [get familiar with the Animation panel](animation-editor.md) before editing animation clips.
 
 An animation clip may contain multiple nodes (nodes and their children), and multiple animation properties can be attached on each node. By moving, rotating or scaling the nodes, keyframes are added to the animation property corresponding to the currently selected node. All the keyframes added to the animation property are displayed in the corresponding animation property track as a list pattern of linear trajectories, which we can call animation curves.
 
