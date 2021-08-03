@@ -274,7 +274,7 @@
 ## 进阶使用
 
 - [扩展编辑器](editor/extension/readme.md)
-    - [生成新的扩展](editor/extension/create-extension.md)
+    - [创建扩展](editor/extension/create-extension.md)
     - [第一个扩展包](editor/extension/first.md)
     - [第一个面板](editor/extension/first-panel.md)
     - [第一次数据交互](editor/extension/first-communication.md)
