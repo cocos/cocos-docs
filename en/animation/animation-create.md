@@ -1,61 +1,61 @@
-# 创建动画组件和动画剪辑
+# Creating Animation Components and Animation Clips
 
-在使用 **动画编辑器** 制作动画之前需要先在 **层级管理器** 或者 **场景编辑器** 中选择要添加动画的节点，然后添加 **动画组件**，并在组件上挂载 **动画剪辑（Animation Clip）**，便可以编辑动画数据，编辑后的动画数据会保存在当前的动画剪辑中。没有挂载 Clip 的节点是无法编辑动画数据的。
+Before using the **Animation** panel to create animation, you need to select the node you want to add animation to in the **Hierarchy** panel or the **Scene** panel, then add **Animation Component** and mount **Animation Clip** on the component to edit the animation data, and the edited animation data will be saved in the current animation clip. The animation data of the nodes that do not have a Clip mounted cannot be edited.
 
-如果当前选中节点没有动画组件，则 **动画编辑器** 的界面上会显示 **添加 Animation 组件** 按钮，点击即可在 **属性检查器** 上添加 **动画组件**。
+If the currently selected node does not have an animation component, the **Add Animation Component** button will be displayed on the interface of the **Animation** panel, click it to add **Animation Component** on the **Inspector** panel.
 
 ![add component](./animation-create/add-component.png)
 
-继续点击 **动画编辑器** 中的 **新建 AnimationClip 文件** 按钮并命名（例如 `animation`）：
+Go ahead and click the **Create a new AnimationClip file** button in the **Animation** panel and name it (e.g. `animation`).
 
 ![add clip](./animation-create/add-clip.png)
 
-便可在 **资源管理器** 中自动创建一个动画剪辑（`animation.anim`）并挂载到 Animation 组件的 `DefaultClip` 属性上：
+An animation clip (`animation.anim`) is automatically created in the **Assets** panel and mounted to the `DefaultClip` property of the Animation component:
 
 ![mount clip](./animation-create/mount-clip.png)
 
-以上简单介绍了如何在 **动画编辑器** 中创建动画组件和动画剪辑，更多关于动画组件的创建和属性请参考下文 **动画组件参考** 部分的内容。更多创建动画剪辑的方法请参考文末部分的内容。
+The above briefly describes how to create animation components and animation clips in the **Animation** panel, for more information about the creation and properties of animation components, please refer to the **Animation Component Reference** section below. For more information on how to create animation clips, please refer to the end of this article.
 
-然后继续点击 **进入动画编辑模式** 即可开始 [编辑动画剪辑](edit-animation-clip.md)。新建的空的动画剪辑在动画编辑器中显示如下：
+Then go ahead and click **Enter animation editing mode** to start [edit-animation-clip](edit-animation-clip.md). The newly created empty animation clip is displayed in the animation editor as follows:
 
 ![empty clip](./animation-create/empty-clip.png)
 
-## 动画组件参考
+## Animation Component Reference
 
-添加动画组件除了上述方法，还可以
+There are other ways to add the animation component besides the above methods.
 
-除了在 **动画编辑器** 中添加动画组件，还可以在 **层级管理器** 中选中需要添加动画的节点，然后在 **属性检查器** 中选择 **添加组件 -> Animation -> Animation** 来添加一个动画组件到节点上。
+In addition to adding an animation component in the **Animation** panel, you can also add an animation component to a node by selecting the node you want to add an animation to in the **Hierarchy** panel and then selecting **Add Component -> Animation -> Animation** in the **Inspector** panel.
 
 ![animation component](./animation-create/animation-component.png)
 
-| 属性 | 功能说明 |
+| Property | Description |
 | :-- | :------ |
-| Clips        | 添加的动画剪辑列表，默认为空，在这里添加的 AnimationClip 可以直接在 **动画编辑器** 中进行编辑 |
-| DefaultClip | 默认的动画剪辑，若该项在挂载了动画剪辑的同时，还勾选了下方的 **PlayOnLoad** 属性，那么动画便会在加载完成后自动播放 Default Clip 的内容 |
-| PlayOnLoad | 布尔类型，若勾选该项则在动画加载完成后会自动播放 Default Clip 的内容 |
+| Clips | The list of added animation clips, default is empty, the AnimationClip added here can be edited directly in the **Animation** panel. |
+| DefaultClip | The default animation clip. If this item is mounted with the **PlayOnLoad** property checked, then the animation will automatically play the content of the Default Clip when it is loaded.
+| PlayOnLoad | boolean, if checked, the content of the Default Clip will be played automatically after the animation is loaded.
 
-如果一个动画需要包含多个节点，那么一般会新建一个节点作为动画的 **根节点**，再将动画组件挂载到根节点上，则这个根节点下的其他子节点都会自动进入到这个动画剪辑中，并显示在 **动画编辑器** 的 **节点列表** 区域。详情可参考 [熟悉动画编辑器](animation-editor.md)。
+If an animation needs to contain multiple nodes, then usually we create a node as the **root node** of the animation, and then the animation component will be mounted to the root node, then all the other children nodes under this root node will be automatically entered into this animation clip, and displayed in the **node list** area of the **Animation** panel. For more details, please refer to [Get Familiar with the Animation Panel](animation-editor.md).
 
-Animation 组件也提供了一些常用的动画控制函数，若要使用脚本控制动画，请参考 [动画组件](animation-component.md)。
+The Animation component also provides some common animation control functions. To control animations using scripts, please refer to [Animation Component](animation-component.md).
 
-## 挂载新动画剪辑
+## Mounting new animation clips
 
-一个 Animation 组件可以挂载多份动画剪辑，若需要额外在已有动画剪辑的对象上创建并挂载新的动画剪辑，有以下几种方式：
+An Animation component can have multiple animation clips mounted on it. If you need to additionally create and mount a new animation clip on the object of an existing animation clip, there are several ways to do so:
 
-1. 在 **资源管理器** 中点击左上方的 **+** 按钮，或者右键点击空白区域，然后选择 **Animation Clip**，这时候会在 **资源管理器** 中生成一个动画剪辑文件（默认名为 `animation`）。
+1. Click the **+** button at the top left of the **Assets** panel, or right-click on a blank area and select **Animation Clip**, which will generate an animation clip file (default name `animation`) in the **Assets** panel.
 
-    然后在 **层级管理器** 中选中对应节点，在 **属性检查器** 中找到 Animation 组件（`cc.Animation`），修改 `Clips` 属性的数值。例如原本只挂载了一个 clip 文件，现在想要再添加一个，那么就将原本的 **1** 改成 **2**。
+    Then select the corresponding node in the **Hierarchy** panel, find the Animation component (`cc.Animation`) in the **Inspector** panel, and change the value of the `Clips` property. For example, if you had only one clip file mounted, and now you want to add another one, change the original **1** to **2**.
 
     ![add-clip](./animation-create/add-new-clip.png)
 
-    最后将刚刚在 **资源管理器** 中创建的动画剪辑，拖拽到上图中的 `cc.AnimationClip` 选择框中即可。
+    Finally, drag the animation clip you just created in the **Assets** panel to the `cc.AnimationClip` selection box in the above image.
 
-2. 在 **属性检查器** 中找到 Animation 组件（`cc.Animation`），修改 `Clips` 属性的数值。
+2. Find the Animation component (`cc.Animation`) in the **Inspector** panel and change the value of the `Clips` property.
 
-    然后点击新出现的空的 `cc.AnimationClip` 选择框后面的查找按钮，在弹出的搜索窗口中点击右上方的 **创建** 按钮，即可自动在 **资源管理器** 中创建动画剪辑并挂载到 `cc.AnimationClip` 选择框中。
+    Then click the Find button behind the new empty `cc.AnimationClip` selection box, and click the **Create** button at the top right of the pop-up search window to automatically create an animation clip in the **Assets** panel and mount it to the `cc.AnimationClip` selection box.
 
     ![add-clip](./animation-create/add-new-clip2.png)
 
-3. 通过脚本动态创建动画剪辑，详情请参考 [使用动画曲线](use-animation-curve.md)。
+3. Create the animation clip dynamically by script, please refer to the [use-animation-curve](use-animation-curve.md) documentation for details.
 
-可以在 **动画编辑器** 左上角的 **Clips** 下拉列表切换需要编辑的动画剪辑。
+You can switch the animation clips you want to edit from the **Clips** drop-down list in the top left corner of **Animation** panel.

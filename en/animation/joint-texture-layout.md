@@ -18,7 +18,7 @@ Here we use the **instanced-skinning** scenario from the example project [show-c
 
 The following figure shows a sample scenario with multiple instances from the same model, playing completely different animations at the same time. As you can see, the current scene, plus the UI, has a total Drawcall of 60 and an instance count of 0. This state will be used as the basis for later changes to compare.
 
-[Baseline](./joint-texture-layout/instancing_baseline.gif)
+![Baseline](./joint-texture-layout/instancing_baseline.gif)
 
 To create a model with instancing version turned on, the following steps are required:
 

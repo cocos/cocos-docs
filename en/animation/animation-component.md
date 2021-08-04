@@ -63,7 +63,7 @@ The animation component only provides some simple control functions, which are m
 
 ## Frame Events
 
-The animation editor supports visual editing of [event frames](animation-event.md), or you can add frame events directly to the script.
+The **Animation** panel supports visual editing of [event frames](animation-event.md), or you can add frame events directly to the script.
 
 The ``events`` of ``AnimationClip` contain all the frame events of this animation, each with the following properties:
 
@@ -124,7 +124,7 @@ class MyScript extends Component {
 
 ## Animation Events
 
-In addition to the callbacks provided by the frame events in the **Animation Editor**, the animation system also provides a way to call back animation events. The currently supported callback events include:
+In addition to the callbacks provided by the frame events in the **Animation** panel, the animation system also provides a way to call back animation events. The currently supported callback events include:
 
 - `play`: triggered when playback starts
 - `stop`: triggered when playback is stopped

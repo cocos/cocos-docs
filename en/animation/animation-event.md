@@ -6,7 +6,7 @@ To add animation events via script, please refer to [Frame Event](animation-comp
 
 ## Adding event frames
 
-Adding event frames in the **Animation Editor** consists of two ways:
+Adding event frames in the **Animation** panel consists of two ways:
 
 1. Drag the time control line to the position where you want to add the event frame, and then click ![add event](animation-editor/menu_event.png) button in the **Animation Timeline** to add an event frame above the **Animation Timeline**.
 

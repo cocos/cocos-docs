@@ -1,6 +1,6 @@
 # Editing Animation Easing Curve
 
-After creating a basic animation clip, sometimes you need to implement an easing effect like EaseInOut between two keyframes, so how to do it in the **Animation Editor**?
+After creating a basic animation clip, sometimes you need to implement an easing effect like EaseInOut between two keyframes, so how to do it in the **Animation** panel?
 
 First add an animation property and create two unequal keyframes on the animation property track. For example, create two keyframes on the animation property `position`, from `(0, 0, 0)` to `(100, 100, 100)`, then a blue connecting line will appear between the two keyframes, double click the connecting line to open the curve editor, the default settings of the panel are as follows:
 

@@ -1,6 +1,6 @@
 # Editing animation clips
 
-Once you have attached an animation clip on the animation component of a node, click **Enter animation edit mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter animation edit mode and add keyframe data to the animation clip to animate the node. Please [get familiar with the animation editor](animation-editor.md) before editing animation clips.
+Once you have attached an animation clip on the animation component of a node, click **Enter animation edit mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter animation edit mode and add keyframe data to the animation clip to animate the node. Please [get familiar with the **Animation** panel](animation-editor.md) before editing animation clips.
 
 An animation clip may contain multiple nodes (nodes and their children), and multiple animation properties can be attached on each node. By moving, rotating or scaling the nodes, keyframes are added to the animation property corresponding to the currently selected node. All the keyframes added to the animation property are displayed in the corresponding animation property track as a list pattern of linear trajectories, which we can call animation curves.
 
@@ -42,7 +42,7 @@ Next, let's take a look at the process of creating a Sprite animation as an exam
 
 ## Common keyframe operations
 
-In the process of editing animation clips, there are often some operations on keyframes, here is a collection of various operations on keyframes in the animation editor, understanding these methods and techniques can be faster and easier to edit animation clips.
+In the process of editing animation clips, there are often some operations on keyframes, here is a collection of various operations on keyframes in the **Animation** panel, understanding these methods and techniques can be faster and easier to edit animation clips.
 
 ### Selected keyframes
 
@@ -130,7 +130,7 @@ Component property tracks (e.g. x, y, z properties under the animation property 
 
 The animation clip defines the position of the animation data by the name of the node, itself ignoring the root node, and the rest of the child nodes find the corresponding data by the relative path index to the root node.
 
-Right-clicking on a node in the **Node List** area of the **Animation Editor** is currently supported to choose between clearing node data, migrating node data, and copying and pasting node data.
+Right-clicking on a node in the **Node List** area of the **Animation** panel is currently supported to choose between clearing node data, migrating node data, and copying and pasting node data.
 
 ![node operation](edit-animation-clip/node-operation.png)
 
@@ -146,7 +146,7 @@ Right-click the node that needs to migrate all animation data, then select **Mig
 
 > **Note**: node data migration will overwrite the data on the original node by default.
 
-Because the animation clip will record all the node path information that participated in the animation data editing, so when the node information changes (e.g. node renaming/deletion/move position), which is not consistent with the original saved in the animation clip, **animation editor** will show it in the node list as a yellow uneditable lost state, and the keyframes are also grayed out as uneditable. In this case, the **Migrate Data** function of the node can be used to migrate the animation data of the missing node to another node.
+Because the animation clip will record all the node path information that participated in the animation data editing, so when the node information changes (e.g. node renaming/deletion/move position), which is not consistent with the original saved in the animation clip, the **Animation** panel will show it in the node list as a yellow uneditable lost state, and the keyframes are also grayed out as uneditable. In this case, the **Migrate Data** function of the node can be used to migrate the animation data of the missing node to another node.
 
 ![change node](edit-animation-clip/change-node.png)
 
@@ -187,7 +187,7 @@ As with nodes, there is a possibility of missing animation properties. For examp
 
 ## Animation clip property settings
 
-The properties that can be set directly on the **Animation Editor** for the current animation clip are: **WrapMode**, **Sample**, **Speed** and **Duration**.
+The properties that can be set directly on the **Animation** panel for the current animation clip are: **WrapMode**, **Sample**, **Speed** and **Duration**.
 
 ![set AnimationClip](edit-animation-clip/set-animation-clip.png)
 

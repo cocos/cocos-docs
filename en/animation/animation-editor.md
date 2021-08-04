@@ -1,12 +1,12 @@
 # Get Familiar with the Animation Editor
 
-The **Animation Editor** panel is used to edit and preview the animation clip of the currently selected node. When editing animation data or related properties, it will take effect immediately after mouse focus leaves.
+The **Animation** panel panel is used to edit and preview the animation clip of the currently selected node. When editing animation data or related properties, it will take effect immediately after mouse focus leaves.
 
-The **Animation Editor** is already included in the default layout of Cocos Creator, or you can open the **Animation Editor** by clicking **Panel -> Animation -> Animation Editor** in the main menu above the editor.
+The **Animation** panel is already included in the default layout of Cocos Creator, or you can open the **Animation** panel by clicking **Panel -> Animation -> Animation Editor** in the main menu above the editor.
 
 ## Panel Introduction
 
-The **Animation Editor** panel can be divided into the following main sections.
+The **Animation** panel panel can be divided into the following main sections.
 
 ![animation-editor](animation-editor/animation-panel.png)
 
@@ -37,7 +37,7 @@ The function buttons in the **Menu toolbar** are, from left to right.
 | ![spacing](animation-editor/menu_spacing_btn.png) | Spacing the selected keyframes at the same time. The selected keyframes will be spaced according to the first frame, using the value in the **Spacing** input box as the spacing size.
 | ![add event](animation-editor/menu_event.png) | Add animation event, click this button to add an animation event above the current timeline | - |
 | ![menu save](animation-editor/menu_save.png) | Save the currently edited animation data. | - |
-| ![menu doc](animation-editor/menu_doc.png) | Click this button to jump to the official manual section on the animation editor | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> |
+| ![menu doc](animation-editor/menu_doc.png) | Click this button to jump to the official manual section on the **Animation** panel | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> |
 | ![shortcuts](./animation-editor/shortcuts.png) | Open the shortcuts panel, which supports custom shortcuts. See the **Shortcuts** section below for details | - |
 | ![exit](animation-editor/menu_exit.png)| Exit animation edit mode | <kbd>Ctrl</kbd> + <kbd>Q</kbd> |
 
@@ -89,7 +89,7 @@ The following three display methods are currently supported:
 
   ![times](animation-editor/times.png)
 
-We generally use the frame rate (Sample) to indicate how many frames a second is to be divided into, which can be adjusted in the **Sample** option at the bottom of the **Animation Editor**. This is affected to a different extent when the scale unit of the timeline is displayed in different ways.
+We generally use the frame rate (Sample) to indicate how many frames a second is to be divided into, which can be adjusted in the **Sample** option at the bottom of the **Animation** panel. This is affected to a different extent when the scale unit of the timeline is displayed in different ways.
 
 When the scale unit is set to **Frames**, it is in frames and is not affected by the frame rate. <br>
 When set to **Time** or **Time(s)**, the same scale represents a different point in time as the frame rate changes, and the conversion between the two is calculated as follows:
@@ -103,7 +103,7 @@ For example, if the frame rate is set to 30 and a keyframe is added to the `01-0
 
 #### Changing the animation timeline scale
 
-If the developer feels that the **Animation Editor** display is too small and needs to scale it down so that more keyframes are displayed within the editor, Just simply scroll the mouse wheel in either **Animation Timeline** and **Animation Properties Keyframe Preview** to scale the timeline up or down.
+If the developer feels that the **Animation** panel display is too small and needs to scale it down so that more keyframes are displayed within the editor, Just simply scroll the mouse wheel in either **Animation Timeline** and **Animation Properties Keyframe Preview** to scale the timeline up or down.
 
 ![scale](./animation-editor/scale.gif)
 
@@ -135,11 +135,11 @@ When clicking on a keyframe, it will turn from blue to white and information abo
 
 ### 6. Related properties of the current animation clip
 
-The properties of the current animation clip that can be set directly on the animation editor include: **WrapMode**, **Sample**, **Speed** and **Duration**. For details, please refer to [Animation Clip Properties Settings](edit-animation-clip.md#animation-clip-properties-settings).
+The properties of the current animation clip that can be set directly on the **Animation** panel include: **WrapMode**, **Sample**, **Speed** and **Duration**. For details, please refer to [Animation Clip Properties Settings](edit-animation-clip.md#animation-clip-properties-settings).
 
-## Adjusting the animation editor layout
+## Adjusting the Layout of the Animation Panel
 
-The dividers between the node list and the timeline, and between the property list and the timeline are available for dragging and dropping to change the layout. By dragging and dropping you can freely adjust the **Animation Editor** to a layout effect suitable for editing.
+The dividers between the node list and the timeline, and between the property list and the timeline are available for dragging and dropping to change the layout. By dragging and dropping you can freely adjust the **Animation** panel to a layout effect suitable for editing.
 
 ![layout](./animation-editor/layout.gif)
 
@@ -157,7 +157,7 @@ Supports customizing the shortcuts of **animation-editor**. Directly click the s
 
 Function | Shortcut | Description
 :--- | :----- | :---
-Enter/exit animation editor | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> | -
+Enter/exit **Animation** panel | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> | -
 Save animation data | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> | -
 Move forward one frame | <kbd>←</kbd> | Ignore current operation if already at frame 0. Move the time control line when the keyframe is not selected; move the keyframe when the keyframe is selected.
 Move back one frame | <kbd>→</kbd> | Move the time control line when the keyframe is not selected; move the keyframe when the keyframe is selected.

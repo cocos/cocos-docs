@@ -36,7 +36,7 @@
 
 - [Animation](editor/animation/index.md)
     - [About Animation](editor/animation/animation.md)
-    - [Familiar with animation editor](editor/animation/animation-editor.md)
+    - [Get Familiar with the Animation Panel](editor/animation/animation-editor.md)
     - [Create Animation components and animation clips](editor/animation/animation-create.md)
     - [Edit Animation Sequence](editor/animation/animation-clip.md)
     - [Creating A Frame Animation](editor/animation/sprite-animation.md)

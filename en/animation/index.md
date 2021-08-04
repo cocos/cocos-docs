@@ -4,11 +4,11 @@ Cocos Creator has a built-in universal animation system for implementing keyfram
 
 ![animation cover](index/main.gif)
 
-> **Note**: the animation editor that comes with Cocos Creator is suitable for creating less complex animations that need to be linked with logic, such as UI animations. If you want to create complex effects, character animations, nested animations, etc., you can consider using Spine, DragonBones or skeletal animation editor for 3D models instead.
+> **Note**: the **Animation** panel that comes with Cocos Creator is suitable for creating less complex animations that need to be linked with logic, such as UI animations. If you want to create complex effects, character animations, nested animations, etc., you can consider using Spine, DragonBones or skeletal animation editor for 3D models instead.
 
 ## Content
 
-- [Animation Clip](animation-clip.md): asset containing animation data, reusable. Animation clips can be produced by the **Animation Editor**, or imported by some external asset that already contains skeletal animation.
+- [Animation Clip](animation-clip.md): asset containing animation data, reusable. Animation clips can be produced by the **Animation** panel, or imported by some external asset that already contains skeletal animation.
 
     - [Animation Editor](animation.md): Learn how to use the Animation Editor and create/modify/generate animation clip assets through the Animation Editor.
         - [Creating Animation Components and Animation Clips](animation-create.md)

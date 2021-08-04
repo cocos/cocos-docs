@@ -6,7 +6,7 @@ Currently Creator supports importing skeletal animation assets produced by exter
 
 ## Animations created inside Creator
 
-New animation clips can be created, edited and previewed directly through the **Animation Editor**, see [Animation Editor](animation.md) for details.
+New animation clips can be created, edited and previewed directly through the **Animation** panel, see [Animation Editor](animation.md) for details.
 
 This can also be done via script, see [Using Animation Curves](use-animation-curve.md) for details.
 
@@ -22,6 +22,6 @@ Externally imported animations include the following:
 
 For more details about skeletal animation settings, etc., please refer to the [Skeletal Animation](skeletal-animation.md) documentation.
 
-> **Note**: skeletal animations imported externally are not supported to be edited in **Animation Editor**, and the nodes are locked, and can only be edited in external art tools.
+> **Note**: skeletal animations imported externally are not supported to be edited in **Animation** panel, and the nodes are locked, and can only be edited in external art tools.
 >
 > ![skeletal animation](animation-clip/skeletal-animation.png)
