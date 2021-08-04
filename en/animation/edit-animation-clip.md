@@ -1,6 +1,6 @@
 # Editing animation clips
 
-Once you have attached an animation clip on the animation component of a node, click **Enter animation edit mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter animation edit mode and add keyframe data to the animation clip to animate the node. Please [get familiar with the **Animation** panel](animation-editor.md) before editing animation clips.
+Once you have attached an animation clip on the animation component of a node, click **Enter animation editing mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter animation editing mode and add keyframe data to the animation clip to animate the node. Please [get familiar with the **Animation** panel](animation-editor.md) before editing animation clips.
 
 An animation clip may contain multiple nodes (nodes and their children), and multiple animation properties can be attached on each node. By moving, rotating or scaling the nodes, keyframes are added to the animation property corresponding to the currently selected node. All the keyframes added to the animation property are displayed in the corresponding animation property track as a list pattern of linear trajectories, which we can call animation curves.
 
@@ -26,7 +26,7 @@ Next, let's take a look at the process of creating a Sprite animation as an exam
 
     Create a Sprite node in the **Hierarchy** panel. Or add a Sprite component to the node by selecting the node and clicking the **Add Component** button in the **Inspector** panel and selecting **2D -> Sprite**.
 
-2. Add the Animation component to the node, attach the Clip file, and enter the animation edit mode. For details, please refer to [Creating Animation Component and Animation Clip](animation-create.md).
+2. Add the Animation component to the node, attach the Clip file, and enter the animation editing mode. For details, please refer to [Creating Animation Component and Animation Clip](animation-create.md).
 
 3. Add the animation property `cc.Sprite.spriteFrame` to the property list
 

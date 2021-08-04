@@ -39,7 +39,7 @@ The function buttons in the **Menu toolbar** are, from left to right.
 | ![menu save](animation-editor/menu_save.png) | Save the currently edited animation data. | - |
 | ![menu doc](animation-editor/menu_doc.png) | Click this button to jump to the official manual section on the **Animation** panel | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> |
 | ![shortcuts](./animation-editor/shortcuts.png) | Open the shortcuts panel, which supports custom shortcuts. See the **Shortcuts** section below for details | - |
-| ![exit](animation-editor/menu_exit.png)| Exit animation edit mode | <kbd>Ctrl</kbd> + <kbd>Q</kbd> |
+| ![exit](animation-editor/menu_exit.png)| Exit animation editing mode | <kbd>Ctrl</kbd> + <kbd>Q</kbd> |
 
 ### 2. Node list
 

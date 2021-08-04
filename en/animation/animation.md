@@ -8,9 +8,9 @@ To edit an **animation clip** using the **Animation** panel, You need to add an 
 
 ## Animation edit mode
 
-The animation data in an animation clip can only be edited in **animation edit mode**. In animation edit mode, nodes cannot be added/deleted/renamed, etc., and property changes that are not recorded within animation keyframes will also be restored after exiting animation edit mode.
+The animation data in an animation clip can only be edited in **animation editing mode**. In animation editing mode, nodes cannot be added/deleted/renamed, etc., and property changes that are not recorded within animation keyframes will also be restored after exiting animation editing mode.
 
-When in animation edit mode, nodes that are not involved in animation data editing are grayed out in the **Hierarchy** panel. When a node is selected in the **Animation** panel, the **Hierarchy** panel will highlight the corresponding node and vice versa.
+When in animation editing mode, nodes that are not involved in animation data editing are grayed out in the **Hierarchy** panel. When a node is selected in the **Animation** panel, the **Hierarchy** panel will highlight the corresponding node and vice versa.
 
 ![select node](./animation/select_node.gif)
 
