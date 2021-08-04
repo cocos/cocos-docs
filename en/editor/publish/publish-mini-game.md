@@ -5,7 +5,7 @@
 - [Publish to ByteDance Mini Games](publish-bytedance-mini-game.md)
 - [Publish to QTT Mini Games](publish-qtt.md)
 - [Publish to Cocos Play](publish-cocos-play.md)
-- [Publish to Huawei Quick Games](publish-huawei-mini-game.md)
+- [Publish to Huawei Quick Games](publish-huawei-quick-game.md)
 - [Publish to OPPO Mini Games](publish-oppo-mini-game.md)
 - [Publish to vivo Mini Games](publish-vivo-mini-game.md)
 - [Publish to Xiaomi Quick Games](publish-xiaomi-quick-game.md)
