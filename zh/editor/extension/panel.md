@@ -58,6 +58,8 @@ interface PanelFlags {
     resizable?: boolean;
     // 是否需要保存，默认 false
     save?: boolean;
+    // 所在窗口是否在最上方显示
+    alwaysOnTop?: boolean;
 }
 
 // panel 的一些尺寸限制
