@@ -1,4 +1,4 @@
-# Get Familiar with the Animation Editor
+# Get Familiar with the Animation Panel
 
 The **Animation** panel panel is used to edit and preview the animation clip of the currently selected node. When editing animation data or related properties, it will take effect immediately after mouse focus leaves.
 

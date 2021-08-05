@@ -1,4 +1,4 @@
-# Editing animation clips
+# Editing Animation Clips
 
 Once you have attached an animation clip on the animation component of a node, click **Enter animation editing mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter animation editing mode and add keyframe data to the animation clip to animate the node. Please [get familiar with the **Animation** panel](animation-editor.md) before editing animation clips.
 

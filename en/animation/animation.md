@@ -1,4 +1,4 @@
-# Animation Editor
+# Animation Panel
 
 Creator supports creating, editing and previewing animation clips directly in the **Animation** panel. In addition to animating the basic properties of nodes, it also supports animating the properties of materials and some components, and it can enrich animation clips by calling the event functions of the [animation event](animation-event.md).
 
@@ -6,7 +6,7 @@ To edit an **animation clip** using the **Animation** panel, You need to add an 
 
 ![animation play](animation/animation-play.gif)
 
-## Animation edit mode
+## Animation editing mode
 
 The animation data in an animation clip can only be edited in **animation editing mode**. In animation editing mode, nodes cannot be added/deleted/renamed, etc., and property changes that are not recorded within animation keyframes will also be restored after exiting animation editing mode.
 
