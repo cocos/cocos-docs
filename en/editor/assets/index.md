@@ -41,7 +41,7 @@ There are two ways to create an asset.
 
 When creating an asset, select the folder where to place the asset in the tree asset list, then the new asset will be created in the currently selected folder directory. If a folder isn't selected, the new asset will be created in the current root directory (`assets`) by default.
 
-For more about assets, please refer to [Asset Manual](../../asset/index.md).
+For additional information about Assets, please refer to the [Asset](../../asset/index.md) documentation.
 
 ### Selecting assets
 
@@ -97,7 +97,7 @@ The search function can limit the search type and specify the search field， bo
 
     3. **Search URL**, starting with the `db://` protocol.
 
-    4. **Find UUID usage**, used to find out which assets the uuid asset is used by. For example:
+    4. **Find UUID usage**, used to find out which assets the UUID asset is used by. For example:
 
         ![search-uuid](img/search-uuid.png)
 

@@ -2,14 +2,14 @@
 
 ## Creating component scripts
 
-In Cocos Creator, scripts are also part of the resources. A script created in the **Assets** panel is a NewComponent by default, which we call a component script. It can be created in two ways:
+In Cocos Creator, scripts are part of assets. A script created in the **Assets** panel is a NewComponent by default, which is called a component script. It can be created in two ways:
 
-- Select the folder in the **Assets** panel where you want to place the component script, then right-click and select **TypeScript**.
+- Select the folder in the **Assets** panel where the component script is to be placed, then right-click and select **TypeScript**.
 - Click the **+** button in the upper left corner of the **Assets** panel directly, and then select **TypeScript**.
 
 ![create-script](setup/create-script.png)
 
-When creating a script, the script name cannot be empty and defaults to `NewComponent`. We name the created component script as `say-hello`, and then a script file named `say-hello` is generated in the **Assets** panel:
+When creating a script, the script name cannot be empty and defaults to `NewComponent`. If the created component script is named as `say-hello`, and then a script file named `say-hello` is generated in the **Assets** panel:
 
 ![ts](setup/ts.png)
 
@@ -69,7 +69,7 @@ When a script is created, its original filename is handled as its `className`, w
 
 Choose a favorite text-editing tool (such as: **Vim**, **Sublime Text**, **Web Storm**, **VSCode**...) for script editing, please setup in the **Preferences -> External Program -> Default Script Editor** option of the editor menu bar.
 
-By double-clicking the script resource, the script editor directly opens to allow for editing. When the script is edited and saved, then returned to the editor, Cocos Creator will automatically detect the changes to the script and compile it quickly.
+By double-clicking the script asset, the script editor directly opens to allow for editing. When the script is edited and saved, then returned to the editor, Cocos Creator will automatically detect the changes to the script and compile it quickly.
 
 Before writing code, please read [Basics of Scripting](basic.md) documentation to learn more about scripts.
 
@@ -109,7 +109,7 @@ After saving the script and returning to the editor, notice that the script comp
 
 ## Custom script template
 
-Starting from v3.3, Creator supports custom script templates in the project. The operation steps are as follows:
+Cocos Creator supports custom script templates in the project. The operation steps are as follows:
 
 1. Create a new `.creator/asset-template/typescript` directory in the project directory and add a text file containing the content of the custom script template in the `typescript` directory, which can be in any format or without format.
 

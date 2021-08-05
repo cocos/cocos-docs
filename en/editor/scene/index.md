@@ -31,7 +31,7 @@ The grid in the scene is an important reference information for the position of 
 
 ## Scene Light Configure
 
-The ![Scene Light](images/scene-light.png) button above the **Scene** panel is mainly used to set whether to use scene lights when editing the scene.
+The ![Scene Light](images/scene-light.png) button above the **Scene** panel is mainly used to set whether to use scene lights when editing the scene, and is used by default.
 
 If scene lighting is enabled, the scene will be illuminated by the lights added to the scene, as follows:
 
