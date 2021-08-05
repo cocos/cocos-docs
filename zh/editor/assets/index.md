@@ -41,6 +41,8 @@
 
 创建资源时，可以在树形资源列表中选中要放置资源的文件夹，则新建的资源会创建到当前选中的文件夹目录下。若没有选中任何文件夹，则新建资源会默认创建到当前根目录下（`assets`）。
 
+更多资源相关的内容请参考 [资源手册](../../asset/index.md)。
+
 ### 选择资源
 
 在资源列表中可以使用以下的资源选择操作：
@@ -87,13 +89,15 @@
 
 - **指定搜索字段**：搜索名称不区分大小写，包括以下几种搜索方式：
 
-    1. **搜索名称或 UUID**，支持搜索后缀，例如 `png`：
+    1. **搜索名称或 UUID**，支持搜索资源文件扩展名，例如 `.png`：
 
         ![search-name](img/search-name.png)
 
     2. **搜索 UUID**
-    3. **搜索 URL** ，以 `db://` 协议开头
-    4. **查找 UUID 的使用**，用于查找该 uuid 资源被哪些资源所使用，例如：
+
+    3. **搜索 URL**，以 `db://` 协议开头
+
+    4. **查找 UUID 的使用**，用于查找该 uuid 资源被哪些资源所使用，如下图：
 
         ![search-uuid](img/search-uuid.png)
 
@@ -130,34 +134,9 @@
 
 另外对于特定资源类型，双击资源可以进入该资源的编辑状态，如场景资源和脚本资源。
 
-### 创建 TypeScript 组件
-
-- 默认提供跟随引擎版本的 TypeScript 组件模板，具体文件位置在引擎仓库目录 `./editor/assets/default_file_content/ts`
-- 也提供跟随项目的自定义 TypeScript 组件模板，扩展方式为在项目磁盘路径 `Editor.Project.path` 下创建文件 `.creator/asset-template/typescript/MyComponent` ，这样就可以在右击菜单出现一个二级菜单 `创建/TypeScript/MyComponent`。
-
-  ![custom-typescript](img/custom-typescript.png)
-
-- 创建 TypeScript 资源其初始名称为 `NewComponent`，创建时会拿最终名称生成出一个合法的 `className`，作为该文件的 `className` 。
-
-- 创建 TypeScript 资源时，默认给定了几个预设的参数，满足部分项目管理的需求。
-  ```
-  /**
-   * Predefined variables
-   * Name = <%Name%>
-   * DateTime = <%DateTime%>
-   * Author = <%Author%>
-   * FileBasename = <%FileBasename%>
-   * FileBasenameNoExtension = <%FileBasenameNoExtension%>
-   * URL = <%URL%>
-   *
-   */
-  ```
-
 ### 重命名资源
 
 选中需要重命名的资源，然后点击右键，选择 **重命名** 即可修改资源名称，或者也可以直接使用快捷键 **Enter** 或者 **F2**。点击面板其他地方或者按快捷键 **Esc** 便可以取消此次重命名。
-
-此外 TypeScript 脚本资源的初始名称会处理为它的 `className`，而 `className` 是不能重复的。需要注意的是，TypeScript 文件重命名不会同步更新 `className`。
 
 ### 导出资源包
 

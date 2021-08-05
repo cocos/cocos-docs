@@ -41,6 +41,8 @@ There are two ways to create an asset.
 
 When creating an asset, select the folder where to place the asset in the tree asset list, then the new asset will be created in the currently selected folder directory. If a folder isn't selected, the new asset will be created in the current root directory (`assets`) by default.
 
+For additional information about Assets, please refer to the [Asset](../../asset/index.md) documentation.
+
 ### Selecting assets
 
 The following asset selection actions can be used in the asset list:
@@ -87,13 +89,15 @@ The search function can limit the search type and specify the search field， bo
 
 - **Specify search fields**: the search name is not case sensitive and includes the following search types:
 
-    1. **search name or UUID**, support searching extension name
+    1. **search Name or UUID**, support searching for asset file extensions, such as `.png`:
 
         ![search-name](img/search-name.png)
 
     2. **Search UUID**
-    3. **Search URL**, start with `db://` protocol
-    4. **Search for the use of UUID**, one uuid be used in other asset, for example:
+
+    3. **Search URL**, starting with the `db://` protocol.
+
+    4. **Find UUID usage**, used to find out which assets the UUID asset is used by. For example:
 
         ![search-uuid](img/search-uuid.png)
 
@@ -130,34 +134,9 @@ After selecting a specific asset/folder, right-click on it to perform a series o
 
 Also for specific asset types, double-clicking on an asset allows you to enter the edit state of that asset, such as scene assets and script assets.
 
-### Create TypeScript Component Asset
-
-- By default, TypeScript component templates that follow the engine version are provided in the engine repository directory `./editor/assets/default_file_content/ts`.
-- Also provide follow the custom of Project TypeScript component templates, extend the way for the Project disk path (`Editor.Project.path`) `.creator/asset-template/typescript/MyComponent`,  This brings up a secondary menu `Create/TypeScript/MyComponent` in the right click menu. 
-
-  ![custom-typescript](img/custom-typescript.png)
-
-- Creating a TypeScript asset with an initial name of `NewComponent`, and with the final name will generate a valid `className` of the TypeScript asset. 
-- Creating a TypeScript asset, there are a few predefined variables provided, it would meet some project management requirements.
-
-  ```
-  /**
-   * Predefined variables
-   * Name = <%Name%>
-   * DateTime = <%DateTime%>
-   * Author = <%Author%>
-   * FileBasename = <%FileBasename%>
-   * FileBasenameNoExtension = <%FileBasenameNoExtension%>
-   * URL = <%URL%>
-   *
-   */
-   ```
-
 ### Rename asset
 
 Select the asset to rename, then right-click and select **Rename** to change the asset name, or use the shortcut keys **Enter** or **F2**. Click elsewhere in the panel or press the shortcut **Esc** to cancel the renaming.
-
-Rename TypeScript asset would not modify its exist `className`.
 
 ### Exporting asset package
 

@@ -30,10 +30,20 @@ In 2D view, the view of the **Scene** panel can be moved and positioned by the f
 The grid in the scene is an important reference information for the position of the scene elements when we place them. For the relationship between the coordinate system and the position and other node properties, please read the [Coordinate System and Node Transformation](../../concepts/scene/coord.md) documentation.
 
 ## Scene Light Configure
-![Scene Light](images/scene-light.png)
 
-- If toggle on, the lights in the scene will be used.
-- If toggle off，lights in the scene will be disabled, a directional light aligned with editor camera will be used.
+The ![Scene Light](images/scene-light.png) button above the **Scene** panel is mainly used to set whether to use scene lights when editing the scene, and is used by default.
+
+If scene lighting is enabled, the scene will be illuminated by the lights added to the scene, as follows:
+
+![scene light on](images/light-on.png)
+
+When there is no added light in the scene, the scene is completely black:
+
+![scene light on](images/remove-light.png)
+
+At this point, the button can be switched to white, indicating that not using the scene lights, and the editor will automatically create a hidden directional light aligned with the scene camera view to illuminate the scene, as shown below:
+
+![scene light off](images/light-off.png)
 
 ## Scene Gizmo
 

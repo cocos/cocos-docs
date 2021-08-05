@@ -87,7 +87,7 @@ __Collider__ 和 __RigidBody__ 组件都是服务于物理元素，分别操控�
 
 碰撞体拥有物理材质属性，相关内容在[物理材质](physics-material.md)中有详细介绍，这里主要介绍共享和非共享的接口区别。
 
-目前 __Collider__ 组件提供了两个属性去访问和设置，分别为 __material__ 和 __sharedMaterial__ ，它们的区别主要如下：
+目前 __Collider__ 组件提供了两个属性去访问和设置，分别为 __material__ 和 __sharedMaterial__，它们的区别主要如下：
 
 1. 设置 __sharedMaterial__ 或者 __material__ 是一样的效果，在没有调用这些接口之前是共享状态，当发现设置的与当前引用不是同一实例时，后面获取 __material__ 将不会生成新的材质实例，此时是非共享状态。
 
