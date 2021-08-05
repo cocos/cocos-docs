@@ -28,7 +28,6 @@ The extension generated is based on the `Typescript` workflow, the development h
 ### Enabling the example extension
 
 After the extension has been built, it is found as `first-extension` extension in the Extension Manager panel. Enable it.
- Enable this extension
 
 ## Using the features of this extension
 
