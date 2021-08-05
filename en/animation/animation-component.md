@@ -1,4 +1,4 @@
-## Controlling Animation with Scripts
+# Controlling Animation with Scripts
 
 ## Animation Component
 

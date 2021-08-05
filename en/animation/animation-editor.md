@@ -1,12 +1,12 @@
 # Get Familiar with the Animation Panel
 
-The **Animation** panel panel is used to edit and preview the animation clip of the currently selected node. When editing animation data or related properties, it will take effect immediately after mouse focus leaves.
+The **Animation** panel is used to edit and preview the animation clip of the currently selected node. When editing animation data or related properties, it will take effect immediately after mouse focus leaves.
 
 The **Animation** panel is already included in the default layout of Cocos Creator, or you can open the **Animation** panel by clicking **Panel -> Animation -> Animation Editor** in the main menu above the editor.
 
 ## Panel Introduction
 
-The **Animation** panel panel can be divided into the following main sections.
+The **Animation** panel can be divided into the following main sections.
 
 ![animation-editor](animation-editor/animation-panel.png)
 
