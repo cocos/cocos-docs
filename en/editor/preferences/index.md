@@ -77,7 +77,7 @@ The **Asset database** tab is used to set the [Assets](../assets/index.md) panel
 ![asset-db](./index/asset-db.jpg)
 
 - **Log Level**: used to set the type of information output to the **console** from the asset database in the **Assets** panel. This currently includes **Error Only**, **Error and Warning Only**, **Error, Warning, and Log**, and **Output All Information**.
-- **Ignore (Regular)**: use a regular expression and fill in the path to a specific asset file, then that asset will be ignored.
+- **Ignore (Glob)**: use the Glob expression and fill in the path match of the asset to be ignored, then the asset will be ignored. For example, `! **/*.txt` means that all `.txt` files are ignored.
 - **Default Meta**: used to set the default configuration when importing assets within a project. Please refer to the description below for details.
 - **Update resources automatically**: automatically refresh resources when returning to the editor from outside (new in v3.1.2). See below for details.
 

@@ -43,6 +43,10 @@ Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享�
 
 若勾选该项，构建完成后会自动执行 **生成** 步骤，不需要再手动操作。
 
+#### 任务调度系统
+
+该项是目前引擎内部功能模块使用的功能，用户暂不需要关注该项，任意选择下拉框中的选项都不会产生任何影响。
+
 #### 加密脚本
 
 该项用于加密发布后的脚本。会在构建后的 `assets` 目录下生成 jsc 文件，这个文件是加密过的。而 js 文件会备份在 `script-backup` 目录下以便调试，打包时不会进入 APP 中。
@@ -61,7 +65,7 @@ Android 平台的构建选项如下：
 
 #### 渲染后端
 
-目前支持 **VULKAN**、**GLES3** 和 **GLES2** 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况选择使用的渲染后端。
+目前支持 [VULKAN](https://www.vulkan.org/)、[GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) 和 [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况选择使用的渲染后端。
 
 #### 应用 ID 名称
 
@@ -119,11 +123,25 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 
 Windows 平台的构建选项目前只有一个 **渲染后端**，包括 **VULKAN**、**GLES3** 和 **GLES2** 三种类型，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
 
+<!-- Windows 平台的构建选项包括 **渲染后端** 和 **生成平台**。-->
+
 ![Windows build options](publish-native/windows-options.png)
+
+<!--
+#### 渲染后端（Render BackEnd）
+
+**渲染后端** 目前支持 **VULKAN**、**GLES3** 和 **GLES2** 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
+
+#### 生成平台
+
+设置编译架构，目前支持 **win32** 和 **x64** 两种。
+- 若选择 **win32**，则可以在两种架构上运行。
+- 若选择 **x64**，则只能在 **x64** 架构上运行。
+-->
 
 ### iOS 平台构建选项
 
-iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向** 和 **渲染后端**，其中 **屏幕方向** 的设置与 Android 平台一致。
+iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向**、**目标版本**、**渲染后端** 和 **开发者**，其中 **屏幕方向** 的设置与 Android 平台一致。
 
 ![iOS build options](publish-native/ios-options.png)
 
@@ -133,17 +151,39 @@ iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向** 和 **�
 
 > **注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
 
+#### 目标版本
+
+该项主要用于指定发布 iOS 平台时的 iOS 软件版本，默认值为 **12.0**。构建后版本号会记录在发布包目录 `proj/cfg.cmake` 文件的 `TARGET_IOS_VERSION` 字段中。
+
 #### 渲染后端
 
 目前支持 **METAL** 和 **GLES3** 两种，默认勾选 **METAL**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
 
+#### 开发者
+
+该项用于配置构建编译 iOS 工程时的 Development Team 签名信息。若使用 Xcode 编译时，在 Xcode 中手动配置了签名信息，则以 Xcode 中的配置为准。当执行重新构建时，该项的值会覆盖 Xcode 中配置的值。
+
 ### Mac 平台构建选项
 
-Mac 平台的构建选项包括 **Bundle Identifier**、**渲染后端** 和 **Support M1**，前两项的设置方法与 iOS 平台一致。
+Mac 平台的构建选项包括 **Bundle Identifier**、**目标版本**、**Support M1** 和 **渲染后端**。
 
 ![Mac build options](publish-native/mac-options.png)
 
-v3.1 新增了 **Support M1** 选项，用于更好地对一些已知的引擎模块在 Apple M1（Silicon）架构设备上的支持问题做提示。
+#### Bundle Identifier
+
+包名，用法与 iOS 平台一致。
+
+#### 目标版本
+
+该项主要用于指定发布 Mac 平台时的 macOS 系统版本，默认值为 **10.14**。构建后版本号会记录在发布包目录 `proj/cfg.cmake` 文件的 `TARGET_OSX_VERSION` 字段中。
+
+#### Support M1
+
+该项用于更好地提示一些已知的引擎模块在 Apple M1（Silicon）架构设备上的支持问题。
+
+#### 渲染后端
+
+目前默认使用 **METAL** 渲染后端，详情可参考官方文档 [Metal](https://developer.apple.com/cn/metal/)。
 
 ## 构建
 

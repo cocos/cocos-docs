@@ -83,6 +83,31 @@ The specific rules for parsing bare specifiers can be found in [Node.js module p
 
 > In the future, Cocos Creator may support importing maps, see [Import Maps](https://github.com/WICG/import-maps).
 
+#### Conditional exports
+
+In the **Node.js** module parsing algorithm, the [conditional export](https://nodejs.org/api/packages.html#packages_conditional_exports) feature of packages is used to map the subpaths in a package based on some conditions. Similar to **Node.js**, Cocos Creator implements built-in conditions `import` and `default`, but not conditions `require` and `node`.
+
+Developers can specify **additional** conditions via the **Export conditions** option in the editor's main menu **Project -> Project Settings -> Scripting**, which defaults to `browser`. Multiple additional conditions can be specified using **commas** as separators, e.g. `browser, bar`.
+
+If the **Export conditions** option uses the default value `browser`, when the `package.json` of an npm package `foo` contains the following configuration:
+
+```json
+{
+   "exports": {
+      ".": {
+         "browser": "./dist/browser-main.mjs",
+         "import": "./dist/main.mjs"
+      }
+   }
+}
+```
+
+`"foo"` will resolve to the module with path `dist/browser-main.mjs` in the package.
+
+> The mapping configuration is done in [Multiplayer Framework Colyseus for Node.js](https://www.npmjs.com/package/colyseus) for the `browser` condition.
+
+If the **Export conditions** option is empty, it means that no additional conditions are specified, and `"foo"` in the above example will resolve to a module with path `dist/main.mjs` in the package.
+
 ### Suffixes and Directory Import
 
 Cocos Creator's requirements for module suffixes in module specifiers are more web-oriented -- suffixes must be specified and Node.js-style directory import is not supported. However, for historical reasons and some existing restrictions, TypeScript modules do not allow suffixes and support Node.js-style directory import. Specifically:
@@ -115,6 +140,7 @@ On the other hand, Node.js-style directory import is supported:
 ```ts
 import '. /foo'; // correct: parsed as the `foo/index.ts` module
 ```
+
 > **Notes**:
 > 1. Cocos Creator supports the Web platform. Implementing complex module parsing algorithms like Node.js on the Web platform is expensive, and the client and server cannot try different suffixes and file paths with frequent communication between them.
 > 2. Even if such complex parsing could be done at the build stage with some post-processing tools, it would result in inconsistent algorithms for static import parsing (via `import` statements) and dynamic import parsing (via `import()` expressions). Therefore, specify the full file path in the code for the choice of module parsing algorithm.

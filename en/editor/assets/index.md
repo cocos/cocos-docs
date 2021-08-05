@@ -41,6 +41,8 @@ There are two ways to create an asset.
 
 When creating an asset, select the folder where to place the asset in the tree asset list, then the new asset will be created in the currently selected folder directory. If a folder isn't selected, the new asset will be created in the current root directory (`assets`) by default.
 
+For additional information about Assets, please refer to the [Asset](../../asset/index.md) documentation.
+
 ### Selecting assets
 
 The following asset selection actions can be used in the asset list:
@@ -87,10 +89,15 @@ The search function can limit the search type and specify the search field， bo
 
 - **Specify search fields**: the search name is not case sensitive and includes the following search types:
 
-    1. **search name or UUID**
+    1. **search Name or UUID**, support searching for asset file extensions, such as `.png`:
+
+        ![search-name](img/search-name.png)
+
     2. **Search UUID**
-    3. **Search URL**
-    4. **Search for the use of UUID**, for example:
+
+    3. **Search URL**, starting with the `db://` protocol.
+
+    4. **Find UUID usage**, used to find out which assets the UUID asset is used by. For example:
 
         ![search-uuid](img/search-uuid.png)
 
@@ -130,8 +137,6 @@ Also for specific asset types, double-clicking on an asset allows you to enter t
 ### Rename asset
 
 Select the asset to rename, then right-click and select **Rename** to change the asset name, or use the shortcut keys **Enter** or **F2**. Click elsewhere in the panel or press the shortcut **Esc** to cancel the renaming.
-
-In addition, the initial name of a TypeScript script asset is processed as its `className`, which cannot be repeated.
 
 ### Exporting asset package
 

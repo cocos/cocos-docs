@@ -62,12 +62,13 @@ targetNode: Node | null = null; // 等价于 targetNode: Node = null!;
 - 若值的类型是 Javascript 原始类型 `number`、`string`、`boolean`，则其 cc 类型分别为 Creator 的浮点数、字符串，以及布尔值。
 - 其他的则表示属性的类型是 **未定义** 的，编辑器上会提示 `Type(Unknown)` 字样。
 
-> **注意**：当 Javascript 内置构造函数 `Number`、`String`、`Boolean` 用作 cc 类型时将给出警告，并且将分别视为 cc 类型中的 `CCFloat`、`CCString`、`CCBoolean`。已经初始化的数组属性修改类型后，需要手动清除掉原来的数组数据，重新赋值，否则会因为数据类型不一致，导致数据错乱。
-> ![property-changed](property-changed.png)
-
-<!-- 关于 cc 类型如何影响 cc 属性以及对未定义 cc 类型的属性的处理，可参考下文中的 [属性类型](#%E5%B1%9E%E6%80%A7%E5%8F%82%E6%95%B0) 和 [序列化参数](#serializable-参数) 介绍。 -->
-
-> **注意**：需要给编辑器使用的序列化属性，属性名开头不应该带 `_`，否则会识别为 private 属性，private 属性不会在编辑器组件属性面板上显示。
+> **注意**：
+>
+> 1. 当 Javascript 内置构造函数 `Number`、`String`、`Boolean` 用作 cc 类型时将给出警告，并且将分别视为 cc 类型中的 `CCFloat`、`CCString`、`CCBoolean`。已经初始化的数组属性修改类型后，需要手动清除掉原来的数组数据，重新赋值，否则会因为数据类型不一致，导致数据错乱。
+>
+>     ![property-changed](property-changed.png)
+>
+> 2. 需要给编辑器使用的序列化属性，属性名开头不应该带 `_`，否则会识别为 private 属性，private 属性不会在编辑器组件属性面板上显示。
 
 下列代码演示了不同 cc 类型的 cc 属性声明：
 

@@ -38,9 +38,9 @@
 
 - **Android SDK**：设置 Android SDK 路径，详情请参考 [安装配置原生开发环境](../publish/setup-native-development.md)。
 
-- **鸿蒙 OS SDK**：设置 HarmonyOS SDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
+- **HarmonyOS SDK**：设置 HarmonyOS SDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
 
-- **鸿蒙 OS NDK 路径**：设置 HarmonyOS NDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
+- **HarmonyOS NDK 路径**：设置 HarmonyOS NDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
 
 - **默认脚本编辑器**：可以选用任意外部文本编辑工具（例如 VS Code）的可执行文件，作为在 **资源管理器** 中双击脚本文件时的打开方式。可以点击输入框后面的 **搜索图标** 按钮选择偏好的文本编辑器的可执行文件。文件夹图标则用于打开已设置完成的文本编辑器的所在路径。
 
@@ -75,7 +75,7 @@
 ![asset-db](./index/asset-db.jpg)
 
 - **日志等级**：用于设置 **资源管理器** 中的资源数据库输出到 **控制台** 的信息类型。目前包括 **仅输出错误**、**仅输出错误和警告**、**输出错误、警告以及日志** 和 **输出所有信息** 四种。
-- **忽略文件（正则）**：使用正则表达式，填入具体资源文件的路径，则该资源将会被忽略。
+- **忽略文件（Glob）**：使用 Glob 表达式，填入需要忽略的资源路径匹配符，则该资源将会被忽略。例如 `!**/*.txt`，表示忽略所有的 `.txt` 文件。
 - **默认 Meta**：用于设置项目内资源导入时的默认配置。详情参考下文介绍。
 - **自动刷新资源**：从外部返回编辑器界面时自动刷新资源（v3.1.2 新增）。详情参考下文介绍。
 

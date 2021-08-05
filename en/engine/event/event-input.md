@@ -23,13 +23,13 @@ Use `systemEvent.on(type, callback, target)` to register Keyboard and DeviceMoti
 
 Event types included:
 
-1. `SystemEventType.KEY_DOWN`
-2. `SystemEventType.KEY_UP`
-3. `SystemEventType.DEVICEMOTION`
+1. `SystemEvent.EventType.KEY_DOWN`
+2. `SystemEvent.EventType.KEY_UP`
+3. `SystemEvent.EventType.DEVICEMOTION`
 
 ### Keyboard events
 
-- Type: `SystemEventType.KEY_DOWN` and `SystemEventType.KEY_UP`
+- Type: `SystemEvent.EventType.KEY_DOWN` and `SystemEvent.EventType.KEY_UP`
 - Call Back:
     - Custom Event: callback(event);
 - Call Back Parameter:
@@ -37,24 +37,24 @@ Event types included:
     - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, EventKeyboard, macro } from 'cc';
+import { _decorator, Component, Node, systemEvent, SystemEvent, EventKeyboard, KeyCode } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")
 export class Example extends Component {
     onLoad () {
-        systemEvent.on(SystemEventType.KEY_DOWN, this.onKeyDown, this);
-        systemEvent.on(SystemEventType.KEY_UP, this.onKeyUp, this);
+        systemEvent.on(SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        systemEvent.on(SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     }
 
     onDestroy () {
-        systemEvent.off(SystemEventType.KEY_DOWN, this.onKeyDown, this);
-        systemEvent.off(SystemEventType.KEY_UP, this.onKeyUp, this);
+        systemEvent.off(SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        systemEvent.off(SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     }
 
     onKeyDown (event: EventKeyboard) {
         switch(event.keyCode) {
-            case macro.KEY.a:
+            case KeyCode.KEY_A:
                 console.log('Press a key');
                 break;
         }
@@ -62,7 +62,7 @@ export class Example extends Component {
 
     onKeyUp (event: EventKeyboard) {
         switch(event.keyCode) {
-            case macro.KEY.a:
+            case KeyCode.KEY_A:
                 console.log('Release a key');
                 break;
         }
@@ -72,25 +72,25 @@ export class Example extends Component {
 
 ### Device motion
 
-- Type: `SystemEventType.DEVICEMOTION`
+- Type: `SystemEvent.EventType.DEVICEMOTION`
 - Call back:
   - Custom event: `callback(event);`;
 - Call back parameter:
   - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, log } from 'cc';
+import { _decorator, Component, Node, systemEvent, SystemEvent, log } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")
 export class Example extends Component {
     onLoad () {
         systemEvent.setAccelerometerEnabled(true);
-        systemEvent.on(SystemEventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
+        systemEvent.on(SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     }
 
     onDestroy () {
-        systemEvent.off(SystemEventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
+        systemEvent.off(SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     }
 
     onDeviceMotionEvent (event: EventAcceleration) {

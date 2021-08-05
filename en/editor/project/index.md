@@ -19,7 +19,7 @@ The **Project Settings** panel can be opened by clicking on **Project -> Project
     - If enabled, the Canvas background will be transparent and show the other DOM elements behind it.
     - If disabled, it will result in higher performance.
 
-- **ENABLE_WEBGL_ANTIALIAS**: used to set whether to turn on the anti-aliasing option when creating WebGL Context. It's enabled by default.
+- **ENABLE_WEBGL_ANTIALIAS**: whether to enable anti-aliasing. It's enabled by default.
 
 - **CLEANUP_IMAGE_CACHE**: whether to clear the image cache after uploading a texture to GPU. If the cache is cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported. It's disabled by default.
 
@@ -82,7 +82,9 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 - **Allows declaration of class fields**: if enabled, the `declare` keyword may be used to declare class fields in TypeScript scripts. In such case, class fields without explicit initializer would be initialized to `undefined`, according to the specification.
 
-- **Enable relaxed mode**: if enabled, the script will be compiled in non-strict mode.
+- **Enable loose mode**: if enabled, the script will be compiled in non-strict mode.
+
+- **Exports Conditions**: specify the parsing conditions for conditionalized export modules, see [Conditional exports](../../scripting/modules/spec.md) for details.
 
 ## Texture Compression
 

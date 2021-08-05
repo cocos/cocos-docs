@@ -61,6 +61,27 @@ When the rect transform tool is active:
 
 In UI elements layout, **rect transform tool** is always used to precisely control the position and length of the node's dimensions. As to the image elements that must keep original image aspect ratio, the rectangle transform tool is normally not the best choice for size adjustment.
 
+## Transform Snapping
+
+The transform snapping feature can be used to manipulate nodes in a set step size when using the move/rotate/scale transform tools in the scene editor. The transform snapping feature can be triggered in the following two ways:
+
+1. Press and hold the <kdb>Ctrl</kdb> key while using transform tools to trigger the transform snapping feature.
+2. In the transform snapping configuration panel, use the button to enable the automatic snapping feature of corresponding transform tools. See below for details.
+
+Click on the fifth **Transform snapping configuration** button in the toolbar in the upper left corner of the editor's main window:
+
+![transform snap config](images/transform-snap-config.png)
+
+The transform snapping configuration panel will pop up, which can be used to set the step size of corresponding transform tools, and enable the auto snapping feature:
+
+![transform snap config panel](images/transform-snap-config-panel.png)
+
+| Button | Description |
+| :-- | :-- |
+| ![position snap](images/position-snap.png)| This button is used to set whether to enable the automatic snapping when using the **Move Transform Tool**. X, Y, and Z are used to set the move steps on the X, Y, and Z axes respectively, and the default X, Y, and Z values are the same for X, or you can click the ![position snap](images/position-snap1.png) button to set the step size for each axis separately.  |
+| ![rotation snap](images/rotation-snap.png)| This button is used to set whether to enable automatic snapping when using the **Rotation Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
+| ![scale snap](images/scale-snap.png)| This button is used to set whether to enable automatic snapping when using the **Scale Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
+
 ## Transform Gizmo Based Point Configure
 
 ![position toggles](images/position-toggles.png)
