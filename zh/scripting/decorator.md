@@ -171,7 +171,7 @@ CCClass 的构造函数使用 `constructor` 定义，为了保证反序列化始
 
 4. 空数组 `[]` 或空对象 `{}` -->
 
-### visible 参数
+### visible
 
 一般情况下，属性是否显示在 **属性检查器** 中取决于属性名是否以 `_` 开头。**如果是以 `_` 开头，则不显示**。
 
@@ -189,7 +189,7 @@ private _num = 0;
 num = 0;
 ```
 
-### serializable 参数
+### serializable
 
 属性默认情况下都会被序列化，序列化后就会将编辑器中设置好的属性值保存到场景等资源文件中，之后在加载场景时就会自动还原成设置好的属性值。如果不想序列化，可以设置 `serializable: false`。
 
@@ -198,7 +198,7 @@ num = 0;
 num = 0;
 ```
 
-### override 参数
+### override
 
 所有属性都会被子类继承，如果子类要覆盖父类同名属性，需要显式设置 override 参数，否则会有重名警告：
 
@@ -206,5 +206,26 @@ num = 0;
 @property({ tooltip: "my id", override: true })
 id = "";
 ```
+
+### group
+
+给属性分组，支持组内排序
+支持的写法为 
+`@property({ group: { name } })`  
+或
+`@property({ group: { id, name, displayOrder, style } })`  
+id 是分组 id, 默认 'default'；
+name 是分组显示的组名；
+displayOrder 默认 Infinity 排在最后面；
+style 目前默认且只提供 'tab' 样式，如下图；
+
+```typescript
+@property({ group: { name: 'bar' }, type: Node }) 
+node2: Node = null!; 
+@property({ group: { name: 'foo' }, type: Sprite }) 
+sprite: Sprite = null!;
+```
+![decorator-group](decorator-group.png)
+
 
 更多参数内容请查阅 [属性参数](./reference/attributes.md)。

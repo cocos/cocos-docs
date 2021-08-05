@@ -312,7 +312,7 @@ However, it should be noted that the process of property deserialization occurs 
 
 4. Empty array `[]` or empty object `{}`
 
-#### Visible Parameter
+#### visible
 
 By default, whether it is displayed in the **Inspector** panel depends on whether the attribute name starts with an underscore `_`. If it starts with an underscore, it will not be displayed in the **Inspector** panel by default, otherwise it will be displayed by default.
 
@@ -330,7 +330,7 @@ If you want to force hiding, you can set the `visible` parameter to false:
     private num = 0;
 ```
 
-#### Serializable Parameters
+#### serializable
 
 Attributes with a default value of `default` will be serialized by default. After serialization, the values set in the editor will be saved to resource files such as scenes, and the previously set values will be automatically restored when the scene is loaded. If you don't want to serialize, you can set `serializable: false`.
 
@@ -339,7 +339,7 @@ Attributes with a default value of `default` will be serialized by default. Afte
     private num = 0;
 ```
 
-#### Type Parameter
+#### type
 
 When `default` cannot provide enough detailed type information, in order to display the correct input control in the **Inspector** panel, you must use `type` to explicitly declare the specific type:
 
@@ -372,7 +372,7 @@ When `default` cannot provide enough detailed type information, in order to disp
     }
     ```
 
-#### Override Parameters
+#### override
 
 All properties will be inherited by the subclass. If the subclass wants to override the property with the same name of the parent class, you need to explicitly set the override parameter, otherwise there will be a duplicate name warning:
 
@@ -386,6 +386,25 @@ private get name() {
     return this._name;
 }
 ```
+
+### group
+
+Group attributes and support intra-group sorting
+`@property({ group: { name } })`  
+Or
+`@property({ group: { id, name, displayOrder, style } })`  
+id is groupId, default value is 'default';
+name is groupName;
+displayOrder default value is Infinity, sorted at last;
+style recently only one value 'tab';
+
+```typescript
+@property({ group: { name: 'bar' }, type: Node }) 
+node2: Node = null!; 
+@property({ group: { name: 'foo' }, type: Sprite }) 
+sprite: Sprite = null!;
+```
+![decorator-group](decorator-group.png)
 
 For more parameters, please refer to the [Property Parameters](./reference/attributes.md) documentation.
 
