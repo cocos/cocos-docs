@@ -108,6 +108,9 @@
     - [Builtin Shader Uniforms](material-system/builtin-shader-uniforms.md)
 
 - [声音系统](audio-system/overview.md)
+    - [音频文件](audio-system/audioFile.md)
+    - [音频组件参考](audio-system/audiosource.md)
+    - [音频播放示例](audio-system/audioExample.md)
 
 - [粒子系统](particle-system/overview.md)
     - [粒子系统模块](particle-system/module.md)
