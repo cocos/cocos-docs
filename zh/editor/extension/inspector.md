@@ -96,7 +96,7 @@ Editor.Panel.define = Editor.Panel.define || function(panel: any) {return panel;
 }
 ```
 
-和 Component 注册一样，在 contributions 数据里，向 inspector 提供一份数据，请求渲染 "section" 区域内的 "asset" 类型里的 "effect" 资源。
+和 Component 注册一样，在 contributions 数据里，向 **属性检查器** 提供一份数据，请求渲染 "section" 区域内的 "asset" 类型里的 "effect" 资源。
 
 ```typescript
 'use strict';
