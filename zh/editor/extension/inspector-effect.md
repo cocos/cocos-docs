@@ -53,7 +53,7 @@ update 的方法参数详情如下表
 ```yaml
 CCEffect %{
   editor:
-    inspector: 'packages://my-extension/hack.js'
+    inspector: 'packages://my-extension/my-effect.js'
   ...
 }
 ```
