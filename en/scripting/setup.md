@@ -28,7 +28,6 @@ const { ccclass, property } = _decorator;
  * FileBasename = say-hello.ts
  * FileBasenameNoExtension = say-hello
  * URL = db://assets/say-hello.ts
- * EditorVersion = 3.3.0
  * ManualUrl = https://docs.cocos.com/creator/3.3/manual/en/
  *
  */
@@ -128,7 +127,6 @@ Cocos Creator supports custom script templates in the project. The operation ste
     * FileBasename = <%FileBasename%>
     * FileBasenameNoExtension = <%FileBasenameNoExtension%>
     * URL = <%URL%>
-    * EditorVersion = <%EditorVersion%>
     * ManualUrl = <%ManualUrl%>
     *
     */
