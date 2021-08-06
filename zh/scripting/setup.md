@@ -28,6 +28,7 @@ const { ccclass, property } = _decorator;
  * FileBasename = say-hello.ts
  * FileBasenameNoExtension = say-hello
  * URL = db://assets/say-hello.ts
+ * ManualUrl = https://docs.cocos.com/creator/3.3/manual/en/
  *
  */
  
@@ -55,9 +56,9 @@ export class SayHello extends Component {
  * [3] Your initialization goes here.
  * [4] Your update function goes here.
  *
- * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
- * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
- * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+ * Learn more about scripting: https://docs.cocos.com/creator/3.3/manual/en/scripting/
+ * Learn more about CCClass: https://docs.cocos.com/creator/3.3/manual/en/scripting/ccclass.html
+ * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.3/manual/en/scripting/life-cycle-callbacks.html
  */
 ```
 
@@ -126,6 +127,7 @@ export class Hello extends Component {}
     * FileBasename = <%FileBasename%>
     * FileBasenameNoExtension = <%FileBasenameNoExtension%>
     * URL = <%URL%>
+    * ManualUrl = <%ManualUrl%>
     *
     */
     ```
