@@ -292,7 +292,7 @@
         - [扩展项目设置面板](editor/extension/contributions-project.md)
         - [扩展偏好设置面板](editor/extension/contributions-preferences.md)
         - [扩展构建流程](editor/publish/custom-build-plugin.md)
-        - [扩展 inspector](editor/extension/inspector.md)
+        - [扩展属性检查器面板](editor/extension/inspector.md)
     - [基础功能](editor/extension/basic.md)
         - [扩展包定义](editor/extension/define.md)
         - [插件系统](editor/extension/package.md)
