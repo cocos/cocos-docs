@@ -1,6 +1,7 @@
 # 自定义在 material 中 effect 的 inspector 的内容
 
-我们可以在开发 material 时可以自定义每个 effect 在 material 的 inspector 对应的内容。
+inspector 针对 material 有一套自动渲染的机制，能够根据使用的 effect 自动渲染出操作界面。
+但有些特殊情况下，自动渲染并不能满足操作需求，所以 inspector 允许针对每一种 effect 定制 material 渲染界面。
 
 ## 定义 inspector
 
