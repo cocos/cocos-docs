@@ -33,7 +33,7 @@
 }
 ```
 
-在 contributions 数据里，向 inspector 提供一份数据，要求渲染 section 区域内的 node 类型物体里的 cc.Label 组件。
+在 contributions 数据里，向 **属性检查器** 提供一份数据，要求渲染 section 区域内的 node 类型物体里的 cc.Label 组件。
 
 然后我们针对这个书写一个 ./dist/contributions/inspector/comp-label.js 文件:
 
