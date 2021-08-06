@@ -42,8 +42,10 @@ After the extension is created and compiled, go back to the editor, click **Exte
 
 ## Using the features of this extension
 
-If the extension contains a panel, click **Panel -> Extension Name -> Default Panel** in the top menu bar after enabling the extension to open the default panel of the extension.
+Take an extension created with the **Vue2.x panel** template as an example.
 
-Take an extension created with the **Vue2.x panel** template as an example. Click **Developer -> Extension Name -> Send Message to Panel** in the top menu bar and it will send a message `send-to-panel` to the extension based on the definition of `contributions.menu` in `package.json`. When the extension receives the message, it calls the default `hello` method in the extension's default panel according to the `contributions.messages` definition in `package.json`, and then displays the log message `hello` in the default panel and prints it to the **console**.
+Click **Panel -> Extension Name -> Default Panel** in the top menu bar after enabling the extension to open the default panel of the extension.
+
+Click **Developer -> Extension Name -> Send Message to Panel** in the top menu bar and it will send a message `send-to-panel` to the extension based on the definition of `contributions.menu` in `package.json`. When the extension receives the message, it calls the default `hello` method in the extension's default panel according to the `contributions.messages` definition in `package.json`, and then displays the log message `hello` in the default panel and prints it to the **console**.
 
 The extensions created by each template are not exactly the same, for more information please refer to the `README.md` file in the corresponding extension package directory.
