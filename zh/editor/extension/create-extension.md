@@ -4,7 +4,7 @@
 
 ## 创建扩展
 
-Creator 目前支持三种扩展面板模板，包括 **HTML 面板**、**Vue2.x 面板** 和 **Vue3.x 面板**。点击编辑器顶部菜单栏中的 **扩展 -> 创建扩展**，即可根据需要选择相应的扩展模板创建：
+Creator 目前支持多种扩展面板模板，包括 **HTML 面板**、**Vue2.x 面板** 和 **Vue3.x 面板**。点击编辑器顶部菜单栏中的 **扩展 -> 创建扩展**，即可根据需要选择相应的扩展模板创建：
 
 <img src="./image/create-extension-panel.png" alt="create-extension-panel" style="zoom:67%;" />
 
