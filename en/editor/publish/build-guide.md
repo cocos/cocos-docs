@@ -116,7 +116,7 @@ Example `settings.json` structure:
     launchScene: string; // URL of the initial scene.
     moduleIds: string[]; // Information about all user script components
     platform: string;
-    renderPipeline: string; // renderPipeline information, taken from the project settings
+    renderPipeline: string; // renderPipeline information, depends on the settings of the Project Data page in the Project Settings panel.
     physics?: IPhysicsConfig; // Physics module settings (only generated when the physics engine module is checked)
     BundleVers: Record<string, string>; // Bundle's md5 file stamp
     subpackages: string[]; // subcontract information
