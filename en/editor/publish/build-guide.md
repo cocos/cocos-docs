@@ -133,7 +133,7 @@ Example `config.json` structure:
 
 ```js
 {
-    importBase: string; // The name of the import directory in the Bundle, usually'import'
+    importBase: string; // The name of the import directory in the Bundle, usually 'import'.
     nativeBase: string; // The name of the native directory in native, usually'native'
     name: string; // The name of the Bundle, the Bundle can be loaded by the Bundle name
     deps: string[]; // Other Bundle names that this Bundle depends on
