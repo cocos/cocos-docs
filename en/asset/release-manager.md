@@ -62,7 +62,7 @@ assetManager.releaseAsset(texture);
 
 Since the resource management module was upgraded in v2.4, the release interface differs slightly from the previous version:
 
-1. The `assetManager.releaseAsset` interface can only release a single resource, and for the sake of uniformity, the interface can only release resources through the resource itself, not via attributes such as resource uuid, resource url, etc.
+1. The `assetManager.releaseAsset` interface can only release a single resource, and for the sake of uniformity, the interface can only release resources through the resource itself, not via attributes such as resource UUID, resource url, etc.
 
 2. When releasing a resource, you only need to focus on the resource itself and the engine will automatically release its dependent resources instead of fetching them manually via `getDependsRecursively`.
 
