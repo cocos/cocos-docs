@@ -125,7 +125,7 @@ Example `settings.json` structure:
     hasResourcesBundle: boolean; // Does it contain the built-in Bundle "resources".
     hasStartSceneBundle: boolean; // Whether it contains the built-in Bundle in the initial scene
     customJointTextureLayouts?: ICustomJointTextureLayout[];
-    macros?: Record<string, any>; // Engine Macro configuration value, taken from project settings
+    macros?: Record<string, any>; // Engine Macro configuration value, depends on the settings of the Macro Config page in the Project Settings panel.
 }
 ```
 
