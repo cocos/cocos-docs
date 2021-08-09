@@ -23,7 +23,7 @@ The general Build process of Cocos Creator mainly includes the following content
 
 ### Initialization of Build options
 
-This step is mainly to initialize the **initial options** passed to the build during the build to **build internal options**, complete the format conversion of some of the build options, initialize the resource data of the build resource database, and load the latest resource information And classified.
+This step is mainly to initialize the **initial options** passed to the build during the build to **build internal options**, complete the format conversion of some of the build options, initialize the resource data of the build resource database, and load the latest resource information and classified.
 
 ### Build data organization
 
