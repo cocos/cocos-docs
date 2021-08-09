@@ -98,7 +98,7 @@ It is divided into the following steps:
 
 - **Common Asset Copy**: Some raw assets are directly copied from the `library` to the built folder `assets/xxxBundle/native`.
 
-- **md5 processing**: Add the `.md5` suffix to all resources in the `res` folder, and organize the data to be recorded in settings.
+- **md5 processing**: Add the `.md5` suffix to all resources in the `res` folder, and organize the data to be recorded in the `settings` file.
 
 - **application.js template file generation**: Inject some project settings into the `application.js` file according to user options and generate it to the release package directory generated after the build.
 
