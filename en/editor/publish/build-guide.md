@@ -139,7 +139,7 @@ Example `config.json` structure:
     deps: string[]; // Other Bundle names that this Bundle depends on
     scenes: Array<{url: string, uuid: string}>; // The array of scene information contained in the Bundle
     rawAssets: { [index: string]: { [uuid: string]: string[] } };
-    // Store the url and type of the resource loaded under resources
+    // Store the URL and type of the resource loaded under 'resources'
     // Example: "bba00d3a-2f17-4511-b47c-0d584b21b763@6c48a": ["test/right/texture", "cc.Texture2D", "bba0...@6c48a"]
     // "bba0...@6c48a": ["test/right/texture", 1, 1]
     packs: Record<string, IUuid[] | number[]>; // json group information
