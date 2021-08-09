@@ -40,9 +40,9 @@
 | 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
 | 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中 | `orientation` |
 | AppID | 必填项，字节跳动小游戏的 AppID，构建时会写入到发布包目录下的 `project.config.json` 文件中。 | `appid` |
-| AppSecret | AppID 对应的 AppSecret，用于拉取 PhysX 支持库，仅在物理系统选择为 **PhysX 物理** 时必填 | `appSecret` |
 | 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
 | 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md) | `buildOpenDataContextTemplate` |
+| PhysX - notPackPhysXLibs | 是否不打包内置的 PhysX 库文件，有助于缩小包体，但会牺牲部分平台的支持，仅在使用 PhysX 物理时生效 | `physX.notPackPhysXLibs` |
 | PhysX - multiThread | 是否启用多线程模式，仅在使用 PhysX 物理时生效 | `physX.multiThread` |
 | PhysX - subThreadCount | 启用多线程模式时子线程的个数，仅在使用 PhysX 物理时生效 | `physX.subThreadCount` |
 | PhysX - epsilon | 容忍误差，仅在使用 PhysX 物理时生效。若启用该项，则使用多线程模式时的精度会比单线程的低。 | `physX.epsilon` |
@@ -62,6 +62,7 @@
 > **注意**：
 > 1. 字节跳动平台的原生物理目前仅支持安卓版本的抖音，且版本需大于等于 **v16.3**。
 > 2. 字节跳动开发者工具目前还不支持运行原生物理，只能真机预览和调试。
+> 3. 在 v3.3 版本中，构建字节小游戏时未勾选 `notPackPhysXLibs` 时能够支持 **PhysX** 运行在字节跳动的全应用平台。
 
 ## 分包加载
 

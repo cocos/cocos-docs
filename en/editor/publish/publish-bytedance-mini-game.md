@@ -43,10 +43,10 @@ The game submission, review and release process of a mini-game needs to comply w
 | **Start Scene Asset Bundle** | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) to speed up the resource loading of the start scene. | `startSceneAssetBundle` |
 | **Orientation** | Device orientation, it will be written to `game.json` file. | `orientation` |
 | **AppID** | The appid of the ByteDance Mini Games, it will be written to `project.config.json` file. | `appid` |
-| **appSecret** | The AppSecret corresponding to the AppID, used to pull the PhysX support library. Required only if **Project -> Project Settings -> Function Crop -> Physics System** in the main menu is set to **PhysX**. | `appSecret` |
 | **Remote server address** | This option is used to fill in the address of the remote server where the resources are stored. Developers need to manually upload the `remote` folder from the release package directory to the filled resource server after build. | `remoteServerAddress` |
 | **Open data context root** | For access to Open Data Context, please refer to the [Open Data Context](./build-open-data-context.md) documentation for details. | `buildOpenDataContextTemplate` |
-| **physX.multiThread**| If checked, multi-threaded mode is enabled, and only takes effect when **Project -> Project Settings -> Function Crop -> Physics System** in the main menu is set to **PhysX**. | `physX.multiThread` |
+| **physX.notPackPhysXLibs**| When selected, the built-in PhysX library files will not be packaged, which will help reduce the package size, but will sacrifice the support of some platforms, such as IOS TikTok apps, and only takes effect when **Project -> Project Settings -> Feature Crop -> Physics System** in the main menu is set to **PhysX**. | `physX.notPackPhysXLibs` |
+| **physX.multiThread**| If checked, multi-threaded mode is enabled, and only takes effect when using **PhysX** physics. | `physX.multiThread` |
 | **physX.subThreadCount** | The number of child threads when multi-threaded mode is enabled, and only takes effect when using **PhysX** physics. | `physX.subThreadCount` |
 | **physX.epsilon** | Tolerance of errors, only takes effect when using **PhysX** physics. If this option is enabled, the precision will be lower when using multi-threaded mode than single-threaded. | `physX.epsilon` |
 
@@ -67,6 +67,7 @@ For specific option descriptions, please refer to the **Build Options** section 
 > **Note**:
 > 1. Currently, the native physics of the ByteDance platform only supports the Android version of TikTok, and the version must be greater or equal to v16.3.
 > 2. The ByteDance DevTools does not support running native physics, only previewing and debugging on a real devices.
+> 3.  In the v3.3 version, when `notPackPhysXLibs` is not selected, Creator support PhysX to running on the ByteDance full application platform, including ByteDance DevTools.
 
 ## Subpackage Loading
 
