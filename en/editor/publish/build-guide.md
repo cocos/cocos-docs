@@ -63,7 +63,7 @@ It is divided into the following steps:
 
     - **Check** whether the engine version in the cache is consistent with the engine currently to be compiled, and if the content is consistent, copy it directly without compiling.
 
-    - If compiling is needed, execute the task of packaging the engine according to the engine interface, then copy the compiled js file and save the modification time of the engine;
+    - If compiling is needed, execute the task of packaging the engine according to the engine interface, then copy the compiled js file and save the modification time of the engine.
 
       When compiling the engine, [output log information](./build-panel.md#%E6%9E%84%E5%BB%BA-log-%E4%BF%A1%E6%81%AF%E6%9F%A5%E7%9C%8B) can be viewed:
 
