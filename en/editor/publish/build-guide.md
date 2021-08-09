@@ -194,7 +194,7 @@ The entire build process is in a single worker, to view the log information of t
 
 ### Resource loading 404 errors
 
-In case of a 404 error, please copy the `uuid` in the log that reported the error resource loss and search for the corresponding resource in **Explorer** to check whether the resources that the resource depends on are normal. Resource loading 404 errors usually occur under the following situations:
+In case of a 404 error, please copy the `uuid` in the log that reported the error resource loss and search for the corresponding resource in **Assets** panel to check whether the resources that the resource depends on are normal. Resource loading 404 errors usually occur under the following situations:
 
 1. **Resources that are not placed in the Bundle are dynamically loaded in the script**.
 
