@@ -226,7 +226,7 @@ The automatic atlas will print out the UUID information of the original small im
 
 ### How to decompress uuid
 
-The resource JSON packaged in release mode and the `uuid` in `config.json` is compressed, and need to be unzipped to find the resources in the corresponding original project. There are some built-in tools and methods in the build process. On the global variable Build, directly click **Developer -> Build Debugging Tools** in the main menu, and enter the following commands in the console:
+The resource JSON packaged in release mode and the `uuid` in `config.json` is compressed, and need to be unzipped to find the resources in the corresponding original project. There are some built-in tools and methods in the build process. On the global variable Build, directly click **Developer -> Build DevTools** in the main menu, and enter the following commands in the console:
 
 ```js
 Build.Utils.decompressUuid('425o80X19KipOK7J1f5hsN');
