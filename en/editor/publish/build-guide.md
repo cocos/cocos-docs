@@ -55,7 +55,7 @@ It is divided into the following steps:
 
 - **Texture compression**: According to the organized image compression task, the image resources are compressed and written into the build folder. If the **CompressTexture** is not checked in the **Build** panel, no processing will be performed.
 
-- **Engine building**: According to the **function tailoring** in the project settings, remove the unused engine modules and pack them into the cocos-js directory. Checking the `sourceMap` option will generate the corresponding map file, and determine whether the script is compressed according to the debug option.
+- **Engine building**: According to the **Feature Cropping** in the **Project Settings** panel, remove the unused engine modules and pack them into the `cocos-js` directory. Checking the **Source Maps** option in the **Build** panel will generate the corresponding map file, and determine whether the script is compressed according to the debug option.
 
     The main steps of engine packaging include:
 
