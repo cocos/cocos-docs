@@ -210,7 +210,7 @@ In case of a 404 error, please copy the `uuid` in the log that reported the erro
 
 3. **Resource Loss**
 
-    - **Reason**: As mentioned in the previous construction process, **resource construction will go through the reverse sequence to find dependent resources**, and the most frequent problem is that the dependent resources are accidentally during the project iteration process Delete and cause resource loss. The loss of these resources may not usually be noticed, but once the build is performed, it will be exposed.
+    - **Reason**: As mentioned in the previous construction process, **resource construction will go through the reverse sequence to find dependent resources**, and the most frequent problem is that the dependent resources are accidentally during the project iteration process delete and cause resource loss. The loss of these resources may not usually be noticed, but once the build is performed, it will be exposed.
 
     - **Solution**: Use the code editor to find out which resources the UUID is referenced, and modify the corresponding resources.
 
