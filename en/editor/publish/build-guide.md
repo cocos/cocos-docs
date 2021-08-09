@@ -111,7 +111,7 @@ Example `settings.json` structure:
 ```js
 {
     debug: boolean; // Whether it is in debug mode, depends on the settings in the Build panel.
-    designResolution: ISettingsDesignResolution; // Canvas resolution setting, taken from the data in the project settings
+    designResolution: ISettingsDesignResolution; // Canvas resolution setting, depends on the settings of the Project Data page in the Project Settings panel.
     jsList: string[];
     launchScene: string; // Initial scene url
     moduleIds: string[]; // Information about all user script components
