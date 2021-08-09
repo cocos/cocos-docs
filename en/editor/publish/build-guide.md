@@ -152,7 +152,7 @@ Example `config.json` structure:
      // the uuid index in the uuids array
     uuids: string[]; // uuid array, only in release mode
     types?: string[]; // Resource type array, only in release mode
-    encrypted?: boolean; // Used natively to mark whether the script in the Bundle is encrypted
+    encrypted?: boolean; // Marks whether the script in the Bundle is encrypted, active on the native platform.
     isZip?: boolean; // Is it in zip mode
     zipVersion?: string;
 }
