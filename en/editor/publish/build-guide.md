@@ -122,7 +122,7 @@ Example `settings.json` structure:
     subpackages: string[]; // subpackage information
     remoteBundles: string[]; // Record the collection of remote Bundle
     // server: string;
-    hasResourcesBundle: boolean; // Does it contain resources built-in Bundle
+    hasResourcesBundle: boolean; // Does it contain the built-in Bundle "resources".
     hasStartSceneBundle: boolean; // Whether it contains the built-in Bundle in the initial scene
     customJointTextureLayouts?: ICustomJointTextureLayout[];
     macros?: Record<string, any>; // Engine Macro configuration value, taken from project settings
