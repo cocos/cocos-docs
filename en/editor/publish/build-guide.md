@@ -206,7 +206,7 @@ In case of a 404 error, please copy the `uuid` in the log that reported the erro
 
     - **Reason**: All the original data is obtained by reading the resource files in the library during construction. If the import fails, the correct corresponding resource information will not be obtained.
 
-    - **Solution**: Find the corresponding resource through **Explorer**, right-click, and select **Reimport Resource** in the menu.
+    - **Solution**: Find the corresponding resource through **Assets** panel, right-click, and select **Reimport Asset** in the menu.
 
 3. **Resource Loss**
 
