@@ -120,7 +120,7 @@ Example `settings.json` structure:
     physics?: IPhysicsConfig; // Physics module settings (only generated when the physics engine module is checked)
     BundleVers: Record<string, string>; // Bundle's md5 file value
     subpackages: string[]; // subpackage information
-    remoteBundles: string[]; // Record the collection of remote package Bundle
+    remoteBundles: string[]; // Record the collection of remote Bundle
     // server: string;
     hasResourcesBundle: boolean; // Does it contain resources built-in Bundle
     hasStartSceneBundle: boolean; // Whether it contains the built-in Bundle in the initial scene
