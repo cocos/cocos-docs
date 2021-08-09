@@ -104,7 +104,7 @@ It is divided into the following steps:
 
 ### Organize `settings.json`/`config.json` data
 
-It is mainly based on the data compiled by previous resources to prepare the configuration information necessary for the game to start.
+It is mainly to prepare the necessary configuration information for the game launch based on the resource data compiled previously.
 
 Example `settings.json` structure:
 
