@@ -220,7 +220,7 @@ As mentioned in the previous section of **Building Data Sorting**, the script en
 
 ### How to find the big picture after the small picture is automatically combined
 
-The automatic atlas will print out the UUID information of the original small image and the synthesized large image during the construction process, which can be found in the build debugging tool, and then use the UUID of the large image found to generate the `XXXBundle/native` after packaging. You can view it in the directory. If there are too many combined images, open the build log and search for the UUID.
+The Auto Atlas will print out the UUID information of the original small image and the synthesized large image during the build process, which can be found in the build devtools, and then use the UUID of the large image found to generate the `XXXBundle/native` after packaging. You can view it in the directory. If there are too many combined images, open the build log and search for the UUID.
 
 ![build-atlas](./build-guide/build-atlas.jpg)
 
