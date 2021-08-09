@@ -162,7 +162,7 @@ The structure here only lists the structure of `settings.json` and `config.json`
 
 ### UUID compression and file writing in config.json
 
-During the resource packaging process, the resource UUID involved in the resource building will be collected continuously, and finally sorted into the `config.json` of the bundle generated after the build. Before generating the `config.json`, it will decide whether to check the file according to whether it is in debug mode or not. The UUID is compressed.
+During the resource packaging process, the resource UUID involved in the resource building will be collected continuously, and finally sorted into the `config.json` of the bundle generated after the build. The UUID is compressed before the `config.json` file is generated, depending on whether it is in debug mode or not.
 
 All used UUIDs will be sorted during building, and the ones that appear **twice or more** will be stored in the `uuids` array, and the position of the previously used UUID will be replaced with the index. All `types` that appear **twice or more** will also be stored in the `types` array, and the previously used position will be replaced with the index.
 
