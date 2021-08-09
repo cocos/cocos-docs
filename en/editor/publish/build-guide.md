@@ -35,7 +35,7 @@ If the engine finds that the dependent resources are missing during the deserial
 
 ### Write the built resources to the file system
 
-The constructed resources will be configured according to the [Asset Bundle](../../asset/bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95) and distributed in different locations. After the build is completed, the Asset Bundle will be packaged into the `assets/[Bundle name]` under the corresponding platform release package directory. The directory structure is as follows:
+The built resources will be distributed in different locations according to the configuration of the [Asset Bundle](../../asset/bundle.md#configuration). After the build is completed, the Asset Bundle will be packaged into the `assets/[Bundle name]` under the corresponding platform release package directory. The directory structure is as follows:
 
 ![build-engine](./build-guide/bundle.png)
 
@@ -51,11 +51,11 @@ It is divided into the following steps:
 
     - All non-plugin scripts will be packaged into `project.js` (`project.dev.js` in debug mode) and placed in the corresponding `src` directory. Checking the `sourceMap` option will generate the corresponding map file, and determine whether the script is compressed according to the debug option.
 
-- **Automatic Atlas Processing**: Will query the Auto Atlas resource information within the project, package the SpriteFrame small images under the atlas into a large image, generate serialized files, etc. according to the configuration of the automatic atlas resource. This step will modify the json grouping information, asset resource grouping information, and add texture compression tasks. If the Auto Atlas is not checked in the build option, no processing will be performed.
+- **Auto Atlas Processing**: Querying the Auto Atlas resource information within the project, packaging the SpriteFrame small images under the atlas into a large image, generating serialized files, etc. according to the configuration of the Auto Atlas resource. This step will modify the json grouping information, asset resource grouping information, and add texture compression tasks. If the **packAutoAtlas** is not checked in the **Build** panel, no processing will be performed.
 
-- **Texture compression**: According to the organized image compression task, the image resources are compressed and written into the build folder. If the build option is not checked for texture compression, no processing will be performed.
+- **Texture compression**: According to the organized image compression task, the image resources are compressed and written into the build folder. If the **CompressTexture** is not checked in the **Build** panel, no processing will be performed.
 
-- **Engine building**: According to the **function tailoring** in the project settings, remove the unused engine modules and pack them into the cocos-js directory. Checking the `sourceMap` option will generate the corresponding map file, and determine whether the script is compressed according to the debug option.
+- **Engine building**: According to the **Feature Cropping** in the **Project Settings** panel, remove the unused engine modules and pack them into the `cocos-js` directory. Checking the **Source Maps** option in the **Build** panel will generate the corresponding map file, and determine whether the script is compressed according to the debug option.
 
     The main steps of engine packaging include:
 
@@ -63,9 +63,9 @@ It is divided into the following steps:
 
     - **Check** whether the engine version in the cache is consistent with the engine currently to be compiled, and if the content is consistent, copy it directly without compiling.
 
-    - If compiling is needed, execute the task of packaging the engine according to the engine interface, then copy the compiled js file and save the modification time of the engine;
+    - If compiling is needed, execute the task of packaging the engine according to the engine interface, then copy the compiled js file and save the modification time of the engine.
 
-      When compiling the engine, [output log information](./build-panel.md#%E6%9E%84%E5%BB%BA-log-%E4%BF%A1%E6%81%AF%E6%9F%A5%E7%9C%8B) can be viewed:
+      When compiling the engine, [output log information](./build-panel.md#build-log) can be viewed:
 
       ![build-engine](./build-guide/build-engine.jpg)
 
@@ -84,48 +84,48 @@ It is divided into the following steps:
                   ...
       ```
 
-      As long as any relevant engine build parameters are changed, the engine will be recompiled. The specific effects on the use of the build engine cache are:
+      As long as any relevant engine build parameters are changed, the engine will be recompiled. Parameters that specifically affect the use of the build engine cache are:
 
         - debug: whether to open the debug mode
         - includeModules: engine module settings
         - sourceMaps: whether to enable sourceMap
         - platform: build platform
         - Engine modification time
-        - Whether to check the separation engine (only WeChat mini game platform)
+        - Whether to check the **Separate Engine** in the **Build** panel (only WeChat Mini Game)
         - Use engine path
 
-- **JSON build**: When serializing JSON, it will be merged and written into the file system (in the folder `assets/xxxBundle/import`) according to the JSON grouping and the bundle to which it belongs. If it is in **release mode, it will also serialize JSON The UUID inside is compressed**.
+- **JSON build**: When serializing JSON, it will be merged and written into the file system (in the folder `assets/xxxBundle/import`) according to the JSON grouping and the bundle to which it belongs. **If it is in release mode, it will also compress the UUID in the serialized JSON**.
 
-- **Common Asset Copy**: Some raw assets (rawAssets) are directly copied from the library to the built folder `assets/xxxBundle/native`.
+- **Common Asset Copy**: Some raw assets are directly copied from the `library` to the built folder `assets/xxxBundle/native`.
 
-- **md5 processing**: Add the `.md5` suffix to all resources in the `res` folder, and organize the data to be recorded in settings.
+- **md5 processing**: Add the `.md5` suffix to all resources in the `res` folder, and organize the data to be recorded in the `settings` file.
 
-- **application.js template file generation**: Inject some project settings into the `application.js` file according to user options and generate it to the release package directory generated after the build.
+- **`application.js` template file generation**: Inject some project settings into the `application.js` file according to user options and generate it to the release package directory generated after the build.
 
-### Organize settings/config data
+### Organize `settings.json`/`config.json` data
 
-It is mainly based on the data compiled by previous resources to prepare the configuration information necessary for the game to start.
+It is mainly to prepare the necessary configuration information for the game launch based on the resource data compiled previously.
 
 Example `settings.json` structure:
 
 ```js
 {
-    debug: boolean; // Whether it is in debug mode, taken from the build release panel
-    designResolution: ISettingsDesignResolution; // Canvas resolution setting, taken from the data in the project settings
+    debug: boolean; // Whether it is in debug mode, depends on the settings in the Build panel.
+    designResolution: ISettingsDesignResolution; // Canvas resolution setting, depends on the settings of the Project Data page in the Project Settings panel.
     jsList: string[];
-    launchScene: string; // Initial scene url
+    launchScene: string; // URL of the initial scene.
     moduleIds: string[]; // Information about all user script components
     platform: string;
-    renderPipeline: string; // renderPipeline information, taken from the project settings
+    renderPipeline: string; // renderPipeline information, depends on the settings of the Project Data page in the Project Settings panel.
     physics?: IPhysicsConfig; // Physics module settings (only generated when the physics engine module is checked)
-    BundleVers: Record<string, string>; // Bundle's md5 file stamp
-    subpackages: string[]; // subcontract information
-    remoteBundles: string[]; // Record the collection of remote package Bundle
+    BundleVers: Record<string, string>; // Bundle's md5 file value
+    subpackages: string[]; // subpackage information
+    remoteBundles: string[]; // Record the collection of remote Bundle
     // server: string;
-    hasResourcesBundle: boolean; // Does it contain resources built-in Bundle
-    hasStartSceneBundle: boolean; // Whether it contains the built-in Bundle in the initial scene
+    hasResourcesBundle: boolean; // Does it contain the built-in Bundle "resources".
+    hasStartSceneBundle: boolean; // Does it contain the built-in Bundle "start-scene".
     customJointTextureLayouts?: ICustomJointTextureLayout[];
-    macros?: Record<string, any>; // Engine Macro configuration value, taken from project settings
+    macros?: Record<string, any>; // Engine Macro configuration value, depends on the settings of the Macro Config page in the Project Settings panel.
 }
 ```
 
@@ -133,13 +133,13 @@ Example `config.json` structure:
 
 ```js
 {
-    importBase: string; // The name of the import directory in the Bundle, usually'import'
-    nativeBase: string; // The name of the native directory in native, usually'native'
+    importBase: string; // The name of the import directory in the Bundle, usually 'import'.
+    nativeBase: string; // The name of the native directory in native, usually 'native'.
     name: string; // The name of the Bundle, the Bundle can be loaded by the Bundle name
     deps: string[]; // Other Bundle names that this Bundle depends on
     scenes: Array<{url: string, uuid: string}>; // The array of scene information contained in the Bundle
     rawAssets: { [index: string]: { [uuid: string]: string[] } };
-    // Store the url and type of the resource loaded under resources
+    // Store the URL and type of the resource loaded under 'resources'
     // Example: "bba00d3a-2f17-4511-b47c-0d584b21b763@6c48a": ["test/right/texture", "cc.Texture2D", "bba0...@6c48a"]
     // "bba0...@6c48a": ["test/right/texture", 1, 1]
     packs: Record<string, IUuid[] | number[]>; // json group information
@@ -152,7 +152,7 @@ Example `config.json` structure:
      // the uuid index in the uuids array
     uuids: string[]; // uuid array, only in release mode
     types?: string[]; // Resource type array, only in release mode
-    encrypted?: boolean; // Used natively to mark whether the script in the Bundle is encrypted
+    encrypted?: boolean; // Marks whether the script in the Bundle is encrypted, active on the native platform.
     isZip?: boolean; // Is it in zip mode
     zipVersion?: string;
 }
@@ -162,13 +162,13 @@ The structure here only lists the structure of `settings.json` and `config.json`
 
 ### UUID compression and file writing in config.json
 
-During the resource packaging process, the resource UUID involved in the resource building will be collected continuously, and finally sorted into the `config.json` of the bundle generated after the build. Before generating the `config.json`, it will decide whether to check the file according to whether it is in debug mode or not. The UUID is compressed.
+During the resource packaging process, the resource UUID involved in the resource building will be collected continuously, and finally sorted into the `config.json` of the bundle generated after the build. The UUID is compressed before the `config.json` file is generated, depending on whether it is in debug mode or not.
 
 All used UUIDs will be sorted during building, and the ones that appear **twice or more** will be stored in the `uuids` array, and the position of the previously used UUID will be replaced with the index. All `types` that appear **twice or more** will also be stored in the `types` array, and the previously used position will be replaced with the index.
 
 #### Build resources
 
-The building of resources in this step is to package resource files other than scripts, because scripts are packaged separately as special files. In the stage of packaging resources, the editor will first summarize **currently participating in the building of the scene and all resources in the Bundle directory. The packaging of each resource will be deserialized by the engine, and the dependent resources will be found and then recursively packaged** . Before deserialization, the script environment of the entire project will be configured, that is, all non-plug-in project scripts will be loaded. Since the loading of the script will directly affect the deserialization, if the script is not legally loaded, it will directly cause the build to fail. If a dependent resource is found to be lost during the deserialization process, a warning will be issued, but the building will continue. The warning here does not mean that the problem does not need to be resolved. **If the resource is lost and cannot be resolved, it is difficult to ensure that the content after the build is free of problems**.
+The building of resources in this step is to package resource files other than scripts, because scripts are packaged separately as special files. In the stage of packaging resources, the editor will first summarize **currently participating in the building of the scene and resources in all Bundles directory. The packaging of each resource will be deserialized by the engine, and the dependent resources will be found and then recursively packaged**. Before deserialization, the script environment of the entire project will be configured, that is, all non-plug-in project scripts will be loaded. Since the loading of the script will directly affect the deserialization, if the script is not legally loaded, it will directly cause the build to fail. If a dependent resource is found to be lost during the deserialization process, a warning will be issued, but the building will continue. The warning here does not mean that the problem does not need to be resolved. **If the resource is lost and not resolved, it is difficult to ensure that the content after the build is free of problems**.
 
 After the resource is deserialized during the packaging process, it will be recompressed and serialized to reduce the package body after packaging. The serialized files of texture resources will all be packaged into a JSON file, and other serialized files will be subpackaged according to the build configuration parameters.
 
@@ -176,51 +176,51 @@ After the resource is deserialized during the packaging process, it will be reco
 
 The script building in the editor is divided into **plug-in scripts** and **non-plug-in scripts**. For details, please refer to the description of **script building** in the previous section.
 
-## building of each platform
+## Building of each platform
 
 The build provides part of the life cycle hook function, which is convenient for developers to participate in the building during different processing periods of the building and affect the building result. At the same time, the build also provides a way for developers to directly add some custom build options. The UI interface can be modified, provide data verification, etc. in the build options configuration page. For details, please refer to the [Build Plugin](custom-build-plugin.md). The build options injected by the build plugin will be stored in `options.packages`, the current way of writing option parameters built through the command line also needs to follow this rule.
 
 ### Compilation/generation process of each platform
 
-The build process of all platforms that require/support separate compilation and generation have been split. Some developers may wonder why the current mini game platform has a new **Generate** button. In fact This part of the logic has always existed before, but it is merged in the **build** and cannot be controlled separately.
+The build process of all platforms that require/support separate compilation and generation have been split. Some developers may wonder why the current mini game platform has a new **Generate** button. In fact this part of the logic has always existed before, but it is merged in the **build** process and cannot be controlled separately.
 
 The **build** of the editor is similar to the function of an **export game package for the corresponding platform**, which is mainly to complete the interface of the engine to each platform and the compatibility of the basic format of the game package, which does not mean that all the work is completed. Each platform usually has its own compilation process, such as the compilation and upload function of the developer tools that come with the WeChat mini game platform, and the compilation, running and debugging functions of the relevant IDE for each native platform. If the developer needs to customize the packaging process for a specific platform, the editor needs to support the process of splitting in order to better access.
 
 ## FAQ Guide
 
-The entire build process is in a single worker, to view the log information of the build process or view the complete call stack when an error occurs, click on the main menu, then **Developer -> Open Build Debug Tool**. In fact, a lot of log information will be output when building, but in order not to interfere with users, by default, only error information and important information will be printed to the editor's console, and the log information in the debugging tool is the most complete. Of course, the output log level can be set in **Preferences -> Resource Database -> Log Level**. For details, please refer to the [Build](./build-panel.md) documentation.
+The entire build process is in a single worker, to view the log information of the build process or view the complete call stack when an error occurs, click on the main menu, then **Developer -> Open Build DevTools**. In fact, a lot of log information will be output when building, but in order not to interfere with users, by default, only error information and important information will be printed to the editor's **Console** panel, and the log information in the devtools is the most complete. Of course, the output log level also can be set in **Preferences -> AssetDB -> Log Level**. For details, please refer to the [Build](./build-panel.md) documentation.
 
 > **Note**: Before building **please make sure that the scene participating in the building can be previewed normally**. Loss of resources in some scenes or other script problems can be exposed during the preview stage. Building under the condition that the preview is normal can save time and troubleshoot better.
 
 ### Resource loading 404 errors
 
-In case of a 404 error, please copy the `uuid` in the log that reported the error resource loss and search for the corresponding resource in **Explorer** to check whether the resources that the resource depends on are normal. Resource loading 404 errors usually occur under the following situations:
+In case of a 404 error, please copy the `uuid` in the log that reported the error resource loss and search for the corresponding resource in **Assets** panel to check whether the resources that the resource depends on are normal. Resource loading 404 errors usually occur under the following situations:
 
 1. **Resources that are not placed in the Bundle are dynamically loaded in the script**.
 
-    - **Reason**: Through the above introduction, we know that only the resources and their dependent resources in the Bundle directory, as well as the resources and their dependent resources participating in the construction scenario will be packaged into the final build folder, and **only the resource URL directly put into the `Bundle` folder will be written to the `config.json`**. If a resource is used in the script but the resource is not placed in any Bundle directory, a 404 error will appear when it is loaded.
+    - **Reason**: Through the above introduction, we know that only the resources and their dependent resources in the Bundle directory, as well as the resources and their dependent resources participating in the build scene will be packaged into the final build folder, and **only the resource URL directly put into the `Bundle` folder will be written to the `config.json`**. If a resource is used in the script but the resource is not placed in any Bundle directory, a 404 error will appear when it is loaded.
 
     - **Solution**: Move the used resources to the Bundle folder.
 
 2. **There is a problem importing the loaded resource, and the data cannot be generated normally to the library**
 
-    - **Reason**: All the original data is obtained by reading the resource files in the library during construction. If the import fails, the correct corresponding resource information will not be obtained.
+    - **Reason**: All the original data is obtained by reading the resource files in the library during the build. If the import fails, the correct corresponding resource information will not be obtained.
 
-    - **Solution**: Find the corresponding resource through **Explorer**, right-click, and select **Reimport Resource** in the menu.
+    - **Solution**: Find the corresponding resource through **Assets** panel, right-click, and select **Reimport Asset** in the menu.
 
 3. **Resource Loss**
 
-    - **Reason**: As mentioned in the previous construction process, **resource construction will go through the reverse sequence to find dependent resources**, and the most frequent problem is that the dependent resources are accidentally during the project iteration process Delete and cause resource loss. The loss of these resources may not usually be noticed, but once the build is performed, it will be exposed.
+    - **Reason**: As mentioned in the previous construction process, **resource construction will go through the reverse sequence to find dependent resources**, and the most frequent problem is that the dependent resources are accidentally during the project iteration process delete and cause resource loss. The loss of these resources may not usually be noticed, but once the build is performed, it will be exposed.
 
     - **Solution**: Use the code editor to find out which resources the UUID is referenced, and modify the corresponding resources.
 
 ### Script resource loading error
 
-As mentioned in the previous section of **Building Data Sorting**, the script environment needs to be configured when building. If the error message is related to the script, please refer to the error content to modify the script. If you don't know which script is reporting the error, find the UUID of the corresponding script in the error message call stack, and then find the location in **Explorer**.
+As mentioned in the previous section of **Building Data Sorting**, the script environment needs to be configured when building. If the error message is related to the script, please refer to the error content to modify the script. If you don't know which script is reporting the error, find the UUID of the corresponding script in the error message call stack, and then find the location in **Assets** panel.
 
 ### How to find the big picture after the small picture is automatically combined
 
-The automatic atlas will print out the UUID information of the original small image and the synthesized large image during the construction process, which can be found in the build debugging tool, and then use the UUID of the large image found to generate the `XXXBundle/native` after packaging. You can view it in the directory. If there are too many combined images, open the build log and search for the UUID.
+The Auto Atlas will print out the UUID information of the original small image and the synthesized large image during the build process, which can be found in the build devtools, and then use the UUID of the large image found to generate the `XXXBundle/native` after packaging. You can view it in the directory. If there are too many combined images, open the build log and search for the UUID.
 
 ![build-atlas](./build-guide/build-atlas.jpg)
 
