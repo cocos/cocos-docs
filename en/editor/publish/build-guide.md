@@ -119,7 +119,7 @@ Example `settings.json` structure:
     renderPipeline: string; // renderPipeline information, depends on the settings of the Project Data page in the Project Settings panel.
     physics?: IPhysicsConfig; // Physics module settings (only generated when the physics engine module is checked)
     BundleVers: Record<string, string>; // Bundle's md5 file stamp
-    subpackages: string[]; // subcontract information
+    subpackages: string[]; // subpackage information
     remoteBundles: string[]; // Record the collection of remote package Bundle
     // server: string;
     hasResourcesBundle: boolean; // Does it contain resources built-in Bundle
