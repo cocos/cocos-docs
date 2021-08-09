@@ -176,7 +176,7 @@ After the resource is deserialized during the packaging process, it will be reco
 
 The script building in the editor is divided into **plug-in scripts** and **non-plug-in scripts**. For details, please refer to the description of **script building** in the previous section.
 
-## building of each platform
+## Building of each platform
 
 The build provides part of the life cycle hook function, which is convenient for developers to participate in the building during different processing periods of the building and affect the building result. At the same time, the build also provides a way for developers to directly add some custom build options. The UI interface can be modified, provide data verification, etc. in the build options configuration page. For details, please refer to the [Build Plugin](custom-build-plugin.md). The build options injected by the build plugin will be stored in `options.packages`, the current way of writing option parameters built through the command line also needs to follow this rule.
 
