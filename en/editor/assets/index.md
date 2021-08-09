@@ -117,7 +117,7 @@ After selecting a specific asset/folder, right-click on it to perform a series o
 - **Delete**: delete the asset (can be multi-selected), or you can use the shortcut **Delete**. The asset will remain in the **Recycle Bin** of the system after deletion, and can be restored if necessary.
 - **Select All**: selects all assets in the same hierarchy.
 - **Search in Folder**: when using the search function, only search the assets in that folder.
-- **Find UUID Usages**: find which assets the asset is referenced by by the asset's uuid.
+- **Find UUID Usages**: find which assets the asset is referenced by by the asset's UUID.
 - **Preview this scene in the browser**: only available for scene assets.
 - **Reveal in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
 - **Reimport Asset**: updates the asset to the project's `./library` folder of the project, with multiple selections for bulk import.
