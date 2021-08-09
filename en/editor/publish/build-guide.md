@@ -102,7 +102,7 @@ It is divided into the following steps:
 
 - **`application.js` template file generation**: Inject some project settings into the `application.js` file according to user options and generate it to the release package directory generated after the build.
 
-### Organize settings/config data
+### Organize `settings.json`/`config.json` data
 
 It is mainly based on the data compiled by previous resources to prepare the configuration information necessary for the game to start.
 
