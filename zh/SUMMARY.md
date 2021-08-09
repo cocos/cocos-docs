@@ -63,7 +63,7 @@
         - [发布到字节跳动小游戏](editor/publish/publish-bytedance-mini-game.md)
         - [发布到趣头条小游戏](editor/publish/publish-qtt.md)
         - [发布到 Cocos Play](editor/publish/publish-cocos-play.md)
-        - [发布到华为快游戏](editor/publish/publish-huawei-mini-game.md)
+        - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
         - [发布到 vivo 小游戏](editor/publish/publish-vivo-mini-game.md)
         - [发布到小米快游戏](editor/publish/publish-xiaomi-quick-game.md)

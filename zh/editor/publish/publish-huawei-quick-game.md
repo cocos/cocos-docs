@@ -10,11 +10,11 @@
 
 使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择 **华为快游戏**。
 
-![build](./publish-huawei-mini-game/build.png)
+![build](./publish-huawei-quick-game/build.png)
 
 通用构建选项的设置请参考 [通用构建选项](build-options.md)，华为快游戏特有的构建选项如下：
 
-![huawei-options](./publish-huawei-mini-game/huawei-build.png)
+![huawei-options](./publish-huawei-quick-game/huawei-build.png)
 
 | 构建选项 | 可选 | 说明 | 字段名（用于命令行发布）|
 | :----- | :-- | :-- | :-- |
@@ -54,7 +54,7 @@
 **构建发布** 面板的构建选项设置完成后，点击 **构建并生成** 按钮。<br>
 完成后点击 **构建任务** 左下角的文件夹图标按钮打开项目发布包，可以看到在默认发布路径 `build` 目录下生成了 `huawei-quick-game`（以具体的构建任务名为准）文件夹，该文件夹就是导出的华为快游戏工程目录和 rpk，rpk 包在 `build/huawei-quick-game/dist` 目录下。
 
-![package](./publish-huawei-mini-game/package.png)
+![package](./publish-huawei-quick-game/package.png)
 
 若需要修改生成的 rpk 包，在修改完成后点击 **构建任务** 右下角的 **生成** 按钮，即可在不重新构建的情况下重新生成 rpk 包。
 
@@ -66,7 +66,7 @@
 
     这时 rpk 会被推送到之前在手机上已安装完成的 **华为快应用加载器** 上（如有读写等权限弹出请允许），即可在手机上打开 rpk。
 
-    ![play](./publish-huawei-mini-game/play.png)
+    ![play](./publish-huawei-quick-game/play.png)
 
 2. 将构建生成的 rpk 包拷贝到手机 sdcard 目录下。然后在手机上打开 **华为快应用加载器** 后，点击手机的返回键会弹出一个列表，选择第一个选项 **本地安装**，选择路径为放置 rpk 的路径，即可将 rpk 运行到手机上。
 
@@ -74,7 +74,7 @@
 
 分包加载，即把游戏内容按一定规则拆分在几个包里，在首次启动的时候动的消耗时间。
 
-若要使用该功能需要在 Creator 编辑器中配置 [小游戏分包](subpackage.md)，设置完成后在构建时就会自动分包。构建完成后，会在 `build/huawei-mini-game/dist` 目录下生成 **.rpk** 文件。
+若要使用该功能需要在 Creator 编辑器中配置 [小游戏分包](subpackage.md)，设置完成后在构建时就会自动分包。构建完成后，会在 `build/huawei-quick-game/dist` 目录下生成 **.rpk** 文件。
 
 > **注意**：目前华为快游戏不支持同时下载多个分包，需只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启要下载多个分包时请按顺序下载。
 
