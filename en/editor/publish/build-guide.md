@@ -84,7 +84,7 @@ It is divided into the following steps:
                   ...
       ```
 
-      As long as any relevant engine build parameters are changed, the engine will be recompiled. The specific effects on the use of the build engine cache are:
+      As long as any relevant engine build parameters are changed, the engine will be recompiled. Parameters that specifically affect the use of the build engine cache are:
 
         - debug: whether to open the debug mode
         - includeModules: engine module settings
