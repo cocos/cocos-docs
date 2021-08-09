@@ -91,7 +91,7 @@ It is divided into the following steps:
         - sourceMaps: whether to enable sourceMap
         - platform: build platform
         - Engine modification time
-        - Whether to check the separation engine (only WeChat mini game platform)
+        - Whether to check the **Separate Engine** in the **Build** panel (only WeChat Mini Game)
         - Use engine path
 
 - **JSON build**: When serializing JSON, it will be merged and written into the file system (in the folder `assets/xxxBundle/import`) according to the JSON grouping and the bundle to which it belongs. If it is in **release mode, it will also serialize JSON The UUID inside is compressed**.
