@@ -198,7 +198,7 @@ In case of a 404 error, please copy the `uuid` in the log that reported the erro
 
 1. **Resources that are not placed in the Bundle are dynamically loaded in the script**.
 
-    - **Reason**: Through the above introduction, we know that only the resources and their dependent resources in the Bundle directory, as well as the resources and their dependent resources participating in the construction scenario will be packaged into the final build folder, and **only the resource URL directly put into the `Bundle` folder will be written to the `config.json`**. If a resource is used in the script but the resource is not placed in any Bundle directory, a 404 error will appear when it is loaded.
+    - **Reason**: Through the above introduction, we know that only the resources and their dependent resources in the Bundle directory, as well as the resources and their dependent resources participating in the build scene will be packaged into the final build folder, and **only the resource URL directly put into the `Bundle` folder will be written to the `config.json`**. If a resource is used in the script but the resource is not placed in any Bundle directory, a 404 error will appear when it is loaded.
 
     - **Solution**: Move the used resources to the Bundle folder.
 
