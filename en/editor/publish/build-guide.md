@@ -216,7 +216,7 @@ In case of a 404 error, please copy the `uuid` in the log that reported the erro
 
 ### Script resource loading error
 
-As mentioned in the previous section of **Building Data Sorting**, the script environment needs to be configured when building. If the error message is related to the script, please refer to the error content to modify the script. If you don't know which script is reporting the error, find the UUID of the corresponding script in the error message call stack, and then find the location in **Explorer**.
+As mentioned in the previous section of **Building Data Sorting**, the script environment needs to be configured when building. If the error message is related to the script, please refer to the error content to modify the script. If you don't know which script is reporting the error, find the UUID of the corresponding script in the error message call stack, and then find the location in **Assets** panel.
 
 ### How to find the big picture after the small picture is automatically combined
 
