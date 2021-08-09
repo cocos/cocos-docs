@@ -96,7 +96,7 @@ It is divided into the following steps:
 
 - **JSON build**: When serializing JSON, it will be merged and written into the file system (in the folder `assets/xxxBundle/import`) according to the JSON grouping and the bundle to which it belongs. If it is in **release mode, it will also serialize JSON The UUID inside is compressed**.
 
-- **Common Asset Copy**: Some raw assets (rawAssets) are directly copied from the library to the built folder `assets/xxxBundle/native`.
+- **Common Asset Copy**: Some raw assets are directly copied from the `library` to the built folder `assets/xxxBundle/native`.
 
 - **md5 processing**: Add the `.md5` suffix to all resources in the `res` folder, and organize the data to be recorded in settings.
 
