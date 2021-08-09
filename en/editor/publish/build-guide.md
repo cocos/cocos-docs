@@ -35,7 +35,7 @@ If the engine finds that the dependent resources are missing during the deserial
 
 ### Write the built resources to the file system
 
-The constructed resources will be configured according to the [Asset Bundle](../../asset/bundle.md#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95) and distributed in different locations. After the build is completed, the Asset Bundle will be packaged into the `assets/[Bundle name]` under the corresponding platform release package directory. The directory structure is as follows:
+The built resources will be distributed in different locations according to the configuration of the [Asset Bundle](../../asset/bundle.md#configuration). After the build is completed, the Asset Bundle will be packaged into the `assets/[Bundle name]` under the corresponding platform release package directory. The directory structure is as follows:
 
 ![build-engine](./build-guide/bundle.png)
 
