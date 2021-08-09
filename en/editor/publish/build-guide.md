@@ -53,7 +53,7 @@ It is divided into the following steps:
 
 - **Auto Atlas Processing**: Querying the Auto Atlas resource information within the project, packaging the SpriteFrame small images under the atlas into a large image, generating serialized files, etc. according to the configuration of the Auto Atlas resource. This step will modify the json grouping information, asset resource grouping information, and add texture compression tasks. If the **packAutoAtlas** is not checked in the **Build** panel, no processing will be performed.
 
-- **Texture compression**: According to the organized image compression task, the image resources are compressed and written into the build folder. If the build option is not checked for texture compression, no processing will be performed.
+- **Texture compression**: According to the organized image compression task, the image resources are compressed and written into the build folder. If the **CompressTexture** is not checked in the **Build** panel, no processing will be performed.
 
 - **Engine building**: According to the **function tailoring** in the project settings, remove the unused engine modules and pack them into the cocos-js directory. Checking the `sourceMap` option will generate the corresponding map file, and determine whether the script is compressed according to the debug option.
 
