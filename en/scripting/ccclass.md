@@ -389,13 +389,13 @@ private get name() {
 
 ### group
 
-If there are too many and mixed properties defined in the script, the properties can be grouped and sorted by `group` for easy management. It also supports sorting properties within a group.
+If there are many properties or mixed properties defined in the script, the properties can be grouped and sorted by `group` for easy management. It also supports sorting properties within a group.
 
 - `@property({ group: { name } })`
 
 - `@property({ group: { id, name, displayOrder, style } })`
 
-| Attribute | Description |
+| Property | Description |
 | :--- | :--- |
 | `id`           | Group ID, `string` type, is a unique identifier for the property group, and defaults to `default`. |
 | `name`         | The name to classify the properties in the group, `string` type. |
@@ -433,7 +433,7 @@ Mounting the script to the node displays the following image in the **Inspector*
 
 ![decorator-group](decorator-group.png)
 
-For more information about the attributes, please refer to the [Attributes](./reference/attributes.md) documentation.
+For additional information about the properties, please refer to the [Properties](./reference/attributes.md) documentation.
 
 ## get/set methods
 
