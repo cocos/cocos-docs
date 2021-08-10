@@ -73,6 +73,7 @@
             - [启用微信小游戏引擎插件](editor/publish/wechatgame-plugin.md)
             - [接入微信 PC 小游戏](editor/publish/publish-pc-wechatgame.md)
         - [开放数据域](editor/publish/build-open-data-context.md)
+        - [小游戏分包](editor/publish/subpackage.md)
     - [命令行发布项目](editor/publish/publish-in-command-line.md)
     - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [定制项目的构建模版](editor/publish/custom-project-build-template.md)

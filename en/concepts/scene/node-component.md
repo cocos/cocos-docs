@@ -84,7 +84,7 @@ For details on the implementation of layers, please refer to the [layer](layer.m
 
 ![node layer gizmo](scene/node-layer-gizmo.png)
 
-The `Layer` property of a node is global and unique, but different nodes can set the same `Layer` property so that they are viewed by the same camera. Developers can use the  `Layer` property built-in with the engine, or they can use a custom `Layer` property, which can be set by clicking the **Edit** button in the image below and going to the **Project Settings -> Layers** page. Please refer to the [Layer](layer.md) documentation for details.
+The `Layer` property of a node is global and unique, but different nodes can set the same `Layer` property so that they are viewed by the same camera. Developers can use the `Layer` property built-in with the engine, or they can use a custom `Layer` property, which can be set by clicking the **Edit** button in the image below and going to the **Project Settings -> Layers** page. Please refer to the [Layer](layer.md) documentation for details.
 
 ![node layer edit](scene/node-layer-edit.png)
 
