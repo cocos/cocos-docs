@@ -209,23 +209,50 @@ id = "";
 
 ### group
 
-给属性分组，支持组内排序
-支持的写法为 
-`@property({ group: { name } })`  
-或
-`@property({ group: { id, name, displayOrder, style } })`  
-id 是分组 id, 默认 'default'；
-name 是分组显示的组名；
-displayOrder 默认 Infinity 排在最后面；
-style 目前默认且只提供 'tab' 样式，如下图；
+当脚本中定义的属性过多且杂时，可通过 `group` 对属性进行分组、排序，方便管理。同时还支持对组内属性进行分类。
 
-```typescript
-@property({ group: { name: 'bar' }, type: Node }) 
-node2: Node = null!; 
-@property({ group: { name: 'foo' }, type: Sprite }) 
-sprite: Sprite = null!;
+`group` 写法包括以下两种：
+
+- `@property({ group: { name } })`
+
+- `@property({ group: { id, name, displayOrder, style } })`
+
+| 参数 | 说明 |
+| :--- | :--- |
+| `id`           | 分组 ID，`string` 类型，是属性分组组号的唯一标识，默认为 `default`。 |
+| `name`         | 组内属性分类的名称，`string` 类型。 |
+| `displayOrder` | 对分组进行排序，`number` 类型。数字越小，排序越靠前，默认为 `Infinity`，表示排在最后面。 |
+| `style`        | 分组样式，目前只支持 **tab** 样式。 |
+
+示例脚本如下：
+
+```ts
+import { _decorator, Component, Label, Sprite } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('SayHello')
+export class SayHello extends Component {
+
+    // 分组一
+    // 组内名为 “bar” 的属性分类，其中包含一个名为 label 的 Label 属性
+    @property({ group: { name: 'bar' }, type: Label }) 
+    label: Label = null!; 
+    // 组内名为 “foo” 的属性分类，其中包含一个名为 sprite 的 Sprite 属性
+    @property({ group: { name: 'foo' }, type: Sprite }) 
+    sprite: Sprite = null!;
+
+    // 分组二
+    // 组内名为 “bar” 的属性分类，其中包含名为 label2 的 Label 属性和名为 sprite2 的 Sprite 属性
+    @property({ group: { name: 'bar', id: '2' }, type: Label }) 
+    label2: Label = null!; 
+    @property({ group: { name: 'bar', id: '2' }, type: Sprite }) 
+    sprite2: Sprite = null!;
+
+}
 ```
+
+将该脚本挂载到节点上，则在 **属性检查器** 中显示为：
+
 ![decorator-group](decorator-group.png)
 
-
-更多参数内容请查阅 [属性参数](./reference/attributes.md)。
+更多参数内容请参考文档 [属性参数](./reference/attributes.md)。

@@ -108,7 +108,7 @@ The option `default` specifies the default value of the cc attribute.
 
 #### Defined By Constructor
 
-The constructor of `CCClass` is defined by `constructor`. To ensure that deserialization can always run correctly, `constructor` **is not allowed to define **constructor parameters**.
+The constructor of `CCClass` is defined by `constructor`. To ensure that deserialization can always run correctly, `constructor` **is not allowed to define constructor parameters**.
 
 > **Note**: if developers really need to use construction parameters, they can get them through `arguments`, but remember that if this class will be serialized, you must ensure that the object can still be new when the construction parameters are all default.
 
@@ -241,7 +241,7 @@ class Sprite extends Node {
         super();
         // Before the child constructor is called, the parent constructor has been called, so this.name has been initialized
         console.log(this.name);    // "node"
-        // reset this.name
+        // Reset "this.name"
         this.name = "sprite";
     }
 }
@@ -389,24 +389,51 @@ private get name() {
 
 ### group
 
-Group attributes and support intra-group sorting
-`@property({ group: { name } })`  
-Or
-`@property({ group: { id, name, displayOrder, style } })`  
-id is groupId, default value is 'default';
-name is groupName;
-displayOrder default value is Infinity, sorted at last;
-style recently only one value 'tab';
+If there are many properties or mixed properties defined in the script, the properties can be grouped and sorted by `group` for easy management. It also supports sorting properties within a group.
 
-```typescript
-@property({ group: { name: 'bar' }, type: Node }) 
-node2: Node = null!; 
-@property({ group: { name: 'foo' }, type: Sprite }) 
-sprite: Sprite = null!;
+- `@property({ group: { name } })`
+
+- `@property({ group: { id, name, displayOrder, style } })`
+
+| Property | Description |
+| :--- | :--- |
+| `id`           | Group ID, `string` type, is a unique identifier for the property group, and defaults to `default`. |
+| `name`         | The name to classify the properties in the group, `string` type. |
+| `displayOrder` | Sort the groups, `number` type. The smaller the number, the higher the sorting. The default is `Infinity`, which means the group is sorted last. |
+| `style`        | Grouping styles, currently only **tab** styles are supported. |
+
+Example script is as follows:
+
+```ts
+import { _decorator, Component, Label, Sprite } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('SayHello')
+export class SayHello extends Component {
+
+    // Subgroup 1
+    // The property category named "bar" within the group, which contains a Label property named "label".
+    @property({ group: { name: 'bar' }, type: Label }) 
+    label: Label = null!; 
+    // The property category named "foo" within the group, which contains a Sprite property named "sprite".
+    @property({ group: { name: 'foo' }, type: Sprite }) 
+    sprite: Sprite = null!;
+
+    // Subgroup 2
+    // The property category named "bar" within the group, which contains a Label property named "label2" and a Sprite property named "sprite2".
+    @property({ group: { name: 'bar', id: '2' }, type: Label }) 
+    label2: Label = null!; 
+    @property({ group: { name: 'bar', id: '2' }, type: Sprite }) 
+    sprite2: Sprite = null!;
+
+}
 ```
+
+Mounting the script to the node displays the following image in the **Inspector** panel:
+
 ![decorator-group](decorator-group.png)
 
-For more parameters, please refer to the [Property Parameters](./reference/attributes.md) documentation.
+For additional information about the properties, please refer to the [Properties](./reference/attributes.md) documentation.
 
 ## get/set methods
 
