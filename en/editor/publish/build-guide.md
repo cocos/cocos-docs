@@ -27,7 +27,7 @@ This step is mainly to initialize the **initial options** passed to the build du
 
 ### Build data organization
 
-When building, the editor will first summarize the current scenes involved in the build and all resources in the [Bundle](../../asset/bundle.md) and then search for dependent resources through engine deserialization, and recursively find a list of all the resources that need to be packaged. After the resource list is summarized, the resources will be classified according to the Bundle configuration, and scripts, image compression tasks, and json grouping information will be collected.
+When building, the editor will first summarize the current scenes involved in the build and resources in all [Bundles](../../asset/bundle.md) and then search for dependent resources through engine deserialization, and recursively find a list of all the resources that need to be packaged. After the resource list is summarized, the resources will be classified according to the Bundle configuration, and scripts, image compression tasks, and json grouping information will be collected.
 
 The engine will configure the scripting environment of the entire project before deserialization, that is, load all non-plug-in scripts. Whether the script is successfully loaded will directly affect the deserialization. If the script fails to load because the script is not correctly written, it will directly cause the build to fail.
 
