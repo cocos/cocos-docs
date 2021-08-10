@@ -4,7 +4,7 @@
 
 ## 如何启用
 
-**WebSocket 服务器** 默认是剔除的，需要在构建原生平台后生成的发布包目录 `build/[platform]/proj`（例如 Android 平台默认为 `build/android/proj`）下的 `cfg.cmake` 文件中添加配置 `set(USE_WEBSOCKET_SERVER ON)` 以启用。
+**WebSocket 服务器** 默认是剔除的。若要启用，需要在构建原生平台后生成的发布包目录 `build/[platform]/proj`（例如 Android 平台默认为 `build/android/proj`）下的 `cfg.cmake` 文件中添加配置 `set(USE_WEBSOCKET_SERVER ON)`。
 
 ## 如何调用 WebSocket 服务器接口
 
