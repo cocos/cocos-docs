@@ -38,7 +38,7 @@ Currently, the Cocos Creator installation directory already includes Cocos2d-x s
 
 #### Resource Server Address
 
-When the package is too large, the resource can be uploaded to a resource server and downloaded via network request. This option is used to fill in the address of the remote server where the resource is stored. The developer needs to manually upload the `remote` folder in the release package directory to the filled in resource server address after the build. For more details, please refer to the [Uploading resources to a remote server](../../asset/cache-manager.md) documentation.
+When the package is too large (in size), the resource can be uploaded to a resource server and downloaded via a network request. This option is used to fill in the address of the remote server where the resource is stored. The developer needs to manually upload the `remote` folder in the release package directory to the filled-in resource server address after the build. For more details, please refer to the [Uploading resources to a remote server](../../asset/cache-manager.md) documentation.
 
 #### Polyfills
 

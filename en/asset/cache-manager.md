@@ -31,7 +31,7 @@ When the engine's **md5Cache** feature is enabled, the URL of the file will chan
 
 ### Uploading resources to a remote server
 
-When the package is too large, it is necessary to upload resources to a remote server, please configure the Asset Bundle where the resources are located as a remote package. Next, taking the WeChat Mini Game as an example, and look at the specific steps:
+When the package is too large (in size), it is necessary to upload resources to a remote server and configure the Asset Bundle where the resources are located as a remote package. Next, taking the WeChat Mini Game as an example, and look at the specific steps:
 
 1. Reasonably allocate resources, configure the resource folder that needs to be managed modularly as Asset Bundles, and check **Is Remote Bundle**. For additional details, please refer to the [Configure Asset Bundle](./bundle.md#configuration) documentation.
 
