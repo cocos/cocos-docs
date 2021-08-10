@@ -1,10 +1,10 @@
 # WebSocket Server
 
-Developers can launch a WebSocket Server during the game and provide an **RPC interface**. By improving and calling these **RPC interface**, developers can monitor the internal state of the game process and increase the ability to manage the game process state.
+Developers can launch a WebSocket Server during the game and provide an **RPC interface**. By improving and calling these **RPC interfaces**, developers can monitor the internal state of the game process and increase the ability to manage the game process state.
 
 ## How To Enable
 
-**WebSocket Server** is disabled by default. You need to enable it by adding configuration `set(USE_WEBSOCKET_SERVER ON)` to the `cfg.cmake` file under the release package directory `build/[platform]/proj` (e.g. `build/android/proj` by default for Android platform) generated after building the native platform.
+The **WebSocket Server** is disabled by default. To enable it, add to the configuration `set(USE_WEBSOCKET_SERVER ON)` to the `cfg.cmake` file under the release package directory `build/[platform]/proj` (e.g. `build/android/proj` by default for Android platform) generated after building the native platform.
 
 ## How to use WebSocket
 
@@ -97,4 +97,4 @@ interface WsCallback {
 
 ## Reference links
 
-The interface design refers to the [nodejs-websocket](https://www.npmjs.com/package/nodejs-websocket#server).
+The interface design refers to the [nodejs-websocket](https://www.npmjs.com/package/nodejs-websocket#server) server.
