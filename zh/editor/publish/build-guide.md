@@ -40,10 +40,8 @@ Cocos Creator 的通用构建流程，主要包括以下内容：
 
 更多关于 Asset Bundle 的配置、构建、文件说明等内容，请参考 [Asset Bundle](../../asset/bundle.md) 文档。
 
-在整理完基本的构建任务后，The build will process other build processes according to each Bundle unit。
-conduct
+在整理完基本的构建任务后，构建将会按照每个 Bundle 未处理单元处理完其他的构建流程。
 
-构建将会按照每个 Bundle 的配置再依次处理各个 Bundle。
 具体可以分为以下几个步骤：
 
 - **脚本构建**：编辑器内对脚本的构建分为 **插件脚本** 和 **非插件脚本** 两类。
