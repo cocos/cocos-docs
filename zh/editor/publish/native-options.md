@@ -117,7 +117,7 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 
 #### 生成 App Bundle（Google Play）
 
-勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/) 。
+勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/)。
 
 ### Windows 平台构建选项
 
