@@ -1,4 +1,4 @@
-# Attributes
+# Property Attributes
 
 Attributes are used to attach metadata to defined properties, similar to Decorator in scripting languages or Attribute in C#.
 
