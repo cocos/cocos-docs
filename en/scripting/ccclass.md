@@ -399,7 +399,7 @@ If there are many properties or mixed properties defined in the script, the prop
 | :--- | :--- |
 | `id`           | Group ID, `string` type, is a unique identifier for the property group, and defaults to `default`. |
 | `name`         | The name to classify the properties in the group, `string` type. |
-| `displayOrder` | Sort the groups, `number` type. The smaller the number, the higher the sorting. The default is `Infinity`, which means the group is sorted last. |
+| `displayOrder` | Sort the groups, `number` type. The smaller the number, the higher the sorting. The default is `Infinity`, which means the group is sorted last.<br>If there are multiple groups without `displayOrder` set, they will be sorted in the order declared in the script. |
 | `style`        | Grouping styles, currently only **tab** styles are supported. |
 
 Example script is as follows:
@@ -411,7 +411,7 @@ const { ccclass, property } = _decorator;
 @ccclass('SayHello')
 export class SayHello extends Component {
 
-    // Subgroup 1
+    // Group 1
     // The property category named "bar" within the group, which contains a Label property named "label".
     @property({ group: { name: 'bar' }, type: Label }) 
     label: Label = null!; 
@@ -419,11 +419,11 @@ export class SayHello extends Component {
     @property({ group: { name: 'foo' }, type: Sprite }) 
     sprite: Sprite = null!;
 
-    // Subgroup 2
-    // The property category named "bar" within the group, which contains a Label property named "label2" and a Sprite property named "sprite2".
-    @property({ group: { name: 'bar', id: '2' }, type: Label }) 
+    // Group 2
+    // The property category named "bar2" within the group, which contains a Label property named "label2" and a Sprite property named "sprite2".
+    @property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, type: Label }) 
     label2: Label = null!; 
-    @property({ group: { name: 'bar', id: '2' }, type: Sprite }) 
+    @property({ group: { name: 'bar2', id: '2' }, type: Sprite }) 
     sprite2: Sprite = null!;
 
 }
@@ -432,6 +432,22 @@ export class SayHello extends Component {
 Mounting the script to the node displays the following image in the **Inspector** panel:
 
 ![decorator-group](decorator-group.png)
+
+Because group 1 does not specify `displayOrder` and group 2 specifies `displayOrder` as `1`, group 2 will be ranked ahead of group 1.
+
+Sorting the properties within a group can also be done via `displayOrder`. Taking group 2 as an example, it is currently sorted in the order defined in the script, with label2 in front of sprite2. Let's adjust it to:
+
+```ts
+// Group 2
+@property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, displayOrder: 2, type: Label }) 
+label2: Label = null!; 
+@property({ group: { name: 'bar2', id: '2' }, displayOrder: 1, type: Sprite }) 
+sprite2: Sprite = null!;
+```
+
+Back to the editor, the sprite2 is now in front of label2 in the **Inspector** panel:
+
+![decorator-group](decorator-group2.png)
 
 For additional information about the properties, please refer to the [Properties](./reference/attributes.md) documentation.
 

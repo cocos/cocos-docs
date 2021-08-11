@@ -221,7 +221,7 @@ id = "";
 | :--- | :--- |
 | `id`           | 分组 ID，`string` 类型，是属性分组组号的唯一标识，默认为 `default`。 |
 | `name`         | 组内属性分类的名称，`string` 类型。 |
-| `displayOrder` | 对分组进行排序，`number` 类型。数字越小，排序越靠前，默认为 `Infinity`，表示排在最后面。 |
+| `displayOrder` | 对分组进行排序，`number` 类型，数字越小，排序越靠前。默认为 `Infinity`，表示排在最后面。<br>若存在多个未设置的分组，则以在脚本中声明的先后顺序进行排序 |
 | `style`        | 分组样式，目前只支持 **tab** 样式。 |
 
 示例脚本如下：
@@ -242,10 +242,10 @@ export class SayHello extends Component {
     sprite: Sprite = null!;
 
     // 分组二
-    // 组内名为 “bar” 的属性分类，其中包含名为 label2 的 Label 属性和名为 sprite2 的 Sprite 属性
-    @property({ group: { name: 'bar', id: '2' }, type: Label }) 
+    // 组内名为 “bar2” 的属性分类，其中包含名为 label2 的 Label 属性和名为 sprite2 的 Sprite 属性，并且指定排序为 1。
+    @property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, type: Label }) 
     label2: Label = null!; 
-    @property({ group: { name: 'bar', id: '2' }, type: Sprite }) 
+    @property({ group: { name: 'bar2', id: '2' }, type: Sprite }) 
     sprite2: Sprite = null!;
 
 }
@@ -254,5 +254,22 @@ export class SayHello extends Component {
 将该脚本挂载到节点上，则在 **属性检查器** 中显示为：
 
 ![decorator-group](decorator-group.png)
+
+因为分组一未指定 `displayOrder`，分组二指定了 `displayOrder` 为 1，所以分组二会排在分组一的前面。
+
+若需要对分组内的属性排序，也可以使用 `displayOrder`。以分组二为例，目前是按照在脚本中定义的先后顺序进行排序，label2 在 sprite2 的前面。我们将其调整为：
+
+```ts
+// 分组二
+// 组内名为 “bar” 的属性分类，其中包含名为 label2 的 Label 属性和名为 sprite2 的 Sprite 属性，并且指定排序为 1。
+@property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, displayOrder: 2, type: Label }) 
+label2: Label = null!; 
+@property({ group: { name: 'bar2', id: '2' }, displayOrder: 1, type: Sprite }) 
+sprite2: Sprite = null!;
+```
+
+回到编辑器，在 **属性检查器** 中可以看到 sprite2 已经排在 label2 的前面了：
+
+![decorator-group](decorator-group2.png)
 
 更多参数内容请参考文档 [属性参数](./reference/attributes.md)。

@@ -139,6 +139,7 @@
         - [物理事件](physics/physics-event.md)
         - [分组和掩码](physics/physics-group-mask.md)
         - [射线检测](physics/physics-raycast.md)
+        - [连续碰撞检测](physics/physics-ccd.md)
 - [2D 物理](physics-2d/physics-2d.md)
     - [2D 物理系统](physics-2d/physics-2d-system.md)
     - [2D 刚体组件](physics-2d/physics-2d-rigid-body.md)
