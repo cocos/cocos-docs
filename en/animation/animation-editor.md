@@ -2,7 +2,7 @@
 
 The **Animation** panel is used to edit and preview the animation clip of the currently selected node. When editing animation data or related properties, it will take effect immediately after mouse focus leaves.
 
-The **Animation** panel is already included in the default layout of Cocos Creator, or you can open the **Animation** panel by clicking **Panel -> Animation -> Animation Editor** in the main menu above the editor.
+The **Animation** panel is already included in the default layout of Cocos Creator, or open the **Animation** panel by clicking **Panel -> Animation -> Animation Editor** in the main menu above the editor.
 
 ## Panel Introduction
 
@@ -17,7 +17,7 @@ The **Animation** panel can be divided into the following main sections.
 5. **Property Keyframe Preview**: used to display/set all keyframes on each animation property of the currently selected node.
 6. **Related properties of the current animation clip**: used to set the playback mode, playback speed, etc. of the current animation clip.
 
-For more specific contents, please refer to the following introduction.
+For specific content, please refer to the following introduction.
 
 ### 1. Menu Toolbar
 
@@ -45,9 +45,9 @@ The function buttons in the **Menu toolbar** are, from left to right.
 
 ![node list](animation-editor/2-node-list.png)
 
-This area shows the currently selected animation nodes and their children, arranged in a way that corresponds to the node tree in the **Hierarchy** panel. You can click on the top ![hide](animation-editor/hide-node.png) button to hide/show nodes without animation data, or just type the node name in the input box to quickly find the node.
+This area shows the currently selected animation nodes and their children, arranged in a way that corresponds to the node tree in the **Hierarchy** panel. Click on the top ![hide](animation-editor/hide-node.png) button to hide/show nodes without animation data, or just type the node name in the input box to quickly find the node.
 
-Currently, you can right-click on a node to clear, migrate, copy and paste node data. For details, please refer to [Common operations on node data](edit-animation-clip.md#common-operations-on-node-data).
+Currently, it is possible to right-click on a node to clear, migrate, copy and paste node data. For details, please refer to the [Common operations on node data](edit-animation-clip.md#common-operations-on-node-data) documentation.
 
 ![node operation](animation-editor/node-operation.png)
 
@@ -67,7 +67,7 @@ The time control line (red vertical line) indicates the time the current animati
 
   ![about the timeline](animation-editor/above-timeline.png)
 
-If you move the time control line, the nodes in the **Scene** panel will also move accordingly to the animation track.
+If the time control line is moved, the nodes in the **Scene** panel will also move accordingly to the animation track.
 
 ![move line](animation-editor/move-line.gif)
 
@@ -89,7 +89,7 @@ The following three display methods are currently supported:
 
   ![times](animation-editor/times.png)
 
-We generally use the frame rate (Sample) to indicate how many frames a second is to be divided into, which can be adjusted in the **Sample** option at the bottom of the **Animation** panel. This is affected to a different extent when the scale unit of the timeline is displayed in different ways.
+The frame rate (Sample) is generally used to indicate how many frames a second is to be divided into, which can be adjusted in the **Sample** option at the bottom of the **Animation** panel. This is affected to a different extent when the scale unit of the timeline is displayed in different ways.
 
 When the scale unit is set to **Frames**, it is in frames and is not affected by the frame rate. <br>
 When set to **Time** or **Time(s)**, the same scale represents a different point in time as the frame rate changes, and the conversion between the two is calculated as follows:
@@ -99,17 +99,17 @@ When set to **Time** or **Time(s)**, the same scale represents a different point
 | 30 | 01-05 | 1 + 5/30 = 1.17 s |
 | 10 | 01-05 | 1 + 5/10 = 1.5 s |
 
-For example, if the frame rate is set to 30 and a keyframe is added to the `01-05` scale, the keyframe will be at frame 35 after the animation starts. Then change the frame rate to 10, the total number of frames where the keyframe is located does not change, it is still at frame 35 after the start of the animation, and the scale reading at the keyframe location becomes `03-05`, which translates to exactly 3 times the previous time (s).
+For example, if the frame rate is set to 30 and a keyframe is added to the `01-05` scale, the keyframe will be at frame 35 after the animation starts. Changing the frame rate to 10, the total number of frames where the keyframe is located does not change, it is still at frame 35 after the start of the animation, and the scale reading at the keyframe location becomes `03-05`, which translates to exactly 3 times the previous time (s).
 
 #### Changing the animation timeline scale
 
-If the developer feels that the **Animation** panel display is too small and needs to scale it down so that more keyframes are displayed within the editor, Just simply scroll the mouse wheel in either **Animation Timeline** and **Animation Properties Keyframe Preview** to scale the timeline up or down.
+If the **Animation** panel display is too small and needs to be enlarged for more keyframes to be displayed within the editor, Just simply scroll the mouse wheel in either **Animation Timeline** and **Animation Properties Keyframe Preview** to scale the timeline up or down.
 
 ![scale](./animation-editor/scale.gif)
 
 #### Moving the animation timeline display area
 
-Drag and drop the middle/right mouse button in any area of the **animation timeline** or **animation property keyframe preview** to see the hidden keyframes on the left/right side of the animation timeline that are outside the display area.
+Drag and drop the middle/right mouse button in any area of the **Animation Timeline** or **Animation Property Keyframe preview** to see the hidden keyframes on the left/right side of the animation timeline that are outside the display area.
 
 ![scale canvas](./animation-editor/scale-canvas.gif)
 
@@ -117,9 +117,9 @@ Drag and drop the middle/right mouse button in any area of the **animation timel
 
 ![node list](./animation-editor/4-pro-list.png)
 
-This area is mainly used to display/add/set the animation properties of the currently selected node in the current animation clip. The animation properties include the node's own properties, component properties (including those in user-defined script components), and the animation properties are added by clicking the **+** button in the upper right corner. Component properties are prefixed with the name of the component, e.g. `cc.Sprite.spriteFrame`.
+This area is mainly used to display/add/set the animation properties of the currently selected node in the current Animation Clip. The animation properties include the node's own properties, component properties (including those in user-defined script components), and the animation properties are added by clicking the **+** button in the upper right corner. Component properties are prefixed with the name of the component, e.g. `cc.Sprite.spriteFrame`.
 
-Right-click on the animation property or click ![property](./animation-editor/set-pro.png) button to the right of the animation property to select **Remove Prop Track**, **Clear Keyframe Data**, or **Copy Prop Track**. For details, please refer to [Common operations on animation property data](edit-animation-clip.md#Common-operations-on-animation-property-data).
+Right-click on the animation property or click ![property](./animation-editor/set-pro.png) button to the right of the animation property to select **Remove Prop Track**, **Clear Keyframe Data**, or **Copy Prop Track**. For details, please refer to the [Common operations on animation property data](edit-animation-clip.md#Common-operations-on-animation-property-data) documentation.
 
 ![property operation](./animation-editor/pro-operation.png)
 
@@ -127,7 +127,7 @@ Right-click on the animation property or click ![property](./animation-editor/se
 
 ![animation property track](./animation-editor/animation-property-track.png)
 
-This area is mainly used to display the specific keyframe settings of the currently selected node on each animation property, and is also the main area for keyframe editing. You can add keyframes by right-clicking on the animation property track on the right side. This area also supports the ability to move, copy, and paste keyframes by checking and tapping on them. For details, please refer to [Common keyframe operations](edit-animation-clip.md#common-keyframe-operations).
+This area is mainly used to display the specific keyframe settings of the currently selected node on each animation property, and is also the main area for keyframe editing. Keyframes can be added by right-clicking on the animation property track on the right side. This area also supports the ability to move, copy, and paste keyframes by checking and tapping on them. For details, please refer to the [Common keyframe operations](edit-animation-clip.md#common-keyframe-operations) documentation.
 
 When clicking on a keyframe, it will turn from blue to white and information about it will be displayed above the area, and double-clicking on the keyframe will move the time control line to its location.
 
@@ -135,7 +135,7 @@ When clicking on a keyframe, it will turn from blue to white and information abo
 
 ### 6. Related properties of the current animation clip
 
-The properties of the current animation clip that can be set directly on the **Animation** panel include: **WrapMode**, **Sample**, **Speed** and **Duration**. For details, please refer to [Animation Clip Properties Settings](edit-animation-clip.md#animation-clip-properties-settings).
+The properties of the current Animation Clip that can be set directly on the **Animation** panel include: **WrapMode**, **Sample**, **Speed** and **Duration**. For details, please refer to the [Animation Clip Properties Settings](edit-animation-clip.md#animation-clip-properties-settings) documentation.
 
 ## Adjusting the Layout of the Animation Panel
 
@@ -149,7 +149,7 @@ Click on the menu toolbar's ![shortcuts](./animation-editor/shortcuts.png) butto
 
 ![shortcuts manager](./animation-editor/shortcuts-manager.png)
 
-Supports customizing the shortcuts of **animation-editor**. Directly click the shortcut key combination of the function you want to modify, a prompt will appear as shown below, you can directly modify the shortcut keys.
+Shortcuts can be customized in the **Animation** panel. Directly click the shortcut key combination of the function to be modified. A prompt will appear as shown below.
 
 ![shortcuts change](./animation-editor/shortcuts-change.png)
 

@@ -108,7 +108,7 @@ To add a __key frame__:
 
 ### Modifying key frame data
 
-On the __timeline__ **double-click** the __key frame__ that needs to be modified. The __time cursor__ will move to that position. You can also directly drag the __time cursor__ to the corresponding position, and modify the corresponding properties directly in the **Inspector** panel. Make sure the **Animation** panel is in __edit mode__. For example, there are three property tracks in the property list: *position*, *scale*, and *rotation*. After the __key frame__ is selected, you can modify the *position*, *scale*, and *rotation* properties in the **Inspector** panel.
+On the __timeline__ **double-click** the __keyframe__ that needs to be modified. The __time cursor__ will move to that position. Also, it can be directly added by drag the __time cursor__ to the corresponding position, and modify the corresponding properties directly in the **Inspector** panel. Make sure the **Animation** panel is in __edit mode__. For example, there are three property tracks in the property list: **position**, **scale**, and **rotation**. After the __key frame__ is selected, the **position**, **scale**, and **rotation** properties can be modified in the **Inspector** panel.
 
 ![edit-keyframe_1](./animation-clip/edit-keyframe_1.gif)
 

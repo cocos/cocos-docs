@@ -75,7 +75,7 @@ modifiers: [
 ]
 ```
 
-If you want custom target paths to be serializable, you can declare them as classes.
+For custom target paths to be serializable, declare them as classes.
 
 ```ts
 @ccclass
@@ -102,7 +102,7 @@ The addressing of the target object is done at runtime, a feature that allows an
 
 When a value is sampled, by default the value will be set to the target object using the assignment operator `=`.
 
-Sometimes, however, the assignment operator cannot be used to complete the setting. For example, when setting the Uniform of a material object, you can't do it with the assignment operator. For this case, the curve field `valueAdapter` provides a mechanism to customize the value to the target object.
+Sometimes, the assignment operator cannot be used to complete the setting. For example, when setting the Uniform of a material object, it can't be done with the assignment operator. For this case, the curve field `valueAdapter` provides a mechanism to customize the value to the target object.
 
 Example.
 
@@ -127,7 +127,7 @@ class BlahBlahComponent {
 };
 ```
 
-If you want the "custom assignment" to be serializable, you can declare them as classes:
+For the **custom assignment** to be serializable, declare them as classes:
 
 ```ts
 @ccclass
@@ -308,7 +308,7 @@ Some interpolation algorithms require additional data to be stored in the curve 
 
 ## Wrap mode
 
-You can set different loop modes for animation clips by setting `AnimationClip.wrapMode`. The following lists several common wrap modes.
+Different wrap modes can be set for Animation Clips by setting `AnimationClip.wrapMode`. The following lists several common wrap modes:
 
 | `AnimationClip.wrapMode` | Description |
 | :--- | :--- |
@@ -316,7 +316,7 @@ You can set different loop modes for animation clips by setting `AnimationClip.w
 | WrapMode.Loop | Loop
 | PingPong | Play from the beginning to the end of the animation, then play back to the beginning from the end, and so on.
 
-For more loop modes, please refer to the API [WrapMode](__APIDOC__/en/enums/animation.wrapmode.html) and the documentation [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count).
+For more wrap modes, please refer to the API [WrapMode](__APIDOC__/en/enums/animation.wrapmode.html) and the [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count) documentation.
 
 <b id="f1">1</b> The node where the animation clip is located is the node attached to the animation component where the animation state object that references the animation clip is located. [↩](#a1)<br>
 <b id="f2">2</b> For numeric, quaternion, and various vectors, Cocos provides the appropriate interpolable classes to implement [Cubic Spline Interpolation](https://en.wikipedia.org/wiki/Spline_interpolation). [↩](#a2)

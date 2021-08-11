@@ -1,6 +1,6 @@
 # Animation State
 
-Animation clips only describe the animation data of a certain type of object, such as a character running, walking, jumping, etc., but are not bound to the specific object to be animated. Animation states are animation clips that are used to control the animation on a certain object, similar to a player. In addition to providing simple control functions that are also available for animation components, they also provide more animation information and an animation control interface that allows control of animation playback such as speed control, setting loop mode, etc. An animation clip can be used by multiple animation states at the same time.
+Animation clips only describe the animation data of a certain type of object, such as a character running, walking, jumping, etc., but are not bound to the specific object to be animated. Animation states are Animation Clips that are used to control the animation on a certain object, similar to a player. In addition to providing simple control functions that are also available for animation components, they also provide more animation information and an animation control interface that allows control of animation playback such as speed control, setting loop mode, etc. An Animation Clip can be used by multiple animation states at the same time.
 
 Animation states are managed by [class `AnimationState`](__APIDOC__/en/classes/animation.animationstate-1.html).
 
@@ -40,7 +40,7 @@ The wrap mode and repeat count of the animation determines the progress time of 
 
 ## Wrap Mode and Repeat Count
 
-Animation can be played to the end and stop, or it can be looped all the time, or it can be played to the end and then looped from the end to the beginning, these are collectively called wrap modes, and are represented by the enumeration [`AnimationClip.WrapMode`](__APIDOC__/en/enums/animation.wrapmode.html ), the following are included:
+Animation can be played to the end and stop, or it can be looped all the time, or it can be played to the end and then looped from the end to the beginning, these are collectively called wrap modes and are represented by the enumeration [`AnimationClip.WrapMode`](__APIDOC__/en/enums/animation.wrapmode.html), the following are included:
 
 | Wrap Mode | Description |
 | :--- | :--- |
@@ -62,7 +62,7 @@ The initial wrap mode of the animation state will be read from the animation cli
 
 Except `AnimationClip.WrapMode.Normal` and its counterpart `AnimationClip.WrapMode.Reverse` (which can be interpreted as a single loop), all other wrap modes perform an infinite loop. The infinite loop needs to be used in conjunction with `repeatCount` of `AnimationState` to achieve the effect, and the number of loops can be set and retrieved via the `repeatCount` field.
 
-When the animation wrap mode is.
+When the animation wrap mode is:
 - Single loop mode: `repeatCount` will be set to **1**.
 - Infinite loop mode: `repeatCount` will be set to `Number.Infinity`, i.e. infinite loop.
 
@@ -79,7 +79,7 @@ The animation state provides the following methods to control the play, pause, r
 | `resume()` | Resume the animation from the current time. |
 | `stop()` | Stop the animation. |
 
-You can also query the playing status of the animation by the following fields:
+The playing status of the animation can be queried by the following fields:
 
 | Field (read-only) | Description |
 | :--- | :--- |

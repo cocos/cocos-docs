@@ -1,7 +1,7 @@
 # Editing Animation Curves
 
 We have created a basic animation in previous sections of this documentation.
-However, sometimes we need to implement __easing effects__, such as __EaseInOut__ between two __key frames__. How is this achieved in the **Animation** panel?
+However, sometimes it is necessary to implement __easing effects__, such as __EaseInOut__ between two __key frames__. How is this achieved in the **Animation** panel?
 
 __First__, __two unequal key frames__ need to be created on a track, such as __two key frames__ on position, from __0,0__ to __100,100__.
 

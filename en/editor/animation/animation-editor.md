@@ -98,7 +98,7 @@ __Click__ the clip option in the lower left corner of the __Animation Editor__ a
 
 #### Change the timeline zoom
 
-What should I do if I feel that the range displayed by the **Animation** panel is too small during operation, and it needs to be scaled down to allow more key frames to be displayed in the editor?
+What is the fix if the range displayed by the **Animation** panel is too small during operation, and it needs to be scaled down to allow more keyframes to be displayed in the editor?
 
 - You can _zoom in_ or *zoom out* the display scale of the time axis by scrolling the mouse wheel in areas *b*, *d*, and *f* in the figure.
 
@@ -136,7 +136,7 @@ For more information about keyframe operations, please review the [Edit Animatio
 
 ### Modify shortcut keys
 
-Click the shortcut button in the menu bar ![shortcuts](./animation-editor/shortcuts.png) to open the shortcuts windows, then you can directly modify the shortcut keys of the **Animation** panel here.
+Click the shortcut button in the menu bar ![shortcuts](./animation-editor/shortcuts.png) to open the shortcuts windows, then directly modify the shortcut keys of the **Animation** panel here.
 
 ![shortcuts-manager](./animation-editor/shortcuts-manager.png)
 

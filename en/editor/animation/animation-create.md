@@ -21,7 +21,7 @@ Even though there is an __Animation component__ on the __Node__, there is no cor
 
 It is not enough to just create it. We need to click on the node, in the __Hierachy manager__ and find __Animation__ in the __Inspector__ panel. At this time, __Clips__ shows __0__, and it needs to be changed to __1__. __Next__, drag the `NewAnimationClip` that was just created in the __Assets__ panel, and drag it into the __animation-clip selection box__ that just appeared.
 
-- If you have not added an __animation clip file__ in the __Animation component__, you can directly click the `NewAnimationClip` button in the **Animation** panel to create a new animation clip file. The newly created animation clip will be automatically attached to the animation component.
+- If an __Animation Clip file__ has not been added to an __Animation component__, directly click the `NewAnimationClip` button in the **Animation** panel to create a new animation clip file. The newly created Animation Clip will be automatically attached to the Animation Component.
 
 > **Note**: if you choose to overwrite the existing clip file, the content of the overwritten file will be cleared.
 

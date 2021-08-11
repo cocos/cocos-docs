@@ -1,8 +1,8 @@
 # Adding Animation Events
 
-Animation clips can be better enriched by calling **animation event** functions on the specified frame of the animation timeline. After adding **event frame** to a frame of the animation timeline, the animation system will match the corresponding function method in the root node of the animation with the name of the trigger function set in the event frame and execute it when the animation reaches that frame.
+Animation clips can be better enriched by calling **Animation Event** functions on the specified frame of the animation timeline. After adding **event frames** to a frame of the animation timeline, the animation system will match the corresponding function method in the root node of the animation with the name of the trigger function set in the event frame and execute it when the animation reaches that frame.
 
-To add animation events via script, please refer to [Frame Event](animation-component.md#frame-event) for more details.
+To add Animation Events via scripts, please refer to the [Frame Event](animation-component.md#frame-event) documentation for more details.
 
 ## Adding event frames
 
@@ -12,7 +12,7 @@ Adding event frames in the **Animation** panel consists of two ways:
 
 2. Right click on the area above the animation timeline and select **New Event Frame**.
 
-After the event frame is added, move the mouse over the event frame and the color will change from white to yellow. Right-click the event frame to perform **Edit**, **Delete**, **Copy-Paste** operations. You can also batch click event frames while holding down <kbd>Ctrl</kbd>.
+After the event frame is added, move the mouse over the event frame and the color will change from white to yellow. Right-click the event frame to perform **Edit**, **Delete**, **Copy-Paste** operations. Event frames can be batched while holding down <kbd>Ctrl</kbd>.
 
 ![add-event](animation-event/animation-event-menu.png)
 
@@ -22,21 +22,21 @@ After the event frame is added, move the mouse over the event frame and the colo
 
 ### Editing event frames
 
-Right-click on the added event frame and select **Edit** or double-click directly to open the event editor. In the event editor, you can manually enter the name of the event function that needs to be triggered, and the trigger will match the corresponding function method in each component of the animation root node according to this function name, and call it with parameters.
+Right-click on the added event frame and select **Edit** or double-click directly to open the event editor. In the event editor, it is possible to manually enter the name of the event function that needs to be triggered, and the trigger will match the corresponding function method in each component of the animation root node according to this function name, and call it with parameters.
 
 ![event editor](animation-event/event-editor.png)
 
-- 1 - add a new trigger function
-- 2 - save the event function
-- 3 - fill in the name of the function to be triggered
-- 4 - delete the current event function
-- 5 - add incoming parameters, currently supports **String**, **Number**, **Boolean** types
+- 1 - add a new trigger function.
+- 2 - save the event function.
+- 3 - fill in the name of the function to be triggered.
+- 4 - delete the current event function.
+- 5 - add incoming parameters, currently supports **String**, **Number**, **Boolean** types.
 
   ![add animation event](animation-event/add-animation-event.png)
 
-    - 1 - add incoming parameters, you can choose the parameter type as needed
-    - 2 - delete all the added incoming parameters below
-    - 3 - When the mouse moves over a parameter, this button will appear, click on it to delete the currently selected parameter
+- 1 - add incoming parameters, you can choose the parameter type as needed.
+- 2 - delete all the added incoming parameters below.
+- 3 - When the mouse moves over a parameter, this button will appear, click on it to delete the currently selected parameter.
 
 ### Delete event frames
 
