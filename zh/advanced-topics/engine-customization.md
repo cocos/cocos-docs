@@ -1,10 +1,9 @@
 # 引擎定制工作流程
 
-Cocos Creator 3.0 的引擎部分包括 TypeScript、engine-native 和 adapter 三个部分（暂不支持 adapter 引擎定制）。引擎全部都在 GitHub 上开源。地址在：
+Cocos Creator 3.x 的引擎部分包括 TypeScript、engine-native 两个部分。引擎全部都在 GitHub 上开源。地址在：
 
 - TypeScript 引擎：[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)
 - engine-native 引擎：[GitHub](https://github.com/cocos-creator/engine-native/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native/)
-- Adapter：[GitHub](https://github.com/cocos-creator-packages/adapters) | [Gitee](https://gitee.com/mirrors_cocos-creator/adapters)
 
 建议通过 GitHub 的 fork 工作流程来维护自己定制的代码，以便在将来引擎升级时，可以方便地将定制的部分更新上去，具体操作方式请阅读 [Fork a repo](https://help.github.com/articles/fork-a-repo)。如果你愿意帮助 Cocos 越做越好，欢迎在 GitHub 提交你的修改，请参考 [如何向 Cocos 提交代码](../../submit-pr/submit-pr.md)。关于更多 GitHub 相关工作流程请参考 [GitHub Help](https://help.github.com)。
 
@@ -16,7 +15,7 @@ Cocos Creator 3.0 的引擎部分包括 TypeScript、engine-native 和 adapter �
 
 ### 1.1 获取 TypeScript 引擎
 
-如果只需基于当前的版本做一些调整，那么在 Cocos Creator 3.0 内置的引擎基础上修改就可以了。点击 Creator 编辑器右上方的 **编辑器** 按钮，然后将内置的 **engine** 目录拷贝到本地其他路径。
+如果只需基于当前的版本做一些调整，那么在 Cocos Creator 3.x 内置的引擎基础上修改就可以了。点击 Creator 编辑器右上方的 **编辑器** 按钮，然后将内置的 **engine** 目录拷贝到本地其他路径。
 
 ![](engine-customization/open-engine.png)
 
@@ -36,7 +35,7 @@ Cocos Creator 3.0 的引擎部分包括 TypeScript、engine-native 和 adapter �
 
 ```bash
 # 在命令行中进入引擎路径
-cd E:/engine
+cd path/to/engine
 # 安装 gulp 构建工具
 npm install -g gulp
 # 安装依赖的模块
@@ -61,7 +60,7 @@ npm install
 
 ### 2.1 获取 engine-native 引擎
 
-如果只需要基于当前的版本做一些调整，那么在 Cocos Creator 3.0 内置的 engine-native 引擎基础上修改就可以了。操作步骤和获取 TypeScript 引擎一致，点击 Creator 编辑器右上方的 **编辑器** 按钮，然后将内置的 `cocos2d-x-lite` 目录拷贝到本地其他路径。
+如果只需要基于当前的版本做一些调整，那么在 Cocos Creator 3.x 内置的 engine-native 引擎基础上修改就可以了。操作步骤和获取 TypeScript 引擎一致，点击 Creator 编辑器右上方的 **编辑器** 按钮，然后将内置的 `engine-native` 目录拷贝到本地其他路径。
 
 如果想获得官方正在开发中的最新版本，需要从上文中指定的 GitHub 仓库下载或者克隆。和 TypeScript 引擎类似，engine-native 引擎在使用前也请确认当前所在分支。
 
@@ -69,11 +68,11 @@ npm install
 
 下载或者克隆好 engine-native 引擎仓库后，在命令行进入引擎路径然后执行以下命令。
 
-> **注意**：如果是从编辑器拷贝出来的内置 `cocos2d-x-lite` 目录，可以跳过该步骤。
+> **注意**：如果是从编辑器拷贝出来的内置 `engine-native` 目录，可以跳过该步骤。
 
 ```bash
 # 在命令行进入 engine-native 引擎路径
-cd E:/cocos2d-x-lite
+cd path/to/engine-native
 # 安装 gulp 构建工具
 npm install -g gulp
 # 安装依赖的模块
@@ -82,7 +81,7 @@ npm install
 gulp init
 ```
 
-### 2.3 在 Cocos Creator 3.0 中配置定制版原生引擎
+### 2.3 在 Cocos Creator 3.x 中配置定制版原生引擎
 
 通过 **Cocos Creator -> 偏好设置** 的 **Engine 管理器** 选项卡来设置需要定制的 engine-native 引擎路径。
 
@@ -90,4 +89,19 @@ gulp init
 
 ### 2.4 修改引擎
 
-接下来可以对 engine-native 引擎进行定制修改了，由于只有在 **构建发布** 过程中才会编译代码，所以修改引擎后可以直接打开 **构建发布** 面板，选择 **link** 模板进行构建和编译。
+接下来可以对 engine-native 引擎进行定制修改了，由于只有在 **构建发布** 过程中才会编译代码，所以修改引擎后可以直接打开 **构建发布** 面板，进行构建和编译。
+
+### 2.5 定制原生引擎模拟器
+
+为了防止包体过大, 官方发布时剔除了原生引擎模拟器相关工程, 如果需要的话可以重新编译原生模拟器
+
+1. 环境变量里需要设置一个全局的 cmake 的路径
+2. 在 engine-native 目录下依次执行
+```bash
+    # 安装依赖的模块
+    npm install
+    # 生成原生模拟器相关文件
+    gulp gen-simulator
+```
+
+执行完成后，会在 `engine-native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件
