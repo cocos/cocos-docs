@@ -19,7 +19,7 @@ Penetration usually occurs in objects that are moving at high speed, such as bul
 
 ![physics-ccd](img/physics-ccd.jpg)
 
-Note that the ball moves from time T0 to time T1, missing the black square that should have collided at time T0.5. This is a typical linear penetration phenomenon caused by too much linear velocity.
+The ball moves from time T0 to time T1, missing the black square that should have collided at time T0.5. This is a typical linear penetration phenomenon caused by too much linear velocity.
 
 ## Support
 
