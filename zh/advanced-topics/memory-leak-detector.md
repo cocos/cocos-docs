@@ -11,7 +11,7 @@
 
 ## 二，使用步骤
 - 修改`cocos/base/Config.h`中的宏`USE_MEMORY_LEAK_DETECTOR`为`1`，默认值`0`代表关闭内存泄漏检测系统，关闭后对引擎性能零损耗
-    ```ts
+    ```c++
     #ifndef USE_MEMORY_LEAK_DETECTOR
         #define USE_MEMORY_LEAK_DETECTOR 1
     #endif
@@ -19,7 +19,7 @@
 - android平台上需要额外做两件事：
     - 在项目目录/native/engine/android/CMakeLists.txt中如下位置添加一行：
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")
-        ```ts
+        ```
         set(PROJ_SOURCES
             ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
             ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
@@ -45,7 +45,7 @@
     - Android平台：
 
     ![android studio](./memory-leak-detector/androidstudio.png)
-    
+
     - Mac/iOS平台：
     
     ![xcode](./memory-leak-detector/xcode.png)

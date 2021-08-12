@@ -11,7 +11,7 @@ The native engine is developed using the C++ language, and memory leaks are inev
 
 ## 2，Steps for usage
 - Modify the macro `USE_MEMORY_LEAK_DETECTOR` in `cocos/base/Config.h` to `1`, the default value of `0` means that the memory leak detection system is turned off, and there will be zero loss of engine performance after it is turned off:
-    ```ts
+    ```c++
     #ifndef USE_MEMORY_LEAK_DETECTOR
         #define USE_MEMORY_LEAK_DETECTOR 1
     #endif
@@ -19,7 +19,7 @@ The native engine is developed using the C++ language, and memory leaks are inev
 - Two additional things need to be done on the android platform:
     - Add a line as follows in the `project directory/native/engine/android/CMakeLists.txt`:
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")
-        ```ts
+        ```
         set(PROJ_SOURCES
             ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
             ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
@@ -45,7 +45,7 @@ The native engine is developed using the C++ language, and memory leaks are inev
     - Android platform:
 
     ![android studio](./memory-leak-detector/androidstudio.png)
-    
+
     - Mac/iOS platform:
     
     ![xcode](./memory-leak-detector/xcode.png)
