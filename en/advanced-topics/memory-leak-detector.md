@@ -10,7 +10,7 @@ Compared with other memory leak detection tools, what are the advantages of the 
 - **Accuracy**: theoretically zero false positives.
 
 Steps for usage
-1. The memory leak detection system is turned off by default. To enable it, you need to modify the value of the macro `USE_MEMORY_LEAK_DETECTOR` in `cocos/base/Config.h` to `1`.
+1. The memory leak detection system is turned off by default. To enable it, you need to modify the value of the macro `USE_MEMORY_LEAK_DETECTOR` in `engine-native/cocos/base/Config.h` to `1`.
     ```c++
     #ifndef USE_MEMORY_LEAK_DETECTOR
         #define USE_MEMORY_LEAK_DETECTOR 1

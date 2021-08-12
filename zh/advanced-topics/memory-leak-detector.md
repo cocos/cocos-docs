@@ -12,7 +12,7 @@
 
 ## 使用步骤
 
-1. 内存泄漏检测系统默认是关闭的。若要开启，需要将 `cocos/base/Config.h` 文件中宏 `USE_MEMORY_LEAK_DETECTOR` 的值修改为 `1`。
+1. 内存泄漏检测系统默认是关闭的。若要开启，需要将 `engine-native/cocos/base/Config.h` 文件中宏 `USE_MEMORY_LEAK_DETECTOR` 的值修改为 `1`。
 
     ```c++
     #ifndef USE_MEMORY_LEAK_DETECTOR
