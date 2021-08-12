@@ -188,7 +188,7 @@ The **build** of the editor is similar to the function of an **export game packa
 
 ## FAQ Guide
 
-The entire build process is in a single worker, to view the log information of the build process or view the complete call stack when an error occurs, click on the main menu, then **Developer -> Open Build DevTools**. In fact, a lot of log information will be output when building, but in order not to interfere with users, by default, only error information and important information will be printed to the editor's **Console** panel, and the log information in the devtools is the most complete. Of course, the output log level also can be set in **Preferences -> AssetDB -> Log Level**. For details, please refer to the [Build](./build-panel.md) documentation.
+The entire build process is in a single worker, to view the log information of the build process or view the complete call stack when an error occurs, click on the main menu, then **Developer -> Open Build DevTools**. In fact, a lot of log information will be output when building, but in order not to interfere with users, by default, only error information and important information will be printed to the editor's **Console** panel, and the log information in the devtools is the most complete. Of course, the output log level also can be set in **Preferences -> Build -> Log Level**. For details, please refer to the [Build](./build-panel.md) documentation.
 
 > **Note**: Before building **please make sure that the scene participating in the building can be previewed normally**. Loss of resources in some scenes or other script problems can be exposed during the preview stage. Building under the condition that the preview is normal can save time and troubleshoot better.
 
