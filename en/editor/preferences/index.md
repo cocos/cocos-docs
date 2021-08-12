@@ -79,9 +79,9 @@ The **Asset database** tab is used to set the [Assets](../assets/index.md) panel
 - **Log Level**: used to set the type of information output to the **console** from the asset database in the **Assets** panel. This currently includes **Error Only**, **Error and Warning Only**, **Error, Warning, and Log**, and **Output All Information**.
 - **Ignore (Glob)**: use the Glob expression and fill in the path match of the asset to be ignored, then the asset will be ignored. For example, `! **/*.txt` means that all `.txt` files are ignored.
 - **Default Meta**: used to set the default configuration when importing assets within a project. Please refer to the description below for details.
-- **Update resources automatically**: automatically refresh resources when returning to the editor from outside (new in v3.1.2). See below for details.
+- **Update resources automatically**: automatically refresh resources when returning to the editor from outside. See below for details.
 
-### Update resources automatically (new in v3.1.2)
+### Update resources automatically
 
 If this option is enabled, all resources will be automatically checked when returning to Creator, regardless of whether resources have been manipulated outside of Creator. Then when the number of files in the project is too high, or the random read and write speed of the hard disk is too low, it will cause the resource system response lag. For example, if a resource is selected in **Assets** panel, the **Inspector** panel will take a while to show the resource-related properties.
 
@@ -153,17 +153,17 @@ The **Preview** tab is mainly used for the various options that can be set when 
 
 ## Build
 
-The **Build** tab is used to set up the execution of the [Build](../publish/build-panel.md), including **Log Level** and **Cache Serialized JSON of Assets**.
+The **Build** tab is used to set up the execution of the [Build](../publish/build-panel.md), including **Log file opening method** and **Cache Serialized JSON of Assets**.
 
 ![build](./index/build.png)
+
+- **Log file opening method**: This option is used to set whether to open the build log file directly or to open the directory where the log file is located, when clicking the **Open Log** button at the bottom left of the [platform build task](../publish/build-panel.md). The default is to open the log file directly.
 
 - **Cache Serialized JSON of Assets**: in order to speed up the build and reduce the repeated deserialization of unmodified assets, the serialized JSON of assets will be cached during the asset build process, which will be placed in the `temp/asset-db/assets/uuid/build` directory of the project and divided into `debug.json` and `release.json` according to **debug** and **release** mode.
 
   ![build](./index/json.png)
 
   When a cached asset exists the build will take it directly, and this part of the cached asset will be re-updated after each asset import. This option is checked by default, but if some special requirements are encountered and want to build without storing this serialized build cache asset, just uncheck it.
-
-- **Log file opening method**: Click the build log button on the build taskbar will directly open the log file by default. To open the location of the build log when the button is clicked, modify this option.
 
 ## Laboratory
 

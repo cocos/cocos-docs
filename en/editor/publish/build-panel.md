@@ -46,12 +46,6 @@ Because the build process generates so many log messages, by default only error 
 
   Click **Developer -> Open Build DevTools** in the menu bar to see all the log information printed during the build, including the call stack.
 
-- **Log Level**
-
-  Click **Preferences -> Extension** in the menu bar, set **Package** to `builder`, and then set the log type to output to the **Console** panel in **Log Level**.
-
-  ![builder-log](./build-panel/builder-log.jpg)
-
 - **Log File**
 
   The editor will record the error log generated during each build, which can be viewed by clicking the ![log](build-panel/log.jpg) button under build task in the **Build** panel. The log file is stored in the project's `temp/build-log` directory and can be attached when you send feedback to the forum on build related issues.

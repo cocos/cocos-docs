@@ -6,7 +6,7 @@ This document will demonstrate how to create an extension containing a panel usi
 
 Creator provides several extension templates, including **HTML Panel**, **Vue2.x Panel**, **Vue3.x Panel**, etc., you can click **Extension -> Create Extension** in the top menu bar of the editor for details, and then select the corresponding extension template as needed to create a new extension.
 
-<img src="./image/create-extension-panel.png" alt="create-extension-panel" style="zoom:67%;" />
+![create-extension-panel](./image/create-extension-panel.png)
 
 | Option | Description |
 | :--- | :----- |
@@ -40,12 +40,18 @@ Creator recommends using TypeScript-based workflows, and most of the extension t
 
 After the extension is created and compiled, go back to the editor, click **Extensions -> Extension Manager** in the top menu bar, find the created extension in the **Projects**/**Global** tab of **Extension Manager**, and then click the **Enable** button on the right to enable the extension.
 
+![enable extension](./image/enable-extension.png)
+
 ## Using extensions
 
 Take an extension created with the **Vue2.x panel** template as an example.
 
 Click **Panel -> Extension Name -> Default Panel** in the top menu bar after enabling the extension to open the default panel of the extension.
 
+![default extension panel](./image/default-extension-panel.png)
+
 Click **Developer -> Extension Name -> Send Message to Panel** in the top menu bar to send a message `send-to-panel` to the extension based on the definition of `contributions.menu` in `package.json`. When the extension receives the message, it calls the default `hello` method in the extension's default panel according to the `contributions.messages` definition in `package.json`, and then displays the log message `hello` in the default panel and prints it to the **console**.
 
-The extensions created by each template are not exactly the same, for more information please refer to the `README.md` file in the corresponding extension package directory.
+![output](./image/output.png)
+
+> **Note**: the extensions created by each template are not exactly the same, for more information please refer to the `README.md` file in the corresponding extension package directory.
