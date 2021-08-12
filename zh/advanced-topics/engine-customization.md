@@ -34,8 +34,8 @@ Cocos Creator 3.x 的引擎部分包括 TypeScript、engine-native 两个部分�
 ### 1.3 安装编译依赖
 
 ```bash
-# 在命令行中进入引擎路径
-cd path/to/engine
+# 在命令行中进入引擎路径，例如：
+cd E:/engine
 # 安装 gulp 构建工具
 npm install -g gulp
 # 安装依赖的模块
@@ -71,8 +71,8 @@ npm install
 > **注意**：如果是从编辑器拷贝出来的内置 `engine-native` 目录，可以跳过该步骤。
 
 ```bash
-# 在命令行进入 engine-native 引擎路径
-cd path/to/engine-native
+# 在命令行进入 engine-native 引擎路径，例如：
+cd E:/engine-native
 # 安装 gulp 构建工具
 npm install -g gulp
 # 安装依赖的模块
@@ -93,15 +93,16 @@ gulp init
 
 ### 2.5 定制原生引擎模拟器
 
-为了防止包体过大, 官方发布时剔除了原生引擎模拟器相关工程, 如果需要的话可以重新编译原生模拟器
+为了防止包体过大，Creator 在发布时剔除了原生引擎模拟器相关工程，如果需要使用原生模拟器可以通过以下步骤重新编译生成：
 
 1. 环境变量里需要设置一个全局的 cmake 的路径
-2. 在 engine-native 目录下依次执行
-```bash
+2. 在 `engine-native` 目录下依次执行以下命令：
+
+    ```bash
     # 安装依赖的模块
     npm install
     # 生成原生模拟器相关文件
     gulp gen-simulator
-```
+    ```
 
-执行完成后，会在 `engine-native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件
+    执行完成后，会在 `engine-native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件。
