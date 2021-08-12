@@ -1,6 +1,6 @@
 # CMake Usage Introduction
 
-CMake is a cross-platform build tool that can output a variety of Makefile or Project files as needed. CMake uses `CMakeLists.txt` to configure project files, where developers can integrate SDKs or reference libraries and configurations for compiling native platforms, see [Secondary Development](./editor/publish/native-options.md#%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91).
+CMake is a cross-platform build tool that can output a variety of Makefile or Project files as needed. CMake uses `CMakeLists.txt` to configure project files, where developers can integrate SDKs or reference libraries and configurations for compiling native platforms, see [Secondary Development](../editor/publish/native-options.md#secondary-development).
 
 Starting from v3.0, Creator has integrated the CMake output process and base authoring. This document focuses on the rules for using `CMakeLists.txt` on the native platform and some simple examples.
 
@@ -16,7 +16,7 @@ When selecting a native platform to build on, the `native\engine` directory will
 
 - In the `common` folder: `CMakeLists.txt` is mainly used to configure the whole project.
 
-    ![folder2](./cmake-learning/folder4.png)
+    ![folder2](./cmak-learning/folder4.png)
 
 The syntax of `CMakeLists.txt` is relatively simple, consisting of **commands**, **comments** and **spaces**. The commands are case-insensitive, but the parameters and variables in the commands are case sensitive.
 
@@ -100,7 +100,7 @@ Then `USE_SPINE` will be set to `OFF` in the re-generated `cfg.make` when buildi
 
 Then at compile time, CMake generates a **CMakeCache.txt** file based on the configuration (e.g. `CMakeLists.txt` and the `cfg.make` configuration file introduced in `CMakeLists.txt`), which contains the **various input parameters that the project needs to rely on** when building.
 
-![code2](./cmake-learning/code2.png)
+![code2](./cmak-learning/code2.png)
 
 ## CMakeLists Common Compilation Directives
 
@@ -238,7 +238,7 @@ The `target` in the **find compilation headers** command above is the executable
 
         - `COMMAND`: specifies the command line to be executed at build time.
 
-    For more information about the `add_custom_command` command, please refer to the official CMake documentation [add_custom_command](https://cmake.org/cmake/help/v3.16/command/add_custom_ command.html?highlight=add_custom_command).
+    For more information about the `add_custom_command` command, please refer to the official CMake documentation [add_custom_command](https://cmake.org/cmake/help/v3.16/command/add_custom_command.html?highlight=add_custom_command).
 
 ### Linking library files
 
