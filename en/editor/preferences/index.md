@@ -157,13 +157,13 @@ The **Build** tab is used to set up the execution of the [Build](../publish/buil
 
 ![build](./index/build.png)
 
-- **Log Level**: used to set the type of information that is output to the **console** when a build is published to a platform. Currently there are four types: **Errors Only**, **Errors and Warnings Only**, **Errors, Warnings and Logs** and **All Messages**.
-
 - **Cache Serialized JSON of Assets**: in order to speed up the build and reduce the repeated deserialization of unmodified assets, the serialized JSON of assets will be cached during the asset build process, which will be placed in the `temp/asset-db/assets/uuid/build` directory of the project and divided into `debug.json` and `release.json` according to **debug** and **release** mode.
 
   ![build](./index/json.png)
 
   When a cached asset exists the build will take it directly, and this part of the cached asset will be re-updated after each asset import. This option is checked by default, but if some special requirements are encountered and want to build without storing this serialized build cache asset, just uncheck it.
+
+- **Log file opening method**: Click the build log button on the build taskbar will directly open the log file by default. To open the location of the build log when the button is clicked, modify this option.
 
 ## Laboratory
 
