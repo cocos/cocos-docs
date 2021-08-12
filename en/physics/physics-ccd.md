@@ -30,4 +30,4 @@ Due to differences in support among physics engines, and for performance reasons
 - No support for solving rotational penetration problems.
 - For performance reasons, CCD events are only supported for types starting with `onCollision`.
 - When the physics engine is set to **Bullet**, only single shape objects (containing only one collision component) are supported, and the `center` property of the collision component needs to be set to 0.
-- When the physics engine is set to **Cannon**, only ball collision components are supported.
+- When the physics engine is set to **Cannon**, only SphereCollider components are supported.
