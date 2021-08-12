@@ -6,7 +6,7 @@
 
 Creator 提供了多种扩展模板，包括 **HTML 面板**、**Vue2.x 面板**、**Vue3.x 面板** 等，具体可点击编辑器顶部菜单栏中的 **扩展 -> 创建扩展** 查看，然后根据需要选择相应的扩展模板创建新扩展：
 
-<img src="./image/create-extension-panel.png" alt="create-extension-panel" style="zoom:67%;" />
+![create-extension-panel](./image/create-extension-panel.png)
 
 | 扩展选项 | 功能说明 |
 | :--- | :----- |
@@ -40,12 +40,18 @@ Creator 推荐使用基于 TypeScript 的工作流，Creator 中默认提供的�
 
 扩展创建并编译完成后，回到编辑器，点击顶部菜单栏中的 **扩展 -> 扩展管理器**，在 **扩展管理器** 的 **项目**/**全局** 选项卡中找到创建的扩展，然后点击右侧的启用按钮，便可启用该扩展。
 
+![enable extension](./image/enable-extension.png)
+
 ## 使用扩展
 
 以使用 **Vue2.x 面板** 模板创建的扩展为例。
 
 启用扩展后点击顶部菜单栏中的 **面板 -> 扩展名称 -> 默认面板**，即可打开扩展的默认面板。
 
+![default extension panel](./image/default-extension-panel.png)
+
 点击顶部菜单栏中的 **开发者 -> 扩展名称 -> 发送消息给面板**，便会根据 `package.json` 中的 `contributions.menu` 定义发送消息 `send-to-panel` 给扩展。当扩展收到消息后，根据 `package.json` 中的 `contributions.messages` 定义，调用扩展默认面板中默认的 `hello` 方法，然后将日志信息 `hello` 显示在默认面板中，并打印到 **控制台** 中。
 
-每个模板创建出来的扩展都不是完全一样的，更多内容请参考对应扩展包目录下的 `README.md` 文件。
+![output](./image/output.png)
+
+> **注意**：每个模板创建出来的扩展都不是完全一样的，更多内容请参考对应扩展包目录下的 `README.md` 文件。
