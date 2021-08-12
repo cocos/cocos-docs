@@ -275,6 +275,7 @@
 ## 进阶使用
 
 - [扩展编辑器](editor/extension/readme.md)
+    - [创建扩展](editor/extension/create-extension.md)
     - [第一个扩展包](editor/extension/first.md)
     - [第一个面板](editor/extension/first-panel.md)
     - [第一次数据交互](editor/extension/first-communication.md)
@@ -300,7 +301,6 @@
         - [多语言系统](editor/extension/i18n.md)
         - [配置系统](editor/extension/profile.md)
         - [UI 组件](editor/extension/ui.md)
-
 - [进阶主题](advanced-topics/index.md)
     - [热更新范例教程](advanced-topics/hot-update.md)
     - [热更新管理器](advanced-topics/hot-update-manager.md)

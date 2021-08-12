@@ -273,6 +273,7 @@
 ## Advanced
 
 - [Extending the Editor](editor/extension/readme.md)
+    - [Create an Extension](editor/extension/create-extension.md)
     - [The First Extension](editor/extension/first.md)
     - [Install And Share](editor/extension/install.md)
     - [Extension Description](editor/extension/define.md)
