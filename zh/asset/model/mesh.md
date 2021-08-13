@@ -1,6 +1,11 @@
 # 模型资源
 
-目前，我们支持 **FBX** 和 **glTF** 两种格式的模型文件。关于如何从第三方工具导出这两种模型文件，请参考 [导入从 DCC 工具导出的模型](./dcc-export-mesh.md)。
+目前，Creator 支持 **FBX** 和 **glTF** 两种格式的模型文件。
+
+- FBX：支持 FBX 2020 及更早的文件格式。
+- glTF：支持 glTF 2.0 及更早的文件格式，详情可参考 [glTF 模型](./glTF.md)。
+
+关于如何从第三方工具导出这两种模型文件，请参考 [导入从 DCC 工具导出的模型](./dcc-export-mesh.md)。
 
 ## 模型导入
 
@@ -8,25 +13,25 @@
 
 - 无动画的模型文件结构如下：
 
-  ![](mesh/mesh_list.png)
+  ![mesh list](mesh/mesh_list.png)
 
 - 包含动画的模型文件结构如下：
 
-  ![](mesh/mesh_list_1.png)
+    ![mesh list1](mesh/mesh_list_1.png)
 
-  - `.material` — 材质文件
-  - `.mesh` — 模型文件
-  - `.texture` — 模型贴图文件
-  - `.animation` — 模型动画文件
-  - `.skeleton` — 模型骨骼文件
-  - `.prefab` — 导入时自动生成的预制体文件
+    - `.material` — 材质文件
+    - `.mesh` — 模型文件
+    - `.texture` — 模型贴图文件
+    - `.animation` — 模型动画文件
+    - `.skeleton` — 模型骨骼文件
+    - `.prefab` — 导入时自动生成的预制体文件
 
 ## 模型使用
 
 将模型文件导入后，直接将模型文件的根节点从 **资源管理器** 拖拽到 **层级管理器** 中想要放置的节点下，即可完成节点创建，此时模型就成功在场景中创建了。<br>
 或者也可以将模型文件的节点展开，选中模型文件节点下的 `.prefab` 文件，从 **资源管理器** 拖拽到 **层级管理器** 中同样能够完成创建。
 
-![](mesh/mesh_use.gif)
+![mesh use](mesh/mesh_use.gif)
 
 ## 模型资源属性面板说明
 
@@ -34,7 +39,7 @@
 
 ### Model 模块
 
-![](mesh/mesh_model.jpg)
+![mesh model](mesh/mesh_model.jpg)
 
 | 属性 | 说明 |
 | :--- | :--- |
@@ -45,7 +50,7 @@
 
 ### Animation 模块
 
-![](mesh/mesh_animation.jpg)
+![mesh animation](mesh/mesh_animation.jpg)
 
 上方的动画文件表格是当前模型下的所有动画资源信息，下方是当前选中动画的具体帧数信息的编辑区域，可以在此处更改动画名称或进行简单的动画裁剪。
 
@@ -55,7 +60,7 @@
 
 ### Material 模块
 
-![](mesh/mesh_material.jpg)
+![mesh material](mesh/mesh_material.jpg)
 
 - `DumpMaterial`：当对模型文件自带的材质不满意想要修改时，需开启此选项，将文件结构目录下的材质文件 dump 出模型资源中，此时就可以进行材质的调整修改了
 - `Dumper Directory`：这里可以指定或者查看 dump 出来的目录位置
