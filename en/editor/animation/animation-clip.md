@@ -23,7 +23,7 @@ Changes to properties take effect after the focus leaves the control.
 
 ## Common operations of node panel
 
-The __animation clip__ defines the position of the data by the name of the node, ignoring the root node itself, and the remaining child nodes find their corresponding data through the **relative path** index of the root node.
+The __Animation Clip__ defines the position of the data by the name of the node, ignoring the root node itself, and the remaining child nodes find their corresponding data through the **relative path** index of the root node.
 
 - **Clear node data**: right-click the node item of the **Animation** panel, select __Empty Data__, and select __Clear__ after the pop-up window prompts
 

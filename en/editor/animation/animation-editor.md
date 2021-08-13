@@ -100,7 +100,7 @@ __Click__ the clip option in the lower left corner of the __Animation Editor__ a
 
 What is the fix if the range displayed by the **Animation** panel is too small during operation, and it needs to be scaled down to allow more keyframes to be displayed in the editor?
 
-- You can _zoom in_ or *zoom out* the display scale of the time axis by scrolling the mouse wheel in areas *b*, *d*, and *f* in the figure.
+- You can __zoom in__ or **zoom out** the display scale of the time axis by scrolling the mouse wheel in areas **b**, **d**, and **f** in the figure.
 
 #### Navigate the display area
 

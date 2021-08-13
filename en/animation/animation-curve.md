@@ -6,7 +6,7 @@ First, add an Animation Property and create two unequal keyframes on the Animati
 
 ![time curve](animation-curve/main.png)
 
-The animation curves are modified in real time, no need to click save, just click close button in the top right corner.
+The Animation Curves are modified in real-time, there is no need to click save. Simply click close button in the top right corner.
 
 ## Using Preset Easing Curve
 

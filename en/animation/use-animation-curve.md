@@ -1,10 +1,10 @@
 # Using Animation Curves
 
-All keyframes added to an animation property of a node in an animation clip are shown as linear traces in the corresponding animation property track, which is an animation curve. That is, an animation curve describes the change in an animation property on an object over time.
+All keyframes added to an Animation Property of a node in an Animation Clip are shown as linear traces in the corresponding animation property track, which is an animation curve. That is, an Animation Curve describes the change in an Animation Property on an object over time.
 
-The animation curve stores internally a series of time points, each of which corresponds to a (curve) value, called a frame (keyframe). When the animation system runs, the animation component calculates the (result) value that should be assigned to the object at the specified time point based on the current animation state and completes the property change, a calculation process called sampling.
+The Animation Curve stores internally a series of time points, each of which corresponds to a (curve) value, called a frame (keyframe). When the animation system runs, the Animation Component calculates the (result) value that should be assigned to the object at the specified time point based on the current animation state and completes the property change, a calculation process called sampling.
 
-The following code snippet demonstrates how to create animation clips programmatically.
+The following code snippet demonstrates how to create Animation Clips programmatically:
 
 ```ts
 import { AnimationClip, animation, js } from 'cc';
@@ -29,7 +29,7 @@ animationClip.curves = [{ // Animation curves on the animation component
 }];
 ```
 
-The above animation clip contains an animation curve that controls the `value` property of the **MyComponent** component in the **Body** child node. The animation curve includes three keyframes that make the `value` property 0.0 at 0.3 seconds, 0.5 at 0.6 seconds, and 1.0 at 0.9 seconds.
+The above Animation Clip contains an Animation Curve that controls the `value` property of the **MyComponent** component in the **Body** child node. The Animation Curve includes three keyframes that make the `value` property 0.0 at 0.3 seconds, 0.5 at 0.6 seconds, and 1.0 at 0.9 seconds.
 
 > **Note**: the frame times of the keyframes on the animation curve are indexed by reference to the `AnimationClip.keys` array. In this way, multiple curves can share frame times, which will result in additional performance optimization.
 
@@ -75,7 +75,7 @@ modifiers: [
 ]
 ```
 
-For custom target paths to be serializable, declare them as classes.
+For custom target paths to be serializable, declare them as classes:
 
 ```ts
 @ccclass
@@ -104,7 +104,7 @@ When a value is sampled, by default the value will be set to the target object u
 
 Sometimes, the assignment operator cannot be used to complete the setting. For example, when setting the Uniform of a material object, it can't be done with the assignment operator. For this case, the curve field `valueAdapter` provides a mechanism to customize the value to the target object.
 
-Example.
+Example:
 
 ```ts
 class BlahBlahComponent {
@@ -148,7 +148,7 @@ class MyValueProxy implements animation.
 }
 ```
 
-UniformProxyFactory` is one such **custom assignment** class that implements setting the uniform value of a material: the
+`UniformProxyFactory` is one such **custom assignment** class that implements setting the uniform value of a material:
 
 ```ts
 { 
@@ -175,7 +175,7 @@ Cocos Creator allows this scale to be mapped to another scale to achieve a diffe
 
 ### Fade method
 
-You can specify a fade method for each frame, or a uniform fade method for all frames. The fade method can be the name of a built-in fade method or a Bessel control point.
+The fade method for each frame can be specified, or a uniform fade method can be used for all frames. The fade method can be the name of a built-in fade method or a Bessel control point.
 
 The following are some of the commonly used fade methods:
 
@@ -192,7 +192,7 @@ The following are some of the commonly used fade methods:
 
 ### Curve values and interpolation methods
 
-Some interpolation algorithms require additional data to be stored in the curve value for each frame, so the curve value is not necessarily the same as the value type of the target property. For numeric types or value types, Cocos Creator provides several general interpolation methods. Also, it is possible to define your own interpolation methods.
+Some interpolation algorithms require additional data to be stored in the curve value for each frame, so the curve value is not necessarily the same as the value type of the target property. For numeric types or value types, Cocos Creator provides several general interpolation methods. Also, it is possible to define custom interpolation methods.
 
 - When the [interpolate](__APIDOC__/en/interfaces/animation.ipropertycurvedata.html#interpolate) property of the curve data is `true`, the curve will try to use the interpolation function.
 
@@ -310,13 +310,13 @@ Some interpolation algorithms require additional data to be stored in the curve 
 
 Different wrap modes can be set for Animation Clips by setting `AnimationClip.wrapMode`. The following lists several common wrap modes:
 
-| `AnimationClip.wrapMode` | Description |
+| Property | Description |
 | :--- | :--- |
 | Normal | Playback stops at the end |
 | WrapMode.Loop | Loop
 | PingPong | Play from the beginning to the end of the animation, then play back to the beginning from the end, and so on.
 
-For more wrap modes, please refer to the API [WrapMode](__APIDOC__/en/enums/animation.wrapmode.html) and the [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count) documentation.
+For more wrap modes, please refer to the [WrapMode](__APIDOC__/en/enums/animation.wrapmode.html) API and the [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count) documentation.
 
-<b id="f1">1</b> The node where the animation clip is located is the node attached to the animation component where the animation state object that references the animation clip is located. [↩](#a1)<br>
+<b id="f1">1</b> The node where the Animation Clip is located is the node attached to the Animation Component where the Animation State object that references the Animation Clip is located. [↩](#a1)<be>
 <b id="f2">2</b> For numeric, quaternion, and various vectors, Cocos provides the appropriate interpolable classes to implement [Cubic Spline Interpolation](https://en.wikipedia.org/wiki/Spline_interpolation). [↩](#a2)

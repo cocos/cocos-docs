@@ -7,7 +7,7 @@ The only switch between these two systems is the `useBakedAnimation` property in
 - When `useBakedAnimation` is enabled, the pre-baked skeletal animation system is used.
 - When `useBakedAnimation` is disabled, the real-time computed skeletal animation system will be used.
 
-For the component interface of skeletal animation, please refer to [SkeletalAnimation API](__APIDOC__/en/classes/animation.skeletalanimation.html).
+For the component interface of skeletal animation, please refer to the [SkeletalAnimation API](__APIDOC__/en/classes/animation.skeletalanimation.html).
 
 ## Pre-baked Skeletal Animation System
 
@@ -44,7 +44,7 @@ Currently all model assets are imported with **pre-baking system** in Prefab by 
 
 ## Skinning Algorithms
 
-We provide two common standard skinning algorithms built-in, which have similar performance and only have an impact on the final performance.
+Creator provides two common standard skinning algorithms built-in, which have similar performance and only have an impact on the final performance.
 
 1. **LBS (Linear Blending Skinning)**: skeletal information is stored as a **3 x 4** matrix, and skinning is achieved by direct linear interpolation of the matrix. Currently there are typical known issues such as volume loss.
 2. **DQS (Dual Quaternion Skinning)**: skeletal information is interpolated as **Dual Quaternion**, which is more accurate and natural for skeletal animations that do not contain scaling transformations, but has approximate simplification for all scaling animations for performance reasons.
@@ -67,7 +67,7 @@ The socket model in the **FBX** or **glTF** asset will automatically interface t
 
 Based on the framework design of the **pre-baking system**, instancing of the skinned model is also within reach, but there is some more underlying information that needs to be collected to ensure correctness.
 
-The fundamental problem here is that each model within the same Drawcall must use the same skeleton texture, if not, the display will be completely misaligned. So how the animation data is assigned to each skeleton texture becomes a user-defined piece of information that can be configured in the [Joint Texture Layout](joint-texture-layout.md) panel in the editor menu bar **Panel -> Animation**.
+The fundamental problem here is that each model within the same drawcall must use the same skeleton texture, if not, the display will be completely misaligned. So how the animation data is assigned to each skeleton texture becomes a user-defined piece of information that can be configured in the [Joint Texture Layout](joint-texture-layout.md) panel in the editor menu bar **Panel -> Animation**.
 
 > **Note**:
 > 1. Instancing is only supported under the **pre-baking system**. we have not strictly forbidden to enable instancing under the **real-time computation framework** (only in-editor warnings), but the animation effect will definitely be problematic, depending on the actual material assignment of the model. In the best case, the animation will be identical from instance to instance, in the worst case it will cause the model to be completely misaligned.

@@ -1,12 +1,12 @@
 # Editing Animation Clips
 
-Once you have attached an animation clip on the animation component of a node, click **Enter animation editing mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter animation editing mode and add keyframe data to the animation clip to animate the node. Please [get familiar with the **Animation** panel](animation-editor.md) before editing animation clips.
+Once an Animation Clip is attached on to an Animation Component of a node, click **Enter animation editing mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter Animation Editing Mode and add keyframe data to the Animation Clip to animate the node. Please refer to the [Animation panel](animation-editor.md) documentation before editing animation clips.
 
-An animation clip may contain multiple nodes (nodes and their children), and multiple animation properties can be attached on each node. By moving, rotating or scaling the nodes, keyframes are added to the animation property corresponding to the currently selected node. All the keyframes added to the animation property are displayed in the corresponding animation property track as a list pattern of linear trajectories, which we can call animation curves.
+An Animation Clip may contain multiple nodes (nodes and their children), and multiple animation properties can be attached to each node. By moving, rotating, or scaling the nodes, keyframes are added to the animation property corresponding to the currently selected node. All the keyframes added to the animation property are displayed in the corresponding animation property track as a list pattern of linear trajectories, which are called animation curves.
 
-## Creating animation curve
+## Creating an Animation Curve
 
-Before adding keyframes, we need to know about the animation properties. The animation properties include the node's own `position`, `rotation`, `scale` and other properties, and also include the custom properties in the component `Component`. The properties included in the component are preceded by the name of the component, e.g. `cc.Sprite.spriteFrame`.
+Before adding keyframes, it is necessary to know about animation properties. The animation properties include the node's own `position`, `rotation`, `scale`, and other properties, and also include the custom properties in the component `Component`. The properties included in the component are preceded by the name of the component, e.g. `cc.Sprite.spriteFrame`.
 
 Click the **+** button in the upper-right corner of the **Property List** area to add animation properties as needed, depending on the node type. Added animation properties are grayed out and cannot be added repeatedly.
 
@@ -16,25 +16,25 @@ Once the animation properties are added, keyframes can be added to the propertie
 
 ![add keyframe](edit-animation-clip/add-keyframe.gif)
 
-For more information on the design of animation curves and how to control them via script code, please refer to [Using Animation Curve](use-animation-curve.md).
+For more information on the design of Animation Curves and how to control them via scripts, please refer to the [Using Animation Curve](use-animation-curve.md) documentation.
 
 ### Editing Sprite animations
 
 Next, let's take a look at the process of creating a Sprite animation as an example.
 
-1. Create a Sprite node
+1. Create a Sprite node.
 
     Create a Sprite node in the **Hierarchy** panel. Or add a Sprite component to the node by selecting the node and clicking the **Add Component** button in the **Inspector** panel and selecting **2D -> Sprite**.
 
-2. Add the Animation component to the node, attach the Clip file, and enter the animation editing mode. For details, please refer to [Creating Animation Component and Animation Clip](animation-create.md).
+2. Add the Animation Component to the node, attach the Clip file, and enter the Animation Editing Mode. For details, please refer to the [Creating Animation Component and Animation Clip](animation-create.md) documentation.
 
-3. Add the animation property `cc.Sprite.spriteFrame` to the property list
+3. Add the animation property `cc.Sprite.spriteFrame` to the property list.
 
     Click the **+** button in the upper right corner of the property list, then select **cc.Sprite -> spriteFrame**.
 
     ![add SpriteFrame](edit-animation-clip/add-spriteframe.gif)
 
-4. Add a keyframe
+4. Add a keyframe.
 
     Drag the spriteFrame asset from **Assets** panel to the property track on the right side of the `cc.Sprite.spriteFrame` animation property, and then drag the spriteFrame to be displayed in the next keyframe to the specified position, or select the needed spriteFrame in the property box above the property track. Play to preview the animation that is just created.
 
@@ -48,8 +48,8 @@ In the process of editing animation clips, there are often some operations on ke
 
 The selected keyframe will change from blue to white, including the following:
 
-- Clicking on a keyframe in the animation property track will select it
-- Double-clicking a keyframe will move the time control line to the current keyframe while it is selected
+- Clicking on a keyframe in the animation property track will select it.
+- Double-clicking a keyframe will move the time control line to the current keyframe while it is selected.
 - Clicking on a node's keyframe in the animation timeline selects all keyframes of the node's animation properties at the same location.
 
   ![choose keyframe](edit-animation-clip/choose-keyframe.png)
@@ -66,7 +66,7 @@ Multiple selection of keyframes is also supported, including the following:
 
 ### Adding keyframes
 
-In addition to adding keyframes by modifying properties as described in **Creating Animation Curves**, you can also add them in the following ways:
+In addition to adding keyframes by modifying properties as described in **Creating Animation Curves**, they can also be added in the following ways:
 
 1. Select the animation property and use the shortcut <kbd>K</kbd>, which will add a keyframe at the location of the time control line, or ignore it if the animation property is not checked.
 

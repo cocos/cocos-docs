@@ -1,12 +1,12 @@
 # Joint Texture Layout Settings
 
-To ensure that [Skeletal Animation](./skeletal-animation.md) can also participate fully and correctly in [Dynamic Instancing](../engine/renderable/model-component.md#instancing-%E5%90%88%E6%89%B9), the user needs to manually specify how the data for each skeletal texture is assigned.
+To ensure that [Skeletal Animation](./skeletal-animation.md) can also participate fully and correctly in [Dynamic Instancing](../engine/renderable/model-component.md#instancing-%E5%90%88%E6%89%B9), the developer needs to manually specify how the data for each skeletal texture is assigned.
 
-For example, a scene where a large number of identical characters are to be drawn, each of which may be walking/jumping/attacking. If you want one Drawcall to be able to draw all characters correctly, an important prerequisite is that **the data for all three animations (walk, jump, attack) are stored inside the same joint texture**.
+For example, a scene where a large number of identical characters are to be drawn, each of which may be walking/jumping/attacking. If one Drawcall should be able to draw all characters correctly, an important prerequisite is that **the data for all three animations (walk, jump, attack) are stored inside the same joint texture**.
 
-Currently, in the default [pre-baked skeletal animation mode](./skeletal-animation.md#pre-baked-Skeletal-Animation-System), the joint textures are already globally auto-reused, but the size of each texture and which animations they store are not available. and which animations are stored in each of them are unpredictable. If we enable instancing of the skinned model without any processing, The final runtime effect may have some animations that are correct and some that are completely wrong, which are completely unpredictable.
+Currently, in the default [pre-baked skeletal animation mode](./skeletal-animation.md#pre-baked-Skeletal-Animation-System), the joint textures are already globally auto-reused, but the size of each texture and which animations they store are not available. and which animations are stored in each of them are unpredictable. If instancing of the skinned model is enabled without any processing, The final runtime effect may have some animations that are correct and some that are completely wrong, which are completely unpredictable.
 
-So we added a **Joint Texture Layout Settings** panel to the editor menu bar **Panel -> Animation** to manually specify which animation information is stored for which skeletons in each joint texture.
+A **Joint Texture Layout Settings** panel was added to the editor menu bar **Panel -> Animation** to manually specify which animation information is stored for which skeletons in each joint texture.
 
 ![joint texture layout panel](./joint-texture-layout/joint-texture-layout-panel.png)
 
@@ -14,7 +14,7 @@ So we added a **Joint Texture Layout Settings** panel to the editor menu bar **P
 
 ## Joint texture layout settings
 
-Here we use the **instanced-skinning** scenario from the example project [show-cases](https://github.com/cocos-creator/example-3d/tree/v3.0/show-cases/assets/scenes) as an example to see how the joint texture layout is set up and how it works. The following figure shows a sample scene.
+Use the **instanced-skinning** scenario from the example project [show-cases](https://github.com/cocos-creator/example-3d/tree/v3.0/show-cases/assets/scenes) as an example to see how the joint texture layout is set up and how it works. The following figure shows a sample scene.
 
 The following figure shows a sample scenario with multiple instances from the same model, playing completely different animations at the same time. As you can see, the current scene, plus the UI, has a total Drawcall of 60 and an instance count of 0. This state will be used as the basis for later changes to compare.
 
@@ -30,7 +30,7 @@ To create a model with instancing version turned on, the following steps are req
 
     ![Enabling](./joint-texture-layout/enabling_instancing.png)
 
-In our example scene we actually made two sets of Prefab and set the material diffuse color to blue in the instancing version in order to see and distinguish the performance of both systems. You can see that the effect has been exactly correct, and that only 5 Drawcalls (each model is divided into 5 parts) were used, with 45 instances.
+In the example scene, two sets of Prefabs were made and set the material diffuse color to blue in the instancing version in order to see and distinguish the performance of both systems. Notice that the effect has been exactly correct and that only 5 drawcalls (each model is divided into 5 parts) were used, with 45 instances.
 
 ![Normal](./joint-texture-layout/instancing_normal.gif)
 
@@ -50,7 +50,7 @@ The three **+** in the panel are used as follows:
 - ② - Used to add Skeleton units, a Skeleton unit consists of a Skeleton asset and one to more AnimationClip assets.
 - ③ - Used to add AnimationClip asset slots.
 
-Here we have 9 different animations separated in 9 Texture cells.
+Here there are 9 different animations separated into 9 Texture cells.
 
 ![WrongLayout](./joint-texture-layout/joint_texture_layout_wrong.png)
 
@@ -58,10 +58,10 @@ Rerun the scene and the effect becomes:
 
 ![Wrong](./joint-texture-layout/instancing_wrong.gif)
 
-You can see that there is a problem with the animation, all the animations become attack actions, and the model disappears from time to time. The reason behind this can be precisely analyzed.
+Notice there is a problem with the animation, all the animations become attack actions, and the model disappears from time to time. The reason behind this can be precisely analyzed.
 
-- Each Drawcall draws 9 instances, which are broadcasting 9 different animations.
-- However, each Drawcall can only use one skeletal animation texture, and here it is obvious that the Texture unit 0 is used and there is only one attack animation.
+- Each drawcall draws 9 instances, which are broadcasting 9 different animations.
+- However, each drawcall can only use one skeletal animation texture, and here it is obvious that the Texture unit 0 is used and there is only one attack animation.
 - The length of different animation segments is different, and some of them are longer than the attack segment, so at the last time they will be read outside the valid area of Texture unit 0, where the data is not defined (usually the default is all 0), not valid skeleton transformation data, so naturally they cannot be rendered correctly.
 
 > **Note**: the 9 textures here all have the same skeletal animation information, so only the action is wrong in the final result, even if the texture is already wrong; but if there are multiple skeletons with animation information in one texture, and the textures don't match at the same time, the rendering effect will be completely wrong.
@@ -83,6 +83,6 @@ In addition, the color of the icon next to the texture size indicates the device
 
 > **Note**: this is just a set of 9 animations for one skeleton on one texture, but you can put **any number of animations for any number of skeletons** on each texture, as long as the total size does not exceed the device limit. It is often more common to have multiple sets of skeletons on a single texture, for example for [flat shadows for skinned models](./skeletal-animation.md#about-dynamic-instancing).
 
-As we continue adding more instances to the scene, we can see that the number of Drawcalls does not change, only the number of instances increases:
+As more instances continue being adding to the scene, notice the number of drawcalls does not change, only the number of instances increases:
 
 ![Bulk](./joint-texture-layout/instancing_bulk.gif)
