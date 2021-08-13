@@ -25,7 +25,7 @@ The ball moves from time T0 to time T1, missing the black square that should hav
 
 Due to differences in support among physics engines, and for performance reasons, Creator supports CDD in the following cases:
 
-- Only kinetic rigid bodies are supported.
+- Only dynamic rigidbodies are supported.
 - Only convex shapes are supported.
 - No support for solving rotational penetration problems.
 - For performance reasons, CCD events are only supported for types starting with `onCollision`.
