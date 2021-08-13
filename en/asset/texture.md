@@ -39,6 +39,8 @@ The following describes the properties of the panel:
 | __wrapS__ | S (U) direction texture addressing mode |
 | __wrapT__ | T (V) direction texture addressing mode |
 
+> __Note__: Since the default wrap mode may result in black edges when rendering transparent-edge images, we will change the __wrapS__ and __wrapT__ of texture to __clamp-to-edge__ when setting the image resource type to __sprite-frame__, which can be modified by the user if there is a special need.
+
 ### Using Texture2D
 
 __Texture2D__ is a very widely used asset. Any property marked as __Texture2D__ in the __Inspector__ panel can be dragged into a __Texture2D__ asset type.
