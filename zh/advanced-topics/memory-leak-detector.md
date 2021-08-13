@@ -12,7 +12,7 @@
 
 ## 使用步骤
 
-1. 内存泄漏检测系统默认是关闭的。若要开启，需要将 `engine-native/cocos/base/Config.h` 文件中宏 `USE_MEMORY_LEAK_DETECTOR` 的值修改为 `1`。
+1. 内存泄漏检测系统默认是关闭的。若要开启，需要将引擎目录下 `engine-native/cocos/base/Config.h` 文件中宏 `USE_MEMORY_LEAK_DETECTOR` 的值修改为 `1`。
 
     ```c++
     #ifndef USE_MEMORY_LEAK_DETECTOR
@@ -21,7 +21,9 @@
     ```
 
 2. 由于实现机制的不同，Android 平台上需要额外执行以下两个步骤：
-    - 在项目目录 `native/engine/android/CMakeLists.txt` 中添加 `set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")`，如下所示：
+
+    - 在项目目录的 `native/engine/android/CMakeLists.txt` 文件中添加一行代码 `set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")`，如下所示：
+
         ```
         set(PROJ_SOURCES
             ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
@@ -36,6 +38,7 @@
         ![tbb](./memory-leak-detector/build.png)
 
 3. 从原生平台对应的 IDE（如 Visual Studio、Android Studio、Xcode）启动游戏，运行一段时间后关闭游戏，若存在内存泄漏，则此时会在 IDE 的输出窗口中输出内存泄漏的详细信息。
+
     - Windows 平台
 
       ![visual studio](./memory-leak-detector/visualstudio.png)
