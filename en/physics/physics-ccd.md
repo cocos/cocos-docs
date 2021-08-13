@@ -1,33 +1,33 @@
 # Continuous Collision Detection
 
-**连续碰撞检测**（简称 **CCD**）是一种用于避免高速运动的物体在离散运动时出现穿透现象而导致碰撞数据不精确的技术，可用于实现类似高速运动的子弹与物体发生碰撞时，不会直接穿透物体。
+**Continuous Collision Detection** (abbreviated as **CCD**) is a technology used to avoid collision data inaccuracy due to penetration of objects moving at high speed in discrete motion, and can be used to achieve collisions with objects similar to a bullet moving at high speed without directly penetrating the object.
 
-## 开启 CCD
+## Enable CCD
 
-CDD 默认为禁用状态，若要启用，将物体 RigidBody 组件的 `useCCD` 属性设置为 `true` 即可：
+CDD is disabled by default. To enable it, set the `useCCD` property of the RigidBody component of the object to `true`:
 
 ```ts
 const rigidBody = this.getComponent(RigidBody);
 rigidBody.useCCD = true;
 ```
 
-## 解决线性穿透问题
+## Sweep-based CCD
 
-穿透是由于物体离散运动而导致的现象，三维物体的运动可以拆分为 **移动** 和 **旋转**。Creator 目前仅支持解决 **线性穿透** 问题，指的便是因物体离散的 **移动** 而导致的穿透现象。
+Penetration is a phenomenon caused by the discrete motion of an object, which can be split into **movement** and **rotation**. Cocos Creator currently only supports Sweep-based CCD, which refer to penetration caused by discrete **movement** of objects.
 
-穿透现象通常发生在高速运动的物体上，例如子弹类的物体。这是由于计算机的模拟都是基于离散化形式，当物体运动速度过快时，就会导致单次积分的能量过大，便可能导致物体穿越了本应该碰撞的另一物体，如下图所示：
+Penetration usually occurs in objects that are moving at high speed, such as bullets. This is due to the fact that computer simulations are based on discrete forms, and when an object is moving too fast, the energy of a single integration is too large, which may cause the object to pass through another object that should have collided with it, as shown in the following figure:
 
 ![physics-ccd](img/physics-ccd.jpg)
 
-可以看到小球从 T0 时刻运动到 T1 时刻，错过了本该在 T0.5 时刻碰撞的黑色方块，这便是典型的因线性速度过快而导致的线性穿透现象。
+The ball moves from time T0 to time T1, missing the black square that should have collided at time T0.5. This is a typical linear penetration phenomenon caused by too much linear velocity.
 
-## 支持情况
+## Support
 
-由于各物理引擎支持情况的不同，以及出于性能等因素的考虑，Creator 对 CDD 的支持情况如下：
+Due to differences in support among physics engines, and for performance reasons, Creator supports CDD in the following cases:
 
-- 仅支持动力学刚体。
-- 仅支持凸类形状物体。
-- 不支持解决旋转穿透问题。
-- 出于性能因素的考虑，CCD 的事件仅支持以 `onCollision` 开头的类型。
-- 当物理引擎设置为 **Bullet** 时，仅支持单个形状物体（只包含一个碰撞组件），并且碰撞组件中的 `center` 属性需要设置为 0。
-- 当物理引擎设置为 **Cannon** 时，仅支持球碰撞组件。
+- Only dynamic rigidbodies are supported.
+- Only convex shapes are supported.
+- No support for solving rotational penetration problems.
+- For performance reasons, CCD events are only supported for types starting with `onCollision`.
+- When the physics engine is set to **Bullet**, only single shape objects (containing only one collision component) are supported, and the `center` property of the collision component needs to be set to 0.
+- When the physics engine is set to **Cannon**, only SphereCollider components are supported.
