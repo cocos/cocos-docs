@@ -95,7 +95,7 @@ gulp init
 
 为了防止包体过大，Creator 在发布时剔除了原生引擎模拟器相关工程，如果需要使用原生模拟器可以通过以下步骤重新编译生成：
 
-1. 环境变量里需要设置一个全局的 cmake 的路径
+1. 参考 [CMake 官方文档](https://cmake.org/install/) 安装 CMake 并配置系统环境变量。
 2. 在 `engine-native` 目录下依次执行以下命令：
 
     ```bash
@@ -105,4 +105,4 @@ gulp init
     gulp gen-simulator
     ```
 
-    执行完成后，会在 `engine-native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件。
+    执行完成后，会在 `engine-native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件，便可运行原生模拟器了。
