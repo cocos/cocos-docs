@@ -321,7 +321,7 @@ LOCAL_PATH := $(call my-dir)
 
 The equivalent in `CMakeLists.txt` would be:
 
-```
+```cmake
 set(LOCAL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/..)
 ```
 
