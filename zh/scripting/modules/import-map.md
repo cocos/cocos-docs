@@ -2,7 +2,7 @@
 
 Cocos Creator 从 v3.3 开始实验性支持 [导入映射（Import maps）](https://github.com/WICG/import-maps)，包括 [Import Maps Draft Community Group Report, 12 January 2021](https://wicg.github.io/import-maps/) 中的所有功能。
 
-导入映射控制 TypeScript/JavaScript 的导入行为，尤其是可指定对 [裸说明符](./spec#裸说明符) 的解析。
+导入映射控制 TypeScript/JavaScript 的导入行为，尤其是可指定对 [裸说明符](./spec.md#裸说明符) 的解析。
 
 ## 使用
 
