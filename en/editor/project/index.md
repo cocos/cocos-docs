@@ -84,6 +84,8 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 - **Enable loose mode**: if enabled, the script will be compiled in non-strict mode.
 
+- **Import Map**: used to control the import behavior of TypeScript/JavaScript, see the [Import Map](../../scripting/modules/import-map.md) documentation for details.
+
 - **Exports Conditions**: specify the parsing conditions for conditionalized export modules, see [Conditional exports](../../scripting/modules/spec.md) for details.
 
 ## Texture Compression
