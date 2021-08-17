@@ -56,7 +56,7 @@ The **meta** file for the prefab is the same as the scene. Let's take a look at 
 }
 ```
 
-The **meta** file for the png image has more information. In addition to the **basic ver** and **UUID**UUID, it also records the width, height, offset, and borders of the image. There is a lot of information that is stored. **UUID** and it is particularly important.
+The **meta** file for the png image has more information. In addition to the **basic ver** and **UUID**, it also records the width, height, offset, and borders of the image. There is a lot of information that is stored. **UUID** and it is particularly important.
 
 > UUID: Universally Unique Identifier
 
@@ -88,7 +88,7 @@ If a file's **meta** file does not exist, the above two conditions will trigger 
 
 Let's analyze several possible cases that produce a **meta** file error.
 
-### UUID Conflict
+### UUID Conflicts
 
 **UUID** is globally unique. A conflict occurs if, by chance, two files have the same **UUID**. If this problem occurs, the Cocos Creator resource manager directory structure is incompletely loaded. As shown in the figure below, when this happens, the errors look scary:
 
