@@ -238,7 +238,7 @@ The `target` in the **find compilation headers** command above is the executable
 
         - `COMMAND`: specifies the command line to be executed at build time.
 
-For more information about the `add_custom_command` command, please refer to the official CMake [add_custom_command](https://cmake.org/cmake/help/v3.16/command/add_custom_command.html?highlight=add_custom_command) documentation.
+    For more information about the `add_custom_command` command, please refer to the official CMake [add_custom_command](https://cmake.org/cmake/help/v3.16/command/add_custom_command.html?highlight=add_custom_command) documentation.
 
 ### Linking library files
 
