@@ -1,6 +1,6 @@
 # 导入映射（实验性）
 
-Cocos Creator 从 v3.3 开始实验性支持 [导入映射（Import maps）](https://github.com/WICG/import-maps)，包括 [Import Maps Draft Community Group Report, 12 January 2021](https://wicg.github.io/import-maps/) 中的所有功能。
+Cocos Creator 从 v3.3 开始实验性支持 [导入映射（Import maps）](https://github.com/WICG/import-maps)。
 
 导入映射控制 TypeScript/JavaScript 的导入行为，尤其是可指定对 [裸说明符](./spec.md#裸说明符) 的解析。
 
@@ -69,9 +69,9 @@ import * as quux from 'bar/qux/quux';
 
 ### TypeScript 配置
 
-TypeScript 并不支持导入映射。若要使用该功能，则需要通过额外的配置来告诉 TypeScript 类型检查器额外的模块解析信息。
+TypeScript 并不支持导入映射，在使用时可能会导致出现找不到模块的报错，所以我们需要通过额外的配置来告诉 TypeScript 类型检查器额外的模块解析信息。
 
-例如上述中的两个例子，我们可以通过配置项目目录下的 `tsconfig.json` 文件中的 [paths](https://www.typescriptlang.org/tsconfig#paths) 字段（若没有该字段，可自行补上），如下所示：
+例如上述中的两个例子，可以在项目目录下的 `tsconfig.json` 文件中配置 [paths](https://www.typescriptlang.org/tsconfig#paths) 字段（若没有该字段，可自行补上），如下所示：
 
 ```json5
 // tsconfig.json
@@ -88,3 +88,7 @@ TypeScript 并不支持导入映射。若要使用该功能，则需要通过额
 ```
 
 更多关于导入映射的功能，请参考 [导入映射](https://github.com/WICG/import-maps)。
+
+## 支持情况
+
+Cocos Creator 支持 [Import Maps Draft Community Group Report, 12 January 2021](https://wicg.github.io/import-maps/) 中的所有功能。
