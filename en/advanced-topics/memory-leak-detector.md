@@ -19,7 +19,7 @@ Compared with other memory leak detection tools, the built-in memory leak detect
     #endif
     ```
 
-2. Due to the different implementation mechanisms, two additional things need to be done on the Android platform:
+2. The Android platform requires one additional step as a result of the different implementation mechanisms amongst platforms:
 
     - Add a line of code `set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")` to the `native/engine/android/CMakeLists.txt` file in the project directory, as follows:
         ```
@@ -30,10 +30,6 @@ Compared with other memory leak detection tools, the built-in memory leak detect
         )
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")
         ```
-
-    - If the Job System is TBB when building the android project, please change to None or TaskFlow (default), because TBB will conflict with the current memory capture implementation mechanism on the Android platform:
-
-        ![tbb](./memory-leak-detector/build.png)
 
 3. Start the game from the IDE corresponding to the native platform (such as Visual Studio, Android Studio, Xcode), and close the game after running for a period of time. If there is any memory leak, the detailed information of the memory leak will be output in the output window of the IDE at this time.
 

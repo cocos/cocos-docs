@@ -20,7 +20,7 @@
     #endif
     ```
 
-2. 由于实现机制的不同，Android 平台上需要额外执行以下两个步骤：
+2. 由于实现机制的不同，Android 平台上需要额外执行以下步骤：
 
     - 在项目目录的 `native/engine/android/CMakeLists.txt` 文件中添加一行代码 `set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")`，如下所示：
 
@@ -32,10 +32,6 @@
         )
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")
         ```
-
-    - **构建发布** 面板中的 **任务调度系统** 项需要设置为 **None** 或者 **TaskFlow**。不能设置为 **TBB**，否则会与目前 Android 平台上的内存捕获实现机制相冲突。
-
-        ![tbb](./memory-leak-detector/build.png)
 
 3. 从原生平台对应的 IDE（如 Visual Studio、Android Studio、Xcode）启动游戏，运行一段时间后关闭游戏，若存在内存泄漏，则此时会在 IDE 的输出窗口中输出内存泄漏的详细信息。
 
