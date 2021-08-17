@@ -42,7 +42,7 @@
             - [创建 Animation 组件和动画剪辑](animation/animation-create.md)
             - [动画编辑器面板介绍](animation/animation-editor.md)
             - [编辑动画剪辑](animation/edit-animation-clip.md)
-            - [编辑动画缓动曲线](animation/animation-curve.md)
+            - [编辑动画曲线](animation/animation-curve.md)
             - [添加动画事件](animation/animation-event.md)
             - [使用动画曲线](animation/use-animation-curve.md)
         - [骨骼动画](animation/skeletal-animation.md)
