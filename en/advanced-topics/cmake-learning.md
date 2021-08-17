@@ -212,7 +212,7 @@ The `target` in the **find compilation headers** command above is the executable
             )
         ```
 
-        > **Note**:
+        > **Notes**:
         >
         > 1. Valid only if all targets that depend on its output are specified in the same `CMakeLists.txt`.
         >
