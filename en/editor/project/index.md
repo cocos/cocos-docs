@@ -217,7 +217,7 @@ interface ICompressPresetItem {
         }
     }
 }
-```         
+```
 
 ## Extending the Project Settings Panel
 
