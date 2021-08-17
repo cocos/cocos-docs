@@ -19,7 +19,7 @@ Compared with other memory leak detection tools, the built-in memory leak detect
     #endif
     ```
 
-The Android platform requires one additional step as a result of the different implementation mechanisms amongst platforms:
+2. The Android platform requires one additional step as a result of the different implementation mechanisms amongst platforms:
 
     - Add a line of code `set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")` to the `native/engine/android/CMakeLists.txt` file in the project directory, as follows:
         ```
