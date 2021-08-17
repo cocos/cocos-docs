@@ -58,7 +58,7 @@ It is recommended that projects with high quality skinning animations try to ena
 If you need to attach some external nodes to a given skeletal joint, you need to use the [Socket System](../editor/components/spine.md#spine-socket) of the skeletal animation component.
 
 - Create a new child node under the skeletal animation component to be docked (the immediate parent node should be the node where the animation component is located).
-- add an array element to the `sockets` property of the skeletal animation component, select the `path` of the skeleton to be attached from the drop-down list (note that the defaultClip of the skeletal animation component must have a value, the options in the drop-down list depend on this property), and specify the child node just created as the `target`.
+- Add an array element to the `sockets` property of the skeletal animation component, select the `path` of the skeleton to be attached from the drop-down list (note that the defaultClip of the skeletal animation component must have a value, the options in the drop-down list depend on this property), and specify the child node just created as the `target`.
 - This child node becomes the target socket, any external node can be put under this child node and will follow the transformation of the specified skeleton.
 
 The socket model in the **FBX** or **glTF** asset will automatically interface to the socket system without any manual operation.
@@ -87,7 +87,7 @@ The batched version of effect is a bit more complicated to write, but basically 
 
 | Property | Description |
 | :--- | :-- |
-| Operation | Any changes will not take effect until "Cook" is clicked to recalculate and apply. 
+| Operation | Any changes will not take effect until **Cook** button is clicked to recalculate and apply. 
 | Materials | Custom effect is needed for this final material - the shader code should handle all the intricacies of the batching process.
 | LightmapSettings | Used for lightmapping, please refer to [Lightmapping](.../../../concepts/scene/light/lightmap.md) for details.
 | ShadowCastingMode | Specifies whether the current model will cast shadows, which needs to [enable shadow effect](.../../../concepts/scene/shadow.md#enable-shadow-effect) in the scene first.
@@ -96,8 +96,8 @@ The batched version of effect is a bit more complicated to write, but basically 
 | AtlasSize | The side length of the generated final atlas.
 | BatchableTextureNames | The properties of the textures in the material that are actually involved in the atlas, and those are not involved use the texture of the first unit uniformly.
 | Units | The sub-model infos before batching, which is the main source of data.
-| Mesh | The model data of the current sub-model, usually from glTF or fbx.
-| Skeleton | The skeletal data of the current sub-model, usually from glTF or fbx. 
+| Mesh | The model data of the current sub-model, usually from glTF or FBX.
+| Skeleton | The skeletal data of the current sub-model, usually from glTF or FBX. 
 | Material | The "sub-material" used by the current sub-model is a non-batched version of the normal effect, and the effect used by different sub-models should be consistent.
 | Offset | The offset of the current sub-model's textures inside the atlas, with the top-left corner of the atlas as the origin, in the range [0, 1], e.g. the data in the figure represents that the sub-texture overlaps with the top-left corner of the atlas.
 | Size | The size occupied by the current sub-model's textures inside the atlas, in the range [0, 1], e.g. the data in the figure represents that the sub-texture occupies 1/2 of the entire atlas.

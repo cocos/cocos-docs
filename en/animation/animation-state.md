@@ -2,7 +2,7 @@
 
 Animation clips only describe the animation data of a certain type of object, such as a character running, walking, jumping, etc., but are not bound to the specific object to be animated. Animation states are Animation Clips that are used to control the animation on a certain object, similar to a player. In addition to providing simple control functions that are also available for animation components, they also provide more animation information and an animation control interface that allows control of animation playback such as speed control, setting loop mode, etc. An Animation Clip can be used by multiple animation states at the same time.
 
-Animation states are managed by [class `AnimationState`](__APIDOC__/en/classes/animation.animationstate-1.html).
+Animation states are managed by [Class `AnimationState`](__APIDOC__/en/classes/animation.animationstate-1.html).
 
 ## Setting the playback speed
 
@@ -14,7 +14,7 @@ const animationComponent = node.getComponent(Animation);
 // Get the animation clips on the animation component
 animationComponent.clips = [ idleClip, runClip ];
 
-// get the animation state of `idleClip`
+// Get the animation state of `idleClip`
 const idleState = animationComponent.getState(idleClip.name);
 ```
 
@@ -91,4 +91,4 @@ The relationship between the playback control and the playback state is shown in
 
 ![Playback control](./animation-state/playback-control.svg)
 
-The animation state allows getting information about all the animations in order to use this information to determine what needs to be done. For more interfaces, please refer to [class `AnimationState`](__APIDOC__/en/classes/animation.animationstate-1.html).
+The animation state allows getting information about all the animations in order to use this information to determine what needs to be done. For more interfaces, please refer to [Class `AnimationState`](__APIDOC__/en/classes/animation.animationstate-1.html).

@@ -36,7 +36,7 @@ Right-click on the added event frame and select **Edit** or double-click directl
 
 - 1 - add incoming parameters, you can choose the parameter type as needed.
 - 2 - delete all the added incoming parameters below.
-- 3 - When the mouse moves over a parameter, this button will appear, click on it to delete the currently selected parameter.
+- 3 - when the mouse moves over a parameter, this button will appear, click on it to delete the currently selected parameter.
 
 ### Delete event frames
 

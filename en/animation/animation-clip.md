@@ -22,6 +22,6 @@ When a model that contains animations is imported, the animation contained in th
 
 For additional details about Skeletal Animation settings, please refer to the [Skeletal Animation](skeletal-animation.md) documentation.
 
-> **Note**: Skeletal Animations imported externally cannot be edited in the **Animation** panel. The nodes are locked, and can only be edited in external art tools.
+> **Note**: skeletal animations imported externally cannot be edited in the **Animation** panel. The nodes are locked, and can only be edited in external art tools.
 >
 > ![skeletal animation](animation-clip/skeletal-animation.png)

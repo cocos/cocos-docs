@@ -33,7 +33,7 @@
     - [Gradient Editor](particle-system/editor/gradient-editor.md)
     - [Particle Effects](particle-system/editor/particle-effect-panel.md)
 
-- [Animation](editor/animation/index.md)
+- [Animation](animation/index.md)
     - [Animation Clip](animation/animation-clip.md)
         - [Animation Panel](animation/animation.md)
             - [Creating Animation Components and Animation Clips](animation/animation-create.md)

@@ -28,7 +28,7 @@ The function buttons in the **Menu toolbar** are, from left to right.
 | ![menu clips](animation-editor/menu_clips.png) | Toggle animation clips. When multiple animation clips are attached on the animation component, this button can be used to toggle between clips. | - |
 | ![jump to first frame](animation-editor/menu_first.png) | Moves the red time control line to the beginning of the current animation clip | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>←</kbd> |
 | ![jump to previous frame](animation-editor/menu_prev.png) | Move time control line to previous frame | <kbd>←</kbd> |
-| ![play/pause](animation-editor/menu_play.png) | play/pause current animation | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> |
+| ![play/pause](animation-editor/menu_play.png) | Play/pause current animation | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> |
 | ![jump to next frame](animation-editor/menu_next.png) | Move the time control line to the next frame | <kbd>→</kbd> |
 | ![jump to last frame](animation-editor/menu_last.png) | Move the time control line to the end of the current animation clip | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>→</kbd> |
 | ![stop](animation-editor/menu_stop.png) | Click to stop the current animation, the time control line will move to the first frame after stopping | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> |
@@ -81,17 +81,17 @@ The following three display methods are currently supported:
 
   ![time](animation-editor/time.png)
 
-- **frames: 0**: display the scale of the animation timeline in terms of frames.
+- **Frame: 0**: display the scale of the animation timeline in terms of frames.
 
   ![frame](animation-editor/frame.png)
 
-- **time(s): 0 s**: display the scale of the animation timeline in seconds.
+- **Time(s): 0 s**: display the scale of the animation timeline in seconds.
 
   ![times](animation-editor/times.png)
 
 The frame rate (Sample) is generally used to indicate how many frames a second is to be divided into, which can be adjusted in the **Sample** option at the bottom of the **Animation** panel. This is affected to a different extent when the scale unit of the timeline is displayed in different ways.
 
-When the scale unit is set to **Frames**, it is in frames and is not affected by the frame rate. <br>
+When the scale unit is set to **Frame**, it is in frames and is not affected by the frame rate. <br>
 When set to **Time** or **Time(s)**, the same scale represents a different point in time as the frame rate changes, and the conversion between the two is calculated as follows:
 
 | Frame Rate (Sample) | Time: 00-00 | Time (s): 0 s |

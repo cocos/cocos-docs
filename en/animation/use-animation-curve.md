@@ -15,21 +15,21 @@ animationClip.curves = [{ // Animation curves on the animation component
     modifiers: [ // Address the target object from the current node object. See the "Target Objects" section below for details
         // The target object is the "Body" child of the current node.
         HierarchyPath('Body'),
-        // The "MyComponent" component on the "Body" child node
+        // The target object is the "MyComponent" component on the "Body" child of the current node.
         ComponentPath(js.getClassName(MyComponent)),
-        // the "value" property on the "MyComponent" component
+        // The target object is the "value" property on the "MyComponent" component of the "Body" child of the current node.
         'value',
     ],
     data: {
-        // indexed to 'animationClip.keys', i.e. [ 0.3, 0.6, 0.9 ]
+        // Indexed to 'animationClip.keys', i.e. [ 0.3, 0.6, 0.9 ]
         keys: 0,
-        // keyframe data
+        // Keyframe data
         values: [ 0.0, 0.5, 1.0 ],
     },
 }];
 ```
 
-The above Animation Clip contains an Animation Curve that controls the `value` property of the **MyComponent** component in the **Body** child node. The Animation Curve includes three keyframes that make the `value` property 0.0 at 0.3 seconds, 0.5 at 0.6 seconds, and 1.0 at 0.9 seconds.
+The above Animation Clip contains an Animation Curve that controls the `value` property of the **MyComponent** component in the **Body** child node. The Animation Curve includes three keyframes that make the `value` property change to 0.0 at 0.3 seconds, 0.5 at 0.6 seconds, and 1.0 at 0.9 seconds.
 
 > **Note**: the frame times of the keyframes on the animation curve are indexed by reference to the `AnimationClip.keys` array. In this way, multiple curves can share frame times, which will result in additional performance optimization.
 
