@@ -6,7 +6,7 @@
 
 ## 构造射线
 
-射线 __ray__ 处于 __cc__ 模块的 __geometry__ 命名空间下，因此访问 __ray__ 需要先导入 __geometry__ ：
+射线 __ray__ 处于 __cc__ 模块的 __geometry__ 命名空间下，因此访问 __ray__ 需要先导入 __geometry__：
 
 ```ts
 import { geometry } from 'cc';
@@ -63,7 +63,7 @@ Cocos Creator 提供了一套基于物理引擎的射线检测功能。
 目前接口由 __PhysicsSystem__ 提供，有以下两类：
 
 - `raycast` : 检测所有的碰撞体，返回布尔值, 表示是否检测成功。
-- `raycastClosest` ：检测所有的碰撞体，同样返回布尔值。
+- `raycastClosest`：检测所有的碰撞体，同样返回布尔值。
 
 参数说明：
 

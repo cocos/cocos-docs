@@ -15,3 +15,4 @@
     - [启用微信小游戏引擎插件](wechatgame-plugin.md)
     - [接入微信 PC 小游戏](publish-pc-wechatgame.md)
 - [开放数据域](build-open-data-context.md)
+- [小游戏分包](subpackage.md)

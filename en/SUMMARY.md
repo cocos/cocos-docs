@@ -67,6 +67,7 @@
             - [WeChat Engine Plugin](editor/publish/wechatgame-plugin.md)
             - [Access to the WeChat PC Mini Games](editor/publish/publish-pc-wechatgame.md)
         - [Access to Open Data Context](editor/publish/build-open-data-context.md)
+        - [Mini Game Subpackage](editor/publish/subpackage.md)
     - [Publish from the Command Line](editor/publish/publish-in-command-line.md)
     - [Build Process with FAQ](editor/publish/build-guide.md)
     - [Custom Project Build Process](editor/publish/custom-project-build-template.md)
@@ -300,3 +301,4 @@
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)
+    - [WebSocket Server](advanced-topics/websocket-server.md)

@@ -32,7 +32,7 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
 图片设置为 sprite-frame 或 texture 或其他图片类型后，将会在 **资源管理器** 中生成一个对应类型的资源。但如果直接加载 `test assets/image`，得到的类型将会是 `ImageAsset`。你必须指定路径到具体的子资源，才能加载到图片生成的 `SpriteFrame`：
 
 ```typescript
-// 加载 SpriteFrame，image 是 ImageAsset，spriteFrame 是 image/spriteFrame，  texture 是 image/texture
+// 加载 SpriteFrame，image 是 ImageAsset，spriteFrame 是 image/spriteFrame，texture 是 image/texture
 resources.load("test assets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });
