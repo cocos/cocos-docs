@@ -40,7 +40,7 @@ When building for the WeChat Mini Game, the configuration of the Asset Bundle wi
 
 Currently, the size of the WeChat Mini Game subpackage has following restrictions:
 
-- The size of all subpackage of the entire Mini Game can not exceed **16M**
+- The size of all subpackage of the entire Mini Game can not exceed **20M**
 - The size of single subpackage/main package can not exceed **4M**
 
 Please refer to the [WeChat Mini Game Subpackage Loading](https://developers.weixin.qq.com/minigame/en/dev/guide/base-ability/sub-packages.html) documentation for details.

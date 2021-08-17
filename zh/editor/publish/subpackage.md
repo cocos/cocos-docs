@@ -40,7 +40,7 @@ Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **资�
 
 目前微信小游戏分包大小有以下限制：
 
-- 整个微信小游戏所有分包大小不超过 **16M**
+- 整个微信小游戏所有分包大小不超过 **20M**
 - 单个分包/主包大小不能超过 **4M**
 
 具体请参考 [微信小游戏分包加载官方文档](https://developers.weixin.qq.com/minigame/dev/guide/base-ability/sub-packages.html)。
