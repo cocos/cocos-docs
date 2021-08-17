@@ -1,6 +1,6 @@
 # 动画剪辑
 
-> **注意**：从 v3.3 开始，动画剪辑接口经历了大的变动，“历史动画文档” 相关文档可查阅 [动画剪辑（历史）](./animation-legacy)。
+> **注意**：从 v3.3 开始，动画剪辑接口经历了较大的变动，详情可参考 [动画剪辑数据升级指南](./animation-clip-migration-3.3.x.md)。
 
 动画剪辑包含了动画数据的资源。
 
@@ -120,10 +120,10 @@ function specifyTrackPath(track: animation.TrackPath) {
 
 例如，材质对象通过 `Material.prototype.setProperty(name, value)` 来改变其材质属性的值。我们就需要在值代理来完成这一操作。
 
-要创建值代理，需要实现值代理工厂接口 `animation.ValueProxyFactor`，以下代码片段演示了这个步骤：
+要创建值代理，需要实现值代理工厂接口 `animation.ValueProxyFactory`，以下代码片段演示了这个步骤：
 
 ```ts
-class SetMaterialPropertyValueProxyFactor {
+class SetMaterialPropertyValueProxyFactory {
     /*
      * 材质属性名称。
      */
@@ -166,11 +166,11 @@ function setupMaterialPropertyTrack(track: animation.TrackPath) {
         ;
 
     // 应用值代理
-    track.valueProxy = new SetMaterialPropertyValueProxyFactor('mainColor');
+    track.valueProxy = new SetMaterialPropertyValueProxyFactory('mainColor');
 }
 ```
 
-> 为什么 `animation.Track` 的 `valueProxy` 字段是 `animation.ValueProxyFactor` 而不是 `animation.ValueProxy`？因为动画是可重用的，它可以绑定到多个对象上。Creator 在这里给出了“不同对象应由不同的值代理”的机会。另一方面，实现可以在 `forTarget` 这一层面做些优化。
+> 为什么 `animation.Track` 的 `valueProxy` 字段是 `animation.ValueProxyFactory` 而不是 `animation.ValueProxy`？因为动画是可重用的，它可以绑定到多个对象上。Creator 在这里给出了“不同对象应由不同的值代理”的机会。另一方面，实现可以在 `forTarget` 这一层面做些优化。
 
 > 此例仅为阐述值代理的创建和使用，Creator 本身提供了用于设置材质属性（一般地，称为 Uniform）的值代理工厂：`animation.UniformProxyFactory`。
 
