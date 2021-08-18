@@ -111,7 +111,7 @@ class BlahBlahComponent {
     public setUniform(index: number, value: number) { /* */ }
 }
 
-{ // curve
+{ // Curve
     valueAdapter: {
         // Called when the curve is instantiated
         forTarget(target: BlahBlahComponent) {
@@ -209,7 +209,7 @@ Some interpolation algorithms require additional data to be stored in the curve 
 
     const keys = [ 0, 0.5, 1.0, 2.0 ];
     animationClip.duration = keys.length === 0 ? 0 : keys[keys.length - 1];
-    animationClip.keys = [ keys ]; // all curves share one column of frame time
+    animationClip.keys = [ keys ]; // All curves share one column of frame time
 
     // Linear interpolation using values
     const numberCurve: IPropertyCurveData = {
@@ -218,21 +218,21 @@ Some interpolation algorithms require additional data to be stored in the curve 
         /* interpolate: true, */ // "interpolate" property is on by default
     };
 
-    // using lerp() of value type Vec3
+    // Using lerp() of value type Vec3
     const vec3Curve: IPropertyCurveData = {
         keys: 0,
         values: [ new Vec3(0), new Vec3(2), new Vec3(4), new Vec3(6) ],
         interpolate: true,
     };
 
-    // no interpolation (because interpolation is explicitly disabled)
+    // No interpolation (because interpolation is explicitly disabled)
     const colorCuve: IPropertyCurveData = {
         keys: 0,
         values: [ color(255), color(128), color(61), color(0) ],
-        interpolate: false, // no interpolation
+        interpolate: false, // No interpolation
     };
 
-    // no interpolation (because SpriteFrame cannot be interpolated)
+    // No interpolation (because SpriteFrame cannot be interpolated)
     const spriteCurve: IPropertyCurveData = {
         keys: 0,
         values: [

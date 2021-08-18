@@ -76,7 +76,7 @@ In addition to adding keyframes by modifying properties as described in **Creati
 
     ![add keyframe](edit-animation-clip/add-keyframe.png)
 
-4. 4. When dragging a batch of assets corresponding to an animation property from the **Assets** panel to the property track, keyframes will be added in the order in which the assets are selected, according to the spacing size set in ![spacing](edit-animation-clip/menu-spacing.png) in the toolbar.
+4. When dragging a batch of assets corresponding to an animation property from the **Assets** panel to the property track, keyframes will be added in the order in which the assets are selected, according to the spacing size set in ![spacing](edit-animation-clip/menu-spacing.png) in the toolbar.
 
 ### Removing keyframes
 

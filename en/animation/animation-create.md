@@ -44,15 +44,15 @@ An Animation Component can have multiple Animation Clips attached to it. To addi
 
 1. Click the **+** button at the top left of the **Assets** panel, or right-click on a blank area and select **Animation Clip**, which will generate an animation clip file (default name `animation`) in the **Assets** panel.
 
-Next, select the corresponding node in the **Hierarchy** panel, find the Animation Component (`cc.Animation`) in the **Inspector** panel, and change the value of the `Clips` property. For example, if only one clip file is attached, and to add another one, change the original **1** to **2**.
+    Next, select the corresponding node in the **Hierarchy** panel, find the Animation Component (`cc.Animation`) in the **Inspector** panel, and change the value of the `Clips` property. For example, if only one clip file is attached, and to add another one, change the original **1** to **2**.
 
     ![add-clip](./animation-create/add-new-clip.png)
 
-Finally, drag the Animation Clip just created in the **Assets** panel to the `cc.AnimationClip` selection box in the above image.
+    Finally, drag the Animation Clip just created in the **Assets** panel to the `cc.AnimationClip` selection box in the above image.
 
 2. Find the Animation component (`cc.Animation`) in the **Inspector** panel and change the value of the `Clips` property.
 
-Next, click the **Find** button behind the new empty `cc.AnimationClip` selection box, and click the **Create** button at the top right of the pop-up search window to automatically create an Animation Clip in the **Assets** panel and mount it to the `cc.AnimationClip` selection box.
+    Next, click the **Find** button behind the new empty `cc.AnimationClip` selection box, and click the **Create** button at the top right of the pop-up search window to automatically create an Animation Clip in the **Assets** panel and mount it to the `cc.AnimationClip` selection box.
 
     ![add-clip](./animation-create/add-new-clip2.png)
 

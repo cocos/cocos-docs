@@ -13,10 +13,10 @@ For the component interface of skeletal animation, please refer to the [Skeletal
 
 The overriding purpose of this system is performance, so some of the sacrifice of expressiveness is considered acceptable. We have targeted a number of underlying optimizations, and the current runtime flow is roughly as follows:
 
-- all animation data is pre-sampled and baked in advance to a globally reused skeletal animation textureping ensemble at a specified frame rate;
-- Depending on whether the runtime platform supports floating point textures or not, an alternate scheme in **RGBA32F** or **RGBA8** format is used (this step of the process is of no concern to the user and will have no impact on the final performance, but is only a final underwriting strategy for low-end platforms);
-- Each skeletal animation component (**SkeletalAnimation**) is responsible for maintaining the current playback progress, stored as a UBO (a Vec4);
-- Each skinning model component (**SkinnedMeshRenderer**) holds the pre-baked skinning model class (BakedSkinningModel), calculates culling based on the same pre-baked wrap-around box information, updates the UBO, and finishes skinning by fetching the current data from within the textureping ensemble on the GPU.
+- All animation data is pre-sampled and baked in advance to a globally reused skeletal animation texture ensemble at a specified frame rate.
+- Depending on whether the runtime platform supports floating point textures or not, an alternate scheme in **RGBA32F** or **RGBA8** format is used (this step of the process is of no concern to the user and will have no impact on the final performance, but is only a final underwriting strategy for low-end platforms).
+- Each skeletal animation component (**SkeletalAnimation**) is responsible for maintaining the current playback progress, stored as a UBO (a Vec4).
+- Each skinning model component (**SkinnedMeshRenderer**) holds the pre-baked skinning model class (BakedSkinningModel), calculates culling based on the same pre-baked wrap-around box information, updates the UBO, and finishes skinning by fetching the current data from within the texture ensemble on the GPU.
 
 ## Real-time Computed Skeletal Animation System
 
@@ -24,9 +24,9 @@ The overwhelming purpose of this system is expressiveness, ensuring that all det
 
 The current runtime flow is roughly as follows:
 
-- All animation data is dynamically interpolated and calculated based on the current global time;
-- Animation data is exported to the skeletal node tree of the scene;
-- The user and any other system can have an effect on the skinning effect by manipulating this skeleton node tree;
+- All animation data is dynamically interpolated and calculated based on the current global time.
+- Animation data is exported to the skeletal node tree of the scene.
+- The user and any other system can have an effect on the skinning effect by manipulating this skeleton node tree.
 - Each skinning model component (SkinnedMeshRenderer) holds the common skinning model class (SkinningModel), extracts the skeleton node tree information each frame to calculate culling, uploads the complete skeleton transformation information of the current frame to UBO, and finishes skinning inside the GPU. For more information about skinning, please refer to the **Skinning Algorithm** section below.
 
 This provides the most basic support for all the following functions:
