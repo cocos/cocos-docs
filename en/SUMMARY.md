@@ -290,6 +290,7 @@
         - [Shortcuts](editor/extension/contributions-shortcuts.md)
         - [Extending the Main Menu](editor/extension/contributions-menu.md)
         - [Extending the Assets Panel](editor/assets/extension.md)
+        - [Extending the Assets Database](editor/extension/contributions-database.md)
         - [Extending the Project Settings Panel](editor/extension/contributions-project.md)
         - [Extending the Preferences Panel](editor/extension/contributions-preferences.md)
     - [Basic](editor/extension/basic.md)

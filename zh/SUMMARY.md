@@ -297,6 +297,7 @@
         - [扩展资源管理器面板](editor/assets/extension.md)
         - [扩展项目设置面板](editor/extension/contributions-project.md)
         - [扩展偏好设置面板](editor/extension/contributions-preferences.md)
+        - [扩展资源数据库](editor/extension/contributions-database.md)
         - [扩展构建流程](editor/publish/custom-build-plugin.md)
         - [扩展属性检查器面板](editor/extension/inspector.md)
     - [基础功能](editor/extension/basic.md)
