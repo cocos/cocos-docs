@@ -34,10 +34,10 @@ Texture2D 是纹理资源的一种，通常用于 3D 模型的渲染，如模型
 **minFilter** | 缩小过滤算法
 **magFilter** | 放大过滤算法
 **mipFilter** | 多级纹理过滤算法
-**wrapS** | S（U）方向纹理寻址模式
-**wrapT** | T（V）方向纹理寻址模式
+**Wrap Mode S** | S（U）方向纹理寻址模式
+**Wrap Mode T** | T（V）方向纹理寻址模式
 
-**注意：由于默认的 wrap mode 在透明边缘图像的渲染可能会出现黑边，所以在将图像资源类型设置为 sprite-frame 时，我们将会把 texture 的 wrapS 和 wrapT 修改为 clamp-to-edge，如有特殊需要，用户可以自行修改。**
+> **注意**：由于默认的 Wrap Mode 在渲染图像的透明边缘时可能会出现黑边，所以在将图像资源类型设置为 **sprite-frame** 时，Creator 会自动将 texture 资源的 Wrap Mode S 和 Wrap Mode T 属性自动调整为 **clamp-to-edge**。如有特殊需要，开发者可以自行修改。
 
 ### 使用 Texture2D
 
