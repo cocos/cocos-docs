@@ -23,9 +23,9 @@ Currently, when using the command line to build, except for the required build o
 
 ## Exit Codes
 
-- **332** Build failed —— Invalid build parameters.
-- **334** Build failed —— Some unexpected errors occurred during the build process, please refer to the build log for details.
-- **336** Build success.
+- **32** Build failed —— Invalid build parameters.
+- **34** Build failed —— Some unexpected errors occurred during the build process, please refer to the build log for details.
+- **36** Build success.
 
 ## Publish Parameters
 
@@ -36,6 +36,7 @@ Currently, when using the command line to build, except for the required build o
   When parameters are not specified after `--build`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. When additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
     - `configPath`: Parameter file path. If define `configPath`, then __Cocos Creator__ will load this file as a build parameter in the `JSON` file format. This parameter can be modified by yourself or exported directly from the **Build** panel.
+    - `logDest`: Specify the log output path.
     - `includedModules`: Customize the engine packaged modules, only the required modules are packaged. The corresponding field of each module can be found in the `features` field in [this file](https://github.com/cocos-creator/engine/blob/3d/cc.config.json) of engine repository.
     - `outputName`: The name of the release folder generated after the build.
     - `name`: Game name.

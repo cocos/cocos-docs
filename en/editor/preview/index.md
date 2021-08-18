@@ -71,6 +71,10 @@ When you select **Simulator** preview, the current game scene will be run using 
 
 When using **Simulator** preview, it supports automatically opening debug window for debugging, which can be set in **Cocos Creator -> Preferences -> Preview**, please refer to [Preferences - Preview](../preferences/index.md).
 
+To add support for the iOS simulator on Apple M1 (Silicon) architecture devices, click the **App** button in the upper right corner of the Creator, open the `CMakeLists.txt` file in the `resources\3d\engine-native\external` directory of the Editor, and uncomment the code related to the iOS simulator and comment the code related to the iOS physical device, as shown below:
+
+![simulator](index/ios-simulator-m1.png)
+
 ## Mobile preview
 
 There are the following ways to debug the preview effect on mobile phone:

@@ -69,27 +69,17 @@ Cocos Creator 目前仅支持文件协议的 URL。但由于文件 URL 中指定
 
 ### 裸说明符
 
-目前为止，对于裸说明符，Cocos Creator 将应用 Node.js 模块解析算法。
+目前为止，对于裸说明符，Cocos Creator 将应用 [导入映射（实验性质）](./import-map) 和 [Node.js 模块解析算法](https://nodejs.org/api/esm.html#esm_resolver_algorithm_specification)。
 
 > 这就包括了对 npm 模块的解析。
 
-一般来说，裸说明符具有以下两种形式：
-
-- `'foo'` 解析为 npm 包 `foo` 的入口模块。
-
-- `'foo/bar'` 将解析为 npm 包 `foo` 中子路径 `./bar` 下的模块。
-
-裸说明符的具体解析规则可参考 [Node.js 模块解析算法](https://nodejs.org/api/esm.html#esm_resolver_algorithm_specification)。
-
-> 在后续，Cocos Creator 可能将支持导入映射（import maps），见 [导入映射](https://github.com/WICG/import-maps)。
-
 #### 条件性导出
 
-在 Node.js 模块解析算法中，[包的条件性导出](https://nodejs.org/api/packages.html#packages_conditional_exports) 特性用于根据一些条件映射包中的子路径。与 Node.js 类似，Cocos Creator 实现了内置条件 `"import"`、`default`，但未实现条件 `"require"`、`"node"`。
+在 Node.js 模块解析算法中，[包的条件性导出](https://nodejs.org/api/packages.html#packages_conditional_exports) 特性用于根据一些条件映射包中的子路径。与 Node.js 类似，Cocos Creator 实现了内置条件 `import`、`default`，但未实现条件 `require`、`node`。
 
-可以通过编辑器主菜单 **项目 -> 项目设置 -> 脚本** 中的 **导出条件** 项来指定 **额外** 的条件，该项默认值为 **browser**，可用 **逗号** 作为分隔符来指定多个额外条件，例如 `browser,bar`。
+开发者可通过编辑器主菜单 **项目 -> 项目设置 -> 脚本** 中的 **导出条件** 项指定 **额外** 的条件，该项默认值为 **browser**，可用 **逗号** 作为分隔符来指定多个额外条件，例如 `browser, bar`。
 
-例如，该项使用默认值 `browser`，当某 npm 包 `foo` 的 `package.json` 中包含以下配置时：
+若 **导出条件** 项使用默认值 `browser`，当某 npm 包 `foo` 的 `package.json` 中包含以下配置时：
 
 ```json
 {
@@ -104,7 +94,7 @@ Cocos Creator 目前仅支持文件协议的 URL。但由于文件 URL 中指定
 
 `"foo"` 将解析为包中路径为 `dist/browser-main.mjs` 的模块。
 
-> [多玩家框架 Colyseus](https://www.npmjs.com/package/colyseus) 中就为 `"browser"` 条件做了映射配置。
+> [多玩家框架 Colyseus](https://www.npmjs.com/package/colyseus) 中就为 `browser` 条件做了映射配置。
 
 若 **导出条件** 项设置为空，则表示不指定任何额外条件，上例中的 `"foo"` 将解析为包中路径为 `dist/main.mjs` 的模块。
 
@@ -141,9 +131,11 @@ import './foo.ts'; // 错误：无法找到指定模块
 import './foo'; // 正确：解析为 `foo/index.ts` 模块
 ```
 
-> Cocos Creator 支持 Web 平台。在 Web 平台上实现 Node.js 那样复杂的模块解析算法成本是昂贵的，客户端和服务端之间无法通过频繁的通讯来尝试不同的后缀和文件路径。
-> 即使通过一些后处理工具可以实现在构建阶段完成这样的复杂解析，但会造成静态导入解析（通过 `import` 语句）和动态导入解析（通过 `import()` 表达式）算法的不一致。因此在模块解析算法的选择上，我们更偏向于在代码中指定完整的文件路径。
-> 但我们却无法完全限制这一点，因为就目前来说，TypeScript 中不允许在说明符中指定后缀为 `.ts`。并且 TypeScript 尚且不支持自动补全特定的目标后缀。在这些限制下，我们很难做到两全其美，但我们仍在观测这些条件在未来是否有好转。
+> **注意**：
+>
+> 1. Cocos Creator 支持 Web 平台。在 Web 平台上实现 Node.js 那样复杂的模块解析算法成本是昂贵的，客户端和服务端之间无法通过频繁的通讯来尝试不同的后缀和文件路径。
+> 2. 即使通过一些后处理工具可以实现在构建阶段完成这样的复杂解析，但会造成静态导入解析（通过 `import` 语句）和动态导入解析（通过 `import()` 表达式）算法的不一致。因此在模块解析算法的选择上，我们更偏向于在代码中指定完整的文件路径。
+> 3. 但我们却无法完全限制这一点，因为就目前来说，TypeScript 中不允许在说明符中指定后缀为 `.ts`。并且 TypeScript 尚且不支持自动补全特定的目标后缀。在这些限制下，我们很难做到两全其美，但我们仍在观测这些条件在未来是否有好转。
 
 ### 未支持 `browser` 字段
 
@@ -194,16 +186,22 @@ console.log(m);
 
 Cocos Creator 用于解析 ESM 模块说明符的算法由以下的 `CREATOR_ESM_RESOLVE` 方法给出。它返回从当前 URL 解析模块说明符得到的 URL 结果。
 
-在解析算法规范中，引用了[外部的算法](https://nodejs.org/api/esm.html#esm_resolution_algorithm)。
+在解析算法规范中，引用了[Node ESM 解析算法](https://nodejs.org/api/esm.html#esm_resolution_algorithm) 和 [Import Map 解析算法](https://wicg.github.io/import-maps/#new-resolve-algorithm)（引用为 `IMPORT_MAP_RESOLVE`）。
 
 ### 解析算法规范
 
 `CREATOR_ESM_RESOLVE(specifier, parentURL)`
-  1. Let `resolved` be the result of `ESM_RESOLVE(specifier, parentURL)`.
+  1. Let `resolved` be the result of `CREATOR_STD_RESOLVE(specifier, parentURL)`.
   2. If both `parentURL` and `resolved` are under project assets directory, then
      1. Let `extensionLessResolved` be the result of `TRY_EXTENSION_LESS_RESOLVE(resolved)`.
          1. If `extensionLessResolved` is not `undefined`, return `extensionLessResolved`.
   3. Return `resolved`.
+
+`CREATOR_STD_RESOLVE(specifier, parentURL)`
+  1. If import map configured, then
+    1. Let `resolved` be the result of `IMPORT_MAP_RESOLVE(specifier, parentURL)`, with parsed import map.
+    2. If `resolved` is not nil, return `resolved`.
+  2. return `ESM_RESOLVE(specifier, parentURL)`.
 
 `TRY_EXTENSION_LESS_RESOLVE(url)`
   1. If the file at `url` exists, then

@@ -80,7 +80,7 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 ### 替换插屏
 
-鼠标移动到该选项时便会出现 **编辑图标** 的按钮，点击该按钮打开插屏设置面板，数据编辑后将会实时保存。
+鼠标移动到该选项时便会出现 **编辑图标** 的按钮，点击该按钮打开插屏设置面板，数据编辑后将会实时保存。可手动指定插屏图片路径，或者直接将文件系统的图片拖拽到图片处替换。
 
 ![splash setting](build-options/splash-setting.png)
 

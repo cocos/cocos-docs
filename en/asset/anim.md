@@ -8,4 +8,4 @@ For creating custom animations in the __Cocos Creator__ editor, please refer to 
 
 ## Bone animations attached after a model import
 
-After a model with animations is imported, the animation on the corresponding model will be generated. The imported animations can be used in the same way as those created in editor. For cutting a skeletal animation, please refer to [Introduction of Animation Modules for Model Assets](mesh.md) documentation.
+After a model with animations is imported, the animation on the corresponding model will be generated. The imported animations can be used in the same way as those created in editor. For cutting a skeletal animation, please refer to the [Introduction of Animation Modules for Model Assets](./model/mesh.md) documentation.

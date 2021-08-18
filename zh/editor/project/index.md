@@ -10,7 +10,7 @@
 
 ![macro](./index/macro.png)
 
-- **ENABLE_TILEDMAP_CULLING**：是否开启 TiledMap 的自动裁减功能，默认开启。需要注意的是 TiledMap 如果设置了 `skew` 和 `rotation` 的话，建议手动关闭该项，否则会导致渲染出错。  
+- **ENABLE_TILEDMAP_CULLING**：是否开启 TiledMap 的自动裁减功能，默认开启。需要注意的是 TiledMap 如果设置了 `skew` 和 `rotation` 的话，建议手动关闭该项，否则会导致渲染出错。
 
 - **TOUCH_TIMEOUT**：用于甄别一个触点对象是否已经失效并且可以被移除的延时时长。开发者可通过修改这个值来获得想要的效果，默认值是 5000 毫秒。详情请参考 API 文档 [TOUCH_TIMEOUT](__APIDOC__/zh/modules/core.html#macro-1.touch_timeout)。
 
@@ -19,7 +19,7 @@
     - 若希望 Canvas 背景是透明的，并显示背后的其他 DOM 元素，便可开启该项。
     - 若关闭该项，则会有更高的性能表现。
 
-- **ENABLE_WEBGL_ANTIALIAS**：用于设置在创建 WebGL Context 时是否开启抗锯齿选项，默认开启。
+- **ENABLE_WEBGL_ANTIALIAS**：是否开启抗锯齿，默认开启。
 
 - **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](../../advanced-topics/dynamic-atlas.md)。该项默认不开启。
 
@@ -85,9 +85,11 @@
 
 - **启用宽松模式**：启用宽松模式进行脚本编译。
 
+- **导出条件**：为条件化导出模块指定解析条件，详情可参考 [条件性导出](../../scripting/modules/spec.md#%E6%9D%A1%E4%BB%B6%E6%80%A7%E5%AF%BC%E5%87%BA)。
+
 ## 压缩纹理
 
-在 Cocos Creator 3.0，压缩纹理修改为在 **项目设置** 中配置预设，然后在 **属性检查器** 中选择图片资源的预设方式。旧版本的项目在升级到 v3.0 后，编辑器会自动扫描项目中所有的压缩纹理配置情况，整理出几个预设，由于是自动扫描的，所以预设名称可能不匹配项目，可以自行在此处修改。
+与 Cocos Creator 2.x 不同，Cocos Creator 3.0 的压缩纹理是在 **项目设置** 中配置预设，然后在 **属性检查器** 中选择图片资源的预设方式。旧版本的项目在升级到 v3.0 后，编辑器会自动扫描项目中所有的压缩纹理配置情况，整理出几个预设，由于是自动扫描的，所以预设名称可能不匹配项目，可以自行在此处修改。
 
 ![compress-texture](./texture-compress/compress-texture.png)
 
@@ -126,7 +128,7 @@
 
 ### 修改压缩纹理预设名称
 
-压缩纹理预设的名称仅仅是作为显示使用，在添加压缩纹理预设时，就会随机生成 uuid 作为该预设的 ID，因而直接修改预设名称并不会影响图片资源处对预设的引用。
+压缩纹理预设的名称仅仅是作为 **显示** 使用，在添加压缩纹理预设时，就会随机生成 uuid 作为该预设的 ID，因而直接修改预设名称并不会影响图片资源处对预设的引用。
 
 ![edit](./texture-compress/edit.png)
 

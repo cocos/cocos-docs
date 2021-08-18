@@ -58,6 +58,8 @@ interface PanelFlags {
     resizable?: boolean;
     // Need to save, default false
     save?: boolean;
+    // Whether the window is displayed at the top
+    alwaysOnTop?: boolean;
 }
 
 // Some size limitations of panel

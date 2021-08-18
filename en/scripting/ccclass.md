@@ -108,7 +108,7 @@ The option `default` specifies the default value of the cc attribute.
 
 #### Defined By Constructor
 
-The constructor of `CCClass` is defined by `constructor`. To ensure that deserialization can always run correctly, `constructor` **is not allowed to define **constructor parameters**.
+The constructor of `CCClass` is defined by `constructor`. To ensure that deserialization can always run correctly, `constructor` **is not allowed to define constructor parameters**.
 
 > **Note**: if developers really need to use construction parameters, they can get them through `arguments`, but remember that if this class will be serialized, you must ensure that the object can still be new when the construction parameters are all default.
 
@@ -241,7 +241,7 @@ class Sprite extends Node {
         super();
         // Before the child constructor is called, the parent constructor has been called, so this.name has been initialized
         console.log(this.name);    // "node"
-        // reset this.name
+        // Reset "this.name"
         this.name = "sprite";
     }
 }
@@ -312,7 +312,7 @@ However, it should be noted that the process of property deserialization occurs 
 
 4. Empty array `[]` or empty object `{}`
 
-#### Visible Parameter
+#### visible
 
 By default, whether it is displayed in the **Inspector** panel depends on whether the attribute name starts with an underscore `_`. If it starts with an underscore, it will not be displayed in the **Inspector** panel by default, otherwise it will be displayed by default.
 
@@ -330,7 +330,7 @@ If you want to force hiding, you can set the `visible` parameter to false:
     private num = 0;
 ```
 
-#### Serializable Parameters
+#### serializable
 
 Attributes with a default value of `default` will be serialized by default. After serialization, the values set in the editor will be saved to resource files such as scenes, and the previously set values will be automatically restored when the scene is loaded. If you don't want to serialize, you can set `serializable: false`.
 
@@ -339,7 +339,7 @@ Attributes with a default value of `default` will be serialized by default. Afte
     private num = 0;
 ```
 
-#### Type Parameter
+#### type
 
 When `default` cannot provide enough detailed type information, in order to display the correct input control in the **Inspector** panel, you must use `type` to explicitly declare the specific type:
 
@@ -372,7 +372,7 @@ When `default` cannot provide enough detailed type information, in order to disp
     }
     ```
 
-#### Override Parameters
+#### override
 
 All properties will be inherited by the subclass. If the subclass wants to override the property with the same name of the parent class, you need to explicitly set the override parameter, otherwise there will be a duplicate name warning:
 
@@ -387,7 +387,69 @@ private get name() {
 }
 ```
 
-For more parameters, please refer to the [Property Parameters](./reference/attributes.md) documentation.
+### group
+
+If there are many properties or mixed properties defined in the script, the properties can be grouped and sorted by `group` for easy management. It also supports sorting properties within a group.
+
+- `@property({ group: { name } })`
+
+- `@property({ group: { id, name, displayOrder, style } })`
+
+| Property | Description |
+| :--- | :--- |
+| `id`           | Group ID, `string` type, is a unique identifier for the property group, and defaults to `default`. |
+| `name`         | The name to classify the properties in the group, `string` type. |
+| `displayOrder` | Sort the groups, `number` type. The smaller the number, the higher the sorting. The default is `Infinity`, which means the group is sorted last.<br>If there are multiple groups without `displayOrder` set, they will be sorted in the order declared in the script. |
+| `style`        | Grouping styles, currently only **tab** styles are supported. |
+
+Example script is as follows:
+
+```ts
+import { _decorator, Component, Label, Sprite } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('SayHello')
+export class SayHello extends Component {
+
+    // Group 1
+    // The property category named "bar" within the group, which contains a Label property named "label".
+    @property({ group: { name: 'bar' }, type: Label }) 
+    label: Label = null!; 
+    // The property category named "foo" within the group, which contains a Sprite property named "sprite".
+    @property({ group: { name: 'foo' }, type: Sprite }) 
+    sprite: Sprite = null!;
+
+    // Group 2
+    // The property category named "bar2" within the group, which contains a Label property named "label2" and a Sprite property named "sprite2".
+    @property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, type: Label }) 
+    label2: Label = null!; 
+    @property({ group: { name: 'bar2', id: '2' }, type: Sprite }) 
+    sprite2: Sprite = null!;
+
+}
+```
+
+Mounting the script to the node displays the following image in the **Inspector** panel:
+
+![decorator-group](decorator-group.png)
+
+Because group 1 does not specify `displayOrder` and group 2 specifies `displayOrder` as `1`, group 2 will be ranked ahead of group 1.
+
+Sorting the properties within a group can also be done via `displayOrder`. Taking group 2 as an example, it is currently sorted in the order defined in the script, with label2 in front of sprite2. Let's adjust it to:
+
+```ts
+// Group 2
+@property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, displayOrder: 2, type: Label }) 
+label2: Label = null!; 
+@property({ group: { name: 'bar2', id: '2' }, displayOrder: 1, type: Sprite }) 
+sprite2: Sprite = null!;
+```
+
+Back to the editor, the sprite2 is now in front of label2 in the **Inspector** panel:
+
+![decorator-group](decorator-group2.png)
+
+For additional information about the properties, please refer to the [Properties](./reference/attributes.md) documentation.
 
 ## get/set methods
 

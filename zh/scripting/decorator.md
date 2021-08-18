@@ -62,12 +62,13 @@ targetNode: Node | null = null; // 等价于 targetNode: Node = null!;
 - 若值的类型是 Javascript 原始类型 `number`、`string`、`boolean`，则其 cc 类型分别为 Creator 的浮点数、字符串，以及布尔值。
 - 其他的则表示属性的类型是 **未定义** 的，编辑器上会提示 `Type(Unknown)` 字样。
 
-> **注意**：当 Javascript 内置构造函数 `Number`、`String`、`Boolean` 用作 cc 类型时将给出警告，并且将分别视为 cc 类型中的 `CCFloat`、`CCString`、`CCBoolean`。已经初始化的数组属性修改类型后，需要手动清除掉原来的数组数据，重新赋值，否则会因为数据类型不一致，导致数据错乱。
-> ![property-changed](property-changed.png)
-
-<!-- 关于 cc 类型如何影响 cc 属性以及对未定义 cc 类型的属性的处理，可参考下文中的 [属性类型](#%E5%B1%9E%E6%80%A7%E5%8F%82%E6%95%B0) 和 [序列化参数](#serializable-参数) 介绍。 -->
-
-> **注意**：需要给编辑器使用的序列化属性，属性名开头不应该带 `_`，否则会识别为 private 属性，private 属性不会在编辑器组件属性面板上显示。
+> **注意**：
+>
+> 1. 当 Javascript 内置构造函数 `Number`、`String`、`Boolean` 用作 cc 类型时将给出警告，并且将分别视为 cc 类型中的 `CCFloat`、`CCString`、`CCBoolean`。已经初始化的数组属性修改类型后，需要手动清除掉原来的数组数据，重新赋值，否则会因为数据类型不一致，导致数据错乱。
+>
+>     ![property-changed](property-changed.png)
+>
+> 2. 需要给编辑器使用的序列化属性，属性名开头不应该带 `_`，否则会识别为 private 属性，private 属性不会在编辑器组件属性面板上显示。
 
 下列代码演示了不同 cc 类型的 cc 属性声明：
 
@@ -170,7 +171,7 @@ CCClass 的构造函数使用 `constructor` 定义，为了保证反序列化始
 
 4. 空数组 `[]` 或空对象 `{}` -->
 
-### visible 参数
+### visible
 
 一般情况下，属性是否显示在 **属性检查器** 中取决于属性名是否以 `_` 开头。**如果是以 `_` 开头，则不显示**。
 
@@ -188,7 +189,7 @@ private _num = 0;
 num = 0;
 ```
 
-### serializable 参数
+### serializable
 
 属性默认情况下都会被序列化，序列化后就会将编辑器中设置好的属性值保存到场景等资源文件中，之后在加载场景时就会自动还原成设置好的属性值。如果不想序列化，可以设置 `serializable: false`。
 
@@ -197,7 +198,7 @@ num = 0;
 num = 0;
 ```
 
-### override 参数
+### override
 
 所有属性都会被子类继承，如果子类要覆盖父类同名属性，需要显式设置 override 参数，否则会有重名警告：
 
@@ -206,4 +207,69 @@ num = 0;
 id = "";
 ```
 
-更多参数内容请查阅 [属性参数](./reference/attributes.md)。
+### group
+
+当脚本中定义的属性过多且杂时，可通过 `group` 对属性进行分组、排序，方便管理。同时还支持对组内属性进行分类。
+
+`group` 写法包括以下两种：
+
+- `@property({ group: { name } })`
+
+- `@property({ group: { id, name, displayOrder, style } })`
+
+| 参数 | 说明 |
+| :--- | :--- |
+| `id`           | 分组 ID，`string` 类型，是属性分组组号的唯一标识，默认为 `default`。 |
+| `name`         | 组内属性分类的名称，`string` 类型。 |
+| `displayOrder` | 对分组进行排序，`number` 类型，数字越小，排序越靠前。默认为 `Infinity`，表示排在最后面。<br>若存在多个未设置的分组，则以在脚本中声明的先后顺序进行排序 |
+| `style`        | 分组样式，目前只支持 **tab** 样式。 |
+
+示例脚本如下：
+
+```ts
+import { _decorator, Component, Label, Sprite } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('SayHello')
+export class SayHello extends Component {
+
+    // 分组一
+    // 组内名为 “bar” 的属性分类，其中包含一个名为 label 的 Label 属性
+    @property({ group: { name: 'bar' }, type: Label }) 
+    label: Label = null!; 
+    // 组内名为 “foo” 的属性分类，其中包含一个名为 sprite 的 Sprite 属性
+    @property({ group: { name: 'foo' }, type: Sprite }) 
+    sprite: Sprite = null!;
+
+    // 分组二
+    // 组内名为 “bar2” 的属性分类，其中包含名为 label2 的 Label 属性和名为 sprite2 的 Sprite 属性，并且指定排序为 1。
+    @property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, type: Label }) 
+    label2: Label = null!; 
+    @property({ group: { name: 'bar2', id: '2' }, type: Sprite }) 
+    sprite2: Sprite = null!;
+
+}
+```
+
+将该脚本挂载到节点上，则在 **属性检查器** 中显示为：
+
+![decorator-group](decorator-group.png)
+
+因为分组一未指定 `displayOrder`，分组二指定了 `displayOrder` 为 1，所以分组二会排在分组一的前面。
+
+若需要对分组内的属性排序，也可以使用 `displayOrder`。以分组二为例，目前是按照在脚本中定义的先后顺序进行排序，label2 在 sprite2 的前面。我们将其调整为：
+
+```ts
+// 分组二
+// 组内名为 “bar” 的属性分类，其中包含名为 label2 的 Label 属性和名为 sprite2 的 Sprite 属性，并且指定排序为 1。
+@property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, displayOrder: 2, type: Label }) 
+label2: Label = null!; 
+@property({ group: { name: 'bar2', id: '2' }, displayOrder: 1, type: Sprite }) 
+sprite2: Sprite = null!;
+```
+
+回到编辑器，在 **属性检查器** 中可以看到 sprite2 已经排在 label2 的前面了：
+
+![decorator-group](decorator-group2.png)
+
+更多参数内容请参考文档 [属性参数](./reference/attributes.md)。

@@ -30,8 +30,15 @@ The Node checkbox indicates the node's enabled/disabled status. When unchecked, 
 ### Node properties
 
 Click `Node` below the node name to collapse or expand the node's properties. To the right of `Node` are the **Help Documentations** and **Node Settings** buttons.
+
 - The Help button jumps to the official documentation about the node.
-- The Node Settings button allows resetting the node properties, copy/paste the node values, and reset the `Position`/`Rotation`/`Scale` properties of the node respectively.
+
+- Click the Node Settings button to perform the following operations on the node:
+
+    1. Reset the node properties.
+    2. Copy/paste the node values.
+    3. Copy/paste world transform of the node, including `worldPosition`/`worldRotation`/`worldScale` properties.
+    4. Reset the `Position`/`Rotation`/`Scale` properties of the node respectively.
 
     ![node-menu](index/node-menu.png)
 
