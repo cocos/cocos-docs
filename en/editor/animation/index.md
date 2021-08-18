@@ -7,7 +7,7 @@ This chapter will introduce the __Animation System__ of __Cocos Creator__. In ad
 > **Note**: __Cocos Creator__'s built-in __Animation Editor__ is suitable for making less complex animations that need to be linked with logic, such as __UI animations__.
 
 - [About Animation](animation.md)
-- [Familiar with animation editor](animation-editor.md)
+- [Get Familiar with the Animation Panel](animation-editor.md)
 - [Create Animation components and animation clips](animation-create.md)
 - [Edit Animation Sequence](animation-clip.md)
 - [Creating A Frame Animation](sprite-animation.md)
