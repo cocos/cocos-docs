@@ -1,22 +1,22 @@
-# 导入映射（实验性）
+# Import Maps (experimental)
 
-Cocos Creator 从 v3.3 开始实验性支持 [导入映射（Import maps）](https://github.com/WICG/import-maps)。
+Cocos Creator experimentally supports [Import Maps](https://github.com/WICG/import-maps) starting from v3.3.
 
-导入映射控制 TypeScript/JavaScript 的导入行为，尤其是可指定对 [裸说明符](./spec.md#裸说明符) 的解析。
+Import maps control the import behavior of TypeScript/JavaScript, in particular, it can specify the import behavior for [bare specifiers](./spec.md#bare-specifiers).
 
-## 使用
+## Use
 
-通过编辑器顶部菜单栏的 **项目 -> 项目设置 -> 脚本** 中的 **导入映射** 项即可指定导入映射文件的路径。设置完成后，导入映射功能开启，使用的导入映射将从指定的文件中读取。
+The import map's file path can be specified via the **Import Maps** item in **Project -> Project Settings -> Scripting** in the top menu bar of the editor. After setting, the import maps function will be enabled and the import maps used will be read from the specified file.
 
-> **注意**：导入映射文件的路径是至关重要的，因为导入映射中的所有相对路径都是相对于导入映射文件本身路径。
+> **Note**: the import map's file path is crucial, because all relative paths in the import maps are relative to the import map's file path itself.
 
-### 别名映射
+### Alias Mapping
 
-若有一个模块被项目中所有的模块所使用，而开发者并不希望其他模块以相对路径的方式引用它，而是为它起一个别名，那么便可以选择使用导入映射。
+If there is a module that is used by all modules in the project, and the developer does not want other modules to refer to it as a relative path, but rather to give it an alias, then using import maps is a good choice.
 
-例如，某个模块真实的绝对路径为 `<项目>/assets/lib/foo.ts`，我们希望所有模块可以以 `import {} from 'foo';` 的方式来引用它，操作步骤如下：
+For example, if the real absolute path of a module is `<project>/assets/lib/foo.ts` and we want all modules to refer to it as `import {} from 'foo';`, we would do the following:
 
-首先，在项目目录下创建一个导入映射文件 `import-map.json`：
+First, create an import-map file ``import-map.json`` in the project directory:
 
 ```json
 // import-map.json
@@ -28,21 +28,21 @@ Cocos Creator 从 v3.3 开始实验性支持 [导入映射（Import maps）](htt
 }
 ```
 
-- `"imports"`：指定应用到所有模块的 **顶级映射**（Top level imports）。
-- `"foo"`：指定我们要映射的模块名。
-- `"./assets/lib/foo.ts"`：指定如何映射 `"foo"`。`"./assets/lib/foo.ts"` 是相对路径，**导入映射中的所有相对路径都是相对于导入映射文件本身的位置的**，因此 `./assets/lib/foo.ts` 将解析为绝对路径 `<项目>/assets/lib/foo.ts`。
+- `"imports"`: specifies the **Top Level Imports** to be applied to all modules.
+- `"foo"`: specifies the name of the module we want to map.
+- `"./assets/lib/foo.ts"`: specifies how to map `"foo"`. `"./assets/lib/foo.ts"` is a relative path, **all relative paths in import maps are relative to the location of the import map's file itself**, so `./assets/lib/foo.ts` will be resolved to the absolute path `<project>/assets/lib/foo.ts`.
 
-然后在任意模块中使用以下方式引用模块时，`'foo'` 都将解析为模块 `<项目>/assets/lib/foo.ts`：
+Then `'foo'` will be resolved to the module `<project>/assets/lib/foo.ts` when referencing the module in any module using
 
 ```ts
 import * as foo from 'foo';
 ```
 
-### 目录映射
+### Directory Mapping
 
-导入映射还允许映射指定目录下的所有模块。
+Import maps also allows mapping all modules in a given directory.
 
-例如，要映射项目 `assets/lib/bar-1.2.3` 目录下的所有模块，则导入映射的 json 文件如下所示：
+For example, to map all modules in the project `assets/lib/bar-1.2.3` directory, the json file for the import maps would look like this:
 
 ```json
 // import-map.json
@@ -54,32 +54,32 @@ import * as foo from 'foo';
 }
 ```
 
-除了 `"bar/"` 指定的是我们要映射的目录，其余的与 **别名映射** 一致。
+This is consistent with **alias mapping** except that `"bar/"` specifies the directory we want to map to.
 
-这样项目中的模块都能以 `import {} from 'bar/...'` 的形式来引用目录 `bar-1.2.3` 中的模块。
+This way the modules in the project can all refer to the directory as `import {} from 'bar/...' ` to refer to modules in the directory `bar-1.2.3`.
 
-例如：
+For example:
 
 ```ts
 import * as baz from 'bar/baz';
 import * as quux from 'bar/qux/quux';
 ```
 
-`'bar/baz'` 将解析为模块 `<项目>/assets/lib/bar-1.2.3/baz.ts`<br>`'bar/qux/quux'` 将解析为模块 `<项目>/assets/lib/bar-1.2.3/qux/quux.ts`。
+`'bar/baz'` will be resolved to the module `<project>/assets/lib/bar-1.2.3/baz.ts`<br>`'bar/qux/quux'` will be resolved to the module `<project>/assets/lib/bar-1.2.3/qux/quux.ts`.
 
-### TypeScript 配置
+### TypeScript configuration
 
-TypeScript 并不支持导入映射，在使用时可能会导致出现找不到模块的报错，所以我们需要通过额外的配置来告诉 TypeScript 类型检查器额外的模块解析信息。
+TypeScript does not support import maps, which can lead to errors when using it, so we need additional configuration to tell the TypeScript type checker additional module resolution information.
 
-例如上述中的两个例子，可以在项目目录下的 `tsconfig.json` 文件中配置 [paths](https://www.typescriptlang.org/tsconfig#paths) 字段（若没有该字段，可自行补上），如下所示：
+For example, in the two examples above, you can configure the [paths](https://www.typescriptlang.org/tsconfig#paths) field in the `tsconfig.json` file in the project directory (if you don't have the field, you can add it yourself), as follows:
 
 ```json5
 // tsconfig.json
 {
     "compilerOptions": {
         "paths": {
-            // 注意：这里的相对路径是相对于 tsconfig.json 所在的路径
-            // 由于本例中 tsconfig.json 和 import-map.json 位于同一目录，因此这里的相对路径也相似。
+            // Note: the relative path here is relative to the path where tsconfig.json is located
+            // Since tsconfig.json and import-map.json are in the same directory in this example, the relative paths here are similar.
             "foo": ["./assets/lib/foo"],
             "bar/*": ["./assets/lib/bar-1.2.3/*"]
         }
@@ -87,8 +87,8 @@ TypeScript 并不支持导入映射，在使用时可能会导致出现找不到
 }
 ```
 
-更多关于导入映射的功能，请参考 [导入映射](https://github.com/WICG/import-maps)。
+For more information about import maps features, please refer to [Import Maps](https://github.com/WICG/import-maps).
 
-## 支持情况
+## Support
 
-Cocos Creator 支持 [Import Maps Draft Community Group Report, 12 January 2021](https://wicg.github.io/import-maps/) 中的所有功能。
+Cocos Creator supports all features in [Import Maps Draft Community Group Report, 12 January 2021](https://wicg.github.io/import-maps/).
