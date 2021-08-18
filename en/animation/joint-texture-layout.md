@@ -64,7 +64,7 @@ Notice there is a problem with the animation, all the animations become attack a
 - However, each drawcall can only use one skeletal animation texture, and here it is obvious that the Texture unit 0 is used and there is only one attack animation.
 - The length of different animation segments is different, and some of them are longer than the attack segment, so at the last time they will be read outside the valid area of Texture unit 0, where the data is not defined (usually the default is all 0), not valid skeleton transformation data, so naturally they cannot be rendered correctly.
 
-> **Note**: the 9 textures here all have the same skeletal animation information, so only the action is wrong in the final result, even if the texture is already wrong; but if there are multiple skeletons with animation information in one texture, and the textures don't match at the same time, the rendering effect will be completely wrong.
+> **Note**: the 9 textures here all have the same skeletal animation information, so only the action is wrong in the final result, even if the texture is already wrong, but if there are multiple skeletons with animation information in one texture, and the textures don't match at the same time, the rendering effect will be completely wrong.
 
 For the example scene above, since the model does need to play the 9 animation clips on the same screen at the same time, the correct joint texture layout setting should be:
 

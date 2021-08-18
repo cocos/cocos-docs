@@ -159,8 +159,8 @@ Function | Shortcut | Description
 :--- | :----- | :---
 Enter/exit **Animation** panel | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> | -
 Save animation data | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> | -
-Move forward one frame | <kbd>←</kbd> | Ignore current operation if already at frame 0. Move the time control line when the keyframe is not selected; move the keyframe when the keyframe is selected.
-Move back one frame | <kbd>→</kbd> | Move the time control line when the keyframe is not selected; move the keyframe when the keyframe is selected.
+Move forward one frame | <kbd>←</kbd> | Ignore current operation if already at frame 0. Move the time control line when the keyframe is not selected, move the keyframe when the keyframe is selected.
+Move back one frame | <kbd>→</kbd> | Move the time control line when the keyframe is not selected, move the keyframe when the keyframe is selected.
 Move to the first frame | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>←</kbd> | Move the red time control line to the beginning of the current animation clip.
 Move to the last frame | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>→</kbd> | Move the time control line to the end of the current animation clip.
 Delete the currently selected keyframe | <kbd>Delete</kbd> / <kbd>Cmd</kbd> + <kbd>Backspace</kbd> | -
