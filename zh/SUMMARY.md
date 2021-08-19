@@ -26,6 +26,7 @@
     - [v3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
     - [v3.0 材质升级指南](material-system/effect-2.x-to-3.0.md)
     - [v3.1 材质升级指南](material-system/Material-upgrade-documentation-for-v3.0-to-v3.1.md)
+    - [v3.3 动画剪辑数据升级指南](animation/animation-clip-migration-3.3.x.md)
     - [资源分包升级指南](asset/subpackage-upgrade-guide.md)
     - [资源管理模块升级指南](asset/asset-manager-upgrade-guide.md)
 
@@ -47,7 +48,7 @@
             - [使用动画曲线](animation/use-animation-curve.md)
         - [骨骼动画](animation/skeletal-animation.md)
             - [骨骼贴图布局设置](animation/joint-texture-layout.md)
-    - [使用脚本控制动画](animation/animation-component.md)
+    - [程序化控制动画](animation/animation-component.md)
         - [动画状态](animation/animation-state.md)
 
 - [地形系统](editor/terrain/index.md)
