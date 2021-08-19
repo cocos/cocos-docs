@@ -14,9 +14,9 @@ The import map's file path can be specified via the **Import Maps** item in **Pr
 
 If there is a module that is used by all modules in the project, and the developer does not want other modules to refer to it as a relative path, but rather to give it an alias, then using import maps is a good choice.
 
-For example, if the real absolute path of a module is `<project>/assets/lib/foo.ts` and we want all modules to refer to it as `import {} from 'foo';`, we would do the following:
+For example, if the real absolute path of a module is `<project>/assets/lib/foo.ts` then all modules to refer to it as `import {} from 'foo';`:
 
-First, create an import-map file ``import-map.json`` in the project directory:
+First, create an import-map file `import-map.json` in the project directory:
 
 ```json
 // import-map.json
@@ -29,7 +29,7 @@ First, create an import-map file ``import-map.json`` in the project directory:
 ```
 
 - `"imports"`: specifies the **Top Level Imports** to be applied to all modules.
-- `"foo"`: specifies the name of the module we want to map.
+- `"foo"`: specifies the name of the module to map.
 - `"./assets/lib/foo.ts"`: specifies how to map `"foo"`. `"./assets/lib/foo.ts"` is a relative path, **all relative paths in import maps are relative to the location of the import map's file itself**, so `./assets/lib/foo.ts` will be resolved to the absolute path `<project>/assets/lib/foo.ts`.
 
 Then `'foo'` will be resolved to the module `<project>/assets/lib/foo.ts` when referencing the module in any module using
@@ -54,7 +54,7 @@ For example, to map all modules in the project `assets/lib/bar-1.2.3` directory,
 }
 ```
 
-This is consistent with **alias mapping** except that `"bar/"` specifies the directory we want to map to.
+This is consistent with **alias mapping** except that `"bar/"` specifies the directory to map to.
 
 This way the modules in the project can all refer to the directory as `import {} from 'bar/...' ` to refer to modules in the directory `bar-1.2.3`.
 
@@ -69,9 +69,9 @@ import * as quux from 'bar/qux/quux';
 
 ### TypeScript configuration
 
-TypeScript does not support import maps, which can lead to errors when using it, so we need additional configuration to tell the TypeScript type checker additional module resolution information.
+TypeScript does not support import maps, which can lead to errors when using it. Additional configuration to tell the TypeScript type checker additional module resolution information.
 
-For example, in the two examples above, you can configure the [paths](https://www.typescriptlang.org/tsconfig#paths) field in the `tsconfig.json` file in the project directory (if you don't have the field, you can add it yourself), as follows:
+In the two examples above, the [paths](https://www.typescriptlang.org/tsconfig#paths) field can be configured in the `tsconfig.json` file in the project directory. If this field is not present already, add it. Example:
 
 ```json5
 // tsconfig.json
@@ -87,8 +87,8 @@ For example, in the two examples above, you can configure the [paths](https://ww
 }
 ```
 
-For more information about import maps features, please refer to [Import Maps](https://github.com/WICG/import-maps).
+For more information about import maps features, please refer to the [Import Maps](https://github.com/WICG/import-maps) documentation.
 
 ## Support
 
-Cocos Creator supports all features in [Import Maps Draft Community Group Report, 12 January 2021](https://wicg.github.io/import-maps/).
+Cocos Creator supports all features in [Import Maps Draft Community Group Report, 12 January 2021](https://wicg.github.io/import-maps/) standard.
