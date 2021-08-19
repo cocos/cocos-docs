@@ -56,6 +56,6 @@ Animation 组件也提供了一些常用的动画控制函数，若要程序化�
 
     ![add-clip](./animation-create/add-new-clip2.png)
 
-3. 通过脚本动态创建动画剪辑，详情请参考 [使用动画曲线](use-animation-curve.md)。
+3. 通过脚本动态创建动画剪辑，详情请参考 [程序化编辑动画剪辑](use-animation-curve.md)。
 
 可以在 **动画编辑器** 左上角的 **Clips** 下拉列表切换需要编辑的动画剪辑。

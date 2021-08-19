@@ -16,7 +16,7 @@
 
 ![add keyframe](edit-animation-clip/add-keyframe.gif)
 
-更多关于动画曲线的设计以及如何通过脚本代码控制，请参考 [使用动画曲线](use-animation-curve.md)。
+更多关于动画剪辑的设计以及如何通过代码程序化控制，请参考 [程序化编辑动画剪辑](use-animation-curve.md)。
 
 ### 编辑 Sprite 动画
 
