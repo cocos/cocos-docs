@@ -104,29 +104,6 @@ export class GameRoot extends Component {
 
 >**注意：** 这一点后续在引擎中会解决这个问题，请关注版本公告。
 
-## Web 平台的播放限制
-
-目前 Web 平台的声音播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 AudioSource 组件设置了 `playOnAwake` 也会在第一次接收到用户输入时才开始播放。范例如下：
-
-```typescript
-// AudioController.ts
-@ccclass("AudioController")
-export class AudioController extends Component {      
-
-    @property(AudioSource)
-    public audioSource: AudioSource = null!;
-
-    start () {
-        let btnNode = find('BUTTON_NODE_NAME');
-        btnNode!.on(Node.EventType.TOUCH_START, this.playAudio, this);
-    }
-    
-    playAudio () {
-        this.audioSource.play();
-    }
-}
-```
-
 在官方的示例项目快上车 3D 示例项目中。有封装好完整的音效播放的管理器使用。示例项目可以在 Cocos Dashboard 项目管理器中，选择 **项目**，接着选择右下角的 **新建**。选择合适的编辑器版本之后，选择 **Example Taxi Game** 项目，点击右下角的创建并打开，即课查看。如下所示：
 
    ![audioEdit](audio/audioEdit.png)
