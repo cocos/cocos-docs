@@ -79,7 +79,7 @@ The current collapsed state of the asset will be recorded and will be maintained
 
 ### Searching assets
 
-The search function can limit the search type and specify the search field， both of which can be used to achieve a type filtering effect. Depending on the selected type/field, all the corresponding assets will be displayed in the panel.
+The search function can limit the search type and specify the search field, both of which can be used to achieve a type filtering effect. Depending on the selected type/field, all the corresponding assets will be displayed in the panel.
 
 ![search-types](img/search-types.png)
 

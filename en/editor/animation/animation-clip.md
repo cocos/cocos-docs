@@ -23,11 +23,11 @@ Changes to properties take effect after the focus leaves the control.
 
 ## Common operations of node panel
 
-The __animation clip__ defines the position of the data by the name of the node, ignoring the root node itself, and the remaining child nodes find their corresponding data through the **relative path** index of the root node.
+The __Animation Clip__ defines the position of the data by the name of the node, ignoring the root node itself, and the remaining child nodes find their corresponding data through the **relative path** index of the root node.
 
-- **Clear node data**: right-click the node item of the animation editor, select __Empty Data__, and select __Clear__ after the pop-up window prompts
+- **Clear node data**: right-click the node item of the **Animation** panel, select __Empty Data__, and select __Clear__ after the pop-up window prompts
 
-- **Copy and paste node data**:right-click the node item of the animation editor, select **Copy Node Data**, and then right-click the target node item, select **Paste Node Data**.
+- **Copy and paste node data**:right-click the node item of the **Animation** panel, select **Copy Node Data**, and then right-click the target node item, select **Paste Node Data**.
 
 ![paste-node-data](animation-clip/paste-node-data.gif)
 
@@ -66,7 +66,7 @@ An __animation clip__ may contain multiple nodes, and multiple __animation prope
 
 ## Common Key Frame Operations
 
-In the process of __producing animations__, there are often some __manipulation of key frames__. There are a variety of __key frame__ processing methods in the __animation editor.__. Knowing these methods and techniques can help to edit __animation clips__ faster.
+In the process of __producing animations__, there are often some __manipulation of key frames__. There are a variety of __key frame__ processing methods in the **Animation** panel. Knowing these methods and techniques can help to edit __animation clips__ faster.
 
 ### Selecting a key frame
 
@@ -92,7 +92,7 @@ To add a __key frame__:
 
     ![add-keyframe_3](./animation-clip/add-keyframe_3.gif)
 
-- After selecting the corresponding node and the corresponding property track, the editor control for the corresponding property will appear in the middle of the __animation editor__, and the __key frame__ can be marked by modification.
+- After selecting the corresponding node and the corresponding property track, the editor control for the corresponding property will appear in the middle of the **Animation** panel, and the __key frame__ can be marked by modification.
 
     ![add-keyframe_4](./animation-clip/add-keyframe_4.gif)
 
@@ -108,7 +108,7 @@ To add a __key frame__:
 
 ### Modifying key frame data
 
-On the __timeline__ **double-click** the __key frame__ that needs to be modified. The __time cursor__ will move to that position. You can also directly drag the __time cursor__ to the corresponding position, and modify the corresponding properties directly in the **Inspector** panel. Make sure the __animation editor__ is in __edit mode__. For example, there are three property tracks in the property list: *position*, *scale*, and *rotation*. After the __key frame__ is selected, you can modify the *position*, *scale*, and *rotation* properties in the **Inspector** panel.
+On the __timeline__ **double-click** the __keyframe__ that needs to be modified. The __time cursor__ will move to that position. Also, it can be directly added by drag the __time cursor__ to the corresponding position, and modify the corresponding properties directly in the **Inspector** panel. Make sure the **Animation** panel is in __edit mode__. For example, there are three property tracks in the property list: **position**, **scale**, and **rotation**. After the __key frame__ is selected, the **position**, **scale**, and **rotation** properties can be modified in the **Inspector** panel.
 
 ![edit-keyframe_1](./animation-clip/edit-keyframe_1.gif)
 
