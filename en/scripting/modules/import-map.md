@@ -6,7 +6,7 @@ Import maps control the import behavior of TypeScript/JavaScript, in particular,
 
 ## Use
 
-The import map's file path can be specified via the **Import Maps** item in **Project -> Project Settings -> Scripting** in the top menu bar of the editor. After setting, the import maps function will be enabled and the import maps used will be read from the specified file.
+The import map's file path can be specified via the **Import Maps** option in **Project -> Project Settings -> Scripting** in the top menu bar of the editor. After setting, the import maps function will be enabled and the import maps used will be read from the specified file.
 
 > **Note**: the import map's file path is crucial, because all relative paths in the import maps are relative to the import map's file path itself.
 
@@ -32,7 +32,7 @@ First, create an import-map file `import-map.json` in the project directory:
 - `"foo"`: specifies the name of the module to map.
 - `"./assets/lib/foo.ts"`: specifies how to map `"foo"`. `"./assets/lib/foo.ts"` is a relative path, **all relative paths in import maps are relative to the location of the import map's file itself**, so `./assets/lib/foo.ts` will be resolved to the absolute path `<project>/assets/lib/foo.ts`.
 
-Then `'foo'` will be resolved to the module `<project>/assets/lib/foo.ts` when referencing the module in any module using
+Then `'foo'` will be resolved to the module `<project>/assets/lib/foo.ts` when referencing the module in any module using:
 
 ```ts
 import * as foo from 'foo';
@@ -65,7 +65,7 @@ import * as baz from 'bar/baz';
 import * as quux from 'bar/qux/quux';
 ```
 
-`'bar/baz'` will be resolved to the module `<project>/assets/lib/bar-1.2.3/baz.ts`<br>`'bar/qux/quux'` will be resolved to the module `<project>/assets/lib/bar-1.2.3/qux/quux.ts`.
+`'bar/baz'` will be resolved to the module `<project>/assets/lib/bar-1.2.3/baz.ts`.<br>`'bar/qux/quux'` will be resolved to the module `<project>/assets/lib/bar-1.2.3/qux/quux.ts`.
 
 ### TypeScript configuration
 
