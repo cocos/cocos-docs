@@ -29,7 +29,7 @@ There are three function buttons at the top of the panel:
 
 > **Note**:
 >
-> 1. It is meaningless to build a project without a scene, so if there is no scene in the currently opened project, you will be prompted to create a scene first when opening the **Build** panel:
+> 1. It is meaningless to build a project without a scene, if there is no scene in the currently opened project, a prompt will appear to create a scene first when opening the **Build** panel:
 >
 > ![save-scene](./build-panel/create-scene-first.png)
 >
@@ -39,7 +39,7 @@ There are three function buttons at the top of the panel:
 
 ## Build Tasks
 
-On the **Build Tasks** page, one can view the current platform's build progress and build results.
+On the **Build Tasks** page, developers can view the current platform's build progress and build results.
 
 - **Under construction**: the progress bar is displayed as **blue**.
 - **Successful construction**: the progress bar reaches 100%, and the actual construction time is output and displayed as **green**.
@@ -100,7 +100,7 @@ Click the ![setting](./build-panel/setting.png) button to the right of the edit 
 
 After the modification is completed, clicking the **Build** button will clear the project release package generated after the last build and rebuild. Or click the **X** button at the top right of the **Build** panel to return to the **Build Tasks** page, and then click the **Build** button at the bottom right of the platform build task to rebuild.
 
-> **Note**: in order to avoid accidentally deleting customized content, the native platform only updates project resources when rebuilding, and does not overwrite the original native project content. Therefore, when you return to the **Build** panel to modify the previously configured build options, the native platform-related build options are in the **disabled** state. To regenerate the project, please create a new build task.
+> **Note**: in order to avoid accidentally deleting customized content, the native platform only updates project resources when rebuilding, and does not overwrite the original native project content. Therefore, when returning to the **Build** panel to modify the previously configured build options, the native platform-related build options are in the **disabled** state. To regenerate the project, please create a new build task.
 
 If the **Build** button is not clicked to rebuild after modifying the configuration, the modified configuration will also be saved. If the configuration in the current **build release** panel is inconsistent with the configuration in the project release package in the `build` directory generated after the last build, a yellow <font color= will be displayed at the top of the **build release** panel #F0C800>*</font> number key.
 
