@@ -71,6 +71,6 @@ The description of each parameter on the **Scene** page is as follows:
 
     ![bake result](./lightmap/lightmap-result.png)
 
-    1. **Bake result**: shows the generated lightmap after baking, format is RGBE8.
+    1. **Bake result**: shows the generated lightmap after baking, in format **RGBE8**, with **R**/**G**/**B** options to view the corresponding channels of the lightmap as required.
     2. **Lightmap clear**: used to delete the generated lightmap and related information.
     3. **Information output panel**: shows the generated lightmap file name, size and other related information.

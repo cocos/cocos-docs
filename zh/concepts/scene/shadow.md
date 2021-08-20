@@ -30,12 +30,13 @@ Creator 3.0 目前支持 **Planar** 和 **ShadowMap** 两种阴影类型。
 
 Planar 阴影类型一般用于较为简单的场景。
 
-![plannar properties](shadow/plannar-properties.png)
+![planar properties](shadow/planar-properties.png)
 
 | 属性  | 说明  |
 | :--- | :--- |
 | **Enabled**     | 是否开启阴影效果      |
 | **Type**        | 阴影类型             |
+| **Saturation**  | 调节阴影饱和度       |
 | **ShadowColor** | 设置阴影颜色         |
 | **Normal**      | 垂直于阴影的法线，用于调整阴影的倾斜度  |
 | **Distance**    | 阴影在法线的方向上与坐标原点的距离     |
@@ -54,16 +55,16 @@ ShadowMap 是以光源为视点来渲染场景的。从光源位置出发，场�
 | :--- | :--- |
 | **Enabled**         | 是否开启阴影效果     |
 | **Type**            | 设置阴影类型    |
-| **ShadowColor**     | 设置阴影颜色     |
-| **Pcf**             | 设置阴影边缘反走样等级，目前包括 **HARD**、 **FILTER_X5**、**FILTER_X9**、**FILTER_X25** 四种，详情可参考下文 **PCF 软阴影** 部分的介绍。   |
+| **Saturation**      | 调节阴影饱和度  |
+| **Pcf**             | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。   |
+| **MaxReceived**     | 最多支持产生阴影的光源数量，默认为 4 个，可根据需要自行调整     |
+| **Bias**            | 设置阴影偏移值，防止 z-fiting    |
+| **NormalBias**      | 设置法线偏移值，防止曲面出现锯齿状 |
+| **ShadowMapSize**   | 设置阴影纹理大小     |
 | **AutoAdapt**       | 若勾选该项，则自动计算阴影产生的范围，详情可参考下文介绍。<br>若不勾选该项，则启用下列属性来手动设置阴影产生的范围  |
 | **Near**            | 设置主光源相机的近裁剪面     |
 | **Far**             | 设置主光源相机的远裁剪面     |
 | **OrthoSize**       | 设置主光源相机的正交视口大小     |
-| **MaxReceived**     | 最多支持产生阴影的光源数量，默认为 4 个，可根据需要自行调整     |
-| **ShadowMapSize**   | 设置阴影纹理大小     |
-| **Aspect**          | 设置主光源相机的正交视口长宽比     |
-| **Bias**            | 设置阴影偏移值，防止 z-fiting    |
 
 ShadowMap 在开启了物体 **MeshRenderer** 组件上的 **ReceiveShadow** 后，就会接收并显示其它物体产生的阴影效果。
 
