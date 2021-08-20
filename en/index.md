@@ -1,6 +1,6 @@
-# Cocos Creator 3.2 User Manual
+# Cocos Creator 3.3 User Manual
 
-Welcome to the __Cocos Creator 3.2__ user manual! This manual includes detailed instructions, a workflow for users, and a step-by-step tutorial for beginners. This manual can help you quickly learn how to develop cross-platform games with __Cocos Creator__.
+Welcome to the __Cocos Creator 3.3__ user manual! This manual includes detailed instructions, a workflow for users, and a step-by-step tutorial for beginners. This manual can help you quickly learn how to develop cross-platform games with __Cocos Creator__.
 
 > **Note**: please select the corresponding manual version in the upper right corner according to the __Cocos Creator 3.0__ version you are using.
 
