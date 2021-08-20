@@ -11,11 +11,11 @@
                 "links": [
                     {
                         "name": "手册文档",
-                        "link": "https://docs.cocos.com/creator/3.2/manual/zh"
+                        "link": "https://docs.cocos.com/creator/3.3/manual/zh"
                     },
                     {
                         "name": "API 参考",
-                        "link": "https://docs.cocos.com/creator/3.2/api/zh/"
+                        "link": "https://docs.cocos.com/creator/3.3/api/zh/"
                     }
                 ]
             },
@@ -48,8 +48,12 @@
         ],
         "version": [
             {
-                "name": "3.2",
+                "name": "3.3",
                 "links": [
+                    {
+                        "name": "3.3",
+                        "link": "https://docs.cocos.com/creator/3.3/manual/zh"
+                    },
                     {
                         "name": "3.2",
                         "link": "https://docs.cocos.com/creator/3.2/manual/zh"
@@ -73,22 +77,6 @@
                     {
                         "name": "2.2",
                         "link": "https://docs.cocos.com/creator/2.2/manual/zh"
-                    },
-                    {
-                        "name": "2.1",
-                        "link": "https://docs.cocos.com/creator/2.1/manual/zh"
-                    },
-                    {
-                        "name": "2.0",
-                        "link": "https://docs.cocos.com/creator/2.0/manual/zh"
-                    },
-                    {
-                        "name": "1.10",
-                        "link": "https://docs.cocos.com/creator/1.10/manual/zh"
-                    },
-                    {
-                        "name": "1.9",
-                        "link": "https://docs.cocos.com/creator/1.9/manual/zh"
                     }
                 ]
             }
