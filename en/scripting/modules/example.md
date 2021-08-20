@@ -243,7 +243,7 @@ declare module "<package name>/dist/**.js" {
 }
 ```
 
-> **Note**: does every package you use have to confirm who it's for? Currently it does. This is improving because in the new version of Node, package.json has a nice mechanism added to tell the user which version to use for what case.
+> **Note**: currently it is necessary to confirm that if a package is customized for Node. But in the new version of Node, package.json has a nice mechanism added to tell the user which version to use for what case.
 
 ### Special case: firebase usage
 
