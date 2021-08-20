@@ -10,16 +10,16 @@
 
 使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择 **华为快游戏**。
 
-![build](./publish-huawei-mini-game/build.png)
+![build](./publish-huawei-quick-game/build.png)
 
 通用构建选项的设置请参考 [通用构建选项](build-options.md)，华为快游戏特有的构建选项如下：
 
-![huawei-options](./publish-huawei-mini-game/huawei-build.png)
+![huawei-options](./publish-huawei-quick-game/huawei-build.png)
 
 | 构建选项 | 可选 | 说明 | 字段名（用于命令行发布）|
 | :----- | :-- | :-- | :-- |
 | 初始场景分包 | 可选项 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
-| 资源服务器地址 | 可选项 | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建后生成的 rpk 包中。<br>若 **填写**，则不会打包进 rpk。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上，详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) 。 | `remoteServerAddress` |
+| 资源服务器地址 | 可选项 | 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹将会被打包到构建后生成的 rpk 包中。<br>若 **填写**，则不会打包进 rpk。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上，详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md)。 | `remoteServerAddress` |
 | 游戏包名 | 必填项 | 确保与原生应用的包名不一致，由 **数字**、**字母**、**.** 组成。必须以字母开头，以数字或字母结尾，同时必须包含 **.**，长度不能超过 255 字节。例如 `com.example.demo` | `package` |
 | 桌面图标 | 必填项 | 点击输入框后面的放大镜图标按钮选择所需的图标。构建时，图标将会被构建到华为快游戏的 rpk 中。桌面图标建议使用 png 图片。 | icon |
 | 游戏版本名称 | 必填项 | 游戏版本名称是真实的版本，如：1.0.0 | `versionName` |
@@ -54,7 +54,7 @@
 **构建发布** 面板的构建选项设置完成后，点击 **构建并生成** 按钮。<br>
 完成后点击 **构建任务** 左下角的文件夹图标按钮打开项目发布包，可以看到在默认发布路径 `build` 目录下生成了 `huawei-quick-game`（以具体的构建任务名为准）文件夹，该文件夹就是导出的华为快游戏工程目录和 rpk，rpk 包在 `build/huawei-quick-game/dist` 目录下。
 
-![package](./publish-huawei-mini-game/package.png)
+![package](./publish-huawei-quick-game/package.png)
 
 若需要修改生成的 rpk 包，在修改完成后点击 **构建任务** 右下角的 **生成** 按钮，即可在不重新构建的情况下重新生成 rpk 包。
 
@@ -66,7 +66,7 @@
 
     这时 rpk 会被推送到之前在手机上已安装完成的 **华为快应用加载器** 上（如有读写等权限弹出请允许），即可在手机上打开 rpk。
 
-    ![play](./publish-huawei-mini-game/play.png)
+    ![play](./publish-huawei-quick-game/play.png)
 
 2. 将构建生成的 rpk 包拷贝到手机 sdcard 目录下。然后在手机上打开 **华为快应用加载器** 后，点击手机的返回键会弹出一个列表，选择第一个选项 **本地安装**，选择路径为放置 rpk 的路径，即可将 rpk 运行到手机上。
 
@@ -74,13 +74,13 @@
 
 分包加载，即把游戏内容按一定规则拆分在几个包里，在首次启动的时候动的消耗时间。
 
-若要使用该功能需要在 Creator 编辑器中配置 [小游戏分包](subpackage.md)，设置完成后在构建时就会自动分包。构建完成后，会在 `build/huawei-mini-game/dist` 目录下生成 **.rpk** 文件。
+若要使用该功能需要在 Creator 编辑器中配置 [小游戏分包](subpackage.md)，设置完成后在构建时就会自动分包。构建完成后，会在 `build/huawei-quick-game/dist` 目录下生成 **.rpk** 文件。
 
 > **注意**：目前华为快游戏不支持同时下载多个分包，需只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启要下载多个分包时请按顺序下载。
 
 ## 华为快游戏环境的资源管理
 
-华为快游戏与微信小游戏类似，都存在着包体限制, 华为快游戏允许上传的代码包总大小为 **10MB**，超过的部分必须通过网络请求下载。
+华为快游戏与微信小游戏类似，都存在着包体限制, 华为快游戏允许上传的代码包总大小为 **10MB**，超过的部分必须通过网络请求下载。<br>当包体过大时，可在 **构建发布** 面板配置 **资源服务器地址** 选项，将资源上传到远程服务器，详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md)。
 
 我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。Cocos Creator 已经帮用户做好了远程资源的下载、缓存和版本管理，详情请参考 [缓存管理器](../../asset/cache-manager.md)。
 

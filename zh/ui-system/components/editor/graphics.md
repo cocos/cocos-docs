@@ -42,7 +42,7 @@ Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/classes/ui.graphics-
 
 ### 通过脚本代码设置绘制图案
 
-``` ts
+```ts
 import { _decorator, Component, Graphics } from 'cc';
 const { ccclass, property } = _decorator;
 

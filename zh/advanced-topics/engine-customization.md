@@ -41,9 +41,11 @@ cd E:/engine
 npm install -g gulp
 # 安装依赖的模块
 npm install
+# 编译一些数据，包括 debug infos 和 .d.ts
+gulp build
 ```
 
-> **注意**：生成 debuginfos 需要 gulp 构建工具。
+> **注意**：生成 debug infos 需要 gulp 构建工具。
 
 ### 1.4 进行修改然后编译
 

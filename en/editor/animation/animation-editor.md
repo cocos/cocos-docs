@@ -98,9 +98,9 @@ __Click__ the clip option in the lower left corner of the __Animation Editor__ a
 
 #### Change the timeline zoom
 
-What should I do if I feel that the range displayed by the animation editor is too small during operation, and it needs to be scaled down to allow more key frames to be displayed in the editor?
+What is the fix if the range displayed by the **Animation** panel is too small during operation, and it needs to be scaled down to allow more keyframes to be displayed in the editor?
 
-- You can _zoom in_ or *zoom out* the display scale of the time axis by scrolling the mouse wheel in areas *b*, *d*, and *f* in the figure.
+- You can __zoom in__ or **zoom out** the display scale of the time axis by scrolling the mouse wheel in areas **b**, **d**, and **f** in the figure.
 
 #### Navigate the display area
 
@@ -110,7 +110,7 @@ If you want to see the key frame on the right side of the __Animation Editor__ t
 
     ![scale-canvas](./animation-editor/scale-canvas.gif)
 
-#### c. Drag to change the layout of the animation editor
+#### c. Drag to change the layout of the **Animation** panel
 
 The dividing line between the node list and the time, and the dividing line between the __Property List__ and the time axis can be used to drag and change the layout, and can be freely adjusted to the layout effect suitable for editing by dragging.
 
@@ -136,7 +136,7 @@ For more information about keyframe operations, please review the [Edit Animatio
 
 ### Modify shortcut keys
 
-Click the shortcut button in the menu bar ![shortcuts](./animation-editor/shortcuts.png) to open the shortcuts windows, then you can directly modify the shortcut keys of the animation editor Here.
+Click the shortcut button in the menu bar ![shortcuts](./animation-editor/shortcuts.png) to open the shortcuts windows, then directly modify the shortcut keys of the **Animation** panel here.
 
 ![shortcuts-manager](./animation-editor/shortcuts-manager.png)
 
@@ -144,7 +144,7 @@ Click the shortcut button in the menu bar ![shortcuts](./animation-editor/shortc
 
 Function | Shortcut key | Description
 :--- | :---- | :----
-*Enter/exit animation editor* | Ctrl/Cmd + E |-
+*Enter/exit **Animation** panel* | Ctrl/Cmd + E |-
 *Save animation data* | Ctrl/Cmd + S |-
 *Move forward one frame* | Left (←) | If it is already at frame 0, the current operation is ignored. When the key frame is not selected, the small red line moves, and after the node is selected, the key frame is moved;
 *Move one frame backward* | Right (→) | When the key frame is not selected, the small red line is moved, and after the node is selected, the key frame is moved;
@@ -162,4 +162,4 @@ Function | Shortcut key | Description
 *Paste the animation data of the last copy* | Ctrl/Cmd + V | Support pasting selected key frames, property tracks, node data
 *Unselected key frame or event frame or property track* | Esc |-
 
-> **Note**: most shortcut keys are invalid only when the animation editor is focused, except for the shortcut keys of `Enter and Exit Animation Editor` and `Save Animation`.
+> **Note**: most shortcut keys are invalid only when the **Animation** panel is focused, except for the shortcut keys of `Enter and Exit Animation Editor` and `Save Animation`.
