@@ -232,6 +232,7 @@
     - [脚本进阶](scripting/reference-class.md)
     - [添加 Log](scripting/log.md)
     - [废弃 API](scripting/deprecated.md)
+    - [向 Cocos 提交代码](submit-pr/submit-pr.md)
 
 - [资源手册](asset/index.md)
     - [资源工作流](asset/asset-workflow.md)
@@ -263,12 +264,12 @@
     - [字体资源](asset/font.md)
     - [声音资源](asset/audio.md)
     - [材质资源](asset/material.md)
-    - [模型资源](asset/mesh.md)
-        - [从第三方工具导出模型资源](asset/dcc-export-mesh.md)
+    - [模型资源](asset/model/mesh.md)
+        - [从第三方工具导出模型资源](asset/model/dcc-export-mesh.md)
+        - [glTF 模型](asset/model/glTF.md)
     - [Spine 骨骼动画资源](asset/spine.md)
-    - [Dragonbones 骨骼动画资源](asset/dragonbones.md)
+    - [DragonBones 骨骼动画资源](asset/dragonbones.md)
     - [TiledMap 瓦片图资源](asset/tiledmap.md)
-- [向 Cocos 提交代码](submit-pr/submit-pr.md)
 
 ## 进阶使用
 
