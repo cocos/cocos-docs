@@ -58,9 +58,9 @@ Open the previously installed **Self-test Tools**, then click the **Configure Ga
 
 ![configuration](publish-cocos-play/configuration.png)
 
-#### Parameters
+#### Properties
 
-| Parameters      | Function Explanation  |
+| Property        | Function Explanation  |
 | --------------  |  -----------          |
 | **gameId**          | Game ID, which can be obtained from the background. |
 | **gameKey**         | Game key, which can be obtained from the background. |

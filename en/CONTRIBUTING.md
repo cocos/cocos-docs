@@ -251,7 +251,7 @@ The effect is as follows:
 
 E.g:
 
-> | Properties | Function Description |<br>
+> | Property | Function Description |<br>
 > | \:---- | :------ |<br>
 > | Property 1 | Description 1 |<br>
 > | Property 2 | Description 2 |
