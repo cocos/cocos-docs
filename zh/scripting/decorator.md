@@ -37,7 +37,7 @@ export class Example extends Component {
 
 ### requireComponent
 
-`requireComponent` 参数用来指定当前组件的依赖组件，默认值为 `null`。当组件添加到节点上时，如果依赖的组件不存在，引擎将会自动将依赖组件添加到同一个节点，防止脚本出错。该选项在运行时同样有效。
+`requireComponent` 参数用来指定当前组件的依赖组件，默认值为 `null`。当组件添加到节点上时，如果依赖的组件不存在，引擎会自动将依赖组件添加到同一个节点，防止脚本出错。该选项在运行时同样有效。
 
 ```ts
 const { ccclass, requireComponent } = _decorator;
@@ -50,11 +50,12 @@ export class Example extends Component {
 
 ### executionOrder
 
-脚本生命周期回调的执行优先级。小于 0 的脚本将优先执行，大于 0 的脚本将最后执行。排序方式如下：
-- 同一节点上的组件，数值小的先执行，数值相同的按添加先后
-- 不同节点上，数值小的先执行，按节点树排列决定先后
+`executionOrder` 用来指定脚本生命周期回调的执行优先级。小于 0 的脚本将优先执行，大于 0 的脚本将最后执行。排序方式如下：
+- 对于同一节点上的不同组件，数值小的先执行，数值相同的按添加先后
+- 对于不同节点上同一组件，按节点树排列决定执行先后
+- 针对所有节点树上节点，在节点和组件都激活的情况下，数值越小，越先执行
 
-该优先级只对 `onLoad`, `onEnable`, `start`, `update` 和 `lateUpdate` 有效，对 `onDisable` 和 `onDestroy` 无效。
+该优先级设定只对 `onLoad`, `onEnable`, `start`, `update` 和 `lateUpdate` 有效，对 `onDisable` 和 `onDestroy` 无效。
 
 ```ts
 const { ccclass, executionOrder } = _decorator;
@@ -67,7 +68,7 @@ export class Example extends Component {
 
 ### disallowMultiple
 
-当本组件添加到节点上后，禁止同类型（含子类）的组件再添加到同一个节点，防止逻辑发生冲突，默认值是 false。
+同一节点上只允许添加一个同类型（含子类）的组件，防止逻辑发生冲突，默认值是 false。
 
 ```ts
 const { ccclass, disallowMultiple } = _decorator;
@@ -95,7 +96,7 @@ export class Example extends Component {
 
 ### help
 
-指定当前组件的帮助文档的 `url`，设置过后，在 **属性检查器** 中就会出现一个帮助图标，用户点击将打开指定的网页。
+指定当前组件的帮助文档的 `url`。设置完成后，在 **属性检查器** 中就会出现一个帮助图标，用户点击将打开指定的网页。
 
 ```ts
 const { ccclass, help } = _decorator;
