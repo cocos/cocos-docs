@@ -8,13 +8,13 @@ The browser preview is essentially the editor opening an express server that ope
 
 ## Common Error Handling
 
-When encountering a preview that does not display properly, first open NetWork in DevTools to see if there are assets or scripts that failed to load at this time.
+When encountering a preview that does not display properly, first, open NetWork in DevTools to see if there are assets or scripts that failed to load at this time.
 
 ### `setting.js` failed to load
 
 Before looking for the cause of this issue, make sure there are no error messages in the editor before previewing.
 
-`setting.js` failed to load means `setting.js` didn't generate properly, so select **Developer -> Open Build DevTools** to see if there are any error messages. Under normal circumstances, there will be a corresponding error message if the build fails. If there is something illegal in the project script, then an exception will be thrown during the loading process and `setting.js` will fail. The specific script information can be found in the error message. Usually, the valid information in the error message here is the UUID of the asset, so copy the corresponding UUID to the **Assets** panel to search for the script.
+`setting.js` failed to load means `setting.js` didn't generate properly, so select **Developer -> Open Build DevTools** to see if there are any error messages. Under normal circumstances, there will be a corresponding error message if the build fails. If there is something illegal in the project script, then an exception will be thrown during the loading process and `setting.js` will fail. The specific script information can be found in the error message. Usually, the valid information in the error message is the UUID of the asset, copy the corresponding UUID to the **Assets** panel to search for the script.
 
 For more information about the specific generation process of `setting.js`, please refer to the [Introduction to the Build process and FAQ](../publish/build-guide.md) documentation. The preview `setting.js` generation rules are basically the same as the generation rules with only debug mode checked, the difference is that the preview only sorts out asset information and does not package the assets.
 
