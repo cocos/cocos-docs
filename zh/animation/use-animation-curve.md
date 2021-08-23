@@ -173,3 +173,9 @@ function setupMaterialPropertyTrack(track: animation.TrackPath) {
 | `WrapMode.PingPong` | 从动画开头播放到结尾后，从结尾开始反向播放到开头，如此循环往复 |
 
 更多循环模式，详情请参考 API [WrapMode](__APIDOC__/zh/enums/animation.wrapmode.html) 以及文档 [循环模式与循环次数](./animation-state.md#%E5%BE%AA%E7%8E%AF%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0)。
+
+## 外来动画
+
+有些动画数据并不由轨道表示，但它以另一种形式存在于动画剪辑中，并在运行时产生动画效果。这部分动画数据称为外来动画（Exotic Animation）。外来动画旨在于让 Creator 更高效地存储和计算一些复杂的动画。
+
+用户无法访问和编辑外来动画。由编辑器从模型中导入的骨骼动画就存储在外来动画中。
