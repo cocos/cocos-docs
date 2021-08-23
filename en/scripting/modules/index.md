@@ -4,6 +4,8 @@ Modules are used to organize code. This section begins with a description of the
 
 - [Engine Module](./engine.md)
 
+- [How to get npm Packages](./config.md)
+
 - [Example: Use protobuf.js with npm](./example-protobufjs.md)
 
 - [Example: External Module Usage Case](./example.md)
