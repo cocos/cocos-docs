@@ -31,10 +31,10 @@ To use `Mask`, please refer to the [Mask API](__APIDOC__/en/classes/ui.mask-1.ht
 
 It can also be set by code at runtime. Example:
 
-``` ts
-    const mask = this.getComponent(Mask);
-    mask.type = Mask.Type.ELLIPSE;
-    mask.segments = 32;
+```ts
+const mask = this.getComponent(Mask);
+mask.type = Mask.Type.ELLIPSE;
+mask.segments = 32;
 ```
 
 #### GRAPHICS_STENCIL
@@ -43,19 +43,19 @@ It can also be set by code at runtime. Example:
 
 It can also be set by code at runtime. Example:
 
-``` ts
-    const mask = this.getComponent(Mask);
-    mask.type = Mask.Type.GRAPHICS_STENCIL;
-    const g = mask.graphics;
-    g.lineWidth = 10;
-    g.fillColor.fromHEX('#ff0000');
-    g.moveTo(-40, 0);
-    g.lineTo(0, -80);
-    g.lineTo(40, 0);
-    g.lineTo(0, 80);
-    g.close();
-    g.stroke();
-    g.fill();
+```ts
+const mask = this.getComponent(Mask);
+mask.type = Mask.Type.GRAPHICS_STENCIL;
+const g = mask.graphics;
+g.lineWidth = 10;
+g.fillColor.fromHEX('#ff0000');
+g.moveTo(-40, 0);
+g.lineTo(0, -80);
+g.lineTo(40, 0);
+g.lineTo(0, 80);
+g.close();
+g.stroke();
+g.fill();
 ```
 
 #### IMAGE_STENCIL
@@ -64,11 +64,11 @@ It can also be set by code at runtime. Example:
 
 It can also be set by code at runtime. Example:
 
-``` ts
-    const mask = this.getComponent(Mask);
-    mask.type = Mask.Type.IMAGE_STENCIL;
-    mask.spriteFrame = this.spriteFrame;
-    mask.alphaThreshold = 0.1;
+```ts
+const mask = this.getComponent(Mask);
+mask.type = Mask.Type.IMAGE_STENCIL;
+mask.spriteFrame = this.spriteFrame;
+mask.alphaThreshold = 0.1;
 ```
 
 > __Notes__:

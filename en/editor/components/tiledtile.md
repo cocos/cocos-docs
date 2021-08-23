@@ -24,9 +24,9 @@ There are two ways to set up a map block in code. When setting the TiledTile in 
 // Create a new node
 const node = new Node();
 // then set the node's parent to any layer node
-node.parent = this.layer.node;  
+node.parent = this.layer.node;
 // Finally add the TiledTile component to the node and return the TiledTile object, which allows you to perform a series of operations on the TiledTile object
-const tiledTile = node.addComponent(TiledTile);  
+const tiledTile = node.addComponent(TiledTile);
 ```
 
 #### Get TiledTile by getTiledTileAt

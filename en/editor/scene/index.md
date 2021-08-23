@@ -25,9 +25,45 @@ In 2D view, the view of the **Scene** panel can be moved and positioned by the f
 - Right mouse button: pans the view.
 - **F** Shortcut: focus the camera on the currently selected node.
 
-## Coordinate System and Grid
+## Scene settings
 
-The grid in the scene is an important reference information for the position of the scene elements when we place them. For the relationship between the coordinate system and the position and other node properties, please read the [Coordinate System and Node Transformation](../../concepts/scene/coord.md) documentation.
+The options in the upper right corner of the **Scene** panel can be used to set the scene grid, scene camera properties, etc. Please refer to the following description for details.
+
+### Grid settings
+
+The grid in the scene is an important reference for the position of the scene elements when we place them, and can be set via the button on the top right of the **Scene** panel.
+
+![Gizmo](images/scene-grid.png)
+
+| Option | Description |
+| :-- | :-- |
+| 3D Icons | Whether to enable the 3D icon for the scene, the input box after it is used to set the size of the icon gizmo, the value range is 0 ~ 8.<br>If this option is checked, the 3D icon will be enabled and the icon gizmo in the **Scene** panel will be a 3D slice with a foreshortening effect.<br>If this option is unchecked, the icon gizmo will be displayed as a fixed size image. |
+| Show Grid | Whether to display the grid in the **Scene** panel, with the color setting box behind it used to set the color of the grid. |
+
+### Scene camera settings (New in v3.0.1)
+
+Click the ![set camera](images/set-camera.png) button in the upper-right corner of the **Scene** panel to set the properties of the scene camera (not the user-created camera):
+
+![scene camera](images/scene-camera.png)
+
+| Option | Description |
+| :-- | :-- |
+| Fov | Set the field of view of the scene camera. |
+| Far | Set the far clipping distance of the scene camera. |
+| Near  | Set the near clipping distance of the scene camera. |
+| Color | Set the scene background color. |
+| Wheel Speed  | Set the speed at which the scene camera moves back and forth when the mouse wheel is scrolled. |
+| Wander Speed | Set the movement speed when the scene camera is roaming. |
+
+### Render target resolution settings
+
+The render output target resolution of the scene camera can be selected in the upper right corner of the **Scene** panel as needed, which will affect the visual range of the scene camera, and facilitate a similar display to the resolution selected in the final preview:
+
+![scene resolution](images/scene-resolution.png)
+
+Resolutions can be added/modified/deleted in [Device manager](../preferences/index.md#device-manager) of the **Preferences** on the top menu bar.
+
+For descriptions about the visual range of the camera, please refer to the [Camera component](../components/camera-component.md) documentation.
 
 ## Scene Gizmo
 

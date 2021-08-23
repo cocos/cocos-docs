@@ -12,7 +12,7 @@ Welcome to the __Cocos Creator 3.2__ user manual! This manual includes detailed 
 - [Cross-platform Game Publish](editor/publish/index.md)
 - [Engine Features Map Guide](module-map/index.md)
     - [Graphics Rendering](module-map/graphics.md)
-    - [Animation](engine/animation/index.md)
+    - [Animation](animation/index.md)
     - [Audio](audio-system/overview.md)
     - [Physics](physics/physics.md)
     - [Components](editor/components/index.md)

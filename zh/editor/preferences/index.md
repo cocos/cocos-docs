@@ -62,7 +62,7 @@
 
 - **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)）克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定为定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
-- **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `cocos2d-x` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
+- **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `engine-naive` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
 
 - **自定义原生引擎路径**：取消上一项 **使用内置原生引擎** 的选择后，就可以手动指定原生引擎路径了。注意这里使用的原生引擎必须从 **engine-native**（[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)）或该仓库的 fork 下载。
 

@@ -30,12 +30,12 @@ Texture2D 是纹理资源的一种，通常用于 3D 模型的渲染，如模型
 
 属性 | 解释
 ---|---
-**anisotropy** | 各项异性值
-**minFilter** | 缩小过滤算法
-**magFilter** | 放大过滤算法
-**mipFilter** | 多级纹理过滤算法
-**wrapS** | S（U）方向纹理寻址模式
-**wrapT** | T（V）方向纹理寻址模式
+**Anisotropy** | 各项异性值
+**Min Filter** | 缩小过滤算法
+**Mag Filter** | 放大过滤算法
+**Mip Filter** | 多级纹理过滤算法
+**Wrap Mode S** | S（U）方向纹理寻址模式
+**Wrap Mode T** | T（V）方向纹理寻址模式
 
 ### 使用 Texture2D
 

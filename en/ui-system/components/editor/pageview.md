@@ -10,7 +10,7 @@ To use `PageView`, please refer to the [PageView API](__APIDOC__/en/classes/ui.p
 
 ## PageView Properties
 
-| Properties               | Function Description |
+| Property                 | Function Description |
 | --------------           | ----------- |
 | *AutoPageTurningThreshold* | Auto page turning velocity threshold. When users swipe the __PageView__ quickly, it will calculate a velocity based on the scroll distance and time, if the calculated velocity is larger than the threshold, then it will trigger page turning  |
 | *Bounce Duration*          | The elapse time of bouncing back. The value range is 0 ~ 10, and when the value is 0, it will bounce back immediately |
@@ -36,7 +36,7 @@ The association can be done by dragging a node with a __PageViewIndicator__ comp
 
 ![pageview-event](./pageview/pageview-event.png)
 
-| Properties      | Function Description |
+| Property      | Function Description |
 | --------------  | ----------- |
 | *Target*          | Node with script component |
 | *Component*       | Script component name |
