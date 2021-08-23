@@ -16,7 +16,7 @@ Cocos Creator 内置了通用的动画系统用以实现基于关键帧的动画
         - [编辑动画剪辑](edit-animation-clip.md)
         - [编辑动画缓动曲线](animation-curve.md)
         - [添加动画事件](animation-event.md)
-        - [使用动画曲线](use-animation-curve.md)
+        - [程序化编辑动画剪辑](use-animation-curve.md)
 
     - [骨骼动画](skeletal-animation.md)：常见但类型特殊的动画，本篇主要对其进行介绍及说明用法。
         - [骨骼动画贴图布局设置](joint-texture-layout.md)
