@@ -16,7 +16,7 @@ The __Camera Component__ is an important functional component that we use to pre
 
 ![camera component](camera/camera-component.png)
 
-| Parameter | Description |
+| Property | Description |
 |:-------|:---|
 | __Priority__ | Render priority of the camera. High-priority __Camera__'s will be rendered first in the rendering process |
 | __Visibility__ | The `Visibility` of the __Camera__. Used to control the `Visibility` of different models in the same __Camera__. |

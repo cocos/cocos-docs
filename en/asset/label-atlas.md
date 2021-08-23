@@ -16,7 +16,7 @@ Before using the **LabelAtlas** asset, it needs some configuration. Configure a 
 
 After selecting a **LabelAtlas** asset in the **Assets** panel, the **Inspector** panel will display all configurable properties for the **LabelAtlas** asset.
 
-| Properties       | Description
+| Property       | Description
 | :--------------   | :-----------
 | **SpriteFrame**      | Specify a pre-drawn picture that contains the font style you want
 | **Item Width**       | Specify the width of each character

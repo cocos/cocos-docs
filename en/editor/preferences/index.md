@@ -58,7 +58,7 @@ The **Engine Manager** tab is used to configure the engine path when customizing
 
 - **Custom TypeScript engine path**: in addition to using your own engine, an engine can also be cloned from the [engine repository](https://github.com/cocos-creator/engine/) or forked to any local location for customization, uncheck **Use built-in TypeScript engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
 
-- **Use built-in native engine**: whether to use the `cocos2d-x` path that comes with the Cocos Creator installation path as the native engine path. This engine is used to build and compile projects for all native platforms (iOS, Android, Mac, Windows) when building.
+- **Use built-in native engine**: whether to use the `engine-naive` path that comes with the Cocos Creator installation path as the native engine path. This engine is used to build and compile projects for all native platforms (iOS, Android, Mac, Windows) when building.
 
 - **Custom native engine path**: after unchecking the previous item **Use built-in native engine**, the native engine path can be specified manually.
 

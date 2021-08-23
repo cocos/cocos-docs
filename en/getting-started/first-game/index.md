@@ -219,7 +219,7 @@ For additional details please refer to the [Project Preview Debugging](../../edi
 
 The `Player` can be moved in a horizontal direction. This is a start, but not good enough. `Player` must become more life-like. This effect can be achieved by adding a vertical animation to the character.
 
-> **Note**: before proceeding, please read the [Animation Editor](../../editor/animation/index.md) documentation.
+> **Note**: before proceeding, please read the [Animation Editor](../../animation/index.md) documentation.
 
 After reading and understanding the capabilities of the __Animation Editor__ character animations can be implemented!
 

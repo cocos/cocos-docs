@@ -35,6 +35,6 @@ The following attributes cannot be used with the `get` method.
 | default | Define the default value of an attribute | (Any) | undefined | See [default attribute](../ccclass.md#default-parameter) |
 | notify | Trigger the specified method when the property is assigned a value | `function (oldValue) {}` | undefined | The `default` attribute needs to be set and its value cannot be an array.<br> Not support ES6 definitions |
 | override | Define this parameter as true when overriding parent properties | boolean | false | See [override parameter](../ccclass.md#override-parameters) |
-| animatable | Whether this property can be modified by the animation editor | boolean | undefined | - |
+| animatable | Whether this property can be modified by the **Animation** panel | boolean | undefined | - |
 
 > <b id="f1">[1]</b>: The default value of visible depends on the property name. When the property name starts with an underscore `_`, it is hidden by default, otherwise it is shown by default.

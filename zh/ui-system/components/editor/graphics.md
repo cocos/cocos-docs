@@ -19,7 +19,7 @@ Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/classes/ui.graphics-
 | [LineJoin](graphics/lineJoin.md)             | 设置或返回两条线相交时，所创建的拐角类型 |
 | [MiterLimit](graphics/miterLimit.md)         | 设置或返回最大斜接长度 |
 | [StrokeColor](graphics/strokeColor.md)       | 设置或返回笔触的颜色 |
-| [LineWidth](../render/graphics/lineWidth.md) | 设置或返回当前的线条宽度 |
+| [LineWidth](graphics/lineWidth.md)           | 设置或返回当前的线条宽度 |
 
 ## 绘图接口
 
@@ -42,7 +42,7 @@ Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/classes/ui.graphics-
 
 ### 通过脚本代码设置绘制图案
 
-``` ts
+```ts
 import { _decorator, Component, Graphics } from 'cc';
 const { ccclass, property } = _decorator;
 

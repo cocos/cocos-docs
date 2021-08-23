@@ -5,7 +5,7 @@
 - [Publish to ByteDance Mini Games](publish-bytedance-mini-game.md)
 - [Publish to QTT Mini Games](publish-qtt.md)
 - [Publish to Cocos Play](publish-cocos-play.md)
-- [Publish to Huawei Quick Games](publish-huawei-mini-game.md)
+- [Publish to Huawei Quick Games](publish-huawei-quick-game.md)
 - [Publish to OPPO Mini Games](publish-oppo-mini-game.md)
 - [Publish to vivo Mini Games](publish-vivo-mini-game.md)
 - [Publish to Xiaomi Quick Games](publish-xiaomi-quick-game.md)
@@ -15,3 +15,4 @@
     - [WeChat Engine Plugin](wechatgame-plugin.md)
     - [Access to the WeChat PC Mini Games](publish-pc-wechatgame.md)
 - [Open Data Context](build-open-data-context.md)
+- [Mini Game Subpackage](subpackage.md)

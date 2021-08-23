@@ -2,10 +2,7 @@
 
 ## cc 类
 
-将装饰器 [ccclass](#ccclass) 应用在类上时，此类称为 cc 类。<br>
-cc 类注入了额外的信息以控制 Cocos Creator 3.0 对该类对象的序列化、编辑器对该类对象的展示等。因此，未声明 `ccclass` 的组件类，也无法作为组件添加到节点上。
-
-### ccclass
+将装饰器 [ccclass](#ccclass) 应用在类上时，此类称为 cc 类。cc 类注入了额外的信息以控制 Cocos Creator 3.0 对该类对象的序列化、编辑器对该类对象的展示等。因此，未声明 `ccclass` 的组件类，也无法作为组件添加到节点上。
 
 cc 类的各种特性是通过 `ccclass(name)` 的参数来指定的。
 
@@ -14,6 +11,101 @@ cc 类的各种特性是通过 `ccclass(name)` 的参数来指定的。
 - 序列化。若对象是 cc 类对象，则在序列化时将记录该对象的 cc 类名，反序列化时将根据此名称找到相应的 cc 类进行序列化。
 
 - 当 cc 类是组件类时，`Node` 可以通过组件类的 cc 类名查找该组件。
+
+```ts
+@ccclass('Example')
+export class Example extends Component {
+}
+```
+
+## 编辑器参数
+
+此类参数是只能定义在 cc.Component 的子类。
+
+### executeInEditMode
+
+默认情况下，所有组件都只会在运行时执行，也就是说它们的生命周期回调在编辑器模式下并不会触发。`executeInEditMode` 允许当前组件在编辑器模式下运行，初始值为 `false`。
+
+```ts
+const { ccclass, executeInEditMode } = _decorator;
+
+@ccclass('Example')
+@executeInEditMode(true)
+export class Example extends Component {
+}
+```
+
+### requireComponent
+
+`requireComponent` 参数用来指定当前组件的依赖组件，默认值为 `null`。当组件添加到节点上时，如果依赖的组件不存在，引擎会自动将依赖组件添加到同一个节点，防止脚本出错。该选项在运行时同样有效。
+
+```ts
+const { ccclass, requireComponent } = _decorator;
+
+@ccclass('Example')
+@requireComponent(Sprite)
+export class Example extends Component {
+}
+```
+
+### executionOrder
+
+`executionOrder` 用来指定脚本生命周期回调的执行优先级。小于 0 的脚本将优先执行，大于 0 的脚本将最后执行。排序方式如下：
+- 对于同一节点上的不同组件，数值小的先执行，数值相同的按组件添加先后顺序执行
+- 对于不同节点上的同一组件，按节点树排列决定执行的先后顺序
+- 针对所有节点树上的节点，在节点和组件都激活的情况下，数值越小，越先执行
+
+该优先级设定只对 `onLoad`、`onEnable`、`start`、`update` 和 `lateUpdate` 有效，对 `onDisable` 和 `onDestroy` 无效。
+
+```ts
+const { ccclass, executionOrder } = _decorator;
+
+@ccclass('Example')
+@executionOrder(3)
+export class Example extends Component {
+}
+```
+
+### disallowMultiple
+
+同一节点上只允许添加一个同类型（含子类）的组件，防止逻辑发生冲突，默认值为 false。
+
+```ts
+const { ccclass, disallowMultiple } = _decorator;
+
+@ccclass('Example')
+@disallowMultiple(true)
+export class Example extends Component {
+}
+```
+
+### menu
+
+`menu(path)` 用来将当前组件添加到组件菜单中，方便用户查找。
+
+```ts
+const { ccclass, menu } = _decorator;
+
+@ccclass('Example')
+@menu('foo/bar')
+export class Example extends Component {
+}
+```
+
+![menu](./menu.png)
+
+### help
+
+指定当前组件的帮助文档的 `url`。设置完成后，在 **属性检查器** 中就会出现一个帮助图标，点击即可打开指定的网页。
+
+```ts
+const { ccclass, help } = _decorator;
+
+@ccclass('Example')
+@help('https://docs.cocos.com/creator/3.0/manual/zh/scripting/decorator.html')
+export class Example extends Component {
+}
+```
 
 ## cc 属性
 
@@ -92,12 +184,12 @@ class MyClass {
     // 声明属性 children 的 cc 类型为 Node 数组
     @property({
         type: [Node]
-    }) 
+    })
     children: Node[] = [];
 
     @property({
         type: String,
-    }) // 警告：不应该使用构造函数 String。等价于 CCString。也可以选择不声明类型                
+    }) // 警告：不应该使用构造函数 String。等价于 CCString。也可以选择不声明类型
     text = '';
 
     @property
@@ -130,7 +222,7 @@ class MyClass {
     @type([Node]) // 声明属性 children 的 cc 类型为 Node 数组
     children: Node[] = [];
 
-    @type(String) // 警告：不应该使用构造函数 String。等价于 CCString。也可以选择不声明类型                
+    @type(String) // 警告：不应该使用构造函数 String。等价于 CCString。也可以选择不声明类型
     text = '';
     // Javascript 原始类型 `number`、`string`、`boolean` 通常可以不用声明
     // 可以直接写
