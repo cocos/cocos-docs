@@ -14,6 +14,8 @@
 **DampingRatio**  | 阻尼，表示关节变形后，恢复到初始状态受到的阻力。
 **MaxForce**  | 最大阻力值。
 
+![mouse](../image/mouse.gif)
+
 具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `mouse-joint` 场景。
 
 MouseJoint2D 接口相关请参考 [MouseJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.mousejoint2d.html)。

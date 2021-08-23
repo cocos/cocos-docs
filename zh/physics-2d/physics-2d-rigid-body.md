@@ -62,7 +62,8 @@ rigidbody.linearDamping = damping;
 
 ```ts
 // 获取刚体上指定点的线性速度
-const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
+let velocity = new Vec2();
+rigidbody.getLinearVelocityFromWorldPoint(worldPoint,velocity);
 ```
 
 或者传入一个 `cc.Vec2` 对象作为第二个参数来接收返回值，这样你可以使用你的缓存对象来接收这个值，避免创建过多的对象来提高效率。
@@ -70,7 +71,7 @@ const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 **刚体的 get 方法都提供了 out 参数来接收函数返回值。**
 
 ```ts
-const velocity = new Vec2();
+let velocity = new Vec2();
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint, velocity);
 ```
 
@@ -152,33 +153,25 @@ Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **
 
 ```ts
 // 世界坐标转换到本地坐标
-let localPoint = rigidbody.getLocalPoint(worldPoint);
-// 或者
-localPoint = new Vec2();
+let localPoint = new Vec2();
 rigidbody.getLocalPoint(worldPoint, localPoint);
 ```
 
 ```ts
 // 本地坐标转换到世界坐标
-let worldPoint = rigidbody.getWorldPoint(localPoint);
-// 或者
-worldPoint = new Vec2();
+let worldPoint = new Vec2();
 rigidbody.getLocalPoint(localPoint, worldPoint);
 ```
 
 ```ts
 // 本地向量转换为世界向量
-let worldVector = rigidbody.getWorldVector(localVector);
-// 或者
-worldVector = new Vec2();
+let worldVector = new Vec2();
 rigidbody.getWorldVector(localVector, worldVector);
 ```
 
 ```ts
 // 世界向量转换为本地向量
-let localVector = rigidbody.getLocalVector(worldVector);
-// 或者
-localVector = new Vec2();
+let localVector = new Vec2();
 rigidbody.getLocalVector(worldVector, localVector);
 ```
 
@@ -188,14 +181,16 @@ rigidbody.getLocalVector(worldVector, localVector);
 
 ```ts
 // 获取本地坐标系下刚体的质心
-let localCenter = rigidbody.getLocalCenter();
+let localCenter = new Vec2();
+rigidbody.getLocalCenter(localCenter);
 
 // 或者通过参数来接收返回值
 localCenter = new Vec2();
 rigidbody.getLocalCenter(localCenter);
 
 // 获取世界坐标系下的刚体质心
-let worldCenter = rigidbody.getWorldCenter();
+let worldCenter =  new Vec2();
+rigidbody.getWorldCenter(worldCenter);
 
 // 或者通过参数来接收返回值
 worldCenter = new Vec2();
@@ -211,23 +206,23 @@ rigidbody.getWorldCenter(worldCenter);
 
 ```ts
 // 施加一个力到刚体上指定的点，这个点是世界坐标系下的一个点
-rigidbody.applyForce(force, point);
+rigidbody.applyForce(force, point,true);
 
 // 或者直接施加力到刚体的质心上
-rigidbody.applyForceToCenter(force);
+rigidbody.applyForceToCenter(force,true);
 
 // 施加一个冲量到刚体上指定的点，这个点是世界坐标系下的一个点
-rigidbody.applyLinearImpulse(impulse, point);
+rigidbody.applyLinearImpulse(impulse, point,true);
 ```
 
 力与冲量也可以只对旋转轴产生影响，这样的力叫做扭矩。
 
 ```ts
 // 施加扭矩到刚体上，因为只影响旋转轴，所以不再需要指定一个点
-rigidbody.applyTorque(torque);
+rigidbody.applyTorque(torque,true);
 
 // 施加旋转轴上的冲量到刚体上
-rigidbody.applyAngularImpulse(impulse);
+rigidbody.applyAngularImpulse(impulse,true);
 ```
 
 ### 其他
@@ -236,5 +231,6 @@ rigidbody.applyAngularImpulse(impulse);
 
 ```ts
 // 获取刚体上指定点的线性速度
-rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
+let linear = new Vec2(); 
+rigidbody.getLinearVelocityFromWorldPoint(worldPoint,linear);
 ```

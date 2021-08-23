@@ -27,15 +27,24 @@ PhysicsSystem2D.instance.enable = true;
 
 ```ts
 PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb |
-    EPhysics2DDrawFlags.Pair |
-    EPhysics2DDrawFlags.CenterOfMass |
-    EPhysics2DDrawFlags.Joint |
-    EPhysics2DDrawFlags.Shape;
+  EPhysics2DDrawFlags.Pair |
+  EPhysics2DDrawFlags.CenterOfMass |
+  EPhysics2DDrawFlags.Controller |
+  EPhysics2DDrawFlags.Joint |
+  EPhysics2DDrawFlags.All |
+  EPhysics2DDrawFlags.Particle |
+  EPhysics2DDrawFlags.Shape;
 ```
 
 > **注意**：场景内必须要有一个节点下挂载着 `cc.RigidBody2D` 和 `Collider2D`。否则进行绘制物理调试信息会报错。
 
-设置绘制标志位为 **EPhysics2DDrawFlags.None**，即可以关闭绘制。
+如果需要 **全部绘制信息** 的话 可以设置：
+
+```ts
+PhysicsSystem2D.instance.debugDrawFlags =  EPhysics2DDrawFlags.All；
+```
+
+设置绘制标志位为 **EPhysics2DDrawFlags.None**，即可以 **关闭绘制**。
 
 ```ts
 PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;

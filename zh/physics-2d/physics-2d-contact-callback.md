@@ -157,9 +157,11 @@ const normal = worldManifold.normal;
   那么最短的方式将会是把三角形往右上推，所以使用法向量来作为碰撞角度不是一个好主意。如果想要知道碰撞的真正方向，可以使用以下方式获取两个碰撞体相互碰撞时在碰撞点上的相对速度。
 
   ```ts
-  const vel1 = triangleBody.getLinearVelocityFromWorldPoint(worldManifold.points[0]);
-  const vel2 = squareBody.getLinearVelocityFromWorldPoint(worldManifold.points[0]);
-  const relativeVelocity = vel1.sub(vel2);
+  let vel1 = new Vec2();
+  triangleBody.getLinearVelocityFromWorldPoint(worldManifold.points[0],vel1);
+  let vel2 =  new Vec2();
+  squareBody.getLinearVelocityFromWorldPoint(worldManifold.points[0],vel2);
+  const relativeVelocity = vel1.subtract(vel2);
   ```
 
 ### 禁用 contact

@@ -19,6 +19,8 @@
 
 通过开启 `EnableMotor` 属性可以获得动力进行滚动。
 
+![wheelJoint](../image/wheelJoint.gif)
+
 具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `wheel-joint` 场景。
 
 WheelJoint2D 接口相关请参考 [WheelJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.wheeljoint2d.html)。
