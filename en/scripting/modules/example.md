@@ -194,7 +194,7 @@ Here it is still important to state that if anyone gets an error when importing,
     `);
     ```
 
-    Replace the original ``build-proto:pbts`` command with the following:
+    Replace the original `build-proto:pbts` command with the following:
 
     ```json
     "build-proto:pbts": "pbts --main --out ./Proto.js/proto.d.ts ./Proto.js/*.js && node ./Tools/wrap-pbts-result.js"
