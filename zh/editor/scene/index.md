@@ -45,6 +45,31 @@
 
 ![scene light off](images/light-off.png)
 
+## 场景相机设置
+**场景编辑器** 上方的 ![Scene Camera Config](images/scene-camera-config-icon.png) 按钮可以打开用于设置场景相机参数的面板。
+
+![Scene Camera Config Panel](images/scene-camera-config-panel.png)
+
+| 名称 | 功能说明 |
+| :-- | :-- |
+| Fov | 设置相机的Fov|
+| Far | 设置相机的远裁剪面距离|
+| Near | 设置相机的近裁剪面距离|
+| Color | 设置场景背景色|
+| Wheel Speed | 设置鼠标滚轮滚动时，相机前后移动的速度|
+| Wander Speed | 设置相机漫游时的移动速度|
+| Wander Acceleration | 设置相机漫游时是否开启加速，如果开启加速，相机移动将会越来越快，否则相机会匀速移动|
+
+## 场景设置
+**场景编辑器** 上方的 ![Scene Config](images/scene-config.png) 按钮可以打开用于设置场景相关参数的面板。
+
+![Scene Config Panel](images/scene-config-panel.png)
+
+| 名称 | 功能说明 |
+| :-- | :-- |
+| 3DIcons | 是否启用3DIcon，启用时，场景中的IconGizmo会是一个3D面片，即会有近大远小的效果，否则IconGizmo会显示为一个固定大小的图片。后面的输入框可以调整IconGizmo的大小|
+| ShowGrid | 是否显示场景中的网格，后面的颜色设置框可以设置网格的颜色|
+
 ## 场景 Gizmo
 
 场景 Gizmo 在场景视图的右上角，它显示了当前场景相机的观察方向，可以通过点击它来快速切换不同的观察角度。

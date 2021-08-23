@@ -45,6 +45,31 @@ At this point, the button can be switched to white, indicating that not using th
 
 ![scene light off](images/light-off.png)
 
+## Scene Camera Configuration
+The![Scene Camera Config](images/scene-camera-config-icon.png) button above the **Scene** panel is used to open the Scene Camera Configuration Panel.
+
+![Scene Camera Config Panel](images/scene-camera-config-panel.png)
+
+| Name | Description |
+| :-- | :-- |
+| Fov | Set the Fov of camera |
+| Far | Set the distance of far clip panel |
+| Near | set the distance of near clip panel |
+| Color | Set the background color of scene |
+| Wheel Speed | Set the move speed of camera when scrolling mouse wheel |
+| Wander Speed | Set the move speed of camera in Wander Mode|
+| Wander Acceleration | Whether to enable acceleration in Wander Mode. If enable, the camera will moving faster along time, otherwise the camera will move in a constant speed.|
+
+## Scene Configuration
+The![Scene Config](images/scene-config.png) button above the **Scene** panel is used to open the Scene Configuration Panel.
+
+![Scene Config Panel](images/scene-config-panel.png)
+
+| Name | Description |
+| :-- | :-- |
+| 3DIcons | Whether to enable 3DIcons. If enabled, the image of IconGizmo will show as a 3D billboard, otherwise the image will show in constant size. You can modify the size of icon in the number input field|
+| ShowGrid | Whether to show grid in the scene. You can set the color of the grid.|
+
 ## Scene Gizmo
 
 The Scene Gizmo is in the upper right corner of the scene view. It shows the current viewing direction of the scene camera and can be clicked to quickly switch between different viewing angles.
