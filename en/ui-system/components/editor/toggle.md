@@ -10,7 +10,7 @@ To use `Toggle`, please refer to the [Toggle API](__APIDOC__/en/classes/ui.toggl
 
 ## Toggle Properties
 
-| Properties     | Function Explanation |
+| Property     | Function Explanation |
 | -------------- | -----------   |
 | IsChecked      | Boolean type. When set to true, enable the check mark component |
 | CheckMark      | Sprite type. The image displayed when Toggle is selected |
