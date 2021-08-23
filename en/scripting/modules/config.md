@@ -1,4 +1,4 @@
-## How to Get npm Packages
+# How to Get npm Packages
 
 ## Installing Node.js
 
