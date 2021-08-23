@@ -212,7 +212,7 @@ Similar to [Case 1: protobufjs use](# Case 1: protobufjs-use), install the `loda
 import { array, add } from 'lodash-es';
 ```
 
-At this point, notice that an error is reported at the code level, but it actually works. This is because there is a clear distinction between JavaScript, which is dynamically typed, and TypeScript, which is statically typed, this means there is no way to know the exact type of the exported module when using JavaScript, and the best thing to do is to declare a type definition file `.d.ts`. Fortunately, but when hovering over the error, there is a hint `The type declaration file for the ``lodash`` module can be installed by running ``npm i --save-dev @types/lodash-es```. After installation, restart VS Code and notice the error message disappears, along with the code hint.
+At this point, notice that an error is reported at the code level, but it actually works. This is because there is a clear distinction between JavaScript, which is dynamically typed, and TypeScript, which is statically typed, this means there is no way to know the exact type of the exported module when using JavaScript, and the best thing to do is to declare a type definition file `.d.ts`. Fortunately, when hovering over the error, it will prompt that the type declaration file for the `lodash` module can be installed by running `npm i --save-dev @types/lodash-es`. After installation, restart VS Code and notice the error message disappears, along with the code hint.
 
 ### Case 4: Using web3
 
