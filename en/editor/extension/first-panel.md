@@ -1,6 +1,6 @@
 # First Panel
 
-The [First Extension](./first.md) documentation describes how to create one of the simplest extensions. Next we will continue in this document to learn how to create and communicate with a panel.
+The [First Extension](./first.md) documentation describes how to create one of the simplest extensions. Next, this document will help to learn how to create and communicate with a panel.
 
 ## Define the panel inside the description file package.json
 
@@ -46,7 +46,7 @@ The meaning of the panel field can be found in the [Extension Panel](./panel.md)
 
 ### Add panels/default.js panel file
 
-In the previous step we defined the entry in the panel data as `panels/default.js` file, which needs to be newly created as follows:
+In the previous step the entry was defined in the panel data as `panels/default.js` file, which needs to be newly created as follows:
 
 ```javascript
 'use strict';
@@ -108,6 +108,6 @@ Editor.Panel.open('hello-world.simple');
 
 ## Refresh extensions
 
-Once the above changes are done and saved, open Cocos Creator again, find and open **Extensions -> Extension Manager** in the top menu bar, and select the extension location (**Global** or **Project**) in the panel. Then find the corresponding extension and click the Refresh button, Creator will reload the extension content to make it effective.
+Once the above changes are done and saved, open Cocos Creator again, find and open **Extensions -> Extension Manager** in the top menu bar, and select the extension location (**Global** or **Project**) in the panel. Find the corresponding extension and click the Refresh button, Creator will reload the extension content to make it effective.
 
-Then the new **Open Hello World** button will appear in the top menu bar under **Panels -> Custom**, click it to open the first panel we created.
+Lastly, the new **Open Hello World** button will appear in the top menu bar under **Panels -> Custom**, click it to open the first panel that was created.

@@ -1,10 +1,10 @@
 # First Data Interaction
 
-We covered how to create extensions and how to define panels in extensions in the previous two documents **First Extension** and **First Panel**, next we will try to communicate between them with this document.
+Creating extensions and how to define panels in extensions was covered in the previous two documents, **First Extension** and **First Panel**, the next step is to communicate between them. This document will help teach this concept.
 
 ## Define the message inside the description file package.json
 
-First we need to add a message `"increasing"` to the browser in `contributions.messages`. Then add a `"hello-world:increasing"` message for the default panel to handle.
+First, add a message **"increasing"** to the browser in `contributions.messages`. Next, add a **"hello-world:increasing"** message to the default panel to handle/respond to.
 
 ```json
 {
@@ -53,11 +53,11 @@ First we need to add a message `"increasing"` to the browser in `contributions.m
 
 `hello-world:increasing` means listening for an increasing message on hello-world. `default.increasing` means that the default panel's `increasing` method will handle it.
 
-The meaning of the panel field can be found in [Creating A Custom Panel](./panel-boot.md).
+The meaning of the panel field can be found in the [Creating A Custom Panel](./panel-boot.md) documentation.
 
 ### Add increasing in browser.js
 
-Then you need to add a new `increasing` method to `methods` in `browser.js`, which is responsible for recording a `num` and incrementing it and broadcasting it each time it is triggered.
+Next, add a new `increasing` method to `methods` in `browser.js`, which is responsible for recording a `num` and incrementing it, and broadcasting it each time it is triggered.
 
 ```javascript
 'use strict';
@@ -134,6 +134,6 @@ exports.close = function() {};
 
 ## Refresh extensions
 
-Once the above changes are done and saved, open Cocos Creator again, find and open **Extensions -> Extension Manager** in the top menu bar, and select the extension location (**Global** or **Project**) in the panel. Then find the corresponding extension and click the Refresh button, Creator will reload the extension content to make it effective.
+Once the above changes are done and saved, open Cocos Creator again, find and open **Extensions -> Extension Manager** in the top menu bar, and select the extension location (**Global** or **Project**) in the panel. Find the corresponding extension and click the **Refresh** button, Creator will reload the extension to make it effective.
 
-Then the new **Open Hello World** option will appear in the **Panel -> Custom** on the top menu bar, click it to open it.
+Lastly, the new **Open Hello World** option will appear in the **Panel -> Custom** on the top menu bar, click it to open it.
