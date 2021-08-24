@@ -24,7 +24,7 @@ Cocos Creator 目前支持发布游戏到 Web、iOS、Android、Windows、Mac，
     - [发布到字节跳动小游戏](publish-bytedance-mini-game.md)
     - [发布到趣头条小游戏](publish-qtt.md)
     - [发布到 Cocos Play](publish-cocos-play.md)
-    - [发布到华为快游戏](publish-huawei-mini-game.md)
+    - [发布到华为快游戏](publish-huawei-quick-game.md)
     - [发布到 OPPO 小游戏](publish-oppo-mini-game.md)
     - [发布到 vivo 小游戏](publish-vivo-mini-game.md)
     - [发布到小米快游戏](publish-xiaomi-quick-game.md)

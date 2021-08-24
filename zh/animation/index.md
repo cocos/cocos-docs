@@ -17,10 +17,10 @@ Cocos Creator 内置了通用的动画系统用以实现基于关键帧的动画
             - [关键帧编辑视图](animation-keyFrames.md)
             - [曲线编辑视图](animation-curve.md)
         - [添加动画事件](animation-event.md)
-        - [使用动画曲线](use-animation-curve.md)
+        - [程序化编辑动画剪辑](use-animation-curve.md)
 
     - [骨骼动画](skeletal-animation.md)：常见但类型特殊的动画，本篇主要对其进行介绍及说明用法。
-        - [骨骼动画贴图布局设置](joint-texture-layout.md)
+        - [骨骼贴图布局设置](joint-texture-layout.md)
 
 - [动画组件](animation-component.md)：动画组件管理了一组动画状态，用于控制各动画的播放、暂停、继续、停止、切换等。
     - [动画状态](animation-state.md)（Animation State）：动画剪辑的状态保存在称为动画状态的对象中，动画状态可以控制需要在对象上使用的动画剪辑。动画状态提供了更多动画控制接口，通过这些接口可以对动画进行播放、停止、变速、设置循环模式等更为细致的控制。

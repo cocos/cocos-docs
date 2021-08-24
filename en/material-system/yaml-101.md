@@ -92,7 +92,7 @@ Another YAML feature that comes in handy is referencing and inheriting between d
   }
   ```
 
-- ** Inheritance**
+- **Inheritance**
 
   ```yaml
   object1: &o1

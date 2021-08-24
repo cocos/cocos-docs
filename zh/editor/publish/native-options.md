@@ -21,19 +21,9 @@
 
 ![Native 选项](publish-native/native-options.png)
 
-#### 选择源码模板（Template）
+#### 资源服务器地址
 
-从 Cocos Creator 3.0 开始，为了体验一致，**模板 (Template)** 中可使用的引擎模板为 **Link**，移除了原先的 **Default** 模板。
-
-Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用的空间，并且对 Cocos2d-x 源码的修改也可以得到共享。
-
-> **关于源码引擎**
->
-> Cocos2d-x 引擎中包括了源码引擎，它们适用的范围是：
-> 1. 源码引擎初次构建和编译某个工程时需要很长的时间编译 C++ 代码，视电脑配置而定，这个时间可能在 5~20 分钟。对于同一个项目，已经编译过一次之后，下次再编译需要的时间会大大缩短。
-> 2. 源码引擎构建出的工程，使用原生开发环境编译和运行（如 Android Studio、Xcode 等 IDE），是可以进行调试和错误捕获的。
-
-目前 Cocos Creator 安装目录下的 `resources\3d\cocos2d-x-lite` 文件夹中已经包含了自带的 Cocos2d-x 源码引擎。若需要自定义引擎，详情请参考 [引擎定制工作流程](../../advanced-topics/engine-customization.md)。
+当包体过大时，可将资源上传到资源服务器，通过网络请求下载。该项用于填写资源存放在远程服务器上的地址，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情可参考 [上传资源到远程服务器](../../asset/cache-manager.md)
 
 #### Polyfills
 
@@ -117,27 +107,23 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 
 #### 生成 App Bundle（Google Play）
 
-勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/) 。
+勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/)。
 
 ### Windows 平台构建选项
 
-Windows 平台的构建选项目前只有一个 **渲染后端**，包括 **VULKAN**、**GLES3** 和 **GLES2** 三种类型，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
-
-<!-- Windows 平台的构建选项包括 **渲染后端** 和 **生成平台**。-->
+Windows 平台的构建选项包括 **渲染后端** 和 **生成平台**。
 
 ![Windows build options](publish-native/windows-options.png)
 
-<!--
 #### 渲染后端（Render BackEnd）
 
 **渲染后端** 目前支持 **VULKAN**、**GLES3** 和 **GLES2** 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
 
 #### 生成平台
 
-设置编译架构，目前支持 **win32** 和 **x64** 两种。
-- 若选择 **win32**，则可以在两种架构上运行。
+设置编译架构，目前支持 **x64** 和 **win32** 两种。
 - 若选择 **x64**，则只能在 **x64** 架构上运行。
--->
+- 若选择 **win32**，则可以在两种架构上运行。
 
 ### iOS 平台构建选项
 
@@ -157,7 +143,7 @@ iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向**、**目
 
 #### 渲染后端
 
-目前支持 **METAL** 和 **GLES3** 两种，默认勾选 **METAL**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
+**渲染后端** 目前支持 **METAL**，详情可参考官方文档 [Metal](https://developer.apple.com/cn/metal/)。
 
 #### 开发者
 

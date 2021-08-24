@@ -22,19 +22,9 @@ When you select the native platform you want to build in the **Platform** option
 
 ![native options](publish-native/native-options.png)
 
-#### Template
+#### Resource Server Address
 
-Starting with Cocos Creator 3.0, the engine template available in **Template** is **Link** for a consistent experience, removing the original **Default** template.
-
-The **Link** template does not copy the **Cocos2d-x** source-code to the `build` directory. Instead, the shared **Cocos2d-x** source-code is used. This can effectively reduce the footprint of the `build` directory, and modifications to the **Cocos2d-x** source-code can also be shared.
-
-> **About Source Engine**
->
-> The Cocos2d-x engine includes the source code engine. The scope of application is:
-> - The first time the source code engine builds and compiles a project, it takes a long time to compile C++ code, depending on the configuration of the computer, which may take 5~20 minutes. After the same project has been compiled once, the time required for the next recompile is greatly shortened.
-> - The projects built by the source code engine, compiled and run using native development environment (such as Android Studio, Xcode, etc. IDE), and also can be debugged and error trapped.
-
-Currently, the Cocos Creator installation directory already includes Cocos2d-x source code engine in the `resources\3d\cocos2d-x-lite` folder. To customize the engine, please refer to the [Engine Customization Workflow](../../advanced-topics/engine-customization.md) documentation for details.
+When the package is too large (in size), the resource can be uploaded to a resource server and downloaded via a network request. This option is used to fill in the address of the remote server where the resource is stored. The developer needs to manually upload the `remote` folder in the release package directory to the filled-in resource server address after the build. For more details, please refer to the [Uploading resources to a remote server](../../asset/cache-manager.md) documentation.
 
 #### Polyfills
 
@@ -121,24 +111,21 @@ If this option is enabled, the game can be packaged into App Bundle format for u
 
 ### Build Options for the Windows Platform
 
-The build options for the **Windows** platform currently have only one **Render BackEnd**, which includes **VULKAN**, **GLES3** and **GLES3**, with **GLES3** checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
-
-<!--The build options for the Windows platform include **Render BackEnd** and **Target Platform**.-->
+The build options for the Windows platform include **Render BackEnd** and **Target Platform**.
 
 ![Windows build options](publish-native/windows-options.png)
 
-<!--
 #### Render BackEnd
 
 Currently, **VULKAN**, **GLES3** and **GLES2** are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
 
 #### Target Platform
 
-Set the compilation architecture, both **win32** and **x64** are currently supported.
+Set the compilation architecture, both **x64** and **win32** are currently supported.
+
+- If **x64** is selected, only **x64** architecture is supported to run on.
 
 - If **win32** is selected, both architectures are supported to run on.
-- If **x64** is selected, only **x64** architecture is supported to run on.
--->
 
 ### Build Options for the iOS Platform
 
@@ -158,7 +145,7 @@ The option specifies the version of the iOS software when publishing to the iOS 
 
 #### Render BackEnd
 
-Currently, **METAL** and **GLES3** are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
+Currently, only **METAL** is supported for the Render BackEnd. See the official documentation [Metal](https://developer.apple.com/metal/) for details.
 
 #### Developer Team
 
