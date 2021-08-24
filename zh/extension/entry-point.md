@@ -37,7 +37,6 @@ module.exports = {
 
 Cocos Creator 支持在编辑器运行时动态的添加和删除扩展包，所以要注意如果扩展包依赖编辑器其他模块的特定工作状态时，必须在 `load` 和 `unload` 里进行妥善处理。如果插件的动态加载和卸载导致其他模块工作异常时，扩展包的用户总是可以选择关闭编辑器后重新启动。
 
-
 ## IPC 消息注册
 
 在入口程序中添加 `messages` 字段，可以让扩展包在加载的时候进行主进程的 IPC 消息注册。样例如下：
@@ -46,7 +45,7 @@ Cocos Creator 支持在编辑器运行时动态的添加和删除扩展包，所
 'use strict';
 
 module.exports = {
-  messages {
+  messages: {
     'foo-bar' ( event ) { Editor.log('hello foobar'); },
     'scene:saved' ( event ) { Editor.log('scene saved!'); },
   },

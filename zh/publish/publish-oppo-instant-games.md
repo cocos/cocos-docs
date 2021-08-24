@@ -122,9 +122,11 @@
 
 **注意**：OPPO 小游戏调试器为 **V3.2.0** 及以上的，则需要将分包 rpk 拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/subPkg` 目录，如果没有 subPkg 目录则需新建。而未分包的 rpk 则是拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/games` 目录，两者同样不可混用。
 
+更多内容请参考 [OPPO 小游戏 — 分包加载](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/subpackage/subpackage)。
+
 ## OPPO 小游戏环境的资源管理
 
-OPPO 小游戏与微信小游戏类似，都存在着包体限制。不过 OPPO 的主包包体限制是 **10MB**，超过的部分必须通过网络请求下载。
+OPPO 小游戏与微信小游戏类似，都存在着包体限制。不过 OPPO 的主包包体限制是 **4MB**，超过的部分必须通过网络请求下载。
 
 Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本管理。具体的实现逻辑和操作步骤都与微信小游戏类似，请参考 [微信小游戏资源的管理](./publish-wechatgame.md#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86)。
 

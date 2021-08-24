@@ -41,7 +41,7 @@ To listen to IPC messages in main process, add it in the `messages` field. Examp
 'use strict';
 
 module.exports = {
-  messages {
+  messages: {
     'foo-bar' ( event ) { Editor.log('hello foobar'); },
     'scene:saved' ( event ) { Editor.log('scene saved!'); },
   },
