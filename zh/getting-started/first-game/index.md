@@ -556,7 +556,7 @@ onStartButtonClicked() {
 
     ```ts
     checkResult(moveIndex: number) {
-        if (moveIndex <= this.roadLength) {
+        if (moveIndex < this.roadLength) {
             // 跳到了坑上
             if (this._road[moveIndex] == BlockType.BT_NONE) {
                 this.curState = GameState.GS_INIT;
@@ -572,6 +572,7 @@ onStartButtonClicked() {
     ```ts
     start () {
         this.curState = GameState.GS_INIT;
+        // ?. 可选链写法
         this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
     }
 
@@ -650,7 +651,10 @@ onStartButtonClicked() {
 
     ```ts
     onPlayerJumpEnd(moveIndex: number) {
-        this.stepsLabel.string = '' + moveIndex;
+        if (this.stepsLabel) {
+            // 因为在最后一步可能出现大跳，但是此时无论大跳还是小跳都不应该多增加分数
+            this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
+        }
         this.checkResult(moveIndex);
     }
     ```
@@ -1015,7 +1019,7 @@ export class GameManager extends Component {
     }
 
     checkResult(moveIndex: number) {
-        if (moveIndex <= this.roadLength) {
+        if (moveIndex < this.roadLength) {
             // 跳到了坑上
             if (this._road[moveIndex] == BlockType.BT_NONE) {
                 this.curState = GameState.GS_INIT;
@@ -1026,7 +1030,10 @@ export class GameManager extends Component {
     }
 
     onPlayerJumpEnd(moveIndex: number) {
-        this.stepsLabel.string = '' + moveIndex;
+        if (this.stepsLabel) {
+            // 因为在最后一步可能出现大跳，但是此时无论大跳还是小跳都不应该多增加分数
+            this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
+        }
         // 检查当前下落道路的类型，获取结果
         this.checkResult(moveIndex);
     }
