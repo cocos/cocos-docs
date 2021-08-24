@@ -10,15 +10,15 @@ MotionStreak（拖尾）是运动轨迹，用于在游戏对象的运动轨迹�
 
 ![add motionStreak](motion-streak/add-motion-streak.png)
 
-拖尾的脚本接口请参考 [MotionStreak API](__APIDOC__/zh/classes/particle2d.motionstreak.html)。
+拖尾的脚本接口请参考 [MotionStreak API](__APIDOC__/zh/#/docs/3.3/zh/particle2d/Class/MotionStreak)。
 
 ## MotionStreak 属性
 
 | 属性 |   功能说明
 | :-------------- | :----------- |
 | CustomMaterial | 自定义材质，使用方法请参考 [自定义材质](./../../ui-system/components/engine/ui-material.md)。 |
-| SrcBlendFactor | 源混合因子值，详情可参考 API [srcBlendFactor](__APIDOC__/zh/classes/particle2d.particlesystem2d.html#srcblendfactor)。 |
-| DstBlendFactor | 目标混合因子值，详情可参考 API [dstBlendFactor](__APIDOC__/zh/classes/particle2d.particlesystem2d.html#dstblendfactor)。 |
+| SrcBlendFactor | 源混合因子值，详情可参考 API [srcBlendFactor](__APIDOC__/zh/#/docs/3.3/zh/particle2d/Class/ParticleSystem2D?id=srcblendfactor)。 |
+| DstBlendFactor | 目标混合因子值，详情可参考 API [dstBlendFactor](__APIDOC__/zh/#/docs/3.3/zh/particle2d/Class/ParticleSystem2D?id=dstblendfactor)。 |
 | Color | 拖尾的颜色。 |
 | Preview | 是否启用预览。若勾选该项，则可在 **场景编辑器** 中预览拖尾效果 |
 | FadeTime | 拖尾的渐隐时间，以秒为单位。|

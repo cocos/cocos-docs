@@ -22,4 +22,4 @@
 | rateOverDistance | 每移动单位距离发射的粒子数 |
 | bursts           | 在某个时间点发射给定数量的粒子。可通过以下几个属性调整：<br>**time**：粒子播放多长时候后开始发射 burst<br>**count**：发射的粒子数量<br>**repeatCount**：burst触发次数<br>**repeatInterval**：每次触发的时间间隔 |
 
-粒子系统组件接口请参考 [ParticleSystem API](__APIDOC__/zh/classes/particle.particlesystem.html)。
+粒子系统组件接口请参考 [ParticleSystem API](__APIDOC__/zh/#/docs/3.3/zh/particle/Class/ParticleSystem)。

@@ -2,9 +2,9 @@
 
 The __MeshRenderer__ component is used to display a static 3D model. Set the model mesh with the `Mesh` property, and change the appearance of the model with the `Materials` property.
 
-The component interfaces for the common model are described in [MeshRenderer API](__APIDOC__/en/classes/model.meshrenderer.html).
+The component interfaces for the common model are described in [MeshRenderer API](__APIDOC__/en/#/docs/3.3/en/3d/Class/MeshRenderer).
 
-The component interfaces for the skinning model are described in [SkinnedMeshRenderer API](__APIDOC__/en/classes/model.skinnedmeshrenderer.html).
+The component interfaces for the skinning model are described in [SkinnedMeshRenderer API](__APIDOC__/en/#/docs/3.3/en/3d/Class/SkinnedMeshRenderer).
 
 ## MeshRenderer Properties
 

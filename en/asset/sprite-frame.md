@@ -84,4 +84,4 @@ const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = spriteFrame;
 ```
 
-For API information, please refer to the [SpriteFrame](__APIDOC__/en/classes/asset.spriteframe.html) documentation.
+For API information, please refer to the [SpriteFrame](__APIDOC__/en/#/docs/3.3/en/asset/Class/SpriteFrame) documentation.

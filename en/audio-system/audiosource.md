@@ -48,4 +48,4 @@ export class AudioDemo extends Component {
 }
 ``` 
 
-For more script interfaces for AudioSource, please refer to the [AudioSource API](__APIDOC__/en/classes/component_audio.audiosource.html). For specific playback controls, please refer to the [Audio System Overview](./overview.md) documentation.
+For more script interfaces for AudioSource, please refer to the [AudioSource API](__APIDOC__/en/#/docs/3.3/zh/component-audio/Class/AudioSource). For specific playback controls, please refer to the [Audio System Overview](./overview.md) documentation.

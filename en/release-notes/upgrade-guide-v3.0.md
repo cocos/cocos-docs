@@ -64,7 +64,7 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
 
         - `group`: change to `layer`.
 
-        - `zIndex`: change to [priority](__APIDOC__/en/classes/ui.uitransform.html#priority) of `UITransform`.
+        - `zIndex`: change to [priority](__APIDOC__/en/#/docs/3.3/zh/ui/Class/UITransform) of `UITransform`.
         
             > **Note**: the `priority` property is deprecated as of v3.1, please use the `setSiblingIndex` function to adjust the order of the node tree.
 
