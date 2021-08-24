@@ -3,7 +3,7 @@
 ## 2D 渲染节点排序
 
 2D 渲染节点可分为在 Canvas 下的节点和不在 Canvas 下的节点两种，在 Canvas 下的节点可参考下文的 **UI 节点排序**。
-对于不在 Canvas 下的节点，用户可选择通过自定义材质来开启深度检测实现和 3D 物体的遮挡显示，开启后则会按照物体的 Z 轴坐标进行遮挡渲染（可参考范例 **2d-rendering-in-3d**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d)）。没有开启深度检测的话，则数据提交依旧会按照节点树顺序提交，也就意味着节点树靠下的节点会后渲染。
+对于不在 Canvas 下的节点，用户可选择通过自定义材质来开启深度检测实现和 3D 物体的遮挡显示，开启后则会按照物体的 Z 轴坐标进行遮挡渲染（可参考范例 **2d-rendering-in-3d**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/2d-rendering-in-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/2d-rendering-in-3d)）。没有开启深度检测的话，则数据提交依旧会按照节点树顺序提交，也就意味着节点树靠下的节点会后渲染。
 
 ## UI 节点排序
 

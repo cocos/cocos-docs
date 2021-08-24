@@ -45,4 +45,4 @@ To start customizing the page preview, it should be noted that there are some pr
               |--test.js
       ```
 
-For more details, please refer to the example [Preview Template](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/preview-template).
+For more details, please refer to the example [Preview Template](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/preview-template).

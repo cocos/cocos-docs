@@ -6,7 +6,7 @@ The __PageView__ component is derived from __ScrollView__, the difference is tha
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/PageView__ to add the __PageView__ component to the node.
 
-To use `PageView`, please refer to the [PageView API](__APIDOC__/en/#/docs/3.3/en/ui/Class/PageView) documentation and the [PageView](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/15.pageview) scene of the test-cases-3d project.
+To use `PageView`, please refer to the [PageView API](__APIDOC__/en/#/docs/3.3/en/ui/Class/PageView) documentation and the [PageView](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/15.pageview) scene of the test-cases-3d project.
 
 ## PageView Properties
 
