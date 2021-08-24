@@ -2,7 +2,7 @@
 
 Once an Animation Clip is attached on to an Animation Component of a node, click **Enter animation editing mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter Animation Editing Mode and add keyframe data to the Animation Clip to animate the node. Please refer to the [Animation panel](animation-editor.md) documentation before editing animation clips.
 
-An Animation Clip may contain multiple nodes (nodes and their children), and multiple animation property tracks can be attached to each node. By moving, rotating, or scaling the nodes, keyframes are added to the animation property corresponding to the currently selected node. All the keyframes added to the animation property are displayed in the corresponding animation property track as a list pattern of linear trajectories, which are called animation curves.
+An Animation Clip may contain multiple nodes (nodes and their children), and multiple animation properties can be attached to each node. By moving, rotating, or scaling the nodes, keyframes are added to the animation property corresponding to the currently selected node. All the keyframes added to the animation property are displayed in the corresponding animation property as a list pattern of linear trajectories, which are called animation curves.
 
 ## Creating an Animation Curve
 
@@ -50,7 +50,7 @@ The selected keyframe will change from blue to white, including the following:
 
 - Clicking on a keyframe in the animation property track will select it.
 - Double-clicking a keyframe will move the time control line to the current keyframe while it is selected.
-- Clicking on a node's keyframe in the animation timeline selects all keyframes of the node's animation property tracks at the same location.
+- Clicking on a node's keyframe in the animation timeline selects all keyframes of the node's animation properties at the same location.
 
   ![choose keyframe](edit-animation-clip/choose-keyframe.png)
 
@@ -68,15 +68,15 @@ Multiple selection of keyframes is also supported, including the following:
 
 In addition to adding keyframes by modifying properties as described in **Creating Animation Curves**, they can also be added in the following ways:
 
-1. Select the animation property track and use the shortcut <kbd>K</kbd>, which will add a keyframe at the location of the time control line, or ignore it if the animation property track is not checked.
+1. Select the animation property and use the shortcut <kbd>K</kbd>, which will add a keyframe at the location of the time control line, or ignore it if the animation property is not checked.
 
-2. Move the time control line to the position where you want to add the keyframe, and click the ![add keyframe](edit-animation-clip/add-keyframe-button.png) button on the right side of the animation property track to add a keyframe to the current animation property track.
+2. Move the time control line to the position where you want to add the keyframe, and click the ![add keyframe](edit-animation-clip/add-keyframe-button.png) button on the right side of the animation property to add a keyframe to the current animation property track.
 
 3. In the animation property track, right-click the position where you want to add the keyframe, and then select **Add keyframe** in the popup menu, the menu will also show the number of frames in the current added keyframe position.
 
     ![add keyframe](edit-animation-clip/add-keyframe.png)
 
-4. When dragging a batch of assets corresponding to an animation property track from the **Assets** panel to the property track, keyframes will be added in the order in which the assets are selected, according to the spacing size set in ![spacing](edit-animation-clip/menu-spacing.png) in the toolbar.
+4. When dragging a batch of assets corresponding to an animation property from the **Assets** panel to the property track, keyframes will be added in the order in which the assets are selected, according to the spacing size set in ![spacing](edit-animation-clip/menu-spacing.png) in the toolbar.
 
 ### Removing keyframes
 
@@ -84,7 +84,7 @@ In addition to adding keyframes by modifying properties as described in **Creati
 
 2. Select the keyframe you want to delete (you can select more than one), then right click and select **Remove Keyframe** in the popup menu.
 
-3. Drag the time control line to the position of the keyframe to be removed or **double-click** the keyframe, and then click ![remove keyframe](edit-animation-clip/remove-key-btn.png) button to the right of the corresponding animation property track.
+3. Drag the time control line to the position of the keyframe to be removed or **double-click** the keyframe, and then click ![remove keyframe](edit-animation-clip/remove-key-btn.png) button to the right of the corresponding animation property.
 
 ![remove keyframe](edit-animation-clip/remove-keyframes.gif)
 
@@ -157,7 +157,7 @@ Copy and paste of node animation data, supports cross-editor (v3.x) usage.
 - **Copy**: Select the node you want to copy data from in the node list, right click and select **Copy Data**, or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd> to do so.
 - **Paste**: Select the target node in the node list, right click and select **Paste Data**, or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> to paste the animation data.
 
-> **Note**: the paste function does not support automatic creation of animation property tracks, so the copied and pasted nodes must have at least one of the same animation property track, if not, please create it in advance. When pasting animation data of multiple nodes on the same node, the animation data of the overlapping part will be overwritten by the latter, and the different parts will be fused with each other.
+> **Note**: the paste function does not support automatic creation of animation properties, so the copied and pasted nodes must have at least one of the same animation property, if not, please create it in advance. When pasting animation data of multiple nodes on the same node, the animation data of the overlapping part will be overwritten by the latter, and the different parts will be fused with each other.
 
 ### Edit child node data with the same name
 
@@ -169,19 +169,19 @@ However, it is supported to add animation components and animation clips for the
 
 ## Common operations for animation property data
 
-Right-click on the animation property track or click ![property](edit-animation-clip/set-pro.png) button to the right of the track to select **Remove property track**, **Clear keyframe data**, or **Copy property track**.
+Right-click on the animation property or click ![property](edit-animation-clip/set-pro.png) button to the right of the track to select **Remove property track**, **Clear keyframe data**, or **Copy property track**.
 
 ![property operation](edit-animation-clip/pro-operation.png)
 
-- Remove property track: remove the currently selected animation property track, including all keyframes on that animation property. Or you can also use the shortcut <kbd>Delete</kbd> key (Windows) or <kbd>Cmd</kbd> + <kbd>Backspace</kbd> (macOS).
+- Remove property track: remove the currently selected animation property, including all keyframes on that property track. Or you can also use the shortcut <kbd>Delete</kbd> key (Windows) or <kbd>Cmd</kbd> + <kbd>Backspace</kbd> (macOS).
 
 - Clear keyframe data: delete all keyframes on the currently selected animation property track.
 
 - Copy animation property track: copy all animation data on the currently selected animation property track and paste it to the target animation property track, supporting the shortcut keys <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + < kbd>V</kbd>. When pasting, the overlapping keyframes are overwritten by the latter, and the different parts are blended with each other.
 
-  Copy/paste of animation property track data between different editors (v3.x) is currently supported. Copy/paste of animation data is only supported for `ccType` data of the same type.
+  Copy/paste of animation property data between different editors (v3.x) is currently supported. Copy/paste of animation data is only supported for `ccType` data of the same type.
 
-As with nodes, there is a possibility of missing animation property tracks. For example, if an property corresponding to an animation property track is removed from the **Inspector** panel, it will be displayed in the animation property track list as a yellow uneditable missing state, and the keyframe will be grayed out as uneditable. In this case, either exit edit mode and add the relevant property to the corresponding node or simply remove the missing property track.
+As with nodes, there is a possibility of missing animation properties. For example, if an property corresponding to an animation property is removed from the **Inspector** panel, it will be displayed in the animation property list as a yellow uneditable missing state, and the keyframe will be grayed out as uneditable. In this case, either exit edit mode and add the relevant property to the corresponding node or simply remove the missing property track.
 
   ![change property](edit-animation-clip/change-pro.png)
 
