@@ -652,7 +652,7 @@ onStartButtonClicked() {
     ```ts
     onPlayerJumpEnd(moveIndex: number) {
         if (this.stepsLabel) {
-            // 因为在最后一步可能出现大跳，但是此时无论大跳还是小跳都不应该多增加分数
+            // 因为在最后一步可能出现步伐大的跳跃，但是此时无论跳跃是步伐大还是步伐小都不应该多增加分数
             this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
         }
         this.checkResult(moveIndex);
@@ -1031,7 +1031,7 @@ export class GameManager extends Component {
 
     onPlayerJumpEnd(moveIndex: number) {
         if (this.stepsLabel) {
-            // 因为在最后一步可能出现大跳，但是此时无论大跳还是小跳都不应该多增加分数
+            // 因为在最后一步可能出现步伐大的跳跃，但是此时无论跳跃是步伐大还是步伐小都不应该多增加分数
             this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
         }
         // 检查当前下落道路的类型，获取结果
