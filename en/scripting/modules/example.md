@@ -206,7 +206,7 @@ Eventually, it will be ready to run directly. For the full project content, plea
 
 ### Case 3: use of lodash-es
 
-Similar to [Case 1: protobufjs use](# Case 1: protobufjs-use), install the `lodash-es` package. The entry file is `lodash.js`, and the entry file also automatically helps to export all submodules under it in **ESM** module format, and according to `type` it also confirms that it is currently an **ESM** module. Therefore, it is possible to import any module directly. Taking the `test.ts` script asset under `assets` as an example, and introduce the submodules within `lodash`:
+Similar to [Case 1: protobufjs use](#case-1-using-protobufjs), install the `lodash-es` package. The entry file is `lodash.js`, and the entry file also automatically helps to export all submodules under it in **ESM** module format, and according to `type` it also confirms that it is currently an **ESM** module. Therefore, it is possible to import any module directly. Taking the `test.ts` script asset under `assets` as an example, and introduce the submodules within `lodash`:
 
 ```ts
 import { array, add } from 'lodash-es';
@@ -247,6 +247,6 @@ declare module "<package name>/dist/**.js" {
 
 ### Special case: firebase usage
 
-This is a special case, take a look at the special features of this case. After installing the `firebase` package in the way described above, and analyzing the package according to the `package.json` file, notice the package is in **CJS** format. Based on the entry file, infer that this package is customized for Node (this can be tested according to [Case 4: Using web3](#case-4:-using-web3)), so we have to use the Web custom version `index.esm.js`. The problem is, `index.esm.js` is an **ESM** module, and the Creator recognizes this package as a **CJS** module, but it is also an **ESM** module, which naturally causes errors.
+This is a special case, take a look at the special features of this case. After installing the `firebase` package in the way described above, and analyzing the package according to the `package.json` file, notice the package is in **CJS** format. Based on the entry file, infer that this package is customized for Node (this can be tested according to [Case 4: Using web3](#case-4-using-web3)), so we have to use the Web custom version `index.esm.js`. The problem is, `index.esm.js` is an **ESM** module, and the Creator recognizes this package as a **CJS** module, but it is also an **ESM** module, which naturally causes errors.
 
 The proposed solution is for the user to package it as a separate js file as a **non-npm module** via a packaging tool like `rollup`.
