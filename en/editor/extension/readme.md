@@ -3,6 +3,8 @@
 This chapter focuses on extending the editor.
 
 - [The First Extension](./first.md)
+- [First Panel](./first-panel.md)
+- [First Data Interaction](./first-communication.md)
 - [Install And Share](./install.md)
 - [Extension Description](./define.md)
 - [Extended Panel](./panel.md)

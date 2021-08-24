@@ -271,7 +271,9 @@
 ## Advanced
 
 - [Extending the Editor](editor/extension/readme.md)
-    - [The First Extension](editor/extension/first.md)
+    - [First Extension](editor/extension/first.md)
+    - [First Panel](editor/extension/first-panel.md)
+    - [First Data Interaction](editor/extension/first-communication.md)
     - [Install And Share](editor/extension/install.md)
     - [Extension Description](editor/extension/define.md)
     - [Extension Panel](editor/extension/panel.md)
