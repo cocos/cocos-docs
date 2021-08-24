@@ -140,6 +140,8 @@ Subpackage rpk needs to be copied to the `/sdcard/subPkg` directory of the OPPO 
 
 **Note**: If the OPPO game debugger is **v3.2** or above, you need to copy the subpackage **rpk** to the `/sdcard/Android/data/com.nearme.instant.platform/files/subPkg` directory of your phone, if there is no **subPkg** directory, you need to create a new one. The **rpk** without subpackage is copied to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory of your phone, both of which cannot be mixed.
 
+For more information, please refer to the [OPPO Mini Game - Subpackage [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/subpackage/subpackage) documentation.
+
 ## Related Reference Links
 
 - [OPPO Mini Game Tutorial [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/quickgame)
