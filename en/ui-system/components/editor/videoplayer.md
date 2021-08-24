@@ -16,7 +16,7 @@ For more information about **VideoPlayer**'s scripting interface, please refer t
 
 ## VideoPlayer Properties
 
-| Properties | Function Explanation |
+| Property | Function Explanation |
 |:-------- | :----------- |
 | **Resource Type**        | The resource type of videoplayer, REMOTE for remote url and LOCAL for local file path. |
 | **Remote URL**           | Displayed when Resource Type is REMOTE, feed it with a remote video URL. |
@@ -36,7 +36,7 @@ For more information about **VideoPlayer**'s scripting interface, please refer t
 
 ### VideoPlayerEvent Event
 
-| Properties      |   Function Explanation  |
+| Property      |   Function Explanation  |
 | :--------------  | :----------- |
 | **target**          | Node with the script component.|
 | **component**       | Script component name.         |

@@ -10,7 +10,7 @@ Click the **Add Component -> Physics Component -> RigidBody** button at the bott
 
 ## RigidBody Properties
 
-| Properties      | Function explanation |
+| Property      | Function explanation |
 | :-------------- | :------------------- |
 | **Type**            | The type of the rigid body, including **DYNAMIC**, **STATIC** and **KINEMATIC**, See below for details.
 | **Mass**            | The mass of the rigid body.                     |

@@ -49,6 +49,8 @@ In addition, the game submission, review and release process of the **WeChat Min
 | **Remote server address** | Optional | Empty | The remote server address. assets will then be obtained from this address.|
 | **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.|
 | **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.|
+| **Separate Engine** | Optional | Empty | Whether to use WeChat Mini Games engine plugin, please refer to [WeChat Mini Games Engine Plugin Instructions](./wechatgame-plugin.md) for details. |
+| **Wasm physics experimental** | Optional | js | This option is used to select the usage mode of **bullet (ammo.js)** physics, which currently includes `js`, `fallback`, and `wasm`, please refer to the **WebAssembly Support** section below for more details. |
 
 ## Asset Management for WeChat Mini Game Environment
 
@@ -106,7 +108,7 @@ In addition to pure game content, the **WeChat Mini Game** environment actually 
 
 ## WeChat Mini Games Known issues
 
-__Cocos Creator__'s adaptation of **WeChat Mini Games** has not been completely implemented. The following modules are still not supported:
+Cocos Creator's adaptation of **WeChat Mini Games** has not been completely implemented. The following modules are still not supported:
 
 - VideoPlayer
 - WebView
@@ -115,13 +117,13 @@ It is possible to use the missing functionality by calling the **WeChat's** API 
 
 ## WebAssembly Support
 
-As of 3.0, the __Wasm physics experimental__ option has been added to the WeChat Mini Game builds. It is a laboratory feature for choosing the usage mode of __ammo__ physics:
+As of 3.0, the **Wasm physics experimental** option has been added to the WeChat Mini Game builds. It is a laboratory feature for choosing the usage mode of **bullet (ammo.js)** physics:
 
-- __js__: Use __js__ mode, this is consistent with previous versions.
-- __fallback__: Automatic __fallback__ mode, use __wasm__ in an environment that supports __wasm__, or revert to __js__.
-- __wasm__: Use __wasm__ mode.
+- **js**: Use **js** mode, this is consistent with previous versions.
+- **fallback**: Automatic **fallback** mode, use **wasm** in an environment that supports **wasm**, or revert to **js**.
+- **wasm**: Use **wasm** mode.
 
-In __fallback__, the editor packs all the mode code for the __ammo__ physics. The corresponding code packets for the two modes are __1.2MB__ and __0.7MB__, totaling nearly __2MB__, which has a significant impact on the __4MB__ limit of the main packet.
+In **fallback** mode, the editor packs the code for **wasm** and **js** modes, and the corresponding code packages for the two modes are **1.2MB** and **0.7MB** respectively, totaling nearly **2MB**, which greatly affects the **4MB** limit of the main package.
 
 The solution is to reduce the pressure on the main package by configuring the subpackage, taking the `ammo-82499473.js` file as an example of a subpackage:
 
@@ -159,10 +161,10 @@ The solution is to reduce the pressure on the main package by configuring the su
     ```
 
 > **Notes**:
-> 1. The WeChat Separation Engine plugin currently only supports __js__ mode.
+> 1. The WeChat Separation Engine plugin currently only supports **js** mode.
 > 2. WebAssembly required WeChat v7.0.17 and above.
 > 3. The WeChat WebAssembly debugging base library needs to be v2.12.0 and above.
-> 4. __Fallback__ mode is recommended for the most comprehensive device support.
+> 4. **Fallback** mode is recommended for the most comprehensive device support.
 
 ## Reference documentation
 

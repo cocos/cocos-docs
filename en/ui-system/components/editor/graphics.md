@@ -40,7 +40,7 @@ To use graphics, please refer to the [graphics API](__APIDOC__/en/classes/ui.gra
 
 ### Modify the drawing pattern through script code
 
-``` ts
+```ts
 import { _decorator, Component, Graphics } from 'cc';
 const { ccclass, property } = _decorator;
 

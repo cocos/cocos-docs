@@ -117,7 +117,7 @@ Cocos Creator 的通用构建流程，主要包括以下内容：
     platform: string;
     renderPipeline: string;// renderPipeline 信息，取自项目设置
     physics?: IPhysicsConfig;// 物理模块设置（仅在勾选了物理引擎模块时生成）
-    BundleVers: Record<string, string>; // Bundle 的 md5 文件戳
+    BundleVers: Record<string, string>; // Bundle 的 md5 值
     subpackages: string[]; // 分包信息
     remoteBundles: string[]; // 记录远程包 Bundle 的集合
     // server: string;

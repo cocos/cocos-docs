@@ -22,7 +22,7 @@
 
 ### 使用 Cocos Creator 构建
 
-1. 使用 Cocos Creator 打开项目工程，点击上方菜单栏中的 **Cocos Creator -> 偏好设置 -> 外部程序**，配置 **HarmonyOS SDK** 和 **HarmonyOS NDK** 路径：
+1. 使用 Cocos Creator 打开项目工程，点击上方菜单栏中的 **Cocos Creator -> 偏好设置 -> 外部程序**，配置 **HarmonyOS NDK** 和 **HarmonyOS SDK** 路径：
 
     ![preferences](./publish-huawei-ohos/preferences.png)
 
@@ -95,7 +95,9 @@ HarmonyOS 应用是通过数字证书（`.cer` 文件）和 HarmonyAppProvision 
     ![provision profile](./publish-huawei-ohos/cer-file.png)
 
 - 点击右上角的 **新增证书** 按钮填写信息，其中：
-    - **证书类型**：根据需要选择 **发布证书**/**调试证书**
+
+    - **证书类型**：根据需要选择 **发布证书**/**调试证书**。
+
     - **证书请求文件**：选择上一个步骤在 **DevEco Studio** 中生成的 `.csr` 文件。
 
 - 信息填写完成后点击 **提交**，便会生成一个发布/调试证书（`.cer` 文件），点击证书后面的 **下载** 按钮将其下载到本地。

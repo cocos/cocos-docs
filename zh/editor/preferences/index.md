@@ -38,9 +38,9 @@
 
 - **Android SDK**：设置 Android SDK 路径，详情请参考 [安装配置原生开发环境](../publish/setup-native-development.md)。
 
-- **HarmonyOS SDK**：设置 HarmonyOS SDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
+- **HarmonyOS NDK**：设置 HarmonyOS NDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
 
-- **HarmonyOS NDK 路径**：设置 HarmonyOS NDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
+- **HarmonyOS SDK**：设置 HarmonyOS SDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
 
 - **默认脚本编辑器**：可以选用任意外部文本编辑工具（例如 VS Code）的可执行文件，作为在 **资源管理器** 中双击脚本文件时的打开方式。可以点击输入框后面的 **搜索图标** 按钮选择偏好的文本编辑器的可执行文件。文件夹图标则用于打开已设置完成的文本编辑器的所在路径。
 
@@ -62,7 +62,7 @@
 
 - **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)）克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定为定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
-- **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `cocos2d-x` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
+- **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `engine-naive` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
 
 - **自定义原生引擎路径**：取消上一项 **使用内置原生引擎** 的选择后，就可以手动指定原生引擎路径了。注意这里使用的原生引擎必须从 **engine-native**（[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)）或该仓库的 fork 下载。
 

@@ -4,7 +4,7 @@ Click **Project -> Project Settings -> Feature Crop -> Physics System** in the e
 
 ![Physics Engine Options](img/physics-module.png)
 
-If there is no need to use any physically related components and interfaces, uncheck the "Physical System" checkbox and the package will be smaller when published. However, it should be noted that if the checkbox is unchecked, the project cannot use physically related components and interfaces, otherwise errors will be reported at runtime.
+If there is no need to use any physically related components and interfaces, uncheck the __Physics System__ checkbox and the package will be smaller when published. However, it should be noted that if the checkbox is unchecked, the project cannot use physically related components and interfaces, otherwise errors will be reported at runtime.
 
 ## Physics Engine Types
 
@@ -21,7 +21,7 @@ If you use __builtin__ for development, please note the following:
 
 [cannon.js](https://github.com/cocos-creator/cannon.js) is an open source physics engine, which uses js language to develop and implement more comprehensive physics functions, if your project needs more complex physical functions, then you can consider using [cannon.js](https://github.com/cocos-creator/cannon.js). The size of the __cannon.js__ module is __141KB__.
 
-### Physics Engine: bullet(ammo.js)
+### Physics Engine: bullet (ammo.js)
 
 [ammo.js](https://github.com/cocos-creator/ammo.js) is the __asm.js__/__wasm__ Version of the [bullet](https://github.com/bulletphysics/bullet3) physics engine, it is compiled by [emscripten](https://github.com/emscripten-core/emscripten) tool. Bullet has perfect physical functions, and we will put more work here in the future.
 

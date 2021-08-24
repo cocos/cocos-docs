@@ -32,10 +32,10 @@ The following describes the properties of the panel:
 
 | Property | Explanation |
 | :--- | :--- |
-| __anisotropy__ | Anisotropy value |
-| __minFilter__ | Narrowing Filter Algorithm |
-| __magFilter__ | Magnification Filter Algorithm |
-| __mipFilter__ | Multi-level texture filtering algorithm |
+| __Anisotropy__ | Anisotropy value |
+| __Min Filter__ | Narrowing Filter Algorithm |
+| __Mag Filter__ | Magnification Filter Algorithm |
+| __Mip Filter__ | Multi-level texture filtering algorithm |
 | __Wrap Mode S__ | S (U) direction texture addressing mode |
 | __Wrap Mode T__ | T (V) direction texture addressing mode |
 

@@ -59,7 +59,7 @@ The custom Asset Bundle is configured in **folders**. When we select a folder in
 | **Compression Type** | Determines the final output form of the Asset Bundle, including the five compression types **Merge Depend**, **None**, **Merge All JSON**, **Mini Game Subpackage**、**Zip**. For more detail, see [Asset Bundle -- Compression Type](bundle.md#compression-type) documentation. |
 | **Is Remote Bundle** | Whether to configure the Asset Bundle as a remote package and not support the Web platform.<br>If checked, the Asset Bundle will be placed in the **remote** folder after the build, and you will need to place the entire **remote** folder on the remote server.<br>When building mini game platforms such as OPPO, vivo, Huawei, etc., the Asset Bundle will not be packaged into rpk if this option is checked. |
 
-After the configuration, click on the **Apply** button at the top right and the folder will be configured as an Asset Bundle, then select the corresponding platform in the **Build** panel to build.
+After the configuration, click the **green tick button** at the top right of the panel, and the folder will be configured as an Asset Bundle, then select the corresponding platform in the **Build** panel to build.
 
 > **Notes**:
 > 1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.

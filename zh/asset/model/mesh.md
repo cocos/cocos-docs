@@ -13,7 +13,7 @@
 
 - 无动画的模型文件结构如下：
 
-  ![mesh list](mesh/mesh_list.png)
+    ![mesh list](mesh/mesh_list.png)
 
 - 包含动画的模型文件结构如下：
 
