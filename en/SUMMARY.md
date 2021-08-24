@@ -212,6 +212,7 @@
     - [Language Support](scripting/language-support.md)
     - [Module](scripting/modules/index.md)
         - [How to Get npm Packages](scripting/modules/config.md)
+        - [Example: External Module Usage Case](scripting/modules/example.md)
     - [ccclass](scripting/ccclass.md)
     - [Attributes](scripting/reference/attributes.md)
     - [Access Node and Other Components](scripting/access-node-component.md)
