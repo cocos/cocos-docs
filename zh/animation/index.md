@@ -14,7 +14,8 @@ Cocos Creator 内置了通用的动画系统用以实现基于关键帧的动画
         - [创建 Animation 组件和动画剪辑](animation-create.md)
         - [动画编辑器面板介绍](animation-editor.md)
         - [编辑动画剪辑](edit-animation-clip.md)
-        - [编辑动画缓动曲线](animation-curve.md)
+            - [关键帧编辑视图](animation-keyFrames.md)
+            - [曲线编辑视图](animation-curve.md)
         - [添加动画事件](animation-event.md)
         - [程序化编辑动画剪辑](use-animation-curve.md)
 
