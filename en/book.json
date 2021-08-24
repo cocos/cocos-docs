@@ -63,6 +63,22 @@
                     {
                         "name": "2.2",
                         "link": "https://docs.cocos.com/creator/2.2/manual/en"
+                    },
+                    {
+                        "name": "2.1",
+                        "link": "https://docs.cocos.com/creator/2.1/manual/en"
+                    },
+                    {
+                        "name": "2.0",
+                        "link": "https://docs.cocos.com/creator/2.0/manual/en"
+                    },
+                    {
+                        "name": "1.10",
+                        "link": "https://docs.cocos.com/creator/1.10/manual/en"
+                    },
+                    {
+                        "name": "1.9",
+                        "link": "https://docs.cocos.com/creator/1.9/manual/en"
                     }
                 ]
             }

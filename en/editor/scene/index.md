@@ -54,6 +54,7 @@ Click the ![set camera](images/set-camera.png) button in the upper-right corner 
 | Color | Set the scene background color. |
 | Wheel Speed  | Set the speed at which the scene camera moves back and forth when the mouse wheel is scrolled. |
 | Wander Speed | Set the movement speed when the scene camera is roaming. |
+| Wander Acceleration | Whether to enable acceleration in Wander Mode (new in v3.3).<br>If enable, the camera will moving faster along time, otherwise the camera will move in a constant speed.|
 
 ### Render target resolution settings
 

@@ -219,6 +219,7 @@
         - [Import Maps](scripting/modules/import-map.md)
         - [Module Specification](scripting/modules/spec.md)
         - [How to Get npm Packages](scripting/modules/config.md)
+        - [Example: External Module Usage Case](scripting/modules/example.md)
     - [ccclass](scripting/ccclass.md)
     - [Attributes](scripting/reference/attributes.md)
     - [Access Node and Other Components](scripting/access-node-component.md)
@@ -278,7 +279,9 @@
 
 - [Extending the Editor](editor/extension/readme.md)
     - [Create an Extension](editor/extension/create-extension.md)
-    - [The First Extension](editor/extension/first.md)
+    - [First Extension](editor/extension/first.md)
+    - [First Panel](editor/extension/first-panel.md)
+    - [First Data Interaction](editor/extension/first-communication.md)
     - [Install And Share](editor/extension/install.md)
     - [Extension Description](editor/extension/define.md)
     - [Extension Panel](editor/extension/panel.md)
