@@ -19,7 +19,7 @@ The **Project Settings** panel can be opened by clicking on **Project -> Project
     - If enabled, the Canvas background will be transparent and show the other DOM elements behind it.
     - If disabled, it will result in higher performance.
 
-- **ENABLE_WEBGL_ANTIALIAS**: whether to enable anti-aliasing. It's enabled by default.
+- **ENABLE_WEBGL_ANTIALIAS**: whether to activate antialias setting in the engine, it's enabled by default. On native platform it means to turn on MSAA on off-screen frame buffer, while on web platform it means to turn on the anti-aliasing option when creating WebGL Context.
 
 - **CLEANUP_IMAGE_CACHE**: whether to clear the image cache after uploading a texture to GPU. If the cache is cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported. It's disabled by default.
 
