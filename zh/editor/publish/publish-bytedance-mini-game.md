@@ -38,14 +38,11 @@
 | 构建选项 | 说明 | 字段名（用于命令行发布） |
 | :---- | :-- | :-- |
 | 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
-| 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中 | `orientation` |
+| 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中。 | `orientation` |
 | AppID | 必填项，字节跳动小游戏的 AppID，构建时会写入到发布包目录下的 `project.config.json` 文件中。 | `appid` |
 | 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
-| 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md) | `buildOpenDataContextTemplate` |
-| PhysX - notPackPhysXLibs | 是否不打包内置的 PhysX 库文件，有助于缩小包体，但会牺牲部分平台的支持，仅在使用 PhysX 物理时生效 | `physX.notPackPhysXLibs` |
-| PhysX - multiThread | 是否启用多线程模式，仅在使用 PhysX 物理时生效 | `physX.multiThread` |
-| PhysX - subThreadCount | 启用多线程模式时子线程的个数，仅在使用 PhysX 物理时生效 | `physX.subThreadCount` |
-| PhysX - epsilon | 容忍误差，仅在使用 PhysX 物理时生效。若启用该项，则使用多线程模式时的精度会比单线程的低。 | `physX.epsilon` |
+| 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md)。 | `buildOpenDataContextTemplate` |
+| PhysX | 该项用于配置原生物理相关，具体说明请查看下文 **原生物理** 部分的内容。 | - |
 
 ## 原生物理
 
@@ -57,12 +54,12 @@
 
 ![PhysX options](./publish-bytedance-mini-game/physx-options.png)
 
-具体的选项说明请参考上文 **构建选项介绍** 部分的内容。
-
-> **注意**：
-> 1. 字节跳动平台的原生物理目前仅支持安卓版本的抖音，且版本需大于等于 **v16.3**。
-> 2. 字节跳动开发者工具目前还不支持运行原生物理，只能真机预览和调试。
-> 3. 在 v3.3 版本中，构建字节小游戏时未勾选 `notPackPhysXLibs` 时能够支持 **PhysX** 运行在字节跳动的全应用平台。
+| 构建选项 | 说明 | 字段名（用于命令行发布） |
+| :---- | :-- | :-- |
+| PhysX - notPackPhysXLibs | 若勾选该项，则构建时不会打包内置的 PhysX 库文件，有助于减小包体，但 PhysX 便无法在部分字节跳动的应用平台运行，例如抖音（iOS 版本）及开发者工具。<br>若不勾选该项，则 Creator 支持 PhysX 运行在字节跳动的全应用平台。 | `physX.notPackPhysXLibs` |
+| PhysX - multiThread | 是否启用多线程模式。 | `physX.multiThread` |
+| PhysX - subThreadCount | 启用多线程模式时子线程的个数。 | `physX.subThreadCount` |
+| PhysX - epsilon | 容忍误差。若启用该项，则使用多线程模式时的精度会比单线程的低。 | `physX.epsilon` |
 
 ## 分包加载
 
@@ -87,7 +84,7 @@
 
 ## 小游戏环境的资源管理
 
-字节跳动小游戏与微信小游戏类似，都存在着包体限制，超过 4MB 的额外资源，必须通过网络请求下载。
+字节跳动小游戏与微信小游戏类似，都存在着包体限制，超过 4MB 的额外资源，必须通过网络请求下载。<br>当包体过大时，可在 **构建发布** 面板配置 **资源服务器地址** 选项，将资源上传到远程服务器，详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md)。
 
 我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。Cocos Creator 已经帮用户做好了远程资源的下载、缓存和版本管理，详情可参考 [缓存管理器](../../asset/cache-manager.md)。
 

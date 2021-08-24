@@ -8,4 +8,6 @@
 
 - [示例：外部模块使用案例](./example.md)
 
-最后，本章节较为详细地给出了在 Cocos Creator 编辑器中使用模块的 [规范](./spec.md)。
+Cocos Creator 实验性质地支持导入映射，详情请参考 [导入映射（实验性质）](./import-map)。
+
+最后，本章节较为详细地给出了在 Cocos Creator 编辑器中使用模块的 [模块规范](./spec.md)。

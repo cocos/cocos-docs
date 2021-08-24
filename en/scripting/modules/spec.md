@@ -69,19 +69,9 @@ Cocos Creator currently only supports file protocol URLs, but since the file pat
 
 ### Bare Specifiers
 
-For bare specifiers, Cocos Creator will apply the Node.js module parsing algorithm.
+Currently, Cocos Creator will apply [Import Maps (experimental)](./import-map) and [Node.js module parsing algorithm](https://nodejs.org/api/esm.html#esm_resolver_algorithm_specification) for bare specifiers.
 
 > This includes parsing of npm modules.
-
-In general, bare specifiers have the following two forms:
-
-- `'foo'`: parsed as the entry module for the npm package `foo`.
-
-- `'foo/bar'`: parsed as the module under the subpath `./bar` in the npm package `'foo'`.
-
-The specific rules for parsing bare specifiers can be found in [Node.js module parsing algorithm](https://nodejs.org/api/esm.html#esm_resolver_algorithm_specification).
-
-> In the future, Cocos Creator may support importing maps, see [Import Maps](https://github.com/WICG/import-maps).
 
 #### Conditional exports
 

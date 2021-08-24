@@ -32,12 +32,14 @@ The following describes the properties of the panel:
 
 | Property | Explanation |
 | :--- | :--- |
-| __anisotropy__ | Anisotropy value |
-| __minFilter__ | Narrowing Filter Algorithm |
-| __magFilter__ | Magnification Filter Algorithm |
-| __mipFilter__ | Multi-level texture filtering algorithm |
-| __wrapS__ | S (U) direction texture addressing mode |
-| __wrapT__ | T (V) direction texture addressing mode |
+| __Anisotropy__ | Anisotropy value |
+| __Min Filter__ | Narrowing Filter Algorithm |
+| __Mag Filter__ | Magnification Filter Algorithm |
+| __Mip Filter__ | Multi-level texture filtering algorithm |
+| __Wrap Mode S__ | S (U) direction texture addressing mode |
+| __Wrap Mode T__ | T (V) direction texture addressing mode |
+
+> __Note__: since the default **Wrap Mode** may result in black edges when rendering transparent edges of an image, Creator will change the __Wrap Mode S__ and __Wrap Mode T__ properties of the texture resource to __clamp-to-edge__ automatically when setting the image resource type to __sprite-frame__, which can be modified by the developer if there is a special need.
 
 ### Using Texture2D
 

@@ -38,9 +38,9 @@ The **External Program** tab is used to set up the development environment requi
 
 - **Android SDK**: used to set the Android SDK path, please refer to the [Setup Native Development Environment](../publish/setup-native-development.md) documentation.
 
-- **HarmonyOS SDK**: used to set the HarmonyOS SDK path, please refer to the [Publish for the Huawei HarmonyOS](../publish/publish-huawei-ohos.md) documentation.
-
 - **HarmonyOS NDK**: used to set the HarmonyOS NDK path, please refer to the [Publish for the Huawei HarmonyOS](../publish/publish-huawei-ohos.md) documentation.
+
+- **HarmonyOS SDK**: used to set the HarmonyOS SDK path, please refer to the [Publish for the Huawei HarmonyOS](../publish/publish-huawei-ohos.md) documentation.
 
 - **Default Script Editor**: choose any executable file from an external text editing tool (e.g. VS Code) as the way to open the script file when you double-click it in the **Assets** panel. The executable file of the preferred text editor can be selected by clicking the **Search** button after the input box. The folder icon is used to open the path to the text editor that has been set up.
 
@@ -62,7 +62,7 @@ The **Engine Manager** tab is used to configure the engine path when customizing
 
 - **Custom TypeScript engine path**: in addition to using your own engine, an engine can also be cloned from the [engine repository](https://github.com/cocos-creator/engine/) or forked to any local location for customization, uncheck **Use built-in TypeScript engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
 
-- **Use built-in native engine**: whether to use the `cocos2d-x` path that comes with the Cocos Creator installation path as the native engine path. This engine is used to build and compile projects for all native platforms (iOS, Android, Mac, Windows) when building.
+- **Use built-in native engine**: whether to use the `engine-naive` path that comes with the Cocos Creator installation path as the native engine path. This engine is used to build and compile projects for all native platforms (iOS, Android, Mac, Windows) when building.
 
 - **Custom native engine path**: after unchecking the previous item **Use built-in native engine**, the native engine path can be specified manually.
 
@@ -79,9 +79,9 @@ The **Asset database** tab is used to set the [Assets](../assets/index.md) panel
 - **Log Level**: used to set the type of information output to the **console** from the asset database in the **Assets** panel. This currently includes **Error Only**, **Error and Warning Only**, **Error, Warning, and Log**, and **Output All Information**.
 - **Ignore (Glob)**: use the Glob expression and fill in the path match of the asset to be ignored, then the asset will be ignored. For example, `! **/*.txt` means that all `.txt` files are ignored.
 - **Default Meta**: used to set the default configuration when importing assets within a project. Please refer to the description below for details.
-- **Update resources automatically**: automatically refresh resources when returning to the editor from outside (new in v3.1.2). See below for details.
+- **Update resources automatically**: automatically refresh resources when returning to the editor from outside. See below for details.
 
-### Update resources automatically (new in v3.1.2)
+### Update resources automatically
 
 If this option is enabled, all resources will be automatically checked when returning to Creator, regardless of whether resources have been manipulated outside of Creator. Then when the number of files in the project is too high, or the random read and write speed of the hard disk is too low, it will cause the resource system response lag. For example, if a resource is selected in **Assets** panel, the **Inspector** panel will take a while to show the resource-related properties.
 
@@ -153,11 +153,11 @@ The **Preview** tab is mainly used for the various options that can be set when 
 
 ## Build
 
-The **Build** tab is used to set up the execution of the [Build](../publish/build-panel.md), including **Log Level** and **Cache Serialized JSON of Assets**.
+The **Build** tab is used to set up the execution of the [Build](../publish/build-panel.md), including **Log file opening method** and **Cache Serialized JSON of Assets**.
 
 ![build](./index/build.png)
 
-- **Log Level**: used to set the type of information that is output to the **console** when a build is published to a platform. Currently there are four types: **Errors Only**, **Errors and Warnings Only**, **Errors, Warnings and Logs** and **All Messages**.
+- **Log file opening method**: This option is used to set whether to open the build log file directly or to open the directory where the log file is located, when clicking the **Open Log** button at the bottom left of the [platform build task](../publish/build-panel.md). The default is to open the log file directly.
 
 - **Cache Serialized JSON of Assets**: in order to speed up the build and reduce the repeated deserialization of unmodified assets, the serialized JSON of assets will be cached during the asset build process, which will be placed in the `temp/asset-db/assets/uuid/build` directory of the project and divided into `debug.json` and `release.json` according to **debug** and **release** mode.
 
