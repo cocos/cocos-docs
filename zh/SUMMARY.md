@@ -212,6 +212,8 @@
     - [脚本基础](scripting/basic.md)
     - [语言支持](scripting/language-support.md)
     - [模块](scripting/modules/index.md)
+        - [模块规范](scripting/modules/spec.md)
+        - [引擎模块](scripting/modules/engine.md)
         - [如何获取 npm 包](scripting/modules/config.md)
         - [示例：外部模块使用案例](scripting/modules/example.md)
     - [装饰器](scripting/decorator.md)
