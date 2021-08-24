@@ -63,6 +63,9 @@ Cocos2d-x 自带的编译工具 Cocos Console 需要以下运行环境：
 我们在这里需要配置以下两个路径：
 
 - **NDK 路径**：选择 `Android SDK Location` 路径下的 `ndk-bundle` 文件夹（NDK 是其根目录），不需要编译 Android 平台的话这里可以跳过。
+
+  > **注意**：新版本 Android Studio 的 NDK 可下载多版本，之前的 `ndk-bundle` 文件名更改为 `ndk`，可在 `ndk` 目录下根据需要选择具体版本的 NDK。
+
 - **Android SDK 路径**：选择刚才在 SDK Manager 中记下的 `Android SDK Location` 路径（Android SDK 的目录下应该包含 build-tools、platforms 等文件夹），不需要编译 Android 平台的话这里可以跳过。
 
 配置完成后点击 **保存** 按钮，保存并关闭窗口。

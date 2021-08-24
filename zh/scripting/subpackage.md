@@ -58,8 +58,9 @@ cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
 
 目前微信小游戏分包大小有以下限制：
 
-- 整个微信小游戏所有分包大小不超过 **8M**
-- 单个分包/主包大小不能超过 **4M**
+- 整个微信小游戏所有分包大小不超过 **20M**
+- 单个分包不限制大小
+- 主包大小不能超过 **4M**
 
 具体请参考 [微信小游戏分包加载官方文档](https://developers.weixin.qq.com/minigame/dev/guide/base-ability/sub-packages.html)。
 
@@ -79,9 +80,6 @@ cc.loader.downloader.loadSubpackage('01_graphics', function (err) {
 
 ### 分包加载包大小的限制
 
-目前 vivo 小游戏分包大小有以下限制：
-
-- 整个小游戏的所有分包及主包大小不超过 **8M**（打包完成后的整个压缩包包含整包不超过 **12M**，详情可参考 [vivo 分包加载-编译时兼容](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage?id=%e7%bc%96%e8%af%91%e6%97%b6%e5%85%bc%e5%ae%b9)）
-- 单个分包/主包大小不能超过 **4M**
+目前 vivo 小游戏分包大小限制为 20M（主包限制 4M 及分包大小限制 16M）。
 
 具体请参考 [vivo 小游戏分包加载官方文档](https://minigame.vivo.com.cn/documents/#/lesson/base/subpackage)。
