@@ -2,7 +2,7 @@
 
 The [First Extension](./first.md) documentation describes how to create one of the simplest extensions. Next, this document will help to learn how to create and communicate with a panel.
 
-## Define the panel inside the description file package.json
+## Define the panel inside the description file `package.json`
 
 Before using a panel, it is necessary to define it in `package.json`, add the `"panels"` field, and add a message `"open-panel"` in `contributions.messages`, as well as a `"menu"`.
 
@@ -42,9 +42,9 @@ Before using a panel, it is necessary to define it in `package.json`, add the `"
 }
 ```
 
-The meaning of the panel field can be found in the [Extension Panel](./panel.md) documentation.
+The meaning of the `panel` field can be found in the [Extension Panel](./panel.md) documentation.
 
-### Add panels/default.js panel file
+### Add `panels/default.js` panel file
 
 In the previous step the entry was defined in the panel data as `panels/default.js` file, which needs to be newly created as follows:
 
@@ -99,7 +99,7 @@ exports.load = function() {};
 exports.unload = function() {};
 ```
 
-The `Editor.Panel.open` method is called in the `openPanel` method, the passed parameters are **extension name** + **.** + **panel name**, or ignored if it is `default`, e.g.:
+The `Editor.Panel.open` method is called in the `openPanel` method, the passed parameters are **extension name** + **.** + **panel name**, or ignored if it is `default`, e.g:
 
 ```javascript
 Editor.Panel.open('hello-world');

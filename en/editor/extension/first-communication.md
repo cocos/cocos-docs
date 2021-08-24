@@ -4,7 +4,7 @@ Creating extensions and how to define panels in extensions was covered in the pr
 
 ## Define the message inside the description file package.json
 
-First, add a message **"increasing"** to the browser in `contributions.messages`. Next, add a **"hello-world:increasing"** message to the default panel to handle/respond to.
+First, add a message `"increasing"` to the browser in `contributions.messages`. Next, add a `"hello-world:increasing"` message to the default panel to handle/respond to.
 
 ```json
 {
@@ -55,7 +55,7 @@ First, add a message **"increasing"** to the browser in `contributions.messages`
 
 The meaning of the panel field can be found in the [Creating A Custom Panel](./panel-boot.md) documentation.
 
-### Add increasing in browser.js
+### Add `increasing` in `browser.js`
 
 Next, add a new `increasing` method to `methods` in `browser.js`, which is responsible for recording a `num` and incrementing it, and broadcasting it each time it is triggered.
 
@@ -87,9 +87,9 @@ exports.load = function() {};
 exports.unload = function() {};
 ```
 
-### Adding increasing button and broadcast handling to the panel
+### Adding `increasing` button and broadcast handling to the panel
 
-Next, add an **increasing** button to the interface, as well as an area to display num and receive broadcast messages for num changes.
+Next, add an **increasing** button to the interface, as well as an area to display `num` and receive broadcast messages for `num` changes.
 
 ```javascript
 'use strict';
