@@ -66,7 +66,7 @@
         - [发布到字节跳动小游戏](editor/publish/publish-bytedance-mini-game.md)
         - [发布到趣头条小游戏](editor/publish/publish-qtt.md)
         - [发布到 Cocos Play](editor/publish/publish-cocos-play.md)
-        - [发布到华为快游戏](editor/publish/publish-huawei-mini-game.md)
+        - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
         - [发布到 vivo 小游戏](editor/publish/publish-vivo-mini-game.md)
         - [发布到小米快游戏](editor/publish/publish-xiaomi-quick-game.md)
@@ -76,6 +76,7 @@
             - [启用微信小游戏引擎插件](editor/publish/wechatgame-plugin.md)
             - [接入微信 PC 小游戏](editor/publish/publish-pc-wechatgame.md)
         - [开放数据域](editor/publish/build-open-data-context.md)
+        - [小游戏分包](editor/publish/subpackage.md)
     - [命令行发布项目](editor/publish/publish-in-command-line.md)
     - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [定制项目的构建模版](editor/publish/custom-project-build-template.md)
@@ -238,6 +239,7 @@
     - [脚本进阶](scripting/reference-class.md)
     - [添加 Log](scripting/log.md)
     - [废弃 API](scripting/deprecated.md)
+    - [向 Cocos 提交代码](submit-pr/submit-pr.md)
 
 - [资源手册](asset/index.md)
     - [资源工作流](asset/asset-workflow.md)
@@ -275,7 +277,6 @@
     - [Spine 骨骼动画资源](asset/spine.md)
     - [DragonBones 骨骼动画资源](asset/dragonbones.md)
     - [TiledMap 瓦片图资源](asset/tiledmap.md)
-- [向 Cocos 提交代码](submit-pr/submit-pr.md)
 
 ## 进阶使用
 
@@ -324,3 +325,4 @@
     - [Java 原生反射机制](advanced-topics/java-reflection.md)
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)
     - [CMake 使用简介](advanced-topics/cmake-learning.md)
+    - [WebSocket 服务器](advanced-topics/websocket-server.md)

@@ -22,7 +22,7 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
 ### Building with Cocos Creator
 
-1. Use Cocos Creator to open the project, click **Cocos Creator -> Preferences -> External Programs** in the upper menu bar, configure **HarmonyOS SDK** and **HarmonyOS NDK** path:
+1. Use Cocos Creator to open the project, click **Cocos Creator -> Preferences -> External Programs** in the upper menu bar, configure **HarmonyOS NDK** and **HarmonyOS SDK** path:
 
     ![preferences](./publish-huawei-ohos/preferences.png)
 

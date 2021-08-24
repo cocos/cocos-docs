@@ -126,7 +126,7 @@ jsb.reflection.callStaticMethod("com/cocos/game/AppActivity", "showAlertDialog",
 
 现在我们可以从 JavaScript 调用 Java 了，那么能不能反过来？当然可以！
 
-引擎中包含 `CocosJavascriptJavaBridge` 类，这个类有一个 `evalString` 方法可以执行 JavaScript 代码，位于引擎目录的 `resources\3d\cocos2d-x-lite\cocos\platform\android\java\src\com\cocos\lib\CocosJavascriptJavaBridge.java` 文件中。我们将会给刚才的 Alert 对话框增加一个按钮，并在它的响应中执行 JavaScript。和上面的情况相反，这次执行 JavaScript 代码必须在 GL 线程中进行。
+引擎中包含 `CocosJavascriptJavaBridge` 类，这个类有一个 `evalString` 方法可以执行 JavaScript 代码，位于引擎目录的 `resources\3d\engine-native\cocos\platform\android\java\src\com\cocos\lib\CocosJavascriptJavaBridge.java` 文件中。我们将会给刚才的 Alert 对话框增加一个按钮，并在它的响应中执行 JavaScript。和上面的情况相反，这次执行 JavaScript 代码必须在 GL 线程中进行。
 
 一般来说，目前引擎并未承诺多线程下的安全性，所以在开发过程中需要避免 JavaScript 代码在其他线程被调用，以避免各种内存错误。
 

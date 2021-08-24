@@ -321,7 +321,7 @@ LOCAL_PATH := $(call my-dir)
 
 对应在 `CMakeLists.txt` 则表示为：
 
-```
+```CMake
 set(LOCAL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/..)
 ```
 

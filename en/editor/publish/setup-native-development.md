@@ -67,6 +67,8 @@ Next, go back to Cocos Creator to configure the environmental path of the native
 
 - **Android NDK**: choose the `ndk-bundle` folder in `Android SDK Location` path we just noted in Android Studio SDK Manager window. You can skip this if you don't need to compile on Android platform.
 
+  > **Note**: the new version of Android Studio's NDK can be downloaded in multiple versions, with the previous `ndk-bundle` file name changed to `ndk`. You can select a specific version of the NDK as needed in the `ndk` directory.
+
 - **Android SDK**: choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include folders like `build-tools`, `platforms`, etc.). You can skip this if you don't need to compile the Android platform.
 
 Close the window after configuration is completed.

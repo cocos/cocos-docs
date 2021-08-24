@@ -31,7 +31,7 @@ Mask 用于规定子节点可渲染的范围，默认带有 Mask 组件的节点
 
 可以在运行时通过代码设置：
 
-``` ts
+```ts
 const mask = this.getComponent(Mask);
 mask.type = Mask.Type.ELLIPSE;
 mask.segments = 32;
@@ -43,7 +43,7 @@ mask.segments = 32;
 
 可以在运行时通过代码设置：
 
-``` ts
+```ts
 const mask = this.getComponent(Mask);
 mask.type = Mask.Type.GRAPHICS_STENCIL;
 const g = mask.graphics;
@@ -64,7 +64,7 @@ g.fill();
 
 可以在运行时通过代码设置：
 
-``` ts
+```ts
 const mask = this.getComponent(Mask);
 mask.type = Mask.Type.IMAGE_STENCIL;
 mask.spriteFrame = this.spriteFrame;

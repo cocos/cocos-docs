@@ -5,7 +5,6 @@ Cocos Creator 是一个开源引擎，连同范例、文档都是开源的。<br
 
 - **TypeScript 引擎**：[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)
 - **engine-native 引擎**：[GitHub](https://github.com/cocos-creator/engine-native/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native/)
-- **jsb-adapter**：[GitHub](https://github.com/cocos-creator/jsb-adapter/) | [Gitee](https://gitee.com/mirrors_cocos-creator/jsb-adapter/)
 
 下面让我们来看一下，如何从零开始在 GitHub 上向 Cocos 提交代码。
 
