@@ -151,10 +151,10 @@ targetNode: Node | null = null; // 等价于 targetNode: Node = null!;
 
 若属性未指定 cc 类型，Cocos Creator 3.0 将从属性的默认值或初始化式的求值结果推导其 cc 类型：
 
-- 若值的类型是 Javascript 原始类型 `number`、`string`、`boolean`，则其 cc 类型分别为 Creator 的浮点数、字符串，以及布尔值。
+- 若值的类型是 JavaScript 原始类型 `number`、`string`、`boolean`，则其 cc 类型分别为 Creator 的浮点数、字符串，以及布尔值。
 - 其他的则表示属性的类型是 **未定义** 的，编辑器上会提示 `Type(Unknown)` 字样。
 
-> **注意**：当 Javascript 内置构造函数 `Number`、`String`、`Boolean` 用作 cc 类型时将给出警告，并且将分别视为 cc 类型中的 `CCFloat`、`CCString`、`CCBoolean`。已经初始化的数组属性修改类型后，需要手动清除掉原来的数组数据，重新赋值，否则会因为数据类型不一致，导致数据错乱。
+> **注意**：当 JavaScript 内置构造函数 `Number`、`String`、`Boolean` 用作 cc 类型时将给出警告，并且将分别视为 cc 类型中的 `CCFloat`、`CCString`、`CCBoolean`。已经初始化的数组属性修改类型后，需要手动清除掉原来的数组数据，重新赋值，否则会因为数据类型不一致，导致数据错乱。
 > ![property-changed](property-changed.png)
 
 <!-- 关于 cc 类型如何影响 cc 属性以及对未定义 cc 类型的属性的处理，可参考下文中的 [属性类型](#%E5%B1%9E%E6%80%A7%E5%8F%82%E6%95%B0) 和 [序列化参数](#serializable-参数) 介绍。 -->
@@ -175,7 +175,7 @@ Enum(A);
 
 @ccclass
 class MyClass {
-    @property // Javascript 原始类型，根据默认值自动识别为 Creator 的浮点数类型。
+    @property // JavaScript 原始类型，根据默认值自动识别为 Creator 的浮点数类型。
     index = 0;
 
     @property(Node) // 声明属性 cc 类型为 Node。当属性参数只有 type 时可这么写，等价于 @property({type: Node})
@@ -224,7 +224,7 @@ class MyClass {
 
     @type(String) // 警告：不应该使用构造函数 String。等价于 CCString。也可以选择不声明类型
     text = '';
-    // Javascript 原始类型 `number`、`string`、`boolean` 通常可以不用声明
+    // JavaScript 原始类型 `number`、`string`、`boolean` 通常可以不用声明
     // 可以直接写
     @property
     text = '';
