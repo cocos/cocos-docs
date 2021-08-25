@@ -1,16 +1,16 @@
 # Decorator
 
-## cc class
+## `cc` class
 
-When applying a decorator [ccclass](#ccclass) to a class, such class is called a cc class. cc class injects additional information to control Cocos Creator 3.0's serialization of the class object, the editor's presentation of the class object, etc. Therefore, component classes that do not have `ccclass` declared cannot be added to nodes as components either.
+When applying a decorator [ccclass](#ccclass) to a class, such class is called a `cc` class. `cc` class injects additional information to control Cocos Creator 3.0's serialization of the class object, the editor's presentation of the class object, etc. Therefore, component classes that do not have `ccclass` declared cannot be added to nodes as components either.
 
-The various characteristics of the cc class are specified by the `ccclass(name)` argument.
+The various characteristics of the `cc` class are specified by the `ccclass(name)` argument.
 
-The parameter `name` specifies the name of the cc class, which is **unique**. When the corresponding cc class needs to be retrieved, it can be found by its cc class name, e.g.
+The parameter `name` specifies the name of the `cc` class, which is **unique**. When the corresponding `cc` class needs to be retrieved, it can be found by its `cc` class name, e.g.
 
-- Serialization. If the object is a cc class object, the cc class name of the object will be recorded during serialization, and the corresponding cc class will be found for serialization based on this name during deserialization.
+- Serialization. If the object is a `cc` class object, the `cc` class name of the object will be recorded during serialization, and the corresponding `cc` class will be found for serialization based on this name during deserialization.
 
-- When the cc class is a component class, ``Node` can look up the component by the cc class name of the component class.
+- When the `cc` class is a component class, `Node` can look up the component by the `cc` class name of the component class.
 
 ```ts
 @ccclass('Example')
@@ -22,7 +22,7 @@ export class Example extends Component {
 
 Such parameters are subclasses that can only be defined in cc.
 
-### executeInEditMode
+### `executeInEditMode`
 
 By default, all components are executed only at runtime, meaning that their lifecycle callbacks are not triggered in editor mode. `executeInEditMode` allows the current component to run in editor mode, with an initial value of `false`.
 
@@ -35,7 +35,7 @@ export class Example extends Component {
 }
 ```
 
-### requireComponent
+### `requireComponent`
 
 The `requireComponent` parameter is used to specify a dependent component for the current component, the default value is `null`. When a component is added to a node, the engine will automatically add the dependent component to the same node if the dependent component does not exist, preventing script errors. This option is also valid at runtime.
 
@@ -48,9 +48,9 @@ export class Example extends Component {
 }
 ```
 
-### executionOrder
+### `executionOrder`
 
-``executionOrder`` is used to specify the execution priority of script lifecycle callbacks. Scripts less than 0 will be executed first and scripts greater than 0 will be executed last. The ordering is as follows.
+`executionOrder` is used to specify the execution priority of script lifecycle callbacks. Scripts less than 0 will be executed first and scripts greater than 0 will be executed last. The ordering is as follows.
 - For different components on the same node, those with smaller values are executed first, and those with the same values are executed in the order in which they are added
 - For the same component on different nodes, the order of execution is determined by the node tree
 - For all nodes in the node tree, if both nodes and components are active, the smaller the value, the first to be executed
@@ -66,7 +66,7 @@ export class Example extends Component {
 }
 ```
 
-### disallowMultiple
+### `disallowMultiple`
 
 Only allow one component of the same type (with subclasses) to be added to the same node to prevent logic conflicts, default value is false.
 
@@ -79,9 +79,9 @@ export class Example extends Component {
 }
 ```
 
-### menu
+### `menu`
 
-``menu(path)` is used to add the current component to the component menu to make it easier for the user to find it.
+`menu(path)` is used to add the current component to the component menu to make it easier for the user to find it.
 
 ```ts
 const { ccclass, menu } = _decorator;
@@ -94,7 +94,7 @@ export class Example extends Component {
 
 ![menu](./menu.png)
 
-### help
+### `help`
 
 Specify the `url` of the current component's help file. Once set, a help icon will appear in the **Inspector** panel and can be clicked to open the specified page.
 
@@ -107,13 +107,13 @@ export class Example extends Component {
 }
 ```
 
-## cc Property
+## `cc` Property
 
-When the decorator [property](#property) is applied to a property or accessor of a cc class, this property is called a cc property.
+When the decorator [property](#property) is applied to a property or accessor of a `cc` class, this property is called a cc property.
 
-Similar to the cc class, the cc property injects additional information to control Cocos Creator 3.0's serialization of the property, the editor's presentation of the property, and so on.
+Similar to the `cc` class, the cc property injects additional information to control Cocos Creator 3.0's serialization of the property, the editor's presentation of the property, and so on.
 
-### property
+### `property`
 
 The various properties of the cc property are specified via the `property()` argument. Optional parameters can be found in: [property parameters](./reference/attributes.md)
 
@@ -129,7 +129,7 @@ targetNode: Node | null = null; // Equivalent to targetNode: Node = null!;
 
 Next, some of the common ways to write property parameters are listed below.
 
-### type
+### `type`
 
 The `type` option specifies the cc type of the attribute. The type can be specified with several forms of arguments.
 
@@ -141,13 +141,13 @@ The `type` option specifies the cc type of the attribute. The type can be specif
   - `CCString` declares the type as **String**;
   - `CCBoolean` declares the type as **Boolean**.
 
-- cc class properties not identified by built-in property types
+- `cc` class properties not identified by built-in property types
 
-  All cc class properties **need to specify a type**, otherwise the editor will not recognize the type and serialization will not write the correct type.
+  All `cc` class properties **need to specify a type**, otherwise the editor will not recognize the type and serialization will not write the correct type.
 
 - Arrays
 
-  When the built-in property type identifier or the cc class is used as an array element, the property is specified as a **Cocos Creator 3.0 array**. For example, `[CCInteger]`, `[Node]` will present the property as an array of integers and an array of nodes, respectively.
+  When the built-in property type identifier or the `cc` class is used as an array element, the property is specified as a **Cocos Creator 3.0 array**. For example, `[CCInteger]`, `[Node]` will present the property as an array of integers and an array of nodes, respectively.
 
 If the property does not specify a cc type, Cocos Creator 3.0 will derive its cc type from the property's default value or the result of an initialization formula:
 
@@ -262,7 +262,7 @@ Constructors for CCClass are defined using `constructor`. To ensure that deseria
 
 4. an empty array `[]` or an empty object `{}` -->
 
-### visible Parameter
+### `visible` Parameter
 
 In general, whether an attribute is displayed in the **Inspector** panel depends on whether the attribute name starts with `_`. **If it starts with `_`, it is not displayed**.
 
@@ -280,7 +280,7 @@ To force hiding, set the `visible` parameter to false:
 num = 0;
 ```
 
-### serializable Parameter
+### `serializable` Parameter
 
 Properties are serialized by default. Once serialized, the property values set in the editor will be saved to the scene and other resource files, and will be automatically restored to the set property values when the scene is loaded. If you don't want to serialize, you can set `serializable: false`.
 
@@ -289,9 +289,9 @@ Properties are serialized by default. Once serialized, the property values set i
 num = 0;
 ```
 
-### override Parameters
+### `override` Parameters
 
-All properties are inherited by subclasses. If a subclass wants to override a property of the same name of the parent class, the override parameter needs to be set explicitly, otherwise there will be a renaming warning: ``
+All properties are inherited by subclasses. If a subclass wants to override a property of the same name of the parent class, the override parameter needs to be set explicitly, otherwise there will be a renaming warning:
 
 ```typescript
 @property({ tooltip: "my id", override: true })
