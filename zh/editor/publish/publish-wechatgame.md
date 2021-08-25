@@ -53,7 +53,7 @@
 | 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情可参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
 | 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md) | `buildOpenDataContextTemplate` |
 | 分离引擎 | 是否使用微信小游戏引擎插件，详情请参考 [启用微信小游戏引擎插件](./wechatgame-plugin.md) | `separateEngine`
-| 物理 wasm 实验性功能 | 用于选择 ammo 物理的使用模式，目前包括 `js`、`fallback`、`wasm` 三种，详情请参考下文 **WebAssembly 支持** 部分的内容。 | - |
+| 物理 wasm 实验性功能 | 用于选择 bullet（ammo.js）物理的使用模式，目前包括 `js`、`fallback`、`wasm` 三种，详情请参考下文 **WebAssembly 支持** 部分的内容。 | - |
 
 ## 微信小游戏的资源管理
 
@@ -87,7 +87,7 @@
 
 ## WebAssembly 支持
 
-从 Cocos Creator 3.0 开始，微信小游戏的构建选项中新增了 **物理 wasm 实验性功能** 选项，当编辑器主菜单的 **项目 -> 项目设置 -> 功能裁剪 -> 3D -> 物理系统** 设置为 `ammo` 时生效。目前包括以下几种使用模式：
+从 Cocos Creator 3.0 开始，微信小游戏的构建选项中新增了 **物理 wasm 实验性功能** 选项，当编辑器主菜单的 **项目 -> 项目设置 -> 功能裁剪 -> 3D -> 物理系统** 设置为 **bullet（ammo.js）** 时生效。目前包括以下几种使用模式：
 
 - `js`：使用 `js` 模式，此模式与以往版本一致。
 - `fallback`：自动回退模式，在支持 `wasm` 的环境中使用 `wasm`，否则回退到 `js`。

@@ -18,7 +18,7 @@ Externally imported animations include the following:
 
 2. Skeletal Animations that come with the model after it is imported.
 
-When a model that contains animations is imported, the animation contained in the model will be imported at the same time. This animation is used in the same way as the internal new assets, and the crop of skeletal animation can be referred to [Introduction to the animation module of model assets](../asset/mesh.md) documentation.
+When a model that contains animations is imported, the animation contained in the model will be imported at the same time. This animation is used in the same way as the internal new assets, and the crop of skeletal animation can be referred to [Introduction to the animation module of model assets](../asset/model/mesh.md) documentation.
 
 For additional details about Skeletal Animation settings, please refer to the [Skeletal Animation](skeletal-animation.md) documentation.
 
