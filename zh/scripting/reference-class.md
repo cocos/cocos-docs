@@ -209,7 +209,7 @@ class Sprite {
     private _width = 0;
     ```
 
-- 定义了 get 方法的属性如果需要被编辑器显示，需要定义 property，否则不会呈现。，
+- 定义了 get 方法的属性如果需要被编辑器显示，需要定义 property，否则不会呈现。
 
     例如下面的写法，width 属性如果去掉 @property 就不会在编辑器上呈现，_width 属性会序列化。
 
@@ -234,7 +234,7 @@ class Sprite {
     private _num = 0;
 
     start() {
-        consolo.log(this.num);
+        console.log(this.num);
     }
     ```
 
@@ -252,7 +252,7 @@ private _width = 0;
 
 start() {
     this.width = 20;
-    consolo.log(this.width);
+    console.log(this.width);
 }
 ```
 
