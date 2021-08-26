@@ -2,7 +2,7 @@
 
 After creating a basic Animation Clip, sometimes it is necessary to implement an easing effect like **EaseInOut** between two keyframes. How is this done in the **Animation** panel?
 
-First, add an Animation Property and create two unequal keyframes on the Animation Property track. For example, create two keyframes on the Animation Property `position`, from `(0, 0, 0)` to `(100, 100, 100)`, then a blue connecting line will appear between the two keyframes, double click the connecting line to open the curve editor, the default settings of the panel are as follows:
+First, add an Animation Property Track and create two unequal keyframes on the track. For example, create two keyframes on the track of the animation property `position`, from `(0, 0, 0)` to `(100, 100, 100)`, then a blue connecting line will appear between the two keyframes, double click the connecting line to open the curve editor, the default settings of the panel are as follows:
 
 ![time curve](animation-curve/main.png)
 

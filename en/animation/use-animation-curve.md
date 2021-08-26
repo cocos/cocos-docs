@@ -186,7 +186,7 @@ The following are some of the commonly used fade methods:
 - `quadInOut`: fading from slow to fast to slow again
 - `quadOutIn`: fade from fast to slow to fast
 
-<script src=". /easing-method-example.js"> </script>
+<script src="./easing-method-example.js"> </script>
 <button onclick="onEasingMethodExampleButtonClicked()">Expand Comparison</button>
 <div id="easing-method-example-panel"> </div>
 

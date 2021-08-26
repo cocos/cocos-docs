@@ -18,9 +18,9 @@ Two steps are required to create a terrain:
 
 ## Terrain component properties
 
-| Parameter | Description |
-|:-----|:----|
-| **Asset** | Terrain asset |
+| Property   | Description |
+| :----- | :---- |
+| **Asset**  | Terrain asset |
 | **EffectAsset** | Terrain effect asset |
 | **ReceiveShadow** | Accept the shadow |
 | **UseNormalMap** | Use normal map |
@@ -34,7 +34,7 @@ Click on the created terrain node. There is a terrain component (`cc.Terrain`) i
 
 ## Editing a terrain
 
-After assigning the terrain assets, the editing panel can be accessed from the **Scene** panel. The terrain editing system includes three major functions: **Manage**, **Sculpt**, and **Paint**. These three functions can be switched between by clicking on the corresponding tabs.
+After assigning the terrain assets, the **cc.Terrain** editing panel can be accessed from the **Scene** panel. The terrain editing system includes three major functions: **Manage**, **Sculpt**, and **Paint**. These three functions can be switched between by clicking on the corresponding tabs.
 
 ![terrain component](./images/terrain-panel.png)
 
