@@ -222,7 +222,7 @@ vec4 frag () {
 
 **注意**：
 - 这里可以使用编译器提示 `format` 指定此属性的具体数据格式，参数为引擎 `GFXFormat` 的任意枚举名<sup id="a2">[2](#f2)</sup>，如未声明则默认为 32 位 float 类型；
-- 所有 instanced 属性都是 VS 的输入 attribute，所以如果要在 FS 中使用，则需要在 VS 中自行传递；
+- 所有 instanced 属性都是 VS 的输入 property，所以如果要在 FS 中使用，则需要在 VS 中自行传递；
 - 记得确保代码在所有分支都能正常执行，无论 `USE_INSTANCING` 启用与否。
 
 在运行时所有属性都会默认初始化为 0，脚本中设置接口为：

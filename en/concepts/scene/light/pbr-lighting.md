@@ -43,7 +43,7 @@ In the real world, because the important physical parameters describing lights a
 
 **Color temperature** refers to the color of the absolute black body after it has been heated from absolute zero (-273°C).
 
-**Color temperature** is an important attribute that affects the color of the light. It is an optional attribute. When color temperature is enabled, the color temperature also contributes to the color of the light.
+**Color temperature** is an important property that affects the color of the light. It is an optional property. When color temperature is enabled, the color temperature also contributes to the color of the light.
 
 In a real world environment, the ambient color temperature at different times of the day also changes dynamically:
 

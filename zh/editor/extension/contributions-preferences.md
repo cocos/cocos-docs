@@ -126,7 +126,7 @@ interface UIInfo {
     // 使用哪种 ui 元素渲染，例如 "ui-num-input"
     ui: string;
     attributes: {
-        // ui 元素上允许传入的 attribute 数据，每一种 ui 允许传入的参数不一样，详细参考 ui-kit 章节
+        // ui 元素上允许传入的 property 数据，每一种 ui 允许传入的参数不一样，详细参考 ui-kit 章节
         // 假设 ui 为 "ui-num-input"
         // 此处可以填入 "step": 1
         [key:string]: any;

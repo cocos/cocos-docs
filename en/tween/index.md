@@ -6,9 +6,9 @@ In order to be fully compatible with and maintain the experience of the __Cocos 
 
 > **Note**: there is no longer a dependency on `tween.js`. If you use the relevant features of `tween.js`, please adapt.
 
-> **Note**: the `onStart, onUpdate, onComplete` callbacks were added to the optional attributes of `to` and `by`.
+> **Note**: the `onStart, onUpdate, onComplete` callbacks were added to the optional properties of `to` and `by`.
 
-The difference from the previous `tween.js` is mainly optional attributes, explained as follows:
+The difference from the previous `tween.js` is mainly optional properties, explained as follows:
 
 - The value definition of `easing` has been changed (compatibility is done here).
 - In addition to `easing`, `onStart`, `onUpdate`, `onComplete`, other properties are not supported yet (checked here, the console will have a corresponding warning).
@@ -75,8 +75,8 @@ In the new `Tween` module, you can obtain properties with `getter` and `setter`,
 
 | Interface | Explanation |
 | ----------------- | ------------------------------------------- |
-| **to** | Add an interval action that calculates the **absolute value** of the attribute |
-| **by** | Add an interval action to calculate the **relative value** of the attribute |
+| **to** | Add an interval action that calculates the **absolute value** of the property |
+| **by** | Add an interval action to calculate the **relative value** of the property |
 | **set** | Add a momentary action that **sets** the target property directly |
 | **delay** | Add an instant action of **delay time** |
 | **call** | Add an instant action of **call callback** |
@@ -94,7 +94,7 @@ In the new `Tween` module, you can obtain properties with `getter` and `setter`,
 | **hide** | Disable rendering on the node chain, the slowing target needs to be Node |
 | **removeSelf** | Move the node out of the scene tree, the slowing target needs to be Node |
 
-### Optional attributes of to and by
+### Optional Properties of to and by
 
 The definition is as follows:
 
