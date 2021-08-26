@@ -100,6 +100,6 @@ The batched version of effect is a bit more complicated to write, but basically 
 | Mesh | The model data of the current sub-model, usually from glTF or FBX.
 | Skeleton | The skeletal data of the current sub-model, usually from glTF or FBX. 
 | Material | The "sub-material" used by the current sub-model is a non-batched version of the normal effect, and the effect used by different sub-models should be consistent.
-| Offset | The offset of the current sub-model's textures inside the atlas, with the top-left corner of the atlas as the origin, in the range [0, 1], e.g. the data in the figure represents that the sub-texture overlaps with the top-left corner of the atlas.
-| Size | The size occupied by the current sub-model's textures inside the atlas, in the range [0, 1], e.g. the data in the figure represents that the sub-texture occupies 1/2 of the entire atlas.
+| Offset | The offset of the current sub-model's textures inside the atlas, with the top-left corner of the atlas as the origin, in the range [0, 1], e.g.: the data in the figure represents that the sub-texture overlaps with the top-left corner of the atlas.
+| Size | The size occupied by the current sub-model's textures inside the atlas, in the range [0, 1], e.g.: the data in the figure represents that the sub-texture occupies 1/2 of the entire atlas.
 | CopyFrom | The target properties (except offset and size) can be copied automatically by dragging in the SkinningModelComponent for easy operation.

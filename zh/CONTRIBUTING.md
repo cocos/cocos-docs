@@ -249,7 +249,7 @@
 
 **英文句子中，并列词语之间使用半角逗号（,）分隔**
 
-> e.g：Microsoft Office includes Word, Excel, PowerPoint, Outlook and other components.
+> e.g.：Microsoft Office includes Word, Excel, PowerPoint, Outlook and other components.
 
 **中文句子内部的并列词，最后一个尽量使用（和）来连接，使句子读起来更加连贯**
 

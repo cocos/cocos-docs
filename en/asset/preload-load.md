@@ -5,7 +5,7 @@
 In order to minimize download times, most of the loading interfaces in Asset Manager, including `load`, `loadDir`, and `loadScene` have their own corresponding preloaded versions. The parameters used for the loading interfaces and the preloading interfaces are exactly the same, with the following differences:
 
 1. Preloading will only download the resources and will not parse or initialize them.
-2. Preloading will be more limited during the loading process, e.g. the maximum number of download concurrently will be smaller.
+2. Preloading will be more limited during the loading process, e.g.: the maximum number of download concurrently will be smaller.
 3. Preloading has a lower priority, and when multiple resources are waiting to be downloaded, the preloaded resources will be downloaded last.
 4. Since the preload does not do any parsing, no available resources are returned when all the preloads load are complete.
 

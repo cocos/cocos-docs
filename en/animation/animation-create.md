@@ -6,7 +6,7 @@ If the currently selected node does not have an Animation Component, the **Add A
 
 ![add component](./animation-create/add-component.png)
 
-Go ahead and click the **Create a new AnimationClip file** button in the **Animation** panel and name it (e.g. `animation`).
+Go ahead and click the **Create a new AnimationClip file** button in the **Animation** panel and name it (. `animation`).
 
 ![add clip](./animation-create/add-clip.png)
 
