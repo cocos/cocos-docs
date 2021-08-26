@@ -78,7 +78,7 @@ Cocos Creator currently supports hard, 4x(**SOFT** Mode), 9x(**SOFT_2X** Mode) s
 
 #### AutoAdapt Adaptive Shadow Calculation
 
-AutoAdapt adaptive shadow calculation will automatically calculate the range of shadows created under the lightView, as well as the distance of the shadow camera.Check if the hardware supports semi-floating point textures, to decide whether to enable linear depth or use texture compression.
+AutoAdapt adaptive shadow calculation automatically calculates the extent of shadow generation in the lightView and the proximity of the shadow camera. This can be used to check if the hardware supports semi-floating point types, and if so, Creator will automatically turn on linear depth and use texture compression.
 
 ## Support dynamic batching to improve performance
 
