@@ -6,7 +6,7 @@ The currently supported tags are: `color`, `size`, `outline`, `b`, `i`, `u`, `br
 
 For more information about BBCode, please refer to the __BBCode format__ section below.
 
-![richtext](richtext/richtext.png)
+![richtext](richText/richtext.png)
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __RichText__ from __UI -> Render__ to add the RichText component to the node.
 
@@ -14,7 +14,7 @@ To use `RichText`, please refer to the [RichText API](__APIDOC__/en/classes/ui.r
 
 ## RichText Properties
 
-| Property      | Function Explanation  |
+| Property         | Function Explanation  |
 | --------------   | -----------   |
 | Font             | Custom TTF font of __RichText__, all the label segments will use the same custom TTF font.  |
 | FontSize         | Font size, in points (__Note__: this field does not affect the font size set in BBCode.) |

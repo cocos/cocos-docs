@@ -2,7 +2,7 @@
 
 Once an Animation Clip is attached on to an Animation Component of a node, click **Enter animation editing mode** or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> to enter Animation Editing Mode and add keyframe data to the Animation Clip to animate the node. Please refer to the [Animation panel](animation-editor.md) documentation before editing animation clips.
 
-An Animation Clip may contain multiple nodes (nodes and their children), and multiple animation properties can be attached to each node. By moving, rotating, or scaling the nodes, keyframes are added to the animation property corresponding to the currently selected node. All the keyframes added to the animation property are displayed in the corresponding animation property track as a list pattern of linear trajectories, which are called animation curves.
+An Animation Clip may contain multiple nodes (nodes and their children), and multiple animation properties can be attached to each node. By moving, rotating, or scaling the nodes, keyframes are added to the animation property corresponding to the currently selected node. All the keyframes added to the animation property are displayed in the corresponding animation property as a list pattern of linear trajectories, which are called animation curves.
 
 ## Creating an Animation Curve
 
@@ -124,7 +124,7 @@ The above two pasting methods differ when copying and pasting data from multiple
 
   ![copy keyFrames1](edit-animation-clip/copy-keyframes1.gif)
 
-Component property tracks (e.g. x, y, z properties under the animation property `position`) as separate property tracks will also follow this rule. If right-clicking on the target component track after copying the keyframe data on the main track (e.g. animation property `position`) to paste it, only the target component track will be pasted with the keyframe data. Be sure to copy the data according to the actual position you want to paste, to avoid unintended results.
+Component property tracks (e.g. `x`, `y`, `z` properties under the animation property track `position`) as separate property tracks will also follow this rule. If right-clicking on the target component track after copying the keyframe data on the main track (e.g. animation property track `position`) to paste it, only the target component track will be pasted with the keyframe data. Be sure to copy the data according to the actual position you want to paste, to avoid unintended results.
 
 ## Common operations with node data
 
@@ -157,7 +157,7 @@ Copy and paste of node animation data, supports cross-editor (v3.x) usage.
 - **Copy**: Select the node you want to copy data from in the node list, right click and select **Copy Data**, or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd> to do so.
 - **Paste**: Select the target node in the node list, right click and select **Paste Data**, or use the shortcut <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> to paste the animation data.
 
-> **Note**: the paste function does not support automatic creation of animation properties, so the copied and pasted nodes must have at least one of the same animation properties, if not, please create them in advance. When pasting animation data of multiple nodes on the same node, the animation data of the overlapping part will be overwritten by the latter, and the different parts will be fused with each other.
+> **Note**: the paste function does not support automatic creation of animation properties, so the copied and pasted nodes must have at least one of the same animation property, if not, please create it in advance. When pasting animation data of multiple nodes on the same node, the animation data of the overlapping part will be overwritten by the latter, and the different parts will be fused with each other.
 
 ### Edit child node data with the same name
 
@@ -169,15 +169,15 @@ However, it is supported to add animation components and animation clips for the
 
 ## Common operations for animation property data
 
-Right-click on the animation property or click ![property](edit-animation-clip/set-pro.png) button to the right of the animation property to select **Remove property track**, **Clear keyframe data**, or **Copy property track**.
+Right-click on the animation property or click ![property](edit-animation-clip/set-pro.png) button to the right of the track to select **Remove property track**, **Clear keyframe data**, or **Copy property track**.
 
 ![property operation](edit-animation-clip/pro-operation.png)
 
-- Remove property track: remove the currently selected animation property, including all keyframes on that animation property. Or you can also use the shortcut <kbd>Delete</kbd> key (Windows) or <kbd>Cmd</kbd> + <kbd>Backspace</kbd> (macOS).
+- Remove property track: remove the currently selected animation property, including all keyframes on that property track. Or you can also use the shortcut <kbd>Delete</kbd> key (Windows) or <kbd>Cmd</kbd> + <kbd>Backspace</kbd> (macOS).
 
-- Clear keyframe data: delete all keyframes on the currently selected animation property.
+- Clear keyframe data: delete all keyframes on the currently selected animation property track.
 
-- Copy animation property: copy all animation data on the currently selected animation property and paste it to the target animation property, supporting the shortcut keys <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + < kbd>V</kbd>. When pasting, the overlapping keyframes are overwritten by the latter, and the different parts are blended with each other.
+- Copy animation property track: copy all animation data on the currently selected animation property track and paste it to the target animation property track, supporting the shortcut keys <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + < kbd>V</kbd>. When pasting, the overlapping keyframes are overwritten by the latter, and the different parts are blended with each other.
 
   Copy/paste of animation property data between different editors (v3.x) is currently supported. Copy/paste of animation data is only supported for `ccType` data of the same type.
 

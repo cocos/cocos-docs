@@ -61,6 +61,9 @@ Cocos Creator 3.0 不支持 Eclipse 的 ANT 构建，需要使用 **Android Stud
 ![preference](setup-native-development/sdk.png)
 
 - **Android NDK**：选择刚才在 Android Studio 中的 `Android SDK Location` 路径下的 `ndk-bundle` 文件夹（NDK 是其根目录），不需要编译 Android 平台的话这里可以跳过。
+
+  > **注意**：新版本 Android Studio 的 NDK 可下载多版本，之前的 `ndk-bundle` 文件名更改为 `ndk`，可在 `ndk` 目录下根据需要选择具体版本的 NDK。
+
 - **Android SDK**：选择刚才在 Android Studio 的 SDK Manager 中记下的 `Android SDK Location` 路径（Android SDK 的目录下应该包含 `build-tools`、`platforms` 等文件夹），不需要编译 Android 平台的话这里可以跳过。
 
 配置完成后会自动保存。
