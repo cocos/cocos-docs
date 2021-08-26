@@ -10,11 +10,11 @@ The **Animation** panel can be divided into the following main sections.
 
 ![animation-editor](animation-editor/animation-panel.png)
 
-1. **Toolbar**: some common function buttons, such as play/pause/stop animation, add animation event, save animation, quit editing, etc.
+1. **Toolbar**: some common function buttons, such as play/pause/stop animation, add event frame, save animation, quit editing, etc.
 2. **Node List**: used to display/set the currently selected node and its child nodes.
-3. **Animation timeline and Keyframe Preview**: used to display/set the animation events added to the current node (and its children) and the preview of all keyframes on the added animation properties.
-4. **Property List**: used to display/set all animation properties included in the currently edited animation clip for the currently selected node.
-5. **Property Keyframe Preview**: used to display/set all keyframes on each animation property of the currently selected node.
+3. **Animation timeline and Keyframe Preview**: used to display/set the event frames added to the current node (and its children) and the preview of all keyframes on the added animation property.
+4. **Animation Property List**: used to display/set all animation properties included in the currently edited animation clip for the currently selected node.
+5. **Animation Property Keyframe Preview**: used to display/set all keyframes on each animation property of the currently selected node.
 6. **Related properties of the current animation clip**: used to set the playback mode, playback speed, etc. of the current animation clip.
 
 For specific content, please refer to the following introduction.
@@ -35,7 +35,7 @@ The function buttons in the **Menu toolbar** are, from left to right.
 | ![time](animation-editor/menu_time.png) | The scale unit of the timeline are displayed in three ways: <br>**Time: 0-00**<br>**Frame: 0**<br>**Time (s): 0 s**<br> See the **Scale Units of the Timeline** section below for details. | - |
 | ![spacing](animation-editor/menu-spacing.png)| Used to set the spacing size between keyframes when multiple keyframes are generated at the same time. | - |
 | ![spacing](animation-editor/menu_spacing_btn.png) | Spacing the selected keyframes at the same time. The selected keyframes will be spaced according to the first frame, using the value in the **Spacing** input box as the spacing size.
-| ![add event](animation-editor/menu_event.png) | Add animation event, click this button to add an animation event above the current timeline | - |
+| ![add event](animation-editor/menu_event.png) | Add event frame, click this button to add an event frame above the current timeline | - |
 | ![menu save](animation-editor/menu_save.png) | Save the currently edited animation data. | - |
 | ![menu doc](animation-editor/menu_doc.png) | Click this button to jump to the official manual section on the **Animation** panel | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd> |
 | ![shortcuts](./animation-editor/shortcuts.png) | Open the shortcuts panel, which supports custom shortcuts. See the **Shortcuts** section below for details | - |
@@ -55,7 +55,7 @@ Currently, it is possible to right-click on a node to clear, migrate, copy and p
 
 ![animation timeline](animation-editor/animation-timeline.png)
 
-The animation timeline is mainly used to display/set the custom [animation events](animation-event.md) added to the current node, the [keyframes](edit-animation-clip.md) of all animation properties added to the node (and its children) (blue diamond) and to show the preview.
+The animation timeline is mainly used to display/set the custom [event frames](animation-event.md) added to the current node, the [keyframes](edit-animation-clip.md) (blue diamond) of all animation properties added to the node (and its children) and to show the preview.
 
 The time control line (red vertical line) indicates the time the current animation is at, and the currently selected time can be changed in several ways:
 
@@ -103,7 +103,7 @@ For example, if the frame rate is set to 30 and a keyframe is added to the `01-0
 
 #### Changing the animation timeline scale
 
-If the **Animation** panel display is too small and needs to be enlarged for more keyframes to be displayed within the editor, Just simply scroll the mouse wheel in either **Animation Timeline** and **Animation Properties Keyframe Preview** to scale the timeline up or down.
+If the **Animation** panel display is too small and needs to be enlarged for more keyframes to be displayed within the editor, Just simply scroll the mouse wheel in either **Animation Timeline** and **Animation Property Keyframe Preview** area to scale the timeline up or down.
 
 ![scale](./animation-editor/scale.gif)
 
@@ -113,21 +113,21 @@ Drag and drop the middle/right mouse button in any area of the **Animation Timel
 
 ![scale canvas](./animation-editor/scale-canvas.gif)
 
-### 4. List of animation properties
+### 4. List of animation property
 
 ![node list](./animation-editor/4-pro-list.png)
 
-This area is mainly used to display/add/set the animation properties of the currently selected node in the current Animation Clip. The animation properties include the node's own properties, component properties (including those in user-defined script components), and the animation properties are added by clicking the **+** button in the upper right corner. Component properties are prefixed with the name of the component, e.g. `cc.Sprite.spriteFrame`.
+This area is mainly used to display/add/set the animation property of the currently selected node in the current Animation Clip. The animation properties include the node's own properties, component properties (including those in user-defined script components), and the animation properties are added by clicking the **+** button in the upper right corner. Component properties are prefixed with the name of the component, e.g. `cc.Sprite.spriteFrame`.
 
 Right-click on the animation property or click ![property](./animation-editor/set-pro.png) button to the right of the animation property to select **Remove Prop Track**, **Clear Keyframe Data**, or **Copy Prop Track**. For details, please refer to the [Common operations on animation property data](edit-animation-clip.md#Common-operations-on-animation-property-data) documentation.
 
 ![property operation](./animation-editor/pro-operation.png)
 
-### 5. Animation property keyframe preview
+### 5. Keyframe preview of the animation property
 
 ![animation property track](./animation-editor/animation-property-track.png)
 
-This area is mainly used to display the specific keyframe settings of the currently selected node on each animation property, and is also the main area for keyframe editing. Keyframes can be added by right-clicking on the animation property track on the right side. This area also supports the ability to move, copy, and paste keyframes by checking and tapping on them. For details, please refer to the [Common keyframe operations](edit-animation-clip.md#common-keyframe-operations) documentation.
+This area is mainly used to display the specific keyframe settings of the currently selected node on each animation property, and is also the main area for keyframe editing. Keyframes can be added by right-clicking on the animation property on the right side. This area also supports the ability to move, copy, and paste keyframes by checking and tapping on them. For details, please refer to the [Common keyframe operations](edit-animation-clip.md#common-keyframe-operations) documentation.
 
 When clicking on a keyframe, it will turn from blue to white and information about it will be displayed above the area, and double-clicking on the keyframe will move the time control line to its location.
 
@@ -173,6 +173,6 @@ Multi-select keyframes | <kbd>Ctrl</kbd> | Hold down <kbd>Ctrl</kbd> and click o
 Select all animation property keyframes | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> | Select all keyframes on the selected animation property.
 Copy selected animation data | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd> | Supports copying selected keyframes, property tracks, and node data, while only one type of data can be copied, and the copying priority is determined in this order.
 Paste last copied animation data | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> | Support to paste last copied animation data (e.g. animation keyframes, animation properties, animation node data, and check the currently available data in that order) across editors (v3.x only).
-Unchecked keyframes/animation events/property tracks | <kbd>Esc</kbd> | -
+Unchecked keyframes/event frames/property tracks | <kbd>Esc</kbd> | -
 
 > **Note**: currently, all shortcuts require mouse focus on the Animation Editor panel to take effect, except for the shortcuts **Enter/Exit Animation Editor** and **Save Animation** which are globally available.

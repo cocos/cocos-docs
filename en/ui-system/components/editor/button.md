@@ -12,7 +12,7 @@ To use `Button`, please refer to the [Button API](__APIDOC__/en/classes/ui.butto
 
 ## Button Properties
 
-| Properties   | Function Explanation |
+| Property   | Function Explanation |
 | ------------ | -------------------- |
 | __Target__       | Specify the __Button__ background node. When the __Button__ status changes, the `Color` or `Sprite` property of the node will be modified. |
 | __Interactable__ | Boolean type, if set to `false` then the __Button__ component enters the forbidden state. |
@@ -41,7 +41,7 @@ __Button Transition__ is used to choose the action of the button when clicked by
 
 ![sprite-transition](button/sprite-transition.png)
 
-| Properties     | Function Explanation |
+| Property     | Function Explanation |
 | -------------- | -------------------- |
 | __Normal__     | SpriteFrame of Button under Normal status.   |
 | __Pressed__    | SpriteFrame of Button under Pressed status.  |
@@ -52,7 +52,7 @@ __Button Transition__ is used to choose the action of the button when clicked by
 
 ![scaleTransition](button/scaleTransition.png)
 
-| Properties     | Function Explanation            |
+| Property     | Function Explanation            |
 | -------------- | -----------    |
 | __Duration__   | Time interval needed for Button status switching. |
 | __ZoomScale__  | When the user clicks the button, the button will zoom to a scale. The final scale of the button equals to the button's original `scale * zoomScale`, and the zoomScale can be a negative value.|

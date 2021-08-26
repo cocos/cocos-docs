@@ -19,7 +19,7 @@ Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/classes/ui.graphics-
 | [LineJoin](graphics/lineJoin.md)             | 设置或返回两条线相交时，所创建的拐角类型 |
 | [MiterLimit](graphics/miterLimit.md)         | 设置或返回最大斜接长度 |
 | [StrokeColor](graphics/strokeColor.md)       | 设置或返回笔触的颜色 |
-| [LineWidth](../render/graphics/lineWidth.md) | 设置或返回当前的线条宽度 |
+| [LineWidth](graphics/lineWidth.md)           | 设置或返回当前的线条宽度 |
 
 ## 绘图接口
 

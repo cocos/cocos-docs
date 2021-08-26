@@ -4,7 +4,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 更多关于 BBCode 标签的内容，请参考本文档的 [BBCode 标签格式说明](#bbcode-标签格式) 小节。
 
-![richtext](richtext/richtext.png)
+![richtext](richText/richtext.png)
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Render/RichText** 即可添加 RichText 组件到节点上。
 

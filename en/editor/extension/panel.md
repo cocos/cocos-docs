@@ -1,4 +1,4 @@
-# Extension panel
+# Extension Panel
 
 When implementing a function, it is likely to require UI interaction on the interface. **Cocos Creator** also provides this ability for extensions.
 
