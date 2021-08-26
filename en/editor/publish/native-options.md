@@ -1,195 +1,216 @@
 # Publish to Native Platforms
 
-Click **Project -> Build** in the main menu of the editor to open the **Build** panel.
+Click **Project -> Build** in the menu bar to open the Build panel.
 
-**Cocos Creator** supports four native platforms, which include **Android**, **iOS**, **Mac** and **Windows**. The options to release games on iOS, Mac and Windows will only appear on those operating systems. This means it isn't possible to publish, for example, a game to iOS from a Windows computer.
+The native platforms that can be selected currently include **Android**, **iOS**, **Mac**, and **Windows**. Among them, the options for publishing to **iOS**, **Mac**, and **Windows** only appear when using the corresponding operating system.
 
 ![native platform](publish-native/native-platform.png)
 
-## Environment Configuration
+## Environment configuration
 
-To publish to the native platforms you need to install and configure some necessary development environments. Please refer to the [Setup Native Development Environment](setup-native-development.md) for details.
+Publishing to the native platform requires installation and configuration of some necessary environments. For details, please refer to the[Installation and Configuration of Native Development Environment](setup-native-development.md) documentation.
 
-## Build Options
+## Build options
 
-For the general build options for all platforms, see [General Build Options](build-options.md) for details.
+For the general build options of each platform, please refer to the [General Build Options](build-options.md) documentation.
 
-### General build options for native platforms
+### Generic build options for native platforms
 
-Due to the adjustments made to the build mechanism, the processing of different platforms are injected into the **Build** panel as **plugins**.
+Due to the adjustment of the current build mechanism, the processing of different platforms is built into the **Build** panel in the form of plug-ins.
 
-When you select the native platform you want to build in the **Platform** option of the **Build** panel, you will see that there is a **native** expand option in addition to the specific native platform expand option (e.g., **android**, **ios**). The build options in **native** are the same for all native platforms.
+After selecting the native platform to be built in the **Release Platform** of the **Build** panel, notice that in addition to the expanded options of the specific native platform, there is also an expanded option for **Native**. The build options in **Native** are the same on all native platforms.
 
-![native options](publish-native/native-options.png)
+![Native 选项](publish-native/native-options.png)
 
-#### Template
+#### 选择源码模板（Template）
 
-Starting with Cocos Creator 3.0, the engine template available in **Template** is **Link** for a consistent experience, removing the original **Default** template.
+从 Cocos Creator 3.0 开始，为了体验一致，**模板 (Template)** 中可使用的引擎模板为 **Link**，移除了原先的 **Default** 模板。
 
-The **Link** template does not copy the **Cocos2d-x** source-code to the `build` directory. Instead, the shared **Cocos2d-x** source-code is used. This can effectively reduce the footprint of the `build` directory, and modifications to the **Cocos2d-x** source-code can also be shared.
+Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用的空间，并且对 Cocos2d-x 源码的修改也可以得到共享。
 
-> **About Source Engine**
+> **关于源码引擎**
 >
-> The Cocos2d-x engine includes the source code engine. The scope of application is:
-> - The first time the source code engine builds and compiles a project, it takes a long time to compile C++ code, depending on the configuration of the computer, which may take 5~20 minutes. After the same project has been compiled once, the time required for the next recompile is greatly shortened.
-> - The projects built by the source code engine, compiled and run using native development environment (such as Android Studio, Xcode, etc. IDE), and also can be debugged and error trapped.
+> Cocos2d-x 引擎中包括了源码引擎，它们适用的范围是：
+> 1. 源码引擎初次构建和编译某个工程时需要很长的时间编译 C++ 代码，视电脑配置而定，这个时间可能在 5~20 分钟。对于同一个项目，已经编译过一次之后，下次再编译需要的时间会大大缩短。
+> 2. 源码引擎构建出的工程，使用原生开发环境编译和运行（如 Android Studio、Xcode 等 IDE），是可以进行调试和错误捕获的。
 
-Currently, the Cocos Creator installation directory already includes Cocos2d-x source code engine in the `resources\3d\cocos2d-x-lite` folder. To customize the engine, please refer to the [Engine Customization Workflow](../../advanced-topics/engine-customization.md) documentation for details.
+目前 Cocos Creator 安装目录下的 `resources\3d\cocos2d-x-lite` 文件夹中已经包含了自带的 Cocos2d-x 源码引擎。若需要自定义引擎，详情请参考 [引擎定制工作流程](../../advanced-topics/engine-customization.md)。
 
-#### Resource Server Address
+#### 资源服务器地址
 
-When the package is too large (in size), the resource can be uploaded to a resource server and downloaded via a network request. This option is used to fill in the address of the remote server where the resource is stored. The developer needs to manually upload the `remote` folder in the release package directory to the filled-in resource server address after the build. For more details, please refer to the [Uploading resources to a remote server](../../asset/cache-manager.md) documentation.
+当包体过大时，可将资源上传到资源服务器，通过网络请求下载。该项用于填写资源存放在远程服务器上的地址，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情可参考 [上传资源到远程服务器](../../asset/cache-manager.md)
 
 #### Polyfills
 
-**Polyfills** is a new feature option supported by the script system. If this option is checked at build time, the resulting release package will have the corresponding **polyfills** in it, which means it will increase the size of the package. Developers can choose **polyfills** on demand, but only `Async Functions` are currently available, and more will be opened later.
+该项是脚本系统支持的一些新特性的 polyfills 选项，目前仅支持 **异步函数**。勾选后生成的项目会带上对应的 polyfills，也就是会增大包体，开发者可以根据实际需求选择是否使用。
 
-#### Make after build immediately
+#### 构建后立即生成
 
-If this option is checked, the **Make** step will be executed automatically after the build is completed, without manual operation.
+若勾选该项，构建完成后会自动执行 **生成** 步骤，不需要再手动操作。
 
-#### Encrypt JS
+#### 加密脚本
 
-This option is used to encrypt the published script. After build, the `JSC` file is generated in the `assets/` directory, which is encrypted. And the `JS` file will be backed up in the `script-backup` directory for debugging, and will not enter the APP when packaged.
+该项用于加密发布后的脚本。会在构建后的 `assets` 目录下生成 jsc 文件，这个文件是加密过的。而 js 文件会备份在 `script-backup` 目录下以便调试，打包时不会进入 APP 中。
 
-**JS Encryption Key**: This secret key will be used to encrypt `JS` files. The project will generate the key randomly when created.
+**脚本加密密钥**：在 Native 平台上会使用这个值作为加密 js 文件的密钥。项目新建时会随机生成。
 
-**Zip Compress**: If this option is checked, you can reduce the size of your scripts.
+**Zip 压缩**：勾选上的话可以减小脚本体积。
 
 ![encrypt js](publish-native/encrypt-js.png)
 
-### Build Options for the Android Platform
+### Android 平台构建选项
 
-The build options for the Android platform are as follows:
+Android 平台的构建选项如下：
 
 ![Android build options](publish-native/android-options.png)
 
-#### Render BackEnd
+#### 渲染后端
 
-Currently, [VULKAN](https://www.vulkan.org/), [GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) and [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
+目前支持 [VULKAN](https://www.vulkan.org/)、[GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) 和 [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况选择使用的渲染后端。
 
-#### Game Package Name
+#### 应用 ID 名称
 
-The Game Package Name is usually arranged in the reverse order of the product's website URL, such as: `com.mycompany.myproduct`.
+**应用 ID 名称**（Game Package Name）通常以产品网站 URL 倒序排列，如 `com.mycompany.myproduct`。
 
-> **Note**: only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underscore or a number.
+> **注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
 
 #### Target API Level
 
-Set up the Target API Level required for compiling the Android platform. Click the **Set Android SDK** button next to it to quickly jump to the configuration page. Refer to the [Setup Native Development Environment](setup-native-development.md) documentation for specific configuration rules.
+设置编译 Android 平台时所需的 Target API Level。点击旁边的 **Set Android SDK** 按钮即可快速跳转到配置页，具体配置规则请参考 [配置原生发布环境路径](setup-native-development.md#%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%94%9F%E5%8F%91%E5%B8%83%E7%8E%AF%E5%A2%83%E8%B7%AF%E5%BE%84)。
 
 #### APP ABI
 
-Set up the CPU types that Android needs to support, including **armeabi-v7a**、**arm64-v8a** and **x86**. You can choose one or more options.
+设置 Android 需要支持的 CPU 类型，可以选择一个或多个选项，目前包括 **armeabi-v7a**、**arm64-v8a**、**x86** 三种类型。
 
-> **Notes**:
-> 1. When you select an ABI to build and then build another ABI without `Clean`, both ABI's `so` will be packaged into the APK, which is the default behavior of Android Studio. If you import a project with Android Studio, after selecting an ABI to build, run **Build -> Clean Project**, then build another ABI, only the latter ABI will be packaged into the APK.
-> 2. After the project is imported with Android Studio, it is an independent existence and does not depend on the **Build** panel. If you need to modify the ABI, you can directly modify the `PROP_APP_ABI` property in `gradle.properties` file as shown below:
+> **注意**：
+>
+> 1. 当你选择一个 ABI 构建完成之后，在不 Clean 的情况下，构建另外一个 ABI，此时两个 ABI 的 so 都会被打包到 apk 中，这个是 Android Studio 默认的行为。若用 Android Studio 导入工程，选择一个 ABI 构建完成之后，先执行一下 **Build -> Clean Project** 再构建另外一个 ABI，此时只有后面那个 ABI 会被打包到 apk 中。
+>
+> 2. 项目工程用 Android Studio 导入后，是一个独立的存在，不依赖于构建发布面板。如果需要修改 ABI，直接修改 **gradle.properties** 文件中的 **PROP_APP_ABI** 属性即可。
 >
 >     ![modify abi](publish-native/modify_abi.png)
 
-#### Use Debug Keystore
+#### 使用调试密钥库
 
-Android requires that all APKs be digitally signed with a certificate before they can be installed. A default keystore is provided, check the **Use Debug Keystore** to use the `default keystore`. If you need to customize the keystore, you can remove the **Use Debug Keystore** checkbox. Please refer to the official [Android Documentation](https://developer.android.com/studio/publish/app-signing) for details.
+Android 要求所有 APK 必须先使用证书进行数字签署，然后才能安装。Cocos Creator 提供了默认的密钥库，勾选 **使用调试密钥库** 就是使用默认密钥库。若开发者需要自定义密钥库可去掉 **使用调试密钥库** 勾选，详情请参考 [官方文档](https://developer.android.google.cn/studio/publish/app-signing?hl=zh-cn)。
 
-Android requires that all APKs must be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore by checking **Use Debug Keystore** to use it. If you need to customize the keystore, you can remove the **Use Debug Keystore** checkbox, refer to the [Official Documentation](https://developer.android.com/studio/publish/app-signing) for details.
+#### 屏幕方向
 
-#### Screen Orientation
+屏幕方向目前包括 **Portrait**、**Landscape Left**、**Landscape Right** 三种。
 
-The screen orientation currently includes **Portrait**, **Landscape Left** and **Landscape Right**.
-
-- **Portrait**: the screen is placed vertically with the **Home** button on the bottom.
-- **Landscape Left**: the screen is placed horizontally, with the **Home** button on the left side of the screen.
-- **Landscape Right**: the screen is placed horizontally, with the **Home** button on the right side of the screen.
+- **Portrait**：屏幕直立，Home 键在下
+- **Landscape Left**：屏幕横置，Home 键在屏幕左侧
+- **Landscape Right**：屏幕横置，Home 键在屏幕右侧
 
 #### Google Play Instant
 
-If this option is enabled, the game can be packaged and published to Google Play Instant.
+勾选该项即可将游戏打包发布到 Google Play Instant。Google Play Instant 依赖于 Google Play，并不是一个新的分发渠道，而是更接近一种游戏微端方案。它能够实现游戏的免安装即开即玩，有利于游戏的试玩、分享和转化。
 
-Google Play Instant relies on Google Play, and it is not a new distribution channel, but closer to a game micro-end solution. It can realize the game to be played without installing, which is useful for game's trial play, sharing and conversion.
-
-> **The following notes are required when using**:
-> 1. The Android Studio should be v4.0 and above.
-> 2. The Android Phone should be v6.0 and above. Devices with Android SDK version between 6.0 and 7.0 need to install Google Service Framework, while those with SDK version 8.0 or higher do not need it and can install it directly.
-> 3. If you compile for the first time, you need to open the built project with Android Studio to download **Google Play Instant Development SDK (Windows)** or **Instant Apps Development SDK（Mac）** support package. If the download fails, it is recommended to set up an HTTP proxy for Android Studio.
+> **使用时需要注意以下几点**：
 >
->     ![Google Play Instant](publish-native/sdk-android-instant.png)
+> 1. Android Studio 的版本要在 4.0 及以上
+>
+> 2. Android Phone 6.0 及以上。Android SDK 版本在 6.0 到 7.0 之间的设备需要安装 Google 服务框架，SDK 版本在 8.0 以上的则不需要，可直接安装使用。
+>
+> 3. 首次编译的话需要用 Android Studio 打开构建后的工程以下载 **Google Play Instant Development SDK（windows）** 或 **Instant Apps Development SDK（Mac）** 支持包。如果下载不成功的话建议设置一下 Android Studio 的 HTTP 代理。
+>
+>    ![Google Play Instant](publish-native/sdk-android-instant.png)
 
-#### App Bundle (Google Play)
+#### 生成 App Bundle（Google Play）
 
-If this option is enabled, the game can be packaged into App Bundle format for uploading to Google Play store. Please refer to [Official Documentation](https://developer.android.com/guide/app-bundle/) for details.
+勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/)。
 
-### Build Options for the Windows Platform
+### Windows 平台构建选项
 
-The build options for the **Windows** platform currently have only one **Render BackEnd**, which includes **VULKAN**, **GLES3** and **GLES3**, with **GLES3** checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
+Windows 平台的构建选项目前只有一个 **渲染后端**，包括 **VULKAN**、**GLES3** 和 **GLES2** 三种类型，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
 
 ![Windows build options](publish-native/windows-options.png)
 
-### Build Options for the iOS Platform
+### iOS 平台构建选项
 
-The build options for the iOS platform include **Bundle Identifier**, **Orientation** and **Render BackEnd**. The setting of **Orientation** is the same as the Android platform.
+iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向** 和 **渲染后端**，其中 **屏幕方向** 的设置与 Android 平台一致。
 
 ![iOS build options](publish-native/ios-options.png)
 
 #### Bundle Identifier
 
-The package name, usually arranged in the reverse order of the product's website URL, such as: `com.mycompany.myproduct`.
+包名，通常以产品网站 URL 倒序排列，如 `com.mycompany.myproduct`。
 
-> **Note**: only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underscore or a number.
+> **注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
 
-#### Render BackEnd
+#### 渲染后端
 
-Currently, only **METAL** is supported for the Render BackEnd.
+**渲染后端** 目前支持 **METAL**。
 
-### Build Options for the Mac Platform
+### Mac 平台构建选项
 
-The build options for the Mac platform include **Bundle Identifier** and **Render BackEnd**, and the setup method is the same as the iOS platform.
+Mac 平台的构建选项包括 **Bundle Identifier** 和 **渲染后端**，设置方法与 iOS 平台一致。
 
 ![Mac build options](publish-native/mac-options.png)
 
-## Build a Native Project
+## 构建
 
-After the build options are set, you can begin the build. Click the **Build** button in the bottom right corner of the **Build** panel to start the build process.
+构建选项设置完成后，就可以开始构建了，点击 **构建发布** 面板右下角的 **构建** 按钮，开始构建流程。
 
-When compiling scripts and zipping resources, a blue progress bar will display on the **Build Task** window. When the build completes, the progress bar reaches 100% and turns green.
+编译脚本和打包资源时会在 **构建发布** 面板的 **构建任务** 页面显示蓝色的进度条，构建成功的话进度条到达 100% 并显示为绿色：
 
 ![build progress](publish-native/build-progress-windows.png)
 
-After the build, we get a standard Cocos2d-x project, with the same structure as a new project created using Cocos Console. Taking the Windows platform as an example, the directory structure of the exported native project package `windows` is shown below:
+### 构建目录
+
+构建结束后，我们得到的是一个标准的 Cocos2d-x 工程，和使用 Cocos Console 新建的工程有同样的结构。以 Windows 平台为例，导出的原生工程包 `windows` 的目录结构为：
 
 ![native directory](publish-native/native-directory.png)
 
-- `assets`: places project resources.
-- `proj`: places the currently built native platform project, which can be used by the IDE of the corresponding platform to perform compilation tasks.
-- `cocos.compile.config.json`: place the compile option json for current build.
+- `assets`：存放项目资源
+- `proj`：存放当前构建的原生平台工程，可用于对应平台的 IDE 执行编译任务，详情请参考下文介绍
+- `cocos.compile.config.json`：本次构建的编译选项配置
 
-For more information, please refer to [Build Directory -- Native](../../release-notes/upgrade-guide-v3.0.md#native).
+因为原生平台（例如 Android、Windows）构建后生成的底层 C++ 代码是完全一致的，所以在 v3.0，我们将底层 C++ 代码单独提取出来放在项目目录下共享的 `native/engine/common` 文件夹中。这样在构建原生平台时，如果检测到已经存在该文件夹，这部分内容便不会再进行处理，加快构建速度。
 
-Next, you can continue to Make and run desktop previews through the Cocos Creator editor, or manually open the built native project in the IDE of the corresponding platform for further previewing, debugging, and publishing.
+![native-common](publish-native/native-common.png)
 
-## Make and Run
+更多关于目录结构的说明，请参考 [构建目录差异 — 原生平台](../../release-notes/upgrade-guide-v3.0.md#%E5%8E%9F%E7%94%9F%E5%B9%B3%E5%8F%B0)
 
-Cocos Creator supports **Make** and **Run Preview** steps via the editor or the corresponding IDE for each platform (e.g. Xcode, Android Studio, Visual Studio).
+### 二次开发
 
-### By the Editor
+v3.0 做了代码和配置的分离，将一部分代码和配置放入源码管理，位于项目目录下的 `native\engine\当前构建的平台名称` 文件夹中（例如 `native\engine\win32`、`native\engine\android`）。
 
-Click the **Make** button on the **Build Task** window to enter the compile process. When the compilation is successful, it will prompt:
+![native-common](publish-native/native.png)
+
+开发者可以在这里集成 SDK 或者做二次开发，删除构建后生成的发布包目录（例如 `build\windows`）不会影响已经集成的 SDK，但前提是需要在目录中添加代码引用：
+
+- 若集成的是各原生平台通用的 SDK，需要在项目目录下的 `native\engine\common\CMakeLists.txt` 中添加引用。
+- 若是基于 iOS、Mac、Windows 平台做二次开发，需要在项目目录下的 `native\engine\当前构建的平台名称\CMakeLists.txt` 中添加引用（例如 `native\engine\ios\CMakeLists.txt`）
+- 若是基于 Android 平台做二次开发：
+    - C++：需要在项目目录下的 `native\engine\android\CMakeLists.txt` 中添加引用。
+    - Java：需要在项目发布包 `build\android\proj\build.gradle` 中添加引用。
+
+更多关于 CMake 的使用，详情可参考 [CMake 使用简介](../../advanced-topics/cmake-learning.md)。
+
+## 生成和运行
+
+Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）执行进一步的预览、调试和发布。
+
+### 通过编辑器
+
+构建完成后，继续点击旁边的 **生成** 按钮，成功后会提示：
 
 `make package YourProjectBuildPath success!`
 
-> **Note**: after the first compilation of the Android platform or version upgrade, it is recommended to open the project via Android Studio, download the missing tools according to the prompts, and then perform the Make and Run.
+> **注意**：首次生成 Android 平台或者版本升级后，建议通过 Android Studio 打开工程，根据提示下载缺失的工具，再进行编译运行。
 
-Once the **Make** process is complete, continue to click the **Run** button next to it. Some compilation work may continue, so please wait patiently or check the progress through the log file. The results of the **Run** for each platform are as follows:
+**生成** 过程完成后，继续点击旁边的 **运行** 按钮，可能还会继续进行一部分编译工作，请耐心等待或通过日志文件查看进展。各平台的运行结果为：
 
-- Mac/Windows platform: run the preview directly on the desktop.
-- Android platform: must connect to physical device via USB and the preview can be run after the USB debugging is enabled on the physical device.
-- IOS platform: will call the simulator to run the preview. But it is recommended to connect to the physical device via Xcode to execute **Make** and **Run**, as described below.
+- Mac/Windows 平台会直接在桌面运行预览
+- Android 平台必须通过 USB 连接真机，并且在真机上开启 USB 调试后才可以运行预览
+- iOS 平台会调用模拟器运行预览，但建议通过 Xcode 连接真机执行 **生成** 和 **运行**，可参考下文介绍。
 
-### By the IDE
+### 通过 IDE
 
-Click the folder icon button in the bottom left corner of the **build task** window, the release path will be opened in the file manager of the operating system. The `proj` folder under the release package directory contains the native platform project of the current build.
+点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `proj` 里就包含了当前构建的原生平台工程。
 
-Next, open these generated native projects using the IDE corresponding to the native platform (e.g. Xcode, Android Studio, Visual Studio) and you can make further operations like compilation, preview and release.
+接下来使用原生平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进一步地编译和发布预览了。
 
 - **Android**
 
@@ -199,32 +220,32 @@ Next, open these generated native projects using the IDE corresponding to the na
 
   ![windows xcode](publish-native/windows-vs.png)
 
-- **Mac** 和 **iOS**
+- **iOS** 和 **Mac**
 
-  ![xcode](publish-native/ios-xcode.png)
+  ![ios xcode](publish-native/ios-xcode.png)
 
-For the usage instructions for native platform's IDE, please search related information on your own, which will not be discussed in detail here.
+> **注意**：请不要在这些原生平台工程中进行二次开发，否则重新构建时会被覆盖掉。
 
-To learn how to debug on a native platform, please refer to [Debugging JavaScript on Native Platforms](debug-jsb.md).
+关于原生平台 IDE 的使用请搜索相关信息，这里就不再赘述了。若要了解如何在原生平台上调试，请参考 [原生平台 JavaScript 调试](debug-jsb.md)。
 
-## Precautions
+## 注意事项
 
-1. Projects that run debug mode builds on MIUI 10 systems may pop up a "Detected problems with API compatibility" prompt box, which is a problem introduced by the MIUI 10 system itself, you can use release mode build to solve the problem.
+1. 在 MIUI 10 系统上运行 debug 模式构建的工程可能会弹出 “Detected problems with API compatibility” 的提示框，这是 MIUI 10 系统自身引入的问题，使用 release 模式构建即可。
 
-2. When building for iOS, if WebView and related features are not needed, please ensure that the WebView module is removed from the **Project -> Project Settings -> Feature Cropping** to help the approval process go as smoothly as possible on iOS App Store. If WebView is needed (or the added third-party SDK comes with WebView), and therefore the game rejected by App Store, try to appeal through email.
+2. 打包 iOS 平台时，如果开发者在项目中未使用到 WebView 相关功能，请确保在 **项目 -> 项目设置 -> 功能裁剪** 中剔除 WebView 模块，以提高 iOS 的 App Store 机审成功率。如果开发者确实需要使用 WebView（或者添加的第三方 SDK 自带了 WebView），并因此 iOS 的 App Store 机审不通过，仍可尝试通过邮件进行申诉。
 
-3. The result of compiling the Android through the editor and Android Studio has the following differences.
+3. Android 平台通过编辑器和 Android Studio 编译后的结果有些区别：
 
-    - After executing the **Make** step via the editor, the `build` directory will be created under the release path, and the `.apk` will be generated in the `app\build\outputs\apk` directory of the `build` directory.
+    - 通过编辑器执行 **生成** 步骤后，会在发布路径下生成 `build` 目录，`.apk` 生成在 `build` 目录的 `app\build\outputs\apk` 目录下。
 
-    - After compiling with Android Studio, the `.apk` is generated in the `proj\app\build\outputs\apk` directory.
+    - 通过 Android Studio 编译后，`.apk` 则生成在 `proj\app\build\outputs\apk` 目录下。
 
-4. In Cocos Creator 3.0, Android and Android Instant use the same build template, and the built native projects are in the `build\android\proj` directory. Please note for this directory:
+4. 在 Cocos Creator 3.0 中，Android 与 Android Instant 使用同一个构建模板，构建生成的工程都是在 `build\android\proj` 目录中。针对该目录请注意：
 
-    - For code and third-party library used separately by the Android, place them in the `app\src` and `app\libs` directories, respectively (If you don't have these two directories, you can create them yourself).
+    - 如果是 Android 平台单独使用的代码请放入 `app\src` 目录，单独使用的第三方库请放入 `app\libs` 目录（若没有这两个目录可自行创建）。
 
-    - For code and third-party library used separately by the Android Instant, place them in the `instantapp\src` and `instantapp\libs` directories, respectively.
+    - 如果是 Android Instant 单独使用的代码和第三方库请分别放入 `instantapp\src` 和 `instantapp\libs` 目录（若没有这两个目录可自行创建）。
 
-    - For code and third-party library used in common by the Android and Android Instant, place them in the `src` and `libs` directories, respectively.
+    - 如果是 Android 和 Android Instant 共用的代码和第三方库，请分别放入 `src` 和 `libs` 目录（若没有这两个目录可自行创建）。
 
-    When compiling Android in **Build** panel, `assembleRelease/Debug` is executed by default. When compiling Android Instant, `instantapp:assembleRelease/Debug` is executed by default.
+    通过在 **构建发布** 面板点击 **生成** 按钮来编译 Android 时，会默认执行 `assembleRelease/Debug`，编译 Android Instant 时会默认执行 `instantapp:assembleRelease/Debug`。
