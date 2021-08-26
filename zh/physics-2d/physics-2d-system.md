@@ -24,13 +24,20 @@ PhysicsSystem2D.instance.enable = true;
 物理系统提供了各种各样的调试信息，可以通过组合这些信息来绘制相关的内容。
 
 ```ts
-PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb |
-  EPhysics2DDrawFlags.Pair |
+PhysicsSystem2D.instance.debugDrawFlags = 
+  //绘制轴对齐包围盒也就是表示显示刚体的边界盒
+  EPhysics2DDrawFlags.Aabb |
+  //绘制刚体的质心位置
   EPhysics2DDrawFlags.CenterOfMass |
+  //绘制控制器
   EPhysics2DDrawFlags.Controller |
+  //绘制关节连接信息
   EPhysics2DDrawFlags.Joint |
+  //绘制碰撞体全部信息
   EPhysics2DDrawFlags.All |
+  //绘制碰撞体粒子信息
   EPhysics2DDrawFlags.Particle |
+  //绘制碰撞体形状
   EPhysics2DDrawFlags.Shape;
 ```
 
@@ -133,21 +140,12 @@ for (let i = 0; i < results.length; i++) {
 
 射线检测的第三个参数指定检测的类型，射线检测支持四种类型。这是因为 Box2D 的射线检测不是从射线起始点最近的物体开始检测的，所以检测结果不能保证结果是按照物体距离射线起始点远近来排序的。Cocos Creator 物理系统将根据射线检测传入的检测类型来决定是否对 Box2D 检测结果进行排序，这个类型会影响到最后返回给用户的结果。
 
-- ERaycast2DType.Any
-
-  检测射线路径上任意的碰撞体，一旦检测到任何碰撞体，将立刻结束检测其他的碰撞体，检测速度最快。
-
-- ERaycast2DType.Closest
-
-  检测射线路径上最近的碰撞体，这是射线检测的默认值，检测速度稍慢。
-
-- ERaycast2DType.All
-
-  检测射线路径上的所有碰撞体，检测到的结果顺序不是固定的。在这种检测类型下，一个碰撞体可能会返回多个结果，这是因为 Box2D 是通过检测夹具（fixture）来进行物体检测的，而一个碰撞体中可能由多个夹具（fixture）组成的，检测速度慢。
-
-- ERaycast2DType.AllClosest
-
-  检测射线路径上所有碰撞体，但是会对返回值进行删选，只返回每一个碰撞体距离射线起始点最近的那个点的相关信息，检测速度最慢。
+| 射线检测类型 |   说明 |检测速度|
+| :------------- | :---------- | :---------- |
+| Any | 检测射线路径上任意的碰撞体，一旦检测到任何碰撞体，将立刻结束检测其他的碰撞体 |速度最快|
+| Closest | 检测射线路径上最近的碰撞体，这是射线检测的默认值 |速度第二快
+| All | 检测射线路径上的所有碰撞体，检测到的结果顺序不是固定的。在这种检测类型下，一个碰撞体可能会返回多个结果，这是因为 Box2D 是通过检测夹具（fixture）来进行物体检测的，而一个碰撞体中可能由多个夹具（fixture）组成的 |速度稍慢|
+| AllClosest | 检测射线路径上所有碰撞体，但是会对返回值进行删选，只返回每一个碰撞体距离射线起始点最近的那个点的相关信息 | 速度最慢|
 
 #### 射线检测的结果
 
