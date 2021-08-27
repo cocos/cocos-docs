@@ -1,17 +1,15 @@
-# AudioSource Component
+# AudioSource component reference
 
-![audiosource](audio/audiosource.png)
+![](audio/audiosource.png)
 
-## Properties
+## Property
 
-|Property          | Description                                                    |
+|Property | Description |
+|:-- | :--- |
+|Clip | The audio asset object to be used for playback |
+|Loop | Whether to loop |
+|PlayOnAwake | Whether to play the audio automatically when the component is activated |
+|Volume | The volume of the audio, in the range 0~1 |
 
-|:--                 | :--                                                                     |
-|**Clip**                | The audio resource object to be played                                           |
-
-|**Loop**                | Whether to loop                                                      |
-
-|**PlayOnAwake**         | Whether to play audio automatically after the component is activated    |
-|**Volume**              | Audio volume, ranging from 0 to 1                                  |
-
-For more script interfaces for AudioSource, please refer to the [AudioSource API](__APIDOC__/en/classes/component_audio.audiosource.html). For specific playback controls, please refer to the [Audio System Overview](./overview.md) documentation.
+For more scripting interfaces for the audio interface, please refer to the [AudioSource](__APIDOC__/en/classes/component_audio.audiosource.html) API.  
+For specific playback control, please refer to the document [Audio System Overview](./overview.md).

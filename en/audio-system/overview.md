@@ -1,20 +1,18 @@
-# Overview of sound systems
+# Audio System Overview
 
-There are __two__ types of sounds available in the audio system: __sound effects__ and __music__. __Sound effects__ are short bursts of quick sounds that signal the player of the game making progress. A few examples of __sound effects__ are __gun noises__, __bullets firing__, a __character jumping__, __physics contact events__ and many others. __Music__ is longer in length and usually played in a loop. A few examples of __music__ are __background music__, __cut scenes__, __successfully completing a milestone in the game__ and many others.
+The interface to the audio system is geared towards two main types of needs, "music" of longer length, played continuously in a loop, and "sound effects" of shorter length, played all at once. All audio assets are imported as AudioClip assets within the editor.
 
-All audio assets are imported into the editor in the format of __audioClip__ assets.
+## Music Playback
 
-## Music Playing
+1. Create an empty node on the **Hierarchy** panel
+2. Select the empty node and click **Add Component -> Components -> AudioSource** at the bottom of the **Inspector** panel to add the AudioSource component
+3. Drag and drop the required audio assets from the **Assets** panel into the Clip of the AudioSource component as shown below:
 
-1. Create an empty node on the __Node Tree__
-2. Select the empty node and click __Add Component -> Components -> AudioSource__ at the bottom of the __Properties__ to add the AudioSource component.
-3. Drag the audio resources in __Assets__ to the __Clip__ of the AudioSource component, as follows:
+    ![](audio/audiocilp.gif)
 
-    ![audioclip](audio/audiocilp.gif)
+Set the other parameters of the AudioSource component as needed. For the detailed properties, please refer to the [AudioSource Component Reference](./audiosource.md) documentation.
 
-4. Next, set the other parameter of the AudioSource component as needed, for the details please refer to the [Audiosource Component](./audiosource.md) documentation.
-
-If you only need to play the audio automatically after the game is loaded, check the __PlayOnAwake__ of the AudioSource component. If you want more flexibility in controlling AudioSource playback, you can get the __AudioSource Component__ in the custom script and then call the appropriate API. As shown below:
+If you only need the audio to be played automatically after the game is loaded, check **PlayOnAwake** of the AudioSource component. For more flexible control of AudioSource playback, get the **AudioSource component** in a custom script and call the corresponding API as follows:
 
 ```typescript
 // AudioController.ts
@@ -22,7 +20,7 @@ If you only need to play the audio automatically after the game is loaded, check
 export class AudioController extends Component { 
     
     @property(AudioSource)
-    public audioSource: AudioSource = null!;
+    public audioSource: AudioSource = null!
 
     play () {
         this.audioSource.play();
@@ -34,18 +32,17 @@ export class AudioController extends Component {
 }
 ```
 
-Next, add the corresponding custom component to the editor's __Properties__. Selecting the corresponding node and add the custom component by clicking __Add Component-> Custom script -> User Script__ at the bottom of the __Properties__. Then drag and drop the node with the AudioSource component onto __Audio Source__ in the custom component. As shown below:
+Then add the corresponding userscript component in the editor's **Inspector** panel. Select the corresponding node and click **Add Component -> Custom Script -> Userscript** at the bottom of the **Inspector** panel to add the script component. Then drag the node with the AudioSource component to **Audio Source** in the script component as follows:
 
-![audiocontroller](audio/audiocontroller.png)
+![](audio/audiocontroller.png)
 
-## Effect Playing
+## Audio Playback
 
-Compared to long music playback, audio effects playback has the following characteristics:
-
+Compared to long music playback, sound effect playback has the following characteristics:
 - Short playback time
-- A large number of simultaneous playback
+- The number of simultaneous playback is large
 
-For such playback requirements, the AudioSource component provides the `playOneShot` interface to play audio effects. The specific code implementation is as follows:
+For such playback needs, AudioSource component provides `playOneShot` interface to play sound effects. The specific code implementation is as follows:
 
 ```typescript
 // AudioController.ts
@@ -53,10 +50,10 @@ For such playback requirements, the AudioSource component provides the `playOneS
 export class AudioController extends Component {     
 
     @property(AudioClip)
-    public clip: AudioClip = null!;   
+    public clip: AudioClip = null!   
 
     @property(AudioSource)
-    public audioSource: AudioSource = null!;
+    public audioSource: AudioSource = null!
 
     playOneShot () {
         this.audioSource.playOneShot(this.clip, 1);
@@ -64,11 +61,11 @@ export class AudioController extends Component {
 }
 ```
 
-> __Note__: `playOneShot` is a one-time play operation, there is no way to pause or stop the audio after it is played, and no way to register the `ended` event callback.
+> **Note**: `playOneShot` is a one-time play operation, the audio cannot be paused or stopped after playing, and you can't listen to the end-of-play event callback.
 
-## Web Platform Playback Restrictions
+## Playback Restrictions on the Web Platform
 
-Audio playback on the Web platform currently requires compliance with the latest [Audio Play Police](https://www.chromium.org/audio-video/autoplay), and even if the AudioSource component is set to `playOnAwake` it will not start until the first user input is received. An example is as follows:
+Currently, audio playback on the Web platform is subject to the latest [Audio Playback Policy](https://www.chromium.org/audio-video/autoplay), and even if the AudioSource component is set to `playOnAwake`, it will only start playing when it first receives user input. The first time user input is received, playback will begin. The example is as follows:
 
 ```typescript
 // AudioController.ts
@@ -76,7 +73,7 @@ Audio playback on the Web platform currently requires compliance with the latest
 export class AudioController extends Component {      
 
     @property(AudioSource)
-    public audioSource: AudioSource = null!;
+    public audioSource: AudioSource = null!
 
     start () {
         let btnNode = find('BUTTON_NODE_NAME');
@@ -89,7 +86,7 @@ export class AudioController extends Component {
 }
 ```
 
-## Related Links
+## Related links
 
-[Audio Asset](../asset/audio.md)
-[AudioSource Component](./audiosource.md)
+[Audio Assets](../asset/audio.md)  
+[AudioSource Component Reference](./audiosource.md)

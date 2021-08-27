@@ -65,7 +65,7 @@ export class AudioController extends Component {
 
 ## Web 平台的播放限制
 
-目前 Web 平台的声音播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 AudioSource 组件设置了 `playOnAwake` 也会在第一次接收到用户输入时才开始播放。范例如下：
+目前 Web 平台的声音播放需要遵守最新的 [Audio Playback Policy](https://www.chromium.org/audio-video/autoplay)，即使 AudioSource 组件设置了 `playOnAwake` 也会在第一次接收到用户输入时才开始播放。范例如下：
 
 ```typescript
 // AudioController.ts

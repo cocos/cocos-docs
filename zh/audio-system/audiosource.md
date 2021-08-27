@@ -13,4 +13,3 @@
 
 更多声音接口的脚本接口请参考 [AudioSource API](__APIDOC__/zh/classes/component_audio.audiosource.html)。  
 具体的播放控制，可以参考文档 [声音系统总览](./overview.md)。
-
