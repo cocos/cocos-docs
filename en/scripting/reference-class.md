@@ -1,13 +1,13 @@
 # Advanced Scripting
 
-By the time you read this section, by default you are already familiar with the scripting system, including decorators and so on. Otherwise, please refer to:
+By starting this **Advanced Scripting** section it is assumed one is already familiar with the scripting system, including decorators and so on. Otherwise, please refer to the following documents to get up to speed first:
 
 - [Basic Scripting](./modules/index.md)
 - [Decorator](./decorator.md)
 
 ## Instantiation
 
-Define a `Foo` class and a `Bar` class through a script. The `Foo` class needs to use the properties defined by the `Bar` class, so you can directly `new` the `Bar` class to an object in the `Foo` class.
+Define a `Foo` class and a `Bar` class through a script. The `Foo` class needs to use the properties defined by the `Bar` class, to allow directly issuing `new` the `Bar` class to an object in the `Foo` class.
 
 ```ts
 class Foo {
@@ -42,7 +42,7 @@ obj.print();
 
 ## Type Determination
 
-When you need to make a type determination, use TypeScript's native ``instanceof`''.
+When making a type determination, use TypeScript's native `instanceof()`.
 
 ```typescript
 class Sub extends Base {
@@ -59,7 +59,7 @@ console.log(base instanceof Sub); // false
 
 ### Static Variables and Static Methods
 
-Static variables or static methods can be declared with ``static``:
+Static variables or static methods can be declared with `static`:
 
 ```typescript
 class Foo {
@@ -111,7 +111,7 @@ class Sprite {
 
 ### Parent constructor
 
-**Note**: the constructor of the parent class is automatically called before the subclass is instantiated, regardless of whether the subclass has a defined constructor or not.
+> **Note**: the constructor of the parent class is automatically called before the subclass is instantiated, regardless of whether the subclass has a defined constructor or not.
 
 ```typescript
 class Node {
@@ -194,9 +194,9 @@ class Sprite {
 };
 ```
 
-**Note**:
+> **Notes**:
 
-- Properties cannot be serialized after the `get` method is defined, i.e. the `serializable` parameter is not available.
+> 1. Properties cannot be serialized after the `get` method is defined, i.e. the `serializable` parameter is not available.
 
     For example, the `width` property will neither be displayed in the editor nor serialized:
 
@@ -209,7 +209,7 @@ class Sprite {
     private _width = 0;
     ```
 
-- Properties that have a `get` method defined need to have property defined if they need to be displayed by the editor, otherwise they won't be rendered.
+> 2. Properties that have a `get` method defined need to have `property` defined if they need to be displayed by the editor, otherwise they won't be rendered.
 
     For example, the width property will not be rendered on the editor if the `@property` is removed, and the `_width` property will be serialized:
 
@@ -223,7 +223,7 @@ class Sprite {
     private _width = 0;
     ```
 
-- The property itself that defines the `get` method is read-only, but the returned object is not read-only. The developer can still modify the properties inside the object through code, for example:
+> 3. The property itself that defines the `get` method is read-only, but the returned object is not read-only. The developer can still modify the properties inside the object through code, for example:
 
     ```typescript
     get num() {
