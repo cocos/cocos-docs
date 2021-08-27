@@ -2,8 +2,8 @@
 
 `moveTo()` 用于表示一条路径的起点。
 
-| 参数 |   描述
-| -------------- | ----------- |
+| 参数 |  说明
+| :------------- | :---------- |
 | x | 路径的目标位置的 x 坐标
 | y | 路径的目标位置的 y 坐标
 
@@ -13,10 +13,10 @@
 var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(0, 0);
 ctx.lineTo(300, 150);
-ctx.fill();
+ctx.stroke();
 ```
 
-<a href="graphics/moveTo.png"><img src="graphics/moveTo.png"></a>
+![moveTo](graphics/moveTo.png)
 
 <hr>
 

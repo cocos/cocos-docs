@@ -2,8 +2,8 @@
 
 `ellipse()` 方法用于创建椭圆。
 
-| 参数 |   描述
-| -------------- | ----------- |
+| 参数 |  说明
+| :------------- | :---------- |
 | cx | 椭圆的中心的 x 坐标。
 | cy | 椭圆的中心的 y 坐标。
 | rx | 椭圆的 x 半径。
@@ -14,7 +14,7 @@
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.ellipse(200, 100, 200, 100);
-ctx.fill();
+ctx.stroke();
 ```
 
 ![ellipse](graphics/ellipse.png)

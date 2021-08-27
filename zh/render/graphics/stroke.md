@@ -7,12 +7,12 @@
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(20, 100);
-ctx.stroke(20, 20);
-ctx.stroke(70, 20);
-ctx.fill();
+ctx.lineTo(20, 20);
+ctx.lineTo(70, 20);
+ctx.stroke();
 ```
 
-<a href="graphics/stroke.png"><img src="graphics/stroke.png"></a>
+![stroke](graphics/stroke.png)
 
 <hr>
 

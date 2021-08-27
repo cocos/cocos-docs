@@ -3,7 +3,7 @@
 The `ellipse()` method is used to create an ecllipse.
 
 | Parameter | Description
-| --------- | ----------- |
+| :-------- | :---------- |
 | cx | The x coordinate of the center of the ecllipse. |
 | cy | The y coordinate of the center of the ecllipse. |
 | rx | The x radius of the ecllipse.|
@@ -14,10 +14,10 @@ The `ellipse()` method is used to create an ecllipse.
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
 ctx.ellipse(200, 100, 200, 100);
-ctx.fill();
+ctx.stroke();
 ```
 
-<a href="graphics/ellipse.png"><img src="graphics/ellipse.png"></a>
+![ellipse](graphics/ellipse.png)
 
 <hr>
 

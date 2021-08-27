@@ -5,7 +5,7 @@ The `bezierCurveTo()` method adds a point to the current path by using the speci
 > **Note**: cubic bezier curves require three control points. The first two points are for the control points in the cubic bezier calculation, and the third point is the end point of the curve. The starting point of the curve is the last point in the current path.
 
 | Parameter | Description |
-| -------------- | ----------- |
+| :------------- | :---------- |
 | cp1x | The x coordinate of the first bezier control point. |
 | cp1y | The y coordinate of the first bezier control point. |
 | cp2x | The x coordinate of the second bezier control point. |
@@ -22,8 +22,8 @@ ctx.bezierCurveTo (20,100,200,100,200,20);
 ctx.stroke ();
 ```
 
-<a href="graphics/bezierCurveTo.png"><img src = "graphics/bezierCurveTo.png"></a>
+![bezierCurveTo](graphics/bezierCurveTo.png)
 
-<Hr>
+<hr>
 
 Return to the [Graphics Component Reference](../../components/graphics.md) documentation.

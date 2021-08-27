@@ -6,8 +6,8 @@
 
 边角的角度越小，斜接长度就会越大。为了避免斜接长度过长，可以使用 `miterLimit` 属性。如果斜接长度超过 `miterLimit` 的值，边角会以 `lineJoin` 的 `bevel` 类型来显示。
 
-| 参数 | 描述
-| -------------- | ----------- |
+| 参数 | 说明
+| :----- | :----------- |
 | number | 正数。规定最大斜接长度。如果斜接长度超过 `miterLimit` 的值，边角会以 `lineJoin` 的 `bevel` 类型来显示。
 
 ## 实例
@@ -18,7 +18,7 @@ ctx.miterLimit = 10;
 ctx.moveTo(20, 20);
 ctx.lineTo(100, 50);
 ctx.lineTo(20, 100);
-ctx.fill();
+ctx.stroke();
 ```
 
 ![miterLimit](graphics/miterLimit.png)
