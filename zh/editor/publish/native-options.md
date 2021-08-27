@@ -43,6 +43,10 @@
 
 ![encrypt js](publish-native/encrypt-js.png)
 
+#### 原生引擎
+
+该项用于可以选择使用内置引擎版本或定制引擎，点击该项可以打开偏好设置面板中的引擎管理器选项，详细的定制引擎流程，可以查看 [引擎定制工作流程](../../advanced-topics/engine-customization.md)
+
 ### Android 平台构建选项
 
 Android 平台的构建选项如下：
