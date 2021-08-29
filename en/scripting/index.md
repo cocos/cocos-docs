@@ -21,7 +21,7 @@ __Cocos Creator__ scripts are used to implement user-defined (game) behaviors.
   - [Builtin Events](../engine/event/event-builtin.md)
   - [Global Events](../engine/event/event-input.md)
   - [Event API](../engine/event/event-api.md)
-- [Property Parameter Reference](./reference/attributes.md)
+- [Property Attributes Reference](./reference/attributes.md)
 - [Plugin Script](./external-scripts.md)
 - [CCClass Advanced Reference](./ccclass.md)
 - [Add Log](./log.md)

@@ -16,7 +16,7 @@ When you need the corresponding `ccclass`, you can find it by its `ccclass` name
 
 - When the `ccclass` is a component class, `Node` can find the component by its `ccclass` name.
 
-## ccattributes
+## Property decorators
 
 When the decorator [property](#property) is applied to a property or accessor of the `ccclass`, this property is called a `ccproperty`.
 

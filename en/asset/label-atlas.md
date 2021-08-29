@@ -29,4 +29,4 @@ When the configuration is complete, click the tick button at the top right of th
 
 ## Using LabelAtlas asset
 
-It's quite simple to use the **LabelAtlas** asset. Just setup a new Label component and drag the **LabelAtlas** asset to the **Font** property of the Label component. Please refer to the [Label Component](../ui-system/components/editor/label.md) documentation for details.
+It's quite simple to use the **LabelAtlas** asset. Just setup a new Label component and drag the **LabelAtlas** asset to the **font** property of the Label component. Please refer to the [Label Component](../ui-system/components/editor/label.md) documentation for details.

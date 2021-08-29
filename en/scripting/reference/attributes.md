@@ -1,4 +1,4 @@
-# Properties
+# Property attributes
 
 Properties are used to attach metadata to defined properties, similar to Decorator in scripting languages or Property in C#.
 

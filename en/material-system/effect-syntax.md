@@ -232,7 +232,7 @@ Under the framework writing your own surface shader or even shading algorithm be
 
 > **Note**: the `CCFragOutput` function should not be overriden, unless using custom render pipelines.
 
-### Custom Instancing Property
+### Custom Instancing Attribute
 
 Dynamic instancing is a very flexible batching framework, whcih allows user-defined instanced properties on top of the built-in ones. If you want to define them in shader, all the related processing code need to be wrapped inside the agreed upon macro `USE_INSTANCING`:
 
@@ -245,7 +245,7 @@ Dynamic instancing is a very flexible batching framework, whcih allows user-defi
 
 > **Notes**:
 > 1. The actual data format can be specified using compiler hint `format` tag, which accepts a single parameter in the form of `GFXFormat` enum name<sup id="a2">[2](#f2)</sup>. 32-bytes float type will be assumed if the tag is omitted.
-> 2. All instanced properties are input properties of the vertex shader, so if some property is needed in fragment shader, you need to pass it as varyings;
+> 2. All instanced properties are input attributes of the vertex shader, so if some property is needed in fragment shader, you need to pass it as varyings;
 > 3. Make sure the code works for all branches, regardless of the actual state of `USE_INSTANCING`.
 
 The instanced property value will be initialized to all zeros by default. Use the `setInstancedAttribute` on `MeshRenderer` to assign new values:
@@ -332,7 +332,7 @@ This means lots of wasted space, and some driver implementation might not comple
 > **Note**: the actual uniform type can differ from the public interfaces the effect exposes to artists and runtime properties. Through the [property target](pass-parameter-list.md#Properties) system, every single channel can be manipulated independently, without restriction of the original uniform.
 
 <b id="f1">[1]</b> Shaders for systems with procedurally generated mesh, like particles, sprites, post-effects, etc. may handle things a bit differently [↩](#a1)<br>
-<b id="f2">[2]</b> Integer-typed properties are not supported on WebGL 1.0 platform, so use the default float type if targeting this platform [↩](#a2)<br>
+<b id="f2">[2]</b> Integer-typed attributes are not supported on WebGL 1.0 platform, so use the default float type if targeting this platform [↩](#a2)<br>
 <b id="f3">[3]</b> [OpenGL 4.5, Section 7.6.2.2, page 137](http://www.opengl.org/registry/doc/glspec45.core.pdf#page=159) [↩](#a3)<br>
 <b id="f4">[4]</b> In the example code, UBO `IncorrectUBOOrder` has a total size 32. Actually this is still a platform-dependent data, due to what it seems like an oversight in the GLSL specification. More discussions can be found [here](https://bugs.chromium.org/p/chromium/issues/detail?id=988988) [↩](#a4)<br>
 <b id="f5">[5]</b> [Interface Block - OpenGL Wiki](https://www.khronos.org/opengl/wiki/Interface_Block_(GLSL)#Memory_layout) [↩](#a5)
