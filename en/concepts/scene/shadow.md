@@ -74,11 +74,11 @@ ShadowMap is generally used for scenes that require more realistic and complex l
 
 Percentage Closer Filtering (PCF) is a simple, common technique used to achieve shadow edge desampling, by smoothing shadow edges to eliminate jaggedness in shadow mapping. The principle is to sample around the current pixel (also called a fragment), then calculate the ratio of the sample closer to the lights compared to the fragment, use this ratio to scale the scattered light and specular light, and then color the fragment to blur the shadow edges.
 
-Cocos Creator currently supports hard, 4x(**SOFT** Mode), 9x(**SOFT_2X** Mode) sampler. The larger the magnification, The softer the edge of the shadow.
+Cocos Creator currently supports **hard sampler (HARD mode)**, **4x sampler (SOFT mode)**, **9x sampler (SOFT_2X mode)**. The larger the magnification, the larger the sampling area and the more blurred the shadow edges.
 
 #### AutoAdapt Adaptive Shadow Calculation
 
-AutoAdapt adaptive shadow calculation automatically calculates the extent of shadow generation in the lightView and the proximity of the shadow camera.
+AutoAdapt adaptive shadow calculation automatically calculates the extent of shadow generation in the lightView and the proximity of the shadow camera. This can be used to check if the hardware supports semi-floating point types, and if so, Creator will automatically enable linear depth or use texture compression.
 
 ## Support dynamic batching to improve performance
 
