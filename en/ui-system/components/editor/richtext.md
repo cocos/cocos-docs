@@ -63,7 +63,7 @@ For better typography, additional optional attributes to the img tag have been p
 
 When the height or width of the SpriteFrame changes, The `align` attribute may need to be used to adjust the alignment of the image in the line.
 
-| Property | Description | Example | Note   |
+| Attribute | Description | Example | Note   |
 | :-------- | :---------- | :------ | :----- |
 | height    | Specify the SpriteFrame height size, the size should be a integer.| `<img src='foo' height=50 />` | If you only assign height the SpriteFrame will auto keep aspect-ratio
 | width     | Specify the SpriteFrame width size, the size should be a integer.| `<img src='foo' width=50 />` | Use both Height and Width `<img src='foo' width=20 height=30 />`
@@ -91,7 +91,7 @@ is equal to:
 
 Since the RichText component is assembled from multiple Label nodes, the number of drawcalls for complex rich text will also be high. Therefore, the engine provides the CacheMode setting of the Label component for the RichText component to avoid the increase of drawcall. For a detailed description of each cache type, please refer to the [Cache Mode of the Label component](./label.md) documentation.
 
-| Property |   Description |
+| Mode |   Description |
 | :-------------- | :----------- |
 | **NONE** | By default, for each Label node created by RichText, set its CacheMode to NONE, that is, generate a bitmap of the entire text of each Label and render it separately. |
 |**BITMAP**| After selection, for each Label node created by RichText, set its CacheMode to BITMAP type, that is, generate a bitmap of the entire text of each Label, and add the bitmap to the dynamic atlas, and then according to the dynamic atlas to assemble and render. |
