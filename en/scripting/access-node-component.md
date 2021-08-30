@@ -1,6 +1,6 @@
 # Access Nodes and Components
 
-You can modify __Nodes__ and __Components__ in the **Inspector** panel, and also dynamically using scripts. The advantage of dynamic modification is that it can continuously modify attributes and transition attributes within a period of time to achieve gradual effects. Scripts can also respond to player input, modify, create and destroy __Nodes__ or __Components__, and implement various game logic. To achieve these effects, developers need to obtain the __Node__ or __Component__ that needs to be modified in the script.
+You can modify __Nodes__ and __Components__ in the **Inspector** panel, and also dynamically using scripts. The advantage of dynamic modification is that it can continuously modify properties and transition properties within a period of time to achieve gradual effects. Scripts can also respond to player input, modify, create and destroy __Nodes__ or __Components__, and implement various game logic. To achieve these effects, developers need to obtain the __Node__ or __Component__ that needs to be modified in the script.
 
 ## Document topics
 
@@ -83,7 +83,7 @@ It is usually not enough to only have access to the node's own components, and s
 
 ### Use the Inspector panel to set the node
 
-The most straightforward way is to set the objects you need in the **Inspector** panel. Take node as an example, this only needs to declare an attribute with type `Node` in the script:
+The most straightforward way is to set the objects you need in the **Inspector** panel. Take node as an example, this only needs to declare an property with type `Node` in the script:
 
 ```ts
 // Cannon.ts
@@ -129,7 +129,7 @@ export class Cannon extends Component {
 
 ### Use the Inspector panel to set up components
 
-In the above example, if the type of the attribute is declared as a `Player` component, when the `Player` node is dragged to the **Inspector** panel, the `Player` attribute will be set to the `Player` component in this node. This way developers don't need to call `getComponent()` themselves.
+In the above example, if the type of the property is declared as a `Player` component, when the `Player` node is dragged to the **Inspector** panel, the `Player` property will be set to the `Player` component in this node. This way developers don't need to call `getComponent()` themselves.
 
 ```ts
 // Cannon.ts

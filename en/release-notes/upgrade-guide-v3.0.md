@@ -15,7 +15,7 @@ __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will
 
 ## How to migrate Cocos Creator 2.x projects
 
-Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource migration tool in __Cocos Creator 3.0__. This tool supports importing old projects, project resources, and project code very well. Code-assisted migration will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, attribute declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the difficulty of upgrading.
+Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource migration tool in __Cocos Creator 3.0__. This tool supports importing old projects, project resources, and project code very well. Code-assisted migration will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, property declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the difficulty of upgrading.
 
 Developers only need to click **File -> Import Cocos Creator 2.x project** in the main menu.
 
@@ -184,9 +184,9 @@ Select the resource in the __Assets__ panel to display resource thumbnails in th
 
 - Support the search and display filtering of nodes in the node tree panel.
 - Support using the system clipboard to copy and paste all animation data (nodes, tracks, and key frames) on nodes.
-- Support multi-select nodes to add attribute tracks in batches.
+- Support multi-select nodes to add property tracks in batches.
 - Optimize the experience of selecting and deselecting key frames (__Ctrl + mouse click__ to select key frames to deselect them).
-- Support continuing to edit node attributes in the animation editing state, including particle and model material attributes, etc.
+- Support continuing to edit node properties in the animation editing state, including particle and model material properties, etc.
 
 ![image](animation.png)
 

@@ -1,6 +1,6 @@
-# Attributes
+# Property attributes
 
-Attributes are used to attach metadata to defined properties, similar to Decorator in scripting languages or Attribute in C#.
+Attributes are used to attach metadata to defined properties, similar to `Decorator` in scripting languages or `Attribute` in `C#`.
 
 ## Related Attributes on Inspector Panel
 
