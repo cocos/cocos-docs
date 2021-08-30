@@ -133,7 +133,7 @@ Next, some of the common ways to write property parameters are listed below.
 
 The `type` option specifies the cc type of the attribute. The type can be specified with several forms of arguments.
 
-- Cocos Creator 3.0 built-in property type identifier
+- Cocos Creator 3.0 built-in property type identifier:
 
   `CCInteger`, `CCFloat`, `CCBoolean`, and `CCString` are built-in property type identifiers that generally work on array properties. Non-array types usually do not need to declare a type.
   - `CCInteger` declares the type as **integer**.
