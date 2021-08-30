@@ -1,17 +1,20 @@
 # Audio Assets
 
 An **audio** asset is an **audio file**.<br>
-For the **audio system**, its interface is geared to two main needs: "music" of longer lengths, and "sound" effects of shorter lengths.<br>
-But for audio assets, there is no difference between the two. After all audio assets are imported into the editor, AudioClip assets perform the relevant audio operations through the AudioSource audio system component. For more information on using the audio system, please refer to the [Audio System](../audio-system/overview.md) documentation.
+For the **audio system**, its interface is geared to two main needs: **music** of longer lengths, and **sound** effects of shorter lengths.<br>
+
+For audio assets, there is no difference between the two. After all audio assets are imported into the editor, AudioClip assets perform the relevant audio operations through the AudioSource audio system component. For more information on using the audio system, please refer to the [Audio System](../audio-system/overview.md) documentation.
+
 
 ## Supported Formats of Audio Assets
 
 The current audio system of the engine is able to support the formats natively supported by the web:
-- .ogg
-- .mp3
-- .wav
-- .mp4
-- .m4a
+- `.ogg`
+- `.mp3`
+- `.wav`
+- `.mp4`
+- `.m4a`
+
 
 ## About the loading mode of audio assets on the Web platform
 

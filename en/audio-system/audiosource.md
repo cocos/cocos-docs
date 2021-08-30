@@ -2,7 +2,8 @@
 
 ![](audio/audiosource.png)
 
-## Property
+## AudioSource Properties
+
 
 |Property | Description |
 |:-- | :--- |
@@ -12,4 +13,5 @@
 |Volume | The volume of the audio, in the range 0~1 |
 
 For more scripting interfaces for the audio interface, please refer to the [AudioSource](__APIDOC__/en/classes/component_audio.audiosource.html) API.  
-For specific playback control, please refer to the document [Audio System Overview](./overview.md).
+For specific playback control, please refer to the [Audio System Overview](./overview.md) documentation.
+
