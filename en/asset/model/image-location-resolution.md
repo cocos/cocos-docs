@@ -1,35 +1,35 @@
-# Cocos Creator 图像位置解析算法
+# Cocos Creator Image Location Resolution Algorithm
 
-Cocos Creator 图像位置解析算法中给定的参数及参数说明如下：
+The parameters given in the Cocos Creator image location resolution algorithm and their descriptions are as follows:
 
-| 参数   | 说明    |
+| Parameter | Description |
 | :---- | :------ |
-| `url`      | 期望的 URL   |
-| `startDir` | 起始搜索目录  |
-| `DEPTH`    | 搜索深度，固定为 **2** |
-| `SEARCH_DIR_NAMES` | 贴图文件夹名称数组，默认为：`textures`、`materials`  |
-| `SEARCH_EXT_NAMES` | 需要搜索的扩展名数组，固定为：`.jpg`、`.jpeg`、`.png`、`.tga`、`.webp` |
+| `url` | The desired URL |
+| `startDir` | The starting search directory |
+| `DEPTH` | Search depth, fixed to **2** |
+| `SEARCH_DIR_NAMES` | Array of texture folder names, default is: `textures`, `materials` |
+| `SEARCH_EXT_NAMES` | Array of extensions to search for, fixed to `.jpg`, `.jpeg`, `.png`, `.tga`, `.webp` |
 
-Cocos Creator 图像位置解析算法由以下过程给出：
+The Cocos Creator image location resolution algorithm is given by the following procedure:
 
-- 如果 `url` 对应的文件存在，则返回 `url`
+- If the file corresponding to `url` exists, return `url`.
 
-- 令 `expectedExtName` 为 `url` 的扩展名
+- Let `expectedExtName` be the extension of `url`.
 
-- 令 `expectedBaseName` 为 `url` 去扩展后的文件名
+- let `expectedBaseName` be the de-extended filename of `url`.
 
-- 令 `searchExtNames` 为 `[expectedExtName, ...SEARCH_EXT_NAMES]` 去重之后的数组
+- Let `searchExtNames` be `[expectedExtName, ...SEARCH_EXT_NAMES]` array after de-duplication.
 
-- 令 `currentDir` 为 `startDir`，进行 `DEPTH` 次循环：
+- Let `currentDir` be `startDir` and loop for `DEPTH` times:
 
-    - 如果 `currentDir` 处于项目 `assets` 目录外，则退出循环
+    - If `currentDir` is outside the project `assets` directory, then exit the loop.
 
-    - 如果 `currentDir` 目录中没有任何一个子目录的名称匹配 `SEARCH_DIR_NAMES`，则执行下次循环
+    - If none of the subdirectories in the `currentDir` directory have names matching `SEARCH_DIR_NAMES`, then the next loop is executed.
 
-    - 令 `dir` 为 `currentDir` 目录中名称匹配 `SEARCH_DIR_NAMES` 的子目录
+    - Make `dir` a subdirectory of the `currentDir` directory with a name matching `SEARCH_DIR_NAMES`.
 
-    - 在 `dir` 中搜索是否有文件基础名称匹配 `expectedBaseName` 且扩展名匹配 `searchExtNames`的，如果有，则返回其路径
+    - Search `dir` for files with base names matching `expectedBaseName` and extensions matching `searchExtNames`, and if so, return their paths.
 
-    - 将 `currentDir` 置为其上层目录
+    - Set `currentDir` to its parent directory.
 
-- 返回搜索失败
+- Return search failure.
