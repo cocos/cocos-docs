@@ -56,7 +56,7 @@ The **meta** file for the prefab is the same as the scene. Let's take a look at 
 }
 ```
 
-The **meta** file for the png image has more information. In addition to the **basic ver** and **UUID**, it also records the width, height, offset, and borders of the image. There is a lot of information that is stored. **UUID** and it is particularly important.
+The **meta** file for the png image has more information. In addition to the basic `ver` and `uuid`, it also records the width, height, offset, and borders of the image. There is a lot of information that is stored. **UUID** and it is particularly important.
 
 > UUID: Universally Unique Identifier
 
