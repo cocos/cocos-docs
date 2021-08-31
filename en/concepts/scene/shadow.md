@@ -78,7 +78,9 @@ Cocos Creator currently supports **hard sampler (HARD mode)**, **4x sampler (SOF
 
 #### AutoAdapt Adaptive Shadow Calculation
 
-AutoAdapt adaptive shadow calculation automatically calculates the extent of shadow generation in the lightView and the proximity of the shadow camera. Starting from 3.3.0, the **linearDepth** and **Packing** options in the shadow options will be removed and the Creator will automatically determine the hardware capabilities and choose the best way to render the shadows.
+AutoAdapt adaptive shadow calculation automatically calculates the extent of shadow generation in the lightView and the proximity of the shadow camera.
+
+Starting with v3.3, the **Linear** and **Packing** options for Shadows in the **Inspector** panel have been removed, and Creator will automatically determine the hardware capabilities and choose the best way to render the shadows.
 
 ## Support dynamic batching to improve performance
 
