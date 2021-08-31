@@ -169,7 +169,7 @@ Next, you can continue to Make and run desktop previews through the Cocos Creato
 
 ## Make and Run
 
-Cocos Creator supports **Make** and **Run Preview** steps via the editor or the corresponding IDE for each platform (e.g. Xcode, Android Studio, Visual Studio).
+Cocos Creator supports **Make** and **Run Preview** steps via the editor or the corresponding IDE for each platform (e.g.: Xcode, Android Studio, Visual Studio).
 
 ### By the Editor
 
@@ -189,7 +189,7 @@ Once the **Make** process is complete, continue to click the **Run** button next
 
 Click the folder icon button in the bottom left corner of the **build task** window, the release path will be opened in the file manager of the operating system. The `proj` folder under the release package directory contains the native platform project of the current build.
 
-Next, open these generated native projects using the IDE corresponding to the native platform (e.g. Xcode, Android Studio, Visual Studio) and you can make further operations like compilation, preview and release.
+Next, open these generated native projects using the IDE corresponding to the native platform (e.g.: Xcode, Android Studio, Visual Studio) and you can make further operations like compilation, preview and release.
 
 - **Android**
 

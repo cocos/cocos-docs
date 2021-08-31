@@ -65,7 +65,7 @@ The absolute specifier directly specifies the URL of the target module.
 
 Cocos Creator currently only supports file protocol URLs, but since the file path specified in the file URL is an absolute path, it is rarely used.
 
-> **Note**: in Node.js, one way to access Node.js built-in modules is through `node:` protocol URLs, e.g. `node:fs`. Cocos Creator parses all requests for access to Node.js built-in modules as `node:` URL requests. For example, `'fs'` in `import fs from 'fs'` will resolve to `node:fs`. However, Cocos Creator does not support Node.js built-in modules, which means that it does not support the `node:` protocol. Therefore, a loading error will occur. This error may be encountered when using modules in npm.
+> **Note**: in Node.js, one way to access Node.js built-in modules is through `node:` protocol URLs, e.g.: `node:fs`. Cocos Creator parses all requests for access to Node.js built-in modules as `node:` URL requests. For example, `'fs'` in `import fs from 'fs'` will resolve to `node:fs`. However, Cocos Creator does not support Node.js built-in modules, which means that it does not support the `node:` protocol. Therefore, a loading error will occur. This error may be encountered when using modules in npm.
 
 ### Bare Specifiers
 
@@ -122,7 +122,7 @@ import '. /foo'; // correct: parsed as the `foo/index.ts` module
 
 ### The `browser` Field is not Supported
 
-Some npm packages have `browser` fields documented in the manifest file `package.json`, e.g. [JSZip](https://github.com/Stuk/jszip). The `browser` field is used to specify a module parsing method specific to the package when it is in a non-Node.js environment, which allows some Node.js-specific modules in the package to be replaced with modules that can be used in the Web. Although Cocos Creator **does not support this field**, if you have the ability to edit npm packages, Cocos Creator recommends using [conditionalized export](https://nodejs.org/api/packages.html#packages_conditional_exports) and [subpath import](https://nodejs.org/api/packages.html#packages_subpath_imports) instead of the `browser` field.
+Some npm packages have `browser` fields documented in the manifest file `package.json`, e.g.: [JSZip](https://github.com/Stuk/jszip). The `browser` field is used to specify a module parsing method specific to the package when it is in a non-Node.js environment, which allows some Node.js-specific modules in the package to be replaced with modules that can be used in the Web. Although Cocos Creator **does not support this field**, if you have the ability to edit npm packages, Cocos Creator recommends using [conditionalized export](https://nodejs.org/api/packages.html#packages_conditional_exports) and [subpath import](https://nodejs.org/api/packages.html#packages_subpath_imports) instead of the `browser` field.
 
 Otherwise, the target library can be used in a non-npm way. For example, copying modules from the target library that are specifically made for non-Node.js environments into the project and importing them via relative paths.
 

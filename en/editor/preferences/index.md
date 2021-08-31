@@ -38,7 +38,7 @@ The **External Program** tab is used to set up the development environment requi
 
 - **Android SDK**: used to set the Android SDK path, please refer to the [Setup Native Development Environment](../publish/setup-native-development.md) documentation.
 
-- **Default Script Editor**: choose any executable file from an external text editing tool (e.g. VS Code) as the way to open the script file when you double-click it in the **Assets** panel. The executable file of the preferred text editor can be selected by clicking the **Search** button after the input box. The folder icon is used to open the path to the text editor that has been set up.
+- **Default Script Editor**: choose any executable file from an external text editing tool (e.g.: VS Code) as the way to open the script file when you double-click it in the **Assets** panel. The executable file of the preferred text editor can be selected by clicking the **Search** button after the input box. The folder icon is used to open the path to the text editor that has been set up.
 
 - **Default Browser**: used to select the browser to be used when previewing the editor. A browser path can be specified by clicking the **Search icon** button behind the input box.
 
@@ -100,7 +100,7 @@ The **Preview** tab is mainly used for the various options that can be set when 
 - **Auto clear cache when using simulator**: if this option is checked, the cache will be automatically cleared when using the simulator preview.
 - **Open simulator debugger**: if this option is checked, the debugger will be opened automatically when previewing the project with the simulator.
 - **Wait for debugger to connect**: this option will take effect when **Open the simulator debugger** is checked, and it is used to pause the simulator startup process until the debugger is connected, which is used for debugging the loading process.
-- **Initial Preview Scene**: specify which scene in the project will be opened when previewing, all the scenes in the project will be listed. If set to **Currently Opened Scene**, the scene that is currently being edited in the **Scene** panel will be run. Alternatively it can be set to a fixed scene (e.g. the project always needs to start the game from the login scene).
+- **Initial Preview Scene**: specify which scene in the project will be opened when previewing, all the scenes in the project will be listed. If set to **Currently Opened Scene**, the scene that is currently being edited in the **Scene** panel will be run. Alternatively it can be set to a fixed scene (e.g.: the project always needs to start the game from the login scene).
 
 ## Build
 
