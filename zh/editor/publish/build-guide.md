@@ -136,7 +136,7 @@ Cocos Creator 的通用构建流程，主要包括以下内容：
     nativeBase: string; // native 中 native 目录的名称，通常是 'native'
     name: string; // Bundle 的名称，可以通过 Bundle 名称加载 Bundle
     deps: string[]; // 该 Bundle 依赖的其他 Bundle 名称
-    scenes: Array<{url: string, : string}>; // Bundle 内包含的场景信息数组
+    scenes: Array<{url: string, uuid: string}>; // Bundle 内包含的场景信息数组
     rawAssets: { [index: string]: { [uuid: string]: string[] } };
     // 存储 resources 下加载的资源 url 与类型
     // 示例: "bba00d3a-2f17-4511-b47c-0d584b21b763@6c48a": ["test/right/texture", "cc.Texture2D", "bba0...@6c48a"]
