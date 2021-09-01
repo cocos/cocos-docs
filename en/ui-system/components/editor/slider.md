@@ -10,7 +10,7 @@ To use `Slider`, please refer to the [Slider API](__APIDOC__/en/classes/ui.slide
 
 ## Slider Properties
 
-| Properties     | Function Explanation |
+| Property     | Function Explanation |
 | -------------- | -----------          |
 | Handle         | The button part of the __Slider__ that allows to adjust value by sliding the button  |
 | Direction      | The direction of the slider, including __Horizontal__ and __Vertical__ |

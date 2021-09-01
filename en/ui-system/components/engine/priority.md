@@ -18,7 +18,7 @@ The **UI camera** has the highest priority when it was originally designed, that
 
 The key factor of the mixed sorting of the **UI camera** and the **3D camera** is here in the **UI camera**. Therefore, the `Canvas` on the root node of the UI, which is the Canvas node, provides a property called __RenderMode__ to distinguish the sorting method.Next, talk about the role of the __RenderMode__ option:
 
-1. When the selection mode is __OVERLAY__, it means that the **UI camera** will always be behind the 3D camera, which means __will always cover the rendering content of the 3D camera__. Multiple UI cameras select this mode, and use the attribute __Priority__ to sort between UI cameras.
+1. When the selection mode is __OVERLAY__, it means that the **UI camera** will always be behind the 3D camera, which means __will always cover the rendering content of the 3D camera__. Multiple UI cameras select this mode, and use the property __Priority__ to sort between UI cameras.
 
     ![overlay](./priority/overlay.png)
 

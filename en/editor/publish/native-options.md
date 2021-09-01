@@ -190,7 +190,7 @@ v3.0 做了代码和配置的分离，将一部分代码和配置放入源码管
 
 ## 生成和运行
 
-Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）执行进一步的预览、调试和发布。
+Cocos Creator supports **Make** and **Run Preview** steps via the editor or the corresponding IDE for each platform (e.g.: Xcode, Android Studio, Visual Studio).
 
 ### 通过编辑器
 
@@ -210,7 +210,7 @@ Cocos Creator 支持通过编辑器或各平台对应的 IDE（如 Xcode、Andro
 
 点击 **构建任务** 左下角的 **文件夹图标** 按钮，就会在操作系统的文件管理器中打开构建发布路径，这个路径中 `build` 目录下的 `proj` 里就包含了当前构建的原生平台工程。
 
-接下来使用原生平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开这些工程，就可以进一步地编译和发布预览了。
+Next, open these generated native projects using the IDE corresponding to the native platform (e.g.: Xcode, Android Studio, Visual Studio) and you can make further operations like compilation, preview and release.
 
 - **Android**
 

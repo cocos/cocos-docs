@@ -102,9 +102,11 @@ Subpackage rpk needs to be copied to the `/sdcard/subPkg` directory of OPPO phon
 
 > **Note**: if the OPPO Mini Game Debugger version is **v3.2.0** and above, you need to copy the mini game subpackaged **rpk** file to the `/sdcard/Android/data/com.nearme.instant.platform/files/subPkg` directory on your OPPO phone, or create a new one if there is no `subPkg` directory. The non-subpackaged rpk is copied to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory on your OPPO phone, and the two cannot be mixed.
 
+For more information, please refer to the [OPPO Mini Game - Subpackage [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/subpackage/subpackage) documentation.
+
 ## Resource Management for OPPO Mini Game Environment
 
-**OPPO Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. The main package size limit for OPPO Mini Game is **10MB**, more than that must be downloaded via a network request.
+**OPPO Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. The main package size limit for OPPO Mini Game is **4MB**, more than that must be downloaded via a network request.
 
 Cocos Creator already helps developers with downloading, caching and version management of remote resources. Please refer to the [Cache Manager](../../asset/cache-manager.md#resource-download-process) documentation for details.
 
