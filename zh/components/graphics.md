@@ -1,8 +1,8 @@
 # Graphics 组件参考
 
-Graphics 组件提供了一系列绘画接口，这些接口参考了 canvas 的绘画接口来进行实现。
+Graphics 组件提供了一系列绘画接口，这些接口参考了 Canvas 的绘画接口来进行实现。
 
-![](../render/graphics/graphics/graphics.png)
+![graphics](../render/graphics/graphics/graphics.png)
 
 在 **层级管理器** 中选中一个节点，然后点击 **属性检查器** 下方的 **添加组件** 按钮，从 **渲染组件** 中选择 **Graphics**，即可添加 Graphics 组件到节点上。
 
