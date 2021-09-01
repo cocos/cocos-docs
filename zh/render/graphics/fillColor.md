@@ -11,7 +11,7 @@ ctx.rect(20, 20, 250, 200);
 ctx.fill();
 ```
 
-![](graphics/fillColor.png)
+![fillColor](graphics/fillColor.png)
 
 <hr>
 

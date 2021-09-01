@@ -2,8 +2,8 @@
 
 `lineWidth` 属性用于添加一个新点，然后创建从该点到画布中最后指定点的线条。
 
-| 参数 |   描述
-| -------------- | ----------- |
+| 参数 | 说明
+| :----- | :---------- |
 | number | 当前线条的宽度，以像素计。
 
 ## 实例
@@ -12,10 +12,10 @@
 var ctx = node.getComponent(cc.Graphics);
 ctx.lineWidth = 20;
 ctx.rect(20, 20, 80, 100);
-ctx.fill();
+ctx.stroke();
 ```
 
-<a href="graphics/lineWidth.png"><img src="graphics/lineWidth.png"></a>
+![lineWidth](graphics/lineWidth.png)
 
 <hr>
 

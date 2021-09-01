@@ -2,27 +2,27 @@
 
 The Graphics component provides a series of drawing functions that reference the Web canvas's drawing APIs.
 
-![](../render/graphics/graphics/graphics.png)
+![graphics](../render/graphics/graphics/graphics.png)
 
 Select a node in the **Node Tree** panel, and then click the **Add Component** button below the **Properties** panel and select **Graphics** from **Renderer Component**. Then you can add the Graphics component to the node.
 
-## Graphic Properties
+## Graphics Properties
 
-| property |   Function Explanation
-| -------------- | ----------- |
-| [lineCap](../render/graphics/lineCap.md)         | lineCap determines how the end points of every line are drawn
-| [lineJoin](../render/graphics/lineJoin.md)       | lineJoin determines how two connecting segments (of lines, arcs or curves) with non-zero lengths in a shape are joined together
+| Property | Explanation
+| :------------- | :---------- |
 | [lineWidth](../render/graphics/lineWidth.md)     | Current line width
+| [lineJoin](../render/graphics/lineJoin.md)       | `lineJoin` determines how two connecting segments (of lines, arcs or curves) with non-zero lengths in a shape are joined together
+| [lineCap](../render/graphics/lineCap.md)         | `lineCap` determines how the end points of every line are drawn
+| [strokeColor](../render/graphics/strokeColor.md) | Stroke color
+| [fillColor](../render/graphics/fillColor.md)     | Fill color
 | [miterLimit](../render/graphics/miterLimit.md)   | Sets the miter limit ratio
-| [strokeColor](../render/graphics/strokeColor.md) | stroke color
-| [fillColor](../render/graphics/fillColor.md)     | fill color
 
 ## Graphics API
 
 ### Path
 
-| Function |   Function Explanation
-| -------------- | ----------- |
+| Function | Explanation
+| :------------- | :---------- |
 | [moveTo](../render/graphics/moveTo.md) (x, y)  | Move the render cursor to a specified point in the canvas without creating lines.
 | [lineTo](../render/graphics/lineTo.md) (x, y)  | Adds a straight line to the path
 | [bezierCurveTo](../render/graphics/bezierCurveTo.md) (c1x, c1y, c2x, c2y, x, y) | Adds a cubic Bézier curve to the path

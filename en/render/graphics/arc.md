@@ -5,7 +5,7 @@ The `arc()` method creates an arc/curve (used to create circles or partial circl
 > **Note**: to create a circle with `arc()`, set the start angle to `0` and the end angle to `2 * Math.PI`.
 
 | Parameter | Description
-| -------------- | ----------- |
+| :------------- | :---------- |
 | x | The x coordinate of the center of the circle.
 | y | The y coordinate of the center of the circle.
 | r | Radius of the circle.
@@ -18,10 +18,10 @@ The `arc()` method creates an arc/curve (used to create circles or partial circl
 ```javascript
 Var ctx = node.getComponent(cc.Graphics);
 ctx.arc(100, 75, 50, 0, 1.5 * Math.PI);
-ctx.fill();
+ctx.stroke();
 ```
 
-<a href="graphics/arc.png"> <img src = "graphics/arc.png"></a>
+![arc](graphics/arc.png)
 
 <hr>
 

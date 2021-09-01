@@ -2,8 +2,8 @@
 
 The `lineWidth` property adds a new point, and then creates a line from that point to the last specified point in the canvas.
 
-| Parameter | description
-| -------------- | ----------- |
+| Parameter | Description
+| :-------- | :---------- |
 | number | The width of the current line, in pixels.
 
 ## example
@@ -12,10 +12,10 @@ The `lineWidth` property adds a new point, and then creates a line from that poi
 var ctx = node.getComponent(cc.Graphics);
 ctx.lineWidth = 20;
 ctx.rect(20, 20, 80, 100);
-ctx.fill();
+ctx.stroke();
 ```
 
-<a href="graphics/lineWidth.png"><img src="graphics/lineWidth.png"></a>
+![lineWidth](graphics/lineWidth.png)
 
 <hr>
 

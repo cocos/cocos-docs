@@ -9,10 +9,10 @@ var ctx = node.getComponent(cc.Graphics);
 ctx.moveTo(20, 100);
 ctx.lineTo(20, 20);
 ctx.lineTo(70, 20);
-ctx.fill();
+ctx.stroke();
 ```
 
-<a href="graphics/stroke.png"><img src="graphics/stroke.png"></a>
+![stroke](graphics/stroke.png)
 
 <hr>
 

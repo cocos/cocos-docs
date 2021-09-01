@@ -10,10 +10,10 @@ ctx.moveTo(20, 20);
 ctx.lineTo(20, 100);
 ctx.lineTo(70, 100);
 ctx.close();
-ctx.fill();
+ctx.stroke();
 ```
 
-<a href="graphics/close.png"><img src="graphics/close.png"></a>
+![close](graphics/close.png)
 
 <hr>
 
