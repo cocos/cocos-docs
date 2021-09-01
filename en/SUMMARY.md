@@ -230,6 +230,7 @@
     - [Global Events](engine/event/event-input.md)
     - [Event API](engine/event/event-api.md)
     - [Plugin script](scripting/external-scripts.md)
+    - [Advanced Scripting](scripting/reference-class.md)
     - [Logging](scripting/log.md)
     - [Deprecated APIs](scripting/deprecated.md)
 
