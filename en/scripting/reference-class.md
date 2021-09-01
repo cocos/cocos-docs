@@ -194,9 +194,9 @@ class Sprite {
 };
 ```
 
-> **Notes**:
+**Notes**:
 
-> 1. Properties cannot be serialized after the `get` method is defined, i.e. the `serializable` parameter is not available.
+- Properties cannot be serialized after the `get` method is defined, i.e. the `serializable` parameter is not available.
 
     For example, the `width` property will neither be displayed in the editor nor serialized:
 
@@ -209,7 +209,7 @@ class Sprite {
     private _width = 0;
     ```
 
-> 2. Properties that have a `get` method defined need to have `property` defined if they need to be displayed by the editor, otherwise they won't be rendered.
+- Properties that have a `get` method defined need to have `property` defined if they need to be displayed by the editor, otherwise they won't be rendered.
 
     For example, the width property will not be rendered on the editor if the `@property` is removed, and the `_width` property will be serialized:
 
@@ -223,7 +223,7 @@ class Sprite {
     private _width = 0;
     ```
 
-> 3. The property itself that defines the `get` method is read-only, but the returned object is not read-only. The developer can still modify the properties inside the object through code, for example:
+- The property itself that defines the `get` method is read-only, but the returned object is not read-only. The developer can still modify the properties inside the object through code, for example:
 
     ```typescript
     get num() {
