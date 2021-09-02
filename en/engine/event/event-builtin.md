@@ -113,7 +113,7 @@ All node built-in events can get event names from `Node.EventType`.
 
 | Enumerated Object Definition              | Corresponding Event Name             | Timing of Event Triggering             |
 | :-------------             | :----------            |   :----------        |
-| __TRANSFORM_CHANGED__ | transform-changed | When a transform attribute is modified, an enum value `TransformBit` is assigned that defines the modified transform based on the enum value.                      |
+| __TRANSFORM_CHANGED__ | transform-changed | When a transform property is modified, an enum value `TransformBit` is assigned that defines the modified transform based on the enum value.                      |
 
 Definition of Transformation Enumeration Values:
 

@@ -123,7 +123,7 @@ enum PHY_GROUP {
 
 In order to be able to set up groups on the panel, you need to register the defined groups to the editor `Enum(PHY_GROUP)` through the __Enum__ function exported by the __cc__ module.
 
-> **Note**: for historical reasons, the __Enum__ function has special treatment for `-1`. If you are not familiar with it, do not define an attribute with a value of `-1`.
+> **Note**: for historical reasons, the __Enum__ function has special treatment for `-1`. If you are not familiar with it, do not define a property with a value of `-1`.
 
 ### Using a Mask
 

@@ -20,7 +20,7 @@ function (node: Node) {
 
 #### Playing animations
 
-The Animation Component controls the playback of the specified animation via the [play()](__APIDOC__/en/classes/animation.animation-1.html#play) API, e.g:
+The Animation Component controls the playback of the specified animation via the [play()](__APIDOC__/en/classes/animation.animation-1.html#play) API, e.g.:
 
 ```ts
 // Play the animation state 'idle'

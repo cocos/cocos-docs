@@ -68,7 +68,7 @@ Multiple components can be added to a node to add more functionality to the node
 
 For example, select the node `Sphere` in the above example, then click the **Add Component** button at the bottom of the **Inspector** panel and select **Light -> DirectionalLight** to add a **Directional Light** component.
 
-Next, set the properties of the **Directional Light** component, e.g. adjust the `Color` property of the directional light to red, and notice that the color of the sphere model has changed, i.e. the **DirectionalLight** component that was added to the node has taken effect!
+Next, set the properties of the **Directional Light** component, e.g.: adjust the `Color` property of the directional light to red, and notice that the color of the sphere model has changed, i.e. the **DirectionalLight** component that was added to the node has taken effect!
 
 ![button property](scene/directional-light.png)
 

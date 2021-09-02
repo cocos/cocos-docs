@@ -84,7 +84,7 @@ console.log(protobufjs);
 
 ![protobufjs-print-default](./example/protobufjs-print-default.png)
 
-可能有部分同学，在书写 `import protobufjs from 'protobufjs` 时就已经报红，提示模块没有默认导出（`has no default export`），这是因为 **CJS** 没有 `default` 导出，而 **ESM** 和 **CJS** 交互的时候是将 `module.exports` **视为** `export default`，并不是代表 **CJS** 模块具备真实默认导出。因此，如果要保持原来的写法，可以对 TypeScript 进行配置，具体请查看 [TypeScript 配置](#TypeScript-配置)。
+可能有部分同学，在书写 `import protobufjs from 'protobufjs'` 时就已经报红，提示模块没有默认导出（`has no default export`），这是因为 **CJS** 没有 `default` 导出，而 **ESM** 和 **CJS** 交互的时候是将 `module.exports` **视为** `export default`，并不是代表 **CJS** 模块具备真实默认导出。因此，如果要保持原来的写法，可以对 TypeScript 进行配置，具体请查看 [TypeScript 配置](#TypeScript-配置)。
 
 接下来，就可以直接使用 `protobufjs` 提供的所有模块了。当然，如果只需要特定子模块功能，例如 `light` 和 `minimal`，可以直接导入包中的子路径。
 

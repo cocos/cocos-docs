@@ -46,7 +46,7 @@ When creating an asset, select the folder where to place the asset in the tree a
 The following asset selection actions can be used in the asset list:
 
 - Click to select a single asset. The selected asset will be highlighted in **yellow on blue**.
-- Double-click to open an asset, e.g. scene, script, image; double-click on a folder to collapse/expand it
+- Double-click to open an asset, e.g.: scene, script, image; double-click on a folder to collapse/expand it
 - Hold Ctrl/Cmd and select an asset to select multiple assets at once
 - Hold Shift and select an asset to select multiple assets in a row
 
@@ -73,7 +73,7 @@ The **Sort by** in the toolbar includes **Sort by name** and **Sort by type**. T
 Collapses are divided into single collapses or all collapses with subsets:
 
 - The **Collapse/Expand All** button in the **Toolbar** works globally
-- Click on the triangle icon of a parent asset (e.g. folder) to expand or collapse its subsets. Use the shortcut key **Alt** and click on the triangle icon to expand or collapse all children of the asset
+- Click on the triangle icon of a parent asset (e.g.: folder) to expand or collapse its subsets. Use the shortcut key **Alt** and click on the triangle icon to expand or collapse all children of the asset
 
 The current collapsed state of the asset will be recorded and will be maintained the next time the editor is opened.
 
@@ -94,7 +94,7 @@ The search function can limit the search type and specify the search field, both
 
         ![search-uuid](img/search-uuid.png)
 
-If you want to search only in a parent asset (e.g. folder), right-click and select **Find in Folder** to narrow the search.
+If you want to search only in a parent asset (e.g.: folder), right-click and select **Find in Folder** to narrow the search.
 
 Selecting an asset in the search result list and double-clicking on it is equivalent to the operation in normal mode. After clearing the search content, it will redirect to the selected asset.
 

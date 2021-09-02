@@ -8,7 +8,7 @@ Starting from v3.0, Creator has integrated the CMake output process and base aut
 
 ### Generation
 
-When selecting a native platform to build on, the `native\engine` directory will generate a `current build platform name` folder (e.g. `android`) and a `common` folder, and CMake will generate `CMakeLists.txt` files in each of these two directories when it is first run, with which serve different purposes:
+When selecting a native platform to build on, the `native\engine` directory will generate a `current build platform name` folder (e.g.: `android`) and a `common` folder, and CMake will generate `CMakeLists.txt` files in each of these two directories when it is first run, with which serve different purposes:
 
 - In the `current build platform name` folder: `CMakeLists.txt` is mainly used to configure the corresponding build platform. For the Android platform, for example:
 
@@ -81,7 +81,7 @@ The `CMakeLists.txt` file in the project directory `native/engine/common` is con
 option(USE_SPINE                "Enable Spine"                      ON)
 ```
 
-The release package directory generated after the build (e.g. `build/android`) has a `proj/cfg.cmake` file to store some configuration for the current project. Since `CMakeLists.txt` introduces the `cfg.cmake` file, when the configuration in the `cfg.cmake` file is modified, it will be synchronized to `CMakeLists.txt`; if the configuration is the same, it will be overwritten directly, and the one in the `cfg.cmake` file will prevail.
+The release package directory generated after the build (e.g.: `build/android`) has a `proj/cfg.cmake` file to store some configuration for the current project. Since `CMakeLists.txt` introduces the `cfg.cmake` file, when the configuration in the `cfg.cmake` file is modified, it will be synchronized to `CMakeLists.txt`; if the configuration is the same, it will be overwritten directly, and the one in the `cfg.cmake` file will prevail.
 
 ```CMake
 CMakeLists.txt
@@ -98,7 +98,7 @@ Then `USE_SPINE` will be set to `OFF` in the re-generated `cfg.make` when buildi
 
 ![code1](./cmak-learning/code1.png)
 
-Then at compile time, CMake generates a **CMakeCache.txt** file based on the configuration (e.g. `CMakeLists.txt` and the `cfg.make` configuration file introduced in `CMakeLists.txt`), which contains the **various input parameters that the project needs to rely on** when building.
+Then at compile time, CMake generates a **CMakeCache.txt** file based on the configuration (e.g.: `CMakeLists.txt` and the `cfg.make` configuration file introduced in `CMakeLists.txt`), which contains the **various input parameters that the project needs to rely on** when building.
 
 ![code2](./cmak-learning/code2.png)
 
@@ -218,7 +218,7 @@ The `target` in the **find compilation headers** command above is the executable
         >
         > 2. Do not execute the above command in multiple mutually independent target files at the same time to produce the same file, mainly to prevent conflicts from arising.
 
-    2. Add additional custom commands to the build process of a target (e.g. library or executable)
+    2. Add additional custom commands to the build process of a target (e.g.: library or executable)
 
         ```CMake
         add_custom_command(TARGET <target>)
