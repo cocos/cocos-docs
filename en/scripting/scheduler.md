@@ -30,7 +30,7 @@ __Cocos Creator__ provides a powerful, flexible and convenient timer component.
     }, interval, repeat, delay);
     ```
 
-    The above timer will start timing after 10 seconds, and execute a callback every 5 seconds, repeating 3 times.
+    The above timer will start timing after 10 seconds, and execute a callback every 5 seconds, repeating **3 + 1** times.
 
 3. Timer that executes only once (shortcut)
 

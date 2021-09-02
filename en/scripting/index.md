@@ -7,7 +7,7 @@ __Cocos Creator__ scripts are used to implement user-defined (game) behaviors.
 - [Language Support](./language-support.md)
 - [Modules](./modules/index.md)
 - [Script Execution Order](./execution-order-general.md)
-- [ccclass](./ccclass.md)
+- [Decorator](./decorator.md)
 - [Access Node and Other Components](./access-node-component.md)
 - [Commonly Used Nodes and Component Interfaces](./basic-node-api.md)
 - [Lifecycle Callbacks](./life-cycle-callbacks.md)
