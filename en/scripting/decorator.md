@@ -2,7 +2,7 @@
 
 ## `cc` class
 
-When applying a decorator [ccclass](#ccclass) to a class, such class is called a `cc` class. A `cc` class injects additional information to control Cocos Creator 3.0's serialization of the class object, the editor's presentation of the class object, etc. Therefore, component classes that do not have `ccclass` declared, cannot be added to nodes as components either.
+When applying a decorator `ccclass` to a class, such class is called a `cc` class. A `cc` class injects additional information to control Cocos Creator 3.0's serialization of the class object, the editor's presentation of the class object, etc. Therefore, component classes that do not have `ccclass` declared, cannot be added to nodes as components either.
 
 The various characteristics of the `cc` class are specified by the `ccclass(name)` argument.
 
@@ -136,10 +136,11 @@ The `type` option specifies the cc type of the attribute. The type can be specif
 - Cocos Creator 3.0 built-in property type identifier:
 
   `CCInteger`, `CCFloat`, `CCBoolean`, and `CCString` are built-in property type identifiers that generally work on array properties. Non-array types usually do not need to declare a type.
-  - `CCInteger` declares the type as **integer**.
-  - `CCFloat` declares the type as **floating point**.
-  - `CCString` declares the type as **String**.
-  - `CCBoolean` declares the type as **Boolean**.
+
+    - `CCInteger` declares the type as **integer**.
+    - `CCFloat` declares the type as **floating point**.
+    - `CCString` declares the type as **String**.
+    - `CCBoolean` declares the type as **Boolean**.
 
 - `cc` class properties not identified by built-in property types.
 
@@ -155,6 +156,7 @@ If the property does not specify a `cc` type, Cocos Creator 3.0 will derive its 
 - Others indicate that the property's type is **undefined**, and the editor will prompt for the `Type(Unknown)` character.
 
 > **Note**: when using the JavaScript built-in constructors `Number`, `String`, `Boolean` as `cc` types, there will be a warning and they will be treated as `CCFloat`, `CCString`, `CCBoolean` of the `cc` types respectively. After the initialized array property is modified, clear the original array data and reassign it manually, otherwise the data type will be inconsistent and lead to data mismatch.
+>
 > ![property-changed](property-changed.png)
 
 <!-- See [property-type](#%E5%B1%9E%E6%80%A7%E5%8F%82%E6%95%B0) and [serializable-parameters](#serializable-parameters) below for an introduction to how cc types affect cc properties and the handling of properties with undefined cc types. -->
@@ -196,7 +198,7 @@ class MyClass {
     children2 = []; // Undeclared cc type, inferring from initialization result that the elements are undefined arrays
 
     @property
-    _valueB = 'abc'; // properties starting with '_' here are only serialized and will not be displayed in the editor properties panel
+    _valueB = 'abc'; // Properties starting with '_' here are only serialized and will not be displayed in the editor properties panel
 
     @property({ type: A })
     accx : A = A.c;
@@ -298,4 +300,7 @@ All properties are inherited by subclasses. If a subclass wants to override a pr
 id = "";
 ```
 
-For more on parameters, please review the [Property Attributes](./reference/attributes.md) documentation.
+## Reference Link
+
+- [Property Attributes](./reference/attributes.md)
+- [Advanced Scripting](./reference-class.md)

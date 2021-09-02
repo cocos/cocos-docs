@@ -187,7 +187,7 @@ The Asset Bundle continues the MD5 scheme of the Creator for updates. When you n
 
 ![md5 cache](subpackage/bundle_md5.png)
 
-It is not necessary to provide an additional Hash value when loading the Asset Bundle, Creator will search for the corresponding Hash value in the `settings.js` and make adjustments automatically.<br>
+It is not necessary to provide an additional Hash value when loading the Asset Bundle, Creator will search for the corresponding Hash value in the `settings.json` and make adjustments automatically.<br>
 However, if you want to store the relevant version configuration information on the server and dynamically fetch the version information at startup for hot updates, you can manually specify a version Hash value and pass in the `loadBundle`, and the Asset Bundle will be built based on the incoming Hash value:
 
 ```typescript
@@ -327,8 +327,8 @@ assetManager.removeBundle(bundle);
 
 - **Q**: What is the difference between Asset Bundle and resource subpackage?<br>
   **A**:
-  1. Resource subpackage is actually splitting out some textures, meshs into a separate packages, but the package is incomplete and illogical and cannot be reused.<br>
-  while Asset Bundle is modularizing resources through logical division. The Asset Bundle includes resources, scripts, metadata and resource lists, so it is complete, logical and reusable, and we can load an entire scene or any other resources from Asset Bundle. By splitting the Asset Bundle, you can greatly reduce the number of `json` and the size of `settings.js` in the first package.
+  1. Resource subpackage is actually splitting out some textures, meshes into a separate packages, but the package is incomplete and illogical and cannot be reused.<br>
+  while Asset Bundle is modularizing resources through logical division. The Asset Bundle includes resources, scripts, metadata and resource lists, so it is complete, logical and reusable, and we can load an entire scene or any other resources from Asset Bundle. By splitting the Asset Bundle, you can greatly reduce the number of `json` and the size of `settings.json` in the first package.
 
   2. Resource subpackage is essentially a basic function controlled by the mini game platform. For example, the WeChat Mini Game supports subpackage, and then Creator made a layer of encapsulation on top of that to help the developers set up resource subpackage. If the WeChat Mini Game doesn't support subpackage anymore, neither does the Creator.<br>
   While the Asset Bundle is designed and implemented entirely by Creator, it is a modular tool to help developers divide their resources, independent of the platform, and can theoretically be supported on all platforms.
@@ -339,8 +339,8 @@ assetManager.removeBundle(bundle);
 - **Q**: Does the Asset Bundle support the lobby plus sub games mode?<br>
   **A**: Absolutely, subgame scenes can be placed in the Asset Bundle and loaded when needed, and subgames can even be pre-built as an Asset Bundle in other projects and then loaded for use in the main project.
 
-- **Q**: Can the Asset Bundle reduce the size of `settings.js`?<br>
-  **A**: Absolutely. In fact, as of v2.4, the packaged project is entirely based on the Asset Bundle, and the `setting.js` no longer stores any configuration information related to the resource, all configuration informations are stored in the `config.json` of each Asset Bundle. Each `config.json` stores only the resource information in the respective Asset Bundle, which reduces the size of the first package. This can simply be understood as all the `config.json` combined equal to the previous `settings.js`.
+- **Q**: Can the Asset Bundle reduce the size of `settings.json`?<br>
+  **A**: Absolutely. In fact, as of v2.4, the packaged project is entirely based on the Asset Bundle, and the `settings.json` no longer stores any configuration information related to the resource, all configuration information are stored in the `config.json` of each Asset Bundle. Each `config.json` stores only the resource information in the respective Asset Bundle, which reduces the size of the first package. This can simply be understood as all the `config.json` combined equal to the previous `settings.json`.
 
 - **Q**: Does the Asset Bundle support cross project reuse?<br>
   **A**: Absolutely support, but the following conditions must be met:

@@ -7,7 +7,7 @@ By starting this **Advanced Scripting** section it is assumed one is already fam
 
 ## Instantiation
 
-Define a `Foo` class and a `Bar` class through a script. The `Foo` class needs to use the properties defined by the `Bar` class, to allow directly issuing `new` the `Bar` class to an object in the `Foo` class.
+Define a `Foo` class and a `Bar` class through a script. The `Foo` class needs to use the properties defined by the `Bar` class, to allow directly issuing `new` the `Bar` class to an object in the `Foo` class:
 
 ```ts
 class Foo {
@@ -21,7 +21,7 @@ let bar = new Foo();
 
 ### Instance Methods
 
-Instance methods should be declared in the prototype object at:
+Instance methods should be declared in the prototype object:
 
 ```typescript
 class Foo {
@@ -42,7 +42,7 @@ obj.print();
 
 ## Type Determination
 
-When making a type determination, use TypeScript's native `instanceof()`.
+When making a type determination, use TypeScript's native `instanceof`.
 
 ```typescript
 class Sub extends Base {
@@ -70,7 +70,7 @@ class Foo {
 }
 ```
 
-Static members are inherited by subclasses, and on inheritance the Creator gives a **shallow copy** of the parent's static variables to the subclass, so that:
+Static members are inherited by subclasses, and Creator gives a **shallow copy** of the parent's static variables to the subclass when inherited, so that:
 
 ```typescript
 class Object {
@@ -158,7 +158,7 @@ console.log(obj.getName()); // "rect"
 
 ## `get/set` Methods
 
-If get/set is defined in a property, then the predefined get/set methods can be triggered when the property is accessed.
+If `get`/`set` is defined in a property, then the predefined `get`/`set` methods can be triggered when the property is accessed.
 
 ### `get`
 
@@ -174,8 +174,8 @@ get num() {
 private _num = 0;
 ```
 
-The get method can return a value of any type. <br>
-Properties that have a get method defined can be displayed in the **Inspector** panel and can be accessed directly in the code.
+The `get` method can return a value of any type. <br>
+Properties that have a `get` method defined can be displayed in the **Inspector** panel and can be accessed directly in the code.
 
 ```typescript
 class Sprite {
@@ -198,7 +198,7 @@ class Sprite {
 
 - Properties cannot be serialized after the `get` method is defined, i.e. the `serializable` parameter is not available.
 
-    For example, the `width` property will neither be displayed in the editor nor serialized:
+    For example, the `width` property will neither be displayed in the editor nor serialized as shown below:
 
     ```typescript
     get width() {
@@ -211,7 +211,7 @@ class Sprite {
 
 - Properties that have a `get` method defined need to have `property` defined if they need to be displayed by the editor, otherwise they won't be rendered.
 
-    For example, the width property will not be rendered on the editor if the `@property` is removed, and the `_width` property will be serialized:
+    For example, the `width` property will not be rendered on the editor if the `@property` is removed, and the `_width` property will be serialized:
 
     ```typescript
     @property
