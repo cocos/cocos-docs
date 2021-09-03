@@ -2,7 +2,7 @@
 
 Prefabs are pre-configured game objects that can be used as templates when we dynamically generate nodes.
 
-# # Creating Prefab
+## Creating Prefab
 
 After editing the node in the scene, drag the node directly from the **Node Tree** to the **Assets** panel at:
 
