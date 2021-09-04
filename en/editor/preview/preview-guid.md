@@ -20,4 +20,4 @@ For more information about the specific generation process of `settings.json`, p
 
 ### Asset loading 404
 
-Usually, this is caused by asset loss or import failure. Please **use the missing asset UUID to search in the editor's assets panel**. If no assets are found, usually the asset is lost. You need to modify the scene or asset using the assets. If assets are found, you can try to re-import.
+Usually, this is caused by asset loss or import failure. Please **use the missing asset UUID to search in the editor's assets panel**. If no assets are found, usually the asset is lost. You need to modify the scene or other assets that use this lost asset. If assets are found, you can try to re-import.
