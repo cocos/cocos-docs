@@ -25,6 +25,6 @@
 | UseColorTemperature | 是否启用色温 |
 | ColorTemperature | 调节色温 |
 | StaticSettings | 设置静态灯光，详情请参考 [光照贴图](./lightmap.md) |
-| illumination | 照度，单位 **勒克斯（lx）** |
+| Illumination | 照度，单位 **勒克斯（lx）** |
 
 平行光可配合天空盒一起使用，详情可参考 [天空盒](skybox.md)。
