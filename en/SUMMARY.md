@@ -5,6 +5,7 @@
 [Introduction](index.md)
 
 - [Getting Started](getting-started/index.md)
+    - [About Cocos Creator](getting-started/introduction/index.md)
     - [Installing and Launching](getting-started/install/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello world!](getting-started/helloworld/index.md)
