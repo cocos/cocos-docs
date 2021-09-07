@@ -39,7 +39,7 @@ export class test extends Component {
 
 ## onEnable()
 
-When the `enabled` attribute of the component changes from `false` to `true`, or the node's `active` attribute changes from `false` to `true`, the `onEnable()` callback will be activated. If the node is created for the first time and `enabled` is `true`, it will be called after `onLoad()` but before `start()`.
+When the `enabled` property of the component changes from `false` to `true`, or the node's `active` property changes from `false` to `true`, the `onEnable()` callback will be activated. If the node is created for the first time and `enabled` is `true`, it will be called after `onLoad()` but before `start()`.
 
 ## start()
 
@@ -104,7 +104,7 @@ export class lateupdatetest extends Component {
 
 ## onDisable()
 
-When the `enabled` attribute of the component changes from `true` to `false`, or the node's `active` attribute changes from `true` to `false`, the `onDisable()` callback will be activated.
+When the `enabled` property of the component changes from `true` to `false`, or the node's `active` property changes from `true` to `false`, the `onDisable()` callback will be activated.
 
 ## onDestroy()
 
