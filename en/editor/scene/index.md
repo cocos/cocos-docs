@@ -27,7 +27,7 @@ In 2D view, the view of the **Scene** panel can be moved and positioned by the f
 
 ## Scene settings
 
-**Scene Editor** The options in the top right corner can be used to set the scene reference image, scene grid, scene camera parameters, etc. Please refer to the description below for details.
+The options in the top right corner of the **Scene** panel can be used to set the reference image, grid, camera parameters, etc. of the scene. Please refer to the description below for details.
 
 ### Reference image settings
 
