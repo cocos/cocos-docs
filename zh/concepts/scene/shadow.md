@@ -66,7 +66,7 @@ ShadowMap 是以光源为视点来渲染场景的。从光源位置出发，场�
 | **Near**       | 设置主光源相机的近裁剪面     |
 | **Far**       | 设置主光源相机的远裁剪面     |
 | **orthoSize**       | 设置主光源相机的正交视口大小     |
-| **ShadowMapSize**       | 设置阴影贴图大小     |
+| **ShadowMapSize**       | 设置阴影的纹理贴图大小     |
 | **Aspect**       | 设置主光源相机的正交投影矩阵长宽比     |
 
 ShadowMap 在开启了物体 **MeshRenderer** 组件上的 **ReceiveShadow** 后，就会接收并显示其它物体产生的阴影效果。
