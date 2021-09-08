@@ -22,39 +22,41 @@ After selecting the native platform to be built in the **Release Platform** of t
 
 ![Native Options](publish-native/native-options.png)
 
-#### 选择源码模板（Template）
+#### Select the source code template (Template)
 
-从 Cocos Creator 3.0 开始，为了体验一致，**模板 (Template)** 中可使用的引擎模板为 **Link**，移除了原先的 **Default** 模板。
+Starting from Cocos Creator 3.0, in order to have a consistent experience, the engine template that can be used in **Template** is **Link**, and the original **Default** template has been removed.
 
-Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用的空间，并且对 Cocos2d-x 源码的修改也可以得到共享。
+The Link template does not copy the Cocos2d-x source code to the build directory, but uses the shared Cocos2d-x source code. This can effectively reduce the space occupied by the build directory, and modifications to the Cocos2d-x source code can also be shared.
 
-> **关于源码引擎**
+> **Notes**:
 >
-> Cocos2d-x 引擎中包括了源码引擎，它们适用的范围是：
-> 1. 源码引擎初次构建和编译某个工程时需要很长的时间编译 C++ 代码，视电脑配置而定，这个时间可能在 5~20 分钟。对于同一个项目，已经编译过一次之后，下次再编译需要的时间会大大缩短。
-> 2. 源码引擎构建出的工程，使用原生开发环境编译和运行（如 Android Studio、Xcode 等 IDE），是可以进行调试和错误捕获的。
+> **About the source code engine**
+>
+> The Cocos2d-x engine includes source code engines, and the scope of their application is:
+> 1. When the source code engine first builds and compiles a project, it takes a long time to compile C++ code. Depending on the computer configuration, this time may be 5-20 minutes. For the same project, after it has been compiled once, the time required for the next compilation will be greatly reduced.
+> 2. The project built by the source code engine is compiled and run using the native development environment (such as Android Studio, Xcode and other IDEs), which can be debugged and error captured.
 
-目前 Cocos Creator 安装目录下的 `resources\3d\cocos2d-x-lite` 文件夹中已经包含了自带的 Cocos2d-x 源码引擎。若需要自定义引擎，详情请参考 [引擎定制工作流程](../../advanced-topics/engine-customization.md)。
+The `resources\3d\cocos2d-x-lite` folder under the installation directory of Cocos Creator already contains the built-in Cocos2d-x source code engine. If you need to customize the engine, please refer to the [Engine Customization Workflow](../../advanced-topics/engine-customization.md) documentation for details.
 
-#### 资源服务器地址
+#### Resource server address
 
-当包体过大时，可将资源上传到资源服务器，通过网络请求下载。该项用于填写资源存放在远程服务器上的地址，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情可参考 [上传资源到远程服务器](../../asset/cache-manager.md)
+When the package body is too large, the resource can be uploaded to the resource server and downloaded through the network. This item is used to fill in the address where the resource is stored on the remote server. Developers need to manually upload the `remote` folder in the release package directory to the filled resource server address after construction. For details, please refer to the [Upload resources to remote server](../../asset/cache-manager.md) documentation.
 
 #### Polyfills
 
-该项是脚本系统支持的一些新特性的 polyfills 选项，目前仅支持 **异步函数**。勾选后生成的项目会带上对应的 polyfills，也就是会增大包体，开发者可以根据实际需求选择是否使用。
+This item is a polyfills option for some new features supported by the scripting system, and currently only supports **asynchronous functions**. After checking, the generated project will bring the corresponding polyfills, that is, the package body will be enlarged, and the developer can choose whether to use it according to actual needs.
 
-#### 构建后立即生成
+#### Generated immediately after build
 
-若勾选该项，构建完成后会自动执行 **生成** 步骤，不需要再手动操作。
+If this option is checked, the **Generate** step will be executed automatically after the build is completed, and no manual operation is required.
 
-#### 加密脚本
+#### Encrypted script
 
-该项用于加密发布后的脚本。会在构建后的 `assets` 目录下生成 jsc 文件，这个文件是加密过的。而 js 文件会备份在 `script-backup` 目录下以便调试，打包时不会进入 APP 中。
+This item is used to encrypt the published script. The jsc file will be generated in the built-in `assets` directory, this file is encrypted. The js file will be backed up in the `script-backup` directory for debugging, and will not enter the APP during packaging.
 
-**脚本加密密钥**：在 Native 平台上会使用这个值作为加密 js 文件的密钥。项目新建时会随机生成。
+**Script encryption key**: This value will be used as the key to encrypt the js file on the Native platform. It will be randomly generated when the project is created.
 
-**Zip 压缩**：勾选上的话可以减小脚本体积。
+**Zip compression**: If checked, the script size can be reduced.
 
 ![encrypt js](publish-native/encrypt-js.png)
 
