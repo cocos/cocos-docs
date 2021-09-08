@@ -136,10 +136,11 @@ targetNode: Node | null = null; // 等价于 targetNode: Node = null!;
 - Cocos Creator 3.0 内置属性类型标识
 
   `CCInteger`、`CCFloat`、`CCBoolean`、`CCString` 是内置属性类型标识，一般作用于数组属性。非数组类型通常不用声明类型。
-  - `CCInteger` 声明类型为 **整数**；
-  - `CCFloat` 声明类型为 **浮点数**；
-  - `CCString` 声明类型为 **字符串**；
-  - `CCBoolean` 声明类型为 **布尔值**。
+
+    - `CCInteger` 声明类型为 **整数**
+    - `CCFloat` 声明类型为 **浮点数**
+    - `CCString` 声明类型为 **字符串**
+    - `CCBoolean` 声明类型为 **布尔值**
 
 - 非内置属性类型标识的 cc 类属性
 
@@ -155,6 +156,7 @@ targetNode: Node | null = null; // 等价于 targetNode: Node = null!;
 - 其他的则表示属性的类型是 **未定义** 的，编辑器上会提示 `Type(Unknown)` 字样。
 
 > **注意**：当 JavaScript 内置构造函数 `Number`、`String`、`Boolean` 用作 cc 类型时将给出警告，并且将分别视为 cc 类型中的 `CCFloat`、`CCString`、`CCBoolean`。已经初始化的数组属性修改类型后，需要手动清除掉原来的数组数据，重新赋值，否则会因为数据类型不一致，导致数据错乱。
+>
 > ![property-changed](property-changed.png)
 
 <!-- 关于 cc 类型如何影响 cc 属性以及对未定义 cc 类型的属性的处理，可参考下文中的 [属性类型](#%E5%B1%9E%E6%80%A7%E5%8F%82%E6%95%B0) 和 [序列化参数](#serializable-参数) 介绍。 -->
@@ -298,4 +300,7 @@ num = 0;
 id = "";
 ```
 
-更多参数内容请查阅 [属性参数](./reference/attributes.md)。
+## 参考链接
+
+- [属性参数](./reference/attributes.md)
+- [脚本进阶](./reference-class.md)

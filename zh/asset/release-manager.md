@@ -61,7 +61,7 @@ assetManager.releaseAsset(texture);
 
 因为资源管理模块在 v2.4 做了升级，所以释放接口与之前的版本有一点区别：
 
-1. `assetManager.releaseAsset` 接口仅能释放单个资源，且为了统一，接口只能通过资源本身来释放资源，不能通过资源 uuid、资源 url 等属性进行释放。
+1. `assetManager.releaseAsset` 接口仅能释放单个资源，且为了统一，接口只能通过资源本身来释放资源，不能通过资源 UUID、资源 url 等属性进行释放。
 
 2. 在释放资源时，开发者只需要关注资源本身，引擎会 **自动释放** 其依赖资源，不再需要通过 `getDependsRecursively` 手动获取依赖。
 

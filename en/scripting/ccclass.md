@@ -108,7 +108,7 @@ The option `default` specifies the default value of the `cc` property.
 
 #### Defined By Constructor
 
-The constructor of `CCClass` is defined by `constructor`. To ensure that deserialization can always run correctly, `constructor` **is not allowed to define **constructor parameters**.
+The constructor of `CCClass` is defined by `constructor`. To ensure that deserialization can always run correctly, `constructor` **is not allowed to define constructor parameters**.
 
 > **Note**: if developers really need to use construction parameters, they can get them through `arguments`, but remember that if this class will be serialized, you must ensure that the object can still be new when the construction parameters are all default.
 
