@@ -27,7 +27,21 @@ In 2D view, the view of the **Scene** panel can be moved and positioned by the f
 
 ## Scene settings
 
-The options in the upper right corner of the **Scene** panel can be used to set the scene grid, scene camera properties, etc. Please refer to the following description for details.
+**Scene Editor** The options in the top right corner can be used to set the scene reference image, scene grid, scene camera parameters, etc. Please refer to the description below for details.
+
+### Reference image settings
+
+Click on the ! [scene reference](images/scene-reference.png) button in the top right corner of the **Scene Editor** to open the **Reference Diagram** panel, which is primarily used as a cross-reference for developers when stitching together UI in the **Scene Editor**.
+
+![reference](images/reference.png)
+
+| Option | Description |
+| :-- | :-- |
+| Add |For adding UI reference images, multiple reference images can be added.  |
+| Delete | Used to remove the UI reference image from the currently selected box. |
+| X | The X-axis position of the selected UI reference image is displayed in the scene. |
+| Y | The selected UI reference image is displayed on the Y-axis in the scene |
+| Opacity | Opacity of the selected UI reference image displayed in the scene |
 
 ### Grid settings
 
