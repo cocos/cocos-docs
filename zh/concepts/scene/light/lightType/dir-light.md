@@ -14,7 +14,7 @@
 
 在场景中添加平行光的方式可参考 [光照](/zh/concepts/scene/light.md)。
 
-平行光组件相关接口，请参考 [DirectionalLight API](https://docs.cocos.com/creator/3.0/api/zh/classes/component_light.directionallight.html)。
+平行光组件相关接口，请参考 [DirectionalLight API](__APIDOC__/zh/classes/component_light.directionallight.html)。
 
 ## 平行光属性
 
