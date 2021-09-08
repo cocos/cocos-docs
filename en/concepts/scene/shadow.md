@@ -58,7 +58,7 @@ ShadowMap renders the scene with the lights as the viewpoint. From the position 
 | **Pcf**             | Set the anti-aliasing level of the shadow edge, currently including **HARD**, **FILTER_X5**, **FILTER_X9**, **FILTER_X25**. Please refer to the section **PCF Soft Shadow** below for details.  |
 | **MaxReceived**     | The maximum number of lights supported for shadow generation, default is 4, can be adjusted as needed.  |
 | **Bias**            | Set the shadow offset value to prevent z-fitting. |
-| **Packing**            | shadowMap compression, which can be turned on for some devices that do not support floating point textures. This optimizes performance, but the texture quality is lower (mutually exclusive with the Linear term, only one of the two can be chosen). |
+| **Packing**            | ShadowMap compression, which can be enabled for some devices that do not support floating point textures. This optimizes performance, but the texture quality is lower (mutually exclusive with the **Linear** option, only one of the two can be chosen). |
 | **Linear**       | Enables linear depth for spotlights only, which can be used to improve the shadow quality of the spotlight (mutually exclusive with Packing).     |
 | **SelfShadow**       | Enable the self-shadowing effect for objects in the scene.     |
 | **NormalBias**          | Set the normal offset value from **-1 to 1**. When **SelfShadow** is turned on, light leakage on curved surfaces can be resolved by adjusting the value of this item (this item is only displayed when SelfShadow is checked).     |
