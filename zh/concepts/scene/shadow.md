@@ -58,7 +58,7 @@ ShadowMap 是以光源为视点来渲染场景的。从光源位置出发，场�
 | **Pcf**             | 设置阴影边缘反走样等级，目前包括 **HARD**、 **FILTER_X5**、**FILTER_X9**、**FILTER_X25** 四种，详情可参考下文 **PCF 软阴影** 部分的介绍。   |
 | **MaxReceived**     | 最多支持产生阴影的光源数量，默认为 4 个，可根据需要自行调整     |
 | **Bias**            | 设置阴影偏移值，防止 z-fiting    |
-| **Packing**       | shadowMap 压缩，用在不支持浮点纹理的设备上（与 linear 互斥）     |
+| **Packing**       | shadowMap 压缩，部分不支持浮点纹理的设备可开启该项。该项可优化性能，但纹理质量较低（与 Linear 项互斥，二者只能选其一）     |
 | **Linear**       | 开启线性深度，提高聚光灯下阴影质量（与 packing 互斥）     |
 | **SelfShadow**       | 开启场景中物体的自阴影效果     |
 | **NormalBias**          | 如果曲面上的自阴影出现漏光，可以适当添加法线偏移解决（该选项只有勾选 selfShadow 才会出现）     |
