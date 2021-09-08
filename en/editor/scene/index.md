@@ -41,7 +41,7 @@ Click on the ![scene reference](images/scene-reference.png) button in the top ri
 | Delete | Used to remove the UI reference image from the currently selected box. |
 | X | The X-axis position of the selected UI reference image displayed in the scene. |
 | Y | The Y-axis position of the selected UI reference image displayed in the scene. |
-| Opacity | Opacity of the selected UI reference image displayed in the scene |
+| Opacity | Opacity of the selected UI reference image displayed in the scene. |
 
 ### Grid settings
 
