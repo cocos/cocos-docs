@@ -4,7 +4,8 @@ Cocos Creator supports glTF 2.0 and earlier file formats.
 
 ## URI parsing
 
-Creator supports URIs of the following form specified in glTF:
+Creator supports URIs in the following form specified in glTF:
+
 
 - Data URI
 
@@ -157,7 +158,8 @@ glTF Texture Wrap mode will be converted to Cocos Creator Texture Wrap mode acco
 
 After import, the glTF image will be converted to an image asset in Cocos Creator.
 
-When the [URI](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#imageuri) of the glTF image is a Data URI, the image data will be fetched from the Data URI. Otherwise, the image data will be retrieved from the Data URI according to the [Cocos Creator Image Location Resolution Algorithm](./image-location-resolution.md), where `url` is the URI of the glTF image and `startDir` is the directory where the glTF file is located.
+When the [URI](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#imageuri) of the glTF image is a Data URI, the image data will be fetched from the Data URI. Otherwise, the image data will be resolved from the Data URI according to the [Cocos Creator Image Location Resolution Algorithm](./image-location-resolution.md), where `url` is the URI of the glTF image and `startDir` is the directory where the glTF file is located.
+
 
 ### glTF animation
 

@@ -16,7 +16,8 @@ The Cocos Creator image location resolution algorithm is given by the following 
 
 - Let `expectedExtName` be the extension of `url`.
 
-- let `expectedBaseName` be the de-extended filename of `url`.
+- let `expectedBaseName` be the extensionless filename of `url`.
+
 
 - Let `searchExtNames` be `[expectedExtName, ...SEARCH_EXT_NAMES]` array after de-duplication.
 
