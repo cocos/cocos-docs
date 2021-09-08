@@ -4,11 +4,11 @@ Prefabs are pre-configured game objects that can be used as templates when we dy
 
 ## Creating Prefab
 
-After editing the node in the scene, drag the node directly from the **Node Tree** to the **Assets** panel at:
+After editing the node in the scene, drag the node directly from the **Node Tree** to the **Assets** panel:
 
 ![prefab](prefab/create.png)
 
-to create a **prefab**:
+To create a **prefab**:
 
 ![prefab](prefab/created.png)
 
@@ -22,17 +22,17 @@ After editing, click the **Save** button on the top of the **Scene** panel to sa
 
 Drag and drop a prefab from the **Assets** panel to the **Node Tree** or the **Scene** panel to generate a **Prefab Instance** in the scene. The Prefab Instance node is shown in blue in the **Node Tree**.
 
-If you modify each property of a prefab instance in the scene and then save the scene, the modified data will be stored in that prefab instance and will not affect the prefabs in the **Assets** panel or the data of other prefab instances generated using prefabs.
+If any property of a prefab instance in the scene is modified and then the scene is saved, the modified data will be stored in that prefab instance and will not affect the prefabs in the **Assets** panel or the data of other prefab instances generated using prefabs.
 
 ## Prefab Instances
 
-When the prefab instance node is selected in the **Node Tree**/**Scene** panel, several actionable buttons appear at the top of the **Properties** panel panel.
+When the prefab instance node is selected in the **Node Tree**/**Scene** panel, several actionable buttons appear at the top of the **Properties** panel.
 
 ![edit in scene](prefab/edit-in-scene.png)
 
 - **Select**: click this button to yellow highlight the prefab for this prefab instance in the **Assets** panel.
 
-- **Return**: if the prefab instance is modified, click the **Return** button to restore the prefab instance to the initial state.
+- **Go Back**: if the prefab instance is modified, click the **Return** button to restore the prefab instance to the initial state.
 
   > **Note**: the rollback operation is not valid for the modification of **Node Activation Status**, **Node Name**, `Position` and `Rotation`.
 
@@ -40,7 +40,7 @@ When the prefab instance node is selected in the **Node Tree**/**Scene** panel, 
 
 ### Automatic and Manual Synchronization
 
-When the original prefab corresponding to a prefab instance is modified, you can choose whether to synchronize the prefab automatically or manually for each prefab instance in the scene. With the prefab instance selected, click ![prefab syn](prefab/prefab-sync.png) button to toggle manual/auto sync, the default is manual sync.
+When the original prefab corresponding to a prefab instance is modified, choose whether to synchronize the prefab automatically or manually for each prefab instance in the scene. With the prefab instance selected, click ![prefab syn](prefab/prefab-sync.png) button to toggle manual/auto sync, the default is manual sync.
 
 - When set to **Manual Sync**, the prefab instance will not be updated automatically with the original prefab. If it is necessary to synchronize the update, click the **Return** button on the top right. The prefab instance node will be shown in blue in the **Node Tree**.
 
