@@ -25,7 +25,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 
 ![file](./img/file.png)
 
-| 功能 | 说明 |
+| 选项 | 说明 |
 | :--- | :-- |
 | 新建项目 | 打开 Dashboard 的 **新建项目** 分页 |
 | 打开项目 | 打开 Dashboard 的 **新建最近打开项目项目** 分页 |
