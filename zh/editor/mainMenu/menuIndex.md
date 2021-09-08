@@ -10,7 +10,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 
 ![cocos](./img/cocos.png)
 
-| 功能 | 说明 |
+| 选项 | 说明 |
 | :--- | :-- |
 | 关于 Cocos Creator | 显示 Cocos Creator 的版本和版权信息 |
 | 布局 | 设置编辑器界面布局，暂时只支持默认布局 |
