@@ -59,7 +59,7 @@ ShadowMap renders the scene with the lights as the viewpoint. From the position 
 | **MaxReceived**     | The maximum number of lights supported for shadow generation, default is 4, can be adjusted as needed.  |
 | **Bias**            | Set the shadow offset value to prevent z-fitting. |
 | **Packing**            | ShadowMap compression, which can be enabled for some devices that do not support floating point textures. This optimizes performance, but the texture quality is lower (mutually exclusive with the **Linear** option, only one of the two can be chosen). |
-| **Linear**       | Enables linear depth for spotlights only, which can be used to improve the shadow quality of the spotlight (mutually exclusive with Packing).     |
+| **Linear**       | Enables linear depth for spotlights only, which can be used to improve the shadow quality of the spotlight (mutually exclusive with **Packing** option).     |
 | **SelfShadow**       | Enable the self-shadowing effect for objects in the scene.     |
 | **NormalBias**          | Set the normal offset value from **-1 ~ 1**. When **SelfShadow** is enabled, light leakage on curved surfaces can be resolved by adjusting the value of this option (this option is only displayed when **SelfShadow** option is checked).     |
 | **AutoAdapt**       | If checked, the range of shadows will be calculated automatically, as described in section **AutoAdapt Adaptive Shadow Calculation** below. If this option is unchecked, the following properties are enabled to manually set the range of shadow generation.  |
