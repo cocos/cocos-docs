@@ -21,7 +21,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 
 ## 文件
 
-该项主要包括场景文件的打开和保存，从其他项目在新窗口打开和导入 Cocos Creator v2.x 功能。
+该项主要用于项目或场景的新建、打开、保存等操作，以及导入 Cocos Creator 2.x 项目。
 
 ![file](./img/file.png)
 
