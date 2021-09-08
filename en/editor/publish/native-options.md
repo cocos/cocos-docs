@@ -46,7 +46,7 @@ This option is used to encrypt the published script. After build, the `JSC` file
 
 #### Native Engine
 
-This item is used to show whether you are currently using the built-in engine or a custom engine. Click the Edit button behind it to go to the **Preferences -> [Engine Manager](../preferences/index.md#engine-manager)** panel for settings.
+This item is used to show whether the built-in engine or a custom engine is currently being used. Click the **Edit** button behind it to go to the **Preferences -> [Engine Manager](../preferences/index.md#engine-manager)** panel for settings.
 
 ### Build Options for the Android Platform
 
