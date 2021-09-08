@@ -31,7 +31,7 @@ The options in the top right corner of the **Scene** panel can be used to set th
 
 ### Reference image settings
 
-Click on the ! [scene reference](images/scene-reference.png) button in the top right corner of the **Scene Editor** to open the **Reference Diagram** panel, which is primarily used as a cross-reference for developers when stitching together UI in the **Scene Editor**.
+Click on the ![scene reference](images/scene-reference.png) button in the top right corner of the **Scene** panel to open the **Reference Image** panel, which is primarily used as a cross-reference for developers when stitching together UI in the **Scene** panel.
 
 ![reference](images/reference.png)
 
