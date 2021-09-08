@@ -82,9 +82,9 @@ The optimization policy optimizes the instantiation time of the selected prefab,
 
 - If this prefab requires repeated execution of `cc.instantiate`, please select **For Multiple Instance Creation**, otherwise just keep the default **Auto Adjust**.
 
-### Setting delayed asset loading
+### Async Load Assets
 
-This item is disabled by default. If this item is enabled, it will delay the loading of other assets that the prefab depends on, improving the loading speed of some page-based games. For details, please refer to the [Enable Async Load Assets](scene-managing.md#enable-async-load-assets) documentation.
+This option is disabled by default. If this option is enabled, it will delay the loading of other assets that the prefab depends on, improving the loading speed of some page-based games. For details, please refer to the [Enable Async Load Assets](scene-managing.md#enable-async-load-assets) documentation.
 
 ### Readonly
 
