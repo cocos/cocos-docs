@@ -1,79 +1,91 @@
 # Prefab
 
-Prefabs are pre-configured game objects that provide an efficient and flexible workflow.
+Prefabs are pre-configured game objects that can be used as templates when we dynamically generate nodes.
 
-## Creating a prefab
+## Creating Prefab
 
-After editing the Node in the scene, drag it directly from **Node Tree** to **Assets**:
+After editing the node in the scene, drag the node directly from the **Node Tree** to the **Assets** panel:
 
 ![prefab](prefab/create.png)
 
-And thus you create a prefab:
+To create a **prefab**:
 
 ![prefab](prefab/created.png)
 
-## Saving prefab
+## Editing Prefab
 
-After changing the prefab object in the scene, click **Save** in the **Properties** panel and you can save the corresponding prefab:
+Double-clicking on a prefab in the **Assets** panel switches the scene editing mode of the **Scene** panel to prefab editing mode.
 
-![apply](prefab/apply.png)
+After editing, click the **Save** button on the top of the **Scene** panel to save the edited prefabs, and then click the **Close** button to exit prefab editing mode and return to scene editing mode.
 
-## Reverting prefab
+## Using Prefab
 
-After changing the prefab object in the scene, click **Go Back** in the **Properties** panel and you can restore the corresponding prefab to the status in **Assets**:
+Drag and drop a prefab from the **Assets** panel to the **Node Tree** or the **Scene** panel to generate a **Prefab Instance** in the scene. The Prefab Instance node is shown in blue in the **Node Tree**.
 
-![revert](prefab/revert.png)
+If any property of a prefab instance in the scene is modified and then the scene is saved, the modified data will be stored in that prefab instance and will not affect the prefabs in the **Assets** panel or the data of other prefab instances generated using prefabs.
 
-## Auto Sync and Manual Sync
+## Prefab Instances
 
-You can choose Auto Sync or Manual Sync for every prefab instances in the scene.<br>
-If set to **Manual Sync**, when its originating asset changed, the prefab instances will NOT dynamically refresh to stay synchronized with the originating asset. Refreshing only triggered when users manually revert the prefab.<br>
-If set to **Auto Sync**, the prefab instances will dynamically refresh to stay synchronized with the originating asset.
+When the prefab instance node is selected in the **Node Tree**/**Scene** panel, several actionable buttons appear at the top of the **Properties** panel.
 
-The icon represents current sync mode for the selected prefab, you can switch between two modes by clicking the icon:
+![edit in scene](prefab/edit-in-scene.png)
 
-![non-syncable](prefab/non-syncable.png)
+- **Select**: click this button to yellow highlight the prefab for this prefab instance in the **Assets** panel.
 
-The icon above represents the currently selected prefab uses Manual Sync mode, click the icon will switch to Auto Sync mode:
+- **Go Back**: if the prefab instance is modified, click the **Return** button to restore the prefab instance to the initial state.
 
-![auto-syncable](prefab/auto-syncable.png)
+  > **Note**: the rollback operation is not valid for the modification of **Node Activation Status**, **Node Name**, `Position` and `Rotation`.
 
-Pay attention, to keep the engine small and fast, there are limitations of auto-syncable prefab instance:
+- **Save**: after modifying a prefab instance in the scene, click **Save** directly in the **Properties** panel to synchronize the changes to the prefab that generated the prefab instance.
 
-  - To facilitate customizing prefab instances in scene, the `name`, `active`, `position` or `rotation` properties of the prefab's root node will not be synchronized automatically. And child nodes and components should keep synchronized with the originating asset, if changes has occurred, the editor will ask if you want to revert modifications or save modifications back to the originating asset.
-  - The component in the auto-syncable prefab can not reference to external object outside that prefab, otherwise the editor will alert.
-  - The component outside the auto-syncable prefab can only reference to that prefab's root node, but not its components or children, otherwise the editor will alert.
+### Automatic and Manual Synchronization
 
-> These limitations only affects operations in editor, runtime will not be affected.
+When the original prefab corresponding to a prefab instance is modified, choose whether to synchronize the prefab automatically or manually for each prefab instance in the scene. With the prefab instance selected, click ![prefab syn](prefab/prefab-sync.png) button to toggle manual/auto sync, the default is manual sync.
 
-## Convert Prefab to Ordinary Node
+- When set to **Manual Sync**, the prefab instance will not be updated automatically with the original prefab. If it is necessary to synchronize the update, click the **Return** button on the top right. The prefab instance node will be shown in blue in the **Node Tree**.
 
-After deleting a prefab from the **Assets** panel, you can convert the corresponding prefab instance in the scene to an ordinary node. To do this, select the prefab instance and click menu **Node -> Convert to Regular Node**.
+  ![non-syncable](prefab/non-syncable.png)
+
+- When set to **Auto Sync**, the prefab instance will be automatically synchronized with the original prefab and the prefab instance node will be shown in green in the **Node Tree**.
+
+  ![auto-syncable](prefab/auto-syncable.png)
+
+  > **Note**: in order to keep the engine lean, auto-syncable prefab instances have the following restrictions:
+  >
+  > 1. In order to facilitate individual customization of each scene instance, the `name`, `active`, `position` and `rotation` properties of the root node of the prefab instance in the scene itself are not automatically synchronized. Instead, all other child nodes and all components must be synchronized with the original prefab, and if changes occur, the editor will ask whether to undo the changes to that prefab instance or to save the changes and update them to the original prefab when switching to another node.
+  >
+  >    ![change auto prefab](prefab/change-auto-prefab.png)
+  >
+  > 2. Components in an auto-syncable prefab instance cannot refer to other objects outside of that prefab instance, or the editor will pop up a prompt.
+  > 
+  > 3. Components outside an auto-syncable prefab instance can only refer to the root node of the prefab instance, and cannot refer to its components and children, otherwise the editor will pop up a prompt.
+  >
+  > These restrictions only affect the editor operation, not the runtime.
+
+### Reverting a prefab instance to a normal node
+
+If it is not necessary to use a prefab and delete it in the **Assets** panel, the prefab instance generated by that prefab in the scene can be restored to a normal node by clicking **Node -> Convert to Regular Node** in the top menu bar.
+
+### Associating nodes to prefabs
+
+Select both a node in the scene and a prefab in the **Assets** panel, then click **Node -> Connect Node to Prefab** in the top menu bar to associate the selected node and the prefab.
 
 ## Prefab Options
 
-In **Assets** panel, select any of the prefab assets to edit the following options in **Properties** panel.
+When selecting any prefab in the **Assets** panel, set its **Optimization Policy**, **Async Load Assets** and **Readonly** in the **Properties** panel, and click the **Apply** button on the top right after setting to take effect.
 
-### 'Optimization Policy' option
+### Setting Optimization Policy
 
-Optimization Policy can optimizes the instantiation time for the selected prefab, which is the time required to execute `cc.instantiate`. The values that can be set are:
+The optimization policy optimizes the instantiation time of the selected prefab, i.e. the time required to execute `cc.instantiate`. Possible settings include **Auto Adjust** (default), **For Single Instance Creation**, and **For Multiple Instance Creation**.
 
- - **Auto adjust** (default)
+- If set to **Auto Adjust**, the engine will automatically adjust the optimization policy based on the number of creations. When creating a prefab instance for the first time, the policy is equivalent to **For Single Instance Creation**, and will automatically switch to **For Multiple Instance Creation** after multiple creations.
 
-   When set to this option, the engine automatically adjusts the optimization policy based on the number of instantiations. When you first create an instance, the behavior is the same as **For single instance creation**. **For multiple instance creation** will be automatically used after multiple creation.
+- If this prefab requires repeated execution of `cc.instantiate`, please select **For Multiple Instance Creation**, otherwise just keep the default **Auto Adjust**.
 
- - **For single instance creation**
+### Async Load Assets
 
-   This option skips code generation for this prefab.
+This option is disabled by default. If this option is enabled, it will delay the loading of other assets that the prefab depends on, improving the loading speed of some page-based games. For details, please refer to the [Enable Async Load Assets](scene-managing.md#enable-async-load-assets) documentation.
 
- - **For multiple instance creation**
+### Readonly
 
-   This option enables code generation for this prefab.
-
-If this prefab requires repeated execution of `cc.instantiate`, select **For multiple instance creation**, otherwise leave as the default **Auto adjust**.
-
-> In the older version of the engine, the optimization was fixed to **For multiple instance creation** and it is great for situations where you need to create objects repeatedly. However, many people use prefab as a tool for multi-people collaboration or step-by-step loading. Basically, these prefabs are only instantiated once, resulting in slower node creation. The **Auto adjust** in the new version is a good solution to this problem.
-
-### Async Load Assets option
-
-The default value is false. When selected, the use of **Properties** association when loading the prefab asset, will delay the load on the dependencies of other assets, to enhance the loading speed of some web game. For details, please refer to [Change the policy of scene loading](scene-managing.md#async-load-assets).
+The readonly state, some editor-generated assets will not be modified.
