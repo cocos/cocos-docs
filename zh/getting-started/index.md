@@ -16,7 +16,7 @@
     - [偏好设置](../editor/preferences/index.md)
     - [项目设置](../editor/project/index.md)
     - [主菜单](../editor/mainMenu/menuIndex.md)
-    - [工具栏](../editor/toolbar.md)
+    - [工具栏](../editor/toolbar/index.md)
     - [编辑器布局](../editor/editor-layout/index.md)
     - [预览调试](../editor/preview/index.md)
 

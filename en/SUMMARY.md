@@ -18,7 +18,7 @@
         - [Preferences](editor/preferences/index.md)
         - [Project Settings](editor/project/index.md)
         - [Main menu](editor/mainMenu/menuIndex.md)
-        - [Tool bar](editor/toolbar.md)
+        - [Tool bar](editor/toolbar/index.md)
         - [Editor Layout](editor/editor-layout/index.md)
         - [Preview & Debugging](editor/preview/index.md)
     - [Quick Start: First Game](getting-started/first-game/index.md)

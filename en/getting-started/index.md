@@ -16,7 +16,7 @@ After installing the editor, it is important to become familiar with it, includi
     - [Preferences](../editor/preferences/index.md)
     - [Project Settings](../editor/project/index.md)
     - [Main menu](../editor/mainMenu/menuIndex.md)
-    - [Tool bar](../editor/toolbar.md)
+    - [Tool bar](../editor/toolbar/index.md)
     - [Editor Layout](../editor/editor-layout/index.md)
     - [Preview & Debugging](../editor/preview/index.md)
 
