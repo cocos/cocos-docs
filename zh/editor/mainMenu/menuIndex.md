@@ -1,6 +1,6 @@
 # 主菜单
 
-Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator、文件、编辑、节点、项目、面板、扩展、开发者和帮助**。主菜单栏集成了 Cocos Creator 的所有功能，通过对菜单栏的学习能够对 Cocos Creator 的各项功能有着更加直观和充分的了解。
+Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**编辑**、**节点**、**项目**、**面板**、**扩展**、**开发者** 和 **帮助** 9 个菜单项，集成了 Cocos Creator 大部分的功能点。
 
 ![menu](./img/menu.png)
 
