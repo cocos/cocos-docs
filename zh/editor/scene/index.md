@@ -31,7 +31,7 @@
 
 ### 参考图设置
 
-通过点击 **场景编辑器** 右上角的 ![scene reference](images/scene-reference.png) 按钮，即可打开 **参考图** 面板，主要用于辅助开发人员在 **场景编辑器** 中拼接 UI 时作为对照参考：
+点击 **场景编辑器** 右上角的 ![scene reference](images/scene-reference.png) 按钮，即可打开 **参考图** 面板，主要用于辅助开发人员在 **场景编辑器** 中拼接 UI 时作为对照参考：
 
 ![reference](images/reference.png)
 
