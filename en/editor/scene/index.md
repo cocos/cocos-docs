@@ -40,7 +40,7 @@ Click on the ![scene reference](images/scene-reference.png) button in the top ri
 | Add | Used to add UI reference images. Multiple reference images can be added.  |
 | Delete | Used to remove the UI reference image from the currently selected box. |
 | X | The X-axis position of the selected UI reference image displayed in the scene. |
-| Y | The selected UI reference image is displayed on the Y-axis in the scene |
+| Y | The Y-axis position of the selected UI reference image displayed in the scene. |
 | Opacity | Opacity of the selected UI reference image displayed in the scene |
 
 ### Grid settings
