@@ -44,6 +44,10 @@ This option is used to encrypt the published script. After build, the `JSC` file
 
 ![encrypt js](publish-native/encrypt-js.png)
 
+#### Native Engine
+
+This option is used to show whether the built-in engine or a custom engine is currently being used. Click the **Edit** button behind it to go to the **Preferences -> [Engine Manager](../preferences/index.md#engine-manager)** panel for settings.
+
 ### Build Options for the Android Platform
 
 The build options for the Android platform are as follows:
