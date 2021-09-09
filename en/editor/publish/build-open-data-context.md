@@ -56,13 +56,13 @@ The **FPS** property is primarily used to set how often the main context will up
 
     ![generate-template](./build-open-data-context/generate-template.png)
 
-3. After the build is complete, click the **Folder Icon** button at the end of **Buid Path**, you'll see an **openDataContext** folder (e.g. `build/wechatgame/openDataContext`), which is an **Open Data Context** project template built into Cocos Creator, in the distribution folder of the corresponding game platform.
+3. After the build is complete, click the **Folder Icon** button at the end of **Buid Path**, you'll see an **openDataContext** folder (e.g.: `build/wechatgame/openDataContext`), which is an **Open Data Context** project template built into Cocos Creator, in the distribution folder of the corresponding game platform.
 
     ![build-output](./build-open-data-context/build-output.png)
 
     Developers can customize the required **Open Data Context** content based on this template, and the customization methods are described below. When built again, if the **openDataContext** folder exists in the `build` directory, it will be skipped directly and the developer does not have to worry about the customized **Open Data Context Project** being overwritten.
 
-4. Open the build distribution (e.g. `build/wechatgame`) using the DevTools of the corresponding mini game platformer to open the mini-game project to view the **Open Data Context** content.
+4. Open the build distribution (e.g.: `build/wechatgame`) using the DevTools of the corresponding mini game platformer to open the mini-game project to view the **Open Data Context** content.
 
     ![show-in-devtool](./build-open-data-context/show-in-devtool.png)
 
@@ -87,7 +87,7 @@ With this basic information in mind, let's take a look at the **Open Data Contex
 
 ## Recommended practices
 
-1. Since the build directory generated after the build of the project is excluded from version control by default by git, if you want to include your custom **Open Data Context** in version control, you can put the `openDataContext` folder (e.g. `build/wechatgame/openDataContext`) into your project's `build-templates` directory. Please refer to [Custom Project Build Process](./custom-project-build-template.md) documentation.
+1. Since the build directory generated after the build of the project is excluded from version control by default by git, if you want to include your custom **Open Data Context** in version control, you can put the `openDataContext` folder (e.g.: `build/wechatgame/openDataContext`) into your project's `build-templates` directory. Please refer to [Custom Project Build Process](./custom-project-build-template.md) documentation.
 
 2. In an **Open Data Context Project**, if you need to listen to messages from the main context, you need to first determine whether the message comes from the main context engine, using the WeChat interface as an example:
 
