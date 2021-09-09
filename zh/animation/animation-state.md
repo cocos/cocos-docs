@@ -40,7 +40,7 @@ animationComponent.getState('idle').speed = 2.0; // speed 值越大速度越快�
 
 ## 循环模式与循环次数
 
-动画可以播放到结尾就停止，或者一直循环播放，或者也可以先播放到结尾再从结尾播放到开头如此循环，这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](__APIDOC__/zh/enums/animation.wrapmode.html) 表示，包括以下几种：
+动画可以播放到结尾就停止，或者一直循环播放，或者也可以先播放到结尾再从结尾播放到开头如此循环，这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](__APIDOC__/zh/#/docs/3.3/zh/animation/Class/AnimationClip?id=wrapmode) 表示，包括以下几种：
 
 | 循环模式 | 说明 |
 | :--- | :--- |

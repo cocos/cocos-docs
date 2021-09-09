@@ -28,4 +28,4 @@ The following points need to be noted when using this component:
 
 - Do not trigger static batches frequently, as the original stored IA data will be emptied and re-collected, resulting in some performance and memory loss.
 - Not applicable for child node tree which contains Mask, Graphic and Model.
-- For a node that will not have any changes in the node tree (e.g. 2D Map), all child nodes can be deleted after data collection to get the best performance and memory performance.
+- For a node that will not have any changes in the node tree (e.g.: 2D Map), all child nodes can be deleted after data collection to get the best performance and memory performance.

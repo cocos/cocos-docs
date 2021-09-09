@@ -44,7 +44,7 @@ Label 的组件接口请参考 [Label API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/
 
 ## 文本缓存类型（Cache Mode）
 
-| 属性 |   功能说明
+| 类型 |   功能说明
 | :-------------- | :----------- |
 | NONE | 默认值，Label 中的整段文本将生成一张位图。
 |BITMAP| 选择后，Label 中的整段文本仍将生成一张位图，但是会尽量参与 [动态合图](../../../advanced-topics/dynamic-atlas.md)。只要满足动态合图的要求，就会和动态合图中的其它 Sprite 或者 Label 合并 Draw Call。由于动态合图会占用更多内存，**该模式只能用于文本不常更新的 Label**。此模式在节点安排合理的情况下可大幅降低 Draw Call，请酌情选择使用

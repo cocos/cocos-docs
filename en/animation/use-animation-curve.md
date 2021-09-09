@@ -194,11 +194,11 @@ The following are some of the commonly used fade methods:
 
 Some interpolation algorithms require additional data to be stored in the curve value for each frame, so the curve value is not necessarily the same as the value type of the target property. For numeric types or value types, Cocos Creator provides several general interpolation methods. Also, it is possible to define custom interpolation methods.
 
-- When the [interpolate](__APIDOC__/en/interfaces/animation.ipropertycurvedata.html#interpolate) property of the curve data is `true`, the curve will try to use the interpolation function.
+- When the `interpolate` property of the curve data is `true`, the curve will try to use the interpolation function.
 
     - If the curve value is of type `number`, `Number`, linear interpolation will be applied.
     - If the curve value inherits from `ValueType`, the `lerp` function of `ValueType` will be called to complete the interpolation. `lerp` methods for most value types built into Cocos Creator are implemented as linear interpolation, e.g. `Vec3`, `vec4`, etc.
-    - If the curve value is [interpolable](__APIDOC__/en/#/docs/3.3/zh/animation/Interface/ILerpable), the `lerp` function for the curve value will be called to complete the interpolation <sup id="a2">[2](#f2)</sup>.
+    - If the curve value is [interpolable](__APIDOC__/en/#/docs/3.3/en/animation/Interface/ILerpable), the `lerp` function for the curve value will be called to complete the interpolation <sup id="a2">[2](#f2)</sup>.
 
 - If the curve value does not satisfy any of the above conditions, or when the `interpolate` property of the curve data is `false`, no interpolation will be performed and the curve value from the previous frame will always be used as the result.
 

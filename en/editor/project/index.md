@@ -129,7 +129,7 @@ To delete, move the mouse over the texture format and click the red delete butto
 
 ### Modifying the Texture Compression Preset Name
 
-The name of the texture compression preset is for display purposes only. When a texture compression preset is added, a random uuid is generated as the ID of the preset, so changing the preset name directly does not affect the reference to the preset at the image asset.
+The name of the texture compression preset is for display purposes only. When a texture compression preset is added, a random UUID is generated as the ID of the preset, so changing the preset name directly does not affect the reference to the preset at the image asset.
 
 ![edit](./texture-compress/edit.png)
 

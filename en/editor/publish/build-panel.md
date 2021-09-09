@@ -4,7 +4,7 @@ Click **Project -> Build** in the main menu or use the shortcut `Ctrl / Cmd + Sh
 
 ## Platform Plugin
 
-Each platform's build will be embedded in the **Build** panel as a separate plugin, with platform related options placed in a collapsible `section` (e.g. the Web Desktop in the figure below).
+Each platform's build will be embedded in the **Build** panel as a separate plugin, with platform related options placed in a collapsible `section` (e.g.: the Web Desktop in the figure below).
 
 ![main](build-panel/main.jpg)
 

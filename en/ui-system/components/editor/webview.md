@@ -99,12 +99,12 @@ export class WebViewCtrl extends Component {
         this.webview.node.on(WebView.EventType.LOADED, this.callback, this);
     }
 
-    callback (event) {
-       // The event here is an EventCustom object, and you can get the WebView component through event.detail
-        let videoplayer = event.detail;
-        // do whatever you want with webview
-        // Also, note that this way the registered event can not pass customEventData
+    callback (webview) {
+        // The 'webview' here is a WebView component object
+        // Do whatever you want with webview
+        // Also, note that this way the registered event can not pass 'customEventData'
     }
+
 }
 ```
 

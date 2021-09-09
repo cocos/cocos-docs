@@ -11,7 +11,7 @@ Also, depending on the Creator version, developers may need to switch to a diffe
 
 ## 1 Customize the TypeScript engine
 
-If you only need to customize the engine functionality of the web version of the game, or if you only need to modify the pure TypeScript layer logic (e.g. UI system, animation system), simply modify the TypeScript engine by following the procedure below:
+If you only need to customize the engine functionality of the web version of the game, or if you only need to modify the pure TypeScript layer logic (e.g.: UI system, animation system), simply modify the TypeScript engine by following the procedure below:
 
 ### 1.1 Get the TypeScript engine
 
