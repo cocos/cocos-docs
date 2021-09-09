@@ -12,14 +12,14 @@ The **Project Settings** panel can be opened by clicking on **Project -> Project
 
 - **ENABLE_TILEDMAP_CULLING**: whether or not to enable TiledMap auto-culling. It's enabled by default. Note that if `skew` and `rotation` are set in the TiledMap, it's necessary to turn it off manually, otherwise it will cause rendering errors.
 
-- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](__APIDOC__/en/modules/core.html#macro-1.touch_timeout) for details.
+- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](__APIDOC__/en/#/docs/3.3/en/core/ObjectLiteral/macro?id=touch_timeout) for details.
 
 - **ENABLE_TRANSPARENT_CANVAS**: used to set whether the Canvas background supports alpha channels.
 
     - If enabled, the Canvas background will be transparent and show the other DOM elements behind it.
     - If disabled, it will result in higher performance.
 
-- **ENABLE_WEBGL_ANTIALIAS**: whether to enable anti-aliasing. It's enabled by default.
+- **ENABLE_WEBGL_ANTIALIAS**: whether to activate gl antialias setting in the engine, it's enabled by default. This setting only affect GL graphics back-ends like WebGL and OpenGL ES, it indicates whether to turn on the anti-aliasing option when creating GL Context.
 
 - **CLEANUP_IMAGE_CACHE**: whether to clear the image cache after uploading a texture to GPU. If the cache is cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported. It's disabled by default.
 
@@ -129,7 +129,7 @@ To delete, move the mouse over the texture format and click the red delete butto
 
 ### Modifying the Texture Compression Preset Name
 
-The name of the texture compression preset is for display purposes only. When a texture compression preset is added, a random uuid is generated as the ID of the preset, so changing the preset name directly does not affect the reference to the preset at the image asset.
+The name of the texture compression preset is for display purposes only. When a texture compression preset is added, a random UUID is generated as the ID of the preset, so changing the preset name directly does not affect the reference to the preset at the image asset.
 
 ![edit](./texture-compress/edit.png)
 

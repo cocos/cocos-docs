@@ -7,7 +7,7 @@ The only switch between these two systems is the `useBakedAnimation` property in
 - When `useBakedAnimation` is enabled, the pre-baked skeletal animation system is used.
 - When `useBakedAnimation` is disabled, the real-time computed skeletal animation system will be used.
 
-For the component interface of skeletal animation, please refer to the [SkeletalAnimation API](__APIDOC__/en/classes/animation.skeletalanimation.html).
+For the component interface of skeletal animation, please refer to the [SkeletalAnimation API](__APIDOC__/en/#/docs/3.3/en/animation/Class/SkeletalAnimation).
 
 ## Pre-baked Skeletal Animation System
 
@@ -69,7 +69,7 @@ Based on the framework design of the **pre-baking system**, instancing of the sk
 
 The fundamental problem here is that each model within the same drawcall must use the same skeleton texture, if not, the display will be completely misaligned. So how the animation data is assigned to each skeleton texture becomes a user-defined piece of information that can be configured in the [Joint Texture Layout](joint-texture-layout.md) panel in the editor menu bar **Panel -> Animation**.
 
-> **Note**:
+> **Notes**:
 > 1. Instancing is only supported under the **pre-baking system**. we have not strictly forbidden to enable instancing under the **real-time computation framework** (only in-editor warnings), but the animation effect will definitely be problematic, depending on the actual material assignment of the model. In the best case, the animation will be identical from instance to instance, in the worst case it will cause the model to be completely misaligned.
 > 2. For models with instancing enabled in the material, the planar shading system will automatically draw with instancing as well. In particular, shading batches of skinned models require a higher level of joint texture layout, since the pipeline state of shading is uniform, and **all animations of skinned models with shadow enabled** need to be on the same texture (as opposed to drawing the model itself, which only requires consistent joint textures between instances within the same Drawcall).
 
@@ -85,10 +85,9 @@ The batched version of effect is a bit more complicated to write, but basically 
 
 ### SkinnedMeshBatchRenderer component properties
 
-
 | Property | Description |
 | :--- | :-- |
-| Operation | Any changes will not take effect until **Cook** button is clicked to recalculate and apply. 
+| Operation | Any changes will not take effect until **Cook** button is clicked to recalculate and apply.
 | Materials | Custom effect is needed for this final material - the shader code should handle all the intricacies of the batching process.
 | LightmapSettings | Used for lightmapping, please refer to [Lightmapping](.../../../concepts/scene/light/lightmap.md) for details.
 | ShadowCastingMode | Specifies whether the current model will cast shadows, which needs to [enable shadow effect](.../../../concepts/scene/shadow.md#enable-shadow-effect) in the scene first.
@@ -98,8 +97,8 @@ The batched version of effect is a bit more complicated to write, but basically 
 | BatchableTextureNames | The properties of the textures in the material that are actually involved in the atlas, and those are not involved use the texture of the first unit uniformly.
 | Units | The sub-model infos before batching, which is the main source of data.
 | Mesh | The model data of the current sub-model, usually from glTF or FBX.
-| Skeleton | The skeletal data of the current sub-model, usually from glTF or FBX. 
+| Skeleton | The skeletal data of the current sub-model, usually from glTF or FBX.
 | Material | The "sub-material" used by the current sub-model is a non-batched version of the normal effect, and the effect used by different sub-models should be consistent.
-| Offset | The offset of the current sub-model's textures inside the atlas, with the top-left corner of the atlas as the origin, in the range [0, 1], e.g. the data in the figure represents that the sub-texture overlaps with the top-left corner of the atlas.
-| Size | The size occupied by the current sub-model's textures inside the atlas, in the range [0, 1], e.g. the data in the figure represents that the sub-texture occupies 1/2 of the entire atlas.
+| Offset | The offset of the current sub-model's textures inside the atlas, with the top-left corner of the atlas as the origin, in the range [0, 1], e.g.: the data in the figure represents that the sub-texture overlaps with the top-left corner of the atlas.
+| Size | The size occupied by the current sub-model's textures inside the atlas, in the range [0, 1], e.g.: the data in the figure represents that the sub-texture occupies 1/2 of the entire atlas.
 | CopyFrom | The target properties (except offset and size) can be copied automatically by dragging in the SkinningModelComponent for easy operation.

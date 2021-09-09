@@ -98,4 +98,4 @@
 
     ![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
 
-更多使用方法可参考范例 **RenderTexture**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.1/assets/cases/rendertexture)）。
+更多使用方法可参考范例 **RenderTexture**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/rendertexture)）。

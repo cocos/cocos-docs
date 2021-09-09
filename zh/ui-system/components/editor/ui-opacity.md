@@ -13,9 +13,9 @@ const opacityComp = this.getComponent(UIOpacity);
 opacityComp.opacity = 157;
 ```
 
-遮罩的组件接口请参考 [UIOpacity API](__APIDOC__/zh/classes/ui.uiopacity.html)。
+遮罩的组件接口请参考 [UIOpacity API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/UIOpacity)。
 
-关于使用可以参考范例 **UIOpacity**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/other/opacity) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/other/opacity)）。
+关于使用可以参考范例 **UIOpacity**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/other/opacity) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/other/opacity)）。
 
 ## UIOpacity 属性
 

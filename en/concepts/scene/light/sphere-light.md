@@ -6,7 +6,7 @@ Cocos Creator 3.0 uses Spherical Lights instead of **Point Light** because Point
 
 To add the spherical light to the scene, refer to the [Lighting](../light.md) for details.
 
-For the related interface of the spherical light component, please refer to the [SphereLight API](__APIDOC__/en/classes/component_light.spherelight.html).
+For the related interface of the spherical light component, please refer to the [SphereLight API](__APIDOC__/en/#/docs/3.3/en/component-light/Class/SphereLight).
 
 ## Spherical Lights Properties
 

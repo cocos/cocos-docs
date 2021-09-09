@@ -21,7 +21,7 @@ Click the **Add Component -> Physics Component -> RigidBody** button at the bott
 | **Linear Factor**   | It can affect the linear velocity change of the rigid body in each axis. The larger the value, the faster the rigid body moves. |
 | **Angular Factor**  | It can affect the rotation speed change of the rigid body in each axis. The larger the value, the faster the rigid body rotates. |
 
-For more information, please refer to the [RigidBody API](__APIDOC__/en/classes/physics.rigidbody.html).
+For more information, please refer to the [RigidBody API](__APIDOC__/en/#/docs/3.3/en/physics/Class/RigidBody).
 
 ### Obtaining a RigidBody
 

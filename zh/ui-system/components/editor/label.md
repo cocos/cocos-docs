@@ -6,9 +6,9 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI/Render** 中选择 **Label**，即可添加 Label 组件到节点上。
 
-Label 的组件接口请参考 [Label API](__APIDOC__/zh/classes/ui.label.html)。
+Label 的组件接口请参考 [Label API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/Label)。
 
-具体使用方法可参考范例 **Label**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/02.label) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/02.label)）。
+具体使用方法可参考范例 **Label**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/02.label) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/02.label)）。
 
 ## Label 属性
 
@@ -44,7 +44,7 @@ Label 的组件接口请参考 [Label API](__APIDOC__/zh/classes/ui.label.html)�
 
 ## 文本缓存类型（Cache Mode）
 
-| 属性 |   功能说明
+| 类型 |   功能说明
 | :-------------- | :----------- |
 | NONE | 默认值，Label 中的整段文本将生成一张位图。
 |BITMAP| 选择后，Label 中的整段文本仍将生成一张位图，但是会尽量参与 [动态合图](../../../advanced-topics/dynamic-atlas.md)。只要满足动态合图的要求，就会和动态合图中的其它 Sprite 或者 Label 合并 Draw Call。由于动态合图会占用更多内存，**该模式只能用于文本不常更新的 Label**。此模式在节点安排合理的情况下可大幅降低 Draw Call，请酌情选择使用

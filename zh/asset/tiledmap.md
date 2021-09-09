@@ -1,6 +1,12 @@
 # 瓦片图资源（TiledMap）
 
-瓦片图资源是由 [Tiled 编辑器](https://www.mapeditor.org/) 所导出的数据格式（Cocos Creator 3.0 支持 Tiled v1.6.0）。
+瓦片图资源是由 [Tiled 编辑器](https://www.mapeditor.org/) 所导出的数据格式。
+
+| Creator 版本  | Tiled 版本 |
+| :----------  | :-------- |
+| v3.0 及以上   | v1.4   |
+| v2.2 及以上   | v1.2.0 |
+| v2.1 及以下   | v1.0.0 |
 
 ## 导入地图资源
 

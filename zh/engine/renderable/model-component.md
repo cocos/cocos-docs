@@ -2,9 +2,9 @@
 
 MeshRenderer 组件用于显示一个静态的 3D 模型。通过 `Mesh` 属性设置模型网格，通过 `Materials` 属性改变模型外观。
 
-普通模型的组件接口请参考 [MeshRenderer API](__APIDOC__/zh/classes/model.meshrenderer.html)。
+普通模型的组件接口请参考 [MeshRenderer API](__APIDOC__/zh/#/docs/3.3/zh/3d/Class/MeshRenderer)。
 
-蒙皮模型的组件接口请参考 [SkinnedMeshRenderer API](__APIDOC__/zh/classes/model.skinnedmeshrenderer.html)
+蒙皮模型的组件接口请参考 [SkinnedMeshRenderer API](__APIDOC__/zh/#/docs/3.3/zh/3d/Class/SkinnedMeshRenderer)
 
 ## MeshRenderer 属性
 

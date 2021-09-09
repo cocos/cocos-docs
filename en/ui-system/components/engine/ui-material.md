@@ -13,7 +13,7 @@ The usage is no different from other built-in materials, just drag and drop the 
 3. Please use a 2D-specific shader such as **builtin-spine** or **builtin-sprite** to customize materials, do not choose a shader used by other 3D components.
 4. The **Grayscale** property on the panel is disabled when a custom material for 2D rendering objects is used, and the user can choose to implement this feature in the material itself.
 5. When a custom material is used, the BlendFactor settings panel on the component will be automatically hidden and the settings will be disabled, and the BlendFactor will be based on the settings in the custom material.
-6. When a custom material is used, the depth detection information of the component will be based on the material. To achieve occlusion with 3D objects, please use custom materials and turn on depth detection. See the example [2d-rendering-in-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d).
+6. When a custom material is used, the depth detection information of the component will be based on the material. To achieve occlusion with 3D objects, please use custom materials and turn on depth detection. See the example [2d-rendering-in-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/2d-rendering-in-3d).
 7. For custom materials, getting the uploaded texture requires introducing the `cc-sprite-texture` header file in the shader, where `cc_spriteTexture` corresponds to the SpriteFrame image asset set in the 2D rendering component properties panel. For example, a fragment shader that simply uses the panel to set a SpriteFrame to sample textures should look like the following:
 
     ```

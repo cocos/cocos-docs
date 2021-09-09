@@ -2,9 +2,9 @@
 
 UI 静态合批组件是一个提升 UI 渲染性能的组件，脚本在初始化当前帧渲染的过程中会收集该 UI 节点树下的所有渲染数据（除了模型、Mask 和 Graphics），存储为一个静态的 IA 渲染数据。并在后续的渲染流程中使用固定数据进行渲染，不再遍历其节点树，此后的坐标变换将不再生效。当你需要修改静态数据的时候，可以调用 markAsDirty 接口来重新触发渲染数据收集标记。
 
-遮罩的组件接口请参考 [UIStaticBatch API](__APIDOC__/zh/classes/ui.uistaticbatch.html)。
+遮罩的组件接口请参考 [UIStaticBatch API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/UIStaticBatch)。
 
-关于使用可以参考范例 **UIStaticBatch**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/19.static-ui) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/19.static-ui)）。
+关于使用可以参考范例 **UIStaticBatch**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/19.static-ui) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/19.static-ui)）。
 
 ## 通过脚本代码开启静态合批
 

@@ -51,7 +51,7 @@ Browsers tested on mobile devices include: **Safari (iOS)**, **Chrome (Android)*
 
 ## Retina Setting
 
-You can use `view.enableRetina(true)` to set the high resolution in the script, and the Retina display will be turned on by default when you build to the Web platform. Refer to the API [enableRetina](__APIDOC__/en/classes/core.view-2.html#enableretina) for details.
+You can use `view.enableRetina(true)` to set the high resolution in the script, and the Retina display will be turned on by default when you build to the Web platform. Refer to the API [enableRetina](__APIDOC__/en/#/docs/3.3/en/core/Class/View?id=enableretina) for details.
 
 ## Release a game on Web server
 

@@ -33,8 +33,8 @@ Event types included:
 - Call Back:
     - Custom Event: callback(event);
 - Call Back Parameter:
-    - KeyCode: [API Reference](__APIDOC__/en/classes/event.eventkeyboard-1.html)
-    - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
+    - KeyCode: [API Reference](__APIDOC__/en/#/docs/3.3/en/event/Class/EventKeyboard)
+    - Event: [API Reference](__APIDOC__/en/#/docs/3.3/en/event/Class/Event)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEvent, EventKeyboard, KeyCode } from 'cc';
@@ -76,7 +76,7 @@ export class Example extends Component {
 - Call back:
   - Custom event: `callback(event);`;
 - Call back parameter:
-  - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
+  - Event: [API Reference](__APIDOC__/en/#/docs/3.3/en/event/Class/Event)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEvent, log } from 'cc';
@@ -99,4 +99,4 @@ export class Example extends Component {
 }
 ```
 
-Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event) (This includes the keyboard, accelerometer, single point touch, multi-touch examples).
+Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event) (This includes the keyboard, accelerometer, single point touch, multi-touch examples).

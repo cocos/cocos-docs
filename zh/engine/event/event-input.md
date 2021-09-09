@@ -31,8 +31,8 @@
 - 事件触发后的回调函数：
     - 自定义回调函数：callback(event);
 - 回调参数：
-    - KeyCode：[API 传送门](__APIDOC__/zh/classes/event.eventkeyboard-1.html)
-    - Event：[API 传送门](__APIDOC__/zh/classes/event.event-1.html)
+    - KeyCode：[API 传送门](__APIDOC__/zh/#/docs/3.3/zh/event/Class/EventKeyboard)
+    - Event：[API 传送门](__APIDOC__/zh/#/docs/3.3/zh/event/Class/Event)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEvent, EventKeyboard, KeyCode } from 'cc';
@@ -74,7 +74,7 @@ export class Example extends Component {
 - 事件触发后的回调函数：
     - 自定义回调函数：`callback(event);`
 - 回调参数：
-    - Event：[API 传送门](__APIDOC__/zh/classes/event.event-1.html)
+    - Event：[API 传送门](__APIDOC__/zh/#/docs/3.3/zh/event/Class/Event)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEvent, log } from 'cc';
@@ -97,4 +97,4 @@ export class Example extends Component {
 }
 ```
 
-具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event)），包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。
+具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event)），包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。

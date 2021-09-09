@@ -15,13 +15,13 @@ this.getComponent(BoxCollider)
 
 ## Collider and Trigger
 
-The `Collider` component has an `isTrigger` attribute. When `isTrigger` is `true`, it is represented as a trigger, otherwise it is a collider.
+The `Collider` component has an `isTrigger` property. When `isTrigger` is `true`, it is represented as a trigger, otherwise it is a collider.
 
 > **Note**: to learn more about he differences between colliders and triggers please review the [Physics Event](physics-event.md) documentation.
 
 ## The relationship between `Collider` and `RigidBody`
 
-The `Collider` and `RigidBody` components are meant to serve physical elements, and control a part of the attributes on the physical elements respectively. This also means that to understand the relationship between them, you need to first understand how the physical elements in __Cocos Creator__ are composed.
+The `Collider` and `RigidBody` components are meant to serve physical elements, and control a part of the properties on the physical elements respectively. This also means that to understand the relationship between them, you need to first understand how the physical elements in __Cocos Creator__ are composed.
 
 ### How Elements Are Composed
 

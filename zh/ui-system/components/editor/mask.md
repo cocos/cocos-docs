@@ -6,9 +6,9 @@ Mask 用于规定子节点可渲染的范围，默认带有 Mask 组件的节点
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI** 中选择 **Mask**，即可添加 Mask 组件到节点上。注意该组件不能添加到有其他渲染组件（如 **Sprite**、**Label** 等）的节点上。
 
-遮罩的组件接口请参考 [Mask API](__APIDOC__/zh/classes/ui.mask-1.html)。
+遮罩的组件接口请参考 [Mask API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/Mask)。
 
-关于使用可以参考范例 **Mask**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/08.mask) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/08.mask)）。
+关于使用可以参考范例 **Mask**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/08.mask) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/08.mask)）。
 
 ## Mask 属性
 

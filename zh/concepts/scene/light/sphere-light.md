@@ -6,7 +6,7 @@ Cocos Creator 3.0 中使用球面光替代 **点光源（Point Light）**，因�
 
 在场景中添加球面光的方式可参考 [光照](../light.md)。
 
-球面光组件接口请参考 [SphereLight API](__APIDOC__/zh/classes/component_light.spherelight.html)。
+球面光组件接口请参考 [SphereLight API](__APIDOC__/zh/#/docs/3.3/zh/component-light/Class/SphereLight)。
 
 ## 球面光属性
 

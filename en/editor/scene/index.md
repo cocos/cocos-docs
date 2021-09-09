@@ -27,7 +27,21 @@ In 2D view, the view of the **Scene** panel can be moved and positioned by the f
 
 ## Scene settings
 
-The options in the upper right corner of the **Scene** panel can be used to set the scene grid, scene camera properties, etc. Please refer to the following description for details.
+The options in the top right corner of the **Scene** panel can be used to set the reference image, grid, camera parameters, etc. of the scene. Please refer to the description below for details.
+
+### Reference image settings
+
+Click on the ![scene reference](images/scene-reference.png) button in the top right corner of the **Scene** panel to open the **Reference Image** panel, which is primarily used as a cross-reference for developers when stitching together UI in the **Scene** panel.
+
+![reference](images/reference.png)
+
+| Option | Description |
+| :-- | :-- |
+| Add | Used to add UI reference images. Multiple reference images can be added.  |
+| Delete | Used to remove the UI reference image from the currently selected box. |
+| X | The X-axis position of the selected UI reference image displayed in the scene. |
+| Y | The Y-axis position of the selected UI reference image displayed in the scene. |
+| Opacity | Opacity of the selected UI reference image displayed in the scene. |
 
 ### Grid settings
 
@@ -54,6 +68,7 @@ Click the ![set camera](images/set-camera.png) button in the upper-right corner 
 | Color | Set the scene background color. |
 | Wheel Speed  | Set the speed at which the scene camera moves back and forth when the mouse wheel is scrolled. |
 | Wander Speed | Set the movement speed when the scene camera is roaming. |
+| Wander Acceleration | Whether to enable acceleration in Wander Mode (new in v3.3).<br>If enable, the camera will moving faster along time, otherwise the camera will move in a constant speed.|
 
 ### Render target resolution settings
 

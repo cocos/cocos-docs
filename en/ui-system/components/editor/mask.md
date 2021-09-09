@@ -8,7 +8,7 @@ Select a node in the __Hierarchy__ panel, then click the __Add Component__ butto
 
 > __Note__: the Mask component cannot be added to a node with other renderer components such as __Sprite__, __Label__, etc.
 
-To use `Mask`, please refer to the [Mask API](__APIDOC__/en/classes/ui.mask-1.html) documentation and the [Mask](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/08.mask) scene of the test-cases-3d project.
+To use `Mask`, please refer to the [Mask API](__APIDOC__/en/#/docs/3.3/en/ui/Class/Mask) documentation and the [Mask](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/08.mask) scene of the test-cases-3d project.
 
 ## Mask Properties
 
@@ -17,7 +17,7 @@ To use `Mask`, please refer to the [Mask API](__APIDOC__/en/classes/ui.mask-1.ht
 | **Type**           | Mask type, including `RECT`, `ELLIPSE`, `GRAPHICS_STENCIL`, `IMAGE_STENCIL`. |
 | **Segments**       | The segments for ellipse mask, which takes effect only when the Mask type is set to `ELLIPSE`.   |
 | **Inverted**       | The Reverse mask. |
-| **SpriteFrame**       | Image used for the type is **IMAGE_STENCIL**
+| **SpriteFrame**       | Image used for the type is **IMAGE_STENCIL** |
 
 ### Type
 

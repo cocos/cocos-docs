@@ -6,7 +6,7 @@
 
 点击 **属性检查器** 下方的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **WebView**，即可添加 WebView 组件到节点上。
 
-WebView 的脚本接口请参考 [WebView API](__APIDOC__/zh/classes/WebView.html)。
+WebView 的脚本接口请参考 [WebView API](__APIDOC__/zh/#/docs/3.3/zh/component-web-view/Class/WebView)。
 
 ## WebView 属性
 
@@ -28,7 +28,7 @@ WebView 的脚本接口请参考 [WebView API](__APIDOC__/zh/classes/WebView.htm
 | Handler         | 指定一个回调函数，当网页加载过程中、加载完成后或者加载出错时会被调用，该函数会传一个事件类型参数进来。详情见下方的 **WebView 事件回调参数** 部分 |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。 |
 
-详情可参考 API 文档 [Component.EventHandler 类型](__APIDOC__/zh/classes/event.eventhandler.html)
+详情可参考 API 文档 [Component.EventHandler 类型](__APIDOC__/zh/#/docs/3.3/zh/event/Class/EventHandler)
 
 ### WebView 事件回调参数
 
@@ -38,9 +38,9 @@ WebView 的脚本接口请参考 [WebView API](__APIDOC__/zh/classes/WebView.htm
 | LOADED         | 表示网页加载已经完毕。   |
 | ERROR          | 表示网页加载出错了。     |
 
-详情可参考 API [WebView 事件](__APIDOC__/zh/classes/webview.webview-1.html#webviewevents)。
+详情可参考 API [WebView 事件](__APIDOC__/zh/#/docs/3.3/zh/component-web-view/Class/WebView?id=webviewevents)。
 
-使用方式可参考范例 **Webview**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/22.webview)）。
+使用方式可参考范例 **Webview**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/22.webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/22.webview)）。
 
 ## 详细说明
 
@@ -101,11 +101,10 @@ export class WebViewCtrl extends Component {
         this.webview.node.on(WebView.EventType.LOADED, this.callback, this);
     }
 
-    callback (event) {
-        // 这里的 event 是一个 EventCustom 对象，你可以通过 event.detail 获取 WebView 组件
-        let videoplayer = event.detail;
-        // 对 videoplayer 进行你想要的操作
-        // 另外，注意这种方式注册的事件，也无法传递 customEventData
+    callback (webview) {
+        // 这里的 webview 是一个 WebView 组件对象
+        // 对 webview 进行你想要的操作
+        // 另外，需要注意的是通过这种方式注册的事件，无法传递 customEventData
     }
 }
 ```

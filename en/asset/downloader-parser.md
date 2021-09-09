@@ -134,7 +134,7 @@ assetManager.presets.mypreset = {maxConcurrency: 10, maxRequestsPerFrame: 6};
 assetManager.loadAny({'path': 'test'}, {preset: 'mypreset'}, callback);
 ```
 
-> **Note**: parameters related to the download and parsing process (e.g. number of download concurrent, number of download retries, etc.) can be set via optional parameters, presets, and the downloader/parser itself. When the same parameter is set in multiple ways, the engine selects to use it in the order of selectable **optional parameter > preset > downloader/parser**. That is, if the engine can't find the relevant settings in the optional parameter, it will look in the preset, and if it can't find them in the preset, it will look in the downloader/parser.
+> **Note**: parameters related to the download and parsing process (e.g.: number of download concurrent, number of download retries, etc.) can be set via optional parameters, presets, and the downloader/parser itself. When the same parameter is set in multiple ways, the engine selects to use it in the order of selectable **optional parameter > preset > downloader/parser**. That is, if the engine can't find the relevant settings in the optional parameter, it will look in the preset, and if it can't find them in the preset, it will look in the downloader/parser.
 
 ## Custom handlers
 

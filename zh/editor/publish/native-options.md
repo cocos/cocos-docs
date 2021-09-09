@@ -47,6 +47,10 @@
 
 ![encrypt js](publish-native/encrypt-js.png)
 
+#### 原生引擎
+
+该项用于展示当前使用的是内置引擎还是定制引擎，点击后面的编辑按钮即可前往 **偏好设置 -> [引擎管理器](../preferences/index.md#%E5%BC%95%E6%93%8E%E7%AE%A1%E7%90%86%E5%99%A8)** 面板进行设置。
+
 ### Android 平台构建选项
 
 Android 平台的构建选项如下：

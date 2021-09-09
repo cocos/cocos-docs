@@ -20,6 +20,20 @@ After importing into the editor, from the outside, the corresponding model asset
     - `.skeleton` -- Model bone files
     - `.prefab` -- Prefab files that are automatically generated on import
 
+### Mesh File
+
+Mesh File contains vertices, index, and texture coordinate data. When a mesh file is selected in the **Assets**, the **Inspector** will show the information of the mesh, also the mesh can be previewed in the bottom panel.
+
+![Mesh Asset](mesh/mesh-asset-preview.png)
+
+| Property | Description |
+| :-- | :-- |
+| Vertices | number of vertices |
+| Triangles | number of triangle |
+| UV | indices of texture coordinate |
+| MinPos | minimum position of mesh |
+| MaxPos | maximum position of mesh |
+
 ## Using Models
 
 After importing a __model__ file, drag the __root node__ of the __model__ file directly from the __Assets__ panel to the __node__ you want to place in the __Hierarchy__ panel to complete the node creation. At this point the model is successfully created in the scene. <br>

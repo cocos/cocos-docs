@@ -119,4 +119,4 @@ const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = spriteFrame;
 ```
 
-API 接口文档：[SpriteFrame 资源类型](__APIDOC__/zh/classes/asset.spriteframe.html)。
+API 接口文档：[SpriteFrame 资源类型](__APIDOC__/zh/#/docs/3.3/zh/asset/Class/SpriteFrame)。

@@ -27,7 +27,7 @@
 ## 切换场景
 
 在 **资源管理器** 中，通过双击场景文件打开场景。<br>
-如果需要在游戏过程中切换场景，可通过 `director.loadScene` 等 API 来实现游戏中动态场景加载及切换，详情请参考 [API 文档](__APIDOC__/zh/classes/core.director-2.html#loadscene)。
+如果需要在游戏过程中切换场景，可通过 `director.loadScene` 等 API 来实现游戏中动态场景加载及切换，详情请参考 [API 文档](__APIDOC__/zh/#/docs/3.3/zh/core/Class/Director?id=loadscene)。
 
 ## 场景资源的属性
 

@@ -5,13 +5,13 @@ The engine part of Cocos Creator 3.0 includes **TypeScript** and **engine-native
 - [TypeScript engine](ttps://github.com/cocos-creator/engine/)
 - [engine-native engine](https://github.com/cocos-creator/engine-native/)
 
-It is recommended to maintain custom code using the GitHub's Fork workflow. This workflow allows developers to easily update custom engine parts when the engine is upgraded in the future. This workflow is described in the [Fork a repo](https://help.github.com/articles/fork-a-repo) documentation. If you would like to help Cocos get better, feel free to submit changes to GitHub, see the [How to Submit Code to Cocos](../../submit-pr/submit-pr.md) documentation. For more GitHub-related workflows, please refer to the [GitHub Help](https://help.github.com).
+It is recommended to maintain custom code using the GitHub's Fork workflow. This workflow allows developers to easily update custom engine parts when the engine is upgraded in the future. This workflow is described in the [Fork a repo](https://help.github.com/articles/fork-a-repo) documentation. For more GitHub-related workflows, please refer to the [GitHub Help](https://help.github.com).
 
 Also, depending on the Creator version, developers may need to switch to a different engine branch, it is recommended to use the same branch that corresponds to the version of Creator being used.
 
 ## 1 Customize the TypeScript engine
 
-If you only need to customize the engine functionality of the web version of the game, or if you only need to modify the pure TypeScript layer logic (e.g. UI system, animation system), simply modify the TypeScript engine by following the procedure below:
+If you only need to customize the engine functionality of the web version of the game, or if you only need to modify the pure TypeScript layer logic (e.g.: UI system, animation system), simply modify the TypeScript engine by following the procedure below:
 
 ### 1.1 Get the TypeScript engine
 
