@@ -6,8 +6,8 @@ The `arc()` method creates an arc/curve (used to create circles or partial circl
 
 | Parameter | Description |
 | :-------------- | :----------- |
-| **x** | The  x coordinate of the center control point. |
-| **y** | The  y coordinate of the center control point. |
+| **x** | The x coordinate of the center control point. |
+| **y** | The y coordinate of the center control point. |
 | **r** |Arc radian. |
 | **startAngle** | Start radian, measured clockwise from positive x axis. |
 | **endAngle** | End radian, measured clockwise from positive x axis. |

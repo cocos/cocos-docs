@@ -28,16 +28,16 @@
 
 ## 切换编辑模式
 
-通过点击下图按钮，可以切换 2D 编辑模式与 3D 编辑模式
+点击 3D/2D 按钮，即可将 **场景编辑器** 切换为 2D 视图或者 3D 视图，详情请参考 [场景编辑器 - 视图]\(./scene/index.md#%E8%A7%86%E5%9B%BE%E4%BB%8B%E7%BB%8D)。
 
 ![2d3d](toolbar/2d3d.png)
 
 - 2D: 变为 2D 视图，在2D视图下的操作视图方式可以查看 [场景编辑器](../editor/scene/index.md)
 - 3D: 变为 3D 视图，在3D视图下的操作视图方式可以查看 [场景编辑器](../editor/scene/index.md)
 
-## 运行预览游戏
+## 运行预览
 
-用来在编辑器运行或暂停游戏的测试
+该项用于预览项目的运行效果，详情请参考 [项目预览调试]()。
 
 ![preview](toolbar/preview.png)
 
@@ -47,13 +47,13 @@
 - 运行预览：点击后在浏览器中运行当前编辑的场景
 - 运行场景：点击后运行的首场景。可以选择 **当前场景** 或 固定某一场景
 
-## 预览地址
+## 手机端预览
 
 ![preview url](toolbar/preview_url.png)
 
 这里显示运行 Cocos Creator 的桌面电脑的局域网地址，连接同一局域网的移动设备可以访问这个地址来预览和调试游戏。将鼠标悬浮在局域网地址上，会浮现一个二维码，通过扫描二维码的方式也可以访问这个地址来预览和调试游戏。
 
-## 打开项目文件夹
+## 打开项目/编辑器目录
 
 ![open project](toolbar/open_project.png)
 
@@ -62,8 +62,8 @@
 
 ## Cocos 小秘书
 
-点击 **场景编辑器** 右上角的 ![smallSecretary](toolbar/smallSecretary.png) 按钮，可以打开小秘书面板，对遇到的问题进行咨询，详情可查看 [Cocos 小秘书](https://www.cocos.com/assistant)。
+点击工具栏最右侧的 ![smallSecretary](toolbar/smallSecretary.png) 按钮，即可打开 Cocos 小秘书窗口。用户遇到任何问题，随时可以通过小秘书与官方技术人员发起交流探讨。更多内容请参考 [Cocos 小秘书官方介绍](https://www.cocos.com/assistant)。
 
 ![small](toolbar/small.png)
 
->**注意**: Cocos小秘书目前仅支持中文版本，后续优化请关注版本公告。
+>**注意**: Cocos 小秘书目前仅支持中文版本，后续优化请关注版本公告。

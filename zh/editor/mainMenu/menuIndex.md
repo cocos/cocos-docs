@@ -1,6 +1,6 @@
 # 主菜单
 
-Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator、文件、编辑、节点、项目、面板、扩展、开发者和帮助**。主菜单栏集成了 Cocos Creator 的所有功能，通过对菜单栏的学习能够对 Cocos Creator 的各项功能有着更加直观和充分的了解。
+Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**编辑**、**节点**、**项目**、**面板**、**扩展**、**开发者** 和 **帮助** 9 个菜单项，集成了 Cocos Creator 大部分的功能点。
 
 ![menu](./img/menu.png)
 
@@ -10,26 +10,26 @@ Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator
 
 ![cocos](./img/cocos.png)
 
-| 功能 | 说明 |
+| 选项 | 说明 |
 | :--- | :-- |
 | 关于 Cocos Creator | 显示 Cocos Creator 的版本和版权信息 |
 | 布局 | 设置编辑器界面布局，暂时只支持默认布局 |
 | 偏好设置 | 打开 [偏好设置](../preferences/index.md) 面板。该面板用于编辑器的个性化设置 |
-| 快捷键 | 设置快捷键来快速操作编辑器模块或插件 |
+| 快捷键 | 打开快捷键设置面板，查看编辑器各面板或功能模块默认使用的快捷键，支持自定义。 |
 | 关闭窗口 | 关闭当前窗口|
 | 退出 | 退出 Cocos Creator 编辑器|
 
 ## 文件
 
-该项主要包括场景文件的打开和保存，从其他项目在新窗口打开和导入 Cocos Creator v2.x 功能。
+该项主要用于项目或场景的新建、打开、保存等操作，以及导入 Cocos Creator 2.x 项目。
 
 ![file](./img/file.png)
 
-| 功能 | 说明 |
+| 选项 | 说明 |
 | :--- | :-- |
-| 新建项目 | 打开 Dashboard 的 **新建项目** 分页 |
-| 打开项目 | 打开 Dashboard 的 **新建最近打开项目项目** 分页 |
-| 新建场景 | 关闭当前场景并创建一个新场景，新创建的场景需要手动保存才会添加到项目路径下|
+| 新建项目 | 打开 Dashboard 的 [新建项目](../../getting-started/dashboard/index.md#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE) 分页，以新建一个项目 |
+| 打开项目 | 打开 Dashboard 的 [项目](../../getting-started/dashboard/index.md#%E9%A1%B9%E7%9B%AE) 分页 |
+| 新建场景 | 关闭当前场景并创建一个新场景，新创建的场景需要手动保存才会添加到项目目录下 |
 | 保存场景 | 保存当前正在编辑的场景，如果是使用 **新建场景** 菜单项创建的场景，在第一次保存时会弹出对话框，选择场景文件保存的位置和文件名。场景文件以 `.fire` 作为扩展名 |
 | 另存为 | 生成当前场景文件的副本，并保存在项目中|
 | 导入 Cocos Creator 2.x 项目 | 导入 Cocos Creator 2.x 项目并升级为 v3.x|
@@ -40,7 +40,7 @@ Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator
 
 ![edit](./img/edit.png)
 
-| 功能 | 说明 |
+| 选项 | 说明 | 默认快捷键 |
 | :--- | :-- |
 | 撤销 | 撤销上一次对场景的修改 |
 | 重做 | 重新执行上一次撤销的对场景的修改 |
@@ -51,7 +51,7 @@ Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator
 
 ## 节点
 
-该项包含调整视角、取消关联预制节点和在场景中创建节点的功能。
+该项包含调整视角、取消关联预制节点、创建节点等功能。
 
 ![node](./img/node.png)
 
@@ -60,7 +60,7 @@ Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator
 | 视角对齐 | 移动游戏对象与视图对齐 |
 | 将视角和节点对齐 | 移动视图与游戏节点对齐 |
 | 取消关联当前的 prefab 资源 | 选中场景中一个预制节点，执行此命令会将预制节点转化成普通节点|
-| 递归的取消关联当前的 prefab 资源 | 选中场景中一个预制节点，执行此命令会用递归的方式将预制节点转化成普通节点| |
+| 递归的取消关联当前的 prefab 资源 | 用于将场景中包含嵌套的预制节点递归地转化为普通节点 |
 | 空节点 | 在场景中创建一个空节点，如果执行命令前场景中已经选中了节点，新建的节点会成为选中节点的子节点|
 | 3D 对象 | 可以创建编辑器自带的一些比较基础的静态模型控件，目前包括立方体、圆柱体、球体、胶囊、圆锥体、圆环体、平面和四方形。若需要创建其他类型的模型，可参考 [MeshRenderer 组件](../engine/../../engine/renderable/model-component.md)|
 | 2D 对象 | 可以在场景中创建由编辑器自带的 2D 渲染节点，目前包括 Graphics（绘图）、Label（文本）、Mask（遮罩）、ParticleSystem2D（粒子）、Sprite（精灵）、SpriteSplash（单色）和 TiledMap（地图）等由节点和基础渲染组件组成的节点类型。关于 2D 渲染组件，详细情况可参考 [2D 渲染组件介绍](../../ui-system/components/editor/render-component.md)|
@@ -72,13 +72,13 @@ Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator
 
 ## 项目
 
-该项包括运行、构建项目，以及项目专用个性化配置。
+该项主要用于执行预览运行构建项目、项目配置，以及自定义构建等。
 
 ![project](./img/project.png)
 
 | 功能 | 说明 |
 | :--- | :-- |
-| 项目设置 | 打开 [项目设置](../project/index.md) 面板。该面板主要用于设置特定项目的相关配置项。 |
+| 项目设置 | 打开 [项目设置](../project/index.md) 面板，设置特定项目的相关配置项。 |
 | 光照贴图 | 打开 [光照贴图](../.././concepts/scene/light/lightmap.md) 面板。光照贴图主要用于代替实时的光照计算，可以减少资源消耗，从而提高场景运行效率 |
 | 运行预览 | 在浏览器或模拟器或预览窗口中运行项目。更多详情，可以查看 [项目预览调试](../preview/index.md)|
 | 刷新预览 | 刷新已经打开的预览窗口  |
@@ -114,7 +114,7 @@ Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator
 
 | 功能 | 说明 |
 | :--- | :-- |
-| 扩展管理器 | 打开扩展管理器面板，用户管理编辑器安装的扩展包，可以进行增加、删除等操作 |
+| 扩展管理器 | 打开 **扩展管理器** 面板，其中包括了编辑器内置扩展、项目目录及全局目录下安装的扩展，详情请参考 [编辑器扩展](../extension/readme.md)。 |
 | 商城 | 打开 [商城](https://store.cocos.com/document/zh/) 面板，可供用户浏览、下载和自动安装官方或者第三方插件、源码、资源。同时用户也可以将自己开发的扩展插件、工程源码、美术素材、音乐音效和第三方工具等与 Cocos 开发相关的资源提交到扩展商店，以便分享或者售卖。 |
 | 创建扩展 | 生成 [扩展包](/zh/editor/extension/readme.md)，用于对编辑器进行功能扩展|
 
@@ -135,8 +135,8 @@ Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator
 | Export.d.ts |导出编辑器相关的 API |
 | 重新加载 | 重新加载编辑器界面|
 | UI 组件 | 打开 UI 组件面板。用于显示在编写 html 的时候，如何使用编辑器内的 UI 组件|
-| VS Code Workflow | VS Code 代码编辑器的工作环境相关功能，目前支持添加编译任务和添加 Chrome debug 配置|
-| 开关开发人员工具 | 打开开发者工具界面，用户自定义输出到 **控制台** 的日志，更多详细情况，可以查看 [自定义输出消息](/zh/editor/console/index.md/#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E4%BF%A1%E6%81%AF)|
+| VS Code Workflow | VS Code 代码编辑器的工作环境相关功能，目前支持 **添加 Chrome debug 配置** 和 **添加编译任务** |
+| 开关开发人员工具 | 打开开发者工具窗口，用于编辑器界面扩展的开发。同时也可以自定义输出到 **控制台** 的日志，详情请参考 [自定义输出消息](../console/index.md#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E4%BF%A1%E6%81%AF)|
 | 打开资源调试工具 | 打开资源调试面板，用于显示修改场景期间的日志消息|
 | 打开场景调试工具 | 打开场景调试面板，用于显示修改场景期间的日志消息|
 | 打开构建调试工具 | 打开构建调试面板，用于显示构建期间的日志消息|
@@ -149,6 +149,6 @@ Cocos Creator 主菜单栏默认有 9 个菜单项。分别是：**Cocos Creator
 | :--- | :-- |
 | 使用手册 | 在默认浏览器打开 [用户手册文档](https://docs.cocos.com/creator/3.0/manual/zh/) |
 | API 文档 | 在默认浏览器打开 [API 参考文档](https://docs.cocos.com/creator/3.0/api/zh/) |
-| 论坛 | 在默认浏览器打开 [Cocos Creator 论坛](https://forum.cocos.org/c/Creator)|
+| 论坛 | 在默认浏览器打开 [Cocos Creator 论坛](https://forum.cocos.org/c/58)|
 | 更新日志 |  在默认浏览器打开 [Cocos Creator 版本更新日志](https://www.cocos.com/creator)  |
-| 引擎仓库 |  在默认浏览器打开引擎的 [GitHub 仓库](https://github.com/cocos-creator/engine) |
+| 引擎仓库 |  在默认浏览器打开 [TypeScript 引擎仓库](https://github.com/cocos-creator/engine) |
