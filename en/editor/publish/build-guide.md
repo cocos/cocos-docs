@@ -194,7 +194,7 @@ The entire build process is in a single worker, to view the log information of t
 
 ### Resource loading 404 errors
 
-In case of a 404 error, please copy the `uuid` in the log that reported the error resource loss and search for the corresponding resource in **Assets** panel to check whether the resources that the resource depends on are normal. Resource loading 404 errors usually occur under the following situations:
+In case of a 404 error, please copy the UUID in the log that reported the error resource loss and search for the corresponding resource in **Assets** panel to check whether the resources that the resource depends on are normal. Resource loading 404 errors usually occur under the following situations:
 
 1. **Resources that are not placed in the Bundle are dynamically loaded in the script**.
 
@@ -224,7 +224,7 @@ The Auto Atlas will print out the UUID information of the original small image a
 
 ![build-atlas](./build-guide/build-atlas.jpg)
 
-### How to decompress uuid
+### How to decompress UUIDs
 
 In release mode, the packaged resource JSON and the UUID in `config.json` are compressed and need to be unzipped to find the resources in the corresponding original project. There are some built-in tools and methods in the build process. On the global variable Build, directly click **Developer -> Build DevTools** in the main menu, and enter the following commands in the console:
 

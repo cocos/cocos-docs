@@ -161,7 +161,7 @@ The specific implementation steps are roughly the same as the above **extension 
 
   `assetInfo` parameter description:
 
-    - `uuid` String - The uuid of the asset at the mouse release location when dragging an asset in the **Assets** panel.
+    - `uuid` String - The UUID of the asset at the mouse release location when dragging an asset in the **Assets** panel.
     - `type` String - the asset type
     - `isDirectory` Boolean - whether the asset is a folder
 

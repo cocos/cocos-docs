@@ -2,11 +2,9 @@
 
 ## cc 类
 
-将装饰器 [ccclass](#ccclass) 应用在类上时，此类称为 cc 类。cc 类注入了额外的信息以控制 Cocos Creator 3.0 对该类对象的序列化、编辑器对该类对象的展示等。因此，未声明 `ccclass` 的组件类，也无法作为组件添加到节点上。
+将装饰器 [ccclass](#ccclass) 应用在类上时，此类称为 cc 类。cc 类注入了额外的信息以控制 Cocos Creator 对该类对象的序列化、编辑器对该类对象的展示等。因此，未声明 `ccclass` 的组件类，也无法作为组件添加到节点上。
 
-cc 类的各种特性是通过 `ccclass(name)` 的参数来指定的。
-
-参数 `name` 指定了 cc 类的名称，cc 类名是 **独一无二** 的。当需要获取相应的 cc 类时，可以通过其 cc 类名来查找，例如：
+`ccclass` 装饰器的参数 `name` 指定了 cc 类的名称，cc 类名是 **独一无二** 的，这意味着即便在不同目录下的同名类也是不允许的。当需要获取相应的 cc 类时，可以通过其 cc 类名来查找，例如：
 
 - 序列化。若对象是 cc 类对象，则在序列化时将记录该对象的 cc 类名，反序列化时将根据此名称找到相应的 cc 类进行序列化。
 
@@ -18,13 +16,13 @@ export class Example extends Component {
 }
 ```
 
-## 编辑器参数
+## 组件类装饰器
 
-此类参数是只能定义在 cc.Component 的子类。
+此类装饰器是只能用来修饰 `Component` 的子类。
 
 ### executeInEditMode
 
-默认情况下，所有组件都只会在运行时执行，也就是说它们的生命周期回调在编辑器模式下并不会触发。`executeInEditMode` 允许当前组件在编辑器模式下运行，初始值为 `false`。
+默认情况下，所有组件都只会在运行时执行，也就是说它们的生命周期回调在编辑器模式下并不会触发。`executeInEditMode` 允许当前组件在编辑器模式下运行，默认值为 `false`。
 
 ```ts
 const { ccclass, executeInEditMode } = _decorator;
@@ -32,6 +30,9 @@ const { ccclass, executeInEditMode } = _decorator;
 @ccclass('Example')
 @executeInEditMode(true)
 export class Example extends Component {
+    update (dt: number) {
+        // 会在编辑器下每帧执行
+    }
 }
 ```
 
@@ -51,9 +52,9 @@ export class Example extends Component {
 ### executionOrder
 
 `executionOrder` 用来指定脚本生命周期回调的执行优先级。小于 0 的脚本将优先执行，大于 0 的脚本将最后执行。排序方式如下：
+
 - 对于同一节点上的不同组件，数值小的先执行，数值相同的按组件添加先后顺序执行
 - 对于不同节点上的同一组件，按节点树排列决定执行的先后顺序
-- 针对所有节点树上的节点，在节点和组件都激活的情况下，数值越小，越先执行
 
 该优先级设定只对 `onLoad`、`onEnable`、`start`、`update` 和 `lateUpdate` 有效，对 `onDisable` 和 `onDestroy` 无效。
 
@@ -81,7 +82,7 @@ export class Example extends Component {
 
 ### menu
 
-`menu(path)` 用来将当前组件添加到组件菜单中，方便用户查找。
+`@menu(path)` 用来将当前组件添加到组件菜单中，方便用户查找。
 
 ```ts
 const { ccclass, menu } = _decorator;
@@ -96,7 +97,7 @@ export class Example extends Component {
 
 ### help
 
-指定当前组件的帮助文档的 `url`。设置完成后，在 **属性检查器** 中就会出现一个帮助图标，点击即可打开指定的网页。
+指定当前组件的帮助文档的 URL。设置完成后，在 **属性检查器** 中就会出现一个帮助图标，点击即可打开指定的网页。
 
 ```ts
 const { ccclass, help } = _decorator;
@@ -107,61 +108,59 @@ export class Example extends Component {
 }
 ```
 
-## cc 属性
+## 属性装饰器
 
-当装饰器 [property](#property) 应用在 cc 类的属性或访问器上时，此属性称为 cc 属性。
+属性装饰器 [property](#property) 可以被应用在 cc 类的属性或访问器上。属性装饰器用于控制 Cocos Creator 编辑器中对该属性的序列化、**属性检查器** 中对该属性的展示等。
 
-与 cc 类类似，cc 属性注入了额外的信息以控制 Cocos Creator 3.0 对该属性的序列化、编辑器对该属性的展示等。
+属性装饰器的各种特性是通过 `@property()` 的参数来指定的。完整可选择参数可以参考：[属性参数](./reference/attributes.md)
 
-### property
-
-cc 属性的各种特性是通过 `property()` 的参数来指定的。可选择参数可以参考：[属性参数](./reference/attributes.md)
-
-property 写法参考如下：
+property 装饰器写法参考如下：
 
 ```ts
 @property({
     type: Node,
     visible: true,
 })
-targetNode: Node | null = null; // 等价于 targetNode: Node = null!;
+targetNode: Node | null = null;
 ```
 
 接着，下方会罗列出一些常用属性参数写法。
 
-### type
+### type 参数
 
 选项 `type` 指定了属性的 cc 类型。可以通过以下几种形式的参数指定类型：
 
-- Cocos Creator 3.0 内置属性类型标识
+- 基础属性类型
 
-  `CCInteger`、`CCFloat`、`CCBoolean`、`CCString` 是内置属性类型标识，一般作用于数组属性。非数组类型通常不用声明类型。
-  - `CCInteger` 声明类型为 **整数**；
-  - `CCFloat` 声明类型为 **浮点数**；
-  - `CCString` 声明类型为 **字符串**；
-  - `CCBoolean` 声明类型为 **布尔值**。
+  `CCInteger`、`CCFloat`、`CCBoolean`、`CCString` 是基础属性类型标识，一般仅用于数组属性的内部类型声明。非数组类型不需要显式声明这些类型。
 
-- 非内置属性类型标识的 cc 类属性
+    - `CCInteger` 声明类型为 **整数**
+    - `CCFloat` 声明类型为 **浮点数**
+    - `CCString` 声明类型为 **字符串**
+    - `CCBoolean` 声明类型为 **布尔值**
 
-  所有的 cc 类属性 **都需要指定类型**，否则编辑器无法识别类型，序列化也无法写入正确类型。
+- 其他 cc 类型
 
-- 数组
+  所有的 cc 类型 **都需要显式指定**，否则编辑器无法正确识别类型，序列化也无法写入正确类型。
 
-  当内置属性类型标识或者 cc 类作为数组元素时，属性会被指定为 **Cocos Creator 3.0 数组**。例如 `[CCInteger]`、`[Node]` 将分别以整数数组和节点数组的形式展示该属性。
+- 数组类型
 
-若属性未指定 cc 类型，Cocos Creator 3.0 将从属性的默认值或初始化式的求值结果推导其 cc 类型：
+  当使用基础属性类型或者 cc 类作为数组元素时，可以被通过数组类型声明被编辑器所识别。例如 `[CCInteger]`、`[Node]` 将分别以整数数组和节点数组的形式在 **属性检查器** 中展示。
 
-- 若值的类型是 Javascript 原始类型 `number`、`string`、`boolean`，则其 cc 类型分别为 Creator 的浮点数、字符串，以及布尔值。
-- 其他的则表示属性的类型是 **未定义** 的，编辑器上会提示 `Type(Unknown)` 字样。
+若属性未指定类型，Cocos Creator 将从属性的默认值或初始化式的求值结果推导其类型：
 
-> **注意**：当 Javascript 内置构造函数 `Number`、`String`、`Boolean` 用作 cc 类型时将给出警告，并且将分别视为 cc 类型中的 `CCFloat`、`CCString`、`CCBoolean`。已经初始化的数组属性修改类型后，需要手动清除掉原来的数组数据，重新赋值，否则会因为数据类型不一致，导致数据错乱。
+- 若值的类型是 JavaScript 原始类型 `number`、`string`、`boolean`，则其类型分别对应 Creator 的`CCFloat`、`CCString` 和 `CCBoolean`。
+- 其他情况下属性的类型则是 **未定义** 的，编辑器上会提示 `Type(Unknown)` 字样。
+
+> **注意**：当声明 JavaScript 内置构造函数 `Number`、`String`、`Boolean` 用作类型时将给出警告，并且将分别视为 cc 类型中的 `CCFloat`、`CCString`、`CCBoolean`。已经初始化的数组属性修改类型后，需要手动清除掉原来的数组数据，重新赋值，否则会因为数据类型不一致，导致数据错乱。
+>
 > ![property-changed](property-changed.png)
 
 <!-- 关于 cc 类型如何影响 cc 属性以及对未定义 cc 类型的属性的处理，可参考下文中的 [属性类型](#%E5%B1%9E%E6%80%A7%E5%8F%82%E6%95%B0) 和 [序列化参数](#serializable-参数) 介绍。 -->
 
-> **注意**：需要给编辑器使用的序列化属性，属性名开头不应该带 `_`，否则会识别为 private 属性，private 属性不会在编辑器组件属性面板上显示。
+> **注意**：需要在编辑器 **属性检查器** 中展示的属性，属性名开头不应该带 `_`，否则会识别为 private 属性，private 属性不会在编辑器组件属性面板上显示。
 
-下列代码演示了不同 cc 类型的 cc 属性声明：
+下列代码演示了不同 cc 类型的属性声明：
 
 ```ts
 import { _decorator, CCInteger, Node, Enum } from 'cc';
@@ -175,7 +174,7 @@ Enum(A);
 
 @ccclass
 class MyClass {
-    @property // Javascript 原始类型，根据默认值自动识别为 Creator 的浮点数类型。
+    @property // JavaScript 原始类型，根据默认值自动识别为 Creator 的浮点数类型。
     index = 0;
 
     @property(Node) // 声明属性 cc 类型为 Node。当属性参数只有 type 时可这么写，等价于 @property({type: Node})
@@ -203,7 +202,7 @@ class MyClass {
 }
 ```
 
-为了方便，额外提供几种装饰器以快速声明 cc 类型。针对只定义了 type 的属性使用：
+为了方便，额外提供几种装饰器以快速声明 cc 类型。如果你只需要为属性定义 type 参数，那么可以直接使用下列装饰器替代 `@property`：
 
 |  装饰器   | 对应的 property 写法   |
 | :-------- | :---------------- |
@@ -224,7 +223,7 @@ class MyClass {
 
     @type(String) // 警告：不应该使用构造函数 String。等价于 CCString。也可以选择不声明类型
     text = '';
-    // Javascript 原始类型 `number`、`string`、`boolean` 通常可以不用声明
+    // JavaScript 原始类型 `number`、`string`、`boolean` 通常可以不用声明
     // 可以直接写
     @property
     text = '';
@@ -298,4 +297,7 @@ num = 0;
 id = "";
 ```
 
-更多参数内容请查阅 [属性参数](./reference/attributes.md)。
+## 参考链接
+
+- [属性参数](./reference/attributes.md)
+- [脚本进阶](./reference-class.md)

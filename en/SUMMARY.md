@@ -5,6 +5,7 @@
 [Introduction](index.md)
 
 - [Getting Started](getting-started/index.md)
+    - [About Cocos Creator](getting-started/introduction/index.md)
     - [Installing and Launching](getting-started/install/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello world!](getting-started/helloworld/index.md)
@@ -216,8 +217,8 @@
         - [Engine Modules](scripting/modules/engine.md)
         - [How to Get npm Packages](scripting/modules/config.md)
         - [Example: External Module Usage Case](scripting/modules/example.md)
-    - [ccclass](scripting/ccclass.md)
-    - [Attributes](scripting/reference/attributes.md)
+    - [Decorator](scripting/decorator.md)
+    - [Property Attributes](scripting/reference/attributes.md)
     - [Access Node and Other Components](scripting/access-node-component.md)
     - [Common Node and Component Interface](scripting/basic-node-api.md)
     - [Life Cycle Callbacks](scripting/life-cycle-callbacks.md)
@@ -231,6 +232,7 @@
     - [Global Events](engine/event/event-input.md)
     - [Event API](engine/event/event-api.md)
     - [Plugin script](scripting/external-scripts.md)
+    - [Advanced Scripting](scripting/reference-class.md)
     - [Logging](scripting/log.md)
     - [Deprecated APIs](scripting/deprecated.md)
 

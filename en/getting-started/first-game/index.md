@@ -713,7 +713,7 @@ First, add a variable in the `PlayerController` class that references the model 
 
 ```ts
 @property({type: SkeletalAnimation})
-public CocosAnim: SkeletalAnimation = null;
+public CocosAnim: SkeletalAnimation|null = null;
 ```
 
 Then, in the __Inspector__, drag the `Cocos` node into this variable.
@@ -783,9 +783,9 @@ const { ccclass, property } = _decorator;
 export class PlayerController extends Component {
 
     @property({type: Animation})
-    public BodyAnim: Animation = null;
+    public BodyAnim: Animation|null = null;
     @property({type: SkeletalAnimation})
-    public CocosAnim: SkeletalAnimation = null;
+    public CocosAnim: SkeletalAnimation|null = null;
 
     // for fake tween
     private _startJump: boolean = false;
