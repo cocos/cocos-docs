@@ -15,7 +15,7 @@ Cocos Creator 的主菜单是可以自由扩展的。扩展方法是在 `package
 }
 ```
 
-在样例中，我们通过配置菜单路径，在主菜单 "Example" > "Foobar" 里加入了 "Foo" 和 "Bar" 两个菜单选项。当我们点击这个菜单项，他会发送定义在其 `message` 字段中的 IPC 消息到主进程中。比如我们点击 "Foo" 将会发送 `my-package:foo` 这个消息。
+在样例中，我们通过配置菜单路径，在主菜单 "Example" > "Foobar" 里加入了 "Foo" 和 "Bar" 两个菜单选项。当我们点击这个菜单项，它会发送定义在其 `message` 字段中的 IPC 消息到主进程中。比如我们点击 "Foo" 将会发送 `my-package:foo` 这个消息。
 
 ## 菜单路径
 

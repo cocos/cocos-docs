@@ -91,7 +91,7 @@ node.on('mousedown', function (event) {
 
 ### 将触摸或鼠标事件注册在捕获阶段
 
-有时候我们需要父节点的触摸或鼠标事件先于他的任何子节点派发，比如 CCScrollView 组件就是这样设计的。这时候事件冒泡已经不能满足我们的需求了，需要将父节点的事件注册在捕获阶段。要实现这个需求，可以在给 node 注册触摸或鼠标事件时，传入第四个参数 `true`，表示 `useCapture`. 例如：
+有时候我们需要父节点的触摸或鼠标事件先于它的任何子节点派发，比如 CCScrollView 组件就是这样设计的。这时候事件冒泡已经不能满足我们的需求了，需要将父节点的事件注册在捕获阶段。要实现这个需求，可以在给 node 注册触摸或鼠标事件时，传入第四个参数 `true`，表示 `useCapture`. 例如：
 
 ```js
 this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);

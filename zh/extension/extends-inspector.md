@@ -36,7 +36,7 @@ cc.Class({
 
 和我们创建一份扩展包没有任何区别，你可以按照 [你的第一个扩展包](your-first-extension.md) 中的方式创建一份 `main.js` 和 `package.json` 文件。这里我们假设我们的扩展包名为 foobar。
 
-注意，在创建完扩展包后，你需要重启一下 Cocos Creator 以便让他正确读入该扩展包。
+注意，在创建完扩展包后，你需要重启一下 Cocos Creator 以便让它正确读入该扩展包。
 
 ## 在扩展包中编写自定义 Inspector 的扩展文件
 
@@ -66,7 +66,7 @@ Cocos Creator 的 Inspector 扩展使用了 [Vue](http://vuejs.org/)。这里我
 
 ## 关于 target
 
-上一小节中提到的 `target` 实例是经过 Inspector 处理过的 target。其内部包含了对属性的加工处理。在使用的时候，我们不能简单的认为 `target.foo` 就代表 foo 的值。如果你去查看 `target.foo` 你会发现他是一个 Object 而不是我们在最开始定义的那样一个 'Foo' 的字符串。该份 Object 中包含了 `attrs`、`type`、`value` 等信息。其中的 `value` 才是我们真正的值。
+上一小节中提到的 `target` 实例是经过 Inspector 处理过的 target。其内部包含了对属性的加工处理。在使用的时候，我们不能简单的认为 `target.foo` 就代表 foo 的值。如果你去查看 `target.foo` 你会发现它是一个 Object 而不是我们在最开始定义的那样一个 'Foo' 的字符串。该份 Object 中包含了 `attrs`、`type`、`value` 等信息。其中的 `value` 才是我们真正的值。
 
 这么做的目的是为了让 Inspector 可以更好的获得数据可视化的各方面信息。例如当你定义了 cc.Class 的属性为：
 

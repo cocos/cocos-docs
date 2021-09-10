@@ -10,7 +10,7 @@ In v1.x, each rendering will do a lot of dynamic judgments, first to traverse al
 
 ## v2.x Rendering Process
 
-In v2.x, RenderFlow divides multiple render states according to the frequency of calls in the rendering process, such as Transform, Render, Children and so on, and each render state corresponds to a function. During the initialization of the RenderFlow, the corresponding rendering branches are created in advance based on these states, which link the corresponding states in turn.
+In v2.x, RenderFlow divides multiple render states according to the frequency of calls in the rendering process, such as **Transform**, **Render**, **Children** and so on, and each render state corresponds to a function. During the initialization of the RenderFlow, the corresponding rendering branches are created in advance based on these states, which link the corresponding states in turn.
 
 For example, if a node needs to update the matrix in the current frame and needs to render itself, then this node will update his flag as:
 

@@ -20,7 +20,7 @@ Cocos Creator is an open source game development tool centered on content creati
 
 In the development stage, Cocos Creator has been able to bring great efficiency and creativity to users, but the workflow we offer goes far beyond the development. For a successful game, the entire workflow of development and debugging, commercial SDK integration, multi-platform release, testing, and launching is not only indispensable, but iterates through multiple iterations.
 
-![cocos workflow user](introduction/cocos-workflow-user.jpg)
+![cocos workflow user](introduction/cocos-workflow.png)
 
 Cocos Creator integrates the entire mobile browser game solution into the editor tool, eliminating the need to shuttle between multiple software applications. With the Cocos Creator editor open, a one-click automated process takes the least amount of time and effort to solve all the above questions. Developers can focus on the development phase and increase product competitiveness and creativity!
 

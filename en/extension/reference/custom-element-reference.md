@@ -53,7 +53,7 @@ Editor.UI.registerElement('foobar-label', {
 
 #### $
 
-`$` 为一个 Object，他可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。
+`$` 为一个 Object，它可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。
 同 [面板定义参考](panel-reference.md)。
 
 ### 函数

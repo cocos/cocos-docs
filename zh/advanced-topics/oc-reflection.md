@@ -12,7 +12,7 @@ var result = jsb.reflection.callStaticMethod(className, methodName, arg1, arg2, 
 
 ## 类
 
-- 参数中的类名，只需要传入 OC 中的类名即可，与 Java 不同，类名并不需要路径。比如你在工程底下新建一个类 `NativeOcClass`，只要你将他引入工程，那么他的类名就是 `NativeOcClass`，你并不需要传入它的路径。
+- 参数中的类名，只需要传入 OC 中的类名即可，与 Java 不同，类名并不需要路径。比如你在工程底下新建一个类 `NativeOcClass`，只要你将它引入工程，那么它的类名就是 `NativeOcClass`，你并不需要传入它的路径。
 
   ```
   import <Foundation/Foundation.h>
