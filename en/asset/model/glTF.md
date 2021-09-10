@@ -48,15 +48,15 @@ The properties in the glTF node will be converted to properties in the prefab no
 | [Rotation](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#noderotation) | Rotation |
 | [Scaling](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodescale) | Scaling |
 | [Matrix](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodematrix) | Decompress and set the position, rotation, and scaling respectively |
-| [Mesh](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodemesh) | Mesh Renderer component |
+| [Mesh](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodemesh) | MeshRenderer component |
 | [Skin](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeskin) | Skinned Mess Renderer component |
-| [Initial Weight](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeweights) | (Skinned) Mesh Renderer component weight |
+| [Initial Weight](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeweights) | (Skinned) MeshRenderer component weight |
 
-#### Mesh Renderer
+#### MeshRenderer
 
 If the glTF node references a mesh, then the corresponding prefab node will also have a MeshRenderer component added to it after import. If the glTF node also references a skin, then the corresponding prefab node will also have a SkinnedMeshRenderer added to it.
 
-The mesh, skeletons, and materials in the Skinned Mesh Renderer component correspond to the transformed glTF mesh, skin, and material assets.
+The mesh, skeletons, and materials in the SkinnedMeshRenderer component correspond to the transformed glTF mesh, skin, and material assets.
 
 If the glTF node specifies an initial weight, the converted (skinned) mesh renderer will also carry this weight.
 
