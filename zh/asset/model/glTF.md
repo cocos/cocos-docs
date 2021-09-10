@@ -119,7 +119,7 @@ glTF 贴图中引用的 glTF 图像将转换为对相应转换后的 Cocos Creat
 
 glTF 贴图参数将按照下表中的映射关系转换为 Cocos Creator 贴图参数：
 
-|  glTF 贴图参数            |   Cocos Creator 贴图参数   |
+|  glTF 贴图属性            |   Cocos Creator 贴图属性   |
 | :----------------------- | :----------------------- |
 | [放大筛选器](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplermagfilter) | 放大筛选器         |
 | [缩小筛选器](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplerminfilter) | 缩小筛选器、Mip Map 筛选器 |

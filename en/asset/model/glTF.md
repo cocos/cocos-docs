@@ -124,7 +124,7 @@ The glTF image referenced in the glTF texture will be converted to a reference t
 
 glTF texture parameters will be converted to Cocos Creator texture parameters according to the texture in the following table:
 
-| glTF Texture Parameters | Cocos Creator Texture Parameters |
+| glTF Texture Property | Cocos Creator Texture Property |
 | :----------------------- | :----------------------- |
 | [Magnification Filter](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplermagfilter) | Magnification Filter |
 | [Minification Filter](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplerminfilter) | Minification Filter, Mip Map Filter |

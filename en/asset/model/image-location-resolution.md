@@ -1,8 +1,8 @@
 # Cocos Creator Image Location Resolution Algorithm
 
-The properties given in the Cocos Creator image location resolution algorithm and their descriptions are as follows:
+The parameters given in the Cocos Creator image location resolution algorithm and their descriptions are as follows:
 
-| Property | Description |
+| Parameter | Description |
 | :---- | :------ |
 | `url` | The desired URL |
 | `startDir` | The starting search directory |
