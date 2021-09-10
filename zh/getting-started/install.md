@@ -83,7 +83,7 @@ Cocos Creator 启动后，会进入 Cocos 开发者帐号的登录界面。登�
 
 如果之前没有 Cocos 开发者帐号，您可以使用登录界面中的 **注册** 按钮前往 **Cocos 开发者中心** 进行注册。或者直接进入下面的链接注册：
 
-<https://passport.cocos.com/auth/signup>
+<https://auth.cocos.com/#/sign_up/register>
 
 注册完成后就可以回到 Cocos Creator 登录界面完成登录了！验证身份后，我们就会进入 Dashboard 界面。除了手动登出或登录信息过期，其他情况下都会用本地 session 保存的信息自动登录。
 

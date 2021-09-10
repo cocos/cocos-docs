@@ -122,7 +122,7 @@ for (var i = 0; i < results.length; i++) {
 
   检测射线路径上任意的碰撞体，一旦检测到任何碰撞体，将立刻结束检测其他的碰撞体，最快。
 
-- cc.RayCastType.Closest 
+- cc.RayCastType.Closest
 
   检测射线路径上最近的碰撞体，这是射线检测的默认值，稍慢。
 
@@ -130,7 +130,7 @@ for (var i = 0; i < results.length; i++) {
 
   检测射线路径上的所有碰撞体，检测到的结果顺序不是固定的。在这种检测类型下，一个碰撞体可能会返回多个结果，这是因为 box2d 是通过检测夹具(fixture)来进行物体检测的，而一个碰撞体中可能由多个夹具（fixture）组成的，慢。更多细节可到 [物理碰撞组件](./collider-component.md) 查看。
 
-- cc.RayCastType.AllClosest   
+- cc.RayCastType.AllClosest
   
   检测射线路径上所有碰撞体，但是会对返回值进行删选，只返回每一个碰撞体距离射线起始点最近的那个点的相关信息，最慢。
 
@@ -138,19 +138,19 @@ for (var i = 0; i < results.length; i++) {
 
 射线检测的结果包含了许多有用的信息，你可以根据实际情况来选择如何使用这些信息。
 
-- collider   
+- collider
 
   指定射线穿过的是哪一个碰撞体。
 
-- point   
+- point
 
   指定射线与穿过的碰撞体在哪一点相交。
 
-- normal   
+- normal
 
   指定碰撞体在相交点的表面的法线向量。
 
-- fraction   
+- fraction
 
   指定相交点在射线上的分数。
 

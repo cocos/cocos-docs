@@ -81,7 +81,7 @@ Cocos Creator starts, will enter the Cocos developer account login interface. Si
 
 If you do not have a Cocos developer account before, you can sign up for the Cocos Developer Center using the **Sign up** button in the sign-in interface. Or simply use the following links:
 
-<https://passport.cocos.com/auth/signup>
+<https://auth.cocos.com/#/sign_up/register>
 
 After registration, you can return to the Cocos Creator login screen to complete the login! Once you verify your identity, you'll enter the Dashboard interface. Except manually log out or login information expired, in other circumstances the editor will preserve your login session information so you can automatically login later.
 

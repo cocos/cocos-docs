@@ -20,7 +20,7 @@ Cocos Creator 是以内容创作为核心的游戏开发工具，在 Cocos2d-x �
 
 在开发阶段，Cocos Creator 已经能够为用户带来巨大的效率和创造力提升，但我们所提供的工作流远不仅限于开发层面。对于成功的游戏来说，开发和调试、商业化 SDK 的集成、多平台发布、测试、上线这一整套工作流程不光缺一不可，而且要经过多次的迭代重复。
 
-![cocos workflow user](introduction/cocos-workflow-user.jpg)
+![cocos workflow user](introduction/cocos-workflow.png)
 
 Cocos Creator 将整套手机页游解决方案整合在了编辑器工具里，无需在多个软件之间穿梭，只要打开 Cocos Creator 编辑器，各种一键式的自动化流程就能花最少的时间精力，解决上述所有问题。开发者就能够专注于开发阶段，提高产品竞争力和创造力！
 
