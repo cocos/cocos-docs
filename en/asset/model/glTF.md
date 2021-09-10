@@ -48,7 +48,7 @@ The properties in the glTF node will be converted to properties in the prefab no
 | [Scaling](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodescale) | Scaling |
 | [Matrix](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodematrix) | Decompress and set the position, rotation, and scaling respectively |
 | [Mesh](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodemesh) | MeshRenderer component |
-| [Skin](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeskin) | Skinned Mess Renderer component |
+| [Skin](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeskin) | SkinnedMeshRenderer component |
 | [Initial Weight](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeweights) | (Skinned) MeshRenderer component weight |
 
 #### MeshRenderer
@@ -57,7 +57,7 @@ If the glTF node references a mesh, then the corresponding prefab node will also
 
 The mesh, skeletons, and materials in the SkinnedMeshRenderer component correspond to the transformed glTF mesh, skin, and material assets.
 
-If the glTF node specifies an initial weight, the converted (skinned) mesh renderer will also carry this weight.
+If the glTF node specifies an initial weight, the converted (skinned) meshrenderer will also carry this weight.
 
 ### glTF Mesh
 
@@ -83,7 +83,7 @@ The glTF primitive schema will be converted to the Cocos Creator primitive schem
 | `TRIANGLE_STRIP` | `gfx.PrimitiveMode.TRIANGLE_STRIP` |
 | `TRIANGLE_FAN`   | `gfx.PrimitiveMode.TRIANGLE_FAN`   |
 
-glTF vertex properties will be converted to Cocos Creator vertex properties, and the property names will be converted as shown in the following table:
+glTF vertex attributes will be converted to Cocos Creator vertex attributes, and the attribute names will be converted as shown in the following table:
 
 | glTF Vertex Attribute Name | Cocos Creator Vertex Attribute Name |
 | :------------------------  | :----------------------------------------------------------------------- |
