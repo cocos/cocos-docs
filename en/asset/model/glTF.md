@@ -6,7 +6,6 @@ Cocos Creator supports glTF 2.0 and earlier file formats.
 
 Creator supports URIs in the following form specified in glTF:
 
-
 - Data URI
 
 - Relative URI path
@@ -20,7 +19,6 @@ Creator supports URIs in the following form specified in glTF:
 When importing a glTF model into Creator, the assets in glTF will be converted to assets in Creator according to the following relationships:
 
 | glTF Asset | Cocos Creator Asset |
-
 | :---------- | :---------------- |
 | [glTF Scene](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-scene) | Prefab |
 | [glTF Mesh](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-mesh) | Mesh |
@@ -43,7 +41,6 @@ The prefab will use a node without any spatial transformation information as the
 The properties in the glTF node will be converted to properties in the prefab node according to the texture relationships in the following table:
 
 | glTF Node Property | Prefab Node Property |
-
 | :----------- | :----------- |
 | [Hierarchy](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodechildren) | Hierarchy |
 | [Displacement](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodetranslation) | Position |
@@ -122,7 +119,7 @@ After import, glTF texture will be converted to a texture asset in Cocos Creator
 
 The glTF image referenced in the glTF texture will be converted to a reference to the corresponding converted Cocos Creator image.
 
-glTF texture parameters will be converted to Cocos Creator texture parameters according to the texture in the following table:
+glTF texture properties will be converted to Cocos Creator texture properties according to the texture in the following table:
 
 | glTF Texture Property | Cocos Creator Texture Property |
 | :----------------------- | :----------------------- |
