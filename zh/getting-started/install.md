@@ -2,6 +2,8 @@
 
 如果阅读此文档时您还没有下载和启动 Cocos Creator，请按照以下步骤开始。
 
+> **注意**：Cocos Creator 从 **v2.3.2** 开始接入了全新的 Dashboard 系统，将做为 Creator 各引擎统一的下载器和启动入口，支持同时对多版本 Creator 和项目进行统一升级和管理！具体的下载、安装及使用方法请参考 [Cocos Dashboard](https://docs.cocos.com/creator/3.0/manual/zh/getting-started/install/)。
+
 ## 下载 Cocos Creator
 
 您可以通过访问 [Cocos Creator 产品首页](https://www.cocos.com/creator/) 上的下载链接获得 Cocos Creator 的安装包。
@@ -81,7 +83,7 @@ Cocos Creator 启动后，会进入 Cocos 开发者帐号的登录界面。登�
 
 如果之前没有 Cocos 开发者帐号，您可以使用登录界面中的 **注册** 按钮前往 **Cocos 开发者中心** 进行注册。或者直接进入下面的链接注册：
 
-<https://passport.cocos.com/auth/signup>
+<https://auth.cocos.com/#/sign_up/register>
 
 注册完成后就可以回到 Cocos Creator 登录界面完成登录了！验证身份后，我们就会进入 Dashboard 界面。除了手动登出或登录信息过期，其他情况下都会用本地 session 保存的信息自动登录。
 

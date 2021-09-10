@@ -2,6 +2,8 @@
 
 If you have not downloaded and started Cocos Creator while reading this document, please follow the steps below.
 
+> **Note**: As of **v2.3.2**, Cocos Creator is equipped with a new Dashboard system, which will serve as a unified downloader and startup portal for all Cocos Creator, supporting the upgrade and management of multiple versions of Creator and projects at the same time! Please refer to the [Cocos Dashboard](https://docs.cocos.com/creator/3.0/manual/en/getting-started/install/) documentation for details on downloading, installation and usage.
+
 ## Download Cocos Creator
 
 You can obtain the installation package for Cocos Creator by visiting the download link on the [Cocos Creator Products Page](http://www.cocos2d-x.org/products#creator).
@@ -79,7 +81,7 @@ Cocos Creator starts, will enter the Cocos developer account login interface. Si
 
 If you do not have a Cocos developer account before, you can sign up for the Cocos Developer Center using the **Sign up** button in the sign-in interface. Or simply use the following links:
 
-<https://passport.cocos.com/auth/signup>
+<https://auth.cocos.com/#/sign_up/register>
 
 After registration, you can return to the Cocos Creator login screen to complete the login! Once you verify your identity, you'll enter the Dashboard interface. Except manually log out or login information expired, in other circumstances the editor will preserve your login session information so you can automatically login later.
 

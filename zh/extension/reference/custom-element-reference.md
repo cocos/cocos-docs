@@ -53,7 +53,7 @@ Editor.UI.registerElement('foobar-label', {
 
 #### $
 
-`$` 为一个 Object，他可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。
+`$` 为一个 Object，它可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。
 同 [面板定义参考](panel-reference.md)。
 
 ### 函数
@@ -64,7 +64,7 @@ Editor.UI.registerElement('foobar-label', {
 
 #### factoryImpl (arg1, arg2, ...)
 
-他相当于构建函数，可以让你的自定义元素在构建的时候传递参数。例如：
+它相当于构建函数，可以让你的自定义元素在构建的时候传递参数。例如：
 
 ```javascript
 let FoobarLabel = Editor.UI.registerElement('foobar-label', {

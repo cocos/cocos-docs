@@ -120,7 +120,7 @@ Editor.Panel.extend({
 
 #### $
 
-`$` 为一个 Object，他可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。假设我们有以下代码：
+`$` 为一个 Object，它可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。假设我们有以下代码：
 
 ```javascript
 Editor.Panel.extend({

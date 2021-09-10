@@ -1,26 +1,26 @@
 # package.json 字段参考
 
-### name (String)
+## name (String)
 
-你的扩展包名字。扩展包名字是全局唯一的，他关系到你今后在官网服务器上登录时的名字。
+你的扩展包名字。扩展包名字是全局唯一的，它关系到你今后在官网服务器上登录时的名字。
 
-### version (String)
+## version (String)
 
 版本号，我们推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
 
-### description (String)
+## description (String)
 
 一句话描述你的扩展包是用来做什么的。
 
-### author (String)
+## author (String)
 
 注明扩展包的作者，可以是你的名字，团队的名字或者公司的名字。
 
-### main (String)
+## main (String)
 
 入口函数文件。通常我们会在包中存放一个 main.js 文件作为入口函数文件。你也可以在入口函数文件放在扩展包中的其他位置例如：`main/index.js`，只要在 `main` 字段中正确书写你的文件的相对路径即可。
 
-### main-menu (Object)
+## main-menu (Object)
 
 主菜单注册，主菜单注册的键值（Key）是一段菜单路径，注册信息为一个对象，关于注册信息可详细阅读[主菜单字段参考](main-menu-reference.md)。
 
@@ -28,7 +28,7 @@
 
 ![menu-path](../assets/menu-path.png)
 
-### panel (Object)
+## panel (Object)
 
 面板注册，面板注册的键值（Key）是一个以 `panel` 开头的字符串，字符串后面可跟上后缀名用于多面板的注册。
 注册完的面板，将会生成以 `${包名}${面板后缀名}` 为组合的面板 ID，如果没有后缀名（通常我们如果注册一个面板就不会带后缀），
@@ -60,7 +60,7 @@
 
 关于面板注册信息可详细阅读[面板字段参考](panel-json-reference.md)。
 
-### reload (Object)
+## reload (Object)
 
 可以通过 `reload` 字段定制扩展包自动重载的文件监控规则，未做声明时的默认规则如下：
 
@@ -73,7 +73,7 @@
 }
 ```
 
-### runtime-resource (Object)
+## runtime-resource (Object)
 
 插件通过在 `package.json` 文件中配置 `runtime-resource` 字段来 mount runtime 资源到资源管理器中。配置的格式如下：
 
@@ -98,7 +98,7 @@
 }
 ```
 
-### scene-script (String)
+## scene-script (String)
 
 `scene-script` 字段用于声明一个扩展包内的脚本，在该脚本中可以使用引擎 API，并访问当前场景中的节点和组件。
 

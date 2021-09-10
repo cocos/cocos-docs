@@ -26,7 +26,7 @@ Editor.Panel.extend({
 #### style
 
 使用 CSS 定义你的样式。在 Panel 定义中，CSS 样式被定义在 [Shadow DOM](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/) 中，
-所以他遵循 Shadow DOM 的样式定义规范。
+所以它遵循 Shadow DOM 的样式定义规范。
 
 使用 `:host` 来表示 Panel 本身的样式。而在 Panel 中的其他样式则遵循 CSS 选择器的书写规则。由于采用 Shadow DOM，我们定义在面板内的样式和其他面板样式以及全局样式是隔离开的，所以不必担心 CSS 命名污染的问题。
 
@@ -121,7 +121,7 @@ Editor.Panel.extend({
 
 #### $
 
-`$` 为一个 Object，他可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。假设我们有以下代码：
+`$` 为一个 Object，它可以通过 CSS 选择器的语法，将模板中的元素映射成 `$` 变量方便用户使用。假设我们有以下代码：
 
 ```javascript
 Editor.Panel.extend({

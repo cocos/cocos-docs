@@ -196,7 +196,7 @@ var MyComponent = cc.Class({
 });
 ```
 
-`{extends: cc.Component}` 这就是一个用做函数参数的对象。在 JavaScript 中大多数情况我们使用对象时都不一定要为他命名，很可能会像这样直接使用。
+`{extends: cc.Component}` 这就是一个用做函数参数的对象。在 JavaScript 中大多数情况我们使用对象时都不一定要为它命名，很可能会像这样直接使用。
 
 ## 匿名函数
 
