@@ -1,8 +1,10 @@
 # Cocos Creator Image Location Resolution Algorithm
 
-The parameters given in the Cocos Creator image location resolution algorithm and their descriptions are as follows:
+The properties given in the Cocos Creator image location resolution algorithm and their descriptions are as follows:
 
-| Parameter | Description |
+
+| Property | Description |
+
 | :---- | :------ |
 | `url` | The desired URL |
 | `startDir` | The starting search directory |
@@ -19,11 +21,13 @@ The Cocos Creator image location resolution algorithm is given by the following 
 - let `expectedBaseName` be the extensionless filename of `url`.
 
 
-- Let `searchExtNames` be `[expectedExtName, ...SEARCH_EXT_NAMES]` array after de-duplication.
+- Let `searchExtNames` be the array of `[expectedExtName, ...SEARCH_EXT_NAMES]` after de-duplication.
+
 
 - Let `currentDir` be `startDir` and loop for `DEPTH` times:
 
-    - If `currentDir` is outside the project `assets` directory, then exit the loop.
+    - If `currentDir` is outside the project's `assets` directory, then exit the loop.
+
 
     - If none of the subdirectories in the `currentDir` directory have names matching `SEARCH_DIR_NAMES`, then the next loop is executed.
 

@@ -19,7 +19,8 @@ Creator supports URIs in the following form specified in glTF:
 
 When importing a glTF model into Creator, the assets in glTF will be converted to assets in Creator according to the following relationships:
 
-| glTF assets | Cocos Creator assets |
+| glTF Asset | Cocos Creator Asset |
+
 | :---------- | :---------------- |
 | [glTF Scene](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-scene) | Prefab |
 | [glTF Mesh](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-mesh) | Mesh |
@@ -41,7 +42,8 @@ The prefab will use a node without any spatial transformation information as the
 
 The properties in the glTF node will be converted to properties in the prefab node according to the texture relationships in the following table:
 
-| glTF node properties | prefab node properties |
+| glTF Node Property | Prefab Node Property |
+
 | :----------- | :----------- |
 | [Hierarchy](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodechildren) | Hierarchy |
 | [Displacement](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodetranslation) | Position |
@@ -101,7 +103,8 @@ glTF vertex properties will be converted to Cocos Creator vertex properties, and
 > **Note**: if there are other `JOINTS`, `WEIGHTS` vertex attributes in the glTF primitive, such as `JOINTS_1`, `WEIGHTS_1`, it means that the vertices of this glTF mesh may be affected by more than 4 skeletons.
 
 
-For each vertex, all the weight information determined by `JOINTS_{}`, `WEIGHTS_{}` will be sorted by weight value and the four skeletons with the highest influence weight will be taken as `gfx.AttributeName.ATTR_JOINTS` and `gfx.AttributeName.ATTR_WEIGHTS`. .
+For each vertex, all the weight information determined by `JOINTS_{}`, `WEIGHTS_{}` will be sorted by weight value and the four skeletons with the highest influence weight will be taken as `gfx.AttributeName.ATTR_JOINTS` and `gfx.AttributeName.ATTR_WEIGHTS`.
+
 
 glTF deformation targets will be converted to Cocos Creator submesh deformation data.
 
