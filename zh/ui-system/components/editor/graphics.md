@@ -15,7 +15,7 @@ Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/classes/ui.graphics-
 | 属性 |   功能说明 |
 | :------------- | :---------- |
 | [CustomMaterial](../engine/ui-material.md)| 自定义材质，可用于实现溶解、外发光等渲染效果。 |
-| [LineWidth](../render/graphics/lineWidth.md) | 设置或返回当前的线条宽度 |
+| [LineWidth](graphics/lineWidth.md) | 设置或返回当前的线条宽度 |
 | [LineJoin](graphics/lineJoin.md)             | 设置或返回两条线相交时，所创建的拐角类型 |
 | [LineCap](graphics/lineCap.md)               | 设置或返回线条的结束端点样式 |
 | [StrokeColor](graphics/strokeColor.md)       | 设置或返回笔触的颜色 |
