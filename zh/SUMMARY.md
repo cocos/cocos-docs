@@ -94,7 +94,7 @@
 - [光照](concepts/scene/light.md)
     - [基于物理的光照](concepts/scene/light/pbr-lighting.md)
     - [光源](concepts/scene/light/lightType/lightIntroduce.md)
-        - [主方向光](concepts/scene/light/lightType/dir-light.md)
+        - [平行光](concepts/scene/light/lightType/dir-light.md)
         - [球面光](concepts/scene/light/lightType/sphere-light.md)
         - [聚光灯](concepts/scene/light/lightType/spot-light.md)
         - [环境光](concepts/scene/light/lightType/ambient.md)
