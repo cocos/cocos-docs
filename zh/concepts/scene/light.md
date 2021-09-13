@@ -4,8 +4,6 @@
 
 光照是指光的照射，Creator 中光照的实现模拟了光对真实世界的影响。在场景中添加光源可以使场景产生相应的光照和阴影效果，获得更好的视觉效果。
 
-光源在游戏中表示具备自发光能力的物体，在场景中添加光源可以使场景产生相应的光照和阴影效果，获得更好的视觉效果。
-
 ![light scene](light/lighting.png)
 
 ## 添加光源
@@ -28,9 +26,9 @@ Cocos Creator 中采用光学度量单位来描述光源参数。基于光学度
 
 ## 光源类型
 
-光源类型目前包括 **方向光**、**球面光**、**聚光灯**、**环境光** 四种，详情可参考下方文档：
+光源类型目前包括 **平行光**、**球面光**、**聚光灯**、**环境光** 四种，详情可参考下方文档：
 
-- [方向光](./light/lightType/dir-light.md)
+- [平行光](./light/lightType/dir-light.md)
 - [球面光](./light/lightType/sphere-light.md)
 - [聚光灯](./light/lightType/spot-light.md)
 - [环境光](./light/lightType/ambient.md)
