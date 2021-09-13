@@ -100,6 +100,6 @@ export class test extends Component {
 
 ### The Difference Between `destroy` and `removeFromParent`
 
-After calling `removeFromParent` on a node, it may not be completely released from the memory, because it is possible that the object is still referenced in the program due to some logical problems. If a node is no longer in use, please call its `destroy` directly instead of `removeFromParent`. `destroy` will not only activate `onDestroy` on the component, it will also reduce the chance of memory leaks and at the same time reduce the consequences of memory leaks.
+After calling `removeFromParent` of a node, in-memory data is not released because there is some logical problem that causes the program to still refer to the object. **So if a node is no longer used, please call its `destroy` directly instead of `removeFromParent`, otherwise a memory leak will result.**
 
 In short, if a node is no longer used, `destroy` is right, there is no need to `removeFromParent` nor to set `parent` to `null`.
