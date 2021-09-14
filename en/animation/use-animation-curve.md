@@ -11,7 +11,7 @@ import { AnimationClip, animation, js } from 'cc';
 const animationClip = new AnimationClip();
 animationClip.duration = 1.0; // The entire period of the animation clip, the frame time of any keyframe should not be greater than this property
 animationClip.keys = [ [ 0.3, 0.6, 0.9 ] ]; // The frame time shared by all curves of the clip
-animationClip.curves = [{ // Animation curves on the animation component
+animationClip.curves = [{ // Animation curves on the Animation component
     modifiers: [ // Address the target object from the current node object. See the "Target Objects" section below for details
         // The target object is the "Body" child of the current node.
         HierarchyPath('Body'),
