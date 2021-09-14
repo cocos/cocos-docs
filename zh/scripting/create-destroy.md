@@ -108,6 +108,6 @@ cc.Class({
 
 ### destroy 和 removeFromParent 的区别
 
-调用一个节点的 `removeFromParent` 后，它并不会从内存中释放，因为一些逻辑上的问题，导致程序中仍然引用到了这个对象。**因此如果一个节点不再使用，请直接调用它的 `destroy` 而不是 `removeFromParent`，否则会导致内存泄漏。**
+调用一个节点的 `removeFromParent` 后，它并不会从内存中释放，因为引擎内部仍会持有它的数据。**因此如果一个节点不再使用，请直接调用它的 `destroy` 而不是 `removeFromParent`，否则会导致内存泄漏。**
 
 总之，如果一个节点不再使用，`destroy` 就对了，不需要 `removeFromParent` 也不需要设置 `parent` 为 `null`。

@@ -108,6 +108,6 @@ cc.Class({
 
 ### destroy and removeFromParent
 
-After calling `removeFromParent` of a node, in-memory data is not released because there is some logical problem that causes the program to still refer to the object. **So if a node is no longer used, please call its `destroy` directly instead of `removeFromParent`, otherwise a memory leak will result.**
+After calling `removeFromParent` on a node, the node is not released from memory because the engine still holds its data internally. **If a node is no longer used, please call its `destroy` directly instead of `removeFromParent`, otherwise, a memory leak will result.**
 
 In short, if a node is no longer used, use `destroy`, do not need `removeFromParent`, do not need to set `parent` to `null`.
