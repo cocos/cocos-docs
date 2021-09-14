@@ -1,6 +1,6 @@
 # Animation Clip
 
-An Animation Clip is an asset containing animation data, which is one of the core elements of the animation system. By attaching an Animation Clip on the [Animation Component](animation-component.md), this animation data can be applied to the node where the Animation Component is located.
+An Animation Clip is an asset containing animation data, which is one of the core elements of the animation system. By attaching an Animation Clip on the [Animation Component](animation-comp.md), this animation data can be applied to the node where the Animation Component is located.
 
 Currently, Creator supports importing Skeletal Animation assets produced by external art tools or by creating a new Animation Clip asset directly inside Creator.
 
