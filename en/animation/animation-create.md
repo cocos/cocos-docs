@@ -14,9 +14,9 @@ An animation clip (`animation.anim`) is automatically created in the **Assets** 
 
 ![mount clip](./animation-create/mount-clip.png)
 
-The above briefly describes how to create Animation components and animation clips in the **Animation** panel, for more information about the creation and properties of Animation components, please refer to the [Animation Component Reference](./animation-comp.md). For more information on how to create animation clips, please refer to the end of this article.
+The above briefly describes how to create Animation components and animation clips in the **Animation** panel, for more information about the creation and properties of Animation components, please refer to the [Animation Component](./animation-comp.md) documentation. For additional information on how to create animation clips, please refer to the end of this article.
 
-Next, go ahead and click **Enter animation editing mode** to start [edit-animation-clip](edit-animation-clip.md). The newly created empty Animation Clip is displayed in the animation editor as follows:
+Next, click **Enter animation editing mode** to start [edit-animation-clip](edit-animation-clip.md). The newly created empty Animation Clip is displayed in the animation editor as follows:
 
 ![empty clip](./animation-create/empty-clip.png)
 
