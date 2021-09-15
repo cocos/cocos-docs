@@ -304,8 +304,6 @@
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [Render Pipeline](render-pipeline/overview.md)
         - [Built-in Pipeline](render-pipeline/builtin-pipeline.md)
-        - [Custom Pipeline](render-pipeline/user-pipeline.md)
-        - [Post-Processing](render-pipeline/post-process.md)
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)

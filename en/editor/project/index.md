@@ -47,7 +47,7 @@ The default Canvas settings include **Design Resolution** and **Fit Screen Width
 
 ### Render Pipeline
 
-The render pipeline is used to control the rendering process of the scene, currently only **builtin-forward** is supported, developers can also customize the render pipeline.
+The render pipeline is used to control the rendering process of the scene, currently only **builtin-forward** is supported, please refer to the [Built-in Pipeline](../../render-pipeline/builtin-pipeline.md) documentation.
 
 ## Layers
 
