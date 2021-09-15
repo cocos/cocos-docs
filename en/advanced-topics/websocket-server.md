@@ -4,7 +4,7 @@ Developers can launch a WebSocket Server during the game and provide an **RPC in
 
 ## How To Enable
 
-The **WebSocket Server** is disabled by default. To enable it, add to the configuration `set(USE_WEBSOCKET_SERVER ON)` to the `cfg.cmake` file under the release package directory `build/[platform]/proj` (e.g. `build/android/proj` by default for Android platform) generated after building the native platform.
+The **WebSocket Server** is disabled by default. To enable it, add to the configuration `set(USE_WEBSOCKET_SERVER ON)` to the `cfg.cmake` file under the release package directory `build/[platform]/proj` (e.g.: `build/android/proj` by default for Android platform) generated after building the native platform.
 
 ## How to use WebSocket
 

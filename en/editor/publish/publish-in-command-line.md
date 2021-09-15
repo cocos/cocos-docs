@@ -41,7 +41,7 @@ Currently, when using the command line to build, except for the required build o
     - `name`: Game name.
     - `platform`: Required, the platform needs to be built.
     - `buildPath`: The game's release path, the default release path is in the `build` under the project folder.
-    - `startScene`: The uuid of the main scene (the participating scene will use the build option parameters in the **Build** panel from the last build), and the first scene from the **Included Scenes** will be used if not specified.
+    - `startScene`: The UUID of the main scene (the participating scene will use the build option parameters in the **Build** panel from the last build), and the first scene from the **Included Scenes** will be used if not specified.
     - `scenes`: Information about the scenes involved in the build, which defaults to all scenes when not specified.
     - `debug`: Whether or not debug mode, the default is `false`.
     - `packAutoAtlas`: Enabled or disabled the Auto Atlas, the default is `false`.

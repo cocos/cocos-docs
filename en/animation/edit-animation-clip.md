@@ -6,7 +6,7 @@ An Animation Clip may contain multiple nodes (nodes and their children), and mul
 
 ## Creating an Animation Curve
 
-Before adding keyframes, it is necessary to know about animation properties. The animation properties include the node's own `position`, `rotation`, `scale`, and other properties, and also include the custom properties in the component `Component`. The properties included in the component are preceded by the name of the component, e.g. `cc.Sprite.spriteFrame`.
+Before adding keyframes, it is necessary to know about animation properties. The animation properties include the node's own `position`, `rotation`, `scale`, and other properties, and also include the custom properties in the component `Component`. The properties included in the component are preceded by the name of the component, e.g.: `cc.Sprite.spriteFrame`.
 
 Click the **+** button in the upper-right corner of the **Property List** area to add animation properties as needed, depending on the node type. Added animation properties are grayed out and cannot be added repeatedly.
 
@@ -124,7 +124,7 @@ The above two pasting methods differ when copying and pasting data from multiple
 
   ![copy keyFrames1](edit-animation-clip/copy-keyframes1.gif)
 
-Component property tracks (e.g. `x`, `y`, `z` properties under the animation property track `position`) as separate property tracks will also follow this rule. If right-clicking on the target component track after copying the keyframe data on the main track (e.g. animation property track `position`) to paste it, only the target component track will be pasted with the keyframe data. Be sure to copy the data according to the actual position you want to paste, to avoid unintended results.
+Component property tracks (e.g.: `x`, `y`, `z` properties under the animation property track `position`) as separate property tracks will also follow this rule. If right-clicking on the target component track after copying the keyframe data on the main track (e.g.: animation property track `position`) to paste it, only the target component track will be pasted with the keyframe data. Be sure to copy the data according to the actual position you want to paste, to avoid unintended results.
 
 ## Common operations with node data
 
@@ -146,7 +146,7 @@ Right-click the node that needs to migrate all animation data, then select **Mig
 
 > **Note**: node data migration will overwrite the data on the original node by default.
 
-Because the animation clip will record all the node path information that participated in the animation data editing, so when the node information changes (e.g. node renaming/deletion/move position), which is not consistent with the original saved in the animation clip, the **Animation** panel will show it in the node list as a yellow uneditable lost state, and the keyframes are also grayed out as uneditable. In this case, the **Migrate Data** function of the node can be used to migrate the animation data of the missing node to another node.
+Because the animation clip will record all the node path information that participated in the animation data editing, so when the node information changes (e.g.: node renaming/deletion/move position), which is not consistent with the original saved in the animation clip, the **Animation** panel will show it in the node list as a yellow uneditable lost state, and the keyframes are also grayed out as uneditable. In this case, the **Migrate Data** function of the node can be used to migrate the animation data of the missing node to another node.
 
 ![change node](edit-animation-clip/change-node.png)
 
@@ -165,7 +165,7 @@ When editing animation data in the animation clip of the parent node, you can al
 
 ![same-name node](edit-animation-clip/same-name-node.png)
 
-However, it is supported to add animation components and animation clips for the same name child node separately and edit them separately.
+However, it is supported to add Animation components and animation clips for the same name child node separately and edit them separately.
 
 ## Common operations for animation property data
 
