@@ -60,11 +60,13 @@ ShadowMap renders the scene with the lights as the viewpoint. From the position 
 | **MaxReceived**     | The maximum number of lights supported for shadow generation, default is 4, can be adjusted as needed.  |
 | **Bias**            | Set the shadow offset value to prevent z-fitting. |
 | **NormalBias**      | Set the normal offset value. |
-| **ShadowMapSize**   | Set the texture size of the shadow. |
-| **AutoAdapt**       | If checked, the range of shadows will be calculated automatically, as described in section **AutoAdapt Adaptive Shadow Calculation** below. If this option is unchecked, the following properties are enabled to manually set the range of shadow generation.  |
+| **ShadowMapSize**   | Set the texture size of the shadow, Currently supports **Low_256x256**, **Medium_512x512**, **High_1024x1024**, **Ultra_2048x2048** four kinds of precision texture size |
+| **FixedArea**       | If unchecked, the range of shadows will be calculated automatically, as described in section **FixedArea Adaptive Shadow Calculation** below. If this option is checked, the following properties are enabled to manually set the range of shadow generation.  |
 | **Near**            | Set the near clipping plane of the main lights shadow camera. |
 | **Far**             | Set the far clipping plane of the main lights shadow camera. |
 | **OrthoSize**       | Set the ortho viewport size of the main lights shadow camera. |
+| **InvisibleOcclusionRange**   | Set the range of potential shadows, and increase the value if shadows are rejected.     |
+| **ShadowDistance**            | Set the range of the shadow effect displayed in the viewport.     |
 
 > **Note**: starting with v3.3, the **Linear** and **Packing** options for Shadows in the **Inspector** panel have been removed, and Creator will automatically determine the hardware capabilities and choose the best way to render the shadows.
 
@@ -78,9 +80,9 @@ Percentage Closer Filtering (PCF) is a simple, common technique used to achieve 
 
 Cocos Creator currently supports **hard sampler (HARD mode)**, **4x sampler (SOFT mode)**, **9x sampler (SOFT_2X mode)**. The larger the magnification, the larger the sampling area and the more softer the shadow edges.
 
-#### AutoAdapt Adaptive Shadow Calculation
+#### FixedArea Shadow Calculation
 
-AutoAdapt adaptive shadow calculation automatically calculates the extent of shadow generation in the lightView and the proximity of the shadow camera.
+Without FixedArea mode on, shadows in the viewport are calculated using the same cropping process and camera calculations as in CSM, based on camera orientation and position. With FixedArea mode on, the extent of shadow generation is controlled by manually setting the properties.
 
 ## Support dynamic batching to improve performance
 
