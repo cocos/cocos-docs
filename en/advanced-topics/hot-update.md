@@ -54,7 +54,7 @@ To show the hot update process, the example project used in the tutorial has a f
 
 ### Use the version generator to generate the manifest file
 
-In the example project, we provided a [version_generator.js](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) script file, which is a Nodejs script for generating manifest file. Use as follows:
+In the example project provided, [version_generator.js](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) is a script file, which is a Nodejs script for generating the manifest file. Use it as follows:
 
 ```bash
 > node version_generator.js -v 1.0.0 -u http://your-server-address/tutorial-hot-update/remote-assets/ -s native/package/ -d assets/
