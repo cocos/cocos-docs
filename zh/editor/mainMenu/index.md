@@ -129,7 +129,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 功能 | 说明 |
 | :--- | :-- |
 | 编译引擎 | 对定制引擎进行重新编译，详情请参考 [引擎定制工作流程](../../advanced-topics/engine-customization.md) |
-| 编译原生模拟器引擎 | 对定制原生模拟器进行重新编译，详情请参考 [原生模拟器引擎](../../advanced-topics/engine-customization.md#25-%E5%AE%9A%E5%88%B6%E5%8E%9F%E7%94%9F%E5%BC%95%E6%93%8E%E6%A8%A1%E6%8B%9F%E5%99%A8) |
+| 编译原生模拟器引擎 | 编译自定义原生引擎模拟器，详情请参考 [定制原生模拟器引擎](../../advanced-topics/engine-customization.md#25-%E5%AE%9A%E5%88%B6%E5%8E%9F%E7%94%9F%E5%BC%95%E6%93%8E%E6%A8%A1%E6%8B%9F%E5%99%A8) |
 | 消息调试工具 | 打开消息调试工具，用于调试编辑器内部运行时的 IPC 交互|
 | Tester | 编辑器内置扩展的测试工具，目前暂未开放全部功能 |
 | 开关图形工具 | 打开开关图形工具面板,用于调试场景渲染|
