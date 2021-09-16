@@ -27,7 +27,7 @@ This can naturally support cross-version update, such as the local version is A,
 
 ## Hot update basic workflow
 
-After understand the basic design above, we can take a look at a typical hot update process. We use the manfiest description file to describe the asset file list and asset version that is stored locally or remotely. The manifest file definition is described later. The runtime environment assumes that the installer version is updated for the first time after the user has installed the app:
+After understanding the basic design above, take a look at a typical hot update process. Use the manifest description file to describe the asset file list and asset version that is stored locally or remotely. The manifest file definition is described later. The runtime environment assumes that the installer version is updated for the first time after the user has installed the app:
 
 ![asset manager](hot-update/assets-manager.png)
 
