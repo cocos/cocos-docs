@@ -30,7 +30,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 新建项目 | 打开 Dashboard 的 [项目](../../getting-started/dashboard/index.md#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE) 分页，以新建一个项目 |
 | 打开项目 | 打开 Dashboard 的 [项目](../../getting-started/dashboard/index.md#%E9%A1%B9%E7%9B%AE) 分页 |
 | 新建场景（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>N</kbd>） | 关闭当前场景并创建一个新场景，新创建的场景需要手动保存才会添加到项目目录下 |
-| 保存场景（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>） | 保存当前正在编辑的场景，如果是使用 **文件 -> 新建场景** 创建的场景，在第一次保存时会弹出对话框，需要选择场景文件保存的位置和文件名。场景文件以 `.fire` 作为扩展名 |
+| 保存场景（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>） | 保存当前正在编辑的场景，如果是使用 **文件 -> 新建场景** 创建的场景，在第一次保存时会弹出对话框，需要选择场景文件保存的位置并填写文件名，然后点击 **保存** 即可。场景文件以 `.fire` 作为扩展名 |
 | 另存为（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> +<kbd>Shift</kbd>+ <kbd>S</kbd>） | 生成当前场景文件的副本，并保存在项目中|
 | 导入 Cocos Creator 2.x 项目 | v2.x 资源导入工具，支持旧项目资源完美导入，以及代码的辅助迁移。详情请参考 [v3.0 升级指南](../../release-notes/upgrade-guide-v3.0.md) |
 
@@ -66,10 +66,10 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 空节点 | 在场景中创建一个空节点，如果执行命令前场景中已经选中了节点，新建的节点会成为选中节点的子节点|
 | 3D 对象 | Creator 提供了一些比较基础的静态模型控件以便使用，目前包括 **立方体**、**圆柱体**、**球体**、**胶囊**、**圆锥体**、**圆环体**、**平面** 和 **四方形**。若需要创建其他类型的模型，可参考 [MeshRenderer 组件](../../engine/renderable/model-component.md)|
 | 2D 对象 | 在场景中创建 Creator 预设好的包含基础渲染组件的 2D 节点，目前包括 **Graphics**（绘图）、**Label**（文本）、**Mask**（遮罩）、**ParticleSystem2D**（粒子）、**Sprite**（精灵）、**SpriteSplash**（单色）和 **TiledMap**（地图），详细情况可参考 [2D 渲染组件介绍](../../ui-system/components/editor/render-component.md)|
-| UI 组件 | 在场景中创建由编辑器自带的 UI 组件，可以创建包括 **Button**（按钮）、**Widget**（对齐挂件）、**Layout**（布局）、**ScrollView**（滚动视图）、**EditBox**（输入框）等节点在内的常用 UI 控件。更多 UI 组件介绍，可以查看 [UI 基础组件](../../ui-system/components/editor/base-component.md)|
+| UI 组件 | 在场景中创建 Creator 预设好的包含基础 UI 组件的节点，目前包括 **Button**（按钮）、**Widget**（对齐挂件）、**Layout**（布局）、**ScrollView**（滚动视图）、**EditBox**（输入框）等节点在内的常用 UI 控件。更多 UI 组件介绍，可以查看 [UI 基础组件](../../ui-system/components/editor/base-component.md)|
 | 光线 |  在场景中创建 Creator 预设好的包含基础光源组件的节点，目前包括 **平行光**、**球面光** 和 **聚光**，详情请参考 [光照](../../concepts/scene/light.md)|
 | 特效 | 在场景中创建 Creator 预设好的包含 [粒子系统](../../particle-system/overview.md) 组件的节点。更多特效组件可在 **属性检查器** 面板点击 **添加组件 -> 特效** 进行添加。|
-| 摄像机 | 在场景中创建 Creator 预设好的包含 **Camera** 组件的节点。具体的使用方式，详情请参考 [Camera 组件](../components/camera-component.md)|
+| 摄像机 | 在场景中创建 Creator 预设好的包含 Camera 组件的节点。具体的使用方式，详情请参考 [Camera 组件](../components/camera-component.md)|
 | 地形 | 在场景中创建 Creator 预设好的包含地形组件的节点。具体的使用方式，详情请参考 [地形系统](../terrain/index.md)|
 
 ## 项目
@@ -98,14 +98,14 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 选项 | 说明 |默认快捷键 |
 | :--- | :-- |:-- |
 | 控制台 | 打开 [控制台](../console/index.md)，用于查看输出的日志信息 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>0</kbd>
-| 场景编辑器 | 打开 [场景编辑器](../scene/index.md) 面板。该面板用于选择和摆放场景图像、角色、特效、UI 等各类游戏元素 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>1</kbd>
+| 场景编辑器 | 打开 [场景编辑器](../scene/index.md) 面板。用于选择和摆放场景图像、角色、特效、UI 等各类游戏元素 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>1</kbd>
 | 资源管理器 | 打开 **资源管理器**/**资源预览** 面板，用于访问/管理/查看项目资源，详情请参考 [资源管理器](../assets/index.md) |资源管理器为 <kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>2</kbd>
 | 属性检查器 | 打开 [属性检查器](../inspector/index.md) 面板，用于查看并编辑当前选中节点、节点组件和资源的工作区域  |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>3</kbd>
 | 层级管理器 | 打开 [层级管理器](../hierarchy/index.md) 面板，该面板以树状列表的形式展示了场景中所有节点之间的层级关系 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>4</kbd>
 | 预览 | 打开 **摄像机预览** 面板，该面板展示的画面与在场景中选中对应 Camera 节点时，**场景编辑器** 右下角展示的画面一致。当调整场景时，摄像机预览面板中的画面也会实时同步  |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>5</kbd>
 | 动画 |  可以打开 [动画编辑器](../../animation/index.md) 面板或者 [Joint Texture Layout（骨骼贴图布局）](../../animation/joint-texture-layout.md) 面板，用于对帧动画或者骨骼动画进行编辑、查看等功能。 |动画编辑器为 <kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>6</kbd>
 | 节点预制库 | 打开节点预制库面板。该面板是一个非常简单直接的可视化控件仓库，开发者可以将这里列出的控件拖拽到 **场景编辑器** 或 **层级管理器** 中，快速完成预设控件的创建|<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>7</kbd>
-| 服务 | 打开 [服务](https://service.cocos.com/document/zh) 面板，该面板提供了一些优质的官方以及第三方服务，方便开发者获得更多引擎之外的扩展能力，让游戏开发工作变得更加简单 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>8</kbd>
+| 服务 | 打开 [服务](https://service.cocos.com/document/zh) 面板，提供了一些优质的官方以及第三方服务，方便开发者获得更多引擎之外的扩展能力，让游戏开发工作变得更加简单 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>8</kbd>
 | Cocos 小秘书 | 打开 [Cocos 小秘书](https://www.cocos.com/assistant) 面板，该面板与 Cocos Creator 编辑器紧密结合，⽆缝嵌⼊开发环境，⽆论开发者遇到任何问题，随时可以向官方技术人员发起交流。目前仅支持 Creator 中文版 |
 
 ## 扩展
