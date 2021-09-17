@@ -116,7 +116,7 @@ export class Hello extends Component {}
 
     ![custom component file](setup/custom-file.png)
 
-    自定义脚本模板的内容可参考上文中的基础组件脚本，其中包含了默认给定的几个预设参数，用于满足部分项目管理的需求：
+    自定义脚本模板的内容可参考引擎目录下 `resources\3d\engine\editor\assets\default_file_content\ts` 文件，其中包含了默认给定的几个预设参数，用于满足部分项目管理的需求：
 
     ```ts
     /**

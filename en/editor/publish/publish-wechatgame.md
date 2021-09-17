@@ -50,7 +50,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 | **Open data context root** | Optional | Empty | If an Open Data Context exists, use this root to specify the relative path of the Open Data Context folder in the build directory so that the directory is not overwritten or modified during the build.|
 | **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.|
 | **Separate Engine** | Optional | Empty | Whether to use WeChat Mini Games engine plugin, please refer to [WeChat Mini Games Engine Plugin Instructions](./wechatgame-plugin.md) for details. |
-| **Wasm physics experimental** | Optional | js | This option is used to select the usage mode of **bullet (ammo.js)** physics, which currently includes `js`, `fallback`, and `wasm`, please refer to the **WebAssembly Support** section below for more details. |
+| **Wasm 3D physics system (based on `ammo.js`)** | Optional | Enabled | This option is used to select whether to enable **Wasm**, which takes effect when using **bullet（ammo.js）** physics. Please refer to the **WebAssembly Support** section below for more details. |
 
 ## Asset Management for WeChat Mini Game Environment
 
@@ -117,54 +117,16 @@ It is possible to use the missing functionality by calling the **WeChat's** API 
 
 ## WebAssembly Support
 
-As of 3.0, the **Wasm physics experimental** option has been added to the WeChat Mini Game builds. It is a laboratory feature for choosing the usage mode of **bullet (ammo.js)** physics:
+> **Note**: this section has been significantly changed in v3.3.1. For v3.3.0, please switch to the previous version documentation (e.g., v3.2) in the upper right corner of the page to view the content.
 
-- **js**: Use **js** mode, this is consistent with previous versions.
-- **fallback**: Automatic **fallback** mode, use **wasm** in an environment that supports **wasm**, or revert to **js**.
-- **wasm**: Use **wasm** mode.
+As of 3.0, the **Wasm 3D physics system (based on `ammo.js`)** option has been added to the build options of WeChat Mini Game, which takes effect when **Projects -> Project Settings -> Feature Cropping -> 3D -> Physics System** in the editor's main menu is set to **bullet（ammo.js）**.
 
-In **fallback** mode, the editor packs the code for **wasm** and **js** modes, and the corresponding code packages for the two modes are **1.2MB** and **0.7MB** respectively, totaling nearly **2MB**, which greatly affects the **4MB** limit of the main package.
-
-The solution is to reduce the pressure on the main package by configuring the subpackage, taking the `ammo-82499473.js` file as an example of a subpackage:
-
-- Modify `game.json`
-
-    ```ts
-    {
-        //*,
-        "subpackages": [{
-            "name": "ammo",
-            "root": "cocos-js/ammo-82499473.js"
-        }]
-    }
-    ```
-
-- Modify the `init` function in `game.js`
-
-    ```ts
-    window.__globalAdapter.init(function() {
-        fsUtils.loadSubpackage('ammo', null, (err) => {
-            System.import('./cocos-js/ammo-82499473.js').then(() => {
-                return System.import('./application.js').then(({ createApplication }) => {
-                    return createApplication({
-                        loadJsListFile: (url) => require(url),
-                        loadAmmoJsWasmBinary,
-                    });
-                }).then((application) => {
-                    return onApplicationCreated(application);
-                }).catch((err) => {
-                    console.error(err);
-                });
-            })
-        });
-    });
-    ```
+The **Wasm 3D physics system** option is enabled by default, and the engine will automatically package codes in `wasm` mode when building.  If disabled, `js` mode is used.
 
 > **Notes**:
-> 1. The WeChat Separation Engine plugin currently only supports **js** mode.
+> 1. The WeChat Mini Games Separation Engine Plugin currently only supports **js** mode.
 > 2. WebAssembly required WeChat v7.0.17 and above.
 > 3. The WeChat WebAssembly debugging base library needs to be v2.12.0 and above.
-> 4. **Fallback** mode is recommended for the most comprehensive device support.
 
 ## Reference documentation
 

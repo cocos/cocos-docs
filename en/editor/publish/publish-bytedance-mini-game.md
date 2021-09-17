@@ -45,7 +45,7 @@ The game submission, review and release process of a mini-game needs to comply w
 | **AppID** | The appid of the ByteDance Mini Games, it will be written to `project.config.json` file. | `appid` |
 | **Remote server address** | This option is used to fill in the address of the remote server where the resources are stored. Developers need to manually upload the `remote` folder from the release package directory to the filled resource server after build. | `remoteServerAddress` |
 | **Open data context root** | For access to Open Data Context, please refer to the [Open Data Context](./build-open-data-context.md) documentation for details. | `buildOpenDataContextTemplate` |
-| **physX**| This option is used to configure native physics related, please see the **Native Physics** section below for more details. | - |
+| **Native PhysX Physics System**| This option is used to set whether to use the PhysX physics system, please see the **Native Physics** section below for more details. | - |
 
 ## Native Physics
 
@@ -61,10 +61,10 @@ The prerequisite for using native physics is to set **Physics System** to **Phys
 
 | Options | Description | Field name (for publishing with command line) |
 | :-- | :-- | :-- |
-| **physX.notPackPhysXLibs**| If checked, the built-in PhysX library files will not be packaged when building, which helps to reduce the package size, but does not support PhysX running on some application platforms of ByteDance, such as TikTok (iOS version) and DevTools. If unchecked, Creator supports PhysX running on the full application platform of ByteDance. | `physX.notPackPhysXLibs` |
-| **physX.multiThread**| If checked, multi-threaded mode is enabled. | `physX.multiThread` |
-| **physX.subThreadCount** | The number of child threads when multi-threaded mode is enabled. | `physX.subThreadCount` |
-| **physX.epsilon** | Tolerance of errors. If this option is enabled, the precision will be lower when using multi-threaded mode than single-threaded. | `physX.epsilon` |
+| **Not to pack the built-in PhysX library**| If checked, the built-in PhysX library files will not be packaged when building, which helps to reduce the package size, but does not support PhysX running on some application platforms of ByteDance, such as TikTok (iOS version) and DevTools.<br>If unchecked, Creator supports PhysX running on the full application platform of ByteDance. | `physX.notPackPhysXLibs` |
+| **Multithreading mode**| If checked, multithreading mode is enabled. | `physX.multiThread` |
+| **Number of sub-threads** | The number of sub-threads when multithreading mode is enabled. | `physX.subThreadCount` |
+| **Tolerance of errors** | If this option is enabled, the precision will be lower when using multithreading than single threading. | `physX.epsilon` |
 
 ## Subpackage Loading
 
@@ -83,7 +83,7 @@ Currently, the size of the ByteDance Mini Game subpackage has following restrict
 - The size of all subpackages of the entire mini game cannot exceed **16 M**
 - The size of a single subpackage/main package cannot exceed **4 M**
 
-For details, please refer to the [ByteDance Subpackage Loading Official Documentation [zh]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
+For details, please refer to the [ByteDance Subpackage Loading Official Documentation [cn]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
 
 ## Asset Management for ByteDance Mini Game Environment
 

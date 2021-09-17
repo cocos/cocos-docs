@@ -50,10 +50,10 @@
 | 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
 | 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中。| `orientation` |
 | AppID | 微信小游戏的 AppID，必填项，面板中默认的 `wx6ac3f5090a6b99c5` 仅用于测试。构建时会写入到发布包目录下的 `project.config.json` 文件中。| `appid` |
-| 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情可参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
-| 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md) | `buildOpenDataContextTemplate` |
-| 分离引擎 | 是否使用微信小游戏引擎插件，详情请参考 [启用微信小游戏引擎插件](./wechatgame-plugin.md) | `separateEngine`
-| 物理 wasm 实验性功能 | 用于选择 bullet（ammo.js）物理的使用模式，目前包括 `js`、`fallback`、`wasm` 三种，详情请参考下文 **WebAssembly 支持** 部分的内容。 | - |
+| 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情可参考 [上传资源到远程服务器](../../asset/cache-manager.md)。 | `remoteServerAddress` |
+| 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md)。 | `buildOpenDataContextTemplate` |
+| 分离引擎 | 是否使用微信小游戏引擎插件，详情请参考 [启用微信小游戏引擎插件](./wechatgame-plugin.md)。 | `separateEngine`
+| Wasm 3D 物理系统（基于 `ammo.js`） | 用于选择是否启用 Wasm，默认为开启，使用 **bullet（ammo.js）** 物理时生效。详情请参考下文 **WebAssembly 支持** 部分的内容。 | - |
 
 ## 微信小游戏的资源管理
 
@@ -87,53 +87,16 @@
 
 ## WebAssembly 支持
 
-从 Cocos Creator 3.0 开始，微信小游戏的构建选项中新增了 **物理 wasm 实验性功能** 选项，当编辑器主菜单的 **项目 -> 项目设置 -> 功能裁剪 -> 3D -> 物理系统** 设置为 **bullet（ammo.js）** 时生效。目前包括以下几种使用模式：
+> **注意**：该部分内容在 v3.3.1 有较大的改动，v3.3.0 的内容请在页面右上角切换旧版本文档（例如 v3.2）查看。
 
-- `js`：使用 `js` 模式，此模式与以往版本一致。
-- `fallback`：自动回退模式，在支持 `wasm` 的环境中使用 `wasm`，否则回退到 `js`。
-- `wasm`：使用 `wasm` 模式。
+从 Cocos Creator 3.0 开始，微信小游戏的构建选项中新增了 **Wasm 3D 物理系统（基于 `ammo.js`）**，当编辑器主菜单的 **项目 -> 项目设置 -> 功能裁剪 -> 3D -> 物理系统** 设置为 **bullet（ammo.js）** 时生效。
 
-使用 `fallback` 模式时，编辑器会打包 `wasm` 和 `js` 模式的代码，两个模式对应的代码包体分别为 **1.2MB** 和 **0.7MB**，总共接近 **2MB**，这对主包 **4MB** 的限制影响很大。解决办法是通过配置子包来减轻主包的压力，这里以 `ammo-82499473.js` 文件为例，操作步骤如下：
-
-1. 修改 `game.json`，增加子包配置。
-
-    ```ts
-    {
-        //*,
-        "subpackages": [{
-            "name": "ammo",
-            "root": "cocos-js/ammo-82499473.js"
-        }]
-    }
-    ```
-
-2. 修改 `game.js` 的 `init` 方法，提前加载子包。
-
-    ```ts
-    // 大致在第 55 行左右
-    window.__globalAdapter.init(function() {
-        fsUtils.loadSubpackage('ammo', null, (err) => {
-            System.import('./cocos-js/ammo-82499473.js').then(() => {
-                return System.import('./application.js').then(({ createApplication }) => {
-                    return createApplication({
-                        loadJsListFile: (url) => require(url),
-                        loadAmmoJsWasmBinary,
-                    });
-                }).then((application) => {
-                    return onApplicationCreated(application);
-                }).catch((err) => {
-                    console.error(err);
-                });
-            })
-        });
-    });
-    ```
+**Wasm 3D 物理系统** 默认开启，构建时会自动打包 `wasm` 模式的代码。若不开启则使用 `js` 模式。
 
 > **注意**：
 > 1. 微信小游戏引擎插件目前仅支持 `js` 模式。
 > 2. 微信 WebAssembly 要求微信版本为 v7.0.17 及以上。
 > 3. 微信 WebAssembly 要求微信开发者工具的调试基础库为 v2.12.0 及以上。
-> 4. 推荐使用 fallback 模式以得到更全面的设备支持。
 
 ## 微信小游戏的限制
 

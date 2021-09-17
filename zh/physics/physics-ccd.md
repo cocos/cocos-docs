@@ -4,7 +4,7 @@
 
 ## 开启 CCD
 
-CDD 默认为禁用状态，若要启用，将物体 RigidBody 组件的 `useCCD` 属性设置为 `true` 即可：
+CCD 默认为禁用状态，若要启用，将物体 RigidBody 组件的 `useCCD` 属性设置为 `true` 即可：
 
 ```ts
 const rigidBody = this.getComponent(RigidBody);
@@ -23,7 +23,7 @@ rigidBody.useCCD = true;
 
 ## 支持情况
 
-由于各物理引擎支持情况的不同，以及出于性能等因素的考虑，Creator 对 CDD 的支持情况如下：
+由于各物理引擎支持情况的不同，以及出于性能等因素的考虑，Creator 对 CCD 的支持情况如下：
 
 - 仅支持动力学刚体。
 - 仅支持凸类形状物体。

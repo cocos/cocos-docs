@@ -6,7 +6,7 @@
 
 当脚本资源在导入时设置了 **导入为插件**，此脚本资源便称为 **插件脚本**。插件脚本通常用于引入第三方库。目前仅支持 JavaScript 插件脚本。
 
-与项目中的其它脚本不同，Creator 不会修改插件脚本的内容，但可能会插入一些代码以适配 Creator 本。特别地，Creator 将屏蔽全局变量 `module`、`exports`、`define`。
+与项目中的其它脚本不同，Creator 不会修改插件脚本的内容，但可能会插入一些代码以适配 Creator。特别地，Creator 将屏蔽全局变量 `module`、`exports`、`define`。
 
 ### 执行时机
 
