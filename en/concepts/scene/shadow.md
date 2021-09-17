@@ -60,13 +60,13 @@ ShadowMap renders the scene with the lights as the viewpoint. From the position 
 | **MaxReceived**     | The maximum number of lights supported for shadow generation, default is 4, can be adjusted as needed.  |
 | **Bias**            | Set the shadow offset value to prevent z-fitting. |
 | **NormalBias**      | Set the normal offset value. |
-| **ShadowMapSize**   | Set the texture size of the shadow, Currently supports **Low_256x256**, **Medium_512x512**, **High_1024x1024**, **Ultra_2048x2048** four kinds of precision texture size |
-| **FixedArea**       | If unchecked, the range of shadows will be calculated automatically, as described in section **FixedArea Adaptive Shadow Calculation** below. If this option is checked, the following properties are enabled to manually set the range of shadow generation.  |
+| **ShadowMapSize**   | Set the texture size of the shadow, Currently supports **Low_256x256**, **Medium_512x512**, **High_1024x1024**, **Ultra_2048x2048** four kinds of precision textures. |
+| **InvisibleOcclusionRange** | Set whether shadows from objects outside of the Camera's visible range are cast into the visible range, and if so, turns up the value. |
+| **ShadowDistance**  | Set the range of shadow effects displayed within the visible range of the Camera, with the shadow quality inversely proportional to the size of this value.    |
+| **FixedArea**       | Set whether to manually set the following properties to control the range of shadow effects displayed within the visible range of the Camera, as described in the **FixedArea Mode** section below. |
 | **Near**            | Set the near clipping plane of the main lights shadow camera. |
 | **Far**             | Set the far clipping plane of the main lights shadow camera. |
 | **OrthoSize**       | Set the ortho viewport size of the main lights shadow camera. |
-| **InvisibleOcclusionRange**   | Set the range of potential shadows, and increase the value if shadows are rejected.     |
-| **ShadowDistance**            | Set the range of the shadow effect displayed in the viewport.     |
 
 > **Note**: starting with v3.3, the **Linear** and **Packing** options for Shadows in the **Inspector** panel have been removed, and Creator will automatically determine the hardware capabilities and choose the best way to render the shadows.
 
@@ -80,9 +80,12 @@ Percentage Closer Filtering (PCF) is a simple, common technique used to achieve 
 
 Cocos Creator currently supports **hard sampler (HARD mode)**, **4x sampler (SOFT mode)**, **9x sampler (SOFT_2X mode)**. The larger the magnification, the larger the sampling area and the more softer the shadow edges.
 
-#### FixedArea Shadow Calculation
+#### FixedArea Mode
 
-Without FixedArea mode on, shadows in the viewport are calculated using the same cropping process and camera calculations as in CSM, based on camera orientation and position. With FixedArea mode on, the extent of shadow generation is controlled by manually setting the properties.
+FixedArea mode is used to set whether to manually control the range of shadow effects displayed within the visible range of the Camera:
+
+- If this option is unchecked (default), the engine uses the same crop process and camera calculations as CSM (Cascaded Shadow Maps), calculating the range of shadows generated based on the orientation and position of the Camera.
+- If this option is checked, the range of shadow generation is controlled according to the `Near`, `Far`, and `OrthoSize` properties set manually.
 
 ## Support dynamic batching to improve performance
 

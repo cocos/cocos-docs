@@ -38,10 +38,10 @@ After batching, the original transform of `MeshRenderer` cannot be changed, but 
 
 The engine currently provides two sets of dynamic batching systems, **instancing batching** and **VB-merging batching**. The two methods cannot coexist, and the priority of instancing is greater than that of dynamic merging VB. To enable batching, simply check the `USE_INSTANCING` or `USE_BATCHING` switch in the material used in the model.
 
-> **Note**: The current batching process introduces several limitations that need special care:
-> * The transparent models in the same batch are not sorted: this may lead to incorrent blending results.
-> * The inverse-transpose world matrix is not uploaded into batches: models with non-uniform scale will have inaccurate normals.
-> * Only plain models and skinning models under pre-baked skeletal animation are supported. (i.e. real-time skeletal animations, 2D objects, UIs and particles do not support dynamic batching)
+> **Note**: the current batching process introduces several limitations:
+> 1. The transparent models in the same batch are not sorted, this may lead to incorrect blending results.
+> 2. The inverse-transpose world matrix is not uploaded into batches, models with non-uniform scale will have inaccurate normals.
+> 3. Only plain models and skinning models under pre-baked skeletal animation are supported. (i.e. real-time skeletal animations, 2D objects, UIs and particles do not support dynamic batching)
 
 ### Instancing batching
 

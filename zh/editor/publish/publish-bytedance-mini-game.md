@@ -42,7 +42,7 @@
 | AppID | 必填项，字节跳动小游戏的 AppID，构建时会写入到发布包目录下的 `project.config.json` 文件中。 | `appid` |
 | 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
 | 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md)。 | `buildOpenDataContextTemplate` |
-| PhysX | 该项用于配置原生物理相关，具体说明请查看下文 **原生物理** 部分的内容。 | - |
+| 原生 PhysX 物理系统 | 该项用于设置是否使用 PhysX 物理系统，具体说明请查看下文 **原生物理** 部分的内容。 | - |
 
 ## 原生物理
 
@@ -50,16 +50,16 @@
 
 ![compare performance](./publish-bytedance-mini-game/performance.png)
 
-使用原生物理的前提是需要在主菜单栏的 **项目 -> 项目设置 -> 功能裁剪** 中将 **物理系统** 设置为 **PhysX 物理**。然后打开 **构建发布** 面板，**发布平台** 选择 **字节跳动小游戏**，可以看到原生物理相关的配置选项如下：
+使用原生物理的前提是需要在主菜单栏的 **项目 -> 项目设置 -> 功能裁剪** 中将 **物理系统** 设置为 **PhysX 物理系统**。然后打开 **构建发布** 面板，**发布平台** 选择 **字节跳动小游戏**，可以看到原生物理相关的配置选项如下：
 
 ![PhysX options](./publish-bytedance-mini-game/physx-options.png)
 
 | 构建选项 | 说明 | 字段名（用于命令行发布） |
 | :---- | :-- | :-- |
-| PhysX - notPackPhysXLibs | 若勾选该项，则构建时不会打包内置的 PhysX 库文件，有助于减小包体，但 PhysX 便无法在部分字节跳动的应用平台运行，例如抖音（iOS 版本）及开发者工具。<br>若不勾选该项，则 Creator 支持 PhysX 运行在字节跳动的全应用平台。 | `physX.notPackPhysXLibs` |
-| PhysX - multiThread | 是否启用多线程模式。 | `physX.multiThread` |
-| PhysX - subThreadCount | 启用多线程模式时子线程的个数。 | `physX.subThreadCount` |
-| PhysX - epsilon | 容忍误差。若启用该项，则使用多线程模式时的精度会比单线程的低。 | `physX.epsilon` |
+| 不打包内置的 PhysX 库 | 若勾选该项，则构建时不会打包内置的 PhysX 库文件，有助于减小包体，但 PhysX 便无法在部分字节跳动的应用平台运行，例如抖音（iOS 版本）及开发者工具。<br>若不勾选该项，则 Creator 支持 PhysX 运行在字节跳动的全应用平台。 | `physX.notPackPhysXLibs` |
+| 开启多线程模式 | 若勾选该项，则启用多线程模式。 | `physX.multiThread` |
+| 子线程的个数 | 启用多线程模式时子线程的个数。 | `physX.subThreadCount` |
+| 容忍误差 | 若勾选该项，则使用多线程模式时的精度会比单线程的低。 | `physX.epsilon` |
 
 ## 分包加载
 

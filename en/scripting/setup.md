@@ -116,7 +116,7 @@ Cocos Creator supports custom script templates in the project. The operation ste
 
     ![custom component file](setup/custom-file.png)
 
-    The content of the custom script template can refer to the base component script above, which contains several predefined variables given by default for some of the project management needs.
+    The content of the custom script template can refer to the `resources\3d\engine\editor\assets\default_file_content\ts` file in the engine directory, which contains several predefined variables given by default for some of the project management needs.
 
     ```ts
     /**
