@@ -16,5 +16,5 @@
 
 2D 对象大致上可以分为两类，**2D 渲染对象** 和 **用户界面 User-interface（UI）**，其区别主要在于 2D 渲染对象一般只负责将 2D 对象渲染出来，而 UI 则更多的承担着用户交互的能力。具体的差别用户可参考具体的详细说明：
 
-- [2D-render](2d-render/index.md)
-- [UI-System](ui-system/index.md)
+- [2D 渲染组件说明](2d-render/index.md)
+- [UI 说明](ui-system/index.md)
