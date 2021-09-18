@@ -84,10 +84,10 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 光照贴图 | 打开 [光照贴图](../../concepts/scene/light/lightmap.md) 面板，配置生成光照贴图的烘焙参数 |
 | 运行预览（<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>P</kbd>） | 点击该项即可在选择的浏览器/模拟器/预览窗口中预览项目效果，详情请参考 [预览调试](../preview/index.md)|
 | 刷新预览（<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>） | 刷新已经打开的预览窗口  |
-| 生成预览模板 | 该项用于自定义想要的预览效果，详情请参考 [自定义预览模板](../../editor/preview/browser.md)|
+| 生成预览模板 | 该项用于自定义想要的预览效果，详情请参考 [自定义预览模板](../preview/browser.md)|
 | 构建发布（<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>） | 打开 [构建发布](../../editor/publish/index.md) 面板，将游戏打包发布到目标平台上 |
-| 构建项目构建模板 |  该项用于定制项目的构建模板，详情请参考 [自定义构建模板](../.././editor/publish/custom-project-build-template.md)|
-| 新建构建扩展包 | 该项用于扩展构建流程，详情请参考文档 [扩展构建流程](../../editor/publish/custom-build-plugin.md)|
+| 构建项目构建模板 |  该项用于定制项目的构建模板，详情请参考 [自定义构建模板](../publish/custom-project-build-template.md)|
+| 新建构建扩展包 | 该项用于扩展构建流程，详情请参考文档 [扩展构建流程](..//publish/custom-build-plugin.md)|
 
 ## 面板
 
@@ -105,7 +105,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 预览 | 打开 **摄像机预览** 面板，该面板展示的画面与在场景中选中对应 Camera 节点时，**场景编辑器** 右下角展示的画面一致。当调整场景时，摄像机预览面板中的画面也会实时同步  |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>5</kbd>
 | 动画 |  可以打开 [动画编辑器](../../animation/index.md) 面板或者 [Joint Texture Layout（骨骼贴图布局）](../../animation/joint-texture-layout.md) 面板，用于对帧动画或者骨骼动画进行编辑、查看等功能。 |动画编辑器为 <kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>6</kbd>
 | 节点预制库 | 打开节点预制库面板。该面板是一个非常简单直接的可视化控件仓库，开发者可以将这里列出的控件拖拽到 **场景编辑器** 或 **层级管理器** 中，快速完成预设控件的创建|<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>7</kbd>
-| 服务 | 打开 [服务](https://service.cocos.com/document/zh) 面板，提供了一些优质的官方以及第三方服务，方便开发者获得更多引擎之外的扩展能力，让游戏开发工作变得更加简单 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>8</kbd>
+| 服务 | 打开 [服务](https://service.cocos.com/document/zh) 面板，该面板提供了一些优质的官方以及第三方服务，方便开发者获得更多引擎之外的扩展能力，让游戏开发工作变得更加简单 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>8</kbd>
 | Cocos 小秘书 | 打开 [Cocos 小秘书](https://www.cocos.com/assistant) 面板，该面板与 Cocos Creator 编辑器紧密结合，⽆缝嵌⼊开发环境，⽆论开发者遇到任何问题，随时可以向官方技术人员发起交流。目前仅支持 Creator 中文版 |
 
 ## 扩展

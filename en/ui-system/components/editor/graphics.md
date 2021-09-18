@@ -12,7 +12,7 @@ To use graphics, please refer to the [graphics API](__APIDOC__/en/classes/ui.gra
 
 | Property | Function Explanation |
 | :-------------- | :----------- |
-| [CustomMaterial](../engine/ui-material.md)| Custom materials that can be used to achieve rendering effects such as dissolve, external glow, etc.  |
+| [**CustomMaterial**](../engine/ui-material.md)| Custom materials that can be used to achieve rendering effects such as dissolve, external glow, etc.  |
 | [**LineWidth**](graphics/lineWidth.md) | Current line width. |
 | [**LineJoin**](graphics/lineJoin.md)       | LineJoin determines how two connecting segments (of lines, arcs or curves) with non-zero lengths in a shape are joined together. |
 | [**LineCap**](graphics/lineCap.md) | LineCap determines how the end points of every line are drawn. |
