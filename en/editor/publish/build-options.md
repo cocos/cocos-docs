@@ -26,20 +26,20 @@ It is necessary to set the first scene to enter after opening the game. One way 
 
 ### Participate in building the scene
 
-During the build process, all the resources and scripts in the bundle will be packaged except for the `resources` folder in the project directory and the resources and scripts in the bundle. Other resources are packaged on demand according to the scenes involved in the build and the resource referenced in the bundle. Therefore, removing the check box for scenes that do not need to be released can reduce the size of the project release package generated after the build.
+During the build process, all the assets and scripts in the bundle will be packaged except for the `resources` folder in the project directory and the assets and scripts in the bundle. Other assets are packaged on demand according to the scenes involved in the build and the asset referenced in the bundle. Therefore, removing the check box for scenes that do not need to be released can reduce the size of the project release package generated after the build.
 
 ### MD5 cache
 
-Adding MD5 information to all the resource file names after building can solve the problem of CDN or browser resource caching.
+Adding MD5 information to all the asset file names after building can solve the problem of CDN or browser asset caching.
 
-After enabling, if the resource cannot be loaded, it means that the renamed new file cannot be found. This is usually caused by some third-party resources not being loaded through the `assetManager`. In this case, you can use the following method to convert the URL before loading, and the converted path can be loaded correctly.
+After enabling, if the asset cannot be loaded, it means that the renamed new file cannot be found. This is usually caused by some third-party assets not being loaded through the `assetManager`. In this case, you can use the following method to convert the URL before loading, and the converted path can be loaded correctly.
 
 ```typescript
 const uuid = assetManager.utils.getUuidFromURL(url);
 url = assetManager.utils.getUrlWithUuid(uuid);
 ```
 
-> **Note**: After MD5 Cache is enabled on the native platform, if resources cannot be loaded, it is usually caused by some third-party resources used in C++ not being loaded through the `assetManager`. It can also be solved by converting the URL with the following code:
+> **Note**: After MD5 Cache is enabled on the native platform, if assets cannot be loaded, it is usually caused by some third-party assets used in C++ not being loaded through the `assetManager`. It can also be solved by converting the URL with the following code:
 >
 > ```cpp
 > auto cx = ScriptingCore::getInstance()->getGlobalContext();
@@ -56,13 +56,13 @@ Set the compression type of the main bundle. For details, please refer to the [A
 
 ### Configure the main package as a remote package
 
-This item is optional and needs to be used in conjunction with the **resource server address** option.
+This item is optional and needs to be used in conjunction with the **asset server address** option.
 
-After checking, the main package will be configured as a remote package, and its related dependent resources will be built to the [built-in Asset Bundle — main](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) under the remote directory of the release package. The developer needs to upload the entire remote folder to the remote server.
+After checking, the main package will be configured as a remote package, and its related dependent assets will be built to the [built-in Asset Bundle — main](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) under the remote directory of the release package. The developer needs to upload the entire remote folder to the remote server.
 
 ### Debug mode
 
-If this option is unchecked, the build is running in release mode, compressing and obfuscating resource UUID, built engine scripts and project scripts, and subcontracting the JSON of similar resources to reduce the number of resource loadings.
+If this option is unchecked, the build is running in release mode, compressing and obfuscating asset UUID, built engine scripts and project scripts, and subcontracting the JSON of similar assets to reduce the number of asset loadings.
 
 This option is checked, the build is running in debug mode. At the same time, the Source Maps option can be checked, which is more convenient for locating problems.
 
@@ -84,7 +84,7 @@ If the image assets in the project is set to [Compressed Texture](../../asset/co
 
 ### Auto Atlas
 
-If the current project is configured with [Auto Atlas Resource](../../asset/auto-atlas.md) and this option is checked, then the atlas configuration will be combined during construction to generate an atlas To the project. If this option is not checked, even if auto-combing  is configured, it will not take effect at build time.
+If the current project is configured with [Auto Atlas asset](../../asset/auto-atlas.md) and this option is checked, then the atlas configuration will be combined during construction to generate an atlas To the project. If this option is not checked, even if auto-combing  is configured, it will not take effect at build time.
 
 > **Note**: if an automatic atlas is configured in the `resources` folder, the image assetss of the large and small images and the corresponding serialization information will be packaged at the same time, and the package body will be enlarged. Please do not use this if necessary.
 
