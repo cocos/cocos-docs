@@ -47,7 +47,7 @@
 
 ### 渲染管线
 
-渲染管线用于控制场景的渲染流程，目前仅支持 [builtin-forward](../../render-pipeline/builtin-pipeline.md)（向前渲染管线）。开发者也可以自定义渲染管线，详情请参考 [自定义渲染管线](../../render-pipeline/user-pipeline.md)。
+渲染管线用于控制场景的渲染流程，目前仅支持 [builtin-forward](../../render-pipeline/builtin-pipeline.md)（前向渲染管线），详情请参考 [内置渲染管线](../../render-pipeline/builtin-pipeline.md)。
 
 ## Layers
 
