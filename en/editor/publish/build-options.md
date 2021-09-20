@@ -2,8 +2,6 @@
 
 ## General Build Options
 
-First, create an import-map file `import-map.json` in the project directory:
-
 **Build** - the general build parameters in the panel are as follows:
 
 ![build options](./build-options/options.png)
