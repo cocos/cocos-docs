@@ -54,7 +54,7 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 Set the compression type of the main bundle. For details, please refer to the [Asset Bundle — compression type](../../asset/bundle.md#compression-type) documentation.
 
-### Configure the main package as a remote package
+### Main Bundle Is Remote
 
 This item is optional and needs to be used in conjunction with the **asset server address** option.
 
