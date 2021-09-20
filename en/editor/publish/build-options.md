@@ -39,7 +39,7 @@ const uuid = assetManager.utils.getUuidFromURL(url);
 url = assetManager.utils.getUrlWithUuid(uuid);
 ```
 
-> **Note**: After MD5 Cache is enabled on the native platform, if assets cannot be loaded, it is usually caused by some third-party assets used in C++ not being loaded through the `assetManager`. It can also be solved by converting the URL with the following code:
+> **Note**: after MD5 Cache is enabled on the native platform, if assets cannot be loaded, it is usually caused by some third-party assets used in C++ not being loaded through the `assetManager`. It can also be solved by converting the URL with the following code:
 >
 > ```cpp
 > auto cx = ScriptingCore::getInstance()->getGlobalContext();
