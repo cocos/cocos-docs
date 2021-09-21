@@ -102,7 +102,7 @@ After the modification is completed, clicking the **Build** button will clear th
 
 > **Note**: in order to avoid accidentally deleting customized content, the native platform only updates project resources when rebuilding, and does not overwrite the original native project content. Therefore, when returning to the **Build** panel to modify the previously configured build options, the native platform-related build options are in the **disabled** state. To regenerate the project, please create a new build task.
 
-If the **Build** button is not clicked to rebuild after modifying the configuration, the modified configuration will also be saved. If the configuration in the current **build release** panel is inconsistent with the configuration in the project release package in the `build` directory generated after the last build, a yellow <font color= will be displayed at the top of the **build release** panel #F0C800>*</font> number key.
+If the **Build** button is not clicked to rebuild after modifying the configuration, the modified configuration will also be saved. If the configuration in the current **Build** panel is inconsistent with the configuration in the project release package in the `build` directory generated after the last build, a yellow <font color= will be displayed at the top of the **Build** panel #F0C800>*</font> number key.
 
 ![settings](build-panel/settings.png)
 
