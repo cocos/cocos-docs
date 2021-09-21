@@ -20,7 +20,7 @@ There are three function buttons at the top of the panel:
 
 - **Import**: click this button to import the JSON file that saves the configuration of the build options.
 
-- **Export**: Click this button to export the current platform's build option configuration as a JSON file for the [command line build](publish-in-command-line.md), or share it among project members. The exported configuration is differentiated according to the platform. When using the command line to build, specify the file path of the build parameter `configPath` as the exported JSON configuration file path.
+- **Export**: click this button to export the current platform's build option configuration as a JSON file for the [command line build](publish-in-command-line.md), or share it among project members. The exported configuration is differentiated according to the platform. When using the command line to build, specify the file path of the build parameter `configPath` as the exported JSON configuration file path.
 
     ![export](build-panel/export-options.png)
 
