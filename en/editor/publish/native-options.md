@@ -78,7 +78,7 @@ Rendering currently supports using [VULKAN](https://www.vulkan.org/), [GLES3](ht
 
 #### Target API Level
 
-Set the Target API Level required when compiling the Android platform. Click the **Set Android SDK** button next to it to quickly jump to the configuration page. For specific configuration rules, please refer to the [Configure Native Release Environment Path](setup-native-development.md#%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%94%9F%E5%8F%91%E5%B8%83%E7%8E%AF%E5%A2%83%E8%B7%AF%E5%BE%84) documentation.
+Set the Target API Level required when compiling the Android platform. Click the **Set Android SDK** button next to it to quickly jump to the configuration page. For specific configuration rules, please refer to the [Configuring Native Development Environment](setup-native-development.md) documentation.
 
 #### APP ABI
 
