@@ -67,7 +67,7 @@ The build of each platform is carried out in the form of a **build task**, simil
 
 Each building task has corresponding function buttons for easy use.
 
-**The remove (X) button at the top right of the build task** is used to remove the current build task. Choose **Remove only build records** or **Delete source files**. **Delete source files** means to delete the project release package generated in the `build` directory after the corresponding platform is built.
+**The remove (X) button at the top right of the build task** is used to remove the current build task. Choose **Remove records only** or **Remove source files**. **Remove source files** means to delete the project release package generated in the `build` directory after the corresponding platform is built.
 
 ![remove build task](./build-panel/remove-build-task.png)
 
