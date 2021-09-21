@@ -75,7 +75,7 @@ Each building task has corresponding function buttons for easy use.
 
 - ![folder](./build-panel/folder.png): click this button to open the project release package generated after the corresponding platform is built (the default is in the `build` directory).
 
-- ![editing](./build-panel/editing.png): click this button to return to the **Build Release** panel, modify the build options configured during the last build of the corresponding platform, and then click **at the bottom right Build** button to rebuild. For details, please refer to the content in the **Modify Build Options** section below.
+- ![editing](./build-panel/editing.png): click this button to return to the **Build** panel, modify the build options configured during the last build of the corresponding platform, and then click **at the bottom right Build** button to rebuild. For details, please refer to the content in the **Modify Build Options** section below.
 
 - ![setting](./build-panel/setting.png): click this button to return to the **Build** panel to view the build options configured during the last build of the corresponding platform.
 
