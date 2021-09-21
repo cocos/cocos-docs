@@ -50,7 +50,7 @@ This item is a polyfills option for some new features supported by the scripting
 
 If this option is checked, the **Generate** step will be executed automatically after the build is completed, and no manual operation is required.
 
-#### Encrypted script
+#### Encrypt JS
 
 This item is used to encrypt the published script. The jsc file will be generated in the built-in `assets` directory, this file is encrypted. The js file will be backed up in the `script-backup` directory for debugging, and will not enter the APP during packaging.
 
