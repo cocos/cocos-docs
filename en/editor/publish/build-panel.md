@@ -61,7 +61,7 @@ There are three buttons at the top of the page, including **New Build Task**, **
 
 ### Platform build tasks
 
-The building of each platform is carried out in the form of a **build task**, similar to a download task. The name of the platform build task depends on the **Release Path** option in the **Build** panel. For details, please refer to the [Build Options](build-options.md) documentation.
+The build of each platform is carried out in the form of a **build task**, similar to a download task. The name of the platform build task depends on the **Release Path** option in the **Build** panel. For details, please refer to the [Build Options](build-options.md) documentation.
 
 ![build task](./build-panel/build-task.png)
 
