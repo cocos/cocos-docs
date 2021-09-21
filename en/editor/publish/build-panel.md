@@ -41,7 +41,7 @@ There are three function buttons at the top of the panel:
 
 On the **Build Tasks** page, developers can view the current platform's build progress and build results.
 
-- **Under construction**: the progress bar is displayed as **blue**.
+- **Building**: the progress bar is displayed as **blue**.
 - **Successful construction**: the progress bar reaches 100%, and the actual construction time is output and displayed as **green**.
 - **Construction failure**: the progress bar reaches 100%, prompting the reason for the failure of the construction or an error message, and it is displayed as **red**.
 
