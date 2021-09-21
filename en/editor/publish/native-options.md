@@ -1,6 +1,6 @@
 # Publish to Native Platforms
 
-Click **Project -> Build** in the menu bar to open the Build panel.
+Click **Project -> Build** in the menu bar to open the **Build** panel.
 
 The native platforms that can be selected currently include **Android**, **iOS**, **Mac**, and **Windows**. Among them, the options for publishing to **iOS**, **Mac**, and **Windows** only appear when using the corresponding operating system.
 
