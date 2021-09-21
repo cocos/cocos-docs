@@ -24,7 +24,7 @@ There are three function buttons at the top of the panel:
 
     ![export](build-panel/export-options.png)
 
-    - **Export build panel parameters only**: Only export the configuration of the current platform in the **Build** panel.
+    - **Export config in Build panel only**: only export the configuration in the **Build** panel.
     - **Include the current project settings participating in the build**: Export the configuration of the **Build** panel and the configuration of the participating build process in the main menu **Project -> Project Settings**.
 
 > **Note**:
