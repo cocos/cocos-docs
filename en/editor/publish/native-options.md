@@ -46,7 +46,7 @@ When the package body is too large, the resource can be uploaded to the resource
 
 This item is a polyfills option for some new features supported by the scripting system, and currently only supports **asynchronous functions**. After checking, the generated project will bring the corresponding polyfills, that is, the package body will be enlarged, and the developer can choose whether to use it according to actual needs.
 
-#### Generated immediately after build
+#### Generate immediately after build
 
 If this option is checked, the **Generate** step will be executed automatically after the build is completed, and no manual operation is required.
 
