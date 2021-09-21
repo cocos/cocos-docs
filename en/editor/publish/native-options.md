@@ -6,15 +6,15 @@ The native platforms that can be selected currently include **Android**, **iOS**
 
 ![native platform](publish-native/native-platform.png)
 
-## Environment configuration
+## Environment Configuration
 
 Publishing to the native platform requires installation and configuration of some necessary environments. For details, please refer to the[Installation and Configuration of Native Development Environment](setup-native-development.md) documentation.
 
-## Build options
+## Build Options
 
 For the general build options of each platform, please refer to the [General Build Options](build-options.md) documentation.
 
-### Generic build options for native platforms
+### Generic Build Options for Native Platforms
 
 Due to the adjustment of the current build mechanism, the processing of different platforms is built into the **Build** panel in the form of plug-ins.
 
@@ -22,7 +22,7 @@ After selecting the native platform to be built in the **Release Platform** of t
 
 ![Native Options](publish-native/native-options.png)
 
-#### Select the source code template (Template)
+#### Select the Source Code Template (Template)
 
 Starting from Cocos Creator 3.0, in order to have a consistent experience, the engine template that can be used in **Template** is **Link**, and the original **Default** template has been removed.
 
@@ -38,7 +38,7 @@ The Link template does not copy the Cocos2d-x source code to the build directory
 
 The `resources\3d\cocos2d-x-lite` folder under the installation directory of Cocos Creator already contains the built-in Cocos2d-x source code engine. If you need to customize the engine, please refer to the [Engine Customization Workflow](../../advanced-topics/engine-customization.md) documentation for details.
 
-#### Resource server address
+#### Resource Server Address
 
 When the package body is too large, the resource can be uploaded to the resource server and downloaded through the network. This item is used to fill in the address where the resource is stored on the remote server. Developers need to manually upload the `remote` folder in the release package directory to the filled resource server address after construction. For details, please refer to the [Upload resources to remote server](../../asset/cache-manager.md) documentation.
 
@@ -46,7 +46,7 @@ When the package body is too large, the resource can be uploaded to the resource
 
 This item is a polyfills option for some new features supported by the scripting system, and currently only supports **asynchronous functions**. After checking, the generated project will bring the corresponding polyfills, that is, the package body will be enlarged, and the developer can choose whether to use it according to actual needs.
 
-#### Generate immediately after build
+#### Generate Immediately After Build
 
 If this option is checked, the **Generate** step will be executed automatically after the build is completed, and no manual operation is required.
 
@@ -60,17 +60,17 @@ This item is used to encrypt the published script. The jsc file will be generate
 
 ![encrypt js](publish-native/encrypt-js.png)
 
-### Android 平台构建选项
+### Android Platform
 
-Android 平台的构建选项如下：
+Android platform build options：
 
 ![Android build options](publish-native/android-options.png)
 
-#### Rendering backend
+#### Rendering Backend
 
 Rendering currently supports using [VULKAN](https://www.vulkan.org/), [GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) and [GLES2](https:// www.khronos.org/registry/OpenGL-Refpages/es2.0/) of these three types, **GLES3** is used by default. In the case of multiple being selected at the same time, the runtime will select the rendering backend to be used according to the actual support of the device.
 
-#### App ID name
+#### Game Package Name
 
 **Game Package Name** is usually arranged in reverse order of the product website URL, such as `com.mycompany.myproduct`.
 
@@ -92,17 +92,17 @@ Set the CPU type that Android needs to support. It is possible to choose one or 
 >
 > ![modify abi](publish-native/modify_abi.png)
 
-#### Use the debug keystore
+#### Use the Debug Keystore
 
 Android requires that all APKs must be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore. Check **Use debug keystore** to use the default keystore. If the developer needs to customize the keystore, uncheck the **Use debugging keystore** check. For details, please refer to the [Official Documentation](https://developer.android.google.cn/studio/publish/app-signing).
 
-#### Screen orientation
+#### Screen Orientation
 
 The screen orientation currently includes **Portrait**, **Landscape Left**, and **Landscape Right**.
 
-- **Portrait**: The screen is upright and the Home button is down.
-- **Landscape Left**: The screen is placed horizontally, and the Home button is on the left side of the screen.
-- **Landscape Right**: The screen is placed horizontally, and the Home button is on the right side of the screen.
+- **Portrait**: the screen is upright and the Home button is down.
+- **Landscape Left**: the screen is placed horizontally, and the Home button is on the left side of the screen.
+- **Landscape Right**: the screen is placed horizontally, and the Home button is on the right side of the screen.
 
 #### Google Play Instant
 
@@ -122,13 +122,13 @@ Check this option to package and publish the game to Google Play Instant. Google
 
 Check this option to package the game into App Bundle format for uploading to the Google Play store. For details, please refer to the [Official Documentation](https://developer.android.google.com/guide/app-bundle/).
 
-### Windows platform build options
+### Windows Platform Build Options
 
 There is currently only one **rendering backend** for the Windows platform, including three types **VULKAN**, **GLES3** and **GLES2**. **GLES3** is checked by default. In the case of multiple ticking at the same time, the runtime will select the rendering backend to use according to the actual support of the device.
 
 ![Windows build options](publish-native/windows-options.png)
 
-### iOS platform build options
+### iOS Platform Build Options
 
 The build options for the iOS platform include **Bundle Identifier**, **Screen Orientation**, and **Rendering Backend**, where the setting of **Screen Orientation** is consistent with the Android platform.
 
@@ -138,13 +138,13 @@ The build options for the iOS platform include **Bundle Identifier**, **Screen O
 
 Package name, usually in reverse order of product website URL, such as `com.mycompany.myproduct`.
 
-> **Note**: The package name can only contain numbers, letters and underscores. The last part of the package name must start with a letter, not an underscore or number.
+> **Note**: the package name can only contain numbers, letters and underscores. The last part of the package name must start with a letter, not an underscore or number.
 
-#### Rendering backend
+#### Rendering Backend
 
 **Rendering backend** currently supports **METAL**.
 
-### Mac platform build options
+### Mac Platform Build Options
 
 The build options for the Mac platform include **Bundle Identifier** and **Rendering backend**, and the setting method is the same as that of the iOS platform.
 
@@ -158,7 +158,7 @@ When compiling scripts and packaging resources, a blue progress bar will be disp
 
 ![build progress](publish-native/build-progress-windows.png)
 
-### Build the directory
+### Build the Directory
 
 After the build is over, what we get is a standard Cocos2d-x project, which has the same structure as the newly created project using Cocos Console. Taking the Windows platform as an example, the directory structure of the exported native project package `windows` is:
 
@@ -174,7 +174,7 @@ Because the underlying C++ code generated after the native platform (such as And
 
 For more instructions on the directory structure, please refer to the [Build Directory Differences - Native Platform](../../release-notes/upgrade-guide-v3.0.md#%E5%8E%9F%E7%94%9F%E5%B9%B3%E5%8F%B0) documentation.
 
-### Secondary development
+### Secondary Development
 
 v3.0 separates the code and configuration, put part of the code and configuration into the source code management, located in the `native\engine\currently built platform name` folder under the project directory (for example, `native\engine\win32`, `native\engine\android`).
 
@@ -190,11 +190,11 @@ Developers can integrate the SDK or do secondary development here. Deleting the 
 
 For more information about the use of CMake, please refer to the [CMake Introduction](../../advanced-topics/cmake-learning.md) docuementation.
 
-## Build and run
+## Build and Run
 
 Cocos Creator supports **Make** and **Run Preview** steps via the editor or the corresponding IDE for each platform (e.g.: Xcode, Android Studio, Visual Studio).
 
-### Via the editor
+### Via the Editor
 
 After the build is completed, continue to click the **Generate** button next to it, and it will prompt:
 
