@@ -1,4 +1,4 @@
-# Detailed explanation of building release panel
+# About the Build Panel
 
 Click **Project -> Build** in the main menu of the editor or use the shortcut key `Ctrl/Cmd + Shift + B` to open the **Build** panel:
 
@@ -59,7 +59,7 @@ There are three buttons at the top of the page, including **New Build Task**, **
 
   ![clean window](./build-panel/clean-window.png)
 
-### Platform build tasks
+### Platform Build Tasks
 
 The build of each platform is carried out in the form of a **build task**, similar to a download task. The name of the platform build task depends on the **Release Path** option in the **Build** panel. For details, please refer to the [Build Options](build-options.md) documentation.
 
@@ -90,7 +90,7 @@ For the specific release process of each platform, please refer to:
 - [Publish to Native platform](native-options.md)
 - [Publish to Mini Game platform](publish-mini-game.md)
 
-### Modifying Build options
+### Modifying Build Options
 
 Click the edit button at the bottom left of the build task to return to the **Build** panel to modify the build options configured during the last build for rebuilding. Since it is only possible to modify the build option configuration during the last build of the current platform, the **Platform** item on the page is grayed out and cannot be modified.
 
@@ -106,7 +106,7 @@ If the **Build** button is not clicked to rebuild after modifying the configurat
 
 ![settings](build-panel/settings.png)
 
-### Build log information view
+### Build Log Information View
 
 Since the build process will generate a lot of log information, only error messages will be printed to the editor's **console** panel by default.
 
