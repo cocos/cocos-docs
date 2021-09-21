@@ -1,4 +1,4 @@
-# Cross-platform release game
+# Cross-Platform Game Publishing
 
 Cocos Creator currently supports publishing games to the Web, iOS, Android, Windows, Mac, and various mini-game platforms. Develop on one platform and depoloy on all supported platforms.
 
@@ -9,7 +9,7 @@ The preparatory work that needs to be done before release includes familiarizing
 - [Build Panel](build-panel.md)
 - [Build Options](build-options.md)
 
-## Publishing platforms
+## Publishing Platforms
 
 Currently, the web, native and mini-game platforms supported by Cocos Creator include:
 
