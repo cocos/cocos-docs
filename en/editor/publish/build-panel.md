@@ -16,7 +16,7 @@ There are three function buttons at the top of the panel:
 
 ![build-options](./build-panel/build-options.png)
 
-- ![doc](./build-panel/doc.png): Click this button to jump to the official manual document of the current platform.
+- ![doc](./build-panel/doc.png): click this button to jump to the official manual document of the current platform.
 
 - **Import**: Click this button to import the JSON file that saves the configuration of the build options.
 
