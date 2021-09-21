@@ -54,7 +54,7 @@ If this option is checked, the **Generate** step will be executed automatically 
 
 This item is used to encrypt the published script. The jsc file will be generated in the built-in `assets` directory, this file is encrypted. The js file will be backed up in the `script-backup` directory for debugging, and will not enter the APP during packaging.
 
-**Script encryption key**: This value will be used as the key to encrypt the js file on the Native platform. It will be randomly generated when the project is created.
+**JS Encryption Key**: This value will be used as the key to encrypt the js file on the Native platform. It will be randomly generated when the project is created.
 
 **Zip compression**: If checked, the script size can be reduced.
 
