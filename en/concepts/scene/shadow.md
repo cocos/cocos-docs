@@ -81,4 +81,4 @@ AutoAdapt adaptive shadow calculation will automatically calculate the range of 
 
 ## Support dynamic batching to improve performance
 
-For models with `instancing` enabled in the material, the planar shadow will automatically draw with `instancing` as well, see the [Dynamic Batching](../../engine/renderable/model-component.md#about-dynamic-batching) documentation for details.
+For models with `instancing` enabled in the material, the planar shadow will automatically draw with `instancing` as well, see the [Dynamic Batching](../../engine/renderable/model-component.md) documentation for details.
