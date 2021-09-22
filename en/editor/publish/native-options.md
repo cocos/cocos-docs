@@ -88,7 +88,7 @@ Set the CPU type that Android needs to support. It is possible to choose one or 
 >
 > 1. After you select an ABI to build, build another ABI without cleaning. At this time, the so of both ABIs will be packaged into the apk. This is the default behavior of Android Studio. If you use Android Studio to import the project, after selecting an ABI to build, first execute **Build -> Clean Project** and then build another ABI. At this time, only the latter ABI will be packaged into the apk.
 >
-> 2. After the project is imported with Android Studio, it is an independent existence and does not depend on the build release panel. If you need to modify the ABI, just modify the **PROP_APP_ABI** property in the **gradle.properties** file.
+> 2. After the project is imported with Android Studio, it is an independent existence and does not depend on the **Build** panel. If you need to modify the ABI, just modify the **PROP_APP_ABI** property in the **gradle.properties** file.
 >
 > ![modify abi](publish-native/modify_abi.png)
 
