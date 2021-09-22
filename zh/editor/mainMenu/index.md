@@ -85,9 +85,9 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 运行预览（<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>P</kbd>） | 点击该项即可在选择的浏览器/模拟器/预览窗口中预览项目效果，详情请参考 [预览调试](../preview/index.md)|
 | 刷新预览（<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>） | 刷新已经打开的预览窗口  |
 | 生成预览模板 | 该项用于自定义想要的预览效果，详情请参考 [自定义预览模板](../preview/browser.md)|
-| 构建发布（<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>） | 打开 [构建发布](../../editor/publish/index.md) 面板，将游戏打包发布到目标平台上 |
+| 构建发布（<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>） | 打开 [构建发布](../publish/index.md) 面板，将游戏打包发布到目标平台上 |
 | 构建项目构建模板 |  该项用于定制项目的构建模板，详情请参考 [自定义构建模板](../publish/custom-project-build-template.md)|
-| 新建构建扩展包 | 该项用于扩展构建流程，详情请参考文档 [扩展构建流程](..//publish/custom-build-plugin.md)|
+| 新建构建扩展包 | 该项用于扩展构建流程，详情请参考文档 [扩展构建流程](../publish/custom-build-plugin.md)|
 
 ## 面板
 
