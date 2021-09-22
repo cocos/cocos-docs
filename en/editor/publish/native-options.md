@@ -152,7 +152,7 @@ The build options for the Mac platform include **Bundle Identifier** and **Rende
 
 ## Construct
 
-After the build options are set, start building. Click the **Build** button at the bottom right corner of the **Build Release** panel to start the build process.
+After the build options are set, start building. Click the **Build** button at the bottom right corner of the **Build** panel to start the build process.
 
 When compiling scripts and packaging resources, a blue progress bar will be displayed on the **Build Tasks** page of the **Build Release** panel. If the build is successful, the progress bar will reach 100% and be displayed in green:
 
