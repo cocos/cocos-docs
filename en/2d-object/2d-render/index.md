@@ -10,7 +10,6 @@ So the rendering requirements for the 2D render object are twofold:
 
 Since there is no difference between 2D rendering objects and 3D rendering nodes in terms of camera visibility, users need to control the layer property of the node and set the Visibility of the camera to match the group rendering. If there are multiple cameras in the scene, wrong layer settings may cause the node to be rendered repeatedly or not at all.
 
-**Please note that for 3D 1.2 upgrade users, we corrected the previous behavior that Canvas only renders its child nodes, now you need to manage the layer of the node and Visibility of the camera by yourself, users who used multiple Canvas rendering before may need to make adjustments to the project to achieve a more reasonable scene structure.**
 
 ## 2D Rendering Components
 
