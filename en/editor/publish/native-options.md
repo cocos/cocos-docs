@@ -152,9 +152,9 @@ The build options for the Mac platform include **Bundle Identifier** and **Rende
 
 ## Build
 
-After the build options are set, start building. Click the **Build** button at the bottom right corner of the **Build Release** panel to start the build process.
+After the build options are set, start building. Click the **Build** button at the bottom right corner of the **Build** panel to start the build process.
 
-When compiling scripts and packaging resources, a blue progress bar will be displayed on the **Build Tasks** page of the **Build Release** panel. If the build is successful, the progress bar will reach 100% and be displayed in green:
+When compiling scripts and packaging resources, a blue progress bar will be displayed on the **Build Tasks** page of the **Build** panel. If the build is successful, the progress bar will reach 100% and be displayed in green:
 
 ![build progress](publish-native/build-progress-windows.png)
 
@@ -210,7 +210,7 @@ After the build is completed, continue to click the **Make** button next to it, 
 
 ### Via IDE
 
-Click the **folder icon** button in the lower left corner of the **build task**, and the build release path will be opened in the file manager of the operating system. In this path, the `proj` under the `build` directory contains The currently built native platform project.
+Click the **folder icon** button in the lower left corner of the **build task**, and the build path will be opened in the file manager of the operating system. In this path, the `proj` under the `build` directory contains The currently built native platform project.
 
 Next, open these generated native projects using the IDE corresponding to the native platform (e.g.: Xcode, Android Studio, Visual Studio) and make further operations like compilation, preview and release.
 
@@ -234,7 +234,7 @@ To learn how to debug on the native platform, please refer to the [Native Platfo
 
 1. The project built in debug mode on MIUI 10 system may pop up the prompt box of "Detected problems with API compatibility". This is a problem introduced by MIUI 10 system itself, just use release mode to build.
 
-2. When packaging the iOS platform, if the developer does not use WebView related functions in the project, please make sure to remove the WebView module in **Project -> Project Settings -> Function Cropping** to improve the success of iOS App Store machine review Rate. If the developer really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the iOS App Store fails the machine review, they can still try to appeal via email.
+2. When packaging the iOS platform, if the developer does not use WebView related functions in the project, please make sure to remove the WebView module in **Project -> Project Settings -> Feature Cropping** to improve the success of iOS App Store machine review Rate. If the developer really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the iOS App Store fails the machine review, they can still try to appeal via email.
 
 3. There are some differences between the compiled results of the Android platform through the editor and Android Studio:
 
