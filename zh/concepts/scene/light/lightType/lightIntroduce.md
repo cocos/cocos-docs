@@ -7,4 +7,4 @@
 - [聚光灯](./spot-light.md)
 - [环境光](./ambient.md)
 
-更详细的实现可参考官方范例 Light ([GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/light) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/light))，主要介绍一些常见的编辑操作方法以及代码范例，以供参考。
+Creator 提供了 **lighting 范例**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/light) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/light)），主要介绍一些常见的编辑操作方法以及代码范例，以供参考。
