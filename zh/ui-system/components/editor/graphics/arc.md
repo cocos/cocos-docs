@@ -10,7 +10,7 @@
 |r | 圆弧弧度。
 |startAngle | 开始弧度，从正 x 轴顺时针方向测量。
 |endAngle | 结束弧度，从正 x 轴顺时针方向测量。
-|counterclockwise | 规定应该逆时针还是顺时针绘图。False = 顺时针，true = 逆时针。默认顺时针
+|counterclockwise | 确定绘图方向：<br>当设置为 `False` 时为 **顺时针**（默认）<br>当设置为 `true` 时为 **逆时针**
 
 ## 实例
 
