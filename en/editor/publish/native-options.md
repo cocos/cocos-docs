@@ -210,7 +210,7 @@ After the build is completed, continue to click the **Generate** button next to 
 
 ### Via IDE
 
-Click the **folder icon** button in the lower left corner of the **build task**, and the build release path will be opened in the file manager of the operating system. In this path, the `proj` under the `build` directory contains The currently built native platform project.
+Click the **folder icon** button in the lower left corner of the **build task**, and the build path will be opened in the file manager of the operating system. In this path, the `proj` under the `build` directory contains The currently built native platform project.
 
 Next, open these generated native projects using the IDE corresponding to the native platform (e.g.: Xcode, Android Studio, Visual Studio) and make further operations like compilation, preview and release.
 
