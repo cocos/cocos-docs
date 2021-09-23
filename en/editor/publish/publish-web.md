@@ -9,7 +9,7 @@ Cocos Creator provides two web platform page templates. Select **Web Mobile** or
 - **Web Mobile** will fill the entire browser window with the game view by default.
 - **Web Desktop** allows to specify the resolution of a game view when publishing, and the game view will not change with the browser window size afterwards.
 
-## Introduction to build options
+## Introduction to Build Options
 
 For the general build options of each platform, please refer to the [General Build Parameters Introduction](build-options.md) documentation for details.
 
@@ -45,7 +45,7 @@ For the general build options of each platform, please refer to the [General Bui
 
   ![preview-url](publish-web/preview-url.png)
 
-## Build and preview
+## Build and Preview
 
 After configuring the build options, click the **Build** button to start the web platform version build. A progress bar will appear on the panel. When the progress bar shows **Build success**, the build is complete.
 
@@ -55,13 +55,13 @@ Next, click the **Run** button to open the built game version in the browser for
 
 The picture above is the preview of the Web Mobile platform. Notice that the game view occupies the entire browser window, while the game view of Web Desktop has a fixed resolution and will not fill the screen.
 
-### Browser compatibility
+### Browser Compatibility
 
 The desktop browsers tested during the development of Cocos Creator include: **Chrome**, **Firefox** and **QQ Browser**. Other browsers can be used normally as long as the kernel version is high enough. For the browser, please do not enable IE compatibility mode.
 
 Browsers tested on mobile devices include: **Safari (iOS)**, **Chrome (Android)**, **QQ Browser (Android)** and **UC Browser (Android)**.
 
-## Retina settings
+## Retina Settings
 
 Set whether to use high resolution through `view.enableRetina(true)` in the script. Retina display will be turned on by default when it is built on the Web platform. For details, please refer to the [enableRetina](__APIDOC__/en/classes/core.view-2.html#enableretina) API.
 
