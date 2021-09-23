@@ -23,7 +23,7 @@ Cocos Creator 3.x 的球面光与 v2.x 的点光源（Point Light）类似。
 | Color | 设置光源颜色 |
 | UseColorTemperature | 是否启用色温 |
 | ColorTemperature | 调节色温 |
-| Size | 设置光源大小（目前该属性在实际运行中不生效，我们会在后续版本进行优化，请关注版本更新公告） |
+| Size | 设置光源大小 |
 | Range | 设置光照影响范围 |
 | Term | 设置光照强度单位的类型，包括 **光通量（LUMINOUS_POWER**）和 **亮度（LUMINANCE）** 两种 |
 | LuminousPower | 光通量，单位 **流明（lm）**<br>当 **Term** 设置为 **LUMINOUS_POWER** 时生效 |
