@@ -3,8 +3,8 @@
 All rendering objects in the engine that do not own a model are 2D rendering objects. Unlike 3D objects, 2D objects do not have model information themselves, their vertex information is held by the Rect information of the UITransform component and created by the engine, and they have no thickness themselves. Due to the design requirements of the engine, the 2D render object needs to be a child of the RenderRoot node (the node with the RenderRoot2D component) in order to complete the data collection operation.
 
 So the rendering requirements for the 2D render object are twofold:
-1. it needs to have a UITransform component
-2. it needs to be a child of a RenderRoot node
+1. It needs to have a UITransform component
+2. It needs to be a child of a RenderRoot node
 
 ## 2D Rendering Object Visibility Description
 
