@@ -27,7 +27,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 
 | 选项 | 说明 |
 | :--- | :-- |
-| 新建项目 | 打开 Dashboard 的 [项目](../../getting-started/dashboard/index.md#%E9%A1%B9%E7%9B%AE) 分页，以新建一个项目。预计从 Dashboard 1.0.19 版本起将改为打开 Dashboard 的[新建项目](../../getting-started/dashboard/index.md#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE) 分页 |
+| 新建项目 | 打开 Dashboard 的 [项目](../../getting-started/dashboard/index.md#%E9%A1%B9%E7%9B%AE) 分页，以新建一个项目。若使用的 Dashboard 版本是 v1.0.19，则会打开 Dashboard 的 [新建项目](../../getting-started/dashboard/index.md#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE) 分页 |
 | 打开项目 | 打开 Dashboard 的 [项目](../../getting-started/dashboard/index.md#%E9%A1%B9%E7%9B%AE) 分页 |
 | 新建场景（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>N</kbd>） | 关闭当前场景并创建一个新场景，新创建的场景需要手动保存才会添加到项目目录下 |
 | 保存场景（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>） | 保存当前正在编辑的场景，如果是使用 **文件 -> 新建场景** 创建的场景，在第一次保存时会弹出对话框，需要选择场景文件保存的位置并填写文件名，然后点击 **保存** 即可。场景文件以 `.scene` 作为扩展名 |
