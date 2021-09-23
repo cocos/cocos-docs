@@ -10,7 +10,6 @@ So the rendering requirements for the 2D render object are twofold:
 
 Since there is no difference between 2D rendering objects and 3D rendering nodes in terms of camera visibility, users need to control the layer property of the node and set the Visibility of the camera to match the group rendering. If there are multiple cameras in the scene, wrong layer settings may cause the node to be rendered repeatedly or not at all.
 
-
 ## 2D Rendering Components
 
 Components that have rendering capabilities in their own right are called 2D rendering components, including:
