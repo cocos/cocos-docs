@@ -36,7 +36,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 
 ## 编辑
 
-该项主要包括撤销重做、复制粘贴等常用编辑功能。
+该项主要包括撤销、重做、复制和粘贴等常用编辑功能。
 
 ![edit](./img/edit.png)
 
@@ -53,7 +53,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 
 ## 节点
 
-该项包含调整视角、取消关联预制节点、创建节点等功能。
+该项包含调整视角、取消关联预制节点和创建节点等功能。
 
 ![node](./img/node.png)
 
@@ -74,7 +74,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 
 ## 项目
 
-该项主要用于执行预览运行构建项目、项目配置，以及自定义构建等。
+该项主要用于执行预览运行构建项目、项目配置和自定义构建等。
 
 ![project](./img/project.png)
 
@@ -103,7 +103,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 属性检查器 | 打开 [属性检查器](../inspector/index.md) 面板，用于查看并编辑当前选中节点、节点组件和资源的工作区域  |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>3</kbd>
 | 层级管理器 | 打开 [层级管理器](../hierarchy/index.md) 面板，该面板以树状列表的形式展示了场景中所有节点之间的层级关系 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>4</kbd>
 | 预览 | 打开 **摄像机预览** 面板，该面板展示的画面与在场景中选中对应 Camera 节点时，**场景编辑器** 右下角展示的画面一致。当调整场景时，摄像机预览面板中的画面也会实时同步  |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>5</kbd>
-| 动画 |  可以打开 [动画编辑器](../../animation/index.md) 面板或者 [Joint Texture Layout（骨骼贴图布局）](../../animation/joint-texture-layout.md) 面板，用于对帧动画或者骨骼动画进行编辑、查看等功能。 |动画编辑器为 <kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>6</kbd>
+| 动画 |  可以打开 [动画编辑器](../../animation/index.md) 面板或者 [Joint Texture Layout（骨骼贴图布局）](../../animation/joint-texture-layout.md) 面板，用于对帧动画或者骨骼动画进行编辑、查看等功能 |动画编辑器为 <kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>6</kbd>
 | 节点预制库 | 打开节点预制库面板。该面板是一个非常简单直接的可视化控件仓库，开发者可以将这里列出的控件拖拽到 **场景编辑器** 或 **层级管理器** 中，快速完成预设控件的创建|<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>7</kbd>
 | 服务 | 打开 [服务](https://service.cocos.com/document/zh) 面板，该面板提供了一些优质的官方以及第三方服务，方便开发者获得更多引擎之外的扩展能力，让游戏开发工作变得更加简单 |<kbd>Ctrl</kbd>/<kbd>Command</kbd> + <kbd>8</kbd>
 | Cocos 小秘书 | 打开 [Cocos 小秘书](https://www.cocos.com/assistant) 面板，该面板与 Cocos Creator 编辑器紧密结合，⽆缝嵌⼊开发环境，⽆论开发者遇到任何问题，随时可以向官方技术人员发起交流。目前仅支持 Creator 中文版 |
