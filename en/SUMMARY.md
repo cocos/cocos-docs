@@ -91,7 +91,6 @@
     - [Build a Scene Image Using the Scene Panel](concepts/scene/scene-editing.md)
     - [Skybox](concepts/scene/skybox.md)
     - [GlobalFog](concepts/scene/fog.md)
-    - [Shadows](concepts/scene/shadow.md)
 
 - [Lighting](concepts/scene/light.md)
     - [Physically-based Lighting](concepts/scene/light/pbr-lighting.md)
@@ -101,6 +100,7 @@
     - [Ambient Lights](concepts/scene/ambient.md)
     - [Additive per-pixel lights](concepts/scene/light/additive-per-pixel-lights.md)
     - [Lightmapping](concepts/scene/light/lightmap.md)
+    - [Shadows](concepts/scene/light/shadow.md)
 
 - [Materials System](material-system/overview.md)
     - [YAML 101](material-system/yaml-101.md)

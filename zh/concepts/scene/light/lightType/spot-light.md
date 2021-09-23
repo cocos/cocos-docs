@@ -1,10 +1,10 @@
 # 聚光灯
 
-**聚光灯** 是由一个点向一个方向发射一束光线，接近于手电筒产生的光线。聚光灯比其他类型的光源多了 `SpotAngle` 属性，用于调整聚光灯的光照范围。
+**聚光灯**  是由一个点向一个方向发射一束锥形光线，类似于手电筒或舞台照明灯产生的光线。与其他光源相比，聚光灯多了 `SpotAngle` 属性，用于调整聚光灯的光照范围。
 
 ![spotlight](spotlight/spot-light.jpg)
 
-在场景中添加聚光灯的方式可参考 [光照](../light.md)。
+在场景中添加聚光灯的方式可参考 [光照](../../light.md)。
 
 聚光灯组件接口请参考 [SpotLight API](__APIDOC__/zh/classes/component_light.spotlight.html)。
 
@@ -20,7 +20,7 @@
 | Size | 设置光源大小 |
 | Range | 设置光照影响范围 |
 | SpotAngle | 调整聚光角度，控制光照范围 |
-| Term | 设置光照强度单位类型，包括 **发光功率（LUMINOUS_POWER）** 和 **亮度（LUMINANCE）** 两种  |
-| LuminousPower | 发光功率，单位 **流明（lm）**<br>当 **Term** 设置为 **LUMINOUS_POWER** 时生效  |
+| Term | 设置光照强度单位类型，包括 **光通量（LUMINOUS_POWER）** 和 **亮度（LUMINANCE）** 两种 |
+| LuminousPower | 光通量，单位 **流明（lm）**<br>当 **Term** 设置为 **LUMINOUS_POWER** 时生效 |
 | Luminance | 亮度，单位 **坎德拉每平方米（cd/m<sup>2</sup>）**<br>当 **Term** 设置为 **LUMINANCE** 时生效 |
-| StaticSettings | 静态灯光设置，详情请参考 [光照贴图](./lightmap.md) |
+| StaticSettings | 静态灯光设置，详情请参考 [光照贴图](../lightmap.md) |

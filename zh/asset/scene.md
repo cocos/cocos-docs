@@ -40,7 +40,7 @@
 ![](scene/scene_node_set.png)
 
 各类属性的详细说明请见：
-- [环境光](../concepts/scene/ambient.md)
-- [阴影](../concepts/scene/shadow.md)
+- [环境光](../concepts/scene/light/lightType/ambient.md)
+- [阴影](../concepts/scene/light/shadow.md)
 - [全局雾](../concepts/scene/fog.md)
 - [天空盒](../concepts/scene/skybox.md)
