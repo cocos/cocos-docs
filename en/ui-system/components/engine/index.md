@@ -4,16 +4,16 @@
 
 The difference between defining UI and 2D rendering objects in the engine mainly lies in adaptation and interaction. All UI needs to be under Canvas node to make adaptation behavior, and Canvas component itself inherits from `RenderRoot2D` component, so it can also be used as an entry point for data collection.
 
-The UI is a necessary interactive part of game development. Generally, buttons, text, backgrounds, etc. on the game are made through the UI. When starting to create a UI, first it is necessary to determine the size of the display area (design resolution) of the current design content, which can be set in the **Project -> Project Settings -> General Settings** panel in the menu bar.
+The UI is a necessary interactive part of game development. Generally, buttons, text, backgrounds, etc. on the game are made through the UI. When starting to create a UI, first it is necessary to determine the size of the display area (design resolution) of the current design content, which can be set in the **Project -> Project Settings -> Project Data** panel in the menu bar.
 
 ![resolution-config](resolution_config.png)
 
 Once the design resolution is set, start creating UI elements, all of which are contained under the Canvas node. The Canvas node can be created by clicking the **+** button in the **Hierarchy** panel on the top left and selecting **UI Component -> Canvas**. The Canvas node has a [Canvas](../editor/canvas.md) component, which can be associated with a camera.
 
-**Note**:
-
-- Multiple Canvas nodes can exist in a scene, but a Canvas node should not be nested under another Canvas node or its children.
-- Canvas components are not one-to-one with camera, their previous rendering depends on the layer of the node and the Visibility of the camera, so you should pay extra attention to layer management to get the desired rendering effect when you have multiple Canvas.
+> **Notes**:
+>
+> - Multiple Canvas nodes can exist in a scene, but a Canvas node should not be nested under another Canvas node or its children.
+> - Canvas components are not one-to-one with camera, their previous rendering depends on the layer of the node and the Visibility of the camera, so you should pay extra attention to layer management to get the desired rendering effect when you have multiple Canvas.
 
 Next, you can create UI nodes under the Canvas node. The editor comes with the following UI nodes:
 
