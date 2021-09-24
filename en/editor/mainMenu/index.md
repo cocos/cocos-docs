@@ -133,7 +133,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 消息调试工具 | 打开消息调试工具，用于调试编辑器内部运行时的 IPC 交互|
 | Tester | 编辑器内置扩展的测试工具，目前暂未开放全部功能 |
 | 开关图形工具 | 打开开关图形工具面板，用于调试场景渲染|
-| 消息列表 |  打开 [消息管理器](../.././editor/extension/contributions-messages.md) 面板，用于显示编辑器每个功能定义的公开消息及其说明|
+| 消息列表 |  打开 [消息管理器](../../extension/contributions-messages.md) 面板，用于显示编辑器每个功能定义的公开消息及其说明|
 | Export.d.ts |导出编辑器相关的 API |
 | 重新加载（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>R</kbd>） | 重新加载编辑器界面|
 | UI 组件 | 打开 UI 组件面板，该面板列举了编辑器内提供的预设 UI 组件的使用方式，详情请参考 [UI 组件](../extension/ui.md) |

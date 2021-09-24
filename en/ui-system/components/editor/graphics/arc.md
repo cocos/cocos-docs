@@ -11,7 +11,7 @@ The `arc()` method creates an arc/curve (used to create circles or partial circl
 | **r** |Arc radian. |
 | **startAngle** | Start radian, measured clockwise from positive x axis. |
 | **endAngle** | End radian, measured clockwise from positive x axis. |
-| **counterclockwise** | If true, draw counterclockwise between the two angles. Clockwise by default. |
+| **counterclockwise** | Determines the drawing direction.<br>**Clockwise** when set to `false` (default).<br>**Counterclockwise** when set to `true`. |
 
 ## Example
 
