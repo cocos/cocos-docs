@@ -6,7 +6,7 @@
 
 ## 面板总览
 
-![inspector](index/inspeactor-panel.png)
+![inspector](index/inspector-panel.png)
 
 **属性检查器** 面板大致可以分为 **工具栏** 和 **属性设置** 两个部分。
 

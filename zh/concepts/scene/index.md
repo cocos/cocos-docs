@@ -18,4 +18,4 @@ Cocos Creator 通过节点树和节点组件系统实现了自由的场景结构
 - [使用场景编辑器搭建场景](scene-editing.md)
 - [天空盒](skybox.md)
 - [全局雾](fog.md)
-- [阴影](shadow.md)
+- [阴影](./light/shadow.md)
