@@ -18,6 +18,8 @@
         - [Console](editor/console/index.md)
         - [Preferences](editor/preferences/index.md)
         - [Project Settings](editor/project/index.md)
+        - [Main Menu](editor/mainMenu/index.md)
+        - [Tool Bar](editor/toolbar/index.md)
         - [Editor Layout](editor/editor-layout/index.md)
         - [Preview & Debugging](editor/preview/index.md)
     - [Quick Start: First Game](getting-started/first-game/index.md)
