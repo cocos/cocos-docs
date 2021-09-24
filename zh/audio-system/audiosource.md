@@ -1,5 +1,7 @@
 # AudioSource 组件参考
 
+AudioSource 组件用于播放音乐和音效。
+
 ![audioSource](audio/audiosource.png)
 
 ## 属性
@@ -11,45 +13,76 @@
 |PlayOnAwake    | 是否在组件激活后自动播放声音 |
 |Volume         | 音量大小，范围在 0~1 之间   |
 
-更多声音接口的脚本接口请参考 [AudioSource API](__APIDOC__/zh/classes/component_audio.audiosource.html)。
+## 通过编辑器播放音乐音效
 
-具体的播放控制，可以参考文档 [AudioSource 播放示例](./audioExample.md)。
+1. 在 **层级管理器** 上创建一个空节点。
+2. 选中空节点，在 **属性检查器** 最下方点击 **添加组件 -> Components -> AudioSource** 来添加 AudioSource 组件。
+3. 将 **资源管理器** 中所需的声音资源拖拽到 **AudioSource** 组件的 Clip 中，如下所示:
 
-## Web 平台的播放限制
+   ![audioClip](audio/audiocilp.gif)
 
-目前 Web 平台的声音播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 AudioSource 组件设置了 `playOnAwake` 也会在第一次接收到用户输入时才开始播放。范例如下：
+4. 根据需要对 AudioSource 组件的其他参数项进行设置即可。
+
+## 通过脚本控制音乐音效
+
+如果要更灵活的控制 AudioSource 的播放，可以在将定义脚本添加到 **AudioSource 组件** 所在的节点，然后调用相应的 API 即可通过脚本控制。
+
+### 音乐播放
 
 ```typescript
-// AudioController.ts
-@ccclass("AudioController")
-export class AudioController extends Component {      
-
-    @property(AudioSource)
-    public audioSource: AudioSource = null!;
-
-    start () {
-        let btnNode = find('BUTTON_NODE_NAME');
-        btnNode!.on(Node.EventType.TOUCH_START, this.playAudio, this);
-    }
+// GameRoot.ts
+@ccclass("GameRoot")
+export class GameRoot extends Component { 
     
-    playAudio () {
-        this.audioSource.play();
+    @property(AudioSource)
+    public _audioSource: AudioSource = null!;
+
+    onLoad(){
+        const audioSource = this.node.getComponent(AudioSource)!;
+        assert(audioSource);
+        this._audioSource = audioSource;
+    }
+
+    play () {
+        //播放音乐
+        this._audioSource.play();
+    }
+
+    pause () {
+        //暂停音乐
+        this._audioSource.pause();
     }
 }
 ```
 
-## 关于 Web 平台声音资源的加载模式
+## 音效播放
 
-Web 平台上的声音资源比较特别，因为 Web 标准支持以两种不同的方式加载声音资源，分别是：
-- Web Audio: 提供相对更加现代化的声音控制接口，在引擎内是以一个 audio buffer 的形式缓存的。这种方式的优点是兼容性好，问题比较少。
-- DOM Audio: 通过生成一个标准的 audio 元素来播放声音资源，缓存的就是这个 audio 元素。使用标准的 audio 元素播放声音资源的时候，在某些浏览器上可能会遇到一些兼容性问题。比如：iOS 上的浏览器不支持调整音量大小，所有 volume 相关属性将不会有效。
+相较于长的音乐播放，音效播放具有以下特点：
 
-目前引擎默认会尝试以 Web Audio 的方式加载声音资源。如果检测到浏览器不支持加载 Web Audio，则会回滚到 DOM Audio 的方式。
+- 播放时间短
+- 同时播放的数量多
 
-如果项目需要强制使用 DOM Audio 的声音资源，请使用以下方式动态加载声音资源：
+针对这样的播放需求，**AudioSource** 组件提供了 `playOneShot` 接口来播放音效。具体代码实现如下：
 
 ```typescript
-assetManager.loadRemote('http://example.com/background.mp3', {
-    audioLoadMode: AudioClip.AudioType.DOM_AUDIO,
-}, callback);
+// GameRoot.ts
+@ccclass("GameRoot")
+export class GameRoot extends Component {     
+
+    @property(AudioClip)
+    public clip: AudioClip = null!;   
+
+    @property(AudioSource)
+    public audioSource: AudioSource = null!;
+
+    playOneShot () {
+        this.audioSource.playOneShot(this.clip, 1);
+    }
+}
 ```
+
+> **注意**：`playOneShot` 是一次性播放操作，播放后的声音没法暂停或停止播放，也没法监听播放结束的事件回调。
+
+更多声音接口的脚本接口请参考 [AudioSource API](__APIDOC__/zh/classes/component_audio.audiosource.html)。
+
+具体的播放控制，可以参考文档 [AudioSource 播放示例](./audioExample.md)。
