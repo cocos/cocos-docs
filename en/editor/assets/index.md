@@ -41,12 +41,14 @@ There are two ways to create an asset.
 
 When creating an asset, select the folder where to place the asset in the tree asset list, then the new asset will be created in the currently selected folder directory. If a folder isn't selected, the new asset will be created in the current root directory (`assets`) by default.
 
+For additional information about Assets, please refer to the [Asset](../../asset/index.md) documentation.
+
 ### Selecting assets
 
 The following asset selection actions can be used in the asset list:
 
 - Click to select a single asset. The selected asset will be highlighted in **yellow on blue**.
-- Double-click to open an asset, e.g. scene, script, image; double-click on a folder to collapse/expand it
+- Double-click to open an asset, e.g.: scene, script, image; double-click on a folder to collapse/expand it
 - Hold Ctrl/Cmd and select an asset to select multiple assets at once
 - Hold Shift and select an asset to select multiple assets in a row
 
@@ -73,13 +75,13 @@ The **Sort by** in the toolbar includes **Sort by name** and **Sort by type**. T
 Collapses are divided into single collapses or all collapses with subsets:
 
 - The **Collapse/Expand All** button in the **Toolbar** works globally
-- Click on the triangle icon of a parent asset (e.g. folder) to expand or collapse its subsets. Use the shortcut key **Alt** and click on the triangle icon to expand or collapse all children of the asset
+- Click on the triangle icon of a parent asset (e.g.: folder) to expand or collapse its subsets. Use the shortcut key **Alt** and click on the triangle icon to expand or collapse all children of the asset
 
 The current collapsed state of the asset will be recorded and will be maintained the next time the editor is opened.
 
 ### Searching assets
 
-The search function can limit the search type and specify the search field， both of which can be used to achieve a type filtering effect. Depending on the selected type/field, all the corresponding assets will be displayed in the panel.
+The search function can limit the search type and specify the search field, both of which can be used to achieve a type filtering effect. Depending on the selected type/field, all the corresponding assets will be displayed in the panel.
 
 ![search-types](img/search-types.png)
 
@@ -87,14 +89,19 @@ The search function can limit the search type and specify the search field， bo
 
 - **Specify search fields**: the search name is not case sensitive and includes the following search types:
 
-    1. **search name or UUID**
+    1. **search Name or UUID**, support searching for asset file extensions, such as `.png`:
+
+        ![search-name](img/search-name.png)
+
     2. **Search UUID**
-    3. **Search URL**
-    4. **Search for the use of UUID**, for example:
+
+    3. **Search URL**, starting with the `db://` protocol.
+
+    4. **Find UUID usage**, used to find out which assets the UUID asset is used by. For example:
 
         ![search-uuid](img/search-uuid.png)
 
-If you want to search only in a parent asset (e.g. folder), right-click and select **Find in Folder** to narrow the search.
+If you want to search only in a parent asset (e.g.: folder), right-click and select **Find in Folder** to narrow the search.
 
 Selecting an asset in the search result list and double-clicking on it is equivalent to the operation in normal mode. After clearing the search content, it will redirect to the selected asset.
 
@@ -117,7 +124,7 @@ After selecting a specific asset/folder, right-click on it to perform a series o
 - **Delete**: delete the asset (can be multi-selected), or you can use the shortcut **Delete**. The asset will remain in the **Recycle Bin** of the system after deletion, and can be restored if necessary.
 - **Select All**: selects all assets in the same hierarchy.
 - **Search in Folder**: when using the search function, only search the assets in that folder.
-- **Find UUID Usages**: find which assets the asset is referenced by by the asset's uuid.
+- **Find UUID Usages**: find which assets the asset is referenced by by the asset's UUID.
 - **Importing/Exporting Asset Package**: please refer to the introduction below for details.
 - **Preview this scene in the browser**: only available for scene assets.
 - **Reveal in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
@@ -130,8 +137,6 @@ Also for specific asset types, double-clicking on an asset allows you to enter t
 ### Rename asset
 
 Select the asset to rename, then right-click and select **Rename** to change the asset name, or use the shortcut keys **Enter** or **F2**. Click elsewhere in the panel or press the shortcut **Esc** to cancel the renaming.
-
-In addition, the initial name of a TypeScript script asset is processed as its `className`, which cannot be repeated.
 
 ### Exporting asset package
 

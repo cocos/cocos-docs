@@ -1,6 +1,6 @@
 # 2D Physics Manager
 
-The physics system hides most of the implementation details of the physics modules (Box2D and Builtin modules) (e.g. creating rigid bodies, synchronizing rigid body information to nodes, etc.).
+The physics system hides most of the implementation details of the physics modules (Box2D and Builtin modules) (e.g.: creating rigid bodies, synchronizing rigid body information to nodes, etc.).
 
 Use the physics system to access some of the common functions of the physics module, such as click testing, ray testing, and setting up test messages.
 

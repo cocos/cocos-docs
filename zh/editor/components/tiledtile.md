@@ -2,7 +2,7 @@
 
 TiledTile 组件可以单独对某一个地图块进行操作。
 
-![tiledtile-component](./tiledtile/tiledtile-component.png)
+![tiledTile-component](./tiledtile/tiledtile-component.png)
 
 ## 创建方式
 
@@ -10,9 +10,9 @@ TiledTile 组件可以单独对某一个地图块进行操作。
 
 在创建 [TiledMap 组件](tiledmap.md) 过程中 **自动生成** 的 Layer 节点下创建一个空节点。然后选中该空节点，点击 **属性检查器** 下方的 **添加组件 -> TiledMap -> TiledTile**，即可添加 TiledTile 组件到节点上。再通过设置 TiledTile 组件上的属性来操作地图块。
 
-![add_tiledtile](./tiledtile/add_tiledtile.png)
+![add tiledTile](./tiledtile/add_tiledtile.png)
 
-相关 TiledTile 脚本接口请参考 [TiledTile API](__APIDOC__/zh/classes/TiledTile.html)
+相关 TiledTile 脚本接口请参考 [TiledTile API](__APIDOC__/zh/#/docs/3.3/zh/tiledmap/Class/TiledTile)
 
 ### 通过代码创建
 
@@ -36,7 +36,7 @@ const tiledTile = node.addComponent(TiledTile);
 const tiledTile = this.layer.getTiledTileAt(0, 0);
 ```
 
-Layer 脚本接口相关请参考 [TiledLayer API](__APIDOC__/zh/classes/TiledLayer.html)
+Layer 脚本接口相关请参考 [TiledLayer API](__APIDOC__/zh/#/docs/3.3/zh/tiledmap/Class/TiledLayer)
 
 ## TiledTile 属性
 

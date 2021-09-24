@@ -6,9 +6,9 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **2D/Sprite** 即可添加 Sprite 组件到节点上。
 
-图像的组件接口请参考 [Sprite API](__APIDOC__/zh/classes/ui.sprite.html)。
+图像的组件接口请参考 [Sprite API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/Sprite)。
 
-关于使用可以参考范例 **Sprite**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/01.sprite) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/01.sprite)）。
+关于使用可以参考范例 **Sprite**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/01.sprite) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/01.sprite)）。
 
 ## Sprite 属性
 
@@ -51,7 +51,7 @@ Sprite 组件支持以下几种渲染模式：
 
 | 属性 |   功能说明
 | :-------------- | :----------- |
-| Fill Type | 填充类型选择，有 **HORIZONTAL**（横向填充）、**VERTICAL**（纵向填充）和 **RADIAL** （扇形填充）三种。
+| Fill Type | 填充类型选择，有 **HORIZONTAL**（横向填充）、**VERTICAL**（纵向填充）和 **RADIAL**（扇形填充）三种。
 | Fill Start | 填充起始位置的标准化数值（从 0 ~ 1，表示填充总量的百分比），选择横向填充时，**Fill Start** 设为 0，就会从图像最左边开始填充
 | **Fill Range** | 填充范围的标准化数值（同样从 0 ~ 1），设为 1，就会填充最多整个原始图像的范围。
 | **Fill Center** | 填充中心点，该属性只有选择了 `RADIAL` 填充类型才能修改。决定了扇形填充时会环绕 Sprite 上的哪个点。

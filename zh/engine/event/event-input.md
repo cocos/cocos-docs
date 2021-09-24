@@ -21,38 +21,38 @@
 
 可选的 `type` 类型有:
 
-1. SystemEventType.KEY_DOWN（键盘按下）
-2. SystemEventType.KEY_UP（键盘释放）
-3. SystemEventType.DEVICEMOTION（设备重力传感）
+1. SystemEvent.EventType.KEY_DOWN（键盘按下）
+2. SystemEvent.EventType.KEY_UP（键盘释放）
+3. SystemEvent.EventType.DEVICEMOTION（设备重力传感）
 
 ### 键盘事件
 
-- 事件监听器类型：`SystemEventType.KEY_DOWN` 和 `SystemEventType.KEY_UP`
+- 事件监听器类型：`SystemEvent.EventType.KEY_DOWN` 和 `SystemEvent.EventType.KEY_UP`
 - 事件触发后的回调函数：
     - 自定义回调函数：callback(event);
 - 回调参数：
-    - KeyCode：[API 传送门](__APIDOC__/zh/classes/event.eventkeyboard-1.html)
-    - Event：[API 传送门](__APIDOC__/zh/classes/event.event-1.html)
+    - KeyCode：[API 传送门](__APIDOC__/zh/#/docs/3.3/zh/event/Class/EventKeyboard)
+    - Event：[API 传送门](__APIDOC__/zh/#/docs/3.3/zh/event/Class/Event)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, EventKeyboard, macro } from 'cc';
+import { _decorator, Component, Node, systemEvent, SystemEvent, EventKeyboard, KeyCode } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")
 export class Example extends Component {
     onLoad () {
-        systemEvent.on(SystemEventType.KEY_DOWN, this.onKeyDown, this);
-        systemEvent.on(SystemEventType.KEY_UP, this.onKeyUp, this);
+        systemEvent.on(SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        systemEvent.on(SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     }
 
     onDestroy () {
-        systemEvent.off(SystemEventType.KEY_DOWN, this.onKeyDown, this);
-        systemEvent.off(SystemEventType.KEY_UP, this.onKeyUp, this);
+        systemEvent.off(SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        systemEvent.off(SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     }
 
     onKeyDown (event: EventKeyboard) {
         switch(event.keyCode) {
-            case macro.KEY.a:
+            case KeyCode.KEY_A:
                 console.log('Press a key');
                 break;
         }
@@ -60,7 +60,7 @@ export class Example extends Component {
 
     onKeyUp (event: EventKeyboard) {
         switch(event.keyCode) {
-            case macro.KEY.a:
+            case KeyCode.KEY_A:
                 console.log('Release a key');
                 break;
         }
@@ -70,25 +70,25 @@ export class Example extends Component {
 
 ### 设备重力传感事件
 
-- 事件监听器类型：`SystemEventType.DEVICEMOTION`
+- 事件监听器类型：`SystemEvent.EventType.DEVICEMOTION`
 - 事件触发后的回调函数：
     - 自定义回调函数：`callback(event);`
 - 回调参数：
-    - Event：[API 传送门](__APIDOC__/zh/classes/event.event-1.html)
+    - Event：[API 传送门](__APIDOC__/zh/#/docs/3.3/zh/event/Class/Event)
 
 ```ts
-import { _decorator, Component, Node, systemEvent, SystemEventType, log } from 'cc';
+import { _decorator, Component, Node, systemEvent, SystemEvent, log } from 'cc';
 const { ccclass } = _decorator;
 
 @ccclass("Example")
 export class Example extends Component {
     onLoad () {
         systemEvent.setAccelerometerEnabled(true);
-        systemEvent.on(SystemEventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
+        systemEvent.on(SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     }
 
     onDestroy () {
-        systemEvent.off(SystemEventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
+        systemEvent.off(SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     }
 
     onDeviceMotionEvent (event: EventAcceleration) {
@@ -97,4 +97,4 @@ export class Example extends Component {
 }
 ```
 
-具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event)），包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。
+具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event)），包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。

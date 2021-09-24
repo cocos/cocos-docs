@@ -6,7 +6,7 @@ The __Graphics__ component provides a series of drawing functions that reference
 
 Select a node in the __Hierarchy__ panel, then click the __Add Component__ button at the bottom of the __Inspector__ panel and select __Graphics__ from __UI -> Render__. Then you can add the __Graphics__ component to the node.
 
-To use graphics, please refer to the [graphics API](__APIDOC__/en/classes/ui.graphics-1.html) documentation and the [graphics](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/14.graphics) scene of the test-cases-3d project.
+To use graphics, please refer to the [graphics API](__APIDOC__/en/#/docs/3.3/en/ui/Class/Graphics) documentation and the [graphics](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/14.graphics) scene of the test-cases-3d project.
 
 ## Graphic Properties
 
@@ -40,7 +40,7 @@ To use graphics, please refer to the [graphics API](__APIDOC__/en/classes/ui.gra
 
 ### Modify the drawing pattern through script code
 
-``` ts
+```ts
 import { _decorator, Component, Graphics } from 'cc';
 const { ccclass, property } = _decorator;
 

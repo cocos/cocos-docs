@@ -10,7 +10,7 @@
 {
     "name": "hello-world",
     "contributions": {
-        "message": {
+        "messages": {
             "open-panel": {
                 "methods": ["openPanel"]
             }

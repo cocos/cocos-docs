@@ -1,120 +1,48 @@
-# Preview In Browser
+# Web Preview Customization Workflow
 
-## How To Preview
+## Custom Preview Templates
 
-![preview](index/preview.jpg)
+Preview supports custom templates for users to customize the preview effect they need, and the custom preview template can be placed in the `preview-template` folder in the project directory. Or click **Project -> Create Preview Template** in the editor main menu to create an updated preview template in the project directory. The preview in the editor also uses the template to inject the latest project data, the preview will look for the index file in the directory and if it exists it will be used as the template for the preview.
 
-Click the **Preview** button on top of editor window to see the game in action. After clicking, editor will launch the game in your default browser. We recommend [Chrome](http://google.com/chrome) as the browser of choice, since the developer tools in Chrome are most advanced in web debugging and inspecting.
+The `preview-template` folder has a structure similar to
 
-There are a number of control in **Preview** page:
-
-- On the left are viewport size presets to simulate how your game look on mobile devices.
-- **Rotate** button to toggle between landscape and portrait view.
-- **Debug Mode** let you control the severe level of logs to be shown.
-- **Show FPS** toggle framerate and draw call stats display.
-- **FPS** framerate cap.
-- **Pause** to pause game.
-
-![browser](index/browser.png)
-
-## Refresh Preview Page
-
-![refresh](index/refresh.jpg)
-
-If we want to refresh the preview page after some modified, just refresh in browser or click the refresh button in editor.<br>
-The difference is that click refresh button in editor will **refresh all preview pages**.If you want the preview page to refresh automatically, just save the scene.The settings for saving scene auto-refresh can be enable in __Project Settings -> Project Preview__.
-
-![start-scene](index/auto-refresh.jpg)
-
-## Scene of Preview
-
-The editor will use **the current scene** as start-scene of preview, we can modified it in `Project Settings-> Project Preview`. For more information, please refer to the [Project Settings](../project/index.md) documentation.
-
-![start-scene](index/start-scene.jpg)
-
-## Preview In Mobile
-
-There are the following ways to debug the preview page on the mobile phone:
-
-- **Use the mobile browser preview mode of Browser Developer Tools**
-
-- **Scan preview QR code**
-
-    Move the mouse to the ip preview address on the left side of the editor toolbar, and a preview QR code will be displayed, which can be scanned with your mobile phone.
-
-- Directly **Enter the preview address in the mobile browser**
-
-  ![preview-url](index/preview-url.jpg)
-
-> **Note**: make sure the mobile phone and the computer is **on the same network segment**.Since there will be multiple networks on the computer, if the IP address of the preview URL in the editor is incorrectly, you can modify it in **Preferences-> General Settings-> Select Local Preview Address**. Please refer to the description of the [preference settings](../preference/index.md) documentation.
-
-## Custom Preview Template
-
-We can add custom preview template to change the preview result, just put your template in `preview-template` folder in the project dictionary. Editor also use template to render to `index.html`. If there is a file named `index.ejs` in this dictionary, editor will use it as the template that render to `index.html`. You can click the menu in editor **Project —> Generate Preview Template** to get the latest template used in editor.
-
-```
+```js
 project-folder
  |--assets
  |--build
  |--preview-template
-        |--index.ejs
+     // Required entry file
+     |--index.ejs
+     // Other files can be added according to the preview effect you want to achieve
 ```
 
-> **Note**: there are some preview menu items and preview debugging tools in the preview template, We recommended you keep all the content and **just add what you need** or modified code carefully to avoid some unexpected errors.. In addition, if `index.html` and `index.ejs` coexist, `index.html` **will replace** `index.ejs` as the render-template for preview page.
+To start customizing the page preview, it should be noted that there are some preview menu items and preview debugging tools in the preview template. Be careful when adding or deleting some template syntax. Random changes may cause the preview template to be unavailable. It is recommended to keep all the content injected with ejs and then add the required content on top of it. Also, if `index.html` and `index.ejs` are coexisting, **`index.html` will replace `index.ejs`** as the preview page content.
 
-### Examples of Use
+## Usage examples
 
-Code of this example is stored in the [test-case-3d](https://github.com/cocos-creator/test-cases-3d) repository.
+1. Click **Project -> Create Preview Template** in the editor main menu, the **Console** will output the message "Preview Template generated successfully" and show the path of the generated preview template.
 
-1. **Get lasted preview template**
+2. Add scripts like `test.js`, where `<%- include(cocosTemplate, {}) %>` contains the default start game logic, and the added scripts can be stored before/after the game logic is started as needed. The following `test.js` is loaded after the game is launched.
 
-     Click the menu **Project-> Generate Preview Template** to generate a preview template, and the address generated by the preview template will be printed in the console.
+    - Open `index.ejs` and modify it as follows:
 
-2. **Add script in folder**
+      ```html
+      <html>
+          ...
+          <body>
+              ...
+              <%- include(cocosTemplate, {}) %> // Game launch processing logic
+              <script src="/test.js"></script> // Add a new script
+          </body>
+      </html>
+      ```
 
-    Add the scripts you need to use in folder, such as `test.js`, where `<%-include (cocosTemplate, {})%>` contains the default logic for starting the game. `test.js` in the example below will be loaded after the game starts.
+    - `test.js` is placed in the relative path of the logo within the page (only in the `preview-template` folder)
 
-3. **Modify `index.ejs`**
+      ```
+      |--preview-template
+              |--index.ejs
+              |--test.js
+      ```
 
-    Open `index.ejs` and modify as follows:
-
-    ```html
-    <html>
-        ...
-        <body>
-            ...
-            <%- include(cocosTemplate, {}) %> // Game start processing logic
-            <script src="/test.js"></script> // New script
-        </body>
-    </html>
-    ```
-
-4. **Place `test.js` in the `preview-template` folder like blow**
-
-    ```
-    |--preview-template
-            |--index.ejs
-            |--test.js
-    ```
-
-5. **Preview**
-
-    Now, you can refresh your preview game to see changes.
-
-## Add Custom Devices Info
-
-Open __Project —> Project Preview__. Custom device info can be modified on this page, and changes will work after refreshing the preview page.
-
-![Custom Devices Info](./index/user_device.jpg)
-
-## Debugging with browser Developer Tools
-
-Take Chrome for example, open menu and choose __Developer/Developer Tools__ to open the __Developer Tools__. It is possible to debug source code, add breakpoints, check the call stack and use step control during debugging.
-
-To learn more about using DevTools, please read the [Chrome Dev Tools User Guide](https://developer.chrome.com/devtools) documentation, or other browser's developer documentation.
-
-## Browser compatibility
-
-The desktop browsers tested during __Cocos Creator__ development include: **Chrome**, **Firefox (Firefox)**. Other browsers can be used as long as the kernel version is high enough, for some browsers do not enable IE6 compatibility mode.
-
-Browsers tested on mobile devices include: **Safari (iOS)**, **Chrome**, **QQ browser**, **UC browser**, and **WeChat built-in Webview**.
+For more details, please refer to the example [Preview Template](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/preview-template).

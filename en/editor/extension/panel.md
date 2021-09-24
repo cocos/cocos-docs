@@ -1,4 +1,4 @@
-# Extension panel
+# Extension Panel
 
 When implementing a function, it is likely to require UI interaction on the interface. **Cocos Creator** also provides this ability for extensions.
 
@@ -58,6 +58,8 @@ interface PanelFlags {
     resizable?: boolean;
     // Need to save, default false
     save?: boolean;
+    // Whether the window is displayed at the top
+    alwaysOnTop?: boolean;
 }
 
 // Some size limitations of panel

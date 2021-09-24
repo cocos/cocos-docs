@@ -6,7 +6,7 @@ Cocos Creator 脚本用于实现用户定义的（游戏）行为。
 - [脚本创建](./setup.md)
 - [脚本基础](./basic.md)
 - [语言支持](./language-support.md)
-- [模块](./modules/index.md)
+- [模块规范与示例](./modules/index.md)
 - [脚本执行顺序](./execution-order-general.md)
 - [装饰器](./decorator.md)
 - [访问节点和其他组件](./access-node-component.md)
@@ -26,7 +26,7 @@ Cocos Creator 脚本用于实现用户定义的（游戏）行为。
 - [插件脚本](./external-scripts.md)
 - [脚本进阶参考](./reference-class.md)
 - [添加 Log](./log.md)
-- [废弃API](./deprecated.md)
+- [废弃 API](./deprecated.md)
 
 ## 事件机制
 

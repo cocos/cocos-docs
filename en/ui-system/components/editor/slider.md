@@ -6,11 +6,11 @@ Slider is a component for the production of UI components such as volume adjustm
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/Slider__ to add the Slider component to the node.
 
-To use `Slider`, please refer to the [Slider API](__APIDOC__/en/classes/ui.slider.html) documentation and the [Slider](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/10.slider) scene of the test-cases-3d project.
+To use `Slider`, please refer to the [Slider API](__APIDOC__/en/#/docs/3.3/en/ui/Class/Slider) documentation and the [Slider](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/10.slider) scene of the test-cases-3d project.
 
 ## Slider Properties
 
-| Properties     | Function Explanation |
+| Property     | Function Explanation |
 | -------------- | -----------          |
 | Handle         | The button part of the __Slider__ that allows to adjust value by sliding the button  |
 | Direction      | The direction of the slider, including __Horizontal__ and __Vertical__ |

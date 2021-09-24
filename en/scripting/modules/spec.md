@@ -65,23 +65,38 @@ The absolute specifier directly specifies the URL of the target module.
 
 Cocos Creator currently only supports file protocol URLs, but since the file path specified in the file URL is an absolute path, it is rarely used.
 
-> **Note**: in Node.js, one way to access Node.js built-in modules is through `node:` protocol URLs, e.g. `node:fs`. Cocos Creator parses all requests for access to Node.js built-in modules as `node:` URL requests. For example, `'fs'` in `import fs from 'fs'` will resolve to `node:fs`. However, Cocos Creator does not support Node.js built-in modules, which means that it does not support the `node:` protocol. Therefore, a loading error will occur. This error may be encountered when using modules in npm.
+> **Note**: in Node.js, one way to access Node.js built-in modules is through `node:` protocol URLs, e.g.: `node:fs`. Cocos Creator parses all requests for access to Node.js built-in modules as `node:` URL requests. For example, `'fs'` in `import fs from 'fs'` will resolve to `node:fs`. However, Cocos Creator does not support Node.js built-in modules, which means that it does not support the `node:` protocol. Therefore, a loading error will occur. This error may be encountered when using modules in npm.
 
 ### Bare Specifiers
 
-For bare specifiers, Cocos Creator will apply the Node.js module parsing algorithm.
+Currently, Cocos Creator will apply [Import Maps (experimental)](./import-map) and [Node.js module parsing algorithm](https://nodejs.org/api/esm.html#esm_resolver_algorithm_specification) for bare specifiers.
 
 > This includes parsing of npm modules.
 
-In general, bare specifiers have the following two forms:
+#### Conditional exports
 
-- `'foo'`: parsed as the entry module for the npm package `foo`.
+In the **Node.js** module parsing algorithm, the [conditional export](https://nodejs.org/api/packages.html#packages_conditional_exports) feature of packages is used to map the subpaths in a package based on some conditions. Similar to **Node.js**, Cocos Creator implements built-in conditions `import` and `default`, but not conditions `require` and `node`.
 
-- `'foo/bar'`: parsed as the module under the subpath `./bar` in the npm package `'foo'`.
+Developers can specify **additional** conditions via the **Export conditions** option in the editor's main menu **Project -> Project Settings -> Scripting**, which defaults to `browser`. Multiple additional conditions can be specified using **commas** as separators, e.g. `browser, bar`.
 
-The specific rules for parsing bare specifiers can be found in [Node.js module parsing algorithm](https://nodejs.org/api/esm.html#esm_resolver_algorithm_specification).
+If the **Export conditions** option uses the default value `browser`, when the `package.json` of an npm package `foo` contains the following configuration:
 
-> In the future, Cocos Creator may support importing maps, see [Import Maps](https://github.com/WICG/import-maps).
+```json
+{
+   "exports": {
+      ".": {
+         "browser": "./dist/browser-main.mjs",
+         "import": "./dist/main.mjs"
+      }
+   }
+}
+```
+
+`"foo"` will resolve to the module with path `dist/browser-main.mjs` in the package.
+
+> The mapping configuration is done in [Multiplayer Framework Colyseus for Node.js](https://www.npmjs.com/package/colyseus) for the `browser` condition.
+
+If the **Export conditions** option is empty, it means that no additional conditions are specified, and `"foo"` in the above example will resolve to a module with path `dist/main.mjs` in the package.
 
 ### Suffixes and Directory Import
 
@@ -115,6 +130,7 @@ On the other hand, Node.js-style directory import is supported:
 ```ts
 import '. /foo'; // correct: parsed as the `foo/index.ts` module
 ```
+
 > **Notes**:
 > 1. Cocos Creator supports the Web platform. Implementing complex module parsing algorithms like Node.js on the Web platform is expensive, and the client and server cannot try different suffixes and file paths with frequent communication between them.
 > 2. Even if such complex parsing could be done at the build stage with some post-processing tools, it would result in inconsistent algorithms for static import parsing (via `import` statements) and dynamic import parsing (via `import()` expressions). Therefore, specify the full file path in the code for the choice of module parsing algorithm.
@@ -122,7 +138,7 @@ import '. /foo'; // correct: parsed as the `foo/index.ts` module
 
 ### The `browser` Field is not Supported
 
-Some npm packages have `browser` fields documented in the manifest file `package.json`, e.g. [JSZip](https://github.com/Stuk/jszip). The `browser` field is used to specify a module parsing method specific to the package when it is in a non-Node.js environment, which allows some Node.js-specific modules in the package to be replaced with modules that can be used in the Web. Although Cocos Creator **does not support this field**, if you have the ability to edit npm packages, Cocos Creator recommends using [conditionalized export](https://nodejs.org/api/packages.html#packages_conditional_exports) and [subpath import](https://nodejs.org/api/packages.html#packages_subpath_imports) instead of the `browser` field.
+Some npm packages have `browser` fields documented in the manifest file `package.json`, e.g.: [JSZip](https://github.com/Stuk/jszip). The `browser` field is used to specify a module parsing method specific to the package when it is in a non-Node.js environment, which allows some Node.js-specific modules in the package to be replaced with modules that can be used in the Web. Although Cocos Creator **does not support this field**, if you have the ability to edit npm packages, Cocos Creator recommends using [conditionalized export](https://nodejs.org/api/packages.html#packages_conditional_exports) and [subpath import](https://nodejs.org/api/packages.html#packages_subpath_imports) instead of the `browser` field.
 
 Otherwise, the target library can be used in a non-npm way. For example, copying modules from the target library that are specifically made for non-Node.js environments into the project and importing them via relative paths.
 

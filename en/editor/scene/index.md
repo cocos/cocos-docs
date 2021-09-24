@@ -25,9 +25,76 @@ In 2D view, the view of the **Scene** panel can be moved and positioned by the f
 - Right mouse button: pans the view.
 - **F** Shortcut: focus the camera on the currently selected node.
 
-## Coordinate System and Grid
+## Scene settings
 
-The grid in the scene is an important reference information for the position of the scene elements when we place them. For the relationship between the coordinate system and the position and other node properties, please read the [Coordinate System and Node Transformation](../../concepts/scene/coord.md) documentation.
+The options in the top right corner of the **Scene** panel can be used to set the reference image, grid, camera parameters, etc. of the scene. Please refer to the description below for details.
+
+### Reference image settings
+
+Click on the ![scene reference](images/scene-reference.png) button in the top right corner of the **Scene** panel to open the **Reference Image** panel, which is primarily used as a cross-reference for developers when stitching together UI in the **Scene** panel.
+
+![reference](images/reference.png)
+
+| Option | Description |
+| :-- | :-- |
+| Add | Used to add UI reference images. Multiple reference images can be added.  |
+| Delete | Used to remove the UI reference image from the currently selected box. |
+| X | The X-axis position of the selected UI reference image displayed in the scene. |
+| Y | The Y-axis position of the selected UI reference image displayed in the scene. |
+| Opacity | Opacity of the selected UI reference image displayed in the scene. |
+
+### Grid settings
+
+The grid in the scene is an important reference for the position of the scene elements when we place them, and can be set via the button on the top right of the **Scene** panel.
+
+![Gizmo](images/scene-grid.png)
+
+| Option | Description |
+| :-- | :-- |
+| 3D Icons | Whether to enable the 3D icon for the scene, the input box after it is used to set the size of the icon gizmo, the value range is 0 ~ 8.<br>If this option is checked, the 3D icon will be enabled and the icon gizmo in the **Scene** panel will be a 3D slice with a foreshortening effect.<br>If this option is unchecked, the icon gizmo will be displayed as a fixed size image. |
+| Show Grid | Whether to display the grid in the **Scene** panel, with the color setting box behind it used to set the color of the grid. |
+
+### Scene camera settings
+
+Click the ![set camera](images/set-camera.png) button in the upper-right corner of the **Scene** panel to set the properties of the scene camera (not the user-created camera):
+
+![scene camera](images/scene-camera.png)
+
+| Option | Description |
+| :-- | :-- |
+| Fov | Set the field of view of the scene camera. |
+| Far | Set the far clipping distance of the scene camera. |
+| Near  | Set the near clipping distance of the scene camera. |
+| Color | Set the scene background color. |
+| Wheel Speed  | Set the speed at which the scene camera moves back and forth when the mouse wheel is scrolled. |
+| Wander Speed | Set the movement speed when the scene camera is roaming. |
+| Wander Acceleration | Whether to enable acceleration in Wander Mode (new in v3.3).<br>If enable, the camera will moving faster along time, otherwise the camera will move in a constant speed.|
+
+### Render target resolution settings
+
+The render output target resolution of the scene camera can be selected in the upper right corner of the **Scene** panel as needed, which will affect the visual range of the scene camera, and facilitate a similar display to the resolution selected in the final preview:
+
+![scene resolution](images/scene-resolution.png)
+
+Resolutions can be added/modified/deleted in [Device manager](../preferences/index.md#device-manager) of the **Preferences** on the top menu bar.
+
+For descriptions about the visual range of the camera, please refer to the [Camera component](../components/camera-component.md) documentation.
+
+## Scene Light Configure
+
+The ![Scene Light](images/scene-light.png) button above the **Scene** panel is mainly used to set whether to use scene lights when editing the scene, and is used by default.
+
+If scene lighting is enabled, the scene will be illuminated by the lights added to the scene, as follows:
+
+![scene light on](images/light-on.png)
+
+When there is no added light in the scene, the scene is completely black:
+
+![scene light on](images/remove-light.png)
+
+At this point, the button can be switched to white, indicating that not using the scene lights, and the editor will automatically create a hidden directional light aligned with the scene camera view to illuminate the scene, as shown below:
+
+![scene light off](images/light-off.png)
 
 ## Scene Gizmo
 

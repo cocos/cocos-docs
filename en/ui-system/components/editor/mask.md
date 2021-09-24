@@ -8,7 +8,7 @@ Select a node in the __Hierarchy__ panel, then click the __Add Component__ butto
 
 > __Note__: the Mask component cannot be added to a node with other renderer components such as __Sprite__, __Label__, etc.
 
-To use `Mask`, please refer to the [Mask API](__APIDOC__/en/classes/ui.mask-1.html) documentation and the [Mask](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/08.mask) scene of the test-cases-3d project.
+To use `Mask`, please refer to the [Mask API](__APIDOC__/en/#/docs/3.3/en/ui/Class/Mask) documentation and the [Mask](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/08.mask) scene of the test-cases-3d project.
 
 ## Mask Properties
 
@@ -17,7 +17,7 @@ To use `Mask`, please refer to the [Mask API](__APIDOC__/en/classes/ui.mask-1.ht
 | **Type**           | Mask type, including `RECT`, `ELLIPSE`, `GRAPHICS_STENCIL`, `IMAGE_STENCIL`. |
 | **Segments**       | The segments for ellipse mask, which takes effect only when the Mask type is set to `ELLIPSE`.   |
 | **Inverted**       | The Reverse mask. |
-| **SpriteFrame**       | Image used for the type is **IMAGE_STENCIL**
+| **SpriteFrame**       | Image used for the type is **IMAGE_STENCIL** |
 
 ### Type
 
@@ -31,10 +31,10 @@ To use `Mask`, please refer to the [Mask API](__APIDOC__/en/classes/ui.mask-1.ht
 
 It can also be set by code at runtime. Example:
 
-``` ts
-    const mask = this.getComponent(Mask);
-    mask.type = Mask.Type.ELLIPSE;
-    mask.segments = 32;
+```ts
+const mask = this.getComponent(Mask);
+mask.type = Mask.Type.ELLIPSE;
+mask.segments = 32;
 ```
 
 #### GRAPHICS_STENCIL
@@ -43,19 +43,19 @@ It can also be set by code at runtime. Example:
 
 It can also be set by code at runtime. Example:
 
-``` ts
-    const mask = this.getComponent(Mask);
-    mask.type = Mask.Type.GRAPHICS_STENCIL;
-    const g = mask.graphics;
-    g.lineWidth = 10;
-    g.fillColor.fromHEX('#ff0000');
-    g.moveTo(-40, 0);
-    g.lineTo(0, -80);
-    g.lineTo(40, 0);
-    g.lineTo(0, 80);
-    g.close();
-    g.stroke();
-    g.fill();
+```ts
+const mask = this.getComponent(Mask);
+mask.type = Mask.Type.GRAPHICS_STENCIL;
+const g = mask.graphics;
+g.lineWidth = 10;
+g.fillColor.fromHEX('#ff0000');
+g.moveTo(-40, 0);
+g.lineTo(0, -80);
+g.lineTo(40, 0);
+g.lineTo(0, 80);
+g.close();
+g.stroke();
+g.fill();
 ```
 
 #### IMAGE_STENCIL
@@ -64,11 +64,11 @@ It can also be set by code at runtime. Example:
 
 It can also be set by code at runtime. Example:
 
-``` ts
-    const mask = this.getComponent(Mask);
-    mask.type = Mask.Type.IMAGE_STENCIL;
-    mask.spriteFrame = this.spriteFrame;
-    mask.alphaThreshold = 0.1;
+```ts
+const mask = this.getComponent(Mask);
+mask.type = Mask.Type.IMAGE_STENCIL;
+mask.spriteFrame = this.spriteFrame;
+mask.alphaThreshold = 0.1;
 ```
 
 > __Notes__:

@@ -4,7 +4,7 @@ Click **Project -> Build** in the main menu or use the shortcut `Ctrl / Cmd + Sh
 
 ## Platform Plugin
 
-Each platform's build will be embedded in the **Build** panel as a separate plugin, with platform related options placed in a collapsible `section` (e.g. the Web Desktop in the figure below).
+Each platform's build will be embedded in the **Build** panel as a separate plugin, with platform related options placed in a collapsible `section` (e.g.: the Web Desktop in the figure below).
 
 ![main](build-panel/main.jpg)
 
@@ -45,12 +45,6 @@ Because the build process generates so many log messages, by default only error 
 - **Open Build DevTools**
 
   Click **Developer -> Open Build DevTools** in the menu bar to see all the log information printed during the build, including the call stack.
-
-- **Log Level**
-
-  Click **Preferences -> Extension** in the menu bar, set **Package** to `builder`, and then set the log type to output to the **Console** panel in **Log Level**.
-
-  ![builder-log](./build-panel/builder-log.jpg)
 
 - **Log File**
 

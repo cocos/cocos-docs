@@ -6,15 +6,15 @@ The currently supported tags are: `color`, `size`, `outline`, `b`, `i`, `u`, `br
 
 For more information about BBCode, please refer to the __BBCode format__ section below.
 
-![richtext](richtext/richtext.png)
+![richtext](richText/richtext.png)
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __RichText__ from __UI -> Render__ to add the RichText component to the node.
 
-To use `RichText`, please refer to the [RichText API](__APIDOC__/en/classes/ui.richtext.html) documentation and the [RichText](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/07.richtext) scene of the test-cases-3d project.
+To use `RichText`, please refer to the [RichText API](__APIDOC__/en/#/docs/3.3/en/ui/Class/RichText) documentation and the [RichText](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/07.richtext) scene of the test-cases-3d project.
 
 ## RichText Properties
 
-| Property      | Function Explanation  |
+| Property         | Function Explanation  |
 | --------------   | -----------   |
 | Font             | Custom TTF font of __RichText__, all the label segments will use the same custom TTF font.  |
 | FontSize         | Font size, in points (__Note__: this field does not affect the font size set in BBCode.) |
@@ -57,7 +57,7 @@ Here is an example of the `size` and `color` tag:
 | br      | Insert a empty line | `<br/>` | `<br></br>` and `<br>` are both invalid tags. |
 | img     | Add image and emoji support to your __RichText__. The emoji name should be a valid sprite frame name in the ImageAtlas. | `<img src='emoji1' click='handler' />` | Only `<img src='foo' click='bar' />` is a valid img tag. If you specify a large emoji image, it will scale the sprite height to the line height of the __RichText__ together with the sprite width. |
 
-#### Optional attribute of img tag
+#### Optional attributes of img tag
 
 For better typography, additional optional attributes to the img tag have been provided. Developers can use `width`, `height` to specify the size of the SpriteFrame. This will allow the image to be larger or smaller than the line height (but it will not change the line height).
 
@@ -91,7 +91,7 @@ is equal to:
 
 Since the RichText component is assembled from multiple Label nodes, the number of drawcalls for complex rich text will also be high. Therefore, the engine provides the CacheMode setting of the Label component for the RichText component to avoid the increase of drawcall. For a detailed description of each cache type, please refer to the [Cache Mode of the Label component](./label.md) documentation.
 
-| Attributes |   Description |
+| Mode |   Description |
 | :-------------- | :----------- |
 | **NONE** | By default, for each Label node created by RichText, set its CacheMode to NONE, that is, generate a bitmap of the entire text of each Label and render it separately. |
 |**BITMAP**| After selection, for each Label node created by RichText, set its CacheMode to BITMAP type, that is, generate a bitmap of the entire text of each Label, and add the bitmap to the dynamic atlas, and then according to the dynamic atlas to assemble and render. |
@@ -103,4 +103,4 @@ Since the RichText component is assembled from multiple Label nodes, the number 
 
 The __RichText__ component is implemented in the JavaScript layer and uses the Label node as the rendering part. All the layout logic goes also in JavaScript layer. This means if you create a very complex __RichText__, it will end up with many label node created under the hook. And all these label node are using system font for rendering.
 
-So, you should avoid modifying the __RichText__ content frequently in your game's main loop, which can lead to lower performance. Also, try to use the normal Label component instead of the __RichText__ component if you can, and BMFont is the most efficient.
+Avoid modifying the __RichText__ content frequently in the game's main loop, which can lead to lower performance. Also, try to use the normal Label component instead of the __RichText__ component if possible, and BMFont is the most efficient.

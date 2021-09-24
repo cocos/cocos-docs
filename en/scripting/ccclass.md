@@ -16,28 +16,28 @@ When you need the corresponding `ccclass`, you can find it by its `ccclass` name
 
 - When the `ccclass` is a component class, `Node` can find the component by its `ccclass` name.
 
-## ccattributes
+## Property decorators
 
 When the decorator [property](#property) is applied to a property or accessor of the `ccclass`, this property is called a `ccproperty`.
 
-Similar to the `ccclass`, the `ccattribute` injects additional information to control the serialization of the attribute in **Cocos Creator 3.0** and the display of the attribute in the editor.
+Similar to the `ccclass`, the `ccattribute` injects additional information to control the serialization of the property in **Cocos Creator 3.0** and the display of the property in the editor.
 
 ### Property
 
-Various characteristics of the `ccattribute` are specified by the `ccattribute` option parameter of `property()`.
+Various characteristics of the `ccattribute` are specified by the `ccproperty` option parameter of `property()`.
 
 ### cctype
 
-The option `type` specifies the `cctype` of the attribute. The type can be specified by the following parameters:
+The option `type` specifies the `cctype` of the property. The type can be specified by the following parameters:
 
 - Constructor
 
-  The type specified by the constructor is directly used as the `cctype` of the attribute.<br>
+  The type specified by the constructor is directly used as the `cctype` of the property.<br>
   > **Note**: when Javascript built-in constructors `Number`, `String`, `Boolean` A warning will be given when used as a `cctype`, and they are regarded as `cctype`'s `CCFloat`, `CCString`, and `CCBoolean` respectively.
 
 - Cocos Creator 3.0 built-in attribute type identification.
 
-  `CCInteger`, `CCFloat`, `CCBoolean`, and `CCString` are built-in attribute type identifiers.
+  `CCInteger`, `CCFloat`, `CCBoolean`, and `CCString` are built-in property type identifiers.
   - `CCInteger` declares the type as **integer**.
   - `CCFloat` declares the type as **floating point number**.
   - `CCString` declares the type as **string**.
@@ -47,19 +47,19 @@ The option `type` specifies the `cctype` of the attribute. The type can be speci
 
   When using the constructor, built-in property type identification or array as the array element, the properties are specified as **Cocos Creator 3.0** array. For example, `[CCInteger]` declares the type as a array whose elements are integers.
 
-If the attribute does not specify the `cctype`, **Cocos Creator 3.0** will derive its `cctype` from the default value of the attribute or the evaluation result of the initialization formula:
+If the property does not specify the `cctype`, **Cocos Creator 3.0** will derive its `cctype` from the default value of the property or the evaluation result of the initialization formula:
 - If the value type is Javascript primitive type `number`, `string`, `boolean`, the `cctype`s are Creator floating point, string, and boolean values, respectively.
 - Otherwise, if the value is an object type, it is equivalent to using the object's constructor to specify the `cctype`.
-- Otherwise, the `cctype` of the attribute is **undefined**.
+- Otherwise, the `cctype` of the property is **undefined**.
 
 Generally, you only need to explicitly declare the `cctype` in the following situations:
 
-- When the attribute needs to be displayed as an integer.
-- When the actual value of the attribute may be of multiple types.
+- When the property needs to be displayed as an integer.
+- When the actual value of the property may be of multiple types.
 
-For how the `cctype` affects the cc attribute and the treatment of attributes that do not define the `cctype`, see:
+For how the `cctype` affects the cc property and the treatment of properties that do not define the `cctype`, see:
 
-- [Attribute Type](#AttributeParameters)
+- [Property Type](#AttributeParameters)
 - [Serialization parameter](#serializableparameter)
 
 For convenience, the following decorators are additionally provided to quickly declare the `cctype`:
@@ -79,13 +79,13 @@ import { _decorator, CCInteger, Node } from 'cc';
 const { ccclass, property, integer, float, boolean, string, type } = _decorator;
 @ccclass
 class MyClass {
-    @integer // Declare that the cc type of the attribute _id is a Cocos integer
+    @integer // Declare that the cc type of the property _id is a Cocos integer
     private _id = 0;
 
-    @type(Node) // Declare that the cc type of the attribute _targetNode is Node
+    @type(Node) // Declare that the cc type of the property _targetNode is Node
     private _targetNode: Node | null = null;
 
-    @type([Node]) // declare the cc type of the attribute _children as a Node array
+    @type([Node]) // declare the cc type of the property _children as a Node array
     private _children: Node[] = [];
 
     @property
@@ -102,13 +102,13 @@ class MyClass {
 
 ### Defaults
 
-The option `default` specifies the default value of the cc attribute.
+The option `default` specifies the default value of the `cc` property.
 
 ### Constructor
 
 #### Defined By Constructor
 
-The constructor of `CCClass` is defined by `constructor`. To ensure that deserialization can always run correctly, `constructor` **is not allowed to define **constructor parameters**.
+The constructor of `CCClass` is defined by `constructor`. To ensure that deserialization can always run correctly, `constructor` **is not allowed to define constructor parameters**.
 
 > **Note**: if developers really need to use construction parameters, they can get them through `arguments`, but remember that if this class will be serialized, you must ensure that the object can still be new when the construction parameters are all default.
 
@@ -241,7 +241,7 @@ class Sprite extends Node {
         super();
         // Before the child constructor is called, the parent constructor has been called, so this.name has been initialized
         console.log(this.name);    // "node"
-        // reset this.name
+        // Reset "this.name"
         this.name = "sprite";
     }
 }
@@ -271,13 +271,13 @@ let obj = new Rect();
 console.log(obj.getName());    // "rect"
 ```
 
-## Attributes
+## Properties
 
-Attributes are special instance variables that can be displayed in the **Inspector** panel and can also be serialized.
+Properties are special instance variables that can be displayed in the **Inspector** panel and can also be serialized.
 
 ### Properties and Constructors
 
-The attribute **not required** is defined in the constructor. Before the constructor is called, the attribute has been assigned a default value and can be accessed in the constructor. If the default value of the attribute cannot be provided when defining the `ccclass` and needs to be obtained at runtime, you can also re-assign the default value to the attribute in the constructor.
+The property **not required** is defined in the constructor. Before the constructor is called, the property has been assigned a default value and can be accessed in the constructor. If the default value of the property cannot be provided when defining the `ccclass` and needs to be obtained at runtime, you can also re-assign the default value to the property in the constructor.
 
 ```typescript
 class Sprite {
@@ -291,11 +291,11 @@ class Sprite {
 
 However, it should be noted that the process of property deserialization occurs immediately after the execution of the **constructor**, so the default value of the property can only be obtained and modified in the **constructor**, and it cannot be obtained and saved before the modification (serialization ) value.
 
-### Attribute Parameters
+### Property Parameters
 
 #### Default Parameter
 
-`default` is used to declare the default value of the attribute. The attribute with the default value will be implemented as a member variable by `ccclass`. The default value is only used when the object is created for the first time, which means that when the default value is modified, the current value of the component that has been added to the scene will not be changed.
+`default` is used to declare the default value of the property. The property with the default value will be implemented as a member variable by `ccclass`. The default value is only used when the object is created for the first time, which means that when the default value is modified, the current value of the component that has been added to the scene will not be changed.
 
 > **Note**: after you add a component to the editor, go back to the script to modify a default value, there is no change in the **Inspector** panel. Because the current value of the property has been serialized into the scene, it is no longer the default value used when it was first created. If you want to force all properties to be reset to default values, you can select Reset in the component menu of the **Inspector** panel.
 
@@ -312,9 +312,9 @@ However, it should be noted that the process of property deserialization occurs 
 
 4. Empty array `[]` or empty object `{}`
 
-#### Visible Parameter
+#### visible
 
-By default, whether it is displayed in the **Inspector** panel depends on whether the attribute name starts with an underscore `_`. If it starts with an underscore, it will not be displayed in the **Inspector** panel by default, otherwise it will be displayed by default.
+By default, whether it is displayed in the **Inspector** panel depends on whether the property name starts with an underscore `_`. If it starts with an underscore, it will not be displayed in the **Inspector** panel by default, otherwise it will be displayed by default.
 
 If you want to force it to be displayed in the **Inspector** panel, you can set the `visible` parameter to true:
 
@@ -330,16 +330,16 @@ If you want to force hiding, you can set the `visible` parameter to false:
     private num = 0;
 ```
 
-#### Serializable Parameters
+#### serializable
 
-Attributes with a default value of `default` will be serialized by default. After serialization, the values set in the editor will be saved to resource files such as scenes, and the previously set values will be automatically restored when the scene is loaded. If you don't want to serialize, you can set `serializable: false`.
+Properties with a default value of `default` will be serialized by default. After serialization, the values set in the editor will be saved to resource files such as scenes, and the previously set values will be automatically restored when the scene is loaded. If you don't want to serialize, you can set `serializable: false`.
 
 ```typescript
 @property({ serializable: false })
     private num = 0;
 ```
 
-#### Type Parameter
+#### type
 
 When `default` cannot provide enough detailed type information, in order to display the correct input control in the **Inspector** panel, you must use `type` to explicitly declare the specific type:
 
@@ -350,7 +350,7 @@ When `default` cannot provide enough detailed type information, in order to disp
     private enemy = null;
     ```
 
-- When the default value is a number type, set the type to `cc.Integer` to indicate that this is an integer, so that the attribute cannot be entered in the decimal point in the **Inspector** panel.
+- When the default value is a number type, set the type to `cc.Integer` to indicate that this is an integer, so that the property cannot be entered in the decimal point in the **Inspector** panel.
 
     ```typescript
     @property({ type: CCInteger })
@@ -372,7 +372,7 @@ When `default` cannot provide enough detailed type information, in order to disp
     }
     ```
 
-#### Override Parameters
+#### override
 
 All properties will be inherited by the subclass. If the subclass wants to override the property with the same name of the parent class, you need to explicitly set the override parameter, otherwise there will be a duplicate name warning:
 
@@ -387,7 +387,69 @@ private get name() {
 }
 ```
 
-For more parameters, please refer to the [Property Parameters](./reference/attributes.md) documentation.
+### group
+
+If there are many properties or mixed properties defined in the script, the properties can be grouped and sorted by `group` for easy management. It also supports sorting properties within a group.
+
+- `@property({ group: { name } })`
+
+- `@property({ group: { id, name, displayOrder, style } })`
+
+| Property | Description |
+| :--- | :--- |
+| `id`           | Group ID, `string` type, is a unique identifier for the property group, and defaults to `default`. |
+| `name`         | The name to classify the properties in the group, `string` type. |
+| `displayOrder` | Sort the groups, `number` type. The smaller the number, the higher the sorting. The default is `Infinity`, which means the group is sorted last.<br>If there are multiple groups without `displayOrder` set, they will be sorted in the order declared in the script. |
+| `style`        | Grouping styles, currently only **tab** styles are supported. |
+
+Example script is as follows:
+
+```ts
+import { _decorator, Component, Label, Sprite } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('SayHello')
+export class SayHello extends Component {
+
+    // Group 1
+    // The property category named "bar" within the group, which contains a Label property named "label".
+    @property({ group: { name: 'bar' }, type: Label }) 
+    label: Label = null!; 
+    // The property category named "foo" within the group, which contains a Sprite property named "sprite".
+    @property({ group: { name: 'foo' }, type: Sprite }) 
+    sprite: Sprite = null!;
+
+    // Group 2
+    // The property category named "bar2" within the group, which contains a Label property named "label2" and a Sprite property named "sprite2".
+    @property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, type: Label }) 
+    label2: Label = null!; 
+    @property({ group: { name: 'bar2', id: '2' }, type: Sprite }) 
+    sprite2: Sprite = null!;
+
+}
+```
+
+Mounting the script to the node displays the following image in the **Inspector** panel:
+
+![decorator-group](decorator-group.png)
+
+Because group 1 does not specify `displayOrder` and group 2 specifies `displayOrder` as `1`, group 2 will be ranked ahead of group 1.
+
+Sorting the properties within a group can also be done via `displayOrder`. Taking group 2 as an example, it is currently sorted in the order defined in the script, with label2 in front of sprite2. Let's adjust it to:
+
+```ts
+// Group 2
+@property({ group: { name: 'bar2', id: '2', displayOrder: 1 }, displayOrder: 2, type: Label }) 
+label2: Label = null!; 
+@property({ group: { name: 'bar2', id: '2' }, displayOrder: 1, type: Sprite }) 
+sprite2: Sprite = null!;
+```
+
+Back to the editor, the sprite2 is now in front of label2 in the **Inspector** panel:
+
+![decorator-group](decorator-group2.png)
+
+For additional information about the properties, please refer to the [Properties](./reference/attributes.md) documentation.
 
 ## get/set methods
 

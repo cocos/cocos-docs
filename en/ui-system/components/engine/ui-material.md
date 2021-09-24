@@ -1,18 +1,20 @@
-# UI Custom Material
+# Custom Materials for 2D Rendering Objects
 
-UI custom material is the best practice to expand UI performance and enhance UI's own capabilities.
-Cool UI effects such as dissolving and external glow can be achieved through custom materials
+Custom materials for 2D rendering objects are a best practice to extend the performance of 2D rendering objects and enhance the capabilities of 2D rendering objects themselves, allowing for cool rendering effects such as dissolve and glow.
 
-**Sprite** component supports **UI Custom Material**. The user interface is as follows:
+Most of the 2D rendering components in v3.0 support the use of custom materials, with the following interface (using the Sprite component as an example).
 
 ![UIMaterial](ui-material/UIMaterial.png)
 
-Using a UI built-in material works the same as custom materials. However, there are few items to take into consideration:
+The usage is no different from other built-in materials, just drag and drop the material to be used into the **CustomMaterial** property box, but there are some points to note as follows:
 
-1. When the number of custom materials is set to `0` or empty, the default material will be used. Please refer to the [Sprite](../editor/sprite.md) documentation.
-2. UI does not support multiple materials, the number of custom materials is at most one.
-3. When the ui custom material is used, the **Grayscale** function on the panel will be invalid. Users can choose to implement this function in the material.
-4. For custom materials, the **cc-sprite-texture** header file must be introduced in the shader to obtain the uploaded texture. The **cc_spriteTexture** in it corresponds to the `SpriteFrame` image resource set on the UI rendering component property panel. For example, a simple fragment shader that uses the panel setting `SpriteFrame` to sample textures should look like the following:
+1. When no custom material is specified, the built-in material will be used for rendering, please refer to the [Sprite Component Reference](../editor/sprite.md) documentation.
+2. 2D rendering objects do not support multiple materials, the maximum number of custom materials is one.
+3. Please use a 2D-specific shader such as **builtin-spine** or **builtin-sprite** to customize materials, do not choose a shader used by other 3D components.
+4. The **Grayscale** property on the panel is disabled when a custom material for 2D rendering objects is used, and the user can choose to implement this feature in the material itself.
+5. When a custom material is used, the BlendFactor settings panel on the component will be automatically hidden and the settings will be disabled, and the BlendFactor will be based on the settings in the custom material.
+6. When a custom material is used, the depth detection information of the component will be based on the material. To achieve occlusion with 3D objects, please use custom materials and turn on depth detection. See the example [2d-rendering-in-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/2d-rendering-in-3d).
+7. For custom materials, getting the uploaded texture requires introducing the `cc-sprite-texture` header file in the shader, where `cc_spriteTexture` corresponds to the SpriteFrame image asset set in the 2D rendering component properties panel. For example, a fragment shader that simply uses the panel to set a SpriteFrame to sample textures should look like the following:
 
     ```
     CCProgram sprite-fs %{
@@ -49,13 +51,15 @@ Using a UI built-in material works the same as custom materials. However, there 
 
     ![dissolve](ui-material/dissolve.png)
 
-5. To perform uniform assignment operations to custom materials, they can operate by obtaining the material on the Sprite. We provide different interfaces to deal with different operating conditions, as shown in the following code: **(Please pay attention to the difference Notes on the interface!)**
+8. If the user wants to assign a `uniform` to a custom material, it can be done by getting the customMaterial on the 2D renderer component. Creator provides different interfaces for different cases, see the following example code for Sprite:
 
     ```ts
-    let spriteCom = this.node.getComponent(Sprite);
-    // What is obtained through the sharedMaterial method is a shared material resource, and operations on material will affect all rendering objects that use this material
-    let material = spriteCom.sharedMaterial;
+    let spriteComp = this.node.getComponent(Sprite);
+    // The sharedMaterial method is a "shared material asset", and operations performed on the material will affect all rendering objects that use the material, this operation will not instantiate the asset and will not affect the batch
+    let material = spriteComp.sharedMaterial;
 
-    // The material trial used by the current rendering component obtained through the material method, the operation for material Instance will only affect the current component
-    let materialInstance = spriteCom.material;
+    // The material method gets the "example material used by the current rendering component", and operations on the Material Instance will only affect the current component, this operation will instantiate the asset, and once instantiated, this component cannot be combined with other components
+    let materialInstance = spriteComp.material;
     ```
+
+    > **Note**: please be sure to read the annotations of the different interfaces!

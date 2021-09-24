@@ -219,7 +219,7 @@ For additional details please refer to the [Project Preview Debugging](../../edi
 
 The `Player` can be moved in a horizontal direction. This is a start, but not good enough. `Player` must become more life-like. This effect can be achieved by adding a vertical animation to the character.
 
-> **Note**: before proceeding, please read the [Animation Editor](../../editor/animation/index.md) documentation.
+> **Note**: before proceeding, please read the [Animation Editor](../../animation/index.md) documentation.
 
 After reading and understanding the capabilities of the __Animation Editor__ character animations can be implemented!
 
@@ -713,7 +713,7 @@ First, add a variable in the `PlayerController` class that references the model 
 
 ```ts
 @property({type: SkeletalAnimation})
-public CocosAnim: SkeletalAnimation = null;
+public CocosAnim: SkeletalAnimation|null = null;
 ```
 
 Then, in the __Inspector__, drag the `Cocos` node into this variable.
@@ -783,9 +783,9 @@ const { ccclass, property } = _decorator;
 export class PlayerController extends Component {
 
     @property({type: Animation})
-    public BodyAnim: Animation = null;
+    public BodyAnim: Animation|null = null;
     @property({type: SkeletalAnimation})
-    public CocosAnim: SkeletalAnimation = null;
+    public CocosAnim: SkeletalAnimation|null = null;
 
     // for fake tween
     private _startJump: boolean = false;

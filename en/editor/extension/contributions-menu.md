@@ -10,7 +10,7 @@ When the extension needs to add a menu, just fill in the `contributions.menu` ob
 {
     "name": "hello-world",
     "contributions": {
-        "message": {
+        "messages": {
             "open-panel": {
                 "methods": ["openPanel"]
             }

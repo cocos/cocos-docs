@@ -2,12 +2,15 @@
 
 ## 2D 渲染节点排序
 
-2D 渲染节点可分为在 Canvas 下的节点和不在 Canvas 下的节点两种，在 Canvas 下的节点可参考下文的 **UI 节点排序**。
-对于不在 Canvas 下的节点，用户可选择通过自定义材质来开启深度检测实现和 3D 物体的遮挡显示，开启后则会按照物体的 Z 轴坐标进行遮挡渲染（可参考范例 **2d-rendering-in-3d**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d)）。没有开启深度检测的话，则数据提交依旧会按照节点树顺序提交，也就意味着节点树靠下的节点会后渲染。
+2D 渲染节点可分为在 Canvas 下的节点和不在 Canvas 下的节点两种：
+
+- 在 Canvas 下的节点可参考下文 **UI 节点排序** 部分的内容。
+
+- 不在 Canvas 下的节点，用户可选择通过 [自定义材质](ui-material.md) 来开启深度检测实现和 3D 物体的遮挡显示，开启后会按照物体的 Z 轴坐标进行遮挡渲染（可参考范例 **2d-rendering-in-3d**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d)）。<br>若未开启深度检测，则数据提交依旧会按照节点树顺序提交，也就意味着节点树靠下的节点会后渲染。
 
 ## UI 节点排序
 
-UI 节点特指在 Canvas 节点下的 UI 节点，这些节点并未开启深度测试，所以节点的混合是严格按照节点树进行排序的。UI 的渲染排序采用的是一个广度优先的排序方式，节点树的排序方式即为最终渲染数据提交的顺序。所以用户可以通过设置节点的 siblingIndex 来改变节点在父节点下的顺序，从而改变渲染顺序。
+UI 节点特指在 Canvas 节点下的 UI 节点，这些节点并未开启深度测试，所以节点的混合是严格按照节点树进行排序的。UI 的渲染排序采用的是一个深度优先的排序方式，节点树的排序方式即为最终渲染数据提交的顺序。所以用户可以通过设置节点的 siblingIndex 来改变节点在父节点下的顺序，从而改变渲染顺序。
 
 举个例子：
 
@@ -24,7 +27,7 @@ setSiblingIndex 的使用说明：此操作是用于变更当前节点在父节�
 具体如何设置 **ClearFlag**，可参考以下几种情况：
 
 - 如果场景中只有一个 UI Canvas 或者 3D Camera，那么 **ClearFlag** 属性设置为 `Solid_Color`。
-- 如果场景中包含 UI 背景层、3D 场景层、 UI 操作层，则：
+- 如果场景中包含 2D 背景层、3D 场景层、 2D UI 层，则：
     - 2D 背景层：**ClearFlag** 属性设置为 `Solid_Color`。
     - 3D 场景层：**ClearFlag** 属性设置为 `Depth_Only`。
     - 2D UI 层：若有模型，**ClearFlag** 属性设置为 `Depth_Only` 以避免出现模型闪屏或者穿透的情况。若没有模型，**ClearFlag** 属性可设置为 `Dont_Clear` 或 `Depth_Only`。

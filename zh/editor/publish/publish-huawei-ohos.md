@@ -22,21 +22,21 @@
 
 ### 使用 Cocos Creator 构建
 
-1. 使用 Cocos Creator 打开项目工程，点击上方菜单栏中的 **Cocos Creator -> 偏好设置 -> 外部程序**，配置 **鸿蒙 OS SDK** 和 **鸿蒙 OS NDK** 路径：
+1. 使用 Cocos Creator 打开项目工程，点击上方菜单栏中的 **Cocos Creator -> 偏好设置 -> 外部程序**，配置 **HarmonyOS NDK** 和 **HarmonyOS SDK** 路径：
 
     ![preferences](./publish-huawei-ohos/preferences.png)
 
-2. 从 **菜单栏 -> 项目** 中打开 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择 **鸿蒙**，根据需要配置 [构建选项](./native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9) 然后点击右下方的 **构建** 按钮。
+2. 从 **菜单栏 -> 项目** 中打开 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择 **HarmonyOS**，根据需要配置 [构建选项](./native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9) 然后点击右下方的 **构建** 按钮。
 
     ![build](./publish-huawei-ohos/build.png)
 
-    > **注意**：**鸿蒙** 展开项中的 **应用 ID 名称** 需要与在 AppGallery Connect 后台添加 HarmonyOS 应用时的包名保持一致。
+    > **注意**：**HarmonyOS** 展开项中的 **应用 ID 名称** 需要与在 AppGallery Connect 后台添加 HarmonyOS 应用时的包名保持一致。
 
 3. 构建完成后打开项目目录，可以看到在 `native\engine` 目录下生成了 `ohos` 文件夹，该文件夹就包含了构建生成的 HarmonyOS 工程。
 
     ![package](./publish-huawei-ohos/package-ohos.png)
 
-    > **注意**：因为鸿蒙暂时不支持多目录构建，所以生成的 HarmonyOS 工程在 `native\engine` 目录下，与其他平台生成在项目目录 `build` 目录下的不同。
+    > **注意**：因为 HarmonyOS 暂时不支持多目录构建，所以生成的 HarmonyOS 工程在 `native\engine` 目录下，与其他平台生成在项目目录 `build` 目录下的不同。
 
     然后使用 HUAWEI DevEco Studio 打开 `ohos` 文件夹即可执行进一步的编译运行，详情请查看下文介绍。
 
@@ -95,7 +95,9 @@ HarmonyOS 应用是通过数字证书（`.cer` 文件）和 HarmonyAppProvision 
     ![provision profile](./publish-huawei-ohos/cer-file.png)
 
 - 点击右上角的 **新增证书** 按钮填写信息，其中：
-    - **证书类型**：根据需要选择 **发布证书**/**调试证书**
+
+    - **证书类型**：根据需要选择 **发布证书**/**调试证书**。
+
     - **证书请求文件**：选择上一个步骤在 **DevEco Studio** 中生成的 `.csr` 文件。
 
 - 信息填写完成后点击 **提交**，便会生成一个发布/调试证书（`.cer` 文件），点击证书后面的 **下载** 按钮将其下载到本地。

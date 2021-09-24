@@ -10,7 +10,7 @@ To bring a smooth upgrade experience, we will maintain compatibility with `loade
 
 Currently, when using those old APIs, the engine will output warnings and suggestions for upgradation. Please adjust the code according to the warnings and the instructions in this document and upgrade to the new usage. Unfortunately, due to an upgrade of the underlying layer, we have left behind a few incompatible APIs that will output error messages while running. If you have decided to make the upgrade, then please read the following carefully.
 
-- For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
+- For the **Artist and Game Designer**, all resources in your project (e.g.: scenes, animations, prefab) do not need to be modified or upgraded.
 - For **Programmers**, all APIs in the `loader` module that were used in the original code need to be changed to APIs from `assetManager`. The related content will be described in detail in this document.
 
 > **Note**: as v2.4 supports **Asset Bundle**, the subpackage feature in the project also needs to be upgraded, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation for details.
@@ -324,7 +324,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
 - **downloader, loader, md5Pipe, subPackPipe**
 
-  `loader.downloader` can be replaced by `assetManager.downloader`, and `loader.loader` can be replaced by `assetManager.parser`. For details, see [Download and Parse](downloader-parser.md) documentation or the corresponding API documentation [assetManager.downloader](__APIDOC__/en/classes/asset_manager.assetmanager.html#downloader) and [assetManager.parser](__APIDOC__/en/classes/asset_manager.assetmanager.html#parser).
+  `loader.downloader` can be replaced by `assetManager.downloader`, and `loader.loader` can be replaced by `assetManager.parser`. For details, see [Download and Parse](downloader-parser.md) documentation or the corresponding API documentation [assetManager.downloader](__APIDOC__/en/#/docs/3.3/en/asset-manager/Class/AssetManager?id=downloader) and [assetManager.parser](__APIDOC__/en/#/docs/3.3/en/asset-manager/Class/AssetManager?id=parser).
 
   > **Note**: for performance, modularity and readability reasons, `loader.assetLoader`, `loader.md5Pipe`, `loader.subPackPipe` have been merged into `assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `assetManager.transformPipeline` can be found in [Pipeline and Tasks](pipeline-task.md) documentation.
 

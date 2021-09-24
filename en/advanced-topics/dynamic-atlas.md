@@ -8,7 +8,7 @@ Dynamic atlas selects which textures are merged into a larger image in **renderi
 
 ## Enable and Disable Dynamic Atlas
 
-During initialization, Cocos Creator sets different [CLEANUP_IMAGE_CACHE](__APIDOC__/en/modules/core.html#macro-1.cleanup_image_cache) parameter for different platforms, and when `CLEANUP_IMAGE_CACHE` is disabled, dynamic atlas will be enabled by default. <br>
+During initialization, Cocos Creator sets different [CLEANUP_IMAGE_CACHE](__APIDOC__/en/#/docs/3.3/en/core/ObjectLiteral/macro?id=cleanup_image_cache) parameter for different platforms, and when `CLEANUP_IMAGE_CACHE` is disabled, dynamic atlas will be enabled by default. <br>
 Enabling dynamic atlas will take up extra memory, and the size of the memory used varies by platform. It is currently disabled by default on mini games and native platforms, but it is recommended to turn it on if your project still has room in memory.
 
 **If you want to force dynamic atlas to be enabled**, please add the following code to your code:

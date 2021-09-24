@@ -4,11 +4,11 @@ TiledMap is used to display a map in TMX format in the game.
 
 ![tiledmap-component](tiledmap/tiledmap-component.png)
 
-Click the **Add Component -> Components -> TileMap** button under the **Inspector** panel to add the TiledMap component to the node.
+Click the **Add Component -> Components -> TiledMap** button under the **Inspector** panel to add the TiledMap component to the node.
 
 ![](./tiledmap/add_tiledmap.png)
 
-For the script interface of TiledMap, please refer to the [TiledMap API](__APIDOC__/en/classes/TiledMap.html).
+For the script interface of TiledMap, please refer to the [TiledMap API](__APIDOC__/en/#/docs/3.3/en/tiledmap/Class/TiledMap).
 
 ## TiledMap Properties
 
@@ -41,7 +41,7 @@ The following is an example of how the TiledLayer and the node can occlude each 
 3. Create a new TypeScript script in **Assets** panel to write component scripts. The script code is as follows:
 
     ```ts
-    import { _decorator, Component, Node, TiledLayer, loader, Prefab, v2, instantiate, Vec3, SystemEventType, EventTouch } from 'cc';
+    import { _decorator, Component, Node, TiledLayer, loader, Prefab, v2, instantiate, Vec3, EventTouch } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass('ShieldNode')
@@ -64,7 +64,7 @@ The following is an example of how the TiledLayer and the node can occlude each 
                 const shieldNode = instantiate(prefab);
                 shieldNode.setPosition(posArr[i].x, posArr[i].y);
                 this.tiledLayer!.addUserNode(shieldNode);
-                shieldNode.on(SystemEventType.TOUCH_MOVE, (event:EventTouch) => {
+                shieldNode.on(Node.EventType.TOUCH_MOVE, (event:EventTouch) => {
                     const deltaMove = event.getDelta();
                     shieldNode.getPosition(tmpP);
                     tmpP.x += deltaMove.x;
@@ -78,7 +78,7 @@ The following is an example of how the TiledLayer and the node can occlude each 
 
 4. Attach the script component to the Canvas node, i.e. drag and drop the script into the **Inspector** panel of the Canvas node. Then drag and drop the automatically generated node with TiledLayer component from **Hierarchy** panel and the Prefabs from **Assets** panel to the corresponding property box of the script component, and then save the scene.
 
-5. Click the Preview button at the top of the editor to see the effect of the nodes and map layers occluding each other. For the code, please refer to the [ShieldNode](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tiled-map) example.
+5. Click the Preview button at the top of the editor to see the effect of the nodes and map layers occluding each other. For the code, please refer to the [ShieldNode](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/tiled-map) example.
 
     ![shieldNode](./tiledmap/shieldNode.png)
 

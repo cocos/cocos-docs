@@ -38,9 +38,9 @@
 
 - **Android SDK**：设置 Android SDK 路径，详情请参考 [安装配置原生开发环境](../publish/setup-native-development.md)。
 
-- **鸿蒙 OS SDK**：设置 HarmonyOS SDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
+- **HarmonyOS NDK**：设置 HarmonyOS NDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
 
-- **鸿蒙 OS NDK 路径**：设置 HarmonyOS NDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
+- **HarmonyOS SDK**：设置 HarmonyOS SDK 路径，详情请参考 [发布 Huawei HarmonyOS 应用](../publish/publish-huawei-ohos.md)。
 
 - **默认脚本编辑器**：可以选用任意外部文本编辑工具（例如 VS Code）的可执行文件，作为在 **资源管理器** 中双击脚本文件时的打开方式。可以点击输入框后面的 **搜索图标** 按钮选择偏好的文本编辑器的可执行文件。文件夹图标则用于打开已设置完成的文本编辑器的所在路径。
 
@@ -62,7 +62,7 @@
 
 - **自定义 TypeScript 引擎路径**：除了使用自带的 engine，也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)）克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 TypeScript 引擎**，并将 **自定义 TypeScript 引擎路径** 指定为定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
-- **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `cocos2d-x` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
+- **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `engine-naive` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
 
 - **自定义原生引擎路径**：取消上一项 **使用内置原生引擎** 的选择后，就可以手动指定原生引擎路径了。注意这里使用的原生引擎必须从 **engine-native**（[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)）或该仓库的 fork 下载。
 
@@ -75,8 +75,17 @@
 ![asset-db](./index/asset-db.jpg)
 
 - **日志等级**：用于设置 **资源管理器** 中的资源数据库输出到 **控制台** 的信息类型。目前包括 **仅输出错误**、**仅输出错误和警告**、**输出错误、警告以及日志** 和 **输出所有信息** 四种。
-- **忽略文件（正则）**：使用正则表达式，填入具体资源文件的路径，则该资源将会被忽略。
+- **忽略文件（Glob）**：使用 Glob 表达式，填入需要忽略的资源路径匹配符，则该资源将会被忽略。例如 `!**/*.txt`，表示忽略所有的 `.txt` 文件。
 - **默认 Meta**：用于设置项目内资源导入时的默认配置。详情参考下文介绍。
+- **自动刷新资源**：从外部返回编辑器界面时自动刷新资源。详情参考下文介绍。
+
+### 自动刷新资源
+
+若开启该项，无论开发者在 Creator 外部是否有对资源进行操作，再回到 Creator 时都会自动对所有资源进行检查。那么当项目中的文件数量过多，或者硬盘随机读写速度偏低时，就容易导致资源系统响应延迟。例如在 **资源管理器** 中选中资源，**属性检查器** 会延迟一会儿才显示资源相关属性。
+
+这时候便可以关闭 **自动刷新资源** 功能，关闭该功能后，如果有对资源进行操作，那么手动点击 **资源管理器** 面板右上方的 **刷新** 按钮即可刷新资源。
+
+> **注意**：如果没有遇到资源系统响应问题，不建议关闭 **自动刷新资源** 选项。
 
 ### 默认 meta
 
@@ -142,11 +151,12 @@
 
 ## 构建发布
 
-**构建发布** 分页用于设置执行 [构建发布](../publish/build-panel.md) 时相关的信息，包括 **日志等级** 和 **缓存资源的序列化 JSON**。
+**构建发布** 分页用于设置执行 [构建发布](../publish/build-panel.md) 时相关的信息，包括 **日志文件打开方式** 和 **缓存资源的序列化 JSON**。
 
 ![build](./index/build.png)
 
-- **日志等级**：用于设置在构建发布到某个平台时，输出到 **控制台** 的信息类型。目前包括 **仅输出错误**、**仅输出错误和警告**、**输出错误、警告以及日志** 和 **输出所有信息** 四种。
+- **日志文件打开方式**：该项用于设置点击 [平台构建任务](../publish/build-panel.md#%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BA%E4%BB%BB%E5%8A%A1) 左下方的打开日志按钮时，会直接打开构建日志文件还是打开日志文件所在的目录。默认为直接打开日志文件。
+
 - **缓存资源的序列化 JSON**：为了加快构建速度，减少重复反序列化未修改资源，在资源构建过程中将会缓存资源的序列化 JSON，这部分 JSON 会放置在项目的 `temp/asset-db/assets/uuid/build` 目录下，根据 **debug** 和 **release** 模式分为 `debug.json` 和 `release.json` 存放。
 
     ![build](./index/json.png)

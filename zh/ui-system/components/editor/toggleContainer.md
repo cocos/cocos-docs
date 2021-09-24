@@ -8,9 +8,9 @@ ToggleContainer 不是一个可见的 UI 组件，它可以用来修改一组 To
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/ToggleContainer** 即可添加 ToggleContainer 组件到节点上。
 
-ToggleContainer 的组件接口请参考 [ToggleContainer API](__APIDOC__/zh/classes/ui.togglecontainer.html)。
+ToggleContainer 的组件接口请参考 [ToggleContainer API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/ToggleContainer)。
 
-关于使用可以参考范例 **Toggle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/09.toggle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/09.toggle)）。
+关于使用可以参考范例 **Toggle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/09.toggle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/09.toggle)）。
 
 ## ToggleContainer 属性
 

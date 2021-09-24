@@ -1,6 +1,6 @@
 # Modules
 
-The engine and editor expose functional interfaces to developers via modules, which exist as **ECMAScript** modules.
+The engine expose functional interfaces to developers via modules, which exist as **ECMAScript** modules.
 
 > **Note**: from v3.0, it is strongly recommended not to use the global variable `cc` to access engine modules or classes.
 
@@ -72,13 +72,13 @@ if (DEV) {
 }
 ```
 
+<!--
 ## Editor Modules
 
 The editor modules are all under the `'cce:'` protocol ("cce" stands for "**C**ocos**C**reator**E**ditor").
 
 All editor modules are valid only in the editor environment. For example, the editor module is not accessible in the preview and post-build environments, but in contrast, it is accessible in the **Scene** panel.
 
-<!--
 | Module name | for |
 |---------------|----------------|
 | `'cce:gizmo'` | Gizmo |

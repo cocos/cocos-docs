@@ -21,19 +21,9 @@
 
 ![Native 选项](publish-native/native-options.png)
 
-#### 选择源码模板（Template）
+#### 资源服务器地址
 
-从 Cocos Creator 3.0 开始，为了体验一致，**模板 (Template)** 中可使用的引擎模板为 **Link**，移除了原先的 **Default** 模板。
-
-Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享的 Cocos2d-x 源码。这样可以有效减少构建目录占用的空间，并且对 Cocos2d-x 源码的修改也可以得到共享。
-
-> **关于源码引擎**
->
-> Cocos2d-x 引擎中包括了源码引擎，它们适用的范围是：
-> 1. 源码引擎初次构建和编译某个工程时需要很长的时间编译 C++ 代码，视电脑配置而定，这个时间可能在 5~20 分钟。对于同一个项目，已经编译过一次之后，下次再编译需要的时间会大大缩短。
-> 2. 源码引擎构建出的工程，使用原生开发环境编译和运行（如 Android Studio、Xcode 等 IDE），是可以进行调试和错误捕获的。
-
-目前 Cocos Creator 安装目录下的 `resources\3d\cocos2d-x-lite` 文件夹中已经包含了自带的 Cocos2d-x 源码引擎。若需要自定义引擎，详情请参考 [引擎定制工作流程](../../advanced-topics/engine-customization.md)。
+当包体过大时，可将资源上传到资源服务器，通过网络请求下载。该项用于填写资源存放在远程服务器上的地址，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情可参考 [上传资源到远程服务器](../../asset/cache-manager.md)
 
 #### Polyfills
 
@@ -42,6 +32,10 @@ Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享�
 #### 构建后立即生成
 
 若勾选该项，构建完成后会自动执行 **生成** 步骤，不需要再手动操作。
+
+#### 任务调度系统
+
+该项是目前引擎内部功能模块使用的功能，用户暂不需要关注该项，任意选择下拉框中的选项都不会产生任何影响。
 
 #### 加密脚本
 
@@ -53,6 +47,10 @@ Link 模板不会拷贝 Cocos2d-x 源码到构建目录下，而是使用共享�
 
 ![encrypt js](publish-native/encrypt-js.png)
 
+#### 原生引擎
+
+该项用于展示当前使用的是内置引擎还是定制引擎，点击后面的编辑按钮即可前往 **偏好设置 -> [引擎管理器](../preferences/index.md#%E5%BC%95%E6%93%8E%E7%AE%A1%E7%90%86%E5%99%A8)** 面板进行设置。
+
 ### Android 平台构建选项
 
 Android 平台的构建选项如下：
@@ -61,7 +59,7 @@ Android 平台的构建选项如下：
 
 #### 渲染后端
 
-目前支持 **VULKAN**、**GLES3** 和 **GLES2** 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况选择使用的渲染后端。
+目前支持 [VULKAN](https://www.vulkan.org/)、[GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) 和 [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况选择使用的渲染后端。
 
 #### 应用 ID 名称
 
@@ -113,17 +111,27 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 
 #### 生成 App Bundle（Google Play）
 
-勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/) 。
+勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/)。
 
 ### Windows 平台构建选项
 
-Windows 平台的构建选项目前只有一个 **渲染后端**，包括 **VULKAN**、**GLES3** 和 **GLES2** 三种类型，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
+Windows 平台的构建选项包括 **渲染后端** 和 **生成平台**。
 
 ![Windows build options](publish-native/windows-options.png)
 
+#### 渲染后端（Render BackEnd）
+
+**渲染后端** 目前支持 **VULKAN**、**GLES3** 和 **GLES2** 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
+
+#### 生成平台
+
+设置编译架构，目前支持 **x64** 和 **win32** 两种。
+- 若选择 **x64**，则只能在 **x64** 架构上运行。
+- 若选择 **win32**，则可以在两种架构上运行。
+
 ### iOS 平台构建选项
 
-iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向** 和 **渲染后端**，其中 **屏幕方向** 的设置与 Android 平台一致。
+iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向**、**目标版本**、**渲染后端** 和 **开发者**，其中 **屏幕方向** 的设置与 Android 平台一致。
 
 ![iOS build options](publish-native/ios-options.png)
 
@@ -133,17 +141,39 @@ iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向** 和 **�
 
 > **注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
 
+#### 目标版本
+
+该项主要用于指定发布 iOS 平台时的 iOS 软件版本，默认值为 **12.0**。构建后版本号会记录在发布包目录 `proj/cfg.cmake` 文件的 `TARGET_IOS_VERSION` 字段中。
+
 #### 渲染后端
 
-目前支持 **METAL** 和 **GLES3** 两种，默认勾选 **METAL**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况来选择使用的渲染后端。
+**渲染后端** 目前支持 **METAL**，详情可参考官方文档 [Metal](https://developer.apple.com/cn/metal/)。
+
+#### 开发者
+
+该项用于配置构建编译 iOS 工程时的 Development Team 签名信息。若使用 Xcode 编译时，在 Xcode 中手动配置了签名信息，则以 Xcode 中的配置为准。当执行重新构建时，该项的值会覆盖 Xcode 中配置的值。
 
 ### Mac 平台构建选项
 
-Mac 平台的构建选项包括 **Bundle Identifier**、**渲染后端** 和 **Support M1**，前两项的设置方法与 iOS 平台一致。
+Mac 平台的构建选项包括 **Bundle Identifier**、**目标版本**、**Support M1** 和 **渲染后端**。
 
 ![Mac build options](publish-native/mac-options.png)
 
-v3.1 新增了 **Support M1** 选项，用于更好地对一些已知的引擎模块在 Apple M1（Silicon）架构设备上的支持问题做提示。
+#### Bundle Identifier
+
+包名，用法与 iOS 平台一致。
+
+#### 目标版本
+
+该项主要用于指定发布 Mac 平台时的 macOS 系统版本，默认值为 **10.14**。构建后版本号会记录在发布包目录 `proj/cfg.cmake` 文件的 `TARGET_OSX_VERSION` 字段中。
+
+#### Support M1
+
+该项用于更好地提示一些已知的引擎模块在 Apple M1（Silicon）架构设备上的支持问题。
+
+#### 渲染后端
+
+目前默认使用 **METAL** 渲染后端，详情可参考官方文档 [Metal](https://developer.apple.com/cn/metal/)。
 
 ## 构建
 
@@ -182,6 +212,8 @@ v3.0 做了代码和配置的分离，将一部分代码和配置放入源码管
 - 若是基于 Android 平台做二次开发：
     - C++：需要在项目目录下的 `native\engine\android\CMakeLists.txt` 中添加引用。
     - Java：需要在项目发布包 `build\android\proj\build.gradle` 中添加引用。
+
+更多关于 CMake 的使用，详情可参考 [CMake 使用简介](../../advanced-topics/cmake-learning.md)。
 
 ## 生成和运行
 

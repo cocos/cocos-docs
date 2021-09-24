@@ -179,12 +179,12 @@ If you want to use hot updated assets, you need to restart the game.
 There are two reasons, the first is that the updated script requires a clean JS environment. The second is the assets configuration that used by `AssetManager` needs to be updated to the latest to load the scene and assets properly.
 
 1. Refresh of JS script
-    
+
     Before the hot update, all the scripts in the game have been executed, and all the classes, components, objects have already been stored in JS context. So if you load the script directly after the hot update without restarting the game, the classes and objects of the same name will be overwritten, but the objects created by the old scripts will still exist. Further, as a result of the overwriting, their dynamic state is also reset, causing the two versions of the objects to mix together, which comes with an overhead of memory usage.
 
 2. Refresh of asset configuration
 
-    Creator's scenes and assets depend on the [Asset Bundle](https://docs.cocos.com/creator/3.0/manual/en/asset/bundle.html). That is, the game will not be able to load the new scenes and assets without the Asset Bundle being reloaded and parsed by [Asset Manager](https://docs.cocos.com/creator/3.0/manual/en/asset/asset-manager.html).
+    Creator's scenes and assets depend on the [Asset Bundle](../asset/bundle.md). That is, the game will not be able to load the new scenes and assets without the Asset Bundle being reloaded and parsed by [Asset Manager](../asset/asset-manager.md).
 
 Enabling new assets relies on the search path mechanism of the Cocos engine. All files in the Cocos are read by FileUtils, which finds files in the priority order of the search path. So we add the hot update cache directory to the search path and promote it so that the assets in the cache directory are searched first. Here is the code example:
 

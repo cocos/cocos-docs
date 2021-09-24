@@ -36,7 +36,7 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
   该项为可选项，用于填写资源存放在服务器上的地址。
 
     - 若 **不填写** 该项，则发布包目录下的 `remote` 文件夹会被打包到构建出来的游戏包中。
-    - 若 **填写** 该项，则不会打包到游戏包中，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) 。
+    - 若 **填写** 该项，则不会打包到游戏包中，开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md)。
 
 - **预览 URL**
 
@@ -62,7 +62,7 @@ Cocos Creator 开发过程中测试的桌面浏览器包括：**Chrome**、**Fir
 
 ## Retina 设置
 
-可以在脚本中通过 `view.enableRetina(true)` 设置是否使用高分辨率，构建到 Web 平台时默认会开启 Retina 显示。详情可参考 API [enableRetina](__APIDOC__/zh/classes/core.view-2.html#enableretina)。
+可以在脚本中通过 `view.enableRetina(true)` 设置是否使用高分辨率，构建到 Web 平台时默认会开启 Retina 显示。详情可参考 API [enableRetina](__APIDOC__/zh/#/docs/3.3/zh/core/Class/View?id=enableretina)。
 
 ## 发布到 Web 服务器
 

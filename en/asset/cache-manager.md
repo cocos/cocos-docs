@@ -2,30 +2,56 @@
 
 > Author: Santy-Wang, Xunyi
 
-For Web platforms, resources cache are managed by the browser after download, not the engine.<br>
-However, on some non-Web platforms, such as WeChat Mini Game, these platforms have a file system, which can be used to cache some remote resources, but do not implement a caching mechanism for resources. In this case, the engine needs to implement a set of caching mechanisms for managing resources downloaded from the network, including caching resources, cleaning cached resources, querying cached resources and other features.
+On the Web platforms, after resources are downloaded, the cache is managed by the browser, not the engine. <br/>
+On some non-Web platforms, such as WeChat Mini Game, such platforms have a file system that can be used to cache some remote resources but do not implement a caching mechanism for the resources. In this case, the engine needs to implement a set of caching mechanisms to manage the resources downloaded from the network, including caching resources, clearing cached resources, querying cached resources, and other features.
 
-Since v2.4, Creator provides a Cache Manager on all platforms where file systems exist, and you can access it via `assetManager.cacheManager`.
+Starting from v2.4, Creator provides a cache manager on all platforms with file systems to add, delete, and check caches, which can be accessed by developers through `assetManager.cacheManager`.
 
-## Resource download process
+## Resource downloading, caching and versioning
 
-The logic of the engine downloading resources is as follows:
+The logic of downloading resources by the engine is as follows:
 
-1. Determine if the resource is in the game package, if so, use it directly;
+1. Determine whether the resource is in the game package, and if so, use it directly.
 
-2. If not, check if the resource is in the cache, and if it is, use it directly;
+2. If not, query whether the resource is in the local cache, and if so, use it directly.
 
-3. If not, check if the resource is in a temporary directory, and if it is, use it directly (the native platform does not have the temporary directory and skips this step);
+3. If not, query if the resource is in the temporary directory, and if so, use it directly (the native platform does not have a temporary directory, skip this step).
 
-4. If not, download the resources from the remote server and use them directly after downloading them to the temporary directory (the native platform downloads the resources to the cache directory);
+4. If not, download the resource from the remote server and use it directly after it is downloaded to the temporary directory (the native platform downloads the resource to the cache directory).
 
-5. Slowly save the resources from the temporary directory to the local cache directory in the background (the native platform skips this step);
+5. The backend slowly saves the resources in the temporary directory to the local cache directory to be used when accessed again (the native platform skips this step)
 
-6. When the cache space is full, the older resources will be deleted using the LRU algorithm at this point (there is no size limit on the native platform's cache space, so skip this step, you can call manually for cleanup if needed).
+6. The resources will fail to be saved when the cache space is full, at which point the older resources will be deleted using the LRU algorithm (the native platform has no size limit on the cache space, so skip this step, and developers can manually invoke cleanup).
 
-## Query cache files
+For the mini-game platform, once the cache space is full, all resources that need to be downloaded cannot be saved, and only resources downloaded and saved in the temporary directory can be used. And when quitting the mini-game, all temporary directories will be cleaned up, and when running the game again, these resources will be downloaded again, and so on and so forth.
 
-The Cache Manager provides a `getCache` interface to query all cache resources, and you can query the cache path of a resource by passing in its original path, for example:
+> **Note**: the problem of file saving failure due to cache space exceeding the limit does not occur on WeChat Mini Game's **WeChat DevTools**, because WeChat DevTools does not limit the cache size, so testing the cache needs to be done in a real WeChat environment.
+
+When the engine's **md5Cache** feature is enabled, the URL of the file will change with the content of the file, so that when a new version of the game is released, the resources of the old version will be naturally invalidated in the cache and only new resources can be requested from the server, which also achieves the effect of versioning.
+
+### Uploading resources to a remote server
+
+When the package is too large (in size), it is necessary to upload resources to a remote server and configure the Asset Bundle where the resources are located as a remote package. Next, taking the WeChat Mini Game as an example, and look at the specific steps:
+
+1. Reasonably allocate resources, configure the resource folder that needs to be managed modularly as Asset Bundles, and check **Is Remote Bundle**. For additional details, please refer to the [Configure Asset Bundle](./bundle.md#configuration) documentation.
+
+    ![bundle_is_remote](./cache-manager/remote-bundle.png)
+
+2. If the main bundle needs to be configured as a remote bundle, check **Main Bundle is Remote** in the **Build** panel.
+
+3. Then check **MD5 Cache** in the **Build** panel, set **Resource Server Address**, and click **Build**. 
+
+4. After the build is complete, upload the `remote` folder in the release package directory to the server which is filled in the previous step.
+
+5. Delete the `remote` folder from the local release package directory.
+
+> **Note**: During the testing phase of WeChat Mini Games, developers may not be able to deploy the project to the official server, and need to test it on the local server. Please open **Tools -> Details -> Local Settings** page in the menu bar of WeChat DevTools, and check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option.
+> 
+> ![details](./cache-manager/details.png)
+
+### Querying cache files
+
+The cache manager provides the `getCache` interface to query all cached resources, and developers can query the cache path by passing in the original path of the resource.
 
 ```typescript
 resources.load('images/background/texture', Texture2D, function (err, texture) {
@@ -34,9 +60,9 @@ resources.load('images/background/texture', Texture2D, function (err, texture) {
 });
 ```
 
-## Query temporary files
+### Querying temporary files
 
-After a resource is downloaded locally, it may be stored as a temporary file in a temporary directory. The Cache Manager provides a `tempFiles` interface to query all resources downloaded to the temporary directory, which you can do by passing in the original path of the resource, for example:
+When a resource is downloaded locally, it may be stored as a temporary file in a temporary directory. The cache manager provides the `tempFiles` interface to query all resources downloaded into the temporary directory, and developers can do so by passing in the original path of the resource.
 
 ```typescript
 assetManager.loadRemote('http://example.com/background.jpg', function (err, texture) {
@@ -45,23 +71,25 @@ assetManager.loadRemote('http://example.com/background.jpg', function (err, text
 });
 ```
 
-## Cache resources
+## Caching resources
 
-A number of parameters are provided in the Cache Manager to control the caching of resources.
+A number of parameters are provided in the cache manager to control the caching of resources:
 
-1. `cacheManager.cacheDir` -- Controls the storage directory for cached resources.
-2. `cacheManager.cacheInterval` -- Controls the period of caching a single resource, the default is once every 500ms.
-3. `cacheManager.cacheEnabled` -- Controls whether or not to cache resources, which defaults to caching. Alternatively, you can override the global settings by specifying the optional parameter `cacheEnabled`, for example:
+- `cacheManager.cacheDir` -- controls the directory where the cached resources are stored.
+- `cacheManager.cacheInterval` -- controls the period of caching a single resource, default 500 ms once.
+- `cacheManager.cacheEnabled` -- controls whether to cache the resource, default is cache. Alternatively, developers can override the global setting by specifying the optional parameter `cacheEnabled`. Example:
 
   ```typescript
   assetManager.loadRemote('http://example.com/background.jpg', {cacheEnabled: true}, callback);
   ```
 
-## Clear cache
+### Clearing cache resources
 
-The cache manager provides three interfaces `removeCache`, `clearCache` and `clearLRU` to clean up cache resources.
+If the cache resource exceeds the limit and the developer needs to clear the resource manually, use `removeCache`, `clearCache`, `clearLRU` provided by the cache manager `cc.assetManager.cacheManager` to clear the cache resource.
 
-- `removeCache` -- Clean up a single cached resource, and you need to provide the original path of the resource when using it.
+- `clearCache` -- clears all cache resources in the cache directory, please use with caution.
+- `clearLRU` -- clears the older resources in the cache directory. The mini-game platform will automatically call `clearLRU` when the cache space is full.
+- `removeCache` -- clears a single cache resource. To use it, provide the original path of the resource. Example:
 
   ```typescript
   assetManager.loadRemote('http://example.com/background.jpg', function (err, texture) {
@@ -69,5 +97,9 @@ The cache manager provides three interfaces `removeCache`, `clearCache` and `cle
   });
   ```
 
-- `clearCache` -- Clean up all cache resources, please use it carefully.
-- `clearLRU` -- Clean up older resources. The mini game platform will automatically call `clearLRU` when the cache space is full.
+When the developer upgrades the engine version, the cached resources left locally are still the resources corresponding to the previous old version of the engine and are not automatically cleared. This may lead to problems such as errors in loading or rendering of resources. There are two solutions:
+
+1. Check the **MD5 Cache** option in the **Build** panel at build time, which will ensure that the latest version of resources are used.
+2. Manually clear the previously cached resources.
+    - Clear the cache with `cc.assetManager.cacheManager.clearCache()` on the **real device**.
+    - For WeChat Mini Game, clear the cache by clicking **Tools -> Clear Cache -> Clear All** in the menu bar in **WeChat DevTools**.

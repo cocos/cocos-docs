@@ -22,4 +22,4 @@
 | rateOverDistance | Number of particles emitted per moving unit distance. |
 | bursts | Emit a given number of particles at a certain point in time, and can be adjusted by several properties:<br>**time**: How long does the particle play after it starts to emit burst.<br>**count**: Number of particles emitted.<br>**repeatCount**: The number of burst triggers.<br>**repeatInterval**: The time interval of each trigger. |
 
-To use Particle System, please refer to the [Particle System API](__APIDOC__/en/classes/particle.particlesystem.html).
+To use Particle System, please refer to the [Particle System API](__APIDOC__/en/#/docs/3.3/en/particle/Class/ParticleSystem).

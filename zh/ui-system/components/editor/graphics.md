@@ -6,9 +6,9 @@ Graphics 组件提供了一系列绘画接口，这些接口参考了 Canvas 的
 
 新建一个空节点，然后点击 **属性检查器** 下方的 **添加组件** 按钮，从 **UI/Render** 中选择 **Graphics**，即可添加 Graphics 组件到节点上。
 
-Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/classes/ui.graphics-1.html)。
+Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/Graphics)。
 
-关于使用可以参考范例 **Graphics**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/14.graphics) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/14.graphics)）。
+关于使用可以参考范例 **Graphics**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/14.graphics) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/14.graphics)）。
 
 ## 绘图属性
 
@@ -19,7 +19,7 @@ Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/classes/ui.graphics-
 | [LineJoin](graphics/lineJoin.md)             | 设置或返回两条线相交时，所创建的拐角类型 |
 | [MiterLimit](graphics/miterLimit.md)         | 设置或返回最大斜接长度 |
 | [StrokeColor](graphics/strokeColor.md)       | 设置或返回笔触的颜色 |
-| [LineWidth](../render/graphics/lineWidth.md) | 设置或返回当前的线条宽度 |
+| [LineWidth](graphics/lineWidth.md)           | 设置或返回当前的线条宽度 |
 
 ## 绘图接口
 
@@ -42,7 +42,7 @@ Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/classes/ui.graphics-
 
 ### 通过脚本代码设置绘制图案
 
-``` ts
+```ts
 import { _decorator, Component, Graphics } from 'cc';
 const { ccclass, property } = _decorator;
 

@@ -4,11 +4,11 @@ TiledMap（地图）用于在游戏中显示 TMX 格式的地图。
 
 ![tiledmap-component](tiledmap/tiledmap-component.png)
 
-点击 **属性检查器** 下方的 **添加组件 -> Components -> TileMap** 按钮，即可添加 TiledMap 组件到节点上。
+点击 **属性检查器** 下方的 **添加组件 -> Components -> TiledMap** 按钮，即可添加 TiledMap 组件到节点上。
 
 ![](./tiledmap/add_tiledmap.png)
 
-TiledMap 的脚本接口请参考 [TiledMap API](__APIDOC__/zh/classes/TiledMap.html)。
+TiledMap 的脚本接口请参考 [TiledMap API](__APIDOC__/zh/#/docs/3.3/zh/tiledmap/Class/TiledMap)。
 
 ## TiledMap 属性
 
@@ -41,7 +41,7 @@ TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列
 3. 在 **资源管理器** 中新建一个 TypeScript 脚本，编写组件脚本。脚本代码如下：
 
     ```ts
-    import { _decorator, Component, Node, TiledLayer, loader, Prefab, v2, instantiate, Vec3, SystemEventType, EventTouch } from 'cc';
+    import { _decorator, Component, Node, TiledLayer, loader, Prefab, v2, instantiate, Vec3, EventTouch } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass('ShieldNode')
@@ -64,7 +64,7 @@ TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列
                 const shieldNode = instantiate(prefab);
                 shieldNode.setPosition(posArr[i].x, posArr[i].y);
                 this.tiledLayer!.addUserNode(shieldNode);
-                shieldNode.on(SystemEventType.TOUCH_MOVE, (event:EventTouch) => {
+                shieldNode.on(Node.EventType.TOUCH_MOVE, (event:EventTouch) => {
                     const deltaMove = event.getDelta();
                     shieldNode.getPosition(tmpP);
                     tmpP.x += deltaMove.x;
@@ -78,7 +78,7 @@ TiledLayer 组件会将添加到地图层的节点坐标转化为地图块行列
 
 4. 将脚本组件挂载到 Canvas 节点上，即将脚本拖拽到 Canvas 节点的 **属性检查器** 中。再将 **层级管理器** 中自动生成的带有 TiledLayer 组件的节点以及 **资源管理器** 中的预制资源拖拽至脚本组件对应的属性框中，然后保存场景。
 
-5. 点击编辑器上方的预览按钮，即可看到节点与地图层相互遮挡的效果。关于代码可参考 **ShieldNode**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tiled-map) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tiled-map)）范例。
+5. 点击编辑器上方的预览按钮，即可看到节点与地图层相互遮挡的效果。关于代码可参考 **ShieldNode**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/tiled-map) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/tiled-map)）范例。
 
     ![shieldNode](./tiledmap/shieldNode.png)
 

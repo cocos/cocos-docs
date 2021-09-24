@@ -1,4 +1,4 @@
-## Particle Renderer
+# Particle Renderer
 
 粒子渲染部分由 **ParticleSystemRenderer** 控制，ParticleSystemRenderer 分为 **CPU 渲染器** 和 **GPU 渲染器**。
 
