@@ -4,7 +4,11 @@
 
 ![spotlight](spotlight/spot-light.jpg)
 
-在场景中添加聚光灯的方式可参考 [光照](../../light.md)。
+在编辑器中可以直观地看到光源的位置、颜色、光照范围以及它的聚光角度等，如下图所示。配合编辑器左上角的 [变换工具](../../../../editor/toolbar/index.md) 可调整聚光灯的位置及照射方向等。
+
+![spotlight](spotlight/spot-light-scene.jpg)
+
+在场景中添加聚光灯的方式可参考 [添加光源](index.md)。
 
 聚光灯组件接口请参考 [SpotLight API](__APIDOC__/zh/classes/component_light.spotlight.html)。
 
