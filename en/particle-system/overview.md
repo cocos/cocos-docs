@@ -48,3 +48,7 @@ The __Cocos Creator__ particle system uses modules to organize functions, includ
 | [ShapeModule](emitter.md) | Used to control particle emission, including emission direction and speed, and supports predefined emission directions including squares, circles, cones, balls, and hemispheres. |
 | [AnimatorModule](module.md) |  Used to control the state update after particle emission. The supported functions are: [VelocityOvertimeModule](velocity-module.md), [ForceOvertimeModule](force-module.md), [SizeOvertimeModule](size-module.md), [RotationOvertimeModule](rotation-module.md), [ColorOvertimeModule](color-module.md), [TextureAnimationModule](texture-animation-module.md), [LimitVelocityOvertimeModule](limit-velocity-module.md), [TrailModule](trail-module.md). |
 | [ParticleSystemRenderer](renderer.md) |  Used to generate the data needed for particle rendering. Including control related to vb, ib, rendering state. |
+
+## Particle Culling
+
+Particle System emitter support frustum & aabb culling in runtime. If emitter is culled, particle system of the emitter will stop simulating until we see the emitter again. Click __EnableCulling__ option to open particle culling and then the emitter will calculate aabb automatically. Click restart button of the emitter will recalculate aabb. It's better to enable culling when the particle simulation is complex than the simple one. 

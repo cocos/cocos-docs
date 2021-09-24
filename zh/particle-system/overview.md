@@ -49,4 +49,6 @@ Cocos Creator 粒子系统用模块来组织功能，包括以下模块：
 | [AnimatorModule](module.md) | 用于控制粒子发射后的状态更新。已支持的功能有：[速度模块(VelocityOvertimeModule)](velocity-module.md)、[加速模块(ForceOvertimeModule)](force-module.md)、[大小模块(SizeOvertimeModule)](size-module.md)、[旋转模块(RotationOvertimeModule)](rotation-module.md)、[颜色模块(ColorOvertimeModule)](color-module.md)、[贴图动画模块(TextureAnimationModule)](texture-animation-module.md)、[限速模块(LimitVelocityOvertimeModule)](limit-velocity-module.md)、[拖尾模块(TrailModule)](trail-module.md) |
 | [ParticleSystemRenderer](renderer.md) | 用于生成粒子渲染所需要的数据。包括 vb、ib、渲染状态相关的控制 |
 
+## 粒子剔除
 
+粒子系统目前支持在运行时根据粒子包围盒和视景体动态剔除粒子发射器，剔除的发射器将会暂停播放粒子特效直到相机再次看到粒子包围盒。勾选 EnableCulling 选项打开剔除功能，发射器将会自动计算出一个包围盒进行剔除运算，如果需要重新计算包围盒点击一下粒子播放面板的刷新按钮。剔除运算每一帧都会进行，适合一些耗时的特效，如果粒子个数少可以考虑关闭该选项。
