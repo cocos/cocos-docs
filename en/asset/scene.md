@@ -40,7 +40,7 @@ After opening the __Scene__ file, **Scene** is the root node of the __Scene__ no
 
 For a detailed description of each property, see the following documents:
 
-- [Ambient light](../concepts/scene/ambient.md)
+- [Ambient light](../concepts/scene/light/lightType/ambient.md)
 - [Shadow](../concepts/scene/light/shadow.md)
 - [Global Fog](../concepts/scene/fog.md)
 - [Skybox](../concepts/scene/skybox.md)

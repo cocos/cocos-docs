@@ -83,7 +83,7 @@ Incorrect usage:
 
 URL link format: **[url document name]\(url document directory)**. Use halfwidth English punctuation, and no spaces between [] and ()
 
-> e.g.: [Mask API]\(__APIDOC__/en/classes/Mask.html). Use **.html** for file name suffixes across documents
+> e.g.: [Mask API]\(\_\_APIDOC\_\_/en/classes/Mask.html). Use **.html** for file name suffixes across documents
 
 ## Use bold between adjacent text
 

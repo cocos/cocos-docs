@@ -2,7 +2,7 @@
 
 **工具栏** 位于编辑器主窗口的正上方，包含了七组控制按钮或信息，用来为特定面板提供编辑功能或方便我们实施开发工作流。
 
-![toolbar](./toolbarEdit.png)
+![toolbar](./img/toolbarEdit.png)
 
 ## 使用变换工具布置节点
 
@@ -10,19 +10,19 @@
 
 **变换工具** 主要包括 **移动**、**旋转**、**缩放**、**矩形变换** 四种，将鼠标悬浮在任一变换工具上方时会显示相关的提示信息。
 
-![transform tool](./transform_tool.png)
+![transform tool](./img/transform_tool.png)
 
 ### 移动变换工具
 
 **移动变换工具** 是打开编辑器时默认处于激活状态的变换工具，之后这个工具也可以通过点击位于主窗口左上角工具栏第一个按钮来激活，或者在编辑场景时按下快捷键 **W**，即可切换使用 **移动变换工具**。
 
-![position tool](./position-tool.png)
+![position tool](./img/position-tool.png)
 
 选中任意节点，便能在 **场景编辑器** 中看到节点中心出现了由红绿蓝三个箭头和红绿蓝三个方块组成的移动控制手柄。
 
 **控制手柄** 是指在特定编辑状态下，**场景编辑器** 中显示的可用鼠标进行交互操作的控制器。这些控制器只用来辅助编辑，不会在游戏运行时显示。
 
-![position gizmo](./position-gizmo.png)
+![position gizmo](./img/position-gizmo.png)
 
 移动变换工具激活时：
 - 按住红色/绿色/蓝色箭头拖拽鼠标，将分别在 X、Y、Z 轴方向上移动节点；
@@ -32,38 +32,38 @@
 
 点击主窗口左上角工具栏第二个按钮，或在编辑场景时按下 **E** 快捷键，即可切换使用 **旋转变换工具**。
 
-![rotation tool](./rotation-tool.png)
+![rotation tool](./img/rotation-tool.png)
 
 旋转变换工具的手柄由三个相互正交的红绿蓝圆环组成（2D 视图下由一个箭头和一个圆环组成）。按住红色/绿色/蓝色圆环任意一点拖拽鼠标时，节点将分别绕着 X、Y、Z 轴旋转。
 
-![rotation gizmo](./rotation-gizmo.png)
+![rotation gizmo](./img/rotation-gizmo.png)
 
 当鼠标悬浮在任意圆环上时，圆环显示为黄色，点击即可选中圆环，同时还会显示一个黄色的箭头，表示当前节点是以哪个轴为中心进行旋转。拖拽圆环上任意一点即可旋转节点，放开鼠标之前，可以在控制手柄上看到旋转的角度大小。
 
-![rotation](./rotation.png)
+![rotation](./img/rotation.png)
 
 ### 缩放变换工具
 
 点击主窗口左上角工具栏第三个按钮，或在编辑场景时按下 **R** 快捷键，即可切换使用 **缩放变换工具**。
 
-![scale tool](./scale-tool.png)
+![scale tool](./img/scale-tool.png)
 
 缩放变换工具由三个头部是红绿蓝正方体的坐标轴以及中心一个灰色正方体组成。当鼠标悬浮在任一正方体上时，显示为黄色，点击即可选中并拖动：
 
 - 按住红色/绿色/蓝色正方体拖拽鼠标，将分别在 X、Y、Z 轴方向上缩放节点；
 - 按住灰色正方体拖拽鼠标，将同时在 X、Y、Z 轴方向上缩放节点。
 
-![scale gizmo](./scale-gizmo.png)
+![scale gizmo](./img/scale-gizmo.png)
 
 ### 矩形变换工具
 
 点击主窗口左上角工具栏第四个按钮，或在编辑场景时按下 **T** 快捷键，即可切换使用 **矩形变换工具**。需要注意的是，矩形变换工具只适用于 UI 节点。
 
-![rect tool](./rect-tool.png)
+![rect tool](./img/rect-tool.png)
 
 矩形变换工具由四个顶点控制点、四个边控制点、一个中心控制点组成。
 
-![rect gizmo](./rect-gizmo.png)
+![rect gizmo](./img/rect-gizmo.png)
 
 矩形变换工具激活时：
 - 拖拽控制手柄的任一顶点控制点，可以在保持对角顶点位置不变的情况下，同时修改 UI 节点的 `Position` 属性和 UITransform 组件中的 `ContentSize` 属性。
@@ -76,7 +76,7 @@
 
 变换工具基准点用于设置变换工具的位置以及控制手柄的方向。
 
-![gizmo position](./gizmo_position.png)
+![gizmo position](./img/gizmo_position.png)
 
 变换工具位置：
 
@@ -87,41 +87,41 @@
 
 - Local：变换工具的控制手柄以节点的旋转方向为准，如下图：
 
-  ![loacl-rotation](./loacl-rotation.png)
+  ![loacl-rotation](./img/loacl-rotation.png)
 
 - Global：变换工具中控制手柄的方向以世界坐标系为准，不受节点旋转的影响，如下图：
 
-  ![global-rotation](./global-rotation.png)
+  ![global-rotation](./img/global-rotation.png)
 
 ## 切换编辑模式
 
 点击下图中的 3D/2D 按钮，即可将 **场景编辑器** 切换为 2D 编辑模式或 3D 编辑模式。详情请参考 [场景编辑器 - 视图介绍](../scene/index.md#%E8%A7%86%E5%9B%BE%E4%BB%8B%E7%BB%8D)。
 
-![2d3d](./2d3d.png)
+![2d3d](./img/2d3d.png)
 
 ## 运行预览游戏
 
 该项用于预览项目的运行效果，详情请参考 [项目预览调试](../preview/index.md)。
 
-![preview](./preview.png)
+![preview](./img/preview.png)
 
 ## 手机端预览地址
 
-![preview url](./preview_url.png)
+![preview url](./img/preview_url.png)
 
 这里显示运行 Cocos Creator 的桌面电脑的局域网地址，连接同一局域网的移动设备可以访问这个地址来预览和调试游戏。将鼠标悬浮在局域网地址上，会浮现一个二维码，通过扫描二维码的方式也可以访问这个地址来预览和调试游戏。
 
 ## 打开项目/编辑器目录
 
-![open project](./open_project.png)
+![open project](./img/open_project.png)
 
 - **项目**：打开项目所在的文件夹
 - **编辑器**：打开程序的安装路径
 
 ## Cocos 小秘书
 
-点击工具栏最右侧的 ![smallSecretary](./smallSecretary.png) 按钮，即可打开 Cocos 小秘书面板，用户遇到任何问题，随时可以通过小秘书与官方技术人员发起交流探讨。详情可查看 [Cocos 小秘书](https://www.cocos.com/assistant)。
+点击工具栏最右侧的 ![smallSecretary](./img/smallSecretary.png) 按钮，即可打开 Cocos 小秘书面板，用户遇到任何问题，随时可以通过小秘书与官方技术人员发起交流探讨。详情可查看 [Cocos 小秘书](https://www.cocos.com/assistant)。
 
-![small](./small.png)
+![small](./img/small.png)
 
 >**注意**：Cocos 小秘书目前仅支持中文版本，后续优化请关注版本公告。
