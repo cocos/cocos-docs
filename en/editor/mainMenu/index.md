@@ -81,7 +81,7 @@ This option is mainly used to perform preview run build projects, project config
 | Option | Description |
 | :--- | :--- |
 | Project Settings | Opens [Project Settings](../project/index.md) panel to set the relevant configuration options for a specific project. |
-| Lightmapping | Opens the [Lightmapping](../../concepts/scene/light/lightmap.md) panel to configure the baking parameters for generating light maps. |
+| Lightmapping | Opens the [Lightmapping](../../concepts/scene/light/lightmap.md) panel to configure the baking properties for generating light maps. |
 | Play on Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>) | Click on this option to preview the project in the selected browser/simulator/preview window, for details please refer to the [Project Preview & Debugging](../preview/index.md) documentation. |
 | Refresh Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) | Refreshes the opened preview window. |
 | Create Preview Template | This option is used to customize the desired preview effect, please refer to the [Web Preview Customization Workflow](../preview/browser.md) documentation for details. |
