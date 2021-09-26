@@ -27,12 +27,12 @@ This option is mainly used to create, open, and save a project or scene, as well
 
 | Option | Description |
 | :--- | :-- |
-| New Project | Opens Dashboard's [Project](../../getting-started/dashboard/index.md#project) tab of Dashboard to create a new project. If you are using Dashboard version v1.0.19, you will open Dashboard's [New Project](../../getting-started/dashboard/index.md#new-project) tab. |
+| New Project | Opens Dashboard's [Project](../../getting-started/dashboard/index.md#project) tab of Dashboard to create a new project. If you are using Dashboard v1.0.19, you will open Dashboard's [New Project](../../getting-started/dashboard/index.md#new-project) tab. |
 | Open Project | Open Dashboard's [Project](../../getting-started/dashboard/index.md#project) tab. |
 | New Scene (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>N</kbd>) | Closes the current scene and create a new scene, the newly created scene needs to be saved manually before it will be added to the project directory. |
-| Save Scene(<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>) | Save the scene you are currently editing. If the scene is created using **File -> New Scene**, a dialog box will pop up when you save it for the first time, you need to choose the location to save the scene file and fill in the file name, then click **Save** to save it. Scene files have `.scene` as extension. |
-| Save As(<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> +<kbd>Shift</kbd>+ <kbd>S</kbd>) | Generates a copy of the current scene file and save it in the project. |
-| Import Cocos Creator 2.x Project | v2.x asset import tool, supporting the perfect import of old project assets, as well as the assisted migration of code. Please refer to [v3.0 Upgrade Guide](../../release-notes/upgrade-guide-v3.0.md) for details. |
+| Save Scene (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>) | Save the scene you are currently editing. If the scene is created using **File -> New Scene**, a dialog box will pop up when you save it for the first time, you need to choose the location to save the scene file and fill in the file name, then click **Save** to save it. Scene files have `.scene` as extension. |
+| Save As (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> +<kbd>Shift</kbd>+ <kbd>S</kbd>) | Generates a copy of the current scene file and save it in the project. |
+| Import Cocos Creator 2.x Project | V2.x asset import tool, supporting the perfect import of old project assets, as well as the assisted migration of code. Please refer to [v3.0 Upgrade Guide](../../release-notes/upgrade-guide-v3.0.md) for details. |
 
 ## Edit
 
@@ -59,10 +59,10 @@ This option contains functions to adjust the view, disconnect prefabricated node
 
 | Option | Description |
 | :--- | :-- |
-| Align view (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>) | Moves the currently selected node to the center of the view of the **Scene** panel. |
-| Align the view with the node | Sets the view in the **Scene** panel to be centered on the currently selected node.
-| Disconnect node with current prefab asset | For converting the selected prefab node to a normal node, please refer to [Prefab](../../asset/prefab.md) for details. |
-| Disconnect node with current Prefab asset recursively | Recursively convert prefab nodes containing nested nodes in the scene to normal nodes, see [Prefab](../../asset/prefab.md) for details.
+| Align With View (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>) | Moves the currently selected node to the center of the view of the **Scene** panel. |
+| Align View With Node | Sets the view in the **Scene** panel to be centered on the currently selected node.
+| Disconnect Node With Prefab Asset | For converting the selected prefab node to a normal node, please refer to [Prefab](../../asset/prefab.md) for details. |
+| Disconnect Node With Prefab Asset Recursively | Recursively convert prefab nodes containing nested nodes in the scene to normal nodes, see [Prefab](../../asset/prefab.md) for details.
 | Empty Node | Creates an empty node in the scene. If the node is already selected in the scene before the command is executed, the newly created node will become a child of the selected node. |
 | 3D Objects | Creator provides some relatively basic static model controls for use, currently including **Cube**, **Cylinder**, **Sphere**, **Capsule**, **Cone**, **Torus**, **Flat** and **Quad**. To create other types of models, refer to the [MeshRenderer component](../../engine/renderable/model-component.md) documentation. |
 | 2D Objects | Create Creator's pre-defined 2D nodes in the scene containing the base rendering components, which currently include **Graphics**, **Label**, **Mask**, **ParticleSystem2D**, **Sprite**, **SpriteSplash** (monochrome) and **TiledMap** (map), for details please refer to the [Introduction to 2D Rendering Components](../../ui-system/components/editor/render-component.md) documentation. |
@@ -81,17 +81,17 @@ This option is mainly used to perform preview run build projects, project config
 | Option | Description |
 | :--- | :--- |
 | Project Settings | Opens [Project Settings](../project/index.md) panel to set the relevant configuration options for a specific project. |
-| Lightmap | Opens the [Lightmap](../../concepts/scene/light/lightmap.md) panel to configure the baking parameters for generating light maps. |
-| Play on Device(<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>) | Click on this option to preview the project in the selected browser/emulator/preview window, for details please refer to the [Project Preview & Debugging](../preview/index.md) documentation. |
-| Refresh Device(<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) | Refreshes the opened preview window. |
+| Lightmapping | Opens the [Lightmapping](../../concepts/scene/light/lightmap.md) panel to configure the baking parameters for generating light maps. |
+| Play on Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>) | Click on this option to preview the project in the selected browser/simulator/preview window, for details please refer to the [Project Preview & Debugging](../preview/index.md) documentation. |
+| Refresh Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) | Refreshes the opened preview window. |
 | Create Preview Template | This option is used to customize the desired preview effect, please refer to the [Web Preview Customization Workflow](../preview/browser.md) documentation for details. |
-| Build(<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>) | Opens the [Build](../publish/index.md) panel to package the game to the target platform. |
+| Build (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>) | Opens the [Build](../publish/index.md) panel to package the game to the target platform. |
 | Create Build Template | This option is used to customize the Build panel of the project, please refer to the [Custom Project Build Process](../publish/custom-project-build-template.md) documentation for details. |
 | Generate Build Extension | This option is used to extend the build process, please refer to the [Extending Build Process](../publish/custom-build-plugin.md) documentation for details. |
 
 ## Panel
 
-该项主要用于打开编辑器中的各式面板。
+This option is mainly used to open various panels in the editor.
 
 ![panel](./img/panel.png)
 
@@ -117,7 +117,7 @@ This option mainly includes Extension Manager, Store and Create Extension, pleas
 | :--- | :--- |
 | Extension Manager | Opens the **Extension Manager** panel, which includes editor built-in extensions, extensions installed in project directory and global directory, please refer to the [Extending the Editor](../extension/readme.md) chapter for details. |
 | Store | The [Cocos Store](https://store.cocos.com/app/) is built into Cocos Creator and allows users to browse, download and automatically install official or third-party extensions and assets. You can also submit your own extensions, art materials, music and sound effects to the extension store for sharing or selling. For more information, please refer to the [Submitting Resources to Store](../extension/store/upload-store.md) documentation.
-| Create Extension | This option is used to generate an [extension package](../extension/store/upload-store.md) in the project/global directory to extend the editor with features. |
+| Create Extension | This option is used to generate an [extension package](../extension/first.md) in the project/global directory to extend the editor with features. |
 
 ## Developer
 
@@ -128,7 +128,7 @@ This option contains mainly development-related menu functions such as scripts, 
 | Option | Description |
 | :--- | :--- |
 | Compile Engine (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>F7</kbd>) | Compile custom engine, please refer to the [Engine Customization Workflow](../../advanced-topics/engine-customization.md) documentation. |
-| Compile the native emulator engine | Compile the custom native engine emulator, please refer to [Customizing the Native Engine Emulator](../../advanced-topics/engine-customization.md#modifying-native-engine-emulator). |
+| Rebuild Native Engine | Compile the custom native engine simulator, please refer to [Customizing the Native Engine Simulator](../../advanced-topics/engine-customization.md#modifying-native-engine-simulator). |
 | Message DevTools | Opens the Message DevTool for debugging IPC interactions at runtime inside the editor. |
 | Tester | The editor's built-in extended testing tool, not yet fully functional |
 |Toggle Graphics Tool | Toggles the Graphics tool panel for debugging scene rendering. |
@@ -148,7 +148,7 @@ This option contains mainly development-related menu functions such as scripts, 
 
 | Option | Description |
 | :--- | :--- |
-| User Manual | Open [user manual documentation](https://docs.cocos.com/creator/3.0/manual/en/) in default browser. |
+| User Manual | Open [User Manual Documentation](https://docs.cocos.com/creator/3.0/manual/en/) in default browser. |
 | API Documentation | Open [API Reference Documentation](__APIDOC__/en/) in default browser. |
 | Forums | Open [Cocos Creator Forums](https://forum.cocos.org/c/58) in default browser. |
 | Update Log | Open [Cocos Creator Version Update Log](https://www.cocos.com/creator) in default browser. |
