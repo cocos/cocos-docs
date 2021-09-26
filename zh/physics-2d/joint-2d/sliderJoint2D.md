@@ -1,6 +1,6 @@
 # SliderJoint2D 关节
 
-**滑动关节** 是让刚体控制的游戏对象可以沿着指定的一个轴进行滑动。在游戏中可以用于手动或自动的滑块机关或者滑动门等。
+**滑动关节** 是让刚体沿着指定的一个轴进行滑动。在开发中可以用于手动或自动的滑块机关或者滑动门等。
 
 ![SliderJoint2D](../image/sliderjoint2d.png)
 
@@ -23,4 +23,4 @@
 
 具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `slider-joint` 场景。
 
-SliderJoint2D 接口相关请参考 [SliderJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.sliderjoint2d.html)。
+SliderJoint2D 接口相关请参考 [SliderJoint2D API](__APIDOC__/zh/classes/physics2d.sliderjoint2d.html)。

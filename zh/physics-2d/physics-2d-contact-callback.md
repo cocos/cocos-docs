@@ -10,7 +10,7 @@
 
 ## Builtin 2D 物理引擎
 
-Builtin 2D 物理引擎 **仅有碰撞检测** 的功能，它没有复杂的物理模拟计算。如果您的项目不需要这一部分的物理模拟，那么可以考虑使用 `Builtin`，这将使得游戏的 **包体更小**。
+Builtin 2D 物理引擎 **仅有碰撞检测** 的功能，如果开发者的项目不需要复杂的物理模拟，那么可以考虑使用 `Builtin`，这将使得项目的 **包体更小**。
 
 若使用 `Builtin` 进行开发，请注意以下几点：
 
@@ -21,7 +21,7 @@ Builtin 2D 物理引擎 **仅有碰撞检测** 的功能，它没有复杂的物
 
 ## Box2D 物理引擎
 
-Box2D 物理包含较为完善的物理模拟功能，开发者可以使用它让游戏中的物体运动起来更真实。让游戏世界更具交互性。因此需要更玩完善的物理模拟计算的开发者，可以考虑使用 `Box2D`。
+Box2D 物理包含较为完善的物理模拟功能，开发者可以使用它让游戏中的物体运动起来更真实。让游戏世界更具交互性。因此需要更完善的物理模拟计算的开发者，可以考虑使用 `Box2D`。
 
 若使用 `Box2D` 进行开发，请注意以下几点：
 
@@ -83,7 +83,7 @@ export class TestContactCallBack extends Component {
 
 ![physics2d-log](image/physics2d-log.png)
 
-如果我们要处理碰撞之前和碰撞之后的效果，根据碰撞中产生的相互作用力来计算物理碰撞后的移动，则我们必须好好的利用全部这四个回调函数，它们联合作用起来，可以模拟出比较真实而复杂的物理碰撞效果。
+如需处理碰撞之前和碰撞之后的效果，根据碰撞中产生的相互作用力来计算物理碰撞后的移动，则需要利用好这四个回调函数，它们联合作用起来，可以模拟出比较真实而复杂的物理碰撞效果。
 
 ### 碰撞回调参数
 
@@ -91,15 +91,15 @@ export class TestContactCallBack extends Component {
 
 #### selfCollider 参数
 
-selfCollider 参数指的是触发事件中的自己的碰撞体，包含了自己的碰撞体的所有信息。详细参数可以查看 [Collider2D](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.polygoncollider2d.html)
+selfCollider 参数指的是触发事件中的自己的碰撞体，包含了自己的碰撞体的所有信息。详细参数可以查看 [Collider2D](__APIDOC__/zh/classes/physics2d.polygoncollider2d.html)
 
 #### otherCollider 参数
 
-otherCollider 参数指的是发生碰撞的另一个碰撞体，包含了另一个碰撞体的所有信息。详细参数可以查看 [Collider2D](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.polygoncollider2d.html)
+otherCollider 参数指的是发生碰撞的另一个碰撞体，包含了另一个碰撞体的所有信息。详细参数可以查看 [Collider2D](__APIDOC__/zh/classes/physics2d.polygoncollider2d.html)
 
 #### contact 参数
 
-可以通过 `contact` 参数获得碰撞中的所有碰撞点的信息。详细的参数可以查看 [碰撞点信息](https://docs.cocos.com/creator/3.1/api/zh/interfaces/cocos_physics_2d_spec.iphysics2dcontact.html)。
+可以通过 `contact` 参数获得碰撞中的所有碰撞点的信息。详细的参数可以查看 [碰撞点信息](__APIDOC__/zh/interfaces/cocos_physics_2d_spec.iphysics2dcontact.html)。
 
 其中比较常用的信息就是碰撞的位置和法向量。
 
@@ -111,7 +111,7 @@ const points = manifold.points;
 const normal = manifold.localNormal;
 ```
 
-其中 `points` 包含了是接触信息中的接触点信息。它拥有关于几何和接触点的详细信息。详细信息可以查看 [接触点信息](https://docs.cocos.com/creator/3.3/api/zh/#/docs/3.3/zh/physics2d/Interface/IPhysics2DManifoldPoint)
+其中 `points` 包含了是接触信息中的接触点信息。它拥有关于几何和接触点的详细信息。详细信息可以查看 [接触点信息](https://docs.cocos.com/creator/3.3/api/zh/#/docs/3.3/zh/physics2d/Interface/IPhysics2DManifoldPoint)。
 
 `localNormal` 为本地坐标系下碰撞体的法向量。
 
@@ -137,7 +137,7 @@ const normal = worldManifold.normal;
 
 如果想要修改本次碰撞回调的信息，那么需要在 `onPreSolve` 回调函数中对 `contact` 参数进行修改，因为 `onPreSolve` 是在物理引擎处理碰撞信息前回调的，所以对碰撞信息的修改会影响到后面的碰撞计算。
 
-例如:开发者想要修改本次碰撞中碰撞体之间的摩擦力和弹性系数，则可以如下述所示：
+例如：开发者想要修改本次碰撞中碰撞体之间的摩擦力和弹性系数，则可以如下述所示：
 
 ```ts
  onPreSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {

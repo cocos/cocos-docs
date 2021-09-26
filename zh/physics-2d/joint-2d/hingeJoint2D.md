@@ -1,6 +1,6 @@
 # HingeJoint2D 关节
 
-**铰链关节**由两个刚体组成，该关节会对刚体进行约束，使得它们就好像被连接在一个铰链上那样运动。铰链关节用途非常广泛，利用铰链关节不仅仅可以做门，风车的模型，甚至可以做机动车的模型。
+**铰链关节** 是由两个刚体组成，对刚体进行约束，使得它们就好像被连接在一个铰链上那样运动。铰链关节用途非常广泛，利用铰链关节不仅仅可以做门，风车的模型，甚至可以做机动车的模型。
 
 ![HingeJoint2D](../image/hingejoint2d.png)
 
@@ -19,8 +19,8 @@
 
 HingeJoint2D 如果开启 `EnableMotor` 属性 开启关节马达，则会获得施加到刚体的扭矩，为刚体的运动提供动力。
 
-![hingeJoint](../image/hingeJoint.gif)
+<!-- ![hingeJoint](../image/hingeJoint.gif) -->
 
 具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `hinge-joint` 和 `hinge-joint-crank` 场景。
 
-HingeJoint2D 接口相关请参考 [HingeJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.hingejoint2d.html)。
+HingeJoint2D 接口相关请参考 [HingeJoint2D API](__APIDOC__/zh/classes/physics2d.hingejoint2d.html)。

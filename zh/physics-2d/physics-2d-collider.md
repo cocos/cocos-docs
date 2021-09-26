@@ -2,7 +2,7 @@
 
 ## 2D物理碰撞组件属性
 
-2D 碰撞组件是用于定义 2D 游戏物理对象的形状。碰撞体是不可见，其形象不一定要与游戏物理对象的大小完全相同。通常粗略近似的方法更有效，在游戏运行过程中几乎不会被发现。同时粗略近似的方式更节省性能。顶点越多，在进行碰撞检测的时候，越需要进行更多的运算，更耗费性能。
+2D 碰撞组件是用于定义 2D 游戏物理对象的形状。碰撞体是不可见，其形象不一定要与游戏物理对象的大小完全相同。通常粗略近似的方法更实用，在游戏运行过程中几乎不会被发现。同时粗略近似的方式更节省性能。顶点越多，在进行碰撞检测的时候，越需要进行更多的运算，更耗费性能。
 
 ### Box2D 物理碰撞组件内部细节
 
@@ -25,7 +25,7 @@ Box2D 物理碰撞组件内部是由 Box2D 的 b2Fixture 组成的，由于 Box2
 
 如果编辑的是 **多边形碰撞组件** 的话，则会出现类似下图所示的 **多边形编辑区域**。区域中的这些绿色点都是可以拖动的，拖动的结果会反映到 **多边形碰撞组件** 的 **points** 属性中。
 
-![collider](image/edit-polygon-collider.png)
+![collider](image/edit-polygon-collider.gif)
 
 当鼠标移动到两点连成的线段上时，鼠标指针会变成 **添加** 样式，这时点击鼠标左键会在这个地方添加一个点到 **多边形碰撞组件** 中。
 
@@ -48,13 +48,13 @@ Box2D 物理碰撞组件内部是由 Box2D 的 b2Fixture 组成的，由于 Box2
 **Offset**  |  组件相对于节点的偏移量。
 **Points**  |  组件的顶点数组。
 
-多边形碰撞组件接口请参考 [PolygonCollider2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.polygoncollider2d.html)。
+多边形碰撞组件接口请参考 [PolygonCollider2D API](__APIDOC__/zh/classes/physics2d.polygoncollider2d.html)。
 
 ### 圆形碰撞组件
 
 如果编辑的是 **圆形碰撞组件** 的话，则会出现类似下图所示的 **圆形编辑区域**：
 
-![edit-circle-collider](image/edit-circle-collider.png)
+![edit-circle-collider](image/edit-circle-collider.gif)
 
 鼠标左键拖动显示的点可以修改 **圆形碰撞组件** 的半径大小，拖动圆内的区域可以拖动圆形区域。
 
@@ -74,16 +74,15 @@ Box2D 物理碰撞组件内部是由 Box2D 的 b2Fixture 组成的，由于 Box2
 **Offset**  |  组件相对于节点的偏移量。
 **Radius**  |  组件的半径。
 
-圆形碰撞组件接口请参考 [CircleCollider2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.polygoncollider2d.html)。
+圆形碰撞组件接口请参考 [CircleCollider2D API](__APIDOC__/zh/classes/physics2d.polygoncollider2d.html)。
 
 ### 矩形碰撞组件
 
 如果编辑的是 **矩形碰撞组件** 的话，则会出现类似下图所示的 **矩形编辑区域**：
 
-![edit-box-collider](image/edit-box-collider.png)
+![edit-box-collider](image/edit-box-collider.gif)
 
-当鼠标悬浮在 **矩形碰撞区域** 的顶点上时，点击鼠标左键拖拽可以同时修改 **矩形碰撞组件** 的长宽；<br>
-当鼠标悬浮在 **矩形碰撞区域** 的区域内时，点击鼠标左键拖拽将修改 **矩形碰撞组件** 的偏移量。
+当鼠标悬浮在 **矩形碰撞区域** 的顶点上时，点击鼠标左键拖拽可以同时修改 **矩形碰撞组件** 的长宽。<br>
 
 按住 **Alt** 按键拖拽时，在拖拽过程中将会保持 **矩形中心点位置** 不变。
 
@@ -103,10 +102,10 @@ Box2D 物理碰撞组件内部是由 Box2D 的 b2Fixture 组成的，由于 Box2
 **Offset**  |  组件相对于节点的偏移量。
 **Size**  |  组件的长宽。
 
-矩形碰撞组件接口请参考 [BoxCollider2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.boxcollider2d.html)。
+矩形碰撞组件接口请参考 [BoxCollider2D API](__APIDOC__/zh/classes/physics2d.boxcollider2d.html)。
 
 ### 修改碰撞组件偏移量
 
 在所有的碰撞组件调整中，都可以在各自的 **碰撞中心区域** 点击鼠标左键拖拽来快速编辑碰撞组件的 **偏移量**
 
-![circle-editing](image/circle-editing.png)
+![circle-editing](image/circle-editing.gif)

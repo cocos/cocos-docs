@@ -1,6 +1,6 @@
 # RelativeJoint2D 关节
 
-**相对关节** 是指将两个物体永远以相对的位置固定在一起，即使发生物理改变，它们之间的相对位置也将不变。例如在游戏中，玩家身后有额外的宠物。这种情况下可以使用相对关节，使宠物在玩家身后一定距离，但让宠物随玩家一起旋转时没有滞后。
+**相对关节** 是指将两个刚体以相对的位置固定在一起，并且两个物体以你决定的位置和角度相互偏移。即使发生移动，它们之间的相对位置和角度也将不变。例如在游戏中，玩家身后有额外的宠物。这种情况下可以使用相对关节，使宠物在玩家身后一定距离，但让宠物随玩家一起旋转时没有滞后。
 
 ![RelativeJoint2D](../image/relativejoint2d.png)
 
@@ -19,4 +19,4 @@
 
 具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `relative-joint-human` 和 `relative-joint-linear-offset` 场景。
 
-RelativeJoint2D 接口相关请参考 [RelativeJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.relativejoint2d.html)。
+RelativeJoint2D 接口相关请参考 [RelativeJoint2D API](__APIDOC__/zh/classes/physics2d.relativejoint2d.html)。

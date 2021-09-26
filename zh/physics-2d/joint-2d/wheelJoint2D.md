@@ -1,6 +1,6 @@
 # WheelJoint2D 关节
 
-**车轮关节** 就是模拟车轮的滚动即车轮以车轴为圆心旋转。在游戏中经常用于模拟汽车车轮、某些旋转特效等。
+**车轮关节** 就是模拟车轮的滚动即车轮以车轴为圆心旋转。车轮关节还提供了一个弹簧效果，当发生震动时，可以选择轮子的震动方向。在游戏中经常用于模拟汽车车轮和某些旋转特效等。
 
 ![WheelJoint2D](../image/wheeljoint2d.png)
 
@@ -19,8 +19,8 @@
 
 通过开启 `EnableMotor` 属性可以获得动力进行滚动。
 
-![wheelJoint](../image/wheelJoint.gif)
+<!-- ![wheelJoint](../image/wheelJoint.gif) -->
 
 具体的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases/example/joints) 范例中的 `wheel-joint` 场景。
 
-WheelJoint2D 接口相关请参考 [WheelJoint2D API](https://docs.cocos.com/creator/3.0/api/zh/classes/physics2d.wheeljoint2d.html)。
+WheelJoint2D 接口相关请参考 [WheelJoint2D API](__APIDOC__/zh/classes/physics2d.wheeljoint2d.html)。
