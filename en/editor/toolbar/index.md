@@ -1,127 +1,127 @@
-# 工具栏
+# Toolbar
 
-**工具栏** 位于编辑器主窗口的正上方，包含了七组控制按钮或信息，用来为特定面板提供编辑功能或方便我们实施开发工作流。
+The **Toolbar** is located directly above the main editor window and contains seven groups of control buttons or messages that are used to provide editing functionality for specific panels or to facilitate our implementation of development workflows.
 
 ![toolbar](./img/toolbarEdit.png)
 
-## 使用变换工具布置节点
+## Arrange Nodes Using Gizmos
 
-**场景编辑器** 的核心功能就是以所见即所得的方式编辑和布置场景中的可见元素，主要通过主窗口工具栏左上角的一系列 **变换工具** 将场景中的节点按我们希望的方式布置。
+The core function of the **Scene** panel is to edit and arrange the visible elements of the scene in a WYSIWYG manner, mainly by arranging the nodes in the scene the way we want them to be arranged, using a series of **Transform Gizmos** in the upper left corner of the main window toolbar.
 
-**变换工具** 主要包括 **移动**、**旋转**、**缩放**、**矩形变换** 四种，将鼠标悬浮在任一变换工具上方时会显示相关的提示信息。
+The **Gizmos** include **Move**, **Rotate**, **Scale**, and **Rect**, and hovering over any of these tools will display a prompt.
 
 ![transform tool](./img/transform_tool.png)
 
-### 移动变换工具
+### Move Gizmo
 
-**移动变换工具** 是打开编辑器时默认处于激活状态的变换工具，之后这个工具也可以通过点击位于主窗口左上角工具栏第一个按钮来激活，或者在编辑场景时按下快捷键 **W**，即可切换使用 **移动变换工具**。
+The **Move Gizmo** is the default transform gizmo that is activated when the editor is opened. It can also be activated by clicking the first button in the toolbar in the upper left corner of the main window, or by pressing the shortcut **W** while editing a scene.
 
 ![position tool](./img/position-tool.png)
 
-选中任意节点，便能在 **场景编辑器** 中看到节点中心出现了由红绿蓝三个箭头和红绿蓝三个方块组成的移动控制手柄。
+When selecting any node, you will see a movement control handle consisting of red, green and blue arrows and red, green and blue squares in the center of the node in the **Scene** panel.
 
-**控制手柄** 是指在特定编辑状态下，**场景编辑器** 中显示的可用鼠标进行交互操作的控制器。这些控制器只用来辅助编辑，不会在游戏运行时显示。
+The **control handles** are controllers that can be interacted with by the mouse in a particular editing state in the **Scene** panel. These controllers are only used to assist in editing and will not be displayed while the game is running.
 
 ![position gizmo](./img/position-gizmo.png)
 
-移动变换工具激活时：
-- 按住红色/绿色/蓝色箭头拖拽鼠标，将分别在 X、Y、Z 轴方向上移动节点；
-- 按住红色/绿色/蓝色方块拖拽鼠标，将分别在 Y-Z 平面、X-Z 平面、X-Y 平面上移动节点。
+When the Move Gizmo is active:
+- Holding the red/green/blue arrows and dragging the mouse will move the node in the X, Y and Z directions respectively.
+- Holding the red/green/blue square and dragging the mouse will move the node in the Y-Z plane, X-Z plane, X-Y plane, respectively.
 
-### 旋转变换工具
+### Rotate Gizmo
 
-点击主窗口左上角工具栏第二个按钮，或在编辑场景时按下 **E** 快捷键，即可切换使用 **旋转变换工具**。
+Click the second button on the toolbar in the upper left corner of the main window, or press the **E** shortcut key while editing the scene to switch to the **Rotate Gizmo**.
 
 ![rotation tool](./img/rotation-tool.png)
 
-旋转变换工具的手柄由三个相互正交的红绿蓝圆环组成（2D 视图下由一个箭头和一个圆环组成）。按住红色/绿色/蓝色圆环任意一点拖拽鼠标时，节点将分别绕着 X、Y、Z 轴旋转。
+The handle of the Rotate Gizmo consists of three orthogonal red, green and blue circles (in 2D view it consists of an arrow and a circle). When you drag the mouse on any of the red/green/blue circles, the nodes will rotate around the X, Y and Z axes respectively.
 
 ![rotation gizmo](./img/rotation-gizmo.png)
 
-当鼠标悬浮在任意圆环上时，圆环显示为黄色，点击即可选中圆环，同时还会显示一个黄色的箭头，表示当前节点是以哪个轴为中心进行旋转。拖拽圆环上任意一点即可旋转节点，放开鼠标之前，可以在控制手柄上看到旋转的角度大小。
+When the mouse is hovered over any circle, the circle will be displayed in yellow, click on it to select it, and a yellow arrow will be displayed to indicate which axis the current node is rotated by. Drag any point on the circle to rotate the node, and before releasing the mouse, you can see the rotation angle on the control handle.
 
 ![rotation](./img/rotation.png)
 
-### 缩放变换工具
+### Scale Gizmo
 
-点击主窗口左上角工具栏第三个按钮，或在编辑场景时按下 **R** 快捷键，即可切换使用 **缩放变换工具**。
+Click the third button on the toolbar in the upper left corner of the main window, or press the **R** shortcut while editing a scene to switch to the **Scale Gizmo**.
 
 ![scale tool](./img/scale-tool.png)
 
-缩放变换工具由三个头部是红绿蓝正方体的坐标轴以及中心一个灰色正方体组成。当鼠标悬浮在任一正方体上时，显示为黄色，点击即可选中并拖动：
+The scale tool consists of three axes with red, green and blue squares at the head and a gray square at the center. When the mouse is hovered over any of the squares, it appears yellow and can be selected and dragged by clicking on.
 
-- 按住红色/绿色/蓝色正方体拖拽鼠标，将分别在 X、Y、Z 轴方向上缩放节点；
-- 按住灰色正方体拖拽鼠标，将同时在 X、Y、Z 轴方向上缩放节点。
+- Holding the red/green/blue square and dragging the mouse will scale the node in the X, Y and Z axis directions respectively.
+- Dragging the mouse on a gray square will scale the node in X, Y, and Z directions at the same time.
 
 ![scale gizmo](./img/scale-gizmo.png)
 
-### 矩形变换工具
+### Rect Gizmo
 
-点击主窗口左上角工具栏第四个按钮，或在编辑场景时按下 **T** 快捷键，即可切换使用 **矩形变换工具**。需要注意的是，矩形变换工具只适用于 UI 节点。
+Click the fourth button on the toolbar in the upper left corner of the main window, or press the **T** shortcut while editing a scene to switch to the **Rect Gizmo**. Note that the Rect Gizmo is only available for UI nodes.
 
 ![rect tool](./img/rect-tool.png)
 
-矩形变换工具由四个顶点控制点、四个边控制点、一个中心控制点组成。
+The Rect Gizmo consists of four vertex control points, four edge control points, and one center control point.
 
 ![rect gizmo](./img/rect-gizmo.png)
 
-矩形变换工具激活时：
-- 拖拽控制手柄的任一顶点控制点，可以在保持对角顶点位置不变的情况下，同时修改 UI 节点的 `Position` 属性和 UITransform 组件中的 `ContentSize` 属性。
-- 拖拽控制手柄的任一边控制点，可以在保持对边位置不变的情况下，修改 UI 节点的 `Position`（`X` 或 `Y` 属性）和 UITransform 组件中的 `ContentSize` 属性（`width` 或 `height` 属性）。
-- 拖拽控制手柄的中心控制点，可以在 UI 节点的尺寸大小不变的情况下，同时修改 UI 节点的 `Position` 属性和 UITransform 组件中的 `AnchorPoint`（锚点）属性。
+When the Rect Gizmo is active:
+- Dragging either vertex control point of the control handle can modify both the `Position` property of the UI node and the `ContentSize` property in the UITransform component while keeping the position of the diagonal vertices unchanged.
+- Dragging either side of the control handle modifies both the `Position` (`X` or `Y` property) of the UI node and the `ContentSize` property (`width` or `height` property) of the UITransform component, while keeping the position of the opposite side unchanged.
+- Dragging the center control point of a control handle allows to modify both the `Position` property of the UI node and the `AnchorPoint` property of the UITransform component while keeping the size of the UI node unchanged.
 
-在 UI 元素的排版中，经常会需要使用 **矩形变换工具** 直接精确控制节点四条边的位置和长度。而对于必须保持原始图片宽高比的图像元素，通常不会使用矩形变换工具来调整尺寸。
+In the layout of UI elements, it is often necessary to use the **Rect Gizmo** to directly control the position and length of the node's four edges precisely. For image elements where the original image aspect ratio must be maintained, the Rect Gizmo is not usually used to resize.
 
-## Gizmo 基准点设置
+## Gizmo Datum Setting
 
-变换工具基准点用于设置变换工具的位置以及控制手柄的方向。
+The gizmo datum is used to set the position of the gizmo and to control the orientation of the handles.
 
 ![gizmo position](./img/gizmo_position.png)
 
-变换工具位置：
+Gizmo position:
 
-- Pivot：变换工具将显示在 2D 对象 **锚点**（`AnchorPoint`）所在位置或 3D 对象的 **世界坐标系** 中
-- Center：变换工具将显示在节点的中心点位置。若同时选择多个节点，则显示在所有节点的中心位置
+- Pivot: the gizmo will be displayed in the location of the 2D object **AnchorPoint** or in the 3D object's **world coordinate system**.
+- Center: the gizmo will be displayed at the center of the node. If multiple nodes are selected at the same time, the center of all nodes will be displayed.
 
-变换工具的控制手柄方向：
+Direction of the control handle of the gizmo:
 
-- Local：变换工具的控制手柄以节点的旋转方向为准，如下图：
+- Local: the control handle of the gizmo is based on the direction of rotation of the node, as follows:
 
   ![loacl-rotation](./img/loacl-rotation.png)
 
-- Global：变换工具中控制手柄的方向以世界坐标系为准，不受节点旋转的影响，如下图：
+- Global: the direction of the control handles in the gizmo is based on the world coordinate system, and is not affected by the node rotation, as follows:
 
   ![global-rotation](./img/global-rotation.png)
 
-## 切换编辑模式
+## Toggle Edit Mode
 
-点击下图中的 3D/2D 按钮，即可将 **场景编辑器** 切换为 2D 编辑模式或 3D 编辑模式。详情请参考 [场景编辑器 - 视图介绍](../scene/index.md#%E8%A7%86%E5%9B%BE%E4%BB%8B%E7%BB%8D)。
+Click the 3D/2D button in the figure below to switch the **Scene** panel to 2D edit mode or 3D edit mode. For details, please refer to [Scene - View Introduction](../scene/index.md#view-introduction).
 
 ![2d3d](./img/2d3d.png)
 
-## 运行预览游戏
+## Play on Device
 
-该项用于预览项目的运行效果，详情请参考 [项目预览调试](../preview/index.md)。
+This option is used to preview the running effect of the project, please refer to [Project Preview & Debugging](../preview/index.md).
 
 ![preview](./img/preview.png)
 
-## 手机端预览地址
+## Mobile Preview Address
 
 ![preview url](./img/preview_url.png)
 
-这里显示运行 Cocos Creator 的桌面电脑的局域网地址，连接同一局域网的移动设备可以访问这个地址来预览和调试游戏。将鼠标悬浮在局域网地址上，会浮现一个二维码，通过扫描二维码的方式也可以访问这个地址来预览和调试游戏。
+This shows the LAN address of the desktop computer running Cocos Creator. Mobile devices connected to the same LAN can access this address to preview and debug the game. Hovering over the LAN address will bring up a QR code, which can also be accessed by scanning the QR code to preview and debug the game.
 
-## 打开项目/编辑器目录
+## Open the Project/Editor Directory
 
 ![open project](./img/open_project.png)
 
-- **项目**：打开项目所在的文件夹
-- **编辑器**：打开程序的安装路径
+- **Project**: opens the folder where the project is located
+- **Editor**: opens the installation path of the program
+<!-- 
+## Cocos Little Secretary
 
-## Cocos 小秘书
-
-点击工具栏最右侧的 ![smallSecretary](./img/smallSecretary.png) 按钮，即可打开 Cocos 小秘书面板，用户遇到任何问题，随时可以通过小秘书与官方技术人员发起交流探讨。详情可查看 [Cocos 小秘书](https://www.cocos.com/assistant)。
+Click on the rightmost part of the toolbar ![smallSecretary](./img/smallSecretary.png) button on the rightmost side of the toolbar to open the Cocos Small Secretary panel, where users can initiate communication with the official technical staff at any time if they encounter any problems. For more details, please check [Cocos Small Secretary](https://www.cocos.com/assistant).
 
 ![small](./img/small.png)
 
->**注意**：Cocos 小秘书目前仅支持中文版本，后续优化请关注版本公告。
+>**Note**: Cocos Little Secretary currently only supports Chinese version, please pay attention to the version announcement for subsequent optimization. -->
