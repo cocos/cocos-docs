@@ -18,7 +18,7 @@ The **Move Gizmo** is the default transform gizmo that is activated when the edi
 
 ![position tool](./img/position-tool.png)
 
-When selecting any node, you will see a movement control handle consisting of red, green and blue arrows and red, green and blue squares in the center of the node in the **Scene** panel.
+When selecting any node, notice a movement control handle consisting of red, green, and blue arrows and red, green, and blue squares in the center of the node in the **Scene** panel.
 
 The **control handles** are controllers that can be interacted with by the mouse in a particular editing state in the **Scene** panel. These controllers are only used to assist in editing and will not be displayed while the game is running.
 
@@ -38,7 +38,7 @@ The handle of the Rotate Gizmo consists of three orthogonal red, green and blue 
 
 ![rotation gizmo](./img/rotation-gizmo.png)
 
-When the mouse is hovered over any circle, the circle will be displayed in yellow, click on it to select it, and a yellow arrow will be displayed to indicate which axis the current node is rotated by. Drag any point on the circle to rotate the node, and before releasing the mouse, you can see the rotation angle on the control handle.
+When the mouse hovers over any circle, the circle will be displayed in yellow, click on it to select it, and a yellow arrow will be displayed to indicate which axis the current node is rotated by. Drag any point on the circle to rotate the node, and before releasing the mouse, notice the rotation angle on the control handle.
 
 ![rotation](./img/rotation.png)
 
