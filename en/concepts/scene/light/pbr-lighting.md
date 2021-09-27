@@ -1,60 +1,58 @@
-# Physically-based Lighting
+# Physically Based Lighting
+
+The light source parameters are described in Cocos Creator using photometric units. Based on the photometric units, all the relevant parameters of the light source can be translated into real-world physical values. In this way, designers can adjust the light intensity, color, range, and other information based on the industrial parameters of the relevant lights and the actual physical parameters of the real environment to make the overall lighting effect more in line with the real natural environment.
 
 ![pbr lighting](pbrlighting/pbr-lighting.jpg)
 
-## Lights in the real world
+## Light Sources in the Real World
 
-Physically-based lighting describes the light in the real world. In real environments, the lights we see have their own industrial parameters. First, let's look at a light bulb.💡
+The physically based lighting matches the description of light sources in the real world. In real environments, the light products we see have their own industrial parameters, let's look at an IKEA light bulb💡
 
 ![light bulb size](pbrlighting/light-bulb.jpg)
 
-From the product packaging, we can understand several important industrial parameters of this bulb:
+From the product packaging, we can learn several important industrial parameters of this bulb.
+- **Luminous Flux**
+- **Color Temperature**
+- **Size**
 
-  - **luminous power**
-  - **color temperature**
-  - **size**
+These three important parameters affect the performance of light sources in the real world, and we will focus on the physical meaning of these three parameters below.
 
-These three important parameters affect the performance of the light in the real world. Let's focus on the physical meaning of these three parameters.
+## Photometric Units
 
-## Luminous Power
+**Photometric Units** are used to calculate the intensity (size) and direction of light.
 
-**Luminous power** is what we usually call the lights intensity. __Cocos Creator 3.0__ uses **photometric units** to measure light intensity:
+- **Luminous Flux**
 
-- **Luminous Power**
-
-  Unit **Lumens (lm)**.<br>
-  Describes the total amount of light emitted by the light from all directions. Changing the size of the light will not affect the lighting effect of the scene.
+  The unit is **lumens (lm)**, the total light energy emitted by a light source or received by an illuminated object per unit of time. Changing the size of the light source will not affect the scene lighting effect.
 
 - **Luminance**
 
-  Unit **Candela per square meter (cd/m<sup>2</sup> or nits)**.<br>
-  Describes the intensity of the light when light is measured from a point on the surface of the light to a point on the receiving surface. Changing the size of the light will affect the lighting effect of the scene.
+  The unit is **Candela per square meter (cd/m<sup>2</sup>)**, the total luminous flux emitted by a light source per unit area in a given direction, per unit area. Changing the size of the light source affects the scene lighting effect.
 
 - **Illuminance**
 
-  Unit **lux (lx)**<br>
-  Describes the total amount of light from a light measured at the receiving surface. This value is affected by the distance the light travels.
+  The unit is **lux or lx**, the amount of luminous flux received per unit area. This value is affected by the distance the light travels, and for the same light source, when the light source is twice as far away, the illuminance is reduced to one-fourth of the original, in an inverse square relationship.
 
-In the real world, because the important physical parameters describing lights are different, we usually use **luminous power** and **luminance** to describe lights that illuminate areas commonly used in life.
+In the real world, because the important physical parameters describing light sources are different, we usually use **Luminous Flux** and **Luminance** to describe common household light sources with illuminated areas, and **Illuminance** to describe sunlight.
 
 ![light power](pbrlighting/light-power.jpg)
 
 ## Color Temperature
 
-**Color temperature** refers to the color of the absolute black body after it has been heated from absolute zero (-273°C).
+**Color Temperature** is the color of an absolute blackbody after it has been warmed from absolute zero (-273°C).
 
-**Color temperature** is an important property that affects the color of the light. It is an optional property. When color temperature is enabled, the color temperature also contributes to the color of the light.
+Color temperature is an important property that affects the color of a light source and is an optional property that also participates in the color component of the light source when color temperature is enabled.
 
-In a real world environment, the ambient color temperature at different times of the day also changes dynamically:
+The ambient color temperature also changes dynamically in real-world environments at different times of the day:
 
 ![color temp of day](pbrlighting/color-temp-of-day.jpg)
 
-Please refer to the following table:
+You can refer to the following table:
 
 ![kelvin](pbrlighting/kelvin.jpg)
 
-## Light Size
+## Size
 
-Lights in the real world have real physical dimensions. At the same time, the size of the light also affects the intensity of the light.
+Real-world light sources have real physical dimensions, and for the **same luminous flux**, the size of the light source affects **brightness** and **illuminance**.
 
 ![light bulb size](pbrlighting/light-bulb-size.png)
