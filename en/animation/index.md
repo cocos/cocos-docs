@@ -10,18 +10,28 @@ Cocos Creator has a built-in universal animation system for implementing keyfram
 
 - [Animation Clip](animation-clip.md): asset containing animation data, reusable. Animation clips can be produced by the **Animation** panel, or imported by some external asset that already contains skeletal animation.
 
-    - [Animation Editor](animation.md): Learn how to use the Animation Editor and create/modify/generate animation clip assets through the Animation Editor.
-        - [Creating Animation Components and Animation Clips](animation-create.md)
-        - [Introduction to the Animation Editor panel](animation-editor.md)
-        - [Editing Animation Clips](edit-animation-clip.md)
-        - [Editing Animation Easing Curves](animation-curve.md)
-        - [Adding Animation Events](animation-event.md)
-        - [Using Animation Curves](use-animation-curve.md)
+- [Animation Component Reference](animation-comp.md): the Animation component can drive node and component properties on their nodes and children in an animated manner, including properties in user-defined scripts.
 
-    - [Skeletal Animation](skeletal-animation.md): a common but special type of animation, this article mainly introduces it and explains its usage.
-        - [Joint Texture Layout](joint-texture-layout.md)
+- [Animation Editor](animation.md): learn how to use the Animation Editor and create/modify/generate animation clip assets through the Animation Editor.
 
-- [Animation Component](animation-component.md): The animation component manages a set of animation states, which are used to control the play, pause, continue, stop, switch, etc. of each animation.
+    - [Creating Animation Components and Animation Clips](animation-create.md)
+
+    - [Introduction to the Animation Editor panel](animation-editor.md)
+
+    - [Editing Animation Clips](edit-animation-clip.md)
+
+    - [Editing Animation Easing Curves](animation-curve.md)
+
+    - [Adding Animation Events](animation-event.md)
+
+    - [Using Animation Curves](use-animation-curve.md)
+
+- [Skeletal Animation](skeletal-animation.md): a common but special type of animation, this article mainly introduces it and explains its usage.
+
+    - [Joint Texture Layout](joint-texture-layout.md)
+
+- [Controlling Animation with Scripts](animation-component.md): the Animation component manages a set of animation states, which are used to control the play, pause, continue, stop, switch, etc. of each animation.
+
     - [Animation State](animation-state.md): the state of animation clips is stored in an object called animation state, animation state can control the animation clips that need to be used on the object. Animation state provides more animation control interfaces, through which animation can be played, stopped, shifted, set to loop mode and other more detailed control.
 
-Animation components can drive node and component properties on their nodes and children in an animated manner, including properties in user-defined scripts. Based on this feature, various animation requirements can be implemented flexibly. The specific animation implementation varies depending on the animation requirements, the operation steps and code implementation, please refer to the official example [animation](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/animation), which mainly introduces some common editing operations and code examples for reference.
+According to different animation requirements, the operation steps and code implementation for specific animations are different, please refer to the official example [animation](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/animation), which mainly introduces some common editing operations and code examples for reference.

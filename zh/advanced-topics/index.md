@@ -8,8 +8,6 @@
 - [网页预览定制工作流程](../editor/preview/browser.md)
 - [渲染管线](../render-pipeline/overview.md)
     - [内置管线](../render-pipeline/builtin-pipeline.md)
-    - [自定义管线](../render-pipeline/user-pipeline.md)
-    - [后期处理](../render-pipeline/post-process.md)
 - [JSB 2.0 使用指南](JSB2.0-learning.md)
     - [JSB 手动绑定](jsb-manual-binding.md)
     - [JSB 自动绑定](jsb-auto-binding.md)

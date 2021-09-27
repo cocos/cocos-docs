@@ -1,16 +1,14 @@
 # Decorator
 
-## `cc` class
+## `cc class`
 
-When applying a decorator `ccclass` to a class, such class is called a `cc` class. A `cc` class injects additional information to control Cocos Creator 3.0's serialization of the class object, the editor's presentation of the class object, etc. Therefore, component classes that do not have `ccclass` declared, cannot be added to nodes as components either.
+When applying a decorator `ccclass` to a class, such class is called a `cc class`. A `cc class` injects additional information to control Cocos Creator's serialization of the class object, the editor's presentation of the class object, etc. Therefore, component classes that do not have `ccclass` declared are incomplete, they cannot be added to nodes as components either.
 
-The various characteristics of the `cc` class are specified by the `ccclass(name)` argument.
+The parameter `name` of the decorator `ccclass` specifies the name of the `cc class`, which is **unique**, even same `ccclass` name in scripts in different sub folder is forbidden and considered as conflicts. When the corresponding `cc class` needs to be retrieved, it can be found by its `cc class` name, e.g.:
 
-The parameter `name` specifies the name of the `cc` class, which is **unique**. When the corresponding `cc` class needs to be retrieved, it can be found by its `cc` class name, e.g.:
+- Serialization. If the object is a `cc class` object, the `cc class` name of the object will be recorded during serialization, and the corresponding `cc class` will be found for serialization based on this name during deserialization.
 
-- Serialization. If the object is a `cc` class object, the `cc` class name of the object will be recorded during serialization, and the corresponding `cc` class will be found for serialization based on this name during deserialization.
-
-- When the `cc` class is a component class, `Node` can look up the component by the `cc` class name of the component class.
+- When the `cc class` is a component class, `Node` can look up the component by the `cc class` name of the component class.
 
 ```ts
 @ccclass('Example')
@@ -18,13 +16,13 @@ export class Example extends Component {
 }
 ```
 
-## Editor Parameters
+## Component class decorators
 
-Such parameters are subclasses that can only be defined in cc.
+These decorators are used to decorate sub classes of `Component`.
 
 ### `executeInEditMode`
 
-By default, all components are executed only at runtime, meaning that their lifecycle callbacks are not triggered in editor mode. `executeInEditMode` allows the current component to run in editor mode, with an initial value of `false`.
+By default, all components are executed only at runtime, meaning that their lifecycle callbacks are never triggered in editor mode. `executeInEditMode` allows the current component to be executed in editor mode, the default value of this decorator is `false`.
 
 ```ts
 const { ccclass, executeInEditMode } = _decorator;
@@ -32,12 +30,15 @@ const { ccclass, executeInEditMode } = _decorator;
 @cclass('Example')
 @executeInEditMode(true)
 export class Example extends Component {
+    update (dt: number) {
+        // Will be executed in editor environment
+    }
 }
 ```
 
 ### `requireComponent`
 
-The `requireComponent` parameter is used to specify a dependent component for the current component, the default value is `null`. When a component is added to a node, the engine will automatically add the dependent component to the same node if the dependent component does not exist, preventing script errors. This option is also valid at runtime.
+The `requireComponent` decorator is used to specify a dependent component for the current component, the default value is `null`. When a component is added to a node, the engine will automatically add the dependent component to the same node if the dependent component does not exist yet, preventing script errors. This behavior is also valid at runtime.
 
 ```ts
 const { ccclass, requireComponent } = _decorator;
@@ -50,12 +51,12 @@ export class Example extends Component {
 
 ### `executionOrder`
 
-`executionOrder` is used to specify the execution priority of script lifecycle callbacks. Scripts less than 0 will be executed first and scripts greater than 0 will be executed last. The ordering is as follows.
-- For different components on the same node, those with smaller values are executed first, and those with the same values are executed in the order in which they are added.
-- For the same component on different nodes, the order of execution is determined by the node tree.
-- For all nodes in the node tree, if both nodes and components are active, the smaller the value, the first to be executed.
+`executionOrder` is used to specify the execution priority of component lifecycle callbacks. The execution ordering is described as follows.
 
-This priority setting is only valid for `onLoad`, `onEnable`, `start`, `update` and `lateUpdate`, but not for `onDisable` and `onDestroy`.
+- For different components on the same node, those with smaller `executionOrder` are executed first, and those with the same `executionOrder` are executed in the order in which they are added.
+- For the same component on different nodes, the order of execution is determined by the node tree.
+
+This ordering setting is only valid for `onLoad`, `onEnable`, `start`, `update` and `lateUpdate`, but not for `onDisable` and `onDestroy`.
 
 ```ts
 const { ccclass, executionOrder } = _decorator;
@@ -81,7 +82,7 @@ export class Example extends Component {
 
 ### `menu`
 
-`menu(path)` is used to add the current component to the component menu to make it easier for the user to find it.
+`@menu(path)` is used to add the current component to the component menu to make it easier for the user to find it.
 
 ```ts
 const { ccclass, menu } = _decorator;
@@ -96,7 +97,7 @@ export class Example extends Component {
 
 ### `help`
 
-Specify the `url` of the current component's help file. Once set, a help icon will appear in the **Inspector** panel and can be clicked to open the specified page.
+Specify the URL of the current component's help page. Once set, a help icon will appear in the **Inspector** panel and can be clicked to open the specified page.
 
 ```ts
 const { ccclass, help } = _decorator;
@@ -107,63 +108,59 @@ export class Example extends Component {
 }
 ```
 
-## `cc` Property
+## Property decorator
 
-When the decorator [property](#property) is applied to a property or accessor of a `cc` class, this property is called a `cc` property.
+The decorator [property](#property) is applied to a property or accessor of a `cc class`. Similar to the `ccclass` decorator, the `property` decorator injects additional information to control Cocos Creator's serialization of the property, the presentation of the property in the **Inspector** panel, and so on.
 
-Similar to the `cc` class, the `cc` property injects additional information to control Cocos Creator 3.0's serialization of the property, the editor's presentation of the property, and so on.
+The various features of the `property` decorator are specified via its attributes in `@property({})`. Usage of all attributes can be found in: [Property Attributes](./reference/attributes.md).
 
-### `property`
-
-The various properties of the `cc` property are specified via the `property()` parameter. Optional parameters can be found in: [Property Attributes](./reference/attributes.md).
-
-`property()` is written with the following reference:
+The following code is an example of the usage of the `property` decorator:
 
 ```ts
 @property({
     type: Node,
     visible: true,
 })
-targetNode: Node | null = null; // Equivalent to targetNode: Node = null!;
+targetNode: Node | null = null;
 ```
 
-Next, some of the common ways to write property parameters are listed below.
+Next, some of the important `property` attributes are listed below.
 
-### `type`
+### `type` attribute
 
-The `type` option specifies the cc type of the attribute. The type can be specified with several forms of arguments.
+The `type` attribute specifies a type recognizable by the editor. The type can be specified with several forms of arguments.
 
-- Cocos Creator 3.0 built-in property type identifier:
+- Built-in primitive type:
 
-  `CCInteger`, `CCFloat`, `CCBoolean`, and `CCString` are built-in property type identifiers that generally work on array properties. Non-array types usually do not need to declare a type.
+  `CCInteger`, `CCFloat`, `CCBoolean`, and `CCString` are built-in property type identifiers that generally work on array properties. Non-array types usually do not need to explicitly declare a type.
 
     - `CCInteger` declares the type as **integer**.
     - `CCFloat` declares the type as **floating point**.
     - `CCString` declares the type as **String**.
     - `CCBoolean` declares the type as **Boolean**.
 
-- `cc` class properties not identified by built-in property types.
+- Other `cc class` type
 
-  All `cc` class properties **need to specify a type**, otherwise the editor will not recognize the type and serialization will not write the correct type.
+  All properties with `cc class` type **need to explicitly specify its type**, otherwise the editor will not be able to recognize the type and how to serialization the property.
 
-- Arrays
+- Array type
 
-  When the built-in property type identifier or the `cc` class is used as an array element, the property is specified as a **Cocos Creator 3.0 array**. For example, `[CCInteger]`, `[Node]` will present the property as an array of integers and an array of nodes, respectively.
+  When use the built-in primitive type or the `cc class` type as array element type for an array property, the property can be declared using the array type. For example, `[CCInteger]`, `[Node]` will let the **Inspector** panel present the property as an array of integers and an array of nodes, respectively.
 
-If the property does not specify a `cc` type, Cocos Creator 3.0 will derive its `cc` type from the property's default value or the result of an initialization formula:
+If the property does not specify a type, Cocos Creator will derive its `cc` type from the property's default value or the result of an initialization formula:
 
-- If the type of the value is the JavaScript primitive types `number`, `string`, and `boolean`, then the `cc` type is the Creator's floating-point number, string, and boolean, respectively.
-- Others indicate that the property's type is **undefined**, and the editor will prompt for the `Type(Unknown)` character.
+- If the type of the property is the JavaScript primitive types `number`, `string`, and `boolean`, then the property `type` is `CCFloat`, `CCString`, and `CCBoolean`, respectively.
+- Under other circumstances, the property's type will be **undefined**, and the editor will prompt a `Type(Unknown)` notice in the **Inspector** panel.
 
-> **Note**: when using the JavaScript built-in constructors `Number`, `String`, `Boolean` as `cc` types, there will be a warning and they will be treated as `CCFloat`, `CCString`, `CCBoolean` of the `cc` types respectively. After the initialized array property is modified, clear the original array data and reassign it manually, otherwise the data type will be inconsistent and lead to data mismatch.
+> **Note**: when using the JavaScript built-in constructors `Number`, `String`, `Boolean` as `type`, there will be a warning and they will be treated as `CCFloat`, `CCString`, `CCBoolean` respectively. Modifying the type of an initialized array property, a manual clear of the original array data is necessary, otherwise the data type will be inconsistent and lead to data mismatch.
 >
 > ![property-changed](property-changed.png)
 
 <!-- See [property-type](#%E5%B1%9E%E6%80%A7%E5%8F%82%E6%95%B0) and [serializable-parameters](#serializable-parameters) below for an introduction to how cc types affect cc properties and the handling of properties with undefined cc types. -->
 
-> **Note**: serializable properties that need to be used by the editor should not have `_` at the beginning of the property name, otherwise they will be recognized as private properties, and private properties will not be displayed in the editor component properties panel.
+> **Note**: editable properties that need to be presented in the **Inspector** panel should not have `_` at the beginning of the property name, otherwise they will be recognized as private properties, and private properties will not be displayed in the component **Inspector** panel.
 
-The following code demonstrates the declaration of `cc` properties for different `cc` types.
+The following code demonstrates the declaration of properties for different `cc` types.
 
 ```ts
 import { _decorator, CCInteger, Node, Enum } from 'cc';
@@ -205,7 +202,7 @@ class MyClass {
 }
 ```
 
-For convenience, several additional decorators are provided to quickly declare `cc` types. For properties where only the type is defined use:
+For convenience, several additional decorators are provided to quickly declare `cc` types. If you only need to declare `type` attribute of the property, you can use the following decorators instead of `@property`:
 
 | Decorators | Corresponding property writes |
 | :-------- | :---------------- |
@@ -264,36 +261,36 @@ Constructors for CCClass are defined using `constructor`. To ensure that deseria
 
 4. an empty array `[]` or an empty object `{}` -->
 
-### `visible` Parameter
+### `visible` attribute
 
-In general, whether an attribute is displayed in the **Inspector** panel depends on whether the attribute name starts with `_`. **If it starts with `_`, it is not displayed**.
+In general, whether an property is displayed in the **Inspector** panel depends on whether the property name starts with `_`. **If it starts with `_`, it is not displayed**.
 
-To force display in the **Inspector** panel, set the `visible` parameter to `true`:
+To force display in the **Inspector** panel, set the `visible` attribute to `true`:
 
 ```typescript
 @property({ visible: true })
 private _num = 0;
 ```
 
-To force hiding, set the `visible` parameter to `false`:
+To force hiding, set the `visible` attribute to `false`:
 
 ```typescript
 @property({ visible: false })
 num = 0;
 ```
 
-### `serializable` Parameter
+### `serializable` attribute
 
-Properties are serialized by default. Once serialized, the property values set in the editor will be saved to the scene and other resource files, and will be automatically restored to the set property values when the scene is loaded. To not serialize, set `serializable: false`.
+Properties are serialized by default. Once serialized, the property values set in the editor will be saved to the scene and other resource files, and will be automatically restored to the set property values when the scene is loaded. To not serialize, set `serializable` as false.
 
 ```typescript
 @property({ serializable: false })
 num = 0;
 ```
 
-### `override` Parameters
+### `override` attribute
 
-All properties are inherited by subclasses. If a subclass wants to override a property of the same name of the parent class, the override parameter needs to be set explicitly, otherwise, there will be a renaming warning:
+All properties are inherited by subclasses. If a subclass wants to override a property of the same name of the parent class, the override attribute needs to be set explicitly, otherwise, there will be a renaming warning:
 
 ```typescript
 @property({ tooltip: "my id", override: true })

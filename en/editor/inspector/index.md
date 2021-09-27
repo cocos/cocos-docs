@@ -6,7 +6,7 @@ The **Inspector** panel is the work area for viewing and editing the currently s
 
 ## Panel overview
 
-![inspector](index/inspeactor-panel.png)
+![inspector](index/inspector-panel.png)
 
 The **Inspector** panel can be divided into two parts: **Toolbar** and **Property Settings**.
 

@@ -25,7 +25,7 @@ The function buttons in the **Menu toolbar** are, from left to right.
 
 | Icon | Description | Shortcut |
 | :---- | :--- | :--- |
-| ![menu clips](animation-editor/menu_clips.png) | Toggle animation clips. When multiple animation clips are attached on the animation component, this button can be used to toggle between clips. | - |
+| ![menu clips](animation-editor/menu_clips.png) | Toggle animation clips. When multiple animation clips are attached on the Animation component, this button can be used to toggle between clips. | - |
 | ![jump to first frame](animation-editor/menu_first.png) | Moves the red time control line to the beginning of the current animation clip | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>←</kbd> |
 | ![jump to previous frame](animation-editor/menu_prev.png) | Move time control line to previous frame | <kbd>←</kbd> |
 | ![play/pause](animation-editor/menu_play.png) | Play/pause current animation | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> |

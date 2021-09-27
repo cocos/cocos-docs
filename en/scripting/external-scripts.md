@@ -6,6 +6,25 @@ When the script resource is imported with **import as a plug-in**, this script r
 
 Unlike other scripts in the project, **Cocos Creator** will not modify the content of the plug-in script, but some code may be inserted to adapt to Creator itself; in particular, **Cocos Creator** will shield the global variables `module`, `exports`, `define`.
 
+### Import options
+
+Many third-party JavaScript libraries provide library functions in the form of global variables. These libraries often write global variables `window`, `global`, `self` and `this`.
+
+However, these global variables are not necessarily cross-platform. For convenience, when importing plug-in scripts, the option **Simulate global variables** is provided. After opening, **Cocos Creator** will insert the necessary code to simulate these global variables. Example:
+
+```js
+(function() {
+    const window = globalThis;
+    const global = globalThis;
+    const self = globalThis;
+
+    (function() {
+        /* Original code */
+    }).call(this);
+
+}).call(this);
+```
+
 ### Execution timing
 
 Developers can control whether plug-in scripts are executed in certain environments.
@@ -41,22 +60,3 @@ Therefore, plug-in scripts generally communicate in the form of global variables
 - When adding global variables, please be careful not to have the same name with the existing global variables in the system.
 
 - Developers can freely encapsulate or extend the **Cocos Creator** engine in the plug-in script, but this will increase the cost of team communication and make the script difficult to reuse.
-
-### Import options
-
-Many third-party JavaScript libraries provide library functions in the form of global variables. These libraries often write global variables `window`, `global`, `self` and `this`.
-
-However, these global variables are not necessarily cross-platform. For convenience, when importing plug-in scripts, the option **Simulate global variables** is provided. After opening, **Cocos Creator** will insert the necessary code to simulate these global variables. Example:
-
-```js
-(function() {
-    const window = globalThis;
-    const global = globalThis;
-    const self = globalThis;
-
-    (function() {
-        /* Original code */
-    }).call(this);
-
-}).call(this);
-```
