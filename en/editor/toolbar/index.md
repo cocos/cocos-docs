@@ -95,13 +95,13 @@ Direction of the control handle of the gizmo:
 
 ## Toggle Edit Mode
 
-Click the 3D/2D button in the figure below to switch the **Scene** panel to 2D edit mode or 3D edit mode. For details, please refer to [Scene - View Introduction](../scene/index.md#view-introduction).
+Click the 3D/2D button in the figure below to switch the **Scene** panel to 2D edit mode or 3D edit mode. For details, please refer to the [Scene - View Introduction](../scene/index.md#view-introduction) documentation.
 
 ![2d3d](./img/2d3d.png)
 
 ## Play on Device
 
-This option is used to preview the running effect of the project, please refer to [Project Preview & Debugging](../preview/index.md).
+This option is used to preview the running effect of the project, please refer to the [Project Preview & Debugging](../preview/index.md) documentation.
 
 ![preview](./img/preview.png)
 
@@ -116,7 +116,7 @@ This shows the LAN address of the desktop computer running Cocos Creator. Mobile
 ![open project](./img/open_project.png)
 
 - **Project**: opens the folder where the project is located
-- **Editor**: opens the installation path of the program
+- **App**: opens the installation path of the program
 <!-- 
 ## Cocos Little Secretary
 
