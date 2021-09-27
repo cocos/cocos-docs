@@ -2,7 +2,7 @@
 
 ## Getting Started with UI
 
-The difference between defining UI and 2D rendering objects in the engine mainly lies in adaptation and interaction. All UI needs to be under Canvas node to make adaptation behavior, and Canvas component itself inherits from `RenderRoot2D` component, so it can also be used as an entry point for data collection.
+The difference between defining UI and 2D rendering objects in the engine mainly lies in adaptation and interaction. All UI needs to be under a Canvas node to make adaptation behavior, and the Canvas component itself inherits from `RenderRoot2D` component, it can also be used as an entry point for data collection.
 
 The UI is a necessary interactive part of game development. Generally, buttons, text, backgrounds, etc. on the game are made through the UI. When starting to create a UI, first it is necessary to determine the size of the display area (design resolution) of the current design content, which can be set in the **Project -> Project Settings -> Project Data** panel in the menu bar.
 
@@ -15,7 +15,7 @@ Once the design resolution is set, start creating UI elements, all of which are 
 > - Multiple Canvas nodes can exist in a scene, but a Canvas node should not be nested under another Canvas node or its children.
 > - Canvas components are not one-to-one with camera, their previous rendering depends on the layer of the node and the Visibility of the camera, so you should pay extra attention to layer management to get the desired rendering effect when you have multiple Canvas.
 
-Next, you can create UI nodes under the Canvas node. The editor comes with the following UI nodes:
+Next, create UI nodes under the Canvas node. The editor comes with the following UI nodes:
 
 ![create-ui](./create-ui.png)
 
@@ -26,10 +26,10 @@ UI components can be viewed by selecting the node and clicking **Add Component**
 The order in which UI components are rendered is a depth ordering scheme, which means that the ordering of the child nodes under the Canvas node already determines the entire [rendering order](priority.md).
 
 In general game development, the necessary UI elements are not only basic 2D rendering components such as Sprite, Label (text), Mask, but also Layout, Widget (alignment), etc., which are used to quickly build the interface. Sprite and Label are used to render images and text, Mask is mainly used to limit the display content, more commonly used in chat boxes and backpacks, etc. Layout is generally used for single arrangement of buttons, neat arrangement of props in backpacks, etc. <br>
-The last important feature is the Widget, which is mainly used for display alignment. When we finish designing the UI and publish it to different platforms, the actual device resolution of the platform is bound to be different from our design resolution, so we have to make some trade-offs in order to adapt it. We need to add a widget component to it, and always ensure that it is aligned to the top left of our design resolution, see: [alignment strategy](widget-align.md) and [alignment](../editor/widget.md).
+The last important feature is the Widget, which is mainly used for display alignment. When finishing designing the UI and publish it to different platforms, the actual device resolution of the platform is bound to be different from our design resolution, therefore some trade-offs need to be made in order to adapt it. It is necessary to add a widget component to it, and always ensure that it is aligned to the top left of our design resolution. Please review the [alignment strategy](widget-align.md) and [alignment](../editor/widget.md) documentation.
 
 Once the interface is created, some people may notice that the iPhone 7 displays differently than the iPhone X. This is actually the same problem with the device resolution we mentioned above. When you design in design resolution and finally publish in device resolution, there is a pixel deviation because the resolution of different models of mobile devices may not be the same, so there is another conversion process that needs to be done that is screen adaptation. <br>
-As you can see in the **Projects -> Project Settings -> Project Data** page in the menu bar, there are two more options **Fit Width / Fit Height**, which can be easily adapted to different devices by following the screen adaptation rules and combining with the Widget component. The specific adaptation rules can be found in the [Multi-Resolution Adaptation Scheme](multi-resolution.md).
+Notice in the **Projects -> Project Settings -> Project Data** page in the menu bar, there are two more options **Fit Width / Fit Height**, which can be easily adapted to different devices by following the screen adaptation rules and combining with the Widget component. The specific adaptation rules can be found in the [Multi-Resolution Adaptation Scheme](multi-resolution.md) documentation.
 
 ## UI components
 

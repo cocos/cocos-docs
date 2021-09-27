@@ -1,6 +1,6 @@
 # 2D Objects Overview
 
-Unlike 3D model objects, we refer to the rendering of images that do not involve models as 2D rendering objects. 2D rendering objects are handled differently from 3D models in terms of the underlying data submission, and follow their own rules with some specific adjustments for better efficiency and experience.
+Unlike 3D model objects, 2D rendering objects are referred to as the rendering of images that do not involve models. 2D rendering objects are handled differently from 3D models in terms of the underlying data submission, and follow their own rules with some specific adjustments for better efficiency and experience.
 
 ## 2D Object Rendering Structure Description
 

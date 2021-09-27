@@ -1,8 +1,8 @@
 # 2D Rendering Component Description
 
-All rendering objects in the engine that do not own a model are 2D rendering objects. Unlike 3D objects, 2D objects do not have model information themselves, their vertex information is held by the Rect information of the UITransform component and created by the engine, and they have no thickness themselves. Due to the design requirements of the engine, the 2D render object needs to be a child of the RenderRoot node (the node with the RenderRoot2D component) in order to complete the data collection operation.
+All rendering objects in the engine that do not own a model are 2D rendering objects. Unlike 3D objects, 2D objects do not have model information, and their vertex information is held by the Rect information of the UITransform component and created by the engine, and they have no thickness themselves. Due to the design requirements of the engine, the 2D render object needs to be a child of the RenderRoot node (the node with the RenderRoot2D component) in order to complete the data collection operation.
 
-So the rendering requirements for the 2D render object are twofold:
+The rendering requirements for the 2D render object are twofold:
 1. It needs to have a UITransform component
 2. It needs to be a child of a RenderRoot node
 
@@ -27,11 +27,11 @@ Components that have rendering capabilities in their own right are called 2D ren
 
 ## How to add 2D Rendering Components
 
-We have some 2D rendering components built into the editor, so after creating a RenderRoot node, you can create a node with 2D rendering components under this node: 
+Some 2D rendering components are built into the editor. After creating a RenderRoot node, create a node with 2D rendering components under this node: 
 
 ![create-2d](./create-2d.png)
 
-You can also add 2D rendering components by adding components to the node, the nodes under the 2D menu in the components menu are all 2D rendering components:
+2D rendering components can also be added by adding components to the node, the nodes under the 2D menu in the components menu are all 2D rendering components:
 
 ![add-render-component](./add-render-component.png)
 
