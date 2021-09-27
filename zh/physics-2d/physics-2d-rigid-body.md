@@ -25,7 +25,7 @@
 
 更多的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases) 中的范例。
 
-刚体组件接口请参考 [RigidBody2D API](https://docs.cocos.com/creator/3.2/api/zh/classes/physics2d.rigidbody2d.html)
+刚体组件接口请参考 [RigidBody2D API](__APIDOC__/zh/classes/physics2d.rigidbody2d.html)
 
 ## 刚体属性
 
@@ -131,9 +131,18 @@ Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**�
 
 - `cc.RigidBodyType.Animated`
 
-Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。<br>
+动画刚体，Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。<br>
 添加 Animated 类型主要是防止对刚体做动画时可能出现的奇怪现象，例如穿透。
 >**注意** ：如果没有碰撞体，2D 刚体不能相互碰撞。
+
+下图为各种刚体之间的碰撞情况：
+
+|  | 静态刚体 |动态刚体 |运动刚体|动画刚体
+:---|:---|:---|:---|:---
+**静态刚体**|不碰撞|碰撞|不碰撞|不碰撞|
+**动态刚体**|碰撞|碰撞|碰撞|碰撞|
+**运动刚体**|不碰撞|碰撞|不碰撞|不碰撞|
+**动画刚体**|不碰撞|碰撞|不碰撞|不碰撞|
 
 ## 刚体方法
 

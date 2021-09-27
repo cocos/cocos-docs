@@ -111,7 +111,9 @@ const points = manifold.points;
 const normal = manifold.localNormal;
 ```
 
-其中 `points` 包含了是接触信息中的接触点信息。它拥有关于几何和接触点的详细信息。详细信息可以查看 [接触点信息](https://docs.cocos.com/creator/3.3/api/zh/#/docs/3.3/zh/physics2d/Interface/IPhysics2DManifoldPoint)。
+其中 `points` 包含了是接触信息中的接触点信息。它拥有关于几何和接触点的详细信息。
+
+<!-- 详细信息可以查看 [接触点信息](https://docs.cocos.com/creator/3.3/api/zh/#/docs/3.3/zh/physics2d/Interface/IPhysics2DManifoldPoint)。 -->
 
 `localNormal` 为本地坐标系下碰撞体的法向量。
 
