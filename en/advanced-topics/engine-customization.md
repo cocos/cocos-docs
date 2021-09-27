@@ -97,10 +97,10 @@ It is possible to customize the **engine-native** engine. Since the code is only
 
 To prevent the package from becoming too large, Creator excludes the native engine simulator related projects from the release, if it is necessary to use a custom native simulator, recompile it by following the steps below:
 
-1. Refer to [CMake Official Documentation](https://cmake.org/install/) to install CMake and configure system environment variables.
+1. Refer to the [CMake Official Documentation](https://cmake.org/install/) to install CMake and configure system environment variables.
 2. Compile the native simulator engine, which can be divided into TypeScript and C++:
 
-    - If the developer is customizing **TypeScript**, click **Developer -> Rebuild Native Engine** in the top menu bar of the editor after the customization is finished.
+    - If the developer is customizing the **TypeScript** part, click **Developer -> Rebuild Native Engine** in the top menu bar of the editor after the customization is finished.
 
     - If the developer is customizing the **C++** part, after the customization is completed, execute the following commands in the `engine-native` directory in order.
 
