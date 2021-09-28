@@ -1,20 +1,20 @@
-# 光源
+# Light Source
 
-光源决定了物体所受到的光照的颜色、色温、强度、方向、以及产生的阴影效果等。目前 Creator 支持的光源类型包括：
+The light source determines the color, color temperature, intensity, direction, and shadow effect of the light to which the object is exposed. The types of light sources currently supported by Creator include:
 
-- [平行光](dir-light.md)
-- [球面光](sphere-light.md)
-- [聚光灯](spot-light.md)
-- [环境光](ambient.md)
+- [Directional Lights](dir-light.md)
+- [Spherical Lights](sphere-light.md)
+- [Spotlights](spot-light.md)
+- [Ambient Light](ambient.md)
 
-## 添加光源
+## Adding A Light Source
 
-添加光源有以下两种方式：
+There are two ways to add a light source.
 
-1. 在 **层级管理器** 中点击左上角的 **+** 按钮，选择 **光源**，然后根据需要选择光源类型就可以创建一个带有对应类型 **光源组件** 的节点到场景中。
+1. Click the **+** button in the top left corner of the **Hierarchy** panel, select **Light**, and then select the light type as needed to create a node with the corresponding type of **Light Component** to the scene.
 
     ![add light](index/add-light.png)
 
-2. 在 **层级管理器** 中选择需要添加光源的节点，然后点击 **属性检查器** 下方的 **添加组件** 按钮，选择 **Light**，即可选择所需的光源组件到节点上。
+2. In the **Hierarchy** panel, select the node to which you want to add a light source, then click the **Add Component** button under the **Inspector** panel and select **Light** to select the desired light component to the node.
 
     ![add light2](index/add-light2.png)

@@ -1,26 +1,30 @@
 # Spotlights
 
-Spotlight is a beam of light emitted from a point in one direction, close to the light produced by a flashlight. Spotlights have an additional `SpotAngle` property over other types of lighting, which is used to adjust the illumination range of the Spotlight.
+A **Spotlight** is a cone-shaped beam of light emitted from a point in one direction, similar to the light produced by a flashlight or stage lighting. Compared to other light sources, spotlights have an additional `SpotAngle` property, which is used to adjust the light range of the spotlight.
 
 ![spotlight](spotlight/spot-light.jpg)
 
-To add the Spotlight to the scene, refer to the [Lighting](../light.md) documentation.
+In the editor, you can clearly see the position, color and light range of the light source as well as its spot angle, as shown in the following image. With the [Transform Gizmos](../../../../editor/toolbar/index.md) in the upper left corner of the editor, you can adjust the position and direction of the spotlight.
 
-For the related interface of the Spotlight component, please refer to the [Spotlight API](__APIDOC__/en/classes/component_light.spotlight.html).
+![spotlight](spotlight/spot-light-scene.jpg)
 
-## Spotlights Properties
+See [Adding A Light Source](index.md#adding-a-light-source) for how to add a spotlight to a scene.
+
+For the Spotlight component interface, please refer to [SpotLight API](__APIDOC__/en/classes/component_light.spotlight.html).
+
+## Spotlight Properties
 
 ![image](spotlight/spot-light-prop.png)
 
 | Property | Description |
-| :------- | :--- |
-| **Color** | Set the light color  |
-| **UseColorTemperature** | Whether to enable color temperature |
-| **ColorTemperature** | Adjust the color temperature |
-| **Size** | Set the light source size |
-| **Range** | Set the lighting impact range |
-| **SpotAngle** | Adjust the spotlight angle to control the lighting range |
-| **Term** | Setup the light intensity unit type, including both **LUMINOUS_POWER** and **LUMINANCE** |
-| **LuminousPower** | Luminous power in **lumens (lm)**. Takes effect when **Term** is set to **LUMINOUS_POWER** |
-| **Luminance** | Brightness in **Candela per square meter (cd/m<sup>2</sup>)**. Takes effect when **Term** is set to **LUMINANCE** |
-| **StaticSettings** | Set up static lighting, see [Lightmapping](lightmap.md) for details |
+| :------ | :--- |
+| Color | Sets the color of the light source. |
+| UseColorTemperature | Enables or disables the color temperature. |
+| ColorTemperature |Adjusts the color temperature. |
+| Size | Sets the light source size. |
+| Range | Sets the range of light effect. |
+| SpotAngle | Adjusts the spot angle to control the light range. |
+| Term | Sets the light intensity unit type, including **LUMINOUS_POWER** and **LUMINANCE**.
+| LuminousPower | Luminous flux in **lumens (lm)**. <br>Effective when **Term** is set to **LUMINOUS_POWER**. |
+| Luminance | Brightness in **Candela per square meter (cd/m<sup>2</sup>)**.<br>Effective when **Term** is set to **LUMINANCE**. |
+| StaticSettings | Static lighting settings, please refer to the [Lightmapping](../lightmap.md) documentation. |

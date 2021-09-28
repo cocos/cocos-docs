@@ -1,21 +1,23 @@
-# Ambient Lights
+# Ambient Light
 
-In life, intricate lights and uneven surfaces of objects reflect each other, making the whole environment illuminated, as if by a layer of light evenly enveloped, this light is generally called Ambient Light. By adjusting the ambient light, is the most direct way to adjust the overall illumination of the environment, but also an effective way to express the atmosphere of the environment.
+In life, intricate light and uneven object surfaces reflect off each other, making the entire environment illuminated as if by an even layer of light, this light is generally called ambient light, also known as diffuse ambient light.
+
+Because the ambient light can evenly illuminate all objects in the scene, it is often used to solve the problem of the backlight surface of the model is completely black, generally need to be used with other types of light sources together. For example, if there is only directional light in the scene, it will look very dark at the backlight of the model.
 
 ![ambient](ambient/ambient.png)
 
-Select **Scene** in the **Hierarchy** panel and set the properties in the **ambient** component of the **Inspector** panel.
+Check **Scene** in the **Hierarchy** panel, and then set the ambient light property in the **ambient** component of the **Inspector** panel.
 
-> **Note**: since the ambient light is directionless, it cannot produce shadows.
+> **Note**: since ambient light is undirected, it cannot produce shadows.
 
-## Ambient lights properties
+## Ambient Light Properties
 
 ![ambient panel](ambient/ambient-prop.png)
 
-| Property | Explanation |
+| Property | Description |
 | :--- | :--- |
-| **SkyColor** | Set the sky color |
-| **SkyIllumination** | Adjust the sky brightness |
-| **GroundAlbedo** | Set the ground reflected light |
+| SkyColor | Sets the sky color. |
+| SkyIllumination | Adjusts the sky brightness. |
+| GroundAlbedo | Sets the ground albedo. |
 
-Ambient light can be used with a Skybox, see the [Skybox](skybox.md) documentation for details.
+The ambient light can be used together with the sky box, for details, please refer to the [Skybox](../../skybox.md) documentation.
