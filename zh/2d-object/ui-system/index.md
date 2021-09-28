@@ -1,4 +1,6 @@
-# UI 说明
+# UI 系统
+
+本章将介绍 Cocos Creator 中强大而灵活的 UI（用户界面）系统，通过组合不同 UI 组件来生产能够适配多种分辨率屏幕的、通过数据动态生成和更新显示内容，以及支持多种排版布局方式的 UI 界面。
 
 ## UI 入门
 
@@ -33,28 +35,9 @@ UI 渲染组件的先后顺序采用的是深度排序方案，也就是 Canvas 
 
 ## UI 组件
 
-UI 组件大部分自身不具有渲染能力，但持有了 2D 渲染组件用于渲染，其本身更多拥有着快速构成用户交互界面的能力，承担着事件响应，排版适配等功能，UI 组件参考如下：
+UI 组件大部分自身不具有渲染能力，但持有了 2D 渲染组件用于渲染，其本身更多拥有着快速构成用户交互界面的能力，承担着事件响应，排版适配等功能，各 UI 组件具体说明请参考 [UI 组件](../../ui-system/components/editor/base-component.md)。
 
-- [Canvas 组件参考](../../ui-system/components/editor/canvas.md)
-- [UITransform 组件参考](../../ui-system/components/editor/ui-transform.md)
-- [Widget 组件参考](../../ui-system/components/editor/widget.md)
-- [Button 组件参考](../../ui-system/components/editor/button.md)
-- [Layout 组件参考](../../ui-system/components/editor/layout.md)
-- [EditBox 组件参考](../../ui-system/components/editor/editbox.md)
-- [ScrollView 组件参考](../../ui-system/components/editor/scrollview.md)
-- [ScrollBar 组件参考](../../ui-system/components/editor/scrollbar.md)
-- [ProgressBar 组件参考](../../ui-system/components/editor/progress.md)
-- [LabelOutline 组件参考](../../ui-system/components/editor/label-outline.md)
-- [Toggle 组件参考](../../ui-system/components/editor/toggle.md)
-- [UIMeshRenderer 组件参考](../../ui-system/components/editor/ui-model.md)
-- [ToggleGroup 组件参考](../../ui-system/components/editor/toggleContainer.md)
-- [Slider 组件参考](../../ui-system/components/editor/slider.md)
-- [PageView 组件参考](../../ui-system/components/editor/pageview.md)
-- [PageViewIndicator 组件参考](../../ui-system/components/editor/pageviewindicator.md)
-- [UIOpacity 组件参考](../../ui-system/components/editor/ui-opacity.md)
-- [BlockInputEvents 组件参考](../../ui-system/components/editor/block-input-events.md)
-
-## UI 规则介绍
+## UI 实践指南
 
 - [多分辨率适配方案](../../ui-system/components/engine/multi-resolution.md)
 - [对齐策略](../../ui-system/components/engine/widget-align.md)

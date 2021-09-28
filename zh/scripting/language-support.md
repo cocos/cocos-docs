@@ -1,6 +1,6 @@
 # 语言支持
 
-目前 Cocos Creator 支持 **TypeScript** 和 **JavaScript** 两种编程语言。
+Cocos Creator 支持 **TypeScript** 和 **JavaScript** 两种编程语言。
 
 ## TypeScript
 

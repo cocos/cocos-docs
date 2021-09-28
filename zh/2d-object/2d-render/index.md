@@ -1,10 +1,10 @@
-# 2D 渲染组件说明
+# 2D 渲染
 
 引擎中所有不拥有的 model 的渲染对象都为 2D 渲染对象。与 3D 对象不同，2D 对象本身不拥有 model 信息，其顶点信息是由 UITransform 组件的 Rect 信息持有并由引擎创建的，且本身没有厚度。由于引擎的设计要求，2D 渲染对象需要为 RenderRoot 节点（带有 RenderRoot2D 组件的节点）的子节点才能完成数据的收集操作。
 
 所以 2D 渲染对象的渲染要求有两点：
-1. 需要有 UITransform 组件
-2. 需要为 RenderRoot 节点的子节点
+1. 自身带有 UITransform 组件
+2. 需要为带有 RenderRoot2D/Canvas 组件节点的子节点
 
 ## 2D 渲染对象可见性说明
 
@@ -27,7 +27,7 @@
 - [Spine（骨骼动画）Skeleton 组件参考](../../editor/components/spine.md)
 - [DragonBones（龙骨）ArmatureDisplay 组件参考](../../editor/components/dragonbones.md)
 
-## 2D 渲染组件的添加方式
+### 组件添加方式
 
 我们在编辑器内置了一些 2D 渲染组件，在创建了 RenderRoot 节点之后，即可在此节点下创建带有 2D 渲染组件的节点：
 
@@ -39,8 +39,8 @@
 
 > **注意**：每个节点上只能添加一个渲染组件，重复添加会导致报错。
 
-## 2D 渲染组件规则介绍
+### 组件规则介绍
 
 - [渲染排序规则](../../ui-system/components/engine/priority.md)
-- [UI 合批规则说明](../../ui-system/components/engine/ui-batch.md)
-- [UI 材质说明](../../ui-system/components/engine/ui-material.md)
+- [2D 渲染组件合批规则说明](../../ui-system/components/engine/ui-batch.md)
+- [2D 渲染对象自定义材质](../../ui-system/components/engine/ui-material.md)
