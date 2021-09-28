@@ -72,9 +72,9 @@ When the Rect Gizmo is active:
 
 In the layout of UI elements, it is often necessary to use the **Rect Gizmo** to directly control the position and length of the node's four edges precisely. For image elements where the original image aspect ratio must be maintained, the Rect Gizmo is not usually used to resize.
 
-## Gizmo Datum Setting
+## Gizmo Control Point Setting
 
-The gizmo datum is used to set the position of the gizmo and to control the orientation of the handles.
+The gizmo control point is used to set the position of the gizmo and to control the orientation of the handles.
 
 ![gizmo position](./img/gizmo_position.png)
 
