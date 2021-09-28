@@ -2,17 +2,17 @@
 
 Cocos Creator 3.x's spherical light is similar to v2.x's point light.
 
-Spherical light spreads light evenly in all directions, similar to the light produced by a candle. The intensity of light on an object decreases as the distance from the light source increases, and is zero when the distance exceeds the set light effect range.
+Spherical light spreads light evenly in all directions, similar to the light produced by a candle. The intensity of light on an object decreases as the distance from the light increases, and is zero when the distance exceeds the set light effect range.
 
-In practical applications, it can be used to simulate light sources such as torches, candles, and light bulbs to illuminate the surrounding environment within a certain distance.
+In practical applications, it can be used to simulate lights such as torches, candles, and light bulbs to illuminate the surrounding environment within a certain distance.
 
 ![sphere-light-edit](spherelight/sphere-light.jpg)
 
-The light source location and color, as well as its illumination range can be clearly seen in the editor, as shown in the image below. The light range of the spherical light can be adjusted by modifying the `Range` property of the spherical light component in the **Inspector** panel.
+The light location and color, as well as its illumination range can be clearly seen in the editor, as shown in the image below. The light range of the spherical light can be adjusted by modifying the `Range` property of the spherical light component in the **Inspector** panel.
 
 ![sphere-light-edit](spherelight/sphere-light-edit.png)
 
-Adding spherical light to the scene can be done as described in [Adding A Light Source](index.md#adding-a-light-source).
+Adding spherical light to the scene can be done as described in [Adding A Light](index.md#adding-a-light).
 
 For the spherical light component interface, please refer to [SphereLight API](__APIDOC__/en/classes/component_light.spherelight.html).
 
@@ -22,10 +22,10 @@ For the spherical light component interface, please refer to [SphereLight API](_
 
 | Property | Description |
 | :---- | :---- |
-| Color | Sets the light source color. |
+| Color | Sets the light color. |
 | UseColorTemperature | Enables or disables the color temperature. |
 | ColorTemperature |Adjusts the color temperature.|
-| Size | Sets the light source size. |
+| Size | Sets the light size. |
 | Range | Sets the range of light effect. |
 | Term | Sets the type of light intensity unit, including **LUMINOUS_POWER** and **LUMINANCE**.
 | LuminousPower | Luminous flux in **lumens (lm)**.<br>Effective when **Term** is set to **LUMINOUS_POWER**. |

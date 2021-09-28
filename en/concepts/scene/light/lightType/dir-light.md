@@ -1,14 +1,14 @@
 # Directional Lights
 
-Directional Light is the most common type of light source that simulates the light emitted by a source at infinity and is often used to simulate sunlight.
+Directional Light is the most common type of light that simulates the light emitted by a source at infinity and is often used to simulate sunlight.
 
 ![image](dirlights/dir-light.jpg)
 
-Because the distance between the light source and the illuminated target is undefined (infinite distance), the lighting effect is not affected by the **position** and **orientation** of the light (as shown below, directional light produces the same lighting brightness in all planes). However, **rotation** affects the direction of directional light, which in turn affects the extent to which the model receives light and where the model produces shadows. This can be done with the [Rotate Gizmo](../../../../editor/toolbar/index.md#rotate-gizmo) in the upper left corner of the editor to adjust the direction of directional light.
+Because the distance between the light and the illuminated target is undefined (infinite distance), the lighting effect is not affected by the **position** and **orientation** of the light (as shown below, directional light produces the same lighting brightness in all planes). However, **rotation** affects the direction of directional light, which in turn affects the extent to which the model receives light and where the model produces shadows. This can be done with the [Rotate Gizmo](../../../../editor/toolbar/index.md#rotate-gizmo) in the upper left corner of the editor to adjust the direction of directional light.
 
 ![image](dirlights/dir-light-scene.jpg)
 
-Adding directional light to the scene can be done as described in [Adding A Light Source](index.md#adding-a-light-source).
+Adding directional light to the scene can be done as described in [Adding A Light](index.md#adding-a-light).
 
 > **Note**: Cocos Creator currently supports only one directional light. If adding more than one at the same time, the last one added will prevail.
 
