@@ -6,7 +6,7 @@ The implementation of lighting in Creator simulates the effect of light on the r
 
 ![light scene](light/lighting.png)
 
-## More
+## Additional References
 
 - [Physics-Based Lighting](light/pbr-lighting.md)
 - [Types of Light](light/lightType/index.md)

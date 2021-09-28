@@ -6,16 +6,16 @@ The light source parameters are described in Cocos Creator using photometric uni
 
 ## Light Sources in the Real World
 
-The physically based lighting matches the description of light sources in the real world. In real environments, the light products we see have their own industrial parameters, let's look at an IKEA light bulb💡
+The physically based lighting matches the description of light sources in the real world. In real environments, light products have their own industrial parameters:
 
 ![light bulb size](pbrlighting/light-bulb.jpg)
 
-From the product packaging, we can learn several important industrial parameters of this bulb.
+The product packaging states many important industrial parameters of a bulb
 - **Luminous Flux**
 - **Color Temperature**
 - **Size**
 
-These three important parameters affect the performance of light sources in the real world, and we will focus on the physical meaning of these three parameters below.
+These three important parameters affect the performance of light sources in the real world, and it is important to focus on the physical meaning of these three parameters below.
 
 ## Photometric Units
 
@@ -47,7 +47,7 @@ The ambient color temperature also changes dynamically in real-world environment
 
 ![color temp of day](pbrlighting/color-temp-of-day.jpg)
 
-You can refer to the following table:
+Refer to the following table:
 
 ![kelvin](pbrlighting/kelvin.jpg)
 
