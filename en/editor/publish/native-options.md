@@ -238,7 +238,7 @@ To learn how to debug on the native platform, please refer to the [Debugging Jav
 
 3. There are some differences between the compiled results of the Android platform through the editor and Android Studio:
 
-    - After executing the **make** step through the editor, the `build` directory will be generated under the release path, and the `.apk` will be generated under the `app\build\outputs\apk` directory of the `build` directory.
+    - After executing the **Make** step through the editor, the `build` directory will be generated under the release path, and the `.apk` will be generated under the `app\build\outputs\apk` directory of the `build` directory.
 
     - After compiling with Android Studio, `.apk` will be generated in `proj\app\build\outputs\apk` directory.
 
