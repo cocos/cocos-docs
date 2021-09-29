@@ -115,7 +115,7 @@ Due to the adjustment of the current construction mechanism, the processing of d
 
 For the relevant build options of each platform, please refer to:
 
-- [Publish to native platform](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
+- [Publish to Native Platform](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
 - [Publish to Mini Game Platform](publish-mini-game.md)
 
 Creator supports the custom building of extension plug-ins, and the processing method is the same as that of platform plug-ins. For details, please refer to the [Extension Build Process](custom-build-plugin.md) documentation.
