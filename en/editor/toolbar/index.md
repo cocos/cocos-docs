@@ -48,7 +48,7 @@ Click the third button on the toolbar in the upper left corner of the main windo
 
 ![scale tool](./img/scale-tool.png)
 
-The scale tool consists of three axes with red, green and blue squares at the head and a gray square at the center. When the mouse is hovered over any of the squares, it appears yellow and can be selected and dragged by clicking on.
+The scale gizmo consists of three axes with red, green and blue squares at the head and a gray square at the center. When the mouse is hovered over any of the squares, it appears yellow and can be selected and dragged by clicking on.
 
 - Holding the red/green/blue square and dragging the mouse will scale the node in the X, Y and Z axis directions respectively.
 - Dragging the mouse on a gray square will scale the node in X, Y, and Z directions at the same time.
@@ -72,24 +72,24 @@ When the Rect Gizmo is active:
 
 In the layout of UI elements, it is often necessary to use the **Rect Gizmo** to directly control the position and length of the node's four edges precisely. For image elements where the original image aspect ratio must be maintained, the Rect Gizmo is not usually used to resize.
 
-## Gizmo Control Point Setting
+## Transform Gizmo Control Point Setting
 
-The gizmo control point is used to set the position of the gizmo and to control the orientation of the handles.
+The transform gizmo control point is used to set the position of the gizmo and to control the orientation of the handles.
 
 ![gizmo position](./img/gizmo_position.png)
 
-Gizmo position:
+Transform Gizmo Position:
 
-- Pivot: the gizmo will be displayed in the location of the 2D object **AnchorPoint** or in the 3D object's **world coordinate system**.
-- Center: the gizmo will be displayed at the center of the node. If multiple nodes are selected at the same time, the center of all nodes will be displayed.
+- Pivot: the transform gizmo will be displayed in the location of the 2D object **AnchorPoint** or in the 3D object's **world coordinate system**.
+- Center: the transform gizmo will be displayed at the center of the node. If multiple nodes are selected at the same time, the center of all nodes will be displayed.
 
-Direction of the control handle of the gizmo:
+Direction of the control handle of the transform gizmo:
 
-- Local: the control handle of the gizmo is based on the direction of rotation of the node, as follows:
+- Local: the control handle of the transform gizmo is based on the direction of rotation of the node, as follows:
 
   ![local-rotation](./img/local-rotation.png)
 
-- Global: the direction of the control handles in the gizmo is based on the world coordinate system, and is not affected by the node rotation, as follows:
+- Global: the direction of the control handles in the transform gizmo is based on the world coordinate system, and is not affected by the node rotation, as follows:
 
   ![global-rotation](./img/global-rotation.png)
 
@@ -111,7 +111,7 @@ This option is used to preview the running effect of the project, please refer t
 
 This shows the LAN address of the desktop computer running Cocos Creator. Mobile devices connected to the same LAN can access this address to preview and debug the game. Hovering over the LAN address will bring up a QR code, which can also be accessed by scanning the QR code to preview and debug the game.
 
-## Open the Project/Editor Directory
+## Open the Project/App Directory
 
 ![open project](./img/open_project.png)
 
