@@ -87,7 +87,7 @@
 
 - Local：变换工具的控制手柄以节点的旋转方向为准，如下图：
 
-  ![loacl-rotation](./img/loacl-rotation.png)
+  ![local-rotation](./img/local-rotation.png)
 
 - Global：变换工具中控制手柄的方向以世界坐标系为准，不受节点旋转的影响，如下图：
 

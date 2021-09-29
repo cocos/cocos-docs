@@ -87,7 +87,7 @@ Direction of the control handle of the gizmo:
 
 - Local: the control handle of the gizmo is based on the direction of rotation of the node, as follows:
 
-  ![loacl-rotation](./img/loacl-rotation.png)
+  ![local-rotation](./img/local-rotation.png)
 
 - Global: the direction of the control handles in the gizmo is based on the world coordinate system, and is not affected by the node rotation, as follows:
 
