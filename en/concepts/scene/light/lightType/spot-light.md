@@ -4,7 +4,7 @@ A **Spotlight** is a cone-shaped beam of light emitted from a point in one direc
 
 ![spotlight](spotlight/spot-light.jpg)
 
-In the editor, you can clearly see the position, color and light range of the light as well as its spot angle, as shown in the following image. With the [Transform Gizmos](../../../../editor/toolbar/index.md) in the upper left corner of the editor, you can adjust the position and direction of the spotlight.
+In the editor, one can clearly see the position, color and light range of the light as well as its spot angle, as shown in the following image. With the [Transform Gizmos](../../../../editor/toolbar/index.md) in the upper left corner of the editor, it is possible to adjust the position and direction of the spotlight.
 
 ![spotlight](spotlight/spot-light-scene.jpg)
 
