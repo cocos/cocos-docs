@@ -250,4 +250,4 @@ To learn how to debug on the native platform, please refer to the [Debugging Jav
 
     - For code and third-party libraries shared by Android and Android Instant, please put them in the `src` and `libs` directories respectively (if these two directories do not exist, create them).
 
-    When compiling for Android by clicking the **Make** button in the **Build Release** panel, the default execution of `assembleRelease/Debug` will be executed, and the default execution of `instantapp:assembleRelease/Debug` when compiling Android Instant.
+    When compiling for Android by clicking the **Make** button in the **Build** panel, the default execution of `assembleRelease/Debug` will be executed, and the default execution of `instantapp:assembleRelease/Debug` when compiling Android Instant.
