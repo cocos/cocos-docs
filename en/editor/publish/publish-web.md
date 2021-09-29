@@ -1,4 +1,4 @@
-# Publish to Web platforms
+# Publish to Web Platforms
 
 Select **Project -> Build** from the main menu, and open the [Build](build-panel.md) panel.
 
