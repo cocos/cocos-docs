@@ -228,7 +228,7 @@ Next, open these generated native projects using the IDE corresponding to the na
 
 > **Note**: do not perform secondary development in these native platform projects, otherwise it will be overwritten when rebuilding.
 
-To learn how to debug on the native platform, please refer to the [Native Platform JavaScript Debugging](debug-jsb.md) documentation.
+To learn how to debug on the native platform, please refer to the [Debugging JavaScript on Native Platforms](debug-jsb.md) documentation.
 
 ## Precautions
 
