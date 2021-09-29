@@ -37,7 +37,7 @@ For the general build options of each platform, please refer to the [General Bui
   This item is optional and used to fill in the address where the resource is stored on the server.
 
     - If **do not fill in** this item, the `remote` folder in the release package directory will be packaged into the built game package.
-    - If **fill in** this item, it will not be packaged into the game package. Developers need to manually upload the `remote` folder in the release package directory to the resource server address filled in after the build. For details, please refer to [Upload resources to remote server](../../asset/cache-manager.md).
+    - If **fill in** this item, it will not be packaged into the game package. Developers need to manually upload the `remote` folder in the release package directory to the resource server address filled in after the build. For details, please refer to [Upload resources to a remote server](../../asset/cache-manager.md).
 
 - **Preview URL**
 
