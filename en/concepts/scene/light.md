@@ -2,7 +2,7 @@
 
 This chapter introduces how lighting works and how to use it in Cocos Creator.
 
-The implementation of lighting in Creator simulates the effect of light on the real world. Adding light sources to the scene can make the scene produce corresponding lighting and shading effects to get better visual effects.
+The implementation of lighting in Creator simulates the effect of light on the real world. Adding lights to the scene can make the scene produce corresponding lighting and shading effects to get better visual effects.
 
 ![light scene](light/lighting.png)
 
