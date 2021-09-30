@@ -2,9 +2,9 @@
 
 > **Note**: the Lightmapping feature is not currently supported on Apple M1 (Silicon) architecture devices and is expected to be supported in v3.2.1.
 
-The **Baking System** pre-calculates the lighting, shadows, etc. that a static object with a stable light will receive. The result of this calculation is stored in a texture map, which is called a **light map**.
+The **Baking System** pre-calculates the lighting, shadows, etc. that a static object with a stable light will receive. The result of this calculation is stored in a texture map, which is called a **lightmap**.
 
-Cocos Creator automatically processes and uses the generated light map at runtime. In scenes with fixed lights, using light maps instead of real-time lighting calculations can reduce resource consumption and thus increase the efficiency of the scene.
+Cocos Creator automatically processes and uses the generated lightmap at runtime. In scenes with fixed lights, using lightmaps instead of real-time lighting calculations can reduce resource consumption and thus increase the efficiency of the scene.
 
 ## Lightmapping Panel
 
@@ -35,7 +35,7 @@ The description of each property on the **Scene** page is as follows:
 
 ## Generating lightmaps
 
-1. Select the light node (with light component) in the **Hierarchy** panel, then set the **StaticSettings** of the light component in the **Inspector** panel, and check the `Bakeable` property (currently multiple [Directional Lights](./lightType/dir-light.md) are not supported).
+1. Select the node with light component in the **Hierarchy** panel, then set the **StaticSettings** of the light component in the **Inspector** panel, and check the `Bakeable` property (currently multiple [Directional Lights](./lightType/dir-light.md) are not supported).
 
     ![enable lightbake](./lightmap/light-bakeable.png)
 
@@ -45,7 +45,7 @@ The description of each property on the **Scene** page is as follows:
 
     - **CastShadow**: whether to cast static shadows
 
-2. Select the model node (with [MeshRenderer component](./../../../engine/renderable/model-component.md)) in the **Hierarchy** panel to generate the lightmap, then set **LightmapSettings** in the **Inspector** panel and check the `Bakeable` property.
+2. Select the node with the [MeshRenderer component](./../../../engine/renderable/model-component.md) in the **Hierarchy** panel to generate the lightmap, then set **LightmapSettings** in the **Inspector** panel and check the `Bakeable` property.
 
     ![model lightmap settings](./lightmap/meshrenderer-bakeable.png)
 
@@ -59,7 +59,7 @@ The description of each property on the **Scene** page is as follows:
 
     > **Note**: to generate lightmaps for a model, there are two requirements:
     >
-    > 1. When the artist creates the model resource, in addition to the UVs of the model itself, another set of UVs for lightmapping needs to be included.
+    > 1. When the artist creates a model resource, in addition to the UVs of the model itself, another set of UVs for lightmapping needs to be included.
     > 
     > 2. The model's Materials need to have the **USE LIGHTMAP** rendering option turned on, for example:
     >
