@@ -67,3 +67,7 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 | iOS               | ASTC / PVR / WEBP / ETC1 / ETC2  |
 | Android           | ASTC / ETC2 / ETC1 / WEBP |
 <!-- | Mac               | ASTC / PVR           | -->
+
+## 自定义构建纹理压缩处理
+
+纹理压缩目前是在构建后生效，编辑器自带了一套处理工具。有需要自定义压缩工具的可以参考 [自定义构建插件 —— 自定义纹理压缩](../editor/publish/custom-build-plugin.md#自定义纹理压缩处理) 流程。
