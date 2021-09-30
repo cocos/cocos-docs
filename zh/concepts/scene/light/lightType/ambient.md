@@ -20,4 +20,4 @@
 | SkyIllumination | 调节天空亮度 |
 | GroundAlbedo | 设置地面反射光 |
 
-环境光可配合天空盒一起使用，详情可参考 [天空盒](./skybox.md)。
+环境光可配合天空盒一起使用，详情可参考 [天空盒](../../skybox.md)。
