@@ -8,7 +8,7 @@ The sample project for this document is available from [Github Repo](https://git
 
 ![Hot update](./hot-update/title.jpg)
 
-## Usage scenarios and design ideas
+## Usage Scenarios and Design Ideas
 
 Game developers are very familiar with the pattern that the game has been released in app market but each time user launch the game it will automatically look for updates from the server, to keep the client always updated. Of course, there are some other usage scenarios for hot update, but are not related to what we discuss here. We will mainly discuss how to implement hot update system in Cocos Creator.
 
@@ -18,7 +18,7 @@ Hot update in Cocos Creator comes mainly from the `AssetsManager` module in the 
 
 Please be aware that **hot update system is for native games only**, since Web game would always request assets from web server. So `AssetsManager` class exists only in the jsb namespace, please check runtime environment before implement these API.
 
-## Manifest file
+## Manifest File
 
 For different versions of file-level differences, AssetsManager uses a manifest file for version control. The client and server manifest files each contains an asset file list and version for each file. So that you can compare the version of each file to determine whether we should download a file.
 
@@ -33,7 +33,7 @@ The manifest file contains the following important information:
 
 The version file can be part of the contents of the manifest file and do not contain a list of files. But the manifest file may be large, each time client need to download the whole file for checking version update. So developer can provide a very small version file for version check only. `AssetsManager` will first check the version number provided by the version file to determine if you need to continue downloading the manifest file and update it.
 
-## Implement hot update in the Cocos Creator project
+## Implement Hot Update in the Cocos Creator Project
 
 In this tutorial, we will provide a hot update workflow for Cocos Creator project. We have also opened `Downloader` JavaScript interface in cocos2d-x engine, so users are free to develop their own hot update solution.
 
@@ -52,7 +52,7 @@ To show the hot update process, the example project used in the tutorial has a f
 
 **Note:** the project contains `remove-assets` is for debug mode, the developer must use the debug mode when building the test project, otherwise the release mode jsc file priority will be higher than `remove-assets` in the assets and cause the script to fail.
 
-### Use the version generator to generate the manifest file
+### Use the Version Generator to Generate the Manifest File
 
 In the example project, we provided a [version_generator.js](https://github.com/cocos-creator/tutorial-hot-update/blob/master/version_generator.js) script file, which is a Nodejs script for generating manfiest file. Use as follows:
 
@@ -67,7 +67,7 @@ The following is a description of the parameters:
 - `-s` local native published directory relative to the current path.
 - `-d` the path of the output manifest file.
 
-### Hot update component script
+### Hot Update Component Script
 
 In the example project, the implementation of the hot update component is located at [assets/hotupdate/HotUpdate.ts](https://github.com/cocos-creator/tutorial-hot-update/blob/master/assets/hotupdate/HotUpdate.ts), the developer can refer to this implementation, but also free to modify according to their own needs.
 
@@ -75,7 +75,7 @@ In addition, the sample project is also equipped with a `Scene/Canvas/update` no
 
 ![component](./hot-update/editor.png)
 
-### Deploy to remote server
+### Deploy to Remote Server
 
 In order to allow the game to detect remote versions, you can simulate a remote server on the machine, there are a variety of server solutions (such as [SimpleHTTPServer](https://docs.python.org/2/library/simplehttpserver.html) for Python). We will not discuss detail here, developers can use their own prefered way. Once your remote server is up, you need to modify the following places to allow the game to successfully find the remote package:
 
@@ -83,7 +83,7 @@ In order to allow the game to detect remote versions, you can simulate a remote 
 2. `remote-assets/project.manifest`: `packageUrl`, `remoteManifestUrl` and `remoteVersionUrl` in the manifest file of the remote package
 3. `remote-assets/version.manifest`: `packageUrl`, `remoteManifestUrl` and `remoteVersionUrl` in the remote package's version file
 
-### Publish the original version
+### Publish the Original Version
 
 After downloading the sample project, you can use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, you can choose Windows / Mac as target to test.
 
@@ -134,7 +134,7 @@ This step must be done because the essence of the hot update is to replace the f
 
 In addition, if you encounter this warning during the opening of the project, you can ignore: `loader for [.manifest] not exists!`.
 
-### Run the example project
+### Run the Example Project
 
 If everything is alright, you can run the native version of the sample project. You will encounter a new version detected, suggesting that the update will automatically restart the game after the game, then enter the table scene.
 

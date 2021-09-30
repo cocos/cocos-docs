@@ -64,7 +64,7 @@ You can also build the doc for ebook formats (PDF, ePub, mobi), please following
 
 If you need to publish to the website, you'd better build it on Mac. If use Windows, some redundant `.md` file will also generated.
 
-## Build Graphviz files
+## Build Graphviz Files
 
 You're able to use Graphviz to draw flow charts. The only supported generated format is SVG.
 
@@ -95,11 +95,11 @@ In this index file, just write links to each markdown file in a list. Indented l
 
 Will create a toggleable chapter title `Using Editor`. Once clicked all its subs will show up.
 
-### Front page
+### Front Page
 
 [index.md](en/index.md) at each language folder is the front page of the doc.
 
-### Page content
+### Page Content
 
 To change the content of each page, just edit the markdown source files. There's no specific front matter format, just make sure each page has a `h1` as the title.
 
@@ -115,7 +115,7 @@ This is a dynamically updated user document, and your reading and feedback is th
 
 If you encounters any typo or content problem please [report issue](https://github.com/cocos-creator/creator-docs/issues/new) in this repo. Pull requests are welcome!
 
-### Style Guide for Chinese documents
+### Style Guide for Chinese Documents
 
 - [中文文档书写规范](zh/CONTRIBUTING.md)
 

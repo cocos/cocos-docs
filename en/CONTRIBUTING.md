@@ -1,4 +1,4 @@
-# English document writing standard
+# English Documentation Writing Standards
 
 The purpose of the format specification is to provide uniform writing guidelines and make the finished document have a better reading experience.
 

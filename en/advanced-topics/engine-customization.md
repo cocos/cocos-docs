@@ -10,11 +10,11 @@ It is recommended to maintain custom code using the GitHub's Fork workflow. This
 
 Also, depending on the Creator version, developers may need to switch to a different engine branch, it is recommended to use the same branch that corresponds to the version of Creator being used.
 
-## 1 Customize the TypeScript engine
+## 1 Customize the TypeScript Engine
 
 If you only need to customize the engine functionality of the web version of the game, or if you only need to modify the pure TypeScript layer logic (e.g. UI system, animation system), simply modify the TypeScript engine by following the procedure below:
 
-### 1.1 Get the TypeScript engine
+### 1.1 Get the TypeScript Engine
 
 You can modify the engine based on the one built in Cocos Creator 3.0 if you just need to make some adjustments based on the current version. Click the **App** button at the top right of the Creator editor, and then copy the built-in `engine` directory to another local path.
 
@@ -43,7 +43,7 @@ npm install
 
 > **Note**: the gulp build tool is required to generate debuginfos.
 
-### 1.4 Make changes and compile
+### 1.4 Make Changes and Compile
 
 Next, customize the engine modifications and then click **Developer -> Compile the engine** in the Cocos Creator editor menu bar to compile.
 
@@ -53,11 +53,11 @@ This command will generate a `bin` folder under the engine directory and compile
 
 ![bin](engine-customization/bin.png)
 
-## 2 Customize the engine-native Engine
+## 2 Customize the Engine-native Engine
 
 If you need to customize the engine features related to the native platform, you may need to modify the **engine-native** engine in parallel with the TypeScript engine.
 
-### 2.1 Get the engine-native Engine
+### 2.1 Get the Engine-native Engine
 
 If you only need to make some tweaks based on the current version, you can modify the **engine-native** engine built into Cocos Creator 3.0. The procedure is the same as for the TypeScript engine, click the **App** button at the top right of the Creator editor, then copy the built-in `cocos2d-x-lite` directory to another local path.
 
@@ -80,7 +80,7 @@ npm install
 gulp init
 ```
 
-### 2.3 Configure a custom engine-native in Cocos Creator 3.0
+### 2.3 Configure a Custom Engine-native in Cocos Creator 3.0
 
 Set the path to the **engine-native** engine to be customized via the **Engine Manager** tab of **Cocos Creator -> Preferences**.
 

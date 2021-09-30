@@ -25,7 +25,7 @@ Welcome to the __Cocos Creator 3.0__ user manual! This manual includes detailed 
 - [Editor Extension](editor/extension/readme.md)
 - [Advanced Topics](advanced-topics/index.md)
 
-## Demo and example projects
+## Demo and Example Projects
 
 - [Example collection](https://github.com/cocos-creator/example-3d): From the use of basic components to the display of rendering effects, this project includes multiple scenarios with different functions and multiple game demo projects for user reference.
 - [One Step, Two Steps](https://github.com/cocos-creator/tutorial-mind-your-step-3d): This is the [Quick Start](getting-started/first-game/index.md) document Step-by-step explanation of the game.
