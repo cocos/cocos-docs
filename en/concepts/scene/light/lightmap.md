@@ -2,9 +2,9 @@
 
 > **Note**: the Lightmapping feature is not currently supported on Apple M1 (Silicon) architecture devices and is expected to be supported in v3.2.1.
 
-The **Baking System** pre-calculates the lighting, shadows, etc. that a static object with a stable light source will receive. The result of this calculation is stored in a texture map, which we call a **light map**.
+The **Baking System** pre-calculates the lighting, shadows, etc. that a static object with a stable light will receive. The result of this calculation is stored in a texture map, which is called a **light map**.
 
-Cocos Creator automatically processes and uses the generated light map at runtime. In scenes with fixed light sources, using light maps instead of real-time lighting calculations can reduce resource consumption and thus increase the efficiency of the scene.
+Cocos Creator automatically processes and uses the generated light map at runtime. In scenes with fixed lights, using light maps instead of real-time lighting calculations can reduce resource consumption and thus increase the efficiency of the scene.
 
 ## Lightmapping Panel
 
