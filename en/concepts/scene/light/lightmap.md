@@ -65,11 +65,11 @@ The description of each property on the **Scene** page is as follows:
     >
     > ![materials use lightmap](./lightmap/materials.png)
 
-3. Open the **Lightmap** panel and set the corresponding parameters. Then click the **Lightmap Generate** button, a file storage dialog will pop up, you need to specify a folder (must be in the `assets` directory) to store the generated lightmap data information. Notice the baking progress log at the bottom of the **Lightmap** panel.
+3. Open the **Lightmapping** panel and set the corresponding parameters. Then click the **Lightmap Generate** button, a file storage dialog will pop up, you need to specify a folder (must be in the `assets` directory) to store the generated lightmap data information. Notice the baking progress log at the bottom of the **Lightmapping** panel.
 
     ![bake param](./lightmap/lightmap-generate.png)
 
-4. After baking, the generated lightmap, as well as the file name, size and other related information can be viewed on the **Baked** page of the **Lightmap** panel. The generated lightmaps are automatically processed by the engine and do not need to be manipulated by the developer.
+4. After baking, the generated lightmap, as well as the file name, size and other related information can be viewed on the **Baked** page of the **Lightmapping** panel. The generated lightmaps are automatically processed by the engine and do not need to be manipulated by the developer.
 
     ![bake result](./lightmap/lightmap-result.png)
 
