@@ -6,16 +6,16 @@
 
 在引擎中界定 UI 和 2D 渲染对象的区别主要在于适配和交互，所有的 UI 需要在 Canvas 节点下，以做出适配行为，而 Canvas 组件本身继承自 `RenderRoot2D` 组件，所以也可以作为数据收集的入口。
 
-UI 是游戏开发的必要交互部分，一般游戏上的按钮、文字、背景等都是通过 UI 来制作的。在开始制作一款 UI 时，首先需要确定当前设计的内容显示区域大小（设计分辨率），可以在菜单栏的 **项目 -> 项目设置 -> 通用设置** 面板中设置：
+UI 是游戏开发的必要交互部分，一般游戏上的按钮、文字、背景等都是通过 UI 来制作的。在开始制作一款 UI 时，首先需要确定当前设计的内容显示区域大小（设计分辨率），可以在菜单栏的 **项目 -> 项目设置 -> 项目数据** 面板中设置：
 
 ![resolution-config](resolution_config.png)
 
 设计分辨率设置完成后，开始创建 UI 元素，所有的 UI 元素都包含在 Canvas 节点下。可以在 **层级管理器** 面板中点击左上方的 **+** 按钮，然后选择 **UI Component -> Canvas** 来创建 Canvas 节点。Canvas 节点上有一个 [Canvas](../../ui-system/components/editor/canvas.md) 组件，该组件可以关联一个 camera。
 
-**注意**：
-
-- 在一个场景中可以存在多个 Canvas 节点，但是 Canvas 节点不应该嵌套在另一个 Canvas 节点或其子节点下。
-- Canvas 组件并非和 camera 是一一对应关系，它们之前的渲染与否完全取决于 node 的 layer 和 camera 的 Visibility，在多 Canvas 的时候要格外注意 layer 管理以得到想要的渲染效果。
+> **注意**：
+>
+> - 在一个场景中可以存在多个 Canvas 节点，但是 Canvas 节点不应该嵌套在另一个 Canvas 节点或其子节点下。
+> - Canvas 组件并非和 camera 是一一对应关系，它们之前的渲染与否完全取决于 node 的 layer 和 camera 的 Visibility，在多 Canvas 的时候要格外注意 layer 管理以得到想要的渲染效果。
 
 接下来就可以在 Canvas 节点下创建 UI 节点了。编辑器自带的 UI 节点有以下几种：
 
