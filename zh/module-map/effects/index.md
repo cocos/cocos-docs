@@ -4,5 +4,5 @@
 
 具体的说明及使用请参考：
 
-- [广告牌](../particle-system/billboard-component.md)
-- [线段组件](../particle-system/line-component.md)
+- [广告牌](../../particle-system/billboard-component.md)
+- [线段组件](../../particle-system/line-component.md)
