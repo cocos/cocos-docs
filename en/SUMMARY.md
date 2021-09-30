@@ -95,7 +95,7 @@
     - [GlobalFog](concepts/scene/fog.md)
 
 - [Lighting](concepts/scene/light.md)
-    - [Physically-based Lighting](concepts/scene/light/pbr-lighting.md)
+    - [Physically based Lighting](concepts/scene/light/pbr-lighting.md)
     - [Lights](concepts/scene/light/lightType/index.md)
         - [Directional Lights](concepts/scene/light/lightType/dir-light.md)
         - [Spherical Lights](concepts/scene/light/lightType/sphere-light.md)
