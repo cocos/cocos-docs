@@ -26,4 +26,4 @@ The steps for debugging a game on the Windows / Mac platform are similar to the 
 
 ## Other Platform Debugging
 
-If you need to debug in Release mode, or if you need to debug a custom native engine, please refer to the [JSB 2.0 Use Guide: Remote Debugging and Profile](https://docs.cocos.com/creator/manual/en/advanced-topics/JSB2.0-learning.html) documentation.
+If you need to debug in Release mode, or if you need to debug a custom native engine, please refer to the [JSB 2.0 Use Guide: Remote Debugging and Profile](../../advanced-topics/JSB2.0-learning.md) documentation.

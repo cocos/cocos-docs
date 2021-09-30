@@ -40,7 +40,7 @@ The part of the **Inspector** panel that starts with the `Node` title is the nod
 
 Starting with the `cc.MeshRenderer` title, is the properties of the **Sphere** component. In Cocos Creator, the **MeshRenderer** component is used to draw mesh resources, where the `Mesh` property is used to specify the mesh resources used for rendering. As the Sphere node was just created the default is `sphere.mesh`.
 
-The `Materials` property is used to specify the material used for rendering. You can try dragging any material from the **Assets** into the `Materials` property of the **Inspector** panel and you can see that the default material just became the specified material.
+The `Materials` property is used to specify the [material](../../asset/material.md) used for rendering. You can try dragging any material from the **Assets** into the `Materials` property of the **Inspector** panel and you can see that the default material just became the specified material.
 
 > **Note**: any resources set on the component, such as `sphere.mesh` in this case, will be loaded automatically at the same time as the scene loads. Types of resources that need to be set and automatically loaded can also be declared in custom components, refer to the [Getting and loading resources](../../scripting/load-assets.md) documentation.
 

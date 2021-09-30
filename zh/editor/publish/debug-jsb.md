@@ -85,4 +85,4 @@ Android Studio 也提供了和 Xcode 类似的 `lldb console`。
 
 ## 进阶调试指南
 
-如果需要在 Release 模式下调试，或者需要调试定制后的原生引擎，可参考更详细的 [JSB 2.0 使用指南：远程调试与 Profile](https://docs.cocos.com/creator/manual/zh/advanced-topics/JSB2.0-learning.html)。
+如果需要在 Release 模式下调试，或者需要调试定制后的原生引擎，可参考更详细的 [JSB 2.0 使用指南：远程调试与 Profile](../../advanced-topics/JSB2.0-learning.md)。
