@@ -19,7 +19,7 @@ For the Spotlight component interface, please refer to [SpotLight API](__APIDOC_
 | Property | Description |
 | :------ | :--- |
 | Color | Sets the color of the light. |
-| UseColorTemperature | Enables or disables the color temperature. |
+| UseColorTemperature | Whether to enable the color temperature. |
 | ColorTemperature |Adjusts the color temperature. |
 | Size | Sets the light size. |
 | Range | Sets the range of light effect. |

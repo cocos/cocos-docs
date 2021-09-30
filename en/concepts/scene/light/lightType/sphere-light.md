@@ -12,7 +12,7 @@ The light location and color, as well as its illumination range can be clearly s
 
 ![sphere-light-edit](spherelight/sphere-light-edit.png)
 
-Adding spherical light to the scene can be done as described in [Adding A Light](index.md#adding-a-light).
+Adding spherical light to the scene can be done as described in [Adding Lights](index.md#adding-lights).
 
 For the spherical light component interface, please refer to [SphereLight API](__APIDOC__/en/classes/component_light.spherelight.html).
 
@@ -23,7 +23,7 @@ For the spherical light component interface, please refer to [SphereLight API](_
 | Property | Description |
 | :---- | :---- |
 | Color | Sets the light color. |
-| UseColorTemperature | Enables or disables the color temperature. |
+| UseColorTemperature | Whether to enable the color temperature. |
 | ColorTemperature |Adjusts the color temperature.|
 | Size | Sets the light size. |
 | Range | Sets the range of light effect. |

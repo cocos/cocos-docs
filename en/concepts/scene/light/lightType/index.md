@@ -7,9 +7,9 @@ The light determines the color, color temperature, intensity, direction, and sha
 - [Spotlights](spot-light.md)
 - [Ambient Light](ambient.md)
 
-## Adding A Light
+## Adding Lights
 
-There are two ways to add a light.
+There are two ways to add lights:
 
 1. Click the **+** button in the top left corner of the **Hierarchy** panel, select **Light**, and then select the light type as needed to create a node with the corresponding type of **Light Component** to the scene.
 

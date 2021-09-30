@@ -23,7 +23,7 @@ For the interface of the directional light component, please refer to [Direction
 | Property | Description |
 | :------ | :-- |
 | Color | Sets the light color. |
-| UseColorTemperature | Enables or disables the color temperature. |
+| UseColorTemperature | Whether to enable the color temperature. |
 | ColorTemperature | Adjusts the color temperature. |
 | StaticSettings | Sets static lighting, please refer to the [Lightmapping](../lightmap.md) documentation for details. |
 | Illumination | Illumination in **lux (lx)**. |
