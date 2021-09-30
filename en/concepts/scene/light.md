@@ -1,6 +1,6 @@
 # Lighting
 
-This chapter introduces how lighting works and how to use it in Cocos Creator.
+This section introduces how lighting works and how to use it in Cocos Creator.
 
 The implementation of lighting in Creator simulates the effect of light on the real world. Adding lights to the scene can make the scene produce corresponding lighting and shading effects to get better visual effects.
 
@@ -8,9 +8,9 @@ The implementation of lighting in Creator simulates the effect of light on the r
 
 ## Additional References
 
-- [Physics-Based Lighting](light/pbr-lighting.md)
+- [Physically Based Lighting](light/pbr-lighting.md)
 - [Types of Light](light/lightType/index.md)
-- [Multi-Lights Support Based on Multi-Pass](light/additive-per-pixel-lights.md)
+- [Additive per-pixel lights](light/additive-per-pixel-lights.md)
 - [Shadows](light/shadow.md)
 - [Lightmapping](light/lightmap.md)
 

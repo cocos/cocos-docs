@@ -1,6 +1,6 @@
 # Physically Based Lighting
 
-The light parameters are described in Cocos Creator using photometric units. Based on the photometric units, all the relevant parameters of the light can be translated into real-world physical values. In this way, designers can adjust the light intensity, color, range, and other information based on the industrial parameters of the relevant lights and the actual physical parameters of the real environment to make the overall lighting effect more in line with the real natural environment.
+The light parameters are described in Cocos Creator using photometric units. Based on the photometric units, all the relevant parameters of the light can be converted into real-world physical values. In this way, designers can adjust the **light intensity**, **color**, **range**, and other information based on lighting-related industrial parameters and the actual physical parameters of the real environment to make the overall lighting effect more in line with the real natural environment.
 
 ![pbr lighting](pbrlighting/pbr-lighting.jpg)
 
