@@ -8,11 +8,11 @@ Because the distance between the light and the illuminated target is undefined (
 
 ![image](dirlights/dir-light-scene.jpg)
 
-Adding directional light to the scene can be done as described in [Adding A Light](index.md#adding-a-light).
+Adding directional lights to the scene can be done as described in [Adding Lights](index.md#adding-lights).
 
 > **Note**: Cocos Creator currently supports only one directional light. If adding more than one at the same time, the last one added will prevail.
 
-A `Main Light` directional light node will be created automatically by default when creating a new scene.
+A directional light node `Main Light` will be created automatically by default when creating a new scene.
 
 For the interface of the directional light component, please refer to [DirectionalLight API](__APIDOC__/en/classes/component_light.directionallight.html).
 

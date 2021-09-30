@@ -12,7 +12,7 @@ The light location and color, as well as its illumination range can be clearly s
 
 ![sphere-light-edit](spherelight/sphere-light-edit.png)
 
-Adding spherical light to the scene can be done as described in [Adding Lights](index.md#adding-lights).
+Adding spherical lights to the scene can be done as described in [Adding Lights](index.md#adding-lights).
 
 For the spherical light component interface, please refer to [SphereLight API](__APIDOC__/en/classes/component_light.spherelight.html).
 
@@ -32,4 +32,4 @@ For the spherical light component interface, please refer to [SphereLight API](_
 | Luminance | Brightness in **Candela per square meter (cd/m<sup>2</sup>)**.<br>Effective when **Term** is set to **LUMINANCE**. |
 | StaticSettings | Static lighting settings, please refer to [Lightmapping](../lightmap.md). |
 
-> **Note**: currently, the `Size` property of spherical light does not take effect in actual operation, as well as the display of shadows is not supported for now, we will optimize it in subsequent versions, please pay attention to the update announcement.
+> **Note**: currently, the `Size` property of the spherical light does not take effect in actual operation, as well as the display of shadows is not supported for now, we will optimize it in subsequent versions, please pay attention to the update announcement.

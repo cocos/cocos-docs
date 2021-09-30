@@ -8,7 +8,7 @@ In the editor, one can clearly see the position, color and light range of the li
 
 ![spotlight](spotlight/spot-light-scene.jpg)
 
-See [Adding A Light](index.md#adding-a-light) for how to add a spotlight to a scene.
+See [Adding Lights](index.md#adding-lights) for how to add spotlights to a scene.
 
 For the Spotlight component interface, please refer to [SpotLight API](__APIDOC__/en/classes/component_light.spotlight.html).
 
