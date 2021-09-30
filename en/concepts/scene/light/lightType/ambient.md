@@ -18,6 +18,6 @@ Check **Scene** in the **Hierarchy** panel, and then set the ambient light prope
 | :--- | :--- |
 | SkyColor | Sets the sky color. |
 | SkyIllumination | Adjusts the sky brightness. |
-| GroundAlbedo | Sets the ground albedo. |
+| GroundAlbedo | Sets the color of the reflected light from the ground. |
 
 The ambient light can be used together with the sky box, for details, please refer to the [Skybox](../../skybox.md) documentation.
