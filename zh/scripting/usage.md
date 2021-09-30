@@ -9,3 +9,4 @@
 - [组件和组件执行顺序](./component.md)
 - [加载和切换场景](./scene-managing.md)
 - [获取和加载资源](./load-assets.md)
+- [tsconfig 配置](./tsconfig.md)
