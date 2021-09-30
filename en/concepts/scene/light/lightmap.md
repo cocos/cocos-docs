@@ -19,7 +19,7 @@ For details, please see the **Generating Lightmaps** section below.
 
 ### Property Description
 
-The description of each parameter on the **Scene** page is as follows:
+The description of each property on the **Scene** page is as follows:
 
 | Property | Description |
 | :--- | :--- |
@@ -39,21 +39,21 @@ The description of each parameter on the **Scene** page is as follows:
 
     ![enable lightbake](./lightmap/light-bakeable.png)
 
-    - **EditorOnly**: if or not it takes effect only in the editor
+    - **EditorOnly**: whether to take effect only in the editor
 
-    - **Bakeable**: if or not to bake static lighting
+    - **Bakeable**: whether to bake static lighting
 
-    - **CastShadow**: if or not to cast static shadows
+    - **CastShadow**: whether to cast static shadows
 
 2. Select the model node (with [MeshRenderer component](./../../../engine/renderable/model-component.md)) in the **Hierarchy** panel to generate the lightmap, then set **LightmapSettings** in the **Inspector** panel and check the `Bakeable` property.
 
     ![model lightmap settings](./lightmap/meshrenderer-bakeable.png)
 
-    - **Bakeable**: if or not to bake static lighting
+    - **Bakeable**: whether to bake static lighting
 
-    - **CastShadow**: if or not to cast static shadows
+    - **CastShadow**: whether to cast static shadows
 
-    - **ReceiveShadow**: if or not to receive static shadows
+    - **ReceiveShadow**: whether to receive static shadows
 
     - **LightmapSize**: the size of the model lightmap
 
