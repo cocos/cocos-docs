@@ -146,7 +146,7 @@ After determining the assets to be exported, click the **Export** button, a file
 
 Select and right-click on the folder you want to import assets from, or right-click on the **blank space** in the **Assets** panel, then select **Import Package** and select the zip package exported by **Export Package** in the pop-up file browse dialog. The assets in the zip package will be automatically parsed to the pop-up **Import Asset Package** panel.
 
-During the import process, the user will be asked to confirm the imported assets again, so you can uncheck some assets to remove the ones you don't want to import.
+During the import process, the user will be asked to confirm the imported assets again, uncheck some assets to remove the ones you don't want to import.
 
 ![importing](img/package-asset/importing.png)
 
