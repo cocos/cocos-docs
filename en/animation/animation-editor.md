@@ -139,7 +139,7 @@ The properties of the current Animation Clip that can be set directly on the **A
 
 ## Adjusting the Layout of the Animation Panel
 
-The dividers between the node list and the timeline, and between the property list and the timeline are available for dragging and dropping to change the layout. By dragging and dropping you can freely adjust the **Animation** panel to a layout effect suitable for editing.
+The dividers between the node list and the timeline, and between the property list and the timeline are available for dragging and dropping to change the layout. By dragging and dropping  it is possible to freely adjust the **Animation** panel to a layout effect suitable for editing.
 
 ![layout](./animation-editor/layout.gif)
 
