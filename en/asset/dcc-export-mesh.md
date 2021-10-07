@@ -1,4 +1,4 @@
-# Importing models exported from DCC tools
+# Importing Models Exported from DCC Tools
 
 Currently, most __Digital Content Creation (DCC)__ tools (__3DS Max__, __Maya__, __Blender__) can export models in __FBX__ and __glTF__ formats. These formats, exported by these tools, can be well received in __Cocos Creator 3.0__.
 
@@ -35,14 +35,14 @@ Please read the following documents:
 
   ![blender export glTF](./mesh/blender_export_gltf.png)
 
-## Possible issues
+## Possible Issues
 
 During the game development process, the orientation of the model may be used. For example, if some objects should face the player (using the `LookAt()` method), consider the initial orientation of the model. Here are two methods to adjust the initial orientation of the model.
 
   1. In __Cocos Creator 3.0__, the __-z-axis__ is used as the forward direction, while in Blender, the forward direction is __+y-axis__, when making a model, the positive direction of the __y-axis__ should be used as the orientation of the object, and the derived transformation later, in __Cocos Creator__, the __-z-axis__ will be used as the front direction.
   2. To not change the orientation in the DCC tool, try adding a parent node to the imported model in the scene, and then rotate the model so that the initial orientation of the model is the __-z-axis__. All subsequent rotation-related operations are based on the parent. A node is an operation object.
 
-## Artist's production specifications
+## Artist's Production Specifications
 
 1. Reasonably formulating a sub-assets name under model assets (e.g **mesh** or **material**). Each modification of the sub-assets name will result in the loss of the place associated with the sub-assets in the project.
 

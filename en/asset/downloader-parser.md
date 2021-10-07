@@ -8,7 +8,7 @@ The underlying of the Asset Manager uses multiple loading pipelines to load and 
 
 The downloader is a global single instance with features such as download retry, download priority, and download concurrency limits.
 
-### Download retry
+### Download Retry
 
 If the downloader fails to download a resource, it will automatically retry the download, and you can set the parameters for the download retry via `maxRetryCount` and `retryInterval`.
 
@@ -24,7 +24,7 @@ If the downloader fails to download a resource, it will automatically retry the 
   assetManager.downloader.retryInterval = 4000;
   ```
 
-### Download priority
+### Download Priority
 
 Creator opens up four download priorities, and the downloader will download resources in **descending order** of priority.
 
@@ -37,7 +37,7 @@ Creator opens up four download priorities, and the downloader will download reso
 
 You can also control the load order by passing a priority over the default setting with the optional parameter `priority`. For details, refer to the "Set by optional parameters" section below. 
 
-### Set the number of concurrent downloads
+### Set the Number of Concurrent Downloads
 
 You can set limits such as the maximum number of concurrent downloads in the downloader via `maxConcurrency` and `maxRequestsPerFrame`.
 
@@ -70,7 +70,7 @@ assetManager.init({
 
 The parser is used to parse the files into the resources that can be recognized by the engine, and you can access them via `assetManager.parser`.
 
-## Set by optional parameters
+## Set by Optional Parameters
 
 The settings in both the downloader and the parser are global, if you need to set up a resource individually, you can override the global settings by passing in the proprietary settings via the optional parameters. For example:
 
@@ -136,7 +136,7 @@ assetManager.loadAny({'path': 'test'}, {preset: 'mypreset'}, callback);
 
 > **Note**: parameters related to the download and parsing process (e.g. number of download concurrent, number of download retries, etc.) can be set via optional parameters, presets, and the downloader/parser itself. When the same parameter is set in multiple ways, the engine selects to use it in the order of selectable **optional parameter > preset > downloader/parser**. That is, if the engine can't find the relevant settings in the optional parameter, it will look in the preset, and if it can't find them in the preset, it will look in the downloader/parser.
 
-## Custom handlers
+## Custom Handlers
 
 Both the downloader and the parser have a registration table. When you use `downloader` or `parser`, the downloader and parser will look for the corresponding download and parsing methods in the registry based on the incoming suffix name, and pass the parameters into the corresponding handler, so you can extend the engine by registering the custom handlers when you need to add a custom format to your project, or modify the handlers of the current format. Both the downloader and the parser provide `register` interfaces for registration handlers, which are used as follows:
 

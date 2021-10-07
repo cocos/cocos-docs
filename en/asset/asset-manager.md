@@ -14,7 +14,7 @@ you can refer to the following articles for upgrading:
 
 ## Load Resources
 
-### Dynamic Loading Of Resources
+### Dynamic Loading of Resources
 
 In addition to applying resources to the corresponding components while editing scenes, Creator also supports dynamic loading and setting up of resources while the game is running. Asset Manager provides two ways to dynamically load resources:
 
@@ -78,7 +78,7 @@ assetManager.loadBundle('testBundle', function (err, bundle) {
 
 Please refer to the [Asset Bundle](bundle.md) documentation for more information on Asset Bundle.
 
-## Release of resources
+## Release of Resources
 
 Asset Manager provides a more convenient mechanism for releasing resources. When releasing a resource, you only need to focus on the resource itself and no longer on its dependent resources. The engine attempts to release its dependent resources based on the number of references, to reduce the complexity of managing resource releases for users. For example:
 
@@ -141,7 +141,7 @@ To make it easier to extend the resource loading process, the underlying layer o
 - [Pipeline and Task](pipeline-task.md)
 - [Download and Parse](downloader-parser.md)
 
-## More Reference
+## Additional References
 
 - [Asset Bundle](bundle.md)
 - [Release Of Resources](release-manager.md)

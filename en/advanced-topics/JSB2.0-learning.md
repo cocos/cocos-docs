@@ -1111,7 +1111,7 @@ Calling any JS engine's API in a finalize callback can lead to a crash. Because 
 
 Finalize callback is to tell the CPP layer to release the memory of the corresponding CPP object, we should not call any JS engine API in the CPP object's destructor either.
 
-#### But if that must be called, how should we deal with?
+#### But If That Must Be Called, How Should We Deal With It?
 
 In Cocos2D-X binding, if the native object's reference count is 1, we do not use the `release`, but using `autorelease` to delay CPP object's destructor to be executed at the end of frame. For instance:
 

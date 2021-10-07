@@ -1,8 +1,8 @@
-# Compress texture
+# Compress Texture
 
 **Cocos Creator** can set the compression method required for textures directly in the editor, and then automatically compress the textures when the project is released. Multiple image formats can be exported at the same time, and the engine will automatically download the appropriate format according to different devices.
 
-## Configure compressed texture
+## Configure Compressed Texture
 
 **Cocos Creator** supports importing images in multiple formats (see the table below for details), but in an actual running game, we do not recommend using the original images as assets to load. For example, on a mobile platform, only 80% or less of the original image quality may be required, or a `.png` without the transparent channel can be converted into a `.jpg`, which can reduce the storage space required.
 
@@ -26,7 +26,7 @@ The editor will provide a preset by default. If you need to add more presets, yo
 
 The compress-texture options on the image asset will be stored in the asset's meta file. `PresetId` is the ID of the selected compressed texture preset.
 
-## Detailed compression textures
+## Detailed Compression Textures
 
 If you want to use compressed textures, you need to turn on the **compressed texture option** when you build the project:
 
@@ -52,7 +52,7 @@ The user can customize the supported image assets for a platform and the priorit
 
 **Example 2**: In the example picture above, both **ETC1** and **PVR** types are configured with RGB and RGBA two types of texture formats. In this case, **Builder** will be **according to whether the current picture has a transparent channel to choose one of the same types of formats**. The image asset in the example is with a transparent channel, then **Builder** will only pack a compressed texture format with REGA type. Of course, if there is only RGB picture format in the configuration, even if the current picture is with a transparent channel, it will be packaged normally.
 
-## Details of compressed texture support for platforms
+## Details of Compressed Texture Support for Platforms
 
 Except for the `JPG` and `PNG` supported by all platforms, the details of other formats are as follows:
 

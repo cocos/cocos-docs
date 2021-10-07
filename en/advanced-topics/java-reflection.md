@@ -1,4 +1,4 @@
-# How to Call Java methods using JavaScript on Android
+# How to Call Java Methods Using JavaScript on Android
 
 With the Cocos Creator Android build, developers can call Java static methods directly in JavaScript. Doing so is very simple:
 
@@ -8,7 +8,7 @@ var result = jsb.reflection.callStaticMethod(className, methodName, methodSignat
 
 In `callStaticMethod` method, pass the Java class name, method name, method signature with parameters, and get the return value from Java. The Java class name and method signature may be a little strange without having experience with JNI, but that is the Java specification.
 
-## Class name
+## Class Name
 
 The class name must contain Java package path. For example, if a class, `Test`, exists in the package `com.cocos.game`:
 
@@ -33,11 +33,11 @@ public class Test {
 
 The correct class name of `Test` is `com/cocos/game/Test`. Please note that using a slash `/` is required, **NOT** using a dot `.`.
 
-## Method name
+## Method Name
 
 The method name is very simple. For example, the method names of the above two sum methods are both `sum`.
 
-## Method signature
+## Method Signature
 
 The method signature is a little complex. The simplest signature is `()V`, it represents a method which has no parameters and no return value. Examples:
 
@@ -121,7 +121,7 @@ jsb.reflection.callStaticMethod("com/cocos/game/AppActivity", "showAlertDialog",
 
 An Android native AlertDialog should show now.
 
-## One more thing
+## One More Thing
 
 Now that it is possible to successfully called Java methods in JavaScript, is it possible to call JavaScript in Java? Of course!
 

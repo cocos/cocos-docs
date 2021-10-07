@@ -201,7 +201,7 @@ assetManager.loadBundle('01_graphics', {version: 'fbc07'}, function (err, bundle
 
 Then bypass the old version files in the cache and redownload the latest version of the Asset Bundle.
 
-## Load the resources in the Asset Bundle
+## Load the Resources in the Asset Bundle
 
 After the Asset Bundle is loaded, the engine returns an instance of `AssetManager.Bundle` class. Load the resources in the Asset Bundle by using `load` method of the instance, which has the same arguments as the `resources.load`, you just need to pass in the path of the resource relative to the Asset Bundle, and the end of the path **must not** contain the file extension.
 
@@ -227,7 +227,7 @@ bundle.load(`image`, SpriteFrame, function (err, spriteFrame) {
 });
 ```
 
-### Bulk load resources
+### Bulk Load Resources
 
 The Asset Bundle provides `loadDir` method to bulk load multiple resources in the same directory. The arguments of this method are similar to the `resources.loadDir`, you just need to pass in the path of the directory relative to the Asset Bundle.
 
@@ -243,7 +243,7 @@ bundle.loadDir("textures", Texture2D, function (err, assets) {
 });
 ```
 
-### Load scenes
+### Load Scenes
 
 The Asset Bundle provides `loadScene` methods for loading scenes from the specified bundle, you just need to pass in the **scene name**.<br>
 The difference between `loadScene` and `director.loadScene` is that `loadScene` will only load the scene from the specified bundle and will not run the scene, you also need to use `director.runScene` to run the scene.
@@ -262,13 +262,13 @@ After the Asset Bundle has been loaded, it will be cached, and the name can be u
 let bundle = assetManager.getBundle('01_graphics');
 ```
 
-## Preload resources
+## Preload Resources
 
 In addition to scenes, other resources can also be preloaded. The loading arguments for preloading are the same as for normal loading, but because preloading only downloads the necessary resources, and does not perform the resources' deserialization and initialization, so it consumes less performance and is suitable for use during gameplay.
 
 The Asset Bundle provides `preload` and `preloadDir` interfaces to preload the resources in the Asset Bundle, which are used in the same way as the `assetManager`, see [Loading and Preloading](preload-load.md) documentation for details.
 
-## Release resources in the Asset Bundle
+## Release Resources in the Asset Bundle
 
 After loading the resources, all the resources are temporarily cached in `assetManager` to avoid reloading. Of course, the resources in the cache also occupy memory, and some resources you can release in the following three ways if they are no longer needed:
 

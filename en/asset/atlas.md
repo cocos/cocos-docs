@@ -1,10 +1,10 @@
-# Atlas assets
+# Atlas Assets
 
 __Atlas__, also called a __Sprite Sheet__, is a common art asset in game development. __Atlas__ is an asset for merging multiple pictures into a large picture through a special tool, and indexing through a file such as a **.plist**. __Atlas__ assets available for __Cocos Creator__ consist of a **.plist** and at least one **.png** file, although usually many **.png** files make up an __Atlas__. The following is an image file used in an __Atlas__:
 
 ![atlas sheep](atlas/sheep_atlas.png)
 
-## Why use atlas assets
+## Why Use Atlas Assets
 
 In a game, using an __Atlas__ composed of multiple pictures as art assets has the following advantages:
 

@@ -2,12 +2,13 @@
 
 > Author: Santy-Wang, Xunyi
 
-For Web platforms, resources cache are managed by the browser after download, not the engine.<br>
+For Web platforms, resources cache are managed by the browser after download, not the engine.
+
 However, on some non-Web platforms, such as WeChat Mini Game, these platforms have a file system, which can be used to cache some remote resources, but do not implement a caching mechanism for resources. In this case, the engine needs to implement a set of caching mechanisms for managing resources downloaded from the network, including caching resources, cleaning cached resources, querying cached resources and other features.
 
-Since v2.4, Creator provides a Cache Manager on all platforms where file systems exist, and you can access it via `assetManager.cacheManager`.
+Creator provides a Cache Manager on all platforms where file systems exist, and you can access it via `assetManager.cacheManager`.
 
-## Resource download process
+## Resource Download Process
 
 The logic of the engine downloading resources is as follows:
 
@@ -23,7 +24,7 @@ The logic of the engine downloading resources is as follows:
 
 6. When the cache space is full, the older resources will be deleted using the LRU algorithm at this point (there is no size limit on the native platform's cache space, so skip this step, you can call manually for cleanup if needed).
 
-## Query cache files
+## Query Cache Files
 
 The Cache Manager provides a `getCache` interface to query all cache resources, and you can query the cache path of a resource by passing in its original path, for example:
 
@@ -34,7 +35,7 @@ resources.load('images/background', Texture2D, function (err, texture) {
 });
 ```
 
-## Query temporary files
+## Query Temporary Files
 
 After a resource is downloaded locally, it may be stored as a temporary file in a temporary directory. The Cache Manager provides a `tempFiles` interface to query all resources downloaded to the temporary directory, which you can do by passing in the original path of the resource, for example:
 
@@ -45,7 +46,7 @@ assetManager.loadRemote('http://example.com/background.jpg', function (err, text
 });
 ```
 
-## Cache resources
+## Cache Resources
 
 A number of parameters are provided in the Cache Manager to control the caching of resources.
 
@@ -57,7 +58,7 @@ A number of parameters are provided in the Cache Manager to control the caching 
   assetManager.loadRemote('http://example.com/background.jpg', {cacheEnabled: true}, callback);
   ```
 
-## Clear cache
+## Clear Cache
 
 The cache manager provides three interfaces `removeCache`, `clearCache` and `clearLRU` to clean up cache resources.
 

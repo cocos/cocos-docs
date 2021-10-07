@@ -1,6 +1,6 @@
-# Assets workflow
+# Assets Workflow
 
-## Importing assets
+## Importing Assets
 
 There are three ways to **import assets**:
 
@@ -32,12 +32,12 @@ After the asset is imported, new data will be generated and stored in the projec
 
 When a library is lost or damaged, just delete the entire library folder and open the project, and the asset library will be rebuilt.
 
-## How to locate assets
+## How to Locate Assets
 
 A asset has a unique **uuid**, used to locate the asset, but this method is not intuitive enough. There is another intuitive way: **Database URL** format, such as an `asset-db`. The corresponding protocol header is `db://assets`, the protocol header for `internal-db` is `db://internal`.
 
 There are folder-level asset formats, such as `db://assets/prefabs/fire.prefab`
 
-## SVN or GIT syncing of assets
+## SVN or GIT Syncing of Assets
 
 > **Note**: there are line breaks in the `.meta` file. It is recommended to unify the line break styles and rules of the team members' computers to avoid opening the project after synchronizing the project assets.

@@ -15,7 +15,7 @@ Currently, when using those old APIs, the engine will output warnings and sugges
 
 > **Note**: as v2.4 supports **Asset Bundle**, the subpackage feature in the project also needs to be upgraded, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) documentation for details.
 
-## Situations that require upgrading manually
+## Situations That Require Upgrading Manually
 
 - You use APIs that start with `loader` in your own code, such as `loader.loaderRes`, `loader.loadResDir`, `loader.release`, etc.
 - You use APIs that start with `AssetLibrary` in your own code, such as `AssetLibrary.loadAsset`.
@@ -23,16 +23,16 @@ Currently, when using those old APIs, the engine will output warnings and sugges
 - You use types such as `Pipeline`, `LoadingItems` in your own code.
 - You have used the `macro.DOWNLOAD_MAX_CONCURRENT` property in your own code.
 
-## Upgrade steps
+## Upgrade Steps
 
 - **Back up your old projects**
 - Use Cocos Creator **v2.4** in the **Dashboard** to open the project that needs to be upgraded, Creator will reimport the affected resources. The first import will take a little longer, and the main editor window will open after the import is complete. And more error or warning may appear on the **Console** panel, don't worry, open the code editor to update your code according to the error or warning message.
 
-### Replace the `loader` related API with the `assetManager` related API
+### Replace the `loader` Related API With the `assetManager` Related API
 
 As of v2.4, `loader` is no longer recommended and will be completely removed in subsequent releases, please replace it with the new resource management module `assetManager`.
 
-#### The relevant interface replacement about loading
+#### The Relevant Interface Replacement About Loading
 
 If you use `loader.loadRes`, `loader.loadResArray`, `loader.loadResDir` in your own code, use the corresponding API in `assetManager` for the replacement. You can refer to the following replacements.
 
@@ -125,7 +125,7 @@ If you use `loader.loadRes`, `loader.loadResArray`, `loader.loadResDir` in your 
 > 1. If you use `loader.downloader.loadSubpackage` in your own code to load a subpackage, please refer to the [Subpackage Upgrade Guide](./subpackage-upgrade-guide.md) to upgrade it.
 > 2. To avoid unnecessary errors, `loader.onProgress` has no equivalent implementation in `assetManager`. You can implement your own global callback mechanism, but it is recommended that you pass callbacks to each load function to avoid interfering with each other during concurrent loading.
 
-#### The relevant interface replacement about releasing
+#### The Relevant Interface Replacement About Releasing
 
 If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader.releaseResDir` in your own code, please use the corresponding API in `assetManager` for replacement. You can refer to the following replacements.
 
@@ -211,7 +211,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 > 2. Since the `assetManager.releaseAsset` automatically releases dependent resources, you no longer need to explicitly call `loader.getDependsRecursively`. If you need to find the dependency of the resource, please refer to the relevant API in `assetManager.dependUtil`.
 > 3. For security reasons, `assetManager` only supports the Auto Release property set in the scene, and `loader.setAutoRelease`, `loader.setAutoReleaseRecursively`, `loader.isAutoRelease` APIs have been removed. It is recommended that you use the new auto-release mechanism based on reference counting. Please refer to the [Release Of Resources](release-manager.md) documentation for details.
 
-#### Extension-related interface replacements
+#### Extension-related Interface Replacements
 
 - **Pipeline**
 
@@ -328,7 +328,7 @@ If you use `loader.release`, `loader.releaseAsset`, `loader.releaseRes`, `loader
 
   > **Note**: for performance, modularity and readability reasons, `loader.assetLoader`, `loader.md5Pipe`, `loader.subPackPipe` have been merged into `assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `assetManager.transformPipeline` can be found in [Pipeline and Tasks](pipeline-task.md) documentation.
 
-### Other changes
+### Other Changes
 
 The `url` and `AssetLibrary` have been removed, so avoid using any methods and properties of `url` and `AssetLibrary`.
 
