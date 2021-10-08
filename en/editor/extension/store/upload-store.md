@@ -18,28 +18,28 @@ foobar
 
 Developers need to package the `foobar` folder into a `foobar.zip` file and submit it to the Cocos Developer Center.
 
-For more on extension packages, see the documentation [Creating Extension Packages](../first.md).
+For additional information on extension packages, please review the [Creating Extension Packages](../first.md) documentation.
 
 ### Third-party Libraries
 
-There is currently no workflow for installing an included management system such as NPM in the extension package installation system, so extension packages that use third-party libraries should be packaged in a zip package with folders such as `node_modules`.
+There is currently no workflow for installing an included management system such as NPM in the extension package installation system, extension packages that use third-party libraries should be packaged in a zip package with folders such as `node_modules`.
 
 ## Submitting the Extension
 
-Visit [Cocos Developer Center](https://auth.cocos.com/#/) and login, then go to [Store](https://store-my.cocos.com/#/seller/resources/) section and click **Create New Resource** on the top right.
+Visit the [Cocos Developer Center](https://auth.cocos.com/#/) and login. Next, visit the [Store](https://store-my.cocos.com/#/seller/resources/) section and click **Create New Resource** on the top right.
 
 ![img](../image/create.png)
 
-- Then go to the **Category** page, fill in the **Name** and **Category**, and check the agreement checkbox.
+- First, go to the **Category** page, fill in the **Name** and **Category**, and check the agreement checkbox.
 
   ![img](../image/category.png)
 
-    - **Name**: the name of the extension to be displayed in the extension store. Please note that the name cannot be changed once it is confirmed, so please fill it in carefully.
+    - **Name**: the name of the extension to be displayed in the extension store. Please note that the name cannot be changed once it is confirmed, please fill it in carefully.
     - **Category**: the category of the resource to be submitted, choose **Creator Extension -> Plugins** here.
 
   Click **Next** after the settings are done to enter the **Introduction** page.
 
-- Fill in the relevant information on the **Introduction** page.
+- Second, fill in the relevant information on the **Introduction** page.
 
   ![img](../image/introduction.png)
 
@@ -51,13 +51,13 @@ Visit [Cocos Developer Center](https://auth.cocos.com/#/) and login, then go to 
 
   Click **Next** to enter the **Pricing** page after filling out the form.
 
-- In the **Pricing** page, set the price of the extension, including **CNY** and **USD**, if it is free, please fill in **0**.
+- Third, in the **Pricing** page, set the price of the extension, including **CNY** and **USD**, if it is free, please fill in **0**.
 
   ![img](../image/pricing.png)
 
   Click **Next** to enter the **Upload** page after completing the form.
 
-- On the **Upload** page, upload the extensions and fill in the relevant information.
+- Fourth, on the **Upload** page, upload the extensions and fill in the relevant information.
 
   ![img](../image/upload-store.png)
 
@@ -70,8 +70,8 @@ Visit [Cocos Developer Center](https://auth.cocos.com/#/) and login, then go to 
 
   Click **Next** to go to the **Submit for Review** page after completing the form.
 
-- On the **Submit for Review** page, click the **Submit for Review** button, or click the **View** button to re-edit the extension resource.
+- Fifth, on the **Submit for Review** page, click the **Submit for Review** button, or click the **View** button to re-edit the extension resource.
 
   ![img](../image/submit-for-review.png)
 
-- After submitting for review, the extension store management will review the extension content and information within **3** business days.
+- Lastly, after submitting for review, the extension store management will review the extension content and information within **3** business days.
