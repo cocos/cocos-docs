@@ -13,7 +13,7 @@ To use `Sprite`, please refer to the [Sprite API](__APIDOC__/en/classes/ui.sprit
 | Property | Function Explanation
 | :-------------- | :----------- |
 | **Type** | Rendering mode, currently includes `SIMPLE`, `SLICED`, `TILED`, `FILLED` four rendering modes.
-| **Materials** | Custom Material, please refer to [UI Custom Material](../engine/ui-material.md)
+| **CustomMaterial** | Custom Material, please refer to [UI Custom Material](../engine/ui-material.md)
 | **Src Blend Factor** | The source image blend mode.
 | **Dst Blend Factor** | The destination image blend mode. Together with the above properties, you can mix the foreground Sprite and background in different ways to render, and you can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php) for an effect preview.
 | **Color** | Image color.

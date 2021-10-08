@@ -1,23 +1,29 @@
-# Main Directional Lights
+# Directional Lights
 
-Directional light is the most common type of lights, and can be understood as the dominant light in a scene. The lighting effect is not affected by the **light position** and **orientation**, and is suitable for achieving sunlight. However, **rotation** affects the direction of directional lights illumination, which in turn affects the range to which the model receives illumination and where the model produces shadows.
+Directional Light is the most common type of light that simulates the light emitted by a source at infinity and is often used to simulate sunlight.
 
 ![image](dirlights/dir-light.jpg)
 
-> **Note**: Cocos Creator currently supports only one main directional light. If more than one is added at the same time, the last one added will prevail.
+Because the distance between the light and the illuminated target is undefined (infinite distance), the lighting effect is not affected by the **position** and **orientation** of the light (as shown below, directional light produces the same lighting brightness in all planes). However, **rotation** affects the direction of directional light, which in turn affects the extent to which the model receives light and where the model produces shadows. This can be done with the [Rotate Gizmo](../../../../editor/toolbar/index.md#rotate-gizmo) in the upper left corner of the editor to adjust the direction of directional light.
 
-To add the directional light to the scene, refer to the [Lighting](../light.md) documentation.
+![image](dirlights/dir-light-scene.jpg)
 
-For the related interface of the directional light component, please refer to the [DirectionalLight API](__APIDOC__/en/classes/component_light.directionallight.html).
+Adding directional lights to the scene can be done as described in [Adding Lights](index.md#adding-lights).
 
-## Main Directional Lights Properties
+> **Note**: Cocos Creator currently supports only one directional light. If adding more than one at the same time, the last one added will prevail.
+
+A directional light node `Main Light` will be created automatically by default when creating a new scene.
+
+For the interface of the directional light component, please refer to [DirectionalLight API](__APIDOC__/en/classes/component_light.directionallight.html).
+
+## Directional Light Properties
 
 ![image](dirlights/dir-light-prop.png)
 
 | Property | Description |
-| :------- | :--- |
-| **Color** | Set the light color |
-| **UseColorTemperature** | Whether to enable color temperature |
-| **ColorTemperature** | Adjust the color temperature |
-| **StaticSettings** | Set up static lighting, see [Lightmapping](lightmap.md) for details |
-| **Illumination** | Illumination, unit **lux (lx)** |
+| :------ | :-- |
+| Color | Sets the light color. |
+| UseColorTemperature | Whether to enable the color temperature. |
+| ColorTemperature | Adjusts the color temperature. |
+| StaticSettings | Sets static lighting, please refer to the [Lightmapping](../lightmap.md) documentation for details. |
+| Illumination | Illumination in **lux (lx)**. |

@@ -1,19 +1,21 @@
-# UI 说明
+# UI 系统
+
+本章将介绍 Cocos Creator 中强大而灵活的 UI（用户界面）系统，通过组合不同 UI 组件来生产能够适配多种分辨率屏幕的、通过数据动态生成和更新显示内容，以及支持多种排版布局方式的 UI 界面。
 
 ## UI 入门
 
 在引擎中界定 UI 和 2D 渲染对象的区别主要在于适配和交互，所有的 UI 需要在 Canvas 节点下，以做出适配行为，而 Canvas 组件本身继承自 `RenderRoot2D` 组件，所以也可以作为数据收集的入口。
 
-UI 是游戏开发的必要交互部分，一般游戏上的按钮、文字、背景等都是通过 UI 来制作的。在开始制作一款 UI 时，首先需要确定当前设计的内容显示区域大小（设计分辨率），可以在菜单栏的 **项目 -> 项目设置 -> 通用设置** 面板中设置：
+UI 是游戏开发的必要交互部分，一般游戏上的按钮、文字、背景等都是通过 UI 来制作的。在开始制作一款 UI 时，首先需要确定当前设计的内容显示区域大小（设计分辨率），可以在菜单栏的 **项目 -> 项目设置 -> 项目数据** 面板中设置：
 
 ![resolution-config](resolution_config.png)
 
 设计分辨率设置完成后，开始创建 UI 元素，所有的 UI 元素都包含在 Canvas 节点下。可以在 **层级管理器** 面板中点击左上方的 **+** 按钮，然后选择 **UI Component -> Canvas** 来创建 Canvas 节点。Canvas 节点上有一个 [Canvas](../../ui-system/components/editor/canvas.md) 组件，该组件可以关联一个 camera。
 
-**注意**：
-
-- 在一个场景中可以存在多个 Canvas 节点，但是 Canvas 节点不应该嵌套在另一个 Canvas 节点或其子节点下。
-- Canvas 组件并非和 camera 是一一对应关系，它们之前的渲染与否完全取决于 node 的 layer 和 camera 的 Visibility，在多 Canvas 的时候要格外注意 layer 管理以得到想要的渲染效果。
+> **注意**：
+>
+> - 在一个场景中可以存在多个 Canvas 节点，但是 Canvas 节点不应该嵌套在另一个 Canvas 节点或其子节点下。
+> - Canvas 组件并非和 camera 是一一对应关系，它们之前的渲染与否完全取决于 node 的 layer 和 camera 的 Visibility，在多 Canvas 的时候要格外注意 layer 管理以得到想要的渲染效果。
 
 接下来就可以在 Canvas 节点下创建 UI 节点了。编辑器自带的 UI 节点有以下几种：
 
@@ -33,28 +35,9 @@ UI 渲染组件的先后顺序采用的是深度排序方案，也就是 Canvas 
 
 ## UI 组件
 
-UI 组件大部分自身不具有渲染能力，但持有了 2D 渲染组件用于渲染，其本身更多拥有着快速构成用户交互界面的能力，承担着事件响应，排版适配等功能，UI 组件参考如下：
+UI 组件大部分自身不具有渲染能力，但持有了 2D 渲染组件用于渲染，其本身更多拥有着快速构成用户交互界面的能力，承担着事件响应，排版适配等功能，各 UI 组件具体说明请参考 [UI 组件](../../ui-system/components/editor/base-component.md)。
 
-- [Canvas 组件参考](../../ui-system/components/editor/canvas.md)
-- [UITransform 组件参考](../../ui-system/components/editor/ui-transform.md)
-- [Widget 组件参考](../../ui-system/components/editor/widget.md)
-- [Button 组件参考](../../ui-system/components/editor/button.md)
-- [Layout 组件参考](../../ui-system/components/editor/layout.md)
-- [EditBox 组件参考](../../ui-system/components/editor/editbox.md)
-- [ScrollView 组件参考](../../ui-system/components/editor/scrollview.md)
-- [ScrollBar 组件参考](../../ui-system/components/editor/scrollbar.md)
-- [ProgressBar 组件参考](../../ui-system/components/editor/progress.md)
-- [LabelOutline 组件参考](../../ui-system/components/editor/label-outline.md)
-- [Toggle 组件参考](../../ui-system/components/editor/toggle.md)
-- [UIMeshRenderer 组件参考](../../ui-system/components/editor/ui-model.md)
-- [ToggleGroup 组件参考](../../ui-system/components/editor/toggleContainer.md)
-- [Slider 组件参考](../../ui-system/components/editor/slider.md)
-- [PageView 组件参考](../../ui-system/components/editor/pageview.md)
-- [PageViewIndicator 组件参考](../../ui-system/components/editor/pageviewindicator.md)
-- [UIOpacity 组件参考](../../ui-system/components/editor/ui-opacity.md)
-- [BlockInputEvents 组件参考](../../ui-system/components/editor/block-input-events.md)
-
-## UI 规则介绍
+## UI 实践指南
 
 - [多分辨率适配方案](../../ui-system/components/engine/multi-resolution.md)
 - [对齐策略](../../ui-system/components/engine/widget-align.md)
