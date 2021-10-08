@@ -165,7 +165,7 @@ When editing animation data in the animation clip of the parent node, you can al
 
 ![same-name node](edit-animation-clip/same-name-node.png)
 
-However, it is supported to add animation components and animation clips for the same name child node separately and edit them separately.
+However, it is supported to add Animation components and animation clips for the same name child node separately and edit them separately.
 
 ## Common operations for animation property data
 

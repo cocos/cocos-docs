@@ -53,7 +53,7 @@ Creator 3.0 的 **节点（Node）** 之间可以有父子关系的层级结构�
 
 如果父节点 NodeA 改变 `Position`，子节点 NodeB 也会跟着改变位置（世界坐标系），但是子节点 NodeB 的 `Position` 属性不会发生变化，因为子节点 NodeB 在以父节点 NodeA 的 `Position` 为原点的本地坐标系中没有发生变化。
 
-在 **场景编辑器** 中，可以随时使用 [移动变换工具](../../editor/scene/transform-gizmo.md#%E7%A7%BB%E5%8A%A8%E5%8F%98%E6%8D%A2%E5%B7%A5%E5%85%B7) 来改变节点位置。
+在 **场景编辑器** 中，可以随时使用 [移动变换工具](../../editor/toolbar/index.md#%E7%A7%BB%E5%8A%A8%E5%8F%98%E6%8D%A2%E5%B7%A5%E5%85%B7) 来改变节点位置。
 
 ### 旋转（Rotation）
 
@@ -67,7 +67,7 @@ Creator 3.0 的 **节点（Node）** 之间可以有父子关系的层级结构�
 
 **注意**：节点上的 [rotation](__APIDOC__/zh/classes/scene_graph.node-1.html#rotation) 属性是一个四元数，表示的是绕任意轴旋转的角度。与 **属性检查器** 中的 `Rotation` 所对应的属性是欧拉角属性 [EulerAngles](__APIDOC__/zh/classes/scene_graph.node-1.html#eulerangles)。这两个属性可以根据需求分别使用，在使用 API 时请一定要注意它们和编辑器面板属性名的对应区别。
 
-在 **场景编辑器** 中，可以随时使用 [旋转变换工具](../../editor/scene/transform-gizmo.md#%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2%E5%B7%A5%E5%85%B7) 来设置节点的旋转。
+在 **场景编辑器** 中，可以随时使用 [旋转变换工具](../../editor/toolbar/index.md#%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2%E5%B7%A5%E5%85%B7) 来设置节点的旋转。
 
 ### 缩放（Scale）
 
@@ -81,4 +81,4 @@ Creator 3.0 的 **节点（Node）** 之间可以有父子关系的层级结构�
 
 **缩放** 属性不会影响当前节点的 **位置** 和 **旋转**，但会影响子节点的 **位置**。
 
-在 **场景编辑器** 中，可以随时使用 [缩放变换工具](../../editor/scene/transform-gizmo.md#%E7%BC%A9%E6%94%BE%E5%8F%98%E6%8D%A2%E5%B7%A5%E5%85%B7) 来修改节点缩放。
+在 **场景编辑器** 中，可以随时使用 [缩放变换工具](../../editor/toolbar/index.md#%E7%BC%A9%E6%94%BE%E5%8F%98%E6%8D%A2%E5%B7%A5%E5%85%B7) 来修改节点缩放。

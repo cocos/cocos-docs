@@ -1,49 +1,64 @@
-# UI Architecture
+# UI System
 
-The UI rendering is based on a tree structure. The **Canvas** node (a node with `Canvas component`) is the root of UI. **All ui nodes must be under the Canvas node to be rendered**. The `UITransform` is the necessary condition that each UI node must have for a click or alignment strategy, etc. to take effect.
+## Getting Started with UI
 
-The UI supports 2D & 3D camera hybrid sorting. Control the sorting by switching the rendering mode and adjusting the `priority` property on the component.
+The difference between defining UI and 2D rendering objects in the engine mainly lies in adaptation and interaction. All UI needs to be under a Canvas node to make adaptation behavior, and the Canvas component itself inherits from `RenderRoot2D` component, it can also be used as an entry point for data collection.
 
-The UI also supports model rendering, the only condition being that a node with the model components (such as `MeshRenderer`/`SkinnedMeshRenderer`) must add __UI/Model__ component before it can be rendered on the same pipeline as the UI.
+The UI is a necessary interactive part of game development. Generally, buttons, text, backgrounds, etc. on the game are made through the UI. When starting to create a UI, first it is necessary to determine the size of the display area (design resolution) of the current design content, which can be set in the **Project -> Project Settings -> Project Data** panel in the menu bar.
 
-The UI rendering process as follows:
+![resolution-config](resolution_config.png)
 
-![render](render.png)
+Once the design resolution is set, start creating UI elements, all of which are contained under the Canvas node. The Canvas node can be created by clicking the **+** button in the **Hierarchy** panel on the top left and selecting **UI Component -> Canvas**. The Canvas node has a [Canvas](../editor/canvas.md) component, which can be associated with a camera.
 
-## Get Started with UI
+> **Notes**:
+>
+> - Multiple Canvas nodes can exist in a scene, but a Canvas node should not be nested under another Canvas node or its children.
+> - Canvas components are not one-to-one with camera, their previous rendering depends on the layer of the node and the Visibility of the camera, so you should pay extra attention to layer management to get the desired rendering effect when you have multiple Canvas.
 
-The UI is a necessary interaction part of game development. The buttons, labels, backgrounds and so on in the game are usually made through the UI. When you start making a UI, the first thing you need to confirm is the size of the display area (Design resolution) of the current design, which can be set in the __Project -> Project Setting -> General__ panel of the menu bar:
+Next, create UI nodes under the Canvas node. The editor comes with the following UI nodes:
 
-![resolution-config](multi-resolution/resolution_config.png)
+![create-ui](./create-ui.png)
 
-Now that your design resolution is setup, you can start creating the UI elements. All UI elements are contained under the `Canvas` node, you can create a `Canvas` node by clicking the __+__ button at the top left of the __Hierarchy__ panel, and then select the __UI -> Canvas__. There is a [Canvas](../editor/canvas.md) component on the Canvas node, which automatically creates a camera inside. You can achieve true interspersed rendering between 3D camera and 2D camera by adjusting the `RenderMode` property on `Canvas`. And then adjust the display priority between multiple camera with the `priority` property on the component of `Canvas/Camera`.
+UI components can be viewed by selecting the node and clicking **Add Component** in the **Inspector** panel.
 
-> __Note__: there can be more than one Canvas node in a scene, but the Canvas should not be nested under another Canvas or its child nodes.
+![add-ui-component](./add-ui-component.png)
 
-Next, you can create the UI nodes under the Canvas nodes. There are several UI nodes that come with the editor are as follow:
+The order in which UI components are rendered is a depth ordering scheme, which means that the ordering of the child nodes under the Canvas node already determines the entire [rendering order](priority.md).
 
-![create-ui](../editor/create-ui.png)
+In general game development, the necessary UI elements are not only basic 2D rendering components such as Sprite, Label (text), Mask, but also Layout, Widget (alignment), etc., which are used to quickly build the interface. Sprite and Label are used to render images and text, Mask is mainly used to limit the display content, more commonly used in chat boxes and backpacks, etc. Layout is generally used for single arrangement of buttons, neat arrangement of props in backpacks, etc. <br>
+The last important feature is the Widget, which is mainly used for display alignment. When finishing designing the UI and publish it to different platforms, the actual device resolution of the platform is bound to be different from our design resolution, therefore some trade-offs need to be made in order to adapt it. It is necessary to add a widget component to it, and always ensure that it is aligned to the top left of our design resolution. Please review the [alignment strategy](widget-align.md) and [alignment](../editor/widget.md) documentation.
 
-You can view UI components by checking the node and then clicking on the __Add Component__ in the __Inspector__ panel. The components in __UI -> Render__ belong to the UI renderer component and the others are UI functional components.
+Once the interface is created, some people may notice that the iPhone 7 displays differently than the iPhone X. This is actually the same problem with the device resolution we mentioned above. When you design in design resolution and finally publish in device resolution, there is a pixel deviation because the resolution of different models of mobile devices may not be the same, so there is another conversion process that needs to be done that is screen adaptation. <br>
+Notice in the **Projects -> Project Settings -> Project Data** page in the menu bar, there are two more options **Fit Width / Fit Height**, which can be easily adapted to different devices by following the screen adaptation rules and combining with the Widget component. The specific adaptation rules can be found in the [Multi-Resolution Adaptation Scheme](multi-resolution.md) documentation.
 
-![add-component](../editor/add-component.png)
+## UI components
 
-The UI renderer component uses Breadth-First Sorting scheme, that is, the order of child nodes under the Canvas already determines the subsequent [Rendering Order](priority.md), but you can modify the rendering order with `priority` property of the renderer component. For nodes without renderer component, you can add a component with only sorting function to sort by selecting __Add Component -> UI -> Reorder__ in the __Inspector__ panel.
+UI components mostly do not have rendering capabilities themselves, but hold 2D rendering components for rendering, which themselves have more ability to quickly form user-interactive interfaces, and take on functions such as event response, typography adaptation, etc. UI component references are as follows:
 
-In general game development, the necessary UI elements are usually *Sprite*, *Label*, *Mask*, *Layout*, *Widget*, etc. Sprite and Label are used for rendering image and text. Mask is mainly used to limit the display content, some commonly used places are chat boxes and backpacks, and so on. Layout is mainly used for layout, generally used for single arrangement of buttons, neat arrangement of props in backpacks, etc. The last more important is the Widget, which is mainly used for display alignment. This may involve the multi-resolution adaptation function. When we design the UI and publish it to different platforms, the actual device resolution of the platform will inevitably be different from our design resolution. In order to adapt, we need to do Some trade-offs. For example, the headshot frame cannot be scaled, but we also hope that it will not be greatly affected by the device. Then you can add a Widget component and always ensure that it is aligned at the upper left of our design resolution. Please refer to the [Widget Alignment](widget-align.md) and [Widget Component](../editor/widget.md) documentation for details.
+- [Canvas Component Reference](../editor/canvas.md)
+- [UITransform Component Reference](../editor/ui-transform.md)
+- [Widget Component Reference](../editor/widget.md)
+- [Button Component Reference](../editor/button.md)
+- [Layout Component Reference](../editor/layout.md)
+- [EditBox Component Reference](../editor/editbox.md)
+- [ScrollView Component Reference](../editor/scrollview.md)
+- [ScrollBar Component Reference](../editor/scrollbar.md)
+- [ProgressBar Component Reference](../editor/progress.md)
+- [LabelOutline Component Reference](../editor/label-outline.md)
+- [Toggle Component Reference](../editor/toggle.md)
+- [UIMeshRenderer Component Reference](../editor/ui-model.md)
+- [ToggleGroup Component Reference](../editor/toggleContainer.md)
+- [Slider Component Reference](../editor/slider.md)
+- [PageView Component Reference](../editor/pageview.md)
+- [PageViewIndicator Component Reference](../editor/pageviewindicator.md)
+- [UIOpacity Component Reference](../editor/ui-opacity.md)
+- [BlockInputEvents Component Reference](../editor/block-input-events.md)
 
-When our interface is finished, you may find out how the display effects of iPhone7 and iPhoneX are different. This is actually a problem with the device resolution, as previously mentioned. When you design at the design resolution and publish at the device resolution, because the device resolution of different mobile phones may be different, the problem of pixel deviation may occur. Therefore, you also need to do screen adaptation.
+## UI rules introduction
 
-As you can see on the __Project -> Project Setting -> General -> Default canvas setting__ page of the menu bar, there are two other options, __Fit Width__ and __Fit Height__. According to the screen adaptation rules provided by **Cocos Creator**, and combined with the Widget component, you can easily adapt to different devices. Please refer to the [Multi-Resolution Adaptation](multi-resolution.md) documentation for details.
-
-## UI Rules Introduction
-
-- [Rendering Order](priority.md)
-- [Multi-Resolution Adaption](multi-resolution.md)
-- [Widget Alignment](widget-align.md)
-- [Label Layout](label-layout.md)
-- [Auto Layout Container](auto-layout.md)
-- [List with data](list-with-data.md)
-- [Stretchable UI Sprite](sliced-sprite.md)
-- [UI Static Batching](../editor/ui-static.md)
-- [UI Custom Material](ui-material.md)
+- [Multi-Resolution Adaptation Scheme](../engine/multi-resolution.md)
+- [Alignment Strategy](../engine/widget-align.md)
+- [Label Layout](../engine/label-layout.md)
+- [Auto Layout Container](../engine/auto-layout.md)
+- [Create a List of Dynamically Generated Content](../engine/list-with-data.md)
+- [Use a Sliced Sprite to make a UI image](../engine/sliced-sprite.md)

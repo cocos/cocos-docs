@@ -34,7 +34,7 @@ For more information about the light and light parameters, please refer to the [
 
 For more information about light types, please refer to the following documentations:
 
-- [Directional lights](light/dir-light.md)
-- [Spherical lights](light/sphere-light.md)
-- [Spotlights](light/spot-light.md)
-- [Ambient lights](./ambient.md)
+- [Directional lights](light/lightType/dir-light.md)
+- [Spherical lights](light/lightType/sphere-light.md)
+- [Spotlights](light/lightType/spot-light.md)
+- [Ambient lights](light/lightType/ambient.md)

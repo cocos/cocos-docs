@@ -14,10 +14,10 @@ When encountering a preview that does not display properly, first, open NetWork 
 
 Before looking for the cause of this issue, make sure there are no error messages in the editor before previewing.
 
-`settings.json` failed to load means `settings.json` didn't generate properly, so select **Developer -> Open Build DevTools** to see if there are any error messages. Under normal circumstances, there will be a corresponding error message if the build fails. If there is something illegal in the project script, then an exception will be thrown during the loading process and `settings.json` will fail. The specific script information can be found in the error message. Usually, the valid information in the error message is the UUID of the asset, copy the corresponding UUID to the **Assets** panel to search for the script.
+Under normal circumstances, `settings.json` load failure means `settings.json` generation fails, there will be error messages in console. Most common is a script error, because when generating `settings.json`, all scripts in the project are loaded in the build process. If any script contains illegal writing, an unexpected error will be thrown during the loading process and `settings.json` will fail to be generated. For specific error message information, you can refer to the hint in the error message. Usually the error content here is the UUID of the asset. The corresponding **UUID** can be copied to the __Assets__ panel to search and locate the script.
 
 For more information about the specific generation process of `settings.json`, please refer to the [Introduction to the Build process and FAQ](../publish/build-guide.md) documentation. The preview `settings.json` generation rules are basically the same as the generation rules with only debug mode checked, the difference is that the preview only sorts out asset information and does not package the assets.
 
 ### Asset loading 404
 
-Please search the UUID of the asset with the 404 error in the editor's **Assets** panel for the corresponding asset.
+Usually, this is caused by asset loss or import failure. Please **use the missing asset UUID to search in the editor's assets panel**. If no assets are found, usually the asset is lost. You need to modify the scene or other assets that use this lost asset. If assets are found, you can try to re-import.
