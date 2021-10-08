@@ -123,7 +123,7 @@ interface package
 
 ```typescript
 interface UIInfo {
-    // which ui element to use for rendering, e.g. "ui-num-input"
+    // which ui element to use for rendering, e.g.: "ui-num-input"
     ui: string;
     attributes: {
         // The attribute data allowed on the ui element, each ui allows different parameters, see the ui-kit chapter for details

@@ -75,8 +75,8 @@ In the new `Tween` module, you can obtain properties with `getter` and `setter`,
 
 | Interface | Explanation |
 | ----------------- | ------------------------------------------- |
-| **to** | Add an interval action that calculates the **absolute value** of the attribute |
-| **by** | Add an interval action to calculate the **relative value** of the attribute |
+| **to** | Add an interval action that calculates the **absolute value** of the property |
+| **by** | Add an interval action to calculate the **relative value** of the property |
 | **set** | Add a momentary action that **sets** the target property directly |
 | **delay** | Add an instant action of **delay time** |
 | **call** | Add an instant action of **call callback** |

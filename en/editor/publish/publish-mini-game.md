@@ -15,3 +15,4 @@
     - [WeChat Engine Plugin](wechatgame-plugin.md)
     - [Access to the WeChat PC Mini Games](publish-pc-wechatgame.md)
 - [Open Data Context](build-open-data-context.md)
+- [Mini Game Subpackage](subpackage.md)

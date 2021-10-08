@@ -1,18 +1,17 @@
 # Engine Customization Workflow
 
-The engine part of Cocos Creator 3.0 includes TypeScript, engine-native, and an adapter (adapter engine customization is not supported at this time). The engine is all open-source on GitHub. The addresses are as follows:
+The engine part of Cocos Creator 3.0 includes **TypeScript** and **engine-native**. The engine is all open-source on GitHub. The addresses are as follows:
 
 - [TypeScript engine](ttps://github.com/cocos-creator/engine/)
 - [engine-native engine](https://github.com/cocos-creator/engine-native/)
-- [Adapter](https://github.com/cocos-creator-packages/adapters)
 
-It is recommended to maintain custom code using the GitHub's Fork workflow. This workflow allows developers to easily update custom engine parts when the engine is upgraded in the future. This workflow is described in the [Fork a repo](https://help.github.com/articles/fork-a-repo) documentation. If you would like to help Cocos get better, feel free to submit changes to GitHub, see the [How to Submit Code to Cocos](../../submit-pr/submit-pr.md) documentation. For more GitHub-related workflows, please refer to the [GitHub Help](https://help.github.com).
+It is recommended to maintain custom code using the GitHub's Fork workflow. This workflow allows developers to easily update custom engine parts when the engine is upgraded in the future. This workflow is described in the [Fork a repo](https://help.github.com/articles/fork-a-repo) documentation. For more GitHub-related workflows, please refer to the [GitHub Help](https://help.github.com).
 
 Also, depending on the Creator version, developers may need to switch to a different engine branch, it is recommended to use the same branch that corresponds to the version of Creator being used.
 
 ## 1 Customize the TypeScript engine
 
-If you only need to customize the engine functionality of the web version of the game, or if you only need to modify the pure TypeScript layer logic (e.g. UI system, animation system), simply modify the TypeScript engine by following the procedure below:
+If you only need to customize the engine functionality of the web version of the game, or if you only need to modify the pure TypeScript layer logic (e.g.: UI system, animation system), simply modify the TypeScript engine by following the procedure below:
 
 ### 1.1 Get the TypeScript engine
 
@@ -93,3 +92,23 @@ Set the path to the **engine-native** engine to be customized via the **Engine M
 ### 2.4 Modify the Engine
 
 It is possible to customize the **engine-native** engine. Since the code is only compiled during the **build release** process, directly open the **Build** panel after modifying the engine and select the **link** template to build and compile.
+
+### 2.5 Customizing the native engine simulator
+
+To prevent the package from becoming too large, Creator excludes the native engine simulator related projects from the release, if it is necessary to use a custom native simulator, recompile it by following the steps below:
+
+1. Refer to the [CMake Official Documentation](https://cmake.org/install/) to install CMake and configure system environment variables.
+2. Compile the native simulator engine, which can be divided into TypeScript and C++:
+
+    - If the developer is customizing the **TypeScript** part, click **Developer -> Rebuild Native Engine** in the top menu bar of the editor after the customization is finished.
+
+    - If the developer is customizing the **C++** part, after the customization is completed, execute the following commands in the `engine-native` directory in order.
+
+        ```bash
+        # Install the dependent modules
+        npm install
+        # Generate native simulator-related files
+        gulp gen-simulator
+        ```
+
+        Once executed, a simulator project and simulator executable will be generated under the `engine-native/simulator` path, and the native simulator will be ready to run.

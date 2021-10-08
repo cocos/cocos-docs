@@ -4,7 +4,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 更多关于 BBCode 标签的内容，请参考本文档的 [BBCode 标签格式说明](#bbcode-标签格式) 小节。
 
-![richtext](richtext/richtext.png)
+![richtext](richText/richtext.png)
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Render/RichText** 即可添加 RichText 组件到节点上。
 
@@ -88,7 +88,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 由于富文本组件是由多个 Label 节点拼装而成，所以对于复杂的富文本，drawcall 数量也会比较高，因此引擎为富文本组件提供了 Label 组件的文本缓存类型设置，来适当减少 drawcall 的增加。对于每种缓存类型的具体说明，参照 [Label 组件的文本缓存类型](./label.md)
 
-| 属性 | 功能说明  |
+| 类型 | 功能说明  |
 | :------------- | :---------- |
 | NONE | 默认值，对富文本所拆分创建的每个 Label 节点，设置其 CacheMode 为 NONE 类型，即将每个 Label 的整段文本生成一张位图并单独进行渲染。 |
 | BITMAP | 选择后，对富文本所拆分创建的每个 Label 节点，设置其 CacheMode 为 BITMAP 类型，即将每个 Label 的整段文本生成一张位图，并将该位图添加到动态图集中，再依据动态图集进行合并渲染。 |

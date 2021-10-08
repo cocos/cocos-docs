@@ -16,7 +16,7 @@ Before using the **LabelAtlas** asset, it needs some configuration. Configure a 
 
 After selecting a **LabelAtlas** asset in the **Assets** panel, the **Inspector** panel will display all configurable properties for the **LabelAtlas** asset.
 
-| Properties       | Description
+| Property       | Description
 | :--------------   | :-----------
 | **SpriteFrame**      | Specify a pre-drawn picture that contains the font style you want
 | **Item Width**       | Specify the width of each character
@@ -29,4 +29,4 @@ When the configuration is complete, click the tick button at the top right of th
 
 ## Using LabelAtlas asset
 
-It's quite simple to use the **LabelAtlas** asset. Just setup a new Label component and drag the **LabelAtlas** asset to the **Font** attribute of the Label component. Please refer to the [Label Component](../ui-system/components/editor/label.md) documentation for details.
+It's quite simple to use the **LabelAtlas** asset. Just setup a new Label component and drag the **LabelAtlas** asset to the **font** property of the Label component. Please refer to the [Label Component](../ui-system/components/editor/label.md) documentation for details.

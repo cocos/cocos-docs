@@ -70,7 +70,8 @@ node.on('mouse-down', (event) => {
 
 ### 不同 Canvas 的触点归属问题
 
-不同 Canvas 之间的触点拦截是根据优先级决定的。在下图中的场景里，节点树里的 Canvas 1-5 对应图片显示的 priority 1-5。可以看出，即使 Canvas 节点 3、4、5 之间是按乱序排的，但是根据 Canvas 上的优先级（priority）关系，触点的响应先后顺序仍然是 **Canvas5 -> Canvas4 -> Canvas3 -> Canvas2 -> Canvas1**。只有在优先级相同的情况下， Canvas 之间的排序是按节点树的先后顺序进行。
+不同 Canvas 之间的触点拦截是根据优先级决定的。在下图中的场景里，节点树里的 Canvas 1-5 对应图片显示的 priority 1-5。可以看出，即使 Canvas 节点 3、4、5 之间是按乱序排的，但是根据 Canvas 上的优先级（priority）关系，触点的响应先后顺序仍然是 **Canvas5 -> Canvas4 -> Canvas3 -> Canvas2 -> Canvas1**。只有在优先级相同的情况下，Canvas 之间的排序是按节点树的先后顺序进行。
+
 ![multi-canvas](multi-canvas.png)
 
 ### 将触摸或鼠标事件注册在捕获阶段

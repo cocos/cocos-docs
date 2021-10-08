@@ -27,7 +27,7 @@ This can naturally support cross-version update, such as the local version is A,
 
 ## Hot update basic workflow
 
-After understand the basic design above, we can take a look at a typical hot update process. We use the manfiest description file to describe the asset file list and asset version that is stored locally or remotely. The manifest file definition is described later. The runtime environment assumes that the installer version is updated for the first time after the user has installed the app:
+After understanding the basic design above, take a look at a typical hot update process. Use the manifest description file to describe the asset file list and asset version that is stored locally or remotely. The manifest file definition is described later. The runtime environment assumes that the installer version is updated for the first time after the user has installed the app:
 
 ![asset manager](hot-update/assets-manager.png)
 
@@ -184,7 +184,7 @@ There are two reasons, the first is that the updated script requires a clean JS 
 
 2. Refresh of asset configuration
 
-    Creator's scenes and assets depend on the [Asset Bundle](https://docs.cocos.com/creator/3.0/manual/en/asset/bundle.html). That is, the game will not be able to load the new scenes and assets without the Asset Bundle being reloaded and parsed by [Asset Manager](https://docs.cocos.com/creator/3.0/manual/en/asset/asset-manager.html).
+    Creator's scenes and assets depend on the [Asset Bundle](../asset/bundle.md). That is, the game will not be able to load the new scenes and assets without the Asset Bundle being reloaded and parsed by [Asset Manager](../asset/asset-manager.md).
 
 Enabling new assets relies on the search path mechanism of the Cocos engine. All files in the Cocos are read by FileUtils, which finds files in the priority order of the search path. So we add the hot update cache directory to the search path and promote it so that the assets in the cache directory are searched first. Here is the code example:
 

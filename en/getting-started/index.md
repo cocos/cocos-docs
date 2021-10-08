@@ -12,9 +12,11 @@ After installing the editor, it is important to become familiar with it, includi
     - [Assets](../editor/assets/index.md)
     - [Inspector](../editor/inspector/index.md)
     - [Console](../editor/console/index.md)
-    - [Animation](../editor/animation/index.md)
+    - [Animation](../animation/index.md)
     - [Preferences](../editor/preferences/index.md)
     - [Project Settings](../editor/project/index.md)
+    - [Main Menu](../editor/mainMenu/index.md)
+    - [Tool Bar](../editor/toolbar/index.md)
     - [Editor Layout](../editor/editor-layout/index.md)
     - [Preview & Debugging](../editor/preview/index.md)
 

@@ -1,6 +1,6 @@
 # 示例：外部模块使用案例
 
-本章节通过案例讲解如何在 Cocos Creator 项目中使用 npm 包，如果不知道 npm 该如何获取，请查看 [如何获取 npm 包](./config.md)。
+本章节通过案例讲解如何在 Cocos Creator 项目中使用 npm 模块，如果不知道 npm 该如何获取，请查看 [获取 npm 包](./config.md)。
 
 ## ESM 与 CJS 交互规则
 
@@ -84,7 +84,7 @@ console.log(protobufjs);
 
 ![protobufjs-print-default](./example/protobufjs-print-default.png)
 
-可能有部分同学，在书写 `import protobufjs from 'protobufjs` 时就已经报红，提示模块没有默认导出（`has no default export`），这是因为 **CJS** 没有 `default` 导出，而 **ESM** 和 **CJS** 交互的时候是将 `module.exports` **视为** `export default`，并不是代表 **CJS** 模块具备真实默认导出。因此，如果要保持原来的写法，可以对 TypeScript 进行配置，具体请查看 [TypeScript 配置](#TypeScript-配置)。
+可能有部分同学，在书写 `import protobufjs from 'protobufjs'` 时就已经报红，提示模块没有默认导出（`has no default export`），这是因为 **CJS** 没有 `default` 导出，而 **ESM** 和 **CJS** 交互的时候是将 `module.exports` **视为** `export default`，并不是代表 **CJS** 模块具备真实默认导出。因此，如果要保持原来的写法，可以对 TypeScript 进行配置，具体请查看 [TypeScript 配置](#TypeScript-配置)。
 
 接下来，就可以直接使用 `protobufjs` 提供的所有模块了。当然，如果只需要特定子模块功能，例如 `light` 和 `minimal`，可以直接导入包中的子路径。
 
@@ -239,7 +239,7 @@ declare module "<包名>/dist/**.js" {
 }
 ```
 
-> **注意**：是不是每用一个包都得确认它是为谁而做？目前确实是的。这种情况正在改善，因为在新版的 Node 里， package.json 有加入一个很好的机制来告诉用户什么情况应该使用哪个版本。
+> **注意**：是不是每用一个包都得确认它是为谁而做？目前确实是的。这种情况正在改善，因为在新版的 Node 里，package.json 有加入一个很好的机制来告诉用户什么情况应该使用哪个版本。
 
 ### 特殊案例：firebase 使用
 

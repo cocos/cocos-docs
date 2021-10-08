@@ -36,6 +36,10 @@ The **Link** template does not copy the **Cocos2d-x** source-code to the `build`
 
 Currently, the Cocos Creator installation directory already includes Cocos2d-x source code engine in the `resources\3d\cocos2d-x-lite` folder. To customize the engine, please refer to the [Engine Customization Workflow](../../advanced-topics/engine-customization.md) documentation for details.
 
+#### Resource Server Address
+
+When the package is too large (in size), the resource can be uploaded to a resource server and downloaded via a network request. This option is used to fill in the address of the remote server where the resource is stored. The developer needs to manually upload the `remote` folder in the release package directory to the filled-in resource server address after the build. For more details, please refer to the [Uploading resources to a remote server](../../asset/cache-manager.md) documentation.
+
 #### Polyfills
 
 **Polyfills** is a new feature option supported by the script system. If this option is checked at build time, the resulting release package will have the corresponding **polyfills** in it, which means it will increase the size of the package. Developers can choose **polyfills** on demand, but only `Async Functions` are currently available, and more will be opened later.
@@ -62,7 +66,7 @@ The build options for the Android platform are as follows:
 
 #### Render BackEnd
 
-Currently, **VULKAN**, **GLES3** and **GLES3** are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
+Currently, [VULKAN](https://www.vulkan.org/), [GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) and [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
 
 #### Game Package Name
 
@@ -125,8 +129,6 @@ The build options for the **Windows** platform currently have only one **Render 
 
 The build options for the iOS platform include **Bundle Identifier**, **Orientation** and **Render BackEnd**. The setting of **Orientation** is the same as the Android platform.
 
-The build options for the iOS platform include x, y, and z. The setting of x is the same as **Screen Orientation** for the Android platform.
-
 ![iOS build options](publish-native/ios-options.png)
 
 #### Bundle Identifier
@@ -137,7 +139,7 @@ The package name, usually arranged in the reverse order of the product's website
 
 #### Render BackEnd
 
-Currently, **METAL** and **GLES3** are supported, and **GLES3** is checked by default. If more than one is checked at the same time, the rendering backend will be selected based on the actual support of the device at runtime.
+Currently, only **METAL** is supported for the Render BackEnd.
 
 ### Build Options for the Mac Platform
 
@@ -167,7 +169,7 @@ Next, you can continue to Make and run desktop previews through the Cocos Creato
 
 ## Make and Run
 
-Cocos Creator supports **Make** and **Run Preview** steps via the editor or the corresponding IDE for each platform (e.g. Xcode, Android Studio, Visual Studio).
+Cocos Creator supports **Make** and **Run Preview** steps via the editor or the corresponding IDE for each platform (e.g.: Xcode, Android Studio, Visual Studio).
 
 ### By the Editor
 
@@ -187,7 +189,7 @@ Once the **Make** process is complete, continue to click the **Run** button next
 
 Click the folder icon button in the bottom left corner of the **build task** window, the release path will be opened in the file manager of the operating system. The `proj` folder under the release package directory contains the native platform project of the current build.
 
-Next, open these generated native projects using the IDE corresponding to the native platform (e.g. Xcode, Android Studio, Visual Studio) and you can make further operations like compilation, preview and release.
+Next, open these generated native projects using the IDE corresponding to the native platform (e.g.: Xcode, Android Studio, Visual Studio) and you can make further operations like compilation, preview and release.
 
 - **Android**
 

@@ -10,18 +10,14 @@ Cocos Creator 内置了通用的动画系统用以实现基于关键帧的动画
 
 - [动画剪辑](animation-clip.md)（Animation Clip）：包含了动画数据的资源，可复用。动画剪辑可以通过 **动画编辑器** 产出，或者通过某些已经包含了骨骼动画的外部资源导入。
 
-    - [使用动画编辑器](animation.md)：了解动画编辑器的使用，通过动画编辑器创建/修改/生成动画剪辑资源。
-        - [创建 Animation 组件和动画剪辑](animation-create.md)
-        - [动画编辑器面板介绍](animation-editor.md)
-        - [编辑动画剪辑](edit-animation-clip.md)
-        - [编辑动画缓动曲线](animation-curve.md)
-        - [添加动画事件](animation-event.md)
-        - [使用动画曲线](use-animation-curve.md)
+- [动画组件参考](animation-comp.md)：动画组件可以以动画方式驱动所在节点和子节点上的节点/组件属性，包括用户自定义脚本中的属性。
 
-    - [骨骼动画](skeletal-animation.md)：常见但类型特殊的动画，本篇主要对其进行介绍及说明用法。
-        - [骨骼动画贴图布局设置](joint-texture-layout.md)
+- [使用动画编辑器](animation.md)：了解动画编辑器的使用，通过动画编辑器创建/修改/生成动画剪辑资源。
 
-- [动画组件](animation-component.md)：动画组件管理了一组动画状态，用于控制各动画的播放、暂停、继续、停止、切换等。
+- [骨骼动画](skeletal-animation.md)：常见但类型特殊的动画，本篇主要对其进行介绍及说明用法。
+
+- [使用脚本控制动画](animation-component.md)：动画组件管理了一组动画状态，用于控制各动画的播放、暂停、继续、停止、切换等。
+
     - [动画状态](animation-state.md)（Animation State）：动画剪辑的状态保存在称为动画状态的对象中，动画状态可以控制需要在对象上使用的动画剪辑。动画状态提供了更多动画控制接口，通过这些接口可以对动画进行播放、停止、变速、设置循环模式等更为细致的控制。
 
-Animation（动画）组件可以以动画方式驱动所在节点和子节点上的节点和组件属性，包括用户自定义脚本中的属性。根据这个特性，可以灵活实现各种动画需求。具体的动画实现依不同的动画需求，操作步骤以及代码实现也不同，具体可参考官方范例 **animation**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/animation) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/animation)），主要介绍一些常见的编辑操作方法以及代码范例，以供参考。
+具体的动画实现根据不同的动画需求，操作步骤以及代码实现都不同，可参考官方范例 **animation**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/animation) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/animation)），主要介绍一些常见的编辑操作方法以及代码范例，以供参考。

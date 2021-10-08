@@ -10,7 +10,7 @@ For more information, please refer to the [WebView API](__APIDOC__/en/classes/we
 
 ## WebView Properties
 
-| Properties | Function Explanation
+| Property | Function Explanation
 |:-------- | :----------- |
 | **URL** | A given URL to be loaded by the WebView, it should have a http or https prefix.
 | **WebView Events** | The webview's event callback, it will be triggered when certain webview event occurs.
@@ -99,12 +99,12 @@ export class WebViewCtrl extends Component {
         this.webview.node.on(WebView.EventType.LOADED, this.callback, this);
     }
 
-    callback (event) {
-       // The event here is an EventCustom object, and you can get the WebView component through event.detail
-        let videoplayer = event.detail;
-        // do whatever you want with webview
-        // Also, note that this way the registered event can not pass customEventData
+    callback (webview) {
+        // The 'webview' here is a WebView component object
+        // Do whatever you want with webview
+        // Also, note that this way the registered event can not pass 'customEventData'
     }
+
 }
 ```
 

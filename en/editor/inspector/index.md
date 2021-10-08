@@ -6,7 +6,7 @@ The **Inspector** panel is the work area for viewing and editing the currently s
 
 ## Panel overview
 
-![inspector](index/inspeactor-panel.png)
+![inspector](index/inspector-panel.png)
 
 The **Inspector** panel can be divided into two parts: **Toolbar** and **Property Settings**.
 
@@ -57,7 +57,7 @@ Clicking the **Add Component** button brings up a list of components, including 
 
 ![add-component](index/add-component.png)
 
-Developers' script in the **Assets** panel can be dragged and dropped directly into the **Inspector** panel to generate a script component, or added via **Add Component -> Custom Script**. The properties of a script component are declared by the script. Different types of properties have different control appearance and editing in the **Inspector** panel. We will add the properties in [Declare Properties](../../scripting/ccclass.md) section for details on how properties are defined.
+Developers' script in the **Assets** panel can be dragged and dropped directly into the **Inspector** panel to generate a script component, or added via **Add Component -> Custom Script**. The properties of a script component are declared by the script. Different types of properties have different control appearance and editing in the **Inspector** panel. We will add the properties in [Declare Properties](../../scripting/decorator.md) section for details on how properties are defined.
 
 ## Property types
 

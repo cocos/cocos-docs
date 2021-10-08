@@ -34,7 +34,7 @@ Some parameters of the console can be configured in **Preferences -> Console**, 
 
 ![preferences](index/preferences.png)
 
-## Custom output information
+## Custom output messages
 
 To make it easier to locate files, nodes or assets, or to provide links to jump to help documentation, etc., Cocos Creator supports custom output to the **console** log in **Developer -> Developer Tools** in the editor's main menu, which currently supports output of the following:
 

@@ -95,7 +95,7 @@ interface ProjectGroup {
  * The information needed to render a configuration
  **/ 
 interface UIInfo {
-    // Which ui element to use for rendering, e.g. "ui-num-input"
+    // Which ui element to use for rendering, e.g.: "ui-num-input"
     ui: string;
     attributes: {
         // The attribute data allowed to be passed on the ui element is different for each type of ui, see the ui-kit section for details

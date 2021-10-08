@@ -2,7 +2,7 @@
 
 EditBox 是一种文本输入组件，该组件让你可以轻松获取用户输入的文本。
 
-![editbox](editbox/editbox.png)
+![editbox](editBox/editbox.png)
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI/EditBox** 即可添加 EditBox 组件到节点上。
 
