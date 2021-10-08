@@ -8,11 +8,11 @@ The **Assets** panel is an important tool for accessing and managing assets, dev
 
 ## Assets Workflow
 
-- **Assets Workflow** - the general Assets workflow including importing assets, synchronizing assets, locating assets, etc. can be found in the [Assets Workflow](asset-workflow.md) documentation.
+The general Assets workflow including importing assets, synchronizing assets, locating assets, etc. can be found in the [Assets Workflow](asset-workflow.md) documentation.
 
 ## Common Assets type workflow
 
-Next we will introduce the main **Asset** types and related workflows in __Cocos Creator__:
+Next we will introduce the main **Asset** types in __Cocos Creator__:
 
 - [Scene Assets](scene.md)
 - [Image Assets](image.md)
@@ -25,27 +25,16 @@ Next we will introduce the main **Asset** types and related workflows in __Cocos
 - [Prefabricated Assets](prefab.md)
 - [Script Assets](script.md)
 - [Font Assets](font.md)
-- [Sound Assets](audio.md)
+- [Audio Assets](audio.md)
 - [Material Assets](material.md)
 - [Model Assets](./model/mesh.md)
     - [Export model assets from third-party tools](./model/dcc-export-mesh.md)
     - [glTF](./model/glTF.md)
-- [Animation Assets](anim.md)
+- [Animation Assets](../animation/animation-clip.md)
 - [Spine Skeletal Animation Assets](spine.md)
 - [DragonBones Skeletal Animation Assets](dragonbones.md)
 - [TiledMap Assets](tiledmap.md)
 
-## Asset Management Of Runtime
+## Asset Manager
 
-- [Asset Manager](asset-manager.md)
-    - [AssetManager Upgrade Guide](asset-manager-upgrade-guide.md)
-    - [Asset Bundle Upgrade Guide](subpackage-upgrade-guide.md)
-    - [Dynamic load asset](dynamic-load-resources.md) 
-    - [Asset Bundle](bundle.md)
-    - [Release Of Resources](release-manager.md)
-    - [Download and Parse](downloader-parser.md)
-    - [Loading and Preloading](preload-load.md)
-    - [Cache Manager](cache-manager.md)
-    - [Optional Parameters](options.md)
-    - [Pipeline and Task](pipeline-task.md)
-    - [Resource Management Considerations -- meta files](asset/meta.md)
+For the section about asset management at runtime, please refer to [Asset Manager](asset-manager.md).

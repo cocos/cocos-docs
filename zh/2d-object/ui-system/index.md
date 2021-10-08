@@ -14,8 +14,8 @@ UI 是游戏开发的必要交互部分，一般游戏上的按钮、文字、�
 
 > **注意**：
 >
-> - 在一个场景中可以存在多个 Canvas 节点，但是 Canvas 节点不应该嵌套在另一个 Canvas 节点或其子节点下。
-> - Canvas 组件并非和 camera 是一一对应关系，它们之前的渲染与否完全取决于 node 的 layer 和 camera 的 Visibility，在多 Canvas 的时候要格外注意 layer 管理以得到想要的渲染效果。
+> 1. 在一个场景中可以存在多个 Canvas 节点，但是 Canvas 节点不应该嵌套在另一个 Canvas 节点或其子节点下。
+> 2. Canvas 组件并非和 camera 是一一对应关系，它们之前的渲染与否完全取决于 node 的 layer 和 camera 的 Visibility，在多 Canvas 的时候要格外注意 layer 管理以得到想要的渲染效果。
 
 接下来就可以在 Canvas 节点下创建 UI 节点了。编辑器自带的 UI 节点有以下几种：
 
@@ -35,7 +35,7 @@ UI 渲染组件的先后顺序采用的是深度排序方案，也就是 Canvas 
 
 ## UI 组件
 
-UI 组件大部分自身不具有渲染能力，但持有了 2D 渲染组件用于渲染，其本身更多拥有着快速构成用户交互界面的能力，承担着事件响应，排版适配等功能，各 UI 组件具体说明请参考 [UI 组件](../../ui-system/components/editor/base-component.md)。
+UI 组件大部分自身不具有渲染能力，但持有了 2D 渲染组件用于渲染，其本身更多拥有着快速构成用户交互界面的能力，承担着事件响应，排版适配等功能。各 UI 组件具体说明请参考 [UI 组件](../../ui-system/components/editor/base-component.md)。
 
 ## UI 实践指南
 

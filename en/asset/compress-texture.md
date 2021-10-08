@@ -1,4 +1,4 @@
-# Compress texture
+# Texture Compression
 
 **Cocos Creator** can set the compression method required for textures directly in the editor, and then automatically compress the textures when the project is released. Multiple image formats can be exported at the same time, and the engine will automatically download the appropriate format according to different devices.
 

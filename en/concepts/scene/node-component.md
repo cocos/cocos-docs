@@ -22,7 +22,7 @@ The quickest way to get a node with a specific function is to use the **Create N
 
 ![create](scene/create.png)
 
-Notice the newly added Sphere node in the **Scene** and **Hierarchy** panel. The new node is named `Sphere` by default, indicating that it is a node whose functionality is primarily provided by the **Sphere** component. Try clicking the **Create Node** button again to select another node type and see that they will be named and behave differently. Also, note that creating a UI node automatically creates a Canvas node as the root node of the UI node, as described in the document [UI Structure Description](../../ui-system/components/engine/index.md).
+Notice the newly added Sphere node in the **Scene** and **Hierarchy** panel. The new node is named `Sphere` by default, indicating that it is a node whose functionality is primarily provided by the **Sphere** component. Try clicking the **Create Node** button again to select another node type and see that they will be named and behave differently. Also, note that creating a UI node automatically creates a Canvas node as the root node of the UI node, as described in the document [UI Structure Description](../../2d-object/ui-system/index.md).
 
 For more information about the operations of single-select, multi-select, copy, delete, etc. of nodes in the **Hierarchy** panel, please refer to the [Hierarchy Panel](../../editor/hierarchy/index.md) documentation.
 

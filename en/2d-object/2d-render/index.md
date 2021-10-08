@@ -1,4 +1,4 @@
-# 2D Rendering Component Description
+# 2D Render Description
 
 All rendering objects in the engine that do not own a model are 2D rendering objects. Unlike 3D objects, 2D objects do not have model information, and their vertex information is held by the Rect information of the UITransform component and created by the engine, and they have no thickness themselves. Due to the design requirements of the engine, the 2D render object needs to be a child of the RenderRoot node (the node with the RenderRoot2D component) in order to complete the data collection operation.
 
@@ -24,10 +24,11 @@ Components that have rendering capabilities in their own right are called 2D ren
 - [TiledTile Component Reference](../../editor/components/tiledtile.md)
 - [Spine (Skeletal Animation) Skeleton Component Reference](../../editor/components/spine.md)
 - [DragonBones ArmatureDisplay Component Reference](../../editor/components/dragonbones.md)
+- [MotionStreak Component Reference](../../editor/components/motion-streak.md)
 
 ## How to add 2D Rendering Components
 
-Some 2D rendering components are built into the editor. After creating a RenderRoot node, create a node with 2D rendering components under this node: 
+Some 2D rendering components are built into the editor. After creating a RenderRoot node, create a node with 2D rendering components under this node:
 
 ![create-2d](./create-2d.png)
 
@@ -35,7 +36,9 @@ Some 2D rendering components are built into the editor. After creating a RenderR
 
 ![add-render-component](./add-render-component.png)
 
-## 2D render component rules introduction
+> **Note**: only one rendering component can be added to each node, and repeated additions will result in error reporting.
+
+## 2D rendering component rules introduction
 
 - [Rendering Order Rules](../../ui-system/components/engine/priority.md)
 - [UI Batching Rule Description](../../ui-system/components/engine/ui-batch.md)

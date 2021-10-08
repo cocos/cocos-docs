@@ -1,4 +1,4 @@
-# MotionStreak component reference
+# MotionStreak Component Reference
 
 MotionStreak is used to implement a streak effect on the motion track of a game object.
 

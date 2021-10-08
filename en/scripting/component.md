@@ -1,4 +1,4 @@
-# Components and component execution order
+# Components and Component Execution Order
 
 All classes inherited from [Component](__APIDOC__/en/classes/component.component-1.html) are called __Component Classes__. The objects in a __Component Class__ are called __Components__. __Components__ are implement according to the __Cocos Creator__ __Entity Component (EC)__ system.
 

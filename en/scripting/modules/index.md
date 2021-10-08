@@ -1,11 +1,23 @@
-# Modules
+# Module Specifications and Examples
 
-Modules are used to organize code. This section begins with a description of the modules that may be involved in the development process Cocos Creator editor.
+All code files can be roughly divided into **Plugin Script** and **Module** two kinds, this section mainly introduces the module related.
 
-- [Engine Module](./engine.md)
+Modules are a way of organizing TypeScript/JavaScript code, and code organized in modules is also informally known as **scripts** or **project scripts**. In Cocos Creator, all code except plugin scripts is organized in modules, which are roughly divided into the following kinds, depending on their source:
 
-- [How to get npm Packages](./config.md)
+- Code created in the project, including component scripts and project (non-component) scripts.
 
-- [Example: External Module Usage Case](./example.md)
+- Functionality provided by the engine, please refer to [Engine Modules](./engine.md) for details.
 
-Finally, this section gives a more detailed [Specification](./spec.md) for using modules in Cocos Creator.
+- Third-party modules, such as the `npm` module. See [External Module Usage Case](./example.md) for details.
+
+Cocos Creator natively supports and recommends the use of the ECMAScript (ESM for short) module format. To support the use of external modules, Cocos Creator also supports the CommonJS module format to some extent. For more information about the module format and usage in Cocos Creator, please refer to [Module Specification](./spec.md).
+
+## Module Loading Order
+
+The modules are loaded in the following order:
+
+1. First import of the [engine module](./engine.md) `"cc"` of Cocos Creator 3.x.
+
+2. Plugin scripts: all plugin scripts will be executed in the order of the specified plugin script dependencies, there is disorder between plugin scripts that do not have dependencies. Please refer to the [Plugin Scripts](../external-scripts.md) documentation for details.
+
+3. Common scripts: all common scripts will be imported concurrently, and the import will strictly follow the reference relationships and execution order determined by `import`.

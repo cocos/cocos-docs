@@ -4,7 +4,7 @@
 
 ## 事件使用
 
-事件需要通过注册获取监听。Cocos Creator 内置事件监听的方式包括以下两种：
+事件需要通过注册获取监听。Cocos Creator 内置事件监听的方式包括：
 
 - [节点系统事件](event-builtin.md)
 - [全局系统事件](event-input.md)

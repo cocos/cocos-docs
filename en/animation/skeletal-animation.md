@@ -75,7 +75,7 @@ The fundamental problem here is that each model within the same drawcall must us
 
 ## Skinned Mesh Batch Renderer
 
-Currently, the joint textures uploaded to GPU on the bottom layer has been automatically batched and reused globally, and the upper layer data can now be combined by using the **SkinnedMeshBatchRenderer** component to merge all sub-masked models controlled by the same skeletal animation component:
+Currently, the joint textures uploaded to GPU on the bottom layer has been automatically batched and reused globally, and the upper layer data can now be combined by using the **SkinnedMeshBatchRenderer** component to merge all sub-skinned models controlled by the same skeletal animation component:
 
 ![batched-skinning-model](./animation/batched-skinning-model-component.png)
 
