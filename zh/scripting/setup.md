@@ -35,7 +35,7 @@ export class SayHello extends Component {
 }
 ```
 
-> **注意**：我们更推荐用户使用 TypeScript 来编写脚本，但如果用户想要使用 JavaScript 来编写脚本的话，可以直接在操作系统的文件夹中创建 JavaScript 文件，也可以在代码编辑器中创建 JavaScript 文件。
+> **注意**：我们更推荐用户使用 TypeScript 来编写脚本，目前 **资源管理器** 中仅支持创建 TypeScript 文件。但如果用户想要使用 JavaScript 来编写脚本的话，可以直接在操作系统的文件夹中创建 JavaScript 文件，也可以在代码编辑器中创建 JavaScript 文件。
 
 ## 编辑脚本
 

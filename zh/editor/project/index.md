@@ -47,7 +47,7 @@
 
 ### 渲染管线
 
-渲染管线用于控制场景的渲染流程，目前仅支持 [builtin-forward](../../render-pipeline/builtin-pipeline.md)（向前渲染管线）。开发者也可以自定义渲染管线，详情请参考 [自定义渲染管线](../../render-pipeline/user-pipeline.md)。
+渲染管线用于控制场景的渲染流程，目前仅支持 [builtin-forward](../../render-pipeline/builtin-pipeline.md)（前向渲染管线），详情请参考 [内置渲染管线](../../render-pipeline/builtin-pipeline.md)。
 
 ## Layers
 
@@ -125,7 +125,7 @@
 
 ### 修改压缩纹理预设名称
 
-压缩纹理预设的名称仅仅是作为显示使用，在添加压缩纹理预设时，就会随机生成 uuid 作为该预设的 ID，因而直接修改预设名称并不会影响图片资源处对预设的引用。
+压缩纹理预设的名称仅仅是作为显示使用，在添加压缩纹理预设时，就会随机生成 UUID 作为该预设的 ID，因而直接修改预设名称并不会影响图片资源处对预设的引用。
 
 ![edit](./texture-compress/edit.png)
 

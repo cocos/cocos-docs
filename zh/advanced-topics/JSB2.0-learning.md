@@ -176,7 +176,7 @@ SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_coco
 
 `se::Object` 中提供了 `root`/`unroot` 方法供开发者调用，`root` 会把 JS 对象放入到不受 GC 扫描到的区域，调用 `root` 后，`se::Object` 就强引用了 JS 对象，只有当 `unroot` 被调用，或者 `se::Object` 被释放后，JS 对象才会放回到受 GC 扫描到的区域。
 
-一般情况下，如果对象是非 `cocos2d::Ref` 的子类，会采用 CPP 对象控制 JS 对象的生命周期的方式去绑定。引擎内 Spine, Dragonbones, Box2d 等第三方库的绑定就是采用此方式。当 CPP 对象被释放的时候，需要在 `NativePtrToObjectMap` 中查找对应的 `se::Object`，然后手动 `unroot` 和 `decRef`。以 Spine 中 `spTrackEntry` 的绑定为例：
+一般情况下，如果对象是非 `cocos2d::Ref` 的子类，会采用 CPP 对象控制 JS 对象的生命周期的方式去绑定。引擎内 Spine, DragonBones, Box2d 等第三方库的绑定就是采用此方式。当 CPP 对象被释放的时候，需要在 `NativePtrToObjectMap` 中查找对应的 `se::Object`，然后手动 `unroot` 和 `decRef`。以 Spine 中 `spTrackEntry` 的绑定为例：
 
 ```c++
 spTrackEntry_setDisposeCallback([](spTrackEntry* entry) {

@@ -11,7 +11,7 @@ Also, depending on the Creator version, developers may need to switch to a diffe
 
 ## 1 Customize the TypeScript engine
 
-If you only need to customize the engine functionality of the web version of the game, or if you only need to modify the pure TypeScript layer logic (e.g. UI system, animation system), simply modify the TypeScript engine by following the procedure below:
+If you only need to customize the engine functionality of the web version of the game, or if you only need to modify the pure TypeScript layer logic (e.g.: UI system, animation system), simply modify the TypeScript engine by following the procedure below:
 
 ### 1.1 Get the TypeScript engine
 
@@ -92,3 +92,23 @@ Set the path to the **engine-native** engine to be customized via the **Engine M
 ### 2.4 Modify the Engine
 
 It is possible to customize the **engine-native** engine. Since the code is only compiled during the **build release** process, directly open the **Build** panel after modifying the engine and select the **link** template to build and compile.
+
+### 2.5 Customizing the native engine simulator
+
+To prevent the package from becoming too large, Creator excludes the native engine simulator related projects from the release, if it is necessary to use a custom native simulator, recompile it by following the steps below:
+
+1. Refer to the [CMake Official Documentation](https://cmake.org/install/) to install CMake and configure system environment variables.
+2. Compile the native simulator engine, which can be divided into TypeScript and C++:
+
+    - If the developer is customizing the **TypeScript** part, click **Developer -> Rebuild Native Engine** in the top menu bar of the editor after the customization is finished.
+
+    - If the developer is customizing the **C++** part, after the customization is completed, execute the following commands in the `engine-native` directory in order.
+
+        ```bash
+        # Install the dependent modules
+        npm install
+        # Generate native simulator-related files
+        gulp gen-simulator
+        ```
+
+        Once executed, a simulator project and simulator executable will be generated under the `engine-native/simulator` path, and the native simulator will be ready to run.

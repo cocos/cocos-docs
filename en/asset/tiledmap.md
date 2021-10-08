@@ -1,6 +1,12 @@
 # TiledMap Assets
 
-The **TiledMap** asset is a data format exported by [Tiled Editor](https://www.mapeditor.org/) (Tiled v1.6.0 is supported by Cocos Creator 3.0).
+The **TiledMap** asset is a data format exported by [Tiled Editor](https://www.mapeditor.org/).
+
+| Creator Version | Tiled Version |
+| :---------- | :-------- |
+| v3.0 and above | v1.4   |
+| v2.2 and above | v1.2.0 |
+| v2.1 and below | v1.0.0 |
 
 ## Importing Map Assets
 

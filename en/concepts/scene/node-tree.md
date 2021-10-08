@@ -14,7 +14,7 @@ Using a simple game scenario demonstrates what a node tree is. The following pic
 
 ![rolling-ball](node-tree/rolling-ball.png)
 
-Each visual element is a node. Usually all nodes are not laid flat on the scene, but rather, organized into a node tree according to a certain classification and order (e.g. according to our own preferences). Example:
+Each visual element is a node. Usually all nodes are not laid flat on the scene, but rather, organized into a node tree according to a certain classification and order (e.g.: according to our own preferences). Example:
 
 ![node-tree](node-tree/node-tree.png)
 
