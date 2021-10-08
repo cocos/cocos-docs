@@ -51,7 +51,6 @@
         - [艺术数字资源](asset/label-atlas.md)
     - [预制资源](asset/prefab.md)
     - [字体资源](asset/font.md)
-    - [声音资源](asset/audio.md)
     - [材质资源](asset/material.md)
     - [模型资源](asset/model/mesh.md)
         - [从第三方工具导出模型资源](asset/model/dcc-export-mesh.md)
@@ -214,8 +213,11 @@
     - [使用脚本控制动画](animation/animation-component.md)
         - [动画状态](animation/animation-state.md)
 
-- [音频系统](audio-system/overview.md)
-    - [AudioSource 组件](audio-system/audiosource.md)
+- [声音系统](audio-system/overview.md)
+    - [音频文件](audio-system/audioFile.md)
+    - [音频组件参考](audio-system/audiosource.md)
+    - [音频播放示例](audio-system/audioExample.md)
+    - [兼容性说明](audio-system/audioLimit.md)
 
 - [物理系统](physics/index.md)
     - [2D 物理](physics-2d/physics-2d.md)
