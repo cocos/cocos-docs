@@ -72,7 +72,10 @@ Next, set the properties of the **Directional Light** component, e.g.: adjust th
 
 ![button property](scene/directional-light.png)
 
-> **Note**: this is just a brief example of a more obvious effect. It is not recommended to add a **DirectionalLight** component to a sphere node.
+> **Notes**:
+>
+> 1. This is just a brief example of a more obvious effect. It is not recommended to add a **DirectionalLight** component to a sphere node.
+> 2. That only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
 
 ## Setting the visibility of nodes
 
@@ -88,6 +91,4 @@ The `Layer` property of a node is global and unique, but different nodes can set
 
 ![node layer edit](scene/node-layer-edit.png)
 
-For more information about Components as well as other types of Components, please refer to the [Components](../../editor/components/index.md) documentation.
-
-> **Note**: that only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
+Where `User Layer 0` - `User Layer 19` are layer properties provided for user-defined settings, the user only needs to fill in the custom layer name after the layer to enable this layer property and edit it on the node.

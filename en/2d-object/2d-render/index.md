@@ -41,5 +41,5 @@ Some 2D rendering components are built into the editor. After creating a RenderR
 ## 2D rendering component rules introduction
 
 - [Rendering Order Rules](../../ui-system/components/engine/priority.md)
-- [UI Batching Rule Description](../../ui-system/components/engine/ui-batch.md)
-- [UI Material Description](../../ui-system/components/engine/ui-material.md)
+- [2D Rendering Component Batching Rules](../../ui-system/components/engine/ui-batch.md)
+- [Custom Materials for 2D Rendering Objects](../../ui-system/components/engine/ui-material.md)

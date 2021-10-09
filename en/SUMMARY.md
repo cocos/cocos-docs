@@ -274,7 +274,7 @@
 
 ## Advanced Tutorials
 
-- [Extending the Editor](editor/extension/readme.md)
+- [Editor Extension](editor/extension/readme.md)
     - [First Extension](editor/extension/first.md)
     - [First Panel](editor/extension/first-panel.md)
     - [First Data Interaction](editor/extension/first-communication.md)
@@ -283,9 +283,11 @@
     - [Extension Panel](editor/extension/panel.md)
         - [Compose Panel](editor/extension/panel-boot.md)
         - [Panel Message](editor/extension/panel-messages.md)
+        - [Communicate with the Panel](editor/extension/to-panel-messages.md)
     - [Contributions](editor/extension/contributions.md)
         - [Message](editor/extension/contributions-messages.md)
         - [Shortcuts](editor/extension/contributions-shortcuts.md)
+        - [Call the engine API and project script](editor/extension/scene-script.md)
         - [Extending the Main Menu](editor/extension/contributions-menu.md)
         - [Extending the Assets Panel](editor/assets/extension.md)
         - [Extending the Project Settings Panel](editor/extension/contributions-project.md)
@@ -301,8 +303,7 @@
     - [AssetManager for Hot Update](advanced-topics/hot-update-manager.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
-    - [Render Pipeline](render-pipeline/overview.md)
-        - [Built-in Pipeline](render-pipeline/builtin-pipeline.md)
+    - [Web Preview Customization Workflow](editor/preview/browser.md)
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
     - [JavaScript to Java Reflection](advanced-topics/java-reflection.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/oc-reflection.md)

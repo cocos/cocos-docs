@@ -88,7 +88,6 @@
         - [外部模块使用案例](scripting/modules/example.md)
         - [模块规范](scripting/modules/spec.md)
     - [插件脚本](scripting/external-scripts.md)
-    - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
 
 - [跨平台发布](editor/publish/index.md)
     - [熟悉构建发布面板](editor/publish/build-panel.md)
@@ -142,7 +141,7 @@
     - [材质系统](material-system/overview.md)
         - [YAML 101](material-system/yaml-101.md)
         - [Effect Syntax](material-system/effect-syntax.md)
-        - [Pass P arams](material-system/pass-parameter-list.md)
+        - [Pass Params](material-system/pass-parameter-list.md)
         - [Builtin Shader Uniforms](material-system/builtin-shader-uniforms.md)
     - [特效组件](module-map/effects/index.md)
         - [广告牌](particle-system/billboard-component.md)
@@ -304,6 +303,7 @@
         - [UI 组件](editor/extension/ui.md)
 
 - [进阶主题](advanced-topics/index.md)
+    - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
     - [热更新范例教程](advanced-topics/hot-update.md)
     - [热更新管理器](advanced-topics/hot-update-manager.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)

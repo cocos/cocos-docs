@@ -37,4 +37,4 @@ Next we will introduce the main **Asset** types in __Cocos Creator__:
 
 ## Asset Manager
 
-For the section about asset management at runtime, please refer to [Asset Manager](asset-manager.md).
+For the section about asset management at runtime, please refer to the [Asset Manager](asset-manager.md) documentation.

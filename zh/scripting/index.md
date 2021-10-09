@@ -19,4 +19,3 @@ Cocos Creator 脚本用于实现用户定义的（游戏）行为，支持 JavaS
 - [添加引擎内 Log 信息](./log.md)
 - [废弃 API](./deprecated.md)
 - [推荐编码规范](./reference/coding-standards.md)
-- [如何向 Cocos 提交代码](../submit-pr/submit-pr.md)

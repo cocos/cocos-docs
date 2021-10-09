@@ -6,11 +6,11 @@ Modules are a way of organizing TypeScript/JavaScript code, and code organized i
 
 - Code created in the project, including component scripts and project (non-component) scripts.
 
-- Functionality provided by the engine, please refer to [Engine Modules](./engine.md) for details.
+- Functionality provided by the engine, please refer to the [Engine Modules](./engine.md) for details.
 
-- Third-party modules, such as the `npm` module. See [External Module Usage Case](./example.md) for details.
+- Third-party modules, such as the `npm` module. Please review the [External Module Usage Case](./example.md) documentation for details.
 
-Cocos Creator natively supports and recommends the use of the ECMAScript (ESM for short) module format. To support the use of external modules, Cocos Creator also supports the CommonJS module format to some extent. For more information about the module format and usage in Cocos Creator, please refer to [Module Specification](./spec.md).
+Cocos Creator natively supports and recommends the use of the ECMAScript (ESM for short) module format. To support the use of external modules, Cocos Creator also supports the CommonJS module format to some extent. For additional information about the module format and usage in Cocos Creator, please refer to the [Module Specification](./spec.md) documentation.
 
 ## Module Loading Order
 
