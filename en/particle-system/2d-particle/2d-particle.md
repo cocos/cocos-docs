@@ -34,7 +34,7 @@ For the script interface of ParticleSystem2D, please refer to [ParticleSystem AP
 | StartSpin          | The initial spin angle and range of particles.
 | EndSpin            | The end spin angle and size of particles.
 | PosVar             | The range of the emitter position (horizontal and vertical).
-| PositionType       | The type of particle position, including **FREE**, **RELATIVE**, **GROUPED**. For details, please refer to [PositionType API](__APIDOC__/zh/classes/particle2d.particlesystem2d.html#positiontype).
+| PositionType       | The type of particle position, including **FREE**, **RELATIVE**, **GROUPED**. For details, please refer to [PositionType API](__APIDOC__/en/classes/particle2d.particlesystem2d.html#positiontype).
 | EmitterMode        | The type of the emitter, including **GRAVITY**, **RADIUS**. For details, please refer to [EmitterMode API](__APIDOC__/zh/classes/particle2d.articlesystem2d.html#emittermode-1).
 | Gravity            | Gravity. Only works when Emitter Mode is set to **GRAVITY**.
 | Speed              | The speed and range. Only effective when Emitter Mode is set to **GRAVITY**.
@@ -45,4 +45,4 @@ For the script interface of ParticleSystem2D, please refer to [ParticleSystem AP
 | EndRadius          | The end radius and range. Valid only when Emitter Mode is set to **RADIUS**.
 | RotatePerS         | The rotation angle and range of particles around the initial point per second. Only effective when Emitter Mode is set to **RADIUS**.
 
-For more specific usage, please refer to the official example [ui/25.particle](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/25.particle).
+For more specific usage, please refer to the official [ui/25.particle](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/25.particle) example.
