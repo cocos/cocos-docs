@@ -12,7 +12,7 @@ The hot update mechanism essentially downloads the required assets from the serv
 2. The browser requests a web page to cache its content locally
 3. When the browser re-request this page, it will query the version on server version by the last modified time (Last-Modified) or unique identification (Etag). If these two value are different, then download a new file to update the local cache, if not, continue to use the cache.
 
-The browser cache mechanism is more complex than the above description, but we can use similar basic idea. For game assets, it is possibl to keep a copy of complete assets on the asset server. The client compare the version list with the server during updates, and download the different files and replace the cache. For the rest continues to use the client version or the cached file. So here's what we need to update the game:
+The browser cache mechanism is more complex than the above description, but we can use similar basic idea. For game assets, it is possible to keep a copy of complete assets on the asset server. The client compare the version list with the server during updates, and download the different files and replace the cache. For the rest continues to use the client version or the cached file. So here's what we need to update the game:
 
 1. The server keeps the latest version of all the game assets (the developer can update the server at any time)
 2. The client sends request to get the asset different file list compare to server version
