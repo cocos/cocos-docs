@@ -138,7 +138,7 @@ assetManager.loadAny({'path': 'test'}, {preset: 'mypreset'}, callback);
 
 ## Custom handlers
 
-Both the downloader and the parser have a registration table. When you use `downloader` or `parser`, the downloader and parser will look for the corresponding download and parsing methods in the registry based on the incoming suffix name, and pass the parameters into the corresponding handler, inorder to extend the engine by registering the custom handlers when you need to add a custom format to your project, or modify the handlers of the current format. Both the downloader and the parser provide `register` interfaces for registration handlers, which are used as follows:
+Both the downloader and the parser have a registration table. When you use `downloader` or `parser`, the downloader and parser will look for the corresponding download and parsing methods in the registry based on the incoming suffix name, and pass the parameters into the corresponding handler, in order to extend the engine by registering the custom handlers when you need to add a custom format to your project, or modify the handlers of the current format. Both the downloader and the parser provide `register` interfaces for registration handlers, which are used as follows:
 
 ```typescript
 assetManager.downloader.register('.myformat', function (url, options, callback) {
