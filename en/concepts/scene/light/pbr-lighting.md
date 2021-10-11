@@ -10,7 +10,7 @@ The physically based lighting matches the description of lights in the real worl
 
 ![light bulb size](pbrlighting/light-bulb.jpg)
 
-The product packaging states many important industrial parameters of a bulb
+The product packaging states many important industrial parameters of a bulb:
 - **Luminous Flux**
 - **Color Temperature**
 - **Size**
