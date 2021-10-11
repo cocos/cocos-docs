@@ -21,8 +21,10 @@ Recently opened projects can be quickly accessed through the **Project** tab. Th
 
 ![Dashboard](index/project-window.png)
 
-- **1** - Includes **Open with another editor**, **Open folder**, **Remove from list**, **Select the icon of the project**, and **Rename the project** (the last two of these features are new in Dashboard version 1.0.12).
-    - **Select the icon of the project**: Project icons currently support bmp, png, gif, and jpg formats.
+- **1** - Includes **Open with another editor**, **Open folder**, **Remove from list**, **Select the icon of the project**, **Set the description of project**, and **Rename the project**.
+    - **Select the icon of the project**: Project icons currently support bmp, png, gif, and jpg formats (new in Dashboard version 1.0.12).
+    - **Rename the project**: Renaming the project will rename the project folder (new in Dashboard version 1.0.12)。
+    - **Set the description of project**: The project remarks are recorded in the description field of "package.json" in the project directory (new in Dashboard version 1.0.19).
 - **2** - Other versions of the editor can be selected to open the project.
 - **3** - Sort projects by time in forward/reverse order (new in version 1.0.12).
 - **4** - Search projects directly by project name (new in version 1.0.12).
