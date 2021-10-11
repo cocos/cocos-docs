@@ -26,9 +26,9 @@ To enable the shadow effect for an object, proceed as follows:
 
 The types of shadows can be set in the **Type** property of the **Shadows** component.
 
-### Planar Shadow
+### Planar Shadows
 
-The Planar shadow is generally used for simpler scenes.
+The planar shadows are generally used for simpler scenes.
 
 ![planar-properties](shadow/plannar-properties.png)
 
@@ -46,7 +46,7 @@ Adjust the direction of the directional light to adjust the position of shadows.
 
 ### ShadowMap
 
-ShadowMap renders the scene with the lights as the viewpoint. From the position of the lights, the places in the scene that are not visible are where shadowss are created.
+ShadowMap renders the scene with the lights as the viewpoint. From the position of the lights, the places in the scene that are not visible are where shadows are created.
 
 ![shadow map panel details](shadow/shadowmap-properties.png)
 

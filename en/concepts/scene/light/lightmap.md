@@ -35,7 +35,7 @@ The description of each property on the **Scene** page is as follows:
 
 ## Generating lightmaps
 
-1. Select the node with light component in the **Hierarchy** panel, then set the **StaticSettings** of the light component in the **Inspector** panel, and check the `Bakeable` property (currently multiple [Directional Lights](./lightType/dir-light.md) are not supported).
+1. Select the node with the light component in the **Hierarchy** panel, then set the **StaticSettings** of the light component in the **Inspector** panel, and check the `Bakeable` property (currently multiple [Directional Lights](./lightType/dir-light.md) are not supported).
 
     ![enable lightbake](./lightmap/light-bakeable.png)
 

@@ -30,7 +30,7 @@ The third rendering is the lighting of **Spotlight 2**:
 
 ![ForwardAdd pass](additivelights/pass3.png)
 
-This type of rendering is the **Forward-Pipeline** that supports multiple lighting models, and **Forward** generally consists of two `Passes`:
+This type of rendering is the **Forward-Pipeline** that supports multiple lighting models, and **Forward** generally consists of two `Pass`:
 
 - The first `Pass` is **BasePass**, which is used to render the lighting of Directional Light.
 
