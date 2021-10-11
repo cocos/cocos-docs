@@ -181,7 +181,18 @@ This option currently uses the **METAL** rendering backend by default, see the o
 
 ### Version Support
 
-Creator 3.0 supports C++14 by default, and C++17 since v3.1. But since C++17 is only supported in iOS 12+, we dropped it back to C++14 in v3.3.2 to support iOS 10.0.
+The minimum version of each functional module is supported in the native platform as follows:
+
+| Function Module | Android | iOS |
+| :-- | :--- | :-- |
+| VULKAN Render BackEnd | API Level 24（7.0）| - |
+| Google Play Instant | API Level 23（6.0）| - |
+| TBB Job System | API Level 21（5.0）| 10.0 |
+| TaskFlow Job System | API Level 18（4.3）| 12.0 |
+| Forward Render Pipeline | API Level 21（5.0）| 10.0 |
+
+Creator 3.0 supports C++14. v3.1 is upgraded to C++17 since v3.1 supports the TaskFlow Job System, which relies on C++17.<br>
+However, since C++17 is only supported in iOS 12+, we dropped it back to C++14 in v3.3.2 in order to support iOS 10.0. Note that in v3.3.2, if TaskFlow Job System in used, C++17 will be automatically enabled to support compilation.
 
 Correspondingly, the minimum version support for each version of Creator on native platforms is as follows:
 
@@ -194,18 +205,6 @@ The highest version is supported as follows:
 
 - Android: API Level 31（12.x）
 - iOS: 15.x
-
-The minimum version of each functional module is supported in the native platform as follows:
-
-| Function Module | Android | iOS |
-| :-- | :--- | :-- |
-| VULKAN Render BackEnd | API Level 24（7.0）| - |
-| Google Play Instant | API Level 23（6.0）| - |
-| TBB Job System | API Level 21（5.0）| 10.0 |
-| TaskFlow Job System | API Level 18（4.3）| 12.0 |
-| Forward Render Pipeline | API Level 21（5.0）| 10.0 |
-
-> **Note**: In v3.3.2, if TaskFlow Job System is used, C++17 will be automatically enabled to support compilation.
 
 ## Build a Native Project
 
