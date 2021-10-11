@@ -7,13 +7,12 @@
 ## 特别推荐
 
 - 从 v2.4.2 开始，Cocos Creator 支持发布到 [字节跳动小游戏](publish/publish-bytedance.md)。
-- 从 v2.4.1 开始，Cocos Creator 支持发布到 [HUAWEI AppGallery Connect](publish/publish-huawei-agc.md) 和 [连尚小游戏](publish/publish-linksure.md)。
+- 从 v2.4.1 开始，Cocos Creator 支持发布到 [HUAWEI AppGallery Connect](publish/publish-huawei-agc.md)。
 - 从 v2.4.0 开始，Cocos Creator 重写了资源管理模块，兼容了大部分原有的 API。除个别项目使用了无法兼容的特殊用法的 API 必须手动升级外，大部分项目都可以照常运行。建议开发者都升级到最新的资源管理模块。详情请查阅 [v2.4 资源管理模块升级指南](release-notes/asset-manager-upgrade-guide.md) 和 [v2.4 资源分包升级指南](release-notes/subpackage-upgrade-guide.md)。
 - 从 v2.4.0 开始，Cocos Creator 正式支持了 Asset Bundle，提供了更强大的远程资源加载能力、子项目动态加载能力，并进一步减小了首包的大小。详情请查阅 [Asset Bundle](scripting/asset-bundle.md)。
 - 从 v2.4.0 开始，编辑器的构建流程将以 Asset Bundle 为单元。如果开发者在 v2.4 之前有在编辑器中使用插件扩展了构建流程，则需要对部分 API 的使用进行升级。详情请查阅 [定制构建流程升级指南](release-notes/build-extend-upgrade-guide.md)。
 - 从 v2.3.4 开始，Cocos Creator 新增了对 [腾讯云服务](cocos-service/tcb.md) 的支持。
 - 从 v2.3.0 开始，Cocos Creator 新增了对 [3D 物理与碰撞系统](physics-3d/index.md)、[3D 粒子](3d/particle-system-3d.md) 的支持，同时 [材质系统](render/index.md) 也升级到了正式版。
-- 从 v2.3.0 开始，Cocos Creator 支持发布到 [趣头条小游戏](publish/publish-qutoutiao-mini-games.md)。
 - [Spine 换装指南](components/spine.md#spine-%E6%8D%A2%E8%A3%85)。
 - [DragonBones 换装指南](components/dragonbones.md)。
 - 从 v2.1.4 开始，Cocos Creator 支持发布到 [支付宝小游戏](publish/publish-alipay-mini-games.md)。
