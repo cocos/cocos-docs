@@ -60,12 +60,12 @@ The description of each property on the **Scene** page is as follows:
     > **Note**: to generate lightmaps for a model, there are two requirements:
     >
     > 1. When the artist creates a model resource, in addition to the UVs of the model itself, another set of UVs for lightmapping needs to be included.
-    > 
+    >
     > 2. The model's Materials need to have the **USE LIGHTMAP** rendering option turned on, for example:
     >
     > ![materials use lightmap](./lightmap/materials.png)
 
-3. Open the **Lightmapping** panel and set the corresponding parameters. Then click the **Lightmap Generate** button, a file storage dialog will pop up, you need to specify a folder (must be in the `assets` directory) to store the generated lightmap data information. Notice the baking progress log at the bottom of the **Lightmapping** panel.
+3. Open the **Lightmapping** panel and set the corresponding properties. Then click the **Lightmap Generate** button, a file storage dialog will pop up, you need to specify a folder (must be in the `assets` directory) to store the generated lightmap data information. Notice the baking progress log at the bottom of the **Lightmapping** panel.
 
     ![bake param](./lightmap/lightmap-generate.png)
 
