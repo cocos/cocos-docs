@@ -1,6 +1,6 @@
 # Submitting Resources to Cocos Store
 
-Cocos Creator has a built-in **Extension Store** for users to browse, download and automatically install official or third-party extensions and resources. Users can also submit their own extensions, art materials, music and sound effects to the extension store for sharing or selling. Let's look at the submission process for extensions as an example.
+Cocos Creator has a built-in **Extension Store** for users to browse, download and automatically install official or third-party extensions and resources. Users can also submit their own extensions, art materials, music and sound effects to the extension store for sharing or selling. Here is an example of submitting an extension.
 
 ![img](../image/store.png)
 
