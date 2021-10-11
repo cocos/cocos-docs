@@ -45,8 +45,8 @@ Visit the [Cocos Developer Center](https://auth.cocos.com/#/) and login. Next, v
 
     - **Keyword**: facilitate users to search for your extension faster, support multiple keywords
     - **Supported Platforms**: including Android, iOS, HTML5
-    - **Icon**: icon size of **256 \* 256**, size no more than **500KB**, **png** format.
-    - **Screenshots**: upload a maximum of **5** screenshots in **jpg** / **png** format. The size of each screenshot is limited to a minimum of **640px** and a maximum of **2048px**, and the size should not exceed **1000KB**.
+    - **Icon**: icon size of **256 * 256**, size no more than **500KB**, **PNG** format.
+    - **Screenshots**: upload a maximum of **5** screenshots in **jpg**/**png** format. The size of each screenshot is limited to a minimum of **640px** and a maximum of **2048px**, and the size should not exceed **1000KB**.
     - **Description**: fill in the basic functions and usage of the extension. It includes **Chinese** and **English** languages, and will only be displayed in the extension store of the corresponding language version after filling it in. For example, only after filling in the English name and description, the extension will be displayed in the English version of the extension store.
 
   Click **Next** to enter the **Pricing** page after filling out the form.
@@ -63,14 +63,14 @@ Visit the [Cocos Developer Center](https://auth.cocos.com/#/) and login. Next, v
 
     - **Package**: zip format, max 100MB.
     - **Extension Name**: the name of the extension package, defined in the `package.json` file of the extension package.
-    - **Version Number**: extension version number, defined in the `package.json` file of the extension package. Please follow the [semver specification](http://semver.org/lang/zh-CN/) for the writing specification.
-    - **Creator Minimum Version Requirement**: The extension's requirement for Creator version.
+    - **Version Number**: extension version number, defined in the `package.json` file of the extension package. Please follow the [semver specification](https://semver.org/) for the writing specification.
+    - **Creator Minimum Version Requirement**: the extension's requirement for Creator version.
 
     > **Note**: since Creator 2.x and 3.x extensions are not compatible with each other, if there is no corresponding version of the supported extension package, the work will not be displayed in the corresponding version of the Creator extension store.
 
   Click **Next** to go to the **Submit for Review** page after completing the form.
 
-- Fifth, on the **Submit for Review** page, click the **Submit for Review** button, or click the **View** button to re-edit the extension resource.
+- Fifth, on the **Submit for Review** page, click the **Submit Review** button, or click the **View** button to re-edit the extension resource.
 
   ![img](../image/submit-for-review.png)
 
