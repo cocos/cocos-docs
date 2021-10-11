@@ -11,7 +11,7 @@ In a game, using an __Atlas__ composed of multiple pictures as art assets has th
   - The blank area around each picture will be removed when synthesizing the __Atlas__, plus various optimization algorithms can be implemented as a whole. After synthesizing the __Atlas__, the game package and memory consumption can be greatly reduced.
   - When multiple __Sprites__ are rendering pictures from the same atlas, these __Sprites__ can be processed using the same rendering batch, which greatly reduces the CPU's computing time and improves operating efficiency.
 
-For a more comprehensive explanation, you can watch a teaching video: [__What is a Sprite Sheet__](https://www.codeandweb.com/what-is-a-sprite-sheet) from __CodeAndWeb__.
+For a more comprehensive explanation, watch a teaching video: [__What is a Sprite Sheet__](https://www.codeandweb.com/what-is-a-sprite-sheet) from __CodeAndWeb__.
 
 ## Atlas Assets
 
@@ -32,7 +32,7 @@ When using __TexturePacker__ software, please note that use __v4.x__ only, v3.x 
 
 ## Importing Atlas Assets
 
-Drag the **.plist** and the **.png** files shown above into the **Assets** panel at the same time. You can generate __Atlas__ assets that can be used in the editor and scripts.
+Drag the **.plist** and the **.png** files shown above into the **Assets** panel at the same time. It is possible to generate __Atlas__ assets that can be used in the editor and scripts.
 
 ### Atlas and SpriteFrame
 

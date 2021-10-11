@@ -6,7 +6,7 @@ Animation states are managed by [Class `AnimationState`](__APIDOC__/en/classes/a
 
 ## Setting the playback speed
 
-First you can get the animation state by [getState()](__APIDOC__/en/classes/animation.animation-1.html#getstate):
+First, get the animation state by [getState()](__APIDOC__/en/classes/animation.animation-1.html#getstate):
 
 ```ts
 // Get the Animation component

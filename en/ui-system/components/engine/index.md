@@ -13,7 +13,7 @@ Once the design resolution is set, start creating UI elements, all of which are 
 > **Notes**:
 >
 > - Multiple Canvas nodes can exist in a scene, but a Canvas node should not be nested under another Canvas node or its children.
-> - Canvas components are not one-to-one with camera, their previous rendering depends on the layer of the node and the Visibility of the camera, so you should pay extra attention to layer management to get the desired rendering effect when you have multiple Canvas.
+> - Canvas components are not one-to-one with camera, their previous rendering depends on the layer of the node and the Visibility of the camera, pay extra attention to layer management to get the desired rendering effect when you have multiple Canvas.
 
 Next, create UI nodes under the Canvas node. The editor comes with the following UI nodes:
 
