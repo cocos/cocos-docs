@@ -8,7 +8,6 @@
 
 - 从 v2.3.4 开始，Cocos Creator 新增了对 [腾讯云服务](cocos-service/tcb.md) 的支持。
 - 从 v2.3.0 开始，Cocos Creator 新增了对 [3D 物理与碰撞系统](physics-3d/index.md)、[3D 粒子](3d/particle-system-3d.md) 的支持，同时 [材质系统](render/index.md) 也升级到了正式版。
-- 从 v2.3.0 开始，Cocos Creator 支持发布到 [趣头条小游戏](publish/publish-qutoutiao-mini-games.md)。
 - [Spine 换装指南](components/spine.md#spine-%E6%8D%A2%E8%A3%85)。
 - [DragonBones 换装指南](components/dragonbones.md)。
 - 从 v2.1.4 开始，Cocos Creator 支持发布到 [支付宝小游戏](publish/publish-alipay-mini-games.md)。

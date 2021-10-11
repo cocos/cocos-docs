@@ -102,7 +102,6 @@
     - [原生平台 JavaScript 调试](publish/debug-jsb.md)
     - [发布到支付宝小游戏](publish/publish-alipay-mini-games.md)
     - [发布到华为快游戏](publish/publish-huawei-quick-games.md)
-    - [发布到趣头条小游戏](publish/publish-qutoutiao-mini-games.md)
     - [发布到百度小游戏](publish/publish-baidugame.md)
         - [百度小游戏开放数据域](publish/publish-baidugame-sub-domain.md)
     - [发布到 Facebook Instant Games](publish/publish-fb-instant-games.md)

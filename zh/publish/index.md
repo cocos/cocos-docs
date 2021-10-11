@@ -5,7 +5,6 @@
 - [打包发布原生平台](publish-native.md)
 - [原生平台 JavaScript 调试](debug-jsb.md)
 - [发布到支付宝小游戏](publish-alipay-mini-games.md)
-- [发布到趣头条小游戏](publish-qutoutiao-mini-games.md)
 - [发布到华为快游戏](publish-huawei-quick-games.md)
 - [发布到百度小游戏](publish-baidugame.md)
     - [百度小游戏开放数据域](publish-baidugame-sub-domain.md)
