@@ -78,9 +78,9 @@ After the relevant parameters of the **Build** panel are set, click **Build**. W
 
 **3. Run the built rpk to the phone**
 
-Copy the generated mini-game **rpk** file to the `/sdcard/games` directory on your phone's SD card. Then open the **Mini Game Debugger** that has been installed before on the OPPO phone, click the **OPPO Mini Game** section, and then find the icon corresponding to the game name. If not found, click on the **More -> Refresh** button in the upper right corner to refresh.
+Copy the generated mini-game **rpk** file to the `games` directory on your phone's internal storage. Then open the **Mini Game Debugger** that has been installed before on the OPPO phone, click the **OPPO Mini Game** section, and then find the icon corresponding to the game name. If not found, click on the **More -> Refresh** button in the upper right corner to refresh.
 
-  > **Note**: if the OPPO Mini Game Debugger version is `v3.2.0` and above, you need to copy the mini-game **rpk** file to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory on your OPPO phone. If there is no `games` directory, you need to create a new one. Please refer to the [Instructions -- New Directory [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) for details.
+  > **Note**: if the OPPO Mini Game Debugger version is `v3.2.0` and above, you need to copy the mini-game **rpk** file to the `Android/data/com.nearme.instant.platform/files/games` directory on your OPPO phone's internal storage. If there is no `games` directory, you need to create a new one. Please refer to the [Instructions -- New Directory [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) for details.
 
 ![rpk games](./publish-oppo-mini-games/rpk_games.jpg)
 
@@ -92,15 +92,15 @@ Subpackage loading, which is, splitting the game content into several packages a
 
 To use this function, set the [Bundle Configuration](subpackage.md) in **Cocos Creator**, and the package will be automatically subpackaged when the setting is completed.
 
-After the build is complete, the subpackage directory is in the `dist` directory. In this case, you need to create a new `subPkg` directory in the `sdcard` directory of the OPPO phone, and then copy the **.rpk** file in the `dist` directory to the `subPkg` directory.
+After the build is complete, the subpackage directory is in the `dist` directory. In this case, you need to create a new `subPkg` directory in the internal storage directory of the OPPO phone, and then copy the **.rpk** file in the `dist` directory to the `subPkg` directory.
 
 Then switch to the **Package Load** section of OPPO **Mini Game Debugger**, click **Refresh** at the top right to see the game name of the subpackage, click **Second Open** to use the same as the normal packaged **rpk**.
 
 ![run_subpackage](./publish-oppo-mini-games/run_subpackage.jpg)
 
-Subpackage rpk needs to be copied to the `/sdcard/subPkg` directory of OPPO phones, and non-subpackaged rpk needs to be copied to the `/sdcard/games` directory of OPPO phones, both of which cannot be mixed.
+Subpackage rpk needs to be copied to the `subPkg` directory of OPPO phone's internal storage, and non-subpackaged rpk needs to be copied to the `games` directory of OPPO phone's internal storage, both of which cannot be mixed.
 
-> **Note**: if the OPPO Mini Game Debugger version is **v3.2.0** and above, you need to copy the mini game subpackaged **rpk** file to the `/sdcard/Android/data/com.nearme.instant.platform/files/subPkg` directory on your OPPO phone, or create a new one if there is no `subPkg` directory. The non-subpackaged rpk is copied to the `/sdcard/Android/data/com.nearme.instant.platform/files/games` directory on your OPPO phone, and the two cannot be mixed.
+> **Note**: if the OPPO Mini Game Debugger version is **v3.2.0** and above, you need to copy the mini game subpackaged **rpk** file to the `Android/data/com.nearme.instant.platform/files/subPkg` directory on your OPPO phone's internal storage, or create a new one if there is no `subPkg` directory. The non-subpackaged rpk is copied to the `Android/data/com.nearme.instant.platform/files/games` directory on your OPPO phone's internal storage, and the two cannot be mixed.
 
 For more information, please refer to the [OPPO Mini Game - Subpackage [cn]](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/subpackage/subpackage) documentation.
 

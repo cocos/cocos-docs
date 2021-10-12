@@ -57,7 +57,14 @@ Adding a script to a scene node is actually adding a script component to that no
 
     ![add scriptcomponent](setup/add-script-component2.png)
 
-> **Note**: the component name of a script component is the name of the class defined in the script, not the script file name. The class name of the script will be the same as the script file name when the script is created, but if there are changes to the script file name/class name afterward, the two are not automatically synchronized, and can be manually synchronized, if needed.
+Note that the component name of a script component is the class name defined in the script, not the script file name. When a script is created, the script file generates the class name according to the following rules:
+
+- Use Upper Camel Case.
+- There are no numbers on the head.
+- Without special characters.
+- Use the symbols and spaces in the script file name as intervals, and capitalize the first letter after each interval. For example, the script file name is `say-hello`, and the class name is `SayHello`.
+
+If there are secondary changes to the script file name/script class name afterwards, the two are not automatically synchronized, and can be synchronized manually if needed.
 
 Using `say-hello.ts` as an example, if it is renamed to `hello` in the **Assets** panel, notice that the script component name in the **Inspector** panel is still the original name, **SayHello**, only the script name has changed to `hello`:
 

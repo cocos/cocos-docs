@@ -32,6 +32,6 @@ The following attributes cannot be used with the `get` method.
 
 | Attribute Name | Description | Type | Default | Remarks |
 | :--- | :--- | :--- | :--- | :--- |
-| override | Define this parameter as true when overriding parent properties | boolean | false | See [override parameter](../decorator.md#override-parameters) |
+| override | Define this parameter as true when overriding parent properties | boolean | false | See [override attribute](../decorator.md#override-parameters) |
 
 > <b id="f1">[1]</b>: The default value of visible depends on the property name. When the property name starts with an underscore `_`, it is hidden by default, otherwise it is shown by default.
