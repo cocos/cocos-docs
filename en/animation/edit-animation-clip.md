@@ -82,7 +82,7 @@ In addition to adding keyframes by modifying properties as described in **Creati
 
 1. Select the keyframe to be deleted (multiple selections are allowed) and press <kbd>Delete</kbd> (Windows) or <kbd>Cmd</kbd> + <kbd>Backspace</kbd> (macOS).
 
-2. Select the keyframe you want to delete (you can select more than one), then right click and select **Remove Keyframe** in the popup menu.
+2. Select the keyframe you want to delete (select more than one), then right click and select **Remove Keyframe** in the popup menu.
 
 3. Drag the time control line to the position of the keyframe to be removed or **double-click** the keyframe, and then click ![remove keyframe](edit-animation-clip/remove-key-btn.png) button to the right of the corresponding animation property.
 
@@ -161,7 +161,7 @@ Copy and paste of node animation data, supports cross-editor (v3.x) usage.
 
 ### Edit child node data with the same name
 
-When editing animation data in the animation clip of the parent node, you can also edit the animation data of the child nodes. The animation data will all be saved in the animation clip of the parent node, which is used to achieve effects like moving the hands of the character model with different speeds along with the body, etc. However, if the parent node contains more than one child node with the same name at the same time, only the first child node with the same name will be edited, and the other nodes with the same name will be grayed out to uneditable state.
+When editing animation data in the animation clip of the parent node, it is possible to also edit the animation data of the child nodes. The animation data will all be saved in the animation clip of the parent node, which is used to achieve effects like moving the hands of the character model with different speeds along with the body, etc. However, if the parent node contains more than one child node with the same name at the same time, only the first child node with the same name will be edited, and the other nodes with the same name will be grayed out to uneditable state.
 
 ![same-name node](edit-animation-clip/same-name-node.png)
 
@@ -173,7 +173,7 @@ Right-click on the animation property or click ![property](edit-animation-clip/s
 
 ![property operation](edit-animation-clip/pro-operation.png)
 
-- Remove property track: remove the currently selected animation property, including all keyframes on that property track. Or you can also use the shortcut <kbd>Delete</kbd> key (Windows) or <kbd>Cmd</kbd> + <kbd>Backspace</kbd> (macOS).
+- Remove property track: remove the currently selected animation property, including all keyframes on that property track. Or use the shortcut <kbd>Delete</kbd> key (Windows) or <kbd>Cmd</kbd> + <kbd>Backspace</kbd> (macOS).
 
 - Clear keyframe data: delete all keyframes on the currently selected animation property track.
 

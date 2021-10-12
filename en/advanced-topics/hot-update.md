@@ -20,7 +20,7 @@ Please be aware that **hot update system is for native games only**, since Web g
 
 ## Manifest file
 
-For different versions of file-level differences, AssetsManager uses a manifest file for version control. The client and server manifest files each contains an asset file list and version for each file. So that you can compare the version of each file to determine whether we should download a file.
+For different versions of file-level differences, AssetsManager uses a manifest file for version control. The client and server manifest files each contains an asset file list and version for each file. This allows comparing the version of each file to determine whether a file should be downloaded.
 
 The manifest file contains the following important information:
 
@@ -31,7 +31,7 @@ The manifest file contains the following important information:
 5. File list: index of file pathes, including file version information. We recommend using the file md5 as the version number
 6. List of search path.
 
-The version file can be part of the contents of the manifest file and do not contain a list of files. But the manifest file may be large, each time client need to download the whole file for checking version update. So developer can provide a very small version file for version check only. `AssetsManager` will first check the version number provided by the version file to determine if you need to continue downloading the manifest file and update it.
+The version file can be part of the contents of the manifest file and do not contain a list of files. But the manifest file may be large, each time client need to download the whole file for checking version update. So developer can provide a very small version file for version check only. `AssetsManager` will first check the version number provided by the version file to determine if it is necessary to continue downloading the manifest file and update it.
 
 ## Implement hot update in the Cocos Creator project
 
@@ -77,7 +77,7 @@ In addition, the sample project is also equipped with a `Scene/Canvas/update` no
 
 ### Deploy to remote server
 
-In order to allow the game to detect remote versions, you can simulate a remote server on the machine, there are a variety of server solutions (such as [SimpleHTTPServer](https://docs.python.org/2/library/simplehttpserver.html) for Python). We will not discuss detail here, developers can use their own prefered way. Once your remote server is up, you need to modify the following places to allow the game to successfully find the remote package:
+In order to allow the game to detect remote versions, it is possible to simulate a remote server on the machine, there are a variety of server solutions (such as [SimpleHTTPServer](https://docs.python.org/2/library/simplehttpserver.html) for Python). We will not discuss detail here, developers can use their own prefered way. Once the remote server is up, modify the following places to allow the game to successfully find the remote package:
 
 1. `assets/project.manifest`: `packageUrl`, `remoteManifestUrl` and `remoteVersionUrl` in the client manifest file of the game
 2. `remote-assets/project.manifest`: `packageUrl`, `remoteManifestUrl` and `remoteVersionUrl` in the manifest file of the remote package
@@ -85,7 +85,7 @@ In order to allow the game to detect remote versions, you can simulate a remote 
 
 ### Publish the original version
 
-After downloading the sample project, you can use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, you can choose Windows / Mac as target to test.
+After downloading the sample project, use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, choose Windows / Mac as the target to test.
 
 **Note:**
 - 1. Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
@@ -132,11 +132,11 @@ The editor plugin automatically adds the search path logic and fix code to `main
 
 This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage)) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
 
-In addition, if you encounter this warning during the opening of the project, you can ignore: `loader for [.manifest] not exists!`.
+In addition, if encountering this warning during the opening of the project, ignore: `loader for [.manifest] not exists!`.
 
 ### Run the example project
 
-If everything is alright, you can run the native version of the sample project. You will encounter a new version detected, suggesting that the update will automatically restart the game after the game, then enter the table scene.
+If everything is alright, run the native version of the sample project. A new version will be detected, suggesting that the update will automatically restart the game after the game, then enter the table scene.
 
 ![update](./hot-update/update.png)
 

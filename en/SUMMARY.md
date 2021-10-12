@@ -130,7 +130,7 @@
             - [Spotlights](concepts/scene/light/lightType/spot-light.md)
             - [Ambient Light](concepts/scene/light/lightType/ambient.md)
         - [Additive Per-Pixel Lights](concepts/scene/light/additive-per-pixel-lights.md)
-        - [Shadow](concepts/scene/light/shadow.md)
+        - [Shadows](concepts/scene/light/shadow.md)
         - [Lightmapping](concepts/scene/light/lightmap.md)
     - [Meshes](module-map/mesh/index.md)
         - [MeshRenderer](engine/renderable/model-component.md)
