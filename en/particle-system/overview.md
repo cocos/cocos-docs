@@ -51,4 +51,4 @@ The __Cocos Creator__ particle system uses modules to organize functions, includ
 
 ## Particle Culling
 
-Particle System emitter support frustum & aabb culling in runtime. If emitter is culled, particle system of the emitter will stop simulating until we see the emitter again. Click __EnableCulling__ option to open particle culling and then the emitter will calculate aabb automatically. Click restart button of the emitter will recalculate aabb. It's better to enable culling when the particle simulation is complex than the simple one. 
+Particle System emitter support frustum & aabb culling in runtime. If emitter is culled, particle system of the emitter will stop simulating until we see the emitter again. Click __EnableCulling__ option to open particle culling and then the emitter will calculate aabb automatically. You can change bounding box size in **AabbHalfX**, **AabbHalfY** and **AabbHalfZ**. Click **Regenerate bounding box** button will recalculate aabb. It's better to enable culling when the particle simulation is complex than the simple one. 
