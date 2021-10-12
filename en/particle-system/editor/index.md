@@ -1,4 +1,4 @@
-## Particle System Editor
+# Particle System Editor
 
 The particle system editor mainly includes an introduction to the interface for editing particle properties and how to view and edit the status of selected particles. It mainly consists of the following parts:
 

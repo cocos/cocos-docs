@@ -6,26 +6,25 @@ Welcome to the __Cocos Creator 3.0__ user manual! This manual includes detailed 
 
 ## General Guide
 
-- [Getting Started](getting-started/index.md)
-- [Scene Creation Workflow](concepts/scene/index.md)
-- [Scripting](scripting/index.md)
+- [Cocos Creator Basic Usage](getting-started/index.md)
+- [Scene Creation](concepts/scene/index.md)
+- [Assets System](asset/index.md)
+- [Scripting Guide and Event System](scripting/index.md)
 - [Cross-platform Game Publish](editor/publish/index.md)
-- [Engine Features Map Guide](module-map/index.md)
-    - [Graphics Rendering](module-map/graphics.md)
-    - [Animation](animation/index.md)
-    - [Audio](audio-system/overview.md)
-    - [Physics](physics/physics.md)
-    - [Components](editor/components/index.md)
-    - [Assets](asset/index.md)
-- [UI](ui-system/components/engine/index.md)
-- [Terrain](editor/terrain/index.md)
-- [Lightmapping](concepts/scene/light/lightmap.md)
-- [Tween](tween/index.md)
-- [2D Physics](physics-2d/physics-2d.md)
+- [Graphics Rendering](module-map/graphics.md)
+- [2D Rendering](2d-object/2d-render/index.md)
+- [UI System](2d-object/ui-system/index.md)
+- [Animation System](animation/index.md)
+- [Audio System](audio-system/overview.md)
+- [Physics System](physics/index.md)
+- [Particle System](particle-system/index.md)
+- [Tween System](tween/index.md)
+- [Terrain System](editor/terrain/index.md)
+- [Asset Manager](asset/asset-manager.md)
 - [Editor Extension](editor/extension/readme.md)
 - [Advanced Topics](advanced-topics/index.md)
 
-## Demo and example projects
+## Demo and Example Projects
 
 - [Example collection](https://github.com/cocos-creator/example-3d): From the use of basic components to the display of rendering effects, this project includes multiple scenarios with different functions and multiple game demo projects for user reference.
 - [One Step, Two Steps](https://github.com/cocos-creator/tutorial-mind-your-step-3d): This is the [Quick Start](getting-started/first-game/index.md) document Step-by-step explanation of the game.

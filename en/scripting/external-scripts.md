@@ -1,12 +1,12 @@
 # External code support
 
-## Plugin script
+## Plugin Scripts
 
 When the script resource is imported with **import as a plug-in**, this script resource is called **plug-in script**. Plug-in scripts are usually used to import third-party libraries. Currently only supports JavaScript plug-in scripts.
 
 Unlike other scripts in the project, **Cocos Creator** will not modify the content of the plug-in script, but some code may be inserted to adapt to Creator itself; in particular, **Cocos Creator** will shield the global variables `module`, `exports`, `define`.
 
-### Import options
+### Import Options
 
 Many third-party JavaScript libraries provide library functions in the form of global variables. These libraries often write global variables `window`, `global`, `self` and `this`.
 
@@ -25,7 +25,7 @@ However, these global variables are not necessarily cross-platform. For convenie
 }).call(this);
 ```
 
-### Execution timing
+### Execution Timing
 
 Developers can control whether plug-in scripts are executed in certain environments.
 
@@ -37,7 +37,7 @@ Developers can control whether plug-in scripts are executed in certain environme
 
 In the import checker, developers can specify dependencies to ensure the execution order of scripts.
 
-### Usability and cross-platform
+### Usability and Cross-Platform
 
 The plug-in script is copied to the build directory almost intact, so the usability and cross-platform of the plug-in script are not guaranteed by **Cocos Creator**. For example, when plug-in scripts use language features that are not supported by certain platforms, errors will result, especially:
 

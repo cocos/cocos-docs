@@ -1,5 +1,6 @@
 # 进阶主题
 
+- [如何向 Cocos 提交代码](../submit-pr/submit-pr.md)
 - 热更新
     - [热更新范例教程](hot-update.md)
     - [热更新管理器](hot-update-manager.md)

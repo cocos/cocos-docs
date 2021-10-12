@@ -1,6 +1,6 @@
-# Example: External Module Usage Case
+# External Module Usage Case
 
-To obtain `npm`, please refer to the [How to Get npm Packages](./config.md) documentation.
+This section provides examples of how to use npm modules in Cocos Creator projects. To obtain `npm`, please refer to the [How to Get npm Packages](./config.md) documentation.
 
 ## ESM and CJS Interaction Rules
 

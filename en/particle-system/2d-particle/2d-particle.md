@@ -35,7 +35,7 @@ For the script interface of ParticleSystem2D, please refer to [ParticleSystem AP
 | EndSpin            | The end spin angle and size of particles.
 | PosVar             | The range of the emitter position (horizontal and vertical).
 | PositionType       | The type of particle position, including **FREE**, **RELATIVE**, **GROUPED**. For details, please refer to [PositionType API](__APIDOC__/en/classes/particle2d.particlesystem2d.html#positiontype).
-| EmitterMode        | The type of the emitter, including **GRAVITY**, **RADIUS**. For details, please refer to [EmitterMode API](__APIDOC__/zh/classes/particle2d.articlesystem2d.html#emittermode-1).
+| EmitterMode        | The type of the emitter, including **GRAVITY**, **RADIUS**. For details, please refer to [EmitterMode API](__APIDOC__/en/classes/particle2d.articlesystem2d.html#emittermode-1).
 | Gravity            | Gravity. Only works when Emitter Mode is set to **GRAVITY**.
 | Speed              | The speed and range. Only effective when Emitter Mode is set to **GRAVITY**.
 | TangentialAccel    | The tangential acceleration and range of each particle i.e. the acceleration perpendicular to the direction of gravity. Effective only when Emitter Mode is set to **GRAVITY**.

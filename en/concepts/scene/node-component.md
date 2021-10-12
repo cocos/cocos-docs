@@ -22,7 +22,7 @@ The quickest way to get a node with a specific function is to use the **Create N
 
 ![create](scene/create.png)
 
-Notice the newly added Sphere node in the **Scene** and **Hierarchy** panel. The new node is named `Sphere` by default, indicating that it is a node whose functionality is primarily provided by the **Sphere** component. Try clicking the **Create Node** button again to select another node type and see that they will be named and behave differently. Also, note that creating a UI node automatically creates a Canvas node as the root node of the UI node, as described in the document [UI Structure Description](../../ui-system/components/engine/index.md).
+Notice the newly added Sphere node in the **Scene** and **Hierarchy** panel. The new node is named `Sphere` by default, indicating that it is a node whose functionality is primarily provided by the **Sphere** component. Try clicking the **Create Node** button again to select another node type and see that they will be named and behave differently. Also, note that creating a UI node automatically creates a Canvas node as the root node of the UI node, as described in the document [UI Structure Description](../../2d-object/ui-system/index.md).
 
 For more information about the operations of single-select, multi-select, copy, delete, etc. of nodes in the **Hierarchy** panel, please refer to the [Hierarchy Panel](../../editor/hierarchy/index.md) documentation.
 
@@ -72,7 +72,10 @@ Next, set the properties of the **Directional Light** component, e.g.: adjust th
 
 ![button property](scene/directional-light.png)
 
-> **Note**: this is just a brief example of a more obvious effect. It is not recommended to add a **DirectionalLight** component to a sphere node.
+> **Notes**:
+>
+> 1. This is just a brief example of a more obvious effect. It is not recommended to add a **DirectionalLight** component to a sphere node.
+> 2. That only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
 
 ## Setting the visibility of nodes
 
@@ -88,6 +91,4 @@ The `Layer` property of a node is global and unique, but different nodes can set
 
 ![node layer edit](scene/node-layer-edit.png)
 
-For more information about Components as well as other types of Components, please refer to the [Components](../../editor/components/index.md) documentation.
-
-> **Note**: that only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
+Where `User Layer 0` - `User Layer 19` are layer properties provided for user-defined settings, the user only needs to fill in the custom layer name after the layer to enable this layer property and edit it on the node.

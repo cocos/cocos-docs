@@ -91,11 +91,11 @@ Please refer to the [Compress Texture](../../asset/compress-texture.md) document
 
 The **Auto Atlas** is the editor's built-in texture merge. If this is disabled, even if you configure the **Auto Atlas**, it will not take effect at build time.
 
-When the **Auto Atlas** is configured in the `resources` folder, both the clarge and small image resources and the corresponding serialization information will be packaged, which will increase the package size, So please do not use it like that unless necessary.
+When the **Auto Atlas** is configured in the `resources` folder, both the large and small image resources and the corresponding serialization information will be packaged, which will increase the package size, So please do not use it like that unless necessary.
 
 Please refer to the [Auto Atlas](../../asset/auto-atlas.md) documentation for details.
 
-### Earse module structure (experimental)
+### Erase module structure (experimental)
 
 If this option is checked, importing scripts will be faster, but you will not be able to use module characteristics, such as `import.meta`, `import()`, etc.
 

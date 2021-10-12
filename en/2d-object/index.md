@@ -17,4 +17,4 @@ The 2D rendering flow is as follows:
 2D objects can be broadly classified into two categories, **2D rendering objects** and **User-interface (UI)**. The difference is that 2D rendering objects are generally only responsible for rendering 2D objects, while UI is more about user interaction. For more details on the differences, users can refer to the specific descriptions:
 
 - [2D Rendering Component Description](2d-render/index.md)
-- [UI Description](../ui-system/components/engine/index.md)
+- [UI System](ui-system/index.md)

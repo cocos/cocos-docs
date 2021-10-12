@@ -4,7 +4,7 @@
 
 ![particle](particle.gif)
 
-Creator 目前支持设置 2D/3D 粒子，详情请参考：
+Creator 目前支持 2D/3D 粒子系统，详情请参考：
 
 - [2D 粒子](2d-particle/2d-particle.md)
 - [3D 粒子](overview.md)
