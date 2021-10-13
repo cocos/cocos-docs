@@ -33,17 +33,11 @@ Method 2: Select **File -> Save Scene** in the top menu bar.
 In the **Assets** panel, **double-click** the **Scene** you want to open.<br>
 When needing to switch **Scenes** in the game, use the [director.loadScene()](__APIDOC__/en/classes/core.director-2.html#loadscene) API to implement dynamic scene loading and switching in the game.
 
-## Asynchronous Loading of Scene Assets
-
-As a asset file, the scene file can be set whether or not to load assets asynchronously in the **Inspector** panel when the scene is selected in the **Assets** panel. And the green checkmark button in the upper right corner needs to be clicked after the setting is done to apply it, while the red button indicates a rollback of the setting.
-
-![scene set](scene/scene_set.png)
-
 ## Scene Properties
 
 After double-clicking to open the **scene** file, the `scene` is the root node of the scene node tree in the **Hierarchy** panel. Select the `scene` node, and set whether the scene is automatically released or not in the **Inspector** panel, as well as the whole scene related properties, including **ambient light** settings, **shadows** settings, **global fog** and **sky box** settings.
 
-![scene_node_set](scene/scene_node.png)
+![scene_node](scene/scene_node.png)
 
 Automatic release of scene assets, please refer to section **Change the policy of auto releasing assets from previous scene** below for details.
 
