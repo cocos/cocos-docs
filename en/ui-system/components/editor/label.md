@@ -12,6 +12,7 @@ To use `Label`, please refer to the [Label API](__APIDOC__/en/classes/ui.label.h
 
 | Property | Function Explanation |
 | :-------------- | :----------- |
+| **CustomMaterial** | Custom Material, please refer to [UI Custom Material](../engine/ui-material.md). |
 | **Color** | Label color. |
 | **String** | Text content string. |
 | **HorizontalAlign** | Horizontal alignment of the text, including `LEFT`, `CENTER` and `RIGHT`. |
@@ -21,14 +22,12 @@ To use `Label`, please refer to the [Label API](__APIDOC__/en/classes/ui.label.h
 | **LineHeight** | Line height of the text. |
 | **Overflow** | Layout of the text. Currently supports `CLAMP`, `SHRINK` and `RESIZE_HEIGHT`. For details, see [Label Layout](#label-layout) below or [Label Layout](../engine/label-layout.md) document. |
 | **EnableWrapText** | Enable or disable the text line wrap (which takes effect when the `Overflow` is set to `CLAMP` or `SHRINK`). |
-| **Font** | Specify the font asset used for text rendering. If the System Font is used, then this property can be set to `null`. |
+| **Font** | Specify the [font assets](../../../asset/font.md) required for text rendering. To use LabelAtlas, please refer to the [LabelAtlas Asset](../../../asset/label-atlas.md) documentation for configuration.<br>This property can be empty if the System Font is used. |
 | **UseSystemFont** | If enabled, the given __FontFamily__ will be used for rendering. |
 | **CacheMode** | Text cache mode, including `NONE`, `BITMAP` and `CHAR`. Takes effect only for __System Font__ or __TTF Font__, BMFont does not require this optimization. See [Cache Mode](#cache-mode) below for details. |
 | **IsBold** | If enabled, bold effect will be added to the text. (Takes effect when using __System Font__ or some __TTF Font__). |
 | **IsItalic** | If enabled, italic effect will be added to the text. (Takes effect when using __System Font__ or some __TTF Font__). |
 | **IsUnderline** | If enabled, underline effect will be added to the text. (Takes effect when using __System Font__ or __TTF Font__). |
-| **SrcBlendFactor** | The source blend mode for text rendering. |
-| **DstBlendFactor** | The destination blend mode for text rendering. Together with the above properties, you can mix the foreground and background content in different ways, and you can refer to [glBlendFunc Tool](http://www.andersriggelsen.dk/glblendfunc.php) for the effect. |
 
 ## Label Layout
 
@@ -43,8 +42,8 @@ To use `Label`, please refer to the [Label API](__APIDOC__/en/classes/ui.label.h
 | Options | Function Explanation |
 | :-------------- | :----------- |
 | **NONE** | Defaults, the entire text in label will generate a bitmap. |
-| **BITMAP** | Currently it behaves in the same way as __NONE__<!--The entire text in the Label will still generate a bitmap. As long as the requirements of Dynamic Atlas are met, the Draw Call will be merged with the other Sprite or Label in the Dynamic Atlas. Because Dynamic Atlas consume more memory, __this mode can only be used for Label with infrequently updated text__. __Note__: Similar to NONE, BITMAP will force a bitmap to be generated for each Label component, regardless of whether the text content is equivalent. If there are a lot of Labels with the same text in the scene, it is recommended to use CHAR to reuse the memory space.--> |
-| **CHAR** | The principle of this mode is similar to BMFont, Label will cache text to a global shared bitmap in characters, each character of the same font style and font size will share the same cache globally. This mode is the most friendly to performance and memory if the characters is limited in a small set. However, there are currently restrictions on this mode, which we will optimize in subsequent releases:<br>1. __This mode can only be used for font style and fixed font size (by recording the fontSize, fontFamily, color, and outline of the font as key information for repetitive use of characters, other users who use special custom text formats need to be aware). And will not frequently appear with a huge amount of unused characters of Label.__ This is to save the cache, because the global shared bitmap size is __1024 * 1024__, it will only be cleared when the scene is switched. Once the bitmap is full, the newly appearing characters will not be rendered. <br>2. Overflow does not support SHRINK.<br><!--3. Cannot participate in dynamic atlas (multiple labels with CHAR mode enabled can still merge draw call in the case of without interrupting the rendering sequence).--> |
+| **BITMAP** | Currently it behaves in the same way as __NONE__. The entire text in the Label will still generate a bitmap. As long as the requirements of Dynamic Atlas are met, the Draw Call will be merged with the other Sprite or Label in the Dynamic Atlas. Because Dynamic Atlas consume more memory, __this mode can only be used for Label with infrequently updated text__. __Note__: Similar to NONE, BITMAP will force a bitmap to be generated for each Label component, regardless of whether the text content is equivalent. If there are a lot of Labels with the same text in the scene, it is recommended to use CHAR to reuse the memory space. |
+| **CHAR** | The principle of this mode is similar to BMFont, Label will cache text to a global shared bitmap in characters, each character of the same font style and font size will share the same cache globally. This mode is the most friendly to performance and memory if the characters is limited in a small set. However, there are currently restrictions on this mode, which we will optimize in subsequent releases:<br>1. __This mode can only be used for font style and fixed font size (by recording the fontSize, fontFamily, color, and outline of the font as key information for repetitive use of characters, other users who use special custom text formats need to be aware). And will not frequently appear with a huge amount of unused characters of Label.__ This is to save the cache, because the global shared bitmap size is __1024 * 1024__, it will only be cleared when the scene is switched. Once the bitmap is full, the newly appearing characters will not be rendered. <br>2. Overflow does not support SHRINK.<br>3. Cannot participate in dynamic atlas (multiple labels with CHAR mode enabled can still merge draw call in the case of without interrupting the rendering sequence). |
 
 > __Note__: __Cache Mode__ has an optimized effect for all platforms.
 

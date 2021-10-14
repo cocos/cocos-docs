@@ -69,7 +69,7 @@
 | Wheel Speed  | 设置当滚动鼠标滚轮时，场景相机前后移动的速度 |
 | Wander Speed | 设置场景相机漫游时的移动速度 |
 
-### 渲染输出目标分辨率设置（v3.0.1 新增）
+### 渲染输出目标分辨率设置
 
 **场景编辑器** 右上角可根据需要选择场景相机的渲染输出目标分辨率，会影响场景相机的可视范围，方便跟最终预览时选择的分辨率有相似的显示效果：
 
@@ -96,8 +96,7 @@
 
 **场景编辑器** 的核心功能就是以所见即所得的方式编辑和布置场景中的可见元素，我们主要通过 **Gizmo** 工具来辅助完成场景的可视化编辑。
 
-- [变换工具 Gizmo](./transform-gizmo.md)
+- [变换工具 Gizmo](../toolbar/index.md)
 - [摄像机 Gizmo](./camera-gizmo.md)
-- [灯光 Gizmo](./light-gizmo.md)
 - [碰撞器 Gizmo](./collider-gizmo.md)
 - [粒子系统 Gizmo](./particle-system-gizmo.md)

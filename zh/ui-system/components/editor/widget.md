@@ -21,7 +21,7 @@ Right   | 对齐右边界 | 选中后，将在旁边显示一个输入框，用�
 HorizontalCenter   | 水平方向居中 |
 VerticalCenter     | 竖直方向居中 |
 Target  | 对齐目标   | 指定对齐参照的节点，当这里未指定目标时会使用直接父级节点作为对齐目标
-Align Mode | 指定 widget 的对齐方式，用于决定运行时 widget 应何时更新 | 通常设置为 **ALWAYS**，每次节点产生变动时重新对齐。<br>设置为 **ONCE** 时，仅在组件初始化时进行一次对齐。**ON_WINDOW_RESIZE** 时会在每次窗口变动时候更新一次|
+AlignMode | 指定 Widget 的对齐方式，用于决定运行时 Widget 应何时更新 | 通常设置为 **ALWAYS**，每次节点产生变动时重新对齐。<br>设置为 **ONCE** 时，仅在组件初始化时进行一次对齐。**ON_WINDOW_RESIZE** 时会在每次窗口变动时候更新一次|
 
 ## 对齐边界
 

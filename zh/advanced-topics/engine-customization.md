@@ -17,17 +17,17 @@ Cocos Creator 3.x 的引擎包括 TypeScript 和 engine-native 两个部分，�
 
 如果只需基于当前的版本做一些调整，那么在 Cocos Creator 3.x 内置的引擎基础上修改就可以了。点击 Creator 编辑器右上方的 **编辑器** 按钮，然后将内置的 **engine** 目录拷贝到本地其他路径。
 
-![](engine-customization/open-engine.png)
+![open engine](engine-customization/open-engine.png)
 
 如果想获得官方正在开发中的最新版本，首先需要从 GitHub 上 fork 或者克隆 TypeScript 引擎的原始版本（地址见上文）。TypeScript 引擎在使用前请根据 Creator 版本切换相对应的分支。下载完成后存放到任意本地路径。
 
-![](engine-customization/download-repo-js.png)
+![download repo js](engine-customization/download-repo-js.png)
 
 ### 1.2 修改 TypeScript 引擎路径
 
 通过 **Cocos Creator -> 偏好设置** 的 **引擎管理器** 选项卡来设置需要定制的 TypeScript 引擎路径。需要注意的是 **修改引擎路径后需要重启编辑器**。
 
-![](engine-customization/custom-ts-engine.png)
+![custom ts engine](engine-customization/custom-ts-engine.png)
 
 ### 1.3 安装编译依赖
 
@@ -48,11 +48,11 @@ gulp build
 
 接下来可以定制引擎修改了，修改完成之后在 Cocos Creator 编辑器的菜单栏中点击 **开发者 -> 编译引擎** 进行编译。
 
-![](engine-customization/build.png)
+![build](engine-customization/build.png)
 
 该命令会在引擎目录下生成一个 `bin` 文件夹，并将引擎源码编译到 `bin` 目录下。
 
-![](engine-customization/bin.png)
+![bin](engine-customization/bin.png)
 
 ## 2 定制 engine-native 引擎
 
@@ -85,7 +85,7 @@ gulp init
 
 通过 **Cocos Creator -> 偏好设置** 的 **Engine 管理器** 选项卡来设置需要定制的 engine-native 引擎路径。
 
-![](engine-customization/custom-native-engine.png)
+![custom native engine](engine-customization/custom-native-engine.png)
 
 ### 2.4 修改引擎
 
@@ -96,13 +96,18 @@ gulp init
 为了防止包体过大，Creator 在发布时剔除了原生引擎模拟器相关工程，如果需要使用定制的原生模拟器可以通过以下步骤重新编译生成：
 
 1. 参考 [CMake 官方文档](https://cmake.org/install/) 安装 CMake 并配置系统环境变量。
-2. 在 `engine-native` 目录下依次执行以下命令：
 
-    ```bash
-    # 安装依赖的模块
-    npm install
-    # 生成原生模拟器相关文件
-    gulp gen-simulator
-    ```
+2. 编译原生模拟器引擎，可分为 TypeScript 和 C++ 两部分：
 
-    执行完成后，会在 `engine-native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件，便可运行原生模拟器了。
+    - 若开发者定制的是 **TypeScript** 部分，定制完成后，点击编辑器顶部菜单栏中的 **开发者 -> 编译原生模拟器引擎** 即可。
+
+    - 若开发者定制的是 **C++** 部分，定制完成后在 `engine-native` 目录下依次执行以下命令：
+
+        ```bash
+        # 安装依赖的模块
+        npm install
+        # 生成原生模拟器相关文件
+        gulp gen-simulator
+        ```
+
+        执行完成后，会在 `engine-native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件，便可运行原生模拟器了。

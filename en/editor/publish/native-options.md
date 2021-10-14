@@ -101,7 +101,7 @@ Google Play Instant relies on Google Play, and it is not a new distribution chan
 > **The following notes are required when using**:
 > 1. The Android Studio should be v4.0 and above.
 > 2. The Android Phone should be v6.0 and above. Devices with Android SDK version between 6.0 and 7.0 need to install Google Service Framework, while those with SDK version 8.0 or higher do not need it and can install it directly.
-> 3. If you compile for the first time, you need to open the built project with Android Studio to download **Google Play Instant Development SDK (Windows)** or **Instant Apps Development SDK（Mac）** support package. If the download fails, it is recommended to set up an HTTP proxy for Android Studio.
+> 3. If you compile for the first time, you need to open the built project with Android Studio to download **Google Play Instant Development SDK (Windows)** or **Instant Apps Development SDK (Mac)** support package. If the download fails, it is recommended to set up an HTTP proxy for Android Studio.
 >
 >     ![Google Play Instant](publish-native/sdk-android-instant.png)
 
@@ -125,7 +125,7 @@ The build options for the iOS platform include **Bundle Identifier**, **Orientat
 
 The package name, usually arranged in the reverse order of the product's website URL, such as: `com.mycompany.myproduct`.
 
-> **Note**: only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underscore or a number.
+> **Note**: only numbers (0~9), letters (A~Z, a~z), hyphens (-) and periods (.) can be included in the package name. Besides, the last section of package name should start with a letter, but not an underscore or a number. Please refer to the [A unique identifier for a bundle](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier) documentation for details.
 
 #### Render BackEnd
 

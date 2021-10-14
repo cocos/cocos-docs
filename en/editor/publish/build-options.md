@@ -96,7 +96,7 @@ Mouse over this option and an **Edit icon** button will appear. Click this butto
 
 ![Replace Splash Screen](build-options/splash-setting.png)
 
-### Earse module structure (experimental)
+### Erase module structure (experimental)
 
 If this option is checked, importing scripts will be faster, but you will not be able to use module characteristics, such as `import.meta`, `import()`, etc.
 

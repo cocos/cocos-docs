@@ -35,7 +35,7 @@
 
 ## 热更新基本流程
 
-在理解了上面基本的设计思路之后，我们来看一次典型的热更新流程。我们使用 manfiest 资源描述文件来描述本地或远程包含的资源列表及资源版本，manifest 文件的定义会在后面详述。运行环境假定为用户安装好 app 后，第一次检查到服务端的版本更新：
+在理解了上面基本的设计思路之后，我们来看一次典型的热更新流程。我们使用 manifest 资源描述文件来描述本地或远程包含的资源列表及资源版本，manifest 文件的定义会在后面详述。运行环境假定为用户安装好 app 后，第一次检查到服务端的版本更新：
 
 ![](hot-update/assets-manager.png)
 
@@ -190,7 +190,7 @@ assetsManager.downloadFailedAssets();
 
 2. 资源配置的刷新
 
-    因为 Creator 的场景和资源都依赖于 [Asset Bundle](https://docs.cocos.com/creator/3.0/manual/en/asset/bundle.html)。如果 Asset Bundle 没有被重新加载，并被 [Asset Manager](https://docs.cocos.com/creator/3.0/manual/en/asset/asset-manager.html) 重新读取，那么游戏中是加载不到热更新后的场景和资源的。
+    因为 Creator 的场景和资源都依赖于 [Asset Bundle](../asset/bundle.md)。如果 Asset Bundle 没有被重新加载，并被 [Asset Manager](../asset/asset-manager.md) 重新读取，那么游戏中是加载不到热更新后的场景和资源的。
 
 而如何启用新的资源，就需要依赖 Cocos 引擎的搜索路径机制了。Cocos 中所有文件的读取都是通过 FileUtils，而 FileUtils 会按照搜索路径的优先级顺序查找文件。所以我们只要将热更新的缓存目录添加到搜索路径中并且前置，就会优先搜索到缓存目录中的资源。以下是示例代码：
 
