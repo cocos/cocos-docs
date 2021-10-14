@@ -4,7 +4,7 @@
 
 ## 基础概念
 
-| 名字  | 说明  | 示例 |
+| 名称  | 说明  | 示例 |
 | :--- | :--- | :--- |
 | 预制件资源      | 在 **资源管理器** 中的预制件资源，是预制件的序列化文件。|![prefab asset](prefab/prefab-asset.png) |
 | 预制件实例      | 预制件资源被拖拽到 **层级管理器** 中就会生成一个预制件实例，它的根节点目前标记为亮绿色，它的子节点为暗绿色|![prefab instance](prefab/prefab-instance.png) |
@@ -31,9 +31,9 @@
 
 此时可以在编辑器中编辑预制件资源，编辑完成之后，点击场景编辑器中的 **保存** 按钮即可保存编辑后的预制件资源，之后点击 **关闭** 按钮即可返回场景编辑模式。
 
-![prefab edit mode](prefab/prefab-edit-mode.gif)
-
 > **注意**：请尽量避免多人同时修改同一个 Prefab 资源，否则可能会导致冲突，且无法通过 `git` 合并解决冲突。
+
+![prefab edit mode](prefab/prefab-edit-mode.gif)
 
 ## 预制件节点的状态
 

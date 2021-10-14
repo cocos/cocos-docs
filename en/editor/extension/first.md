@@ -10,7 +10,7 @@ Click **Extension -> Create Extension** in the menu bar of the editor, and selec
 
     - **Windows**: `%USERPROFILE%\.CocosCreator\extensions`
 
-    - **Mac**: `$HOME/.CocosCreator/extensions`
+    - **MacOS**: `$HOME/.CocosCreator/extensions`
 
 - If selecting **Project**, this will apply the extension to the specified Cocos Creator project. The path of **Project** is:
 
