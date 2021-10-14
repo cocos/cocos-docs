@@ -69,7 +69,7 @@ Click the ![set camera](images/set-camera.png) button in the upper-right corner 
 | Wheel Speed  | Set the speed at which the scene camera moves back and forth when the mouse wheel is scrolled. |
 | Wander Speed | Set the movement speed when the scene camera is roaming. |
 
-### Render target resolution settings (New in v3.0.1)
+### Render target resolution settings
 
 The render output target resolution of the scene camera can be selected in the upper right corner of the **Scene** panel as needed, which will affect the visual range of the scene camera, and facilitate a similar display to the resolution selected in the final preview:
 
@@ -96,8 +96,7 @@ Click the left mouse button in the scene view to select the node where the objec
 
 The core function of **Scene** panel is to edit and arrange the visible elements in the scene in a WYSIWYG way. **Gizmos** are mainly used to assist in the visual editing of the scene.
 
-- [Transform Gizmo](./transform-gizmo.md)
+- [Transform Gizmo](../toolbar/index.md)
 - [Camera Gizmo](./camera-gizmo.md)
-- [Light Gizmo](./light-gizmo.md)
 - [Collider Gizmo](./collider-gizmo.md)
 - [Particle System Gizmo](./particle-system-gizmo.md)

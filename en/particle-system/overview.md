@@ -1,4 +1,4 @@
-# Particle System Overview
+# 3D Particle System Overview
 
 The particle system is the basis of the game engine's special effects. It can be used to simulate natural phenomena such as fire, smoke, water, clouds, snow, and fallen leaves. It can also be used to simulate abstract visual effects such as luminous tracks and speed lines.
 

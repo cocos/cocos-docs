@@ -1,12 +1,12 @@
-# Texture Map Assets
+# Texture Assets
 
-__Texture mapping__ assets are assets used for procedural sampling, such as __textures on models__ and the __UI on Sprites__. When the UI or model are rendered, the corresponding texture is sampled, then filled on the model grid, plus a series of processing such as lighting to render the entire scene.
+__Texture__ assets are assets used for procedural sampling, such as __textures on models__ and the __UI on Sprites__. When the UI or model are rendered, the corresponding texture is sampled, then filled on the model grid, plus a series of processing such as lighting to render the entire scene.
 
 __Texture assets__ can be generated from __ImageAsset__. Some common image formats, including `.png`, `.jpeg`, etc. can be used in __ImageAsset__.
 
 ## Texture2D
 
-__Texture2D__ is a type of __texture asset__ that is usually used for rendering of __3D models__, such as __reflection maps__, __ambient light mask maps__, etc... in model materials.
+__Texture2D__ is a type of __texture asset__ that is usually used for rendering of __3D models__, such as __reflection map__, __ambient occlusion map__, etc... in model materials.
 
 __Texture2D__ in __Cocos Creator__:
 

@@ -1,4 +1,4 @@
-# tsconfig.json
+# `tsconfig.json`
 
 The **majority** of compilation options in `tsconfig.json` in the project do not affect the compilation of **TypeScript**.
 
@@ -6,8 +6,8 @@ Therefore, some options need to configured carefully to make the IDE's inspectio
 
 The following options should **not** be modified explicitly:
 
-  - `compilerOptions.target`
-  - `compilerOptions.module`
+- `compilerOptions.target`
+- `compilerOptions.module`
 
 For example, if `tsconfig.json` is set to:
 
@@ -54,7 +54,7 @@ Due to the good design of `tsc`, the `extends` option allows `tsconfig.json` to 
 
 Therefore, `tsconfig.json` under the project root path can be configured as follows to share these fixed options:
 
-```json
+```json5
 {
     extends: './tmp/tsconfig.cocos.json',
     compilerOptions: {

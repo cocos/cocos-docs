@@ -1,5 +1,4 @@
-
-# Language Support
+# Programming Language Support
 
 ## TypeScript
 

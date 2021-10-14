@@ -4,12 +4,12 @@
 
 ## 基础概念
 
-名字 | 说明 | 示例
-:---|:---|:---
-预制件资源|在 **资源管理器** 中的预制件资源，是预制件的序列化文件。| ![prefab asset](prefab/prefab-asset.png)
-预制件实例|预制件资源被拖拽到 **层级管理器** 中就会生成一个预制件实例，它的根节点目前标记为亮绿色，它的子节点为暗绿色|![prefab instance](prefab/prefab-instance.png)
-预制件编辑模式|双击预制件资源，会进入预制件的编辑模式，此时所有的非嵌套预制件节点都显示为暗绿色。可点击 **场景编辑器** 左上方的按钮来 **保存** 修改或者 **关闭** 编辑模式 | ![prefab edit mode](prefab/prefab-edit-mode.png)
-嵌套的预制件实例|一个预制件资源中的某个子节点是一另一个预制件资源的实例，则这个子预制件实例就是一个嵌套的预制件实例|![nested prefab](prefab/nested-prefab.png)
+| 名称  | 说明  | 示例 |
+| :--- | :--- | :--- |
+| 预制件资源      | 在 **资源管理器** 中的预制件资源，是预制件的序列化文件。| ![prefab asset](prefab/prefab-asset.png) |
+| 预制件实例      | 预制件资源被拖拽到 **层级管理器** 中就会生成一个预制件实例，它的根节点目前标记为亮绿色，它的子节点为暗绿色 | ![prefab instance](prefab/prefab-instance.png) |
+| 预制件编辑模式   | 双击预制件资源，会进入预制件的编辑模式，此时所有的非嵌套预制件节点都显示为暗绿色。可点击 **场景编辑器** 左上方的按钮来 **保存** 修改或者 **关闭** 编辑模式 | ![prefab edit mode](prefab/prefab-edit-mode.png) |
+| 嵌套的预制件实例 | 一个预制件资源中的某个子节点是另一个预制件资源的实例，则这个子预制件实例就是一个嵌套的预制件实例 | ![nested prefab](prefab/nested-prefab.png) |
 
 ## 创建预制件
 
@@ -38,6 +38,8 @@
 
 此时可以在编辑器中编辑预制件资源，编辑完成之后，点击场景编辑器中的 **保存** 按钮即可保存编辑后的预制件资源，之后点击 **关闭** 按钮即可返回场景编辑模式。
 
+> **注意**：请尽量避免多人同时修改同一个 Prefab 资源，否则可能会导致冲突，且无法通过 `git` 合并解决冲突。
+
 ![prefab edit mode](prefab/prefab-edit-mode.gif)
 
 ## 预制件节点的状态
@@ -52,12 +54,12 @@
 
 ![edit prefab](prefab/edit-prefab.png)
 
-按钮图标  | 功能说明
-:--- | :---
-![unlink prefab button](prefab/unlink-prefab-button.png) | 还原为普通节点。预制件节点可变为普通节点，即完全脱离和资源的关系。还可以通过点击编辑器主菜单中的 **节点 -> 取消关联当前的 prefab 资源** 来实现。
-![locate prefab button](prefab/locate-prefab-button.png) | 定位资源。便于快速在 **资源管理器** 中定位到预制件资源。
-![revert prefab button](prefab/revert-prefab-button.png) | 从资源还原。将当前预制件实例的数据还原为预制件资源中的数据，其中名字、位置和旋转不会被还原为预制体资源中的数据。
-![apply prefab button](prefab/apply-prefab-button.png)   | 更新到资源。将当前预制件实例的所有数据更新到所关联的预制件资源中。
+| 按钮图标  | 说明 |
+| :--- | :--- |
+| ![unlink prefab button](prefab/unlink-prefab-button.png) | 还原为普通节点。预制件节点可变为普通节点，即完全脱离和资源的关系。还可以通过点击 Creator 顶部菜单栏中的 **节点 -> 取消关联当前的 Prefab 资源** 来实现。 |
+| ![locate prefab button](prefab/locate-prefab-button.png) | 定位资源。便于快速在 **资源管理器** 中定位到预制件资源。 |
+| ![revert prefab button](prefab/revert-prefab-button.png) | 从资源还原。将当前预制件实例的数据还原为预制件资源中的数据，其中名字、位置和旋转不会被还原为预制体资源中的数据。 |
+| ![apply prefab button](prefab/apply-prefab-button.png)   | 更新到资源。将当前预制件实例的所有数据更新到所关联的预制件资源中。 |
 
 ### 新增节点
 
@@ -79,10 +81,10 @@
 
 同时会在这条数据后面出现以下两个按钮：
 
-按钮图标  | 功能说明
-:--- | :---
-![revert remove component](prefab/revert-remove-component.png) | 还原该删除的组件
-![apply remove component](prefab/apply-remove-component.png)   | 将该删除的组件在预制件资源中同步删除
+| 按钮图标  | 功能说明 |
+| :--- | :--- |
+| ![revert remove component](prefab/revert-remove-component.png) | 还原该删除的组件 |
+| ![apply remove component](prefab/apply-remove-component.png)   | 将该删除的组件在预制件资源中同步删除 |
 
 ## 目前的一些限制
 

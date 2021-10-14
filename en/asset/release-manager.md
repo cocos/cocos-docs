@@ -1,4 +1,4 @@
-# Releasing Of Resources
+# Releasing of Resources
 
 > Author: Santy-Wang, Xunyi
 

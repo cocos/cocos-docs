@@ -2,7 +2,7 @@
 
 The **Project Settings** panel can be opened by clicking on **Project -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. To synchronize project settings between developers, please add the `settings` directory to version control.
 
-**Project Settings** consists of several different subpages, including **Macro Config**, **Feature Cropping**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
+**Project Settings** consists of several different sub-pages, including **Macro Config**, **Feature Cropping**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
 
 ## Macro Config
 

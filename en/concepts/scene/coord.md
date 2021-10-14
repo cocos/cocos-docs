@@ -53,7 +53,7 @@ The `Position` of the child NodeB is based on the `Position` of the parent NodeA
 
 If the parent NodeA changes its `Position`, the child NodeB will also change its position (world coordinate system), but the `Position` property of the child NodeB will not change, because the child NodeB does not change in the local coordinate system with the parent NodeA's `Position` as the origin.
 
-In the **Scene** panel, use the [Move Transform Tool](../../editor/scene/transform-gizmo.md) to change the node position.
+In the **Scene** panel, use the [Move Transform Tool](../../editor/toolbar/index.md) to change the node position.
 
 ### Rotation
 
@@ -64,11 +64,11 @@ In the **Scene** panel, use the [Move Transform Tool](../../editor/scene/transfo
 
 ![rotation](coord/rotation.png)
 
-The node hierarchy shown above is the same as the previous figure, except that the **Rotation** property of NodeA on the z-axis is set to **60** degrees, so you can see that in addition to NodeA itself being **counterclockwise** rotated by 60 degrees on the z-axis, its child NodeB is also **centered** on the z-axis. NodeB is also rotated **counterclockwise** on NodeA's z-axis. This also means that the rotation property affects the child nodes.
+The node hierarchy shown above is the same as the previous figure, except that the **Rotation** property of NodeA on the z-axis is set to **60** degrees, notice that in addition to NodeA itself being **counterclockwise** rotated by 60 degrees on the z-axis, its child NodeB is also **centered** on the z-axis. NodeB is also rotated **counterclockwise** on NodeA's z-axis. This also means that the rotation property affects the child nodes.
 
 > **Note**: the [rotation](__APIDOC__/en/classes/scene_graph.node-1.html#rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](__APIDOC__/en/classes/scene_graph.node-1.html#eulerangles). These two properties can be used separately according to your needs. When using the API, make sure to pay attention to the difference between them and the editor panel property names.
 
-In the **Scene** panel, use the [rotate transform tool](../../editor/scene/transform-gizmo.md) to set the rotation of the node.
+In the **Scene** panel, use the [Rotate Transform Tool](../../editor/toolbar/index.md) to set the rotation of the node.
 
 ### Scale
 
@@ -82,4 +82,4 @@ The `Scale` property set on a child node are superimposed on its parent node's s
 
 The **Scale** property does not affect the **Position** and **Rotation** of the current node, but it does affect the **Position** of the child nodes.
 
-In the **Scene** panel, use the [Scale Transform Tool](../../editor/scene/transform-gizmo.md) to modify the node scaling.
+In the **Scene** panel, use the [Scale Transform Tool](../../editor/toolbar/index.md) to modify the node scaling.
