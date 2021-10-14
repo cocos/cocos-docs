@@ -53,8 +53,6 @@ project-folder
 | 小米快游戏 | xiaomi-quick-game | `manifest.json` |
 | 百度小游戏 | baidu-mini-game | `game.json`、`project.swan.json` |
 | 微信小游戏 | wechatgame | `game.ejs`、`game.json`、`project.config.json` |
-| 连尚小游戏 | link-sure | 暂不支持 |
-| 趣头条小游戏 | qtt | 暂不支持 |
 | Web Desktop | web-desktop | `index.ejs` |
 | Web Mobile | web-mobile | `index.ejs` |
 | 原生平台 | native | 暂不支持 |
