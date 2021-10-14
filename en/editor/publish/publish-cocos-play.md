@@ -76,7 +76,7 @@ There are two ways to start the game through the **Self-test Tools**.
 
 1. Load the game package as a file from the specified location (The game lodeType is **File**).
 
-    - Copy the `.cpk` file generated after the build to the device directory, if it is copied to the internal storage directory of device, you need to create a new folder (named **cocosplay**) in the internal storage directory and copy the `.cpk` to the **cocosplay** folder.
+    - Copy the `.cpk` file generated after the build to the device directory, if it is copied to the internal storage directory of device, create a new folder (named **cocosplay**) in the internal storage directory and copy the `.cpk` to the **cocosplay** folder.
     - Select **File** in the **lodeType** of the game configuration page.
     - Fill in the path to the **cocosplay** folder where the `.cpk` file is placed in the `path` option. Such as `/cocosplay/game.cpk`.
     - Click on **Save** after the configuration is complete, then click on **Start Game** to open the game.

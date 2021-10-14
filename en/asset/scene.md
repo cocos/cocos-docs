@@ -8,17 +8,20 @@ In **Cocos Creator**, the **Scene** is the cornerstone for organizing game conte
 
 There are **three** ways to create a **Scene**:
 
-1. Select the folder where you want to create the **Scene** file in the **Assets** panel. On the folder right click and select **Create -> Scene**, and then type the desired **Scene** name.
+1. Select the folder to create the **Scene** file in the **Assets** panel. On the folder right-click and select **Create -> Scene**, and then type the desired **Scene** name.
+
 
     ![new_scene_1](scene/new_scene_1.png)
 
-    In order to have a good directory structure in your project, it is strongly recommend that use this method to create a **Scene**.
+    In order to have a good directory structure in the project, it is strongly recommended that use this method to create a **Scene**.
+
 
 2. Click the **Create (+)** button in the upper left corner of the **Assets** panel, and then select **Scene**.
 
     ![new_scene_2](scene/new_scene_2.png)
 
-3. Select **File -> New Scene** in the top menu bar, a new scene will be created directly in the **Scene** panel. But the new scene file will not appear in the **Assets** panel, you need to save the scene file manually in the **Save Scene** window that pops up when you save the scene, and the `scene.scene` file will appear in the root directory of the **Assets** panel only after the saving is done.
+3. Select **File -> New Scene** in the top menu bar, a new scene will be created directly in the **Scene** panel. But the new scene file will not appear in the **Assets** panel, it is required to save the scene file manually in the **Save Scene** window that pops up when saving the scene, and the `scene.scene` file will appear in the root directory of the **Assets** panel only after the saving is done.
+
 
     ![new_scene_3](scene/new_scene_3.png)
 
@@ -30,7 +33,7 @@ Method 2: Select **File -> Save Scene** in the top menu bar.
 
 ## Switching Scenes
 
-In the **Assets** panel, **double-click** the **Scene** you want to open.<br>
+In the **Assets** panel, **double-click** the **Scene** to be opened.<br>
 When needing to switch **Scenes** in the game, use the [director.loadScene()](__APIDOC__/en/classes/core.director-2.html#loadscene) API to implement dynamic scene loading and switching in the game.
 
 ## Scene Properties
@@ -50,7 +53,8 @@ For a detailed description of each property, see the following documentations:
 
 ## Change the Policy of Auto Releasing Assets from Previous Scene
 
-In a large game where you have many scenes, as the engine continues to load different scenes, the memory usage will continue to increase. Besides using API such as `assetManager.releaseAsset` to accurately release unused assets, we can also use scene's auto releasing feature.
+In a large game where there are many scenes, as the engine continues to load different scenes, the memory usage will continue to increase. Besides using API such as `assetManager.releaseAsset` to accurately release unused assets, one can also use scene's auto releasing feature.
+
 
 After double-clicking to open the scene file, select the `scene` node in the **Hierarchy** panel to set whether the scene is automatically released in the **Inspector** panel:
 

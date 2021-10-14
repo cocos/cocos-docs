@@ -82,7 +82,7 @@ There are three ways to run rpk on your phone:
 
     Copy the generated mini game **rpk** file (located in the `dist` directory) to the internal storage directory of the mobile phone.
 
-    Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from the internal storage directory of your mobile phone and select **Open**.
+    Open the **Quick App & vivo Mini Game Debugger** that has been installed before on the Android device, click **Local Install**, then find the **rpk** file from the internal storage directory of your mobile phone and select **Open**.
 
     ![vivo-instant_native_install](./vivo-mini-game/vivo-instant_native_install.jpg)
 

@@ -86,7 +86,7 @@ Developers' script in the **Assets** panel can be dragged and dropped directly i
 
 ## Batch operations
 
-When needing to set asset properties of the **same type** in a batch, press Shift in the **Assets** panel and select multiple assets, the **Inspector** panel will show the number of assets selected and the editable asset properties. Click the **Apply** button at the top right when you are done.
+When needing to set asset properties of the **same type** in a batch, press Shift in the **Assets** panel and select multiple assets, the **Inspector** panel will show the number of assets selected and the editable asset properties. Click the **Apply** button at the top right when done.
 
 ![multiple-edit](index/multiple-edit1.png)
 
