@@ -1,13 +1,13 @@
 # Curve Editor
 
-The Curve Editor is mainly used to edit the curve trajectory that changes between keyframes. The keyframe curves of animations and particles in the editor are edited using the Curve Editor. For the key point on each curve, **the horizontal coordinate is the keyframe time/frame rate, and the vertical coordinate is the value of the current curve property at the corresponding time**. The curve editor supports editing multiple curves at the same time, but only single curve editing is currently available in the particle usage scenario.
+The Curve Editor is mainly used to edit the curve trajectory that changes between keyframes. The keyframe curves of animations and particles in the editor are edited using the Curve Editor. For the key point on each curve, **the horizontal coordinate is the keyframe time/frame rate, and the vertical coordinate is the value of the current curve property at the corresponding time**. The Curve Editor supports editing multiple curves at the same time, but only single curve editing is currently available in the particle usage scenario.
 
 ## Scaling and moving the curve display area
  
 - **Scroll the mouse wheel** directly within the curve display area **to zoom in and out of the horizontal and vertical timeline at the same time**.
 - Hold down the right mouse button and drag to pan the current display area.
 
-In addition, you can use shortcut keys to control the pan and zoom of the horizontal and vertical timeline individually.
+In addition, shortcut keys can be used to control the pan and zoom of the horizontal and vertical timeline individually.
 
 - Hold down <kbd>Shift</kbd> and roll the mouse wheel to **pan** the curve view area to the left or right;
 - Hold <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> and roll the mouse wheel to **zoom** the curve view area to the left or right;
@@ -18,12 +18,12 @@ In addition, you can use shortcut keys to control the pan and zoom of the horizo
 
 ### Adding keyframes
 
-1. Right-click on an existing curve segment where you want to add a keyframe, and then select **Add Keyframe to Curve** in the pop-up menu.
+1. Right-click on an existing curve segment where the keyframe is to be added, and then select **Add Keyframe to Curve** in the pop-up menu.
 2. When only one curve is displayed, right-click on any blank space and select **New Keyframe** in the pop-up menu.
 
 ### Selecting keyframes
 
-You can select a keyframe by clicking on it directly, or by framing it, and the selected keyframe will be shown in yellow. The selected keyframe will be shown in yellow. When the keyframe is selected individually, the value of the current keyframe will be shown on the left and right axes.
+A keyframe can be selected by clicking on it directly, or by framing it, and the selected keyframe will be shown in yellow. The selected keyframe will be shown in yellow. When the keyframe is selected individually, the value of the current keyframe will be shown on the left and right axes.
 
 ![select-key](animation-curve/select-key.gif)
 
@@ -57,7 +57,7 @@ In any blank space, right-click on the selected area and select **Paste**, or ju
 
 ### Editing keyframe data
 
-In the Curve Editor, the keyframe values are already displayed visually, so dragging the keyframes up, down, left and right is actually modifying the keyframe data itself. In some cases where you need to control the keyframe value precisely, you can right-click on the keyframe and select **Edit Keyframe Data** in the pop-up menu.
+In the Curve Editor, the keyframe values are already displayed visually, dragging the keyframes up, down, left, and right is actually modifying the underlying keyframe data. In some cases where controlling the keyframe value precisely is necessary, right-click on the keyframe and select **Edit Keyframe Data** in the pop-up menu.
 
 ![edit-key](animation-curve/edit-key.png)
 
@@ -85,7 +85,7 @@ The interpolation mode includes the following option values:
 
 ### Editing keyframe tangents
 
-A keyframe has two tangents on the left and right, the length and direction of the tangents will control the shape of the curve between keyframes. In `Cubic` interpolation mode, just drag the right tangent control point to edit it directly. In different tangent weight modes, the tangent lever can be operated in different ranges, please refer to the introduction of tangent weight mode.
+A keyframe has two tangents on the left and right, the length and direction of the tangents will control the shape of the curve between keyframes. In `Cubic` interpolation mode, just drag the right tangent control point to edit it directly. In different tangent weight modes, the tangent lever can be operated in different ranges, please refer to the next paragraph.
 
 ### Tangent Weight Mode
 
@@ -93,7 +93,7 @@ Right-click on the keyframe to see the modification options menu for the interpo
 
 The tangent option range is actually two main types.
 
-- **No-Weighting Mode**. The variation between keyframes uses the Hermite algorithm, where the direction of the curve depends on the direction of the left and right tangents of the keyframes. Thus, in this case, the left and right tangent levers of the keyframe can only change the tangent direction. The tangent control points at this point are only drawn to facilitate the direction change, so the tangent lever length does not change when scaling the curve view area at this point.
+- **No-Weighting Mode**. The variation between keyframes uses the Hermite algorithm, where the direction of the curve depends on the direction of the left and right tangents of the keyframes. In this case, the left and right tangent levers of the keyframe can only change the tangent direction. The tangent control points at this point are only drawn to facilitate the direction change, so the tangent lever length does not change when scaling the curve view area at this point.
 
 - **Weighting Mode**. The change between keyframes uses the Bessel algorithm, and the curve orientation is also influenced by the left and right tangent control points of the keyframes. The left tangent control point can be moved at will to adjust the control bar length, the left tangent control point is the real coordinate point at this time, and the control bar will be scaled simultaneously when scaling the curve view area.
 
@@ -110,4 +110,4 @@ The keyframe has left and right tangents, and the tangent weight mode has the fo
 
 ### Moving curves up and down
 
-You can drag the whole curve up and down directly after tapping the curve.
+The whole curve can be dragged up and down directly after tapping the curve.
