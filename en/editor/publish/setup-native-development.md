@@ -68,7 +68,7 @@ Next, go back to Cocos Creator to configure the environmental path of the native
 
 Close the window after configuration is completed.
 
-> **Note**: the configuration will work when building native project. If the configuration not work, please try to set these settings to **System Environment** manually: `COCOS_CONSOLE_ROOT`, `NDK_ROOT`, `ANDROID_SDK_ROOT`.
+> **Note**: the configuration will work when building native project. If the configuration not work, please try to set these settings to **System Environment** manually: `NDK_ROOT`, `ANDROID_SDK_ROOT`.
 
 ## Notes
 
