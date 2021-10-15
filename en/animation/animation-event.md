@@ -34,7 +34,7 @@ Right-click on the added event frame and select **Edit** or double-click directl
 
   ![add animation event](animation-event/add-animation-event.png)
 
-- 1 - add incoming parameters, you can choose the parameter type as needed.
+- 1 - add incoming parameters by choosing the parameter type as needed.
 - 2 - delete all the added incoming parameters below.
 - 3 - when the mouse moves over a parameter, this button will appear, click on it to delete the currently selected parameter.
 

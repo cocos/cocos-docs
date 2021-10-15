@@ -7,16 +7,6 @@ After installing the editor, it is important to become familiar with it, includi
 - [Using Dashboard](dashboard/index.md)
 - [Project Structure](project-structure/index.md)
 - [Editor Panels](../editor/index.md)
-    - [Scene](../editor/scene/index.md)
-    - [Hierarchy](../editor/hierarchy/index.md)
-    - [Assets](../editor/assets/index.md)
-    - [Inspector](../editor/inspector/index.md)
-    - [Console](../editor/console/index.md)
-    - [Animation](../animation/index.md)
-    - [Preferences](../editor/preferences/index.md)
-    - [Project Settings](../editor/project/index.md)
-    - [Editor Layout](../editor/editor-layout/index.md)
-    - [Preview & Debugging](../editor/preview/index.md)
 
 With some familiarity and understanding with the editor, it is easy to get familiar with the Cocos Creator development process with simple examples:
 

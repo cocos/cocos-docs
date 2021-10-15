@@ -1,6 +1,11 @@
 # Model assets
 
-__Currently__, model files in __FBX__ and __glTF__ formats. For how to export these two model files from third-party tools, you can refer to the [DCC Export Mesh](./dcc-export-mesh.md) documentation.
+Currently, Creator supports model files in **FBX** and **glTF** formats.
+
+- FBX: FBX 2020 and earlier file formats are supported.
+- glTF: glTF 2.0 and earlier file formats are supported, please refer to the [glTF models](./glTF.md) documentation for details.
+
+For how to export these two model files from third-party tools, please refer to the [Importing Models Exported from DCC Tools](./dcc-export-mesh.md) documentation.
 
 ## Model importing
 

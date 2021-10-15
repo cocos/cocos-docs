@@ -4,12 +4,12 @@ Prefab is used to store some scene objects that can be reused, it can contain no
 
 ## Basic Concepts
 
-Name | Description | Example
-:--- | :--- | :---
-Prefab Asset           | The asset of prefab in **Assets** panel, which is the serialize file of Prefab. | ![prefab asset](prefab/prefab-asset.png)
-Prefab Instance        | When the __Prefab Asset__ is drag to the **Hierarchy** panel, it will generate a __Prefab Instance__. Its root node is currently marked in bright green, and its child nodes are dark green. | ![prefab instance](prefab/prefab-instance.png)
-Prefab Editing Mode    | Double-click the __Prefab Asset__ to enter the prefab editing mode. At this time, all non-nested prefab nodes are displayed in dark green | ![prefab edit mode](prefab/prefab-edit-mode.png)
-Nested Prefab Instance | When a child node in a __Prefab Asset__ is an instance of another __Prefab Asset__, we call this child prefab a nested prefab instance | ![nested-prefab](prefab/nested-prefab.png)
+| Name | Description | Example |
+| :--- | :--- | :--- |
+| Prefab Asset           | The asset of prefab in __Assets__ panel, which is the serialize file of Prefab.| ![prefab asset](prefab/prefab-asset.png) |
+| Prefab Instance        | When the __Prefab Asset__ is drag to the __Hierarchy__ panel, it will generate a __Prefab Instance__. Its root node is currently marked in bright green, and its child nodes are dark green | ![prefab instance](prefab/prefab-instance.png) |
+| Prefab Editing Mode    | Double-click the __Prefab Asset__ to enter the prefab editing mode. At this time, all non-nested prefab nodes are displayed in dark green | ![prefab edit mode](prefab/prefab-edit-mode.png) |
+| Nested Prefab Instance | When a child node in a __Prefab Asset__ is an instance of another __Prefab Asset__, we call this child prefab a nested prefab instance | ![nested-prefab](prefab/nested-prefab.png) |
 
 ## Creating a Prefab
 
@@ -37,6 +37,8 @@ In the __Scene__, the __Prefab Instance__ objects data source comes from the des
 
 __Double-click__ the __Prefab Asset__ in the __Assets__ panel to switch from __Scene__ editing mode to __Prefab editing__ mode. You can edit the __Prefab Assets__ in the __Editor__. After editing, click __Save__ button in the __Scene__ panel to save the edited __Prefab Assets__. Next, click __Close__ button to return to the Scene editing mode.
 
+> **Note**: please avoid multiple people modifying the same prefab asset at the same time, as this may lead to conflicts that cannot be resolved by `git` merging.
+
 ![edit mode](prefab/prefab-edit-mode.gif)
 
 ## Status of prefab nodes
@@ -51,12 +53,12 @@ In the __Hierarchy__ panel, select the __Prefab Node__, and notice there are sev
 
 ![edit prefab](prefab/edit-prefab.png)
 
-Button Icon | Description
-:--- | :---
-![unlink prefab](prefab/unlink-prefab-button.png) | Revert to __normal node__. __Prefab Instance__ can become ordinary __Nodes__, that is, completely separated from the relationship between assets. This function is also available in the top-level menu `Node`.
-![locate prefab](prefab/locate-prefab-button.png) | Locating assets.Its convenient to quickly locate __Prefab Asset__ in the __Assets__ panel.
-![revert prefab](prefab/revert-prefab-button.png) | Restore from asset. Restore the data of the current __Prefab Instance__ to the data in the __Prefab Asset__, but the name, location, and rotation will not be restored.
-![apply prefab](prefab/apply-prefab-button.png)   | Update to asset. Update all data of the current __Prefab Instance__ to the associated __Prefab Asset__.
+| Button Icon | Description |
+| :--- | :--- |
+| ![unlink prefab](prefab/unlink-prefab-button.png) | Revert to __normal node__. __Prefab Instance__ can become ordinary __Nodes__, that is, completely separated from the relationship between assets. This function is also available in the top-level menu `Node`. |
+| ![locate prefab](prefab/locate-prefab-button.png) | Locating assets. It is convenient to quickly locate __Prefab Asset__ in the __Assets__ panel. |
+| ![revert prefab](prefab/revert-prefab-button.png) | Restore from asset. Restore the data of the current __Prefab Instance__ to the data in the __Prefab Asset__, but the name, location, and rotation will not be restored. |
+| ![apply prefab](prefab/apply-prefab-button.png)   | Update to asset. Update all data of the current __Prefab Instance__ to the associated __Prefab Asset__. |
 
 ### Add New Node
 

@@ -1,6 +1,6 @@
 # Choosing The Physics System Suitable For Your Project
 
-Click **Project -> Project Settings -> Feature Crop -> Physics System** in the editor's menu bar, to select the appropriate physics engine for development according to the project requirements. The default physics engine is **bullet（ammo.js）**, and the physics engine can be switched at will during the development process.
+Click __Project -> Project Settings -> Feature Crop -> Physics System__ in the editor's menu bar, to select the appropriate physics engine for development according to the project requirements. The default physics engine is __bullet（ammo.js）__, and the physics engine can be switched at will during the development process.
 
 ![Physics Engine Options](img/physics-module.png)
 

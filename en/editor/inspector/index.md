@@ -6,7 +6,7 @@ The **Inspector** panel is the work area for viewing and editing the currently s
 
 ## Panel overview
 
-![inspector](index/inspeactor-panel.png)
+![inspector](index/inspector-panel.png)
 
 The **Inspector** panel can be divided into two parts: **Toolbar** and **Property Settings**.
 
@@ -56,7 +56,7 @@ To the right of the component name are buttons for **Help Documentations** and *
 - The Help Documentations button jumps to the official documentation page for the component.
 - The Component Settings button allows resetting, deleting, moving up, moving down, copying the component, paste the component's value, paste it as a new component, etc. for the component.
 
-The properties and settings of each component are different, please refer to the [Components](../../editor/components/index.md) documentation for details.
+The properties and settings of each component are different, please refer to the corresponding component description documentation for details.
 
 ## Adding components
 
@@ -93,7 +93,7 @@ Developers' script in the **Assets** panel can be dragged and dropped directly i
 
 ## Batch operations
 
-When needing to set asset properties of the **same type** in a batch, press Shift in the **Asset** panel and select multiple assets, the **Inspector** panel will show the number of assets selected and the editable asset properties. Click the **Apply** button at the top right when you are done.
+When needing to set asset properties of the **same type** in a batch, press Shift in the **Assets** panel and select multiple assets, the **Inspector** panel will show the number of assets selected and the editable asset properties. Click the **Apply** button at the top right when done.
 
 ![multiple-edit](index/multiple-edit1.png)
 

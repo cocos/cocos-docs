@@ -1,4 +1,4 @@
-# Adding Logging to the Engine
+# Adding Logging within the Engine
 
 This document mainly explains how to add new Log messages (including **log**, **warning**, and **error**) to the internal code of the engine according to the correct specifications.
 

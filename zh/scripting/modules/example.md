@@ -1,6 +1,6 @@
 # 示例：外部模块使用案例
 
-本章节通过案例讲解如何在 Cocos Creator 项目中使用 npm 包，如果不知道 npm 该如何获取，请查看 [如何获取 npm 包](./config.md)。
+本章节通过案例讲解如何在 Cocos Creator 项目中使用 npm 模块，如果不知道 npm 该如何获取，请参考 [获取 npm 包](./config.md)。
 
 ## ESM 与 CJS 交互规则
 

@@ -61,5 +61,3 @@ While holding down **Alt**, the **rectangular center point position** will remai
 ### Modifying the Collision Component Offset
 
 In the editing mode of all kinds of Colliders you can drag the center of the collider to move it off the center of the node. The **Offset** property of the collider will change as well.
-
-![drag-area](edit-collider-component/drag-area.png)

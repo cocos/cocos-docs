@@ -18,4 +18,4 @@ The component system gives nodes a variety of advanced features, such as **MeshR
 - [Building a Scene with the Scene Panel](scene-editing.md)
 - [Skybox](skybox.md)
 - [Global Fog](fog.md)
-- [Shadow](shadow.md)
+- [Shadows](./light/shadow.md)

@@ -1,6 +1,6 @@
-# Creating scripts
+# Creating Scripts
 
-## Creating component scripts
+## Creating Component Scripts
 
 In Cocos Creator, scripts are part of assets. A script created in the **Assets** panel is a NewComponent by default, which is called a component script. It can be created in two ways:
 
@@ -66,7 +66,7 @@ When a script is created, its original filename is handled as its `className`, w
 
 > **Note**: it is recommended that users use **TypeScript** to write scripts. If you wish to use **JavaScript** to write scripts, they can be created directly in the operating system file manager, or created in a code editor.
 
-## Editing scripts
+## Editing Scripts
 
 Choose a favorite text-editing tool (such as: **Vim**, **Sublime Text**, **Web Storm**, **VSCode**...) for script editing, please setup in the **Preferences -> External Program -> Default Script Editor** option of the editor menu bar.
 
@@ -74,7 +74,7 @@ By double-clicking the script asset, the script editor directly opens to allow f
 
 Before writing code, please read [Basics of Scripting](basic.md) documentation to learn more about scripts.
 
-## Add a script to a scene node
+## Add a Script to a Scene Node
 
 Adding a script to a scene node is actually adding a script component to that node. Select the scene node to which you wish to add a script in the **Hierarchy** panel, at which point the properties of that node will be displayed in the **Inspector** panel. Adding a script component includes the following two ways:
 
@@ -88,11 +88,18 @@ Adding a script to a scene node is actually adding a script component to that no
 
 ## Script Renaming
 
-The component name of a script component is the name of the class defined in the script, not the script file name. The class name of the script will be the same as the script file name when the script is created, but if there are changes to the script file name/class name afterward, the two are not automatically synchronized, and can be manually synchronized, if needed.
+Note that the component name of a script component is the class name defined in the script, not the script file name. When a script is created, the script file generates the class name according to the following rules:
+
+- Use Upper Camel Case.
+- There are no numbers on the head.
+- Without special characters.
+- Use the symbols and spaces in the script file name as intervals, and capitalize the first letter after each interval. For example, the script file name is `say-hello`, and the class name is `SayHello`.
+
+If there are secondary changes to the script file name/script class name afterwards, the two are not automatically synchronized, and can be synchronized manually if needed.
 
 Using `say-hello.ts` above as an example, if it is renamed to `hello` in the **Assets** panel, notice that the script component name in the **Inspector** panel is still the original name, **SayHello**, only the script name has changed to `hello`:
 
-![change-scriptname](setup/change-scriptname.png)
+![change script name](setup/change-scriptname.png)
 
 Double click to open `say-hello.ts`, and change the class name to **Hello**:
 
@@ -106,7 +113,7 @@ export class Hello extends Component {}
 
 After saving the script and returning to the editor, notice that the script component name in the **Inspector** panel has changed to **Hello**, but the script file name is still the original name, `say-hello`:
 
-![change-classname](setup/change-classname.png)
+![change class name](setup/change-classname.png)
 
 ## Custom script template
 

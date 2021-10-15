@@ -139,7 +139,7 @@ iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向**、**目
 
 包名，通常以产品网站 URL 倒序排列，如 `com.mycompany.myproduct`。
 
-> **注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
+> **注意**：包名中只能包含数字 (0~9)、字母 (A~Z、a~z)、中划线（-）和点（.），此外包名最后一部分必须以字母开头，不能以下划线或数字开头。详情请参考 [包的唯一标识符](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier)。
 
 #### 目标版本
 

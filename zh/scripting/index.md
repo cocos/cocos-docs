@@ -1,39 +1,21 @@
+# 脚本指南及事件机制
 
-# 脚本
+Cocos Creator 脚本用于实现用户定义的（游戏）行为，支持 JavaScript 和 TypeScript 两种编程语言。通过编写脚本组件，并将它挂载到场景节点中来驱动场景中的物体。
 
-Cocos Creator 脚本用于实现用户定义的（游戏）行为。
+在组件脚本的编写过程中，开发者可以通过声明属性，将脚本中需要调节的变量映射到 **属性检查器** 中，以便策划和美术进行调整。与此同时，也可以通过注册特定的回调函数，来帮助初始化、更新甚至销毁节点。
 
-- [脚本创建](./setup.md)
-- [脚本基础](./basic.md)
-- [语言支持](./language-support.md)
+## 内容
+
+- [编程语言支持](./language-support.md)
+- [脚本基础](./script-basics.md)
+- [脚本使用](./usage.md)
+- [脚本进阶](./reference-class.md)
+- [事件系统](../engine/event/index.md)
 - [模块规范与示例](./modules/index.md)
-- [脚本执行顺序](./execution-order-general.md)
-- [装饰器](./decorator.md)
-- [访问节点和其他组件](./access-node-component.md)
-- [常用节点和组件接口](./basic-node-api.md)
-- [生命周期回调](./life-cycle-callbacks.md)
-- [创建和销毁节点](./create-destroy.md)
-- [加载和切换场景](./scene-managing.md)
-- [获取和加载资源](./load-assets.md)
-- [使用计时器](./scheduler.md)
-- [组件和组件执行顺序](./component.md)
-- 事件系统
-  - [发射和监听事件](../engine/event/event-emit.md)
-  - [系统内置事件](../engine/event/event-builtin.md)
-  - [全局系统事件](../engine/event/event-input.md)
-  - [事件 API](../engine/event/event-api.md)
-- [属性参数参考](./reference/attributes.md)
 - [插件脚本](./external-scripts.md)
-- [脚本进阶参考](./reference-class.md)
-- [添加 Log](./log.md)
-- [废弃 API](./deprecated.md)
-
-## 事件机制
-
-作为引擎中极为常用的系统，我们提供了完整高效的事件系统给开发者使用，详情介绍请见：
-
-[事件机制](../engine/event/event-builtin.md)
 
 ## 更多参考
 
+- [添加引擎内 Log 信息](./log.md)
+- [废弃 API](./deprecated.md)
 - [推荐编码规范](./reference/coding-standards.md)
