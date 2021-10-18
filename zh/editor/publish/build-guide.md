@@ -41,7 +41,7 @@ Cocos Creator 的通用构建流程，主要包括以下内容：
 
 更多关于 `Asset Bundle` 的配置、构建、文件说明等内容，请参考 [Asset Bundle](../../asset/bundle.md) 文档。
 
-在整理完基本的构建任务后，构建将会循环所有的 `Bundle`，依次执行完每个 `Bundle` 需要处理的资源打包任务，生成这些 `Bundler` 资源包。
+在整理完基本的构建任务后，构建将会循环所有的 `Bundle`，依次执行完每个 `Bundle` 需要处理的资源打包任务，生成这些 `Bundle` 资源包。
 
 每个 `Bundle` 都会经过以下资源处理流程：
 
