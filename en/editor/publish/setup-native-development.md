@@ -4,7 +4,7 @@ Apart from publishing games to the Web, **Cocos Creator** uses JSB technology ba
 
 ## Android Platform Dependencies
 
-To publish to the Android platform, it is necessary to install all of the following development environments. If there is no need to publish to the Android platform, or if the operating system already has a full Android development environment, just skip this section.
+To publish to the Android platform, it is necessary to install all of the following development environments. If there is no need to publish to the Android platform, or if the operating system already has a full Android development environment, skip this section.
 
 ### Downloading the Java SDK (JDK)
 
@@ -12,7 +12,7 @@ Compiling the Android project requires a complete Java SDK tool on the local com
 
 [Java SE Development Kit 8 Downloads](https://www.oracle.com/java/technologies/downloads/#java8)
 
-Before downloading, make sure to select the operating system and architecture that matches your machine, and run the installer after the download is complete.
+Before downloading, make sure to select the operating system and architecture that matches the machine architecture and operating system. Run the installer after the download is complete.
 
 After the installation is complete, please confirm that the `java` command is valid on the command line. Input the following code into Mac terminal or Windows command line tool to check:
 
@@ -20,9 +20,9 @@ After the installation is complete, please confirm that the `java` command is va
 java -version
 ```
 
-If `JAVA SE` is displayed, there is no problem. If `JRE` is displayed, then it is necessary to install [JAVA SE environment](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+If `JAVA SE` is displayed, there is no problem. If `JRE` is displayed, then it is necessary to install the [JAVA SE environment](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-On Windows platform, please confirm if `JAVA_HOME` is included in your environmental variables. By right clicking **Computer** on your computer, choosing **Property -> Advanced system settings -> Environment Variables** to check and modify environmental variables. It may be necessary to restart the system after the changes are made before they take effect on Windows platform. For details, please refer to the document: [How do I set or change the PATH system variable?](https://www.java.com/en/download/help/path.xml).
+On the Windows platform, confirm if `JAVA_HOME` is included in the system environmental variables. By right-clicking the **Computer** icon and choosing **Property -> Advanced system settings -> Environment Variables** to check and modify environmental variables. It may be necessary to restart the system after the changes are made before they take effect on the Windows platform. For details, please refer to the [How do I set or change the PATH system variable?](https://www.java.com/en/download/help/path.xml) documentation.
 
 ### Downloading and Installing Android Studio
 
@@ -35,7 +35,7 @@ After installing **Android Studio**, refer to the official documentation and ope
 1. In the **SDK Platforms** tab page, check the API level you want to install, and it is recommended to select the required mainstream API Level such as `API Level 26 (8.0)`, `API Level 28 (9.0)`, etc.
 2. In the **SDK Tools** tab page, first check the lower right corner of the **Show Package Details**, to show the version of the tool selection.
 3. In the **Android SDK Build-Tools**, select the latest build Tools version.
-4. Check the **Android SDK Platform-Tools** and **CMake**. If you need to install the **Android Support Library**, please refer to the official [Support Library Setup](https://developer.android.com/topic/libraries/support-library/setup) documentation.
+4. Check the **Android SDK Platform-Tools** and **CMake**. To install the **Android Support Library**, please refer to the official [Support Library Setup](https://developer.android.com/topic/libraries/support-library/setup) documentation.
 5. Check the **NDK** and the recommended version is **r18~21**. Note that the **NDK-r22** is not supported currently.
 6. Take note of the path of **Android SDK Location** on top of the **SDK Manager** window. Later we need to fill in the location of the SDK in **Cocos Creator**.
 7. Click **OK** and follow the prompts to complete the installation.
@@ -50,7 +50,7 @@ Please install the following runtime environment:
 
   > **Note**: there is a **Cocos** option in the **Game development with C++** module. Do **NOT** check it.
 
-- In macOS, the installation of [Xcode](https://developer.apple.com/xcode/download/) and command line tool is needed.
+- On macOS, the installation of [Xcode](https://developer.apple.com/xcode/download/) and the command-line tools are necessary.
 
   > **Note**: starting with v3.0.1, Xcode v11.5 and above is required.
 
@@ -64,7 +64,7 @@ Next, go back to Cocos Creator to configure the environmental path of the native
 
   > **Note**: the new version of Android Studio's NDK can be downloaded in multiple versions, with the previous `ndk-bundle` file name changed to `ndk`. You can select a specific version of the NDK as needed in the `ndk` directory.
 
-- **Android SDK**: choose the `Android SDK Location` path we just noted in Android Studio SDK Manager window (the directory of Android SDK should include folders like `build-tools`, `platforms`, etc.). You can skip this if there is no need to compile the Android platform.
+- **Android SDK**: choose the `Android SDK Location` path just noted in Android Studio SDK Manager window (the directory of Android SDK should include folders like `build-tools`, `platforms`, etc.). Skip this if there is no need to compile for the Android platform.
 
 Close the window after configuration is completed.
 
