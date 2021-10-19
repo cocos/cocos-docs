@@ -6,12 +6,12 @@ The `arc()` method creates an arc/curve (used to create circles or partial circl
 
 | Parameter | Description |
 | :-------------- | :----------- |
-| **x** | The x coordinate of the center of the circle. |
-| **y** | The y coordinate of the center of the circle. |
-| **r** | Radius of the circle. |
-| **sAngle** | Start angle in radians (The arc's three o'clock position is 0 degrees). |
-| **eAngle** | End angle in radians. |
-| **counterclockwise** | Optional. Specifies whether draw the arc counterclockwise or clockwise. False = clockwise, true = counterclockwise. |
+| **x** | The x coordinate of the center control point. |
+| **y** | The y coordinate of the center control point. |
+| **r** |Arc radian. |
+| **startAngle** | Start radian, measured clockwise from positive x axis. |
+| **endAngle** | End radian, measured clockwise from positive x axis. |
+| **counterclockwise** | Determines the drawing direction.<br>**Clockwise** when set to `false` (default).<br>**Counterclockwise** when set to `true`. |
 
 ## Example
 

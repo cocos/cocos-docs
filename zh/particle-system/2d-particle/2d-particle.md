@@ -13,8 +13,6 @@ ParticleSystem2D 的脚本接口请参考 [ParticleSystem API](__APIDOC__/zh/#/d
 | 属性 |   功能说明
 | :-------------- | :----------- |
 | CustomMaterial       | 自定义材质，使用方法可参考 [自定义材质](../../ui-system/components/engine/ui-material.md)
-| SrcBlendFactor       | 源混合因子。可参考 [SrcBlendFactor API](__APIDOC__/zh/#/docs/3.3/zh/particle2d/Class/ParticleSystem2D?id=srcblendfactor)
-| DstBlendFactor       | 目标混合因子。可参考 [DstBlendFactor API](__APIDOC__/zh/#/docs/3.3/zh/particle2d/Class/ParticleSystem2D?id=dstblendfactor)
 | Color                | 粒子颜色
 | Preview              | 在编辑器模式下预览粒子，启用后选中粒子时，粒子将在 **场景编辑器** 中自动播放
 | PlayOnLoad           | 若勾选该项，则运行时会自动发射粒子

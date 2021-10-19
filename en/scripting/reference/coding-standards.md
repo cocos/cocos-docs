@@ -1,4 +1,4 @@
-# Recommended coding standards
+# Recommended Coding Standards
 
 The following are the coding standards that the Cocos Creator development team use. They are included in the manual for game developers and tool developers reference.
 

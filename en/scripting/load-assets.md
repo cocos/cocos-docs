@@ -1,4 +1,4 @@
-# Obtaining and Loading assets
+# Obtaining and Loading Assets
 
 __Cocos Creator__ uses the same asset management mechanism as __Cocos Creator__. In this section, we will introduce:
 

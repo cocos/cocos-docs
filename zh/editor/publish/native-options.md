@@ -35,7 +35,7 @@
 
 #### 任务调度系统
 
-该项是目前引擎内部功能模块使用的功能，用户暂不需要关注该项，任意选择下拉框中的选项都不会产生任何影响。
+该项是目前引擎内部功能模块使用的功能，用户暂不需要关注该项，任意选择下拉框中的选项都不会产生任何影响。但选择 TBB 或 TaskFlow 在原生平台上的应用会有版本限制，具体请查看下文 **版本支持** 部分的内容。
 
 #### 加密脚本
 
@@ -139,7 +139,7 @@ iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向**、**目
 
 包名，通常以产品网站 URL 倒序排列，如 `com.mycompany.myproduct`。
 
-> **注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
+> **注意**：包名中只能包含数字 (0~9)、字母 (A~Z、a~z)、中划线（-）和点（.），此外包名最后一部分必须以字母开头，不能以下划线或数字开头。详情请参考 [包的唯一标识符](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier)。
 
 #### 目标版本
 
@@ -174,6 +174,32 @@ Mac 平台的构建选项包括 **Bundle Identifier**、**目标版本**、**Sup
 #### 渲染后端
 
 目前默认使用 **METAL** 渲染后端，详情可参考官方文档 [Metal](https://developer.apple.com/cn/metal/)。
+
+### 版本支持
+
+各个功能模块在原生平台的最低版本支持情况如下：
+
+| 功能模块 | Android | iOS |
+| :-- | :--- | :-- |
+| VULKAN 渲染后端 | API Level 24（7.0）| - |
+| Google Play Instant | API Level 23（6.0）| - |
+| TBB 任务调度系统 | API Level 21（5.0）| 10.0 |
+| TaskFlow 任务调度系统 | API Level 18（4.3）| 12.0 |
+| 延迟渲染管线 | API Level 21（5.0）| 10.0 |
+
+Creator 3.0 支持的 C++ 版本为 C++14。由于 v3.1 支持 TaskFlow 任务调度系统，其依赖于 C++17，因此 v3.1 升级为 C++17。<br>
+但由于 C++17 是 iOS 12+ 才支持，为了支持 iOS 10.0，我们在 v3.3.2 将其重新降回了 C++14。需要注意的是在 v3.3.2 若使用 TaskFlow 任务调度系统，会自动开启 C++17 以支持编译。
+
+相应地，Creator 各版本在原生平台的最低版本支持情况如下：
+
+| 平台 | Creator 3.0 | Creator 3.1 ~ 3.3.1 | Creator 3.3.2 及以上 |
+| :-- | :--- | :-- | :-- |
+| Android | API Level 18（4.3）| API Level 21（5.0）| API Level 18（4.3）|
+| iOS | 10.0 | 12.0 | 10.0 |
+
+最高版本支持情况如下：
+- Android：API Level 31（12.x）
+- iOS：15.x
 
 ## 构建
 

@@ -16,7 +16,7 @@ A **Joint Texture Layout Settings** panel was added to the editor menu bar **Pan
 
 Use the **instanced-skinning** scenario from the example project [show-cases](https://github.com/cocos-creator/example-3d/tree/v3.3/show-cases/assets/scenes) as an example to see how the joint texture layout is set up and how it works. The following figure shows a sample scene.
 
-The following figure shows a sample scenario with multiple instances from the same model, playing completely different animations at the same time. As you can see, the current scene, plus the UI, has a total Drawcall of 60 and an instance count of 0. This state will be used as the basis for later changes to compare.
+The following figure shows a sample scenario with multiple instances from the same model, playing completely different animations at the same time. Notice the current scene, plus the UI, has a total Drawcall of 60 and an instance count of 0. This state will be used as the basis for later changes to compare.
 
 ![Baseline](./joint-texture-layout/instancing_baseline.gif)
 
@@ -81,7 +81,7 @@ In addition, the color of the icon next to the texture size indicates the device
 - Yellow (1024 ~ 2048 sides): Some mobile devices or mini-game platforms that do not support floating point texture may not support it.
 - Red (side length 2048 or more): Not supported on many mobile devices.
 
-> **Note**: this is just a set of 9 animations for one skeleton on one texture, but you can put **any number of animations for any number of skeletons** on each texture, as long as the total size does not exceed the device limit. It is often more common to have multiple sets of skeletons on a single texture, for example for [flat shadows for skinned models](./skeletal-animation.md#about-dynamic-instancing).
+> **Note**: this is just a set of 9 animations for one skeleton, on one texture, but **any number of animations for any number of skeletons** can be put on each texture, as long as the total size does not exceed the device limit. It is often more common to have multiple sets of skeletons on a single texture, for example for [flat shadows for skinned models](./skeletal-animation.md#about-dynamic-instancing).
 
 As more instances continue being adding to the scene, notice the number of drawcalls does not change, only the number of instances increases:
 

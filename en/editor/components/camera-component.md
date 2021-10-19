@@ -52,7 +52,9 @@ When you check multiple Layers in the `Visibility` property, the value of the `V
 
 For example, in the following image, the `Visibility` property of the camera has both __UI_3D__ and __DEFAULT__ Layer checked, and by looking up [the value of the Layer property](../../concepts/scene/layer.md), notice the value of the __UI_3D__ property is __1 << 23__ , the value of the __DEFAULT__ property is __1 << 30__, and the value of the `Visibility` property is __1 << 23 | 1 << 30 = 1820327937__.
 
-![camera visibility gizmo](camera-visibility-gizmo.png)
+![camera visibility gizmo](camera/camera-visibility-gizmo.png)
+
+For additional information on the implementation of Layer, please refer to the [Layer](../../concepts/scene/layer.md) documentation.
 
 ### Visibility calculations for the camera
 

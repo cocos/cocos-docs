@@ -1,12 +1,29 @@
 # 外部代码支持
 
-> **注意**：从 3.0 开始，推荐使用模块代替插件脚本的使用！
+> **注意**：Cocos Creator 3.x 推荐使用模块代替插件脚本的使用！
 
 ## 插件脚本
 
 当脚本资源在导入时设置了 **导入为插件**，此脚本资源便称为 **插件脚本**。插件脚本通常用于引入第三方库。目前仅支持 JavaScript 插件脚本。
 
-与项目中的其它脚本不同，Creator 不会修改插件脚本的内容，但可能会插入一些代码以适配 Creator 本。特别地，Creator 将屏蔽全局变量 `module`、`exports`、`define`。
+与项目中的其它脚本不同，Creator 不会修改插件脚本的内容，但可能会插入一些代码以适配 Creator。特别地，Creator 将屏蔽全局变量 `module`、`exports`、`define`。
+
+### 导入选项
+
+许多第三方 JavaScript 库以全局变量的方式提供库的功能，这些库往往会写入全局变量 `window`、`global`、`self` 和 `this` 中，但这些全局变量不一定是跨平台的。为了方便，Creator 在导入插件脚本时，提供了 **模拟全局变量** 选项，开启后，Creator 将插入必要的代码以模拟这些全局变量，其效果类似于：
+
+```js
+(function() {
+    const window = globalThis;
+    const global = globalThis;
+    const self = globalThis;
+
+    (function() {
+        /* 原始代码 */
+    }).call(this);
+
+}).call(this);
+```
 
 ### 执行时机
 
@@ -41,20 +58,3 @@
 - 谨慎使用全局变量，当开发者要用全局变量时，应该清楚自己在做什么，我们并不推荐滥用全局变量，即使要用也最好保证全局变量为 **只读** 状态。
 - 添加全局变量时，请小心不要和系统已有的全局变量重名。
 - 开发者可以在插件脚本中自由封装或者扩展 Cocos Creator 引擎，但这会提高团队沟通成本，导致脚本难以复用。
-
-### 导入选项
-
-许多第三方 JavaScript 库以全局变量的方式提供库的功能，这些库往往会写入全局变量 `window`、`global`、`self` 和 `this` 中，但这些全局变量不一定是跨平台的。为了方便，Creator 在导入插件脚本时，提供了 **模拟全局变量** 选项，开启后，Creator 将插入必要的代码以模拟这些全局变量，其效果类似于：
-
-```js
-(function() {
-    const window = globalThis;
-    const global = globalThis;
-    const self = globalThis;
-
-    (function() {
-        /* 原始代码 */
-    }).call(this);
-
-}).call(this);
-```

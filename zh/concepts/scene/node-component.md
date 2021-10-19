@@ -37,7 +37,7 @@ Cocos Creator 3.0 的工作流程是以组件式开发为核心的，组件式�
 **属性检查器** 中以 `Node` 标题开始的部分就是节点的属性，节点属性包括了节点的位置、旋转、缩放等变换信息。我们将在 [坐标系和节点属性变换](coord.md) 部分进行详细介绍。
 
 接下来以 `cc.MeshRenderer` 标题开始的部分就是 Sphere 组件的属性。在 Creator 中，MeshRenderer 组件用于绘制网格资源，其中的 `Mesh` 属性用于指定渲染所用的网格资源。因为我们刚刚创建的是 Sphere 节点，所以这里默认是 `sphere.mesh`。<br>
-而 `Materials` 属性用于指定渲染所用的材质，你可以尝试从 **资源管理器** 中拖拽任意一个材质到 **属性检查器** 的 `Materials` 属性中，可以看到刚才默认的材质变成了指定的材质。
+而 `Materials` 属性用于指定渲染所用的 [材质资源](../../asset/material.md)，你可以尝试从 **资源管理器** 中拖拽任意一个材质到 **属性检查器** 的 `Materials` 属性中，可以看到刚才默认的材质变成了指定的材质。
 
 > 组件上设置好的任何资源，比如这里的 `sphere.mesh`，都会在场景加载时自动同时加载好。你也可以在自定义的组件中声明需要设置和自动加载的资源类型，详见 [获取和加载资源](../../scripting/load-assets.md)。
 
@@ -70,8 +70,6 @@ Cocos Creator 3.0 的工作流程是以组件式开发为核心的，组件式�
 ![button property](scene/directional-light.png)
 
 > 这里只是简单举个效果较为明显的例子，使用中并不建议在 sphere 节点上添加 DirectionalLight 组件。
-
-关于更多其他的组件详情，请参考 [组件](../../editor/components/index.md) 文档。
 
 ## 设置节点的可见性
 

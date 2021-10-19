@@ -1,15 +1,5 @@
 # Module Specification
 
-In Cocos Creator, all JavaScript code is organized in the form of modules, which include:
-
-- The code created in the project.
-
-- Functionality provided by the engine.
-
-- Code that is not created in the project nor provided by the engine, but is referenced by the project.
-
-Cocos Creator natively supports and recommends the use of the ECMAScript module format (hereafter referred to as ESM module format). To support the use of external modules, Cocos Creator also supports the CommonJS module format to some extent.
-
 ## Module Format
 
 This section describes how Cocos Creator determines the format of a module.

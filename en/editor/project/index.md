@@ -2,7 +2,7 @@
 
 The **Project Settings** panel can be opened by clicking on **Project -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. To synchronize project settings between developers, please add the `settings` directory to version control.
 
-**Project Settings** consists of several different subpages, including **Macro Config**, **Feature Cropping**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
+**Project Settings** consists of several different sub-pages, including **Macro Config**, **Feature Cropping**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
 
 ## Macro Config
 
@@ -19,7 +19,7 @@ The **Project Settings** panel can be opened by clicking on **Project -> Project
     - If enabled, the Canvas background will be transparent and show the other DOM elements behind it.
     - If disabled, it will result in higher performance.
 
-- **ENABLE_WEBGL_ANTIALIAS**: whether to activate gl antialias setting in the engine, it's enabled by default. This setting only affect GL graphics back-ends like WebGL and OpenGL ES, it indicates whether to turn on the anti-aliasing option when creating GL Context.
+- **ENABLE_WEBGL_ANTIALIAS**: whether to activate WebGL antialias setting in the engine, it's enabled by default. This setting only affect WebGL graphics back-end, it indicates whether to turn on the anti-aliasing option when creating WebGL Context.
 
 - **CLEANUP_IMAGE_CACHE**: whether to clear the image cache after uploading a texture to GPU. If the cache is cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported. It's disabled by default.
 

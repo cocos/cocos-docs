@@ -113,8 +113,7 @@
 
 **场景编辑器** 的核心功能就是以所见即所得的方式编辑和布置场景中的可见元素，我们主要通过 **Gizmo** 工具来辅助完成场景的可视化编辑。
 
-- [变换工具 Gizmo](./transform-gizmo.md)
+- [变换工具 Gizmo](../toolbar/index.md)
 - [摄像机 Gizmo](./camera-gizmo.md)
-- [灯光 Gizmo](./light-gizmo.md)
 - [碰撞器 Gizmo](./collider-gizmo.md)
 - [粒子系统 Gizmo](./particle-system-gizmo.md)

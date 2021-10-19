@@ -6,30 +6,29 @@ Welcome to the __Cocos Creator 3.4__ user manual! This manual includes detailed 
 
 ## General Guide
 
-- [Getting Started](getting-started/index.md)
-- [Scene Creation Workflow](concepts/scene/index.md)
-- [Scripting](scripting/index.md)
+- [Cocos Creator Basic Usage](getting-started/index.md)
+- [Scene Creation](concepts/scene/index.md)
+- [Assets System](asset/index.md)
+- [Scripting Guide and Event System](scripting/index.md)
 - [Cross-platform Game Publish](editor/publish/index.md)
-- [Engine Features Map Guide](module-map/index.md)
-    - [Graphics Rendering](module-map/graphics.md)
-    - [Animation](animation/index.md)
-    - [Audio](audio-system/overview.md)
-    - [Physics](physics/physics.md)
-    - [Components](editor/components/index.md)
-    - [Assets](asset/index.md)
-- [UI](ui-system/components/engine/index.md)
-- [Terrain](editor/terrain/index.md)
-- [Lightmapping](concepts/scene/light/lightmap.md)
-- [Tween](tween/index.md)
-- [2D Physics](physics-2d/physics-2d.md)
+- [Graphics Rendering](module-map/graphics.md)
+- [2D Rendering](2d-object/2d-render/index.md)
+- [UI System](2d-object/ui-system/index.md)
+- [Animation System](animation/index.md)
+- [Audio System](audio-system/overview.md)
+- [Physics System](physics/index.md)
+- [Particle System](particle-system/index.md)
+- [Tween System](tween/index.md)
+- [Terrain System](editor/terrain/index.md)
+- [Asset Manager](asset/asset-manager.md)
 - [Editor Extension](editor/extension/readme.md)
 - [Advanced Topics](advanced-topics/index.md)
 
-## Demo and example projects
+## Demo and Example Projects
 
 - [Example collection](https://github.com/cocos-creator/example-3d): From the use of basic components to the display of rendering effects, this project includes multiple scenarios with different functions and multiple game demo projects for user reference.
 - [One Step, Two Steps](https://github.com/cocos-creator/tutorial-mind-your-step-3d): This is the [Quick Start](getting-started/first-game/index.md) document Step-by-step explanation of the game.
-- [Examples of Physics](https://github.com/cocos-creator/example-3d/tree/v3.3/physics-3d): Includes some Physics test cases and examples, such as **Engulfing Black Hole**, **Simple Car**, **Falling ball**, etc. The test cases introduce some basic functions and usage methods, so that you can understand the physical functions in combination with the documentation.
+- [Examples of Physics](https://github.com/cocos-creator/example-3d/tree/v3.3/physics-3d): Includes some Physics test cases and examples, such as **Engulfing Black Hole**, **Simple Car**, **Falling ball**, etc. The test cases introduce some basic functions and usage methods, so that understand the physical functions in combination with the documentation.
 - [Simple Games](https://github.com/cocos-creator/example-3d/tree/v3.3/simple-games): Users can use this case study to complete some simple and famous games.
 - [Module display collection](https://github.com/cocos-creator/test-cases-3d): The example project of each function of the engine, which basically covers most of the function modules of the engine. Users can refer to it when using the functions Development in this project.
 - [UI Show Demo](https://github.com/cocos-creator/demo-ui/): Demo of various UI components combined use Demo.

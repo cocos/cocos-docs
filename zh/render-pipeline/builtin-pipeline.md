@@ -31,6 +31,6 @@ Cocos Creator 3.1 的内置渲染管线包括 **builtin-forward**（前向渲染
 
 <img src="./image/effect.png" width=760 height=647></img>
 
-对于需要通过动态设置材质 Uniform 来实现材质效果变化需求的，在延迟渲染管线下需要指定对应的 Pass 索引进行更新才能够生效，而不是默认更新索引 0 的 Pass，比如内置的 builtin-standard 材质，对应的 PassIndex 为 1。
+对于需要通过动态设置材质 Uniform 来实现材质效果变化需求的，在延迟渲染管线下需要指定对应的 Pass 索引进行更新才能够生效，而不是默认更新索引 0 的 Pass，比如内置的 `builtin-standard` 材质，对应的 `PassIndex` 为 1。
 
 引擎内置的渲染管线后续也会不断优化性能，并添加新的特性，比如后处理阶段、HDR、反射等等，为开发者提供更加多元和丰富的渲染特性。
