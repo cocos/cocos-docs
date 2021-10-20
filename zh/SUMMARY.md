@@ -305,6 +305,7 @@
     - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
     - [热更新范例教程](advanced-topics/hot-update.md)
     - [热更新管理器](advanced-topics/hot-update-manager.md)
+    - [i18n 游戏多语言支持](advanced-topics/i18n.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
     - [网页预览定制工作流程](editor/preview/browser.md)
