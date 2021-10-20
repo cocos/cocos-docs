@@ -1,6 +1,6 @@
 # Curve Editor
 
-The Curve Editor is mainly used to edit the curve trajectory that changes between keyframes. The keyframe curves of animations and particles in the editor are edited using the Curve Editor. For the key point on each curve, **the horizontal coordinate is the keyframe time/frame rate, and the vertical coordinate is the value of the current curve property at the corresponding time**. The Curve Editor supports editing multiple curves at the same time, but only single curve editing is currently available in the particle usage scenario.
+The Curve Editor is mainly used to edit the curve trajectory that changes between keyframes. The keyframe curves of animations and particles in the editor are edited using the Curve Editor. For the key point on each curve, **the horizontal coordinate is the keyframe time/frame rate, and the vertical coordinate is the value of the current curve property at the corresponding time**. The Curve Editor supports editing multiple curves at the same time, but only single curve editing is currently available in the particle usage scene.
 
 ## Scaling and moving the curve display area
  
@@ -85,17 +85,17 @@ The interpolation mode includes the following option values:
 
 ### Editing keyframe tangents
 
-A keyframe has two tangents on the left and right, the length and direction of the tangents will control the shape of the curve between keyframes. In `Cubic` interpolation mode, just drag the right tangent control point to edit it directly. In different tangent weight modes, the tangent lever can be operated in different ranges, please refer to the next paragraph.
+A keyframe has two tangents on the left and right, the length and direction of the tangents will control the shape of the curve between keyframes. In `Cubic` interpolation mode, just drag the tangent control point to edit it directly. In different tangent weight modes, the tangent lever can be operated in different ranges, please refer to the next paragraph.
 
-### Tangent Weight Mode
+#### Tangent Weight Mode
 
 Right-click on the keyframe to see the modification options menu for the interpolation mode, and click on Modify. The tangent weight mode value will only work if the `Interpolation Mode` is `Cubic`.
 
-The tangent option range is actually two main types.
+The tangent option range is actually two main types:
 
-- **No-Weighting Mode**. The variation between keyframes uses the Hermite algorithm, where the direction of the curve depends on the direction of the left and right tangents of the keyframes. In this case, the left and right tangent levers of the keyframe can only change the tangent direction. The tangent control points at this point are only drawn to facilitate the direction change, so the tangent lever length does not change when scaling the curve view area at this point.
+- **No-Weighting Mode**: the variation between keyframes uses the Hermite algorithm, where the direction of the curve depends on the direction of the left and right tangents of the keyframes. In this case, the left and right tangent levers of the keyframe can only change the tangent direction. The tangent control points at this point are only drawn to facilitate the direction change, so the tangent lever length does not change when scaling the curve view area at this point.
 
-- **Weighting Mode**. The change between keyframes uses the Bessel algorithm, and the curve orientation is also influenced by the left and right tangent control points of the keyframes. The left tangent control point can be moved at will to adjust the control bar length, the left tangent control point is the real coordinate point at this time, and the control bar will be scaled simultaneously when scaling the curve view area.
+- **Weighting Mode**: the change between keyframes uses the Bessel algorithm, and the curve orientation is also influenced by the left and right tangent control points of the keyframes. The left tangent control point can be moved at will to adjust the control bar length, the left tangent control point is the real coordinate point at this time, and the control bar will be scaled simultaneously when scaling the curve view area.
 
     ![interopMode Key](./animation-curve/tangentWeightMode-key.gif)
 
