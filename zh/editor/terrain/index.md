@@ -25,6 +25,8 @@
 | ReceiveShadow | 是否接受阴影 |
 | UseNormalMap | 是否使用法线贴图 |
 | UsePBR | 是否使用物理材质 |
+| LodEnable | 是否启用地形Lod |
+| LodBias | Lod起始距离 |
 
 ## 使用
 

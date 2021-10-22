@@ -25,6 +25,8 @@ Two steps are required to create a terrain:
 | **ReceiveShadow** | Accept the shadow |
 | **UseNormalMap** | Use normal map |
 | **UsePBR** | Use physical materials |
+| **LodEnable** | Enable terrain lod |
+| **LodBias** | lod start distance |
 
 ## Using a terrain
 
