@@ -76,7 +76,7 @@ We have received lots of feedback about native packing in the public beta, and s
 
 1. Package name issue
 
-    Check the **Game Package Name** in the **Build** panel, including blank space, `-`, etc. are all illegal.
+    Check the **Game Package Name** in the **Build** panel. The package name can only contain numbers, letters and underscores, in addition the last part of the package name must start with a letter and cannot start with an underscore or a number.
 
 2. Android built successfully, but prompts `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
 
