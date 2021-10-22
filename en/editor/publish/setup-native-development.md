@@ -26,7 +26,7 @@ On the Windows platform, confirm if `JAVA_HOME` is included in the system enviro
 
 ### Downloading and Installing Android Studio
 
-**Cocos Creator does not support Eclipse's ANT** build, it is necessary to use **Android Studio v4.1 and above** as an Android platform's build tool and download the required SDK and NDK packages in **Android Studio**. First, install [Android Studio](https://developer.android.com/studio#downloads).
+**Cocos Creator does not support Eclipse's ANT** build, it is necessary to use **Android Studio 4.1 and above** as an Android platform's build tool and download the required SDK and NDK packages in **Android Studio**. First, install [Android Studio](https://developer.android.com/studio#downloads).
 
 ### Downloading the SDK and NDK required to publish to the Android platform
 
@@ -34,7 +34,7 @@ After installing **Android Studio**, refer to the official documentation and ope
 
 1. In the **SDK Platforms** tab page, check the API level you want to install, and it is recommended to select the required mainstream API Level such as `API Level 26 (8.0)`, `API Level 28 (9.0)`, etc.
 2. In the **SDK Tools** tab page, first check the lower right corner of the **Show Package Details**, to show the version of the tool selection.
-3. In the **Android SDK Build-Tools**, select the latest build Tools version.
+3. In the **Android SDK Build-Tools**, select the latest build tools version.
 4. Check the **Android SDK Platform-Tools** and **CMake**. To install the **Android Support Library**, please refer to the official [Support Library Setup](https://developer.android.com/topic/libraries/support-library/setup) documentation.
 5. Check the **NDK** and the recommended version is **r18~21**. Note that the **NDK-r22** is not supported currently.
 6. Take note of the path of **Android SDK Location** on top of the **SDK Manager** window. Later we need to fill in the location of the SDK in **Cocos Creator**.
@@ -42,7 +42,7 @@ After installing **Android Studio**, refer to the official documentation and ope
 
 ![sdk manager](setup-native-development/sdk-manager.png)
 
-## Installing C++ compiling environment
+## Installing C++ Compiling Environment
 
 Please install the following runtime environment:
 
@@ -66,7 +66,7 @@ Next, go back to Cocos Creator to configure the environmental path of the native
 
 - **Android SDK**: choose the `Android SDK Location` path just noted in Android Studio SDK Manager window (the directory of Android SDK should include folders like `build-tools`, `platforms`, etc.). Skip this if there is no need to compile for the Android platform.
 
-Close the window after configuration is completed.
+After the configuration is complete, Creator will automatically save it.
 
 > **Note**: the configuration will work when building native project. If the configuration not work, please try to set these settings to **System Environment** manually: `NDK_ROOT`, `ANDROID_SDK_ROOT`.
 
@@ -80,6 +80,6 @@ We have received lots of feedback about native packing in the public beta, and s
 
 2. Android built successfully, but prompts `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
 
-    Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition you can try to use the NDK and Android SDK version used in this article to test.
+    Please check if the architecture and version of NDK and Android SDK correspond to the phone's Android system. In addition try to test with the NDK and Android SDK versions used in this documentation.
 
-In the end, if build still fails, please send a question to the [Cocos Forum](https://discuss.cocos2d-x.org/c/33) with the Creator version, the build log file in the Build panel, and a demo that reproduces the problem.
+In the end, if build still fails, please send us feedback via the [Cocos Forum](https://discuss.cocos2d-x.org/c/33) with Creator version, detailed reproduction steps, the build log file in the Build panel, and a demo that reproduces the problem.
