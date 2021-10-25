@@ -132,7 +132,7 @@ export class AudioController extends Component {
 
 ### 材质升级
 
-在 v3.0 中我们持续改进了材质系统的设计和内置 Shader API，所以从 v2.x 升级到 v3.x 时，部分内容无法自动升级，可能还需要开发者手动进行调整，详情请参考 [材质升级指南](../material-system/effect-2.x-to-3.0.md)。
+在 v3.0 中我们持续改进了材质系统的设计和内置 Shader API，所以从 v2.x 升级到 v3.x 时，部分内容无法自动升级，还需要开发者手动进行调整，详情请参考 [材质升级指南](../material-system/effect-2.x-to-3.0.md)。
 
 ### 引擎 API 升级
 
@@ -482,6 +482,8 @@ User Layer 6 的 layer 值为：2<sup>6</sup> = 64。
 
 从 v3.0 开始 `zIndex` 接口已经被移除，若需要调整节点树的顺序请使用 `priority` 方法来替换使用。
 
+>**注意：** 从 v3.1 开始，priority 属性已弃用，若需要调整节点树的顺序请使用 setSiblingIndex 方法。
+
 ### 通过 `getComponent()` 无法获取到节点上挂载的脚本
 
 请查询对应脚本的类名，而不是脚本名，因为在 v3.x 中脚本组件是以脚本中定义的类名为准的，而不是脚本名。常出现因为大小写而导致脚本找不到的问题。详情请参考 [创建脚本](../scripting/setup.md)。
@@ -502,7 +504,7 @@ resources.load("testAssets/image/spriteFrame", SpriteFrame, (err, spriteFrame) =
 
 ### 物体产生物理碰撞之后，原有的物理碰撞回调没有了
 
-在 v3.x 中，碰撞体回调需要在开始的时候进行注册，与原先 v2.x 会直接产生回调不同。因此开发者需要在物理回调的脚本中增加对回调函数的注册。例如：
+从 v3.0 开始，碰撞体回调需要在开始的时候进行注册，与原先 v2.x 会直接产生回调不同。因此开发者需要在物理回调的脚本中增加对回调函数的注册。例如：
 
 ```typescript
 let collider = this.getComponent(Collider2D);
@@ -533,7 +535,7 @@ if (collider) {
 
 ### 升级后对脚本进行修改，出现编辑器卡死的情况
 
-检查升级后脚本中定义的组件类型的 `property` 是否未定义，如果是，则是由于导入插件太过于老旧导致的，请参考 [插件升级](https://github.com/cocos-creator/plugin-import-2.x) 对导入插件进行更新升级。更新导入插件后，需要 **重新进行项目升级**。
+检查升级后脚本中定义的组件类型的属性装饰器 `property` 是否未定义，如果是，则是由于导入插件太过于老旧导致的，请参考 [插件升级](https://github.com/cocos-creator/plugin-import-2.x) 对导入插件进行更新升级。更新导入插件后，需要 **重新进行项目升级**。
 
 ## TypeScript 参考教程
 
