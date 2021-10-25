@@ -537,6 +537,23 @@ if (collider) {
 
 检查升级后脚本中定义的组件类型的属性装饰器 `property` 是否未定义，如果是，则是由于导入插件太过于老旧导致的，请参考 [插件升级](https://github.com/cocos-creator/plugin-import-2.x) 对导入插件进行更新升级。更新导入插件后，需要 **重新进行项目升级**。
 
+### 升级后在脚本中修改节点的 Position 直接使用例如 node.x 这样的方式不生效
+
+从 v3.0 开始，`node` 节点上不允许直接访问坐标位置，需要先访问 `position` 再访问坐标值。如下述所示：
+
+```typescript
+// v2.x 方式
+
+const xAxis = this.node.x;
+
+// v3.x 方式
+
+const xAxis = this.node.position.x;
+
+```
+
+并且 `position` 中的坐标更改为 **只读属性**，如果需要更改坐标位置，需要使用 `setPosition` 方法。
+
 ## TypeScript 参考教程
 
 - [Cocos Creator 3.0 TypeScript 问题答疑及经验分享](https://forum.cocos.org/t/topic/106995)
