@@ -24,7 +24,7 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 
 虽然 **我们不建议开发中的项目，特别是即将上线的项目强升 v3.0**，但是我们仍在 Cocos Creator 3.0 推出了 v2.x 资源导入工具。此工具支持旧项目资源完美导入，以及代码的辅助迁移。
 
-### 资源迁移
+### 资源导入
 
 开发者只需要点击主菜单中的 **文件 -> 导入 Cocos Creator 2.x 项目**。
 
@@ -44,9 +44,9 @@ v2.x 项目中所有的资源便会自动呈现在弹出的 **导入 Cocos Creat
 
 ### 代码迁移
 
-对于项目的代码，Creator 的导入插件提供了很好的代码迁移辅助。如果开发者的旧项目是使用 JavaScript 进行开发的，那么导入插件会先将 JavaScript 转换成 TypeScript，再统一进行代码的辅助迁移。
+当导入使用 JavaScript 进行开发的 v2.x 项目时，导入插件的代码辅助迁移功能会先将 JavaScript 转换成 TypeScript，再进行代码迁移。
 
-例如下面的一段代码：
+例如，导入的 v2.x 项目 JavaScript 代码如下：
 
 ```typescript
 // AudioController.ts
@@ -69,9 +69,10 @@ export class AudioController extends Component {
 }
 ```
 
-由于各个项目的代码的复杂度与写法的差异性，所以我们目前只对代码进行添加 **组件类型声明、属性声明及函数声明**，组件在场景中的引用都会得到 **保留**，并且函数内部的代码会以 **注释** 的形式迁移。
+由于各个项目代码的写法差异以及不同的复杂程度，目前导入插件对代码的迁移仅添加 **组件类型声明**、**属性声明** 和 **函数声明**，组件在场景中的引用都会得到 **保留**，并且函数内部的代码会以 **注释** 的形式迁移。<br>
+另外，v2.x 的原代码则会以注释的形式完整保留一份在迁移后代码的末尾，方便开发者手动转换时参考。
 
-上述代码在经过导入插件的代码 **辅助迁移** 之后，则会变成下图这样。最下方是旧项目的原代码，方便开发者参考旧代码对新代码进行升级：
+上述示例代码在经过导入插件的代码辅助迁移之后，结果如下所示：
 
 ```typescript
 // AudioController.ts
@@ -130,7 +131,7 @@ export class AudioController extends Component {
 
 ### 材质升级
 
-除了代码升级以外，目前 Effect 材质资源内的 Shader 代码还无法被自动升级，需要大家根据升级文档来手动升级。具体可以参考 Cocos Creator 2.x 的材质升级到 v3.0 的 [注意事项](/zh/material-system/effect-2.x-to-3.0.md)
+在 v3.0 中我们持续改进了材质系统的设计和内置 Shader API，所以从 v2.x 升级到 v3.x 时，部分内容无法自动升级，可能还需要开发者手动进行调整，详情请参考 [材质升级指南](../material-system/effect-2.x-to-3.0.md)。
 
 ### 引擎 API 升级
 
@@ -429,25 +430,25 @@ v3.0 构建 Windows 平台后生成的发布包目录如下：
 
 5. 一些编译时需要用到的资源，例如应用图标、应用启动脚本等，v2.4.3 是存储在构建工程中，而 v3.0 则是存储在项目目录的 `native/engine/当前构建的平台名称` 文件夹中。
 
-## 常见问题（FAQ）
+## 升级常见问题（FAQ）
 
-### 正常的绑定组件定义等一些操作，会导致 Visual Studio Code 爆红
+### 升级后项目脚本在 VS Code 打开时，绑定组件定义等操作出现爆红现象
 
-因为在 Creator 当中开启了严格模式，会对代码进行更严格的审查。排除掉开发过程中可能会出现的一些因为疏忽而导致的 bug。
+Cocos Creator 3.x 开启了 TypeScript 的严格模式，会对代码进行更严格的审查，排除开发过程中可能会出现的因为疏忽而导致的问题。
 
 关于严格模式下的书写规范，可以参照官方案例 **快上车 3D**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）
 
-如果需要关闭严格模式的话可以在 **项目 -> 项目设置 -> 脚本 -> 启用宽松模式** 中进行勾选启用宽松模式。
+如果不想使用严格模式，可以在 Creator 顶部菜单栏的 **项目 -> 项目设置 -> 脚本** 中勾选 **启用宽松模式**。需要提醒的是，我们并不鼓励关闭严格模式，因为严格空值检查能够减少代码运行时的一些低级报错。
 
 >**注意：** 我们更推荐开发者采用严格模式，进行书写代码。
 
 ### Action 动作全都失效
 
-这是因为 Action 动作系统在 v3.0 之后已经被移除，目前只支持 Tween 缓动系统。
+因为 Cocos Creator 3.x 移除了 Action 动作系统，统一使用 Tween 缓动系统。
 
-### 修改 2D 节点的 size 和 anchor 不生效
+### 修改 2D 节点的 `size` 和 `anchor` 不生效
 
-需要先获取节点上的 UITransform 组件，再使用对应的接口,例如：
+需要先获取节点上的 UITransform 组件，再使用对应的接口，例如：
 
 ```typescript
     const uiTrans = node.getComponent(UITransform)!;
@@ -455,42 +456,42 @@ v3.0 构建 Windows 平台后生成的发布包目录如下：
     uiTrans.setContentSize(size);
 ```
 
-### 修改 2D 节点的 color 不生效
+### 修改 2D 节点的 `color` 不生效
 
-需要先获取节点上的渲染组件（例如：Sprite 组件），再使用对应的接口，例如：
+需要先获取节点上的渲染组件（例如 Sprite 组件），再使用对应的接口，例如：
 
 ```typescript
     const uiColor = node.getComponent(Sprite)!;
     uiColor.color = color(255,255,255);
 ```
 
-### 修改 2D 节点的 skew 不生效
+### 修改 2D 节点的 `skew` 不生效
 
-在 v3.0 中 `skew` 接口已经被移除。
+从 v3.0 开始，`skew` 接口已经被移除。
 
-### 无法获取分组，但 Creator 的项目设置中仍有分组设置
+### 无法获取分组，但 Creator 的项目设置面板中仍有分组设置（Layers）
 
-在 v3.0 中 `group` 分组已经变为 `layer`,并且在 v2.x 中通过 `node.group` 获取到的是分组名，而通过 `node.layer` 获得的为 **分组值**。并且分组值是以 2 的指数幂进行设定。例如下图：
+v2.x 的 `group` 分组管理从 v3.0 开始变更为 `Layer`。在 v2.x 中通过 `node.group` 获取到的是分组名，而在 v3.x 通过 `node.layer` 获取到的是 **分组值**，并且分组值是以 2 的指数幂设定。如下图所示：
 
 ![update-setting](update-setting.png)
 
-User Layer 0 的 layer 值为 2 的 0 次方，为 1。
-User Layer 1 的 layer 值为 2 的 1 次方，为 2。
-User Layer 6 的 layer 值为 2 的 6 次方，为 64。
+User Layer 0 的 layer 值为：2<sup>0</sup> = 1。<br>
+User Layer 1 的 layer 值为：2<sup>1</sup> = 2。<br>
+User Layer 6 的 layer 值为：2<sup>6</sup> = 64。
 
-### 通过 zIndex 设置同级节点失效
+### 通过 `zIndex` 设置同级节点失效
 
-在 v3.0 中 `zIndex` 接口已经被移除，若需要调整节点树的顺序请使用 `setSiblingIndex` 方法来替换使用。
+从 v3.0 开始 `zIndex` 接口已经被移除，若需要调整节点树的顺序请使用 `priority` 方法来替换使用。
 
-### 通过 getComponent() 无法获取到节点上挂载的脚本
+### 通过 `getComponent()` 无法获取到节点上挂载的脚本
 
-请查询对应的脚本的类名，而不是脚本名。常出现因为大小写而导致脚本找不到的问题。
+请查询对应脚本的类名，而不是脚本名，因为在 v3.x 中脚本组件是以脚本中定义的类名为准的，而不是脚本名。常出现因为大小写而导致脚本找不到的问题。详情请参考 [创建脚本](../scripting/setup.md)。
 
-### 在 resources 文件夹下的图片使用动态加载提示找不到
+### 动态加载 `resources` 文件夹下的图片时提示找不到
 
-图片设置为 sprite-frame 或 texture 或其他图片类型后，将会在资源管理器中生成一个对应类型的资源。但如果直接加载 testAssets/image，得到的类型将会是 ImageAsset。你必须指定路径到具体的子资源。
+图片设置为 `sprite-frame`、`texture` 或其他图片类型后，将会在 **资源管理器** 中生成一个对应类型的资源。但如果直接加载 `testAssets/image`，得到的类型将会是 `ImageAsset`，必须指定路径到具体的子资源。
 
-例如一张图片在 resources 文件夹下的地址为 testAssets/image 那么要加载 SpriteFrame 应该这么书写：
+例如一张设置为 `sprite-frame` 类型的图片在 `resources` 文件夹下的路径为 `testAssets/image`，那么要加载 `SpriteFrame` 应该这么写：
 
 ```typescript
     resources.load("testAssets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
@@ -498,22 +499,22 @@ User Layer 6 的 layer 值为 2 的 6 次方，为 64。
 });
 ```
 
-要加载 texture 类型，则将后缀改为 texture 即可。
+若加载的是 `texture` 类型的图片，则将 `spriteFrame` 修改为 `texture` 即可。
 
-### 物体产生物理碰撞之后，原有的物理碰撞回调没有产生了
+### 物体产生物理碰撞之后，原有的物理碰撞回调没有了
 
-在 v3.x 中 对于碰撞体回调需要在开始的时候进行注册，于原先的会直接产生回调不同。因此开发者需要在物理回调的脚本中，新增对回调函数的注册。例如：
+在 v3.x 中，碰撞体回调需要在开始的时候进行注册，与原先 v2.x 会直接产生回调不同。因此开发者需要在物理回调的脚本中增加对回调函数的注册。例如：
 
 ```typescript
     let collider = this.getComponent(Collider2D);
     if (collider) {
-        //只在两个碰撞体开始接触时被调用一次
+        // 只在两个碰撞体开始接触时被调用一次
         collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
         // 只在两个碰撞体结束接触时被调用一次
         collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
         // 每次将要处理碰撞体接触逻辑时被调用
         collider.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
-         // 每次处理完碰撞体接触逻辑时被调用
+        // 每次处理完碰撞体接触逻辑时被调用
         collider.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
         }
 });
@@ -523,19 +524,19 @@ User Layer 6 的 layer 值为 2 的 6 次方，为 64。
 
 目前插件对物理碰撞矩阵的支持还未达到，因此暂时需要开发者对碰撞矩阵进行手动再次设置。开发者可以在 **项目 -> 项目设置 -> 物理** 中对碰撞矩阵进行重新设置。
 
-### 音频 audioEngine 接口失效，无法播放音乐
+### 音频系统的 `audioEngine` 接口失效，无法播放音频
 
-在 v3.x 中已经移除了 `audioEngine` 接口，目前采用通过声音组件 AudioSource 来播放声音。通过将 AudioSource 组件 设置为常驻节点来进行音乐的播放与控制。详细例子可以查询官方案例 **快上车 3D**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）。
+从 v3.0 开始，移除了 `audioEngine` 接口，统一使用 **AudioSource** 组件来控制音频的播放。详情请参考 [AudioSource 组件](../audio-system/audiosource.md)。
 
 >**注意：** 如果设置成常驻节点需要注意一个问题： 常驻节点在切场景时会暂停音乐，需要在 `onEnable` 中进行继续播放（之后会在引擎侧解决这个问题）。
 
-### 出现 Button 按钮无法点击的问题
+### Button 按钮无法点击
 
-排除代码问题和渲染层级以外，可以查看一下 Button 节点的 `Scale` 中的 z 轴的值是否为 0，如果是，则改为 1 就可以正常点击。
+排除代码和渲染层级问题，请查看 **Button** 节点的 `Scale` 属性中 `Z` 轴的值是否为 0，如果是，将其修改为 1 即可。
 
-### 升级后进行脚本修改后，编辑器卡死
+### 升级后对脚本进行修改，出现编辑器卡死的情况
 
-查看一下升级后的脚本中定义组件类型的 `property` 是否未定义，如果是，则是插件太过于老旧，可以对插件进行更新升级，更新方式可以查看 [插件升级](https://github.com/cocos-creator/plugin-import-2.x)。更新插件后,需要 **重新进行项目升级**。
+检查升级后脚本中定义的组件类型的 `property` 是否未定义，如果是，则是由于导入插件太过于老旧导致的，请参考 [插件升级](https://github.com/cocos-creator/plugin-import-2.x) 对导入插件进行更新升级。更新导入插件后，需要 **重新进行项目升级**。
 
 ## TypeScript 参考教程
 
