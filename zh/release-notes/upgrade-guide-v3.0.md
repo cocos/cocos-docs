@@ -49,24 +49,26 @@ v2.x 项目中所有的资源便会自动呈现在弹出的 **导入 Cocos Creat
 例如，导入的 v2.x 项目 JavaScript 代码如下：
 
 ```typescript
-// AudioController.ts
-@ccclass("AudioController")
-export class AudioController extends Component { 
-    
-    @property(cc.AudioSource)
-    public audioSource: cc.AudioSource = null!;
-    private _isPlay:boolean = false;
+// AudioController.js
+cc.Class({
+    extends: cc.Component,
 
-    play () {
+    properties: {
+        audioSource: {
+            type: cc.AudioSource,
+            default: null
+        },
+    },
+
+    play: function () {
         this.audioSource.play();
-        this._isPlay =true;
-    }
+    },
 
-    pause () {
+    pause: function () {
         this.audioSource.pause();
-        this._isPlay =false;
-    }
-}
+    },
+
+});
 ```
 
 由于各个项目代码的写法差异以及不同的复杂程度，目前导入插件对代码的迁移仅添加 **组件类型声明**、**属性声明** 和 **函数声明**，组件在场景中的引用都会得到 **保留**，并且函数内部的代码会以 **注释** 的形式迁移。<br>
@@ -76,56 +78,55 @@ export class AudioController extends Component {
 
 ```typescript
 // AudioController.ts
-import { _decorator, AudioSource } from 'cc';
-@ccclass("AudioController")
-export class AudioController extends Component { 
-    
-    @property(AudioSource)
-    public audioSource: AudioSource = null!;
-    private _isPlay:boolean = false;
+
+import { _decorator, Component, AudioSource } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('AudioController')
+export class AudioController extends Component {
+    @property
+    public audioSource:AudioSource = 'null';
 
     play () {
         //this.audioSource.play();
-        //  this._isPlay =true;
     }
 
     pause () {
         //this.audioSource.pause();
-        // this._isPlay =false;
     }
+
 }
 
+
 /**
- * 注意：原来的脚本已经注释掉了，由于脚本中的大量更改，转换过程中可能会丢失，需要手动转换
+ * 注意：已把原脚本注释，由于脚本变动过大，转换的时候可能有遗落，需要自行手动转换
  */
-
-// // AudioController.ts
-// @ccclass("AudioController")
-// export class AudioController extends Component { 
-    
-//      @property(cc.AudioSource)
-    // public audioSource: cc.AudioSource = null!;
-    // private _isPlay:boolean = false;
-
-    // play () {
-    //     this.audioSource.play();
-    //     this._isPlay =true;
-    // }
-
-    // pause () {
-    //     this.audioSource.pause();
-    //     this._isPlay =false;
-    // }
-// }
+// cc.Class({
+//     extends: cc.Component,
+// 
+//     properties: {
+//         audioSource: {
+//             type: cc.AudioSource,
+//             default: null
+//         },
+//     },
+// 
+//     play: function () {
+//         this.audioSource.play();
+//     },
+// 
+//     pause: function () {
+//         this.audioSource.pause();
+//     },
+// 
+// });
 ```
 
-通过这样的方式，减轻开发者的升级难度，为开发者提供更好的升级方式。
-
-需要注意的是：
-
-- 如果是从 JavaScript 转换为 TypeScript 的。需要在 TypeScript 中声明 **所有属性** 并设置默认值。
-- 如果 **属性检查器** 面板数据丢失，则需要检查属性类型是否与 v2.x 相同。
-- 如果 JavaScript 代码使用外部类型，TypeScript 会提示：通过导入外部源文件或声明进行修复。
+>**注意：**
+>
+> 1.如果是从 JavaScript 转换为 TypeScript 的。需要在 TypeScript 中声明 **所有属性** 并设置默认值。
+> 2.如果 **属性检查器** 面板数据丢失，则需要检查属性类型是否与 v2.x 相同。
+> 3.如果 JavaScript 代码使用外部类型，TypeScript 会提示：通过导入外部源文件或声明进行修复。
 
 ## 旧版本开发者快速上手
 
@@ -440,8 +441,6 @@ Cocos Creator 3.x 开启了 TypeScript 的严格模式，会对代码进行更�
 
 如果不想使用严格模式，可以在 Creator 顶部菜单栏的 **项目 -> 项目设置 -> 脚本** 中勾选 **启用宽松模式**。需要提醒的是，我们并不鼓励关闭严格模式，因为严格空值检查能够减少代码运行时的一些低级报错。
 
->**注意：** 我们更推荐开发者采用严格模式，进行书写代码。
-
 ### Action 动作全都失效
 
 因为 Cocos Creator 3.x 移除了 Action 动作系统，统一使用 Tween 缓动系统。
@@ -451,9 +450,9 @@ Cocos Creator 3.x 开启了 TypeScript 的严格模式，会对代码进行更�
 需要先获取节点上的 UITransform 组件，再使用对应的接口，例如：
 
 ```typescript
-    const uiTrans = node.getComponent(UITransform)!;
-    uiTrans.anchorX = 0.5;
-    uiTrans.setContentSize(size);
+const uiTrans = node.getComponent(UITransform)!;
+uiTrans.anchorX = 0.5;
+uiTrans.setContentSize(size);
 ```
 
 ### 修改 2D 节点的 `color` 不生效
@@ -461,8 +460,8 @@ Cocos Creator 3.x 开启了 TypeScript 的严格模式，会对代码进行更�
 需要先获取节点上的渲染组件（例如 Sprite 组件），再使用对应的接口，例如：
 
 ```typescript
-    const uiColor = node.getComponent(Sprite)!;
-    uiColor.color = color(255,255,255);
+const uiColor = node.getComponent(Sprite)!;
+uiColor.color = color(255,255,255);
 ```
 
 ### 修改 2D 节点的 `skew` 不生效
@@ -494,7 +493,7 @@ User Layer 6 的 layer 值为：2<sup>6</sup> = 64。
 例如一张设置为 `sprite-frame` 类型的图片在 `resources` 文件夹下的路径为 `testAssets/image`，那么要加载 `SpriteFrame` 应该这么写：
 
 ```typescript
-    resources.load("testAssets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
+resources.load("testAssets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```
@@ -506,17 +505,17 @@ User Layer 6 的 layer 值为：2<sup>6</sup> = 64。
 在 v3.x 中，碰撞体回调需要在开始的时候进行注册，与原先 v2.x 会直接产生回调不同。因此开发者需要在物理回调的脚本中增加对回调函数的注册。例如：
 
 ```typescript
-    let collider = this.getComponent(Collider2D);
-    if (collider) {
-        // 只在两个碰撞体开始接触时被调用一次
-        collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
-        // 只在两个碰撞体结束接触时被调用一次
-        collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
-        // 每次将要处理碰撞体接触逻辑时被调用
-        collider.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
-        // 每次处理完碰撞体接触逻辑时被调用
-        collider.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
-        }
+let collider = this.getComponent(Collider2D);
+if (collider) {
+    // 只在两个碰撞体开始接触时被调用一次
+    collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
+    // 只在两个碰撞体结束接触时被调用一次
+    collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
+    // 每次将要处理碰撞体接触逻辑时被调用
+    collider.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
+    // 每次处理完碰撞体接触逻辑时被调用
+    collider.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
+    }
 });
 ```
 
@@ -527,8 +526,6 @@ User Layer 6 的 layer 值为：2<sup>6</sup> = 64。
 ### 音频系统的 `audioEngine` 接口失效，无法播放音频
 
 从 v3.0 开始，移除了 `audioEngine` 接口，统一使用 **AudioSource** 组件来控制音频的播放。详情请参考 [AudioSource 组件](../audio-system/audiosource.md)。
-
->**注意：** 如果设置成常驻节点需要注意一个问题： 常驻节点在切场景时会暂停音乐，需要在 `onEnable` 中进行继续播放（之后会在引擎侧解决这个问题）。
 
 ### Button 按钮无法点击
 
