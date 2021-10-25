@@ -4,7 +4,7 @@ __Sprite Frame__ is a container for __UI rendering__ and basic graphics, which m
 
 ## Importing Sprite Frame Assets
 
-Use the default [asset import](asset-workflow.md) method to import image assets into the project, then set the type of image as __sprite-frame__ in the **Inspeactor** panel:
+Use the default [asset import](asset-workflow.md) method to import image assets into the project, then set the type of image as __sprite-frame__ in the **Inspector** panel:
 
 ![set sprite-frame](sprite-frame/set-spriteframe.png)
 

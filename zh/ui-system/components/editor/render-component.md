@@ -10,3 +10,4 @@
 - [TiledTile 组件参考](../../../editor/components/tiledtile.md)
 - [Spine（骨骼动画）Skeleton 组件参考](../../../editor/components/spine.md)
 - [DragonBones（龙骨）ArmatureDisplay 组件参考](../../../editor/components/dragonbones.md)
+- [MotionStreak 组件参考](../../../editor/components/motion-streak.md)

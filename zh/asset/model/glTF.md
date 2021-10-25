@@ -1,6 +1,6 @@
 # glTF 模型
 
-Creator 支持 glTF 2.0 及更早的文件格式。
+Cocos Creator 支持 glTF 2.0 及更早的文件格式。
 
 ## URI 解析
 
@@ -117,9 +117,9 @@ glTF 形变目标将被转换为 Cocos Creator 子网格形变数据。
 
 glTF 贴图中引用的 glTF 图像将转换为对相应转换后的 Cocos Creator 图像的引用。
 
-glTF 贴图参数将按照下表中的映射关系转换为 Cocos Creator 贴图参数：
+glTF 贴图属性将按照下表中的映射关系转换为 Cocos Creator 贴图属性：
 
-|  glTF 贴图参数            |   Cocos Creator 贴图参数   |
+|  glTF 贴图属性            |   Cocos Creator 贴图属性   |
 | :----------------------- | :----------------------- |
 | [放大筛选器](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplermagfilter) | 放大筛选器         |
 | [缩小筛选器](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplerminfilter) | 缩小筛选器、Mip Map 筛选器 |

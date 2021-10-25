@@ -10,7 +10,7 @@ If a game can only run on a physical device, then the packaged game must be debu
 
 - Select the **Android/iOS** platform and **Debug** mode in the **Build** panel to build, compile and run a project (The iOS platform recommends connecting to the physical device via Xcode to compile and run).
 
-- Open address with Chrome browser: `devtools://devtools/bundled/js_app.html?v8only=true&ws={IP}:6086/00010002-0003-4004-8005-000600070008`, where `{IP}` is the local IP of the Android/iOS device, then you can debug it.
+- Open address with Chrome browser: `devtools://devtools/bundled/js_app.html?v8only=true&ws=Local IP of the device:6086/00010002-0003-4004-8005-000600070008`.
 
   ![v8-android-debug](debug-jsb/v8-android-debug.png)
 
@@ -26,4 +26,4 @@ The steps for debugging a game on the Windows / Mac platform are similar to the 
 
 ## Other Platform Debugging
 
-If you need to debug in Release mode, or if you need to debug a custom native engine, please refer to the [JSB 2.0 Use Guide: Remote Debugging and Profile](https://docs.cocos.com/creator/manual/en/advanced-topics/JSB2.0-learning.html) documentation.
+If you need to debug in Release mode, or if you need to debug a custom native engine, please refer to the [JSB 2.0 Use Guide: Remote Debugging and Profile](../../advanced-topics/JSB2.0-learning.md) documentation.

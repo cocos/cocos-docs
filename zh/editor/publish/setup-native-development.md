@@ -36,7 +36,7 @@ Cocos Creator 不支持 Eclipse 的 ANT 构建，需要使用 **Android Studio 4
 2. 在 SDK Tools 分页栏，首先勾选右下角的 **Show Package Details**，显示分版本的工具选择。
 3. 在 **Android SDK Build-Tools** 里，选择最新的 build tools 版本。
 4. 勾选 **Android SDK Platform-Tools** 和 **CMake**，如需安装 Android 支持库，请参考 [官方文档 — 支持库设置](https://developer.android.google.cn/topic/libraries/support-library/setup)。
-5. 勾选 **NDK**，推荐使用版本为 **r18~21**。需要注意的是目前暂时不支持 **NDK-r22**。
+5. 勾选 **NDK**，推荐使用版本为 **r18~21**。
 6. 记住窗口上方所示的 **Android SDK Location** 指示的目录，稍后我们需要在 Cocos Creator 编辑器中填写这个 SDK 所在位置。
 7. 点击 **OK**，根据提示完成安装。
 

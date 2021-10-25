@@ -1,15 +1,5 @@
 # 模块规范
 
-在 Cocos Creator 中，所有 JavaScript 代码都以模块的形式组织，这包括：
-
-- 项目中创建的代码；
-
-- 引擎提供的功能；
-
-- 非项目中创建也非引擎提供，但是被项目引用到的代码。
-
-Cocos Creator 原生支持并推荐使用 ECMAScript 模块格式（以下简称 ESM 模块格式）。为了支持对外部模块的使用，Cocos Creator 也在某种限度上支持了 CommonJS 模块格式。
-
 ## 模块格式
 
 本节介绍了 Cocos Creator 如何决定一个模块的格式。

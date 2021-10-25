@@ -1,79 +1,79 @@
-# glTF 模型
+# glTF Models
 
-Creator 支持 glTF 2.0 及更早的文件格式。
+Cocos Creator supports glTF 2.0 and earlier file formats.
 
-## URI 解析
+## URI Parsing
 
-Creator 支持 glTF 中指定以下形式的 URI：
+Creator supports URIs in the following form specified in glTF:
 
 - Data URI
 
-- 相对 URI 路径
+- Relative URI path
 
-- 文件 URL
+- File URL
 
-- 文件路径
+- File path
 
-## 转换关系
+## Conversion Relationships
 
-当导入 glTF 模型到 Creator 时，glTF 中的资源将会按照以下关系转换为 Creator 中的资源：
+When importing a glTF model into Creator, the assets in glTF will be converted to assets in Creator according to the following relationships:
 
-|  glTF 资源  | Cocos Creator 资源 |
+| glTF Asset | Cocos Creator Asset |
 | :---------- | :---------------- |
-| [glTF 场景](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-scene)     | 预制体  |
-| [glTF 网格](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-mesh)      | 网格    |
-| [glTF 蒙皮](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-skin)      | 骨骼    |
-| [glTF 材质](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-material)  | 材质    |
-| [glTF 贴图](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-texture)   | 贴图    |
-| [glTF 图像](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-image)     | 图像    |
-| [glTF 动画](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-animation) | 动画剪辑 |
+| [glTF Scene](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-scene) | Prefab |
+| [glTF Mesh](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-mesh) | Mesh |
+| [glTF Skin](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-skin) | Skeleton |
+| [glTF Material](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-material) | Material |
+| [glTF Texture](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-texture) | Texture |
+| [glTF Image](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-image) | Image |
+| [glTF Animation](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-animation) | Animation Clip |
 
-### glTF 场景
+### glTF Scene
 
-导入后，glTF 场景将转换为 Creator 中的预制体资源，glTF 场景中递归包含的节点也将按照相同层级关系一一转换为预制体中的节点。
+After import, the glTF scene will be converted to a prefab asset in Creator, and the nodes recursively contained in the glTF scene will be converted to nodes in the prefab one by one according to the same hierarchical relationship.
 
-#### 场景根节点
+#### Scene Root Node
 
-预制体将使用一个不带任何空间转换信息的节点作为根节点，glTF 场景的所有 [根节点](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#scenenodes) 将作为该节点的子节点。
+The prefab will use a node without any spatial transformation information as the root node, and all [root nodes](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#scenenodes) of the glTF scene will be the children of this node.
 
-#### 节点转换
+#### Node Conversion
 
-glTF 节点中的属性将按照下表中的映射关系转换为预制体节点中的属性：
+The properties in the glTF node will be converted to properties in the prefab node according to the texture relationships in the following table:
 
-| glTF 节点属性  | 预制体节点属性 |
+| glTF Node Property | Prefab Node Property |
 | :----------- | :----------- |
-| [层级关系](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodechildren) | 层级关系              |
-| [位移](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodetranslation) | 位置                  |
-| [旋转](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#noderotation)   | 旋转                  |
-| [缩放](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodescale)      | 缩放                  |
-| [矩阵](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodematrix)     | 解压，并分别设置位置、旋转、缩放 |
-| [网格引用](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodemesh)    | 网格渲染器组件          |
-| [蒙皮引用](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeskin)    | 蒙皮网格渲染器组件       |
-| [初始权重](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeweights) |（蒙皮）网格渲染器组件权重 |
+| [Hierarchy](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodechildren) | Hierarchy |
+| [Displacement](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodetranslation) | Position |
+| [Rotation](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#noderotation) | Rotation |
+| [Scaling](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodescale) | Scaling |
+| [Matrix](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodematrix) | Decompress and set the position, rotation, and scaling respectively |
+| [Mesh](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodemesh) | MeshRenderer component |
+| [Skin](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeskin) | SkinnedMeshRenderer component |
+| [Initial Weight](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeweights) | (Skinned) MeshRenderer component weight |
 
-#### 网格渲染器
+#### MeshRenderer
 
-若 glTF 节点引用了网格，那么导入后相对应的预制体节点也会添加网格渲染组件（MeshRenderer）。若该 glTF 节点还引用了蒙皮，那么相对应的预制体节点还会添加蒙皮网格渲染组件（SkinnedMeshRenderer）。
+If the glTF node references a mesh, then the corresponding prefab node will also have a MeshRenderer component added to it after import. If the glTF node also references a skin, then the corresponding prefab node will also have a SkinnedMeshRenderer added to it.
 
-（蒙皮）网格渲染组件中的网格、骨骼和材质，都会与转换后的 glTF 网格、蒙皮、材质资源一一对应。
+The mesh, skeletons, and materials in the SkinnedMeshRenderer component correspond to the transformed glTF mesh, skin, and material assets.
 
-若 glTF 节点指定了初始权重，则转换后的（蒙皮）网格渲染器也将带有此权重。
+If the glTF node specifies an initial weight, the converted (skinned) MeshRenderer will also carry this weight.
 
-### glTF 网格
+### glTF Mesh
 
-导入后，glTF 网格将转换为 Cocos Creator 中的网格资源。
+After import, the glTF mesh will be converted to a mesh asset in Cocos Creator.
 
-glTF 网格中的所有 [基元体](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#meshprimitives-white_check_mark) 将被一一转换为 Creator 中的子网格。
+All [primitives](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#meshprimitives-white_check_mark) in the glTF mesh will be converted to sub-meshes in the Creator one by one.
 
-若 glTF 网格指定了 [权重](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#meshweights)，则相应地，转换后的 Creator 网格中也将存储相应的权重。
+If [weight](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#meshweights) is specified for the glTF mesh, the corresponding weights will be stored in the converted Creator mesh.
 
-#### glTF 基元体
+#### glTF Primitive
 
-glTF 基元体的索引数组将一一对应转换为 Cocos Creator 子网格的索引数组。
+The index arrays of the glTF primitives will correspond to the index arrays of the converted Cocos Creator sub-meshes.
 
-glTF 基元模式将按照下表中的映射关系转换为 Cocos Creator 基元模式：
+The glTF primitive schema will be converted to the Cocos Creator primitive schema according to the texture in the following table.
 
-|  glTF 基元模式    |       Cocos Creator 基元模式       |
+| glTF Primitive Schema | Cocos Creator Primitive Schema |
 | :--------------- | :------------------------------- |
 | `POINTS`         | `gfx.PrimitiveMode.POINT_LIST`   |
 | `LINES`          | `gfx.PrimitiveMode.LINE_LIST`    |
@@ -83,9 +83,9 @@ glTF 基元模式将按照下表中的映射关系转换为 Cocos Creator 基元
 | `TRIANGLE_STRIP` | `gfx.PrimitiveMode.TRIANGLE_STRIP` |
 | `TRIANGLE_FAN`   | `gfx.PrimitiveMode.TRIANGLE_FAN`   |
 
-glTF 顶点属性将转换为 Cocos Creator 顶点属性，属性名称的转换如下表所示：
+glTF vertex attributes will be converted to Cocos Creator vertex attributes, and the attribute names will be converted as shown in the following table:
 
-| glTF 顶点属性名称            |   Cocos Creator 顶点属性名称   |
+| glTF Vertex Attribute Name | Cocos Creator Vertex Attribute Name |
 | :------------------------  | :----------------------------------------------------------------------- |
 | `POSITION`                 | `gfx.AttributeName.ATTR_POSITION`                                        |
 | `NORMAL`                   | `gfx.AttributeName.ATTR_NORMAL`                                          |
@@ -97,45 +97,45 @@ glTF 顶点属性将转换为 Cocos Creator 顶点属性，属性名称的转换
 | `JOINTS_0`                 | `gfx.AttributeName.ATTR_JOINTS`                                          |
 | `WEIGHTS_0`                | `gfx.AttributeName.ATTR_WEIGHTS`                                         |
 
-> **注意**：若 glTF 基元体中存在其他 `JOINTS`、`WEIGHTS` 顶点属性，例如 `JOINTS_1`、`WEIGHTS_1`，则意味着此 glTF 网格的顶点可能受到多于 4 根骨骼的影响。
+> **Note**: if there are other `JOINTS`, `WEIGHTS` vertex attributes in the glTF primitive, such as `JOINTS_1`, `WEIGHTS_1`, it means that the vertices of this glTF mesh may be affected by more than 4 skeletons.
 
-对于每个顶点，所有由 `JOINTS_{}`、`WEIGHTS_{}` 确定的权重信息将按权重值进行排序，取出影响权重最大的四根骨骼作为 `gfx.AttributeName.ATTR_JOINTS` 和 `gfx.AttributeName.ATTR_WEIGHTS`。
+For each vertex, all the weight information determined by `JOINTS_{}`, `WEIGHTS_{}` will be sorted by weight value and the four skeletons with the highest influence weight will be taken as `gfx.AttributeName.ATTR_JOINTS` and `gfx.AttributeName.ATTR_WEIGHTS`.
 
-glTF 形变目标将被转换为 Cocos Creator 子网格形变数据。
+glTF deformation targets will be converted to Cocos Creator sub-mesh deformation data.
 
-### glTF 蒙皮
+### glTF Skins
 
-导入后，glTF 蒙皮将转换为 Cocos Creator 中的骨骼资源。
+After import, glTF skins will be converted to skeletal assets in Cocos Creator.
 
-### glTF 材质
+### glTF Material
 
-导入后，glTF 材质将转换为 Cocos Creator 中的材质资源。
+After import, glTF materials will be converted to material assets in Cocos Creator.
 
-### glTF 贴图
+### glTF Texture
 
-导入后，glTF 贴图将转换为 Cocos Creator 中的贴图资源。
+After import, glTF texture will be converted to a texture asset in Cocos Creator.
 
-glTF 贴图中引用的 glTF 图像将转换为对相应转换后的 Cocos Creator 图像的引用。
+The glTF image referenced in the glTF texture will be converted to a reference to the corresponding converted Cocos Creator image.
 
-glTF 贴图参数将按照下表中的映射关系转换为 Cocos Creator 贴图参数：
+glTF texture properties will be converted to Cocos Creator texture properties according to the texture in the following table:
 
-|  glTF 贴图参数            |   Cocos Creator 贴图参数   |
+| glTF Texture Property | Cocos Creator Texture Property |
 | :----------------------- | :----------------------- |
-| [放大筛选器](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplermagfilter) | 放大筛选器         |
-| [缩小筛选器](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplerminfilter) | 缩小筛选器、Mip Map 筛选器 |
-| [S 环绕模式](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplerwraps)     | S 环绕模式         |
-| [T 环绕模式](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplerwrapt)     | 环绕模式           |
+| [Magnification Filter](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplermagfilter) | Magnification Filter |
+| [Minification Filter](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplerminfilter) | Minification Filter, Mip Map Filter |
+| [S Wrap Mode](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplerwraps) | S Wrap Mode |
+| [T Wrap Mode](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#samplerwrapt) | Wrap Mode |
 
-glTF 贴图放大筛选器将按照下表中的映射关系转换为 Cocos Creator 贴图放大筛选器：
+The glTF texture magnification filter will be converted to the Cocos Creator texture magnification filter according to the texture in the following table:
 
-| glTF 贴图放大筛选器 | Cocos Creator 贴图放大筛选器    |
+| glTF Texture Magnification Filter | Cocos Creator Texture Magnification Filter |
 | :---------------- | :--------------------------- |
 | `NEAREST`         | `TextureBase.Filter.NEAREST` |
 | `LINEAR`          | `TextureBase.Filter.LINEAR`  |
 
-glTF 贴图缩小筛选器将按照下表中的映射关系转换为 Cocos Creator 贴图缩小筛选器和 Cocos Creator 贴图 Mip Map 筛选器：
+The glTF Texture Minification Filter will be converted to Cocos Creator Texture Minification Filter and Cocos Creator Texture Mip Map Filter according to the texture relationships in the following table:
 
-|   glTF 贴图缩小筛选器      | Cocos Creator 贴图缩小筛选器 | Cocos Creator 贴图 Mip Map 筛选器 |
+| glTF Texture Minification Filter | Cocos Creator Texture Minification Filter | Cocos Creator Mip Map Filter |
 |:------------------------ | :--------------------------- | :-------------------------------- |
 | `NEAREST`                | `TextureBase.Filter.NEAREST` | `TextureBase.Filter.NONE`         |
 | `LINEAR_MIPMAP_LINEAR`   | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.NONE`         |
@@ -144,20 +144,20 @@ glTF 贴图缩小筛选器将按照下表中的映射关系转换为 Cocos Creat
 | `NEAREST_MIPMAP_LINEAR`  | `TextureBase.Filter.NEAREST` | `TextureBase.Filter.LINEAR`       |
 | `NEAREST_MIPMAP_NEAREST` | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.LINEAR`       |
 
-glTF 贴图环绕模式将按照下表中的映射关系转换为 Cocos Creator 贴图环绕模式：
+glTF Texture Wrap mode will be converted to Cocos Creator Texture Wrap mode according to the texture in the following table:
 
-| glTF 贴图环绕模式   |       Cocos Creator 贴图环绕模式         |
+| glTF Texture Wrap Mode | Cocos Creator Texture Wrap Mode |
 | :---------------- | :------------------------------------- |
 | `CLAMP_TO_EDGE`   | `TextureBase.WrapMode.CLAMP_TO_EDGE`   |
 | `REPEAT`          | `TextureBase.WrapMode.REPEAT`          |
 | `MIRRORED_REPEAT` | `TextureBase.WrapMode.MIRRORED_REPEAT` |
 
-### glTF 图像
+### glTF Image
 
-导入后，glTF 图像将转换为 Cocos Creator 中的图像资源。
+After import, the glTF image will be converted to an image asset in Cocos Creator.
 
-当 glTF 图像的 [URI](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#imageuri) 是 Data URI 时，图像数据将从 Data URI 中获取。否则，将根据 [Cocos Creator 图像位置解析算法](./image-location-resolution.md) 解析并引用外部图像文件，其中 `url` 就是 glTF 图像的 URI，`startDir` 为 glTF 文件所在目录。
+When the [URI](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#imageuri) of the glTF image is a Data URI, the image data will be fetched from the Data URI. Otherwise, the image data will be resolved from the Data URI according to the [Cocos Creator Image Location Resolution Algorithm](./image-location-resolution.md), where `url` is the URI of the glTF image and `startDir` is the directory where the glTF file is located.
 
-### glTF 动画
+### glTF Animation
 
-导入后，glTF 动画将转换为 Cocos Creator 动画资源。
+After import, glTF animations will be converted to Cocos Creator animation assets.

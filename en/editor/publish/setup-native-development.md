@@ -38,7 +38,7 @@ After installing **Android Studio**, refer to the official documentation and ope
 2. In the **SDK Tools** tab page, first check the lower right corner of the **Show Package Details**, show the version of the tool selection.
 3. In the **Android SDK Build-Tools**, select the latest build Tools version.
 4. Check the **Android SDK Platform-Tools** and **CMake**. If you need to install the **Android Support Library**, please refer to the official [Support Library Setup](https://developer.android.com/topic/libraries/support-library/setup).
-5. Check the **NDK** and the recommended version is **r18~21**. Note that the **NDK-r22** is not supported currently.
+5. Check the **NDK** and the recommended version is **r18~21**.
 6. Take note of the path of **Android SDK Location** on top of the **SDK Manager** window. Later we need to fill in the location of the SDK in **Cocos Creator**.
 7. Click **OK** and follow the prompts to complete the installation.
 

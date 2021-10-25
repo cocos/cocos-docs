@@ -37,7 +37,7 @@ When creating a node, an **Input box** will appear asking for the name of the no
 
 ### UI nodes
 
-For a UI node to display properly, any of its parent nodes must have at least one **UITransform** component. When creating a UI node, if it does not meet the rules, a **Canvas** node will be automatically created as the root of the UI node, as described in the [UI Structure Description](../../ui-system/components/engine/index.md) documentation.
+For a UI node to display properly, any of its parent nodes must have at least one **UITransform** component. When creating a UI node, if it does not meet the rules, a **Canvas** node will be automatically created as the root of the UI node, as described in the [UI Structure Description](../../2d-object/ui-system/index.md) documentation.
 
 ### Prefab nodes
 

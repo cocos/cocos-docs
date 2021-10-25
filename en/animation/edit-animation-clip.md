@@ -77,11 +77,11 @@ Copy and paste of node animation data, supports cross-editor (v3.x) usage.
 
 #### Edit child node data with the same name
 
-When editing animation data in the animation clip of the parent node, you can also edit the animation data of the child nodes. The animation data will all be saved in the animation clip of the parent node, which is used to achieve effects like moving the hands of the character model with different speeds along with the body, etc. However, if the parent node contains more than one child node with the same name at the same time, only the first child node with the same name will be edited, and the other nodes with the same name will be grayed out to uneditable state.
+When editing animation data in the animation clip of the parent node, it is possible to also edit the animation data of the child nodes. The animation data will all be saved in the animation clip of the parent node, which is used to achieve effects like moving the hands of the character model with different speeds along with the body, etc. However, if the parent node contains more than one child node with the same name at the same time, only the first child node with the same name will be edited, and the other nodes with the same name will be grayed out to uneditable state.
 
 ![same-name node](edit-animation-clip/same-name-node.png)
 
-However, it is supported to add animation components and animation clips for the same name child node separately and edit them separately.
+However, it is supported to add Animation components and animation clips for the same name child node separately and edit them separately.
 
 ### Common operations for animation property data
 
@@ -89,7 +89,7 @@ Right-click on the animation property or click ![property](edit-animation-clip/s
 
 ![property operation](edit-animation-clip/pro-operation.png)
 
-- Remove property track: remove the currently selected animation property, including all keyframes on that property track. Or you can also use the shortcut <kbd>Delete</kbd> key (Windows) or <kbd>Cmd</kbd> + <kbd>Backspace</kbd> (macOS).
+- Remove property track: remove the currently selected animation property, including all keyframes on that property track. Or use the shortcut <kbd>Delete</kbd> key (Windows) or <kbd>Cmd</kbd> + <kbd>Backspace</kbd> (macOS).
 
 - Clear keyframe data: delete all keyframes on the currently selected animation property track.
 

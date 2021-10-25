@@ -105,7 +105,7 @@ Some default shader functions are unique to v3.0, such as `CCStandardShading`, `
 
 Regarding uniform declarations, v3.0 forces the use of UBO for organization, and the minimum unit for memory layout is vec4, which no longer supports separate declarations of float or vec3 types of uniform.
 
-In terms of header files, v3.0 has built-in editor header assets in the `assets/chunks` directory of **Internal DB**. They can be referenced directly with file name instead of file path, mainly for including some common **tool functions** and **standard shading functions**. The header files of v2.x are built into the editor, so you can't see what they are.
+In terms of header files, v3.0 has built-in editor header assets in the `assets/chunks` directory of **Internal DB**. They can be referenced directly with file name instead of file path, mainly for including some common **tool functions** and **standard shading functions**. The header files of v2.x are built into the editor, it is not possible see what they are.
 
 ### 2.4 New Pass Options
 

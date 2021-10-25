@@ -47,8 +47,7 @@
 
 ### 渲染管线
 
-渲染管线用于控制场景的渲染流程，目前内置的渲染管线包括 **builtin-forward** (前向渲染管线) 和 **builtin-deferred** (延迟渲染管线)
-，开发者也可以自定义渲染管线。详情请参考 [进阶主题 — 渲染管线](../../render-pipeline/overview.md)
+渲染管线用于控制场景的渲染流程，目前内置的渲染管线包括 **builtin-forward** (前向渲染管线) 和 **builtin-deferred** (延迟渲染管线)，详情请参考 [内置渲染管线](../../render-pipeline/builtin-pipeline.md)。
 
 ## Layers
 
