@@ -9,7 +9,7 @@ MeshRenderer（网格渲染器）组件用于显示一个静态的 3D 模型。�
 ## MeshRenderer 属性
 
 | 属性 | 功能 |
-| :--- | --- |
+| :--- | :--- |
 | **Materials** | 网格资源允许使用多个材质资源，所有材质资源都存在 `materials` 数组中。<br>如果网格资源中有多个子网格，那么 Mesh Renderer 会从 `materials` 数组中获取对应的材质来渲染此子网格。 |
 | **LightmapSettings** | 用于烘焙 Lightmap，详情请参考 [光照贴图](../../concepts/scene/light/lightmap.md)。 |
 | **ShadowCastingMode** | 指定当前模型是否会投射阴影，需要先在场景中 [开启阴影](../../concepts/scene/light/shadow.md#%E5%BC%80%E5%90%AF%E9%98%B4%E5%BD%B1)。 |
@@ -56,7 +56,7 @@ Creator 提供了几个简单的静态 3D 模型，其中包含了立方体、�
 
 通过 Instancing 的合批适用于绘制大量顶点数据完全相同的动态模型，启用后绘制时会根据材质和顶点数据分组，每组内组织 instanced attributes 信息，然后一次性完成绘制。
 
-关于蒙皮模型的支持及相关设定，参考 [骨骼动画组件](../animation/skeletal-animation.md#关于动态-Instancing)。
+关于蒙皮模型的支持及相关设定，参考 [骨骼动画组件](../../animation/skeletal-animation.md#关于动态-Instancing)。
 
 另外 instancing 还支持自定义额外的 instanced attributes，可以传递更多不同 instance 之间的差异性数据（比如不同人物间给一个漫反射颜色的外观差异，或大片草地中的风力影响）。<br>
 这需要自定义 effect 的支持，更详细的说明可以参考 [语法指南](../../material-system/effect-syntax.md#自定义-Instanced-属性)。

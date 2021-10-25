@@ -21,8 +21,6 @@ ctx.stroke();
 
 <a href="lineJoin.png"><img src="lineJoin.png"></a>
 
-
 <hr>
 
 返回 [Graphics 组件参考](../graphics.md)
-

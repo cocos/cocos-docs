@@ -1,6 +1,6 @@
 # Module Specifications and Examples
 
-All code files can be roughly divided into **Plugin Script** and **Module** two kinds, this section mainly introduces the module related.
+All code files can be roughly divided into [Plugin Script](../external-scripts.md) and **Module** two kinds, this section mainly introduces the module related.
 
 Modules are a way of organizing TypeScript/JavaScript code, and code organized in modules is also informally known as **scripts** or **project scripts**. In Cocos Creator, all code except plugin scripts is organized in modules, which are roughly divided into the following kinds, depending on their source:
 

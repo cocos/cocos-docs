@@ -30,6 +30,8 @@ After importing into the editor, from the outside, the corresponding model asset
 After importing a __model__ file, drag the __root node__ of the __model__ file directly from the __Assets__ panel to the __node__ you want to place in the __Hierarchy__ panel to complete the node creation. At this point the model is successfully created in the scene. <br>
 Alternatively, you can expand the node of the __model__ file, select the `.prefab` file under the model file node, and drag it from the __Assets__ panel into the __Hierarchy__ panel to complete the creation.
 
+> **Note**: if the 3D model cannot be displayed in a 2D UI scene, please try to enlarge the model.
+
 ![mesh_use](mesh/mesh_use.gif)
 
 ## Model asset Properties panel description

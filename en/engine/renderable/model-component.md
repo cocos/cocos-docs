@@ -54,7 +54,7 @@ The engine currently provides two sets of dynamic batching systems, **instancing
 
 The batch through **instancing** is suitable for drawing a large number of dynamic models with the same vertex data. When enabled, drawing will be grouped according to the material and vertex data, and the instanced attributes information will be organized in each group, and then complete the drawing at one time.
 
-> **Note**: for the support and related settings of the skinning model, refer to the [Skeletal Animation Component](../animation/skeletal-animation.md#AboutDynamic-Instancing) documentation.
+> **Note**: for the support and related settings of the skinning model, refer to the [Skeletal Animation Component](../../animation/skeletal-animation.md#AboutDynamic-Instancing) documentation.
 
 In addition, inside each group, the instanced attributes supports custom additional instanced attributes, which can pass more per-instance data between different instances (such as the difference in appearance of a diffuse color between different characters, or the influence of wind in a large grass field). This requires the support of custom effects. For more detailed instructions, please refer to the [Syntax Guide](../../material-system/effect-syntax.md#Custom-Instanced-Properties) documentation.
 

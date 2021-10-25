@@ -1,8 +1,8 @@
 # Engine Customization Workflow
 
-The engine part of Cocos Creator 3.0 includes **TypeScript** and **engine-native**. The engine is all open-source on GitHub. The addresses are as follows:
+The engine part of Cocos Creator 3.x includes **TypeScript** and **engine-native**. The engine is all open-source on GitHub. The addresses are as follows:
 
-- [TypeScript engine](ttps://github.com/cocos-creator/engine/)
+- [TypeScript engine](https://github.com/cocos-creator/engine/)
 - [engine-native engine](https://github.com/cocos-creator/engine-native/)
 
 It is recommended to maintain custom code using the GitHub's Fork workflow. This workflow allows developers to easily update custom engine parts when the engine is upgraded in the future. This workflow is described in the [Fork a repo](https://help.github.com/articles/fork-a-repo) documentation. For more GitHub-related workflows, please refer to the [GitHub Help](https://help.github.com).
@@ -15,7 +15,7 @@ If you only need to customize the engine functionality of the web version of the
 
 ### 1.1 Get the TypeScript engine
 
-It is possible to modify the engine based on the one built in Cocos Creator 3.0 to make some adjustments based on the current version. Click the **App** button at the top right of the Creator editor, and then copy the built-in `engine` directory to another local path.
+It is possible to modify the engine based on the one built in Cocos Creator 3.x to make some adjustments based on the current version. Click the **App** button at the top right of the Creator editor, and then copy the built-in `engine` directory to another local path.
 
 ![open-engine](engine-customization/open-engine.png)
 
@@ -62,7 +62,7 @@ If you need to customize the engine features related to the native platform, you
 
 ### 2.1 Get the engine-native Engine
 
-If you only need to make some tweaks based on the current version, modify the **engine-native** engine built into Cocos Creator 3.0. The procedure is the same as for the TypeScript engine, click the **App** button at the top right of the Creator editor, then copy the built-in `cocos2d-x-lite` directory to another local path.
+If you only need to make some tweaks based on the current version, modify the **engine-native** engine built into Cocos Creator 3.x. The procedure is the same as for the TypeScript engine, click the **App** button at the top right of the Creator editor, then copy the built-in `cocos2d-x-lite` directory to another local path.
 
 To get the latest official version in development, download or clone it from the GitHub repository specified above. Similar to the TypeScript engine, the **engine-native** engine should be checked for the current branch before use.
 
@@ -83,7 +83,7 @@ npm install
 gulp init
 ```
 
-### 2.3 Configure a custom engine-native in Cocos Creator 3.0
+### 2.3 Configure a custom engine-native in Cocos Creator 3.x
 
 Set the path to the **engine-native** engine to be customized via the **Engine Manager** tab of **Cocos Creator -> Preferences**.
 
