@@ -1,6 +1,6 @@
 # 音频播放示例
 
-由于在 Cocos Creator v3.0 的版本中废弃了 `cc.audioEngine` 系列的 API，因此开发者也可以将 **AudioSource 组件** 声明为常驻根节点。封装一个管理器进行使用。如下所示：
+由于 Cocos Creator 3.x 废弃了 v2.x `cc.audioEngine` 系列的 API，统一使用 AudioSource 控制音频播放，因此我们可以将 [AudioSource 组件](./audiosource.md) 声明为常驻根节点，封装一个管理器进行使用。如下所示：
 
 ```typescript
 @ccclass('GameRoot')
