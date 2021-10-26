@@ -8,7 +8,7 @@ The native platforms that can be selected currently include **Android**, **iOS**
 
 ## Environment Configuration
 
-Publishing to the native platform requires installation and configuration of some necessary environments. For details, please refer to the[Installation and Configuration of Native Development Environment](setup-native-development.md) documentation.
+Publishing to the native platform requires installation and configuration of some necessary environments. For details, please refer to the [Setup Native Development Environment](setup-native-development.md) documentation.
 
 ## Build Options
 
