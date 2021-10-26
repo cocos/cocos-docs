@@ -11,7 +11,7 @@ Cocos Creator provides two web platform page templates. Select **Web Mobile** or
 
 ## Introduction to Build Options
 
-For the general build options of each platform, please refer to the [General Build Parameters Introduction](build-options.md) documentation for details.
+For the general build options of each platform, please refer to the [General Build Options Introduction](build-options.md) documentation for details.
 
 ### Web Desktop
 
