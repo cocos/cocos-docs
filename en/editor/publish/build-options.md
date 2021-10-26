@@ -50,7 +50,7 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 > jsval_to_string(cx, returnParam, &url);
 > ```
 
-### Main Package Compression Type
+### Main Bundle Compression Type
 
 Set the compression type of the main bundle. For details, please refer to the [Asset Bundle — compression type](../../asset/bundle.md#compression-type) documentation.
 
