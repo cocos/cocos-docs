@@ -1,6 +1,6 @@
 # Keyframe Editing View
 
-The node track display area and the property track display area are both displayed in keyframe editing view by default. In this view, you can edit the overall keyframe layout, add and delete keyframes more easily. The following describes the various keyframe manipulation methods supported in the keyframe edit view, and how to understand these methods and techniques to edit animation clips faster and more easily.
+The node track display area and the property track display area are both displayed in keyframe editing view by default. In this view, one can edit the overall keyframe layout, add and delete keyframes more easily. The following describes the various keyframe manipulation methods supported in the keyframe edit view, and how to understand these methods and techniques to edit animation clips faster and more easily.
 
 ## Selecting keyframes
 
