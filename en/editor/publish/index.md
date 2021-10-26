@@ -21,7 +21,7 @@ Currently, the web, native and mini-game platforms supported by Cocos Creator in
     - [Publish to HUAWEI AppGallery Connect](publish-huawei-agc.md)
     - [Publish to Alipay Mini Game](publish-alipay-mini-game.md)
     - [Publish to Bytedance Mini-Game](publish-bytedance-mini-game.md)
-    - [Publish to QTT Mini-Game](publish-qtt.md)
+    - [Publish to QTT Mini Game](publish-qtt.md)
     - [Publish to Cocos Play](publish-cocos-play.md)
     - [Publish to Huawei Quick Game](publish-huawei-quick-game.md)
     - [Publish to OPPO Mini Game](publish-oppo-mini-game.md)
