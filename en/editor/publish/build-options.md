@@ -20,7 +20,7 @@ There are two input boxes in the build path:
 
 ### Start Scene
 
-It is necessary to set the first scene to enter after opening the game. One way is to search for the desired scene in the list of **scenes participating in the build**, move the mouse to the desired scene bar, and then click the button that appears on the right to set it as the initial scene.
+It is necessary to set the first scene to enter after opening the game. One way is to search for the desired scene in the list of **Included Scenes**, move the mouse to the desired scene bar, and then click the button that appears on the right to set it as the initial scene.
 
 ![start scene](./build-options/set-start-scene.png)
 
