@@ -24,7 +24,7 @@ It is necessary to set the first scene to enter after opening the game. One way 
 
 ![start scene](./build-options/set-start-scene.png)
 
-### Participate in Building the Scene
+### Scenes that Participate in Build
 
 During the build process, all the assets and scripts in the bundle will be packaged except for the `resources` folder in the project directory and the assets and scripts in the bundle. Other assets are packaged on demand according to the scenes involved in the build and the asset referenced in the bundle. Therefore, removing the check box for scenes that do not need to be released can reduce the size of the project release package generated after the build.
 
