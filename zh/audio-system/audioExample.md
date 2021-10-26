@@ -13,7 +13,7 @@ export class GameRoot extends Component {
         const audioSource = this.node.getComponent(AudioSource)!;
         assert(audioSource);
         this._audioSource = audioSource;
-        //声明常驻根节点，该节点不会在场景切换中被销毁。 目标节点必须位于为层级的根节点，否则无效。
+        // 声明常驻根节点，该节点不会在场景切换中被销毁。目标节点必须是根节点，否则无效。
         game.addPersistRootNode(this.node);
 
         // 将节点封装到管理器中
@@ -25,7 +25,7 @@ export class GameRoot extends Component {
 当需要对音乐音效的进行播放、音量控制等操作时，如下所示：
 
 ```typescript
-import { AudioClip, AudioSource, assert, warn, clamp01,resources } from "cc";
+import { AudioClip, AudioSource, assert, warn, clamp01, resources } from "cc";
 export class audioManager {
 
     private static _instance: audioManager;
@@ -68,21 +68,21 @@ export class audioManager {
         const audioSource = audioManager._audioSource!;
         assert(audioSource, 'AudioManager not inited!');
 
-        //音效一般是多个的，不会只有一个
+        // 音效一般是多个的，不会只有一个
         let path = 'gamePackage/audio/sound/';
 
-        resources.load(path + name, AudioClip, (err, clip)=> {
+        resources.load(path + name, AudioClip, (err, clip) => {
             if (err) {
                 warn('load audioClip failed: ', err);
                 return;
             }
             
-            // NOTE: 第二个参数是指播放音量的倍数，最终播放的音量为 `audioSource.volume * volumeScale`
+            // 注意：第二个参数 “volumeScale” 是指播放音量的倍数，最终播放的音量为 “audioSource.volume * volumeScale”
             audioSource.playOneShot(clip, volumeScale);
         });
 
     }
-    //设置音乐音量
+    // 设置音乐音量
     setMusicVolume (flag: number) {
         const audioSource = audioManager._audioSource!;
         assert(audioSource, 'AudioManager not inited!');
@@ -94,7 +94,7 @@ export class audioManager {
 }
 ```
 
-特别需要注意的一点是常驻节点在切场景时会 **暂停音乐**，需要在 `onEnable` 进行继续播放操作。如下所示：
+特别需要注意的是常驻节点在切换场景时会 **暂停音乐**，需要在 `onEnable` 中继续播放操作，代码示例如下：
 
 ```typescript
 @ccclass('GameRoot')
@@ -107,9 +107,9 @@ export class GameRoot extends Component {
 
 ```
 
->**注意：** 这一点后续在引擎中会解决这个问题，请关注版本公告。
+> **注意**：该问题将在未来版本中解决，请关注版本公告。
 
-在官方的示例项目 **快上车 3D 项目** 中。有封装好 **完整的音效播放的管理器** 使用。示例项目可以在 Dashboard 项目管理器中，选择 **项目**，接着选择右下角的 **新建**。选择合适的编辑器版本之后，选择 **Example Taxi Game** 项目，点击右下角的创建并打开，即可查看。如下所示：
+Creator 在范例项目 **快上车**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）中提供了完整的封装好的音效播放管理器的使用示例。开发者可打开 Dashboard 的 **项目** 页面，点击右下角的 **新建** 按钮，进入新建项目页面，即可看到 **Example Taxi Game** 范例项目，根据需要填写项目名称和项目位置后即可创建并打开快上车范例：
 
 ![audioEdit](audio/audioEdit.png)
 
