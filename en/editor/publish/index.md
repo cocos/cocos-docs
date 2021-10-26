@@ -40,6 +40,6 @@ Developers can also publish projects via the command line. For details, please r
 
 If you have a certain degree of familiarity and understanding of the build process, it is possible customize the build template and extend the build process. For details, please refer to the following documents:
 
-- [Introduction to the build process and common error handling](build-guide.md)
+- [Introduction to the Build Process and FAQ](build-guide.md)
 - [Customized project build template](custom-project-build-template.md)
 - [Extended Build Process](custom-build-plugin.md)
