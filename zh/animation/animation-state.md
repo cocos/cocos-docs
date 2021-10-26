@@ -12,7 +12,7 @@
 // 获取动画组件
 const animationComponent = node.getComponent(Animation);
 // 获取动画组件上的动画剪辑
-animationComponent.clips = [ idleClip, runClip ];
+const [ idleClip, runClip ] = animationComponent.clips;
 
 // 获取 `idleClip` 的动画状态
 const idleState = animationComponent.getState(idleClip.name);
