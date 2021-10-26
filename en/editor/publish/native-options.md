@@ -28,8 +28,6 @@ Starting from Cocos Creator 3.0, in order to have a consistent experience, the e
 
 The Link template does not copy the Cocos2d-x source code to the build directory, but uses the shared Cocos2d-x source code. This can effectively reduce the space occupied by the build directory, and modifications to the Cocos2d-x source code can also be shared.
 
-> **Notes**:
->
 > **About the source code engine**
 >
 > The Cocos2d-x engine includes source code engines, and the scope of their application is:
@@ -40,11 +38,11 @@ The `resources\3d\cocos2d-x-lite` folder under the installation directory of Coc
 
 #### Resource Server Address
 
-When the package body is too large, the resource can be uploaded to the resource server and downloaded through the network. This item is used to fill in the address where the resource is stored on the remote server. Developers need to manually upload the `remote` folder in the release package directory to the filled resource server address after build. For details, please refer to the [Upload resources to remote server](../../asset/cache-manager.md) documentation.
+When the package size is too large, the resource can be uploaded to the resource server and downloaded through the network. This option is used to fill in the address where the resource is stored on the remote server. Developers need to manually upload the `remote` folder in the release package directory to the filled resource server address after build. For details, please refer to the [Upload resources to remote server](../../asset/cache-manager.md) documentation.
 
 #### Polyfills
 
-This item is a polyfills option for some new features supported by the scripting system, and currently only supports **asynchronous functions**. After checking, the generated project will bring the corresponding polyfills, that is, the package body will be enlarged, and the developer can choose whether to use it according to actual needs.
+This option is a polyfills option for some new features supported by the scripting system, and currently only supports **Async Functions**. After checking, the generated project will bring the corresponding polyfills, that is, the package body will be enlarged, and the developer can choose whether to use it according to actual needs.
 
 #### Make Immediately After Build
 
@@ -52,7 +50,7 @@ If this option is checked, the **Make** step will be executed automatically afte
 
 #### Encrypt JS
 
-This item is used to encrypt the published script. The jsc file will be generated in the built-in `assets` directory, this file is encrypted. The js file will be backed up in the `script-backup` directory for debugging, and will not enter the APP during packaging.
+This option is used to encrypt the published script. The jsc file will be generated in the built-in `assets` directory, this file is encrypted. The js file will be backed up in the `script-backup` directory for debugging, and will not enter the APP during packaging.
 
 **JS Encryption Key**: This value will be used as the key to encrypt the js file on the Native platform. It will be randomly generated when the project is created.
 
@@ -66,9 +64,9 @@ Android platform build options：
 
 ![Android build options](publish-native/android-options.png)
 
-#### Rendering Backend
+#### Render BackEnd
 
-Rendering currently supports using [VULKAN](https://www.vulkan.org/), [GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) and [GLES2](https:// www.khronos.org/registry/OpenGL-Refpages/es2.0/) of these three types, **GLES3** is used by default. In the case of multiple being selected at the same time, the runtime will select the rendering backend to be used according to the actual support of the device.
+Rendering currently supports using [VULKAN](https://www.vulkan.org/), [GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) and [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) of these three types, **GLES3** is used by default. In the case of multiple being selected at the same time, the runtime will select the rendering backend to be used according to the actual support of the device.
 
 #### Game Package Name
 
@@ -84,17 +82,17 @@ Set the Target API Level required when compiling the Android platform. Click the
 
 Set the CPU type that Android needs to support. It is possible to choose one or more options. Currently, there are three types: **armeabi-v7a**, **arm64-v8a**, and **x86**.
 
-> **Note**:
+> **Notes**:
 >
 > 1. After selecting an ABI to build, build another ABI without cleaning. At this time, the so of both ABIs will be packaged into the apk. This is the default behavior of Android Studio. If using Android Studio to import the project, after selecting an ABI to build, first execute **Build -> Clean Project** and then build another ABI. At this time, only the latter ABI will be packaged into the apk.
 >
 > 2. After the project is imported with Android Studio, it is an independent existence and does not depend on the build release panel. To modify the ABI, just modify the **PROP_APP_ABI** property in the **gradle.properties** file.
 >
-> ![modify abi](publish-native/modify_abi.png)
+>     ![modify abi](publish-native/modify_abi.png)
 
 #### Use the Debug Keystore
 
-Android requires that all APKs must be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore. Check **Use debug keystore** to use the default keystore. If the developer needs to customize the keystore, uncheck the **Use debugging keystore** check. For details, please refer to the [Official Documentation](https://developer.android.google.cn/studio/publish/app-signing).
+Android requires that all APKs must be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore. Check **Use debug keystore** to use the default keystore. If the developer needs to customize the keystore, uncheck the **Use debugging keystore** check. For details, please refer to the [Official Documentation](https://developer.android.com/studio/publish/app-signing).
 
 #### Screen Orientation
 
@@ -120,17 +118,17 @@ Check this option to package and publish the game to Google Play Instant. Google
 
 #### Make App Bundle (Google Play)
 
-Check this option to package the game into App Bundle format for uploading to the Google Play store. For details, please refer to the [Official Documentation](https://developer.android.google.com/guide/app-bundle/).
+Check this option to package the game into App Bundle format for uploading to the Google Play store. For details, please refer to the [Official Documentation](https://developer.android.com/guide/app-bundle/).
 
 ### Windows Platform Build Options
 
-There is currently only one **rendering backend** for the Windows platform, including three types **VULKAN**, **GLES3** and **GLES2**. **GLES3** is checked by default. In the case of multiple ticking at the same time, the runtime will select the rendering backend to use according to the actual support of the device.
+There is currently only one **Render BackEnd** for the Windows platform, including three types **VULKAN**, **GLES3** and **GLES2**. **GLES3** is checked by default. In the case of multiple ticking at the same time, the runtime will select the rendering backend to use according to the actual support of the device.
 
 ![Windows build options](publish-native/windows-options.png)
 
 ### iOS Platform Build Options
 
-The build options for the iOS platform include **Bundle Identifier**, **Screen Orientation**, and **Rendering Backend**, where the setting of **Screen Orientation** is consistent with the Android platform.
+The build options for the iOS platform include **Bundle Identifier**, **Orientation**, and **Render BackEnd**, where the setting of **Orientation** is consistent with the Android platform.
 
 ![iOS build options](publish-native/ios-options.png)
 
@@ -138,15 +136,15 @@ The build options for the iOS platform include **Bundle Identifier**, **Screen O
 
 Package name, usually in reverse order of product website URL, such as `com.mycompany.myproduct`.
 
-> **Note**: the package name can only contain numbers, letters and underscores. The last part of the package name must start with a letter, not an underscore or number.
+> **Note**: the package name can only contain numbers (0~9), letters (A~Z, a~z), underscores (-) and dots (.). The last part of the package name must start with a letter, not an underscore or number.
 
-#### Rendering Backend
+#### Render BackEnd
 
-**Rendering backend** currently supports **METAL**.
+**Render BackEnd** currently supports **METAL**.
 
 ### Mac Platform Build Options
 
-The build options for the Mac platform include **Bundle Identifier** and **Rendering backend**, and the setting method is the same as that of the iOS platform.
+The build options for the Mac platform include **Bundle Identifier** and **Render BackEnd**, and the setting method is the same as that of the iOS platform.
 
 ![Mac build options](publish-native/mac-options.png)
 
@@ -158,21 +156,21 @@ When compiling scripts and packaging resources, a blue progress bar will be disp
 
 ![build progress](publish-native/build-progress-windows.png)
 
-### Build the Directory
+### Build Directory
 
 After the build is over, what we get is a standard Cocos2d-x project, which has the same structure as the newly created project using Cocos Console. Taking the Windows platform as an example, the directory structure of the exported native project package `windows` is:
 
 ![native directory](publish-native/native-directory.png)
 
 - `assets`: store project resources.
-- `proj`: Store the currently built native platform project, which can be used for the IDE of the corresponding platform to perform compilation tasks. For details, please refer to the introduction below.
-- `cocos.compile.config.json`: Compile option configuration for this build.
+- `proj`: store the currently built native platform project, which can be used for the IDE of the corresponding platform to perform compilation tasks. For details, please refer to the introduction below.
+- `cocos.compile.config.json`: compile options configuration for this build.
 
-Because the underlying C++ code generated after the native platform (such as Android, Windows) is built is completely consistent, in v3.0, extract the underlying C++ code separately and place it in the shared `native/engine/common` file in the project directory Folder. In this way, when the native platform is built, if it is detected that the folder already exists, this part of the content will not be processed again, which speeds up the build.
+Because the underlying C++ code generated after the native platform (such as Android, Windows) is built is completely consistent, in v3.0, extract the underlying C++ code separately and place it in the shared `native/engine/common` folder in the project directory. In this way, when the native platform is built, if it is detected that the folder already exists, this part of the content will not be processed again, which speeds up the build.
 
 ![native-common](publish-native/native-common.png)
 
-For more instructions on the directory structure, please refer to the [Build Directory Differences - Native Platform](../../release-notes/upgrade-guide-v3.0.md#%E5%8E%9F%E7%94%9F%E5%B9%B3%E5%8F%B0) documentation.
+For more instructions on the directory structure, please refer to the [Build Directory Differences - Native Platform](../../release-notes/upgrade-guide-v3.0.md#native) documentation.
 
 ### Secondary Development
 
@@ -185,10 +183,10 @@ Developers can integrate the SDK or do secondary development here. Deleting the 
 - If the integrated SDK is common to all native platforms, it is necessary to add a reference in `native\engine\common\CMakeLists.txt` in the project directory.
 - To do secondary development based on iOS, Mac, and Windows platforms, add a reference in `native\engine\currently built platform name\CMakeLists.txt` in the project directory (for example, `native\engine\ios\CMakeLists.txt)`)
 - If the secondary development is based on the Android platform:
-    - C++: Need to add a reference in `native\engine\android\CMakeLists.txt` in the project directory.
-    - Java: Need to add a reference in the project release package `build\android\proj\build.gradle`.
+    - C++: need to add a reference in `native\engine\android\CMakeLists.txt` in the project directory.
+    - Java: need to add a reference in `build\android\proj\build.gradle` in the project release package.
 
-For more information about the use of CMake, please refer to the [CMake Introduction](../../advanced-topics/cmake-learning.md) docuementation.
+For more information about the use of CMake, please refer to the [CMake Introduction](../../advanced-topics/cmake-learning.md) documentation.
 
 ## Build and Run
 
@@ -202,15 +200,15 @@ After the build is completed, continue to click the **Make** button next to it, 
 
 > **Note**: after the first generation of the Android platform or the version upgrade, it is recommended to open the project through Android Studio, download the missing tools according to the prompts, and then compile and run.
 
-**Make** After the completion of the process, continue to click the **Run** button next to it. Part of the compilation may continue. Please wait patiently or check the progress through the log file. The operating results of each platform are:
+After the "Make" process is complete, continue to click the **Run** button next to it. Part of the compilation may continue. Please wait patiently or check the progress through the log file. The operating results of each platform are:
 
 - Mac/Windows platform will run the preview directly on the desktop
-- The Android platform must be connected to the real device via USB, and the preview can be run after the USB debugging is turned on on the real device
-- The iOS platform will call the simulator to run the preview, but it is recommended to connect to the real machine through Xcode to execute **Make** and **Run**, please refer to the introduction below.
+- The Android platform must be connected to the physical device via USB, and the preview can be run after the USB debugging is turned on on the physical device.
+- The iOS platform will call the simulator to run the preview, but it is recommended to connect to the physical device through Xcode to execute **Make** and **Run**, please refer to the introduction below.
 
 ### Via IDE
 
-Click the **folder icon** button in the lower left corner of the **build task**, and the build path will be opened in the file manager of the operating system. In this path, the `proj` under the `build` directory contains The currently built native platform project.
+Click the **folder icon** button in the lower left corner of the **build task**, and the build path will be opened in the file manager of the operating system. In this path, the `proj` under the `build` directory contains the currently built native platform project.
 
 Next, open these generated native projects using the IDE corresponding to the native platform (e.g.: Xcode, Android Studio, Visual Studio) and make further operations like compilation, preview and release.
 
@@ -228,13 +226,13 @@ Next, open these generated native projects using the IDE corresponding to the na
 
 > **Note**: do not perform secondary development in these native platform projects, otherwise it will be overwritten when rebuilding.
 
-To learn how to debug on the native platform, please refer to the [Debugging JavaScript on Native Platforms](debug-jsb.md) documentation.
+Please search for information about using the native platform IDE, here we won't go over it again. To learn how to debug on the native platform, please refer to the [Debugging JavaScript on Native Platforms](debug-jsb.md) documentation.
 
 ## Precautions
 
 1. The project built in debug mode on MIUI 10 system may pop up the prompt box of "Detected problems with API compatibility". This is a problem introduced by MIUI 10 system itself, just use release mode to build.
 
-2. When packaging the iOS platform, if the developer does not use WebView related functions in the project, please make sure to remove the WebView module in **Project -> Project Settings -> Feature Cropping** to improve the success of iOS App Store machine review Rate. If the developer really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the iOS App Store fails the machine review, they can still try to appeal via email.
+2. When packaging the iOS platform, if the developer does not use WebView related functions in the project, please make sure to remove the WebView module in **Project -> Project Settings -> Feature Cropping** to improve the success of iOS App Store machine review rate. If the developer really needs to use WebView (or the added third-party SDK comes with WebView), and therefore the iOS App Store fails the machine review, they can still try to appeal via email.
 
 3. There are some differences between the compiled results of the Android platform through the editor and Android Studio:
 
@@ -250,4 +248,4 @@ To learn how to debug on the native platform, please refer to the [Debugging Jav
 
     - For code and third-party libraries shared by Android and Android Instant, please put them in the `src` and `libs` directories respectively (if these two directories do not exist, create them).
 
-    When compiling for Android by clicking the **Make** button in the **Build** panel, the default execution of `assembleRelease/Debug` will be executed, and the default execution of `instantapp:assembleRelease/Debug` when compiling Android Instant.
+    When compiling for Android by clicking the **Make** button in the **Build** panel, `assembleRelease/Debug` will be executed by default, and `instantapp:assembleRelease/Debug` will be executed by default when compiling for Android Instant.

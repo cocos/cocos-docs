@@ -4,11 +4,11 @@ Click **Project -> Build** in the main menu of the editor or use the shortcut ke
 
 ![build-panel](./build-panel/build-panel.png)
 
-If a platform has already been build for, open the **Build** panel to enter the **Build Task** page. The construction of each platform for v3.0 is carried out in the form of a build task, similar to a download task:
+If a platform has already been built, open the **Build** panel to enter the **Build Task** page. The build of each platform for v3.0 is carried out in the form of a build task, similar to a download task:
 
 ![panel](./build-panel/panel.png)
 
-## Build
+## Build Panel
 
 In the **Build** panel, select the platform to be built, and then configure the [build options](build-options.md). After the configuration is complete, click the **Build** button in the lower right corner to jump to the **Build Task** page to execute the build process. Another way is to click the **Close (X)** button in the upper right corner to enter the **Build Task** page.
 
@@ -16,7 +16,7 @@ There are three function buttons at the top of the panel:
 
 ![build-options](./build-panel/build-options.png)
 
-- ![doc](./build-panel/doc.png): click this button to jump to the official manual document of the current platform.
+- ![doc](./build-panel/doc.png): click this button to jump to the official manual documentation of the current platform.
 
 - **Import**: click this button to import the JSON file that saves the configuration of the build options.
 
@@ -27,15 +27,15 @@ There are three function buttons at the top of the panel:
     - **Export config in Build panel only**: only export the configuration in the **Build** panel.
     - **Also export current project settings**: export the configuration of the **Build** panel and the configuration that participates in the build process in the main menu **Project -> Project Settings**.
 
-> **Note**:
+> **Notes**:
 >
 > 1. It is meaningless to build a project without a scene, if there is no scene in the currently opened project, a prompt will appear to create a scene first when opening the **Build** panel:
 >
-> ![save-scene](./build-panel/create-scene-first.png)
+>     ![save-scene](./build-panel/create-scene-first.png)
 >
 > 2. Before building, please make sure that the current scene has been saved, otherwise wclick the **Build** button, and a pop-up prompt will be displayed. Choose **Save**, **Ignore** or **Cancel Build** . Select **Save** and **Ignore** to continue the build process.
 >
-> ![save-scene](./build-panel/save-scene.png)
+>     ![save-scene](./build-panel/save-scene.png)
 
 ## Build Tasks
 
@@ -47,11 +47,11 @@ On the **Build Tasks** page, developers can view the current platform's build pr
 
 ![panel](./build-panel/build-page.png)
 
-There are three buttons at the top of the page, including **New Build Task**, **Open Build Debug Tool** and **Clear Build Cache**:
+There are three buttons at the top of the page, including **New Build Task**, **Open Build DevTools** and **Clear Build Cache**:
 
 - **New Build Task**: click this button to return to the **Build** panel, select a new platform to build.
 
-- ![debug](./build-panel/debug.png): open the build debugging tool, click this button to open the build debugging tool, and view all the log information generated during the build process, including the call stack.
+- ![debug](./build-panel/debug.png): open the build debugging tool, click this button to open the Build DevTools, and view all the log information generated during the build process, including the call stack.
 
 - ![clean](./build-panel/clean.png): clear the build cache. In order to reuse the reusable build results, and in order to speed up the build and reduce memory usage when rebuilding, many processes in the build process have added cache management mechanisms, such as compressed textures, automatic atlas generation, engine compilation, and resources being serialized JSON, etc. <br>Under normal circumstances, this part of the cached data does not need to be manually cleaned, but if it is needed to avoid cache interference under special circumstances, click this button to clear the cached data.
 
@@ -75,7 +75,7 @@ Each building task has corresponding function buttons for easy use.
 
 - ![folder](./build-panel/folder.png): click this button to open the project release package generated after the corresponding platform is built (the default is in the `build` directory).
 
-- ![editing](./build-panel/editing.png): click this button to return to the **Build** panel, modify the build options configured during the last build of the corresponding platform, and then click **at the bottom right Build** button to rebuild. For details, please refer to the content in the **Modify Build Options** section below.
+- ![editing](./build-panel/editing.png): click this button to return to the **Build** panel, modify the build options configured during the last build of the corresponding platform, and then click the **Build** button at the bottom right to rebuild. For details, please refer to the content in the **Modify Build Options** section below.
 
 - ![setting](./build-panel/setting.png): click this button to return to the **Build** panel to view the build options configured during the last build of the corresponding platform.
 
@@ -92,7 +92,7 @@ For the specific release process of each platform, please refer to:
 
 ### Modifying Build Options
 
-Click the edit button at the bottom left of the build task to return to the **Build** panel to modify the build options configured during the last build for rebuilding. Since it is only possible to modify the build option configuration during the last build of the current platform, the **Platform** item on the page is grayed out and cannot be modified.
+Click the edit button at the bottom left of the build task to return to the **Build** panel to modify the build options configured during the last build for rebuilding. Since it is only possible to modify the build option configuration during the last build of the current platform, the **Platform** option on the page is grayed out and cannot be modified.
 
 ![edit build option](./build-panel/edit-build-option.png)
 
@@ -102,7 +102,7 @@ After the modification is completed, clicking the **Build** button will clear th
 
 > **Note**: in order to avoid accidentally deleting customized content, the native platform only updates project resources when rebuilding, and does not overwrite the original native project content. Therefore, when returning to the **Build** panel to modify the previously configured build options, the native platform-related build options are in the **disabled** state. To regenerate the project, please create a new build task.
 
-If the **Build** button is not clicked to rebuild after modifying the configuration, the modified configuration will also be saved. If the configuration in the current **Build** panel is inconsistent with the configuration in the project release package in the `build` directory generated after the last build, a yellow <font color= will be displayed at the top of the **Build** panel #F0C800>*</font> number key.
+If the **Build** button is not clicked to rebuild after modifying the configuration, the modified configuration will also be saved. If the configuration in the current **Build** panel is inconsistent with the configuration in the project release package in the `build` directory generated after the last build, a yellow <font color=#F0C800>*</font> key will be displayed at the top of the **Build** panel.
 
 ![settings](build-panel/settings.png)
 
@@ -112,9 +112,9 @@ Since the build process will generate a lot of log information, only error messa
 
 To view all the log information, there are the following operations:
 
-- **Open the build debugging tool**
+- **Open the Build DevTools**
 
-    To view, click **Developer -> Open Build Debug Tool** in the main menu or click the ![debug](./build-panel/debug.png) button at the top right of the **Build Task** page. All log information printed during the build process includes the call stack.
+    To view, click **Developer -> Open Build DevTools** in the main menu or click the ![debug](./build-panel/debug.png) button at the top right of the **Build Task** page. All log information printed during the build process includes the call stack.
 
 - **Adjust log level**
 
@@ -124,4 +124,4 @@ To view all the log information, there are the following operations:
 
 - **Open the build logging file**
 
-    The error message generated during each build process will be recorded and stored in the `temp/builder/log` folder under the project directory. Click the ![log-file](./build-panel/log-file.png) button at the bottom right of the build task to view it. When feedback on construction related issues, directly paste the file to locate the problem.
+    The error message generated during each build process will be recorded and stored in the `temp/builder/log` folder under the project directory. Click the ![log-file](./build-panel/log-file.png) button at the bottom right of the build task to view it. When feedback on build related issues, directly paste the file to locate the problem.
