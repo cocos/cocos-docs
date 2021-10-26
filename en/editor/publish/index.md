@@ -24,7 +24,7 @@ Currently, the web, native and mini-game platforms supported by Cocos Creator in
     - [Publish to QTT Mini-Game](publish-qtt.md)
     - [Publish to Cocos Play](publish-cocos-play.md)
     - [Publish to Huawei Quick Game](publish-huawei-quick-game.md)
-    - [Publish to OPPO Mini-Game](publish-oppo-mini-game.md)
+    - [Publish to OPPO Mini Game](publish-oppo-mini-game.md)
     - [Publish to Vivo Mini-Game](publish-vivo-mini-game.md)
     - [Publish to Xiaomi Quick Game](publish-xiaomi-quick-game.md)
     - [Publish to Link Sure Games](publish-link-sure.md)
