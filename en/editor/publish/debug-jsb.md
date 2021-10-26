@@ -45,7 +45,7 @@ The behavior after setting **every breakpoint** and executing the following code
 cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 ```
 
-For more information on the usage of `target stop-hook`, please refer to the documentation: <https://lldb.llvm.org/use/map.html#examining-variables>
+For more information on the usage of `target stop-hook`, please refer to the [Examining Variables](https://lldb.llvm.org/use/map.html#examining-variables) documentation.
 
 However, this approach has an obvious drawback: it works for **all projects** and will result in an error if the corresponding symbol does not exist for other projects.
 
@@ -61,7 +61,7 @@ Enter the following command in the **Debugger Command**:
 expr -- cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 ```
 
-For more information about the usage of `target stop-hook`, please refer to the documentation: <https://lldb.llvm.org/use/map.html#evaluating-expressions>
+For more information about the usage of `target stop-hook`, please refer to the [Evaluating Expressions](https://lldb.llvm.org/use/map.html#evaluating-expressions) documentation.
 
 #### Setting `stop hook`
 
@@ -85,4 +85,4 @@ Android Studio also provides a `lldb console` similar to Xcode.
 
 ## Advanced Debugging Guide
 
-If you need to debug in Release mode, or need to debug a customized native engine, please refer to the more detailed [JSB 2.0 Usage Guide: Remote Debugging and Profile](../../advanced-topics/JSB2.0-learning.md).
+To debug in Release mode, or need to debug a customized native engine, please refer to the more detailed [JSB 2.0 Usage Guide: Remote Debugging and Profile](../../advanced-topics/JSB2.0-learning.md) documentation.
