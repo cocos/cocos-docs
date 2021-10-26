@@ -19,7 +19,7 @@ Currently, the web, native and mini-game platforms supported by Cocos Creator in
     - [Native platform JavaScript debugging](debug-jsb.md)
 - [Publish to Mini Game Platform](publish-mini-game.md)
     - [Publish to HUAWEI AppGallery Connect](publish-huawei-agc.md)
-    - [Publish to Alipay Mini-Game](publish-alipay-mini-game.md)
+    - [Publish to Alipay Mini Game](publish-alipay-mini-game.md)
     - [Publish to Bytedance Mini-Game](publish-bytedance-mini-game.md)
     - [Publish to QTT Mini-Game](publish-qtt.md)
     - [Publish to Cocos Play](publish-cocos-play.md)
