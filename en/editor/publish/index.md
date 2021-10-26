@@ -34,7 +34,7 @@ Currently, the web, native and mini-game platforms supported by Cocos Creator in
         - [Access to WeChat PC Mini Games](publish-pc-wechatgame.md)
     - [Access to Open Data Context](build-open-data-context.md)
 
-Developers can also publish projects via the command line. For details, please refer to the [Publish - Command Line](publish-in-command-line.md) documentation.
+Developers can also publish projects via the command line. For details, please refer to the [Publish from the Command Line](publish-in-command-line.md) documentation.
 
 ## Advanced
 
