@@ -41,7 +41,7 @@ For the general build options of each platform, please refer to the [General Bui
 
 - **Preview URL**
 
-  The build supports simultaneous previewing of multiple Web projects, so the preview URL to be built is no longer uniform, but each build task will have a separate preview URL, which does not interfere with each other. Click the URL to automatically open the browser for preview. The specific preview URL splicing rule is **${Preview IP address in preferences}:${Editor preview port number}/${Build platform}/${Build task First name}/index.html**.
+  The build supports simultaneous previewing of multiple Web projects, so the preview URL to be built is no longer uniform, but each build task will have a separate preview URL, which does not interfere with each other. Click the URL to automatically open the browser for preview. The specific preview URL splicing rule is **${Preview IP address in Preferences panel}:${Editor preview port number}/${Build platform}/${Build task name}/index.html**.
 
   ![preview-url](publish-web/preview-url.png)
 
