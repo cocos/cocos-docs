@@ -18,7 +18,7 @@ For the general build options of each platform, please refer to the [General Bui
 
 Due to the adjustment of the current build mechanism, the processing of different platforms is built into the **Build** panel in the form of a plugin.
 
-After selecting the native platform to be built in the **Release Platform** of the **Build** panel, notice that in addition to the expanded options of the specific native platform, there is also an expanded option for **Native**. The build options in **Native** are the same on all native platforms.
+After selecting the native platform to be built in the **Platform** option of the **Build** panel, notice that in addition to the expanded options of the specific native platform, there is also an expanded option for **Native**. The build options in **Native** are the same on all native platforms.
 
 ![Native Options](publish-native/native-options.png)
 
