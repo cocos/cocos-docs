@@ -26,7 +26,7 @@ For the general build options of each platform, please refer to the [General Bui
 | Build options | Description | Field name (for command line publishing) |
 | :--- | :--- | :--- |
 | Resource Server Address | The server address used to download remote resources. For details, please refer to the content of the **Resource Server Address** section below. | `remoteServerAddress` |
-| Device orientation | Optional values ​​include **Auto**, **Landscape**, **Portrait** | `orientation` |
+| Orientation | Optional values ​​include **Auto**, **Landscape**, **Portrait** | `orientation` |
 | Polyfills | Build polyfills that support some new features of scripts. Corresponding processing will be done when scripts are packaged. Currently, there are **async Functions** and **coreJs**. Developers can choose the polyfills needed according to actual needs. | `polyfills` |
 | vConsole | Insert the vConsole debugging plug-in. vConsole is similar to the mini version of DevTools for assisting debugging. | `embedWebDebugger` |
 | Preview the QR code | Used to scan and preview, see the introduction below for details |-|
