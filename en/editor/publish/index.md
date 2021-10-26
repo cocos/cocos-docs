@@ -27,7 +27,7 @@ Currently, the web, native and mini-game platforms supported by Cocos Creator in
     - [Publish to OPPO Mini Game](publish-oppo-mini-game.md)
     - [Publish to vivo Mini Game](publish-vivo-mini-game.md)
     - [Publish to Xiaomi Quick Game](publish-xiaomi-quick-game.md)
-    - [Publish to Link Sure Games](publish-link-sure.md)
+    - [Publish to LinkSure Mini Game](publish-link-sure.md)
     - [Publish to Baidu Mini-Game](publish-baidu-mini-game.md)
     - [Publish to Wechat Game](publish-wechatgame.md)
         - [Enable Wechat Mini Game Engine Plugin](wechatgame-plugin.md)
