@@ -51,6 +51,7 @@
         - [艺术数字资源](asset/label-atlas.md)
     - [预制资源](asset/prefab.md)
     - [字体资源](asset/font.md)
+    - [音频资源](asset/audio.md)
     - [材质资源](asset/material.md)
     - [模型资源](asset/model/mesh.md)
         - [从第三方工具导出模型资源](asset/model/dcc-export-mesh.md)

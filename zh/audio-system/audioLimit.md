@@ -1,31 +1,5 @@
 # 兼容性说明
 
-## Web 平台的播放限制
-
-目前 Web 平台的声音播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 **AudioSource** 组件设置了 `playOnAwake`，也需要在触摸事件中手动播放音频，如下所示：
-
-```typescript
-// AudioController.ts
-import { _decorator, Component, Node, AudioSource, find } from 'cc';
-const { ccclass, property } = _decorator;
-
-@ccclass("AudioController")
-export class AudioController extends Component {      
-
-    @property(AudioSource)
-    public audioSource: AudioSource = null!;
-
-    start () {
-        let btnNode = find('BUTTON_NODE_NAME');
-        btnNode!.on(Node.EventType.TOUCH_START, this.playAudio, this);
-    }
-    
-    playAudio () {
-        this.audioSource.play();
-    }
-}
-```
-
 ## Web 平台音频资源的加载模式
 
 Web 平台上的声音资源比较特别，因为 Web 标准支持以两种不同的方式加载音频资源，分别是：

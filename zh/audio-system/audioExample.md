@@ -3,6 +3,8 @@
 由于 Cocos Creator 3.x 废弃了 v2.x `cc.audioEngine` 系列的 API，统一使用 AudioSource 控制音频播放，因此我们可以将 [AudioSource 组件](./audiosource.md) 声明为常驻根节点，封装一个管理器进行使用。如下所示：
 
 ```typescript
+import { assert, AudioSource, Component, game } from 'cc';
+const { ccclass, property } = _decorator;
 @ccclass('GameRoot')
 export class GameRoot extends Component {
     
@@ -97,6 +99,8 @@ export class audioManager {
 特别需要注意的是常驻节点在切换场景时会 **暂停音乐**，需要在 `onEnable` 中继续播放操作，代码示例如下：
 
 ```typescript
+import {  _decorator,Component} from 'cc';
+const { ccclass, property } = _decorator;
 @ccclass('GameRoot')
 export class GameRoot extends Component {
 
