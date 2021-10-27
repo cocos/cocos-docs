@@ -231,7 +231,7 @@ export class AudioController extends Component {
 - **sys** 下的平台变量变更如下：
 
 | Cocos Creator 2.x | Cocos Creator 3.0     |
-|:------------------|:----------------------|
+| :---------------- | :-------------------- |
 | `BAIDU_GAME`      | `BAIDU_MINI_GAME`     |
 | `VIVO_GAME`       | `VIVO_MINI_GAME`      |
 | `OPPO_GAME`       | `OPPO_MINI_GAME`      |
@@ -244,7 +244,7 @@ export class AudioController extends Component {
 - **全局变量** 变更如下：
 
 | Cocos Creator 2.x | Cocos Creator 3.0 |
-|:-------------------|:-------------------|
+| :---------------- | :---------------- |
 | `CC_BUILD`        | `BUILD`           |
 | `CC_TEST`         | `TEST`            |
 | `CC_EDITOR`       | `EDITOR`          |
@@ -437,9 +437,9 @@ v3.0 构建 Windows 平台后生成的发布包目录如下：
 
 Cocos Creator 3.x 开启了 TypeScript 的严格模式，会对代码进行更严格的审查，排除开发过程中可能会出现的因为疏忽而导致的问题。
 
-关于严格模式下的书写规范，可以参照官方案例 **快上车 3D**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）
-
 如果不想使用严格模式，可以在 Creator 顶部菜单栏的 **项目 -> 项目设置 -> 脚本** 中勾选 **启用宽松模式**。需要提醒的是，我们并不鼓励关闭严格模式，因为严格空值检查能够减少代码运行时的一些低级报错。
+
+关于严格模式下的书写规范，可以参照官方案例 **快上车 3D**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）
 
 ### Action 动作全都失效
 
@@ -539,19 +539,23 @@ if (collider) {
 
 ### 升级后在脚本中修改节点的 `Position` 时，直接通过节点（例如 `node.x`）修改不生效
 
-从 v3.0 开始，`node` 节点上不允许直接访问坐标位置，需要先访问 `position` 再访问坐标值。例如：
+从 v3.0 开始，`node` 节点上不允许直接访问坐标位置，需要先访问 `position` 再访问坐标值。并且 v3.x 中的 `position` 为 **只读属性**，若需要修改，请使用 `setPosition` 方法。例如：
 
 ```typescript
 // v2.x
 
-const xAxis = this.node.x;
+// 访问坐标轴
+let xAxis = this.node.x;
+// 修改 x 轴坐标
+this.node.x = 200;
 
 // v3.x
 
-const xAxis = this.node.position.x;
+// 访问坐标轴
+let xAxis = this.node.position.x;
+// 修改 x 轴坐标
+this.node.setPosition(200);
 ```
-
-并且 v3.x 中的 `position` 为 **只读属性**，若需要修改，请使用 `setPosition` 方法。
 
 ## TypeScript 参考教程
 
