@@ -25,6 +25,8 @@ Two steps are required to create a terrain:
 | **ReceiveShadow** | Accept the shadow |
 | **UseNormalMap** | Use normal map |
 | **UsePBR** | Use physical materials |
+| **LodEnable** | Enable Terrain Lod, used to reduce the number of rendered faces and improve rendering performance |
+| **LodBias** | Set the starting distance of Lod |
 
 ## Using a terrain
 
