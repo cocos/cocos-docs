@@ -215,7 +215,6 @@
         - [动画状态](animation/animation-state.md)
 
 - [音频系统](audio-system/overview.md)
-    - [音频资源](audio-system/audioFile.md)
     - [AudioSource 组件参考](audio-system/audiosource.md)
     - [音频播放示例](audio-system/audioExample.md)
     - [兼容性说明](audio-system/audioLimit.md)

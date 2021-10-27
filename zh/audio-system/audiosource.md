@@ -4,7 +4,7 @@ AudioSource 组件用于播放音乐和音效。
 
 ![audioSource](audio/audiosource.png)
 
-在 **层级管理器** 中选中节点，然后点击 **属性检查器** 下方的 **添加组件** 按钮，选择 Audio -> AudioSource 即可添加 `AudioSource` 组件到节点上。
+在 **层级管理器** 中选中节点，然后点击 **属性检查器** 下方的 **添加组件** 按钮，选择 Audio -> AudioSource 即可添加 AudioSource 组件到节点上。
 
 ## AudioSource 属性
 
@@ -40,7 +40,7 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 如果要更灵活的控制 AudioSource 的播放，可以在将定义脚本添加到 **AudioSource 组件** 所在的节点，然后调用相应的 API 即可通过脚本控制。
 
 1. 在节点上添加 AudioSource 组件并指定音频资源。
-2. 在 **资源管理器** 中 [创建脚本](../scripting/script-basics.md) 并命名（例如 `AudioController`），然后双击打开脚本编写，内容如下：
+2. 在 **资源管理器** 中 [创建脚本](../scripting/script-basics.md) 并命名（例如 `AudioController`），然后打开脚本编写，内容如下：
 
     ```typescript
    import { _decorator, Component, Node, AudioSource, assert } from 'cc';
