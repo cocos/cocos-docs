@@ -122,11 +122,11 @@ export class AudioController extends Component {
 // });
 ```
 
->**注意：**
+> **注意**：
 >
-> 1.如果是从 JavaScript 转换为 TypeScript 的。需要在 TypeScript 中声明 **所有属性** 并设置默认值。
-> 2.如果 **属性检查器** 面板数据丢失，则需要检查属性类型是否与 v2.x 相同。
-> 3.如果 JavaScript 代码使用外部类型，TypeScript 会提示：通过导入外部源文件或声明进行修复。
+> 1. 如果是从 JavaScript 转换为 TypeScript 的。需要在 TypeScript 中声明 **所有属性** 并设置默认值。
+> 2. 如果 **属性检查器** 面板数据丢失，则需要检查属性类型是否与 v2.x 相同。
+> 3. 如果 JavaScript 代码使用外部类型，TypeScript 会提示：通过导入外部源文件或声明进行修复。
 
 ## 旧版本开发者快速上手
 
@@ -470,7 +470,7 @@ uiColor.color = color(255,255,255);
 
 ### 无法获取分组，但 Creator 的项目设置面板中仍有分组设置（Layers）
 
-v2.x 的 `group` 分组管理从 v3.0 开始变更为 `Layer`。在 v2.x 中通过 `node.group` 获取到的是分组名，而在 v3.x 通过 `node.layer` 获取到的是 **分组值**，并且分组值是以 2 的指数幂设定。如下图所示：
+v2.x 的 `group` 分组管理从 v3.0 开始变更为 `Layer`，如下图所示。在 v2.x 中通过 `node.group` 获取到的是分组名，而在 v3.x 通过 `node.layer` 获取到的是 **分组值**，并且分组值是以 2 的指数幂设定。
 
 ![update-setting](update-setting.png)
 
@@ -482,7 +482,7 @@ User Layer 6 的 layer 值为：2<sup>6</sup> = 64。
 
 从 v3.0 开始 `zIndex` 接口已经被移除，若需要调整节点树的顺序请使用 `priority` 方法来替换使用。
 
->**注意：** 从 v3.1 开始，priority 属性已弃用，若需要调整节点树的顺序请使用 setSiblingIndex 方法。
+> **注意**：从 v3.1 开始，`priority` 属性已弃用，若需要调整节点树的顺序请使用 `setSiblingIndex` 方法。
 
 ### 通过 `getComponent()` 无法获取到节点上挂载的脚本
 
@@ -535,24 +535,23 @@ if (collider) {
 
 ### 升级后对脚本进行修改，出现编辑器卡死的情况
 
-检查升级后脚本中定义的组件类型的属性装饰器 `property` 是否未定义，如果是，则是由于导入插件太过于老旧导致的，请参考 [插件升级](https://github.com/cocos-creator/plugin-import-2.x) 对导入插件进行更新升级。更新导入插件后，需要 **重新进行项目升级**。
+检查升级后脚本中定义的组件类型的属性装饰器 `property` 是否未定义，如果未定义，则是由于导入插件太过于老旧导致的，请参考 [插件升级](https://github.com/cocos-creator/plugin-import-2.x) 对导入插件进行更新升级。更新导入插件后，需要 **重新进行项目升级**。
 
-### 升级后在脚本中修改节点的 Position 直接使用例如 node.x 这样的方式不生效
+### 升级后在脚本中修改节点的 `Position` 时，直接通过节点（例如 `node.x`）修改不生效
 
-从 v3.0 开始，`node` 节点上不允许直接访问坐标位置，需要先访问 `position` 再访问坐标值。如下述所示：
+从 v3.0 开始，`node` 节点上不允许直接访问坐标位置，需要先访问 `position` 再访问坐标值。例如：
 
 ```typescript
-// v2.x 方式
+// v2.x
 
 const xAxis = this.node.x;
 
-// v3.x 方式
+// v3.x
 
 const xAxis = this.node.position.x;
-
 ```
 
-并且 `position` 中的坐标更改为 **只读属性**，如果需要更改坐标位置，需要使用 `setPosition` 方法。
+并且 v3.x 中的 `position` 为 **只读属性**，若需要修改，请使用 `setPosition` 方法。
 
 ## TypeScript 参考教程
 
