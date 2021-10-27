@@ -12,12 +12,13 @@ To use graphics, please refer to the [graphics API](__APIDOC__/en/classes/ui.gra
 
 | Property | Function Explanation |
 | :-------------- | :----------- |
-| [**FillColor**](graphics/fillColor.md)     | Sets or returns the color used for the `fill` function. |
-| [**LineCap**](graphics/lineCap.md) | LineCap determines how the end points of every line are drawn. |
-| [**LineJoin**](graphics/lineJoin.md)       | LineJoin determines how two connecting segments (of lines, arcs or curves) with non-zero lengths in a shape are joined together. |
-| [**MiterLimit**](graphics/miterLimit.md)   | Sets or returns the maximum miter length.  |
-| [**StrokeColor**](graphics/strokeColor.md) | Stroke color. Sets or returns the color used for the stroke. |
+| [**CustomMaterial**](../engine/ui-material.md)| Custom materials that can be used to achieve rendering effects such as dissolve, external glow, etc.  |
 | [**LineWidth**](graphics/lineWidth.md) | Current line width. |
+| [**LineJoin**](graphics/lineJoin.md)       | LineJoin determines how two connecting segments (of lines, arcs or curves) with non-zero lengths in a shape are joined together. |
+| [**LineCap**](graphics/lineCap.md) | LineCap determines how the end points of every line are drawn. |
+| [**StrokeColor**](graphics/strokeColor.md) | Stroke color. Sets or returns the color used for the stroke. |
+| [**FillColor**](graphics/fillColor.md)     | Sets or returns the color used for the `fill` function. |
+| [**MiterLimit**](graphics/miterLimit.md)   | Sets or returns the maximum miter length.  |
 
 ## Graphics API
 
@@ -29,7 +30,7 @@ To use graphics, please refer to the [graphics API](__APIDOC__/en/classes/ui.gra
 | [**lineTo**](graphics/lineTo.md) (x, y) | Adds a straight line to the path. |
 | [**bezierCurveTo**](graphics/bezierCurveTo.md) (c1x, c1y, c2x, c2y, x, y) | Adds a cubic Bézier curve to the path. |
 | [**quadraticCurveTo**](graphics/quadraticCurveTo.md) (cx, cy, x, y) | Adds a quadratic Bézier curve to the path. |
-| [**arc**](graphics/arc.md) (cx, cy, r, a0, a1, counterclockwise) | Adds an arc to the path which is centered at (cx, cy) position with radius r starting at startAngle and ending at endAngle going in the given direction by counterclockwise (defaulting to false). |
+| [**arc**](graphics/arc.md) (cx, cy, r, startAngle, endAngle, counterclockwise) | Adds an arc to the path which is centered at (cx, cy) position with radius r starting at startAngle and ending at endAngle going in the given direction by counterclockwise (defaulting to false). |
 | [**ellipse**](graphics/ellipse.md) (cx, cy, rx, ry) | Adds an ellipse to the path. |
 | [**circle**](graphics/circle.md) (cx, cy, r) | Adds a circle to the path. |
 | [**rect**](graphics/rect.md) (x, y, w, h) | Adds a rectangle to the path. |

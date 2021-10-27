@@ -1,28 +1,12 @@
 # 扩展编辑器
 
-本章主要介绍一些编辑器的扩展功能。大家可以通过下面的导航跳转到自己感兴趣的章节。
+本章主要介绍一些编辑器的扩展功能，包括以下内容：
 
 - [第一个扩展包](./first.md)
 - [第一个面板](./first-panel.md)
 - [第一次数据交互](./first-communication.md)
 - [安装与分享](./install.md)
-- [扩展包定义](./define.md)
+- [提交插件到商店](./store/upload-store.md)
 - [扩展面板](./panel.md)
-    - [编写面板](./panel-boot.md)
-    - [面板与插件的通信](./panel-messages.md)
-    - [与面板的通信](./to-panel-messages.md)
 - [扩展已有功能](./contributions.md)
-    - [自定义消息](./contributions-messages.md)
-    - [快捷键](./contributions-shortcuts.md)
-    - [场景脚本](./scene-script.md)
-    - [扩展主菜单](./contributions-menu.md)
-    - [扩展资源管理器面板](../assets/extension.md)
-    - [扩展项目设置面板](./contributions-project.md)
-    - [扩展偏好设置面板](./contributions-preferences.md)
-    - [扩展构建流程](../publish/custom-build-plugin.md)
 - [基础功能](./basic.md)
-    - [插件系统](./package.md)
-    - [消息系统](./messages.md)
-    - [多语言系统](./i18n.md)
-    - [配置系统](./profile.md)
-    - [UI 组件](./ui.md)

@@ -1,4 +1,4 @@
-# Auto fit for multi-resolution
+# Auto Fit for Multi-Resolution
 
 **Cocos Creator** still provides the solution to adapting to screens with various resolutions with one set of assets. Generally speaking, we realize the adaptation scheme for multi-resolution through the following technology:
 

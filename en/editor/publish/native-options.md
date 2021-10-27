@@ -106,7 +106,10 @@ The screen orientation currently includes **Portrait**, **Landscape Left**, and 
 
 Check this option to package and publish the game to Google Play Instant. Google Play Instant relies on Google Play and is not a new distribution channel, but closer to a game micro-end solution. It can realize that the game can be played immediately without installation, which is conducive to the trial play, sharing and conversion of the game.
 
-> **Pay attention to the following points when using**:
+> **The following notes are required when using**:
+> 1. The Android Studio should be v4.0 and above.
+> 2. The Android Phone should be v6.0 and above. Devices with Android SDK version between 6.0 and 7.0 need to install Google Service Framework, while those with SDK version 8.0 or higher do not need it and can install it directly.
+> 3. If you compile for the first time, you need to open the built project with Android Studio to download **Google Play Instant Development SDK (Windows)** or **Instant Apps Development SDK (Mac)** support package. If the download fails, it is recommended to set up an HTTP proxy for Android Studio.
 >
 > 1. The version of Android Studio must be 4.0 and above
 >

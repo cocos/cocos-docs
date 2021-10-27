@@ -60,5 +60,3 @@ Box2D 物理碰撞组件内部是由 Box2D 的 b2Fixture 组成的，由于 Box2
 ### 修改碰撞组件偏移量
 
 在所有的碰撞组件调整中，都可以在各自的 **碰撞中心区域** 点击鼠标左键拖拽来快速编辑碰撞组件的 **偏移量**
-
-![](edit-collider-component/drag-area.png)

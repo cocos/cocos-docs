@@ -98,8 +98,7 @@ If this option is checked, the script import speed is faster, but module feature
 
 ### 合并初始场景依赖的所有 JSON
 
-自动合并资源时，将初始场景依赖的所有 JSON 文件都合并到初始场景所在的包中。默认关闭，启用后不会增大总包体，但如果这些 JSON 也被其它场景公用，则后面再次加载它们时 CPU 开销可能会稍微增加。
--->
+When the **Auto Atlas** is configured in the `resources` folder, both the large and small image resources and the corresponding serialization information will be packaged, which will increase the package size, So please do not use it like that unless necessary.
 
 ### Cocos Service Configuration Set
 

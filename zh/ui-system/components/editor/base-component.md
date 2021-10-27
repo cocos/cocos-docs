@@ -1,20 +1,11 @@
-# UI 基础组件
+# UI 组件
 
-- [Canvas 组件参考](canvas.md)
-- [UITransform 组件参考](ui-transform.md)
-- [Widget 组件参考](widget.md)
-- [Button 组件参考](button.md)
-- [Layout 组件参考](layout.md)
-- [EditBox 组件参考](editbox.md)
-- [ScrollView 组件参考](scrollview.md)
-- [ScrollBar 组件参考](scrollbar.md)
-- [ProgressBar 组件参考](progress.md)
-- [LabelOutline 组件参考](label-outline.md)
-- [Toggle 组件参考](toggle.md)
-- [UIMeshRenderer 组件参考](ui-model.md)
-- [ToggleGroup 组件参考](toggleContainer.md)
-- [Slider 组件参考](slider.md)
-- [PageView 组件参考](pageview.md)
-- [PageViewIndicator 组件参考](pageviewindicator.md)
-- [UIOpacity 组件参考](ui-opacity.md)
-- [BlockInputEvents 组件参考](block-input-events.md)
+一些常用的 UI 控件可通过添加节点的方式来创建。在 **层级管理器** 中点击左上角的 **+** 创建节点按钮，然后选择 **UI** 来创建所需的 UI 节点，相应的 UI 组件便会自动挂载到节点上：
+
+![create-ui](create-ui.png)
+
+其它的 UI 组件，可以手动在 **层级管理器** 中选中节点，然后在 **属性检查器** 中点击 **添加组件 -> UI** 的方式来添加：
+
+![add-component](add-component.png)
+
+各组件的具体说明，请参考相应的组件说明文档。

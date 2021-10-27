@@ -11,10 +11,11 @@ Cocos Creator 通过节点树和节点组件系统实现了自由的场景结构
 
 ## 场景制作相关工作流程
 
+- [场景资源](../../asset/scene.md)
 - [节点和组件](node-component.md)
 - [坐标系和节点属性变换](coord.md)
 - [节点层级和显示顺序](node-tree.md)
 - [使用场景编辑器搭建场景](scene-editing.md)
 - [天空盒](skybox.md)
 - [全局雾](fog.md)
-- [阴影](shadow.md)
+- [阴影](./light/shadow.md)

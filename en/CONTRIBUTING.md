@@ -83,7 +83,7 @@ Incorrect usage:
 
 URL link format: **[url document name]\(url document directory)**. Use halfwidth English punctuation, and no spaces between [] and ()
 
-> e.g.: [Mask API]\(__APIDOC__/en/classes/Mask.html). Use **.html** for file name suffixes across documents
+> e.g.: [Mask API]\(\_\_APIDOC\_\_/en/classes/Mask.html). Use **.html** for file name suffixes across documents
 
 ## Use bold between adjacent text
 
@@ -264,7 +264,7 @@ Appropriate spaces can be reserved before and after for easy editing.
 - At present, —> Currently,
 - Related Reference Links —> Reference documentation
 - do not use phrases like: "Now let me explain", "he should do this"
-- text like this should be avoided: "If you have never written a program and don’t worry, we will provide all the required code in the tutorial, just copy and paste it to the correct location, and then you can find your programmer partner to solve this part of the work. Let's start creating the script that drives the main character's actions."
+- text like this should be avoided: "If you have never written a program and don’t worry, we will provide all the required code in the tutorial, just copy and paste it to the correct location, and then find your programmer partner to solve this part of the work. Let's start creating the script that drives the main character's actions."
 - text like this should be avoided: "So, "
 
 ## About product name
