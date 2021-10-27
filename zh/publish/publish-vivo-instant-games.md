@@ -6,7 +6,7 @@
 
 - 全局安装 [nodejs-8.9.0](https://nodejs.org/zh-cn/download/) 或以上版本
 
-    **注意**：安装 nodejs 后，需要注意 npm 源地址是否为 https://registry.npmjs.org/
+    **注意**：安装 nodejs 后，需要注意 npm 源地址是否为 <https://registry.npmjs.org/>
 
     ```bash
     # 查看当前 npm 源地址
@@ -33,7 +33,7 @@
 
 使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 选择 **vivo 小游戏**。
 
-![](./publish-vivo-instant-games/build.png)
+![build](./publish-vivo-instant-games/build.png)
 
 ### 参数项配置
 
@@ -94,18 +94,18 @@
 
   有以下两种方式可以生成签名文件：
 
-    - 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成。
+  - 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成。
 
-    - 通过命令行生成 release 签名
+  - 通过命令行生成 release 签名
 
-      用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。其中在 build/qgame/sign/debug 目录下的证书仅供调试使用。
+    用户需要通过 openssl 命令等工具生成签名文件 `private.pem`、`certificate.pem`。其中在 `build/qgame/sign/debug` 目录下的证书仅供调试使用。
 
-      ```bash
-      # 通过 openssl 命令工具生成签名文件
-      openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
-      ```
+    ```bash
+    # 通过 openssl 命令工具生成签名文件
+    openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
+    ```
 
-      **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开，而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量。
+    **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开，而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量。
 
 - **允许分离引擎**（v2.3.4 新增）
 
@@ -171,9 +171,9 @@
 
 - **方法二**
 
-    将构建生成的小游戏 rpk 文件（位于小游戏工程 qgame 目录下的 dist 目录中）拷贝到手机 sdcard 目录下。
+    将构建生成的小游戏 rpk 文件（位于小游戏工程 qgame 目录下的 dist 目录中）拷贝到手机内部存储目录下。
 
-    在 Android 设备上打开之前已经安装完成的 **快应用 & vivo 小游戏调试器**，点击 **本地安装**，然后从手机 sdcard 目录中找到 rpk 文件，选择打开即可。
+    在 Android 设备上打开之前已经安装完成的 **快应用 & vivo 小游戏调试器**，点击 **本地安装**，然后从手机内部存储目录中找到 rpk 文件，选择打开即可。
 
     ![](./publish-vivo-instant-games/vivo-instant_native_install.jpg)
 

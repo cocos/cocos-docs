@@ -2,6 +2,8 @@
 
 This section will introduce the workflow and tips of using **Scene**  panel to create and editing scene contents.
 
+> **Note**: please avoid multiple people modifying the same scene at the same time, as this may lead to conflicts that cannot be resolved by `git` merging.
+
 ## Use Canvas as root node for all renderers
 
 Newly created scene will have a `Canvas` node by default, it serves as the recommended root node for all renderer nodes. This has the below advantages:
@@ -9,8 +11,7 @@ Newly created scene will have a `Canvas` node by default, it serves as the recom
 - `Canvas` will fit the screen resolution automatically, use it as the root node will provide a solid screen size reference to all the renderer node in scene. Please read [Auto fit for multi-resolution](../ui/multi-resolution.md) to learn details.
 - `Canvas` default anchor point is at `(0.5, 0.5)` and `Canvas` node will fit the screen size so any node under `Canvas` will use the screen center as the origin. This will make scene and UI building easy (for example create a button with label at the center), it also makes positioning nodes with scripting much easier.
 
-If you don't like using `Canvas` to make coordinate system's origin at the center of screen, you can also delete `Canvas` node and apply your own prefered policy.
-
+If you don't like using `Canvas` to make coordinate system's origin at the center of screen, you can also delete `Canvas` node and apply your own preferred policy.
 
 ### Nodes contains only logical components
 
@@ -20,13 +21,11 @@ Besides renderer nodes (nodes with renderer components attached, such as Sprite,
 
 You can see besides visual nodes such as background, menu and character, we have a `Game` node that contains all main loop and main function module that sits with `Canvas` node. This way any collaborator can easily find the main logic components and referenced nodes.
 
-
 ## Create node with preset
 
 To quickly populate your scene with all kinds of renderer and UI nodes we can start with `Create` button (the plus icon) on the left top of **Node Tree** panel. The pop up menu is identical to main menu's **Node Presets**, you can create a node with useful component already setup in your scene.
 
 You can select a node in **Node Tree** to be the parent node before you create new node.
-
 
 ### Empty node
 
@@ -38,7 +37,6 @@ The next category of **Node Presets** menu is `Create Renderer Nodes`, we can fi
 
 These nodes with renderer components cannot be replaced by other component combination or user script, so they are categorized as **Renderers**. Each node can only attach one renderer component. If you need to combine different renderer components you should have multiple nodes to hold them.
 
-
 ### UI node
 
 There's also a `Create UI Nodes` category in **Node Presets** menu. You can create UI elements such as Button, Widget, Layout, ScrollView and EditBox.
@@ -48,7 +46,6 @@ Most of UI nodes contains at least one renderer component. Take Button node as e
 ![button breakdown](scene-editing/button-breakdown.png)
 
 Use **Node Presets** to quickly create node with basic functions is recommended for general scene creating purpose, we can also add or customize components on those node presets to exactly fit our need.
-
 
 ## Tips on efficient scene editing
 

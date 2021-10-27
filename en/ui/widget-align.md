@@ -17,7 +17,8 @@ For elements with relatively small areas like a pause menu, in-game gold coins, 
 
 After setting up the Widget component like this, no matter what the actual screen resolution is, this node element will remain at the bottom left corner of the screen. The distance between the left side of the node's bounding box and left border of the screen remains at 50px. The distance between the bottom of the node's bounding box and the bottom of the screen remains at 30px.
 
-Pay attention! The alignment distance provided by the Widget component refers to the border of the bounding box that is located in the same direction as the child node and parent node. For example, `Left` is ticked on in the above example to align the element with the left border, then the distance between the left border of the child node's bounding box and the left border of the parent node's (i.e., Canvas node, whose bounding box is constantly the same size as the screen) bounding box is the set value: 50px.
+> **Note**: the alignment distance provided by the Widget component refers to the border of the bounding box in the same direction as the child node and the parent node.<br>
+> For example, `Left` is ticked on in the above example to align the element with the left border, then the distance between the left border of the child node's bounding box and the left border of the parent node's bounding box is the set value 50px, where the parent node is the Canvas node and the bounding box is constantly the same size as the screen, provided that only the **Fit Width** or **Fit Height** option is checked in the **Project -> Project Settings -> Project Preview** in the top menu bar of the editor.
 
 ## Nest Alignment Elements
 
@@ -59,7 +60,7 @@ To make such a node, we should first make sure that the size of the parent node 
 
 Therefore the size of the node will remain constantly the same with that of the Canvas node when running, i.e., the same as the size of the screen. After being set up like this, the child node of this node can transmit the same screen size by the same settings.
 
-What needs to be noted is that because the Canvas node itself has the function of remaining the same size as that of the screen, there is no need to add the Widget component to the Canvas node.
+> **Note**: for this to work, only the **Fit Width** or **Fit Height** option can be checked in the **Project -> Project Settings -> Project Data** in the top menu bar of the editor.
 
 ## Set up percentage alignment distance
 
@@ -77,9 +78,9 @@ Making use of the percentage alignment distance, we can create UI elements that 
 
 Widget component is generally used to locate the position of each element when the scene is initialized on the target device, but once the scene is initialized, we often do not need to use the Widget to update alignment persistently.
 
-If the `Align Mode` of the Widget component is set to `ON_WINDOW_RESIZE` or `ONCE` in the **Properties**, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false` to disable the automatically update for subsequent every frame to avoid repeated positioning.
+If the **Align Mode** property of the Widget component is set to `ON_WINDOW_RESIZE` or `ONCE` in the **Properties** panel, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false`, disabling the Widget component to disable the automatically update for subsequent every frame to avoid repeated positioning.
 
-If you need real-time positioning at runtime, you need to set the `Align Mode` to `ALWAYS`. Or when you need to update and align each frame at runtime, manually traverse the Widget that need to be aligned and set their `enabled` property to `true`.
+If you need real-time positioning at runtime, set the **Align Mode** to `ALWAYS`. Or when you need to update and align each frame at runtime, manually traverse the Widget that need to be aligned and set their `enabled` property to `true`.
 
 For scene with many UI elements, it is recommended to keep the default setting of `Align Mode` to `ON_WINDOW_RESIZE`, which can greatly improve the running performance of the scene.
 

@@ -18,6 +18,8 @@ Double-clicking on a prefab in the **Assets** panel switches the scene editing m
 
 After editing, click the **Save** button on the top of the **Scene** panel to save the edited prefabs, and then click the **Close** button to exit prefab editing mode and return to scene editing mode.
 
+> **Note**: please avoid multiple people modifying the same prefab asset at the same time, as this may lead to conflicts that cannot be resolved by `git` merging.
+
 ## Using Prefab
 
 Drag and drop a prefab from the **Assets** panel to the **Node Tree** or the **Scene** panel to generate a **Prefab Instance** in the scene. The Prefab Instance node is shown in blue in the **Node Tree**.

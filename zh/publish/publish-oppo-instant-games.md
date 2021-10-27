@@ -72,18 +72,24 @@
 
   有以下两种方式可以生成签名文件：
 
-    - 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成。
+  - 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成。
 
-    - 通过命令行生成 release 签名。
+  - 通过命令行生成 release 签名。
 
-      用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。
+    用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。
 
-      ```bash
-      # 通过 openssl 命令工具生成签名文件
-      openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
-      ```
+    ```bash
+    # 通过 openssl 命令工具生成签名文件
+    openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
+    ```
 
-      **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
+    **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
+
+- **允许分离引擎**
+
+  该项为选填项。从 Cocos Creator 2.4.6 开始新增了 **游戏引擎插件** 功能，此插件内置了 Cocos Creator 引擎的官方版本，若玩家首次体验的游戏中启用了此插件，则所有同样启用此插件的游戏，都无需再次下载 Cocos Creator 引擎，只需直接使用公共插件库中的相同版本引擎，或者增量更新引擎即可。
+
+  使用时勾选 **允许分离引擎**，然后正常构建发布即可，无需其它人工操作。具体可参考 [微信小游戏引擎插件使用说明](./wechat-engine-plugin.md)。
 
 - **自定义 npm 文件夹路径**
 
@@ -92,7 +98,7 @@
   - Windows 系统：从系统获取环境变量中的路径
   - Mac 系统：从 Shell 的配置文件获取环境变量中的路径。
 
-  如果获取不到，请确保 npm 已正常安装，并且能够在命令行环境下直接启动。获取到的 npm 将用于构建生成可运行的小游戏 rpk 包（rpk 包位于构建生成的发布包目录 quickgame 目录下的 dist 目录）。如果构建时找不到 npm 文件夹路径，则发布包目录下的 dist 目录中不会生成 rpk 包。
+  如果获取不到，请确保 npm 已正常安装，并且能够在命令行环境下直接启动。获取到的 npm 将用于构建生成可运行的小游戏 rpk 包（rpk 包位于构建生成的发布包目录 `quickgame` 目录下的 `dist` 目录）。如果构建时找不到 npm 文件夹路径，则发布包目录下的 dist 目录中不会生成 rpk 包。
 
 ### 构建
 
@@ -102,9 +108,9 @@
 
 ### 将构建出来的 rpk 运行到手机上
 
-将构建生成的小游戏 rpk 包拷贝到手机 SD 卡的 `/sdcard/games` 目录。然后在 OPPO 手机上打开之前已经安装完成的 **OPPO 小游戏调试器**，点击 **OPPO 小游戏** 栏目，找到填写游戏名相对应的图标即可，若没有发现，可点击右上角的更多按钮-刷新按钮进行刷新。
+将构建生成的小游戏 rpk 包拷贝到手机的 `/内部存储/games` 目录。然后在 OPPO 手机上打开之前已经安装完成的 **OPPO 小游戏调试器**，点击 **OPPO 小游戏** 栏目，找到填写游戏名相对应的图标即可，若没有发现，可点击右上角的更多按钮-刷新按钮进行刷新。
 
-> **注意**：OPPO 小游戏调试器为 **V3.2.0** 及以上的需要将 rpk 拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/games` 中，如果没有 games 目录则需新建。具体内容可点击 [使用说明 — 新建目录](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) 查看。
+> **注意**：OPPO 小游戏调试器为 **V3.2.0** 及以上的需要将 rpk 拷贝到手机的 `/内部存储/Android/data/com.nearme.instant.platform/files/games` 中，如果没有 games 目录则需新建。具体内容可点击 [使用说明 — 新建目录](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use?id=_3-%e6%96%b0%e5%bb%ba%e7%9b%ae%e5%bd%95) 查看。
 
 ![](./publish-oppo-instant-games/rpk_games.jpg)
 
@@ -113,14 +119,14 @@
 分包加载，即把游戏内容按一定规则拆分成几个包，在首次启动的时候只下载必要的包，这个必要的包称为 **主包**，开发者可以在主包内触发下载其他子包，这样可以有效降低首次启动的消耗时间。若要使用该功能需要在 Creator 中设置 [小游戏分包](subpackage.md)，设置完成后构建时就会自动分包。
 
 构建完成后，分包的目录在 `build/quickgame/dist` 目录下。<br>
-这时需要在 OPPO 手机的 **sdcard** 目录下，新建一个 **subPkg** 目录，然后把 `build/quickgame/dist` 目录下的 **.rpk** 文件拷贝到 subPkg 目录中。<br>
+这时需要在 OPPO 手机的内部存储目录下，新建一个 **subPkg** 目录，然后把 `build/quickgame/dist` 目录下的 **.rpk** 文件拷贝到 subPkg 目录中。<br>
 然后切换到 **OPPO 小游戏调试器** 的 **分包加载** 栏目，点击右上方的刷新即可看到分包的游戏名称，点击 **秒开** 即可跟正常打包的 rpk 一样使用。
 
 ![](./publish-oppo-instant-games/run_subpackage.jpg)
 
-分包 rpk 需要拷贝到 OPPO 手机的 `/sdcard/subPkg` 目录，未分包的 rpk 需要拷贝到 OPPO 手机的 `/sdcard/games` 目录，两者不可混用。
+分包 rpk 需要拷贝到 OPPO 手机的 `/内部存储/subPkg` 目录，未分包的 rpk 需要拷贝到 OPPO 手机的 `/内部存储/games` 目录，两者不可混用。
 
-**注意**：OPPO 小游戏调试器为 **V3.2.0** 及以上的，则需要将分包 rpk 拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/subPkg` 目录，如果没有 subPkg 目录则需新建。而未分包的 rpk 则是拷贝到手机的 `/sdcard/Android/data/com.nearme.instant.platform/files/games` 目录，两者同样不可混用。
+**注意**：OPPO 小游戏调试器为 **V3.2.0** 及以上的，则需要将分包 rpk 拷贝到手机的 `/内部存储/Android/data/com.nearme.instant.platform/files/subPkg` 目录，如果没有 subPkg 目录则需新建。而未分包的 rpk 则是拷贝到手机的 `/内部存储/Android/data/com.nearme.instant.platform/files/games` 目录，两者同样不可混用。
 
 更多内容请参考 [OPPO 小游戏 — 分包加载](https://activity-cdo.heytapimage.com/cdo-activity/static/201810/26/quickgame/documentation/#/subpackage/subpackage)。
 

@@ -15,7 +15,7 @@
   - [MotionStreak 组件参考](../components/motion-streak.md)
   - [ParticleSystem 组件参考](../components/particle-system.md)
   - [TiledMap 组件参考](../components/tiledmap.md)
-      - [TiledTile 组件参考](../components/tiledtile.md)
+    - [TiledTile 组件参考](../components/tiledtile.md)
   - [Spine 组件参考](../components/spine.md)
   - [DragonBones 组件参考](../components/dragonbones.md)
   - [VideoPlayer 组件参考](../components/videoplayer.md)

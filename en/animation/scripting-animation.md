@@ -1,6 +1,6 @@
 # Using scripts to control animation
 
-## Animation component
+## Animation Component
 
 Animation components provide some common animation control functions. If you only need simple animation control, you can do some operations by obtaining the Animation component of the Node.
 
@@ -91,12 +91,12 @@ You can set the current time of animation at anytime. But, the status of the ani
 
 ## AnimationState
 
-**Animation** only provides some simple control functions. For more animation informations and controls, **AnimationState** is needed.
+**Animation** only provides some simple control functions. For more animation information and controls, **AnimationState** is needed.
 
 ### What is AnimationState?
 
 If **AnimationClip** is the carrier of animation data, then **AnimationState** is the concrete example of running **AnimationClip**, which decodes animation data into numeric values that are convenient to be calculated by program.  
-When **Animation** is playing an **AnimationClip**, **AnimationClip** will be docoded into **AnimationState**.  
+When **Animation** is playing an **AnimationClip**, **AnimationClip** will be decoded into **AnimationState**.  
 The playing state of **Animation** is actually calculated by **AnimationState**, which includes whether animation will loop or not, how to loop, playing speed, etc..
 
 ### Obtain AnimationState
@@ -110,7 +110,7 @@ var animState = anim.play('test');
 var animState = anim.getAnimationState('test');
 ```
 
-### Obtain animation information
+### Obtain Animation Information
 
 ```javascript
 var anim = this.getComponent(cc.Animation);
@@ -183,13 +183,15 @@ animState.repeatCount = 2;
 animState.repeatCount = Infinity;
 ```
 
-**AnimationState** permits the dynamic setting up of loop mode. Currently, various loop modes are provided. These loop modes can be obtained from **cc.WrapMode**.  
+**AnimationState** permits the dynamic setting up of loop mode. Currently, various loop modes are provided. These loop modes can be obtained from **cc.WrapMode**.
+
 If the **WrapMode** of animation is **Loop**, it should be used together with **repeatCount** to achieve the effect.  
 By default, when decoding animation clips, if the loop category of animation is:
+
 - In the **Loop** mode, the **repeatCount** will be set to **Infinity**, which is the infinite loop
 - In the **Normal** mode, the **repeatCount** will be set to 1
 
-## Animation event
+## Animation Event
 
 Visually editing the frame event is supported in the animation editor (For the methods of editing, please refer to [Animation event](./animation-event.md)). Writing the callback of the animation event in the script is very simple too. The callback of the animation event is actually a normal function. The frame event added to the animation editor will map onto the component of animation root node.
 
@@ -213,16 +215,53 @@ cc.Class({
 
 Add the above components to the **root node** of animation. When animation is about to end, animation system will automatically invoke `onAnimCompleted` function in the script. Animation system will search in all the components of animation root node. If there is a function that designated to realize animation event in components, then it will be invoked and parameters written in the event will be imported.
 
+## Register Animation Callback
+
+In addition to the callbacks provided by the frame events in the Animation panel, the animation system also provides a way to call back animation events. The currently supported callback events include:
+
+- `play`: triggered when playback starts
+- `stop`: triggered when playback is stopped
+- `pause`: triggered when playback is paused
+- `resume`: triggered when playback is resumed
+- `lastframe`: if the animation loop is greater than 1, triggered when the animation reaches the last frame.
+- `finished`: trigger when the animation is finished.
+
+When a callback function is registered on `cc.Animation`, it will register this callback for the corresponding `cc.AnimationState` when an animation is played, and unregister this callback for `cc.AnimationState` when `cc.AnimationState` stops playing.
+
+Actually, `cc.AnimationState` is the sender of the animation callback, so if want to register a callback for a single `cc.AnimationState`, get this `cc.AnimationState` first and register it separately.
+
+### Concrete Example
+
+```javascript
+var animation = this.node.getComponent(cc.Animation);
+
+// Register
+animation.on('play',      this.onPlay,        this);
+animation.on('stop',      this.onStop,        this);
+animation.on('lastframe', this.onLastFrame,   this);
+animation.on('finished',  this.onFinished,    this);
+animation.on('pause',     this.onPause,       this);
+animation.on('resume',    this.onResume,      this);
+
+// Cancel Register
+animation.off('play',      this.onPlay,        this);
+animation.off('stop',      this.onStop,        this);
+animation.off('lastframe', this.onLastFrame,   this);
+animation.off('finished',  this.onFinished,    this);
+animation.off('pause',     this.onPause,       this);
+animation.off('resume',    this.onResume,      this);
+```
+
 ## Dynamic Create Animation Clip
 
 ```javascript
 var animation = this.node.getComponent(cc.Animation);
-// frames is a SpriteFrame array.
+// Frames is a SpriteFrame array.
 var clip = cc.AnimationClip.createWidthSpriteFrame(frames, 17);
 clip.name = "anim_run";
 clip.wrapMode = cc.WrapMode.Loop;
 
-// adds frame event
+// Adds frame event
 clip.events.push({
     frame: 1,               // The exactly time in second. It will trigger event at 1s in this example.
     func: "frameEvent",     // Callback function name

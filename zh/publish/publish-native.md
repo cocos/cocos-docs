@@ -26,9 +26,11 @@
 
 ### 设置包名（Package Name）
 
-设置包名该项为 Android 平台特有的。选择 Android 平台后，构建发布窗口中会显示 **包名** 的输入框，在这里请输入您游戏的包名（也称作 Package Name 或 Bundle ID），通常以产品网站 url 倒序排列，如 `com.mycompany.myproduct`。
+游戏包名（Package Name 或 Bundle Identity），通常以产品网站 url 倒序排列，如 `com.mycompany.myproduct`。
 
-> **注意**：包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
+包名中只能包含数字（0~9）、字母（A~Z、a~z）和下划线（_），此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
+
+> **注意**：iOS 和 macOS 平台的包名（Bundle Identity）则是只能包含数字（0~9）、字母（A~Z、a~z）、中划线（-）和点（.），详情请参考 [包的唯一标识符](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier)。
 
 ![package name](publish-native/package_name.png)
 

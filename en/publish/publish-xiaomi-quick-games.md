@@ -125,9 +125,9 @@ There are two ways to run rpk on your phone:
 
   - First open **Settings -> Additional settings -> Developer options** on Xiaomi device, turn on **Developer options** and **USB debugging**.
   - Use a USB cable to connect your computer to your Xiaomi device.
-  - Copy the generated quick game **rpk** file to the `sdcard` directory of the Xiaomi device.
-  - Open the **Xiaomi Quick Game Debugger** that has been installed before on your Xiaomi device, click **Local Install**, then find the **rpk** file from the `sdcard` directory of your Xiaomi device and select **Open**.
-    
+  - Copy the generated quick game **rpk** file to the internal storage directory of the Xiaomi device.
+  - Open the **Xiaomi Quick Game Debugger** that has been installed before on your Xiaomi device, click **Local Install**, then find the **rpk** file from the internal storage directory of your Xiaomi device and select **Open**.
+
     ![](./publish-xiaomi-quick-games/play2.png)
 
 ## Debugging
@@ -147,6 +147,7 @@ There are two ways to start debugging.
 2. Start debugging from the command line.
 
     - Specify to the release package directory `build/xiaomi` in the command line, and execute the command `npm run debug`. And the debugging interface will start automatically in Chrome.
+
     - If you want to open the debug interface manually, execute the command `npm run debug -- --print-only` and copy the generated URL address into Chrome to enable the debugging interface.
 
       ```bash

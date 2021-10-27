@@ -119,9 +119,9 @@
 
   - 首先在小米手机上打开 **设置-> 更多设置-> 开发者选项**，开启开发者选项以及 USB 调试。
   - 使用 USB 数据线将桌面端电脑与手机相连。
-  - 将构建生成的快游戏 rpk 文件拷贝到小米手机 sdcard 目录中。
-  - 在小米手机上打开之前已经安装完成的 **快应用调试器**，点击 **本地安装**，然后从手机 sdcard 目录中找到 rpk 文件，选择打开即可。
-    
+  - 将构建生成的快游戏 rpk 文件拷贝到小米手机内部存储目录中。
+  - 在小米手机上打开之前已经安装完成的 **快应用调试器**，点击 **本地安装**，然后从手机内部存储目录中找到 rpk 文件，选择打开即可。
+
     ![](./publish-xiaomi-quick-games/play2.png)
 
 ## 调试
@@ -130,18 +130,18 @@
 
 开启调试有以下两种方式：
 
-  1、直接点击二维码界面上的 **游戏调试** 按钮：
+1. 直接点击二维码界面上的 **游戏调试** 按钮：
 
-  ![](./publish-xiaomi-quick-games/run2.png)
+    ![run2](./publish-xiaomi-quick-games/run2.png)
 
-  即可在 Chrome 浏览器中自动启动调试界面：
+    即可在 Chrome 浏览器中自动启动调试界面：
 
-  ![](./publish-xiaomi-quick-games/debug.png)
+    ![debug](./publish-xiaomi-quick-games/debug.png)
 
-  2、通过命令行来启动调试：
+2. 通过命令行来启动调试：
 
-  - 指定到发布包目录 **build/xiaomi** 目录下，执行命令：`npm run debug`，就会在 Chrome 浏览器中 **自动** 启动调试界面。
-  - 如果想要 **手动** 打开调试界面，那么执行命令：`npm run debug -- --print-only`，然后将运行后生成的 URL 地址拷贝到 Chrome 浏览器中打开即可启动调试界⾯。
+    - 指定到发布包目录 **build/xiaomi** 目录下，执行命令：`npm run debug`，就会在 Chrome 浏览器中 **自动** 启动调试界面。
+    - 如果想要 **手动** 打开调试界面，那么执行命令：`npm run debug -- --print-only`，然后将运行后生成的 URL 地址拷贝到 Chrome 浏览器中打开即可启动调试界⾯。
 
     ```bash
     # 指定到发布包 build/xiaomi 目录下
