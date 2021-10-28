@@ -129,7 +129,7 @@ Screenshot is a very common demand in the game, through the camera and rendertex
 ### Capture part of the area
 
 When the camera is set to RenderTexture and **alignWithScreen** is
-**true**, the camera window size will be adjusted to the size of **design resolution**. If you only need to capture a certain area of the screen, set **alignWithScreen** to **false** and adjust **orthoSize** or **fov** according to the projection mode of the camera.
+**true**, the camera window size will be adjusted to the size of **design resolution**. To capture only a certain area of the screen, set **alignWithScreen** to **false** and adjust **orthoSize** or **fov** according to the projection mode of the camera.
 
 Please refer to [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/camera/minimap-with-camera-rect.ts) and [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/v2.4.3/assets/cases/camera/minimap-with-rendertexture.ts) in example-cases for details.
 

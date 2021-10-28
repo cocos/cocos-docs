@@ -11,7 +11,7 @@ Newly created scene will have a `Canvas` node by default, it serves as the recom
 - `Canvas` will fit the screen resolution automatically, use it as the root node will provide a solid screen size reference to all the renderer node in scene. Please read [Auto fit for multi-resolution](../ui/multi-resolution.md) to learn details.
 - `Canvas` default anchor point is at `(0.5, 0.5)` and `Canvas` node will fit the screen size so any node under `Canvas` will use the screen center as the origin. This will make scene and UI building easy (for example create a button with label at the center), it also makes positioning nodes with scripting much easier.
 
-If you don't like using `Canvas` to make coordinate system's origin at the center of screen, you can also delete `Canvas` node and apply your own preferred policy.
+To not use `Canvas` to make the coordinate system's origin at the center of the screen, delete the `Canvas` node and apply a custom preferred policy.
 
 ### Nodes contains only logical components
 

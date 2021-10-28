@@ -87,7 +87,7 @@ We have received lots of feedback about original packing in the public beta, and
 
 1. Package name issue
 
-    Check the **Package Name** in the **Build** panel, including blank space, `-`, etc. are all illegal.
+    Check the **Package Name** in the **Build** panel, please refer to the [Package Name](./publish-native.md#package-name) documentation for the specific naming convention.
 
 2. Android built successfully, but prompt `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
 

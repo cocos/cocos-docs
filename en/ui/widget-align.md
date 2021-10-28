@@ -80,7 +80,7 @@ Widget component is generally used to locate the position of each element when t
 
 If the **Align Mode** property of the Widget component is set to `ON_WINDOW_RESIZE` or `ONCE` in the **Properties** panel, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false`, disabling the Widget component to disable the automatically update for subsequent every frame to avoid repeated positioning.
 
-If you need real-time positioning at runtime, set the **Align Mode** to `ALWAYS`. Or when you need to update and align each frame at runtime, manually traverse the Widget that need to be aligned and set their `enabled` property to `true`.
+To achieve real-time positioning at runtime, set the **Align Mode** to `ALWAYS`. Or when you need to update and align each frame at runtime, manually traverse the Widget that needs to be aligned and set their `enabled` property to `true`.
 
 For scene with many UI elements, it is recommended to keep the default setting of `Align Mode` to `ON_WINDOW_RESIZE`, which can greatly improve the running performance of the scene.
 

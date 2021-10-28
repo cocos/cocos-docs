@@ -80,20 +80,20 @@
 
   有以下两种方式可以生成签名文件：
 
-    - 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成。点击 **新建** 按钮后，在弹出的 certificate 面板中填写相关信息，信息填写完成后点击保存，在控制台会输出日志 `Generate certificate is complete!`，表示生成签名文件完成。
+  - 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成。点击 **新建** 按钮后，在弹出的 certificate 面板中填写相关信息，信息填写完成后点击保存，在控制台会输出日志 `Generate certificate is complete!`，表示生成签名文件完成。
 
-      ![](./publish-xiaomi-quick-games/certificate.png)
+    ![certificate](./publish-xiaomi-quick-games/certificate.png)
 
-    - 通过命令行生成 release 签名
+  - 通过命令行生成 release 签名
 
-      用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。
+    用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。
 
-      ```bash
-      # 通过 openssl 命令工具生成签名文件
-      openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
-      ```
+    ```bash
+    # 通过 openssl 命令工具生成签名文件
+    openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
+    ```
 
-      **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
+    > **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
 
 ### 构建
 
