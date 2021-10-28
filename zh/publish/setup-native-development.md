@@ -87,7 +87,7 @@ java -version
 
 1. 包名问题
 
-    检查构建发布面板中的包名，包含空格，`-` 等都是非法的包名。
+    检查 **构建发布** 面板中的包名，具体命名规范请参考 [设置包名](./publish-native.md#%E8%AE%BE%E7%BD%AE%E5%8C%85%E5%90%8D%EF%BC%88package-name%EF%BC%89)。
 
 2. Android 编译成功，但运行时提示 `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...`
 

@@ -250,10 +250,6 @@ animation.off('lastframe', this.onLastFrame,   this);
 animation.off('finished',  this.onFinished,    this);
 animation.off('pause',     this.onPause,       this);
 animation.off('resume',    this.onResume,      this);
-
-// 对单个 cc.AnimationState 注册回调
-var anim1 = animation.getAnimationState('anim1');
-anim1.on('lastframe', this.onLastFrame, this);
 ```
 
 ## 动态创建 Animation Clip

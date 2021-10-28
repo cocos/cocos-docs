@@ -126,64 +126,9 @@ camera.getWorldToScreenMatrix2D(out);
 
 截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 **07_capture_texture**（[GitHub](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/v2.4.3/assets/cases/07_capture_texture)）范例。
 
-```javascript
-// 此代码仅适用于 web 平台。要在 native 平台中使用这个功能，请参考 example-case 中的 capture_to_native 场景。
-let node = new cc.Node();
-node.parent = cc.director.getScene();
-let camera = node.addComponent(cc.Camera);
-camera.backgroundColor = cc.Color.TRANSPARENT
-camera.clearFlags = cc.Camera.ClearFlags.DEPTH | cc.Camera.ClearFlags.STENCIL | cc.Camera.ClearFlags.COLOR
-// 设置你想要的截图内容的 cullingMask
-camera.cullingMask = 0xffffffff;
-
-// 新建一个 RenderTexture，并且设置 camera 的 targetTexture 为新建的 RenderTexture，这样 camera 的内容将会渲染到新建的 RenderTexture 中。
-let texture = new cc.RenderTexture();
-let gl = cc.game._renderContext;
-// 如果截图内容中不包含 Mask 组件，可以不用传递第三个参数
-texture.initWithSize(cc.visibleRect.width, cc.visibleRect.height, gl.STENCIL_INDEX8);
-camera.targetTexture = texture;
-
-// 渲染一次摄像机，即更新一次内容到 RenderTexture 中
-camera.render();
-
-// 这样我们就能从 RenderTexture 中获取到数据了
-let data = texture.readPixels();
-
-// 接下来就可以对这些数据进行操作了
-let canvas = document.createElement('canvas');
-let ctx = canvas.getContext('2d');
-let width = canvas.width = texture.width;
-let height = canvas.height = texture.height;
-
-canvas.width = texture.width;
-canvas.height = texture.height;
-
-let rowBytes = width * 4;
-for (let row = 0; row < height; row++) {
-    let startRow = height - 1 - row;
-    let imageData = ctx.createImageData(width, 1);
-    let start = startRow * width * 4;
-    for (let i = 0; i < rowBytes; i++) {
-        imageData.data[i] = data[start+i];
-    }
-
-    ctx.putImageData(imageData, 0, row);
-}
-
-let dataURL = canvas.toDataURL("image/jpeg");
-let img = document.createElement("img");
-img.src = dataURL;
-```
-
 ### 截取部分区域
 
-当摄像机设置了 RenderTexture 并且 **alignWithScreen** 为 **true** 的时候，camera 视窗大小会调整为 **design resolution** 的大小。如果只需要截取屏幕中的某一块区域时，设置 **alignWithScreen** 为 **false**，并且根据摄像机的 **投影方式** 调整 **orthoSize** 或者 **fov** 即可。（v2.2.1 新增）
-
-```js
-camera.alignWithScreen = false;
-camera.orthoSize = 100;
-camera.position = cc.v2(100, 100);
-```
+当摄像机设置了 RenderTexture 并且 **alignWithScreen** 为 **true** 的时候，camera 视窗大小会调整为 **design resolution** 的大小。如果只需要截取屏幕中的某一块区域时，设置 **alignWithScreen** 为 **false**，并且根据摄像机的 **投影方式** 调整 **orthoSize** 或者 **fov** 即可。
 
 详情可参考 example-cases 中的测试例：
 
@@ -202,9 +147,9 @@ jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 
 详情请参考 example-case 中的 **capture_to_native**（[GitHub](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/07_capture_texture/capture_to_native.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/blob/v2.4.3/assets/cases/07_capture_texture/capture_to_native.js)）范例。
 
-## 微信中的截图
+### 微信中的截图
 
-**注意**：微信小游戏中由于不支持 createImageData，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/api/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
+微信小游戏中由于不支持 `createImageData`，也不支持用 data url 创建 image，所以上面的做法需要一些变通。在使用 Camera 渲染出需要的结果后，请使用微信的截图 API [canvas.toTempFilePath](https://developers.weixin.qq.com/minigame/dev/api/render/canvas/Canvas.toTempFilePath.html) 完成截图的保存和使用。
 
 ## 案例
 

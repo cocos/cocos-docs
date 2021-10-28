@@ -34,7 +34,7 @@
 
 - 在 Creator 的 **构建发布** 面板选择 Android/iOS 平台、Debug 模式，构建编译运行工程（iOS 平台建议通过 Xcode 连接真机进行编译运行）。
 
-- 用 Chrome 浏览器打开地址：<devtools://devtools/bundled/js_app.html?v8only=true&ws={IP}:6086/00010002-0003-4004-8005-000600070008> 即可进行调试。其中 `{IP}` 为 Android/iOS 设备的本地 IP。（若使用的是旧版 Chrome，则需要将地址开头的 `devtools` 改成 `chrome-devtools`）
+- 用 Chrome 浏览器打开地址 <devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:6086/00010002-0003-4004-8005-000600070008> 即可进行调试，其中 `xxx.xxx.xxx.xxx` 为 Android/iOS 设备的本地 IP。（若使用的是旧版 Chrome，则需要将地址开头的 `devtools` 改成 `chrome-devtools`）
 
   ![](debug-jsb/v8-android-debug.png)
 

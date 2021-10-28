@@ -75,18 +75,18 @@
 
   有以下两种方式可以生成签名文件：
 
-    - 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成
+  - 通过 **构建发布** 面板 **certificate.pem 路径** 后的 **新建** 按钮生成
 
-    - 通过命令行生成 release 签名
+  - 通过命令行生成 release 签名
 
-      用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。
+    用户需要通过 openssl 命令等工具生成签名文件 private.pem、certificate.pem。
 
-      ```bash
-      # 通过 openssl 命令工具生成签名文件
-      openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
-      ```
+    ```bash
+    # 通过 openssl 命令工具生成签名文件
+    openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem
+    ```
 
-      **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
+    > **注意**：openssl 工具在 linux 或 Mac 环境下可在终端直接打开。而在 Windows 环境下则需要安装 openssl 工具并且配置系统环境变量，配置完成后需重启 Creator。
 
 - **自定义 node 路径**
 
@@ -139,7 +139,7 @@
 
     ![](./publish-huawei-quick-games/play.png)
 
-2. 将构建生成的 rpk 包拷贝到手机 sdcard 目录下。然后在手机上打开 **华为快应用加载器** 后，点击手机的返回键会弹出一个列表，选择第一个选项 **本地安装**，选择路径为放置 rpk 的路径，即可将 rpk 运行到手机上。
+2. 将构建生成的 rpk 包拷贝到手机内部存储目录下。然后在手机上打开 **华为快应用加载器** 后，点击手机的返回键会弹出一个列表，选择第一个选项 **本地安装**，选择路径为放置 rpk 的路径，即可将 rpk 运行到手机上。
 
 ## 分包 rpk
 

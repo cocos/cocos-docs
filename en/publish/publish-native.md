@@ -26,9 +26,11 @@ If there are many atlases in the project, the `project.manifest` file may be too
 
 ### Package Name
 
-An input field named **package name** will appear in the **Build** panel after selecting Android platform, into which you can input the package name of your game (also called Bundle ID). The package name is usually arranged in the reverse order of the product's website url, such as: `com.mycompany.myproduct`.
+The package name (also called Bundle ID) is usually arranged in the reverse order of the product's website url, such as: `com.mycompany.myproduct`.
 
-> **Note**: only numbers, letters and underscores can be included in the package name. Besides, the last section of package name should start with a letter, but not an underline or a number.
+Only numbers (0~9), letters (A~Z, a~z) and underscores (_) can be included in the package name. Besides, the last section of package name should start with a letter, but not an underline or a number.
+
+> **Note**: for iOS and macOS platforms, only numbers (0~9), letters (A~Z, a~z), hyphens (-) and periods (.) can be included in the package name. Please refer to the [A unique identifier for a bundle](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier) documentation for details.
 
 ![package name](publish-native/package_name.png)
 
