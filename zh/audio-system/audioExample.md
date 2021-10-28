@@ -1,10 +1,11 @@
 # 音频播放示例
 
-由于 Cocos Creator 3.x 废弃了 v2.x `cc.audioEngine` 系列的 API，统一使用 AudioSource 控制音频播放，因此我们可以将 [AudioSource 组件](./audiosource.md) 声明为常驻根节点，封装一个管理器进行使用。如下所示：
+由于 Cocos Creator 3.x 废弃了 v2.x `cc.audioEngine` 系列的 API，统一使用 AudioSource 控制音频播放，因此我们需要在项目中将 [AudioSource 组件](./audiosource.md) 声明为常驻根节点，并封装一个管理器使用。如下所示：
 
 ```typescript
 import { assert, AudioSource, Component, game } from 'cc';
 const { ccclass, property } = _decorator;
+
 @ccclass('GameRoot')
 export class GameRoot extends Component {
     
@@ -101,6 +102,7 @@ export class audioManager {
 ```typescript
 import {  _decorator,Component} from 'cc';
 const { ccclass, property } = _decorator;
+
 @ccclass('GameRoot')
 export class GameRoot extends Component {
 
@@ -117,4 +119,3 @@ Creator 在范例项目 **快上车**（[GitHub](https://github.com/cocos-creato
 
 ![audioEdit](audio/audioEdit.png)
 
-也可以在 **快上车 3D**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）中进行查看。
