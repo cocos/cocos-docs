@@ -41,14 +41,12 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 
 如果要更灵活地控制 AudioSource 的播放，可以在将定义脚本添加到 **AudioSource 组件** 所在的节点，然后调用相应的 API 即可通过脚本控制。
 
-
 1. 在节点上添加 AudioSource 组件并指定音频资源。
 2. 在 **资源管理器** 中 [创建脚本](../scripting/setup.md) 并命名（例如 `AudioController`），然后双击打开脚本进行编写，内容如下：
 
-
     ```typescript
    import { _decorator, Component, Node, AudioSource, assert } from 'cc';
-const { ccclass, property } = _decorator;
+    const { ccclass, property } = _decorator;
 
     @ccclass("AudioController")
     export class AudioController extends Component { 
@@ -92,6 +90,8 @@ const { ccclass, property } = _decorator;
 
 ```typescript
 // AudioController.ts
+import { AudioClip, AudioSource, Component, _decorator } from 'cc';
+const { ccclass, property } = _decorator;
 @ccclass("AudioController")
 export class AudioController extends Component {     
 
