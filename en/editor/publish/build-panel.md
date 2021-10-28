@@ -24,7 +24,7 @@ There are three function buttons at the top of the panel:
 
     ![export](build-panel/export-options.png)
 
-    - **Export config in Build panel only**: only export the configuration in the **Build** panel.
+    - **Config that only in the Build panel will be exported**: only export the configuration in the **Build** panel.
     - **Also export current project settings**: export the configuration of the **Build** panel and the configuration that participates in the build process in the main menu **Project -> Project Settings**.
 
 > **Notes**:
@@ -33,7 +33,7 @@ There are three function buttons at the top of the panel:
 >
 >     ![save-scene](./build-panel/create-scene-first.png)
 >
-> 2. Before building, please make sure that the current scene has been saved, otherwise wclick the **Build** button, and a pop-up prompt will be displayed. Choose **Save**, **Ignore** or **Cancel Build** . Select **Save** and **Ignore** to continue the build process.
+> 2. Before building, please make sure that the current scene has been saved, otherwise when click the **Build** button, and a pop-up prompt will be displayed. Choose **Save**, **Ignore** or **Cancel**. Select **Save** and **Ignore** to continue the build process.
 >
 >     ![save-scene](./build-panel/save-scene.png)
 
@@ -51,7 +51,7 @@ There are three buttons at the top of the page, including **New Build Task**, **
 
 - **New Build Task**: click this button to return to the **Build** panel, select a new platform to build.
 
-- ![debug](./build-panel/debug.png): open the build debugging tool, click this button to open the Build DevTools, and view all the log information generated during the build process, including the call stack.
+- ![debug](./build-panel/debug.png): click this button to open the Build DevTools, and view all the log information generated during the build process, including the call stack.
 
 - ![clean](./build-panel/clean.png): clear the build cache. In order to reuse the reusable build results, and in order to speed up the build and reduce memory usage when rebuilding, many processes in the build process have added cache management mechanisms, such as compressed textures, automatic atlas generation, engine compilation, and resources being serialized JSON, etc. <br>Under normal circumstances, this part of the cached data does not need to be manually cleaned, but if it is needed to avoid cache interference under special circumstances, click this button to clear the cached data.
 
@@ -61,7 +61,7 @@ There are three buttons at the top of the page, including **New Build Task**, **
 
 ### Platform Build Tasks
 
-The build of each platform is carried out in the form of a **build task**, similar to a download task. The name of the platform build task depends on the **Release Path** option in the **Build** panel. For details, please refer to the [Build Options](build-options.md) documentation.
+The build of each platform is carried out in the form of a **build task**, similar to a download task. The name of the platform build task depends on the **Build Path** option in the **Build** panel. For details, please refer to the [Build Options](build-options.md) documentation.
 
 ![build task](./build-panel/build-task.png)
 

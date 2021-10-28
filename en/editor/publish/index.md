@@ -1,10 +1,10 @@
 # Cross-Platform Game Publishing
 
-Cocos Creator currently supports publishing games to the Web, iOS, Android, Windows, Mac, and various mini-game platforms. Develop on one platform and depoloy on all supported platforms.
+Cocos Creator currently supports publishing games to the Web, iOS, Android, Windows, Mac, and various mini-game platforms. Developers can develop on one platform and deploy on all supported platforms.
 
-## Preperation
+## Preparation
 
-The preperation that needs to be done before release includes familiarizing with with following concepts:
+The preparation that needs to be done before publishing includes getting familiar with following concepts:
 
 - [Build Panel](build-panel.md)
 - [Build Options](build-options.md)
@@ -17,7 +17,7 @@ Currently, the web, native and mini-game platforms supported by Cocos Creator in
 - [Publish to Native platforms](native-options.md)
     - [Install and configure the native environment](setup-native-development.md)
     - [Native platform JavaScript debugging](debug-jsb.md)
-- [Publish to Mini Game Platform](publish-mini-game.md)
+- [Publish to Mini Game Platforms](publish-mini-game.md)
     - [Publish to HUAWEI AppGallery Connect](publish-huawei-agc.md)
     - [Publish to Alipay Mini Games](publish-alipay-mini-game.md)
     - [Publish to ByteDance Mini Games](publish-bytedance-mini-game.md)
