@@ -1,4 +1,4 @@
-## Web Preview Customization Workflow
+# Web Preview Customization Workflow
 
 ## Custom Preview Templates
 

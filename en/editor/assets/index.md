@@ -46,7 +46,7 @@ When creating an asset, select the folder where to place the asset in the tree a
 The following asset selection actions can be used in the asset list:
 
 - Click to select a single asset. The selected asset will be highlighted in **yellow on blue**.
-- Double-click to open an asset, e.g. scene, script, image; double-click on a folder to collapse/expand it
+- Double-click to open an asset, e.g.: scene, script, image; double-click on a folder to collapse/expand it
 - Hold Ctrl/Cmd and select an asset to select multiple assets at once
 - Hold Shift and select an asset to select multiple assets in a row
 
@@ -73,7 +73,7 @@ The **Sort by** in the toolbar includes **Sort by name** and **Sort by type**. T
 Collapses are divided into single collapses or all collapses with subsets:
 
 - The **Collapse/Expand All** button in the **Toolbar** works globally
-- Click on the triangle icon of a parent asset (e.g. folder) to expand or collapse its subsets. Use the shortcut key **Alt** and click on the triangle icon to expand or collapse all children of the asset
+- Click on the triangle icon of a parent asset (e.g.: folder) to expand or collapse its subsets. Use the shortcut key **Alt** and click on the triangle icon to expand or collapse all children of the asset
 
 The current collapsed state of the asset will be recorded and will be maintained the next time the editor is opened.
 
@@ -94,7 +94,7 @@ The search function can limit the search type and specify the search field, both
 
         ![search-uuid](img/search-uuid.png)
 
-If you want to search only in a parent asset (e.g. folder), right-click and select **Find in Folder** to narrow the search.
+If you want to search only in a parent asset (e.g.: folder), right-click and select **Find in Folder** to narrow the search.
 
 Selecting an asset in the search result list and double-clicking on it is equivalent to the operation in normal mode. After clearing the search content, it will redirect to the selected asset.
 
@@ -117,7 +117,7 @@ After selecting a specific asset/folder, right-click on it to perform a series o
 - **Delete**: delete the asset (can be multi-selected), or you can use the shortcut **Delete**. The asset will remain in the **Recycle Bin** of the system after deletion, and can be restored if necessary.
 - **Select All**: selects all assets in the same hierarchy.
 - **Search in Folder**: when using the search function, only search the assets in that folder.
-- **Find UUID Usages**: find which assets the asset is referenced by by the asset's uuid.
+- **Find UUID Usages**: find which assets the asset is referenced by by the asset's UUID.
 - **Preview this scene in the browser**: only available for scene assets.
 - **Reveal in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
 - **Reimport Asset**: updates the asset to the project's `./library` folder of the project, with multiple selections for bulk import.
@@ -146,7 +146,7 @@ After determining the assets to be exported, click the **Export** button, a file
 
 Select and right-click on the folder you want to import assets from, or right-click on the **blank space** in the **Assets** panel, then select **Import Package** and select the zip package exported by **Export Package** in the pop-up file browse dialog. The assets in the zip package will be automatically parsed to the pop-up **Import Asset Package** panel.
 
-During the import process, the user will be asked to confirm the imported assets again, so you can uncheck some assets to remove the ones you don't want to import.
+During the import process, the user will be asked to confirm the imported assets again, uncheck some assets to remove the ones you don't want to import.
 
 ![importing](img/package-asset/importing.png)
 

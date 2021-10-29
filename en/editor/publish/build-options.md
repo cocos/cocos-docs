@@ -2,38 +2,44 @@
 
 ## General Build Options
 
-For the general build options in the **Build** panel are as follows:
+**Build** - the general build options in the panel are as follows:
 
 ![build options](./build-options/options.png)
 
 ### Build Path
 
-You can designate a release path for the game by inputting a path in the **Build Path** input field or choosing one via the search icon button. The following cross-platform release will create assets or projects in child folders of this release path.
+There are two input boxes in the build path:
 
-The default release path is in the `build` under the project folder. If you use version control systems like `git` and `svn`, you can ignore the `build` folder in version control.
+![build path](./build-options/build-path.png)
 
-### Included Scenes
+- The first input box is used to specify the release path of the project. A path can be directly entered or selected through the magnifying glass button next to it. The default release path is the `build` folder of the project directory. If using a version control system such as git, svn, etc., ignore the `build` folder in version control.
 
-There are usually multiple game scenes in the project, this option allows you to choose the scenes you want to package. During the build process, all assets that depended on these selected scene assets in deep will be packaged. Just select the game scenes that are actually needed can reduce the size of game package after build.
+   > **Note**: spaces, illegal characters and Chinese characters are not allowed in the distribution path.
+
+- The second input box is used to specify the name of the build task when the project is built and the name of the release package generated after the build. The default is the name of the current build platform. Every time the same platform is built, a suffix of **-001** will be added to the original basis, and so on. After the build is completed, directly click the folder icon behind the input box to open the directory where the project release package is located.
 
 ### Start Scene
 
-The first scene after entering the game can be set directly in the **Start Scene**. You can also choose other scenes, that are part of your game, in **Included Scenes**. Move the mouse to the scene, a `move up icon` button will appear after the scene, then click the button to set it.
+It is necessary to set the first scene to enter after opening the game. One way is to search for the desired scene in the list of **Included Scenes**, move the mouse to the desired scene bar, and then click the button that appears on the right to set it as the initial scene.
 
-![start scene](./build-options/start_scene.png)
+![start scene](./build-options/set-start-scene.png)
+
+### Scenes that Participate in Build
+
+During the build process, all the assets and scripts in the bundle will be packaged except for the `resources` folder in the project directory and the assets and scripts in the bundle. Other assets are packaged on demand according to the scenes involved in the build and the asset referenced in the bundle. Therefore, removing the check box for scenes that do not need to be released can reduce the size of the project release package generated after the build.
 
 ### MD5 Cache
 
-Append MD5 hash to the exported assets for resolving CDN or browser cache issue.
+Adding MD5 information to all the asset file names after building can solve the problem of CDN or browser asset caching.
 
-After being enabled, if any asset fails to load, it is because the renamed new file can not be found. It is usually because some third-party assets were not loaded by `assetManager`. If this happens, you can convert the url before loading, to fix the loading problem. Example:
+After enabling, if the asset cannot be loaded, it means that the renamed new file cannot be found. This is usually caused by some third-party assets not being loaded through the `assetManager`. In this case, you can use the following method to convert the URL before loading, and the converted path can be loaded correctly.
 
 ```typescript
 const uuid = assetManager.utils.getUuidFromURL(url);
 url = assetManager.utils.getUrlWithUuid(uuid);
 ```
 
-> **Note**: when **MD5 Cache** is enabled on the **native platform**, if any asset fails to load, it is usually because some third-party assets used in C++ were not loaded by `assetManager`. This can also be solved by converting the URL with the following code:
+> **Note**: after MD5 Cache is enabled on the native platform, if assets cannot be loaded, it is usually caused by some third-party assets used in C++ not being loaded through the `assetManager`. It can also be solved by converting the URL with the following code:
 >
 > ```cpp
 > auto cx = ScriptingCore::getInstance()->getGlobalContext();
@@ -46,74 +52,73 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 ### Main Bundle Compression Type
 
-Set the compression type of the main package, please refer to the [Asset Bundle -- Compression Type](../../asset/bundle.md#compression-type) documentation for details.
+Set the compression type of the main bundle. For details, please refer to the [Asset Bundle — compression type](../../asset/bundle.md#compression-type) documentation.
 
-### Main Bundle Is Remote
+### Main Bundle is Remote
 
-This option is optional and needs to be used with the **Resource Server Address** option.
+This option is optional and needs to be used in conjunction with the **Resources Server Address** option.
 
-If set, the main package is configured as a remote package, and along with its related dependent resources are built into a built-in Asset Bundle — [main](../../asset/bundle.md#the-built-in-asset-bundle) under the `remote` folder of the release package directory. You need to upload the entire `remote` folder to the remote server.
+After checking, the main package will be configured as a remote package, and its related dependent assets will be built to the [built-in Asset Bundle — main](../../asset/bundle.md#the-built-in-asset-bundle) under the `remote` directory of the release package. The developer needs to upload the entire `remote` folder to the remote server.
 
-### Resource Server Address
+### Debug Mode
 
-This option is optional and used to fill in the address of the remote server where the resources are stored.
+If this option is unchecked, the build is running in release mode, compressing and obfuscating asset UUID, built engine scripts and project scripts, and subcontracting the JSON of similar assets to reduce the number of asset loadings.
 
-- If this option is left blank, the `remote` folder in the release package directory will be packaged into the built game package.
-- If this option is filled in, the `remote` folder will not be packaged into the built game package. You need to manually upload the `remote` folder to the filled in resource server address after build.
-
-### Debug
-
-If this option is not checked, release mode will be built and the editor will compress and obfuscate the `uuid` of the asset, the engine script and project script generated by the build, and subpackage the `json` of the same type asset, reducing the times of asset loading.
-
-If this option is checked, debug mode will be built, allowing you to debug the project and easily locate problems.
+If this option is checked, the build is running in debug mode. At the same time, the **Source Maps** option can be checked, which is more convenient for locating problems.
 
 ### Source Maps
 
-The build will compress engine files and project scripts by default, if you want to generate a `sourcemap`, you need to check this box.
+Check this option to generate sourcemap. The engine files and project scripts will be compressed by default during the build.
 
-A `source map` is a file that maps from the transformed source to the original source, enabling the browser to reconstruct the original source and present the reconstructed original in the debugger.
-
-For more details on `source maps`, please refer to the [Use a source map](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map) documentation.
+As JavaScript is becoming more and more complex, most of the source code (development code) has to be compiled and converted before it can be put into the production environment, which makes the actual running code different from the source code. This makes it impossible to locate the source code during debugging. The Source Map can map the converted code to the source code, that is, the converted code corresponds to the location of the source code before the conversion. In this way, when a problem occurs, it is possible to directly view and debug the source code, making it easier to locate the problem. For details, please refer to the [Use source maps](https://developer.chrome.com/docs/devtools/javascript/source-maps/) documentation.
 
 ### Replace Splash Screen
 
-Mouse over this option and an **Edit icon** button will appear. Click this button and the panel will open. The first time you use this feature you need to fill out a questionnaire before opening the **Replace Splash Screen** panel. There will be some project-based information in the questionnaire, and we hope to gather more information on games developed using **Cocos Creator**, as well as more support programs in the future that developers will hopefully be able to fill out truthfully.
+When the mouse is moved to this option, the **Edit Icon** button will appear. Click this button to open the splash screen setting panel, and the data will be saved in real time after editing.
 
-![Replace Splash Screen](build-options/splash-setting.png)
+![splash setting](build-options/splash-setting.png)
 
-### Compress Texture
+### Compressed Texture
 
-Some compression options can be added to `spriteFrame` type image assets in the editor. Once enabled, the corresponding image assets are generated based on these compression options during build. If disabled, the compression texture will not take effect at build time even if configured.
+If the image assets in the project is set to [Compressed Texture](../../asset/compress-texture.md) and this option is checked, the corresponding image assets will be generated according to the compressed texture setting during the build. If this option is not checked, even if the compressed texture is configured, it will not take effect at build time.
 
-Please refer to the [Compress Texture](../../asset/compress-texture.md) documentation for details.
+### Auto Atlas
 
-### PackAutoAtlas
+If the current project is configured with [Auto Atlas asset](../../asset/auto-atlas.md) and this option is checked, then the atlas configuration will be combined during the build to generate an atlas to the project. If this option is not checked, even if auto atlas is configured, it will not take effect at build time.
 
-The **Auto Atlas** is the editor's built-in texture merge. If this is disabled, even if you configure the **Auto Atlas**, it will not take effect at build time.
+> **Note**: if an auto atlas is configured in the `resources` folder, the image assets of the large and small images and the corresponding serialization information will be packaged at the same time, and the package size will be enlarged. Please do not use in this way if it is not necessary.
 
-When the **Auto Atlas** is configured in the `resources` folder, both the clarge and small image resources and the corresponding serialization information will be packaged, which will increase the package size, So please do not use it like that unless necessary.
+### Erase Module Structure (experimental)
 
-Please refer to the [Auto Atlas](../../asset/auto-atlas.md) documentation for details.
-
-### Earse module structure (experimental)
-
-If this option is checked, importing scripts will be faster, but you will not be able to use module characteristics, such as `import.meta`, `import()`, etc.
+If this option is checked, the script import speed is faster, but module features such as `import.meta`, `import()`, etc. cannot be used.
 
 <!--
 ### 内联所有 SpriteFrame
 自动合并资源时，将所有 SpriteFrame 与被依赖的资源合并到同一个包中。建议网页平台开启，启用后会略微增大总包体，多消耗一点点网络流量，但是能显著减少网络请求数量。建议原生平台关闭，因为会增大热更新时的体积。
 
-### Merge all JSON that the Start Scene depends on
+### 合并初始场景依赖的所有 JSON
 
-When merging assets automatically, all `JSON` files that the **Start Scene** depends on are merged into the package that contains the **Start Scene**. This option is disabled by default. When enabled, it will not increase the overall game size, but if these `JSON` is also used by other scenes, then CPU overhead may increase slightly when they are loaded again.
--->
+When the **Auto Atlas** is configured in the `resources` folder, both the large and small image resources and the corresponding serialization information will be packaged, which will increase the package size, So please do not use it like that unless necessary.
 
-## Build options related to each platform
+### Cocos Service Configuration Set
 
-Currently, due to the adjustment of the build mechanism, the processing of different platforms are injected into the **Build** panel as **plugins**. After you select the platform you want to build in the **Platform** of the **Build** panel, you will see the expanded options for the corresponding platform, and the name of the expanded options is the platform plugin name. You can see each platform plugin in **Extension -> Extension Manager -> Internal** of the main menu of the editor.
+This option is used to display all the services integrated by the current project in the [Service](https://service.cocos.com/document/en/) panel.
 
-Custom build plugins are handled in the same way as platform plugins, see [Extend the Build Process](custom-build-plugin.md) for details.
+### Cocos Analytics
 
-## Configuration of other parameters involved in the build
+If this option is checked, it directly enables [Cocos Analytics](https://n-analytics.cocos.com/docs/) in the [Service](https://service.cocos.com/document/en/) panel.
 
-The configuration in the editor menu bar **Project -> Project Settings** will affect the result of the project build, please refer to [Project Settings](../project/index.md) for details.
+## Related Build Options for Each Platform
+
+Due to the adjustment of the current build mechanism, the processing of different platforms is injected into the **Build** panel in the form of a plugin. After selecting the platform to build in the **Platform** option of the **Build** panel, notice the expanded options of the corresponding platform. The name of the expanded option is the platform plug-in name, in the editor main menu **Extensions -> Extension Manager -> Internal** to see various platform plug-ins.
+
+For the relevant build options of each platform, please refer to:
+
+- [Publish to Native Platforms](native-options.md#build-options)
+- [Publish to Mini Game Platforms](publish-mini-game.md)
+
+Creator supports custom extension build plugins, handled in the same way as platform plugins. For details, please refer to the [Extension Build Process](custom-build-plugin.md) documentation.
+
+## Configuration of Other Options Involved in the Build
+
+The configuration of **Project -> Project Settings** in the menu bar of the editor will affect the result of the project build. For details, please refer to the [Project Settings](../project/index.md) documentation.

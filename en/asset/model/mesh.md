@@ -1,6 +1,11 @@
 # Model assets
 
-__Currently__, model files in __FBX__ and __glTF__ formats. For how to export these two model files from third-party tools, you can refer to the [DCC Export Mesh](./dcc-export-mesh.md) documentation.
+Currently, Creator supports model files in **FBX** and **glTF** formats.
+
+- FBX: FBX 2020 and earlier file formats are supported.
+- glTF: glTF 2.0 and earlier file formats are supported, please refer to the [glTF models](./glTF.md) documentation for details.
+
+For how to export these two model files from third-party tools, please refer to the [Importing Models Exported from DCC Tools](./dcc-export-mesh.md) documentation.
 
 ## Model importing
 
@@ -23,7 +28,7 @@ After importing into the editor, from the outside, the corresponding model asset
 ## Using Models
 
 After importing a __model__ file, drag the __root node__ of the __model__ file directly from the __Assets__ panel to the __node__ you want to place in the __Hierarchy__ panel to complete the node creation. At this point the model is successfully created in the scene. <br>
-Alternatively, you can expand the node of the __model__ file, select the `.prefab` file under the model file node, and drag it from the __Assets__ panel into the __Hierarchy__ panel to complete the creation.
+Alternatively, to expand the node of the __model__ file, select the `.prefab` file under the model file node, and drag it from the __Assets__ panel into the __Hierarchy__ panel to complete the creation.
 
 ![mesh_use](mesh/mesh_use.gif)
 

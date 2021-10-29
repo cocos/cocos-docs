@@ -69,7 +69,7 @@ Incorrect usage:
 
 URL link format: **[url document name]\(url document path)**. Use halfwidth English punctuation.
 
-> e.g: [Monitor and launch events]\(../scripting/events.md).
+> e.g.: [Monitor and launch events]\(../scripting/events.md).
 
 Correct usage:
 
@@ -83,7 +83,7 @@ Incorrect usage:
 
 URL link format: **[url document name]\(url document directory)**. Use halfwidth English punctuation, and no spaces between [] and ()
 
-> e.g: [Mask API]\(__APIDOC__/en/classes/Mask.html). Use **.html** for file name suffixes across documents
+> e.g.: [Mask API]\(\_\_APIDOC\_\_/en/classes/Mask.html). Use **.html** for file name suffixes across documents
 
 ## Use bold between adjacent text
 
@@ -127,7 +127,7 @@ Correct usage:
 
 ### The code paragraph and the context need to be separated by a blank line
 
-E.g:
+Example:
 
 > Save Prefab, the code example is as follows:<br>
 >
@@ -151,7 +151,7 @@ The effect is as follows:
 
 Picture format: **![Picture description]\(relative path of the picture)**. Use halfwidth English punctuation, and no spaces between !, [], ().
 
-> e.g: !\[background]\(quick-start/background.png)
+> e.g.: !\[background]\(quick-start/background.png)
 
 If the picture is added to the text, it needs to add a space between the adjacent text
 
@@ -197,7 +197,7 @@ The effect is as follows:
 
 ### Used in the text-point introduction
 
-When the main text is introduced with-points, the main text in the points, including pictures, need to be indented with 2/4 spaces. Generally, indents with two spaces are used. E.g:
+When the main text is introduced with-points, the main text in the points, including pictures, need to be indented with 2/4 spaces. Generally, indents with two spaces are used. e.g.:
 
 > \- Point introduction 1
 >
@@ -223,7 +223,7 @@ The effect is as follows:
 
 ### Introduction to the use of digital points in the text
 
-When the main text is introduced with **number** points, the main text in the points including pictures need to be indented with **4** spaces. E.g:
+When the main text is introduced with **number** points, the main text in the points including pictures need to be indented with **4** spaces. e.g.:
 
 > 1\. Point introduction 1
 >
@@ -249,7 +249,7 @@ The effect is as follows:
 
 ## The table uniformly uses left alignment
 
-E.g:
+e.g.:
 
 > | Property | Function Description |<br>
 > | \:---- | :------ |<br>
@@ -264,7 +264,7 @@ Appropriate spaces can be reserved before and after for easy editing.
 - At present, —> Currently,
 - Related Reference Links —> Reference documentation
 - do not use phrases like: "Now let me explain", "he should do this"
-- text like this should be avoided: "If you have never written a program and don’t worry, we will provide all the required code in the tutorial, just copy and paste it to the correct location, and then you can find your programmer partner to solve this part of the work. Let's start creating the script that drives the main character's actions."
+- text like this should be avoided: "If you have never written a program and don’t worry, we will provide all the required code in the tutorial, just copy and paste it to the correct location, and then find your programmer partner to solve this part of the work. Let's start creating the script that drives the main character's actions."
 - text like this should be avoided: "So, "
 
 ## About product name

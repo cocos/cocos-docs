@@ -8,9 +8,9 @@
 
 - 确保 Android/iOS 设备与 Windows 或者 Mac 在同一个局域网中。注意在调试过程中请勿开启代理，否则可能导致无法正常调试。
 - 在 Creator 的 **构建发布** 面板选择 Android/iOS 平台、Debug 模式，构建编译运行工程（iOS 平台建议通过 Xcode 连接真机进行编译运行）。
-- 用 Chrome 浏览器打开地址：`devtools://devtools/bundled/js_app.html?v8only=true&ws={IP}:6086/00010002-0003-4004-8005-000600070008` 即可进行调试。其中 `{IP}` 为 Android/iOS 设备的本地 IP。
+- 用 Chrome 浏览器打开地址：`devtools://devtools/bundled/js_app.html?v8only=true&ws=设备的本地 IP:6086/00010002-0003-4004-8005-000600070008` 即可进行调试。
 
-  ![](debug-jsb/v8-android-debug.png)
+  ![v8-android-debug](debug-jsb/v8-android-debug.png)
 
 ## Windows 平台及 Mac 平台调试
 
@@ -53,7 +53,7 @@ cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurren
 
 #### Xcode 在断点中编辑 action（只对具体的断点触发）
 
-![](debug-jsb/xcode-brk-point-action.png)
+![xcode-brk-point-action](debug-jsb/xcode-brk-point-action.png)
 
 在 **Debugger Command** 中输入命令：
 
@@ -67,7 +67,7 @@ expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->
 
 断点触发后，需要在 lldb console 中增加回调。可以针对具体的断点进行更多的调用：
 
-![](debug-jsb/xcode-brk-point-lldb.png)
+![xcode-brk-point-lldb](debug-jsb/xcode-brk-point-lldb.png)
 
 同上，也可以执行以下代码查看调用栈：
 
@@ -79,10 +79,10 @@ expr -- cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->g
 
 在 **Android Studio** 的 **Run -> Debug Configuration -> Debugger** 界面进行类似的配置：
 
-![](debug-jsb/as-brk-point-action.png)
+![as-brk-point-action](debug-jsb/as-brk-point-action.png)
 
 Android Studio 也提供了和 Xcode 类似的 `lldb console`。
 
 ## 进阶调试指南
 
-如果需要在 Release 模式下调试，或者需要调试定制后的原生引擎，可参考更详细的 [JSB 2.0 使用指南：远程调试与 Profile](https://docs.cocos.com/creator/manual/zh/advanced-topics/JSB2.0-learning.html)。
+如果需要在 Release 模式下调试，或者需要调试定制后的原生引擎，可参考更详细的 [JSB 2.0 使用指南：远程调试与 Profile](../../advanced-topics/JSB2.0-learning.md)。

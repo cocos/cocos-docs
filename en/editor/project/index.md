@@ -25,7 +25,7 @@ The **Project Settings** panel can be opened by clicking on **Project -> Project
 
 - **ENABLE_MULTI_TOUCH**: whether to enable multi-touch.
 
-- **MAX_LABLE_CANVAS_POOL_SIZE**: set the maximum number of Canvas object pools used by the Label, and adjust it according to the number of Labels in the same scene of the project.
+- **MAX_LABEL_CANVAS_POOL_SIZE**: set the maximum number of Canvas object pools used by the Label, and adjust it according to the number of Labels in the same scene of the project.
 
 For more specific information and code about the engine macro module, please refer to the [Engine Macro source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
 
@@ -47,7 +47,7 @@ The default Canvas settings include **Design Resolution** and **Fit Screen Width
 
 ### Render Pipeline
 
-The render pipeline is used to control the rendering process of the scene, currently only **builtin-forward** is supported, developers can also customize the render pipeline.
+The render pipeline is used to control the rendering process of the scene, currently only **builtin-forward** is supported, please refer to the [Built-in Pipeline](../../render-pipeline/builtin-pipeline.md) documentation.
 
 ## Layers
 
@@ -125,7 +125,7 @@ To delete, move the mouse over the texture format and click the red delete butto
 
 ### Modifying the Texture Compression Preset Name
 
-The name of the texture compression preset is for display purposes only. When a texture compression preset is added, a random uuid is generated as the ID of the preset, so changing the preset name directly does not affect the reference to the preset at the image asset.
+The name of the texture compression preset is for display purposes only. When a texture compression preset is added, a random UUID is generated as the ID of the preset, so changing the preset name directly does not affect the reference to the preset at the image asset.
 
 ![edit](./texture-compress/edit.png)
 

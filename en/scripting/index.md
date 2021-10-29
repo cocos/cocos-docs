@@ -1,38 +1,21 @@
 # Scripting
 
-__Cocos Creator__ scripts are used to implement user-defined (game) behaviors.
+Scripting in Cocos Creator is used to implement user-defined (game) behavior and supports both **JavaScript** and **TypeScript** programming languages. Objects in the scene are driven by writing a scripting component and mounting it to a scene node.
 
-- [Script Creation](./setup.md)
-- [Script Basics](./basic.md)
-- [Language Support](./language-support.md)
+During the component scripting process, developers can declare properties to map the variables that need to be adjusted in the script to the **Inspector** panel for game designers and artists to make adjustments. At the same time, it is also possible to register specific callback functions to help initialize, update or even destroy nodes.
+
+## Content
+
+- [Programming Language Support](./language-support.md)
+- [Scripting Basics](./script-basics.md)
+- [Using Scripts](./usage.md)
+- [Advanced Scripting](./reference-class.md)
+- [Event System](../engine/event/index.md)
 - [Modules](./modules/index.md)
-- [Script Execution Order](./execution-order-general.md)
-- [ccclass](./ccclass.md)
-- [Access Node and Other Components](./access-node-component.md)
-- [Commonly Used Nodes and Component Interfaces](./basic-node-api.md)
-- [Lifecycle Callbacks](./life-cycle-callbacks.md)
-- [Creating and Destroying Nodes](./create-destroy.md)
-- [Loading and Switching Scenes](./scene-managing.md)
-- [Obtaining and Loading Assets](./load-assets.md)
-- [Scheduler](./scheduler.md)
-- [Components and Component Order](./component.md)
-- Event System
-  - [Listening to and launching events](../engine/event/event-emit.md)
-  - [Builtin Events](../engine/event/event-builtin.md)
-  - [Global Events](../engine/event/event-input.md)
-  - [Event API](../engine/event/event-api.md)
-- [Attribute Parameter Reference](./reference/attributes.md)
-- [Plugin Script](./external-scripts.md)
-- [CCClass Advanced Reference](./ccclass.md)
-- [Add Log](./log.md)
-- [Deprecated API](./deprecated.md)
-
-## Events
-
-As a very commonly used system in the engine, we provide a complete and efficient event system for developers to use. For details, please see:
-
-[Event Mechanism](../engine/event/index.md)
+- [Plugin Scripts](./external-scripts.md)
 
 ## More Reference
 
-- [Recommended coding standards](./reference/coding-standards.md)
+- [Adding Logging within the Engine](./log.md)
+- [Deprecated API](./deprecated.md)
+- [Recommended Coding Standards](./reference/coding-standards.md)

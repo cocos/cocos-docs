@@ -90,7 +90,7 @@ Only touch or mouse events can be registered in the capturing phase, while the o
 
 ### Event Interception
 
-Normal events are dispensed as described above. However, if the node has components such as __Button__, __Toggle__ or __BlockInputEvents__ on it, it will stop event bubbling. Look at the picture below. There are two buttons, priority 1 for Canvas0 and priority 2 for Canvas1. If you click on the intersection of the two buttons, which is the blue area in the picture, it appears that button priority 2 received the contact event successfully, while button priority 1 did not. That's because according to the event reception rules above, button priority 2 receives contact events first and intercepts them（`event.propagationStopped = true`) to prevent event penetration. If the node is a non-button node, events can also be intercepted by adding the __BlockInputEvents__ component to prevent penetration.
+Normal events are dispensed as described above. However, if the node has components such as __Button__, __Toggle__ or __BlockInputEvents__ on it, it will stop event bubbling. Look at the picture below. There are two buttons, priority 1 for Canvas0 and priority 2 for Canvas1. If you click on the intersection of the two buttons, which is the blue area in the picture, it appears that button priority 2 received the contact event successfully, while button priority 1 did not. That's because according to the event reception rules above, button priority 2 receives contact events first and intercepts them (`event.propagationStopped = true`) to prevent event penetration. If the node is a non-button node, events can also be intercepted by adding the __BlockInputEvents__ component to prevent penetration.
 
 ![events-block](events-block.png)
 
@@ -113,7 +113,7 @@ All node built-in events can get event names from `Node.EventType`.
 
 | Enumerated Object Definition              | Corresponding Event Name             | Timing of Event Triggering             |
 | :-------------             | :----------            |   :----------        |
-| __TRANSFORM_CHANGED__ | transform-changed | When a transform attribute is modified, an enum value `TransformBit` is assigned that defines the modified transform based on the enum value.                      |
+| __TRANSFORM_CHANGED__ | transform-changed | When a transform property is modified, an enum value `TransformBit` is assigned that defines the modified transform based on the enum value.                      |
 
 Definition of Transformation Enumeration Values:
 

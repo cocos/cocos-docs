@@ -134,11 +134,11 @@ assetManager.presets.mypreset = {maxConcurrency: 10, maxRequestsPerFrame: 6};
 assetManager.loadAny({'path': 'test'}, {preset: 'mypreset'}, callback);
 ```
 
-> **Note**: parameters related to the download and parsing process (e.g. number of download concurrent, number of download retries, etc.) can be set via optional parameters, presets, and the downloader/parser itself. When the same parameter is set in multiple ways, the engine selects to use it in the order of selectable **optional parameter > preset > downloader/parser**. That is, if the engine can't find the relevant settings in the optional parameter, it will look in the preset, and if it can't find them in the preset, it will look in the downloader/parser.
+> **Note**: parameters related to the download and parsing process (e.g.: number of download concurrent, number of download retries, etc.) can be set via optional parameters, presets, and the downloader/parser itself. When the same parameter is set in multiple ways, the engine selects to use it in the order of selectable **optional parameter > preset > downloader/parser**. That is, if the engine can't find the relevant settings in the optional parameter, it will look in the preset, and if it can't find them in the preset, it will look in the downloader/parser.
 
 ## Custom handlers
 
-Both the downloader and the parser have a registration table. When you use `downloader` or `parser`, the downloader and parser will look for the corresponding download and parsing methods in the registry based on the incoming suffix name, and pass the parameters into the corresponding handler, so you can extend the engine by registering the custom handlers when you need to add a custom format to your project, or modify the handlers of the current format. Both the downloader and the parser provide `register` interfaces for registration handlers, which are used as follows:
+Both the downloader and the parser have a registration table. When you use `downloader` or `parser`, the downloader and parser will look for the corresponding download and parsing methods in the registry based on the incoming suffix name, and pass the parameters into the corresponding handler, in order to extend the engine by registering the custom handlers when you need to add a custom format to your project, or modify the handlers of the current format. Both the downloader and the parser provide `register` interfaces for registration handlers, which are used as follows:
 
 ```typescript
 assetManager.downloader.register('.myformat', function (url, options, callback) {

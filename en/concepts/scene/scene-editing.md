@@ -23,7 +23,7 @@ UI nodes can be created by selecting **Create UI** from the **Create Node** menu
 So the Canvas node is the **root node** of UI rendering, and all rendering-related UI nodes are placed under the Canvas, which has the following benefits:
 
 - Canvas can provide multi-resolution adaptive scaling, and using Canvas as the root node can ensure that our scenes will look good on larger or smaller screens, see [Multi-resolution adaptation scheme](../..//ui-system/components/engine/multi-resolution.md).
-- Canvas nodes are automatically centered according to the screen size, so UI nodes under Canvas will have the center of the screen as the origin of the coordinate system. In our experience, this simplifies the scene and UI setup (e.g. having the button element's text appear right in the center of the button node by default), and makes it easier to script the UI node position control.
+- Canvas nodes are automatically centered according to the screen size, so UI nodes under Canvas will have the center of the screen as the origin of the coordinate system. In our experience, this simplifies the scene and UI setup (e.g.: having the button element's text appear right in the center of the button node by default), and makes it easier to script the UI node position control.
 
 #### 2D Rendering Nodes
 
@@ -41,7 +41,7 @@ UI nodes are mostly a combination of rendered nodes, for example, the **Button**
 
 Creating nodes of the base type using the menu is the recommended way to quickly add content to the scene, and then we can edit the nodes created using the menu as needed to create the combinations we need.
 
-For more on UI nodes, see [UI Structure Description](../../ui-system/components/engine/index.md).
+For more on UI nodes, see [UI Structure Description](../../2d-object/ui-system/index.md).
 
 ### Attribution of Logical Nodes
 
@@ -92,4 +92,4 @@ There is also support for setting the Skybox, Global Fog, and Shadows in the sce
 
 - [Skybox](./skybox.md)
 - [Global Fog](./fog.md)
-- [Shadow](./shadow.md)
+- [Shadows](./light/shadow.md)

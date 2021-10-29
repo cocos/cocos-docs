@@ -6,7 +6,7 @@ The **Inspector** panel is the work area for viewing and editing the currently s
 
 ## Panel overview
 
-![inspector](index/inspeactor-panel.png)
+![inspector](index/inspector-panel.png)
 
 The **Inspector** panel can be divided into two parts: **Toolbar** and **Property Settings**.
 
@@ -43,13 +43,13 @@ To modify node properties in a batch, press Shift in the **Hierarchy** panel to 
 
 The Component checkbox indicates the enabled/disabled state of the component. When unchecked, the component is disabled and will not participate in rendering.
 
-Below the node properties, all the components attached on the node and the component properties are listed. As with the node properties, clicking on a component's name toggles the collapsed/expanded state of that component's properties. In the case of many components attached on the node, collapese infrequently modified component properties to get a larger working area.
+Below the node properties, all the components attached on the node and the component properties are listed. As with the node properties, clicking on a component's name toggles the collapsed/expanded state of that component's properties. In the case of many components attached on the node, collapse infrequently modified component properties to get a larger working area.
 
 To the right of the component name are buttons for **Help Documentations** and **Component Settings**.
 - The Help Documentations button jumps to the official documentation page for the component.
 - The Component Settings button allows resetting, deleting, moving up, moving down, copying the component, paste the component's value, paste it as a new component, etc. for the component.
 
-The properties and settings of each component are different, please refer to the [Components](../../editor/components/index.md) documentation for details.
+The properties and settings of each component are different, please refer to the corresponding component description documentation for details.
 
 ## Adding components
 
@@ -57,7 +57,7 @@ Clicking the **Add Component** button brings up a list of components, including 
 
 ![add-component](index/add-component.png)
 
-Developers' script in the **Assets** panel can be dragged and dropped directly into the **Inspector** panel to generate a script component, or added via **Add Component -> Custom Script**. The properties of a script component are declared by the script. Different types of properties have different control appearance and editing in the **Inspector** panel. We will add the properties in [Declare Properties](../../scripting/ccclass.md) section for details on how properties are defined.
+Developers' script in the **Assets** panel can be dragged and dropped directly into the **Inspector** panel to generate a script component, or added via **Add Component -> Custom Script**. The properties of a script component are declared by the script. Different types of properties have different control appearance and editing in the **Inspector** panel. We will add the properties in [Declare Properties](../../scripting/decorator.md) section for details on how properties are defined.
 
 ## Property types
 
@@ -86,7 +86,7 @@ Developers' script in the **Assets** panel can be dragged and dropped directly i
 
 ## Batch operations
 
-When needing to set asset properties of the **same type** in a batch, press Shift in the **Asset** panel and select multiple assets, the **Inspector** panel will show the number of assets selected and the editable asset properties. Click the **Apply** button at the top right when you are done.
+When needing to set asset properties of the **same type** in a batch, press Shift in the **Assets** panel and select multiple assets, the **Inspector** panel will show the number of assets selected and the editable asset properties. Click the **Apply** button at the top right when done.
 
 ![multiple-edit](index/multiple-edit1.png)
 

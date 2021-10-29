@@ -32,16 +32,17 @@ For some general build options of platforms, please refer to the [General Build 
 
 | Name | Optional | Default value | Description | Field name |
 | :-- | :-- | :-- | :-- | :-- |
-| **Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. | startSceneAssetBundle |
-| **Remote server address** | Optional | Empty | This option is optional and used to fill in the address of the remote server where the resources are stored.If this option is left blank, the `build/vivo-mini-game/remote` folder in the release package directory will be packaged into the rpk package.Refer to the Resource Management section for more details. | remoteServerAddress |
-| Game Package Name | required | (Project Name) | such as `com.example.demo` | package |
-| Desktop Icon | required | (Cocos Logo) | Click the **search icon** button at the back of the input box to select the icon you want. When building, the **Desktop Icon** will be built into the vivo Mini Game project. It is suggested to use `PNG` images for the | **Desktop Icon**. | icon |
-| Game Version Name | required | (Cocos version) | **Game Version Name** is the real version, such as: **1.0.0**. | versionName |
-| Game Version Number | required | 1201 |  **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the game version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted. | versionCode |
-| Supported Minimum Platform Version Number | required | 1035 | Please refer to [Official Documentation [cn]](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine. | minPlatformVersion |
-| Orientation | - | landscape | Device direction, it will be written in `manifest.json`.| deviceOrientation |
-| Use debug keystore | - | true | When you check **Use Debug Keystore**, it means that the rpk package built with the certificate that comes with Creator is used by default, and it is only used for **debugging**. when the rpk package is to be used to submit an audit, do not check the **Use Debug Keystore** to build it.| useDebugKey |
-| Key certification path | - | - | The key store certificate, the quick game on the Huawei App Market, must be signed with the release version certificate, and the certificate fingerprint must be configured in the background of the Huawei Developers Alliance. For details, please refer to the following [Generate Signature File](###Generate Signature File) | privatePemPath、certificatePemPath |
+| **Start Scene Asset Bundle** | Optional | false | If set, the start scene and its related dependent resources are built into the built-in Asset Bundle — [start-scene](../../asset/bundle.md#the-built-in-asset-bundle) to speed up the resource loading of the start scene. | `startSceneAssetBundle` |
+| **Remote server address** | Optional | Empty | This option is optional and used to fill in the address of the remote server where the resources are stored.If this option is left blank, the `build/vivo-mini-game/remote` folder in the release package directory will be packaged into the rpk package.Refer to the Resource Management section for more details. | `remoteServerAddress` |
+| Game Package Name | required | (Project Name) | such as `com.example.demo` | `package` |
+| Desktop Icon | required | (Cocos Logo) | Click the **search icon** button at the back of the input box to select the icon you want. When building, the **Desktop Icon** will be built into the vivo Mini Game project. It is suggested to use `PNG` images for the **Desktop Icon**. | `icon` |
+| Game Version Name | required | (Cocos version) | **Game Version Name** is the real version, such as: **1.0.0**. | `versionName` |
+| Game Version Number | required | 1201 |  **Game Version Number** is different from the **Game Version Name**, and the **Game Version Number** is mainly used to distinguish the version update. Each time when you submit audit, the game version number is at least 1 higher than the value of the last submitted audit. It must not be equal to or less than the value of the last submitted audit, and it is recommended that the **Game Version Number** be recursively incremented by 1 each time when the audit is submitted. | `versionCode` |
+| Supported Minimum Platform Version Number | required | 1035 | Please refer to [Official Documentation [cn]](https://minigame.vivo.com.cn/documents/#/download/engine?id=%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95%EF%BC%9A) to check the latest version number of vivo engine. | `minPlatformVersion` |
+| Orientation | - | landscape | Device direction, it will be written in `manifest.json`.| `deviceOrientation` |
+| Separate Engine | Optional | - | Vivo has added **game engine plugin** feature since platform version number **1063**. This plugin has the official version of the Cocos Creator engine built-in. If the plugin is enabled in the first game the player experiences, all games that also have the plugin enabled do not need to download the Cocos Creator engine again, just use the same version of the engine directly from the public plugin library, or incremental update the engine.<br>Check **Separate Engine** when using, and then build and release normally in the **Build** panel, without additional manual operation. Please refer to the [WeChat Engine Plugin Instructions](./wechatgame-plugin.md) for details. | `separateEngine` |
+| Use debug keystore | - | true | When you check **Use Debug Keystore**, it means that the rpk package built with the certificate that comes with Creator is used by default, and it is only used for **debugging**. when the rpk package is to be used to submit an audit, do not check the **Use Debug Keystore** to build it.| `useDebugKey` |
+| Key certification path | - | - | The key store certificate, the quick game on the Huawei App Market, must be signed with the release version certificate, and the certificate fingerprint must be configured in the background of the Huawei Developers Alliance. For details, please refer to the following **Generate Signature File** | `privatePemPath`, `certificatePemPath` |
 
 ### Generate signature file
 
@@ -80,9 +81,9 @@ There are three ways to run rpk on your phone:
 
 - **Method Two**
 
-    Copy the generated mini game **rpk** file (located in the `dist` directory) to the `sdcard` directory of the mobile phone.
+    Copy the generated mini game **rpk** file (located in the `dist` directory) to the internal storage directory of the mobile phone.
 
-    Open the **Quick App & vivo Mini Game Debugger** that has been installed before on your Android device, click **Local Install**, then find the **rpk** file from the `sdcard` directory of your mobile phone and select Open.
+    Open the **Quick App & vivo Mini Game Debugger** that has been installed before on the Android device, click **Local Install**, then find the **rpk** file from the internal storage directory of your mobile phone and select **Open**.
 
     ![vivo-instant_native_install](./vivo-mini-game/vivo-instant_native_install.jpg)
 

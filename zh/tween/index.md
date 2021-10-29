@@ -134,5 +134,3 @@ tween(tweenTargetVec3)
 当缓动目标为 `Node` 时，将会监听其销毁事件进行缓动的自动销毁，调用 `target` 方法也会自动更新监听。
 
 具体的使用方法，详情请参考范例 **Tween**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tween) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tween)）。
-
-更多详细介绍，请参考 [使用缓动系统](https://docs.cocos.com/creator/manual/zh/scripting/tween.html)。

@@ -4,7 +4,7 @@
 
 In order to maintain the abandoned `API` while making it more friendly and convenient, it will be implemented through three functions:
 
-- `markAsWarning` embeds a warning in the attribute on the given object, and the attribute needs to exist on the given object.
+- `markAsWarning` embeds a warning in the property on the given object, and the property needs to exist on the given object.
 
 - `removeProperty` redefines the removed property on the given object, and embeds an error message. The property should not exist on the given object.
 
@@ -14,7 +14,7 @@ In order to maintain the abandoned `API` while making it more friendly and conve
 
 ```typescript
 interface IRemoveItem {
-    /** The name of the obsolete attribute */
+    /** The name of the obsolete property */
     name: string;
     /** Number of warnings */
     logTimes?: number;
@@ -23,7 +23,7 @@ interface IRemoveItem {
 }
 
 interface IMarkItem {
-    /** The name of the obsolete attribute */
+    /** The name of the obsolete property */
     name: string;
     /** Number of warnings */
     logTimes?: number;
@@ -32,21 +32,21 @@ interface IMarkItem {
 }
 
 interface IReplacement {
-    /** The name of the obsolete attribute */
+    /** The name of the obsolete property */
     name: string;
     /** Number of warnings */
     logTimes?: number;
     /** Additional suggestions */
     suggest?: string;
-    /** The object of the discarded attribute */
+    /** The object of the discarded property */
     target?: object;
-    /** The name of the object of the discarded attribute */
+    /** The name of the object of the discarded property */
     targetName?: string;
-     /** Custom replacement attribute (function) */
+     /** Custom replacement property (function) */
     customFunction?: Function;
     /** Setter of custom replacement properties */
     customSetter?: (v: any) => void;
-     /** Getter for custom replacement attributes */
+     /** Getter for custom replacement propertys */
     customGetter?: () => any;
 }
 

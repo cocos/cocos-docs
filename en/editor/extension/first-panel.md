@@ -99,7 +99,7 @@ exports.load = function() {};
 exports.unload = function() {};
 ```
 
-The `Editor.Panel.open` method is called in the `openPanel` method, the passed parameters are **extension name** + **.** + **panel name**, or ignored if it is `default`, e.g:
+The `Editor.Panel.open` method is called in the `openPanel` method, the passed parameters are **extension name** + **.** + **panel name**, or ignored if it is `default`, e.g.:
 
 ```javascript
 Editor.Panel.open('hello-world');

@@ -1,6 +1,6 @@
-# Common Node and Component Interface
+# Common Node and Component Interfaces
 
-After obtaining a __Node__ or __Component__ instance through the method introduced in the [Access Node and Component](access-node-component.md) documentation, there are common interfaces that can be used to achieve the various effects needed through the node and component instance and it's operation. 
+After obtaining a __Node__ or __Component__ instance through the method introduced in the [Access Node and Component](access-node-component.md) documentation, there are common interfaces that can be used to achieve the various effects needed through the node and component instance and it's operation.
 
 Please review the [Node](__APIDOC__/en/classes/scene_graph.node-1.html) and the [Component](__APIDOC__/en/classes/component.component-1.html) API documentation.
 
@@ -16,9 +16,9 @@ A node is activated by default. It's activation state can be changed  in code by
 this.node.active = false;
 ```
 
-Setting the `active` property and switching the active and closed states of the node in the editor have the same effect. When a node is down, all its components will be disabled. At the same time, all its child nodes and components on the child nodes will also be disabled. It should be noted that when child nodes are disabled, their `active` attributes are not changed, so they will return to their original state when the parent node is reactivated.
+Setting the `active` property and switching the active and closed states of the node in the editor have the same effect. When a node is down, all its components will be disabled. At the same time, all its child nodes and components on the child nodes will also be disabled. It should be noted that when child nodes are disabled, their `active` properties are not changed, so they will return to their original state when the parent node is reactivated.
 
-In other words, `active` actually represents the active state of the node **itself**, and whether this node **current** can be activated depends on its parent node. And if it is not in the current scene, it cannot be activated. We can use the read-only attribute `activeInHierarchy` on the node to determine whether it is currently activated. Example:
+In other words, `active` actually represents the active state of the node **itself**, and whether this node **current** can be activated depends on its parent node. And if it is not in the current scene, it cannot be activated. We can use the read-only property `activeInHierarchy` on the node to determine whether it is currently activated. Example:
 
 ```ts
 this.node.active = true;

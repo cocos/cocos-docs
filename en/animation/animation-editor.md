@@ -25,7 +25,7 @@ The function buttons in the **Menu toolbar** are, from left to right.
 
 | Icon | Description | Shortcut |
 | :---- | :--- | :--- |
-| ![menu clips](animation-editor/menu_clips.png) | Toggle animation clips. When multiple animation clips are attached on the animation component, this button can be used to toggle between clips. | - |
+| ![menu clips](animation-editor/menu_clips.png) | Toggle animation clips. When multiple animation clips are attached on the Animation component, this button can be used to toggle between clips. | - |
 | ![jump to first frame](animation-editor/menu_first.png) | Moves the red time control line to the beginning of the current animation clip | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>←</kbd> |
 | ![jump to previous frame](animation-editor/menu_prev.png) | Move time control line to previous frame | <kbd>←</kbd> |
 | ![play/pause](animation-editor/menu_play.png) | Play/pause current animation | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> |
@@ -117,7 +117,7 @@ Drag and drop the middle/right mouse button in any area of the **Animation Timel
 
 ![node list](./animation-editor/4-pro-list.png)
 
-This area is mainly used to display/add/set the animation property of the currently selected node in the current Animation Clip. The animation properties include the node's own properties, component properties (including those in user-defined script components), and the animation properties are added by clicking the **+** button in the upper right corner. Component properties are prefixed with the name of the component, e.g. `cc.Sprite.spriteFrame`.
+This area is mainly used to display/add/set the animation property of the currently selected node in the current Animation Clip. The animation properties include the node's own properties, component properties (including those in user-defined script components), and the animation properties are added by clicking the **+** button in the upper right corner. Component properties are prefixed with the name of the component, e.g.: `cc.Sprite.spriteFrame`.
 
 Right-click on the animation property or click ![property](./animation-editor/set-pro.png) button to the right of the animation property to select **Remove Prop Track**, **Clear Keyframe Data**, or **Copy Prop Track**. For details, please refer to the [Common operations on animation property data](edit-animation-clip.md#Common-operations-on-animation-property-data) documentation.
 
@@ -139,7 +139,7 @@ The properties of the current Animation Clip that can be set directly on the **A
 
 ## Adjusting the Layout of the Animation Panel
 
-The dividers between the node list and the timeline, and between the property list and the timeline are available for dragging and dropping to change the layout. By dragging and dropping you can freely adjust the **Animation** panel to a layout effect suitable for editing.
+The dividers between the node list and the timeline, and between the property list and the timeline are available for dragging and dropping to change the layout. By dragging and dropping it is possible to freely adjust the **Animation** panel to a layout effect suitable for editing.
 
 ![layout](./animation-editor/layout.gif)
 
@@ -172,7 +172,7 @@ Jump to the next keyframe | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + 
 Multi-select keyframes | <kbd>Ctrl</kbd> | Hold down <kbd>Ctrl</kbd> and click on a keyframe to multi-select a keyframe.
 Select all animation property keyframes | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> | Select all keyframes on the selected animation property.
 Copy selected animation data | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>C</kbd> | Supports copying selected keyframes, property tracks, and node data, while only one type of data can be copied, and the copying priority is determined in this order.
-Paste last copied animation data | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> | Support to paste last copied animation data (e.g. animation keyframes, animation properties, animation node data, and check the currently available data in that order) across editors (v3.x only).
+Paste last copied animation data | <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> | Support to paste last copied animation data (e.g.: animation keyframes, animation properties, animation node data, and check the currently available data in that order) across editors (v3.x only).
 Unchecked keyframes/event frames/property tracks | <kbd>Esc</kbd> | -
 
 > **Note**: currently, all shortcuts require mouse focus on the Animation Editor panel to take effect, except for the shortcuts **Enter/Exit Animation Editor** and **Save Animation** which are globally available.

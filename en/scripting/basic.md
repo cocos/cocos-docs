@@ -1,4 +1,4 @@
-# Operating environment
+# Operating Environment
 
 The APIs for the __Cocos Creator__ engine all exist in the module `cc`. They can be imported it using standard ES6 module import syntax. Example:
 

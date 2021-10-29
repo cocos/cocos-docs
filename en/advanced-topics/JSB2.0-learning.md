@@ -412,7 +412,7 @@ se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // W
 globalObj->setProperty("foo", se::Value(100)); // Set a property called `foo` with a value of 100 to the global object.
 ```
 
-Then, you can use the `foo` global variable in JS directly.
+Next, use the `foo` global variable in JS directly.
 
 ```js
 cc.log("foo value: " + foo); // Print `foo value: 100`.
@@ -686,7 +686,7 @@ static bool js_SomeClass_setCallback(se::State& s)
 SE_BIND_FUNC(js_SomeClass_setCallback)
 ```
 
-After SomeClass is registered, you can use it in JS like the following:
+After SomeClass is registered, use it in JS like the following:
 
 ```js
  var myObj = new ns.SomeClass();
@@ -896,7 +896,7 @@ bool b2AABB_to_seval(const b2AABB& v, se::Value* ret);
 Auxiliary conversion functions are not part of the abstraction layer (`Script Engine Wrapper`), they belong to the Cocos2D-X binding layer and are encapsulated to facilitate more convenient conversion in the binding code.
 Each conversion function returns the type `bool` indicating whether the conversion was successful or not. Developers need to check the return value after calling these interfaces.
 
-You can know the specific usage directly according to interface names. The first parameter in the interface is input, and the second parameter is the output parameter. The usage is as follows:
+The specific usage is directly known according to interface names. The first parameter in the interface is input, and the second parameter is the output parameter. The usage is as follows:
 
 ```c++
 se::Value v;
@@ -1133,7 +1133,7 @@ SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
 
 Subclasses of `cocos2d::Ref` must be allocated on the heap, via `new`, and then released by `release`. In JS object's finalize callback function, we should use `autorelease` or `release` to release. If it is allocated on the stack, the reference count is likely to be 0, and then calling `release` in finalize callback will result `delete` is invoked, which causing the program to crash. So in order to prevent this behavior from happening, developers can identify destructors as `protected` or `private` in the binding classes that inherit from `cocos2d::Ref`, ensuring that this problem can be found during compilation.
 
-E.g:
+Example:
 
 ```c++
 class CC_EX_DLL EventAssetsManagerEx : public cocos2d::EventCustom

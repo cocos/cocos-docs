@@ -111,7 +111,7 @@ class Sprite {
 
 ### 父构造函数
 
-**注意**：不论子类是否有定义构造函数，在子类实例化前，父类的构造函数都会被自动调用。
+> **注意**：不论子类是否有定义构造函数，在子类实例化前，父类的构造函数都会被自动调用。
 
 ```typescript
 class Node {
@@ -196,9 +196,7 @@ class Sprite {
 
 **注意**：
 
-- 属性定义了 get 方法之后就不能被序列化，也就是 `serializable` 参数不可用。
-
-    例如下面的写法，width 属性既不会在编辑器上显示，也不会序列化。
+- 属性定义了 `get` 方法之后就不能被序列化，也就是 `serializable` 参数不可用。例如下面的写法，`width` 属性既不会在编辑器上显示，也不会序列化。
 
     ```typescript
     get width() {
@@ -209,9 +207,7 @@ class Sprite {
     private _width = 0;
     ```
 
-- 定义了 get 方法的属性如果需要被编辑器显示，需要定义 property，否则不会呈现。，
-
-    例如下面的写法，width 属性如果去掉 @property 就不会在编辑器上呈现，_width 属性会序列化。
+- 定义了 `get` 方法的属性如果需要在编辑器中显示，需要定义 `property`。例如下面的写法，`width` 属性如果去掉 `@property` 就不会在编辑器上呈现，`_width` 属性会序列化。
 
     ```typescript
     @property
@@ -234,7 +230,7 @@ class Sprite {
     private _num = 0;
 
     start() {
-        consolo.log(this.num);
+        console.log(this.num);
     }
     ```
 
@@ -252,7 +248,7 @@ private _width = 0;
 
 start() {
     this.width = 20;
-    consolo.log(this.width);
+    console.log(this.width);
 }
 ```
 

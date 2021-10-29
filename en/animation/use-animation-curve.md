@@ -11,7 +11,7 @@ import { AnimationClip, animation, js } from 'cc';
 const animationClip = new AnimationClip();
 animationClip.duration = 1.0; // The entire period of the animation clip, the frame time of any keyframe should not be greater than this property
 animationClip.keys = [ [ 0.3, 0.6, 0.9 ] ]; // The frame time shared by all curves of the clip
-animationClip.curves = [{ // Animation curves on the animation component
+animationClip.curves = [{ // Animation curves on the Animation component
     modifiers: [ // Address the target object from the current node object. See the "Target Objects" section below for details
         // The target object is the "Body" child of the current node.
         HierarchyPath('Body'),
@@ -197,7 +197,7 @@ Some interpolation algorithms require additional data to be stored in the curve 
 - When the [interpolate](__APIDOC__/en/interfaces/animation.ipropertycurvedata.html#interpolate) property of the curve data is `true`, the curve will try to use the interpolation function.
 
     - If the curve value is of type `number`, `Number`, linear interpolation will be applied.
-    - If the curve value inherits from `ValueType`, the `lerp` function of `ValueType` will be called to complete the interpolation. `lerp` methods for most value types built into Cocos Creator are implemented as linear interpolation, e.g. `Vec3`, `vec4`, etc.
+    - If the curve value inherits from `ValueType`, the `lerp` function of `ValueType` will be called to complete the interpolation. `lerp` methods for most value types built into Cocos Creator are implemented as linear interpolation, e.g.: `Vec3`, `vec4`, etc.
     - If the curve value is [interpolable](__APIDOC__/en/interfaces/animation.ilerpable.html), the `lerp` function for the curve value will be called to complete the interpolation <sup id="a2">[2](#f2)</sup>.
 
 - If the curve value does not satisfy any of the above conditions, or when the `interpolate` property of the curve data is `false`, no interpolation will be performed and the curve value from the previous frame will always be used as the result.

@@ -5,15 +5,15 @@ __Cocos Creator__ provides life cycle callback functions for component scripts. 
 
 The life cycle callback functions currently provided to users mainly include (order by life cycle trigger):
 
-  - onLoad()
-  - onEnable()
-  - start()
-  - update()
-  - lateUpdate()
-  - onDisable()
-  - onDestroy()
+- `onLoad()`
+- `onEnable()`
+- `start()`
+- `update()`
+- `lateUpdate()`
+- `onDisable()`
+- `onDestroy()`
 
-## onLoad()
+## `onLoad()`
 
 In the initialization phase of the component script, the `onLoad()` callback function is available. The `onLoad()` callback will be triggered when the node is activated for the first time, such as when the scene is loaded or the node is activated. In the `onLoad()` stage, it is guaranteed that you can get other nodes in the scene and the resource data associated with the nodes. `onLoad()` will always be executed before any start method is called, which can be used to arrange the initialization sequence of the script. Usually, some initialization related operations are performed in the `onLoad()` stage. Example:
 
@@ -37,11 +37,11 @@ export class test extends Component {
 }
 ```
 
-## onEnable()
+## `onEnable()`
 
-When the `enabled` attribute of the component changes from `false` to `true`, or the node's `active` attribute changes from `false` to `true`, the `onEnable()` callback will be activated. If the node is created for the first time and `enabled` is `true`, it will be called after `onLoad()` but before `start()`.
+When the `enabled` property of the component changes from `false` to `true`, or the node's `active` property changes from `false` to `true`, the `onEnable()` callback will be activated. If the node is created for the first time and `enabled` is `true`, it will be called after `onLoad()` but before `start()`.
 
-## start()
+## `start()`
 
 The `start()` callback function will be triggered before the first activation of the component, that is, before the first execution of `update()`. `start()` is usually used to initialize some intermediate state data. These data may change during update and are frequently enabled and disabled. Example:
 
@@ -68,7 +68,7 @@ export class starttest extends Component {
 }
 ```
 
-## update()
+## `update()`
 
 A key point of game development is to update the behavior, state and orientation of objects before each frame of rendering. These update operations are usually placed in the `update()` callback. Example:
 
@@ -85,7 +85,7 @@ export class updatetest extends Component {
 }
 ```
 
-## lateUpdate()
+## `lateUpdate()`
 
 `update()` will be executed before all animations are updated, but if developer's need to perform some additional operations after the animations (such as animation, particles, physics, etc.) are updated, or it is needed to execute the `update()` of all components after doing other operations, use the `lateUpdate()` callback. Example:
 
@@ -102,10 +102,10 @@ export class lateupdatetest extends Component {
 }
 ```
 
-## onDisable()
+## `onDisable()`
 
-When the `enabled` attribute of the component changes from `true` to `false`, or the node's `active` attribute changes from `true` to `false`, the `onDisable()` callback will be activated.
+When the `enabled` property of the component changes from `true` to `false`, or the node's `active` property changes from `true` to `false`, the `onDisable()` callback will be activated.
 
-## onDestroy()
+## `onDestroy()`
 
 When the component or the node where it calls `destroy()`, the `onDestroy()` callback will be called, and the component will be recycled when the frame ends.
