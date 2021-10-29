@@ -1,6 +1,6 @@
 # 音频播放示例
 
-由于 Cocos Creator 3.x 废弃了 v2.x `cc.audioEngine` 系列的 API，统一使用 AudioSource 控制音频播放，因此我们需要在项目中将 [AudioSource 组件](./audiosource.md) 声明为常驻根节点，并封装一个管理器使用。如下所示：
+由于 Cocos Creator 3.x 移除了 v2.x `cc.audioEngine` 系列的 API，统一使用 AudioSource 控制音频播放，因此我们需要在项目中将 [AudioSource 组件](./audiosource.md) 声明为常驻根节点，并封装一个管理器使用。如下所示：
 
 ```typescript
 import { assert, AudioSource, Component, game } from 'cc';
@@ -25,7 +25,7 @@ export class GameRoot extends Component {
 }
 ```
 
-当需要对音乐音效的进行播放、音量控制等操作时，如下所示：
+音频管理的具体实现，如下所示：
 
 ```typescript
 import { AudioClip, AudioSource, assert, warn, clamp01, resources } from "cc";

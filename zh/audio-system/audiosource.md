@@ -39,7 +39,7 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 
 ### 通过脚本
 
-如果要更灵活地控制 AudioSource 的播放，可以在将定义脚本添加到 **AudioSource 组件** 所在的节点，然后调用相应的 API 即可通过脚本控制。
+如果要更灵活地控制 AudioSource 的播放，可以将自定义脚本添加到 **AudioSource 组件** 所在的节点，然后调用相应的 API 即可通过脚本控制。
 
 1. 在节点上添加 AudioSource 组件并指定音频资源。
 2. 在 **资源管理器** 中 [创建脚本](../scripting/setup.md) 并命名（例如 `AudioController`），然后双击打开脚本进行编写，内容如下：
@@ -79,7 +79,7 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 
     ![audioSource](audio/audiosource.png)
 
-### 音效播放
+#### 音效播放
 
 相较于长的音乐播放，音效播放具有以下特点：
 
@@ -113,7 +113,7 @@ export class AudioController extends Component {
 
 更多对音频的播放控制，可以参考文档 [AudioSource 播放示例](./audioExample.md)。
 
-## Web 平台的播放限制
+### Web 平台的播放限制
 
 目前 Web 平台的声音播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 **AudioSource** 组件设置了 `playOnAwake`，也需要在触摸事件中手动播放音频，如下所示：
 
