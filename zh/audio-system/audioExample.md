@@ -67,22 +67,12 @@ export class audioManager {
      * @param {String} name 音效名称
      * @param {Number} volumeScale 播放音量倍数
      */
-    playSound (name:string,volumeScale:number = 1 ) {
-        const audioSource = audioManager._audioSource!;
+    playSound (name: string, volumeScale: number = 1 ) {
+       const audioSource = audioManager._audioSource!;
         assert(audioSource, 'AudioManager not inited!');
-
-        // 音效一般是多个的，不会只有一个
-        let path = 'gamePackage/audio/sound/';
-
-        resources.load(path + name, AudioClip, (err, clip) => {
-            if (err) {
-                warn('load audioClip failed: ', err);
-                return;
-            }
             
-            // 注意：第二个参数 “volumeScale” 是指播放音量的倍数，最终播放的音量为 “audioSource.volume * volumeScale”
-            audioSource.playOneShot(clip, volumeScale);
-        });
+        // 注意：第二个参数 “volumeScale” 是指播放音量的倍数，最终播放的音量为 “audioSource.volume * volumeScale”
+        audioSource.playOneShot(audioClip, volumeScale);
 
     }
     // 设置音乐音量
@@ -115,7 +105,6 @@ export class GameRoot extends Component {
 
 > **注意**：该问题将在未来版本中解决，请关注版本公告。
 
-Creator 在范例项目 **快上车**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）中提供了完整的封装好的音效播放管理器的使用示例。开发者可打开 Dashboard 的 **项目** 页面，点击右下角的 **新建** 按钮，进入新建项目页面，即可看到 **Example Taxi Game** 范例项目，根据需要填写项目名称和项目位置后即可创建并打开快上车范例：
+以上示例是提供了一种 AudioScore 组件式播放的范例，并不是特别完整。在 Creator 的范例项目 **快上车**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）中提供了完整的封装好的音效播放管理器的使用示例。开发者可打开 Dashboard 的 **项目** 页面，点击右下角的 **新建** 按钮，进入新建项目页面，即可看到 **Example Taxi Game** 范例项目，根据需要填写项目名称和项目位置后即可创建并打开快上车范例：
 
 ![audioEdit](audio/audioEdit.png)
-
