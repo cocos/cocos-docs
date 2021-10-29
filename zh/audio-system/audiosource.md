@@ -1,11 +1,10 @@
 # AudioSource 组件参考
 
-AudioSource 组件用于播放音乐和音效。
+AudioSource 组件用于控制音乐和音效的播放。
 
 ![audioSource](audio/audiosource.png)
 
 在 **层级管理器** 中选中节点，然后点击 **属性检查器** 下方的 **添加组件** 按钮，选择 **Audio -> AudioSource** 即可添加 AudioSource 组件到节点上。
-
 
 ## AudioSource 属性
 
@@ -22,10 +21,10 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 
 另外，Creator 根据音频的长短将其分为较长的 **音乐** 和短的 **音效** 两种：
 
-- 若通过编辑器控制音频播放，则播放音乐和音效没有区别，但推荐使用长音乐。播放详情可参考下文 **通过编辑器播放** 部分的内容。
+- 若通过编辑器控制音频播放，则播放音乐和音效没有区别，但推荐使用长音乐。详情可参考下文 **通过编辑器播放** 部分的内容。
 - 若通过脚本控制音频播放，则 AudioSource 组件额外提供了 `playOneShot` 接口用于播放短音效，详情请参考下文 **音效播放** 部分的内容。
 
->**注意**：Cocos Creator 3.x 废弃了 v2.x 中的 audioEngine API，统一使用 AudioSource 播放音频。
+> **注意**：Cocos Creator 3.x 移除了 v2.x 中的 `audioEngine` API，统一使用 AudioSource 组件播放音频。
 
 ### 通过编辑器
 
@@ -34,17 +33,17 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 
     ![audioClip](audio/audiocilp.gif)
 
-3. 根据需要对 AudioSource 组件的其他参数项进行设置即可。
+3. 根据需要对 AudioSource 组件的其他属性进行设置即可。
 
 ### 通过脚本
 
-如果要更灵活地控制 AudioSource 的播放，可以将自定义脚本添加到 **AudioSource 组件** 所在的节点，然后调用相应的 API 即可通过脚本控制。
+如果要更灵活地控制 AudioSource 播放音频，可以将自定义脚本添加到 **AudioSource 组件** 所在的节点，然后调用相应的 API 来控制音频播放。
 
 1. 在节点上添加 AudioSource 组件并指定音频资源。
 2. 在 **资源管理器** 中 [创建脚本](../scripting/setup.md) 并命名（例如 `AudioController`），然后双击打开脚本进行编写，内容如下：
 
     ```typescript
-   import { _decorator, Component, Node, AudioSource, assert } from 'cc';
+    import { _decorator, Component, Node, AudioSource, assert } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass("AudioController")
@@ -91,6 +90,7 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 // AudioController.ts
 import { AudioClip, AudioSource, Component, _decorator } from 'cc';
 const { ccclass, property } = _decorator;
+
 @ccclass("AudioController")
 export class AudioController extends Component {     
 
@@ -106,15 +106,15 @@ export class AudioController extends Component {
 }
 ```
 
-> **注意**：`playOneShot` 是一次性播放操作，播放后的声音没法暂停或停止播放，也没法监听播放结束的事件回调。
+> **注意**：`playOneShot` 是一次性播放操作，播放后的音效无法暂停或停止播放，也无法监听播放结束的事件回调。
 
-更多声音接口的脚本接口请参考 [AudioSource API](__APIDOC__/zh/classes/component_audio.audiosource.html)。
+更多音频相关的脚本接口请参考 [AudioSource API](__APIDOC__/zh/classes/component_audio.audiosource.html)。
 
 更多对音频的播放控制，可以参考文档 [AudioSource 播放示例](./audioExample.md)。
 
 ### Web 平台的播放限制
 
-目前 Web 平台的声音播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 **AudioSource** 组件设置了 `playOnAwake`，也需要在触摸事件中手动播放音频，如下所示：
+目前 Web 平台的音频播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 **AudioSource** 组件设置了 `playOnAwake`，也需要在触摸事件中手动播放音频，如下所示：
 
 ```typescript
 // AudioController.ts
