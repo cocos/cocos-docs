@@ -22,7 +22,7 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 
 另外，Creator 根据音频的长短将其分为较长的 **音乐** 和短的 **音效** 两种：
 
-- 若通过编辑器控制音频播放，则播放音乐和音效没有区别，但推荐使用长音乐
+- 若通过编辑器控制音频播放，则播放音乐和音效没有区别，但推荐使用长音乐。播放详情可参考下文 **通过编辑器播放** 部分的内容。
 - 若通过脚本控制音频播放，则 AudioSource 组件额外提供了 `playOneShot` 接口用于播放短音效，详情请参考下文 **音效播放** 部分的内容。
 
 >**注意**：Cocos Creator 3.x 废弃了 v2.x 中的 audioEngine API，统一使用 AudioSource 播放音频。
@@ -31,7 +31,6 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 
 1. 在节点上添加 AudioSource 组件。
 2. 将所需的音频资源从 **资源管理器** 拖拽到 AudioSource 组件的 Clip 属性框中，如下所示：
-
 
     ![audioClip](audio/audiocilp.gif)
 
