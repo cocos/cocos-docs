@@ -285,7 +285,7 @@ pass.setUniform(hColor, color);
 | 宏定义 | 说明 |
 | :---- | :--- |
 | USE_BATCHING | 是否启用动态 VB 合并式合批 |
-| USE_INSTANCING | 是否启用动态 instancing |
+| USE_INSTANCING | 是否启用动态 instancing* |
 | HAS_SECOND_UV | 是否存在第二套 UV |
 | ALBEDO_UV | 指定采样漫反射贴图使用的 uv，默认为第一套 |
 | EMISSIVE_UV | 指定采样自发光贴图使用的 uv，默认为第一套 |
@@ -298,3 +298,5 @@ pass.setUniform(hColor, color);
 | USE_METALLIC_ROUGHNESS_MAP | 是否使用金属粗糙二合一贴图（**按 glTF 标准，GB 通道必须分别对应粗糙和金属度**） |
 | USE_OCCLUSION_MAP | 是否使用遮挡贴图（**按 glTF 标准，只会使用 R 通道**） |
 | USE_EMISSIVE_MAP | 是否使用自发光贴图 |
+
+> *注意：Instancing 只应该在场景中有大量相同模型的实例时启用，适当合理的用例可以有不错的性能提升，但过度使用反而很可能会因为额外的维护开销导致性能下降。
