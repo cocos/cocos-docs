@@ -56,7 +56,7 @@ Right-click the node that needs to clear all animation data (keyframes), then se
 
 #### Migrating node data
 
-Right-click the node that needs to migrate all animation data, then select **Migrate Data**, the node will show a dynamic dashed box, when the mouse moves to other nodes, it will show the prompt of "Migrate data to this node", click it and select **Migrate** in the pop-up window. If there is no need to migrate, just select **Cancel**.
+Right-click the node that needs to migrate all animation data, then select **Move Data**, the node will show a dynamic dashed box, when the mouse moves to other nodes, it will show the prompt of "Move data to this node", click it and select **Move** in the pop-up window. If there is no need to migrate, just select **Cancel**.
 
 ![move data](edit-animation-clip/move-data.png)
 
@@ -103,7 +103,7 @@ As with nodes, there is a possibility of missing animation properties. For examp
 
 ### Node / Property track keyframe data editing
 
-The **Animation** panel has two types of view for keyframes: **Keyframe Editing View and Curve Editing View**. When you enter the **Animation** panel, the default is keyframe mode, by clicking the switch view button on the side of the property list ![curve btn](animation-curve/curve-btn.png) to switch the keyframes in the property track area to the curve editing view, and click it again to return to the keyframe editing view.
+The **Animation** panel has two types of view for keyframes: **Keyframe Editing View** and **Curve Editing View**. When you enter the **Animation** panel, the default is keyframe mode, by clicking the switch view button on the side of the property list ![curve btn](animation-curve/curve-btn.png) to switch the keyframes in the property track area to the curve editing view, and click it again to return to the keyframe editing view.
 
 #### Keyframe Editing Mode
 
