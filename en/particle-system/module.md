@@ -26,6 +26,5 @@ ParticleSystem stores the initial state of particle emission. After particle emi
 
 [TrailModule](trail-module.md)
 
-### Resource Culling
 
-The modules of each particle system exist as independent objects, and each module stores some module-related data, so for the modules that are not checked for use, the recorded data is useless data. When developers do not need to dynamically open these unedited modules at runtime, they can check the EnableCulling option at the bottom of the Inspector panel of ParticleSystem to remove these useless data to reduce resource consumption.
+
