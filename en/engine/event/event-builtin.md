@@ -152,7 +152,7 @@ Pause node system events
 // Pause all node system events registered on the current node. Node system events include Touch and Mouse Events.
 // If a parameter true is passed, the API will pause node system events on this node and all its children.
 // Example
-this.node.pauseSystemEvents();
+this.node.pauseSystemEvents(true);
 ```
 
 Resume node system events
@@ -161,5 +161,5 @@ Resume node system events
 // Resume all node system events registered on the current node. Node system events include Touch and Mouse Events.
 // If a parameter true is passed, the API will resume node system events on this node and all its children.
 // Example
-this.node.resumeSystemEvents();
+this.node.resumeSystemEvents(true);
 ```
