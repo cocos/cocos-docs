@@ -281,7 +281,7 @@ Accordingly, these are the available macros:
 | Macro | Info |
 | :---- | :--- |
 | USE_BATCHING | Whether to enable dynamic VB-merging-style batching |
-| USE_INSTANCING | Whether to enable dynamic instancing* |
+| USE_INSTANCING | Whether to enable dynamic instancing[^1] |
 | HAS_SECOND_UV | Whether there is a second set of UV |
 | ALBEDO_UV | Specifies the uv set to use when sampling albedo texture, default to the first set |
 | EMISSIVE_UV | Specifies the uv set to use when sampling emissive texture, default to the first set |
@@ -295,4 +295,4 @@ Accordingly, these are the available macros:
 | USE_OCCLUSION_MAP | Whether to enable occlusion texture<br>Only the **red** channel will be used, as per glTF spec |
 | USE_EMISSIVE_MAP | Whether to enable emissive texture |
 
-> *Note: Instancing should only be enabled when there will be many instances of the same model in the scene. Careful usages can lead to better performance, but over populate the materials with this flag will have performace penalties.
+[^1]: Instancing should only be enabled when there will be many instances of the same model in the scene. Careful usages can lead to better performance, but over populate the materials with this flag will have performace penalties.
