@@ -51,4 +51,8 @@ The __Cocos Creator__ particle system uses modules to organize functions, includ
 
 ## Particle Culling
 
-Particle System emitter support frustum & aabb culling in runtime. If emitter is culled, particle system of the emitter will stop simulating until we see the emitter again. Click __RenderCulling__ option to open particle culling and then the emitter will calculate aabb automatically. There are 3 culling mode (Pause, Pause and Catchup, Always Simulate) and culling mode define the culled emitter ‘s behavior. You can change bounding box size in **AabbHalfX**, **AabbHalfY** and **AabbHalfZ**. Click **Regenerate bounding box** button will recalculate aabb. It's better to enable culling when the particle simulation is complex than the simple one. 
+Cocos Creator 3.4 adds a new **RenderCulling** option to the particle system to enable particle culling. When this option is enabled, the particle emitter will automatically calculate a bounding box, which will be used to cull the particle emitter at runtime depending on whether the bounding box is within the visible range of the camera, or if not, then it will be culled. The size of the bounding box can be adjusted via the **AabbHalf** property, and click the **Regenerate bounding box** button if the bounding box needs to be recalculated.
+
+The behavior of the culled particle emitter can be set in the **cullingMode** option, which includes four modes: **Pause**, **Pause and Catchup**, and **Always Simulate**.
+
+Particle culling is performed every frame, which is suitable for some time-consuming effects, so consider disabling this option if the number of particles is less.
