@@ -10,8 +10,8 @@ To use `Slider`, please refer to the [Slider API](__APIDOC__/en/classes/ui.slide
 
 ## Slider Properties
 
-| Property     | Function Explanation |
-| -------------- | -----------          |
+| Property     | Description |
+| :------------- | :----------          |
 | Handle         | The button part of the __Slider__ that allows to adjust value by sliding the button  |
 | Direction      | The direction of the slider, including __Horizontal__ and __Vertical__ |
 | Progress       | Current progress value, the value range is 0 ~ 1  |
@@ -40,7 +40,7 @@ Usually a __Slider__ node tree as shown below:
 The event callback added by this method is the same as the event callback added by the editor, all added by code. First you need to construct a `EventHandler` object, and then set the corresponding `target`, `component`, `handler` and `customEventData` parameters.
 
 ```ts
-import { _decorator, Component, Event, Node, SliderComponent, EventHandler } from 'cc';
+import { _decorator, Component, Event, Node, Slider, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
@@ -54,8 +54,8 @@ export class example extends Component {
         sliderEventHandler.handler = 'callback';
         sliderEventHandler.customEventData = 'foobar';
 
-        const slider = this.node.getComponent(SliderComponent);
-        slider.slideEvents.push(sliderEventHandler);
+        const slider = this.node.getComponent(Slider);
+        slider!.slideEvents.push(sliderEventHandler);
     }
 
     callback(event: Event, customEventData: string){
@@ -72,19 +72,19 @@ By `slider.node.on('slide', ...)` way to add.
 ```ts
 // Suppose we add event handling callbacks to the onLoad method of a component and perform event handling in the callback function:
 
-import { _decorator, Component, SliderComponent } from 'cc';
+import { _decorator, Component, Slider } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
 export class example extends Component {
-    @property(SliderComponent)
-    slider: SliderComponent | null = null;
+    @property(Slider)
+    slider: Slider | null = null;
     onLoad(){
-       this.slider.node.on('slider', this.callback, this);
+       this.slider!.node.on('slide', this.callback, this);
     }
 
-    callback(slider: SliderComponent){
-        // The parameter of the callback is the Slider component. Note that events registered this way cannot pass customEventData
+    callback(slider: Slider) {
+        // The parameter of the callback is the Slider component. Note that events registered this way cannot pass "customEventData"
     }
 }
 ```

@@ -174,6 +174,7 @@
             - [ScrollBar Component Reference](ui-system/components/editor/scrollbar.md)
             - [ProgressBar Component Reference](ui-system/components/editor/progress.md)
             - [LabelOutline Component Reference](ui-system/components/editor/label-outline.md)
+            - [LabelShadow Component Reference](ui-system/components/editor/label-shadow.md)
             - [Toggle Component Reference](ui-system/components/editor/toggle.md)
             - [ToggleContainer Component Reference](ui-system/components/editor/toggleContainer.md)
             - [Slider Component Reference](ui-system/components/editor/slider.md)
