@@ -1,5 +1,33 @@
 {
+    "header-increment": true,
+    "first-header-h1": true,
+    "ul-style": {
+        "style": "dash"
+    },
+    "list-indent": true,
+    "ul-indent": {
+        "indent": 4
+    },
+    "no-trailing-spaces": {
+        "br_spaces": 0
+    },
+    "no-multiple-blanks": true,
+    "commands-show-output": true,
+    "no-missing-space-atx": true,
+    "no-multiple-space-atx": true,
+    "no-multiple-space-blockquote": true,
+    "blanks-around-fences": true,
+    "blanks-around-lists": false,
+    "no-bare-urls": true,
+    "no-space-in-emphasis": true,
+    "no-space-in-code": true,
+    "no-space-in-links": true,
     "fenced-code-language": false,
     "ol-prefix": false,
+    "single-trailing-newline": true,
+    "code-fence-style": true,
+    "no-duplicate-header": false,
+    "no-empty-links": true,
+    "no-inline-html": false,
     "line-length": false
 }
