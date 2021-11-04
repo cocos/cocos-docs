@@ -17,4 +17,4 @@ GPU 渲染器目前是在 CPU 端生成粒子，只提交初始参数的 vb、ib
 | **ParticleMaterial** | 用于粒子渲染的材质。<br>当使用 CPU 渲染器时，也就是不勾选 **UseGPU** 的情况下，材质使用的 effect 只能是 `builtin-particle`，不支持其它的 effect。<br>当使用 GPU 渲染器时，也就是勾选 **UseGPU** 的情况下，材质使用的 effect 只能是 `builtin-particle-gpu`，不支持其它的 effect。 |
 | **TrailMaterial** | 用于渲染粒子拖尾的材质，材质的 effect 只支持 `builtin-particle-trail`，不支持其它的 effect。 |
 | **UseGPU** | 是否使用 GPU 渲染器进行粒子的渲染，默认不勾选。<br>不勾选时，使用 CPU 渲染器 **ParticleSystemRendererCPU** 进行粒子的渲染。<br>勾选时，使用 GPU 渲染器 **ParticleSystemRendererGPU** 进行粒子的渲染。 |
-| **AlignSpace** | 粒子对齐方向空间，包括世界、局部、视向空间，默认使用视向空间。选择不同空间可以决定粒子初始方向，例如局部空间的粒子方向就是粒子节点的方向。 |
+| **AlignSpace** | 粒子对齐方向空间，可选项包括 **View**（视角空间）、**World**（世界空间）和 **Local**（局部空间），默认使用视角空间。选择不同空间可以决定粒子初始方向：<br>选择 **View** 时，粒子网格的旋转方向将会跟随摄像机的视角方向；<br>选择 **World** 时，粒子网格的方向将会使用发射器所在节点的世界空间旋转方向；<br>选择 **Local** 时，粒子网格将会使用发射器所在节点的局部空间旋转方向。 |
