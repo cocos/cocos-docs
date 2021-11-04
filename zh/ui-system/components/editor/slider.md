@@ -47,10 +47,13 @@ const { ccclass, property } = _decorator;
 
 @ccclass("example")
 export class example extends Component {
-    onLoad(){
+
+    onLoad () {
         const sliderEventHandler = new EventHandler();
-        sliderEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-        sliderEventHandler.component = 'example';//这个是脚本类名
+        // 这个 node 节点是事件处理脚本组件所属的节点
+        sliderEventHandler.target = this.node; 
+        // 这个是脚本类名
+        sliderEventHandler.component = 'example';
         sliderEventHandler.handler = 'callback';
         sliderEventHandler.customEventData = 'foobar';
 
@@ -58,7 +61,7 @@ export class example extends Component {
         slider!.slideEvents.push(sliderEventHandler);
     }
 
-    callback(event: Event, customEventData: string){
+    callback(event: Event, customEventData: string) {
         //这里 event 是一个 Touch Event 对象，你可以通过 event.target 取到事件的发送节点
         // 这里的 customEventData 参数就等于之前设置的 'foobar'
     }
@@ -70,16 +73,18 @@ export class example extends Component {
 通过 `slider.node.on('slide', ...)` 的方式来添加
 
 ```ts
-// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
+// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理
 
 import { _decorator, Component, Slider } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
 export class example extends Component {
+
     @property(Slider)
     slider: Slider | null = null;
-    onLoad(){
+
+    onLoad () {
        this.slider!.node.on('slide', this.callback, this);
     }
 

@@ -45,9 +45,10 @@ const { ccclass, property } = _decorator;
 
 @ccclass("example")
 export class example extends Component {
-    onLoad(){
+
+    onLoad () {
         const sliderEventHandler = new EventHandler();
-        // This Node is the node to which your event processing code component belongs
+        // This Node is the node to which your event processing script component belongs
         sliderEventHandler.target = this.node;
         // This is the script class name
         sliderEventHandler.component = 'example';
@@ -58,7 +59,7 @@ export class example extends Component {
         slider!.slideEvents.push(sliderEventHandler);
     }
 
-    callback(event: Event, customEventData: string){
+    callback(event: Event, customEventData: string) {
         // The event here is a Touch Event object, and you can get the send node of the event by event.target
         // The customEventData parameter here is equal to the "foobar" you set before
     }
@@ -70,16 +71,18 @@ export class example extends Component {
 By `slider.node.on('slide', ...)` way to add.
 
 ```ts
-// Suppose we add event handling callbacks to the onLoad method of a component and perform event handling in the callback function:
+// Suppose we add event handling callbacks to the onLoad method of a component and perform event handling in the callback function
 
 import { _decorator, Component, Slider } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
 export class example extends Component {
+
     @property(Slider)
     slider: Slider | null = null;
-    onLoad(){
+
+    onLoad () {
        this.slider!.node.on('slide', this.callback, this);
     }
 
