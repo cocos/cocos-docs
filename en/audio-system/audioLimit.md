@@ -1,4 +1,4 @@
-## Compatibility Notes
+# Compatibility Notes
 
 ## Loading modes for audio assets on the Web platform
 

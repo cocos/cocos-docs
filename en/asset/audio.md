@@ -4,7 +4,8 @@ Cocos Creator supports importing most common audio file formats, just drag and d
 
 ![audio-clip](audio-clip.png)
 
-The audio can be divided into longer length **Music** and shorter length **Sound Effects** based on their length. The Creator controls the playback of different audio sources through the AudioSource component to implement in-game background music and sound effects. For more details, please refer to the [AudioSource Component Reference](../audio-system/audiosource.md).
+The audio can be divided into longer length **Music** and shorter length **Sound Effects** based on their length. The Creator controls the playback of different audio assets through the AudioSource component to implement in-game background music and sound effects. For more details, please refer to the [AudioSource Component Reference](../audio-system/audiosource.md).
+
 
 ## Supported Audio Formats
 

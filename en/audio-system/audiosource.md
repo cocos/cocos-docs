@@ -10,7 +10,7 @@ Select the node in the **Hierarchy** panel, then click the **Add Component** but
 
 |Property | Description |
 |:-- | :-- |
-|Clip | The added [audio source](../asset/audio.md) for playback , default is empty, click the arrow button behind it to select. |
+|Clip | The added [audio asset](../asset/audio.md) for playback , default is empty, click the arrow button behind it to select. |
 |Loop | Whether to loop. |
 |PlayOnAwake | Whether the audio will be played automatically when the game is running (component is active). |
 |Volume | Volume, in the range 0~1. |
@@ -29,7 +29,8 @@ In addition, the Creator divides audio into longer **music** and shorter **sound
 ### Via the editor
 
 1. Add the AudioSource component to the node.
-2. Drag and drop the required audio resource from the **Assets** panel into the Clip property box of the AudioSource component as follows:
+2. Drag and drop the required audio asset from the **Assets** panel into the **Clip** property box of the AudioSource component as follows:
+
 
     ![audioClip](audio/audiocilp.gif)
 
@@ -39,7 +40,8 @@ In addition, the Creator divides audio into longer **music** and shorter **sound
 
 For more flexible control of AudioSource playback, you can add a custom script to the node where the **AudioSource component** is located and then call the appropriate API to control audio playback.
 
-1. Add the AudioSource component to the node and specify the audio resource.
+1. Add the AudioSource component to the node and specify the audio asset.
+
 2. [Create script](../scripting/setup.md) in the **Assets** panel and name it (e.g. ``AudioController``), then double-click to open the script for writing, as follows:
 
     ```typescript
@@ -118,6 +120,7 @@ Audio playback on the Web platform currently requires compliance with the latest
 
 ```typescript
 // AudioController.ts
+
 import { _decorator, Component, Node, AudioSource, find } from 'cc';
 const { ccclass, property } = _decorator;
 
