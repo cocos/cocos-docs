@@ -106,7 +106,7 @@ function updateCb (event) {
 
 Definitely a developer will ask, if the process of updating the network will be how? The answer is that the hot update manager supports resume broken transfer, and also supports file-level and byte-level breakpoints.
 
-So what exactly is it done? First of all, we use the manifest file to identify the status of each asset, such as not started, download, download success, in the hot update process, the file download will be identified to the memory of the manifest, when the number of files to download each The progress node (defaults to **10%** of a node) will serialize manifest in memory and save it to a temporary folder. The concrete steps are shown in the flowcharts of the multithreaded concurrent download asset section:
+So what exactly is it done? First of all, we use the manifest file to identify the status of each asset, such as not started, download, download success, in the hot update process, the file download will be identified to the memory of the manifest, when the number of files to download each The progress node (defaults to **10%** of a node) will serialize manifest in memory and save it to a temporary folder. The concrete steps are shown in the flowcharts of the multi-threaded concurrent download asset section:
 
 ![](hot-update/am-part1.png)
 
@@ -179,7 +179,7 @@ If you want to use hot updated assets, you need to restart the game.
 There are two reasons, the first is that the updated script requires a clean JS environment. The second is the assets configuration that used by `AssetManager` needs to be updated to the latest to load the scene and assets properly.
 
 1. Refresh of JS script
-    
+
     Before the hot update, all the scripts in the game have been executed, and all the classes, components, objects have already been stored in JS context. So if you load the script directly after the hot update without restarting the game, the classes and objects of the same name will be overwritten, but the objects created by the old scripts will still exist. Further, as a result of the overwriting, their dynamic state is also reset, causing the two versions of the objects to mix together, which comes with an overhead of memory usage.
 
 2. Refresh of asset configuration
@@ -215,9 +215,9 @@ The above sections describe most of the implementation and usage of the Hot Upda
 Hot update is a frequent requirement for game developers, and multiple hot updates may be released during the upgrade from one major version to another. So the following two questions are of more concern to developers:
 
 1. What happens during a local cache coverage?
-    
+
     When a local cached version already exists in the user's environment, the Assets Manager compares the cached version and the in-app version, and then uses the newer version as the local version. If the remote version is updated at this time, the Assets Manager uses a temporary folder to download the remote version during the update process. When the remote version is successfully updated, the contents of the temporary folder are copied to the local cache folder. If there are files of the same name in the local cache folder, they are overridden. And the other files are retained, because these files may still be valid, they just have not been modified in this release. Finally delete the temporary folder.
-   
+
     So, in theory, there's no problem with continuous hot update for minor version.
 
 2. How to clean the local cache during a game's major release?

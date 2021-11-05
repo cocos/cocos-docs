@@ -39,14 +39,14 @@ When the package is too large (in size), it is necessary to upload resources to 
 
 2. If the main bundle needs to be configured as a remote bundle, check **Main Bundle is Remote** in the **Build** panel.
 
-3. Then check **MD5 Cache** in the **Build** panel, set **Resource Server Address**, and click **Build**. 
+3. Then check **MD5 Cache** in the **Build** panel, set **Resource Server Address**, and click **Build**.
 
 4. After the build is complete, upload the `remote` folder in the release package directory to the server which is filled in the previous step.
 
 5. Delete the `remote` folder from the local release package directory.
 
 > **Note**: During the testing phase of WeChat Mini Games, developers may not be able to deploy the project to the official server, and need to test it on the local server. Please open **Tools -> Details -> Local Settings** page in the menu bar of WeChat DevTools, and check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option.
-> 
+>
 > ![details](./cache-manager/details.png)
 
 ### Querying cache files

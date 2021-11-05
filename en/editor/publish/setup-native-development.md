@@ -76,7 +76,7 @@ We have received lots of feedback about native packing in the public beta, and s
 
 1. Package name issue
 
-    Check the **Game Package Name** in the **Build** panel. Please refer to the [Build Options Description](./native-options.md#build-options) in the corresponding native platform for specific naming conventions.
+    Check the **Game Package Name** in the **Build** panel. Please refer to the [Build Options Description](./native-options.md#build-options) documentation in the corresponding native platform for specific naming conventions.
 
 2. Android built successfully, but prompts `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...` in runtime.
 

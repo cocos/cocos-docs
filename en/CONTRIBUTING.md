@@ -295,3 +295,17 @@ Appropriate spaces can be reserved before and after for easy editing.
 - json -> JSON
 - js or JS -> JavaScript
 - ts or TS -> TypeScript
+
+## Footnote
+
+Example:
+
+Text prior to footnote reference.\[^1]
+
+\[^1]: Comment to include in footnote.
+
+The effect is as follows:
+
+Text prior to footnote reference.[^1]
+
+[^1]: Comment to include in footnote.
