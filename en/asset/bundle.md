@@ -4,7 +4,7 @@
 
 Starting with v2.4, Creator officially supports **Asset Bundle**. The Asset Bundle is a modular resource tool that allows developers to divide the resources such as textures, scripts, scenes, etc. into different Asset Bundles according to the project requirements. Then, as the game runs, load different Asset Bundles as needed to minimize the number of resources to be loaded at startup. thus reducing the time required for the first download and loading of the game.
 
-The Asset Bundle can be placed in different places as needed, such as on a remote server, locally, or in a subpackage of a mini game platform. It also can be reused across projects to load Asset Bundle in subprojects.
+The Asset Bundle can be placed in different places as needed, such as on a remote server, locally, or in a subpackage of a mini game platform. It also can be reused across projects to load Asset Bundle in sub-projects.
 
 ## The built-in Asset Bundle
 
@@ -62,6 +62,7 @@ The custom Asset Bundle is configured in **folders**. When we select a folder in
 After the configuration, click the **green tick button** at the top right of the panel, and the folder will be configured as an Asset Bundle, then select the corresponding platform in the **Build** panel to build.
 
 > **Notes**:
+>
 > 1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.
 > 2. The [mini game subpackage](../editor/publish/subpackage.md) can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
 > 3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.

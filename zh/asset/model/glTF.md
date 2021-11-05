@@ -20,7 +20,7 @@ Creator 支持 glTF 中指定以下形式的 URI：
 
 |  glTF 资源  | Cocos Creator 资源 |
 | :---------- | :---------------- |
-| [glTF 场景](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-scene)     | 预制体  |
+| [glTF 场景](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-scene)     | 预制件  |
 | [glTF 网格](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-mesh)      | 网格    |
 | [glTF 蒙皮](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-skin)      | 骨骼    |
 | [glTF 材质](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#reference-material)  | 材质    |
@@ -30,17 +30,17 @@ Creator 支持 glTF 中指定以下形式的 URI：
 
 ### glTF 场景
 
-导入后，glTF 场景将转换为 Creator 中的预制体资源，glTF 场景中递归包含的节点也将按照相同层级关系一一转换为预制体中的节点。
+导入后，glTF 场景将转换为 Creator 中的预制件资源，glTF 场景中递归包含的节点也将按照相同层级关系一一转换为预制件中的节点。
 
 #### 场景根节点
 
-预制体将使用一个不带任何空间转换信息的节点作为根节点，glTF 场景的所有 [根节点](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#scenenodes) 将作为该节点的子节点。
+预制件将使用一个不带任何空间转换信息的节点作为根节点，glTF 场景的所有 [根节点](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#scenenodes) 将作为该节点的子节点。
 
 #### 节点转换
 
-glTF 节点中的属性将按照下表中的映射关系转换为预制体节点中的属性：
+glTF 节点中的属性将按照下表中的映射关系转换为预制件节点中的属性：
 
-| glTF 节点属性  | 预制体节点属性 |
+| glTF 节点属性  | 预制件节点属性 |
 | :----------- | :----------- |
 | [层级关系](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodechildren) | 层级关系              |
 | [位移](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodetranslation) | 位置                  |
@@ -53,7 +53,7 @@ glTF 节点中的属性将按照下表中的映射关系转换为预制体节点
 
 #### 网格渲染器
 
-若 glTF 节点引用了网格，那么导入后相对应的预制体节点也会添加网格渲染组件（MeshRenderer）。若该 glTF 节点还引用了蒙皮，那么相对应的预制体节点还会添加蒙皮网格渲染组件（SkinnedMeshRenderer）。
+若 glTF 节点引用了网格，那么导入后相对应的预制件节点也会添加网格渲染组件（MeshRenderer）。若该 glTF 节点还引用了蒙皮，那么相对应的预制件节点还会添加蒙皮网格渲染组件（SkinnedMeshRenderer）。
 
 （蒙皮）网格渲染组件中的网格、骨骼和材质，都会与转换后的 glTF 网格、蒙皮、材质资源一一对应。
 

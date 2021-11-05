@@ -176,6 +176,7 @@
             - [ScrollBar 组件参考](ui-system/components/editor/scrollbar.md)
             - [ProgressBar 组件参考](ui-system/components/editor/progress.md)
             - [LabelOutline 组件参考](ui-system/components/editor/label-outline.md)
+            - [LabelShadow 组件参考](ui-system/components/editor/label-shadow.md)
             - [Toggle 组件参考](ui-system/components/editor/toggle.md)
             - [ToggleContainer 组件参考](ui-system/components/editor/toggleContainer.md)
             - [Slider 组件参考](ui-system/components/editor/slider.md)

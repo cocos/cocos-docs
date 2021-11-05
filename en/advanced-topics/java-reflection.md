@@ -45,7 +45,7 @@ The method signature is a little complex. The simplest signature is `()V`, it re
 - `(I)I` represents a method which has a int parameter and a int return value.
 - `(IF)Z` represents a method which has a int parameter and a float parameter, and returns boolean.
 
-The symbols in brackets represent the type of parameters, and the symbol after bracket represent the type of return value. Because methods are allowed to be overloaded in Java, there can be multiple methods which hava the same method name, but different parameters and return value. The method signature is used to help identifying these methods.
+The symbols in brackets represent the type of parameters, and the symbol after bracket represent the type of return value. Because methods are allowed to be overloaded in Java, there can be multiple methods which have the same method name, but different parameters and return value. The method signature is used to help identifying these methods.
 
 Currently, Cocos Creator supports four Java types:
 
@@ -54,7 +54,7 @@ Currently, Cocos Creator supports four Java types:
 | **int**       | I         |
 | **float**     | F         |
 | **boolean**   | Z         |
-| **String**    | Ljava / lang / String; |
+| **String**    | Ljava/lang/String; |
 
 ## Parameters
 

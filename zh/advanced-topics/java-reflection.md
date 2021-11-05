@@ -55,7 +55,7 @@ public class Test {
 | int     | I   |
 | float   | F   |
 | boolean | Z   |
-| String  | Ljava / lang / String; |
+| String  | Ljava/lang/String; |
 
 ## 参数
 

@@ -60,7 +60,7 @@ This option is used to encrypt the published script. The jsc file will be genera
 
 ### Android Platform
 
-Android platform build options：
+Android platform build options:
 
 ![Android build options](publish-native/android-options.png)
 
