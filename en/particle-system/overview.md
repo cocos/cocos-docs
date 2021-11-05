@@ -48,3 +48,11 @@ The __Cocos Creator__ particle system uses modules to organize functions, includ
 | [ShapeModule](emitter.md) | Used to control particle emission, including emission direction and speed, and supports predefined emission directions including squares, circles, cones, balls, and hemispheres. |
 | [AnimatorModule](module.md) |  Used to control the state update after particle emission. The supported functions are: [VelocityOvertimeModule](velocity-module.md), [ForceOvertimeModule](force-module.md), [SizeOvertimeModule](size-module.md), [RotationOvertimeModule](rotation-module.md), [ColorOvertimeModule](color-module.md), [TextureAnimationModule](texture-animation-module.md), [LimitVelocityOvertimeModule](limit-velocity-module.md), [TrailModule](trail-module.md). |
 | [ParticleSystemRenderer](renderer.md) |  Used to generate the data needed for particle rendering. Including control related to vb, ib, rendering state. |
+
+## Particle Culling
+
+Cocos Creator 3.4 adds a new **RenderCulling** option to the particle system to enable particle culling. When this option is enabled, the particle emitter will automatically calculate a bounding box, which will be used to cull the particle emitter at runtime depending on whether the bounding box is within the visible range of the camera, or if not, then it will be culled. The size of the bounding box can be adjusted via the **AabbHalf** property, and click the **Regenerate bounding box** button if the bounding box needs to be recalculated.
+
+The behavior of the culled particle emitter can be set in the **cullingMode** option, which includes four modes: **Pause**, **Pause and Catchup**, and **Always Simulate**.
+
+Particle culling is performed every frame, which is suitable for some time-consuming effects, so consider disabling this option if the number of particles is less.
