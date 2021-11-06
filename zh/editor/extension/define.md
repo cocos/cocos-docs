@@ -40,7 +40,8 @@
 
 类型 {string} 可选
 
-描述扩展支持的编辑器版本，符合 `semver` 语义化版本控制规范。
+描述扩展支持的编辑器版本，符合 [`semver` 语义化版本控制规范](https://semver.org/)。
+
 ## author
 
 类型 {string} 可选
