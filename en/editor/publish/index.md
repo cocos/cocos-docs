@@ -11,26 +11,11 @@ The preparation that needs to be done before publishing includes getting familia
 
 ## Publishing Platforms
 
-Currently, the web, native and mini-game platforms supported by Cocos Creator include:
+Currently, Cocos Creator supports publishing to Web, Native and mini-game platforms. Please refer to the following documentation for details:
 
 - [Publish to Web platforms](publish-web.md)
 - [Publish to Native platforms](native-options.md)
-    - [Install and configure the native environment](setup-native-development.md)
-    - [Native platform JavaScript debugging](debug-jsb.md)
 - [Publish to Mini Game Platforms](publish-mini-game.md)
-    - [Publish to HUAWEI AppGallery Connect](publish-huawei-agc.md)
-    - [Publish to Alipay Mini Games](publish-alipay-mini-game.md)
-    - [Publish to ByteDance Mini Games](publish-bytedance-mini-game.md)
-    - [Publish to Cocos Play](publish-cocos-play.md)
-    - [Publish to Huawei Quick Games](publish-huawei-quick-game.md)
-    - [Publish to OPPO Mini Games](publish-oppo-mini-game.md)
-    - [Publish to vivo Mini Games](publish-vivo-mini-game.md)
-    - [Publish to Xiaomi Quick Games](publish-xiaomi-quick-game.md)
-    - [Publish to Baidu Mini Games](publish-baidu-mini-game.md)
-    - [Publish to WeChat Mini Games](publish-wechatgame.md)
-        - [WeChat Engine Plugin](wechatgame-plugin.md)
-        - [Access to WeChat PC Mini Games](publish-pc-wechatgame.md)
-    - [Access to Open Data Context](build-open-data-context.md)
 
 Developers can also publish projects via the command line. For details, please refer to the [Publish from the Command Line](publish-in-command-line.md) documentation.
 
