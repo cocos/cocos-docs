@@ -109,14 +109,7 @@ Check this option to package and publish the game to Google Play Instant. Google
 > **The following notes are required when using**:
 > 1. The Android Studio should be v4.0 and above.
 > 2. The Android Phone should be v6.0 and above. Devices with Android SDK version between 6.0 and 7.0 need to install Google Service Framework, while those with SDK version 8.0 or higher do not need it and can install it directly.
-> 3. If you compile for the first time, you need to open the built project with Android Studio to download **Google Play Instant Development SDK (Windows)** or **Instant Apps Development SDK (Mac)** support package. If the download fails, it is recommended to set up an HTTP proxy for Android Studio.
->
-> 1. The version of Android Studio must be 4.0 and above
->
-> 2. Android Phone 6.0 and above. Devices with the Android SDK version between 6.0 and 7.0 need to install the Google Service Framework, while those with the SDK version above 8.0 do not need it, and can be installed and used directly.
->
 > 3. For the first compilation, open the built project with Android Studio to download the **Google Play Instant Development SDK (windows)** or **Instant Apps Development SDK (Mac)** support package. If the download is unsuccessful, it is recommended to set up the HTTP proxy of Android Studio.
->
 > ![Google Play Instant](publish-native/sdk-android-instant.png)
 
 #### Make App Bundle (Google Play)
