@@ -262,6 +262,7 @@ export class AudioController extends Component {
 
     ```ts
     // 加载 texture
+
     // v2.x
     resources.load('background', cc.Texture2D, () => {});
     // v3.0
@@ -270,6 +271,7 @@ export class AudioController extends Component {
 
     ```ts
     // 加载 sprite frame
+
     // v2.x
     resources.load('background', cc.SpriteFrame, () => {});
     // v3.0

@@ -11,7 +11,7 @@ import * as modules from 'cc'; // 将整个 Cocos Creator 模块导入为命名�
 
 @_decorator.ccclass("MyComponent")
 export class MyComponent extends Component {
-    public v = new cc.Vec3();
+    public v = new modules.Vec3();
 }
 ```
 

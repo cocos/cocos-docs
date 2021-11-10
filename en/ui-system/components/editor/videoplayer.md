@@ -77,7 +77,7 @@ This method uses the same API that editor uses to add an event callback on Butto
 import { _decorator, Component, VideoPlayer } from 'cc';
 const { ccclass, type } = _decorator;
 
-@ccclass('cc.MyComponent')
+@ccclass('MyComponent')
 export class MyComponent extends Component {
     @type(VideoPlayer)
     videoPlayer = null;

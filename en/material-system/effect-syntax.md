@@ -19,8 +19,8 @@ Effect name is automatically generated based on the **filename** and **path** of
 Effect names can be directly used at runtime to acquire/use the `EffectAsset`:
 
 ```js
-const effect = cc.EffectAsset.get('builtin-unlit'); // this is the EffectAsset resource instance
-const mat = new cc.Material();
+const effect = EffectAsset.get('builtin-unlit'); // this is the EffectAsset resource instance
+const mat = new Material();
 mat.initialize({ effectName: 'builtin-standard' }); // now `mat` is a valid standard material
 ```
 

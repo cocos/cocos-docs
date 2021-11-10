@@ -11,7 +11,7 @@ import * as modules from 'cc'; // Import the entire Cocos Creator module as a na
 
 @_decorator.ccclass("MyComponent")
 export class MyComponent extends Component {
-    public v = new cc.Vec3();
+    public v = new modules.Vec3();
 }
 ```
 
