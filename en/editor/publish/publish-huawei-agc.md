@@ -84,7 +84,7 @@ Sign in to AppGallery Connect, click **My apps** and select the app. Then switch
 
     ![apk-list](./publish-huawei-agc/apk-list.png)
 
-2. For other configuration information, please refer to the [Releasing an App](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-release_app) documentation. After you have completed and confirmed all the information is in order, you can directly click the **Submit** button at the top right of the page. HUAWEI AppGallery will complete the review in 3~5 working days.
+2. For other configuration information, please refer to the [Releasing an App](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-release_app) documentation. After completing and confirming all of the information is in order, click the **Submit** button at the top right of the page. HUAWEI AppGallery will complete the review in 3~5 working days.
 
 ## Related Reference Links
 

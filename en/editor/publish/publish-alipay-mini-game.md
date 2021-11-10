@@ -2,15 +2,15 @@
 
 ## Environment Configuration
 
-- Download [Alipay Mini Program Studio](https://render.alipay.com/p/f/fd-jwq8nu2a/pages/home/index.html) on desktop and install it.
+- Download [Alipay Mini Program Studio](https://render.alipay.com/p/f/fd-jwq8nu2a/pages/home/index.html) to the desktop and install it.
 
 - Download [Alipay](https://mobile.alipay.com/index.htm) and install it on your mobile device.
 
-- The minimum version of Alipay client supported on Android is 10.1.75 and on iOS is 10.1.78.
+- The minimum version supported of the Alipay client on Android is 10.1.75 and on iOS is 10.1.78.
 
 ## Publishing Process
 
-Use Cocos Creator to open the project project to be published, select **Alipay Mini Game** in **Platform** of the **Build** panel, and then click **Build**.
+Use Cocos Creator to open the project to be published, select **Alipay Mini Game** in **Platform** of the **Build** panel, and then click **Build**.
 
 ![build option](./publish-alipay-mini-game/build_option.png)
 
@@ -33,13 +33,13 @@ Use **Alipay Mini Program Studio** to open the `alipay-mini-game` folder generat
 
 ## Resource management for Alipay mini-game environment
 
-Alipay mini-games are similar to WeChat mini-games in that there is a package size limit, and additional resources over **4MB** must be downloaded via network requests. <br>When the package size is too large, you can configure the **Resource Server Address** option in the **Build** panel to upload the resources to a remote server, please refer to the [Upload Resources to Remote Server](../../asset/cache-manager.md) documentation.
+Alipay mini-games are similar to WeChat mini-games in that there is a package size limit, and additional resources over **4MB** must be downloaded via network requests. <br>When the package size is too large, configure the **Resource Server Address** option in the **Build** panel to upload the resources to a remote server, please refer to the [Upload Resources to Remote Server](../../asset/cache-manager.md) documentation.
 
 It is recommended to save only the script files in the game package, and download all other resources from the remote server. Cocos Creator has already done the download, cache and version management of remote resources for you, please refer to the [Cache Manager](../../asset/cache-manager.md) documentation.
 
 ## Restrictions for Alipay mini-games
 
-Our work on adapting the Alipay mini-game is not completely finished yet, and it is known that the text rendering may not work well on low-end machines. And the following modules are still not supported:
+Work on adapting the Alipay mini-game is not completely finished yet, and it is known that the text rendering may not work well on low-end machines. And the following modules are still not supported:
 
 - WebView
 - VideoPlayer
