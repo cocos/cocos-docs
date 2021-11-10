@@ -1,5 +1,7 @@
 # Programming Language Support
 
+Cocos Creator supports both **TypeScript** and **JavaScript** programming languages. Note that JavaScript can only be imported as a [plugin script](external-scripts.md) to use.
+
 ## TypeScript
 
 Cocos Creator supports TypeScript 4.1.0. The following restrictions are based on TypeScript 4.1.0:

@@ -1,6 +1,6 @@
 # 语言支持
 
-Cocos Creator 支持 **TypeScript** 和 **JavaScript** 两种编程语言。
+Cocos Creator 支持 **TypeScript** 和 **JavaScript** 两种编程语言。但需要注意的是，**JavaScript** 只支持以 [插件脚本](external-scripts.md) 的形式导入使用。
 
 ## TypeScript
 
