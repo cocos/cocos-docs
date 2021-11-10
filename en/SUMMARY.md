@@ -62,6 +62,7 @@
     - [Programming Language Support](scripting/language-support.md)
     - [Scripting Basics](scripting/script-basics.md)
         - [Script Creation](scripting/setup.md)
+        - [Coding Environment Setup](scripting/coding-setup.md)
         - [Operating Environment](scripting/basic.md)
         - [Decorator](scripting/decorator.md)
         - [Property Attributes](scripting/reference/attributes.md)

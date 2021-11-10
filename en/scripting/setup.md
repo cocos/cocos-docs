@@ -43,7 +43,10 @@ Choose a favorite text-editing tool (such as: **Vim**, **Sublime Text**, **Web S
 
 By double-clicking the script resource, the script editor directly opens to allow for editing. When the script is edited and saved, then returned to the editor, Cocos Creator will automatically detect the changes to the script and compile it quickly.
 
-Before writing code, please read [Basics of Scripting](basic.md) documentation to learn more about scripts.
+Before writing code, please read the following documentations to learn more about scripts:
+
+- [Coding Environment Setup](coding-setup.md)
+- [Operating Environment](basic.md)
 
 ## Add a Script to a Scene Node
 
