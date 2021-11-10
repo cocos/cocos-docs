@@ -99,6 +99,7 @@ If this option is checked, the script import speed is faster, but module feature
 ### 合并初始场景依赖的所有 JSON
 
 When the **Auto Atlas** is configured in the `resources` folder, both the large and small image resources and the corresponding serialization information will be packaged, which will increase the package size, So please do not use it like that unless necessary.
+-->
 
 ### Cocos Service Configuration Set
 
