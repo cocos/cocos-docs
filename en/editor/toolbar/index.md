@@ -93,6 +93,20 @@ The transform snapping configuration panel will pop up, which can be used to set
 | ![rotation snap](img/rotation-snap.png)| This button is used to set whether to enable automatic snapping when using the **Rotation Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
 | ![scale snap](img/scale-snap.png)| This button is used to set whether to enable automatic snapping when using the **Scale Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
 
+### Smart Guide Alignment
+Smart guide alignment is enabled by default, when rect transform gizmo is active. If the conditions for alignment are met when the dragged element is moving, the alignment guide line will be displayed and automatically snapped to the position of the guide line.
+
+![auto snapping](img/auto-snapping.gif)
+
+The relevant parameters of smart alignment can be set in the transform snapping configuration panel.
+
+![rect tool config](img/rect-tool-config.png)
+
+| Name | Description |
+| :-- | :-- |
+| Enable auto snap | whether to enable the smart guide alignment
+| Snap threshold | snap threshold
+
 ## Transform Gizmo Control Point Setting
 
 The transform gizmo control point is used to set the position of the gizmo and to control the orientation of the handles.

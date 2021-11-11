@@ -93,6 +93,20 @@
 | ![rotation snap](img/rotation-snap.png)  | 用于设置是否在使用 **旋转变换工具** 时开启自动吸附功能。右侧的方框用于设置旋转步长，默认为 1。 |
 | ![scale snap](img/scale-snap.png)        | 用于设置是否在使用 **缩放变换工具** 时开启自动吸附功能。右侧的方框用于设置缩放步长，默认为 1。 |
 
+### 智能参考线对齐
+使用矩形变换工具时，默认会开启智能参考线对齐功能，当拖动元素移动时，遇到可以对齐的元素，会显示对齐参考线并自动吸附到参考线位置上。
+
+![auto snapping](img/auto-snapping.gif)
+
+在变换吸附配置面板中可以设置智能对齐的相关参数。
+
+![rect tool config](img/rect-tool-config.png)
+
+| 参数名 | 说明 |
+| :-- | :-- |
+| Enable auto snap | 是否开启智能对齐 
+| Snap threshold | 吸附阈值
+
 ## Gizmo 基准点设置
 
 变换工具基准点用于设置变换工具的位置以及控制手柄的方向。
