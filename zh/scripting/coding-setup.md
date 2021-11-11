@@ -67,14 +67,14 @@ Cocos Creator 在顶部菜单栏的 **开发者 -> VS Code 工作流** 中集成
 
 ![vscode workflow](coding-setup/vscode-workflow.png)
 
-- **添加编译任务**：用于在 VS Code 中触发 Creator 的脚本自动编译，详情请参考下文 **使用 VS Code 激活脚本编译** 部分的内容。
+- **添加编译任务**：用于在 VS Code 中触发 Creator 的脚本编译，详情请参考下文 **使用 VS Code 激活脚本编译** 部分的内容。
 
 - **添加 Chrome Debug 配置**：用于调试网页版游戏，详情请参考下文 **使用 VS Code 调试网页版游戏** 部分的内容。
 
 ### 使用 VS Code 激活脚本编译
 
-使用外部脚本编辑器修改项目脚本后，需要返回 Cocos Creator 编辑器以触发脚本自动编译。<br>
-我们在 Creator 中提供了 **添加编译任务** 功能，通过一个预览服务器的 API 向特定地址发送请求来激活编辑器的编译，这样在外部脚本编辑器修改了项目脚本后，执行 **编译任务** 便可触发脚本自动编译，不需要返回 Cocos Creator。
+使用外部脚本编辑器修改项目脚本后，需要返回 Cocos Creator 以触发脚本编译。<br>
+我们在 Creator 中提供了 **添加编译任务** 功能，通过一个预览服务器的 API 向特定地址发送请求来激活 Creator 的编译，这样在外部脚本编辑器修改了项目脚本后，执行 **编译任务** 便可触发脚本编译，不需要返回 Cocos Creator。
 
 #### 安装 cURL
 
@@ -84,7 +84,7 @@ Cocos Creator 在顶部菜单栏的 **开发者 -> VS Code 工作流** 中集成
 
 - 点击下图箭头所示的控件，完成人机身份验证（若无法正常显示控件，请科学上网）
 
-    ![curl download](coding-setup/curl_download.jpg)
+    ![curl download](coding-setup/curl-download.png)
 
 - 点击 `curl-7.46.0-win64.exe` 开始下载并安装
 
@@ -98,7 +98,7 @@ Cocos Creator 在顶部菜单栏的 **开发者 -> VS Code 工作流** 中集成
 
     ![task.json](coding-setup/tasks-json.png)
 
-2. 在 VS Code 里按下快捷键 <kbd>Cmd/Ctrl + P</kbd>，激活 **快速打开** 输入框，然后输入 `task compile`，选择 `Cocos Creator compile`。
+2. 在 VS Code 里按下快捷键 <kbd>Cmd/Ctrl + P</kbd>，激活 **快速打开** 输入框，然后输入 `task CocosCreator compile`，选择 `CocosCreator compile`。
 
     ![task compile](coding-setup/task-compile.png)
 
@@ -114,7 +114,7 @@ VS Code 还可以为编译任务配置快捷键，在主菜单中选择 **文件
 
 ![set compile](coding-setup/set-compile.png)
 
-之后在 VS Code 中按下快捷键 <kbd>Cmd/Ctrl + Shift + B</kbd> 便会自动显示 `Cocos Creator compile`，不需要手动搜索。
+之后在 VS Code 中按下快捷键 <kbd>Cmd/Ctrl + Shift + B</kbd> 便会自动显示 `CocosCreator compile`，不需要手动搜索。
 
 更多关于 VS Code 中配置和执行任务的信息，请参考 [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks) 文档。
 
