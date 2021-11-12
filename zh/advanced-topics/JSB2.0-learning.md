@@ -405,7 +405,7 @@ globalObj->setProperty("foo", se::Value(100)); // 给全局对象设置一个 fo
 在 JS 中就可以直接使用 foo 这个全局变量了
 
 ```js
-cc.log("foo value: " + foo); // 打印出 foo value: 100
+log("foo value: " + foo); // 打印出 foo value: 100
 ```
 
 ### 为 JS 对象定义一个属性读写回调
@@ -680,15 +680,15 @@ SomeClass 类注册后，就可以在 JS 中这样使用了：
  var myObj = new ns.SomeClass();
  myObj.foo();
  ns.SomeClass.static_func();
- cc.log("ns.SomeClass.static_val: " + ns.SomeClass.static_val);
- cc.log("Old myObj.xxx:" + myObj.xxx);
+ log("ns.SomeClass.static_val: " + ns.SomeClass.static_val);
+ log("Old myObj.xxx:" + myObj.xxx);
  myObj.xxx = 1234;
- cc.log("New myObj.xxx:" + myObj.xxx);
- cc.log("myObj.yyy: " + myObj.yyy);
+ log("New myObj.xxx:" + myObj.xxx);
+ log("myObj.yyy: " + myObj.yyy);
 
  var delegateObj = {
      onCallback: function(counter) {
-         cc.log("Delegate obj, onCallback: " + counter + ", this.myVar: " + this.myVar);
+         log("Delegate obj, onCallback: " + counter + ", this.myVar: " + this.myVar);
          this.setVar();
      },
 
@@ -1095,7 +1095,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 
 目前引擎中 `cocos2d::Ref` 子类的绑定采用 JS 对象控制 CPP 对象生命周期的方式，这样做的好处是，解决了一直以来被诟病的需要在 JS 层 retain，release 对象的烦恼。
 
-非 `cocos2d::Ref` 子类采用 CPP 对象控制 JS 对象生命周期的方式。此方式要求，CPP 对象销毁后需要通知绑定层去调用对应 `se::Object` 的 clearPrivateData, unroot, decRef 的方法。JS 代码中一定要慎重操作对象，当有可能出现非法对象的逻辑中，使用 `cc.sys.isObjectValid` 来判断 CPP 对象是否被释放了。
+非 `cocos2d::Ref` 子类采用 CPP 对象控制 JS 对象生命周期的方式。此方式要求，CPP 对象销毁后需要通知绑定层去调用对应 `se::Object` 的 clearPrivateData, unroot, decRef 的方法。JS 代码中一定要慎重操作对象，当有可能出现非法对象的逻辑中，使用 `sys.isObjectValid` 来判断 CPP 对象是否被释放了。
 
 ### 绑定 cocos2d::Ref 子类的析构函数需要注意的事项
 

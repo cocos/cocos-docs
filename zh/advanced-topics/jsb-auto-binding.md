@@ -12,11 +12,11 @@
 对于用过 Cocos Creator（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 JS 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScript 中按照如下的操作调用即可：
 
 ```javascript
-if (cc.sys.isNative && cc.sys.os == cc.sys.OS_IOS) {
+if (sys.isNative && sys.os == sys.OS.IOS) {
     msg = this.buffer_string + '\n[cclog][' + clock + '][' + tag + ']' + msg;
     jsb.reflection.callStaticMethod("ABCLogServuce", "log:module:level:", msg, 'cclog', level);
     return;
-} else if (cc.sys.isNative && cc.sys.os == cc.sys.OS_ANDROID) {
+} else if (sys.isNative && sys.os == sys.OS.ANDROID) {
     msg = this.buffer_string + '\n[cclog][' + clock + '][' + tag + ']' + msg;
     jsb.reflection.callStaticMethod("com/example/test/CommonUtils", "log", "(ILjava/lang/String;Ljava/lang/String;)V", level, 'cclog', msg);
     return;

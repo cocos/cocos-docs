@@ -415,7 +415,7 @@ globalObj->setProperty("foo", se::Value(100)); // Set a property called `foo` wi
 Next, use the `foo` global variable in JS directly.
 
 ```js
-cc.log("foo value: " + foo); // Print `foo value: 100`.
+log("foo value: " + foo); // Print `foo value: 100`.
 ```
 
 ### Set A Property Accessor for JS Object
@@ -692,15 +692,15 @@ After SomeClass is registered, use it in JS like the following:
  var myObj = new ns.SomeClass();
  myObj.foo();
  ns.SomeClass.static_func();
- cc.log("ns.SomeClass.static_val: " + ns.SomeClass.static_val);
- cc.log("Old myObj.xxx:" + myObj.xxx);
+ log("ns.SomeClass.static_val: " + ns.SomeClass.static_val);
+ log("Old myObj.xxx:" + myObj.xxx);
  myObj.xxx = 1234;
- cc.log("New myObj.xxx:" + myObj.xxx);
- cc.log("myObj.yyy: " + myObj.yyy);
+ log("New myObj.xxx:" + myObj.xxx);
+ log("myObj.yyy: " + myObj.yyy);
 
  var delegateObj = {
      onCallback: function(counter) {
-         cc.log("Delegate obj, onCallback: " + counter + ", this.myVar: " + this.myVar);
+         log("Delegate obj, onCallback: " + counter + ", this.myVar: " + this.myVar);
          this.setVar();
      },
 
@@ -1103,7 +1103,7 @@ Use `se::Object::dettachObject` to disassociate object's life cycle.
 
 The binding of `cocos2d::Ref` subclass in the current engine adopts JS object controls the life cycle of CPP object. The advantage of doing so is to solve the `retain`/`release` problem that has been criticized in the JS layer.
 
-Non-`cocos2d::Ref` class takes the way of CPP object controls the life of a JS object. This method requires that after CPP object is destroyed, it needs to notify the binding layer to call the `clearPrivateData`, `unroot`, and `decRef` methods corresponding to `se::Object`. JS code must be careful operation of the object, when there may be illegal object logic, use `cc.sys.isObjectValid` to determine whether the CPP object is released.
+Non-`cocos2d::Ref` class takes the way of CPP object controls the life of a JS object. This method requires that after CPP object is destroyed, it needs to notify the binding layer to call the `clearPrivateData`, `unroot`, and `decRef` methods corresponding to `se::Object`. JS code must be careful operation of the object, when there may be illegal object logic, use `sys.isObjectValid` to determine whether the CPP object is released.
 
 ### NOTE of Binding The Finalize Function for cocos2d::Ref Subclass
 
