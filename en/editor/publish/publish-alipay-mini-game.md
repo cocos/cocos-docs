@@ -53,6 +53,6 @@ The above features are expected to be gradually supported in future updates, and
 Since Alipay Mini Game related documentation is currently only available internally, developers who need it can contact them directly at:
 
 | Contact | Email |
-| ---- | ---- |
+| :---- | :---- |
 | Li Zhi | lz98684@alibaba-inc.com |
 | Huang Jiao | huangjiao.hj@alibaba-inc.com |
