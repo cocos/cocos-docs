@@ -1,6 +1,6 @@
 # Publish to HUAWEI AppGallery Connect
 
-Cocos Creator supports creating games for HUAWEI AppGallery Connect, which helps developers access the HUAWEI AppGallery.
+Cocos Creator supports publishing games to HUAWEI AppGallery Connect, which helps developers access to HUAWEI AppGallery.
 
 ## Preparation
 
@@ -8,7 +8,7 @@ Cocos Creator supports creating games for HUAWEI AppGallery Connect, which helps
 
   ![](./publish-huawei-agc/app-info.png)
 
-- Access the required HUAWEI AppGallery Connect related services via the Cocos Service panel. Currently the SDK only supports the Android platform, please refer to the [HUAWEI HMS Core](../cocos-service/sdkhub-plugins/sdkhub-hms.md) documentation for the detailed operation steps.
+- Access the required HUAWEI AppGallery Connect related services via the Cocos Service panel. Currently the SDK only supports the Android platform, please refer to the [HUAWEI HMS Core](https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html) documentation for the detailed operation steps.
 
 ## Publishing Process
 
