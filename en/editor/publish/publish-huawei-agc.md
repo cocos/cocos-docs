@@ -18,11 +18,11 @@ Use Cocos Creator to open the project that needs to be published. Open the **Bui
 
 For the settings of the general options, please refer to the [Build Options](build-options.md) documentation.
 
-- **agconnect-services Config**: Used to configure Huawei parameter file `agconnect-services.json`. Please refer to the [Configs HUAWEI Parameter File](https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html#configs-huawei-config-file) for the specific configuration method.
+- **agconnect-services Config**: used to configure Huawei parameter file `agconnect-services.json`. Please refer to the [Configs HUAWEI Parameter File](https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html#configs-huawei-config-file) for the specific configuration method.
 
-- **Cocos SDKHub Config Set**: This option is used to help the game quickly integrate the channel SDK. Please select the SDKHub service that you have previously enabled in the Cocos Services panel.
+- **Cocos SDKHub Config Set**: this option is used to help the game quickly integrate the channel SDK. Please select the SDKHub service that you have previously enabled in the Cocos Services panel.
 
-![sdkhub](./publish-huawei-agc/sdkhub.png)
+  ![sdkhub](./publish-huawei-agc/sdkhub.png)
 
 ### Build and Compile
 
@@ -44,7 +44,7 @@ Click the **Upload** button in the bottom right of the **Build Task** panel to o
 
 ![agc-upload-panel](./publish-huawei-agc/agc-upload-panel.png)
 
-- APP ID: Fill in the APP ID for your app. Login to the AppGallery Connect and click **My apps -> App information** to get the APP ID.
+- APP ID: fill in the APP ID for your app. Login to the AppGallery Connect and click **My apps -> App information** to get the APP ID.
 
 - Version: Fill in as required.
 
@@ -54,7 +54,7 @@ Click the **Upload** button in the bottom right of the **Build Task** panel to o
 
     - **OAuth**
 
-        The OAuth login type only requires you follow the prompts to login to your HUAWEI account (Need to have sufficient [permissions](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-team_account_mgt#appendix)) when you click **Confirm**, then check the box of the required permissions, the window will automatically close and the APK will be uploaded automatically.
+        The OAuth login type only requires you follow the prompts to login to your HUAWEI account (Need to have sufficient [permissions](https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section797720532313)) when you click **Confirm**, then check the box of the required permissions, the window will automatically close and the APK will be uploaded automatically.
 
         ![upload-oauth](./publish-huawei-agc/upload-oauth.png)
 
@@ -64,7 +64,7 @@ Click the **Upload** button in the bottom right of the **Build Task** panel to o
 
           ![upload-api](./publish-huawei-agc/upload-api.png)
 
-        - Select **Users and permission -> Connect API -> Create** to create an API client, and select role permissions as needed, then click **Confirm**.
+        - Select **Users and permission -> Connect API -> Create** to create an API client, and select [Roles and Permissions](https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-rolepermission-0000001155345429) as needed, then click **Confirm**.
 
           ![create-api-key](./publish-huawei-agc/create-api-key.png)
 
