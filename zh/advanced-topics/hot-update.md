@@ -114,16 +114,16 @@ Manifest 文件中包含以下几个重要信息：
                     var dstPath = storagePath + relativePath;
 
                     if (srcPath[srcPath.length] == '/') {
-                        cc.fileUtils.createDirectory(dstPath)
+                        jsb.fileUtils.createDirectory(dstPath)
                     }
                     else {
-                        if (cc.fileUtils.isFileExist(dstPath)) {
-                            cc.fileUtils.removeFile(dstPath)
+                        if (jsb.fileUtils.isFileExist(dstPath)) {
+                            jsb.fileUtils.removeFile(dstPath)
                         }
-                        cc.fileUtils.renameFile(srcPath, dstPath);
+                        jsb.fileUtils.renameFile(srcPath, dstPath);
                     }
                 })
-                cc.fileUtils.removeDirectory(tempPath);
+                jsb.fileUtils.removeDirectory(tempPath);
             }
         }
     }
