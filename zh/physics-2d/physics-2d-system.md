@@ -47,13 +47,13 @@ PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;
 如果希望重力加速度为 0，可以这样设置：
 
 ```ts
-PhysicsSystem2D.instance.gravity = cc.v2();
+PhysicsSystem2D.instance.gravity = v2();
 ```
 
 如果希望修改重力加速度为其他值，比如每秒加速降落 20m/s，那么可以这样设置：
 
 ```ts
-PhysicsSystem2D.instance.gravity = cc.v2(0, -20 * PHYSICS_2D_PTM_RATIO);
+PhysicsSystem2D.instance.gravity = v2(0, -20 * PHYSICS_2D_PTM_RATIO);
 ```
 
 ### 设置物理步长

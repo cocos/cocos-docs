@@ -4,14 +4,15 @@ The APIs for the __Cocos Creator__ engine all exist in the module `cc`. They can
 
 ```ts
 import {
-    Component, // Import class Component
-    _decorator, // mport namespace _decorator
+    Component,  // Import class Component
+    _decorator, // Import namespace _decorator
+    Vec3 // Import class Vec3
 } from 'cc';
 import * as modules from 'cc'; // Import the entire Cocos Creator module as a namespace Cocos Creator
 
 @_decorator.ccclass("MyComponent")
 export class MyComponent extends Component {
-    public v = new modules.Vec3();
+    public v = new Vec3();
 }
 ```
 
