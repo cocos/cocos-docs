@@ -46,11 +46,11 @@ Click the **Upload** button in the bottom right of the **Build Task** panel to o
 
 - APP ID: fill in the APP ID for your app. Login to the AppGallery Connect and click **My apps -> App information** to get the APP ID.
 
-- Version: Fill in as required.
+- Version: fill in as required.
 
-- APK Path: Select the APK generated after compilation.
+- APK Path: select the APK generated after compilation.
 
-- Login Type: Includes both **OAuth** and **API Client**.
+- Login Type: includes both **OAuth** and **API Client**.
 
     - **OAuth**
 
