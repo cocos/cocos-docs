@@ -12,15 +12,15 @@ There are two input boxes in the build path:
 
 ![build path](./build-options/build-path.png)
 
-- The first input box is used to specify the release path of the project. A path can be directly entered or selected through the magnifying glass button next to it. The default release path is the `build` folder of the project directory. If using a version control system such as git, svn, etc., ignore the `build` folder in version control.
+- The first input box is used to specify the build path of the project. A path can be directly entered or selected through the magnifying glass button next to it. The default build path is the `build` folder of the project directory. If using a version control system such as git, svn, etc., ignore the `build` folder in version control.
 
-   > **Note**: spaces, illegal characters and Chinese characters are not allowed in the distribution path.
+   > **Note**: spaces, illegal characters and Chinese characters are not allowed in the build path.
 
 - The second input box is used to specify the name of the build task when the project is built and the name of the release package generated after the build. The default is the name of the current build platform. Every time the same platform is built, a suffix of **-001** will be added to the original basis, and so on. After the build is completed, directly click the folder icon behind the input box to open the directory where the project release package is located.
 
 ### Start Scene
 
-It is necessary to set the first scene to enter after opening the game. One way is to search for the desired scene in the list of **Included Scenes**, move the mouse to the desired scene bar, and then click the button that appears on the right to set it as the initial scene.
+It is necessary to set the first scene to enter after opening the game. One way is to search for the desired scene in the list of **Included Scenes**, move the mouse to the desired scene bar, and then click the button that appears on the right to set it as the start scene.
 
 ![start scene](./build-options/set-start-scene.png)
 
