@@ -159,6 +159,7 @@ namespace abc
     bool JSBBridge::init(void)
     {
         CC_LOG_ERROR("init JSBBridge ");
+        return true;
     }
 
     void JSBBridge::abcLog(const std::string& msg)
@@ -170,7 +171,7 @@ namespace abc
 
 ## JSB 配置脚本编写
 
-我们在 **tools/tojs** 目录下找到 `genbindings.py` 脚本，将模块名 cocos2dx_test 添加到 defaultSections 数组里面。
+我们在 **tools/tojs** 目录下找到 `genbindings.py` 脚本，复制并重命名为 `genbindings_test.py`，然后修改`genbindings_test.py` 模块配置，只保留 cocos2dx_test 模块。
 
 ![](jsb/cancel-output_dir.png)
 
@@ -244,7 +245,7 @@ abstract_classes = JSBBridge
 
 ![](jsb/ini-file-properties.png)
 
-以上的配置完成后，就可以 cd 到 **tools/tojs** 目录下，然后运行 `./genbindings.py` 自动生成绑定文件。然后就会看到在 **cocos\bindings\auto** 下面会多出了两个个绑定文件：
+以上的配置完成后，就可以 cd 到 **tools/tojs** 目录下，然后运行 `./genbindings_test.py` 自动生成绑定文件。然后就会看到在 **cocos\bindings\auto** 下面会多出了两个个绑定文件：
 
 ![](jsb/binding-file.png)
 
@@ -351,7 +352,18 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
 经过上面这些配置后，最终就可以在 js 层直接像下面这样来进行调用：
 
-![](jsb/called-injs.png)
+``` typescript
+import { _decorator, Component, Node } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('Test')
+export class Test extends Component {
+    start () {
+        // @ts-ignore
+        abc.JSBBridge.getInstance().abcLog("======")
+    }
+}
+```
 
 ## 自动绑定的限制条件
 
