@@ -63,11 +63,11 @@ Window 下直接参考上面需要安装的模块直接安装就好了，最后�
 
 ### 自动绑定展示
 
-这里演示的是 cocos 引擎下面也即⁨ **build/⁨jsb-default⁩/frameworks⁩/cocos2d-x/cocos⁩/scripting⁩/js-bindings/⁨auto⁩** 目录下的文件（如下图所示）是怎么自动生成的：
+这里演示的是 cocos 引擎下面也即 **cocos/bindings/auto** 目录下的文件（如下图所示）是怎么自动生成的：
 
 ![](jsb/auto-file.png)
 
-其实从这些文件名的开头也能看出，这些文件命名都是有某些特定规律的，那么这些文件是怎么生成的呢？首先打开终端，先 cd 到 **build/jsb-default/frameworks/cocos2d-x/tools/tojs** 目录下，然后直接运行 `./genbindings.py`：
+其实从这些文件名的开头也能看出，这些文件命名都是有某些特定规律的，那么这些文件是怎么生成的呢？首先打开终端，先 cd 到 **tools/tojs** 目录下，然后直接运行 `./genbindings.py`：
 
 ![](jsb/generate-file.png)
 
@@ -83,7 +83,7 @@ Window 下直接参考上面需要安装的模块直接安装就好了，最后�
 
 一般都是因为配置的 NDK 版本太高导致，最开始我是用 NDK16b 就出现了问题，换成 NDK14b 后就 OK 了。
 
-经过上面的步骤后，**build/⁨jsb-default⁩/frameworks⁩/cocos2d-x/cocos⁩/scripting⁩/js-bindings/⁨auto⁩** 下的文件就全部自动生成出来了，是不是非常方便。
+经过上面的步骤后，**cocos/bindings/auto** 下的文件就全部自动生成出来了，是不是非常方便。
 
 下面再以 js 层通过 jsb 调用 Native 层的 log 方法打印日志为例，详细的告知下如何实现通过自动绑定工具，依据自己写的 c++ 代码，生成对应的自动绑定文件。
 
@@ -101,7 +101,7 @@ C++ 作为连接 js 层和 Native 层的桥梁，既然要实现 jsb 调用，�
 
 #ifndef PROJ_ANDROID_STUDIO_ABCJSBBRIDGE_H
 #define PROJ_ANDROID_STUDIO_ABCJSBBRIDGE_H
-#define DLLOG(format, ...)      cocos2d::log(format, ##__VA_ARGS__)
+#define DLLOG(format, ...)      cc::log(format, ##__VA_ARGS__)
 #endif //PROJ_ANDROID_STUDIO_ABCJSBBRIDGE_H
 
 namespace abc
@@ -200,7 +200,7 @@ namespace abc
 
 #endif //PROJ_ANDROID_STUDIO_CCIABCJSBBRIDGEIML_H
 
-#define DLLOG(format, ...)      cocos2d::log(format, ##__VA_ARGS__)
+#define DLLOG(format, ...)      cc::log(format, ##__VA_ARGS__)
 
 namespace abc
 {
@@ -217,9 +217,9 @@ namespace abc
 
 ## JSB 配置脚本编写
 
-为了保持跟官方的一致，我们在 **build/jsb-default/frameworks/cocos2d-x/tools/tojs** 目录下创建 `genbindings_test.py`，里面的内容基本跟 `genbindings.py` 差不多，主要区别有如下几点：
+为了保持跟官方的一致，我们在 **tools/tojs** 目录下创建 `genbindings_test.py`，里面的内容基本跟 `genbindings.py` 差不多，主要区别有如下几点：
 1. 去掉了 `cmd_args` 那段，里面主要是记录了 cocos 自带的一些需要生成 jsb 的文件，因为考虑到项目可能会对 Cocos 源码进行修改，如果这时候把这部分保留的话，当运行脚本后会把我们自带的修改就给覆盖掉了。
-2. 取消了定制的 `output_dir` 也就是最终生成的 js，c++ 等绑定文件的路径，而是保持跟 Cocos 一样，也即在 **cocos/scripting/js-bindings/auto**，主要为了方便下一步配置 mk 文件。
+2. 取消了定制的 `output_dir` 也就是最终生成的 js，c++ 等绑定文件的路径，而是保持跟 Cocos 一样，也即在 **cocos/bindings/auto**，主要为了方便下一步配置 mk 文件。
 
     ![](jsb/cancel-output_dir.png)
 
@@ -227,9 +227,9 @@ namespace abc
 
 1. `NDK_ROOT 环境变量`：指示 NDK 的根目录
 2. `PYTHON_BIN 环境变量`：指示 Python 命令的路径
-3. `cocosdir`：Cocos 引擎根目录，在用户工程下一般是 **build/jsb-default/frameworks/cocos2d-x/**
-4. `jsbdir`：JSB 目录，在用户工程下一般是 **build/jsb-default/frameworks/cocos2d-x/cocos/scripting/js-bindings**
-5. `cxx_generator_root`：自动绑定工具路径，在用户工程下一般是 **build/jsb-default/frameworks/cocos2d-x/tools/bindings-generator**
+3. `cocosdir`：Cocos 引擎根目录，在用户工程下一般是 ****
+4. `jsbdir`：JSB 目录，在用户工程下一般是 **cocos/scripting/js-bindings**
+5. `cxx_generator_root`：自动绑定工具路径，在用户工程下一般是 **tools/bindings-generator**
 6. `output_dir`：生成的绑定文件存储路径
 7. `cmd_args` 和 `custom_cmd_args`：所有配置文件，及其对应的模块名称和输出文件名称
 
@@ -246,7 +246,7 @@ namespace abc
 配置文件：（模块名称，输出的绑定文件名）
 ```
 
-这里的配置文件 `cocos2dx_test.ini` 又是用来干嘛的呢？其实就跟 **build/jsb-default/frameworks/cocos2d-x/tools/tojs/** 下的其他 `.ini` 文件类似，主要让自动绑定工具知道哪些 API 要被绑定和以什么样的方式绑定，写法上直接参考 Cocos 已有的 ini 文件，这里展示下 `cocos2dx_test.ini` 的内容：
+这里的配置文件 `cocos2dx_test.ini` 又是用来干嘛的呢？其实就跟 **tools/tojs/** 下的其他 `.ini` 文件类似，主要让自动绑定工具知道哪些 API 要被绑定和以什么样的方式绑定，写法上直接参考 Cocos 已有的 ini 文件，这里展示下 `cocos2dx_test.ini` 的内容：
 
 ```shell
 [cocos2dx_test]
@@ -316,15 +316,15 @@ abstract_classes = JSBBridge
 
 ![](jsb/generate-binding-file.png)
 
-然后就会看到在 **build/jsb-default/frameworks/cocos2d-x/cocos/scripting/js-bindings** 下面多出了三个绑定文件：
+然后就会看到在 **cocos/scripting/js-bindings** 下面多出了三个绑定文件：
 
 ![](jsb/binding-file.png)
 
 打开生成的 `jsb_cocos2dx_test_autp.cpp`：
 
 ```cpp
-#include "scripting/js-bindings/auto/jsb_cocos2dx_test_auto.hpp"
-#include "scripting/js-bindings/manual/jsb_conversions.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_test_auto.h"
+#include "scripting/js-bindings/manual/jsb_conversions.h"
 #include "scripting/js-bindings/manual/jsb_global.h"
 #include "test/ABCJSBBridge.h"
 
@@ -409,11 +409,11 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
 尽管经过上面一步后我们已经生成出来了绑定文件，但是 js 层还是没法直接使用，因为还需要把生成的绑定文件，配置到 mk 文件中，从而跟其他 c++ 文件一起编译才行，这部分主要就是将最后的 mk 编译配置。
 
-1. 打开 `build/jsb-default/frameworks/cocos2d-x/cocos/Android.mk` 文件，在其中加上最开始实现的 cpp 文件：
+1. 打开 `cocos/Android.mk` 文件，在其中加上最开始实现的 cpp 文件：
 
     ![](jsb/100.png)
 
-2. 打开 `build/jsb-default/frameworks/cocos2d-x/cocos/scripting/js-bindings/proj.android/Android.mk`，在其中加上上一步生成的 cpp 文件：
+2. 打开 `cocos/bindings/proj.android/Android.mk`，在其中加上上一步生成的 cpp 文件：
 
     ![](jsb/110.png)
 
@@ -421,7 +421,7 @@ bool register_all_cocos2dx_test(se::Object* obj)
 
     ![](jsb/111.png)
 
-4. 打开 `build/jsb-default/frameworks/cocos2d-x/cocos/scripting/js-bindings/script/jsb_boot.js`，在其中增加 js 对象的初始化：
+4. 打开 `cocos/bindings/script/jsb_boot.js`，在其中增加 js 对象的初始化：
 
     ![](jsb/112.png)
 
