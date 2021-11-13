@@ -83,7 +83,7 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 - **SE\_DECLARE_FUNC**：声明一个 JS 函数，一般在 `.h` 头文件中使用
 - **SE\_BIND_CTOR**：包装一个 JS 构造函数
 - **SE\_BIND\_SUB\_CLS\_CTOR**：包装一个 JS 子类的构造函数，此子类使用 `cc.Class.extend` 继承 `-ative` 绑定类
-- **SE\_FINALIZE_FUNC**：包装一个 JS 对象被 GC 回收后的回调函数
+- **SE\_BIND\_FINALIZE_FUNC**：包装一个 JS 对象被 GC 回收后的回调函数
 - **SE\_DECLARE\_FINALIZE_FUNC**：声明一个 JS 对象被 GC 回收后的回调函数
 - **_SE**：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义
     > **注意**：第一个字符为下划线，类似 Windows 下用的 `_T("xxx")` 来包装 Unicode 或者 MultiBytes 字符串。

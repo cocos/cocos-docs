@@ -84,7 +84,7 @@ After a developer has bound a JS function, remember to wrap the callback functio
 - **SE\_DECLARE\_FUNC**: Declare a JS function, generally used in the header file
 - **SE\_BIND\_CTOR**: Wrap a JS constructor
 - **SE\_BIND\_SUB\_CLS\_CTOR**: Wrap the constructor of a JS subclass by using `cc.Class.extend`.
-- **SE\_FINALIZE\_FUNC**: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
+- **SE\_BIND\_FINALIZE\_FUNC**: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
 - **SE\_DECLARE\_FINALIZE\_FUNC**: Declares the finalize function of a JS object
 - **_SE**: The macro for making callback be recognized by different JS engine. Note that the first character is underscored, similar to `_T ('xxx')` in Windows for wrapping Unicode or MultiBytes string
 
