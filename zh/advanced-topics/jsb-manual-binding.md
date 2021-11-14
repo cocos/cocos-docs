@@ -372,16 +372,7 @@ static bool js_cocos2dx_network_FileDownloader_download(se::State &s) {
 2. 手动构造回调 function，将 msg 和 code 转化为 `se::Value`。
 3. 通过 `funcObj->call` 执行 JS 方法进行回调。
 
-以上即为一次普通调用的回调的执行过程的绑定。现在我们还剩下一些收尾工作，我们需要将 `FileDownloader` 真正成为单例，在 JS 层无需手动实例化即可使用。
-因为下载器属于通用组件，所以我们需要尽早将其实例化并成功挂载，因此我们需要修改 `jsb_boot.js`，这个文件会在 Cocos 引擎初始化时调用，我们在其中补充如下代码：
-
-```js
-// FileDownloader
-jsb.fileDownloader = jsb.FileDownloader.getInstance();
-delete jsb.FileDownloader;
-```
-
-最后，考虑到内存释放的风险，我们还需要在 `CCDirector.cpp` 中的 `reset()` 方法中进行相关回收：
+最后，考虑到内存释放的风险，我们还需要在 `Application.cpp` 中的 `close()` 方法中进行相关回收：
 
 ```cpp
 network::FileDownloader::destroyInstance();
