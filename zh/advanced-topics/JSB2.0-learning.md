@@ -77,14 +77,14 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 
 开发者编写完回调函数后，记住使用 `SE_BIND_XXX` 系列的宏对回调函数进行包装。目前提供了如下几个宏：
 
-- **SE\_BIND\_PROP_GET**：包装一个 JS 对象属性读取的回调函数
-- **SE\_BIND\_PROP_SET**：包装一个 JS 对象属性写入的回调函数
-- **SE\_BIND_FUNC**：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
-- **SE\_DECLARE_FUNC**：声明一个 JS 函数，一般在 `.h` 头文件中使用
-- **SE\_BIND_CTOR**：包装一个 JS 构造函数
-- **SE\_BIND\_SUB\_CLS\_CTOR**：包装一个 JS 子类的构造函数，此子类使用 `cc.Class.extend` 继承 `-ative` 绑定类
-- **SE\_FINALIZE_FUNC**：包装一个 JS 对象被 GC 回收后的回调函数
-- **SE\_DECLARE\_FINALIZE_FUNC**：声明一个 JS 对象被 GC 回收后的回调函数
+- **SE_BIND_PROP_GET**：包装一个 JS 对象属性读取的回调函数
+- **SE_BIND_PROP_SET**：包装一个 JS 对象属性写入的回调函数
+- **SE_BIND_FUNC**：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
+- **SE_DECLARE_FUNC**：声明一个 JS 函数，一般在 `.h` 头文件中使用
+- **SE_BIND_CTOR**：包装一个 JS 构造函数
+- **SE_BIND_SUB_CLS_CTOR**：包装一个 JS 子类的构造函数，此子类使用 `cc.Class.extend` 继承 `-ative` 绑定类
+- **SE_BIND_FINALIZE_FUNC**：包装一个 JS 对象被 GC 回收后的回调函数
+- **SE_DECLARE_FINALIZE_FUNC**：声明一个 JS 对象被 GC 回收后的回调函数
 - **_SE**：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义
     > **注意**：第一个字符为下划线，类似 Windows 下用的 `_T("xxx")` 来包装 Unicode 或者 MultiBytes 字符串。
 
@@ -176,7 +176,7 @@ SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_coco
 
 `se::Object` 中提供了 `root`/`unroot` 方法供开发者调用，`root` 会把 JS 对象放入到不受 GC 扫描到的区域，调用 `root` 后，`se::Object` 就强引用了 JS 对象，只有当 `unroot` 被调用，或者 `se::Object` 被释放后，JS 对象才会放回到受 GC 扫描到的区域。
 
-一般情况下，如果对象是非 `cocos2d::Ref` 的子类，会采用 CPP 对象控制 JS 对象的生命周期的方式去绑定。引擎内 Spine, DragonBones, Box2d 等第三方库的绑定就是采用此方式。当 CPP 对象被释放的时候，需要在 `NativePtrToObjectMap` 中查找对应的 `se::Object`，然后手动 `unroot` 和 `decRef`。以 Spine 中 `spTrackEntry` 的绑定为例：
+一般情况下，如果对象是非 `cc::Ref` 的子类，会采用 CPP 对象控制 JS 对象的生命周期的方式去绑定。引擎内 Spine, DragonBones, Box2d 等第三方库的绑定就是采用此方式。当 CPP 对象被释放的时候，需要在 `NativePtrToObjectMap` 中查找对应的 `se::Object`，然后手动 `unroot` 和 `decRef`。以 Spine 中 `spTrackEntry` 的绑定为例：
 
 ```c++
 spTrackEntry_setDisposeCallback([](spTrackEntry* entry) {
@@ -368,7 +368,7 @@ SE_BIND_FUNC(foo)
 
 不依赖。
 
-ScriptEngine 这层设计之初就将其定义为一个独立模块，完全不依赖 Cocos 引擎。开发者完整可以通过 copy、paste 把 `cocos/scripting/js-bindings/jswrapper` 下的所有抽象层源码拷贝到其他项目中直接使用。
+ScriptEngine 这层设计之初就将其定义为一个独立模块，完全不依赖 Cocos 引擎。开发者完整可以通过 copy、paste 把 `cocos/bindings/jswrapper` 下的所有抽象层源码拷贝到其他项目中直接使用。
 
 ## 手动绑定
 
@@ -405,7 +405,7 @@ globalObj->setProperty("foo", se::Value(100)); // 给全局对象设置一个 fo
 在 JS 中就可以直接使用 foo 这个全局变量了
 
 ```js
-cc.log("foo value: " + foo); // 打印出 foo value: 100
+log("foo value: " + foo); // 打印出 foo value: 100
 ```
 
 ### 为 JS 对象定义一个属性读写回调
@@ -680,15 +680,15 @@ SomeClass 类注册后，就可以在 JS 中这样使用了：
  var myObj = new ns.SomeClass();
  myObj.foo();
  ns.SomeClass.static_func();
- cc.log("ns.SomeClass.static_val: " + ns.SomeClass.static_val);
- cc.log("Old myObj.xxx:" + myObj.xxx);
+ log("ns.SomeClass.static_val: " + ns.SomeClass.static_val);
+ log("Old myObj.xxx:" + myObj.xxx);
  myObj.xxx = 1234;
- cc.log("New myObj.xxx:" + myObj.xxx);
- cc.log("myObj.yyy: " + myObj.yyy);
+ log("New myObj.xxx:" + myObj.xxx);
+ log("myObj.yyy: " + myObj.yyy);
 
  var delegateObj = {
      onCallback: function(counter) {
-         cc.log("Delegate obj, onCallback: " + counter + ", this.myVar: " + this.myVar);
+         log("Delegate obj, onCallback: " + counter + ", this.myVar: " + this.myVar);
          this.setVar();
      },
 
@@ -727,158 +727,158 @@ setCallback(nullptr)
 
 ### 如何使用 cocos2d-x bindings 这层的类型转换辅助函数？
 
-类型转换辅助函数位于 `cocos/scripting/js-bindings/manual/jsb_conversions.hpp/.cpp` 中，其包含以下内容。
+类型转换辅助函数位于 `cocos/bindings/manual/jsb_conversions.h/.cpp` 中，其包含以下内容。
 
 #### se::Value 转换为 C++ 类型
 
 ```c++
-bool seval_to_int32(const se::Value& v, int32_t* ret);
-bool seval_to_uint32(const se::Value& v, uint32_t* ret);
-bool seval_to_int8(const se::Value& v, int8_t* ret);
-bool seval_to_uint8(const se::Value& v, uint8_t* ret);
-bool seval_to_int16(const se::Value& v, int16_t* ret);
-bool seval_to_uint16(const se::Value& v, uint16_t* ret);
-bool seval_to_boolean(const se::Value& v, bool* ret);
-bool seval_to_float(const se::Value& v, float* ret);
-bool seval_to_double(const se::Value& v, double* ret);
-bool seval_to_long(const se::Value& v, long* ret);
-bool seval_to_ulong(const se::Value& v, unsigned long* ret);
-bool seval_to_longlong(const se::Value& v, long long* ret);
-bool seval_to_ssize(const se::Value& v, ssize_t* ret);
-bool seval_to_std_string(const se::Value& v, std::string* ret);
-bool seval_to_Vec2(const se::Value& v, cocos2d::Vec2* pt);
-bool seval_to_Vec3(const se::Value& v, cocos2d::Vec3* pt);
-bool seval_to_Vec4(const se::Value& v, cocos2d::Vec4* pt);
-bool seval_to_Mat4(const se::Value& v, cocos2d::Mat4* mat);
-bool seval_to_Size(const se::Value& v, cocos2d::Size* size);
-bool seval_to_Rect(const se::Value& v, cocos2d::Rect* rect);
-bool seval_to_Color3B(const se::Value& v, cocos2d::Color3B* color);
-bool seval_to_Color4B(const se::Value& v, cocos2d::Color4B* color);
-bool seval_to_Color4F(const se::Value& v, cocos2d::Color4F* color);
-bool seval_to_ccvalue(const se::Value& v, cocos2d::Value* ret);
-bool seval_to_ccvaluemap(const se::Value& v, cocos2d::ValueMap* ret);
-bool seval_to_ccvaluemapintkey(const se::Value& v, cocos2d::ValueMapIntKey* ret);
-bool seval_to_ccvaluevector(const se::Value& v, cocos2d::ValueVector* ret);
-bool sevals_variadic_to_ccvaluevector(const se::ValueArray& args, cocos2d::ValueVector* ret);
-bool seval_to_blendfunc(const se::Value& v, cocos2d::BlendFunc* ret);
-bool seval_to_std_vector_string(const se::Value& v, std::vector<std::string>* ret);
-bool seval_to_std_vector_int(const se::Value& v, std::vector<int>* ret);
-bool seval_to_std_vector_float(const se::Value& v, std::vector<float>* ret);
-bool seval_to_std_vector_Vec2(const se::Value& v, std::vector<cocos2d::Vec2>* ret);
-bool seval_to_std_vector_Touch(const se::Value& v, std::vector<cocos2d::Touch*>* ret);
-bool seval_to_std_map_string_string(const se::Value& v, std::map<std::string, std::string>* ret);
-bool seval_to_FontDefinition(const se::Value& v, cocos2d::FontDefinition* ret);
-bool seval_to_Acceleration(const se::Value& v, cocos2d::Acceleration* ret);
-bool seval_to_Quaternion(const se::Value& v, cocos2d::Quaternion* ret);
-bool seval_to_AffineTransform(const se::Value& v, cocos2d::AffineTransform* ret);
-//bool seval_to_Viewport(const se::Value& v, cocos2d::experimental::Viewport* ret);
-bool seval_to_Data(const se::Value& v, cocos2d::Data* ret);
-bool seval_to_DownloaderHints(const se::Value& v, cocos2d::network::DownloaderHints* ret);
-bool seval_to_TTFConfig(const se::Value& v, cocos2d::TTFConfig* ret);
+bool seval_to_int32(const se::Value &v, int32_t *ret);
+bool seval_to_uint32(const se::Value &v, uint32_t *ret);
+bool seval_to_int8(const se::Value &v, int8_t *ret);
+bool seval_to_uint8(const se::Value &v, uint8_t *ret);
+bool seval_to_int16(const se::Value &v, int16_t *ret);
+bool seval_to_uint16(const se::Value &v, uint16_t *ret);
+bool seval_to_boolean(const se::Value &v, bool *ret);
+bool seval_to_float(const se::Value &v, float *ret);
+bool seval_to_double(const se::Value &v, double *ret);
+bool seval_to_size(const se::Value &v, size_t *ret);
+bool seval_to_std_string(const se::Value &v, std::string *ret);
+bool seval_to_Vec2(const se::Value &v, cc::Vec2 *pt);
+bool seval_to_Vec3(const se::Value &v, cc::Vec3 *pt);
+bool seval_to_Vec4(const se::Value &v, cc::Vec4 *pt);
+bool seval_to_Mat4(const se::Value &v, cc::Mat4 *mat);
+bool seval_to_Size(const se::Value &v, cc::Size *size);
+bool seval_to_ccvalue(const se::Value &v, cc::Value *ret);
+bool seval_to_ccvaluemap(const se::Value &v, cc::ValueMap *ret);
+bool seval_to_ccvaluemapintkey(const se::Value &v, cc::ValueMapIntKey *ret);
+bool seval_to_ccvaluevector(const se::Value &v, cc::ValueVector *ret);
+bool sevals_variadic_to_ccvaluevector(const se::ValueArray &args, cc::ValueVector *ret);
+bool seval_to_std_vector_string(const se::Value &v, std::vector<std::string> *ret);
+bool seval_to_std_vector_int(const se::Value &v, std::vector<int> *ret);
+bool seval_to_std_vector_uint16(const se::Value &v, std::vector<uint16_t> *ret);
+bool seval_to_std_vector_float(const se::Value &v, std::vector<float> *ret);
+bool seval_to_std_vector_Vec2(const se::Value &v, std::vector<cc::Vec2> *ret);
+bool seval_to_Uint8Array(const se::Value &v, uint8_t *ret);
+bool seval_to_uintptr_t(const se::Value &v, uintptr_t *ret);
 
-//box2d seval to native convertion
-bool seval_to_b2Vec2(const se::Value& v, b2Vec2* ret);
-bool seval_to_b2AABB(const se::Value& v, b2AABB* ret);
+bool seval_to_std_map_string_string(const se::Value &v, std::map<std::string, std::string> *ret);
+bool seval_to_Data(const se::Value &v, cc::Data *ret);
+bool seval_to_DownloaderHints(const se::Value &v, cc::network::DownloaderHints *ret);
 
 template<typename T>
 bool seval_to_native_ptr(const se::Value& v, T* ret);
 
-template<typename T>
-bool seval_to_Vector(const se::Value& v, cocos2d::Vector<T>* ret);
+template <typename T>
+typename std::enable_if<std::is_class<T>::value && !std::is_same<T, std::string>::value, T>::type
+seval_to_type(const se::Value &v, bool &ok);
+
+template <typename T>
+typename std::enable_if<std::is_integral<T>::value, T>::type
+seval_to_type(const se::Value &v, bool &ok);
+
+template <typename T>
+typename std::enable_if<std::is_enum<T>::value, T>::type
+seval_to_type(const se::Value &v, bool &ok);
+
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value, T>::type
+seval_to_type(const se::Value &v, bool &ok);
+
+template <typename T>
+typename std::enable_if<std::is_same<T, std::string>::value, T>::type
+seval_to_type(const se::Value &v, bool &ok);
+
+template <typename T>
+typename std::enable_if<std::is_pointer<T>::value && std::is_class<typename std::remove_pointer<T>::type>::value, bool>::type
+seval_to_std_vector(const se::Value &v, std::vector<T> *ret);
+
+template <typename T>
+typename std::enable_if<!std::is_pointer<T>::value, bool>::type
+seval_to_std_vector(const se::Value &v, std::vector<T> *ret);
 
 template<typename T>
-bool seval_to_Map_string_key(const se::Value& v, cocos2d::Map<std::string, T>* ret)
+bool seval_to_Map_string_key(const se::Value& v, cc::Map<std::string, T>* ret)
 ```
 
 #### C++ 类型转换为 se::Value
 
 ```c++
-bool int8_to_seval(int8_t v, se::Value* ret);
-bool uint8_to_seval(uint8_t v, se::Value* ret);
-bool int32_to_seval(int32_t v, se::Value* ret);
-bool uint32_to_seval(uint32_t v, se::Value* ret);
-bool int16_to_seval(uint16_t v, se::Value* ret);
-bool uint16_to_seval(uint16_t v, se::Value* ret);
-bool boolean_to_seval(bool v, se::Value* ret);
-bool float_to_seval(float v, se::Value* ret);
-bool double_to_seval(double v, se::Value* ret);
-bool long_to_seval(long v, se::Value* ret);
-bool ulong_to_seval(unsigned long v, se::Value* ret);
-bool longlong_to_seval(long long v, se::Value* ret);
-bool ssize_to_seval(ssize_t v, se::Value* ret);
-bool std_string_to_seval(const std::string& v, se::Value* ret);
+bool int8_to_seval(int8_t v, se::Value *ret);
+bool uint8_to_seval(uint8_t v, se::Value *ret);
+bool int32_to_seval(int32_t v, se::Value *ret);
+bool uint32_to_seval(uint32_t v, se::Value *ret);
+bool int16_to_seval(uint16_t v, se::Value *ret);
+bool uint16_to_seval(uint16_t v, se::Value *ret);
+bool boolean_to_seval(bool v, se::Value *ret);
+bool float_to_seval(float v, se::Value *ret);
+bool double_to_seval(double v, se::Value *ret);
+bool long_to_seval(long v, se::Value *ret);
+bool ulong_to_seval(unsigned long v, se::Value *ret);
+bool longlong_to_seval(long long v, se::Value *ret);
+bool uintptr_t_to_seval(uintptr_t v, se::Value *ret);
+bool size_to_seval(size_t v, se::Value *ret);
+bool std_string_to_seval(const std::string &v, se::Value *ret); 
 
-bool Vec2_to_seval(const cocos2d::Vec2& v, se::Value* ret);
-bool Vec3_to_seval(const cocos2d::Vec3& v, se::Value* ret);
-bool Vec4_to_seval(const cocos2d::Vec4& v, se::Value* ret);
-bool Mat4_to_seval(const cocos2d::Mat4& v, se::Value* ret);
-bool Size_to_seval(const cocos2d::Size& v, se::Value* ret);
-bool Rect_to_seval(const cocos2d::Rect& v, se::Value* ret);
-bool Color3B_to_seval(const cocos2d::Color3B& v, se::Value* ret);
-bool Color4B_to_seval(const cocos2d::Color4B& v, se::Value* ret);
-bool Color4F_to_seval(const cocos2d::Color4F& v, se::Value* ret);
-bool ccvalue_to_seval(const cocos2d::Value& v, se::Value* ret);
-bool ccvaluemap_to_seval(const cocos2d::ValueMap& v, se::Value* ret);
-bool ccvaluemapintkey_to_seval(const cocos2d::ValueMapIntKey& v, se::Value* ret);
-bool ccvaluevector_to_seval(const cocos2d::ValueVector& v, se::Value* ret);
-bool blendfunc_to_seval(const cocos2d::BlendFunc& v, se::Value* ret);
-bool std_vector_string_to_seval(const std::vector<std::string>& v, se::Value* ret);
-bool std_vector_int_to_seval(const std::vector<int>& v, se::Value* ret);
-bool std_vector_float_to_seval(const std::vector<float>& v, se::Value* ret);
-bool std_vector_Touch_to_seval(const std::vector<cocos2d::Touch*>& v, se::Value* ret);
-bool std_map_string_string_to_seval(const std::map<std::string, std::string>& v, se::Value* ret);
-bool uniform_to_seval(const cocos2d::Uniform* v, se::Value* ret);
-bool FontDefinition_to_seval(const cocos2d::FontDefinition& v, se::Value* ret);
-bool Acceleration_to_seval(const cocos2d::Acceleration* v, se::Value* ret);
-bool Quaternion_to_seval(const cocos2d::Quaternion& v, se::Value* ret);
-bool ManifestAsset_to_seval(const cocos2d::extension::ManifestAsset& v, se::Value* ret);
-bool AffineTransform_to_seval(const cocos2d::AffineTransform& v, se::Value* ret);
-bool Data_to_seval(const cocos2d::Data& v, se::Value* ret);
-bool DownloadTask_to_seval(const cocos2d::network::DownloadTask& v, se::Value* ret);
+bool Vec2_to_seval(const cc::Vec2 &v, se::Value *ret);
+bool Vec3_to_seval(const cc::Vec3 &v, se::Value *ret);
+bool Vec4_to_seval(const cc::Vec4 &v, se::Value *ret);
+bool Mat4_to_seval(const cc::Mat4 &v, se::Value *ret);
+bool Size_to_seval(const cc::Size &v, se::Value *ret);
+bool Rect_to_seval(const cc::Rect &v, se::Value *ret);
+bool ccvalue_to_seval(const cc::Value &v, se::Value *ret);
+bool ccvaluemap_to_seval(const cc::ValueMap &v, se::Value *ret);
+bool ccvaluemapintkey_to_seval(const cc::ValueMapIntKey &v, se::Value *ret);
+bool ccvaluevector_to_seval(const cc::ValueVector &v, se::Value *ret);
+bool std_vector_string_to_seval(const std::vector<std::string> &v, se::Value *ret);
+bool std_vector_int_to_seval(const std::vector<int> &v, se::Value *ret);
+bool std_vector_uint16_to_seval(const std::vector<uint16_t> &v, se::Value *ret);
+bool std_vector_float_to_seval(const std::vector<float> &v, se::Value *ret);
+bool std_map_string_string_to_seval(const std::map<std::string, std::string> &v, se::Value *ret); 
 
-template<typename T>
-bool Vector_to_seval(const cocos2d::Vector<T*>& v, se::Value* ret);
+bool ManifestAsset_to_seval(const cc::extension::ManifestAsset &v, se::Value *ret); 
+bool Data_to_seval(const cc::Data &v, se::Value *ret);
+bool DownloadTask_to_seval(const cc::network::DownloadTask &v, se::Value *ret);
 
-template<typename T>
-bool Map_string_key_to_seval(const cocos2d::Map<std::string, T*>& v, se::Value* ret);
+template <typename T>
+typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, bool>::type
+native_ptr_to_seval(T *v_c, se::Value *ret, bool *isReturnCachedValue = nullptr);
 
-template<typename T>
-bool native_ptr_to_seval(typename std::enable_if<!std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Value* ret, bool* isReturnCachedValue = nullptr);
+template <typename T>
+typename std::enable_if<!std::is_base_of<cc::Ref, T>::value && !std::is_pointer<T>::value, bool>::type
+native_ptr_to_seval(T &v_ref, se::Value *ret, bool *isReturnCachedValue = nullptr);
 
-template<typename T>
-bool native_ptr_to_seval(typename std::enable_if<!std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Class* cls, se::Value* ret, bool* isReturnCachedValue = nullptr)
+template <typename T>
+bool native_ptr_to_rooted_seval(
+    typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, T>::type *v,
+    se::Value *ret, bool *isReturnCachedValue = nullptr);
 
-template<typename T>
-bool native_ptr_to_seval(typename std::enable_if<std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Value* ret, bool* isReturnCachedValue = nullptr);
+template <typename T>
+typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, bool>::type
+native_ptr_to_seval(T *vp, se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
 
-template<typename T>
-bool native_ptr_to_seval(typename std::enable_if<std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Class* cls, se::Value* ret, bool* isReturnCachedValue = nullptr);
+template <typename T>
+typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, bool>::type
+native_ptr_to_seval(T &v_ref, se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
 
-template<typename T>
-bool native_ptr_to_rooted_seval(typename std::enable_if<!std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Value* ret, bool* isReturnCachedValue = nullptr);
+template <typename T>
+bool native_ptr_to_rooted_seval(
+    typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, T>::type *v,
+    se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
 
-template<typename T>
-bool native_ptr_to_rooted_seval(typename std::enable_if<!std::is_base_of<cocos2d::Ref,T>::value,T>::type* v, se::Class* cls, se::Value* ret, bool* isReturnCachedValue = nullptr);
+template <typename T>
+typename std::enable_if<std::is_base_of<cc::Ref, T>::value, bool>::type
+native_ptr_to_seval(T *vp, se::Value *ret, bool *isReturnCachedValue = nullptr);
 
+template <typename T>
+typename std::enable_if<std::is_base_of<cc::Ref, T>::value, bool>::type
+native_ptr_to_seval(T *vp, se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
 
-// Spine conversions
-bool speventdata_to_seval(const spEventData& v, se::Value* ret);
-bool spevent_to_seval(const spEvent& v, se::Value* ret);
-bool spbonedata_to_seval(const spBoneData& v, se::Value* ret);
-bool spbone_to_seval(const spBone& v, se::Value* ret);
-bool spskeleton_to_seval(const spSkeleton& v, se::Value* ret);
-bool spattachment_to_seval(const spAttachment& v, se::Value* ret);
-bool spslotdata_to_seval(const spSlotData& v, se::Value* ret);
-bool spslot_to_seval(const spSlot& v, se::Value* ret);
-bool sptimeline_to_seval(const spTimeline& v, se::Value* ret);
-bool spanimationstate_to_seval(const spAnimationState& v, se::Value* ret);
-bool spanimation_to_seval(const spAnimation& v, se::Value* ret);
-bool sptrackentry_to_seval(const spTrackEntry& v, se::Value* ret);
+template <typename T>
+bool std_vector_to_seval(const std::vector<T> &v, se::Value *ret);
 
-// Box2d
-bool b2Vec2_to_seval(const b2Vec2& v, se::Value* ret);
-bool b2Manifold_to_seval(const b2Manifold* v, se::Value* ret);
-bool b2AABB_to_seval(const b2AABB& v, se::Value* ret);
+template <typename T>
+bool seval_to_reference(const se::Value &v, T **ret);
+
 ```
 
 辅助转换函数不属于 `Script Engine Wrapper` 抽象层，属于 cocos2d-x 绑定层，封装这些函数是为了在绑定代码中更加方便的转换。每个转换函数都返回 `bool` 类型，表示转换是否成功，开发者如果调用这些接口，需要去判断这个返回值。
@@ -899,7 +899,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 **开发者一定要理解清楚这二者的区别，才不会因为误用导致 JS 层内存泄露这种比较难查的 bug。**
 
-- `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 `se::Value` 的时候，可调用此方法。引擎内大部分继承于 `cocos2d::Ref` 的子类都采取这种方式去获取 `se::Value`。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval`。
+- `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 `se::Value` 的时候，可调用此方法。引擎内大部分继承于 `cc::Ref` 的子类都采取这种方式去获取 `se::Value`。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval`。
 - `native_ptr_to_rooted_seval` 用于 `CPP 控制 JS 对象生命周期` 的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 的 `se::Object`，如果不存在，则创建一个 rooted 的 `se::Object`，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 `se::Object` 的 unroot 操作，具体可参照前面章节中描述的 `spTrackEntry_setDisposeCallback` 中的内容。
 
 更多关于手动绑定的内容可参考 [使用 JSB 手动绑定](jsb-manual-binding.md)。
@@ -908,7 +908,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 ### 配置模块 ini 文件
 
-配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp`，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 `cocos2d::Ref` 子类和非 `cocos::Ref` 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp`，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
+配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp`，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 `cc::Ref` 子类和非 `cocos::Ref` 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp`，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
 
 1.7 中另外加入的一个配置字段为 `persistent_classes`，用于表示哪些类是在游戏运行中一直存在的，比如：`SpriteFrameCache`、`FileUtils`、`EventDispatcher`、`ActionManager` 和 `Scheduler`。
 
@@ -950,7 +950,7 @@ cocos_flags = -DANDROID
 extra_arguments = %(android_headers)s %(clang_headers)s %(cxxgenerator_headers)s %(cocos_headers)s %(android_flags)s %(clang_flags)s %(cocos_flags)s %(extra_flags)s
  
 # 需要自动绑定工具解析哪些头文件
-headers = %(cocosdir)s/cocos/cocos2d.h %(cocosdir)s/cocos/scripting/js-bindings/manual/BaseJSAction.h
+headers = %(cocosdir)s/cocos/cocos2d.h %(cocosdir)s/cocos/bindings/manual/BaseJSAction.h
 
 # 在生成的绑定代码中，重命名头文件
 replace_headers=CCProtectedNode.h::2d/CCProtectedNode.h,CCAsyncTaskPool.h::base/CCAsyncTaskPool.h
@@ -997,27 +997,27 @@ classes_owned_by_cpp =
 
 ## 远程调试与 Profile
 
-默认远程调试和 Profile 是在 debug 模式中生效的，如果需要在 release 模式下也启用，需要手动修改 `cocos/scripting/js-bindings/jswrapper/config.hpp` 中的宏开关。
+默认远程调试和 Profile 是在 debug 模式中生效的，如果需要在 release 模式下也启用，需要手动修改 `cocos/bindings/jswrapper/config.h` 中的宏开关。
 
 ```c++
-#if defined(COCOS2D_DEBUG) && COCOS2D_DEBUG > 0
-#define SE_ENABLE_INSPECTOR 1
-#define SE_DEBUG 2
-#else
-#define SE_ENABLE_INSPECTOR 0
-#define SE_DEBUG 0
+#ifndef USE_V8_DEBUGGER
+    #if defined(CC_DEBUG) && CC_DEBUG > 0
+        #define USE_V8_DEBUGGER 1
+    #else
+        #define USE_V8_DEBUGGER 0
+    #endif
 #endif
 ```
 
 改为：
 
 ```c++
-#if 1 // 这里改为 1，强制启用调试
-#define SE_ENABLE_INSPECTOR 1
-#define SE_DEBUG 2
-#else
-#define SE_ENABLE_INSPECTOR 0
-#define SE_DEBUG 0
+#ifndef USE_V8_DEBUGGER
+    #if defined(CC_DEBUG) && CC_DEBUG > 0
+        #define USE_V8_DEBUGGER 1
+    #else
+        #define USE_V8_DEBUGGER 1  // 这里改为 1，强制启用调试
+    #endif
 #endif
 ```
 
@@ -1091,13 +1091,13 @@ bool AppDelegate::applicationDidFinishLaunching()
 `objA->attachObject(objB);` 类似于 JS 中执行 `objA.__nativeRefs[index] = objB`，只有当 objA 被 GC 后，objB 才有可能被 GC。<br>
 `objA->dettachObject(objB);` 类似于 JS 中执行 `delete objA.__nativeRefs[index];`，这样 objB 的生命周期就不受 objA 控制了。
 
-### cocos2d::Ref 子类与非 cocos2d::Ref 子类 JS/CPP 对象生命周期管理有何不同？
+### cc::Ref 子类与非 cc::Ref 子类 JS/CPP 对象生命周期管理有何不同？
 
-目前引擎中 `cocos2d::Ref` 子类的绑定采用 JS 对象控制 CPP 对象生命周期的方式，这样做的好处是，解决了一直以来被诟病的需要在 JS 层 retain，release 对象的烦恼。
+目前引擎中 `cc::Ref` 子类的绑定采用 JS 对象控制 CPP 对象生命周期的方式，这样做的好处是，解决了一直以来被诟病的需要在 JS 层 retain，release 对象的烦恼。
 
-非 `cocos2d::Ref` 子类采用 CPP 对象控制 JS 对象生命周期的方式。此方式要求，CPP 对象销毁后需要通知绑定层去调用对应 `se::Object` 的 clearPrivateData, unroot, decRef 的方法。JS 代码中一定要慎重操作对象，当有可能出现非法对象的逻辑中，使用 `cc.sys.isObjectValid` 来判断 CPP 对象是否被释放了。
+非 `cc::Ref` 子类采用 CPP 对象控制 JS 对象生命周期的方式。此方式要求，CPP 对象销毁后需要通知绑定层去调用对应 `se::Object` 的 clearPrivateData, unroot, decRef 的方法。JS 代码中一定要慎重操作对象，当有可能出现非法对象的逻辑中，使用 `sys.isObjectValid` 来判断 CPP 对象是否被释放了。
 
-### 绑定 cocos2d::Ref 子类的析构函数需要注意的事项
+### 绑定 cc::Ref 子类的析构函数需要注意的事项
 
 如果在 JS 对象的 finalize 回调中调用任何 JS 引擎的 API，可能导致崩溃。因为当前引擎正在进行垃圾回收的流程，无法被打断处理其他操作。finalize 回调中是告诉 CPP 层是否对应的 CPP 对象的内存，不能在 CPP 对象的析构中又去操作 JS 引擎 API。
 
@@ -1119,9 +1119,9 @@ static bool js_cocos2d_Sprite_finalize(se::State& s)
 SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
 ```
 
-### 请不要在栈（Stack）上分配 cocos2d::Ref 的子类对象
+### 请不要在栈（Stack）上分配 cc::Ref 的子类对象
 
-Ref 的子类必须在堆（Heap）上分配，即通过 `new`，然后通过 `release` 来释放。当 JS 对象的 finalize 回调函数中统一使用 `autorelease` 或 `release` 来释放。如果是在栈上的对象，reference count 很有可能为 0，而这时调用 `release`，其内部会调用 `delete`，从而导致程序崩溃。所以为了防止这个行为的出现，开发者可以在继承于 `cocos2d::Ref` 的绑定类中，标识析构函数为 `protected` 或者 `private`，保证在编译阶段就能发现这个问题。
+Ref 的子类必须在堆（Heap）上分配，即通过 `new`，然后通过 `release` 来释放。当 JS 对象的 finalize 回调函数中统一使用 `autorelease` 或 `release` 来释放。如果是在栈上的对象，reference count 很有可能为 0，而这时调用 `release`，其内部会调用 `delete`，从而导致程序崩溃。所以为了防止这个行为的出现，开发者可以在继承于 `cc::Ref` 的绑定类中，标识析构函数为 `protected` 或者 `private`，保证在编译阶段就能发现这个问题。
 
 例如：
 

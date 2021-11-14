@@ -25,9 +25,9 @@ CocosJavascriptJavaBridge.evalString("window.sample.testEval('" + param + "',JSO
 每次调用下载都需要这样执行：
 
 ```js
-if(cc.sys.isNative && cc.sys.os == cc.sys.OS_IOS) {
+if(sys.isNative && sys.os == sys.OS.IOS) {
     jsb.reflection.callStaticMethod('ABCFileDownloader', 'downloadFileWithUrl:cookie:savePath:', url, cookies, savePath);
-} else if(cc.sys.isNative && cc.sys.os == cc.sys.OS_ANDROID) {
+} else if(sys.isNative && sys.os == sys.OS.ANDROID) {
     jsb.reflection.callStaticMethod("com/tencent/abcmouse/downloader/ABCFileDownloader", "downloadFileWithUrl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", url, cookies, savePath);
 }
 ```
@@ -71,7 +71,7 @@ jsb.fileDownloader.requestDownload(url, savePath, cookies, options, (success, ur
 - 注册 JS 对象的属性读写访问器，分别绑定读与写的 C++ 回调
 
 考虑到不同多种 JS 引擎的关键方法的定义各不相同，Cocos 团队使用 **宏** 来抹平这种回调函数定义与参数类型的差异，这里就不展开，详细可阅读文末 Cocos Creator 的相关文档。<br>
-**值得一提的是，ScriptEngine 这层设计之初 Cocos 团队就将其定义为一个独立模块，完全不依赖 Cocos 引擎。** 我们开发者完全可以把 **cocos/scripting/js-bindings/jswrapper** 下的所有抽象层源码移植到其他项目中直接使用。
+**值得一提的是，ScriptEngine 这层设计之初 Cocos 团队就将其定义为一个独立模块，完全不依赖 Cocos 引擎。** 我们开发者完全可以把 **cocos/bindings/jswrapper** 下的所有抽象层源码移植到其他项目中直接使用。
 
 ### SE 类型
 
@@ -122,7 +122,7 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 - `SE_DECLARE_FUNC`：声明一个 JS 函数，一般在 `.h` 头文件中使用
 - `SE_BIND_CTOR`：包装一个 JS 构造函数
 - `SE_BIND_SUB_CLS_CTOR`：包装一个 JS 子类的构造函数，此子类使用 `cc.Class.extend` 继承 Native 绑定类
-- `SE_FINALIZE_FUNC`：包装一个 JS 对象被 GC 回收后的回调函数
+- `SE_BIND_FINALIZE_FUNC`：包装一个 JS 对象被 GC 回收后的回调函数
 - `SE_DECLARE_FINALIZE_FUNC`：声明一个 JS 对象被 GC 回收后的回调函数
 - `_SE`：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似 Windows 下用的 _T("xxx") 来包装 Unicode 或者 MultiBytes 字符串
 
@@ -130,7 +130,7 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 
 ### 类型转换辅助函数
 
-类型转换辅助函数位于 **cocos/scripting/js-bindings/manual/jsb_conversions.hpp/.cpp** 中，包含了多种 `se::Value` 与 C++ 类型相互转化的方法。
+类型转换辅助函数位于 **cocos/bindings/manual/jsb_conversions.h/.cpp** 中，包含了多种 `se::Value` 与 C++ 类型相互转化的方法。
 
 - `bool std_string_to_seval(const std::string& v, se::Value* ret);`
 - `bool seval_to_std_string(const se::Value& v, std::string* ret);`
@@ -390,7 +390,7 @@ network::FileDownloader::destroyInstance();
 ================================================
 
 以上就是全部的绑定流程，在分别编译到 Android/iOS 环境后，我们就能够通过 `jsb.fileDownloader.download()` 进行下载调用了。<br>
-（PS：一定切记在使用前进行 `CC_JSB` 的宏判断，因为非 JSB 环境下是无法使用的）
+（PS：一定切记在使用前进行 `JSB` 的宏判断，因为非 JSB 环境下是无法使用的）
 
 ## 总结
 
