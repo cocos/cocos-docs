@@ -5,11 +5,11 @@
 >
 > 本文档基于 v2.x 编写，在 Cocos Creator 3.0 上可能略有变动，我们会尽快更新。
 
-尽管 Creator 提供了 `jsb.reflection.callStaticMethod` 方式支持从 JS 端直接调用 Native 端（Android/iOS/Mac）的接口，但是经过大量实践发现此接口在大量频繁调用情况下性能很低下，尤其是在 Android 端，比如调用 Native 端实现的打印 log 的接口，而且会容易引起一些 native crash，例如 `local reference table overflow` 等问题。纵观 Cocos 原生代码的实现，基本所有的接口方法的实现都是基于 JSB 的方式来实现，所以此文主要讲解下 JSB 的自动绑定逻辑，帮助大家能快速实现 `callStaticMethod` 到 JSB 的改造过程。
+尽管 Creator 提供了 `jsb.reflection.callStaticMethod` 方式支持从 TS 端直接调用 Native 端（Android/iOS/Mac）的接口，但是经过大量实践发现此接口在大量频繁调用情况下性能很低下，尤其是在 Android 端，比如调用 Native 端实现的打印 log 的接口，而且会容易引起一些 native crash，例如 `local reference table overflow` 等问题。纵观 Cocos 原生代码的实现，基本所有的接口方法的实现都是基于 JSB 的方式来实现，所以此文主要讲解下 JSB 的自动绑定逻辑，帮助大家能快速实现 `callStaticMethod` 到 JSB 的改造过程。
 
 ## 背景
 
-对于用过 Cocos Creator（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 JS 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScript 中按照如下的操作调用即可：
+对于用过 Cocos Creator（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 TS 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScript 中按照如下的操作调用即可：
 
 ```javascript
 if (sys.isNative && sys.os == sys.OS.IOS) {
@@ -28,7 +28,7 @@ if (sys.isNative && sys.os == sys.OS.IOS) {
 修复此问题就需要针对 log 调用进行 JSB 的改造，同时还要加上 jni 的相关缓存机制，优化性能。jSB 绑定说白了就是 C++ 和脚本层之间进行对象的转换，并转发脚本层函数调用到 C++ 层的过程。
 
 JSB 绑定通常有 **手动绑定** 和 **自动绑定** 两种方式。手动绑定方式可以参考 [使用 JSB 手动绑定](jsb-manual-binding.md)。
-- 手动绑定方式优点是灵活，可定制型强；缺点就是全部代码要自己书写，尤其是在 js 类型跟 c++ 类型转换上，稍有不慎容易导致内存泄漏，某些指针或者对象没有释放。
+- 手动绑定方式优点是灵活，可定制型强；缺点就是全部代码要自己书写，尤其是在 TS 类型跟 c++ 类型转换上，稍有不慎容易导致内存泄漏，某些指针或者对象没有释放。
 - 自动绑定方式则会帮你省了很多麻烦，直接通过一个脚本一键生成相关的代码，后续如果有新增或者改动，也只需要重新执行一次脚本即可。所以自动绑定对于不需要进行强定制，需要快速完成JSB的情况来说就再适合不过了。下面就一步步说明下如何实现自动绑定 JSB。
 
 ## 环境配置和自动绑定展示
@@ -37,26 +37,22 @@ JSB 绑定通常有 **手动绑定** 和 **自动绑定** 两种方式。手动�
 
 自动绑定，说简单点，其实就只要执行一个 python 脚本即可自动生成对应的 `.cpp`、`.h` 文件。所以首先要保证电脑有 python 运行环境，这里以 Mac 上安装为例来讲解。
 
-1. 安装 python，强烈建议先安装 [HomeBrew](https://brew.sh/)，然后直接命令行运行：
+1. 安装 python，从python官网下载安装包：
+
+    https://www.python.org/downloads/release/python-398/
+
+2. 通过 pip3 安装 python 的一些依赖库：
 
     ```shell
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install python
+    sudo pip3 install pyyaml==5.4.1
+    sudo pip3 install Cheetah3
     ```
 
-2. 通过 pip 安装 python 的一些依赖库：
+3. 安装 NDK，涉及到 c++ 肯定这个是必不可少的，建议安装 [Android NDK r16b](https://developer.android.com/ndk/downloads/older_releases?hl=zh-cn) 版本，然后在 `~/.bash_profile` 中设置 `PYTHON_ROOT` 和 `NDK_ROOT` 这两个环境变量，因为在后面执行的 python 文件里面就会直接用到这两个环境变量：
 
     ```shell
-    sudo easy_install pip
-    sudo pip install PyYAML
-    sudo pip install Cheetah
-    ```
-
-3. 安装 NDK，涉及到 c++ 肯定这个是必不可少的，建议安装 [14b](https://dl.google.com/android/repository/android-ndk-r14b-darwin-x86_64.zip) 版本，然后在 `~/.bash_profile` 中设置 `PYTHON_ROOT` 和 `NDK_ROOT` 这两个环境变量，因为在后面执行的 python 文件里面就会直接用到这两个环境变量：
-
-    ```shell
-    export NDK_ROOT="/Users/mycount/Library/Android/sdk/ndk-r14b"
-    export PYTHON_BIN="/usr/bin/python"
+    export NDK_ROOT=/Users/kevin/android-ndk-r16b
+    export PYTHON_BIN=python3
     ```
 
 Window 下直接参考上面需要安装的模块直接安装就好了，最后也要记得配置环境变量。
@@ -74,14 +70,6 @@ Window 下直接参考上面需要安装的模块直接安装就好了，最后�
 大概运行一分钟左右后，会出现如下的提示，说明已经顺利生成完了：
 
 ![](jsb/generate-file-complete.png)
-
-当然一般大家第一次运行后很可能会失败，出现如下面类似的报错：
-
-![](jsb/error-1.png)
-
-![](jsb/error-2.png)
-
-一般都是因为配置的 NDK 版本太高导致，最开始我是用 NDK16b 就出现了问题，换成 NDK14b 后就 OK 了。
 
 经过上面的步骤后，**cocos/bindings/auto** 下的文件就全部自动生成出来了，是不是非常方便。
 
@@ -245,7 +233,7 @@ abstract_classes = JSBBridge
 
 ![](jsb/ini-file-properties.png)
 
-以上的配置完成后，就可以 cd 到 **tools/tojs** 目录下，然后运行 `./genbindings_test.py` 自动生成绑定文件。然后就会看到在 **cocos\bindings\auto** 下面会多出了两个个绑定文件：
+以上的配置完成后，就可以 cd 到 **tools/tojs** 目录下，运行 `./genbindings_test.py` 自动生成绑定文件。然后就会看到在 **cocos\bindings\auto** 下面会多出了两个个绑定文件：
 
 ![](jsb/binding-file.png)
 
@@ -350,7 +338,7 @@ bool register_all_cocos2dx_test(se::Object* obj)
     ![](jsb/112.png)
 
 
-经过上面这些配置后，最终就可以在 js 层直接像下面这样来进行调用：
+经过上面这些配置后，最终就可以在 ts 层直接像下面这样来进行调用：
 
 ``` typescript
 import { _decorator, Component, Node } from 'cc';
