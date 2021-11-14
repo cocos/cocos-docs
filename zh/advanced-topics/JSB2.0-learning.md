@@ -908,7 +908,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 ### 配置模块 ini 文件
 
-配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp`，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 `cc::Ref` 子类和非 `cocos::Ref` 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp`，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
+配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp`，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 `cc::Ref` 子类和非 `cc::Ref` 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp`，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
 
 1.7 中另外加入的一个配置字段为 `persistent_classes`，用于表示哪些类是在游戏运行中一直存在的，比如：`SpriteFrameCache`、`FileUtils`、`EventDispatcher`、`ActionManager` 和 `Scheduler`。
 
@@ -918,7 +918,7 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 ### 理解 ini 文件中每个字段的意义
 
-```bash
+```ini
 # 模块名称
 [cocos2d-x] 
 

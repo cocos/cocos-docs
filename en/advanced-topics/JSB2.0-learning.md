@@ -930,7 +930,7 @@ For more specific, please refer to the engine directory `tools/tojs/cocos2dx.ini
 
 ### Understand The Meaning of Each Field in The `.ini` file
 
-```bash
+```ini
 # Module name
 [cocos2d-x] 
 
@@ -1007,7 +1007,7 @@ classes_owned_by_cpp =
 
 ## Remote Debugging and Profile
 
-The remote debugging and profile are valid in debug mode, if you need to enable in release mode, you need to manually modify the macro in `cocos/bindings/jswrapper/config.hpp`.
+The remote debugging and profile are valid in debug mode, if you need to enable in release mode, you need to manually modify the macro in `cocos/bindings/jswrapper/config.h`.
 
 ```c++
 #if defined(COCOS2D_DEBUG) && COCOS2D_DEBUG > 0
