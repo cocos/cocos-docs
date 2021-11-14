@@ -91,12 +91,12 @@ function updateCb (event) {
     switch (event.getEventCode ())
     {
         case jsb.EventAssetsManager.UPDATE_PROGRESSION:
-            cc.log("Byte progression : " + event.getPercent() / 100);
-            cc.log("File progression : " + event.getPercentByFile() / 100);
-            cc.log("Total files      : " + event.getTotalFiles());
-            cc.log("Downloaded files : " + event.getDownloadedFiles());
-            cc.log("Total bytes      : " + event.getTotalBytes());
-            cc.log("Downloaded bytes : " + event.getDownloadedBytes());
+            log("Byte progression : " + event.getPercent() / 100);
+            log("File progression : " + event.getPercentByFile() / 100);
+            log("Total files      : " + event.getTotalFiles());
+            log("Downloaded files : " + event.getDownloadedFiles());
+            log("Total bytes      : " + event.getTotalBytes());
+            log("Downloaded bytes : " + event.getDownloadedBytes());
             break;
     }
 }
@@ -222,11 +222,11 @@ Hot update is a frequent requirement for game developers, and multiple hot updat
 
 2. How to clean the local cache during a game's major release?
 
-    During a package update, there are various ways to thoroughly clean up the local hot update cache, such as recording the current game version number, checking if it matches the saved version in `cc.sys.localStorage`, and performing the following cleanup if they don't match:
+    During a package update, there are various ways to thoroughly clean up the local hot update cache, such as recording the current game version number, checking if it matches the saved version in `sys.localStorage`, and performing the following cleanup if they don't match:
 
     ```js
     // The version number previously saved in local Storage, if not, is considered as new version
-    var previousVersion = parseFloat(cc.sys.localStorage.getItem('currentVersion'));
+    var previousVersion = parseFloat(sys.localStorage.getItem('currentVersion'));
     // game.currentVersion is the current version's number.
     if (previousVersion < game.currentVersion) {
         // The hot update cache directory. If there are multiple versions, you may need to record in a list and clean all.
