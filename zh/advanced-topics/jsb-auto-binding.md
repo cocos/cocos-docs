@@ -37,7 +37,7 @@ JSB 绑定通常有 **手动绑定** 和 **自动绑定** 两种方式。手动�
 
 自动绑定，说简单点，其实就只要执行一个 python 脚本即可自动生成对应的 `.cpp`、`.h` 文件。所以首先要保证电脑有 python 运行环境，这里以 Mac 上安装为例来讲解。
 
-1. 安装 python，从python官网下载安装包：
+1. 安装 python 3.0 版本，从 python 官网下载安装包：
 
     https://www.python.org/downloads/release/python-398/
 
@@ -163,9 +163,9 @@ namespace abc
 
 ![](jsb/cancel-output_dir.png)
 
-接下来是在 **tools/tojs** 目录下添加自定义的配置文件 `cocos2dx_test.ini`，其实就跟 **tools/tojs/** 下的其他 `.ini` 文件类似，主要让自动绑定工具知道哪些 API 要被绑定和以什么样的方式绑定，写法上直接参考 Cocos 已有的 ini 文件，这里展示下 `cocos2dx_test.ini` 的内容：
+接下来是在 **tools/tojs** 目录下添加自定义的配置文件 `cocos2dx_test.ini`，其实就跟 **tools/tojs** 下的其他 `.ini` 文件类似，主要让自动绑定工具知道哪些 API 要被绑定和以什么样的方式绑定，写法上直接参考 Cocos 已有的 ini 文件，这里展示下 `cocos2dx_test.ini` 的内容：
 
-```shell
+``` ini
 [cocos2dx_test]
 # the prefix to be added to the generated functions. You might or might not use this in your own
 # templates
@@ -233,7 +233,7 @@ abstract_classes = JSBBridge
 
 ![](jsb/ini-file-properties.png)
 
-以上的配置完成后，就可以 cd 到 **tools/tojs** 目录下，运行 `./genbindings_test.py` 自动生成绑定文件。然后就会看到在 **cocos\bindings\auto** 下面会多出了两个个绑定文件：
+以上的配置完成后，就可以 cd 到 **tools/tojs** 目录下，运行 `./genbindings_test.py` 自动生成绑定文件。然后就会看到在 **cocos/bindings/auto** 下面会多出了两个个绑定文件：
 
 ![](jsb/binding-file.png)
 
@@ -348,7 +348,7 @@ const { ccclass, property } = _decorator;
 export class Test extends Component {
     start () {
         // @ts-ignore
-        abc.JSBBridge.getInstance().abcLog("======")
+        abc.JSBBridge.getInstance().abcLog("JSB 绑定测试成功")
     }
 }
 ```
