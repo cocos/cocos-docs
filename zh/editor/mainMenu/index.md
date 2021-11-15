@@ -137,7 +137,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | Export.d.ts |导出编辑器相关的 API |
 | 重新加载（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>R</kbd>） | 重新加载编辑器界面|
 | UI 组件 | 打开 UI 组件面板，该面板列举了编辑器内提供的预设 UI 组件的使用方式，详情请参考 [UI 组件](../extension/ui.md) |
-| VS Code Workflow | VS Code 代码编辑器的工作环境相关功能，目前支持 **添加 Chrome debug 配置** 和 **添加编译任务** |
+| VS Code Workflow | VS Code 代码编辑器的工作环境相关功能，目前支持 **添加 Chrome debug 配置** 和 **添加编译任务**，详情请参考 [配置代码编辑环境](../../scripting/coding-setup.md)。 |
 | 开关开发人员工具（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>） | 开/关开发者工具窗口，用于编辑器界面扩展的开发。同时也可以自定义输出到 **控制台** 的日志，详情请参考 [自定义输出消息](../console/index.md#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E4%BF%A1%E6%81%AF)|
 | 打开资源调试工具 | 打开资源调试面板，用于查看修改 asset-db 进程期间的日志消息|
 | 打开场景调试工具 | 打开场景调试面板，用于查看修改场景时的日志消息|

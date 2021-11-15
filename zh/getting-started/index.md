@@ -2,11 +2,11 @@
 
 欢迎使用 Cocos Creator，在学习使用之前，请先参考 [安装和启动](install/index.md) 安装好 Cocos Creator。
 
-在安装完编辑器之后，可以通过以下内容来熟悉编辑器，包括如何创建项目、项目结构，以及编辑器各面板介绍等：
+在安装完编辑器之后，可以通过以下内容来熟悉编辑器，包括如何创建项目、项目结构，以及编辑器界面介绍等：
 
 - [使用 Dashboard](dashboard/index.md)
 - [项目结构](project-structure/index.md)
-- [编辑器面板](../editor/index.md)
+- [编辑器界面](../editor/index.md)
 
 对编辑器有了一定的熟悉和了解之后，便可以通过简单的示例来熟悉 Cocos Creator 的开发流程：
 
