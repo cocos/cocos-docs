@@ -33,8 +33,8 @@ exports.unload = function() {};
 // Methods defined within the module
 exports.methods = {
     log() {
-        const { directory } = require('cc')
-        directory.getScene()
+        const { director } = require('cc')
+        director.getScene()
     }
 };
 ```

@@ -34,8 +34,8 @@ exports.unload = function() {};
 // 模块内定义的方法
 exports.methods = {
     log() {
-        const { directory } = require('cc')
-        directory.getScene()
+        const { director } = require('cc')
+        director.getScene()
     }
 };
 ```
