@@ -199,6 +199,7 @@ TODO：将动画剪辑资源拖入动画图编辑器时也将在当前状态机�
 |--|--|
 |`onMotionStateEnter`|在进入动作状态时调用。|
 |`onMotionStateExit`|在完全退出动作状态时调用。|
+|`onMotionStateUpdate`|在动作状态更新时调用。|
 |`onStateMachineEnter`|在进入子状态机时调用。|
 |`onStateMachineExit`|在进入子状态机时调用。|
 
