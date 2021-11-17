@@ -185,6 +185,56 @@ TODO：将动画剪辑资源拖入动画图编辑器时也将在当前状态机�
 
 ![动画混合 2D](./blend-2d.png "动画混合 2D")
 
+## 状态机组件
+
+动作状态和子状态机都可以添加所谓的状态机组件。
+
+状态机组件类继承自 `animation.StateMachineComponent`，可以在资源创建菜单中创建一个包含了状态机组件的模块：
+
+![创建状态机组件](./create-state-machine-component-menu.png "创建状态机组件")
+
+状态机组件基类中提供了一些方法，表示状态机的一些特定事件。子类可以覆写这些方法，以在状态进入、离开时添加一些业务逻辑。
+
+|方法名|说明|
+|--|--|
+|`onMotionStateEnter`|在进入动作状态时调用。|
+|`onMotionStateExit`|在完全退出动作状态时调用。|
+|`onStateMachineEnter`|在进入子状态机时调用。|
+|`onStateMachineExit`|在进入子状态机时调用。|
+
+这些方法可能接受以下参数：
+
+- `controller: animation.AnimationController`：上述所有方法都会接受此参数。表示运行此动画图的动画控制器组件。
+
+- `motionStateStatus: animation.MotionStateStatus`：仅动作状态相关的方法（`onMotionStateEnter`、`onMotionStateExit`）接受此参数。表示事件主体动作状态的运作状态。
+
+创建好状态机组件类后，在状态的属性检查面板上选择添加组件即可将组件附加至该状态：
+
+![附加状态机组件](./attach-state-machine-component.png "附加状态机组件")
+
+### 示例：在进入状态时播放特效
+
+```ts
+import { _decorator, animation, PhysicsSystem, ParticleSystem } from "cc";
+const { ccclass, property } = _decorator;
+
+@ccclass("AnimationGraphComponent")
+export class AnimationGraphComponent extends animation.StateMachineComponent {
+    /**
+     * Called when a motion state right after it entered.
+     * @param controller The animation controller it within.
+     * @param stateStatus The status of the motion.
+     */
+    public onMotionStateEnter (controller: animation.AnimationController, stateStatus: Readonly<animation.MotionStateStatus>): void {
+        // 播放动画控制器所在节点上的所有例子特效
+        for (const particleSystem of controller.node.getComponents(ParticleSystem)) {
+            particleSystem.play();
+        }
+    }
+}
+
+```
+
 ## 变量
 
 动画图通过暴露变量使外界控制自我流程。
