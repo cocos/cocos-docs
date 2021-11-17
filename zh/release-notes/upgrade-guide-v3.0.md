@@ -32,7 +32,7 @@ Cocos Creator 3.0 使用了面向未来的全新引擎架构，将为引擎带�
 
 然后在弹出的文件浏览对话框中选择 v2.x 项目的根目录。
 
-![import-menu](import-select-project.png)
+![import-select-project](import-select-project.png)
 
 > **注意**：旧项目推荐先升级到 v2.4.3 或以上版本，然后再导入到 v3.0，否则无法确保导入结果的正确性。
 
@@ -433,7 +433,7 @@ v3.0 构建 Windows 平台后生成的发布包目录如下：
 
 ## 升级常见问题（FAQ）
 
-### 升级后项目脚本在 VS Code 打开时，绑定组件定义等操作出现爆红现象
+### 升级后项目脚本在 VS Code 打开时，绑定组件定义等操作出现报红现象
 
 Cocos Creator 3.x 开启了 TypeScript 的严格模式，会对代码进行更严格的审查，排除开发过程中可能会出现的因为疏忽而导致的问题。
 

@@ -1,21 +1,30 @@
 # Cocos Creator 3.0 Upgrade Guide
 
-## Version introduction
+## Version Introduction
 
 __Cocos Creator 3.0__ integrates all the functions of the original __2D__ and __3D__ products, brings many major updates, and will become the main version of __Cocos Creator__. At the same time, 3.0 also continues __Cocos's__ advantages of light weight and high efficiency in 2D categories, and provides an efficient development experience for 3D heavy games.
 
-In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, we will use v2.4 as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore,
+- **For Cocos Creator 2.x**
 
- - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
- - **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
+    In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, we will use v2.4 as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore,
 
-__Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0__, please go to [Official Website Update Instructions](https://cocos.com/creator).
+    - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
 
-## How to migrate
+    - **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
+
+- **For Cocos Creator 3D**
+
+    The original Cocos Creator 3D, a branch of Creator, has been iterated for a year for Chinese developers, and has successfully launched heavy projects such as **Star Battle** and **Strongest Demon Fighter**! Cocos Creator 3D will be included in v3.0 after the release of Cocos Creator 3.0, and the existing v1.2 projects can be upgraded directly, so Cocos Creator 3D will not be released as a separate version in the future.
+
+__Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. 
+
+For a detailed introduction to the __Cocos Creator 3.0__, please go to [Official Website Update Instructions](https://cocos.com/creator).
 
 ## How to migrate Cocos Creator 2.x projects
 
-Although **we do not recommend projects under development, especially projects that are about to go live, to upgrade to v3.0**, there will be a v2.x resource migration tool in __Cocos Creator 3.0__. This tool supports importing old projects, project resources, and project code very well. Code-assisted migration will convert **JavaScript** into **TypeScript**, and automatically add component type declarations, property declarations and function declarations. The references of components in the scene will be preserved, and the code inside the function will be imported in the form of comments, which can reduce the difficulty of upgrading.
+Although **we do not recommend forcing projects in development, especially those about to go live, to upgrade to v3.0**, we have introduced the v2.x resource import tool in Cocos Creator 3.0. This tool supports the perfect import of resources from old projects, as well as assisted migration of code.
+
+### Resource Import
 
 Developers only need to click **File -> Import Cocos Creator 2.x project** in the main menu.
 
@@ -33,19 +42,120 @@ All the resources in the v2.x project will be automatically presented in the pop
 
 The **Manual** button in the bottom left corner of the panel will take you to the GitHub repository for the Import Plugin, which can be used to [update the Import Plugin](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md) or submit feedback.
 
-## Old version developers quickly get started
+### Code Migration
 
-### Engine API upgrade
+When importing a v2.x project developed in JavaScript, the code assisted migration feature of the import plugin will first convert the JavaScript to TypeScript and then perform the code migration.
 
-#### Asset loading
+For example, the imported v2.x project JavaScript code would look like this:
 
-The API for v3.0 asset loading is consistent with v2.4, please refer to the [Asset Manager Overview](../asset/asset-manager.md).
+```typescript
+// AudioController.js
+cc.Class({
+    extends: cc,
 
-#### UI related interfaces on the obsolete node
+    properties: {
+        audioSource: {
+            type: cc.AudioSource,
+            default: null
+        },
+    },
+
+    play: function () {
+        this.audioSource.play();
+    },
+
+    pause: function () {
+        this.audioSource.pause();
+    },
+
+});
+```
+
+Due to the differences in how the code is written in each project and the different levels of complexity, the current import plugin only adds **component type declarations**, **property declarations** and **function declarations** to the code migration, the references to the components in the scene are **preserved** and the code inside the function is migrated as **comments**. <br>
+In addition, the original code of v2.x is kept intact as a comment at the end of the migrated code, so that developers can refer to it when converting manually.
+
+The example code above, after the code assisted migration by the import plugin, looks like this:
+
+```typescript
+// AudioController.ts
+
+import { _decorator, Component, AudioSource } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('AudioController')
+export class AudioController extends Component {
+    @property
+    public audioSource:AudioSource = 'null';
+
+    play () {
+        //this.audioSource.play();
+    }
+
+    pause () {
+        //this.audioSource.pause();
+    }
+
+}
+
+
+/**
+ * Note: The original script has been commented out, due to the large changes in the script, there may be missing in the conversion, you need to manually convert it yourself
+ */
+// cc.Class({
+//     extends: cc.Component,
+// 
+//     properties: {
+//         audioSource: {
+//             type: cc.AudioSource,
+//             default: null
+//         },
+//     },
+// 
+//     play: function () {
+//         this.audioSource.play();
+//     },
+// 
+//     pause: function () {
+//         this.audioSource.pause();
+//     },
+// 
+// });
+```
+
+> **Note**.
+>
+> 1. If you are converting from JavaScript to TypeScript, you need to declare **all properties** in TypeScript and set the default values.
+2. If the **Inspector** panel data is missing, you need to check if the property type is the same as v2.x. > 3.
+> 3. If the JavaScript code uses external types, TypeScript prompts: Fix by importing external source files or declarations.
+
+## Quick start for developers of older versions
+
+### Material Upgrade
+
+In v3.0, we have continued to improve the design of the material system and the built-in Shader API, so when upgrading from v2.x to v3.x, some of the content cannot be upgraded automatically and needs to be adjusted manually by the developer. For details, please refer to the [Material Upgrade Guide](../material-system/effect-2.x-to-3.0.md) documentation.
+
+### Engine API Upgrade
+
+#### For Cocos Creator 3D 1.2 users
+
+1. Cocos Creator 3.0 asset loading related APIs are consistent with v2.4, both refactored the `loader`. v1.2 users can refer to [v2.4 Asset Manager Upgrade Guide](https://docs.cocos.com/creator/manual/en/release-notes/asset-manager-upgrade-guide.html) for upgrading.
+
+2. Component class name change
+
+    In order to comply with the v2.x API specification, Cocos Creator 3.0 discarded the naming method of component class name including Component suffix, and did the automatic data upgrade and code compatibility.
+
+    However, it is recommended to search for all similar naming styles in the code and change the class name without the Component suffix as soon as possible. A global search (with case sensitivity and regular matching turned on) can be performed using the following regular expressions:
+
+    ```
+    ([A-Z]\w+)Component
+    ```
+
+#### For Cocos Creator 2.x users
 
 - The UI-related interface changes on the node are as follows:
 
     - The interfaces related to coordinate transformation calculation (e.g.: `size` or `anchor`) are as follows:
+
         Please get the `UITransform` component on the node first, and then use the corresponding interface, for example:
 
         ```typescript
@@ -70,7 +180,13 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
 
     - Remove the interfaces: `copyWithZone`, `copy`, `clone` and `ensureLoadTexture`.
 
-    - Change the interface: `setFlipX` and `isFlipX` -> `flipUVX`, `setFlipY` and `isFlipY` -> `flipUVY`, `getTexture` and `setTexture` -> `texture` (where the type is Texture2D/ RenderTexture).
+    - Change the interface: 
+
+    `setFlipX` and `isFlipX` -> `flipUVX`
+    
+    `setFlipY` and `isFlipY` -> `flipUVY`
+
+    `getTexture` and `setTexture` -> `texture` (where the type is Texture2D/ RenderTexture).
 
     - The remaining methods corresponding to `get` and `set` (e.g.: `getOffset`) all correspond directly to properties of the same name (e.g.: `offset`) in 3.0.
 
@@ -115,7 +231,7 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
 - The platform variable changes under **sys** are as follows:
 
 | Cocos Creator 2.x | Cocos Creator 3.0     |
-|:-------------------|:-----------------------|
+|:----------------- |:--------------------- |
 | `BAIDU_GAME`      | `BAIDU_MINI_GAME`     |
 | `VIVO_GAME`       | `VIVO_MINI_GAME`      |
 | `OPPO_GAME`       | `OPPO_MINI_GAME`      |
@@ -128,7 +244,7 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
 - The **global variables** are changed as follows:
 
 | Cocos Creator 2.x | Cocos Creator 3.0 |
-|:------------------|:------------------|
+|:----------------- |:----------------- |
 | `CC_BUILD`        | `BUILD`           |
 | `CC_TEST`         | `TEST`            |
 | `CC_EDITOR`       | `EDITOR`          |
@@ -142,7 +258,7 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
 
 - **Dynamic Loading**:
 
-    When using `bundle.load` or `resources.load` to dynamically load a `sprite-frame` or `texture` in v3.0, the path needs to be specified to a specific sub-resource.
+    When using `bundle.load` or `resources.load` to dynamically load a `sprite-frame` or `texture` in v3.0, the path needs to be specified to a specific sub-resource:
 
     ```ts
     // load texture
@@ -203,7 +319,7 @@ After the old project is upgraded, the editor will automatically scan all the co
 
 ![image](texture-compress-setting.png)
 
-#### Powerful extension system
+#### Editor Extension System Upgrade
 
 Cocos Creator 3.0 has a more powerful extension system. Almost all internal modules of the editor are built with extension system. You can quickly create your own extensions in the extended menu to achieve the customizations you want. In addition, v3.0 also provides an **Extension Manager**, which can easily manage the operation and uninstallation of all extensions.
 
@@ -230,7 +346,6 @@ From the above two figures, notice the directory generated after building the We
     ![image](web-cocosjs.png)
 
 2. V2.4.3 has only one startup script `main.js`, while v3.0 has the following two startup scripts:
-
     - `index.js` -- Used to do some pre-processing work.
     - `application.js` -- Used to start the game.
 
@@ -282,7 +397,9 @@ Notice from the above two figures, there is a big difference between v2.4.3 and 
 
     ![image](engine-common.png)
 
-3. The files related to the application layer in the v2.4.3 release package directory have been merged into the `assets` directory in v3.0. The application layer files include the following:
+3. The files related to the application layer in the v2.4.3 release package directory have been merged into the `assets` directory in v3.0. 
+
+    The application layer files include the following:
 
     - **assets** -- Resource directory.
     - **jsb-adapter** -- Directory, store the adaptation layer code.
@@ -314,14 +431,138 @@ Notice from the above two figures, there is a big difference between v2.4.3 and 
 
 5. Some resources needed for compilation, such as application icons, application startup scripts, etc., v2.4.3 are stored in the build project, while v3.0 are stored in the `native/engine/name of the currently built platform` directory (e.g.: `native/engine/win32`, `native/engine/android`).
 
-## TypeScript Reference Tutorial
+## Upgrade FAQ
+
+### After the upgrade, the project script shows errors when opening in VS Code with operations such as binding component definitions
+
+Cocos Creator 3.x enables Strict Mode for TypeScript, which will review the code more strictly and eliminate any problems that may occur due to negligence during the development process.
+
+If you don't want to use strict mode, you can check **Enable loose mode** in **Project -> Project Settings -> Scripting** in the top menu bar of Creator. As a reminder, we do not encourage turning off strict mode, as strict null checking can reduce some low-level errors in the code runtime.
+
+For writing specifications in strict mode, you can refer to the official case [Taxi Game 3D](https://github.com/cocos-creator/tutorial-taxi-game).
+
+### `Action` actions are all disabled
+
+Because Cocos Creator 3.x removes the `Action` action system and uses the `Tween` tweening system instead.
+
+### Modifying `size` and `anchor` of 2D nodes does not work
+
+You need to get the UITransform component on the node first, and then use the corresponding interface, e.g.
+
+```typescript
+const uiTrans = node.getComponent(UITransform)! ;
+uiTrans.anchorX = 0.5;
+uiTrans.setContentSize(size);
+```
+
+### Modifying the `color` of a 2D node does not work
+
+You need to get the rendering component on the node (e.g. Sprite component) first, and then use the corresponding interface, e.g.
+
+```typescript
+const uiColor = node.getComponent(Sprite)! ;
+uiColor.color = color(255,255,255);
+```
+
+### Modifying `skew` for 2D nodes does not work
+
+As of v3.0, the `skew` interface has been removed.
+
+### Grouping is not available, but there are still grouping settings (Layers) in the Creator's project settings panel
+
+The `group` group management in v2.x has been changed to `Layer` since v3.0, as shown below. In v2.x the group name is obtained from `node.group`, while in v3.x the group value is obtained from `node.layer` as **group value**, and the group value is set in exponential power of 2.
+
+![update-setting](update-setting.png)
+
+The layer value of User Layer 0 is: 2<sup>0</sup> = 1.<br>
+The layer value of User Layer 1 is: 2<sup>1</sup> = 2.<br> 
+The layer value of User Layer 6 is: 2<sup>6</sup> = 64.
+
+### The sibling node set by `zIndex` is invalid
+
+As of v3.0 the `zIndex` interface has been removed, if you need to reorder the node tree please use the `priority` method instead.
+
+### The script mounted on the node is not available via `getComponent()`.
+
+Please look up the class name of the corresponding script, not the script name, because in v3.x script components are based on the class name defined in the script, not the script name. There are often problems with scripts not being found due to case. Please refer to [Create Script](...) for more details. /scripting/setup.md).
+
+### Dynamic loading of images in the `resources` folder is not found
+
+When an image is set to `sprite-frame`, `texture` or other image type, an asset of the corresponding type will be generated in the **Assets** panel. However, if you load `testAssets/image` directly, the type you get will be `ImageAsset` and you must specify the path to the specific child asset.
+
+For example, if an image of type `sprite-frame` is set to `testAssets/image` in the `resources` folder, then to load `SpriteFrame` you would write:
+
+```typescript
+resources.load("testAssets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
+    this.node.getComponent(Sprite).spriteFrame = spriteFrame;
+});
+```
+
+If you are loading an image of type `texture`, just change `spriteFrame` to `texture`.
+
+### The original physics collision callback is gone after the object generates a physics collision
+
+Starting from v3.0, collision callbacks need to be registered at the beginning, unlike the original v2.x which generated callbacks directly. Therefore, developers need to add registration of the callback function to the physics callback script. For example:
+
+```typescript
+let collider = this.getComponent(Collider2D);
+if (collider) {
+    // Called only once when two colliding bodies start to make contact
+    collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
+    // Called only once when two colliders end contact
+    collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
+    // Called each time the collider contact logic is about to be handled
+    collider.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
+    // Called each time the collider contact logic is finished
+    collider.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
+    }
+});
+```
+
+### After the upgrade, the physics collision grouping is gone
+
+Currently the import plugin does not support the physics collision matrix, so for now the developer needs to set the collision matrix manually, which can be reset in the Creator main menu **Project -> Project Settings -> Physics**.
+
+### The `audioEngine` interface for the audio system is not working and audio cannot be played
+
+Starting from v3.0, the `audioEngine` interface has been removed and the **AudioSource** component is used to control the playback of audio. Please refer to the [AudioSource Component](../audio-system/audiosource.md) documentation for more details.
+
+### `Button` button is not clickable
+
+To rule out code and rendering level problems, please check if the value of `Z` axis in the `Scale` property of the **Button** node is 0, if so, change it to 1.
+
+### The editor is stuck when making changes to the script after upgrade
+
+Check if the property decorator `property` of the component type defined in the script after upgrade is undefined, if not, it is caused by the imported plugin being too old, please refer to [Plugin Upgrade](https://github.com/cocos-creator/plugin-import-2.x) to update the imported plugin Upgrade. After updating the imported plugins, you need to **re-do the project upgrade**.
+
+### When modifying the `Position` of a node in a script after an upgrade, direct changes through the node (e.g. `node.x`) do not take effect
+
+As of v3.0, direct access to coordinate positions is not allowed on `node` nodes, you need to access `position` before accessing coordinate values. And `position` is a **read-only property** in v3.x. If you need to change it, please use the `setPosition` method. For example:
+
+```typescript
+// v2.x
+
+// Access the coordinate axes
+let xAxis = this.node.x;
+// Modify the x-axis coordinates
+this.node.x = 200;
+
+// v3.x
+
+// Access the axes
+let xAxis = this.node.position.x;
+// Modify the x-axis coordinates
+this.node.setPosition(200);
+```
+
+## TypeScript Reference Tutorials
 
 - [Tutorial: v3.0 TypeScript question answering and experience sharing](https://discuss.cocos2d-x.org/t/tutorial-3-0-typescript-question-answering-and-experience-sharing/52932)
 - [TypeScript Official Website](https://www.typescriptlang.org/)
 - [TypeScript - Classes](https://www.typescriptlang.org/docs/handbook/classes.html)
 - [TypeScript - Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)
 - [TypeScript - DefinitelyTyped](http://definitelytyped.org/)
-- [Learn TypeScript in Y minutes [cn]](https://learnxinyminutes.com/docs/zh-cn/typescript-cn/)
+- [Learn TypeScript in X minutes [cn]](https://learnxinyminutes.com/docs/zh-cn/typescript-cn/)
 - [TypeScript GitHub](https://github.com/Microsoft/TypeScript)
 - [The Best Resources For Learning TypeScript for Game Development](https://www.cocos.com/en/the-best-resources-for-learning-typescript-for-game-development)
 - [3 Excuses Developers Give To Avoid TypeScript — and the Better Reasons They Should Use It](https://betterprogramming.pub/the-bad-reasons-people-avoid-typescript-and-the-better-reasons-why-they-shouldnt-86f8d98534de)
