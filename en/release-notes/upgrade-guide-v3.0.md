@@ -6,7 +6,7 @@ __Cocos Creator 3.0__ integrates all the functions of the original __2D__ and __
 
 - **For Cocos Creator 2.x**
 
-    In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, we will use v2.4 as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore,
+    In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, Creator v2.4 will be used as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore:
 
     - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
 
@@ -18,11 +18,11 @@ __Cocos Creator 3.0__ integrates all the functions of the original __2D__ and __
 
 __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. 
 
-For a detailed introduction to the __Cocos Creator 3.0__, please go to [Official Website Update Instructions](https://cocos.com/creator).
+For a detailed introduction to the __Cocos Creator 3.0__, please visit the [Official Website Update Instructions](https://cocos.com/creator).
 
 ## How to migrate Cocos Creator 2.x projects
 
-Although **we do not recommend forcing projects in development, especially those about to go live, to upgrade to v3.0**, we have introduced the v2.x resource import tool in Cocos Creator 3.0. This tool supports the perfect import of resources from old projects, as well as assisted migration of code.
+Although **it is not recommended to force projects in development, especially those about to go live, to upgrade to v3.0**, a v2.x resource import tool has been introduced in Cocos Creator 3.0. This tool supports the perfect import of resources from old projects, as well as assistance in migrating code.
 
 ### Resource Import
 
@@ -124,21 +124,21 @@ export class AudioController extends Component {
 
 > **Note**.
 >
-> 1. If you are converting from JavaScript to TypeScript, you need to declare **all properties** in TypeScript and set the default values.
-2. If the **Inspector** panel data is missing, you need to check if the property type is the same as v2.x. > 3.
+> 1. When converting from JavaScript to TypeScript, it is necessary to declare **all properties** in TypeScript and set the default values.
+2. If the **Inspector** panel data is missing, check if the property type is the same as v2.x. > 3.
 > 3. If the JavaScript code uses external types, TypeScript prompts: Fix by importing external source files or declarations.
 
 ## Quick start for developers of older versions
 
 ### Material Upgrade
 
-In v3.0, we have continued to improve the design of the material system and the built-in Shader API, so when upgrading from v2.x to v3.x, some of the content cannot be upgraded automatically and needs to be adjusted manually by the developer. For details, please refer to the [Material Upgrade Guide](../material-system/effect-2.x-to-3.0.md) documentation.
+In v3.0, there are continued improvements to the design of the material system and the built-in Shader API. When upgrading from v2.x to v3.x, some of the content cannot be upgraded automatically and needs to be adjusted manually by the developer. For details, please refer to the [Material Upgrade Guide](../material-system/effect-2.x-to-3.0.md) documentation.
 
 ### Engine API Upgrade
 
 #### For Cocos Creator 3D 1.2 users
 
-1. Cocos Creator 3.0 asset loading related APIs are consistent with v2.4, both refactored the `loader`. v1.2 users can refer to [v2.4 Asset Manager Upgrade Guide](https://docs.cocos.com/creator/manual/en/release-notes/asset-manager-upgrade-guide.html) for upgrading.
+1. Cocos Creator 3.0 asset loading-related APIs are consistent with v2.4, both refactored the `loader`. v1.2 users can refer to the [v2.4 Asset Manager Upgrade Guide](https://docs.cocos.com/creator/manual/en/release-notes/asset-manager-upgrade-guide.html) when upgrading.
 
 2. Component class name change
 
@@ -437,17 +437,17 @@ Notice from the above two figures, there is a big difference between v2.4.3 and 
 
 Cocos Creator 3.x enables Strict Mode for TypeScript, which will review the code more strictly and eliminate any problems that may occur due to negligence during the development process.
 
-If you don't want to use strict mode, you can check **Enable loose mode** in **Project -> Project Settings -> Scripting** in the top menu bar of Creator. As a reminder, we do not encourage turning off strict mode, as strict null checking can reduce some low-level errors in the code runtime.
+To avoid using strict mode, check **Enable loose mode** in **Project -> Project Settings -> Scripting** in the top menu bar of Creator. As a reminder, turning off strict mode is not encouraged as strict null checking can reduce some low-level errors in the code runtime.
 
-For writing specifications in strict mode, you can refer to the official case [Taxi Game 3D](https://github.com/cocos-creator/tutorial-taxi-game).
+For writing specifications in strict mode, please refer to the [Taxi Game 3D](https://github.com/cocos-creator/tutorial-taxi-game) as a test case.
 
 ### `Action` actions are all disabled
 
-Because Cocos Creator 3.x removes the `Action` action system and uses the `Tween` tweening system instead.
+Cocos Creator 3.x removes the `Action` action system and uses the `Tween` tweening system instead.
 
 ### Modifying `size` and `anchor` of 2D nodes does not work
 
-You need to get the UITransform component on the node first, and then use the corresponding interface, e.g.
+Obtain the UITransform component on the node first, and then use the corresponding interface, e.g.
 
 ```typescript
 const uiTrans = node.getComponent(UITransform)! ;
@@ -457,7 +457,7 @@ uiTrans.setContentSize(size);
 
 ### Modifying the `color` of a 2D node does not work
 
-You need to get the rendering component on the node (e.g. Sprite component) first, and then use the corresponding interface, e.g.
+Obtain the rendering component on the node (e.g. Sprite component) first, and then use the corresponding interface, e.g.
 
 ```typescript
 const uiColor = node.getComponent(Sprite)! ;
@@ -480,17 +480,17 @@ The layer value of User Layer 6 is: 2<sup>6</sup> = 64.
 
 ### The sibling node set by `zIndex` is invalid
 
-As of v3.0 the `zIndex` interface has been removed, if you need to reorder the node tree please use the `priority` method instead.
+As of v3.0, the `zIndex` interface has been removed. To reorder the node tree please use the `priority` method instead.
 
 ### The script mounted on the node is not available via `getComponent()`.
 
-Please look up the class name of the corresponding script, not the script name, because in v3.x script components are based on the class name defined in the script, not the script name. There are often problems with scripts not being found due to case. Please refer to [Create Script](...) for more details. /scripting/setup.md).
+Please look up the class name of the corresponding script, not the script name. v3.x script components are based on the class name defined in the script, not the script name. There are often problems with scripts not being found due to letter cases. Please refer to the [Create Script](../scripting/setup.md) documentation for more details.
 
 ### Dynamic loading of images in the `resources` folder is not found
 
-When an image is set to `sprite-frame`, `texture` or other image type, an asset of the corresponding type will be generated in the **Assets** panel. However, if you load `testAssets/image` directly, the type you get will be `ImageAsset` and you must specify the path to the specific child asset.
+When an image is set to `sprite-frame`, `texture` or other image type, an asset of the corresponding type will be generated in the **Assets** panel. However, if loading an `testAssets/image` directly, the type obtained will be `ImageAsset` and it is necessary to specify the path to the specific child asset.
 
-For example, if an image of type `sprite-frame` is set to `testAssets/image` in the `resources` folder, then to load `SpriteFrame` you would write:
+For example, if an image of type `sprite-frame` is set to `testAssets/image` in the `resources` folder, then to load `SpriteFrame` consider the following code:
 
 ```typescript
 resources.load("testAssets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
@@ -498,7 +498,7 @@ resources.load("testAssets/image/spriteFrame", SpriteFrame, (err, spriteFrame) =
 });
 ```
 
-If you are loading an image of type `texture`, just change `spriteFrame` to `texture`.
+When loading an image of type `texture`, change `spriteFrame` to `texture`.
 
 ### The original physics collision callback is gone after the object generates a physics collision
 
@@ -537,7 +537,7 @@ Check if the property decorator `property` of the component type defined in the 
 
 ### When modifying the `Position` of a node in a script after an upgrade, direct changes through the node (e.g. `node.x`) do not take effect
 
-As of v3.0, direct access to coordinate positions is not allowed on `node` nodes, you need to access `position` before accessing coordinate values. And `position` is a **read-only property** in v3.x. If you need to change it, please use the `setPosition` method. For example:
+As of v3.0, direct access to coordinate positions is not allowed on `node` nodes, it is necessary to access `position` before accessing coordinate values. And `position` is a **read-only property** in v3.x. To change it, please use the `setPosition` method. For example:
 
 ```typescript
 // v2.x
