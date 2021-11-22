@@ -35,14 +35,14 @@
 
 ```
 target stop-hook add 
-expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
+po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 DONE
 ```
 
 设置了 **每次断点** 后的行为，执行以下代码输出 JS 调用栈的信息：
 
-```c++
-cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
+```lldb
+po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
 关于 `target stop-hook` 的用法，详情可参考文档：<https://lldb.llvm.org/use/map.html#examining-variables>
@@ -58,7 +58,7 @@ cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurren
 在 **Debugger Command** 中输入命令：
 
 ```lldb
-expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
+po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
 关于 `target stop-hook` 的用法，详情可参考文档：<https://lldb.llvm.org/use/map.html#evaluating-expressions>
@@ -72,7 +72,7 @@ expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->
 同上，也可以执行以下代码查看调用栈：
 
 ```lldb
-expr -- cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
+po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
 ### 在 Android Studio 配置 `lldb`
