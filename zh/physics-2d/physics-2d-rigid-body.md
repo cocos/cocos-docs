@@ -89,10 +89,10 @@ rigidbody.angularDamping = damping;
 
 ### 旋转、位移与缩放
 
-旋转、位移与缩放是游戏开发中最常用的功能，几乎每个节点都会对这些属性进行设置。而在物理系统中，系统会自动将节点的这些属性与 Box2D 中对应属性进行同步。
+旋转、位移与缩放是游戏开发中最常用的功能，几乎每个节点都会对这些属性进行设置。而在物理系统中会自动将节点的这些属性与 Box2D 中的对应属性进行同步。
 
 **注意**：
-1. Box2D 中只有旋转和位移，并没有缩放，所以如果设置节点的缩放属性时，会重新构建这个刚体依赖的全部碰撞体。一个有效避免这种情况发生的方式是将渲染的节点作为刚体节点的子节点，只对这个渲染节点作缩放，尽量避免对刚体节点进行直接缩放。
+1. Box2D 物理只有旋转和位移，并没有缩放，所以如果设置节点的缩放属性时，物理系统会重新构建这个刚体依赖的全部碰撞体。一个解决办法是将渲染节点作为刚体节点的子节点，只对这个渲染节点作缩放，尽量避免直接对刚体节点进行缩放。
 
 2. 在物理系统每次迭代（物理系统是在 `postUpdate` 进行迭代的）的最后会把所有刚体信息同步到对应节点上去，而出于性能考虑，只有当开发者对刚体所在节点的相关属性进行显示设置时，节点的信息才会同步到刚体上，并且刚体只会监视他所在的节点，也就是说，如果修改了节点的父节点的旋转位移，是不会同步这些信息的。
 
@@ -115,7 +115,7 @@ rigidbody.enabledContactListener = true;
 
 ## 刚体类型
 
-Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**。在 Cocos Creator 里多添加了一个类型：**Animated**。
+Box2D 原本的刚体类型包括 **Static**、**Dynamic**、**Kinematic** 三种，Cocos Creator 多添加了一个 **Animated** 类型。
 
 - `cc.RigidBodyType.Static`
 
@@ -207,7 +207,7 @@ rigidbody.getWorldCenter(worldCenter);
 
 ```ts
 // 施加一个力到刚体上指定的点，这个点是世界坐标系下的一个点
-rigidbody.applyForce(force, point,true);
+rigidbody.applyForce(force, point, true);
 
 // 或者直接施加力到刚体的质心上
 rigidbody.applyForceToCenter(force,true);
