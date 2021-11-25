@@ -232,7 +232,6 @@
             - [2D 滑动关节](physics-2d/joint-2d/sliderJoint2D.md)
             - [2D 弹簧关节](physics-2d/joint-2d/springJoint2D.md)
             - [2D 车轮关节](physics-2d/joint-2d/wheelJoint2D.md)
-
     - [3D 物理](physics/physics.md)
         - [物理选项](physics/physics-item.md)
         - [物理系统](physics/physics-system.md)
