@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-11-26 13:54:41
- * @LastEditTime: 2021-11-26 17:59:24
- * @LastEditors: your name
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: \creator-docs\zh\physics-2d\physics-2d-systemTest.md
--->
 # 2D 物理检测
 
 2D 物理系统提供了 **点测试**、**矩形测试** 和 **射线检测** 几个方法方便用户高效快速地查找某个区域中有哪些物体。例如，当一个炸弹爆炸了，那么在范围内都有哪些物体会受到伤害；在策略类游戏中，当玩家选择了某个范围，那么都有哪些物体是可以拖动的等等，基本可以满足游戏所需。
