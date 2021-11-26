@@ -1,0 +1,82 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-11-26 13:54:41
+ * @LastEditTime: 2021-11-26 17:59:24
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \creator-docs\zh\physics-2d\physics-2d-systemTest.md
+-->
+# 2D 物理检测
+
+2D 物理系统提供了 **点测试**、**矩形测试** 和 **射线检测** 几个方法方便用户高效快速地查找某个区域中有哪些物体。例如，当一个炸弹爆炸了，那么在范围内都有哪些物体会受到伤害；在策略类游戏中，当玩家选择了某个范围，那么都有哪些物体是可以拖动的等等，基本可以满足游戏所需。
+
+## 点测试
+
+点测试用于检测世界坐标系下的某个点是否被碰撞体包含，若包含，则返回包含这个点的碰撞体。
+
+```ts
+const collider = PhysicsSystem2D.instance.testPoint(point);
+```
+
+> **注意**：若世界坐标系下的某个点同时被多个碰撞体包含，则只会随机返回其中一个碰撞体。
+
+## 矩形测试
+
+矩形测试用于检测世界坐标系下指定的一个矩形与任一碰撞体的包围盒是否有重叠，若有，则碰撞体会被添加到返回列表中。
+
+```ts
+const colliderList = PhysicsSystem2D.instance.testAABB(rect);
+```
+
+## 射线测试
+
+射线检测用于检测给定的线段以射线的形式穿过哪些碰撞体，还可以获取到碰撞体被穿过的那个点的法线向量等有效信息。
+
+该功能仅在使用 Box2D 物理模块 时生效，且使用时场景内必须要有一个节点挂载了 **刚体（RigidBody2D）** 和 **碰撞体（Collider2D）** 组件，否则会出现报错。
+
+```typescript
+let results = PhysicsSystem2D.instance.raycast(p1, p2, type, mask);
+
+for (let i = 0; i < results.length; i++) {
+    let result = results[i];
+    let collider = result.collider;
+    let point = result.point;
+    let normal = result.normal;
+    let fraction = result.fraction;
+}
+```
+
+射线检测的第三个参数（type）用于指定射线检测的类型。
+
+由于 Box2D 物理的射线检测不是从距离射线起始点最近的物体开始检测的，所以检测结果无法确保排序。因此 Creator 的物理系统支持通过指定射线检测类型来决定是否对检测结果进行排序。选择的检测类型不同，最后返回的结果也不同。
+
+| 射线检测类型 |   说明 |检测速度|
+| :------------- | :---------- | :---------- |
+| Any | 检测射线路径上任意的碰撞体，一旦检测到任何碰撞体，将立刻结束检测其他的碰撞体 |速度最快|
+| Closest | 检测射线路径上最近的碰撞体，这是射线检测的默认值 |速度第二快
+| All | 检测射线路径上的所有碰撞体，检测到的结果顺序不是固定的。在这种检测类型下，一个碰撞体可能会返回多个结果，这是因为 Box2D 是通过检测夹具（fixture）来进行物体检测的，而一个碰撞体中可能由多个夹具（fixture）组成的 |速度稍慢|
+| AllClosest | 检测射线路径上所有碰撞体，但是会对返回值进行删选，只返回每一个碰撞体距离射线起始点最近的那个点的相关信息 | 速度最慢|
+
+### 射线检测的结果
+
+射线检测的结果包含了许多有用的信息，你可以根据实际情况来选择如何使用这些信息。
+
+- collider
+
+  指定射线穿过的是哪一个碰撞体。
+
+- point
+
+  指定射线与穿过的碰撞体在哪一点相交。
+
+- normal
+
+  指定碰撞体在相交点的表面的法线向量。
+
+- fraction
+
+  指定相交点在射线上的分数，即碰撞点 point 到起始点 p1 的距离占线段总长度的比例。
+
+可以通过下面这张图更好的理解射线检测的结果。
+
+![raycasting-output](image/raycasting-output.png)

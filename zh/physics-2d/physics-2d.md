@@ -11,7 +11,8 @@ Cocos Creator 的 2D 物理支持内置的轻量 **Builtin** 物理系统和强�
 
 ## 详细介绍
 
-- [2D 物理系统](./physics-2d-system.md)
+- [2D 物理设置](./physics-2d-system.md)
+- [2D 物理检测](physics-2d/physics-2d-systemTest.md)
 - [2D 刚体组件](./physics-2d-rigid-body.md)
 - [2D 碰撞组件](./physics-2d-collider.md)
 - [2D 碰撞回调](./physics-2d-contact-callback.md)

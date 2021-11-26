@@ -10,5 +10,5 @@ Creator 的物理系统提供了高效的组件化工作流程和便捷的使用
 
 更多具体内容请参考：
 
-- [2D 物理系统](../physics-2d/physics-2d.md)
+- [2D 物理设置](../physics-2d/physics-2d.md)
 - [3D 物理系统](physics.md)
