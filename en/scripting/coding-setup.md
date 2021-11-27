@@ -1,41 +1,39 @@
-# 配置代码编辑环境
+# Configuring The Code Editing Environment
 
-在 **偏好设置** 面板中指定了 [默认脚本编辑器](../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%A8%8B%E5%BA%8F)，便可以在 **资源管理器** 中双击脚本文件打开代码编辑器快速编辑代码。本篇内容主要以 Visual Studio Code 为例介绍如何配置开发环境。
+The[Default Script Editor](../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%A8%8B%E5%BA%8F) can be specified in the **Preferences** panel. Double-click the script file in **Assets** panel to open the code editor to quickly edit the code. Visual Studio Code is used as an example to introduce how to configure the development environment. [Visual Studio Code](https://code.visualstudio.com/) (hereinafter referred to as VS Code) is a lightweight cross-platform IDE created by Microsoft. It supports Windows, Mac, and Linux platforms. Installation and configuration are very simple. Using VS Code to manage and edit project script codes can easily realize functions such as syntax highlighting, smart code prompts, and web page debugging.
 
-[Visual Studio Code](https://code.visualstudio.com/) （以下简称 VS Code）是微软推出的轻量化跨平台 IDE，支持 Windows、Mac、Linux 平台，安装和配置非常简单。使用 VS Code 管理和编辑项目脚本代码，可以轻松实现语法高亮、智能代码提示、网页调试等功能。
+## Installing VS Code
 
-## 安装 VS Code
+Go to the [VS Code Official Website](https://code.visualstudio.com/) and click the download link on the homepage to download it.
 
-前往 VS Code 的 [官方网站](https://code.visualstudio.com/)，点击首页的下载链接即可下载。
+MacOS users decompress the downloaded package and double-click **Visual Studio Code** to run it.
 
-MacOS 用户解压下载包后双击 **Visual Studio Code** 即可运行。
+Windows users should run **VSCodeUserSetup.exe** after downloading it and follow the prompts to complete the installation.
 
-Windows 用户下载后运行 **VSCodeUserSetup.exe** 按提示完成安装即可运行。
+## Smart reminder data
 
-## 智能提示数据
+When creating a project in Cocos Creator 3.x, a [tsconfig.json](tsconfig.md) file is automatically generated in the project directory, which is configured with a directory file path for code prompts. When opening the project with VS Code and writing code it will automatically prompt the Cocos Creator engine API. If the project is upgraded, the engine API will also be updated automatically.
 
-Cocos Creator 3.x 在创建项目时，项目目录下会自动生成一个 [tsconfig.json](tsconfig.md) 文件，里面配置了一个代码提示用的目录文件路径，用 VS Code 打开项目编写代码时便会自动提示 Cocos Creator 引擎 API。若项目升级，引擎 API 也会自动更新。
-
-启动 VS Code 后选择主菜单的 **File -> Open Folder...**，在弹出的对话框中选择项目根目录，也就是 `assets`、`project.json` 所在的路径。然后新建一个脚本，或者打开原有的脚本进行编辑时，就会有语法提示了。
+After starting VS Code, select **File -> Open Folder...** in the main menu, and select the project root directory in the pop-up dialog box, which is the path where `assets` and `project.json` are located. Then when creating a new script, or opening the original script for editing, there will be a syntax prompt.
 
 ![vs code](coding-setup/vscode.png)
 
-> **注意**：当使用自定义引擎，或者切换使用内置引擎/自定义引擎时，若出现 API 智能提示不更新的情况，请执行以下步骤以获得最新的代码智能提示：
+> **Note**: When using a custom engine, or switching to use the built-in engine/custom engine, if the API smart tips are not updated, please follow the steps below to get the latest code smart tips:
 >
-> 1. 删除自定义引擎中 `bin` 目录（内置引擎是 `resources\resources\3d\engine\bin` 目录）下的 `cache` 文件夹
-> 2. 在引擎目录下执行 `npm run build-declaration`
+> 1. Delete the `cache` folder under the `bin` directory in the custom engine (the built-in engine is the `resources\resources\3d\engine\bin` directory)
+> 2. Execute `npm run build-declaration` in the engine directory
 
-## 设置文件显示和搜索过滤
+## Set file display and search filter
 
-在 VS Code 的主菜单中选择 **文件（Windows）／Code（Mac）-> 首选项 -> 设置**，或者选择左下角 ![gear.png](coding-setup/gear.png) 中的 **Setting** 选项，这个操作会打开用户配置文件 **USER SETTINGS**：
+In the main menu of VS Code, select **File (Windows)/Code (Mac) -> Preferences -> Settings**, or select in the lower left corner! [gear.png](coding-setup/gear.png) **Setting** option, this operation will open the user configuration file **USER SETTINGS**:
 
 ![vs code](coding-setup/vscode-setting.png)
 
-此时在上方的搜索框中输入 **exclude** 搜索，找到 **Files: Exclude** 和 **Search: Exclude** 模块：
+Now, enter **exclude** search in the search box above and find **Files: Exclude** and **Search: Exclude** modules:
 
 ![vs code](coding-setup/vscode-exclude.png)
 
-然后点击 **添加模式** 补充以下内容中缺少的部分：
+Next, click **Add Mode** to add the missing parts in the following content:
 
 ```json
 {
@@ -59,91 +57,88 @@ Cocos Creator 3.x 在创建项目时，项目目录下会自动生成一个 [tsc
 }
 ```
 
-以上字段将为 VS Code 设置搜索时排除的目录，以及在文件列表中隐藏的文件类型。由于 `build`、`temp`、`library` 都是编辑器运行时自动生成的路径，而且会包含我们写入的脚本内容，所以应该在搜索中排除。而 `assets` 目录下的每个文件都会生成一个 `.meta` 文件，一般来说我们不需要关心它的内容，只要让编辑器帮我们管理这些文件就可以了。
+The above fields will set VS Code to exclude directories when searching, and file types hidden in the file list. Since `build`, `temp`, and `library` are all paths automatically generated when the editor is running, and will contain the content of the script we wrote, they should be excluded from the search. And each file in the `assets` directory will generate a `.meta` file. Generally speaking, there is no need to care about its content, just let the editor help manage these files.
 
-## VS Code 扩展使用
+## VS Code extension use
 
-Cocos Creator 在顶部菜单栏的 **开发者 -> VS Code 工作流** 中集成了 **添加编译任务** 和 **添加 Chrome Debug 配置** 功能，以便更好地辅助开发：
+Cocos Creator integrates the **Add Compilation Task** and **Add Chrome Debug Configuration** functions in **Developer -> VS Code Workflow** in the top menu bar to better assist development:
 
 ![vscode workflow](coding-setup/vscode-workflow.png)
 
-- **添加编译任务**：用于在 VS Code 中触发 Creator 的脚本编译，详情请参考下文 **使用 VS Code 激活脚本编译** 部分的内容。
+- **Add compilation task**: Used to trigger the script compilation of Creator in VS Code. For details, please refer to the content in the **Use VS Code to activate script compilation** section.
 
-- **添加 Chrome Debug 配置**：用于调试网页版游戏，详情请参考下文 **使用 VS Code 调试网页版游戏** 部分的内容。
+- **Add Chrome Debug configuration**: It is used to debug the web version of the game. For details, please refer to the following **Use VS Code to debug the web version of the game** section.
 
-### 使用 VS Code 激活脚本编译
+### Use VS Code to activate script compilation
 
-使用外部脚本编辑器修改项目脚本后，需要返回 Cocos Creator 以触发脚本编译。<br>
-我们在 Creator 中提供了 **添加编译任务** 功能，通过一个预览服务器的 API 向特定地址发送请求来激活 Creator 的编译，这样在外部脚本编辑器修改了项目脚本后，执行 **编译任务** 便可触发脚本编译，不需要返回 Cocos Creator。
+After using the external script editor to modify the project script, return to Cocos Creator to trigger script compilation. The **add compilation task** function is provided in Creator, which activates the compilation of Creator by sending a request to a specific address through the API of a preview server. After the external script editor modifies the project script, the **compilation task** is executed and can trigger script compilation without returning to Cocos Creator.
 
-#### 安装 cURL
+#### Install cURL
 
-首先需要确保操作系统中可以运行 [cURL 命令](https://curl.haxx.se/)，如果在 Windows 操作系统的命令行中运行 `curl` 提示找不到命令，则需要先安装 curl 到操作系统：
+First, make sure that the [cURL command](https://curl.haxx.se/) can be run in the operating system. If when running the `curl` command on the command line of the Windows operating system and the command cannot be found, install cURL to operating system:
 
-- 前往 <http://www.confusedbycode.com/curl/>
+- Visit this webpage for [help](http://www.confusedbycode.com/curl/)
 
-- 点击下图箭头所示的控件，完成人机身份验证（若无法正常显示控件，请科学上网）
+- Click the control shown by the arrow in the figure below to complete the human-machine identity verification (if the control cannot be displayed normally, please go online scientifically).
 
     ![curl download](coding-setup/curl-download.png)
 
-- 点击 `curl-7.46.0-win64.exe` 开始下载并安装
+- Click `curl-7.46.0-win64.exe` to start downloading and installing
 
-安装时请使用默认设置，安装完成后可以打开一个命令行窗口，输入 `curl`，如果提示 `curl: try 'curl --help' or 'curl --manual' for more information` 就表示安装成功了。
+#### Add VS Code compilation task
 
-#### 添加 VS Code 编译任务
+To activate script compilation in VS Code, perform the following steps:
 
-要在 VS Code 中激活脚本编译，需要执行以下步骤：
-
-1. 在 Creator 顶部菜单栏点击 **开发者 -> VS Code Workflow -> 添加编译任务**，该操作会在项目目录的 `.vscode` 文件夹下添加 `tasks.json` 任务配置文件。
+1. Click **Developer -> VS Code Workflow -> Add Compilation Task** on the top menu bar of Creator. This operation will add the task configuration file ,`tasks.json`, under the `.vscode` folder of the project directory.
 
     ![task.json](coding-setup/tasks-json.png)
 
-2. 在 VS Code 里按下快捷键 <kbd>Cmd/Ctrl + P</kbd>，激活 **快速打开** 输入框，然后输入 `task CocosCreator compile`，选择 `CocosCreator compile`。
+2. Press the shortcut key <kbd>Cmd/Ctrl + P</kbd> in VS Code to activate the **Quick Open** input box, then enter `task CocosCreator compile`, select `CocosCreator compile`.
 
     ![task compile](coding-setup/task-compile.png)
 
-    然后选择输出类型：
+    Next, select the output type:
 
     ![task compile](coding-setup/run-task.png)
 
-3. 任务运行完成，会在 VS Code 窗口下方的输出面板中显示结果（根据 VS Code 版本及配置的不同，输出结果也会有所差异）。
+3. After the task is completed, the results will be displayed in the output panel at the bottom of the VS Code window (the output results will vary depending on the VS Code version and configuration).
 
-这样之后在 VS Code 编辑脚本完成后，执行第 2 个步骤便可触发 Creator 的脚本编译，不需要返回 Creator。
+In this way, after using VS Code to edit the script, execute the second step to trigger the script compilation of Creator without returning to Creator.
 
-VS Code 还可以为编译任务配置快捷键，在主菜单中选择 **文件（Windows）／Code（Mac）-> 首选项 -> 键盘快捷方式**，或者选择左下角 ![gear.png](coding-setup/gear.png) 中的 **键盘快捷方式** 选项，这个操作会打开快捷键配置文件。然后根据需要修改编译任务的快捷键，例如下图将其设置成了 <kbd>Cmd/Ctrl + Shift + B</kbd>：
+VS Code can also configure shortcut keys for compilation tasks, select **File (Windows)/Code (Mac) -> Preferences -> Keyboard Shortcuts** in the main menu, or select the lower left corner![gear.png]( **Keyboard shortcut** option in coding-setup/gear.png), this operation will open the shortcut configuration file. Then modify the shortcut keys of the compilation task as needed. For example, set it to <kbd>Cmd/Ctrl + Shift + B</kbd> in the following figure:
 
 ![set compile](coding-setup/set-compile.png)
 
-之后在 VS Code 中按下快捷键 <kbd>Cmd/Ctrl + Shift + B</kbd> 便会自动显示 `CocosCreator compile`，不需要手动搜索。
+Next, press the shortcut key <kbd>Cmd/Ctrl + Shift + B</kbd> in VS Code and it will automatically display `CocosCreator compile`, no need to search manually.
 
-更多关于 VS Code 中配置和执行任务的信息，请参考 [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks) 文档。
+For more information about configuring and executing tasks in VS Code, please refer to the [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks) documentation.
 
-### 使用 VS Code 调试网页版游戏
+### Use VS Code to debug web games
 
-VS Code 有着优秀的调试能力，我们可以直接在源码工程中调试网页版游戏程序。
+VS Code has excellent debugging capabilities. It is possible to directly debug the web version of the game program in the source code project.
 
-首先需要安装：
+First, install:
 
-- [Chrome（谷歌浏览器）](https://www.google.com/chrome/)
+- [Chrome (Google Chrome)](https://www.google.com/chrome/)
 
-- VS Code 插件：Debugger for Chrome
+- VS Code plug-in: Debugger for Chrome
 
-  点击 VS Code 左侧导航栏的 **扩展** 按钮打开扩展面板，在搜索框中输入 **Debugger for Chrome** 并点击安装。安装之后可能需要重启 VS Code 才能生效。
+    Click the **Extensions** button in the left navigation bar of VS Code to open the extension panel, enter **Debugger for Chrome** in the search box and click Install. After installation, you may need to restart VS Code to take effect.
 
-  ![debugger for chrome](coding-setup/debugger-for-chrome.png)
+    ![debugger for chrome](coding-setup/debugger-for-chrome.png)
 
-接下来在 Cocos Creator 顶部菜单栏中点击 **开发者 -> VS Code 工作流 -> 添加 Chrome Debug 配置**，这个菜单命令会在项目文件夹下添加一个 `.vscode/launch.json` 文件作为调试器的配置：
+Next, click **Developer -> VS Code Workflow -> Add Chrome Debug Configuration** in the top menu bar of Cocos Creator, this menu command will add a `.vscode/launch.json` file under the project folder as the configuration of the debugger:
 
-![launch.json](coding-setup/launch-json.png)
+  ![launch.json](coding-setup/launch-json.png)
 
-之后便可以在 VS Code 中点击左侧栏的 **调试** 按钮打开调试面板，并在最上方的调试配置中选择 `Cocos Creator Launch Chrome against localhost`，然后点击左侧绿色的开始按钮进行调试。
+Third, click the **Debug** button in the left column in VS Code to open the debugging panel, and select `Cocos Creator Launch Chrome against localhost` in the debugging configuration at the top, and then click the green start button on the left to debug.
 
-![debug chrome](coding-setup/debug-chrome.png)
+  ![debug chrome](coding-setup/debug-chrome.png)
 
-调试的时候依赖 Cocos Creator 编辑器内置的 Web 服务器，所以需要在编辑器启动状态下才能进行调试。如果编辑器预览游戏时使用的端口不是默认端口，则需要手动修改 `launch.json` 里的 `url` 字段，将正确的端口添加上去。
+Debugging relies on the built-in Web server of the Cocos Creator editor, therefore debugging can only be carried out when the editor is started. If the port used by the editor to preview the game is not the default port, manually modify the `url` field in `launch.json` to add the correct port.
 
-调试过程中可以在源码文件上直接下断点，进行监控，是比使用 Chrome 内置的 DevTools 调试更方便和友好的工作流程。
+During the debugging process, it is possible to directly set breakpoints on the source file for monitoring, which is a more convenient and friendly workflow than using Chrome's built-in DevTools to debug.
 
-## 学习 VS Code 的使用方法
+## Learning how to use VS Code
 
-前往 [VS Code 官网文档](https://code.visualstudio.com/Docs)，了解从编辑功能操作、个性化定制、语法高亮设置到插件扩展等各方面的使用方法。
+Visit the [VS Code official website documentation](https://code.visualstudio.com/Docs) to learn how to use it from editing function operations, personalization, syntax highlighting settings to plug-in extensions.
