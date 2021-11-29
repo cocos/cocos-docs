@@ -7,7 +7,7 @@
 
 ## 状态基础
 
-状态机中的状态除了用于控制动画播放的状态，还包括了 **入口**（Entry）、**出口**（Exit）、**任意**（Any）、**子状态机** 这几个特殊的状态，因为其本身并不承载动画，只是为了标志状态机开始、结束等特殊用途，因此为了与状态区分我们暂且称之为“伪状态”。
+状态机中的状态除了用于控制动画播放的状态，还包括了 **入口**、**出口**、**任意**、**子状态机** 这几个特殊的状态，因为其本身并不承载动画，只是为了标志状态机开始、结束等特殊用途，因此为了与状态区分我们暂且称之为“伪状态”。
 
 [子状态机](#%E5%AD%90%E7%8A%B6%E6%80%81%E6%9C%BA) 是嵌套在状态机中的，用于降解复杂的动画逻辑，具体可查看下文 **子状态机** 部分的内容。一般我们将动画图最上层的状态机称为 **顶级状态机**，类似于 **层级管理器** 中的根节点。
 
@@ -39,13 +39,13 @@
 
 除子状态机外，其他的都以蓝色图形显示在网格区域中。
 
-![Edit](animation-controller/edit.png)
+![Edit](animation-graph-basics/edit.png)
 
 ### 设置状态属性
 
 选中创建的动画状态，蓝色图形外框会显示黄色高亮，并且动画图面板左侧的 **属性** 分页中也会显示可设置的状态属性：
 
-![state-property](animation-controller/state-property.png)
+![state-property](animation-graph-basics/state-property.png)
 
 > 这里是以状态为例展开介绍，动画混合和子状态机可设置的属性会有所差异，具体请参考下文相应的内容介绍。
 
@@ -59,13 +59,13 @@
 
   点击右侧的齿轮图标菜单，可删除当前动画剪辑。点击 **添加动画** 便可根据需要重新选择添加动画剪辑内容/一维动画混合/二维动画混合。
 
-  ![add-motion](animation-controller/add-motion.png)
+  ![add-motion](animation-graph-basics/add-motion.png)
 
 - **状态组件**：用于添加动画状态组件。动画状态组件的基类中提供了一些方法，表示状态机的一些特定事件，用于在状态进入、离开时添加一些业务逻辑。详情请参考下文 **动画状态组件** 部分的内容。同样的，点击右侧的齿轮图标按钮，即可删除当前动画状态组件并根据需要重新选择；点击右上方的齿轮图标按钮可同时添加多个状态组件。
 
 - 点击状态名右侧的齿轮图标菜单，支持 **删除此状态**/**添加状态组件**/**重命名**/**替换为动画剪辑**/**替换为一维动画混合**/**替换为二维动画混合**，其中 **添加状态组件** 和 **删除此状态** 也可以直接在网格布局区域中右键点击状态进行操作。
 
-  ![change-state](animation-controller/change-state.png)
+  ![change-state](animation-graph-basics/change-state.png)
 
 ## 动画混合
 
@@ -85,7 +85,7 @@
 
 右键点击动画图面板的网格布局区域即可选择添加 **一维动画混合** 或者 **二维动画混合**。创建完成后在 **属性** 分页中即可设置属性，除了动画混合设置项，其他项与上文 **设置状态属性** 中的一致。
 
-![blend edit](animation-controller/blend-edit.png)
+![blend edit](animation-graph-basics/blend-edit.png)
 
 进入动画混合的编辑页面可以设置相关参数及参与混合的动画，进入方式包括以下三种：
 
@@ -98,18 +98,18 @@
 - 右键点击网格布局区域，然后选择 **返回上层编辑**
 - 网格布局区域左上方的 **位置** 表示当前所处位置，点击层级即可返回相应位置
 
-![create blend](animation-controller/create-blend.gif)
+![create blend](animation-graph-basics/create-blend.gif)
 
 ### 一维动画混合
 
 **一维动画混合** 是根据 **一个输入参数** 通过 **线性插值算法** 混合多个动画，每个动画都可配置一个阈值。
 
-- 当输入参数恰好位于哪个阈值上，就使用该阈值上的动画
-- 当输入参数位于两个阈值之间，将根据输入参数在阈值区间上的比例 **线性** 混合这两个动画。线性公式为 **A * (1 - t) + B * t**，其中 A、B 表示阈值，t 表示输入参数值。
+- 当输入参数恰好位于某个阈值上，就使用该阈值上的动画
+- 当输入参数位于两个阈值之间，将根据输入参数在阈值区间上的比例 **线性** 混合这两个动画。线性公式为 **A * (1 - t) + B * t**，其中 A、B 表示阈值，t 表示输入参数值在此阈值区间上的比率。
 
 进入动画混合编辑页面，在网格布局区域点击右键，即可根据需要添加参与混合的动画，支持添加 **动画剪辑**、**一维动画混合**、**二维动画混合**。
 
-![add-motion-of-blend](animation-controller/add-motion-of-blend1D.png)
+![add-motion-of-blend](animation-graph-basics/add-motion-of-blend1D.png)
 
 - **入参**：该项用于选择动画混合的输入参数。输入参数及参数值可在动画图面板的 **变量** 分页中创建，目前支持使用 **浮点型** 变量，详情请参考 [动画图面板 — 变量](animation-graph-panel.md)。<br>输入参数也可以直接在网格布局区域的动画混合中选择。
 
@@ -119,13 +119,13 @@
 
   > **注意**：若未指定动画剪辑，将会导致问题。
 
-  ![choose clip](animation-controller/choose-clip.png)
+  ![choose clip](animation-graph-basics/choose-clip.png)
 
   若需要移除动画，则直接在网格布局区域中右键点击动画以删除，也可以选中动画后在左侧的 **属性** 分页中点击齿轮图标按钮以删除。
 
 例如要实现根据角色速率来均匀混合待机、走、跑的动画，可设置如下图：
 
-![blend-speed](animation-controller/blend1-speed.png)
+![blend-speed](animation-graph-basics/blend1-speed.png)
 
 ### 二维动画混合
 
@@ -138,17 +138,17 @@
 
 二维动画混合经常用于插值混合不同方向上的移动动画，例如：
 
-![动画混合 2D](animation-controller/blend2.png)
+![动画混合 2D](animation-graph-basics/blend2.png)
 
 上图中第一个输入参数的范围为 `[-1, 0]`，第二个输入参数的范围为 `[-1, 1]`。
 
 ## 子状态机
 
-因为对象一般会有多个阶段的复杂动作组合，为了降解复杂的逻辑，还可以在状态机中无限嵌套 **子状态机**。一般我们将动画图最上层的状态机称为 **顶级状态机**，类似于场景中的根节点。
+因为对象一般会有多个阶段的复杂动作组合，为了降解复杂的逻辑，还可以在状态机中（递归地）嵌套 **子状态机**。一般我们将动画图最上层的状态机称为 **顶级状态机**，类似于场景中的根节点。
 
 右键点击网格布局区域，然后选择 **添加子状态机** 即可创建。创建完成后在网格布局区域会生成一个默认名为 `State Machine` 的子状态机：
 
-![set sub state](animation-controller/set-sub-state.png)
+![set sub state](animation-graph-basics/set-sub-state.png)
 
 - ① 号按钮用于进入子状态机编辑页面；通过双击子状态机或者右键点击子状态机后选择 **编辑** 都可以进入编辑页面；
 - ② 号按钮用于添加状态组件，详情请参考下文 **动画状态组件** 部分的内容；
@@ -160,23 +160,23 @@
 
 进入子状态机编辑页面后，界面如下图所示。子状态机的编辑与顶级状态机基本一致，主要的区别在于，子状态机中默认包含 **出口** 伪状态，当状态过渡到 **出口** 后，退出子状态机，返回到父状态机继续执行下一个过渡，直到回到顶级状态机继续下一个过渡。详情可参考上文 **状态机基础** 部分的内容。
 
-![edit sub state](animation-controller/edit-sub-state.png)
+![edit sub state](animation-graph-basics/edit-sub-state.png)
 
 点击界面上方的 **位置** 便可根据需要跳转到任一个上层状态机。右键点击网格布局区域，然后选择 **返回上层编辑** 便可返回父状态机。
 
 子状态机编辑完成后，在父状态机中会显示子状态机中具体结构的缩略图：
 
-![sub state](animation-controller/sub-state.png)
+![sub state](animation-graph-basics/sub-state.png)
 
 ## 动画状态组件
 
 状态和子状态机都可以挂载动画状态组件。动画状态组件可直接在 **资源管理器** 中创建，右键点击 **资源管理器** 左上方的 **+** 按钮，然后选择 **动画状态组件** 即可：
 
-![create-graph-script](animation-controller/create-graph-script.png)
+![create-graph-script](animation-graph-basics/create-graph-script.png)
 
 创建完成后会生成一个默认名为 `AnimationGraphComponent` 的组件：
 
-![animation-graph-component](animation-controller/animation-graph-component.png)
+![animation-graph-component](animation-graph-basics/animation-graph-component.png)
 
 动画状态组件类继承自 `animation.StateMachineComponent`，其基类中提供了一些方法，表示状态机的一些特定事件。子类可以覆写这些方法，以便在状态进入、离开时添加一些业务逻辑。
 
@@ -196,7 +196,7 @@
 
 创建好动画状态组件后，在动画图面板中选中状态，然后在左侧的 **属性** 分页中点击 **添加状态组件** 即可将组件挂载到当前状态：
 
-![add-graph-script](animation-controller/add-graph-script.png)
+![add-graph-script](animation-graph-basics/add-graph-script.png)
 
 ### 示例：进入状态时播放特效
 

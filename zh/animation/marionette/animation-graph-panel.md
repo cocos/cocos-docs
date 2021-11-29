@@ -26,7 +26,7 @@
 
 ![Edit](animation-graph-panel/edit.png)
 
-当编辑完成后可根据需要在右上角点击 **保存** 或者 **重置**（重置到上一次保存时）。更多操作请参考 [动画状态机](animation-controller.md)。
+当编辑完成后可根据需要在右上角点击 **保存** 或者 **重置**（重置到上一次保存时）。更多操作请参考 [动画状态机](animation-graph-basics.md)。
 
 ## 变量（Variables）
 
@@ -73,6 +73,6 @@
 
 ## 属性（Inspector）
 
-该分页主要用于设置状态机中各类状态的属性和过渡条件，详情请参考 [动画状态机](animation-controller.md)。
+该分页主要用于设置状态机中各类状态的属性和过渡条件，详情请参考 [动画状态机](animation-graph-basics.md)。
 
 ![Inspector](animation-graph-panel/inspector.png)

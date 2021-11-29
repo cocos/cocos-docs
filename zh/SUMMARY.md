@@ -218,7 +218,7 @@
     - [Marionette 动画系统](animation/marionette/index.md)
         - [动画图资源](animation/marionette/animation-graph.md)
         - [动画图面板](animation/marionette/animation-graph-panel.md)
-        - [动画状态机](animation/marionette/animation-controller.md)
+        - [动画状态机](animation/marionette/animation-graph-basics.md)
         - [状态过渡](animation/marionette/state-translation.md)
 
 - [音频系统](audio-system/overview.md)
