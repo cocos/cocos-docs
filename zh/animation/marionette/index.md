@@ -33,3 +33,7 @@ Marionette 动画系统相关功能名词的说明如下：
 状态及状态过渡在动画图面板中是以图形的方式显示，例如下图，方块表示状态，箭头表示状态之间的过渡：
 
 ![example](animation-controller/example.png)
+
+## 范例参考
+
+Creator 提供了 **Ms.Amoy**（[GitHub](https://github.com/cocos-creator/MarionetteDemo)|[Gitee](https://gitee.com/mirrors_cocos-creator/MarionetteDemo)）范例，演示了 Marionette 动画系统的使用方式，用户可根据需要下载参考使用。
