@@ -168,7 +168,7 @@ The structure here only lists the structure of `settings.json` and `config.json`
 
 ### Compressing config.json
 
-Before generating `config.json`, the `UUID` information in the file will be compressed according to whether it is in release mode or not, understanding this rule will be helpful to find the location of the file after the resource is built.
+Before generating the `config.json` file, the `UUID` information in the file will be compressed according to whether it is in release mode or not, understanding this rule will be helpful to find the location of the file after the resource is built.
 
 The `UUIDs` used in the `Bundle` will be sorted during the build, and those that appear **twice or more** will be stored in the `uuids` array, and the location of the previously used `UUID` will be replaced with the index.
 
@@ -176,11 +176,11 @@ All `types` that appear **twice and more** are also stored in the `types` array,
 
 #### Build resources
 
-This step generates project resource files other than scripts, as scripts are compiled and processed separately as special files. The resources are re-serialized after deserialization is performed during the packaging process to reduce the package size after packaging. Multiple serialized JSONs are combined into a single file based on the JSON grouping information collated from the previous data, e.g. the serialized files of the `texture` resource are all packaged into a single `json` file.
+This step generates project resource files other than scripts, since scripts are compiled and processed separately as special files. The resources are re-serialized after deserialization is performed during the packaging process to reduce the package size after packaging. Multiple serialized JSONs are combined into a single file based on the JSON grouping information collated from the previous data, e.g. the serialized files of the `texture` resource are all packaged into a single JSON file.
 
 ## Building of each platform
 
-Build provides hook functions that build the lifecycle, which is convenient for developers to participate in the building during different processing periods of the building and affect the building result. At the same time, the build also provides a way for developers to directly add some custom build options. The corresponding new parameters can be displayed directly in the **Build** panel through simple configuration. For details, please refer to the [Extending Build Process](custom-build-plugin.md) documentation. The build options injected by the build plugin will be stored in `options.packages[pkgName]`, the current way of writing option parameters built through the command line also needs to follow this rule. The rules for the corresponding parameters can be referenced by clicking **Export Build Config** at the top right of the **Build** panel.
+The Build process provides hook functions that build the lifecycle, which is convenient for developers to participate in the building during different processing periods of the building and affect the building result. At the same time, the build also provides a way for developers to directly add some custom build options. The corresponding new parameters can be displayed directly in the **Build** panel through simple configuration. For details, please refer to the [Extending Build Process](custom-build-plugin.md) documentation. The build options injected by the build plugin will be stored in `options.packages[pkgName]`, the current way of writing option parameters built through the command line also needs to follow this rule. The rules for the corresponding parameters can be referenced by clicking **Export Build Config** at the top right of the **Build** panel.
 
 ### Compilation/generation process of each platform
 
@@ -218,7 +218,7 @@ In case of a 404 error, please copy the UUID in the log that reported the error 
 
 ### Script resource loading error
 
-As mentioned in the previous section of **Building Data Sorting**, the script environment needs to be configured when building. If the error message is related to the script, please refer to the error content to modify the script. If you don't know which script is reporting the error, find the `UUID` of the corresponding script in the error message call stack, and then find the location in **Assets** panel.
+As mentioned in the previous section of **Building Data Sorting**, the script environment needs to be configured when building. If the error message is related to the script, please refer to the error content to modify the script. If it is unknown which script is reporting the error, find the `UUID` of the corresponding script in the error message call stack, and then find the location in the **Assets** panel.
 
 ### How to find the big picture after the small picture is automatically combined
 
@@ -245,4 +245,4 @@ If the engine fails to compile, please check if the installation package is comp
 
 ### Other errors
 
-If you encounter errors that you cannot resolve on your own, please send feedback to [Cocos Forum](https://discuss.cocos2d-x.org/c/creator/33) with the Creator version, build options configuration, build log file from the build task, and a demo of the reproducible issue.
+If errors are encountered that cannot be resolved, please send feedback to the [Cocos Forum](https://discuss.cocos2d-x.org/c/creator/33) with the Creator version, build options configuration, build log file from the build task, and a demo that reproduces the issue.
