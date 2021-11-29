@@ -16,8 +16,8 @@
 
 | 属性 | 说明 |
 | :--- | :--- |
-| SkyColor | 设置天空颜色 |
-| SkyIllumination | 调节天空亮度 |
-| GroundAlbedo | 设置地面反射光的颜色 |
+| SkyLightingColor | 设置天空颜色 |
+| SkyIllumination | 调节环境光亮度 |
+| GroundLightingColor | 设置地面反射光的颜色 |
 
 环境光可配合天空盒一起使用，详情可参考 [天空盒](../../skybox.md)。
