@@ -5,8 +5,8 @@
     此功能默认关闭，关闭时引擎会逐个检测model包围盒，剔除不在视锥内的model。如果开启八叉树剔除，则通过八叉树快速剔除不在视锥内的model，为此需要做如下设置，在Hierarchy面板选中场景节点，此时Inspector面板显示如下：
         
     - Enabled：是否开启八叉树剔除
-    - MinPos：场景世界包围盒最小坐标（超出世界包围盒物体不渲染）
-    - MaxPos：场景世界包围盒最大坐标（超出世界包围盒物体不渲染）
+    - MinPos：场景世界包围盒最小坐标（超出世界包围盒的物体不渲染）
+    - MaxPos：场景世界包围盒最大坐标（超出世界包围盒的物体不渲染）
     - Depth：八叉树深度
 
         ![octree scene culling](./native-scene-culling/octree-scene-culling.png)
