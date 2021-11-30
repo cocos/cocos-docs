@@ -36,8 +36,8 @@ Runtime reference is straightforward:
 ```js
 // as long as it is a real uniform
 // it doesn't matter whether it is specified in the property list or not
-mat.setProperty('emissive', cc.Color.GREY); // this works
-mat.setProperty('albedo', cc.Color.RED); // directly set uniform
+mat.setProperty('emissive', Color.GREY); // this works
+mat.setProperty('albedo', Color.RED); // directly set uniform
 mat.setProperty('roughness', 0.2); // set certain component
 const h = mat.passes[0].getHandle('offset'); // or just take the handle,
 mat.passes[0].setUniform(h, new Vec2(0.5, 0.5)); // and use Pass.setUniform interface instead

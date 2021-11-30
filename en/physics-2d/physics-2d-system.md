@@ -38,7 +38,7 @@ PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.None;
 
 General physics modules (Box2D) uses __Metre-Kilogramme-Second (MKS)__ unit system, it has the best performance operating under such a unit system. But we use the __world coordinate system units__ (short for world units) as the unit of length in 2D games, so we need a ratio to convert the physics units to the world units.
 
-In general, set this ratio to __32__, which can be obtained by `cc.PhysicsManager.PTM_RATIO`, and this value is read-only. Usually the user does not need to care about this value, the physics system will automatically convert the physics units and world units to each other. User can use the familiar world units for all the calculations.
+In general, set this ratio to __32__, which can be obtained by `PhysicsManager.PTM_RATIO`, and this value is read-only. Usually the user does not need to care about this value, the physics system will automatically convert the physics units and world units to each other. User can use the familiar world units for all the calculations.
 
 ### Set physics gravity
 
@@ -49,13 +49,13 @@ The default gravity is `(0, -320)` world units per second^2, according to the co
 Gravity can be set to `0`. Example:
 
 ```ts
-PhysicsSystem2D.instance.gravity = cc.v2();
+PhysicsSystem2D.instance.gravity = v2();
 ```
 
 It is possible to change the acceleration of gravity to something else, such as a `20 m/s`. Example:
 
 ```ts
-PhysicsSystem2D.instance.gravity = cc.v2(0, -20 * PHYSICS_2D_PTM_RATIO);
+PhysicsSystem2D.instance.gravity = v2(0, -20 * PHYSICS_2D_PTM_RATIO);
 ```
 
 ### Set physics timestep

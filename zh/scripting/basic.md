@@ -4,14 +4,15 @@ Cocos Creator 3.0 引擎的 API 都存在模块 `cc` 中，使用标准的 ES6 �
 
 ```ts
 import {
-    Component, // 导入类 Component
+    Component,  // 导入类 Component
     _decorator, // 导入命名空间 _decorator
+    Vec3 // 导入类 Vec3
 } from 'cc';
 import * as modules from 'cc'; // 将整个 Cocos Creator 模块导入为命名空间 Cocos Creator
 
 @_decorator.ccclass("MyComponent")
 export class MyComponent extends Component {
-    public v = new cc.Vec3();
+    public v = new Vec3();
 }
 ```
 

@@ -61,7 +61,7 @@ WebView 的脚本接口请参考 [WebView API](__APIDOC__/zh/classes/WebView.htm
 import { _decorator, Component, WebView } from 'cc';
 const { ccclass, type } = _decorator;
 
-@ccclass('cc.MyComponent')
+@ccclass('MyComponent')
 export class MyComponent extends Component {
     @type(WebView)
     webview = null;
@@ -195,9 +195,6 @@ export class WebViewCtrl extends Component {
 </body>
 <script>
     function onClick () {
-        // 这里的 parent 其实就是外部的 window
-        // 这样一来就可以访问到定义在 cc 的函数了
-        parent.cc.TestCode();
         // 如果 TestCode 是定义在 window 上，则
         parent.TestCode();
     }

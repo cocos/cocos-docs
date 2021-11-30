@@ -35,7 +35,7 @@ export class NewScript extends Component {
 }
 ```
 
-> **Note**: it is recommended that users use **TypeScript** to write scripts. If you wish to use **JavaScript** to write scripts, they can be created directly in the operating system file manager, or created in a code editor.
+> **Note**: it is recommended to use **TypeScript** to write scripts, currently the **Assets** panel only supports creating TypeScript, but the user can also create **JavaScript** externally and then import it into Creator for use as a [plugin script](external-scripts.md).
 
 ## Editing Scripts
 

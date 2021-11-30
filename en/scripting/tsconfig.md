@@ -20,31 +20,27 @@ For example, if `tsconfig.json` is set to:
 }
 ```
 
-Script code:
+Then the following script code will not cause an error in the IDE (which uses `tsc` as a checker), because `compilerOptions.module` is set to `cjs`.
 
 ```ts
 const myModule = require("path-to-module");
 ```
 
-It will not cause an error in the IDE (using `tsc` as a checker) because `compilerOptions.module` is set to `cjs`. However, the implicit `compilerOptions.module` in __Cocos Creator__ is `es2015`,
-therefore, it may prompt errors such as __required undefine__ at runtime.
+However, the implied `compilerOptions.module` in Creator is `es2015`, therefore it may prompt errors such as "require undefined" at runtime.
 
-Script code:
+The following script code is legal for Creator, but the IDE may report an error. This is because `compilerOptions.target` is set to `es5`, while `Set` was introduced in ES6.
 
 ```ts
 const mySet = new Set();
 ```
 
-This is legal in __Cocos Creator__, but the IDE may report an error: **Because `compilerOptions.target` is set to `es5`: ES6 introduced `Set`.**
-
 ----
 
 It is also possible to freely modify options.
 
-For example, when it is needed to prohibit the use of implicit `any` in all Typscript scripts in your project.
+For example, when it is needed to prohibit the use of implicit `any` in all TypeScript scripts in your project.
 
-Set `compilerOptions.noImplicitAny` to `true` in `tsconfig.json`,
-as using an IDE (such as Visual Studio Code), the corresponding error prompt will be received.
+Set `compilerOptions.noImplicitAny` to `true` in `tsconfig.json`, as using an IDE (such as Visual Studio Code), the corresponding error prompt will be received.
 
 ----
 
@@ -63,4 +59,4 @@ Therefore, `tsconfig.json` under the project root path can be configured as foll
 }
 ```
 
-Fortunately, when you create a new project, the editor will automatically generate a `tsconfig.json` file automatically.
+Fortunately, Creator will automatically generate such a `tsconfig.json` file when creating a new project.

@@ -85,7 +85,7 @@ assetManager.loadRemote('http://example.com/background.jpg', function (err, text
 
 ### 清除缓存资源
 
-如果缓存资源超出限制，开发者需要手动清除资源，可以使用缓存管理器 `cc.assetManager.cacheManager` 提供的 `removeCache`, `clearCache`, `clearLRU` 来清除缓存资源。
+如果缓存资源超出限制，开发者需要手动清除资源，可以使用缓存管理器 `assetManager.cacheManager` 提供的 `removeCache`, `clearCache`, `clearLRU` 来清除缓存资源。
 
 - `clearCache` —— 清除缓存目录下的所有缓存资源，请慎重使用。
 - `clearLRU` —— 清除缓存目录下比较久远的资源。小游戏平台会在缓存空间满了后自动调用 `clearLRU`。
@@ -101,5 +101,5 @@ assetManager.loadRemote('http://example.com/background.jpg', function (err, text
 
 1. 构建时在 **构建发布** 面板勾选 **MD5 Cache** 选项，这将确保使用最新版本的资源。
 2. 手动清空之前缓存的资源。
-    - 在 **真机** 上通过 `cc.assetManager.cacheManager.clearCache()` 清空缓存。
+    - 在 **真机** 上通过 `assetManager.cacheManager.clearCache()` 清空缓存。
     - 微信小游戏在 **微信开发者工具** 中点击菜单栏的 **工具 -> 清除缓存 -> 全部清除** 来清空缓存。

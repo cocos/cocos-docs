@@ -85,7 +85,7 @@ A number of parameters are provided in the cache manager to control the caching 
 
 ### Clearing cache resources
 
-If the cache resource exceeds the limit and the developer needs to clear the resource manually, use `removeCache`, `clearCache`, `clearLRU` provided by the cache manager `cc.assetManager.cacheManager` to clear the cache resource.
+If the cache resource exceeds the limit and the developer needs to clear the resource manually, use `removeCache`, `clearCache`, `clearLRU` provided by the cache manager `assetManager.cacheManager` to clear the cache resource.
 
 - `clearCache` -- clears all cache resources in the cache directory, please use with caution.
 - `clearLRU` -- clears the older resources in the cache directory. The mini-game platform will automatically call `clearLRU` when the cache space is full.
@@ -101,5 +101,5 @@ When the developer upgrades the engine version, the cached resources left locall
 
 1. Check the **MD5 Cache** option in the **Build** panel at build time, which will ensure that the latest version of resources are used.
 2. Manually clear the previously cached resources.
-    - Clear the cache with `cc.assetManager.cacheManager.clearCache()` on the **real device**.
+    - Clear the cache with `assetManager.cacheManager.clearCache()` on the **real device**.
     - For WeChat Mini Game, clear the cache by clicking **Tools -> Clear Cache -> Clear All** in the menu bar in **WeChat DevTools**.

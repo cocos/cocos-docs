@@ -36,8 +36,8 @@ For event structure you can refer to the [Button](./button.md) documentation.
 
 - __Editing Did Began__: This event will be triggered when the user __clicks__ on the __EditBox__.
 - __Editing Did Ended__: This event will be triggered when the __EditBox loses focus__.
-  - When in __single line input mode__, it's triggered after user presses __Enter__ key or __clicks__ the area __outside__ of __EditBox__.
-  - When in __multiline input mode__, it's triggered only after user __clicks__ the area __outside__ of __EditBox__.
+    - When in __single line input mode__, it's triggered after user presses __Enter__ key or __clicks__ the area __outside__ of __EditBox__.
+    - When in __multiline input mode__, it's triggered only after user __clicks__ the area __outside__ of __EditBox__.
 - __Text Changed__: This event will be triggered when the __content__ in __EditBox__ is __changed each time__.
 
 ## Detailed Explanation
@@ -75,25 +75,25 @@ export class example extends Component {
     }
 
     onEditDidBegan(editbox, customEventData) {
-        // The editbox here is a cc.EditBox object.
+        // The editbox here is a EditBox object.
         // The customEventData parameter here is equal to the "foobar" you set before.
     }
 
     // Suppose this callback is for the editingDidEnded event.
     onEditDidEnded(editbox, customEventData) {
-        // The editbox here is a cc.EditBox object.
+        // The editbox here is a EditBox object.
         // The customEventData parameter here is equal to the "foobar" you set before.
     }
 
     // Suppose this callback is for the textChanged event.
     onTextChanged(text, editbox, customEventData) {
         // The text here indicates the text content of the modified EditBox.
-        // The editbox here is a cc.EditBox object.
+        // The editbox here is a EditBox object.
         // The customEventData parameter here is equal to the "foobar" you set before.
     }
     // Suppose this callback is for the editingReturn event.
     onEditingReturn(editbox, customEventData) {
-        // The editbox here is a cc.EditBox object.
+        // The editbox here is a EditBox object.
         // The customEventData parameter here is equal to the "foobar" you set before.
     }
 }

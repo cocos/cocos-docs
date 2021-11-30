@@ -110,8 +110,6 @@ Note that the property name in the editor should be written in the format displa
 Correct usage:
 
 > Set the scale of the node through `this.node.scale`.
->
-> `this.getComponent(cc.Sprite).spriteFrame` can dynamically change the image rendered by the node.
 
 **File name and file path**, use backtick to indicate.
 
