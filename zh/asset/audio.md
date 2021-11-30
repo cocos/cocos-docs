@@ -6,7 +6,7 @@ Cocos Creator 支持导入大多数常见的音频文件格式，将其直接拖
 
 我们根据音频的长短将其分为长度较长的 **音乐** 和长度短的 **音效**，Creator 通过 AudioSource 组件控制播放不同的音频资源来实现游戏内的背景音乐和音效。详情请参考 [AudioSource 组件参考](../audio-system/audiosource.md)。
 
-## 支持的声音资源的格式
+## 支持的音频资源的格式
 
 目前 Cocos Creator 支持导入以下格式的音频文件：
 
