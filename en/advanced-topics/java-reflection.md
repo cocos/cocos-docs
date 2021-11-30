@@ -70,11 +70,11 @@ jsb.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/Str
 
 //call the first sum method
 var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
-cc.log(result); //10
+log(result); //10
 
 //call the second sum method
 var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
-cc.log(result); //5
+log(result); //5
 ```
 
 Take a look on the Console, there should be correct output.
