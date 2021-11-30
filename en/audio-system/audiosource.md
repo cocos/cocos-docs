@@ -42,7 +42,7 @@ For more flexible control of AudioSource playback, you can add a custom script t
 
 1. Add the AudioSource component to the node and specify the audio asset.
 
-2. [Create script](../scripting/setup.md) in the **Assets** panel and name it (e.g. ``AudioController``), then double-click to open the script for writing, as follows:
+2. [Create script](../scripting/setup.md) in the **Assets** panel and name it (e.g. `AudioController`), then double-click to open the script for writing, as follows:
 
     ```typescript
     import { _decorator, Component, Node, AudioSource, assert } from 'cc';
