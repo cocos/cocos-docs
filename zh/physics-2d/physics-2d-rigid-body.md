@@ -2,118 +2,50 @@
 
 刚体是组成物理世界的基本对象，你可以将刚体想象成一个你不能看到（绘制）也不能摸到（碰撞）的带有属性的物体。
 
-由于 Builtin 2D 物理系统只带有碰撞检测的功能，所以刚体对于 Builtin 2D 物理系统是 **不生效的**，本篇设置只对其它 2D 物理系统产生作用。
+由于 Builtin 2D 物理系统只带有碰撞检测的功能，所以刚体对于 Builtin 2D 物理系统是 **不生效的**，本篇设置只对 **Box2d** 物理系统产生作用。
+
+在 **层级管理器** 中选中节点，然后在 **属性检查器** 中点击下方的 **添加组件** -> **Physics2D** -> **RigidBody2D**，即可添加刚体组件到节点上。
 
 ![rigidBody-Inspector](image/rigidBody-Inspector.png)
 
-属性 | 功能说明
-:---|:---
-**Group** | 碰撞分组，用于与其他碰撞体相遇时检测是否产生碰撞效果
-**EnabledContactListener** | 刚体的碰撞监听，默认为 false
-**Bullet**  |  这个刚体是否是一个快速移动的刚体，并且需要禁止穿过其他快速移动的刚体。此选项只关注于 动态刚体
-**Type** | 刚体类型
-**AllowSleep**  |  是否允许物理系统自动休眠，默认为 true
-**GravityScale**  |  缩放应用在此刚体上的重力值
-**LinearDamping**  |  线性阻尼，用于衰减线性速度，值越大，衰减越快
-**AngularDamping**  |  角阻尼，用于减小物体的旋转速率
-**LinearVelocity**  |  刚体在世界坐标下的线性速度
-**AngularVelocity**  |  刚体的角速度体类型
-**FixedRotation**  |  是否禁止此刚体进行旋转
-**AwakeOnLoad**  |  是否在初始化时唤醒此刚体
-
->**注意：** 应该尽量少的使用 `Bullet` 选项，因为它会增加程序处理时间。
-
-更多的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases) 中的范例。
-
-刚体组件接口请参考 [RigidBody2D API](__APIDOC__/zh/classes/physics2d.rigidbody2d.html)
+| 属性                       | 功能说明                                                                                         |
+| :------------------------- | :----------------------------------------------------------------------------------------------- |
+| **Group**                  | 碰撞分组，用于设置是否与其他碰撞体产生碰撞效果                                                   |
+| **EnabledContactListener** | 是否启用接触接听器。当 Collider 产生碰撞时，只有开启了接触接听器才会调用相应的回调函数。默认关闭 |
+| **Bullet**                 | 若勾选该项，则会被认为是一个快速移动的刚体，并且禁止穿过其他快速移动的刚体，以避免出现穿透现象。该项仅对 **动态刚体** 生效           |
+| **Type**                   | 刚体类型                                                |
+| **AllowSleep**             | 是否允许刚体在静止时自动休眠，默认开启                                                           |
+| **GravityScale**           | 缩放应用在此刚体上的重力值                                                                       |
+| **LinearDamping**          | 线性阻尼，用于衰减刚体的线性速度，值越大衰减越快物体移动越慢，可用于模拟空气摩擦力等效果           |
+| **AngularDamping**         | 角阻尼，用于衰减刚体的角速度，值越大衰减越快刚体旋转越慢             |
+| **LinearVelocity**         | 刚体在世界坐标下的线性速度                                                                        |
+| **AngularVelocity**        | 刚体的角速度                                                                               |
+| **FixedRotation**          | 是否禁止此刚体进行旋转                                                                           |
+| **AwakeOnLoad**            | 是否在初始化时唤醒此刚体           |
 
 ## 刚体属性
 
-### 质量
-
-刚体的质量是通过 [碰撞组件](physics-2d-collider.md) 的 **密度** 与 **大小** 自动计算得到的。若需要计算物体应该受到多大的力，需要使用到这个属性。
-
-```ts
-// 获取刚体质量
-const mass = rigidbody.getMass();
-```
-
-### 移动速度
-
-```ts
-// 获取移动速度
-const velocity = rigidbody.linearVelocity;
-// 设置移动速度
-rigidbody.linearVelocity = velocity;
-```
-
-移动速度衰减系数，值越大物体移动越慢，可以用来模拟空气摩擦力等效果。
-
-```ts
-// 获取移动速度衰减系数
-const damping = rigidbody.linearDamping;
-// 设置移动速度衰减系数
-rigidbody.linearDamping = damping;
-```
-
->**注意：** 衰减系数可以大于 1，但是当衰减系数比较大的时候，衰减的效果会变得比较敏感。
-
-如果要获取刚体上某个点的移动速度，可以通过  `getLinearVelocityFromWorldPoint` 来获取。比如一个盒子旋转着往前飞，碰到了墙，这时候可能会希望获取盒子在发生碰撞的点的速度。
-
-传入一个 `cc.Vec2` 对象作为第二个参数来接收返回值，这样你可以使用你的缓存对象来接收这个值，避免创建过多的对象来提高效率。
-
-**刚体的 get 方法都提供了 out 参数来接收函数返回值。**
-
-```ts
-let velocity = new Vec2();
-rigidbody.getLinearVelocityFromWorldPoint(worldPoint, velocity);
-```
-
-### 旋转速度
-
-```ts
-// 获取旋转速度
-const velocity = rigidbody.angularVelocity;
-// 设置旋转速度
-rigidbody.angularVelocity = velocity;
-```
-
-旋转速度衰减系数，与移动衰减系数相同。
-
-```ts
-// 获取旋转速度衰减系数
-const damping = rigidbody.angularDamping;
-// 设置旋转速度衰减系数
-rigidbody.angularDamping = damping;
-```
-
-### 旋转、位移与缩放
-
-旋转、位移与缩放是游戏开发中最常用的功能，几乎每个节点都会对这些属性进行设置。而在物理系统中会自动将节点的这些属性与 Box2D 中的对应属性进行同步。
-
-**注意**：
-1. Box2D 物理只有旋转和位移，并没有缩放，所以如果设置节点的缩放属性时，物理系统会重新构建这个刚体依赖的全部碰撞体。一个解决办法是将渲染节点作为刚体节点的子节点，只对这个渲染节点作缩放，尽量避免直接对刚体节点进行缩放。
-
-2. 在物理系统每次迭代（物理系统是在 `postUpdate` 进行迭代的）的最后会把所有刚体信息同步到对应节点上去，而出于性能考虑，只有当开发者对刚体所在节点的相关属性进行显示设置时，节点的信息才会同步到刚体上，并且刚体只会监视他所在的节点，也就是说，如果修改了节点的父节点的旋转位移，是不会同步这些信息的。
-
-### 固定旋转
-
-做平台跳跃游戏时通常都不会希望主角的旋转属性也被加入到物理模拟中，因为这样会导致主角在移动过程中东倒西歪，这时可以设置刚体的 `fixedRotation` 为 `true`，禁止旋转。
-
-```ts
-// 是否禁止此刚体进行旋转
-rigidbody.fixedRotation = true;
-```
+刚体组件的属性可直接在编辑器中设置，同时也额外提供了属性接口以便在代码中设置。
 
 ### 开启碰撞监听
 
-只有开启了刚体的碰撞监听，刚体发生碰撞时才会回调到对应的组件上。
+只有开启了刚体的碰撞监听，刚体发生碰撞时才会回调到对应的碰撞组件上。
 
 ```ts
 rigidbody.enabledContactListener = true;
 ```
 
-## 刚体类型
+### 子弹开启
+
+高速移动的刚体在 Box2D 中被称为子弹（bullet），开发者需要根据项目的设计来决定哪些刚体是子弹，如果开发者设置刚体为子弹类型，则 Box2D 会通过连续碰撞检测（CCD）来防止一个物理步长内当两个 **高速移动** 的刚体发生碰撞的时候，可能会出现的穿透现象。通过代码开启子弹类型可以这样设置：
+
+```ts
+rigidbody.bullet = true;
+```
+
+需要注意的是应该 **尽量少** 的使用 `Bullet` 选项，因为它会增加程序处理时间。并且该项只对 **动态刚体** 生效。
+
+### 刚体类型
 
 Box2D 原本的刚体类型包括 **Static**、**Dynamic**、**Kinematic** 三种，Cocos Creator 多添加了一个 **Animated** 类型。
 
@@ -131,18 +63,105 @@ Box2D 原本的刚体类型包括 **Static**、**Dynamic**、**Kinematic** 三�
 
 - `cc.RigidBodyType.Animated`
 
-动画刚体，Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。<br>
-添加 Animated 类型主要是防止对刚体做动画时可能出现的奇怪现象，例如穿透。
->**注意** ：如果没有碰撞体，2D 刚体不能相互碰撞。
+  动画刚体 Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前刚体的旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。<br>
+  Animated 类型主要用于防止刚体执行动画时可能出现的奇怪现象，例如穿透。
+  >**注意** ：如果没有碰撞体 ，2D 刚体不能相互碰撞。
 
-下图为各种刚体之间的碰撞情况：
+各种刚体之间的碰撞情况如下所示：
 
-|  | 静态刚体 |动态刚体 |运动刚体|动画刚体
-:---|:---|:---|:---|:---
-**静态刚体**|不碰撞|碰撞|不碰撞|不碰撞|
-**动态刚体**|碰撞|碰撞|碰撞|碰撞|
-**运动刚体**|不碰撞|碰撞|不碰撞|不碰撞|
-**动画刚体**|不碰撞|碰撞|不碰撞|不碰撞|
+|              | 静态刚体 | 动态刚体 | 运动刚体 | 动画刚体 |
+| :----------- | :------- | :------- | :------- | :------- |
+| **静态刚体** | 不碰撞   | 碰撞     | 不碰撞   | 不碰撞   |
+| **动态刚体** | 碰撞     | 碰撞     | 碰撞     | 碰撞     |
+| **运动刚体** | 不碰撞   | 碰撞     | 不碰撞   | 不碰撞   |
+| **动画刚体** | 不碰撞   | 碰撞     | 不碰撞   | 不碰撞   |
+
+### 刚体质量
+
+刚体的质量是通过 [碰撞组件](physics-2d-collider.md) 的 **密度** 与 **大小** 自动计算出来的，可通过 `getMass` 获取。刚体质量可用于计算物体应该受到多大的力。
+
+```ts
+// 获取刚体质量
+const mass = rigidbody.getMass();
+```
+
+### 刚体休眠
+
+当施加到某个刚体上的力量小于 [进入休眠的默认速度临界值](../editor/project/physics-configs.md) 一段时间以后，这个刚体将会进入 **睡眠状态**。也就是如果某个刚体移动的很慢或者静止的时候，物理系统将会把它标记为 **睡眠状态**，物理系统会在模拟物理运算时快速跳过这些不需要处理的刚体，这样的操作可以大大减少 CPU 的消耗。
+
+```ts
+// 设置刚体是否允许自动休眠
+rigidbody.allowSleep = true;
+
+```
+
+### 旋转、位移与缩放
+
+旋转、位移与缩放是游戏开发中最常用的功能，几乎每个节点都会对这些属性进行设置。而在物理系统中会自动将节点的这些属性与 Box2D 中的对应属性进行同步。
+
+>**注意**：
+>1. Box2D 物理只有旋转和位移，并没有缩放，所以如果设置节点的缩放属性时，物理系统会重新构建这个刚体依赖的全部碰撞体。一个解决办法是将渲染节点作为刚体节点的子节点，只对这个渲染节点作缩放，尽量避免直接对刚体节点进行缩放。
+>2. 在物理系统（Box2D）每次迭代（物理系统是在 `postUpdate` 进行迭代的）的最后会把所有刚体信息同步到对应节点上去，而在  Creator 当中出于性能考虑，只有当开发者对刚体所在节点的相关属性进行显示时，节点的信息才会同步到刚体上，并且刚体只会监视他所在的节点，也就是说，如果修改了节点的父节点的旋转位移，是不会同步这些信息的。
+
+物理系统（Box2D）每次迭代（物理系统是在 `postUpdate` 进行迭代的）之前，会将节点的位置信息同步给刚体，而在迭代之后的刚体会将位置信息同步到对应节点中。而在  Creator 当中出于性能考虑，只有当开发者对刚体所在节点的相关属性进行显示时，节点的信息才会同步到刚体上，并且刚体只会监视他所在的节点，也就是说，如果修改了节点的父节点的旋转位移，是不会同步这些信息的。
+
+#### 刚体线性速度
+
+```ts
+// 获取线性速度
+const velocity = rigidbody.linearVelocity;
+// 设置线性速度
+rigidbody.linearVelocity = velocity;
+```
+
+线性速度衰减系数，值越大物体移动越慢，可以用来模拟空气摩擦力等效果。
+
+```ts
+// 获取线性阻尼
+const damping = rigidbody.linearDamping;
+// 设置线性阻尼
+rigidbody.linearDamping = damping;
+```
+
+>**注意**：线性阻尼的范围从 0 到无穷大， 0 表示没有阻尼，无穷大表示满阻尼。通常阻尼的值应该在 0 到 0.1 之间  当阻尼的值比较大的时候，衰减的效果会变得比较敏感。
+
+如果要获取刚体上某个点的移动速度，例如要获取一个盒子往前飞直到碰到墙时，发生碰撞的点的速度，便可以通过 `getLinearVelocityFromWorldPoint` 获取。
+
+传入的 `cc.Vec2` 作为第二个参数用于接收返回值，这样可以通过使用缓存对象来接收这个值，避免创建过多的对象，以提高效率。
+
+```ts
+let velocity = new Vec2();
+rigidbody.getLinearVelocityFromWorldPoint(worldPoint, velocity);
+```
+
+#### 刚体旋转速度
+
+```ts
+// 获取旋转速度
+const velocity = rigidbody.angularVelocity;
+// 设置旋转速度
+rigidbody.angularVelocity = velocity;
+```
+
+设置角阻尼，与设置线性阻尼相同。
+
+```ts
+// 获取角阻尼
+const damping = rigidbody.angularDamping;
+// 设置角阻尼
+rigidbody.angularDamping = damping;
+```
+
+#### 固定旋转
+
+在平台跳跃游戏中，通常都不会将主角的旋转属性也加入到物理模拟中，否则会导致主角在移动跳跃过程中东倒西歪。我们可以通过将刚体的 `fixedRotation` 属性设置为 `true`，禁止旋转。
+
+```ts
+// 是否禁止此刚体进行旋转
+rigidbody.fixedRotation = true;
+```
+
+更多刚体属性接口，请参考 [RigidBody2D API](__APIDOC__/zh/classes/physics2d.rigidbody2d.html)
 
 ## 刚体方法
 
@@ -226,12 +245,8 @@ rigidbody.applyTorque(torque,true);
 rigidbody.applyAngularImpulse(impulse,true);
 ```
 
-### 其他
+更多刚体方法，请参考 [RigidBody2D API](__APIDOC__/zh/classes/physics2d.rigidbody2d.html)
 
-如果要获取刚体在某一点上的速度时，可以通过 `getLinearVelocityFromWorldPoint` 来获取，比如当物体碰撞到一个平台时，需要根据物体碰撞点的速度来判断物体相对于平台是从上方碰撞的还是下方碰撞的。
+## 参考范例
 
-```ts
-// 获取刚体上指定点的线性速度
-let linear = new Vec2(); 
-rigidbody.getLinearVelocityFromWorldPoint(worldPoint,linear);
-```
+更多的使用方法，详情可参考 [physics-samples](https://github.com/cocos-creator/physics-samples/tree/v3.x/2d/box2d/assets/cases) 中的范例。
