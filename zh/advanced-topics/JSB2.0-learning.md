@@ -368,7 +368,7 @@ SE_BIND_FUNC(foo)
 
 不依赖。
 
-ScriptEngine 这层设计之初就将其定义为一个独立模块，完全不依赖 Cocos Creator 引擎。开发者完整可以通过 copy、paste 把 `cocos/bindings/jswrapper` 下的所有抽象层源码拷贝到其他项目中直接使用。
+ScriptEngine 这层设计之初就将其定义为一个独立模块，完全不依赖 Cocos Creator 引擎。开发者可以通过 copy、paste 把 `cocos/bindings/jswrapper` 下的所有抽象层源码拷贝到其他项目中直接使用。
 
 ## 手动绑定
 
