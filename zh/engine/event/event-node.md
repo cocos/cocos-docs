@@ -10,8 +10,9 @@ node.on(Node.EventType.MOUSE_DOWN, (event) => {
 }, this);
 ```
 
-> **注意**：我们已经不再推荐直接使用事件的名称字符串注册事件监听了。像上述例子，请不要使用 `node.on('mouse-down', callback, target)` 来注册事件监听。  
-节点上的触摸事件监听依赖于 `UITransform` 组件，只适用于 2D UI 节点。如果需要实现对 3D 物体的触摸检测，可以参考文档 [对 3D 物体的触摸检测](event-input.md#3D 物体的触摸检测)
+> **注意**：我们已经不再推荐直接使用事件的名称字符串注册事件监听了。像上述例子，请不要使用 `node.on('mouse-down', callback, target)` 来注册事件监听。
+
+节点上的触摸事件监听依赖于 `UITransform` 组件，只适用于 2D UI 节点。如果需要实现对 3D 物体的触摸检测，可以参考文档 [对 3D 物体的触摸检测](event-input.md#对%203D%20物体的触摸检测)
 
 ## 鼠标事件类型和事件对象
 
@@ -45,7 +46,7 @@ node.on(Node.EventType.MOUSE_DOWN, (event) => {
 
 ## 节点事件派发
 
-我们在 Node 上支持了 `dispatchEvent` 接口，通过该接口派发的事件，会进入事件派发阶段。Cocos Creator 的事件派发系统是按照 [Web 的事件冒泡及捕获标准](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%8F%8A%E6%8D%95%E8%8E%B7) 实现的，事件在派发之后，会经历下面三个阶段：
+我们在 `Node` 上支持了 `dispatchEvent` 接口，通过该接口派发的事件，会进入事件派发阶段。Cocos Creator 的事件派发系统是按照 [Web 的事件冒泡及捕获标准](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%8F%8A%E6%8D%95%E8%8E%B7) 实现的，事件在派发之后，会经历下面三个阶段：
 - **捕获**：事件从场景根节点，逐级向子节点传递，直到到达目标节点或者在某个节点的响应函数中中断事件传递
 - **目标**：事件在目标节点上触发
 - **冒泡**：事件由目标节点，逐级向父节点冒泡传递，直到到达根节点或者在某个节点的响应函数中中断事件传递
@@ -171,7 +172,7 @@ this.node.on(Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
 
 ## Node 的其它事件
 
-所有的 node 内置事件都可以通过 `Node.EventType` 获取事件名。
+所有的 `Node` 内置事件都可以通过 `Node.EventType` 获取事件名。
 
 ### 3D 节点事件
 
@@ -203,7 +204,7 @@ this.node.on(Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
 | **SIBLING_ORDER_CHANGED**   | 兄弟节点顺序改变时。                        |
 | **SCENE_CHANGED_FOR_PERSISTS** | 改变常驻节点所在场景时。                  |
 | **NODE_DESTROYED**   | 节点销毁时。                                       |
-| **LAYER_CHANGED** | `Layer` 属性改变时。                                  |
+| **LAYER_CHANGED** | `layer` 属性改变时。                                  |
 | **ACTIVE_IN_HIERARCHY_CHANGED** | `activeInHierarchy` 属性改变时。        |
 
 ## 多点触摸事件
