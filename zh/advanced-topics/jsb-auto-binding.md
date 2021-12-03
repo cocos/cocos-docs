@@ -2,8 +2,6 @@
 
 > 本文转载自 [腾讯在线教育部技术博客](https://oedx.github.io/2019/07/03/cocos-creator-js-binding-auto/)<br>
 > 作者：张鑫（kevinxzhang）
->
-> 本文档基于 v2.x 编写，在 Cocos Creator 3.0 上可能略有变动，我们会尽快更新。
 
 尽管 Creator 提供了 `jsb.reflection.callStaticMethod` 方式支持从 ts 端直接调用 Native 端（Android/iOS/Mac）的接口，但是经过大量实践发现此接口在大量频繁调用情况下性能很低下，尤其是在 Android 端，比如调用 Native 端实现的打印 log 的接口，而且会容易引起一些 native crash，例如 `local reference table overflow` 等问题。纵观 Cocos 原生代码的实现，基本所有的接口方法的实现都是基于 JSB 的方式来实现，所以此文主要讲解下 JSB 的自动绑定逻辑，帮助大家能快速实现 `callStaticMethod` 到 JSB 的改造过程。
 
@@ -365,5 +363,3 @@ export class Test extends Component {
 ## 总结
 
 总的来说，自动绑定 JSB 只需要要求开发者编写相关的实现 C++ 实现类，一个配置文件，然后执行一条命令就能完整整个的绑定过程。如果没有什么特殊定制，相对于手动绑定来说，效率上还是提高了不少。实际工作做可以依据具体情况先用自动绑定功能，然后再去手动修改生成的绑定文件，达到事倍功半的效果。
-
-> 本文所有内容遵循 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) 协议发布。

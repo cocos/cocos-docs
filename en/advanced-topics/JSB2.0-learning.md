@@ -970,7 +970,7 @@ replace_headers =
 # Which classes need to be bound, you can use regular expressions, separated by space.
 classes = FileUtils$ SAXParser CanvasRenderingContext2D CanvasGradient Device DownloaderHints
 
-# Which classes which use cc.Class.extend to inherit, separated by space.
+# Which classes need to be extended at the JS level, separated by spaces.
 classes_need_extend = 
 
 # Which classes need to bind properties, separated by commas
