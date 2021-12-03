@@ -78,14 +78,14 @@ SE_BIND_FUNC(foo) // Binding a JS function as an example
 
 After a developer has bound a JS function, remember to wrap the callback function with the macros which start with `SE_BIND_`. Currently, we provide the following macros:
 
-- **SE\_BIND\_PROP_GET**: Wrap a JS object property read callback function
-- **SE\_BIND\_PROP_SET**: Wrap a JS object property written callback function
-- **SE\_BIND\_FUNC**: Wrap a JS function that can be used for global functions, class member functions or class static functions
-- **SE\_DECLARE\_FUNC**: Declare a JS function, generally used in the header file
-- **SE\_BIND\_CTOR**: Wrap a JS constructor
-- **SE\_BIND\_SUB\_CLS\_CTOR**: Wrap the constructor of a JS subclass by using `cc.Class.extend`.
-- **SE\_BIND\_FINALIZE\_FUNC**: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
-- **SE\_DECLARE\_FINALIZE\_FUNC**: Declares the finalize function of a JS object
+- **SE_BIND_PROP_GET**: Wrap a JS object property read callback function
+- **SE_BIND_PROP_SET**: Wrap a JS object property written callback function
+- **SE_BIND_FUNC**: Wrap a JS function that can be used for global functions, class member functions or class static functions
+- **SE_DECLARE_FUNC**: Declare a JS function, generally used in the header file
+- **SE_BIND_CTOR**: Wrap a JS constructor
+- **SE_BIND_SUB_CLS_CTOR**: Wrap the constructor of a JS subclass.
+- **SE_BIND_FINALIZE_FUNC**: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
+- **SE_DECLARE_FINALIZE_FUNC**: Declares the finalize function of a JS object
 - **_SE**: The macro for making callback be recognized by different JS engine. Note that the first character is underscored, similar to `_T ('xxx')` in Windows for wrapping Unicode or MultiBytes string
 
 ## API
@@ -142,39 +142,39 @@ As we mentioned in the last section, `se::Object` is a weak reference to the JS 
 
 **Reason 1: The requirement of controlling the life cycle of CPP objects by JS objects**
 
-After creating a Sprite in the script layer via `var sp = new cc.Sprite("a.png");`, we create a `se::Object` in the constructor callback and leave it in a global map (NativePtrToObjectMap), this map is used to query the `cocos2d::Sprite*` to get the corresponding JS object `se::Object*`.
+After creating a Sprite in the script layer via `var xhr = new XMLHttpRequest();`, we create a `se::Object` in the constructor callback and leave it in a global map (NativePtrToObjectMap), this map is used to query the `XMLHttpRequest*` to get the corresponding JS object `se::Object*`.
 
 ```c++
-static bool js_cocos2d_Sprite_finalize(se::State& s)
+static bool XMLHttpRequest_finalize(se::State& s)
 {
-    CCLOG("jsbindings: finalizing JS object %p (cocos2d::Sprite)", s.nativeThisObject());
-    cocos2d::Sprite* cobj = (cocos2d::Sprite*)s.nativeThisObject();
+    CCLOG("jsbindings: finalizing JS object %p (XMLHttpRequest)", s.nativeThisObject());
+    XMLHttpRequest* cobj = (XMLHttpRequest*)s.nativeThisObject();
     if (cobj->getReferenceCount() == 1)
         cobj->autorelease();
     else
         cobj->release();
     return true;
 }
-SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
+SE_BIND_FINALIZE_FUNC(XMLHttpRequest_finalize)
 
-static bool js_cocos2dx_Sprite_constructor(se::State& s)
+static bool XMLHttpRequest_constructor(se::State& s)
 {
-    cocos2d::Sprite* cobj = new (std::nothrow) cocos2d::Sprite(); // cobj will be released in the finalize callback
-    s.thisObject()->setPrivateData(cobj); // setPrivateData will make a mapping between se::Object* and cobj
+    XMLHttpRequest* cobj = JSB_ALLOC(XMLHttpRequest);
+    s.thisObject()->setPrivateData(cobj);
     return true;
 }
-SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_cocos2d_Sprite_finalize)
+SE_BIND_CTOR(XMLHttpRequest_constructor, __jsb_XMLHttpRequest_class, XMLHttpRequest_finalize)
 ```
 
 Imagine if you force `se::Object` to be a strong reference to a JS object that leaves JS objects out of GC control and the finalize callback will never be fired because `se::Object` is always present in map which will cause memory leak.
 
-It is precisely because the `se::Object` holds a weak reference to a JS object so that controlling the life of the CPP object by JS object can be achieved. In the above code, when the JS object is released, it will trigger the finalize callback, developers only need to release the corresponding CPP object in `js_cocos2d_Sprite_finalize`, the release of `se::Object` has been included in the `SE_BIND_FINALIZE_FUNC` macro by automatic processing, developers do not have to manage the release of `se::Object` in `JS Object Control CPP Object` mode, but in `CPP Object Control JS Object` mode, developers have the responsibility to manage the release of `se::Object`. I will give an example in the next section.
+It is precisely because the `se::Object` holds a weak reference to a JS object so that controlling the life of the CPP object by JS object can be achieved. In the above code, when the JS object is released, it will trigger the finalize callback, developers only need to release the corresponding CPP object in `XMLHttpRequest_finalize`, the release of `se::Object` has been included in the `SE_BIND_FINALIZE_FUNC` macro by automatic processing, developers do not have to manage the release of `se::Object` in `JS Object Control CPP Object` mode, but in `CPP Object Control JS Object` mode, developers have the responsibility to manage the release of `se::Object`. I will give an example in the next section.
 
 **Reason 2: More flexible, supporting strong reference by calling the se::Object::root method manually**
 
 `se::Object` provides `root/unroot` method for developers to invoke, `root` will put JS object into the area not be scanned by the GC. After calling `root`, `se::Object*` is a strong reference to the JS object. JS object will be put back to the area scanned by the GC only when `se::Object` is destructed or `unroot` is called to make root count to zero.
 
-Under normal circumstances, if CPP object is not a subclass of `cocos2d :: Ref`, CPP object will be used to control the life cycle of the JS object in binding. Binding the engine modules, like spine, dragonbones, box2d and other third-party libraries uses this method. When the CPP object is released, you need to find the corresponding `se::Object` in the `NativePtrToObjectMap`, then manually `unroot` and `decRef` it. Take the binding of `spTrackEntry` in spine as an example:
+Under normal circumstances, if CPP object is not a subclass of `cc::Ref`, CPP object will be used to control the life cycle of the JS object in binding. Binding the engine modules, like spine, dragonbones, box2d and other third-party libraries uses this method. When the CPP object is released, you need to find the corresponding `se::Object` in the `NativePtrToObjectMap`, then manually `unroot` and `decRef` it. Take the binding of `spTrackEntry` in spine as an example:
 
 ```c++
 spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
@@ -239,7 +239,7 @@ In addition, `se::Object` currently supports the manual creation of the followin
 
 __The Release of The Objects Created Manually__
 
-`se::Object::createXXX` is unlike the create method in cocos2d-x, the abstraction layer is a completely separate module which does not rely on the autorelease mechanism in cocos2d-x. Although `se::Object` also inherits the reference count class `se::RefCounter`, developers need to handle the release for **objects created manually**.
+`se::Object::createXXX` is unlike the create method in Cocos Creator, the abstraction layer is a completely separate module which does not rely on the autorelease mechanism in Cocos Creator. Although `se::Object` also inherits the reference count class `se::RefCounter`, developers need to handle the release for **objects created manually**.
 
 ```c++
 se::Object* obj = se::Object::createPlainObject();
@@ -375,11 +375,11 @@ bool foo(se::State& s)
 SE_BIND_FUNC(foo)
 ```
 
-## Does The Abstraction Layer Depend on Cocos2D-X?
+## Does The Abstraction Layer Depend on Cocos Creator?
 
 **No**.
 
-This abstraction layer was originally designed as a stand-alone module which is completely independent of Cocos2D-X engine. Developers can copy the abstraction layer code in `cocos/bindings/jswrapper` directory and paste them to other projects directly.
+This abstraction layer was originally designed as a stand-alone module which is completely independent of Cocos Creator engine. Developers can copy the abstraction layer code in `cocos/bindings/jswrapper` directory and paste them to other projects directly.
 
 ## Manual Binding
 
@@ -604,7 +604,7 @@ bool js_register_ns_SomeClass(se::Object* global)
     // Install the class to JS virtual machine
     cls->install();
 
-    // JSBClassType::registerClass is a helper function in the Cocos2D-X native binding code, which is not a part of the ScriptEngine.
+    // JSBClassType::registerClass is a helper function in the Cocos Creator native binding code, which is not a part of the ScriptEngine.
     JSBClassType::registerClass<ns::SomeClass>(cls);
 
     // Save the result to global variable for easily use in other places, for example class inheritance.
@@ -656,7 +656,7 @@ static bool js_SomeClass_setCallback(se::State& s)
 
             // If the current SomeClass class is a singleton, or a class that always has only one instance, we can not associate it with "se::Object::attachObject".
             // Instead, you must use "se::Object::root", developers do not need to unroot since unroot operation will be triggered in the destruction of lambda which makes the "se::Value" jsFunc be destroyed, then "se::Object" destructor will do the unroot operation automatically.
-            // The binding function "js_cocos2dx_EventDispatcher_addCustomEventListener" implements it in this way because "EventDispatcher" is always a singleton.
+            // The binding function "js_audio_AudioEngine_setFinishCallback" implements it in this way because "AudioEngine" is always a singleton.
             // Using "s.thisObject->attachObject(jsFunc.toObject);" for binding addCustomEventListener will cause jsFunc and jsTarget variables can't be released, which will result in memory leak.
 
             // jsFunc.toObject()->root();
@@ -737,7 +737,7 @@ Delegate obj, onCallback: 6, this.myVar: 105
 setCallback(nullptr)
 ```
 
-### How to Use The Helper Functions in Cocos2D-X Binding for Easier Native<->JS Type Conversions
+### How to Use The Helper Functions in Cocos Creator Binding for Easier Native<->JS Type Conversions
 
 The helper functions for native<->JS type conversions are located in `cocos/bindings/manual/jsb_conversions.h/.cpp`, it includes:
 
@@ -894,7 +894,7 @@ bool seval_to_reference(const se::Value &v, T **ret);
 
 ```
 
-Auxiliary conversion functions are not part of the abstraction layer (`Script Engine Wrapper`), they belong to the Cocos2D-X binding layer and are encapsulated to facilitate more convenient conversion in the binding code.
+Auxiliary conversion functions are not part of the abstraction layer (`Script Engine Wrapper`), they belong to the Cocos Creator binding layer and are encapsulated to facilitate more convenient conversion in the binding code.
 Each conversion function returns the type `bool` indicating whether the conversion was successful or not. Developers need to check the return value after calling these interfaces.
 
 The specific usage is directly known according to interface names. The first parameter in the interface is input, and the second parameter is the output parameter. The usage is as follows:
@@ -909,11 +909,11 @@ int32_t v;
 bool ok = seval_to_int32(args[0], &v); // The second parameter is the output parameter, passing in the address of the output parameter
 ```
 
-#### (IMPORTANT) Understand The Difference Between native\_ptr\_to\_seval and native\_ptr\_to\_rooted\_seval
+#### (IMPORTANT) Understand The Difference Between native_ptr_to_seval and native_ptr_to_rooted_seval
 
 **Developers must understand the difference to make sure these conversion functions not being misused. In that case, JS memory leaks, which is really difficult to fix, could be avoided.**
 
-- `native_ptr_to_seval` is used in `JS control CPP object life cycle` mode. This method can be called when a `se::Value` needs to be obtained from a CPP object pointer at the binding code. Most subclasses in the Cocos2D-X that inherit from `cc::Ref` take this approach to get `se::Value`. Please remember, when the binding object, which is controlled by the JS object's life cycle, need to be converted to seval, use this method, otherwise consider using `native_ptr_to_rooted_seval`.
+- `native_ptr_to_seval` is used in `JS control CPP object life cycle` mode. This method can be called when a `se::Value` needs to be obtained from a CPP object pointer at the binding code. Most subclasses in the Cocos Creator that inherit from `cc::Ref` take this approach to get `se::Value`. Please remember, when the binding object, which is controlled by the JS object's life cycle, need to be converted to seval, use this method, otherwise consider using `native_ptr_to_rooted_seval`.
 - `native_ptr_to_rooted_seval` is used in `CPP controlling JS object lifecycle` mode. In general, this method is used for object bindings in third-party libraries. This method will try to find the cached `se::Object` according the incoming CPP object pointer, if the cached `se::Object`is not exist, then it will create a rooted `se::Object` which isn't controlled by Garbage Collector and will always keep alive until `unroot` is called. Developers need to observe the release of the CPP object, and `unroot` `se::Object`. Please refer to the section introduces `spTrackEntry` binding (spTrackEntry_setDisposeCallback) described above.
 
 ## Automatic Binding
@@ -922,84 +922,89 @@ bool ok = seval_to_int32(args[0], &v); // The second parameter is the output par
 
 The configuration method is the same as that in Creator v1.6. The main points to note are: In Creator v1.7 `script_control_cpp` field is deprecated because `script_control_cpp` field affects the entire module. If the module needs to bind the `cc::Ref` subclass and non-`cc::Ref` class, the original binding configuration in v1.6 can not meet the demand. The new field introduced in v1.7 is `classes_owned_by_cpp`, which indicates which classes need to be controlled by the CPP object's life cycle.
 
-An additional, there is a configuration field in v1.7 is `persistent_classes` to indicate which classes are always present during game play, such as: `SpriteFrameCache`, `FileUtils`, `EventDispatcher`, `ActionManager`, `Scheduler`.
+An additional, there is a configuration field in v1.7 is `persistent_classes` to indicate which classes are always present during game play, such as: `FileUtils`.
 
 Other fields are the same as v1.6.
 
-For more specific, please refer to the engine directory `tools/tojs/cocos2dx.ini` file.
+For more specific, please refer to the engine directory `tools/tojs/cocos.ini` file.
 
 ### Understand The Meaning of Each Field in The `.ini` file
 
 ```ini
 # Module name
-[cocos2d-x] 
+[cocos] 
 
 # The prefix for callback functions and the binding file name.
-prefix = cocos2dx
+prefix = engine
 
 # The namespace of the binding class attaches to.
-target_namespace = cc
+target_namespace = jsb
 
 # Automatic binding tools is based on the Android NDK. The android_headers field configures the search path of Android header file.
-android_headers = -I%(androidndkdir)s/platforms/android-14/arch-arm/usr/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.8/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.9/include
+android_headers = 
 
 # Configure building parameters for Android.
-android_flags = -D_SIZE_T_DEFINED_
+android_flags = -target armv7-none-linux-androideabi -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS -DANDROID -D__ANDROID_API__=14 -gcc-toolchain %(gcc_toolchain_dir)s --sysroot=%(androidndkdir)s/platforms/android-14/arch-arm  -idirafter %(androidndkdir)s/sources/android/support/include -idirafter %(androidndkdir)s/sysroot/usr/include -idirafter %(androidndkdir)s/sysroot/usr/include/arm-linux-androideabi -idirafter %(clangllvmdir)s/lib64/clang/5.0/include -I%(androidndkdir)s/sources/cxx-stl/llvm-libc++/include
 
 # Configure the search path for clang header file.
-clang_headers = -I%(clangllvmdir)s/%(clang_include)s
+clang_headers = 
 
 # Configure building parameters for clang
-clang_flags = -nostdinc -x c++ -std=c++11 -U __SSE__
+clang_flags = -nostdinc -x c++ -std=c++17 -fsigned-char -mfloat-abi=soft -U__SSE__
 
-# Configure the search path for Cocos2D-X header file
+# Configure the search path for engine header file
 cocos_headers = -I%(cocosdir)s/cocos -I%(cocosdir)s/cocos/platform/android -I%(cocosdir)s/external/sources
 
-# Configure building parameters for Cocos2D-X
-cocos_flags = -DANDROID
+# Configure building parameters for engine
+cocos_flags = -DANDROID -DCC_PLATFORM=3 -DCC_PLATFORM_MAC_IOS=1 -DCC_PLATFORM_MAC_OSX=4 -DCC_PLATFORM_WINDOWS=2 -DCC_PLATFORM_ANDROID=3
 
 # Configure extra building parameters
 extra_arguments = %(android_headers)s %(clang_headers)s %(cxxgenerator_headers)s %(cocos_headers)s %(android_flags)s %(clang_flags)s %(cocos_flags)s %(extra_flags)s
  
 # Which header files needed to be parsed
-headers = %(cocosdir)s/cocos/cocos2d.h %(cocosdir)s/cocos/bindings/manual/BaseJSAction.h
+headers = %(cocosdir)s/cocos/platform/FileUtils.h %(cocosdir)s/cocos/platform/CanvasRenderingContext2D.h %(cocosdir)s/cocos/platform/Device.h %(cocosdir)s/cocos/platform/SAXParser.h
 
 # Rename the header file in the generated binding code
-replace_headers=CCProtectedNode.h::2d/CCProtectedNode.h,CCAsyncTaskPool.h::base/CCAsyncTaskPool.h
+replace_headers = 
 
 # Which classes need to be bound, you can use regular expressions, separated by space.
-classes = 
+classes = FileUtils$ SAXParser CanvasRenderingContext2D CanvasGradient Device DownloaderHints
 
 # Which classes which use cc.Class.extend to inherit, separated by space.
 classes_need_extend = 
 
 # Which classes need to bind properties, separated by commas
-field = Acceleration::[x y z timestamp]
+field = 
 
 # Which classes need to be skipped, separated by commas
-skip = AtlasNode::[getTextureAtlas],
-       ParticleBatchNode::[getTextureAtlas],
+skip = FileUtils::[getFileData setFilenameLookupDictionary destroyInstance getFullPathCache getContents listFilesRecursively],
+        SAXParser::[(?!(init))],
+        Device::[getDeviceMotionValue],
+        CanvasRenderingContext2D::[setCanvasBufferUpdatedCallback set_.+ fillText strokeText fillRect measureText],
+        Data::[takeBuffer getBytes fastSet copy],
+        Value::[asValueVector asValueMap asIntKeyMap]
+
+# Which classes need to define getters and setters, separated by commas
+getter_setter = CanvasRenderingContext2D::[width//setWidth height//setHeight fillStyle//setFillStyle font//setFont globalCompositeOperation//setGlobalCompositeOperation lineCap//setLineCap lineJoin//setLineJoin lineWidth//setLineWidth strokeStyle//setStrokeStyle textAlign//setTextAlign textBaseline//setTextBaseline]
 
 # Which functions need to be renamed, separated by commas
-rename_functions = ComponentContainer::[get=getComponent],
-                   LayerColor::[initWithColor=init],
+rename_functions = FileUtils::[loadFilenameLookupDictionaryFromFile=loadFilenameLookup]
 
 # Which classes need to be renamed, separated by commas
-rename_classes = SimpleAudioEngine::AudioEngine,
-                 SAXParser::PlistParser,
+rename_classes = SAXParser::PlistParser
 
 
 # Which classes do not have parents in JS
-classes_have_no_parents = Node Director SimpleAudioEngine FileUtils TMXMapInfo Application GLViewProtocol SAXParser Configuration
+classes_have_no_parents = SAXParser
 
 # Which C++ base classes need to be skipped
 base_classes_to_skip = Ref Clonable
 
 # Which classes are abstract classes which do not have a constructor in JS
-abstract_classes = Director SpriteFrameCache Set SimpleAudioEngine
+abstract_classes = SAXParser Device
 
 # Which classes are singleton or always keep alive until game exits
-persistent_classes = SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
+persistent_classes = FileUtilsActionManager Scheduler
 
 # Which classes use `CPP object controls JS object's life cycle`, the unconfigured classes will use `JS controls CPP object's life cycle`.
 classes_owned_by_cpp = 
@@ -1114,20 +1119,20 @@ Finalize callback is to tell the CPP layer to release the memory of the correspo
 
 #### But if that must be called, how should we deal with?
 
-In Cocos2D-X binding, if the native object's reference count is 1, we do not use the `release`, but using `autorelease` to delay CPP object's destructor to be executed at the end of frame. For instance:
+In Cocos Creator binding, if the native object's reference count is 1, we do not use the `release`, but using `autorelease` to delay CPP object's destructor to be executed at the end of frame. For instance:
 
 ```c++
-static bool js_cocos2d_Sprite_finalize(se::State& s)
+static bool XMLHttpRequest_finalize(se::State& s)
 {
-    CCLOG("jsbindings: finalizing JS object %p (cocos2d::Sprite)", s.nativeThisObject());
-    cocos2d::Sprite* cobj = (cocos2d::Sprite*)s.nativeThisObject();
+    CCLOG("jsbindings: finalizing JS object %p (XMLHttpRequest)", s.nativeThisObject());
+    XMLHttpRequest* cobj = (XMLHttpRequest*)s.nativeThisObject();
     if (cobj->getReferenceCount() == 1)
         cobj->autorelease();
     else
         cobj->release();
     return true;
 }
-SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
+SE_BIND_FINALIZE_FUNC(XMLHttpRequest_finalize)
 ```
 
 ### Please DO NOT Assign A Subclass of cc::Ref on The Stack
@@ -1137,7 +1142,7 @@ Subclasses of `cc::Ref` must be allocated on the heap, via `new`, and then relea
 Example:
 
 ```c++
-class CC_EX_DLL EventAssetsManagerEx : public cocos2d::EventCustom
+class CC_EX_DLL EventAssetsManagerEx : public EventCustom
 {
 public:
     ...
