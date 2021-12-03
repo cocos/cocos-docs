@@ -20,8 +20,10 @@ Externally imported animations include the following:
 
 When a model that contains animations is imported, the animation contained in the model will be imported at the same time. This animation is used in the same way as the internal new assets, and the crop of skeletal animation can be referred to [Introduction to the animation module of model assets](../asset/model/mesh.md) documentation.
 
+Cocos Creator has introduced the new Marionette animation system since v3.4, which implements a skeletal animation flow controlled by a state machine, please refer to the [Marionette Animation System](./marionette/index.md) documentation.
+
 For additional details about Skeletal Animation settings, please refer to the [Skeletal Animation](skeletal-animation.md) documentation.
 
-> **Note**: skeletal animations imported externally cannot be edited in the **Animation** panel. The nodes are locked, and can only be edited in external art tools.
+> **Note**: skeletal animations imported externally cannot be viewed and edited in the **Animation** panel. The nodes are locked, and can only be edited in external art tools.
 >
 > ![skeletal animation](animation-clip/skeletal-animation.png)
