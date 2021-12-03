@@ -82,7 +82,7 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 - **SE_BIND_FUNC**：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
 - **SE_DECLARE_FUNC**：声明一个 JS 函数，一般在 `.h` 头文件中使用
 - **SE_BIND_CTOR**：包装一个 JS 构造函数
-- **SE_BIND_SUB_CLS_CTOR**：包装一个 JS 子类的构造函数，此子类使用 `cc.Class.extend` 继承 `-ative` 绑定类
+- **SE_BIND_SUB_CLS_CTOR**：包装一个 JS 子类的构造函数，此子类可以继承
 - **SE_BIND_FINALIZE_FUNC**：包装一个 JS 对象被 GC 回收后的回调函数
 - **SE_DECLARE_FINALIZE_FUNC**：声明一个 JS 对象被 GC 回收后的回调函数
 - **_SE**：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义
@@ -144,33 +144,33 @@ namespace se {
 
 **原因一：JS 对象控制 CPP 对象的生命周期的需要**
 
-当在脚本层中通过 `var sp = new cc.Sprite("a.png");` 创建了一个 Sprite 后，在构造回调函数绑定中我们会创建一个 `se::Object` 并保留在一个全局的 `map (NativePtrToObjectMap)` 中，此 map 用于查询 `cocos2d::Sprite*` 指针获取对应的 JS 对象 `se::Object*`。
+当在脚本层中通过 `var xhr = new XMLHttpRequest();` 创建了一个 XMLHttpRequest 后，在构造回调函数绑定中我们会创建一个 `se::Object` 并保留在一个全局的 `map (NativePtrToObjectMap)` 中，此 map 用于查询 `XMLHttpRequest*` 指针获取对应的 JS 对象 `se::Object*`。
 
 ```c++
-static bool js_cocos2d_Sprite_finalize(se::State& s)
+static bool XMLHttpRequest_finalize(se::State& s)
 {
-    CCLOG("jsbindings: finalizing JS object %p (cocos2d::Sprite)", s.nativeThisObject());
-    cocos2d::Sprite* cobj = (cocos2d::Sprite*)s.nativeThisObject();
+    CCLOG("jsbindings: finalizing JS object %p (XMLHttpRequest)", s.nativeThisObject());
+    XMLHttpRequest* cobj = (XMLHttpRequest*)s.nativeThisObject();
     if (cobj->getReferenceCount() == 1)
         cobj->autorelease();
     else
         cobj->release();
     return true;
 }
-SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
+SE_BIND_FINALIZE_FUNC(XMLHttpRequest_finalize)
 
-static bool js_cocos2dx_Sprite_constructor(se::State& s)
+static bool XMLHttpRequest_constructor(se::State& s)
 {
-    cocos2d::Sprite* cobj = new (std::nothrow) cocos2d::Sprite(); // cobj 将在 finalize 函数中被释放
-    s.thisObject()->setPrivateData(cobj); // setPrivateData 内部会去保存 cobj 到 NativePtrToObjectMap 中
+    XMLHttpRequest* cobj = JSB_ALLOC(XMLHttpRequest);
+    s.thisObject()->setPrivateData(cobj);
     return true;
 }
-SE_BIND_CTOR(js_cocos2dx_Sprite_constructor, __jsb_cocos2d_Sprite_class, js_cocos2d_Sprite_finalize)
+SE_BIND_CTOR(XMLHttpRequest_constructor, __jsb_XMLHttpRequest_class, XMLHttpRequest_finalize)
 ```
 
 设想如果强制要求 `se::Object` 为 JS 对象的强引用(strong reference)，即让 JS 对象不受 GC 控制，由于 `se::Object` 一直存在于 map 中，finalize 回调将永远无法被触发，从而导致内存泄露。
 
-正是由于 `se::Object` 保存的是 JS 对象的弱引用，JS 对象控制 CPP 对象的生命周期才能够实现。以上代码中，当 JS 对象被释放后，会触发 finalize 回调，开发者只需要在 `js_cocos2d_Sprite_finalize` 中释放对应的 c++ 对象即可，`se::Object` 的释放已经被包含在 `SE_BIND_FINALIZE_FUNC` 宏中自动处理，开发者无需管理在 **JS 对象控制 CPP 对象** 模式中 `se::Object` 的释放，但是在 **CPP 对象控制 JS 对象** 模式中，开发者需要管理对 `se::Object` 的释放，具体下一节中会举例说明。
+正是由于 `se::Object` 保存的是 JS 对象的弱引用，JS 对象控制 CPP 对象的生命周期才能够实现。以上代码中，当 JS 对象被释放后，会触发 finalize 回调，开发者只需要在 `XMLHttpRequest_finalize` 中释放对应的 c++ 对象即可，`se::Object` 的释放已经被包含在 `SE_BIND_FINALIZE_FUNC` 宏中自动处理，开发者无需管理在 **JS 对象控制 CPP 对象** 模式中 `se::Object` 的释放，但是在 **CPP 对象控制 JS 对象** 模式中，开发者需要管理对 `se::Object` 的释放，具体下一节中会举例说明。
 
 **原因二：更加灵活，手动调用 root 方法以支持强引用**
 
@@ -234,7 +234,7 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry) {
 
 **手动创建对象的释放**
 
-`se::Object::createXXX` 方法与 cocos2d-x 中的 `create` 方法不同，抽象层是完全独立的一个模块，并不依赖与 cocos2d-x 的 autorelease 机制。虽然 `se::Object` 也是继承引用计数类，但开发者需要处理 **手动创建出来的对象** 的释放。
+`se::Object::createXXX` 方法与 Cocos Creator 中的 `create` 方法不同，抽象层是完全独立的一个模块，并不依赖与 Cocos Creator 的 autorelease 机制。虽然 `se::Object` 也是继承引用计数类，但开发者需要处理 **手动创建出来的对象** 的释放。
 
 ```c++
 se::Object* obj = se::Object::createPlainObject();
@@ -364,11 +364,11 @@ bool foo(se::State& s)
 SE_BIND_FUNC(foo)
 ```
 
-## 抽象层依赖 Cocos 引擎么？
+## 抽象层依赖 Cocos Creator 引擎么？
 
 不依赖。
 
-ScriptEngine 这层设计之初就将其定义为一个独立模块，完全不依赖 Cocos 引擎。开发者完整可以通过 copy、paste 把 `cocos/bindings/jswrapper` 下的所有抽象层源码拷贝到其他项目中直接使用。
+ScriptEngine 这层设计之初就将其定义为一个独立模块，完全不依赖 Cocos Creator 引擎。开发者可以通过 copy、paste 把 `cocos/bindings/jswrapper` 下的所有抽象层源码拷贝到其他项目中直接使用。
 
 ## 手动绑定
 
@@ -593,7 +593,7 @@ bool js_register_ns_SomeClass(se::Object* global)
     // 注册类型到 JS VirtualMachine 的操作
     cls->install();
 
-    // JSBClassType 为 Cocos 引擎绑定层封装的类型注册的辅助函数，此函数不属于 ScriptEngine 这层
+    // JSBClassType 为 Cocos Creator 引擎绑定层封装的类型注册的辅助函数，此函数不属于 ScriptEngine 这层
     JSBClassType::registerClass<ns::SomeClass>(cls);
 
     // 保存注册的结果，便于其他地方使用，比如类继承
@@ -645,7 +645,7 @@ static bool js_SomeClass_setCallback(se::State& s)
 
             // 如果当前 SomeClass 类是一个单例类，或者永远只有一个实例的类，我们不能用 se::Object::attachObject 去关联
             // 必须使用 se::Object::root，开发者无需关系 unroot，unroot 的操作会随着 lambda 的销毁触发 jsFunc 的析构，在 se::Object 的析构函数中进行 unroot 操作。
-            // js_cocos2dx_EventDispatcher_addCustomEventListener 的绑定代码就是使用此方式，因为 EventDispatcher 始终只有一个实例，
+            // js_audio_AudioEngine_setFinishCallback 的绑定代码就是使用此方式，因为 AudioEngine 始终只有一个实例，
             // 如果使用 s.thisObject->attachObject(jsFunc.toObject);会导致对应的 func 和 target 永远无法被释放，引发内存泄露。
 
             // jsFunc.toObject()->root();
@@ -725,7 +725,7 @@ Delegate obj, onCallback: 6, this.myVar: 105
 setCallback(nullptr)
 ```
 
-### 如何使用 cocos2d-x bindings 这层的类型转换辅助函数？
+### 如何使用 Cocos Creator bindings 这层的类型转换辅助函数？
 
 类型转换辅助函数位于 `cocos/bindings/manual/jsb_conversions.h/.cpp` 中，其包含以下内容。
 
@@ -881,7 +881,7 @@ bool seval_to_reference(const se::Value &v, T **ret);
 
 ```
 
-辅助转换函数不属于 `Script Engine Wrapper` 抽象层，属于 cocos2d-x 绑定层，封装这些函数是为了在绑定代码中更加方便的转换。每个转换函数都返回 `bool` 类型，表示转换是否成功，开发者如果调用这些接口，需要去判断这个返回值。
+辅助转换函数不属于 `Script Engine Wrapper` 抽象层，属于 Cocos Creator 绑定层，封装这些函数是为了在绑定代码中更加方便的转换。每个转换函数都返回 `bool` 类型，表示转换是否成功，开发者如果调用这些接口，需要去判断这个返回值。
 
 以上接口，直接根据接口名称即可知道具体的用法，接口中第一个参数为输入，第二个参数为输出参数。用法如下：
 
@@ -895,7 +895,7 @@ int32_t v;
 bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传入输出参数的地址
 ```
 
-#### (IMPORTANT)理解 native\_ptr\_to\_seval 与 native\_ptr\_to\_rooted\_seval 的区别
+#### (IMPORTANT)理解 native_ptr_to_seval 与 native_ptr_to_rooted_seval 的区别
 
 **开发者一定要理解清楚这二者的区别，才不会因为误用导致 JS 层内存泄露这种比较难查的 bug。**
 
@@ -910,84 +910,88 @@ bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传�
 
 配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp`，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 `cc::Ref` 子类和非 `cc::Ref` 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp`，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
 
-1.7 中另外加入的一个配置字段为 `persistent_classes`，用于表示哪些类是在游戏运行中一直存在的，比如：`SpriteFrameCache`、`FileUtils`、`EventDispatcher`、`ActionManager` 和 `Scheduler`。
+1.7 中另外加入的一个配置字段为 `persistent_classes`，用于表示哪些类是在游戏运行中一直存在的，比如：`FileUtils`。
 
 其他字段与 1.6 一致。
 
-具体可以参考引擎目录下的 `tools/tojs/cocos2dx.ini` 等 `ini` 配置。
+具体可以参考引擎目录下的 `tools/tojs/cocos.ini` 等 `ini` 配置。
 
 ### 理解 ini 文件中每个字段的意义
 
 ```ini
 # 模块名称
-[cocos2d-x] 
+[cocos]
 
 # 绑定回调函数的前缀，也是生成的自动绑定文件的前缀
-prefix = cocos2dx
+prefix = engine
 
 # 绑定的类挂载在 JS 中的哪个对象中，类似命名空间
-target_namespace = cc
+target_namespace = jsb
 
 # 自动绑定工具基于 Android 编译环境，此处配置 Android 头文件搜索路径
-android_headers = -I%(androidndkdir)s/platforms/android-14/arch-arm/usr/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.8/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.9/include
+android_headers = 
 
 # 配置 Android 编译参数
-android_flags = -D_SIZE_T_DEFINED_
+android_flags = -target armv7-none-linux-androideabi -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS -DANDROID -D__ANDROID_API__=14 -gcc-toolchain %(gcc_toolchain_dir)s --sysroot=%(androidndkdir)s/platforms/android-14/arch-arm  -idirafter %(androidndkdir)s/sources/android/support/include -idirafter %(androidndkdir)s/sysroot/usr/include -idirafter %(androidndkdir)s/sysroot/usr/include/arm-linux-androideabi -idirafter %(clangllvmdir)s/lib64/clang/5.0/include -I%(androidndkdir)s/sources/cxx-stl/llvm-libc++/include
 
 # 配置 clang 头文件搜索路径
-clang_headers = -I%(clangllvmdir)s/%(clang_include)s
+clang_headers = 
 
 # 配置 clang 编译参数
-clang_flags = -nostdinc -x c++ -std=c++11 -U __SSE__
+clang_flags = -nostdinc -x c++ -std=c++17 -fsigned-char -mfloat-abi=soft -U__SSE__
 
 # 配置引擎的头文件搜索路径
 cocos_headers = -I%(cocosdir)s/cocos -I%(cocosdir)s/cocos/platform/android -I%(cocosdir)s/external/sources
 
 # 配置引擎编译参数
-cocos_flags = -DANDROID
+cocos_flags = -DANDROID -DCC_PLATFORM=3 -DCC_PLATFORM_MAC_IOS=1 -DCC_PLATFORM_MAC_OSX=4 -DCC_PLATFORM_WINDOWS=2 -DCC_PLATFORM_ANDROID=3
 
 # 配置额外的编译参数
 extra_arguments = %(android_headers)s %(clang_headers)s %(cxxgenerator_headers)s %(cocos_headers)s %(android_flags)s %(clang_flags)s %(cocos_flags)s %(extra_flags)s
  
 # 需要自动绑定工具解析哪些头文件
-headers = %(cocosdir)s/cocos/cocos2d.h %(cocosdir)s/cocos/bindings/manual/BaseJSAction.h
+headers = %(cocosdir)s/cocos/platform/FileUtils.h %(cocosdir)s/cocos/platform/CanvasRenderingContext2D.h %(cocosdir)s/cocos/platform/Device.h %(cocosdir)s/cocos/platform/SAXParser.h
 
 # 在生成的绑定代码中，重命名头文件
-replace_headers=CCProtectedNode.h::2d/CCProtectedNode.h,CCAsyncTaskPool.h::base/CCAsyncTaskPool.h
+replace_headers=
 
 # 需要绑定哪些类，可以使用正则表达式，以空格为间隔
-classes = 
+classes = FileUtils$ SAXParser CanvasRenderingContext2D CanvasGradient Device DownloaderHints
 
-# 哪些类需要在 JS 层通过 cc.Class.extend，以空格为间隔
+# 哪些类需要在 JS 层扩展，以空格为间隔
 classes_need_extend = 
 
 # 需要为哪些类绑定属性，以逗号为间隔
-field = Acceleration::[x y z timestamp]
+field =
 
 # 需要忽略绑定哪些类，以逗号为间隔
-skip = AtlasNode::[getTextureAtlas],
-       ParticleBatchNode::[getTextureAtlas],
+skip = FileUtils::[getFileData setFilenameLookupDictionary destroyInstance getFullPathCache getContents listFilesRecursively],
+        SAXParser::[(?!(init))],
+        Device::[getDeviceMotionValue],
+        CanvasRenderingContext2D::[setCanvasBufferUpdatedCallback set_.+ fillText strokeText fillRect measureText],
+        Data::[takeBuffer getBytes fastSet copy],
+        Value::[asValueVector asValueMap asIntKeyMap]
+
+# 需要为哪些类绑定访问属性，以逗号为间隔
+getter_setter = CanvasRenderingContext2D::[width//setWidth height//setHeight fillStyle//setFillStyle font//setFont globalCompositeOperation//setGlobalCompositeOperation lineCap//setLineCap lineJoin//setLineJoin lineWidth//setLineWidth strokeStyle//setStrokeStyle textAlign//setTextAlign textBaseline//setTextBaseline]
 
 # 重命名函数，以逗号为间隔
-rename_functions = ComponentContainer::[get=getComponent],
-                   LayerColor::[initWithColor=init],
+rename_functions = FileUtils::[loadFilenameLookupDictionaryFromFile=loadFilenameLookup]
 
 # 重命名类，以逗号为间隔
-rename_classes = SimpleAudioEngine::AudioEngine,
-                 SAXParser::PlistParser,
-
+rename_classes = SAXParser::PlistParser
 
 # 配置哪些类不需要搜索其父类
-classes_have_no_parents = Node Director SimpleAudioEngine FileUtils TMXMapInfo Application GLViewProtocol SAXParser Configuration
+classes_have_no_parents = SAXParser
 
 # 配置哪些父类需要被忽略
 base_classes_to_skip = Ref Clonable
 
 # 配置哪些类是抽象类，抽象类没有构造函数，即在 js 层无法通过 var a = new SomeClass();的方式构造 JS 对象
-abstract_classes = Director SpriteFrameCache Set SimpleAudioEngine
+abstract_classes = SAXParser Device
 
 # 配置哪些类是始终以一个实例的方式存在的，游戏运行过程中不会被销毁
-persistent_classes = SpriteFrameCache FileUtils EventDispatcher ActionManager Scheduler
+persistent_classes = FileUtils
 
 # 配置哪些类是需要由 CPP 对象来控制 JS 对象生命周期的，未配置的类，默认采用 JS 控制 CPP 对象生命周期
 classes_owned_by_cpp = 
@@ -1103,20 +1107,20 @@ bool AppDelegate::applicationDidFinishLaunching()
 
 那如果必须调用，应该如何处理？
 
-cocos2d-x 的绑定中，如果引用计数为 1 了，我们不使用 release，而是使用 autorelease 延时 CPP 类的析构到帧结束去执行。
+Cocos Creator 的绑定中，如果引用计数为 1 了，我们不使用 release，而是使用 autorelease 延时 CPP 类的析构到帧结束去执行。
 
 ```c++
-static bool js_cocos2d_Sprite_finalize(se::State& s)
+static bool XMLHttpRequest_finalize(se::State& s)
 {
-    CCLOG("jsbindings: finalizing JS object %p (cocos2d::Sprite)", s.nativeThisObject());
-    cocos2d::Sprite* cobj = (cocos2d::Sprite*)s.nativeThisObject();
+    CCLOG("jsbindings: finalizing JS object %p (XMLHttpRequest)", s.nativeThisObject());
+    XMLHttpRequest* cobj = (XMLHttpRequest*)s.nativeThisObject();
     if (cobj->getReferenceCount() == 1)
         cobj->autorelease();
     else
         cobj->release();
     return true;
 }
-SE_BIND_FINALIZE_FUNC(js_cocos2d_Sprite_finalize)
+SE_BIND_FINALIZE_FUNC(XMLHttpRequest_finalize)
 ```
 
 ### 请不要在栈（Stack）上分配 cc::Ref 的子类对象
@@ -1126,7 +1130,7 @@ Ref 的子类必须在堆（Heap）上分配，即通过 `new`，然后通过 `r
 例如：
 
 ```c++
-class CC_EX_DLL EventAssetsManagerEx : public cocos2d::EventCustom
+class CC_EX_DLL EventAssetsManagerEx : public EventCustom
 {
 public:
     ...
