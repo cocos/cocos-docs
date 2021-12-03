@@ -2,8 +2,6 @@
 
 > 本文转载自 [腾讯在线教育部技术博客](https://oedx.github.io/2019/05/29/cocos-creator-js-binding-manual/)<br>
 > 作者：晋中望（xepherjin）
->
-> 本文档基于 v2.x 编写，在 Cocos Creator 3.0 上可能略有变动，我们会尽快更新。
 
 ## 背景
 
@@ -388,5 +386,3 @@ network::FileDownloader::destroyInstance();
 - 声明头文件，并分别实现 Android JNI 与 OC 具体业务代码
 - 编写抽象层代码，将必要的类与对应方法注册到 JS 虚拟机中
 - 将绑定的类挂载在 JS 中的指定对象（类似命名空间）中
-
-> 本文所有内容遵循 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) 协议发布。

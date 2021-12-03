@@ -21,7 +21,7 @@ The `spriteFrame` has the following properties:
 | Packable | Whether to be packed into Dynamic Atlas. |
 | Rotated  | Read-only property, cannot be changed. Used to see if the sub-asset in the Texture Packer asset is rotated. |
 | Offset X, Y | Read-only property, cannot be changed. Used to view the offset of the rectangle in Texture Packer asset. |
-| Trim Type | Set the trim type, including:<br>1. Auto -- Automatic trim<br>2. Custom -- Custom trim<br>3. None -- No trim, use original texture<br>For details, please refer to the [Auto Trim for SpriteFrame](trim.md) documentation |
+| Trim Type | Set the trim type, including:<br>1. Auto -- Automatic trim. For details, please refer to the [Auto Trim for SpriteFrame](../ui-system/components/engine/trim.md) documentation.<br>2. Custom -- Custom trim<br>3. None -- No trim, use original texture. |
 | Trim Threshold | Set the transparency threshold, trim off the pixels whose transparency is below the set value.<br>The default value is 1, and the range of values is 0~1.<br>Only takes effect when **Trim Type** is set to **Auto**.  |
 | Trim X, Y, Width, Height | Sets the trim rect, only takes effect when **Trim Type** is set to **Custom**. |
 | Border Top, Bottom, Left, Right | Set the texture margins of the 9-sliced, which can be edited visually by clicking on the **Edit** button below.  |
