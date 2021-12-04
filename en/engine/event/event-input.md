@@ -1,4 +1,4 @@
-# Global System Events
+# Input Event System
 
 As mentioned in the previous document, `EventTarget` supports a complete set of event listening and emitting mechanism.  
 In Cocos Creator v3.4.0, we support the `input` object, which implements the event registering interface of `EventTarget`, and can register global system input events through this object. 

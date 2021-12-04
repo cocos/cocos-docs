@@ -1,4 +1,4 @@
-# Node System Events
+# Node Event System
 
 As mentioned in the previous document, the `input` object supports the global [input event system](event-input.md), and the `Node` also implements the event listening interface of the `EventTarget`. On this basis, we provide a basic node-related system events. This document will introduce how to use these events.
 
