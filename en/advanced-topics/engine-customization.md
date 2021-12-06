@@ -1,6 +1,6 @@
 # Engine Customization Workflow
 
-The engine part of Cocos Creator 3.0 includes **TypeScript** and **engine-native**. The engine is all open-source on GitHub. The addresses are as follows:
+The engine part of Cocos Creator 3.x includes **TypeScript** and **engine-native**. The engine is all open-source on GitHub. The addresses are as follows:
 
 - [TypeScript engine](https://github.com/cocos-creator/engine/)
 - [engine-native engine](https://github.com/cocos-creator/engine-native/)

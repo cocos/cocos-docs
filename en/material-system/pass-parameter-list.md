@@ -10,7 +10,7 @@ The parameters in Pass are mainly divided into two parts: the developer-defined 
 | phase      | Specifies which `phase` the current pass belongs to. Could be the name of any registered phase in your runtime pipeline | **default** | For the built-in forward pipeline, the available phases are `default`, `forward-add` and `shadow-caster` |
 | propertyIndex | Specifies the index of the pass to copy runtime property data from. When two passes need to share the same set of properties, `propertyIndex` can be specified to avoid the need for developers to specify that same set of data multiple times (especially in the material inspector). This could be useful in some cases, e.g.: the forward add pass vs. the base pass | **\*undefined** | Could be any valid pass index. Once specified, all the properties for the current pass will not be visible in the material inspector |
 | embeddedMacros | Specifies additional macro definitions on top of the current shader, could be an object containing any macro key-value pair | **\*undefined** | This parameter can be used to multiplex shader resources in multiple passes only if the macros are defined differently. |
-| properties    | Specifies the public interfaces exposed to material instector and runtime API |  | See the **Properties** section below for details |
+| properties    | Specifies the public interfaces exposed to material inspector and runtime API |  | See the **Properties** section below for details |
 | migrations    | Migrate old material data |  | See the **Migrations** section below for details                                                     |
 | primitive     | Create material vertex data | **triangle_list** | Options include: point_list, line_list, line_strip, line_loop,<br>triangle_list, triangle_strip, triangle_fan,<br>line_list_adjacency, line_strip_adjacency,<br>triangle_list_adjacency, triangle_strip_adjacency,<br>triangle_patch_adjacency, quad_patch_list, iso_line_list |
 | dynamics      | 补充说明 | **[]** | An array containing any of the following:<br>viewport, scissor, line_width, depth_bias, blend_constants,<br>depth_bounds, stencil_write_mask, stencil_compare_mask |
@@ -20,7 +20,7 @@ The parameters in Pass are mainly divided into two parts: the developer-defined 
 
 ## Properties
 
-Specifies the public interfaces exposed to material instector and runtime API.<br>
+Specifies the public interfaces exposed to material inspector and runtime API.<br>
 It can be a direct mapping to shader uniforms, or specific channels of the uniform:
 
 ```yaml
@@ -36,8 +36,8 @@ Runtime reference is straightforward:
 ```js
 // as long as it is a real uniform
 // it doesn't matter whether it is specified in the property list or not
-mat.setProperty('emissive', cc.Color.GREY); // this works
-mat.setProperty('albedo', cc.Color.RED); // directly set uniform
+mat.setProperty('emissive', Color.GREY); // this works
+mat.setProperty('albedo', Color.RED); // directly set uniform
 mat.setProperty('roughness', 0.2); // set certain component
 const h = mat.passes[0].getHandle('offset'); // or just take the handle,
 mat.passes[0].setUniform(h, new Vec2(0.5, 0.5)); // and use Pass.setUniform interface instead

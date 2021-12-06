@@ -39,7 +39,7 @@ rigidbody.linearDamping = damping;
 const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
 
-或者传入一个 `cc.Vec2` 对象作为第二个参数来接收返回值，这样你可以使用你的缓存对象来接收这个值，避免创建过多的对象来提高效率。
+或者传入一个 `Vec2` 对象作为第二个参数来接收返回值，这样你可以使用你的缓存对象来接收这个值，避免创建过多的对象来提高效率。
 
 **刚体的 get 方法都提供了 out 参数来接收函数返回值。**
 
@@ -99,19 +99,19 @@ Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**�
 Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。<br>
 添加 Animated 类型主要是防止对刚体做动画时可能出现的奇怪现象，例如穿透。
 
-- `cc.RigidBodyType.Static`
+- `RigidBodyType.Static`
 
   静态刚体，零质量，零速度，即不会受到重力或速度影响，但是可以设置他的位置来进行移动。
 
-- `cc.RigidBodyType.Dynamic`
+- `RigidBodyType.Dynamic`
 
   动态刚体，有质量，可以设置速度，会受到重力影响。
 
-- `cc.RigidBodyType.Kinematic`
+- `RigidBodyType.Kinematic`
 
   运动刚体，零质量，可以设置速度，不会受到重力的影响，但是可以设置速度来进行移动。
 
-- `cc.RigidBodyType.Animated`
+- `RigidBodyType.Animated`
 
   动画刚体，在上面已经提到过，从 Kinematic 衍生的类型，主要用于刚体与动画编辑结合使用。
 

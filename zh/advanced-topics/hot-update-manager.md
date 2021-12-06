@@ -99,12 +99,12 @@ function updateCb (event) {
     switch (event.getEventCode())
     {
         case jsb.EventAssetsManager.UPDATE_PROGRESSION:
-            cc.log("Byte progression : " + event.getPercent() / 100);
-            cc.log("File progression : " + event.getPercentByFile() / 100);
-            cc.log("Total files      : " + event.getTotalFiles());
-            cc.log("Downloaded files : " + event.getDownloadedFiles());
-            cc.log("Total bytes      : " + event.getTotalBytes());
-            cc.log("Downloaded bytes : " + event.getDownloadedBytes());
+            log("Byte progression : " + event.getPercent() / 100);
+            log("File progression : " + event.getPercentByFile() / 100);
+            log("Total files      : " + event.getTotalFiles());
+            log("Downloaded files : " + event.getDownloadedFiles());
+            log("Total bytes      : " + event.getTotalBytes());
+            log("Downloaded bytes : " + event.getDownloadedBytes());
             break;
     }
 }
@@ -228,11 +228,11 @@ if (jsb) {
 
 2. 游戏大版本更新过程中，如何清理本地缓存
 
-    在游戏包更新过程中，若要彻底清理本地的热更新缓存有很多种做法，比如可以记录当前的游戏版本号，检查与 `cc.sys.localStorage` 中保存的版本是否匹配，如果两者不匹配则执行以下清理操作：
+    在游戏包更新过程中，若要彻底清理本地的热更新缓存有很多种做法，比如可以记录当前的游戏版本号，检查与 `sys.localStorage` 中保存的版本是否匹配，如果两者不匹配则执行以下清理操作：
 
     ```js
     // 之前保存在 local Storage 中的版本号，如果没有，则认为是新版本
-    var previousVersion = parseFloat( cc.sys.localStorage.getItem('currentVersion') );
+    var previousVersion = parseFloat( sys.localStorage.getItem('currentVersion') );
     // game.currentVersion 为当前版本的版本号
     if (previousVersion < game.currentVersion) {
         // 热更新的储存路径，如果旧版本中有多个，可能需要记录在列表中，全部清理

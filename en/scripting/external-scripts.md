@@ -1,10 +1,14 @@
 # External code support
 
+> **Note**: as of v3.0, it is recommended to use the [module](modules/index.md) instead of the plugin script!
+
 ## Plugin Scripts
 
-When the script resource is imported with **import as a plug-in**, this script resource is called **plug-in script**. Plug-in scripts are usually used to import third-party libraries. Currently only supports JavaScript plug-in scripts.
+When a script resource is imported into the **Assets** panel and **Import as Plugin** is set in the **Inspector** panel, the script resource is called a **Plugin Script**. Plugin scripts are usually used to introduce third-party libraries. Currently, only JavaScript plugin scripts are supported.
 
-Unlike other scripts in the project, **Cocos Creator** will not modify the content of the plug-in script, but some code may be inserted to adapt to Creator itself; in particular, **Cocos Creator** will shield the global variables `module`, `exports`, `define`.
+![import as plugin](plugin-scripts/import-as-plugin.png)
+
+Unlike other scripts in the project, Cocos Creator will not modify the content of the plug-in script, but some code may be inserted to adapt to Creator itself. In particular, Cocos Creator will shield the global variables `module`, `exports`, `define`.
 
 ### Import Options
 

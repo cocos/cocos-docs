@@ -29,7 +29,7 @@ But of course it would be cumbersome and error-prone, so what YAML provides is a
 
   > **Note**: never omit the space after colon
 
-- Like Python, indentation is part of the syntax, representing hierarchy of the data<sup id="a1">[1](#f1)</sup>
+- Like Python, indentation is part of the syntax, representing hierarchy of the data[^1]
 
   ```yaml
   object1:
@@ -148,4 +148,4 @@ You can always refer to any [online YAML JSON converter](https://codebeautify.or
 - [YAML on Wikipedia](https://en.wikipedia.org/wiki/YAML)
 - [YAML.org Spec](https://yaml.org/spec/1.2/spec.html)
 
-<b id="f1">[1]</b> The YAML standard doesn't support tabs, so the effect compiler will try to replace all the tabs in file with 2 spaces first, to avoid the trivial yet annoying trouble of accidentally inserting tabs somewhere. But overall, please try to avoid doing that completely to make sure the compilation goes smoothly. [↩](#a1)<br>
+[^1]: The YAML standard doesn't support tabs, so the effect compiler will try to replace all the tabs in file with 2 spaces first, to avoid the trivial yet annoying trouble of accidentally inserting tabs somewhere. But overall, please try to avoid doing that completely to make sure the compilation goes smoothly.

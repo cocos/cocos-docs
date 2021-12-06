@@ -77,11 +77,11 @@ Widget 组件一般用于场景在目标设备上初始化时定位每个元素�
 
 ![alignOnce](widget-align/align-once.png)
 
-若 **对齐模式**（`AlignMode`）选择 `ONCE`，且在组件初始化时执行过一次对齐定位，引擎就会自动将 Widget 组件的 `enabled` 属性设为 `false`，禁用 Widget 组件来关闭之后的每帧自动更新。
+若 **对齐模式（AlignMode）** 设置为 `ONCE` 或者 `ON_WINDOW_RESIZE`，且在组件初始化时执行过一次对齐定位，引擎就会自动将 Widget 组件的 `enabled` 属性设为 `false`，禁用 Widget 组件来关闭之后的每帧自动更新，避免重复定位。
 
-若需要在运行时变更定位，则需要手动将 **对齐模式** 设置为 `ALWAYS`，或者在运行时需要进行每帧更新对齐时，手动遍历需要对齐的 Widget，并将它们的 `enabled` 属性设为 `true`。
+若需要在运行时变更定位，则需要手动将 **AlignMode** 设置为 `ALWAYS`，或者在运行时需要进行每帧更新对齐时，手动遍历需要对齐的 Widget，并将它们的 `enabled` 属性设为 `true`。
 
-对于有很多 UI 元素的场景，确保 Widget 组件的 **AlignMode** 属性设置为 `ONCE`，可以大幅提高场景运行性能。
+对于有很多 UI 元素的场景，确保 Widget 组件的 **AlignMode** 属性设置为 `ON_WINDOW_RESIZE`，可以大幅提高场景运行性能。
 
 ## 对齐组件对节点位置、尺寸的限制
 

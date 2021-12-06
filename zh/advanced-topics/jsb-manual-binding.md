@@ -2,8 +2,6 @@
 
 > 本文转载自 [腾讯在线教育部技术博客](https://oedx.github.io/2019/05/29/cocos-creator-js-binding-manual/)<br>
 > 作者：晋中望（xepherjin）
->
-> 本文档基于 v2.x 编写，在 Cocos Creator 3.0 上可能略有变动，我们会尽快更新。
 
 ## 背景
 
@@ -25,9 +23,9 @@ CocosJavascriptJavaBridge.evalString("window.sample.testEval('" + param + "',JSO
 每次调用下载都需要这样执行：
 
 ```js
-if(cc.sys.isNative && cc.sys.os == cc.sys.OS_IOS) {
+if(sys.isNative && sys.os == sys.OS.IOS) {
     jsb.reflection.callStaticMethod('ABCFileDownloader', 'downloadFileWithUrl:cookie:savePath:', url, cookies, savePath);
-} else if(cc.sys.isNative && cc.sys.os == cc.sys.OS_ANDROID) {
+} else if(sys.isNative && sys.os == sys.OS.ANDROID) {
     jsb.reflection.callStaticMethod("com/tencent/abcmouse/downloader/ABCFileDownloader", "downloadFileWithUrl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", url, cookies, savePath);
 }
 ```
@@ -41,7 +39,7 @@ sb.append("'" + url + "',");
 sb.append("'" + savePath + "',");
 sb.append("'" + msg + "',");
 sb.append("'" +code + "')");
-Cocos2dxJavascriptJavaBridge.evalString(sb.toString());
+CocosJavascriptJavaBridge.evalString(sb.toString());
 ```
 
 无论是调用抑或是回调都拼接繁琐又容易出错，全部数据不得不转化为字符串 ~~（emmmm也不美观）~~，而且还要考虑到 `evalString` 的执行效率问题。如果只是仅有的少数业务场景在使用尚勉强接受，但是当业务日趋复杂庞大，如果都要这样写，同时又没有详细的文档去规范约束，其后期维护成本可想而知。
@@ -55,11 +53,11 @@ jsb.fileDownloader.requestDownload(url, savePath, cookies, options, (success, ur
 ```
 
 那么接下来就以一个最简单的下载器的绑定流程为例，我来带大家学习下 JSB 手动绑定的大致流程。<br>
-**（虽然 Cocos 很人性化提供了自动绑定的配置文件，可以通过一些配置直接生成目标文件，减少了很多工作量。但是亲手来完成一次手动绑定的流程会帮助更为全面地了解整个绑定的实现流程，有助于加深理解。另一方面，当存在特殊需要自动绑定无法满足时，手动绑定也往往会更为灵活）**
+**（虽然 Cocos Creator 很人性化提供了自动绑定的配置文件，可以通过一些配置直接生成目标文件，减少了很多工作量。但是亲手来完成一次手动绑定的流程会帮助更为全面地了解整个绑定的实现流程，有助于加深理解。另一方面，当存在特殊需要自动绑定无法满足时，手动绑定也往往会更为灵活）**
 
 ## 前置
 
-在开始之前，我们需要需要知道有关 ScriptEngine 抽象层、相关 API 等相关知识，这部分内容如果已从 Cocos 文档了解可跳过，直接进行 **实践** 部分。
+在开始之前，我们需要需要知道有关 ScriptEngine 抽象层、相关 API 等相关知识，这部分内容如果已从 Cocos Creator 文档了解可跳过，直接进行 **实践** 部分。
 
 ### 抽象层
 
@@ -71,7 +69,7 @@ jsb.fileDownloader.requestDownload(url, savePath, cookies, options, (success, ur
 - 注册 JS 对象的属性读写访问器，分别绑定读与写的 C++ 回调
 
 考虑到不同多种 JS 引擎的关键方法的定义各不相同，Cocos 团队使用 **宏** 来抹平这种回调函数定义与参数类型的差异，这里就不展开，详细可阅读文末 Cocos Creator 的相关文档。<br>
-**值得一提的是，ScriptEngine 这层设计之初 Cocos 团队就将其定义为一个独立模块，完全不依赖 Cocos 引擎。** 我们开发者完全可以把 **cocos/scripting/js-bindings/jswrapper** 下的所有抽象层源码移植到其他项目中直接使用。
+**值得一提的是，ScriptEngine 这层设计之初 Cocos 团队就将其定义为一个独立模块，完全不依赖 Cocos 引擎。** 我们开发者完全可以把 **cocos/bindings/jswrapper** 下的所有抽象层源码移植到其他项目中直接使用。
 
 ### SE 类型
 
@@ -93,7 +91,7 @@ C++ 抽象层所有的类型都在 `se` 命名空间下，其为 ScriptEngine �
 
 - **se::Class**
 
-  用于暴露 C++ 类到 JS 中，它会在 JS 中创建一个对应名称的构造函数。Class 类型创建后，不需要手动释放内存，它会被封装层自动处理。`se::Class` 提供了一些 API 用于定义 Class 的创建、静态/动态成员函数、属性读写等等，后面在实践时用到会做介绍。完整内容可查阅 Cocos 文档。
+  用于暴露 C++ 类到 JS 中，它会在 JS 中创建一个对应名称的构造函数。Class 类型创建后，不需要手动释放内存，它会被封装层自动处理。`se::Class` 提供了一些 API 用于定义 Class 的创建、静态/动态成员函数、属性读写等等，后面在实践时用到会做介绍。完整内容可查阅 Cocos Creator 文档。
 
 - **se::State**
 
@@ -121,8 +119,8 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 - `SE_BIND_FUNC`：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
 - `SE_DECLARE_FUNC`：声明一个 JS 函数，一般在 `.h` 头文件中使用
 - `SE_BIND_CTOR`：包装一个 JS 构造函数
-- `SE_BIND_SUB_CLS_CTOR`：包装一个 JS 子类的构造函数，此子类使用 `cc.Class.extend` 继承 Native 绑定类
-- `SE_FINALIZE_FUNC`：包装一个 JS 对象被 GC 回收后的回调函数
+- `SE_BIND_SUB_CLS_CTOR`：包装一个 JS 子类的构造函数，此子类可以继承
+- `SE_BIND_FINALIZE_FUNC`：包装一个 JS 对象被 GC 回收后的回调函数
 - `SE_DECLARE_FINALIZE_FUNC`：声明一个 JS 对象被 GC 回收后的回调函数
 - `_SE`：包装回调函数的名称，转义为每个 JS 引擎能够识别的回调函数的定义，注意，第一个字符为下划线，类似 Windows 下用的 _T("xxx") 来包装 Unicode 或者 MultiBytes 字符串
 
@@ -130,7 +128,7 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 
 ### 类型转换辅助函数
 
-类型转换辅助函数位于 **cocos/scripting/js-bindings/manual/jsb_conversions.hpp/.cpp** 中，包含了多种 `se::Value` 与 C++ 类型相互转化的方法。
+类型转换辅助函数位于 **cocos/bindings/manual/jsb_conversions.h/.cpp** 中，包含了多种 `se::Value` 与 C++ 类型相互转化的方法。
 
 - `bool std_string_to_seval(const std::string& v, se::Value* ret);`
 - `bool seval_to_std_string(const se::Value& v, std::string* ret);`
@@ -142,7 +140,7 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 
 在开始之前，我们需要明确一下流程。JSB 绑定简单来讲就是在 C++ 层实现一些类库，然后经过一些特定处理可以在 JS 端进行对应方法调用的过程。因为采用 JS 为主要业务编写语言，使得我们在做一些 Native 的功能时会比较受限，例如文件、网络等等相关操作。
 
-以 Cocos2d-js 文档中 `cc.Sprite` 为例，在 JSB 中 如果使用 `new` 操作符来调用 `cc.Sprite` 的构造函数，实际上在 C++ 层会调用 `js_cocos2dx_Sprite_constructor` 函数。在这个 C++ 函数中，会为这个精灵对象分配内存，并把它添加到自动回收池，然后调用 JS 层的 `_ctor` 函数来完成初始化。在 `_ctor` 函数中会根据参数类型和数量调用不同的 init 函数，这些 init 函数也是 C++ 函数的绑定：
+以 Cocos Creator 文档中 `spine.SkeletonRenderer` 为例，在 JSB 中 如果使用 `new` 操作符来调用 `spine.SkeletonRenderer` 的构造函数，实际上在 C++ 层会调用 `js_spine_SkeletonRenderer_constructor` 函数。在这个 C++ 函数中，会为这个精灵对象分配内存，并把它添加到自动回收池，然后调用 JS 层的 `_ctor` 函数来完成初始化。在 `_ctor` 函数中会根据参数类型和数量调用不同的 init 函数，这些 init 函数也是 C++ 函数的绑定：
 
 ```cpp
 #define SE_BIND_CTOR(funcName, cls, finalizeCb) \
@@ -169,17 +167,15 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 
 三层的方法对应关系如下：
 
-| Javascript |  JSB  | Cocos2d-x    |
+| Javascript |  JSB  | Cocos Creator |
 | :--------- | :-----| :----------- |
-| cc.Sprite.initWithSpriteFrameName | js_cocos2dx_Sprite_initWithSpriteFrameName | cocos2d::Sprite::initWithSpriteFrameName |
-| cc.Sprite.initWithSpriteFrame     | js_cocos2dx_Sprite_initWithSpriteFrame     | cocos2d::Sprite::initWithSpriteFrame     |
-| cc.Sprite.initWithFile            | js_cocos2dx_Sprite_initWithFile            | cocos2d::Sprite::initWithFile            |
-| cc.Sprite.initWithTexture         | js_cocos2dx_Sprite_initWithTexture         | cocos2d::Sprite::initWithTexture         |
+| jsb.SkeletonRenderer.initWithSkeleton | js_spine_SkeletonRenderer_initWithSkeleton | spine::SkeletonRenderer::initWithSkeleton |
+| jsb.SkeletonRenderer.initWithUUID     | js_spine_SkeletonRenderer_initWithUUID     | spine::SkeletonRenderer::initWithUUID     |
 
 这个调用过程的时序如下：
 
-<a href="jsb/jsb_process.png"><img src="jsb/jsb_process.png" alt=" "></a>
-<div style="text-align:center"><p>调用时序图（引自 Cocos2d-js 文档）</p></div>
+<a href="jsb/jsb_process.jpg"><img src="jsb/jsb_process.jpg" alt=" "></a>
+<div style="text-align:center"><p>调用时序图（引自 Cocos Creator 文档）</p></div>
 
 和上面的过程类似。首先，我们需要确定接口和字段，我们随便拟定一个最简单的下载器 `FileDownloader`，它所具备的是 `download(url, path, callback)` 接口，而在 `callback` 中我们需要拿到的则是 `code`，`msg`。并且为了方便使用，我们将它挂载在 `jsb` 对象下，这样我们便可以使用如下代码进行简单地调用:
 
@@ -209,38 +205,38 @@ class FileDownloader {
 ```
 
 接下来我们进行最关键的绑定部分。<br>
-因为下载器就功能上分类属于 network 模块，我们可以选择将我们的 `FileDownloader` 的绑定实现在 Cocos 源码中现有的 `jsb_cocos2dx_network_auto` 中。在 `jsb_cocos2dx_network_auto.hpp` 中声明 JS 函数：
+因为下载器就功能上分类属于 network 模块，我们可以选择将我们的 `FileDownloader` 的绑定实现在 Cocos 源码中现有的 `jsb_cocos_network_auto` 中。在 `jsb_cocos_network_auto.h` 中声明 JS 函数：
 
 ```cpp
-SE_DECLARE_FUNC(js_cocos2dx_network_FileDownloader_download); // 声明成员函数，下载调用
-SE_DECLARE_FUNC(js_cocos2dx_network_FileDownloader_getInstance); // 声明静态函数，获取单例
+SE_DECLARE_FUNC(js_network_FileDownloader_download); // 声明成员函数，下载调用
+SE_DECLARE_FUNC(js_network_FileDownloader_getInstance); // 声明静态函数，获取单例
 ```
 
-随后在 `jsb_cocos2dx_network_auto.cpp` 中来注册 `FileDownloader` 和新声明的这两个函数到 JS 虚拟机中。首先先写好对应的两个方法实现留空，等注册逻辑完成后再来补全：
+随后在 `jsb_cocos_network_auto.cpp` 中来注册 `FileDownloader` 和新声明的这两个函数到 JS 虚拟机中。首先先写好对应的两个方法实现留空，等注册逻辑完成后再来补全：
 
 ```cpp
-static bool js_cocos2dx_network_FileDownloader_download(se::State &s) { // 方法名与声明时一致
+static bool js_network_FileDownloader_download(se::State &s) { // 方法名与声明时一致
     // TODO
 }
 
-SE_BIND_FUNC(js_cocos2dx_network_FileDownloader_download); // 包装该方法
+SE_BIND_FUNC(js_network_FileDownloader_download); // 包装该方法
 
-static bool js_cocos2dx_network_FileDownloader_getInstance(se::State& s) { // 方法名与声明时一致
+static bool js_network_FileDownloader_getInstance(se::State& s) { // 方法名与声明时一致
     // TODO
 }
 
-SE_BIND_FUNC(js_cocos2dx_network_FileDownloader_getInstance); // 包装该方法
+SE_BIND_FUNC(js_network_FileDownloader_getInstance); // 包装该方法
 ```
 
 现在我们开始编写注册逻辑，新增一个注册方法用于收归 `FileDownloader` 的全部注册逻辑：
 
 ```cpp
-bool js_register_cocos2dx_network_FileDownloader(se::Object* obj) {
+bool js_register_network_FileDownloader(se::Object* obj) {
     auto cls = se::Class::create("FileDownloader", obj, nullptr, nullptr);
-    cls->defineFunction("download", _SE(js_cocos2dx_network_FileDownloader_download));
-    cls->defineStaticFunction("getInstance", _SE(js_cocos2dx_network_FileDownloader_getInstance));
+    cls->defineFunction("download", _SE(js_network_FileDownloader_download));
+    cls->defineStaticFunction("getInstance", _SE(js_network_FileDownloader_getInstance));
     cls->install();
-    JSBClassType::registerClass<cocos2d::network::FileDownloader>(cls);
+    JSBClassType::registerClass<FileDownloader>(cls);
     se::ScriptEngine::getInstance()->clearException();
     return true;
 }
@@ -249,15 +245,15 @@ bool js_register_cocos2dx_network_FileDownloader(se::Object* obj) {
 我们来看看这个方法里做了些什么重要的事情：
 
 1. 调用 `se::Class::create(className, obj, parentProto, ctor)` 方法，创建了一个名为 `FileDownloader` 的 Class，注册成功后，在 JS 层中可以通过 `let xxx = new FileDownloader();`的方式创建实例。
-2. 调用 `defineFunction(name, func)` 方法，定义了一个成员函数 `download`，并将其实现绑定到包装后的 `js_cocos2dx_network_FileDownloader_download` 上。
-3. 调用 `defineStaticFunction(name, func)` 方法，定义了一个静态成员函数 `getInstance`，并将其实现绑定到包装后的 `js_cocos2dx_network_FileDownloader_getInstance` 上。
+2. 调用 `defineFunction(name, func)` 方法，定义了一个成员函数 `download`，并将其实现绑定到包装后的 `js_network_FileDownloader_download` 上。
+3. 调用 `defineStaticFunction(name, func)` 方法，定义了一个静态成员函数 `getInstance`，并将其实现绑定到包装后的 `js_network_FileDownloader_getInstance` 上。
 4. 调用 `install()` 方法，将自己注册到 JS 虚拟机中。
 5. 调用 `JSBClassType::registerClass` 方法，将生成的 Class 与 C++ 层的类对应起来（内部通过 `std::unordered_map<std::string, se::Class*>` 实现）。
 
-通过以上这几步，我们完成了关键的注册部分，当然不要忘记在 `network` 模块的注册入口添加 `js_register_cocos2dx_network_FileDownloader` 的调用：
+通过以上这几步，我们完成了关键的注册部分，当然不要忘记在 `network` 模块的注册入口添加 `js_register_network_FileDownloader` 的调用：
 
 ```cpp 
-bool register_all_cocos2dx_network(se::Object* obj)
+bool register_all_cocos_network(se::Object* obj)
 {
     // Get the ns
     se::Value nsVal;
@@ -273,7 +269,7 @@ bool register_all_cocos2dx_network(se::Object* obj)
     // 将前面生成的 Class 注册 设置为 jsb 的一个属性，这样我们便能通过
     // let downloader = new jsb.FileDownloader();
     // 获取实例
-    js_register_cocos2dx_network_FileDownloader(ns);
+    js_register_network_FileDownloader(ns);
     return true;
 }
 ```
@@ -283,15 +279,15 @@ bool register_all_cocos2dx_network(se::Object* obj)
 首先是 `getInstance()`：
 
 ```cpp
-static bool js_cocos2dx_network_FileDownloader_getInstance(se::State& s)
+static bool js_network_FileDownloader_getInstance(se::State& s)
 {
     const auto& args = s.args();
     size_t argc = args.size();
     CC_UNUSED bool ok = true;
     if (argc == 0) {
-        cocos2d::network::FileDownloader* result = cocos2d::network::FileDownloader::getInstance(); // C++ 单例
-        ok &= native_ptr_to_seval<cocos2d::network::FileDownloader>((cocos2d::network::FileDownloader*)result, &s.rval());
-        SE_PRECONDITION2(ok, false, "js_cocos2dx_network_FileDownloader_getInstance : Error processing arguments");
+        FileDownloader* result = FileDownloader::getInstance(); // C++ 单例
+        ok &= native_ptr_to_seval<FileDownloader>((FileDownloader*)result, &s.rval());
+        SE_PRECONDITION2(ok, false, "js_network_FileDownloader_getInstance : Error processing arguments");
         return true;
     }
     SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 0);
@@ -310,10 +306,10 @@ static bool js_cocos2dx_network_FileDownloader_getInstance(se::State& s)
 接着是 `download()`：
 
 ```cpp
-static bool js_cocos2dx_network_FileDownloader_download(se::State &s) {
-    cocos2d::network::FileDownloader *cobj = (cocos2d::network::FileDownloader *) s.nativeThisObject();
+static bool js_network_FileDownloader_download(se::State &s) {
+    FileDownloader *cobj = (FileDownloader *) s.nativeThisObject();
     SE_PRECONDITION2(cobj, false,
-                     "js_cocos2dx_network_FileDownloader_download : Invalid Native Object");
+                     "js_network_FileDownloader_download : Invalid Native Object");
     const auto &args = s.args();
     size_t argc = args.size();
     CC_UNUSED bool ok = true;
@@ -359,7 +355,7 @@ static bool js_cocos2dx_network_FileDownloader_download(se::State &s) {
                 callback = nullptr;
             }
         } while(false);
-        SE_PRECONDITION2(ok, false, "js_cocos2dx_network_FileDownloader_download : Error processing arguments");
+        SE_PRECONDITION2(ok, false, "js_network_FileDownloader_download : Error processing arguments");
         cobj->download(url, path, callback);
         return true;
     }
@@ -372,16 +368,7 @@ static bool js_cocos2dx_network_FileDownloader_download(se::State &s) {
 2. 手动构造回调 function，将 msg 和 code 转化为 `se::Value`。
 3. 通过 `funcObj->call` 执行 JS 方法进行回调。
 
-以上即为一次普通调用的回调的执行过程的绑定。现在我们还剩下一些收尾工作，我们需要将 `FileDownloader` 真正成为单例，在 JS 层无需手动实例化即可使用。
-因为下载器属于通用组件，所以我们需要尽早将其实例化并成功挂载，因此我们需要修改 `jsb_boot.js`，这个文件会在 Cocos 引擎初始化时调用，我们在其中补充如下代码：
-
-```js
-// FileDownloader
-jsb.fileDownloader = jsb.FileDownloader.getInstance();
-delete jsb.FileDownloader;
-```
-
-最后，考虑到内存释放的风险，我们还需要在 `CCDirector.cpp` 中的 `reset()` 方法中进行相关回收：
+最后，考虑到内存释放的风险，我们还需要在 `Application.cpp` 中的 `close()` 方法中进行相关回收：
 
 ```cpp
 network::FileDownloader::destroyInstance();
@@ -390,7 +377,7 @@ network::FileDownloader::destroyInstance();
 ================================================
 
 以上就是全部的绑定流程，在分别编译到 Android/iOS 环境后，我们就能够通过 `jsb.fileDownloader.download()` 进行下载调用了。<br>
-（PS：一定切记在使用前进行 `CC_JSB` 的宏判断，因为非 JSB 环境下是无法使用的）
+（PS：一定切记在使用前进行 `JSB` 的宏判断，因为非 JSB 环境下是无法使用的）
 
 ## 总结
 
@@ -399,5 +386,3 @@ network::FileDownloader::destroyInstance();
 - 声明头文件，并分别实现 Android JNI 与 OC 具体业务代码
 - 编写抽象层代码，将必要的类与对应方法注册到 JS 虚拟机中
 - 将绑定的类挂载在 JS 中的指定对象（类似命名空间）中
-
-> 本文所有内容遵循 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) 协议发布。

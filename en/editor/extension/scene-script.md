@@ -33,12 +33,8 @@ exports.unload = function() {};
 // Methods defined within the module
 exports.methods = {
     log() {
-        const scene = cc.director.getScene();
-        if (scene) {
-            scene.walk(target => console.log(target.name));
-        } else {
-            console.warn('Scene not found');
-        }
+        const { director } = require('cc')
+        director.getScene()
     }
 };
 ```

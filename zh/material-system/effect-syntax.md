@@ -19,8 +19,8 @@ Effect name 是基于 effect 文件名和所在路径两个信息自动生成的
 在运行时可以通过 effect name 获取或使用 effect 资源：
 
 ```js
-const effect = cc.EffectAsset.get('builtin-unlit'); // this is the EffectAsset resource instance
-const mat = new cc.Material();
+const effect = EffectAsset.get('builtin-unlit'); // this is the EffectAsset resource instance
+const mat = new Material();
 mat.initialize({ effectName: 'builtin-standard' }); // now 'mat' is a valid standard material
 ```
 
@@ -135,7 +135,7 @@ INCI(b); // correct, b would be 9 after this
 INCI(a); // wrong! a would still be 4
 ```
 
-### Vertex Input<sup id="a1">[1](#f1)</sup>
+### Vertex Input[^1]
 
 为对接骨骼动画与数据解压流程，我们提供了 `CCVertInput` 工具函数，对所有 3D 模型使用的 shader，可直接在 vs 开始时类似这样写：
 
@@ -161,7 +161,7 @@ vec4 vert () {
 
 这会返回模型空间的顶点位置（position）、法线（normal）和切空间（tangent）信息，并对骨骼动画模型做完蒙皮计算。
 
-**注意**：引用头文件后，不要在 shader 内重复声明这些 attributes（a_position 等）。对于其他顶点数据（如 uv 等）还是正常声明 attributes 直接使用。
+> **注意**：引用头文件后，不要在 shader 内重复声明这些 attributes（a_position 等）。对于其他顶点数据（如 uv 等）还是正常声明 attributes 直接使用。
 
 另外如果需要对接引擎动态合批和 instancing 流程，需要包含 `cc-local-batch` 头文件，通过 `CCGetWorldMatrix` 工具函数获取世界矩阵：
 
@@ -176,7 +176,7 @@ CCGetWorldMatrixFull(matWorld, matWorldIT);
 
 关于更多 shader 内置 uniform，可以参考 [完整列表](builtin-shader-uniforms.md)。
 
-### Fragment Ouput<sup id="a1">[1](#f1)</sup>
+### Fragment Output[^1]
 
 为对接引擎渲染管线，Creator 提供了 `CCFragOutput` 工具函数，对所有无光照 shader，都可以直接在 fs 返回时类似这样写：
 
@@ -221,7 +221,7 @@ vec4 frag () {
 ```
 
 **注意**：
-- 这里可以使用编译器提示 `format` 指定此属性的具体数据格式，参数为引擎 `GFXFormat` 的任意枚举名<sup id="a2">[2](#f2)</sup>，如未声明则默认为 32 位 float 类型；
+- 这里可以使用编译器提示 `format` 指定此属性的具体数据格式，参数为引擎 `GFXFormat` 的任意枚举名[^2]，如未声明则默认为 32 位 float 类型；
 - 所有 instanced 属性都是 VS 的输入 attribute，所以如果要在 FS 中使用，则需要在 VS 中自行传递；
 - 记得确保代码在所有分支都能正常执行，无论 `USE_INSTANCING` 启用与否。
 
@@ -264,7 +264,7 @@ Creator 规定在 shader 中所有非 sampler 的 uniform 都应以 block 形式
 
 这可能听起来有些过分严格，但背后有非常务实的考量：<br>
 首先，UBO 是渲染管线内要做到高效数据复用的唯一基本单位，离散声明已不是一个选项；<br>
-其次，WebGL2 的 UBO 只支持 std140 布局，它遵守一套比较原始的 padding 规则：<sup id="a3">[3](#f3)</sup>
+其次，WebGL2 的 UBO 只支持 std140 布局，它遵守一套比较原始的 padding 规则[^3]：
 
 - 所有 vec3 成员都会补齐至 vec4：
 
@@ -282,7 +282,7 @@ Creator 规定在 shader 中所有非 sampler 的 uniform 都应以 block 形式
   }; // total of 64 bytes
   ```
 
-- 所有成员在 UBO 内的实际偏移都会按自身所占字节数对齐<sup id="a4">[4](#f4)</sup>：
+- 所有成员在 UBO 内的实际偏移都会按自身所占字节数对齐[^4]：
 
   ```glsl
   uniform IncorrectUBOOrder {
@@ -298,12 +298,12 @@ Creator 规定在 shader 中所有非 sampler 的 uniform 都应以 block 形式
   }; // total of 16 bytes
   ```
 
-这意味着大量的空间浪费，且某些设备的驱动实现也并不完全符合此标准<sup id="a5">[5](#f5)</sup>，因此目前 Creator 选择限制这部分功能的使用，以帮助排除一部分非常隐晦的运行时问题。<br>
+这意味着大量的空间浪费，且某些设备的驱动实现也并不完全符合此标准[^5]，因此目前 Creator 选择限制这部分功能的使用，以帮助排除一部分非常隐晦的运行时问题。
 
-> **注意**：再次提醒，uniform 的类型与 inspector 的显示和运行时参数赋值时的程序接口可以不直接对应，通过 [property target](pass-parameter-list.md#Properties) 机制，可以独立编辑任意 uniform 具体的分量。
+**再次提醒，uniform 的类型与 inspector 的显示和运行时参数赋值时的程序接口可以不直接对应，通过 [property target](pass-parameter-list.md#Properties) 机制，可以独立编辑任意 uniform 具体的分量。**
 
-<b id="f1">[1]</b> 不包含粒子、sprite、后效等不基于 mesh 执行渲染的 shader [↩](#a1)<br>
-<b id="f2">[2]</b> 注意 WebGL 1.0 平台下不支持整型 attributes，如项目需要发布到此平台，应使用默认浮点类型 [↩](#a2)<br>
-<b id="f3">[3]</b> [OpenGL 4.5, Section 7.6.2.2, page 137](http://www.opengl.org/registry/doc/glspec45.core.pdf#page=159) [↩](#a3)<br>
-<b id="f4">[4]</b> 注意在示例代码中，UBO IncorrectUBOOrder 的总长度为 32 字节，实际上这个数据到今天也依然是平台相关的，看起来是由于 GLSL 标准的疏忽，更多相关讨论可以参考 [这里](https://bugs.chromium.org/p/chromium/issues/detail?id=988988) [↩](#a4)<br>
-<b id="f5">[5]</b> [Interface Block - OpenGL Wiki](https://www.khronos.org/opengl/wiki/Interface_Block_(GLSL)#Memory_layout) [↩](#a5)
+[^1]: 不包含粒子、sprite、后效等不基于 mesh 执行渲染的 shader。
+[^2]: 注意 WebGL 1.0 平台下不支持整型 attributes，如项目需要发布到此平台，应使用默认浮点类型。
+[^3]: [OpenGL 4.5, Section 7.6.2.2, page 137](http://www.opengl.org/registry/doc/glspec45.core.pdf#page=159)
+[^4]: 注意在示例代码中，UBO IncorrectUBOOrder 的总长度为 32 字节，实际上这个数据到今天也依然是平台相关的，看起来是由于 GLSL 标准的疏忽，更多相关讨论可以参考 [这里](https://bugs.chromium.org/p/chromium/issues/detail?id=988988)。
+[^5]: **Interface Block - OpenGL Wiki**：<https://www.khronos.org/opengl/wiki/Interface_Block_(GLSL)#Memory_layout>

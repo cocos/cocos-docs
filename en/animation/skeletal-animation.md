@@ -55,7 +55,7 @@ It is recommended that projects with high quality skinning animations try to ena
 
 ## Socket System
 
-If you need to attach some external nodes to a given skeletal joint, you need to use the [Socket System](../editor/components/spine.md#spine-socket) of the skeletal animation component.
+If you need to attach some external nodes to a given skeletal joint, you need to use the **Socket System** of the skeletal animation component.
 
 - Create a new child node under the skeletal animation component to be docked (the immediate parent node should be the node where the animation component is located).
 - Add an array element to the `sockets` property of the skeletal animation component, select the `path` of the skeleton to be attached from the drop-down list (note that the defaultClip of the skeletal animation component must have a value, the options in the drop-down list depend on this property), and specify the child node just created as the `target`.
@@ -70,6 +70,7 @@ Based on the framework design of the **pre-baking system**, instancing of the sk
 The fundamental problem here is that each model within the same drawcall must use the same skeleton texture, if not, the display will be completely misaligned. So how the animation data is assigned to each skeleton texture becomes a user-defined piece of information that can be configured in the [Joint Texture Layout](joint-texture-layout.md) panel in the editor menu bar **Panel -> Animation**.
 
 > **Notes**:
+>
 > 1. Instancing is only supported under the **pre-baking system**. we have not strictly forbidden to enable instancing under the **real-time computation framework** (only in-editor warnings), but the animation effect will definitely be problematic, depending on the actual material assignment of the model. In the best case, the animation will be identical from instance to instance, in the worst case it will cause the model to be completely misaligned.
 > 2. For models with instancing enabled in the material, the planar shading system will automatically draw with instancing as well. In particular, shading batches of skinned models require a higher level of joint texture layout, since the pipeline state of shading is uniform, and **all animations of skinned models with shadow enabled** need to be on the same texture (as opposed to drawing the model itself, which only requires consistent joint textures between instances within the same Drawcall).
 

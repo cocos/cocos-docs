@@ -35,9 +35,9 @@ In the __Scene__, the __Prefab Instance__ objects data source comes from the des
 
 ## Entering prefab editing mode
 
-__Double-click__ the __Prefab Asset__ in the __Assets__ panel to switch from __Scene__ editing mode to __Prefab editing__ mode. You can edit the __Prefab Assets__ in the __Editor__. After editing, click __Save__ button in the __Scene__ panel to save the edited __Prefab Assets__. Next, click __Close__ button to return to the Scene editing mode.
+__Double-click__ the __Prefab Asset__ in the __Assets__ panel to switch from __Scene__ editing mode to __Prefab editing__ mode. It is possible to edit the __Prefab Assets__ in the __Editor__. After editing, click __Save__ button in the __Scene__ panel to save the edited __Prefab Assets__. Next, click the __Close__ button to return to the Scene editing mode.
 
-> **Note**: please avoid multiple people modifying the same prefab asset at the same time, as this may lead to conflicts that cannot be resolved by `git` merging.
+> __Note__: please avoid multiple people modifying the same prefab asset at the same time, as this may lead to conflicts that cannot be resolved by `git` merging.
 
 ![edit mode](prefab/prefab-edit-mode.gif)
 
@@ -62,7 +62,7 @@ In the __Hierarchy__ panel, select the __Prefab Node__, and notice there are sev
 
 ### Add New Node
 
-A new node added under the __Prefab Instance__ will have a **+** sign at the lower right corner of the node name, and its data is stored under the __Prefab Instance__, it will not affect the data of the associated __Prefab Asset__.
+A new node added under the __Prefab Instance__ will have a __+__ sign in the lower right corner of the node name, and its data is stored under the __Prefab Instance__, so it will not affect the data of the associated __Prefab Asset__.
 
 ![prefab mounted](prefab/prefab-mounted-children.png)
 
