@@ -12,7 +12,7 @@ node.on(Node.EventType.MOUSE_DOWN, (event) => {
 
 > **注意**：我们已经不再推荐直接使用事件的名称字符串注册事件监听了。像上述例子，请不要使用 `node.on('mouse-down', callback, target)` 来注册事件监听。
 
-节点上的触摸事件监听依赖于 `UITransform` 组件，只适用于 2D UI 节点。如果需要实现对 3D 物体的触摸检测，可以参考文档 [对 3D 物体的触摸检测](event-input.md#对%203D%20物体的触摸检测)
+节点上的触摸事件监听依赖于 `UITransform` 组件，只适用于 2D UI 节点。如果需要实现对 3D 物体的触摸检测，可以参考文档 [对 3D 物体的触摸检测](event-input.md#%E5%AF%B9%203D%20%E7%89%A9%E4%BD%93%E7%9A%84%E8%A7%A6%E6%91%B8%E6%A3%80%E6%B5%8B)
 
 ## 鼠标事件类型和事件对象
 
