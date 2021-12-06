@@ -38,7 +38,7 @@ Select the `Sphere` node, created above, and notice what the **Inspector** panel
 
 The part of the **Inspector** panel that starts with the `Node` title is the node's properties, which include information about the node's `Position`, `Rotation`, `Scale`, and other transformations. This is covered in detail in the [Coordinate Systems and Node Transformation Properties](coord.md) documentation.
 
-Starting with the `cc.MeshRenderer` title, is the properties of the **Sphere** component. In Cocos Creator, the **MeshRenderer** component is used to draw mesh resources, where the `Mesh` property is used to specify the mesh resources used for rendering. As the Sphere node was just created the default is `sphere.mesh`.
+Starting with the `cc.MeshRenderer` title is the property of the MeshRenderer component mounted on the Sphere. In Cocos Creator, the **MeshRenderer** component is used to render static 3D models, where the `Mesh` property is used to specify the mesh resources used for rendering. As the Sphere node was just created the default is `sphere.mesh`.
 
 The `Materials` property is used to specify the [material](../../asset/material.md) used for rendering. You can try dragging any material from the **Assets** into the `Materials` property of the **Inspector** panel and you can see that the default material just became the specified material.
 

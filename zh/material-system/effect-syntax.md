@@ -19,8 +19,8 @@ Effect name 是基于 effect 文件名和所在路径两个信息自动生成的
 在运行时可以通过 effect name 获取或使用 effect 资源：
 
 ```js
-const effect = cc.EffectAsset.get('builtin-unlit'); // this is the EffectAsset resource instance
-const mat = new cc.Material();
+const effect = EffectAsset.get('builtin-unlit'); // this is the EffectAsset resource instance
+const mat = new Material();
 mat.initialize({ effectName: 'builtin-standard' }); // now 'mat' is a valid standard material
 ```
 

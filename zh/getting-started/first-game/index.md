@@ -383,7 +383,7 @@ export class GameManager extends Component {
 
     可以看到在 **层级管理器** 中生成了一个 Canvas 节点，一个 PlayButton 节点和一个 Label 节点。因为 UI 组件需要在带有 `Canvas` 的父节点下才能显示，所以编辑器在发现没有 Canvas 节点时会自动创建一个。
 
-    然后将 Label 节点上 `cc.Label` 中的 **String** 属性从 Button 改为 Play。
+    然后将 Label 节点上 `cc.Label` 组件中的 **String** 属性从 Button 改为 Play。
 
 2. 在 Canvas 底下创建一个名为 StartMenu 的空节点，将 PlayButton 拖到它底下。我们可以通过点击工具栏上的 2D/3D 按钮切换到 2D 编辑视图下进行 UI 编辑操作，详细的描述请查阅 [场景编辑](../../editor/scene/index.md)。
 
@@ -393,7 +393,7 @@ export class GameManager extends Component {
 
     ![create bg sprite](./images/create-bg-sprite.gif)
 
-    然后在 **属性检查器** 中将 `cc.UITransform` 的 `ContentSize` 设置为（200，200），同时将 **资源管理器** 中的 `internal/default_ui/default_sprite_splash` 拖拽到 **SpriteFrame** 属性框中。
+    然后在 **属性检查器** 中将 `cc.UITransform` 组件的 `ContentSize` 设置为（200，200），同时将 **资源管理器** 中的 `internal/default_ui/default_sprite_splash` 拖拽到 **SpriteFrame** 属性框中。
 
     ![change spriteFrame](./images/change-spriteFrame.png)
 
@@ -522,7 +522,7 @@ onStartButtonClicked() {
 }
 ```
 
-然后在 **层级管理器** 中选中 PlayButton 节点，在 **属性检查器** 的 `cc.Button` 中添加 ClickEvents 的响应函数，将 GameManager 节点拖拽到 `cc.Node` 属性框中：
+然后在 **层级管理器** 中选中 PlayButton 节点，在 **属性检查器** 的 `cc.Button` 组件中添加 ClickEvents 的响应函数，将 GameManager 节点拖拽到 `cc.Node` 属性框中：
 
 ![play button inspector](./images/play-button-inspector.png)
 
@@ -669,7 +669,7 @@ onStartButtonClicked() {
 
     ![planar shadows](./images/planarShadows.png)
 
-2. 点击 Player 节点下的 Body 节点，将 `cc.MeshRenderer` 中的 **ShadowCastingMode** 设置为 **ON**。
+2. 点击 Player 节点下的 Body 节点，将 `cc.MeshRenderer` 组件中的 **ShadowCastingMode** 设置为 **ON**。
 
     ![model shadow](./images/model-shadow.png)
 
@@ -679,7 +679,7 @@ onStartButtonClicked() {
 
 ### 调整光照
 
-新建场景时默认会添加一个挂载了 `cc.DirectionalLight` 的 **Main Light** 节点，由这个平行光计算阴影。所以为了让阴影换个位置显示，我们可以调整这个平行光的方向。在 **层级管理器** 中点击选中 **Main Light** 节点，调整 `Rotation` 属性为（-10，17，0）。
+新建场景时默认会添加一个挂载了 `cc.DirectionalLight` 组件的 **Main Light** 节点，由这个平行光计算阴影。所以为了让阴影换个位置显示，我们可以调整这个平行光的方向。在 **层级管理器** 中点击选中 **Main Light** 节点，调整 `Rotation` 属性为（-10，17，0）。
 
 ![main light](./images/main-light.png)
 

@@ -55,7 +55,7 @@ It is recommended that projects with high quality skinning animations try to ena
 
 ## Socket System
 
-If you need to attach some external nodes to a given skeletal joint, you need to use the [Socket System](../editor/components/spine.md#spine-socket) of the skeletal animation component.
+If you need to attach some external nodes to a given skeletal joint, you need to use the **Socket System** of the skeletal animation component.
 
 - Create a new child node under the skeletal animation component to be docked (the immediate parent node should be the node where the animation component is located).
 - Add an array element to the `sockets` property of the skeletal animation component, select the `path` of the skeleton to be attached from the drop-down list (note that the defaultClip of the skeletal animation component must have a value, the options in the drop-down list depend on this property), and specify the child node just created as the `target`.

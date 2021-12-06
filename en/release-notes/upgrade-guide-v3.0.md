@@ -4,17 +4,11 @@
 
 __Cocos Creator 3.0__ integrates all the functions of the original __2D__ and __3D__ products, brings many major updates, and will become the main version of __Cocos Creator__. At the same time, 3.0 also continues __Cocos's__ advantages of light weight and high efficiency in 2D categories, and provides an efficient development experience for 3D heavy games.
 
-- **For Cocos Creator 2.x**
+In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, Creator v2.4 will be used as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore:
 
-    In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, Creator v2.4 will be used as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore:
+- **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
 
-    - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
-
-    - **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
-
-- **For Cocos Creator 3D**
-
-    The original Cocos Creator 3D, a branch of Creator, has been iterated for a year for Chinese developers, and has successfully launched heavy projects such as **Star Battle** and **Strongest Demon Fighter**! Cocos Creator 3D will be included in v3.0 after the release of Cocos Creator 3.0, and the existing v1.2 projects can be upgraded directly, so Cocos Creator 3D will not be released as a separate version in the future.
+- **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
 
 __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. 
 
@@ -136,22 +130,6 @@ In v3.0, there are continued improvements to the design of the material system a
 
 ### Engine API Upgrade
 
-#### For Cocos Creator 3D 1.2 users
-
-1. Cocos Creator 3.0 asset loading-related APIs are consistent with v2.4, both refactored the `loader`. v1.2 users can refer to the [v2.4 Asset Manager Upgrade Guide](https://docs.cocos.com/creator/manual/en/release-notes/asset-manager-upgrade-guide.html) when upgrading.
-
-2. Component class name change
-
-    In order to comply with the v2.x API specification, Cocos Creator 3.0 discarded the naming method of component class name including Component suffix, and did the automatic data upgrade and code compatibility.
-
-    However, it is recommended to search for all similar naming styles in the code and change the class name without the Component suffix as soon as possible. A global search (with case sensitivity and regular matching turned on) can be performed using the following regular expressions:
-
-    ```
-    ([A-Z]\w+)Component
-    ```
-
-#### For Cocos Creator 2.x users
-
 - The UI-related interface changes on the node are as follows:
 
     - The interfaces related to coordinate transformation calculation (e.g.: `size` or `anchor`) are as follows:
@@ -261,7 +239,8 @@ In v3.0, there are continued improvements to the design of the material system a
     When using `bundle.load` or `resources.load` to dynamically load a `sprite-frame` or `texture` in v3.0, the path needs to be specified to a specific sub-resource:
 
     ```ts
-    // load texture
+    // Load texture
+
     // v2.x
     resources.load('background', cc.Texture2D, () => {});
     // v3.0
@@ -269,7 +248,8 @@ In v3.0, there are continued improvements to the design of the material system a
     ```
 
     ```ts
-    // load sprite frame
+    // Load sprite frame
+
     // v2.x
     resources.load('background', cc.SpriteFrame, () => {});
     // v3.0

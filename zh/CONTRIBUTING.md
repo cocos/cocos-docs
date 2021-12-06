@@ -131,11 +131,9 @@
 
 > 格式：通过 \`this.node.scale\` 来设置节点的缩放
 
-正确：
+效果如下：
 
 > 通过 `this.node.scale` 来设置节点的缩放
->
-> `this.getComponent(cc.Sprite).spriteFrame` 可以动态改变节点渲染的图像
 
 ### 文件名和文件路径，使用 backtick 表示，并且和相邻的正文之间加空格
 

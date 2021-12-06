@@ -50,7 +50,7 @@ To show the hot update process, the example project used in the tutorial has a f
 
 ![table](./hot-update/table.png)
 
-> **Note**: the project contains `remove-assets` is for debug mode, the developer must use the debug mode when building the test project, otherwise the release mode jsc file priority will be higher than `remove-assets` in the assets and cause the script to fail.
+> **Note**: the project contains `remote-assets` is for debug mode, the developer must use the debug mode when building the test project, otherwise the release mode jsc file priority will be higher than `remote-assets` in the assets and cause the script to fail.
 
 ### Use the version generator to generate the manifest file
 
@@ -114,16 +114,16 @@ The editor plugin automatically adds the search path logic and fix code to `main
                     var dstPath = storagePath + relativePath;
 
                     if (srcPath[srcPath.length] == '/') {
-                        cc.fileUtils.createDirectory(dstPath)
+                        jsb.fileUtils.createDirectory(dstPath)
                     }
                     else {
-                        if (cc.fileUtils.isFileExist(dstPath)) {
-                            cc.fileUtils.removeFile(dstPath)
+                        if (jsb.fileUtils.isFileExist(dstPath)) {
+                            jsb.fileUtils.removeFile(dstPath)
                         }
-                        cc.fileUtils.renameFile(srcPath, dstPath);
+                        jsb.fileUtils.renameFile(srcPath, dstPath);
                     }
                 })
-                cc.fileUtils.removeDirectory(tempPath);
+                jsb.fileUtils.removeDirectory(tempPath);
             }
         }
     }
