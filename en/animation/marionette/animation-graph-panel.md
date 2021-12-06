@@ -12,7 +12,7 @@ This opens the Animation Graph panel, which consists of **Layers**, **Variables*
 
 ![animation-graph-panel](animation-graph-panel/animation-graph-panel.png)
 
-When there are multiple animation graph assets, you can also click the **Switch Animation Graphs** button in the upper right corner of the panel to switch other animation graphs that need to be edited.
+When there are multiple animation graph assets, click the **Switch Animation Graphs** button in the upper right corner of the panel to switch other animation graphs that need to be edited.
 
 ## Layers
 
@@ -26,7 +26,7 @@ This area mainly shows the state machine corresponding to the layer selected in 
 
 ![Edit](animation-graph-panel/edit.png)
 
-When finished editing, you can click **Save** or **Reset** (reset to the last save) in the upper right corner as needed. Please refer to the [Animation State Machine](animation-graph-basics.md) documentation for more operations.
+When finished with editing, click **Save** or **Reset** (reset to the last save) in the upper right corner as needed. Please refer to the [Animation State Machine](animation-graph-basics.md) documentation for more operations.
 
 ## Variables
 
@@ -47,7 +47,7 @@ In the following figure, for example, the steps are:
 
 ![add variables](animation-graph-panel/add-variables.png)
 
-Each created variable will have a gear icon button on the right side, click it to delete the corresponding variable. Please don't forget to click the **Save** button in the top right corner of the Animation Graph panel to save the settings when you are done.
+Each created variable will have a gear icon button on the right side, click it to delete the corresponding variable. Please don't forget to click the **Save** button in the top right corner of the Animation Graph panel to save the settings when done.
 
 ### Variable Types
 
@@ -63,7 +63,7 @@ The currently supported variable types to create include:
 
   > **Note**: the trigger will be reset only when it transitions to a certain state. If it transitions to a "pseudo-state", the trigger will not be reset.
 
-  For example, in the following figure, if you set trigger T1 or T2 in ① once, state A will reach state B or C in the sub-state machine without setting the triggers in ② and ③ again:
+  For example, in the following figure, if the trigger is set to T1 or T2 in ① once, state A will reach state B or C in the sub-state machine without setting the triggers in ② and ③ again:
 
   ![variable](animation-graph-panel/variable-eg.png)
 

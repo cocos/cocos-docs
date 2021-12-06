@@ -1,6 +1,6 @@
 # State Transitions
 
-**Transition** represents a transition between two states, which we can classify depending on the source where the transition occurs.
+**Transition** represents a transition between two states, which can be classified depending on the source where the transition occurs.
 
 - **Ordinary Transition**: the source where the transition occurs is a pseudo-state **entry** or **sub-state machine**.
 
@@ -43,7 +43,7 @@ With the transition selected in the grid layout area, the **Inspector** tab on t
 
 - **Enable Exit Times**: indicates whether the transition source state ends playing as one of the transition conditions. If checked, the transition needs to occur to meet the **Exit Times** condition set below. Play count is used as a special condition, when play count is enabled, the transition will happen only when both the play count condition and the transition condition are satisfied.
 
-- **Exit Times**: sets the total amount of time the animation plays before the transition source state begins (Total = Exit Times ✖️ Animation Length), defaults to 1 time, and takes effect only when **Enable Exit Times** is checked. Note that animations that do not loop will stop when the first play is completed and wait for the remaining number of plays to complete before starting the transition. If you need to loop the animation automatically according to the number of times, please set the wrap mode in the skeleton animation asset beforehand. For example:
+- **Exit Times**: sets the total amount of time the animation plays before the transition source state begins (Total = Exit Times ✖️ Animation Length), defaults to 1 time, and takes effect only when **Enable Exit Times** is checked. It is important to note that animations that do not loop will stop when the first play is completed and wait for the remaining number of plays to complete before starting the transition. To loop the animation automatically according to the number of times, please set the wrap mode in the skeleton animation asset beforehand. For example:
 
     - If the animation of the transition source is an **non-loop animation**, the playing time is 3 s, **Exit Times** is set to 1.4, then the animation of the transition source will continue to stay in the last frame for 1.2s (3s × 0.4) after playing for 3s, before starting the transition.
 
@@ -55,7 +55,7 @@ With the transition selected in the grid layout area, the **Inspector** tab on t
 
 - **Condition**: there are certain conditions that need to be met when setting up transitions that occur between states, as described below:
 
-Without using other transition conditions, if you want the animation of the source state to gradually switch to other states when it is almost finished playing once, and the animation of the source state is just finished playing when the switch is done, then we can set **Duration** and **Exit Times** to achieve this, it is recommended to set the unit of **Duration** to **times**, and then make the sum of **Duration** and **Exit Times** sum to **1**.
+Without using other transition conditions, for the animation of the source state to gradually switch to other states when it is almost finished playing once, and the animation of the source state is just finished playing when the switch is done, then we can set **Duration** and **Exit Times** to achieve this, it is recommended to set the unit of **Duration** to **times**, and then make the sum of **Duration** and **Exit Times** sum to **1**.
 
 For example, if the animation length of the transition source state is 3 seconds, set **Duration** to 0.3 times, then **Exit Times** is 0.7. If **Duration** is set to 0.3 seconds, it is more troublesome, **Exit Times** need to convert seconds to times: (3 - 0.3)/ 3 = 0.9 times.
 
@@ -99,7 +99,7 @@ There are cases that cause a state machine to stay on **Entry** or **Exit**, e.g
 
 - Transitioned to the **Exit** of a sub-state machine, but there is no transition in the parent state machine that would satisfy the condition for that sub-state machine.
 
-We call this situation **state machine hover**.
+This situation is called **state machine hover**.
 
 When a state machine hover occurs, it directly interrupts the update until a subsequent transition to the state can be made, at which point it is represented as the animation being paused.
 

@@ -14,7 +14,7 @@ This creates an animation graph asset named `Animation Graph` by default.
 
 ## Editing
 
-Once the animation graph is created, you can edit it in the Animation Graph panel, please refer to the [Animation Graph Panel](animation-graph-panel.md) documentation for details.
+Once the animation graph is created, it can be edited it in the Animation Graph panel, please refer to the [Animation Graph Panel](animation-graph-panel.md) documentation for details.
 
 ## Applying
 
