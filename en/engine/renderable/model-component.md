@@ -60,9 +60,9 @@ In addition, inside each group, the instanced attributes supports custom additio
 
 ### VB-merging Batching
 
-__VB-merging batching__ is suitable for drawing a large number of non-skinned dynamic models with low number of faces and different vertex data. When enabled, drawing will be grouped according to the material, and then the vertex and world transformation information will be merged in each frame of each group, and then completed in batches <sup id="a1">[1](#f1)</sup>.
+__VB-merging batching__ is suitable for drawing a large number of non-skinned dynamic models with low number of faces and different vertex data. When enabled, drawing will be grouped according to the material, and then the vertex and world transformation information will be merged in each frame of each group, and then completed in batches[^1].
 
-Operations such as merging vertices per frame introduce a portion of CPU overhead, which is particularly expensive in JavaScript. In addition, it is necessary to remind that the number of __draw calls__ is not as low as possible. Although, it is important to note, minimizing the number of draw calls to the extreme doesn't necessarily lead to the best (or even good) performance <sup id="a2">[2](#f2)</sup>. Optimal performance is often the result of CPU and GPU load balancing, so when using batch functions, be sure to do more tests to identify performance bottlenecks and do targeted optimization.
+Operations such as merging vertices per frame introduce a portion of CPU overhead, which is particularly expensive in JavaScript. In addition, it is necessary to remind that the number of __draw calls__ is not as low as possible. Although, it is important to note, minimizing the number of draw calls to the extreme doesn't necessarily lead to the best (or even good) performance[^2]. Optimal performance is often the result of CPU and GPU load balancing, so when using batch functions, be sure to do more tests to identify performance bottlenecks and do targeted optimization.
 
 ## Batch Best Practices
 
@@ -74,7 +74,5 @@ The material must be insured that it is consistent, under this premise:
 - If there are a large number of the same model repeated drawing, there is only a relatively controllable small difference between each other, use **instancing batching**.
 - If there are a large number of models with very low number of triangles but different vertex data, consider trying **VB-merging batching**.
 
-> **Notes**:
->
-> 1. <b id="f1">[1]</b> Currently use uniforms to upload the batched world transformation matrix, taking into account the WebGL standard uniform quantity limit, the current batch draws up to 10 models, so for a large number of same For the material model, the number of drawcalls is expected to be reduced by up to 10 times after enabling __VB-merging batching__. [↩](#a1)
-> 2. <b id="f2">[2]</b> There have been many discussions in the industry on the topic of batching and performance, you can refer to this [nVidia slide](https://www.nvidia.com/docs/IO/8228/BatchBatchBatch.pdf). [↩](#a2)
+[^1]: Currently use uniforms to upload the batched world transformation matrix, taking into account the WebGL standard uniform quantity limit, the current batch draws up to 10 models, so for a large number of same For the material model, the number of drawcalls is expected to be reduced by up to 10 times after enabling __VB-merging batching__.
+[^2]: There have been many discussions in the industry on the topic of batching and performance, you can refer to this [nVidia slide](https://www.nvidia.com/docs/IO/8228/BatchBatchBatch.pdf).

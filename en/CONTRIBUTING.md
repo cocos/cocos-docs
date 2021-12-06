@@ -110,8 +110,6 @@ Note that the property name in the editor should be written in the format displa
 Correct usage:
 
 > Set the scale of the node through `this.node.scale`.
->
-> `this.getComponent(cc.Sprite).spriteFrame` can dynamically change the image rendered by the node.
 
 **File name and file path**, use backtick to indicate.
 
@@ -295,3 +293,17 @@ Appropriate spaces can be reserved before and after for easy editing.
 - json -> JSON
 - js or JS -> JavaScript
 - ts or TS -> TypeScript
+
+## Footnote
+
+Example:
+
+Text prior to footnote reference.\[^1]
+
+\[^1]: Comment to include in footnote.
+
+The effect is as follows:
+
+Text prior to footnote reference.[^1]
+
+[^1]: Comment to include in footnote.

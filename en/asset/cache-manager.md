@@ -39,14 +39,14 @@ When the package is too large (in size), it is necessary to upload resources to 
 
 2. If the main bundle needs to be configured as a remote bundle, check **Main Bundle is Remote** in the **Build** panel.
 
-3. Then check **MD5 Cache** in the **Build** panel, set **Resource Server Address**, and click **Build**. 
+3. Then check **MD5 Cache** in the **Build** panel, set **Resource Server Address**, and click **Build**.
 
 4. After the build is complete, upload the `remote` folder in the release package directory to the server which is filled in the previous step.
 
 5. Delete the `remote` folder from the local release package directory.
 
 > **Note**: During the testing phase of WeChat Mini Games, developers may not be able to deploy the project to the official server, and need to test it on the local server. Please open **Tools -> Details -> Local Settings** page in the menu bar of WeChat DevTools, and check the **Does not verify valid domain names, web-view (business domain names), TLS versions and HTTPS certificates** option.
-> 
+>
 > ![details](./cache-manager/details.png)
 
 ### Querying cache files
@@ -85,7 +85,7 @@ A number of parameters are provided in the cache manager to control the caching 
 
 ### Clearing cache resources
 
-If the cache resource exceeds the limit and the developer needs to clear the resource manually, use `removeCache`, `clearCache`, `clearLRU` provided by the cache manager `cc.assetManager.cacheManager` to clear the cache resource.
+If the cache resource exceeds the limit and the developer needs to clear the resource manually, use `removeCache`, `clearCache`, `clearLRU` provided by the cache manager `assetManager.cacheManager` to clear the cache resource.
 
 - `clearCache` -- clears all cache resources in the cache directory, please use with caution.
 - `clearLRU` -- clears the older resources in the cache directory. The mini-game platform will automatically call `clearLRU` when the cache space is full.
@@ -101,5 +101,5 @@ When the developer upgrades the engine version, the cached resources left locall
 
 1. Check the **MD5 Cache** option in the **Build** panel at build time, which will ensure that the latest version of resources are used.
 2. Manually clear the previously cached resources.
-    - Clear the cache with `cc.assetManager.cacheManager.clearCache()` on the **real device**.
+    - Clear the cache with `assetManager.cacheManager.clearCache()` on the **physical device**.
     - For WeChat Mini Game, clear the cache by clicking **Tools -> Clear Cache -> Clear All** in the menu bar in **WeChat DevTools**.

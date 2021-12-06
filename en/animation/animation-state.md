@@ -12,7 +12,7 @@ First, get the animation state by [getState()](__APIDOC__/en/classes/animation.a
 // Get the Animation component
 const animationComponent = node.getComponent(Animation);
 // Get the animation clips on the Animation component
-animationComponent.clips = [ idleClip, runClip ];
+const [ idleClip, runClip ] = animationComponent.clips;
 
 // Get the animation state of `idleClip`
 const idleState = animationComponent.getState(idleClip.name);

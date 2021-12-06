@@ -6,8 +6,8 @@ __Cocos Creator 3.0__ integrates all the functions of the original __2D__ and __
 
 In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, we will use v2.4 as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore,
 
- - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
- - **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
+- **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
+- **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
 
 __Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. For a detailed introduction to the __Cocos Creator 3.0__, please go to [Official Website Update Instructions](https://cocos.com/creator).
 
@@ -65,7 +65,7 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
         - `group`: change to `layer`.
 
         - `zIndex`: change to [priority](__APIDOC__/en/classes/ui.uitransform.html#priority) of `UITransform`.
-        
+
             > **Note**: the `priority` property is deprecated as of v3.1, please use the `setSiblingIndex` function to adjust the order of the node tree.
 
 - `CCSpriteFrame`:
@@ -147,7 +147,8 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
     When using `bundle.load` or `resources.load` to dynamically load a `sprite-frame` or `texture` in v3.0, the path needs to be specified to a specific sub-resource.
 
     ```ts
-    // load texture
+    // Load texture
+
     // v2.x
     resources.load('background', cc.Texture2D, () => {});
     // v3.0
@@ -155,7 +156,8 @@ The API for v3.0 asset loading is consistent with v2.4, please refer to the [Ass
     ```
 
     ```ts
-    // load sprite frame
+    // Load sprite frame
+
     // v2.x
     resources.load('background', cc.SpriteFrame, () => {});
     // v3.0

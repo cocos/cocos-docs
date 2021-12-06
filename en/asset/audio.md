@@ -1,32 +1,22 @@
-# Audio
+# Audio Assets
 
-__Sound__ assets are __audio files__. An __audio system__ has two main functions: __playing background music__ and __playing short sound effects__.
-For sound assets, there is no difference between the two. After all, audio assets are imported into the editor, `AudioClip` assets perform related audio operations through the `AudioSource` system component. To use the audio system, please refer to the [Audio System](../audio-system/overview.md) documentation.
+Cocos Creator supports importing most common audio file formats, just drag and drop them directly into the **Assets** panel, and the corresponding **AudioClip** will be generated in the **Assets** panel after import.
 
-## Supported audio asset formats
+![audio-clip](audio-clip.png)
 
-Currently, the engine's audio system can support the following formats:
+The audio can be divided into longer length **Music** and shorter length **Sound Effects** based on their length. The Creator controls the playback of different audio assets through the AudioSource component to implement in-game background music and sound effects. For more details, please refer to the [AudioSource Component Reference](../audio-system/audiosource.md).
 
-  1. `.ogg`
-  2. `.mp3`
-  3. `.wav`
-  4. `.mp4`
-  5. `.m4a`
 
-## Loading Modes of Audio Resources on the Web Platform
+## Supported Audio Formats
 
-Audio resources on the Web platform are special because the Web standard supports loading audio resources in two different ways as follows:
+Currently Cocos Creator supports importing audio files in the following formats:
 
-- Web Audio: provides a relatively more modern audio control interface, and the audio resource is cached in the engine as an audio buffer. The advantage of this approach is good compatibility and robust.
+| Audio Format | Description |
+|:-- | :-- |
+| `.ogg` | `.ogg` is an open source lossy audio compression format, which has the advantage of supporting multi-channel encoding and using a more advanced acoustic model to reduce the loss of sound quality, while the file size is smaller than `.mp3` format under the same conditions. Currently all the built-in ringtones for Android also use `.ogg` files.      |
+|`.mp3` | `.mp3` is the most common digital audio encoding and lossy compression format. The purpose of compression is to compress PCM audio material into smaller files by discarding parts of the material that are not important to human hearing. MP3 is supported by a large number of hardware and software, and is widely used, and is currently the mainstream.            |
+| `.wav` | `.wav` is a standard digital audio file developed by Microsoft and IBM specifically for Windows. This file can record various mono or stereo sound information, and can ensure that the sound is not distorted because the audio format is not compressed. However, the file size is relatively large. |
+| `.mp4` | `.mp4` is a set of compression coding standards for audio and video information. Different coding algorithms can be used for different objects to further improve the compression efficiency.   |
+| `.m4a` | `.m4a` is an audio-only MP4 file. The audio quality is very high among the compression formats, and the file footprint is smaller at the same bit rate.  |
 
-- DOM Audio: plays the sound resource by generating a standard audio element, which is cached. When using the standard audio element to play audio resources, some compatibility issues may be encountered in some browsers. For example, browsers on iOS do not support setting volume, and all volume related properties will not be available.
-
-The engine currently tries to load audio resources as Web Audio by default. If it detects that the browser does not support loading Web Audio, it will fall back to the DOM Audio mode.
-
-If the project needs to force using DOM Audio mode, use the following to load the audio resources dynamically:
-
-```typescript
-assetManager.loadRemote('http://example.com/background.mp3', {
-    audioLoadMode: AudioClip.AudioType.DOM_AUDIO,
-}, callback);
-```
+With different audio encoding formats, the generated audio files vary in size and sound quality under the same conditions.

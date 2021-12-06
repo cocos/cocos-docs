@@ -48,7 +48,7 @@ A cube will be created and displayed in the **Scene** panel:
 
   Right click in the **Assets** panel, select **Create -> TypeScript**, and name it "HelloWorld" to create a new script in the `asset` directory of **Assets** panel.
 
-  ![creatr-typescript](index/create-typescript.png)
+  ![create-typescript](index/create-typescript.png)
 
 - Adding code
 

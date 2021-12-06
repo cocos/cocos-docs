@@ -5,7 +5,7 @@
 ## 实例
 
 ```ts
-const ctx = node.getComponent(cc.Graphics);
+const ctx = node.getComponent(Graphics);
 ctx.moveTo(20, 100);
 ctx.lineTo(20, 20);
 ctx.lineTo(70, 20);

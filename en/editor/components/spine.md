@@ -1,4 +1,4 @@
-# Spine (Skeletal Animation) Skeleton Component References
+# Spine Skeletal Component References
 
 The Spine Skeleton components support the data format exported by the official Spine tools, and renders and plays Spine assets.
 
