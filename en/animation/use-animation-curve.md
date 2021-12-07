@@ -197,8 +197,8 @@ Some interpolation algorithms require additional data to be stored in the curve 
 - When the `interpolate` property of the curve data is `true`, the curve will try to use the interpolation function.
 
     - If the curve value is of type `number`, `Number`, linear interpolation will be applied.
-    - If the curve value inherits from `ValueType`, the `lerp` function of `ValueType` will be called to complete the interpolation. `lerp` methods for most value types built into Cocos Creator are implemented as linear interpolation, e.g. `Vec3`, `vec4`, etc.
-    - If the curve value is [interpolable](__APIDOC__/en/#/docs/3.3/en/animation/Interface/ILerpable), the `lerp` function for the curve value will be called to complete the interpolation <sup id="a2">[2](#f2)</sup>.
+    - If the curve value inherits from `ValueType`, the `lerp` function of `ValueType` will be called to complete the interpolation. `lerp` methods for most value types built into Cocos Creator are implemented as linear interpolation, e.g.: `Vec3`, `vec4`, etc.
+    - If the curve value is [interpolable](__APIDOC__/en/#/docs/3.3/en/animation/Interface/ILerpable), the `lerp` function for the curve value will be called to complete the interpolation[^1].
 
 - If the curve value does not satisfy any of the above conditions, or when the `interpolate` property of the curve data is `false`, no interpolation will be performed and the curve value from the previous frame will always be used as the result.
 
@@ -318,5 +318,4 @@ Different wrap modes can be set for Animation Clips by setting `AnimationClip.wr
 
 For more wrap modes, please refer to the [WrapMode](__APIDOC__/en/#/docs/3.3/en/animation/Class/AnimationState?id=wrapmode) API and the [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count) documentation.
 
-<b id="f1">1</b> The node where the Animation Clip is located is the node attached to the Animation Component where the Animation State object that references the Animation Clip is located. [↩](#a1)<be>
-<b id="f2">2</b> For numeric, quaternion, and various vectors, Cocos provides the appropriate interpolable classes to implement [Cubic Spline Interpolation](https://en.wikipedia.org/wiki/Spline_interpolation). [↩](#a2)
+[^1]: For numeric, quaternion, and various vectors, Cocos Creator provides the appropriate interpolate classes to implement [Cubic Spline Interpolation](https://en.wikipedia.org/wiki/Spline_interpolation).

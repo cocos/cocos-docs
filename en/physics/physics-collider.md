@@ -5,7 +5,7 @@
 The following code works in both __JavaScript__ and __TypeScript__:
 
 ```ts
-this.getComponent('cc.BoxCollider')
+this.getComponent('BoxCollider')
 
 // Or
 

@@ -21,7 +21,7 @@ spriteFrame 的属性如下：
 | Packable    | 是否参与动态合图      |
 | Rotated  | 只读属性，不可更改。用于查看 Texture Packer 资源中的子资源是否被旋转 |
 | Offset X、Y | 只读属性，不可更改。用于查看 Texture Packer 资源中矩形框的偏移量 |
-| Trim Type | 裁剪类型，包括：<br>1. Auto — 自动裁剪<br>2. Custom — 自定义裁剪<br>3. None — 无裁剪，使用原图<br>详情请参考 [图像资源的自动剪裁](trim.md) |
+| Trim Type | 裁剪类型，包括：<br>1. Auto — 自动裁剪（默认），详情请参考 [图像资源的自动剪裁](../ui-system/components/engine/trim.md)<br>2. Custom — 自定义裁剪<br>3. None — 无裁剪，使用原图 |
 | Trim Threshold | 透明度阈值，默认为 1，取值范围为 0~1，会将透明度在设定值以下的像素裁减掉。当 Trim Type 设置为 **Auto** 时生效 |
 | Trim X、Y、Width、Height | 设置裁剪矩形框，当 Trim Type 设置为 **Custom** 时生效 |
 | Border Top、Bottom、Left、Right | 设置九宫格图边距，可点击下方的 **编辑** 按钮进行可视化编辑  |

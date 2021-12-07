@@ -55,7 +55,7 @@ public class Test {
 | int     | I   |
 | float   | F   |
 | boolean | Z   |
-| String  | Ljava / lang / String; |
+| String  | Ljava/lang/String; |
 
 ## 参数
 
@@ -71,11 +71,11 @@ jsb.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/Str
 
 // 调用第一个 sum 方法
 var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
-cc.log(result); //10
+log(result); // 10
 
 // 调用第二个 sum 方法
 var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
-cc.log(result); //5
+log(result); // 5
 ```
 
 这样在 **控制台** 中就会有正确的输出。

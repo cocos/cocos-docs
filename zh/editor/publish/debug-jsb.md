@@ -10,7 +10,7 @@
 - 在 Creator 的 **构建发布** 面板选择 Android/iOS 平台、Debug 模式，构建编译运行工程（iOS 平台建议通过 Xcode 连接真机进行编译运行）。
 - 用 Chrome 浏览器打开地址：`devtools://devtools/bundled/js_app.html?v8only=true&ws=设备的本地 IP:6086/00010002-0003-4004-8005-000600070008` 即可进行调试。
 
-  ![](debug-jsb/v8-android-debug.png)
+  ![v8-android-debug](debug-jsb/v8-android-debug.png)
 
 ## Windows 平台及 Mac 平台调试
 
@@ -35,14 +35,14 @@
 
 ```
 target stop-hook add 
-expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
+po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 DONE
 ```
 
 设置了 **每次断点** 后的行为，执行以下代码输出 JS 调用栈的信息：
 
-```c++
-cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
+```lldb
+po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
 关于 `target stop-hook` 的用法，详情可参考文档：<https://lldb.llvm.org/use/map.html#examining-variables>
@@ -53,12 +53,12 @@ cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurren
 
 #### Xcode 在断点中编辑 action（只对具体的断点触发）
 
-![](debug-jsb/xcode-brk-point-action.png)
+![xcode-brk-point-action](debug-jsb/xcode-brk-point-action.png)
 
 在 **Debugger Command** 中输入命令：
 
 ```lldb
-expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
+po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
 关于 `target stop-hook` 的用法，详情可参考文档：<https://lldb.llvm.org/use/map.html#evaluating-expressions>
@@ -67,19 +67,19 @@ expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->
 
 断点触发后，需要在 lldb console 中增加回调。可以针对具体的断点进行更多的调用：
 
-![](debug-jsb/xcode-brk-point-lldb.png)
+![xcode-brk-point-lldb](debug-jsb/xcode-brk-point-lldb.png)
 
 同上，也可以执行以下代码查看调用栈：
 
 ```lldb
-expr -- cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
+po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
 ### 在 Android Studio 配置 `lldb`
 
 在 **Android Studio** 的 **Run -> Debug Configuration -> Debugger** 界面进行类似的配置：
 
-![](debug-jsb/as-brk-point-action.png)
+![as-brk-point-action](debug-jsb/as-brk-point-action.png)
 
 Android Studio 也提供了和 Xcode 类似的 `lldb console`。
 

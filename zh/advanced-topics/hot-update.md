@@ -49,7 +49,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ![](./hot-update/table.png)
 
-**注意**：项目中包含的 `remove-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remove-assets` 中的资源而导致脚本失效。
+**注意**：项目中包含的 `remote-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remote-assets` 中的资源而导致脚本失效。
 
 ### 使用 Version Generator 来生成 Manifest 文件
 
@@ -87,8 +87,8 @@ Manifest 文件中包含以下几个重要信息：
 下载完成范例工程后，可以用 Cocos Creator 直接打开这个工程。打开 **构建发布** 面板，构建原生版本，建议使用 Windows / Mac 来测试。
 
 **注意**：
- - 构建时请不要勾选 MD5 Cache，否则会导致热更新无效。
- - 并且应该确保在工程目录的 extensions 文件夹里导入 hot-update 编辑器插件（范例工程里已经导入了该插件）
+- 构建时请不要勾选 MD5 Cache，否则会导致热更新无效。
+- 并且应该确保在工程目录的 extensions 文件夹里导入 hot-update 编辑器插件（范例工程里已经导入了该插件）
 
 该编辑器插件会在每次构建结束后，自动给 `main.js` 附加上搜索路径设置的逻辑和更新中断修复代码：
 
@@ -113,16 +113,16 @@ Manifest 文件中包含以下几个重要信息：
                     var dstPath = storagePath + relativePath;
 
                     if (srcPath[srcPath.length] == '/') {
-                        cc.fileUtils.createDirectory(dstPath)
+                        jsb.fileUtils.createDirectory(dstPath)
                     }
                     else {
-                        if (cc.fileUtils.isFileExist(dstPath)) {
-                            cc.fileUtils.removeFile(dstPath)
+                        if (jsb.fileUtils.isFileExist(dstPath)) {
+                            jsb.fileUtils.removeFile(dstPath)
                         }
-                        cc.fileUtils.renameFile(srcPath, dstPath);
+                        jsb.fileUtils.renameFile(srcPath, dstPath);
                     }
                 })
-                cc.fileUtils.removeDirectory(tempPath);
+                jsb.fileUtils.removeDirectory(tempPath);
             }
         }
     }

@@ -19,8 +19,8 @@ Effect name is automatically generated based on the **filename** and **path** of
 Effect names can be directly used at runtime to acquire/use the `EffectAsset`:
 
 ```js
-const effect = cc.EffectAsset.get('builtin-unlit'); // this is the EffectAsset resource instance
-const mat = new cc.Material();
+const effect = EffectAsset.get('builtin-unlit'); // this is the EffectAsset resource instance
+const mat = new Material();
 mat.initialize({ effectName: 'builtin-standard' }); // now `mat` is a valid standard material
 ```
 
@@ -38,13 +38,13 @@ The shader entries are the only required fields, namely `vert` and `frag`, in th
 
 Normally the `main` function shouldn't be specified in shader, for version-specific wrappers will be inserted at compile-time.
 
-assigning the return value of the specified function to the ouput of current shader stage. (`gl_Position` or the final output color).
+assigning the return value of the specified function to the output of current shader stage. (`gl_Position` or the final output color).
 
 You can find all of the optional parameters in the [pass parameter list](pass-parameter-list.md) documentation.
 
 ## Shader Chunks
 
-Syntactically shader chunks are a superset of GLSL, all the extended features will be processed immediately at resource compile-time. It can either be written inside the `CCProgram` block in `.effect` file, or directly in a seperate `.chunk` file.
+Syntactically shader chunks are a superset of GLSL, all the extended features will be processed immediately at resource compile-time. It can either be written inside the `CCProgram` block in `.effect` file, or directly in a separate `.chunk` file.
 
 We recommend limiting the syntax within GLSL version 300 ES range to maintain best portability, although you can always write your own porting using GLSL built-in macro `__VERSION__`.
 
@@ -75,7 +75,7 @@ Relevant details:
 
 Currently the effect system tends to take advantage of the language built-in pre-processing macros to create shader variants. The effect compiler will collect the macros that appear in shaders, and declarations will be inserted accordingly at runtime.
 
-For the most part, use them without thinking about the effect compiler, while material inspector will automatically integrate both macros and shader properties into a natual editting interface.
+For the most part, use them without thinking about the effect compiler, while material inspector will automatically integrate both macros and shader properties into a natural editing interface.
 
 Relevant details:
 - To type check as many branches as possible at effect compile-time, the strategy currently taken is to set all macros to `1` (or its given default value) before doing the actual check; so make sure this combination works (or if not, maybe you need numerical macros, specified in the next section).
@@ -147,7 +147,7 @@ INCI(b); // correct, b would be 9 after this
 INCI(a); // wrong! a would still be 4
 ```
 
-### Vertex Input<sup id="a1">[1](#f1)</sup>
+### Vertex Input[^1]
 
 To encapsulate in-shader data pre-processing like data decompression and vertex skinning, utility function `CCVertInput` is provided.
 
@@ -196,7 +196,7 @@ vec4 vert () {
 
 You can find the complete built-in shader uniform list [in this](builtin-shader-uniforms.md) documentation.
 
-### Fragment Ouput<sup id="a1">[1](#f1)</sup>
+### Fragment Output[^1]
 
 To encapsulate render pipeline complexities, use `CCFragOutput`.
 
@@ -228,13 +228,13 @@ vec4 frag () {
 }
 ```
 
-Under the framework writing your own surface shader or even shading algorithm becomes staightforward.
+Under the framework writing your own surface shader or even shading algorithm becomes straightforward.
 
-> **Note**: the `CCFragOutput` function should not be overriden, unless using custom render pipelines.
+> **Note**: the `CCFragOutput` function should not be overridden, unless using custom render pipelines.
 
 ### Custom Instancing Attribute
 
-Dynamic instancing is a very flexible batching framework, whcih allows user-defined instanced properties on top of the built-in ones. If you want to define them in shader, all the related processing code need to be wrapped inside the agreed upon macro `USE_INSTANCING`:
+Dynamic instancing is a very flexible batching framework, which allows user-defined instanced properties on top of the built-in ones. If you want to define them in shader, all the related processing code need to be wrapped inside the agreed upon macro `USE_INSTANCING`:
 
 ```glsl
 #if USE_INSTANCING // when instancing is enabled
@@ -244,8 +244,8 @@ Dynamic instancing is a very flexible batching framework, whcih allows user-defi
 ```
 
 > **Notes**:
-> 1. The actual data format can be specified using compiler hint `format` tag, which accepts a single parameter in the form of `GFXFormat` enum name<sup id="a2">[2](#f2)</sup>. 32-bytes float type will be assumed if the tag is omitted.
-> 2. All instanced properties are input attributes of the vertex shader, so if some property is needed in fragment shader, you need to pass it as varyings;
+> 1. The actual data format can be specified using compiler hint `format` tag, which accepts a single parameter in the form of `GFXFormat` enum name[^2]. 32-bytes float type will be assumed if the tag is omitted.
+> 2. All instanced properties are input attributes of the vertex shader, so if some property is needed in fragment shader, you need to pass it as variables.
 > 3. Make sure the code works for all branches, regardless of the actual state of `USE_INSTANCING`.
 
 The instanced property value will be initialized to all zeros by default. Use the `setInstancedAttribute` on `MeshRenderer` to assign new values:
@@ -283,9 +283,9 @@ The effect compiler will finally split these compile-time constant branches into
 
 First the conclusion, the final rules are, every non-sampler uniform should be specified in UBO blocks, and for every UBO block:
 
-  1. There should be no vec3 typed members.
-  2. For array typed members, size of each element should be no less than a vec4.
-  3. Any member ordering that introduces a padding will be rejected.
+1. There should be no vec3 typed members.
+2. For array typed members, size of each element should be no less than a vec4.
+3. Any member ordering that introduces a padding will be rejected.
 
 These rules will be checked rigorously at effect compile-time and throws detailed, implicit padding related compile error.
 
@@ -293,7 +293,7 @@ This might sound overly-strict at first, but it's for a few good reasons:
 
 __First__, UBO is a much better basic unit to efficiently reuse data, so discrete declaration is no longer an option.
 
-__Second__, currently many platforms, including WebGL 2.0 only support one platform-independent memory layout, namely **std140**, and it has many restrictions<sup id="a3">[3](#f3)</sup>:
+__Second__, currently many platforms, including WebGL 2.0 only support one platform-independent memory layout, namely **std140**, and it has many restrictions[^3]:
 
 - All vec3 members will be aligned to vec4
 
@@ -311,7 +311,7 @@ __Second__, currently many platforms, including WebGL 2.0 only support one platf
   }; // total of 64 bytes
   ```
 
-- All UBO members are aligned to the size of itself<sup id="a4">[4](#f4)</sup>:
+- All UBO members are aligned to the size of itself[^4]:
 
   ```glsl
   uniform IncorrectUBOOrder {
@@ -327,12 +327,12 @@ __Second__, currently many platforms, including WebGL 2.0 only support one platf
   }; // total of 16 bytes
   ```
 
-This means lots of wasted space, and some driver implementation might not completely conform to the standard<sup id="a5">[5](#f5)</sup>, hence all the strict checking procedure help to clear some pretty insidious bugs.
+This means lots of wasted space, and some driver implementation might not completely conform to the standard[^5], hence all the strict checking procedure help to clear some pretty insidious bugs.
 
-> **Note**: the actual uniform type can differ from the public interfaces the effect exposes to artists and runtime properties. Through the [property target](pass-parameter-list.md#Properties) system, every single channel can be manipulated independently, without restriction of the original uniform.
+**The actual uniform type can differ from the public interfaces the effect exposes to artists and runtime properties. Through the [property target](pass-parameter-list.md#Properties) system, every single channel can be manipulated independently, without restriction of the original uniform.**
 
-<b id="f1">[1]</b> Shaders for systems with procedurally generated mesh, like particles, sprites, post-effects, etc. may handle things a bit differently [↩](#a1)<br>
-<b id="f2">[2]</b> Integer-typed attributes are not supported on WebGL 1.0 platform, so use the default float type if targeting this platform [↩](#a2)<br>
-<b id="f3">[3]</b> [OpenGL 4.5, Section 7.6.2.2, page 137](http://www.opengl.org/registry/doc/glspec45.core.pdf#page=159) [↩](#a3)<br>
-<b id="f4">[4]</b> In the example code, UBO `IncorrectUBOOrder` has a total size 32. Actually this is still a platform-dependent data, due to what it seems like an oversight in the GLSL specification. More discussions can be found [here](https://bugs.chromium.org/p/chromium/issues/detail?id=988988) [↩](#a4)<br>
-<b id="f5">[5]</b> [Interface Block - OpenGL Wiki](https://www.khronos.org/opengl/wiki/Interface_Block_(GLSL)#Memory_layout) [↩](#a5)
+[^1]: Shaders for systems with procedurally generated mesh, like particles, sprites, post-effects, etc. may handle things a bit differently.
+[^2]: Integer-typed attributes are not supported on WebGL 1.0 platform, so use the default float type if targeting this platform.
+[^3]: [OpenGL 4.5, Section 7.6.2.2, page 137](http://www.opengl.org/registry/doc/glspec45.core.pdf#page=159)
+[^4]: In the example code, UBO `IncorrectUBOOrder` has a total size 32. Actually this is still a platform-dependent data, due to what it seems like an oversight in the GLSL specification. More discussions can be found [here](https://bugs.chromium.org/p/chromium/issues/detail?id=988988).
+[^5]: **Interface Block - OpenGL Wiki**: <https://www.khronos.org/opengl/wiki/Interface_Block_(GLSL)#Memory_layout>

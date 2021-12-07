@@ -82,8 +82,8 @@ This option is mainly used to perform preview run build projects, project config
 | :--- | :--- |
 | Project Settings | Opens [Project Settings](../project/index.md) panel to set the relevant configuration options for a specific project. |
 | Lightmapping | Opens the [Lightmapping](../../concepts/scene/light/lightmap.md) panel to configure the baking properties for generating light maps. |
-| Play on Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>) | Click on this option to preview the project in the selected browser/simulator/preview window, for details please refer to the [Project Preview & Debugging](../preview/index.md) documentation. |
-| Refresh Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) | Refreshes the opened preview window. |
+| Play on Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>) | Click on this option to preview the project in the selected browser/simulator window, for details please refer to the [Project Preview & Debugging](../preview/index.md) documentation. |
+| Refresh Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) | Refreshes the opened browser preview window. |
 | Create Preview Template | This option is used to customize the desired preview effect, please refer to the [Web Preview Customization Workflow](../preview/browser.md) documentation for details. |
 | Build (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>) | Opens the [Build](../publish/index.md) panel to package the game to the target platform. |
 | Create Build Template | This option is used to customize the Build panel of the project, please refer to the [Custom Project Build Process](../publish/custom-project-build-template.md) documentation for details. |
@@ -136,7 +136,8 @@ This option contains mainly development-related menu functions such as scripts, 
 | Export.d.ts | Exports editor-related APIs. |
 | Reload (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>R</kbd>) | Reload the editor interface. |
 | UI Components | Opens the UI Components panel, which lists how to use the pre-defined UI components provided within the editor, please refer to [UI Components](../extension/ui.md). |
-| VS Code Workflow | The working environment-related features of the VS Code editor, currently supporting **Add Chrome debug configuration** and **Add compile task**. |
+| Cache | The **clear code cache** in this option is used to clear the cache generated when compiling scripts. |
+| VS Code Workflow | The working environment-related features of the VS Code editor, currently supporting **Add Chrome Debug Setting** and **Add Compile Task**. Please refer to the [Coding Environment Setup](../../scripting/coding-setup.md) documentation for details. |
 | Toggle DevTools (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>) | Opens DevTools window for editor interface extension development. It is also possible to customize the log output to **Console**, please refer to [Custom output messages](../console/index.md#custom-output-messages). |
 | Open Assets DevTools | Opens the Assets DevTool panel for viewing log messages during modifications to the asset-db process. |
 | Open Scene DevTools | Opens the Scene DevTool panel to view log messages during modifications to the scene. |

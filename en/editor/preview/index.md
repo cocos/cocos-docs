@@ -8,7 +8,7 @@ At any time during game development we can click the **Preview** button at the t
 
 ![select-platform](index/select-platform.png)
 
-- The left drop-down menu allows selecting the platform for previewing, currently **Browser**, **GameView** and **Simulator** are supported.
+- The left drop-down menu allows selecting the platform for previewing, currently **Browser** and **Simulator** are supported.
 - ![play](index/play.png): preview button, click it to run the preview
 - On the right side of the **Preview** button you can select the scene to preview, the dropdown box will list all the scenes in the project, by default **Current scene** is used.
 
@@ -47,6 +47,7 @@ Taking Google Chrome as an example, click **Developer -> Toggle DevTools** in th
 
 To learn how to use DevTools for debugging, read the [Chrome DevTools User Guide](https://developers.google.com/web/tools/chrome-devtools), or the DevTools help for other browsers.
 
+<!--
 ### GameView
 
 Selecting to use the **GameView** preview opens a separate game preview window. The **GameView** is a game view feature embedded in the editor that allows running the game in the editor without opening the browser/simulator. The advantage of this is that the running game can be adjusted in real time by other extensions in the editor or Gizmo, such as the model and the running state of the game, so that what you see is what you get when the game is running.
@@ -62,6 +63,7 @@ After opening the **GameView**, you can see that the toolbar at the top of the e
 **GameView** The buttons in the top toolbar function similarly to the browser's, except that the scale size of the custom preview window is configured manually in the pop-up window by setting it to **Custom**.
 
 ![custom](index/custom.png)
+-->
 
 ### Simulator
 
