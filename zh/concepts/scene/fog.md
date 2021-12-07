@@ -8,21 +8,32 @@
 
 ## 精确雾化计算
 
-默认使用的是基于顶点的雾化计算，这在顶点数较少而体积较大的物体上会有异常的雾化过渡效果。在v3.4及之后的版本增加了accurate选项，打开它可以解决此问题。
+Creator 默认使用的是基于顶点的雾化计算，这在顶点数较少而体积较大的物体上会出现异常的雾化过渡效果。因此从 v3.4 开始，Creator 增加了 **accurate** 选项用于解决该问题。
 
 以下是对比图：
 
-关精确雾化
+不勾选 accurate 选项，即未开启精确雾化的效果如下：
+
 ![image](./fog/accuracy_off.png)
 
-开精确雾化
+勾选 accurate 选项，开启精确雾化的效果如下：
+
 ![image](./fog/accuracy_on.png)
 
-### Effect迁移
+### 版本升级 — Effect 迁移
 
-Effect代码需要修改**所有调用CC_APPLY_FOG的地方, 增加第二个参数worldPos**，例如：
-- 原代码：finalColor = CC_APPLY_FOG(finalColor);
-- 要改成：finalColor = CC_APPLY_FOG(finalColor, v_position.xyz);
+当旧项目升级到 v3.4 时，Effect 代码需要修改 **所有调用到 `CC_APPLY_FOG` 的地方，并增加第二个参数 `worldPos`**，例如：
+
+- 原代码如下：
+
+    ```ts
+    finalColor = CC_APPLY_FOG(finalColor);
+    ```
+- 升级后需要改成：
+
+    ```
+    finalColor = CC_APPLY_FOG(finalColor, v_position.xyz);
+    ```
 
 ## 全局雾类型
 

@@ -77,26 +77,26 @@ skybox 组件属性如下：
 
 如果要使用 CubeMap（立方体贴图）作为天空盒的环境贴图，需要将 CubeMap 拖拽到 skybox 组件的 **Envmap** 属性框中。
 
-注意，更换立方体贴图后会自动计算环境光照信息，ambient面板及漫反射卷积图的数据会随之改变。
+> **注意**：更换立方体贴图后 Creator 会自动计算环境光照信息，ambient 面板及漫反射卷积图的数据也会随之改变。
 
-支持的格式如下：
-1. Cube Cross
+支持的 CubeMap 贴图格式如下：
+1. Cube Cross 图片
 
-2. Spherical经纬度图（png或hdr）
+2. PNG 或 HDR 格式的图片
 
-3. 手动创建的Cubemap
+3. 图片文件形式的 CubeMap
 
     ![CubeMap](skybox/cubemap-show.png)
 
-## 使用IBL
+## 使用 IBL
 
-可通过Use IBL选项来对场景中的物体开启或禁用天空盒产生的环境照明。
+若勾选 **Use IBL** 选项，则场景中的物体使用的是天空盒产生的环境照明。同时，也可以开启场景物体的镜面反射照明和高级漫反射照明。
 
-禁用IBL的情况下只能使用半球光方式的漫反射照明，允许此选项可以开启场景物体的镜面反射照明和高级的漫反射照明。
+若禁用 **Use IBL** 选项，则场景中的物体只能使用半球光方式的漫反射照明。
 
 ### 高级漫反射照明
 
-当环境贴图更改时，会自动计算对应的漫反射光照（仅支持图片格式的CubeMap，不支持手动制作的CubeMap）
+当环境贴图更改时，会自动计算对应的漫反射光照（仅支持图片格式的 CubeMap，不包括手动制作的 CubeMap）
 
 支持两种方式的环境漫反射照明：
 1. 半球光：即 **Ambient** 面板中的 **SkyLightingColor** 和 **GroundAlbedoColor** ，该方式渲染性能更高，但是细节度不够，照明方向性差。 **可手动调节，但可能会和环境贴图变得不统一** 。
@@ -111,9 +111,12 @@ skybox 组件属性如下：
 以下是对比图
 
 半球光：
-    ![DiffuseMap](skybox/hemisphere-lighting.png)
+
+![DiffuseMap](skybox/hemisphere-lighting.png)
+
 卷积图：
-    ![DiffuseMap](skybox/diffusemap.png)
+
+![DiffuseMap](skybox/diffusemap.png)
 
 ## 切换HDR和LDR模式
 
