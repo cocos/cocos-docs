@@ -4,7 +4,7 @@
 
 __Cocos Creator 3.0__ integrates all the functions of the original __2D__ and __3D__ products, brings many major updates, and will become the main version of __Cocos Creator__. At the same time, 3.0 also continues __Cocos's__ advantages of light weight and high efficiency in 2D categories, and provides an efficient development experience for 3D heavy games.
 
-In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, Creator v2.4 will be used as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore:
+In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, Cocos Creator 2.4 will be used as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore:
 
 - **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
 
@@ -236,7 +236,7 @@ In v3.0, there are continued improvements to the design of the material system a
 
 - **Dynamic Loading**:
 
-    When using `bundle.load` or `resources.load` to dynamically load a `sprite-frame` or `texture` in v3.0, the path needs to be specified to a specific sub-resource:
+    When using `bundle.load` or `resources.load` to dynamically load a `sprite-frame` or `texture` in v3.0, the path needs to be specified to a specific sub-asset:
 
     ```ts
     // Load texture
@@ -409,7 +409,7 @@ Notice from the above two figures, there is a big difference between v2.4.3 and 
 
     ![image](v3-build-native.png)
 
-5. Some resources needed for compilation, such as application icons, application startup scripts, etc., v2.4.3 are stored in the build project, while v3.0 are stored in the `native/engine/name of the currently built platform` directory (e.g.: `native/engine/win32`, `native/engine/android`).
+5. Some assets needed for compilation, such as application icons, application startup scripts, etc., v2.4.3 are stored in the build project, while v3.0 are stored in the `native/engine/name of the currently built platform` directory (e.g.: `native/engine/win32`, `native/engine/android`).
 
 ## Upgrade FAQ
 
@@ -427,7 +427,7 @@ Cocos Creator 3.x removes the `Action` action system and uses the `Tween` tweeni
 
 ### Modifying `size` and `anchor` of 2D nodes does not work
 
-Obtain the UITransform component on the node first, and then use the corresponding interface, e.g.
+Obtain the UITransform component on the node first, and then use the corresponding interface, e.g.:
 
 ```typescript
 const uiTrans = node.getComponent(UITransform)! ;
@@ -437,7 +437,7 @@ uiTrans.setContentSize(size);
 
 ### Modifying the `color` of a 2D node does not work
 
-Obtain the rendering component on the node (e.g. Sprite component) first, and then use the corresponding interface, e.g.
+Obtain the rendering component on the node (e.g. Sprite component) first, and then use the corresponding interface, e.g.:
 
 ```typescript
 const uiColor = node.getComponent(Sprite)! ;
@@ -489,10 +489,13 @@ let collider = this.getComponent(Collider2D);
 if (collider) {
     // Called only once when two colliding bodies start to make contact
     collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
+
     // Called only once when two colliders end contact
     collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
+
     // Called each time the collider contact logic is about to be handled
     collider.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
+
     // Called each time the collider contact logic is finished
     collider.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
     }
