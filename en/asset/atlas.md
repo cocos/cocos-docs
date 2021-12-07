@@ -8,8 +8,8 @@ __Atlas__, also called a __Sprite Sheet__, is a common art asset in game develop
 
 In a game, using an __Atlas__ composed of multiple pictures as art assets has the following advantages:
 
-  - The blank area around each picture will be removed when synthesizing the __Atlas__, plus various optimization algorithms can be implemented as a whole. After synthesizing the __Atlas__, the game package and memory consumption can be greatly reduced.
-  - When multiple __Sprites__ are rendering pictures from the same atlas, these __Sprites__ can be processed using the same rendering batch, which greatly reduces the CPU's computing time and improves operating efficiency.
+- The blank area around each picture will be removed when synthesizing the __Atlas__, plus various optimization algorithms can be implemented as a whole. After synthesizing the __Atlas__, the game package and memory consumption can be greatly reduced.
+- When multiple __Sprites__ are rendering pictures from the same atlas, these __Sprites__ can be processed using the same rendering batch, which greatly reduces the CPU's computing time and improves operating efficiency.
 
 For a more comprehensive explanation, watch a teaching video: [__What is a Sprite Sheet__](https://www.codeandweb.com/what-is-a-sprite-sheet) from __CodeAndWeb__.
 

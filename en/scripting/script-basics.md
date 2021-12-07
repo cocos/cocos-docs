@@ -3,6 +3,7 @@
 This section introduces some basic concepts, creation methods, running environments, etc. of scripts:
 
 - [Creating scripts](./setup.md)
+- [Coding Environment Setup](./coding-setup.md)
 - [Operating Environment](./basic.md)
 - [Decorator](./decorator.md)
 - [Property Attributes](./reference/attributes.md)

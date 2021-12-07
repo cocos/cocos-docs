@@ -10,6 +10,6 @@ It is strongly discouraged from providing controls outside of this area. But the
 
 ![Renderings](./safearea/renderings.png)
 
-The developer only needs to add the component on the node, without any settings. This component internally uses the API cc.sys.getSafeAreaRect(); to obtain the safe area of the current iOS or Android device and implements the adaptation by using the Widget component and set anchor. (If there is no Widget component, it will be added automatically)
+The developer only needs to add the component on the node, without any settings. This component internally uses the API [sys.getSafeAreaRect()](__APIDOC__/en/#/docs/3.3/en/core/ObjectLiteral/sys?id=getsafearearect) to obtain the safe area of the current iOS or Android device and implements the adaptation by using the Widget component and set anchor. (If there is no Widget component, it will be added automatically)
 
 Please refer to the [SafeArea API](__APIDOC__/en/#/docs/3.3/en/ui/Class/SafeArea).

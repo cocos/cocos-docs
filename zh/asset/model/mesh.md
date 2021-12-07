@@ -24,7 +24,7 @@
     - `.texture` — 模型贴图文件
     - `.animation` — 模型动画文件
     - `.skeleton` — 模型骨骼文件
-    - `.prefab` — 导入时自动生成的预制体文件
+    - `.prefab` — 导入时自动生成的预制件
 
 ### Mesh 文件
 

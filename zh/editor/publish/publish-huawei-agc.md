@@ -54,7 +54,7 @@ Creator 支持直接将构建编译生成的 APK 上传到 AppGallery Connect �
 
     - **OAuth**
 
-        OAuth 登录方式只需要在点击 **确认上传** 的时候，根据提示登录 HUAWEI 账号（账号需要有足够的 [权限](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-team_account_mgt#appendix)），然后勾选对应权限的允许框，窗口会自动关闭并自动上传 APK。
+        OAuth 登录方式只需要在点击 **确认上传** 的时候，根据提示登录 HUAWEI 账号（账号需要有足够的 [权限](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agcapi-getstarted-0000001111845114#section797720532313)），然后勾选对应权限的允许框，窗口会自动关闭并自动上传 APK。
 
         ![upload-oauth](./publish-huawei-agc/upload-oauth.png)
 
@@ -64,7 +64,7 @@ Creator 支持直接将构建编译生成的 APK 上传到 AppGallery Connect �
 
           ![upload-api](./publish-huawei-agc/upload-api.png)
 
-        - 选择 **用户与访问 -> Connect API -> 创建**，创建一个 API 客户端，并根据需要选择 [权限](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-team_account_mgt#appendix)，然后点击 **确认**。
+        - 选择 **用户与访问 -> Connect API -> 创建**，创建一个 API 客户端，并根据需要选择 [权限](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-rolepermission-0000001155345429)，然后点击 **确认**。
 
           ![create-api-key](./publish-huawei-agc/create-api-key.png)
 

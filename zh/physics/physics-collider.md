@@ -9,15 +9,15 @@ Cocos Creator 目前支持两种语言进行开发，分别为 __JavaScript__ �
 以获取 __BoxCollider__ 组件为例：
 
 ```ts
-this.getComponent('cc.BoxCollider')
+this.getComponent('BoxCollider')
 
 // Or
 
 import { BoxCollider } from 'cc'
-this.getComponent(BoxCollider) //推荐使用
+this.getComponent(BoxCollider) // 推荐使用
 ```
 
-> **注**：若无智能导入提示，请检查工作目录是不是在工程的顶层，以及是否使用较新的 VSCode 编辑器。
+> **注**：若无智能导入提示，请参考 [代码编辑环境配置](../scripting/coding-setup.md)。
 
 ## 碰撞器和触发器
 

@@ -80,11 +80,11 @@ Widget component is generally used to locate the position of each element when t
 
 ![alignOnce](widget-align/align-once.png)
 
-If **AlignMode** is set to **ONCE**, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false`, disabling the Widget component to disable the automatically update for subsequent every frame.
+If **AlignMode** is set to **ONCE** or **ON_WINDOW_RESIZE**, and the alignment is performed once when the component is initialized, the engine will automatically set the `enabled` property of the Widget component to `false`, disabling the Widget component to disable the automatically update for subsequent every frame.
 
 If the alignment needs to be changed at runtime, manually set the **AlignMode** mode to **ALWAYS**, or manually traverse the Widgets that need to be aligned and set their `enabled` property to `true` when the alignment needs to be updated each frame at runtime.
 
-For a scene with many UI elements, ensuring that the **AlignMode** property of the Widget component is set to **ONCE**, which can significantly improve the running performance of the scene.
+For a scene with many UI elements, ensuring that the **AlignMode** property of the Widget component is set to **ON_WINDOW_RESIZE**, which can significantly improve the running performance of the scene.
 
 ## Limitation on the position and size of node
 

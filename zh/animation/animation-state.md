@@ -12,16 +12,16 @@
 // 获取动画组件
 const animationComponent = node.getComponent(Animation);
 // 获取动画组件上的动画剪辑
-animationComponent.clips = [ idleClip, runClip ];
+const [ idleClip, runClip ] = animationComponent.clips;
 
-// 获取 `idleClip` 的动画状态
+// 获取 idleClip 的动画状态
 const idleState = animationComponent.getState(idleClip.name);
 ```
 
 然后设置动画播放的速度：
 
 ```ts
-// 以二倍速播放 `idleClip` 动画
+// 以二倍速播放 idleClip 动画
 animationComponent.getState('idle').speed = 2.0; // speed 值越大速度越快，值越小则速度越慢
 ```
 

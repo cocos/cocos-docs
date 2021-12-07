@@ -58,7 +58,7 @@ This method uses the same API that editor uses to add an event callback on Butto
 import { _decorator, Component, WebView } from 'cc';
 const { ccclass, type } = _decorator;
 
-@ccclass('cc.MyComponent')
+@ccclass('MyComponent')
 export class MyComponent extends Component {
     @type(WebView)
     webview = null;
@@ -196,9 +196,6 @@ Due to limitations of the Web platform, it can not be implemented by this mechan
 </body>
 <script>
     function onClick () {
-        // The parent here is actually the window of the WebView layer,
-        // so that you can access the function defined in CC
-        parent.cc.TestCode();
         // If TestCode is defined on window, then
         parent.TestCode();
     }

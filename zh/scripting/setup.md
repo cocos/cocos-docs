@@ -23,12 +23,12 @@ const { ccclass, property } = _decorator;
  * Predefined variables given by default, for some project management needs.
  * 
  * Name = SayHello
- * DateTime = Thu Jul 29 2021 15:19:02 GMT+0800 (China Standard Time)
- * Author = <%Author%> //若未登录则该字段为空
+ * DateTime = Thu Jul 29 2021 15:19:02 GMT+0800 (中国标准时间)
+ * Author = <%Author%> // 若未登录则该字段为空
  * FileBasename = say-hello.ts
  * FileBasenameNoExtension = say-hello
  * URL = db://assets/say-hello.ts
- * ManualUrl = https://docs.cocos.com/creator/3.3/manual/en/
+ * ManualUrl = https://docs.cocos.com/creator/3.3/manual/zh/
  *
  */
  
@@ -56,9 +56,9 @@ export class SayHello extends Component {
  * [3] Your initialization goes here.
  * [4] Your update function goes here.
  *
- * Learn more about scripting: https://docs.cocos.com/creator/3.3/manual/en/scripting/
- * Learn more about CCClass: https://docs.cocos.com/creator/3.3/manual/en/scripting/ccclass.html
- * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.3/manual/en/scripting/life-cycle-callbacks.html
+ * Learn more about scripting: https://docs.cocos.com/creator/3.3/manual/zh/scripting/
+ * Learn more about CCClass: https://docs.cocos.com/creator/3.3/manual/zh/scripting/ccclass.html
+ * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.3/manual/zh/scripting/life-cycle-callbacks.html
  */
 ```
 
@@ -72,7 +72,10 @@ export class SayHello extends Component {
 
 然后双击脚本资源，可以直接打开脚本编辑器进行编辑。编辑完脚本并保存，然后返回编辑器，Cocos Creator 会自动检测到脚本的改动，并迅速编译。
 
-在代码编写之前，请先阅读 [脚本基础](basic.md) 了解更多关于脚本的内容。
+在代码编写之前，可先阅读以下文档了解更多关于脚本的内容：
+
+- [配置代码编辑环境](coding-setup.md)
+- [脚本基础](basic.md)
 
 ## 添加脚本到场景节点中
 
@@ -98,7 +101,7 @@ export class SayHello extends Component {
 之后如果有对脚本文件名/脚本类名进行二次修改，这两者之间并不会自动同步，如果需要的话，可以手动同步。<br>
 以上文中的 `say-hello.ts` 为例，若我们在 **资源管理器** 中将其重命名为 `hello`，可以看到 **属性检查器** 中的脚本组件名还是原来的 **SayHello**，只有脚本名称变成了 `hello`：
 
-![change-script name](setup/change-scriptname.png)
+![change script name](setup/change-scriptname.png)
 
 若我们双击打开 `say-hello.ts`，将类名改为 **Hello**：
 

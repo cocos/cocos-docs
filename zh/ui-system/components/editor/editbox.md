@@ -75,23 +75,23 @@ export class example extends Component {
     }
 
     onEditDidBegan(editbox, customEventData) {
-        // 这里 editbox 是一个 cc.EditBox 对象
+        // 这里 editbox 是一个 EditBox 对象
         // 这里的 customEventData 参数就等于你之前设置的 "foobar"
     }
     // 假设这个回调是给 editingDidEnded 事件的
     onEditDidEnded(editbox, customEventData) {
-        // 这里 editbox 是一个 cc.EditBox 对象
+        // 这里 editbox 是一个 EditBox 对象
         // 这里的 customEventData 参数就等于你之前设置的 "foobar"
     }
     // 假设这个回调是给 textChanged 事件的
     onTextChanged(text, editbox, customEventData) {
         // 这里的 text 表示修改完后的 EditBox 的文本内容
-        // 这里 editbox 是一个 cc.EditBox 对象
+        // 这里 editbox 是一个 EditBox 对象
         // 这里的 customEventData 参数就等于你之前设置的 "foobar"
     }
     // 假设这个回调是给 editingReturn 事件的
     onEditingReturn(editbox, customEventData) {
-        // 这里 editbox 是一个 cc.EditBox 对象
+        // 这里 editbox 是一个 EditBox 对象
         // 这里的 customEventData 参数就等于你之前设置的 "foobar"
     }
 }
