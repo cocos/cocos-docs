@@ -6,6 +6,35 @@
 
 ![image](./fog/enable-fog.png)
 
+## 精确雾化计算
+
+Creator 默认使用的是基于顶点的雾化计算，这在顶点数较少而体积较大的物体上会出现异常的雾化过渡效果。因此从 v3.4 开始，Creator 增加了 **accurate** 选项用于解决该问题。
+
+以下是对比图：
+
+不勾选 accurate 选项，即未开启精确雾化的效果如下：
+
+![image](./fog/accuracy_off.png)
+
+勾选 accurate 选项，开启精确雾化的效果如下：
+
+![image](./fog/accuracy_on.png)
+
+### 版本升级 — Effect 迁移
+
+当旧项目升级到 v3.4 时，Effect 代码需要修改 **所有调用到 `CC_APPLY_FOG` 的地方，并增加第二个参数 `worldPos`**，例如：
+
+- 原代码如下：
+
+    ```ts
+    finalColor = CC_APPLY_FOG(finalColor);
+    ```
+- 升级后需要改成：
+
+    ```
+    finalColor = CC_APPLY_FOG(finalColor, v_position.xyz);
+    ```
+
 ## 全局雾类型
 
 全局雾雾化类型取决于 **相机** 与 **模型顶点** 的计算结果，这个计算结果称为 **雾化混合因子**。雾化混合因子决定了雾化颜色和模型颜色的混合方式，最终展现出来的不同的全局雾效果。目前包括 **LINEAR**、**EXP**、**EXP_SQUARED**、**LAYERED** 四种雾化类型。
@@ -46,18 +75,19 @@ Linear Fog 的雾化混合因子计算公式为：
 | **Enabled**    | 是否开启全局雾   |
 | **FogColor**   | 设置全局雾的颜色 |
 | **Type**       | 全局雾的雾化类型 |
+| **FogStart** | 雾效影响的起始位置 |
 | **FogDensity** | 雾化浓度，取值范围为 0 ~ 1 |
 | **FogAtten**   | 雾化衰减系数     |
 
 Exponential Fog 的雾化混合因子计算公式为：
 
-**f = e^(-distance * fogDensity)**
+**f = e^(-max(0, distance-fogStart) * fogDensity)**
 
 Exponential Squared Fog 的雾化混合因子计算公式为：
 
-**f = e^(-distance * fogDensity)²**
+**f = e^(-max(0, distance-fogStart) * fogDensity)²**
 
-开发者可以通过 `FogDensity` 和 `FogAtten` 来调整全局雾在不同位置的浓度。
+开发者可以通过 `FogStart` 来调整雾在远近的分布，通过 `FogDensity` 和 `FogAtten` 来调整全局雾在不同位置的浓度。
 
 Exponential Fog 的示例效果图如下：
 
