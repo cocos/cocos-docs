@@ -106,7 +106,8 @@ skybox 组件属性如下：
 **需要开启Use IBL才会出现Apply DiffuseMap选项**。
 
 通过 **Apply DiffuseMap** 选项可在两种照明方式之间选择。
-    ![DiffuseMap](skybox/diffusemap-prop.png)
+
+![DiffuseMap](skybox/diffusemap-prop.png)
 
 以下是对比图
 
