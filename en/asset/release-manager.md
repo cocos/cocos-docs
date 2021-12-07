@@ -10,7 +10,7 @@ Releasing a resource will destroy all internal properties of the resource, such 
 
 **First and most important: Resources depends on each other.**
 
-For example, in the following graph, the Prefab resource contains the Sprite component, the Sprite component depends on the SpriteFrame, the SpriteFrame resource depends on the Texture resource, then the Prefab, SpriteFrame, and Texture resources are all cached by the asset manager. The advantage of doing so is that there may be another SpriteAtlas resource that depends on the same SpriteFrame and Texture, then when you manually load the SpriteAtlas, asset manager do not need to request the existing SpriteFrame and Texture again it will use the cache directly.
+For example, in the following graph, the Prefab resource contains the Sprite component, the Sprite component depends on the SpriteFrame, the SpriteFrame resource depends on the Texture resource, then the Prefab, SpriteFrame, and Texture resources are all cached by the `assetManager`. The advantage of doing so is that there may be another SpriteAtlas resource that depends on the same SpriteFrame and Texture, then when you manually load the SpriteAtlas, `assetManager` do not need to request the existing SpriteFrame and Texture again it will use the cache directly.
 
 ![asset-dep](load-assets/asset-dep.png)
 
@@ -112,7 +112,7 @@ When you do not make any settings for a resource in the editor, but instead dyna
 If you are using dynamically loaded resources in your project for dynamic referencing, for example:
 
 ```typescript
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     self.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```
@@ -120,7 +120,7 @@ resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
 At this point, the SpriteFrame resource is set to the Sprite component and the engine does not do anything special, the reference count of the SpriteFrame remains 0. If the dynamically loaded resources need to be referenced, held, or reused over time, it is recommended to use the `addRef` interface to manually increase the reference count. For example:
 
 ```typescript
-resources.load('images/background', SpriteFrame, function (err, spriteFrame) {
+resources.load('images/background/spriteFrame', SpriteFrame, function (err, spriteFrame) {
     self.getComponent(Sprite).spriteFrame = spriteFrame;
     spriteFrame.addRef();
 });

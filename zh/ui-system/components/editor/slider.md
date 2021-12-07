@@ -4,7 +4,7 @@ Slider 是一个滑动器组件。
 
 ![slider-inspector](slider/slider-inspector.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Slider** 即可添加 Slider 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，选择 **UI -> Slider** 即可添加 Slider 组件到节点上。也可以直接在 **层级管理器** 中点击右上角的 **+** 按钮，然后选择 **UI 组件 -> Slider** 创建一个 Slider 节点。
 
 滑动器的脚本接口请参考 [Slider API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/Slider)。
 
@@ -42,23 +42,26 @@ Slider 通常用于调节 UI 的数值（例如音量调节），它主要的部
 这种方法添加的事件回调和使用编辑器添加的事件回调是一样的，都是通过代码添加。首先需要构造一个 `EventHandler` 对象，然后设置好对应的 `target`、`component`、`handler` 和 `customEventData` 参数。
 
 ```ts
-import { _decorator, Component, Event, Node, SliderComponent, EventHandler } from 'cc';
+import { _decorator, Component, Event, Node, Slider, EventHandler } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
 export class example extends Component {
-    onLoad(){
+
+    onLoad () {
         const sliderEventHandler = new EventHandler();
-        sliderEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
-        sliderEventHandler.component = 'example';//这个是脚本类名
+        // 这个 node 节点是事件处理脚本组件所属的节点
+        sliderEventHandler.target = this.node; 
+        // 这个是脚本类名
+        sliderEventHandler.component = 'example';
         sliderEventHandler.handler = 'callback';
         sliderEventHandler.customEventData = 'foobar';
 
-        const slider = this.node.getComponent(SliderComponent);
-        slider.slideEvents.push(sliderEventHandler);
+        const slider = this.node.getComponent(Slider);
+        slider!.slideEvents.push(sliderEventHandler);
     }
 
-    callback(event: Event, customEventData: string){
+    callback(event: Event, customEventData: string) {
         //这里 event 是一个 Touch Event 对象，你可以通过 event.target 取到事件的发送节点
         // 这里的 customEventData 参数就等于之前设置的 'foobar'
     }
@@ -70,20 +73,22 @@ export class example extends Component {
 通过 `slider.node.on('slide', ...)` 的方式来添加
 
 ```ts
-// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理:
+// 假设我们在一个组件的 onLoad 方法里面添加事件处理回调，在 callback 函数中进行事件处理
 
-import { _decorator, Component, SliderComponent } from 'cc';
+import { _decorator, Component, Slider } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("example")
 export class example extends Component {
-    @property(SliderComponent)
-    slider: SliderComponent | null = null;
-    onLoad(){
-       this.slider.node.on('slider', this.callback, this);
+
+    @property(Slider)
+    slider: Slider | null = null;
+
+    onLoad () {
+       this.slider!.node.on('slide', this.callback, this);
     }
 
-    callback(slider: SliderComponent) {
+    callback(slider: Slider) {
         // 回调的参数是 slider 组件，注意这种方式注册的事件，无法传递 customEventData
     }
 }

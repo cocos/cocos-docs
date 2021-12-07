@@ -71,7 +71,7 @@ Cocos Creator 不支持 Eclipse 的 ANT 构建，需要使用 **Android Studio 4
 
 配置完成后会自动保存。
 
-> **注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：`COCOS_CONSOLE_ROOT`、`NDK_ROOT`、`ANDROID_SDK_ROOT`。
+> **注意**：这里的配置会在编译 **原生工程** 的时候生效。如果没有生效（一些 Mac 机器有可能出现这个情况），可能需要您尝试到 **系统环境变量** 设置这些值：`NDK_ROOT`、`ANDROID_SDK_ROOT`。
 
 ## 注意事项
 
@@ -79,7 +79,7 @@ Cocos Creator 不支持 Eclipse 的 ANT 构建，需要使用 **Android Studio 4
 
 1. 包名问题
 
-    检查 **构建发布** 面板中的包名，包名中只能包含数字、字母和下划线，此外包名最后一部分必须以字母开头，不能以下划线或数字开头。
+    检查 **构建发布** 面板中的包名，具体命名规范请参考相应原生平台中的 [构建选项说明](./native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)。
 
 2. Android 编译成功，但运行时提示 `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...`
 

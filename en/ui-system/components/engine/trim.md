@@ -2,6 +2,8 @@
 
 Once a texture is imported, the SpriteFrame asset generated with the texture will be trimmed automatically. Any fully transparent pixels around the image will be cropped. This will help us get the exact node size we need for Sprites.
 
+When the SpriteFrame is auto-trimmed, the auto-trimmed information in the image below is grayed out and cannot be modified:
+
 ![trim inspector](trim/trim_inspector.png)
 
 ## Trim Related Properties in Sprite Component
@@ -12,11 +14,11 @@ There are two properties related to trim setting in __Sprite__ component:
 
 - `Size Mode` Use the options in this property to set node's size to the original texture size or trimmed image size. Options are:
 
-  - `TRIMMED` Select this option will set the `size` of the node to use trimmed image size of the current SpriteFrame used by Sprite component.
+    - `TRIMMED` Select this option will set the `size` of the node to use trimmed image size of the current SpriteFrame used by Sprite component.
 
-  - `RAW` Select this option will set the size of the node to use the original texture size, including transparent pixels.
+    - `RAW` Select this option will set the size of the node to use the original texture size, including transparent pixels.
 
-  - `CUSTOM` This option make sure the size of the node will not be changed along with SpriteFrame, and should be managed by yourself. If you use the __Rect Transform Tool__ to drag and change the `size` of the node, or modify the `size` property in __Inspector__ panel, or modify the `width` or `height` in the script, the `Size Mode` property will be automatically set to `CUSTOM`.
+    - `CUSTOM` This option make sure the size of the node will not be changed along with SpriteFrame, and should be managed by yourself. If you use the __Rect Transform Tool__ to drag and change the `size` of the node, or modify the `size` property in __Inspector__ panel, or modify the `width` or `height` in the script, the `Size Mode` property will be automatically set to `CUSTOM`.
 
 The following picture shows the comparison of two size modes:
 

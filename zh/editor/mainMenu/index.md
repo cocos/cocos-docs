@@ -82,8 +82,8 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | :--- | :-- |
 | 项目设置 | 打开 [项目设置](../project/index.md) 面板，设置特定项目的相关配置项 |
 | 光照贴图 | 打开 [光照贴图](../../concepts/scene/light/lightmap.md) 面板，配置生成光照贴图的烘焙参数 |
-| 运行预览（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>） | 点击该项即可在选择的浏览器/模拟器/预览窗口中预览项目效果，详情请参考 [预览调试](../preview/index.md)|
-| 刷新预览（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>） | 刷新已经打开的预览窗口  |
+| 运行预览（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>） | 点击该项即可在选择的浏览器/模拟器中预览项目效果，详情请参考 [预览调试](../preview/index.md)|
+| 刷新预览（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>） | 刷新已经打开的浏览器预览窗口  |
 | 生成预览模板 | 该项用于自定义想要的预览效果，详情请参考 [自定义预览模板](../preview/browser.md)|
 | 构建发布（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>） | 打开 [构建发布](../publish/index.md) 面板，将游戏打包发布到目标平台上 |
 | 构建项目构建模板 |  该项用于定制项目的构建模板，详情请参考 [自定义构建模板](../publish/custom-project-build-template.md)|
@@ -135,9 +135,10 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 开关图形工具 | 开/关图形工具面板，用于调试场景渲染|
 | 消息列表 |  打开 [消息管理器](../extension/contributions-messages.md) 面板，用于显示编辑器每个功能定义的公开消息及其说明|
 | Export.d.ts |导出编辑器相关的 API |
-| 重新加载（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>R</kbd>） | 重新加载编辑器界面|
+| 重新加载（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>R</kbd>） | 重新加载编辑器界面 |
 | UI 组件 | 打开 UI 组件面板，该面板列举了编辑器内提供的预设 UI 组件的使用方式，详情请参考 [UI 组件](../extension/ui.md) |
-| VS Code Workflow | VS Code 代码编辑器的工作环境相关功能，目前支持 **添加 Chrome debug 配置** 和 **添加编译任务** |
+| 缓存 | 该项中的 **清除代码缓存** 用于清除脚本编译时产生的缓存 |
+| VS Code Workflow | VS Code 代码编辑器的工作环境相关功能，目前支持 **添加 Chrome debug 配置** 和 **添加编译任务**，详情请参考 [配置代码编辑环境](../../scripting/coding-setup.md)。 |
 | 开关开发人员工具（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>） | 开/关开发者工具窗口，用于编辑器界面扩展的开发。同时也可以自定义输出到 **控制台** 的日志，详情请参考 [自定义输出消息](../console/index.md#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E4%BF%A1%E6%81%AF)|
 | 打开资源调试工具 | 打开资源调试面板，用于查看修改 asset-db 进程期间的日志消息|
 | 打开场景调试工具 | 打开场景调试面板，用于查看修改场景时的日志消息|

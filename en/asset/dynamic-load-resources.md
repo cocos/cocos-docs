@@ -17,7 +17,7 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
 });
 ```
 
-- All resources that need to be dynamically loaded by **script** must be placed in the `resources` folder or one of its subfolders. `resources` needs to be created manually in the `assets` folder and must be located in the `assets` root directory, like this:
+- All resources that need to be dynamically loaded by **script** must be placed in the `resources` folder or one of its sub-folders. `resources` needs to be created manually in the `assets` folder and must be located in the `assets` root directory, like this:
 
   ![asset-in-properties-null](load-assets/resources-file-tree.png)
 
@@ -53,7 +53,7 @@ resources.load("test assets/image/texture", Texture2D ,(err: any, texture: Textu
 
 ### Load SpriteFrames from Atlas
 
-For an atlas imported from a third-party tool such as Texturepacker, if you want to load the SpriteFrame, you can only load the atlas first, and then get the SpriteFrame. This is a special case.
+For an atlas imported from a third-party tool such as TexturePacker, if you want to load the SpriteFrame, you can only load the atlas first, and then get the SpriteFrame. This is a special case.
 
 ```typescript
 // load SpriteAtlas, and get one of them SpriteFrame

@@ -48,7 +48,7 @@ A cube will be created and displayed in the **Scene** panel:
 
   Right click in the **Assets** panel, select **Create -> TypeScript**, and name it "HelloWorld" to create a new script in the `asset` directory of **Assets** panel.
 
-  ![creatr-typescript](index/create-typescript.png)
+  ![create-typescript](index/create-typescript.png)
 
 - Adding code
 
@@ -89,7 +89,7 @@ A cube will be created and displayed in the **Scene** panel:
 
 ## Previewing the Scene
 
-Once the simple scene setup is done, you can click the **Play on Device** button on top of the editor to preview the game. Currently, previewing is supported using **Browser/Simulator/GameView**.
+Once the simple scene setup is done, you can click the **Play on Device** button on top of the editor to preview the game. Currently, previewing is supported using **Browser/Simulator**.
 
 ![preview](index/preview.png)
 

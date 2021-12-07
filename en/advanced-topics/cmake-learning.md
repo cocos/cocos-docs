@@ -242,7 +242,7 @@ The `target` in the **find compilation headers** command above is the executable
 
 ### Linking library files
 
-The order of library files in ``target_link_libraries`` conforms to the rules of `gcc` linking order, i.e. the dependent library is placed after the library that depends on it.
+The order of library files in `target_link_libraries` conforms to the rules of `gcc` linking order, i.e. the dependent library is placed after the library that depends on it.
 
 ```CMake
 target_link_libraries(<target> [item1] [item2] [...]
@@ -275,7 +275,7 @@ For more, see the official CMake [target_link_libraries](https://cmake.org/cmake
         DESTINATION ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/)
     ```
 
-    ``COPY`` means to copy files, directories and symbolic links to a target folder. The input path is the path relative to the current source code directory. The destination path is relative to the current build directory.
+    `COPY` means to copy files, directories and symbolic links to a target folder. The input path is the path relative to the current source code directory. The destination path is relative to the current build directory.
 
 - Loading and running CMake code from a file or module
 
@@ -285,7 +285,7 @@ For more, see the official CMake [target_link_libraries](https://cmake.org/cmake
 
 ## CMakeLists Usage Examples
 
-**Android.mk** is the Makefile of Android source code compilation system, which is used to compile dynamic libraries, static libraries, executables, apk, etc. of C++ in the system. The next step is to rewrite one `Android.mk` in [Tencent Cloud Multimedia Engine SDK](https://intl.cloud.tencent.com/document/product/607/15216) to ` CMakeLists.txt` for a simple example.
+**Android.mk** is the Makefile of Android source code compilation system, which is used to compile dynamic libraries, static libraries, executables, apk, etc. of C++ in the system. The next step is to rewrite one `Android.mk` in [Tencent Cloud Multimedia Engine SDK](https://intl.cloud.tencent.com/document/product/607/15216) to `CMakeLists.txt` for a simple example.
 
 The code in `Android.mk` is as follows:
 
@@ -313,7 +313,7 @@ LOCAL_SRC_FILES := ./$(TARGET_ARCH_ABI)/libgmecodec.so
 include $(PREBUILT_SHARED_LIBRARY)
 ```
 
-Where there is a ``LOCAL_PATH`` variable indicating the location of the source file in the development tree. The macro function `my-dir` provided by the build system will return the path to the current directory (the directory where the `Android.mk` file itself is located).
+Where there is a `LOCAL_PATH` variable indicating the location of the source file in the development tree. The macro function `my-dir` provided by the build system will return the path to the current directory (the directory where the `Android.mk` file itself is located).
 
 ```
 LOCAL_PATH := $(call my-dir)
@@ -325,7 +325,7 @@ The equivalent in `CMakeLists.txt` would be:
 set(LOCAL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/..)
 ```
 
-The code in the following section of ``Android.mk``:
+The code in the following section of `Android.mk`:
 
 ```
 include $(CLEAR_VARS)

@@ -15,14 +15,14 @@ const animationComponent = node.getComponent(Animation);
 // Get the animation clips on the Animation component
 const [ idleClip, runClip ] = animationComponent.clips;
 
-// Get the animation state of `idleClip`
+// Get the animation state of 'idleClip'
 const idleState = animationComponent.getState(idleClip.name);
 ```
 
 Then set the speed of the animation to play at:
 
 ```ts
-// Play the `idleClip` animation at two times the speed
+// Play the 'idleClip' animation at two times the speed
 animationComponent.getState('idle').speed = 2.0; // the larger the speed value the faster it is, the smaller the value the slower it is
 ```
 

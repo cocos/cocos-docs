@@ -22,7 +22,7 @@ Components that have rendering capabilities in their own right are called 2D ren
 - [UIStaticBatch Component Reference](../../ui-system/components/editor/ui-static.md)
 - [TiledMap Component Reference](../../editor/components/tiledmap.md)
 - [TiledTile Component Reference](../../editor/components/tiledtile.md)
-- [Spine (Skeletal Animation) Skeleton Component Reference](../../editor/components/spine.md)
+- [Spine Skeletal Component Reference](../../editor/components/spine.md)
 - [DragonBones ArmatureDisplay Component Reference](../../editor/components/dragonbones.md)
 - [MotionStreak Component Reference](../../editor/components/motion-streak.md)
 

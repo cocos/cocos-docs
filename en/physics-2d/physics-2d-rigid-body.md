@@ -39,12 +39,12 @@ To get the velocity of a point on a RigidBody, such as a box that rotates forwar
 const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
 
-Or, pass in a `cc.Vec2` object as the second argument to get the return value in order to use the cached object to store this value. This avoids creating too many objects to improve performance.
+Or, pass in a `Vec2` object as the second argument to get the return value in order to use the cached object to store this value. This avoids creating too many objects to improve performance.
 
 > __Note__: the `get` method of RigidBody provides an out parameter to receive the function return value.
 
 ```ts
-const velocity = cc.v2();
+const velocity = v2();
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint, velocity);
 ```
 
@@ -98,19 +98,19 @@ There are three types of Box2d's native __RigidBody__: __Static__, __Dynamic__, 
 
 `Animated` type is invented mainly to prevent the weird behavior such as penetration when making movement animation on RigidBody node.
 
-- `cc.RigidBodyType.Static`
+- `RigidBodyType.Static`
 
   __Static RigidBody__, zero mass, zero velocity, that is not affected by gravity or force, but can set its position to move.
 
-- `cc.RigidBodyType.Dynamic`
+- `RigidBodyType.Dynamic`
 
   __Dynamic RigidBody__, with mass, its velocity can be set, will be affected by gravity.
 
-- `cc.RigidBodyType.Kinematic`
+- `RigidBodyType.Kinematic`
 
   __Kinematic RigidBody__, zero mass, its velocity can be set, will not be affected by gravity, but can move by setting the velocity.
 
-- `cc.RigidBodyType.Animated`
+- `RigidBodyType.Animated`
 
   __Animated RigidBody__, previously mentioned above, is derived from Kinematic type, mainly used for __RigidBody__ and animation in combination.
 
@@ -126,7 +126,7 @@ Using these api to get the rotation and position in the world coordinate system 
 // world coordinates to local coordinates
 const localPoint = rigidbody.getLocalPoint(worldPoint);
 // or
-localPoint = cc.v2();
+localPoint = v2();
 rigidbody.getLocalPoint(worldPoint, localPoint);
 ```
 
@@ -134,7 +134,7 @@ rigidbody.getLocalPoint(worldPoint, localPoint);
 // local coordinates to world coordinates
 const worldPoint = rigidbody.getWorldPoint(localPoint);
 // or
-worldPoint = cc.v2();
+worldPoint = v2();
 rigidbody.getLocalPoint(localPoint, worldPoint);
 ```
 
@@ -142,14 +142,14 @@ rigidbody.getLocalPoint(localPoint, worldPoint);
 // local vector to world vector
 const worldVector = rigidbody.getWorldVector(localVector);
 // or
-worldVector = cc.v2();
+worldVector = v2();
 rigidbody.getWorldVector(localVector, worldVector);
 ```
 
 ```ts
 const localVector = rigidbody.getLocalVector(worldVector);
 // or
-localVector = cc.v2();
+localVector = v2();
 rigidbody.getLocalVector(worldVector, localVector);
 ```
 
@@ -162,14 +162,14 @@ When force is applied to a RigidBody, the mass center of the RigidBody is genera
 const localCenter = rigidbody.getLocalCenter();
 
 // or through the parameters to receive the return value
-localCenter = cc.v2();
+localCenter = v2();
 rigidbody.getLocalCenter(localCenter);
 
 // Get the mass center in the world coordinate system
 const worldCenter = rigidbody.getWorldCenter();
 
 // or through the parameters to receive the return value
-worldCenter = cc.v2();
+worldCenter = v2();
 rigidbody.getWorldCenter(worldCenter);
 ```
 
