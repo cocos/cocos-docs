@@ -119,7 +119,7 @@ export class AudioController extends Component {
 > **Note**.
 >
 > 1. When converting from JavaScript to TypeScript, it is necessary to declare **all properties** in TypeScript and set the default values.
-2. If the **Inspector** panel data is missing, check if the property type is the same as v2.x. > 3.
+> 2. If the **Inspector** panel data is missing, check if the property type is the same as v2.x.
 > 3. If the JavaScript code uses external types, TypeScript prompts: Fix by importing external source files or declarations.
 
 ## Quick start for developers of older versions
