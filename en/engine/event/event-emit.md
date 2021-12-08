@@ -33,7 +33,7 @@ eventTarget.on(Node.EventType.MOUSE_DOWN, (event) => {
 }, this);
 ```
 
-Besides listening with `on`, we can also use the `once` interface. The `once` listener will shut the event being listened to after the listener function responds.
+Besides listening with `on`, the `once` interface can also be used. The `once` listener will shut the event being listened to after the listener function responds.
 
 ## Canceling listeners
 
