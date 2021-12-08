@@ -162,7 +162,7 @@ Using the example below, summarizing touch events is easy. There are four nodes 
 1. If one touch is applied in the overlapping area between A and B, now B won't receive the touch event, so that propagating order of the touch event should be __A -> C -> D__.
 2. If the touch location is in node B (the visible green area), the order should be __B -> C -> D__.
 3. If the touch location is in node C, the order should be __C -> D__.
-4. As a precondition to the second case, we register touch events on C D node in the capturing phase, then the order should be __D -> C -> B__.
+4. As a precondition to the second case, register touch events on C D node in the capturing phase, then the order should be __D -> C -> B__.
 
 ## Other events of Node
 
