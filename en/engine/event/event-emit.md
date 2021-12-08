@@ -75,7 +75,7 @@ export class Example extends Component {
 
 ## Event Emitting
 
-We can emit events through the `eventTarget.emit()` interface, as follows:
+Events are emitted through the `eventTarget.emit()` interface, as follows:
 
 ```ts
 // At most 5 args could be emit.
