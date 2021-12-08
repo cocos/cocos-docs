@@ -105,7 +105,7 @@ Please refer to the `Event` and API files of its child category for a complete A
 
 ## Touch event propagation
 
-As mentioned above, touch events registered on the `Node` are dispatched internally by the engine through the `dispatchEvent` interface. Below we will introduce the propagation sequence of touch events in the **target** and **bubbling** phases.
+As mentioned above, touch events registered on the `Node` are dispatched internally by the engine through the `dispatchEvent` interface. Below introduces the propagation sequence of touch events in the **target** and **bubbling** phases.
 
 ### Touch event bubbling
 
