@@ -1,6 +1,6 @@
 # Node Event System
 
-As mentioned in the previous document, the `input` object supports the global [input event system](event-input.md), and the `Node` also implements the event listening interface of the `EventTarget`. On this basis, we provide a basic node-related system events. This document will introduce how to use these events.
+As mentioned in the previous document, the `input` object supports the global [input event system](event-input.md), and the `Node` also implements the event listening interface of the `EventTarget`. On this basis, the basic node-related system events are provided. This document will introduce how to use these events.
 
 __Cocos Creator__ supports four types of system events: __mouse__, __touch__, __keyboard__, __device motion__. They are called [Global Input Events](event-input.md). The usage of touch and mouse events dispatched by `Node` is discussed in this document. The usage is as follows:
 
