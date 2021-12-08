@@ -4,7 +4,7 @@ The event system is a common feature that needs to be involved in interaction du
 
 ## Use of Events
 
-Events need to be registered to get listened to. You can learn about event listening and emitting through the following documents:
+Events need to be registered to get listened to. Learn about event listening and emitting through the following documents:
 
 - [Event Listening and Emitting](event-emit.md)
 
