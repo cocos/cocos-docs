@@ -51,7 +51,7 @@ The `dispatchEvent` interface is supported on `Node`. Events dispatched by this 
 - __target phase__: The event is triggered on the target node
 - __bubbling phase__: The event is bubbled from the target node to the parent node level by level, until the root node is reached or the event propagation is stopped in the event callback
 
-When we call `node.dispatchEvent()`, it means that `node` is the target node mentioned above. In the process of event delivery, call `event.propagationStopped = true` to stop the event propagation.
+When calling `node.dispatchEvent()`, it means that `node` is the target node mentioned above. In the process of event delivery, call `event.propagationStopped = true` to stop the event propagation.
 
 In v3.0, the `Event.EventCustom` class was removed. To dispatch custom events, a custom event class that inherits from the `Event` class needs to be implemented first. For example:
 
