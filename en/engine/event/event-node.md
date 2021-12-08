@@ -12,7 +12,7 @@ node.on(Node.EventType.MOUSE_DOWN, (event) => {
 
 > __Note__: We no longer recommend directly using the event name string to register event listeners. Like the example above, please do not use `node.on('mouse-down', callback, target)` to register event listeners.
 
-The touch event listener on the node depends on the `UITransform` component, which is only applicable to 2D UI nodes. If you need to implement the touch detection of 3D objects, you can refer to the document [Touch Detection of 3D Objects](event-input.md#Touch%20detection%20for%203D%20objects)
+The touch event listener on the node depends on the `UITransform` component, which is only applicable to 2D UI nodes. To implement the touch detection of 3D objects, refer to the [Touch Detection of 3D Objects](event-input.md#Touch%20detection%20for%203D%20objects) documentation.
 
 ## Mouse event type and event object
 
