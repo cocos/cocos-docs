@@ -19,7 +19,7 @@ eventTarget.on(type, func, target?);
 
 The `type` is the event registration string. `func` is the callback to listen to when the event is executed. And `target` is the event receive object. If `target` is not set, then `this` in the callback refers to the object that is currently executing the callback.
 
-The event listener interface `on` can pass to the third parameter target to bind the caller of the response function. The following two calling methods have the same effect:
+The event listener interface `on` can pass to the third parameter target to bind the caller of the response function. Calling the following two methods would have the same effect:
 
 ```ts
 // Using Function Binding
