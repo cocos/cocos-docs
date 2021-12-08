@@ -6,7 +6,7 @@ import { EventTarget } from 'cc';
 const eventTarget = new EventTarget();
 ```
 
-> __Note__: Although the `Node` object also implements some `EventTarget` interfaces, we no longer recommend continuing to use the `Node` object to listen to and emit custom events. Because this is not efficient enough, and we also hope that `Node` The object only cares about events related to `Node`.
+> __Note__: although the `Node` object also implements some `EventTarget` interfaces, it is no longer recommended to continue using the `Node` object to listen to and emit custom events. Because this is not efficient enough, and we also hope that `Node` The object only cares about events related to `Node`.
 
 ## Event Listening
 
