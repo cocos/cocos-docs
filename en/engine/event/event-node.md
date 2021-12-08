@@ -53,7 +53,7 @@ The `dispatchEvent` interface is supported on `Node`. Events dispatched by this 
 
 When we call `node.dispatchEvent()`, it means that `node` is the target node mentioned above. In the process of event delivery, we can stop the event propagation by calling `event.propagationStopped = true`.
 
-In v3.0, we removed the `Event.EventCustom` class. To dispatch custom events, a custom event class that inherits from the `Event` class needs to be implemented first. For example:
+In v3.0, the `Event.EventCustom` class was removed. To dispatch custom events, a custom event class that inherits from the `Event` class needs to be implemented first. For example:
 
 ```ts
 // Import "Event" from 'cc' module
