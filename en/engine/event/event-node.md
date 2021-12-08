@@ -119,7 +119,7 @@ When the mouse or finger was applied in the node C region, the event will be tri
 
 > __Note__: it needs to be emphasized that there is no hit test in parent nodes in the bubbling phase, which means that nodes A and B can receive touch events even though the touch location is out of their node region.
 
-The bubbling phase of touch events is no different than the general events. Calling `event.propagationStopped = true` can force to stop the bubbling phase.
+The bubbling phase of touch events is no different than the general events. Calling `event.propagationStopped = true` can force stopping the bubbling phase.
 
 ### Ownership of touch points among brother nodes
 
