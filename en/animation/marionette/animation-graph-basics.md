@@ -1,17 +1,17 @@
 # Animation State Machine
 
-We call the action that an object is in that plays a particular animation, such as standby, move, run, attack, etc., **state**. <br>
+The action that an object is in when it plays a particular animation, such as standby, move, run, attack, etc., is called its **state**. <br>
 In general, an object has multiple states and switches between them in a certain logical order to perform different actions; such switches are called [transitions](state-translation.md) in the animation graph. The conditions that need to be satisfied when a transition occurs are called **transition conditions**.
 
-The animation state machine, on the other hand, is used to manage and control each state and the transition between states on the object, similar to a flowchart, which we can edit visually directly in the [Animation Graph panel](animation-graph-panel.md). Currently an animation graph contains a state machine, when the state machine is in a state in the animation graph, the animation corresponding to that state will be played. Then, according to the pre-built animation flow chart, the state machine can automatically control the playback and switching of the skeleton animation, etc.
+The animation state machine, on the other hand, is used to manage and control each state and the transition between states on the object, similar to a flowchart, which can be edited visually directly in the [Animation Graph panel](animation-graph-panel.md). Currently, an animation graph contains a state machine, when the state machine is in a state in the animation graph, the animation corresponding to that state will be played. Then, according to the pre-built animation flow chart, the state machine can automatically control the playback and switching of the skeleton animation, etc.
 
 ## State Basics
 
-The states in the state machine are not only used to control the animation, but also include **Entry**, **Exit**, **Any**, **Sub-State Machine**, which are special states, because they do not carry animation, but are only used to mark the start and end of the state machine. To distinguish them from other states, we call them "pseudo-states" for now.
+The states in the state machine are not only used to control the animation, but also include **Entry**, **Exit**, **Any**, **Sub-State Machine**, which are special states, because they do not carry animation, but are only used to mark the start and end of the state machine. To distinguish them from other states, they are called "pseudo-states" for now.
 
-The [sub-state machine](#sub-state-machine) is nested in the state machine and is used to degrade complex animation logic, see the **sub-state machine** section below for details. We generally refer to the topmost state machine of the animation graph as the **Top Level State Machine**, similar to the root node in the scene.
+The [sub-state machine](#sub-state-machine) is nested in the state machine and is used to degrade complex animation logic, see the **sub-state machine** section below for details. Generally, the topmost state machine of the animation graph is referred to as the **Top Level State Machine**, similar to the root node in the scene.
 
-The **Entry**, **Exit**, and **Any** are fixed units that exist in the state machine by default and cannot be deleted. They can be seen in the grid layout area when you open the animation graph to edit the state machine, and it should be noted that **Exit** only exists in **sub-state machines**.
+The **Entry**, **Exit**, and **Any** are fixed units that exist in the state machine by default and cannot be deleted. They can be seen in the grid layout area when the animation graph is opened to edit the state machine, and it should be noted that **Exit** only exists in **sub-state machines**.
 
 ![animation-graph-panel](animation-graph-panel/animation-graph-panel.png)
 
@@ -19,7 +19,7 @@ The **Entry**, **Exit**, and **Any** are fixed units that exist in the state mac
 
 - **Exit**: exits the state machine after the state transition to **Exit**. **Entry** can only be used as the target of a state transition, not as the source of the transition.
 
-    **Exit exists only in the sub-state machine**, because after exiting the sub-state machine, you need to return to the parent state machine to continue executing the next transition; if you exit the top-level state machine, the animation flow terminates and the character is stationary, whereas in general, the character is continuously moving. <br>If you need to make the character completely stationary, you can do so by turning off the animation controller component where the current animation graph is located.
+    **Exit exists only in the sub-state machine** because after exiting the sub-state machine, it is necessary to return to the parent state machine to continue executing the next transition. If the top-level state machine is exited, the animation flow terminates and the character is stationary, whereas in general, the character is continuously moving. <br>To make the character completely stationary, turn off the animation controller component where the current animation graph is located.
 
 - **Any**: can refer to any other state in the state machine, but not "pseudo-state". **Any** can only be used as the source of a state transition, not as the target of a transition.
 
@@ -29,7 +29,7 @@ The **Entry**, **Exit**, and **Any** are fixed units that exist in the state mac
 
 ## Creating states
 
-The state machine consists of states and transitions between states, but first we need to create the base unit - **State**.
+The state machine consists of states and transitions between states, but first, the base unit, **State**, needs to be created.
 
 Right-click on the grid layout area on the right side of [animation-graph-panel](animation-graph-panel.md) to add states by selecting from the menu.
 
@@ -47,13 +47,13 @@ Checking the created animation state displays a yellow highlight in the blue gra
 
 ![state-property](animation-graph-basics/state-property.png)
 
-> The properties that can be set for animation blending and sub-state machines may differ, please refer to the corresponding content below.
+> **Note**: the properties that can be set for animation blending and sub-state machines may differ, please refer to the corresponding content below.
 
 - The name of the currently selected state will be displayed in yellow font in the **Inspector** tab, for example `Clip Motion` in the above picture, click the gear icon button on the right to rename it.
 
 - **Speed**: used to set the playback speed of the animation clip attached on the current state, the default is 1, the smaller the value the slower the playback speed.
 
-- **Animation Clip Motion**: used to specify the animation clip attached on the current state. You can drag and drop the clip directly from the **Assets** panel into the **Clip** property box, or you can click the arrow button behind the **Clip** property box to select it directly. Once an animation clip is set, the current state will play the content of the specified animation clip.
+- **Animation Clip Motion**: used to specify the animation clip attached on the current state. Drag and drop the clip directly from the **Assets** panel into the **Clip** property box, or click the arrow button behind the **Clip** property box to select it directly. Once an animation clip is set, the current state will play the content of the specified animation clip.
 
   > **Note**: if no animation clip is specified, it will cause problems.
 
@@ -83,11 +83,11 @@ Animation blending differs from [State Transition](state-translation.md):
 
 ### Adding animation blending
 
-Right-click on the grid layout area of the Animation Graph panel to choose to add a **Blend 1D** or a **Blend 2D**. Once created, you can set the properties in the **Inspector** tab, except for the Animation Blending settings, which are the same as in **Setting state properties** above.
+Right-click on the grid layout area of the Animation Graph panel to choose to add a **Blend 1D** or a **Blend 2D**. Once created, set the properties in the **Inspector** tab, except for the Animation Blending settings, which are the same as in **Setting state properties** above.
 
 ![blend edit](animation-graph-basics/blend-edit.png)
 
-You can set the parameters and the animations involved in the blend by entering the edit page of the animation blending, which can be accessed in the following three ways:
+To set the parameters and the animations involved in the blend, enter the edit page of the animation blending, which can be accessed in the following three ways:
 
 - Click **Edit** in the animation blending settings
 - Double-click the blend state in the grid layout
@@ -104,10 +104,10 @@ Exit the edit page of the animation blending, including the following two ways:
 
 **1D animation blending** is a blend of multiple animations based on **one input parameter** by a **linear interpolation algorithm**, each of which can be configured with a threshold value.
 
-- When the input parameter lies exactly on a threshold, the animation on that threshold will be used
+- When the input parameter lies exactly on a threshold, the animation on that threshold will be used.
 - When the input parameter lies between two thresholds, the two animations are blended according to the ratio of the input parameter on the threshold interval **linearly**. The linear formula is **A * (1 - t) + B * t**, where A and B denote the threshold values and t denotes the ratio of the input parameter values on this threshold interval.
 
-Enter the animation blending edit page, right click in the grid layout area, you can add the animations involved in the blend as needed, support adding **Clip Motion**, **1D Blend Motion**, **2D Blend Motion**.
+Enter the animation blending edit page, right-click in the grid layout area, add the animations involved in the blend as needed, support adding **Clip Motion**, **1D Blend Motion**, **2D Blend Motion**.
 
 ![add-motion-of-blend](animation-graph-basics/add-motion-of-blend1D.png)
 
@@ -115,13 +115,13 @@ Enter the animation blending edit page, right click in the grid layout area, you
 
 - **Threshold**: this item is visible when an animation has been added to the animation blending. Each time an animation is added, a new threshold will be added to the lower panel, and you can set each threshold size manually as needed; you can also check **Automatic Threshold Adjustment** to automatically divide the thresholds evenly, either one of the two. All the thresholds are arranged from top to bottom in the order of smallest to largest.
 
-- Animation clips can be attached directly on the animation in the grid layout area, or you can specify the animation clips in the **Inspector** tab on the left after selecting the animation.
+- Animation clips can be attached directly to the animation in the grid layout area, or specify the animation clips in the **Inspector** tab on the left after selecting the animation.
 
   > **Note**: if no animation clip is specified, it will cause problems.
 
   ![choose clip](animation-graph-basics/choose-clip.png)
 
-  If you need to remove the animation, right-click the animation directly in the grid layout area to remove it, or select the animation and click the gear icon button in the **Inspector** tab on the left to remove it.
+  To remove the animation, right-click the animation directly in the grid layout area to remove it, or select the animation and click the gear icon button in the **Inspector** tab on the left to remove it.
 
 For example, to achieve an even blend of standby, walk, and run animations based on the character's rate, set up as the following image:
 
@@ -144,13 +144,13 @@ The range of the first input parameter in the above figure is `[-1, 0]` and the 
 
 ## Sub-State Machine
 
-Because objects will typically have complex combinations of actions in multiple stages, it is also possible to (recursively) nest **sub-state machines** within the state machine in order to degrade complex logic. We generally refer to the topmost state machine of the animation graph as the **top-level state machine**, similar to the root node in the scene.
+Since objects will typically have complex combinations of actions in multiple stages, it is also possible to (recursively) nest **sub-state machines** within the state machine in order to degrade complex logic. This is generally referred to as the topmost state machine of the animation graph as the **top-level state machine**, similar to the root node in the scene.
 
-You can create it by right-clicking on the grid layout area and selecting **Add Sub-State Machine**. Once created, a sub-state machine named `State Machine` will be created in the grid layout area by default:
+It can be created by right-clicking on the grid layout area and selecting **Add Sub-State Machine**. Once created, a sub-state machine named `State Machine` will be created in the grid layout area by default:
 
 ![set sub state](animation-graph-basics/set-sub-state.png)
 
-- The ① button is used to enter the sub-state machine editing page; you can enter the editing page by double-clicking on the sub-state machine or right-clicking on the sub-state machine and selecting **Edit**.
+- The ① button is used to enter the sub-state machine editing page; to enter the editing page, double-click on the sub-state machine or right-click on the sub-state machine and select **Edit**.
 - The ② button is used to add state components; please refer to the **Animation State Components** section below for details.
 - Click the gear icon button, the expanded menu includes **Remove This State**, **Add State Component**, **Rename**.
 
