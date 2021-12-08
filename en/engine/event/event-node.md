@@ -117,7 +117,7 @@ In the scene shown in the picture, suppose node A has a child node B which has a
 
 When the mouse or finger was applied in the node C region, the event will be triggered at node C first and the node C listener will receive the event (this is the target phase). Then the node C will pass this event to its parent node, so the node B listener will receive this event. Similarly the node B will also pass the event to its parent node A. This is a basic event bubbling phase. 
 
-> __Note__: It needs to be emphasized that there is no hit test in parent nodes in the bubbling phase, which means that the node A and B can receive touch events even though the touch location is out of their node region.
+> __Note__: it needs to be emphasized that there is no hit test in parent nodes in the bubbling phase, which means that nodes A and B can receive touch events even though the touch location is out of their node region.
 
 The bubbling phase of touch events is no different than the general events. Calling `event.propagationStopped = true` can force to stop the bubbling phase.
 
