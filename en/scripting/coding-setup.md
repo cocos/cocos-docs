@@ -113,7 +113,7 @@ Next, press the shortcut key <kbd>Cmd/Ctrl + Shift + B</kbd> in VS Code and it w
 
 For more information about configuring and executing tasks in VS Code, please refer to the [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks) documentation.
 
-### Use VS Code to debug web games
+### Using VS Code to debug web games
 
 VS Code has excellent debugging capabilities. It is possible to directly debug the web version of the game program in the source code project.
 
