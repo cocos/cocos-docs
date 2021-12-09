@@ -73,7 +73,7 @@ Cocos Creator integrates the **Add Compilation Task** and **Add Chrome Debug Con
 
 After using the external script editor to modify the project script, return to Cocos Creator to trigger script compilation. The **add compilation task** function is provided in Creator, which activates the compilation of Creator by sending a request to a specific address through the API of a preview server. After the external script editor modifies the project script, the **compilation task** is executed and can trigger script compilation without returning to Cocos Creator.
 
-#### Install cURL
+#### Installing cURL
 
 First, make sure that the [cURL command](https://curl.haxx.se/) can be run in the operating system. If when running the `curl` command on the command line of the Windows operating system and the command cannot be found, install cURL to operating system:
 
