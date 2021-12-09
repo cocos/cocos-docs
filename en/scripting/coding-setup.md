@@ -79,7 +79,7 @@ First, make sure that the [cURL command](https://curl.haxx.se/) can be run in th
 
 - Visit this webpage for [help](http://www.confusedbycode.com/curl/)
 
-- Click the control shown by the arrow in the figure below to complete the human-machine identity verification (if the control cannot be displayed normally, please go online scientifically).
+- Click the control shown by the arrow in the figure below to complete the human-machine identity verification.
 
     ![curl download](coding-setup/curl-download.png)
 
