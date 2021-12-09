@@ -18,7 +18,7 @@ After starting VS Code, select **File -> Open Folder...** in the main menu, and 
 
 ![vs code](coding-setup/vscode.png)
 
-> **Note**: When using a custom engine, or switching to use the built-in engine/custom engine, if the API smart tips are not updated, please follow the steps below to get the latest code smart tips:
+> **Note**: when using a custom engine, or switching to use the built-in engine/custom engine, if the API code hinting are not updated, please follow the steps below to get the latest code hinting:
 >
 > 1. Delete the `cache` folder under the `bin` directory in the custom engine (the built-in engine is the `resources\resources\3d\engine\bin` directory)
 > 2. Execute `npm run build-declaration` in the engine directory
