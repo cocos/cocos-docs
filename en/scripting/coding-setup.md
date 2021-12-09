@@ -85,7 +85,7 @@ First, make sure that the [cURL command](https://curl.haxx.se/) can be run in th
 
 - Click `curl-7.46.0-win64.exe` to start downloading and installing
 
-#### Add VS Code compilation task
+#### Adding VS Code compilation task
 
 To activate script compilation in VS Code, perform the following steps:
 
