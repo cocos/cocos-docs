@@ -6,7 +6,7 @@ The[Default Script Editor](../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%
 
 Go to the [VS Code Official Website](https://code.visualstudio.com/) and click the download link on the homepage to download it.
 
-MacOS users decompress the downloaded package and double-click **Visual Studio Code** to run it.
+MacOS users should decompress the downloaded package and double-click **Visual Studio Code** to run it.
 
 Windows users should run **VSCodeUserSetup.exe** after downloading it and follow the prompts to complete the installation.
 
