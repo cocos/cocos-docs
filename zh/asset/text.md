@@ -11,17 +11,19 @@ const { ccclass, property } = _decorator;
 @ccclass('ItemTemplate')
 export class ItemTemplate extends Component {
 
-// 文本文件
-@property(TextAsset)
-itemGiftText: TextAsset = null!;
+    // 文本文件
+    @property(TextAsset)
+    itemGiftText: TextAsset = null!;
 
-start() {
+    start() {
 
-    const data: string = this.itemGiftText.text!;
+        const data: string = this.itemGiftText.text!;
 
-}
+    }
 }
 ```
+
+![text](text/text.png)
 
 也可以动态加载：
 
