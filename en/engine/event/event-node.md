@@ -127,6 +127,10 @@ Suppose the node B and C in the picture above are brother nodes, while C partly 
 
 At the same time, if C has a parent node, it will also pass the touch event to its parent node through the event bubble mechanism.
 
+In v3.4.0, the ability of event penetrating dispatch is supported. In this example, if the event needs to be dispatched to node B, the event can be prevented from being swallowed by node C by calling `event.preventSwallow = false`. 
+
+> __Note__: the event penetrating dispatch reduces the efficiency of event dispatch, please use it with caution. 
+
 ### Point of Contact Attribution for Different Canvas
 
 Contact interception between different Canvas is determined by priority. In the scene in the figure below, Canvas 1-5 in the node tree corresponds to priority 1-5 of the image display. It can be seen that even though Canvas nodes 3, 4, and 5 are arranged in scrambled order, the order of response of the contacts is still __Canvas5 -> Canvas4 -> Canvas3 -> Canvas2 -> Canvas1__, according to the priority relationship on the Canvas. The sorting between Canvas is done in the order of the node tree only if the priority is the same.
