@@ -71,7 +71,7 @@ Cocos Creator integrates the **Add Compilation Task** and **Add Chrome Debug Con
 
 ### Using VS Code to activate script compilation
 
-After using the external script editor to modify the project script, return to Cocos Creator to trigger script compilation. The **add compilation task** function is provided in Creator, which activates the compilation of Creator by sending a request to a specific address through the API of a preview server. After the external script editor modifies the project script, the **compilation task** is executed and can trigger script compilation without returning to Cocos Creator.
+After using the external script editor to modify the project script, return to Cocos Creator to trigger script compilation. <br>The **add compilation task** function is provided in Creator, which activates the compilation of Creator by sending a request to a specific address through the API of a preview server. After modifying the project script the external script editor, executing the **compilation task** can trigger script compilation without returning to Cocos Creator.
 
 #### Installing cURL
 
