@@ -67,7 +67,7 @@ Cocos Creator integrates the **Add Compilation Task** and **Add Chrome Debug Con
 
 - **Add compilation task**: used to trigger the script compilation of Creator in VS Code. For details, please refer to the content in the **Use VS Code to activate script compilation** section.
 
-- **Add Chrome Debug configuration**: It is used to debug the web version of the game. For details, please refer to the following **Use VS Code to debug the web version of the game** section.
+- **Add Chrome Debug configuration**: used to debug the web version of the game. For details, please refer to the following **Use VS Code to debug the web version of the game** section.
 
 ### Using VS Code to activate script compilation
 
