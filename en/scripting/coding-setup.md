@@ -119,7 +119,7 @@ VS Code has excellent debugging capabilities. It is possible to directly debug t
 
 First, install:
 
-- [Chrome (Google Chrome)](https://www.google.com/chrome/)
+- [Google Chrome](https://www.google.com/chrome/)
 
 - VS Code plug-in: Debugger for Chrome
 
