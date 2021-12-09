@@ -10,7 +10,7 @@ MacOS users decompress the downloaded package and double-click **Visual Studio C
 
 Windows users should run **VSCodeUserSetup.exe** after downloading it and follow the prompts to complete the installation.
 
-## Smart reminder data
+## IntelliSence Data
 
 When creating a project in Cocos Creator 3.x, a [tsconfig.json](tsconfig.md) file is automatically generated in the project directory, which is configured with a directory file path for code prompts. When opening the project with VS Code and writing code it will automatically prompt the Cocos Creator engine API. If the project is upgraded, the engine API will also be updated automatically.
 
