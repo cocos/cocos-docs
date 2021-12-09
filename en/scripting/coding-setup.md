@@ -23,7 +23,7 @@ After starting VS Code, select **File -> Open Folder...** in the main menu, and 
 > 1. Delete the `cache` folder under the `bin` directory in the custom engine (the built-in engine is the `resources\resources\3d\engine\bin` directory)
 > 2. Execute `npm run build-declaration` in the engine directory
 
-## Set file display and search filter
+## Setting file display and search filter
 
 In the main menu of VS Code, select **File (Windows)/Code (Mac) -> Preferences -> Settings**, or select in the lower left corner! [gear.png](coding-setup/gear.png) **Setting** option, this operation will open the user configuration file **USER SETTINGS**:
 
