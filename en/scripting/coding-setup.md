@@ -12,7 +12,7 @@ Windows users should run **VSCodeUserSetup.exe** after downloading it and follow
 
 ## IntelliSence Data
 
-When creating a project in Cocos Creator 3.x, a [tsconfig.json](tsconfig.md) file is automatically generated in the project directory, which is configured with a directory file path for code prompts. When opening the project with VS Code and writing code it will automatically prompt the Cocos Creator engine API. If the project is upgraded, the engine API will also be updated automatically.
+When creating a project in Cocos Creator 3.x, a [tsconfig.json](tsconfig.md) file will be automatically generated in the project directory, which is configured with a directory file path for code hinting. When opening the project with VS Code and writing code, it will automatically pop up the Cocos Creator engine API suggestions. If the project is upgraded, the engine API will also be updated automatically.
 
 After starting VS Code, select **File -> Open Folder...** in the main menu, and select the project root directory in the pop-up dialog box, which is the path where `assets` and `project.json` are located. Then when creating a new script, or opening the original script for editing, there will be a syntax prompt.
 
