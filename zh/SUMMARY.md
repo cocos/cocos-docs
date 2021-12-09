@@ -59,6 +59,8 @@
     - [Spine 骨骼动画资源](asset/spine.md)
     - [DragonBones 骨骼动画资源](asset/dragonbones.md)
     - [TiledMap 瓦片图资源](asset/tiledmap.md)
+    - [JSON 资源](asset/json.md)
+    - [文本资源](asset/text.md)
 
 - [脚本指南及事件机制](scripting/index.md)
     - [编程语言支持](scripting/language-support.md)
