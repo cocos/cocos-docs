@@ -212,7 +212,6 @@
         - [Animation State](animation/animation-state.md)
 
 - [Audio System](audio-system/overview.md)
-    - [Audio Assets](../asset/audio.md)
     - [AudioSource Component Reference](audio-system/audiosource.md)
     - [AudioSource Playback Example](audio-system/audioExample.md)
     - [Compatibility Notes](audio-system/audioLimit.md)
