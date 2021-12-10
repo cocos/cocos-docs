@@ -94,15 +94,16 @@ The transform snapping configuration panel will pop up, which can be used to set
 | ![scale snap](img/scale-snap.png)| This button is used to set whether to enable automatic snapping when using the **Scale Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
 
 ### Smart Guide Alignment
-Smart guide alignment is enabled by default, when rect transform gizmo is active. If the conditions for alignment are met when the dragged element is moving, the alignment guide line will be displayed and automatically snapped to the position of the guide line.
+
+Smart guide alignment is enabled by default when a **rect transform gizmo** is active. If the conditions for alignment are met when the dragged UI element is moving, the alignment guide line will be displayed and the element automatically snapped to the position of the guide line.
 
 ![auto snapping](img/auto-snapping.gif)
 
-The relevant parameters of smart alignment can be set in the transform snapping configuration panel.
+The relevant parameters for smart alignment can be set in the transform snapping configuration panel.
 
 ![rect tool config](img/rect-tool-config.png)
 
-| Name | Description |
+| Option | Description |
 | :-- | :-- |
 | Enable auto snap | whether to enable the smart guide alignment
 | Snap threshold | snap threshold
