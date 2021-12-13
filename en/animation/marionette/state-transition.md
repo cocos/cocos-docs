@@ -6,7 +6,7 @@
 
   ![transition](state-transition/transition.png)
 
-- **Animation Transition**: the transition occurs with a source of a **State** or pseudo-state **Any**. Compared to normal transitions, animation transitions can also control the transition period to make the animation switch smoothly.
+- **Animation Transition**: the transition occurs with a source of a **State** or pseudo-state **Any**. Compared to ordinary transitions, animation transitions can also control the transition period to make the animation switch smoothly.
 
   ![animation-transition](state-transition/animation-transition.png)
 
@@ -29,7 +29,7 @@ States also allow transitions to themselves:
 
 With the transition selected in the grid layout area, the **Inspector** tab on the left side allows you to set the trigger conditions associated with the transition, including **Duration**, **Enable Exit Times**, **Exit Times**, **Conditions**.
 
-> **Note**: **Ordinary Transition** can only specify **Conditions**, and the plain transition is more like a selector.
+> **Note**: **ordinary transition** can only specify **Conditions**, which is more like a selector.
 
 ![condition-properties](state-transition/condition-properties.png)
 

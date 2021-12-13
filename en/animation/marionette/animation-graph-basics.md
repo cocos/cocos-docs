@@ -182,11 +182,11 @@ The animation state component class inherits from `animation.StateMachineCompone
 
 | Method Name | Description |
 | :--- | :--- |
-| `onMotionStateEnter` | called when entering the state |
-| `onMotionStateExit` | called when fully exiting the state |
-| `onMotionStateUpdate` | called when the state is updated |
-| `onStateMachineEnter` | called when entering a sub-state machine |
-| `onStateMachineExit` | called when exiting a sub-state machine |
+| `onMotionStateEnter` | Called when entering the state |
+| `onMotionStateExit` | Called when fully exiting the state |
+| `onMotionStateUpdate` | Called when the state is updated |
+| `onStateMachineEnter` | Called when entering a sub-state machine |
+| `onStateMachineExit` | Called when exiting a sub-state machine |
 
 The methods in the above table may accept the following parameters:
 
