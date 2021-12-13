@@ -215,7 +215,7 @@
         - [Animation Graph Assets](animation/marionette/animation-graph.md)
         - [Animation Graph Panel](animation/marionette/animation-graph-panel.md)
         - [Animation State Machine](animation/marionette/animation-graph-basics.md)
-        - [State Transition](animation/marionette/state-translation.md)
+        - [State Transition](animation/marionette/state-transition.md)
 
 - [Audio System](audio-system/overview.md)
     - [AudioSource Component Reference](audio-system/audiosource.md)

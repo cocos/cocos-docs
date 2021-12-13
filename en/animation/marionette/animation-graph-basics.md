@@ -1,7 +1,7 @@
 # Animation State Machine
 
 The action that an object is in when it plays a particular animation, such as standby, move, run, attack, etc., is called its **state**. <br>
-In general, an object has multiple states and switches between them in a certain logical order to perform different actions; such switches are called [transitions](state-translation.md) in the animation graph. The conditions that need to be satisfied when a transition occurs are called **transition conditions**.
+In general, an object has multiple states and switches between them in a certain logical order to perform different actions; such switches are called [transitions](state-transition.md) in the animation graph. The conditions that need to be satisfied when a transition occurs are called **transition conditions**.
 
 The animation state machine, on the other hand, is used to manage and control each state and the transition between states on the object, similar to a flowchart, which can be edited visually directly in the [Animation Graph panel](animation-graph-panel.md). Currently, an animation graph contains a state machine, when the state machine is in a state in the animation graph, the animation corresponding to that state will be played. Then, according to the pre-built animation flow chart, the state machine can automatically control the playback and switching of the skeleton animation, etc.
 
@@ -75,7 +75,7 @@ Animation blending can be used to blend multiple animations according to the inp
 
 - **Blend 2D**: blending multiple animations based on **two input parameters** by **barycentric interpolation blending algorithm** of center of gravity coordinates.
 
-Animation blending differs from [State Transition](state-translation.md):
+Animation blending differs from [State Transition](state-transition.md):
 
 - Transitions are smooth transitions from one state to other states within a given period.
 

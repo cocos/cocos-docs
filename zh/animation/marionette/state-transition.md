@@ -4,26 +4,26 @@
 
 - **普通过渡**：过渡发生的源头为伪状态 **入口** 或者 **子状态机**。
 
-  ![transition](state-translation/translation.png)
+  ![transition](state-transition/transition.png)
 
 - **动画过渡**：过渡发生的源头为 **状态** 或者伪状态 **任意**。与普通过渡相比，动画过渡还可以控制过渡周期使得动画进行平滑切换。
 
-  ![animation-transition](state-translation/animation-translation.png)
+  ![animation-transition](state-transition/animation-transition.png)
 
 ## 创建过渡
 
 在网格布局区域中右键选中作为过渡源头的状态，然后选择 **添加过渡**，当鼠标离开当前状态，会产生一条箭头，此时选中作为过渡目标的状态，即可在两者之间产生过渡：
 
-![add-translation](state-translation/add-translation.gif)
+![add-transition](state-transition/add-transition.gif)
 
 两个状态之间允许存在多个同向/反向过渡，有几个同向/反向过渡便会在箭头上标相应的数字，配置项也都会展示在 **属性** 分页中。<br>
 当状态上存在多条同时满足的过渡时，将优先使用排在过渡列表上方的过渡。但 Creator 并不建议依赖这种优先级排序，最好尽可能地使用下文中介绍的 **过滤条件** 来过滤过渡。
 
-![add-translation](state-translation/add-more-translations.png)
+![add-transition](state-transition/add-more-transitions.png)
 
 状态也允许过渡到自身：
 
-![add-translation](state-translation/add-translation-for-self.png)
+![add-transition](state-transition/add-transition-for-self.png)
 
 ## 设置过渡
 
@@ -31,11 +31,11 @@
 
 > **注意**：**普通过渡** 仅能指定 **条件**，普通过渡更像是一个选择器。
 
-![condition-properties](state-translation/condition-properties.png)
+![condition-properties](state-transition/condition-properties.png)
 
 - **周期**：设置完成当前过渡的周期，使动画平滑切换。单位为 **秒** 或者 **遍**，默认为 0.3 秒，可点击输入框后面的单位进行切换。
 
-    ![change duration](state-translation/change-duration.gif)
+    ![change duration](state-transition/change-duration.gif)
 
     - 当设置为 **秒**（默认）时：表示状态过渡在设定的秒数内完成
 
@@ -47,11 +47,11 @@
 
     - 若过渡源头的动画是 **不循环动画**，播放时长为 3 s，**结束次数** 设置为 1.4，那么过渡源头的动画会在播放 3s 后，继续在最后一帧停留 1.2s（3s × 0.4），才开始过渡。
 
-      ![non-loop](state-translation/non-loop.png)
+      ![non-loop](state-transition/non-loop.png)
 
     - 若过渡源头的动画是 **循环动画**，播放时长为 3 s，**结束次数** 设置为 1.4，那么过渡源头的动画会在播放 3s 后，继续循环播放动画到 1.2s（3s × 0.4），才开始过渡。
 
-      ![loop](state-translation/loop.png)
+      ![loop](state-transition/loop.png)
 
 - **条件**：设置状态之间发生过渡时需要满足的某些条件，具体内容请参考下文说明。
 
@@ -59,7 +59,7 @@
 
 例如，过渡源头状态的动画时长为 3 秒，将 **周期** 设置为 0.3 遍，则 **结束次数** 设置为 0.7 即可；若 **周期** 设置为 0.3 秒相对比较麻烦，**结束次数** 需要将秒换算为遍：（3 - 0.3）/ 3 = 0.9 遍。
 
-![set example](state-translation/set-example.png)
+![set example](state-transition/set-example.png)
 
 ### 过渡条件
 
@@ -67,21 +67,21 @@
 
 在网格布局区域选中过渡后，即可在左侧 **属性** 分页的齿轮图标按钮中选择添加条件。已添加的条件会显示在左侧 **属性** 分页下方：
 
-![add-condition](state-translation/add-condition.png)
+![add-condition](state-transition/add-condition.png)
 
 目前支持的过渡条件包括以下三种：
 
 - **布尔条件**：判断布尔类型的变量为真/假。点击右侧的齿轮图标按钮可删除当前条件。
 
-  ![布尔条件](state-translation/boolean-condition.png "布尔条件")
+  ![布尔条件](state-transition/boolean-condition.png "布尔条件")
 
 - **数值条件**：判断数值类型的变量与另一固定数值的逻辑关系，包括 **等于**、**不等于**、**大于**、**小于**、**大于等于**、**小于等于**。当等式（不等式）成立时条件满足。变量的类型与数值的类型是匹配的，若变量选择浮点型，则数值类型也是浮点型。
 
-  ![数值条件](state-translation/number-condition.png "数值条件")
+  ![数值条件](state-transition/number-condition.png "数值条件")
 
 - **触发条件**：当触发器变量触发时条件满足。
 
-  ![触发器条件](state-translation/trigger-condition.png "触发器条件")
+  ![触发器条件](state-transition/trigger-condition.png "触发器条件")
 
 **过渡支持同时指定多个过渡条件，当且仅当所有条件都满足时过渡才会发生。**
 

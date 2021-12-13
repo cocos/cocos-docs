@@ -4,26 +4,26 @@
 
 - **Ordinary Transition**: the source where the transition occurs is a pseudo-state **entry** or **sub-state machine**.
 
-  ![transition](state-translation/translation.png)
+  ![transition](state-transition/transition.png)
 
 - **Animation Transition**: the transition occurs with a source of a **State** or pseudo-state **Any**. Compared to normal transitions, animation transitions can also control the transition period to make the animation switch smoothly.
 
-  ![animation-transition](state-translation/animation-translation.png)
+  ![animation-transition](state-transition/animation-transition.png)
 
 ## Creating Transition
 
 Right-click the state that is the source of the transition in the grid layout area, then select **Add Transition**, when the mouse leaves the current state, an arrow will be created, then select the state that is the target of the transition to create a transition between the two:
 
-![add-transition](state-translation/add-translation.gif)
+![add-transition](state-transition/add-transition.gif)
 
 Multiple same/reverse direction transitions are allowed between two states, and the number of same/reverse direction transitions is marked on the arrow, and the configuration items are displayed in the **Inspector** tab. <br>
 When there are multiple transitions on the state that satisfy both, the transition at the top of the transition list is used first. However, Creator does not recommend relying on this prioritization, and it is best to filter the transitions using the **filter conditions** described below whenever possible.
 
-![add-translation](state-translation/add-more-translations.png)
+![add-transition](state-transition/add-more-transitions.png)
 
 States also allow transitions to themselves:
 
-![add-translation](state-translation/add-translation-for-self.png)
+![add-transition](state-transition/add-transition-for-self.png)
 
 ## Setting Transitions
 
@@ -31,11 +31,11 @@ With the transition selected in the grid layout area, the **Inspector** tab on t
 
 > **Note**: **Ordinary Transition** can only specify **Conditions**, and the plain transition is more like a selector.
 
-![condition-properties](state-translation/condition-properties.png)
+![condition-properties](state-transition/condition-properties.png)
 
 - **Duration**: set the period to complete the current transition, so the animation will switch smoothly. The unit is **seconds** or **times**, default is 0.3 seconds, you can click the unit after the input box to switch.
 
-    ![change duration](state-translation/change-duration.gif)
+    ![change duration](state-transition/change-duration.gif)
 
     - When set to **seconds** (default): indicates that the state transition is completed within the set number of seconds
 
@@ -47,11 +47,11 @@ With the transition selected in the grid layout area, the **Inspector** tab on t
 
     - If the animation of the transition source is an **non-loop animation**, the playing time is 3 s, **Exit Times** is set to 1.4, then the animation of the transition source will continue to stay in the last frame for 1.2s (3s × 0.4) after playing for 3s, before starting the transition.
 
-      ![non-loop](state-translation/non-loop.png)
+      ![non-loop](state-transition/non-loop.png)
 
     - If the animation of the transition source is an **loop animation**, playing time is 3 s, **Exit Times** is set to 1.4, then the animation of the transition source will continue to loop the animation to 1.2s (3s × 0.4) after playing 3s, before starting the transition.
 
-      ![loop](state-translation/loop.png)
+      ![loop](state-transition/loop.png)
 
 - **Condition**: there are certain conditions that need to be met when setting up transitions that occur between states, as described below:
 
@@ -59,7 +59,7 @@ Without using other transition conditions, for the animation of the source state
 
 For example, if the animation length of the transition source state is 3 seconds, set **Duration** to 0.3 times, then **Exit Times** is 0.7. If **Duration** is set to 0.3 seconds, it is more troublesome, **Exit Times** need to convert seconds to times: (3 - 0.3)/ 3 = 0.9 times.
 
-![set example](state-translation/set-example.png)
+![set example](state-transition/set-example.png)
 
 ### Transition Conditions
 
@@ -67,21 +67,21 @@ Some transitions between states need to satisfy certain conditions to be trigger
 
 Once the transition is selected in the grid layout area, the condition can be added by selecting the gear icon button in the **Inspector** tab on the left. The added conditions are displayed below the **Inspector** tab on the left.
 
-![add-condition](state-translation/add-condition.png)
+![add-condition](state-transition/add-condition.png)
 
 The currently supported transition conditions include the following three:
 
 - **Boolean condition**: determines if a variable of Boolean type is true/false. Click the gear icon button on the right to remove the current condition.
 
-  ![boolean-condition](state-translation/boolean-condition.png "boolean-condition")
+  ![boolean-condition](state-transition/boolean-condition.png "boolean-condition")
 
 - **Numeric condition**: determines the logical relationship between a variable of numeric type and another fixed value, including **equal to**, **not equal to**, **greater than**, **less than**, **greater than or equal to**, **less than or equal to**. The condition is satisfied when the equation (inequality) holds. The type of the variable matches the type of the value. If the variable is set to Float type, the type of the value is also Float type.
 
-  ![numeric-condition](state-translation/number-condition.png "numeric condition")
+  ![numeric-condition](state-transition/number-condition.png "numeric condition")
 
 - **Trigger condition**: condition is satisfied when the trigger variable is triggered.
 
-  ![trigger-condition](state-translation/trigger-condition.png "trigger condition")
+  ![trigger-condition](state-transition/trigger-condition.png "trigger condition")
 
 **Transition supports specifying multiple transition conditions at the same time, and the transition will occur when and only when all conditions are satisfied.**
 
