@@ -25,34 +25,16 @@
 
 1. 在 **层级管理器** 中选中节点，然后点击右侧 **属性检查器** 面板上的 **添加组件** 按钮添加粒子，如下图：
 
-    ![](particle-system/new_ParticleSystemComponent.png)
+    ![new_ParticleSystemComponent](overview/new_ParticleSystemComponent.png)
 
-2. 在左侧的 **层级管理器** 面板中点击鼠标右键，然后选择 **创建 -> 特效 -> 粒子系统** 来添加一个粒子系统组件，如下图：
+2. 在左侧的 **层级管理器** 面板中点击鼠标右键，然后选择 **创建 -> 特效 -> 粒子系统**，即可创建一个带有粒子系统组件的节点，如下图：
 
-    ![](particle-system/new_ParticleSystemComponent_node.png)
+    ![new_ParticleSystemComponent_node](overview/new_ParticleSystemComponent_node.png)
 
-## 粒子模块
+## 内容
 
-Cocos Creator 粒子系统操作面板如下：
+粒子系统主要包括以下两部分内容：
 
-![](particle-system/inspector_1.png)
+- [粒子系统模块](./module.md)
 
-![](particle-system/inspector_2.png)
-
-Cocos Creator 粒子系统用模块来组织功能，包括以下模块：
-
-| 模块 | 说明 |
-| :--- | :--- |
-| Node | 粒子节点，用于设置粒子发射器的位置、方向、大小、渲染层级 |
-| [ParticleSystem](main-module.md) | 用于存储在 **属性检查器** 中显示的所有数据，管理粒子生成、更新、销毁相关模块，控制粒子播放 |
-| [ShapeModule](emitter.md) | 用于控制粒子发射，包括发射方向与速度，支持预定义的发射方向，包括方块、圆、锥体、球、半球 |
-| [AnimatorModule](module.md) | 用于控制粒子发射后的状态更新。已支持的功能有：[速度模块(VelocityOvertimeModule)](velocity-module.md)、[加速模块(ForceOvertimeModule)](force-module.md)、[大小模块(SizeOvertimeModule)](size-module.md)、[旋转模块(RotationOvertimeModule)](rotation-module.md)、[颜色模块(ColorOvertimeModule)](color-module.md)、[贴图动画模块(TextureAnimationModule)](texture-animation-module.md)、[限速模块(LimitVelocityOvertimeModule)](limit-velocity-module.md)、[拖尾模块(TrailModule)](trail-module.md) |
-| [ParticleSystemRenderer](renderer.md) | 用于生成粒子渲染所需要的数据。包括 vb、ib、渲染状态相关的控制 |
-
-## 粒子剔除
-
-Cocos Creator 3.4 的粒子系统新增了 **RenderCulling** 选项，用于开启粒子剔除功能。开启该项粒子发射器将会自动计算出一个包围盒，运行时便会根据包围盒是否在摄像机的可见范围内来剔除粒子发射器，若不在则剔除。包围盒的大小可以通过 **AabbHalf** 属性进行调整，如果需要重新计算包围盒，点击 **Regenerate bounding box** 按钮即可。
-
-剔除后的粒子发射器行为可在 **cullingMode** 选项中设置，包括 **Pause**、**Pause and Catchup**、**Always Simulate** 四种模式。
-
-剔除运算每一帧都会进行，适合一些耗时的特效，如果粒子个数少可以考虑关闭该选项。
+- [粒子属性编辑](./editor/index.md)
