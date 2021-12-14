@@ -59,7 +59,7 @@ Next, click **Add Mode** to add the missing parts in the following content:
 
 The fields above will set the directories to exclude from the search for VS Code, as well as the types of files to hide in the file list. Since `build`, `temp`, and `library` are all paths automatically generated when the editor is running, and will contain the content of the script we wrote, they should be excluded from the search. And each file in the `assets` directory will generate a `.meta` file. Generally speaking, there is no need to care about its content, just let the editor help manage these files.
 
-## VS Code extension use
+## VS Code Advanced Use
 
 Cocos Creator integrates the **Add Compilation Task** and **Add Chrome Debug Configuration** functions in **Developer -> VS Code Workflow** in the top menu bar to better assist development:
 
