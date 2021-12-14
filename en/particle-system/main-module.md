@@ -26,7 +26,7 @@ The particle system main module is used to store all data displayed in the **Ins
 | RateOverTime     | Number of particles emitted per second. |
 | RateOverDistance | Number of particles emitted per moving unit distance. |
 | Bursts | The number of Bursts that will emit the specified number of particles at the specified time. It can be adjusted by the following properties:<br>**Time**: how long the particles play before the Burst starts to emit<br>**RepeatCount**: number of Burst triggers<br>**RepeatInterval**: time interval for each trigger<br>**Count**: number of particles fired. |
-| DataCulling | Particle system resource culling, please refer to the description below for details.  |
+| DataCulling | Particle system asset culling, please refer to the description below for details.  |
 | RenderCulling    | Particle culling, please refer to the description below for details. |
 
 Click the ![menu button](main-module/menu-button.png) button to the right of the above property input box to open the particle curve/gradient editor and edit the particle properties, please refer to [Particle Property Editor](./editor/index.md).
@@ -35,11 +35,11 @@ Click the ![menu button](main-module/menu-button.png) button to the right of the
 
 To use Particle System, please refer to the [Particle System API](__APIDOC__/en/#/docs/3.3/en/particle/Class/ParticleSystem).
 
-## Particle System Resource Culling
+## Particle System Asset Culling
 
-The **DataCulling** option is used to cull the resource data of useless modules in the particle system.
+The **DataCulling** option is used to cull the asset data of useless modules in the particle system.
 
-Each module in the particle system exists as an independent object, and each module stores some module-related data, so the data recorded for modules that are not checked for use are useless data. When the developer does not need to dynamically open these unused modules at runtime, he can check the **DataCulling** option to cull these useless data and thus reduce resource usage.
+Each module in the particle system exists as an independent object, and each module stores some module-related data, so the data recorded for modules that are not checked for use are useless data. When the developer does not need to dynamically open these unused modules at runtime, he can check the **DataCulling** option to cull these useless data and thus reduce asset usage.
 
 > **Note**: before v3.4 this option was **EnableCulling**, in v3.4 we renamed it to **DataCulling** to distinguish it from **RenderCulling** below. This adjustment has been done for compatibility, and it does not affect users in any way, so don't worry about it.
 
