@@ -2,9 +2,16 @@
 
 UI 界面只有静态页面内容是不够的，我们会遇到很多需要由一组数据动态生成多个元素组成的 UI 面板，比如选人界面、物品栏、选择关卡等等。
 
+本篇文档以动态生成一个可滑动的商品列表为例，演示一下具体的操作流程，主要步骤包括：
+
+- 列表 UI 准备
+- 数据准备
+- 列表 UI 脚本绑定
+- 最终预览效果
+
 ## 列表 UI 准备
 
-以商品列表为例，我们要动态生成一个可滑动的商品列表。需要先通过 Creator 编辑器设定好静态 UI 部分。
+以商品列表为例，要动态生成一个可滑动的商品列表。需要先通过Creator 编辑器设定好静态 UI 部分。
 
 首先，我们需要先创建一个空场景，点击上方工具栏中的 2D/3D 按钮，将 **场景编辑器** 切换为 2D 视图，然后搭建静态 UI 页面，如下图所示：
 
@@ -33,27 +40,23 @@ UI 界面只有静态页面内容是不够的，我们会遇到很多需要由�
 
 通过上述操作，可以在添加预制体商品到 `content` 节点中时，自动按照顺序排列。
 
-### Prefab 模板 UI 准备
+### 创建 Prefab
 
-接下来我们需要创建一个商品的 [Prefab 预制](../../../asset/prefab.md) 预制资源，作为在运行时实例化创建商品的模板。
+接下来需要创建一个商品的 [Prefab 预制](../../../asset/prefab.md) 预制资源，作为在运行时实例化创建商品的模板。
 
 在 **层级管理器** 创建一个 `Sprite` 节点，重命名为 `itemGiftBag`，然后根据需要制作商品 UI，例如：
 
-![itemGiftBagNode](list-with-data/itemGiftBagNode.png)
-
-其中 `spr`、`name` 和 `price` 子节点用来显示商品图片、商品名称和商品价格。
-
-然后将 `itemGiftBag` 节点拖拽到 **资源管理器** 中即可创建一个同名预制资源。双击打开预制资源，可以看到结构如下：
-
 ![itemGiftBag](list-with-data/itemGiftBag.png)
+
+`spr`、`name` 和 `price` 子节点用来显示商品图片、商品名称和商品价格。
 
 ### 商品图片准备
 
-我们在 **resources/monster** 文件夹下放置一批小怪兽头像做为商品图片。
-
-将资源命名为 **monster01 ~ monster12**。这样命名可以方便后续批量的 [动态加载资源](../../../scripting/load-assets.md)。
+我们在 **层级管理器** 的 **resources/monster** 目录下放置了一批小怪兽头像资源做为商品图片，并将资源命名为 **monster01 ~ monster12**，这样命名可以方便我们后续批量 [动态加载资源](../../../scripting/load-assets.md)。
 
 ![monster](list-with-data/monster.png)
+
+将资源命名为 **monster01 ~ monster12**。这样命名可以方便我们后续批量的 [动态加载资源](../../../scripting/load-assets.md)。
 
 ## 数据准备
 
@@ -72,7 +75,11 @@ UI 界面只有静态页面内容是不够的，我们会遇到很多需要由�
 
 ## 列表 UI 脚本绑定
 
-完成 UI 和基本数据的准备之后，就需要一个组件脚本来完成功能。新建一个 `ItemTemplate.ts` 脚本，并在场景中新建一个 ItemTemplate 节点将 `ItemTemplate.ts` 添加上去。该脚本内容如下：
+完成场景 UI 搭建以及基本数据准备之后，我们可以通过一个组件脚本来绑定它们。
+
+在 **资源管理器** 中新建一个名为 `ItemTemplate.ts` 的脚本，然后在 **层级管理器** 中创建一个名为 `ItemTemplate` 的空节点，并挂载 `ItemTemplate.ts` 脚本。
+
+`ItemTemplate.ts` 脚本内容如下：
 
 ```ts
 
@@ -83,24 +90,24 @@ const { ccclass, property } = _decorator;
 
 /** 商品数据定义接口 */
 export interface ItemGiftList {
- 
-    title: string; // 商品名称
+
     price: number; // 商品价格
-    name: string;  // 商品图片名称
+    title: string; // 商品名称
+    name: string; // 商品图片名称
 
 }
 @ccclass('ItemTemplate')
 export class ItemTemplate extends Component {
 
-    // ScrollView 的容器节点 content 
+    // 定义一个 itemContent 属性，用于指定 ScrollView 的容器节点 content 
     @property(Node)
     itemContent: Node = null!;
 
-    // 商品栏预制体
+    // 定义一个 itemGiftPre 属性，用于指定商品预制资源 itemGiftBag
     @property(Prefab)
     itemGiftPre: Prefab = null!;
 
-    // Json 脚本
+    // 定义一个 itemGiftJson 属性，用于指定包含数据的 Json 文件
     @property(JsonAsset)
     itemGiftJson: JsonAsset = null!;
     start() {
@@ -126,9 +133,9 @@ export class ItemTemplate extends Component {
 
 在 `initData` 函数中，先将 Json 数据转换为数组，再根据数组的长度去依次生成对应数量的模板预制体 `itemGiftPre`。最后将生成的预制体的父节点设置为 `itemContent`。
 
-![itemTemplate](list-with-data/itemTemplate.png)
+![ItemTemplate](list-with-data/ItemTemplate.png)
 
-当根据上图所示，将声明的组件一一拖拽绑定之后，在网页上调试即可以得到下图所示的效果：
+当根据上图所示，将声明的组件一一拖拽绑定，并保存场景后，执行预览便能得到下图所示的效果：
 
 ![showCase](list-with-data/showCase.gif)
 
@@ -173,7 +180,7 @@ export class ItemGiftBag extends Component {
 // ItemGiftBag.ts
 
 init(data: ItemGiftList) {
-    const str = 'monster/' + data.name + '/spriteFrame';
+    const str = 'monster/' + data.name + "/spriteFrame";
     resources.load(str, SpriteFrame, (err, res) => {
         this.itemSpr.spriteFrame = res;
     })
@@ -185,7 +192,7 @@ init(data: ItemGiftList) {
 
 `init` 函数接受一个数据对象，并使用这个对象里的数据更新各个负责表现组件的相应属性，动态加载商品图片。关于动态加载的更多细节，可以参考 [动态加载资源](../../../scripting/load-assets.md)。
 
-最后，在 `ItemTemplate` 脚本的 `initData` 函数中，在遍历生成预制体的同时，添加上对 `ItemGiftBag` 脚本中 `init` 函数的调用和数据赋值。最终 `initData` 函数如下所示：
+最后，在 `ItemTemplate` 脚本的 `initData` 函数中，在遍历生成预制件的同时，添加对 `ItemGiftBag` 脚本中 `init` 函数的调用和数据赋值。最终 `initData` 函数如下所示：
 
 ```ts
 
@@ -199,9 +206,9 @@ initData(){
 
     for (let i = 1; i <= jsonLength; i++) {
 
-        let item: Node = instantiate(this.itemGiftPre);
+        const item: Node = instantiate(this.itemGiftPre);
         if (item) {
-            let itemGiftScripts = item.getComponent(ItemGiftBag);
+            const itemGiftScripts = item.getComponent(ItemGiftBag);
             itemGiftScripts?.init(parse[i]);
             item.parent = this.itemContent;
         }
@@ -210,5 +217,7 @@ initData(){
 ```
 
 ## 最终预览效果
+
+最后，所有内容编辑完成后，回到编辑器，保存场景，即可通过预览查看最后的效果：
 
 ![lastShow](list-with-data/lastShow.gif)
