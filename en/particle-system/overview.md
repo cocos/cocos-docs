@@ -19,40 +19,22 @@ The general particle system will consist of the following parts:
 4. Particle class, which stores the properties of particles.
 5. The particle system class manages the above modules.
 
-## Adding a particle system
+## Adding the particle system
 
-There are two ways to add a particle system:
+There are two ways to add the particle system:
 
 1. Select the node in the __Hierarchy__ panel and click the __Add Component__ button on the __Inspector__ panel, as shown below:
 
-    ![new_ParticleSystemComponent](particle-system/new_ParticleSystemComponent.png)
+    ![new_ParticleSystemComponent](overview/new_ParticleSystemComponent.png)
 
-2. You can also right-click the **Hierarchy** panel and select __Create -> Effects-> Particle System__, as shown below:
+2. You can also right-click the **Hierarchy** panel and select __Create -> Effects-> Particle System__ to create a node with the particle system component, as shown below:
 
-    ![new_ParticleSystemComponent Node](particle-system/new_ParticleSystemComponent_node.png)
+    ![new_ParticleSystemComponent_node](overview/new_ParticleSystemComponent_node.png)
 
-## Particle Modules
+## Contents
 
-The __Cocos Creator__ particle system inspector panel is shown below:
+The particle system consists of the following two main parts:
 
-![](particle-system/inspector_1.png)
+- [Particle System Module](./module.md)
 
-![](particle-system/inspector_2.png)
-
-The __Cocos Creator__ particle system uses modules to organize functions, including the following modules:
-
-| Module | Description |
-| :--- | :--- |
-| Node | The particle node, used to modify the particle emitter's position, rotation, scale and render layer. |
-| [ParticleSystem](main-module.md) | It is used to store all the data displayed in the Inspector, manage the related modules of particle generation, update and destruction, and control the particle playback. |
-| [ShapeModule](emitter.md) | Used to control particle emission, including emission direction and speed, and supports predefined emission directions including squares, circles, cones, balls, and hemispheres. |
-| [AnimatorModule](module.md) |  Used to control the state update after particle emission. The supported functions are: [VelocityOvertimeModule](velocity-module.md), [ForceOvertimeModule](force-module.md), [SizeOvertimeModule](size-module.md), [RotationOvertimeModule](rotation-module.md), [ColorOvertimeModule](color-module.md), [TextureAnimationModule](texture-animation-module.md), [LimitVelocityOvertimeModule](limit-velocity-module.md), [TrailModule](trail-module.md). |
-| [ParticleSystemRenderer](renderer.md) |  Used to generate the data needed for particle rendering. Including control related to vb, ib, rendering state. |
-
-## Particle Culling
-
-Cocos Creator 3.4 adds a new **RenderCulling** option to the particle system to enable particle culling. When this option is enabled, the particle emitter will automatically calculate a bounding box, which will be used to cull the particle emitter at runtime depending on whether the bounding box is within the visible range of the camera, or if not, then it will be culled. The size of the bounding box can be adjusted via the **AabbHalf** property, and click the **Regenerate bounding box** button if the bounding box needs to be recalculated.
-
-The behavior of the culled particle emitter can be set in the **cullingMode** option, which includes four modes: **Pause**, **Pause and Catchup**, and **Always Simulate**.
-
-Particle culling is performed every frame, which is suitable for some time-consuming effects, so consider disabling this option if the number of particles is less.
+- [Particle Property Editor](./editor/index.md)
