@@ -1,6 +1,6 @@
 # Toggle 组件参考
 
-Toggle 是一个 CheckBox，当它和 ToggleGroup 一起使用的时候，可以变成 RadioButton。
+Toggle 是一个 CheckBox，当它和 ToggleContainer 一起使用的时候，可以变成 RadioButton。
 
 ![toggle1](toggle/toggle.png)
 

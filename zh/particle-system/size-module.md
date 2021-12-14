@@ -1,10 +1,18 @@
-## 大小模块(SizeOvertimeModule)
-![](particle-system/size_module.png)
+# 大小模块（SizeOvertimeModule）
 
-属性| 作用
----|---
-**separateAxes** | 是否三个轴分开进行缩放。
-**size** | 大小随时间变化的曲线，可采用不同计算模式，当separateAxes为false时有效。
-**X Y Z** | 大小随时间变化的曲线，可对三个坐标轴设置不同缩放，可采用不同计算模式，当separateAxes为true时有效。
+大小模块可用于曲线改变粒子的大小。
 
-![](particle-system/size_overtime.gif)
+![size_overtime](module/size_overtime.gif)
+
+## 属性
+
+![size_overtime](module/size_module.png)
+
+| 属性 | 说明 |
+| :--- | :--- |
+| **SeparateAxes** | 是否在 X、Y、Z 轴上分别控制粒子大小。若勾选该项，则可设置：<br>**X**：定义一条曲线来决定粒子在其生命周期中 X 轴方向上的大小变化。<br>**Y**：定义一条曲线来决定粒子在其生命周期中 Y 轴方向上的大小变化。<br>**Z**：定义一条曲线来决定粒子在其生命周期中 Z 轴方向上的大小变化。 |
+| **Size** | 定义一条曲线来决定粒子在其生命周期中的大小变化。该项与 **separateAxes** 属性，二者只能选其一。 |
+
+点击属性输入框右侧的 ![menu button](main-module/menu-button.png) 按钮，可选择对属性进行曲线编辑，详情请参考 [曲线编辑](./editor/curve-editor.md)。
+
+![size_module_curve](module/size_module_curve.png)

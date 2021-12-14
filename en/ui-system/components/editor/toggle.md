@@ -1,6 +1,6 @@
 # Toggle Component Reference
 
-The Toggle component is a CheckBox, when it's used together with a ToggleGroup, it could be treated as a RadioButton.
+The Toggle component is a CheckBox, when it's used together with a ToggleContainer, it could be treated as a RadioButton.
 
 ![toggle1](toggle/toggle.png)
 
