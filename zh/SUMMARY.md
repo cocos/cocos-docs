@@ -254,9 +254,9 @@
             - [拖尾模块](particle-system/trail-module.md)
             - [渲染模块](particle-system/renderer.md)
         - [粒子属性编辑](particle-system/editor/index.md)
-            - [曲线编辑](particle-system/editor/curve-editor.md)
-            - [渐变色编辑](particle-system/editor/gradient-editor.md)
             - [控制面板](particle-system/editor/particle-effect-panel.md)
+            - [曲线编辑器](particle-system/editor/curve-editor.md)
+            - [渐变色编辑器](particle-system/editor/gradient-editor.md)
 
 - [缓动系统](tween/index.md)
 
