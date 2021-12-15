@@ -213,6 +213,11 @@
         - [Joint Texture Layout Settings](animation/joint-texture-layout.md)
     - [Controlling Animation with Scripts](animation/animation-component.md)
         - [Animation State](animation/animation-state.md)
+    - [Marionette Animation System](animation/marionette/index.md)
+        - [Animation Graph Assets](animation/marionette/animation-graph.md)
+        - [Animation Graph Panel](animation/marionette/animation-graph-panel.md)
+        - [Animation State Machine](animation/marionette/animation-graph-basics.md)
+        - [State Transition](animation/marionette/state-transition.md)
 
 - [Audio System](audio-system/overview.md)
     - [AudioSource Component Reference](audio-system/audiosource.md)
