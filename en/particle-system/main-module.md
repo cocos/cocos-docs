@@ -29,7 +29,7 @@ The particle system main module is used to store all data displayed in the **Ins
 | DataCulling | Particle system asset culling, please refer to the description below for details.  |
 | RenderCulling    | Particle culling, please refer to the description below for details. |
 
-Click the ![menu button](main-module/menu-button.png) button to the right of the above property input box to open the particle curve/gradient editor and edit the particle properties, please refer to [Particle Property Editor](./editor/index.md).
+Click the ![menu button](main-module/menu-button.png) button to the right of the above property input box to open the particle curve/gradient editor and edit the particle properties, please refer to the [Particle Property Editor](./editor/index.md) documentation.
 
 ![set-pro](main-module/set-pro.png)
 
@@ -41,13 +41,13 @@ The **DataCulling** option is used to cull the asset data of useless modules in 
 
 Each module in the particle system exists as an independent object, and each module stores some module-related data, so the data recorded for modules that are not checked for use are useless data. When the developer does not need to dynamically open these unused modules at runtime, he can check the **DataCulling** option to cull these useless data and thus reduce asset usage.
 
-> **Note**: before v3.4 this option was **EnableCulling**, in v3.4 we renamed it to **DataCulling** to distinguish it from **RenderCulling** below. This adjustment has been done for compatibility, and it does not affect users in any way, so don't worry about it.
+> **Note**: before v3.4 this option was **EnableCulling**, in v3.4 it was renamed to **DataCulling** to distinguish it from **RenderCulling** below. This adjustment has been done for compatibility, and it does not affect users in any way.
 
 ## Particle Culling
 
 Starting with v3.4, a new **RenderCulling** option has been added to the particle system to enable particle culling.
 
-If this option is enabled, the particle emitter will automatically calculate a culling box, which will be used to cull the particle emitter at runtime depending on whether the culling box is within the visible range of the camera, or not. The culling operation will be performed every frame, which is suitable for some time-consuming effects, so it is not recommended to turn it on if the number of particles is small.
+If this option is enabled, the particle emitter will automatically calculate a culling box, that will be used to cull the particle emitter at runtime depending on whether the culling box is within the visible range of the camera, or not. The culling operation will be performed every frame, which is suitable for some time-consuming effects, it is not recommended to turn this feature on if the number of particles is small.
 
 The size of the bounding box can be adjusted by using the **AabbHalf** button in the picture below. Once the adjustment is complete, click the **Regenerate bounding box** button to recalculate the bounding box.
 
