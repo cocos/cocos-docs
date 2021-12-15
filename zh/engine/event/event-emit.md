@@ -9,7 +9,6 @@ const eventTarget = new EventTarget();
 
 > **注意**：虽然 `Node` 对象也实现了一些 `EventTarget` 的接口，但是我们不再推荐继续通过 `Node` 对象来做自定义事件的监听和发射，因为这样子做不够高效，同时我们也希望 `Node` 对象只监听与 `Node` 相关的事件。
 
-
 ## 监听事件
 
 监听事件可以通过 `eventTarget.on()` 接口来实现，方法如下：
