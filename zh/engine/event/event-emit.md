@@ -52,7 +52,7 @@ eventTarget.off(type, func, target);
 
 需要注意的是，`off` 方法的参数必须和 `on` 方法的参数一一对应，才能完成关闭。
 
-我们的推荐实践如下：
+我们推荐的实现方式如下：
 
 ```ts
 import { _decorator, Component, EventTarget } from 'cc';
