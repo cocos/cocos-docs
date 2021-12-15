@@ -1,6 +1,7 @@
 # 监听和发射事件
 
 Cocos Creator 引擎提供了 `EventTarget` 类，用以实现自定义事件的监听和发射，在使用之前，需要先从 `'cc'` 模块导入，同时需要实例化一个 `EventTarget` 对象。
+
 ```ts
 import { EventTarget } from 'cc';
 const eventTarget = new EventTarget();
