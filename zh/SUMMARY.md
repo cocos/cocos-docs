@@ -67,7 +67,6 @@
         - [配置代码编辑环境](scripting/coding-setup.md)
         - [脚本运行环境](scripting/basic.md)
         - [装饰器使用](scripting/decorator.md)
-        - [属性参数参考](scripting/reference/attributes.md)
         - [生命周期回调](scripting/life-cycle-callbacks.md)
     - [脚本使用](scripting/usage.md)
         - [访问节点和其他组件](scripting/access-node-component.md)

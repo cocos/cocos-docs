@@ -6,5 +6,4 @@
 - [配置代码编辑环境](./coding-setup.md)
 - [脚本运行环境](./basic.md)
 - [装饰器使用](./decorator.md)
-- [属性参数参考](./reference/attributes.md)
 - [生命周期回调](./life-cycle-callbacks.md)

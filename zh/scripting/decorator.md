@@ -112,7 +112,25 @@ export class Example extends Component {
 
 属性装饰器 [property](#property) 可以被应用在 cc 类的属性或访问器上。属性装饰器用于控制 Cocos Creator 编辑器中对该属性的序列化、**属性检查器** 中对该属性的展示等。
 
-属性装饰器的各种特性是通过 `@property()` 的参数来指定的。完整可选择参数可以参考：[属性参数](./reference/attributes.md)
+属性装饰器的各种特性是通过 `@property()` 的参数来指定的。
+
+> 属性参数用来给已定义的属性附加元数据，类似于脚本语言的 `Decorator` 或者 C# 的 `Attribute`。
+
+### 属性检查器相关参数
+
+| 参数名 | 说明 | 类型 | 默认值 | 备注 |
+| :--- | :--- | :-- | :--- | :--- |
+| type | 限定属性的数据类型 | (Any) | undefined | |
+| visible | 在 **属性检查器** 面板中显示或隐藏 | boolean | (注1) |  |
+| displayName | 在 **属性检查器** 面板中显示为另一个名字 | string | undefined | - |
+| tooltip | 在 **属性检查器** 面板中添加属性的 Tooltip | string | undefined | - |
+| multiline | 在 **属性检查器** 面板中使用多行文本框 | boolean | false | - |
+| readonly | 在 **属性检查器** 面板中只读 | boolean | false | - |
+| min | 限定数值在编辑器中输入的最小值 | number | undefined | - |
+| max | 限定数值在编辑器中输入的最大值 | number | undefined | - |
+| step | 指定数值在编辑器中调节的步长 | number | undefined | - |
+| range | 一次性设置 min、max、step | [min, max, step] | undefined | step 值可选 |
+| slide | 在 **属性检查器** 面板中显示为滑动条 | boolean | false | - |
 
 property 装饰器写法参考如下：
 
@@ -126,7 +144,7 @@ targetNode: Node | null = null;
 
 接着，下方会罗列出一些常用属性参数写法。
 
-### type 参数
+#### type 参数
 
 选项 `type` 指定了属性的 cc 类型。可以通过以下几种形式的参数指定类型：
 
@@ -177,6 +195,9 @@ class MyClass {
     @property // JavaScript 原始类型，根据默认值自动识别为 Creator 的浮点数类型。
     index = 0;
 
+    @property
+    children2 = []; // 未声明 cc 类型，从初始化式的求值结果推断元素为未定义的数组
+
     @property(Node) // 声明属性 cc 类型为 Node。当属性参数只有 type 时可这么写，等价于 @property({type: Node})
     targetNode: Node | null = null; // 等价于 targetNode: Node = null!;
 
@@ -188,11 +209,8 @@ class MyClass {
 
     @property({
         type: String,
-    }) // 警告：不应该使用构造函数 String。等价于 CCString。也可以选择不声明类型
+    }) // 警告：不应该使用构造函数 String。等价于 CCString。JavaScript 原始类型 `number`、`string`、`boolean` 通常可以不用声明
     text = '';
-
-    @property
-    children2 = []; // 未声明 cc 类型，从初始化式的求值结果推断元素为未定义的数组
 
     @property
     _valueB = 'abc'; // 此处 '_' 开头的属性，只序列化，不会在编辑器属性面板显示
@@ -261,7 +279,7 @@ CCClass 的构造函数使用 `constructor` 定义，为了保证反序列化始
 
 4. 空数组 `[]` 或空对象 `{}` -->
 
-### visible 参数
+#### visible 参数
 
 一般情况下，属性是否显示在 **属性检查器** 中取决于属性名是否以 `_` 开头。**如果是以 `_` 开头，则不显示**。
 
@@ -279,7 +297,78 @@ private _num = 0;
 num = 0;
 ```
 
-### serializable 参数
+#### displayName 参数
+
+属性在默认情况下都会在 **属性检查器** 中显示定义的名字。如果需要在 **属性检查器** 面板中显示另一个名字，则可以通过 displayName  参数进行设置：
+
+```typescript
+@property({ displayName: "newName" })
+num = 0;
+```
+
+#### tooltip 参数
+
+属性在默认情况下不会显示对该属性的提示。如果设置 tooltip 参数，开发者将鼠标悬浮在 **属性检查器** 面板的对应属性上，即可出现提示。
+
+```typescript
+@property({ tooltip: "wake up the body" })
+wake = false;
+```
+
+#### multiline 参数
+
+当该属性是字符串类型时, 在 **属性检查器** 默认是单行文本框。如果将 multiline 参数设为 true 则可以变为多行文本框。
+
+```typescript
+@property({multiline:true})   
+str = 'hello world';
+```
+
+#### readonly 参数
+
+如果不希望该属性的默认值被编辑器所改变，则可以设置 readonly 参数的值为 true，那么在 **属性检查器** 中对应属性在变为只读。
+
+```typescript
+@property({ readonly: true })
+str = 'hello world';
+```
+
+#### min max step range 参数
+
+通过 `min`、 `max`、和 `step` 参数可以在编辑中限定数值在编辑器中输入的最小值、最大值以及调节的步长。通过 range 参数 则可以一次性设置 `min`、`max` 和 `step`。
+
+```typescript
+@property ({min:0,max:100,step:1 })   
+num = 0;
+
+@property ({range:[0,100,1] })   
+rangeNum = 0;      
+
+```
+
+#### slide 参数
+
+当该属性为数值类型时，是否在编辑器中提供滑动条来调节值。如果需要提供，则可以设置 slide 参数的值为 true。滑动条的值可以搭配  `min`、`max` 参数进行调整。
+
+```typescript
+@property({ slide: true })
+impulse = 100;
+
+@property({slide:true,max:1000,min:100})    
+torque = 100;
+```
+
+### 序列化相关参数
+
+以下参数不能用于 `get` 方法：
+
+| 参数名 | 说明 | 类型 |
+| :--- | :--- | :--- | :--- |
+| serializable | 序列化该属性 | boolean | true |
+| formerlySerializedAs | 指定之前序列化所用的字段名 | string | undefined |
+| editorOnly | 在导出项目前剔除该属性 | boolean | false |
+
+#### serializable 参数
 
 属性默认情况下都会被序列化，序列化后就会将编辑器中设置好的属性值保存到场景等资源文件中，之后在加载场景时就会自动还原成设置好的属性值。如果不想序列化，可以设置 `serializable: false`。
 
@@ -288,7 +377,22 @@ num = 0;
 num = 0;
 ```
 
-### override 参数
+#### formerlySerializedAs 参数
+
+重命名属性时，声明这个参数来继承之前序列化的数据
+
+```typescript
+@property({ formerlySerializedAs: 'oldName' })
+newName = 0;
+```
+
+### 其它参数
+
+| 参数名 | 说明 | 类型 | 默认值 |
+| :--- | :--- | :--- | :--- | :--- |
+| override | 当重写父类属性时需要定义该参数为 true | boolean | false |
+
+#### override 参数
 
 所有属性都会被子类继承，如果子类要覆盖父类同名属性，需要显式设置 override 参数，否则会有重名警告：
 
@@ -297,7 +401,4 @@ num = 0;
 id = "";
 ```
 
-## 参考链接
-
-- [属性参数](./reference/attributes.md)
-- [脚本进阶](./reference-class.md)
+**注1**：visible 的默认值取决于属性名。当属性名以下划线 `_` 开头时，默认隐藏，否则默认显示。
