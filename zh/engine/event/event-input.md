@@ -29,7 +29,8 @@
 
 ### 指针事件
 
-指针事件包括鼠标和触摸事件
+指针事件包括 **鼠标事件** 和 **触摸事件**。
+
 - 事件监听器类型：
     - `Input.EventType.MOUSE_DOWN`, `Input.EventType.MOUSE_MOVE`, `Input.EventType.MOUSE_UP`, `Input.EventType.MOUSE_WHEEL`
     - `Input.EventType.TOUCH_START`, `Input.EventType.TOUCH_MOVE`, `Input.EventType.TOUCH_CANCEL`, `Input.EventType.TOUCH_END`
