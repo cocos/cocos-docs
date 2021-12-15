@@ -1,6 +1,9 @@
 # 输入事件系统
 
-如上一篇文档所述，`EventTarget` 支持了一套完整的 [事件监听和发射机制](event-emit.md) 。在 Cocos Creator v3.4.0 中，我们支持了 `input` 对象，该对象实现了 `EventTarget` 的事件监听接口，可以通过这个对象监听全局的系统输入事件。
+`EventTarget` 支持了一套完整的 [事件监听和发射机制](event-emit.md) 。在 Cocos Creator 3.4.0 中，我们支持了 `input` 对象，该对象实现了 `EventTarget` 的事件监听接口，可以通过 `input` 对象监听全局的系统输入事件。而原先的 `systemEvent` 对象则从 v3.4.0 开始废弃了，`systemEvent` 和 `input` 二者的区别在于：
+
+- `systemEvent` 的事件监听器会被节点的事件监听器拦截
+- `input` 对象优先级比节点高，不会被拦截。
 
 > **注意**：`systemEvent` 对象从 v3.4.0 开始已经废弃了。与 `input` 对象的差异是，`systemEvent` 的事件监听器会被节点的事件监听器拦截，而 `input` 对象优先级比节点高，不会被拦截。
 
