@@ -1,6 +1,7 @@
 # Event Listening and Emitting
 
 Cocos Creator provides the `EventTarget` class to suport the listening and emitting of custom event. Before using it, it needs to be imported from the `'cc'` module and an `EventTarget` object needs to be instantiated.
+
 ```ts
 import { EventTarget } from 'cc';
 const eventTarget = new EventTarget();
