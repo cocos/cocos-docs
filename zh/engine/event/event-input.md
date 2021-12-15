@@ -39,6 +39,8 @@
 - 回调参数：
     - [EventMouse](__APIDOC__/zh/#/docs/3.3/zh/event/Class/EventMouse) 或 [EventTouch](__APIDOC__/zh/#/docs/3.3/zh/event/Class/EventTouch)
 
+指针事件的使用范例如下：
+
 ```ts
 import { _decorator, Component, input, Input, EventTouch } from 'cc';
 const { ccclass } = _decorator;
