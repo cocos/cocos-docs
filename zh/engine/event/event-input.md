@@ -20,7 +20,7 @@
 
 上文提到的输入事件，都可以通过接口 `input.on(type, callback, target)` 注册。
 
-可选的 `type` 类型有:
+可选的 `type` 类型包括：
 
 1. `Input.EventType.MOUSE_DOWN`, `Input.EventType.MOUSE_MOVE`, `Input.EventType.MOUSE_UP`, `Input.EventType.MOUSE_WHEEL`
 2. `Input.EventType.TOUCH_START`, `Input.EventType.TOUCH_MOVE`, `Input.EventType.TOUCH_CANCEL`, `Input.EventType.TOUCH_END`
