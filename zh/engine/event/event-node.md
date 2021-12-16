@@ -46,7 +46,7 @@ node.on(Node.EventType.MOUSE_DOWN, (event) => {
 
 ## 节点事件派发
 
-我们在 `Node` 上支持了 `dispatchEvent` 接口，通过该接口派发的事件，会进入事件派发阶段。Cocos Creator 的事件派发系统是按照 [Web 的事件冒泡及捕获标准](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%8F%8A%E6%8D%95%E8%8E%B7) 实现的，事件在派发之后，会经历下面三个阶段：
+Cocos Creator 在 `Node` 上支持了 `dispatchEvent` 接口，通过该接口派发的事件，会进入事件派发阶段。Creator 的事件派发系统是按照 [Web 的事件冒泡及捕获标准](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%8F%8A%E6%8D%95%E8%8E%B7) 实现的，事件在派发之后，会经历下面三个阶段：
 - **捕获**：事件从场景根节点，逐级向子节点传递，直到到达目标节点或者在某个节点的响应函数中中断事件传递
 - **目标**：事件在目标节点上触发
 - **冒泡**：事件由目标节点，逐级向父节点冒泡传递，直到到达根节点或者在某个节点的响应函数中中断事件传递
