@@ -68,3 +68,9 @@ Except for the `JPG` and `PNG` supported by all platforms, the details of other 
 | Xiaomi Quick Game | ETC1                 |
 | iOS               | ASTC / PVR / WEBP / ETC1 / ETC2 |
 | Android           | ASTC / ETC2 / ETC1 / WEBP |
+
+## Custom build texture compression processing
+
+纹理压缩目前是在构建后生效，编辑器自带了一套处理工具。若需要自定义压缩工具，请参考 [扩展构建流程 —— 自定义纹理压缩](../editor/publish/custom-build-plugin.md#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86)。
+
+Texture compression currently takes effect after the build, and the editor comes with a set of processing tools. To customize the compression tool, please refer to the [Extending Build Process -- Custom Texture Compression](../editor/publish/custom-build-plugin.md) documentation.
