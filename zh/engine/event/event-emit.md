@@ -112,7 +112,7 @@ export class Example extends Component {
 
 ## 系统内置事件
 
-以上是通用的事件监听和发射规则，在 Cocos Creator 中，我们默认支持了一些系统内置事件，可以参考我们后续的文档来查看如何使用：
+以上是通用的事件监听和发射规则，在 Cocos Creator 中，我们默认支持了一些系统内置事件，具体的说明及使用方式请参考：
 
 - [输入事件系统](event-input.md)
 
