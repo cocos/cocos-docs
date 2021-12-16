@@ -114,6 +114,6 @@ export class Example extends Component {
 
 以上是通用的事件监听和发射规则，在 Cocos Creator 中，我们默认支持了一些系统内置事件，可以参考我们后续的文档来查看如何使用：
 
-输入事件：可参考 [输入事件系统](event-input.md)
+- [输入事件系统](event-input.md)
 
-节点事件：可参考 [节点事件系统](event-node.md)
+- [节点事件系统](event-node.md)

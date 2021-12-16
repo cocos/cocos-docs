@@ -133,12 +133,14 @@ export class Example extends Component {
 }
 ```
 
-具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event)），包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。
+具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/event)），包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。
 
-## 对 3D 物体的触摸检测
+## 3D 物体的触摸检测
 
-3D 物体与 2D UI 节点的触摸检测不同。2D UI 节点只需要通过 `UITransform` 组件提供的尺寸信息和节点的位置信息，就可以实现触摸检测，详情可以参考 [节点事件系统](event-node.ts)。  
-而 3D 物体的触摸检测则需要通过射线检测来实现。具体做法是通过渲染 3D 物体的 Camera 到触点的屏幕坐标，生成一条射线，判断射线是否击中想要检测的对象。具体代码实现如下：
+3D 物体与 2D UI 节点的触摸检测不同：
+
+- 2D UI 节点只需要通过 `UITransform` 组件提供的尺寸信息和节点的位置信息，就可以实现触摸检测，详情请参考 [节点事件系统](event-node.md)。  
+- 3D 物体的触摸检测需要通过射线检测来实现。具体做法是通过渲染 3D 物体的 Camera 到触点的屏幕坐标，生成一条射线，判断射线是否击中想要检测的对象。具体代码实现如下：
 
 ```ts
 import { _decorator, Component, Node, Camera, geometry, input, Input, EventTouch, PhysicsSystem } from 'cc';
