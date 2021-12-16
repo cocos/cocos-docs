@@ -7,14 +7,14 @@ import { EventTarget } from 'cc';
 const eventTarget = new EventTarget();
 ```
 
-> __Note__: although the `Node` object also implements some `EventTarget` interfaces, it is no longer recommended to continue using the `Node` object to listen to and emit custom events. Because this is not efficient enough, and we also hope that `Node` object only cares about events related to `Node`.
+> __Note__: although the `Node` object also implements some `EventTarget` interfaces, it is no longer recommended to continue using the `Node` object to listen to and emit custom events. Because this is not efficient enough, and we also hope that `Node` object only listens to events related to `Node`.
 
 ## Event Listening
 
 Listen to events can be registered by the interface `this.node.on()`. The methods are as follows:
 
 ```ts
-// This event monitor is triggered every time and needs to be unregistered manually.
+// This event listener is triggered every time and needs to be unregistered manually.
 eventTarget.on(type, func, target?);
 ```
 
@@ -83,9 +83,9 @@ Events are emitted through the `eventTarget.emit()` interface, as follows:
 eventTarget.emit(type, ...args);
 ```
 
-## Explanation for event arguments
+## Explanation for event parameters
 
-When emitting events, start passing the event parameters as the second argument of the emit function.
+When emitting events, we can pass our event parameters starting with the second argument of the `emit` function. Also, the corresponding event parameters can be fetched in the callback registered in `on`.
 
 ```ts
 import { _decorator, Component, EventTarget } from 'cc';
@@ -110,9 +110,9 @@ export class Example extends Component {
 
 > __Note__: only up to 5 event parameters can be passed here for the performance of the underlying event distribution. Therefore, care should be taken to control the number of parameters passed when passing a parameter.
 
-## System built-in event
+## System built-in events
 
-Above are the general rules for listening to events and emitting events. __Cocos Creator__ has built in system events. Please refer to the following documents:
+Above are the general rules for listening to and emitting events. __Cocos Creator__ has some built-in system events. Please refer to the following documents:
 
 - [Input Event System](event-input.md)
 

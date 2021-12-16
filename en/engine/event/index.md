@@ -4,9 +4,7 @@ The event system is a common feature that needs to be involved in interaction du
 
 ## Use of Events
 
-Events need to be registered to get listened to. Learn about event listening and emitting through the following documents:
-
-- [Event Listening and Emitting](event-emit.md)
+Events need to be registered to get listened to. Learn about event listening and emitting through the [Event Listening and Emitting](event-emit.md) documentation.
 
 On the basis of event listening and emitting, Cocos Creator supports many built-in event systems, including:
 

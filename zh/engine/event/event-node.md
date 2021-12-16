@@ -214,7 +214,7 @@ this.node.on(Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
 
 ## 多点触摸事件
 
-引擎有多点触摸事件的屏蔽开关，多点触摸事件默认为开启状态。对于不需要多点触摸的项目，可以通过以下代码关闭多点触摸。
+引擎有多点触摸事件的屏蔽开关，多点触摸事件默认为开启状态。对于不需要多点触摸的项目，可以通过以下代码关闭多点触摸：
 
 ```ts
 macro.ENABLE_MULTI_TOUCH = false;

@@ -1,9 +1,11 @@
 # Input Event System
 
-As mentioned in the previous document, `EventTarget` supports a complete set of event listening and emitting mechanisms.  
-In Cocos Creator v3.4.0, `input` object is supported, which implements the event registering interface of `EventTarget`, and can register global system input events through this object. 
+As mentioned in the previous document, `EventTarget` supports a complete set of event listening and emitting mechanisms. In Cocos Creator v3.4.0, `input` object is supported, which implements the event registering interface of `EventTarget`, and can register global system input events through this object. The original `systemEvent` object has been deprecated since v3.4.0, and the differences between `systemEvent` and `input` are as follows:
 
-> __Note__: the `systemEvent` object has been deprecated starting at v3.4.0. The difference with the `input` object is that the event listener of `systemEvent` will be intercepted by the node's event listener, while the `input` object has a higher priority than the node and will not be intercepted.
+- The event listener of `systemEvent` will be intercepted by the event listener of the node.
+- `input` objects have higher priority than nodes and will not be intercepted.
+
+> __Note__: the `systemEvent` object is no longer recommended and will be phased out in the future, we recommend using the `input` object as a replacement.
 
 In this section, the `global input events` of __Cocos Creator__ will be introduced.
 
@@ -13,8 +15,6 @@ In this section, the `global input events` of __Cocos Creator__ will be introduc
 - Touch
 - Keyboard
 - DeviceMotion
-
-The global mouse and touch events are very similar to the node events, except that the area of action is different. The following is a description of these events.
 
 ## How to define the input events
 
@@ -27,17 +27,19 @@ Event types included:
 3. `Input.EventType.KEY_DOWN`, `Input.EventType.KEY_PRESSING`, `Input.EventType.KEY_UP`
 4. `Input.EventType.DEVICEMOTION`
 
-### Pointer events
+### Pointer Events
 
 Pointer events include mouse and touch events.
 
-- Type:
+- Event Listener Types:
     - `Input.EventType.MOUSE_DOWN`, `Input.EventType.MOUSE_MOVE`, `Input.EventType.MOUSE_UP`, `Input.EventType.MOUSE_WHEEL`
     - `Input.EventType.TOUCH_START`, `Input.EventType.TOUCH_MOVE`, `Input.EventType.TOUCH_CANCEL`, `Input.EventType.TOUCH_END`
-- Call Back:
+- Callback Function:
     - Custom Function: callback(event);
-- Call Back Parameter:
+- Callback Parameter:
     - [EventMouse](__APIDOC__/en/#/docs/3.3/en/event/Class/EventMouse) or [EventTouch](__APIDOC__/en/#/docs/3.3/en/event/Class/EventTouch)
+
+Examples of the use of pointer events are as follows:
 
 ```ts
 import { _decorator, Component, input, Input, EventTouch } from 'cc';
@@ -62,10 +64,10 @@ export class Example extends Component {
 
 ### Keyboard events
 
-- Type: `Input.EventType.KEY_DOWN`，`Input.EventType.KEY_PRESSING` and `Input.EventType.KEY_UP`
-- Call Back:
+- Event Listener Types: `Input.EventType.KEY_DOWN`，`Input.EventType.KEY_PRESSING` and `Input.EventType.KEY_UP`
+- Callback Function:
     - Custom Function: callback(event);
-- Call Back Parameter:
+- Callback Parameter:
     - [EventKeyboard](__APIDOC__/en/#/docs/3.3/en/event/Class/EventKeyboard)
 
 ```ts
@@ -102,12 +104,12 @@ export class Example extends Component {
 }
 ```
 
-### Device motion
+### Device Motion
 
 - Type: `Input.EventType.DEVICEMOTION`
-- Call back:
+- Callback:
   - Custom Function: `callback(event);`;
-- Call back parameter:
+- Callback parameter:
   - [EventAcceleration](__APIDOC__/en/#/docs/3.3/en/event/Class/EventAcceleration)
 
 ```ts
@@ -131,12 +133,14 @@ export class Example extends Component {
 }
 ```
 
-Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event) (This includes the keyboard, accelerometer, single point touch, multi-touch examples).
+Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event) (This includes the keyboard, accelerometer, single  touch, multi-touch examples).
 
 ## Touch detection for 3D objects
 
-The touch detection for 3D objects and 2D UI nodes is different. 2D UI nodes only need the size information provided by the `UITransform` component and the position information of the node to do the touch detection. For details, please refer to [Node Event System](event-node.ts). 
-The touch detection for 3D objects needs to be implemented by ray cast. The specific method is to generate a ray from the rendering camera of the 3D object to the screen coordinates of the touch point to determine whether the ray hits the object that was detected. The specific code implementation is as follows: 
+The touch detection for 3D objects and 2D UI nodes is different:
+
+- 2D UI nodes only need the size information provided by the `UITransform` component and the position information of the node to do the touch detection. For details, please refer to [Node Event System](event-node.ts). 
+- The touch detection for 3D objects needs to be implemented by ray cast. The specific method is to generate a ray from the rendering camera of the 3D object to the screen coordinates of the touch point to determine whether the ray hits the object that was detected. The specific code implementation is as follows: 
 
 ```ts
 import { _decorator, Component, Node, Camera, geometry, input, Input, EventTouch, PhysicsSystem } from 'cc';
