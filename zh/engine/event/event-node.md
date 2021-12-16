@@ -23,7 +23,7 @@ node.on(Node.EventType.MOUSE_DOWN, (event) => {
 | **Node.EventType.MOUSE_DOWN**  | 当鼠标在目标节点区域按下时触发一次。        |
 | **Node.EventType.MOUSE_ENTER** | 当鼠标移入目标节点区域时触发，不论是否按下。     |
 | **Node.EventType.MOUSE_MOVE**  | 当鼠标在目标节点区域中移动时触发，不论是否按下。 |
-| **Node.EventType.MOUSE_LEAVE**     | 当鼠标移出目标节点区域时，不论是否按下。
+| **Node.EventType.MOUSE_LEAVE**     | 当鼠标移出目标节点区域时触发，不论是否按下。
 | **Node.EventType.MOUSE_UP**        | 当鼠标从按下状态松开时触发一次。     |
 | **Node.EventType.MOUSE_WHEEL**     | 当鼠标滚轮滚动时触发。                |
 
