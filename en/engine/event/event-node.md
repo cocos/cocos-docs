@@ -2,7 +2,7 @@
 
 As mentioned in the previous document, the `input` object supports the global [input event system](event-input.md), and the `Node` also implements the event listening interface of the `EventTarget`. On this basis, the basic node-related system events are provided. This document will introduce how to use these events.
 
-__Cocos Creator__ supports four types of system events: __mouse__, __touch__, __keyboard__, __device motion__. They are called [Global Input Events](event-input.md). The usage of touch and mouse events dispatched by `Node` is discussed in this document. The usage is as follows:
+This document focuses on the mouse and touch events associated with the UI node tree, which are triggered directly on the UI-related nodes and are therefore called node events, and are used as follows:
 
 ```ts
 node.on(Node.EventType.MOUSE_DOWN, (event) => {
@@ -10,20 +10,20 @@ node.on(Node.EventType.MOUSE_DOWN, (event) => {
 }, this);
 ```
 
-> __Note__: it is no longer recommend directly using the event name string to register event listeners. Like the example above, please do not use `node.on('mouse-down', callback, target)` to register event listeners.
+> __Note__: it is no longer recommended to directly use the event name string to register event listeners. Like the example above, please do not use `node.on('mouse-down', callback, target)` to register event listeners.
 
-The touch event listener on the node depends on the `UITransform` component, which is only applicable to 2D UI nodes. To implement the touch detection of 3D objects, refer to the [Touch Detection of 3D Objects](event-input.md#Touch%20detection%20for%203D%20objects) documentation.
+The touch event listener on the node depends on the `UITransform` component, which is only applicable to 2D UI nodes. To implement the touch detection of 3D objects, refer to the [Touch Detection of 3D Objects](event-input.md#touch-detection-for-3D-objects) documentation.
 
-## Mouse event type and event object
+## Mouse event types and event objects
 
 __Mouse events__ will only be triggered on desktop platforms, the event types the system provides are as follows:
 
-| Enumerated Object Definition | Timing of Event Triggering            |
-|:-------------------------------|:---------------------------------------------------------------------------------------------|
-| __Node.EventType.MOUSE_DOWN__  | When a button on the mouse is pressed in the target node region                              |
-| __Node.EventType.MOUSE_ENTER__ | When the cursor enters the target node region, whether or not the button is pressed          |
-| __Node.EventType.MOUSE_MOVE__  | When the cursor is moved in the target node region, whether or not the button is pressed     |
-| __Node.EventType.MOUSE_LEAVE__ | When the cursor is moved out of the target node region, whether or not the button is pressed |
+| Enum Value Definition         | Timing of Event Triggering   |
+|:-------------------------------|:-----------------------------|
+| __Node.EventType.MOUSE_DOWN__  | When a button on the mouse is pressed in the target node area                              |
+| __Node.EventType.MOUSE_ENTER__ | When the cursor enters the target node area, whether or not the button is pressed          |
+| __Node.EventType.MOUSE_MOVE__  | When the cursor is moved in the target node area, whether or not the button is pressed     |
+| __Node.EventType.MOUSE_LEAVE__ | When the cursor is moved out of the target node area, whether or not the button is pressed |
 | __Node.EventType.MOUSE_UP__    | When a button on the mouse is released                                                       |
 | __Node.EventType.MOUSE_WHEEL__ | When the mouse wheel is scrolled                                                             |
 
@@ -31,25 +31,25 @@ The important APIs of mouse events (`Event.EventMouse`) are described in the [Mo
 
 ## Touch event types and event objects
 
-__Touch events__ can be triggered on both mobile platforms and desktop platforms. Developers can better debug on the desktop platform, by simply listening for touch events and responding to both mobile touch events and desktop mouse events at the same time. The types of touch events provided by the system are as follows:
+__Touch events__ can be triggered on both mobile platforms and desktop platforms. Developers can better debug on the desktop platform, by simply listening to touch events and responding to both mobile touch events and desktop mouse events at the same time. The types of touch events provided by the system are as follows:
 
-| Enumerated Object Definition  | Timing of Event Triggering                                                               |
-|:--------------------------------|:-----------------------------------------------------------------------------------------|
-| __Node.EventType.TOUCH_START__  | When one or more touch points are placed in the target node region                       |
+| Enum Value Definition          | Timing of Event Triggering |
+|:--------------------------------|:---------------------------|
+| __Node.EventType.TOUCH_START__  | When one or more touch points are placed in the target node area                       |
 | __Node.EventType.TOUCH_MOVE__   | When one or more touch points are moved along the screen                                 |
-| __Node.EventType.TOUCH_END__    | When one or more touch points are removed from the screen in the target node region      |
-| __Node.EventType.TOUCH_CANCEL__ | When one or more touch points are removed from the screen outside the target node region |
+| __Node.EventType.TOUCH_END__    | When one or more touch points are removed from the screen in the target node area      |
+| __Node.EventType.TOUCH_CANCEL__ | When one or more touch points are removed from the screen outside the target node area |
 
-The important APIs of a touch event (`Event.EventTouch`) are described in the [Mouse Events API](event-api.md#Touch-Event-API) (`Event` standard event API excluded):
+The important APIs of a touch event (`Event.EventTouch`) are described in the [Mouse Events API](event-api.md#Touch-Event-API) (`Event` standard event API excluded).
 
 > __Note__: touch events support multi-touch, each touch spot will send one event to the event listener.
 
 ## Node Event Dispatching
 
-The `dispatchEvent` interface is supported on `Node`. Events dispatched by this interface, would enter the event delivery stage. The event dispatching system of Cocos Creator is based on the implementation of [event bubbling and capture on Web standard](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling_and_capture). After the event is dispatched, it will go through the following three stages:
-- __capturing phase__: The event is passed from the scene root node to the child nodes step by step, until it reaches the target node or the event propagation is stopped in the event callback
-- __target phase__: The event is triggered on the target node
-- __bubbling phase__: The event is bubbled from the target node to the parent node level by level, until the root node is reached or the event propagation is stopped in the event callback
+The `dispatchEvent` interface is supported on `Node`. Events dispatched by this interface would enter the event delivery stage. The event dispatching system of Cocos Creator is based on the implementation of [event bubbling and capture on Web standard](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling_and_capture). After the event is dispatched, it will go through the following three stages:
+- __Capturing phase__: the event is passed from the scene root node to the child nodes step by step, until it reaches the target node or the event propagation is stopped in the event callback
+- __Target phase__: the event is triggered on the target node
+- __Bubbling phase__: the event is bubbled from the target node to the parent node level by level, until the root node is reached or the event propagation is stopped in the event callback
 
 When calling `node.dispatchEvent()`, it means that `node` is the target node mentioned above. In the process of event delivery, call `event.propagationStopped = true` to stop the event propagation.
 
@@ -88,20 +88,25 @@ this.node.on('foobar', (event: MyEvent) => {
 
 > __Note__: to dispatch a custom event, do not use `Event` directly because it's an abstract class.
 
-## Event object
+If you wish to register the event in the capturing phase, you can pass a fourth parameter to the `on` interface as follows:
 
-In the call-back of the event listener, the developer will receive an event object event of the `Event` type. `propagationStopped` is the standard API of Event, other important API include:
+```ts
+// in the component script of node a
+this.node.on('foobar', callback, target, true);
+```
 
-| API Name                        | Type     | Meaning                                                                                                                                          |
-|:---------------------------------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| __type__                        | String   | The event type (event name).                                                                                                                     |
-| __target__                      | Node     | The original target that received the event.                                                                                                     |
-| __currentTarget__               | Node     | The current object that received the event. The current target of the event during the bubbling phase may be different from the original target. |
-| __getType__                     | Function | Get the event type.                                                                                                                              |
-| __propagationStopped__          | Boolean  | Whether or not stop the bubbling phase. The parent node of the current target no longer receives the corresponding event.                        |
-| __propagationImmediateStopped__ | Boolean  | Whether or not stop passing the current event immediately. The current target no longer receives the event either.                               |
+## Event Objects
 
-Please refer to the `Event` and API files of its child category for a complete API list.
+In the callback of the event listener, the developer will receive an event object event of the `Event` type. `propagationStopped` is the standard API of Event, other important API include:
+
+| API Name   | Type   | Meaning  |
+|:-----------|:-------|:---------|
+| __type__               | String   | The event type (event name). |
+| __target__             | Node     | The original target that received the event. |
+| __currentTarget__      | Node     | The current object that received the event. The current target of the event during the bubbling phase may be different from the original target. |
+| __getType__            | Function | Get the event type.   |
+| __propagationStopped__ | Boolean  | Whether or not stop the bubbling phase. The parent node of the current target no longer receives the corresponding event. |
+| __propagationImmediateStopped__ | Boolean  | Whether or not stop passing the current event immediately. The current target no longer receives the event either. |
 
 ## Touch event propagation
 
@@ -117,13 +122,13 @@ In the scene shown in the picture, suppose node A has a child node B which has a
 
 When the mouse or finger was applied in the node C region, the event will be triggered at node C first and the node C listener will receive the event (this is the target phase). Then the node C will pass this event to its parent node, so the node B listener will receive this event. Similarly the node B will also pass the event to its parent node A. This is a basic event bubbling phase. 
 
-> __Note__: it needs to be emphasized that there is no hit test in parent nodes in the bubbling phase, which means that nodes A and B can receive touch events even though the touch location is out of their node region.
+> __Note__: it needs to be emphasized that there is no hit test in parent nodes in the bubbling phase, which means that nodes A and B can receive touch events even though the touch location is out of their node area.
 
 The bubbling phase of touch events is no different than the general events. Calling `event.propagationStopped = true` can force stopping the bubbling phase.
 
 ### Ownership of touch points among brother nodes
 
-Suppose the node B and C in the picture above are brother nodes, while C partly covers over B. Now if C receives a touch event, it is announced that the touch point belongs to C, which means that the brother node B won't receive the touch event any more, even though the touch location is also inside its node region. The touch point belongs to the top one among brother nodes.
+Suppose the node B and C in the picture above are brother nodes, while C partly covers over B. Now if C receives a touch event, it is announced that the touch point belongs to C, which means that the brother node B won't receive the touch event any more, even though the touch location is also inside its node area. The touch point belongs to the top one among brother nodes.
 
 At the same time, if C has a parent node, it will also pass the touch event to its parent node through the event bubble mechanism.
 
@@ -147,13 +152,17 @@ Event bubbling cannot meet all demands. When this happens, register the parent n
 this.node.on(Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
 ```
 
-When the node fires the `touch-start` event, the `touch-start` event will be first dispatched to all the parent node event listeners registered in the capturing phase, then dispatched to the node itself, and finally comes the event bubbling phase.
+When the node fires the `Node.EventType.TOUCH_START` event, the `Node.EventType.TOUCH_START` event will be first dispatched to all the parent node event listeners registered in the capturing phase, then dispatched to the node itself, and finally comes the event bubbling phase.
 
 Only touch or mouse events can be registered in the capturing phase, while the other events can't be.
 
 ### Event Interception
 
-Normal events are dispensed as described above. However, if the node has components such as __Button__, __Toggle__ or __BlockInputEvents__ on it, it will stop event bubbling. Look at the picture below. There are two buttons, priority 1 for Canvas0 and priority 2 for Canvas1. Click on the intersection of the two buttons, which is the blue area in the picture, it appears that button priority 2 received the contact event successfully, while button priority 1 did not. That's because according to the event reception rules above, button priority 2 receives contact events first and intercepts them (`event.propagationStopped = true`) to prevent event penetration. If the node is a non-button node, events can also be intercepted by adding the __BlockInputEvents__ component to prevent penetration.
+Normal events are dispensed as described above. However, if the node has components such as `Button`, `Toggle` or `BlockInputEvents` on it, it will stop event bubbling. 
+
+Look at the picture below. There are two buttons, priority 1 for Canvas0 and priority 2 for Canvas1. Click on the intersection of the two buttons, which is the blue area in the picture, it appears that button priority 2 received the contact event successfully, while button priority 1 did not. <br>That's because according to the event reception rules above, button priority 2 receives contact events first and intercepts them (`event.propagationStopped = true`) to prevent event penetration. If the node is a non-button node, events can also be intercepted by adding the `BlockInputEvents` component to prevent penetration.
+
+> **Note**: buttons priority 1 and priority 2 are under Canvas 0 and Canvas 1 nodes respectively, the two buttons are not brother nodes.
 
 ![events-block](events-block.png)
 
@@ -170,17 +179,17 @@ Using the example below, summarizing touch events is easy. There are four nodes 
 
 ## Other events of Node
 
-All node built-in events can get event names from `Node.EventType`.
+All built-in `Node` events can get event names from `Node.EventType`.
 
 ### 3D Node Events
 
-| Enumerated Object Definition              | Timing of Event Triggering             |
+| Enum Value Definition              | Timing of Event Triggering             |
 | :-------------             |   :----------        |
 | __TRANSFORM_CHANGED__ | When a transform property is modified, an enum value `TransformBit` is assigned that defines the modified transform based on the enum value.                      |
 
-Definition of Transformation Enumeration Values:
+Definition of Transformation Enum Values:
 
-| Enumeration Value Meaning | Transformations                               |
+| Enum Value Definition | Transformations                               |
 |:---------------------------|:-----------------------------------------------|
 | __TransformBit.NONE__     | The properties remain unchanged.              |
 | __TransformBit.POSITION__ | The node position changes.                    |
@@ -191,7 +200,7 @@ Definition of Transformation Enumeration Values:
 
 ### 2D Node Events
 
-| Enumeration Value Meaning | Timing of Event Triggering                                                                                              |
+| Enum Value Definition | Timing of Event Triggering                                                                                              |
 |:---------------------------|:-------------------------------------------------------------------------------------------------------------------------|
 | __SIZE_CHANGED__          | When the width/height property is modified. The width/height property is located on the `UITransform` component.        |
 | __ANCHOR_CHANGED__        | When the X/Y properties of the anchor is modified. The width/height property is located on the `UITransform` component. |
@@ -213,7 +222,7 @@ The engine has a multi-touch event blocking switch. Multi-touch events are enabl
 macro.ENABLE_MULTI_TOUCH = false;
 ```
 
-Alternatively, it can be configured via __Project Setting/Macro Config__.
+Alternatively, it can be configured via __Project -> Project Settings -> Macro Config__. Just uncheck the **ENABLE_MULTI_TOUCH** property.
 
 ## Pause or resume node system events
 
