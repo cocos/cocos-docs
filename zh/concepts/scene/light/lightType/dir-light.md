@@ -14,7 +14,7 @@
 
 新建场景时，默认会自动创建一个 `Main Light` 平行光节点。
 
-平行光组件相关接口，请参考 [DirectionalLight API](__APIDOC__/zh/#/docs/3.3/zh/component-light/Class/DirectionalLight)。
+平行光组件相关接口，请参考 [DirectionalLight API](__APIDOC__/zh/#/docs/3.4/zh/component-light/Class/DirectionalLight)。
 
 ## 平行光属性
 

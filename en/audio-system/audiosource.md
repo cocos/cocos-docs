@@ -110,7 +110,7 @@ export class AudioController extends Component {
 
 > **Note**: `playOneShot` is a one-time play operation, the sound after playing cannot be paused or stopped, and cannot listen to the end-of-play event callback.
 
-For more audio-related scripting interfaces, please refer to [AudioSource API](__APIDOC__/en/#/docs/3.3/en/component-audio/Class/AudioSource).
+For more audio-related scripting interfaces, please refer to [AudioSource API](__APIDOC__/en/#/docs/3.4/en/component-audio/Class/AudioSource).
 
 For more control over audio playback, please refer to the [AudioSource playback example](./audioExample.md) documentation.
 

@@ -107,7 +107,7 @@
 
 跳转链接格式：**[跳转的文档名称]\(跳转的文档目录)**。使用半角（halfwidth）英文标点，且 [] 与 () 之间不要有空格
 
-> e.g：[Mask API]\(\_\_APIDOC\_\_/zh/#/docs/3.3/zh/ui/Class/Mask)。跨文档的文件名后缀要使用 **.html**
+> e.g：[Mask API]\(\_\_APIDOC\_\_/zh/#/docs/3.4/zh/ui/Class/Mask)。跨文档的文件名后缀要使用 **.html**
 
 ## 使用加粗且和相邻的正文之间加空格
 

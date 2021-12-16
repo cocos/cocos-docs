@@ -31,7 +31,7 @@ Method 2: Select **File -> Save Scene** in the top menu bar.
 ## Switching Scenes
 
 In the **Assets** panel, **double-click** the **Scene** to be opened.<br>
-When needing to switch **Scenes** in the game, use the [director.loadScene()](__APIDOC__/en/#/docs/3.3/en/core/Class/Director?id=loadscene) API to implement dynamic scene loading and switching in the game.
+When needing to switch **Scenes** in the game, use the [director.loadScene()](__APIDOC__/en/#/docs/3.4/en/core/Class/Director?id=loadscene) API to implement dynamic scene loading and switching in the game.
 
 ## Scene Properties
 
@@ -60,7 +60,7 @@ When switching from current scene to the next scene, if current scene disabled t
 
 ### Prevent auto releasing for some specified assets
 
-With the auto releasing enabled for a scene, if some of the scene's assets are saved in the script as "special reference", these references will become invalid once the scene switched, since the asset has been released, may cause rendering problems. To prevent these assets from being released automatically, we can use [Asset.addRef](__APIDOC__/en/#/docs/3.3/en/asset/Class/Asset?id=addref) to retain them.
+With the auto releasing enabled for a scene, if some of the scene's assets are saved in the script as "special reference", these references will become invalid once the scene switched, since the asset has been released, may cause rendering problems. To prevent these assets from being released automatically, we can use [Asset.addRef](__APIDOC__/en/#/docs/3.4/en/asset/Class/Asset?id=addref) to retain them.
 
 > "Special reference" refer to references in the form of global variables, singleton, closures, "dynamic assets", and so on.<br>
 > "Dynamic assets" refer to assets that are dynamically created or dynamically modified in a script.
