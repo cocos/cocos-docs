@@ -33,7 +33,7 @@ Now, enter **exclude** search in the search box above and find **Files: Exclude*
 
 ![vs code](coding-setup/vscode-exclude.png)
 
-Next, click **Add Mode** to add the missing parts in the following content:
+Next, click **Add Pattern** to add the missing parts in the following content:
 
 ```json
 {
@@ -77,7 +77,7 @@ After using the external script editor to modify the project script, return to C
 
 First, make sure that the [cURL command](https://curl.haxx.se/) can be run in the operating system. If when running the `curl` command on the command line of the Windows operating system and the command cannot be found, install cURL to operating system:
 
-- Visit this webpage for [help](http://www.confusedbycode.com/curl/)
+- Visit this webpage: <http://www.confusedbycode.com/curl/>
 
 - Click the control shown by the arrow in the figure below to complete the human-machine identity verification.
 
