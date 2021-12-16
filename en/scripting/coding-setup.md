@@ -1,6 +1,6 @@
 # Configuring The Code Editing Environment
 
-The[Default Script Editor](../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%A8%8B%E5%BA%8F) can be specified in the **Preferences** panel. Double-click the script file in **Assets** panel to open the code editor to quickly edit the code. Visual Studio Code is used as an example to introduce how to configure the development environment. [Visual Studio Code](https://code.visualstudio.com/) (hereinafter referred to as VS Code) is a lightweight cross-platform IDE created by Microsoft. It supports Windows, Mac, and Linux platforms. Installation and configuration are very simple. Using VS Code to manage and edit project script codes can easily realize functions such as syntax highlighting, smart code prompts, and web page debugging.
+The [Default Script Editor](../editor/preferences/index.md#external-program) can be specified in the **Preferences** panel. Double-click the script file in **Assets** panel to open the code editor to quickly edit the code. Visual Studio Code is used as an example to introduce how to configure the development environment. [Visual Studio Code](https://code.visualstudio.com/) (hereinafter referred to as VS Code) is a lightweight cross-platform IDE created by Microsoft. It supports Windows, Mac, and Linux platforms. Installation and configuration are very simple. Using VS Code to manage and edit project script codes can easily realize functions such as syntax highlighting, smart code prompts, and web page debugging.
 
 ## Installing VS Code
 
@@ -25,7 +25,7 @@ After starting VS Code, select **File -> Open Folder...** in the main menu, and 
 
 ## Setting file display and search filter
 
-In the main menu of VS Code, select **File (Windows)/Code (Mac) -> Preferences -> Settings**, or select in the lower left corner! [gear.png](coding-setup/gear.png) **Setting** option, this operation will open the user configuration file **USER SETTINGS**:
+In the main menu of VS Code, select **File (Windows)/Code (Mac) -> Preferences -> Settings**, or select the **Setting** option in ![gear.png](coding-setup/gear.png) in the lower left corner, this operation will open the user configuration file **USER SETTINGS**:
 
 ![vs code](coding-setup/vscode-setting.png)
 
@@ -105,7 +105,7 @@ To activate script compilation in VS Code, perform the following steps:
 
 In this way, after using VS Code to edit the script, execute the second step to trigger the script compilation of Creator without returning to Creator.
 
-VS Code can also configure shortcut keys for compilation tasks, select **File (Windows)/Code (Mac) -> Preferences -> Keyboard Shortcuts** in the main menu, or select the lower left corner![gear.png]( **Keyboard shortcut** option in coding-setup/gear.png), this operation will open the shortcut configuration file. Then modify the shortcut keys of the compilation task as needed. For example, set it to <kbd>Cmd/Ctrl + Shift + B</kbd> in the following figure:
+VS Code can also configure shortcut keys for compilation tasks, select **File (Windows)/Code (Mac) -> Preferences -> Keyboard Shortcuts** in the main menu, or select the **Keyboard shortcut** option in ![gear.png](coding-setup/gear.png) in the lower left corner, this operation will open the shortcut configuration file. Then modify the shortcut keys of the compilation task as needed. For example, set it to <kbd>Cmd/Ctrl + Shift + B</kbd> in the following figure:
 
 ![set compile](coding-setup/set-compile.png)
 
