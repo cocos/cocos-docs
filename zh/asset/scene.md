@@ -44,6 +44,7 @@
 - [阴影](../concepts/scene/light/shadow.md)
 - [全局雾](../concepts/scene/fog.md)
 - [天空盒](../concepts/scene/skybox.md)
+- [原生场景剔除](../advanced-topics/native-scene-culling.md)
 
 ## 场景资源自动释放策略
 
