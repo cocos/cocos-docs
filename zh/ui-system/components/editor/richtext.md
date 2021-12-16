@@ -8,9 +8,9 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Render/RichText** 即可添加 RichText 组件到节点上。
 
-富文本的脚本接口请参考 [RichText API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/RichText)。
+富文本的脚本接口请参考 [RichText API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/RichText)。
 
-关于使用可以参考范例 **RichText**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/07.richtext) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/07.richtext)）。
+关于使用可以参考范例 **RichText**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/07.richtext) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/07.richtext)）。
 
 ## RichText 属性
 
@@ -43,7 +43,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 | 名称 | 描述 | 示例 | 注意事项 |
 | :------ | :------ | :---- | :----- |
-| color   | 指定字体渲染颜色，颜色值可以是内置颜色，比如 white，black 等，也可以使用 16 进制颜色值，比如 `#ff0000` 表示红色 | `<color=#ff0000>Red Text</color>` | <!--内置颜色值参考 [cc.Color](__APIDOC__/zh/#/docs/3.3/zh/gfx/Class/Color)--> |
+| color   | 指定字体渲染颜色，颜色值可以是内置颜色，比如 white，black 等，也可以使用 16 进制颜色值，比如 `#ff0000` 表示红色 | `<color=#ff0000>Red Text</color>` | <!--内置颜色值参考 [cc.Color](__APIDOC__/zh/#/docs/3.4/zh/gfx/Class/Color)--> |
 | size    | 指定字体渲染大小，大小值必须是一个整数| `<size=30>enlarge me</size>` |  Size 值必须使用等号赋值 |
 | outline | 设置文本的描边颜色和描边宽度 | `<outline color=red width=4>A label with outline</outline>` | 如果你没有指定描边的颜色或者宽度的话，那么默认的颜色是白色 (#ffffff)，默认的宽度是 1 |
 | b       | 指定使用粗体来渲染 | `<b>This text will be rendered as bold</b>` | 名字必须是小写，且不能写成 bold  |

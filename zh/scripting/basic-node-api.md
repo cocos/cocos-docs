@@ -1,6 +1,6 @@
 # 常用节点和组件接口
 
-在通过 [访问节点和组件](access-node-component.md) 介绍的方法获取到节点或组件实例后，这篇文章将会介绍通过节点和组件实例可以通过哪些常用接口实现我们需要的种种效果和操作。这一篇也可以认为是 [Node](__APIDOC__/zh/#/docs/3.3/zh/scene-graph/Class/Node) 和 [Component](__APIDOC__/zh/#/docs/3.3/zh/component/Class/Component) 类的 API 阅读指南，可以配合 API 一起学习理解。
+在通过 [访问节点和组件](access-node-component.md) 介绍的方法获取到节点或组件实例后，这篇文章将会介绍通过节点和组件实例可以通过哪些常用接口实现我们需要的种种效果和操作。这一篇也可以认为是 [Node](__APIDOC__/zh/#/docs/3.4/zh/scene-graph/Class/Node) 和 [Component](__APIDOC__/zh/#/docs/3.4/zh/component/Class/Component) 类的 API 阅读指南，可以配合 API 一起学习理解。
 
 ## 节点状态和层级操作
 

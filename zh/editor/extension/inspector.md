@@ -42,7 +42,7 @@
 
 在 contributions 数据里，向 **属性检查器** 提供一份数据，要求渲染 section 区域内的 node 类型物体里的 cc.Label 组件。
 
-然后我们针对这个书写一个 ./dist/contributions/inspector/comp-label.js 文件:
+然后我们针对这个书写一个 `./dist/contributions/inspector/comp-label.js` 文件：
 
 ```typescript
 'use strict';
@@ -71,9 +71,9 @@ module.exports = Editor.Panel.define({
 });
 ```
 
-Editor.Panel.define 是 3.3 新增的接口，主要是合并一些数据。
+`Editor.Panel.define` 是 v3.3 新增的接口，主要是合并一些数据。
 
-需要兼容之前版本的话可以加一行:
+需要兼容之前版本的话可以加一行：
 
 ```typescript
 Editor.Panel.define = Editor.Panel.define || function(panel: any) {return panel;}
@@ -141,7 +141,7 @@ interface Meta {
     ver: string;
 }
 
-// 兼容 3.3 之前的版本
+// 兼容 v3.3 之前的版本
 Editor.Panel.define = Editor.Panel.define || function(panel: any) {return panel;}
 
 module.exports = Editor.Panel.define({

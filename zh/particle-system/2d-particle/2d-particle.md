@@ -6,7 +6,7 @@
 
 点击 **属性检查器** 下方的 **添加组件** 按钮，然后从 **Effects** 中选择 **ParticleSystem2D**，即可添加 ParticleSystem2D 组件到节点上。
 
-ParticleSystem2D 的脚本接口请参考 [ParticleSystem API](__APIDOC__/zh/#/docs/3.3/zh/particle2d/Class/ParticleSystem2D)。
+ParticleSystem2D 的脚本接口请参考 [ParticleSystem API](__APIDOC__/zh/#/docs/3.4/zh/particle2d/Class/ParticleSystem2D)。
 
 ## ParticleSystem2D 属性
 
@@ -32,8 +32,8 @@ ParticleSystem2D 的脚本接口请参考 [ParticleSystem API](__APIDOC__/zh/#/d
 | StartSpin            | 粒子开始自旋角度及变化范围
 | EndSpin              | 粒子结束自旋角度及变化范围
 | PosVar               | 发射器位置的变化范围（横向和纵向）
-| PositionType         | 粒子位置类型，包括 **FREE**、**RELATIVE**、**GROUPED** 三种。详情可参考 [PositionType API](__APIDOC__/zh/#/docs/3.3/zh/particle2d/Class/ParticleSystem2D?id=positiontype-1)
-| EmitterMode          | 发射器类型，包括 **GRAVITY**、**RADIUS** 两种。详情可参考 [EmitterMode API](__APIDOC__/zh/#/docs/3.3/zh/particle2d/Class/ParticleSystem2D?id=emittermode)
+| PositionType         | 粒子位置类型，包括 **FREE**、**RELATIVE**、**GROUPED** 三种。详情可参考 [PositionType API](__APIDOC__/zh/#/docs/3.4/zh/particle2d/Class/ParticleSystem2D?id=positiontype-1)
+| EmitterMode          | 发射器类型，包括 **GRAVITY**、**RADIUS** 两种。详情可参考 [EmitterMode API](__APIDOC__/zh/#/docs/3.4/zh/particle2d/Class/ParticleSystem2D?id=emittermode)
 | Gravity              | 重力。仅在 Emitter Mode 设为 **GRAVITY** 时生效
 | Speed                | 速度及变化范围。仅在 Emitter Mode 设为 **GRAVITY** 时生效
 | TangentialAccel      | 每个粒子的切向加速度及变化范围，即垂直于重力方向的加速度。仅在 Emitter Mode 设为 **GRAVITY** 时生效
@@ -43,4 +43,4 @@ ParticleSystem2D 的脚本接口请参考 [ParticleSystem API](__APIDOC__/zh/#/d
 | EndRadius            | 结束半径及变化范围。仅在 Emitter Mode 设为 **RADIUS** 时生效
 | RotatePerS           | 粒子每秒围绕起始点的旋转角度及变化范围。仅在 Emitter Mode 设为 **RADIUS** 时生效
 
-更多具体的使用方式可参考官方范例 **ui/25.particle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/25.particle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/25.particle)）。
+更多具体的使用方式可参考官方范例 **ui/25.particle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/25.particle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/25.particle)）。

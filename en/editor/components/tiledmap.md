@@ -8,7 +8,7 @@ Click the **Add Component -> Components -> TiledMap** button under the **Inspect
 
 ![](./tiledmap/add_tiledmap.png)
 
-For the script interface of TiledMap, please refer to the [TiledMap API](__APIDOC__/en/#/docs/3.3/en/tiledmap/Class/TiledMap).
+For the script interface of TiledMap, please refer to the [TiledMap API](__APIDOC__/en/#/docs/3.4/en/tiledmap/Class/TiledMap).
 
 ## TiledMap Properties
 
@@ -78,7 +78,7 @@ The following is an example of how the TiledLayer and the node can occlude each 
 
 4. Attach the script component to the Canvas node, i.e. drag and drop the script into the **Inspector** panel of the Canvas node. Then drag and drop the automatically generated node with TiledLayer component from **Hierarchy** panel and the Prefabs from **Assets** panel to the corresponding property box of the script component, and then save the scene.
 
-5. Click the Preview button at the top of the editor to see the effect of the nodes and map layers occluding each other. For the code, please refer to the [ShieldNode](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/tiled-map) example.
+5. Click the Preview button at the top of the editor to see the effect of the nodes and map layers occluding each other. For the code, please refer to the [ShieldNode](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/tiled-map) example.
 
     ![shieldNode](./tiledmap/shieldNode.png)
 
