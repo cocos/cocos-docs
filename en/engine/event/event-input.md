@@ -37,7 +37,7 @@ Pointer events include mouse and touch events.
 - Callback Function:
     - Custom Function: callback(event);
 - Callback Parameter:
-    - [EventMouse](__APIDOC__/en/#/docs/3.3/en/event/Class/EventMouse) or [EventTouch](__APIDOC__/en/#/docs/3.3/en/event/Class/EventTouch)
+    - [EventMouse](__APIDOC__/en/#/docs/3.4/en/event/Class/EventMouse) or [EventTouch](__APIDOC__/en/#/docs/3.4/en/event/Class/EventTouch)
 
 Examples of the use of pointer events are as follows:
 
@@ -68,7 +68,7 @@ export class Example extends Component {
 - Callback Function:
     - Custom Function: callback(event);
 - Callback Parameter:
-    - [EventKeyboard](__APIDOC__/en/#/docs/3.3/en/event/Class/EventKeyboard)
+    - [EventKeyboard](__APIDOC__/en/#/docs/3.4/en/event/Class/EventKeyboard)
 
 ```ts
 import { _decorator, Component, input, Input, EventKeyboard, KeyCode } from 'cc';
@@ -110,7 +110,7 @@ export class Example extends Component {
 - Callback:
   - Custom Function: `callback(event);`;
 - Callback parameter:
-  - [EventAcceleration](__APIDOC__/en/#/docs/3.3/en/event/Class/EventAcceleration)
+  - [EventAcceleration](__APIDOC__/en/#/docs/3.4/en/event/Class/EventAcceleration)
 
 ```ts
 import { _decorator, Component, input, Input, log } from 'cc';
@@ -133,7 +133,7 @@ export class Example extends Component {
 }
 ```
 
-Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event) (This includes the keyboard, accelerometer, single  touch, multi-touch examples).
+Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/event) (This includes the keyboard, accelerometer, single  touch, multi-touch examples).
 
 ## Touch detection for 3D objects
 

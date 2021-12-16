@@ -47,9 +47,9 @@ The important APIs of a touch event (`Event.EventTouch`) are described in the [M
 ## Node Event Dispatching
 
 The `dispatchEvent` interface is supported on `Node`. Events dispatched by this interface would enter the event delivery stage. The event dispatching system of Cocos Creator is based on the implementation of [event bubbling and capture on Web standard](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling_and_capture). After the event is dispatched, it will go through the following three stages:
-- __capturing phase__: the event is passed from the scene root node to the child nodes step by step, until it reaches the target node or the event propagation is stopped in the event callback
-- __target phase__: the event is triggered on the target node
-- __bubbling phase__: the event is bubbled from the target node to the parent node level by level, until the root node is reached or the event propagation is stopped in the event callback
+- __Capturing phase__: the event is passed from the scene root node to the child nodes step by step, until it reaches the target node or the event propagation is stopped in the event callback
+- __Target phase__: the event is triggered on the target node
+- __Bubbling phase__: the event is bubbled from the target node to the parent node level by level, until the root node is reached or the event propagation is stopped in the event callback
 
 When calling `node.dispatchEvent()`, it means that `node` is the target node mentioned above. In the process of event delivery, call `event.propagationStopped = true` to stop the event propagation.
 
