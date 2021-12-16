@@ -285,6 +285,7 @@
 ## Advanced Tutorials
 
 - [Editor Extension](editor/extension/readme.md)
+    - [Extension Manager](editor/extension/extension-manger.md)
     - [Generating Extensions using Templates](editor/extension/create-extension.md)
     - [First Extension](editor/extension/first.md)
     - [First Panel](editor/extension/first-panel.md)
