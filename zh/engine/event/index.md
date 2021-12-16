@@ -4,7 +4,10 @@
 
 ## 事件使用
 
-事件需要通过注册获取监听。Cocos Creator 内置事件监听的方式包括：
+事件需要通过注册获取监听，详情请参考 [监听和发射事件](event-emit.md)。
 
-- [节点系统事件](event-builtin.md)
-- [全局系统事件](event-input.md)
+
+在事件监听和发射的基础上，Cocos Creator 支持了很多内置事件系统，包括：
+
+- [输入事件系统](event-input.md)
+- [节点事件系统](event-node.md)
