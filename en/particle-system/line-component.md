@@ -12,4 +12,4 @@ Properties | Features
 **offset** | The offset of the texture coordinates.
 **color** | The color of the line segment. If a gradient color is used, it indicates the color gradient along the direction of the line segment.
 
-To use `Line`, please refer to the [Line API](__APIDOC__/en/#/docs/3.3/en/particle/Class/Line).
+To use `Line`, please refer to the [Line API](__APIDOC__/en/#/docs/3.4/en/particle/Class/Line).

@@ -37,7 +37,7 @@ Pointer events include mouse and touch events.
 - Call Back:
     - Custom Function: callback(event);
 - Call Back Parameter:
-    - [EventMouse](__APIDOC__/en/#/docs/3.3/en/event/Class/EventMouse) or [EventTouch](__APIDOC__/en/#/docs/3.3/en/event/Class/EventTouch)
+    - [EventMouse](__APIDOC__/en/#/docs/3.4/en/event/Class/EventMouse) or [EventTouch](__APIDOC__/en/#/docs/3.4/en/event/Class/EventTouch)
 
 ```ts
 import { _decorator, Component, input, Input, EventTouch } from 'cc';
@@ -66,7 +66,7 @@ export class Example extends Component {
 - Call Back:
     - Custom Function: callback(event);
 - Call Back Parameter:
-    - [EventKeyboard](__APIDOC__/en/#/docs/3.3/en/event/Class/EventKeyboard)
+    - [EventKeyboard](__APIDOC__/en/#/docs/3.4/en/event/Class/EventKeyboard)
 
 ```ts
 import { _decorator, Component, input, Input, EventKeyboard, KeyCode } from 'cc';
@@ -108,7 +108,7 @@ export class Example extends Component {
 - Call back:
   - Custom Function: `callback(event);`;
 - Call back parameter:
-  - [EventAcceleration](__APIDOC__/en/#/docs/3.3/en/event/Class/EventAcceleration)
+  - [EventAcceleration](__APIDOC__/en/#/docs/3.4/en/event/Class/EventAcceleration)
 
 ```ts
 import { _decorator, Component, input, Input, log } from 'cc';
@@ -131,12 +131,13 @@ export class Example extends Component {
 }
 ```
 
-Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event) (This includes the keyboard, accelerometer, single point touch, multi-touch examples).
+Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/event) (This includes the keyboard, accelerometer, single point touch, multi-touch examples).
 
 ## Touch detection for 3D objects
 
-The touch detection for 3D objects and 2D UI nodes is different. 2D UI nodes only need the size information provided by the `UITransform` component and the position information of the node to do the touch detection. For details, please refer to [Node Event System](event-node.ts). 
-The touch detection for 3D objects needs to be implemented by ray cast. The specific method is to generate a ray from the rendering camera of the 3D object to the screen coordinates of the touch point to determine whether the ray hits the object that was detected. The specific code implementation is as follows: 
+The touch detection for 3D objects and 2D UI nodes is different. 2D UI nodes only need the size information provided by the `UITransform` component and the position information of the node to do the touch detection. For details, please refer to [Node Event System](event-node.ts).
+
+The touch detection for 3D objects needs to be implemented by ray cast. The specific method is to generate a ray from the rendering camera of the 3D object to the screen coordinates of the touch point to determine whether the ray hits the object that was detected. The specific code implementation is as follows:
 
 ```ts
 import { _decorator, Component, Node, Camera, geometry, input, Input, EventTouch, PhysicsSystem } from 'cc';

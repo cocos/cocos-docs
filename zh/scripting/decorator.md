@@ -103,7 +103,7 @@ export class Example extends Component {
 const { ccclass, help } = _decorator;
 
 @ccclass('Example')
-@help('https://docs.cocos.com/creator/3.0/manual/zh/scripting/decorator.html')
+@help('https://docs.cocos.com/creator/3.4/manual/zh/scripting/decorator.html')
 export class Example extends Component {
 }
 ```
