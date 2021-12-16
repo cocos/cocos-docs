@@ -138,7 +138,7 @@ this.node.on('foobar', callback, target, true);
 
 ### 不同 Canvas 的触点归属问题
 
-不同 Canvas 之间的触点拦截是根据优先级决定的。在下图中的场景里，节点树里的 Canvas 1-5 对应图片显示的 priority 1-5。可以看出，即使 Canvas 节点 3、4、5 之间是按乱序排的，但是根据 Canvas 上的优先级（priority）关系，触点的响应先后顺序仍然是 **Canvas5 -> Canvas4 -> Canvas3 -> Canvas2 -> Canvas1**。只有在优先级相同的情况下，Canvas 之间的排序是按节点树的先后顺序进行。
+不同 Canvas 之间的触点拦截是根据节点优先级（可在 Canvas 节点默认自带的 Camera 节点的 `priority` 属性中设置）决定的。在下图的场景中，左侧节点树里的节点 Canvas 1-5 对应着右侧场景中的图片 priority 1-5。可以看出，即使节点 Canvas 3、4、5 在节点树里并没有按照顺序排列，但根据 Canvas 上的优先级（`priority`）关系，触点的响应先后顺序仍然是 **Canvas 5 -> Canvas 4 -> Canvas 3 -> Canvas 2 -> Canvas 1**。只有在优先级相同的情况下，Canvas 之间的排序才是按照节点树的先后顺序进行。
 
 ![multi-canvas](multi-canvas.png)
 
@@ -156,7 +156,11 @@ this.node.on(Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
 
 ### 事件拦截
 
-正常的事件是会按照以上说明的方式去派发。但是如果节点身上带有 `Button`、`Toggle` 或者 `BlockInputEvents` 这几个组件的话，是会停止事件冒泡。还是看下图。图中有两个按钮，Canvas0 下的 priority 1 和 Canvas1 下的 priority 2。如果点击两个按钮的交汇处，也就是图中蓝色区域，会出现按钮 priority 2 成功接收到了触点事件，而按钮 priority 1 则没有。那是因为按上述的事件接收规则，按钮 priority 2 优先接收到了触点事件，并且对事件进行了拦截（`event.propagationStopped = true`），防止事件穿透。如果是非按钮节点，也可以通过添加 `BlockInputEvents` 组件来对事件进行拦截，防止穿透。
+正常的事件会按照上文说明的方式去派发。但是如果节点身上带有 `Button`、`Toggle` 或者 `BlockInputEvents` 这几个组件的话，会停止事件冒泡。
+
+例如下图，图中有两个按钮，分别是 Canvas 0 下的 priority 1 和 Canvas 1 下的 priority 2。如果点击两个按钮的交汇处，也就是图中的蓝色区域，会出现按钮 priority 2 成功接收到了触点事件，而按钮 priority 1 则没有。<br>这是因为按上文的事件接收规则，按钮 priority 2 优先接收到了触摸事件，并且对事件进行了拦截（`event.propagationStopped = true`），以防止事件穿透。如果是非按钮节点，也可以通过添加 `BlockInputEvents` 组件来对事件进行拦截，防止穿透。
+
+> **注意**：按钮 priority 1 和 priority 2 分别在 Canvas 0 和 Canvas 1 节点下，两个按钮并不是同级节点。
 
 ![events-block](events-block.png)
 
