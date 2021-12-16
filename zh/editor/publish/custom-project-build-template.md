@@ -1,6 +1,6 @@
 # 自定义构建模版
 
-Cocos Creator 支持对每个项目分别定制构建模板，只需要在项目路径下添加一个 `build-templates` 目录，里面按照 **平台插件名称** 划分子目录。在构建结束后，`build-templates` 目录下所有的文件都会自动按照对应的目录结构复制到构建生成的工程中。具体的 **平台插件名称** 请参考最下方的 **自定义构建模板平台支持表**。
+Cocos Creator 支持对每个项目分别定制构建模板，只需要在项目路径下添加一个 `build-templates` 目录，里面按照 **平台插件名称** 划分子目录。在构建结束后，`build-templates` 目录下所有的文件都会自动按照对应的目录结构 **复制** 到构建生成的工程中。具体的 **平台插件名称** 请参考最下方的 **自定义构建模板平台支持表**。
 
 结构类似：
 
@@ -20,7 +20,7 @@ project-folder
 
 ## ejs 类型
 
-随着 Creator 版本的升级，可能会对构建模板做一些修改和更新，就会导致不同版本构建出来的包内容不完全一样，开发者需要手动同步更新项目中定制的构建模板。<br>
+随着 Creator 版本的升级，可能会对构建模板做一些修改和更新，就会导致不同版本构建出来的包内容不完全一样，开发者需要手动同步更新项目中定制的构建模板。在勾选 MD5 Cache 选项之后，以 Web 平台的 index.html 为例，里面引用的 css 文件地址会带有 MD5 Hash 后缀可能会和原先的模板里的不匹配而无法使用。<br>
 因此为了优化这个问题，Creator 在主菜单的 **项目** 中新增了 **创建项目构建模板** 选项，用于生成对应平台支持的构建模板。
 
 ![build template](custom-project-build-template/build-template.png)
@@ -56,3 +56,9 @@ project-folder
 | Web Desktop | web-desktop | `index.ejs` |
 | Web Mobile | web-mobile | `index.ejs` |
 | 原生平台 | native | 暂不支持 |
+
+## application.js 的定制
+
+`application.js` 是构建生成的全平台都一样的启动脚本，如需定制可以按照上文描述的方式在指定目录放置 `application.js` 来定制。或者点击主菜单的 **项目 -> 创建项目构建模板 -> 创建 application.ejs** 生成对应的 ejs 文件，在其中修改。
+
+在 `build-templates/common` 文件夹中放置的 `application.ejs` 将会影响到所有构建平台。放置在 `build-templates/{platform}` 目录下则只对指定平台生效。构建在默认情况下优先使用平台构建路径下的文件。 使用 ejs 的方式，可以避免勾选 MD5 Cache 选项后，一些文件路径的更改导致定制的 `application.js` 不可用。不过需要注意的是，由于启动脚本和引擎接口是强相关的，不能完全保证在大版本的升级迭代中完全保持不变，如果发生修改我们会在更新日志中提及，请在升级版本后关注对应的版本的更新日志。
