@@ -2,7 +2,7 @@
 
 扩展管理器用于管理编辑器内的扩展。
 
-![extension-manager](.\image\extension-manager.png)
+![extension-manager](./image/extension-manager.png)
 
 在管理器顶部存在多个标签，选中标签后下方将显示对应的扩展列表。
 面板顶部的详情如下：
@@ -19,7 +19,7 @@
 
 扩展管理器面板根据当前选择的标签以及搜索栏筛选等操作来显示扩展的列表。
 
-![simple-extension](.\image\extension-list.png)
+![simple-extension](./image/extension-list.png)
 
 扩展列表的每一项左侧显示扩展的信息，右侧的详情如下:
 
