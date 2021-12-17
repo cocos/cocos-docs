@@ -3,7 +3,7 @@
 The Curve Editor is mainly used to edit the curve trajectory that changes between keyframes. The keyframe curves of animations and particles in the editor are edited using the Curve Editor. For the key point on each curve, **the horizontal coordinate is the keyframe time/frame rate, and the vertical coordinate is the value of the current curve property at the corresponding time**. The Curve Editor supports editing multiple curves at the same time, but only single curve editing is currently available in the particle usage scene.
 
 ## Scaling and moving the curve display area
- 
+
 - **Scroll the mouse wheel** directly within the curve display area **to zoom in and out of the horizontal and vertical timeline at the same time**.
 - Hold down the right mouse button and drag to pan the current display area.
 
@@ -86,6 +86,10 @@ The interpolation mode includes the following option values:
 ### Editing keyframe tangents
 
 A keyframe has two tangents on the left and right, the length and direction of the tangents will control the shape of the curve between keyframes. In `Cubic` interpolation mode, just drag the tangent control point to edit it directly. In different tangent weight modes, the tangent lever can be operated in different ranges, please refer to the next paragraph.
+
+#### Broken
+
+By default, the left and right tangent slopes of the keyframe are kept the same. Adjusting the tangent lever on either side will follow the adjustment on the other side, which makes it easier for us to adjust the transition more natural curve. But in some cases, we hope that the curve does not always transition smoothly. At this time, we can right-click the keyframe and click the Broken option in the right-click menu to disconnect the key left and right joysticks. After disconnecting, the keyframes can be adjusted separately The left and right joysticks.
 
 #### Tangent Weight Mode
 
