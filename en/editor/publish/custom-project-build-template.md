@@ -2,7 +2,7 @@
 
 ## Custom Project Build Template
 
-**Cocos Creator** supports custom build templates for each project. Add a `build-templates` folder to the project path, divide the sub-folder according to the `platform` path. Then all the files in this folder will be automatically copied to the build generated project according to the corresponding folder structure after the build. Currently, all platforms except the native platform support this function, the specific platform name can be referred to the following **custom build template platform support table**.
+**Cocos Creator** supports custom build templates for each project. Add a `build-templates` folder to the project path, divide the sub-folder according to the `platform` path. Then all the files in this folder will be automatically **copied** to the build generated project according to the corresponding folder structure after the build. Currently, all platforms except the native platform support this function, the specific platform name can be referred to the following **custom build template platform support table**.
 
 Folder Structure:
 

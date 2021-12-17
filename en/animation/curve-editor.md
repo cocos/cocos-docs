@@ -114,4 +114,4 @@ The keyframe has left and right tangents, and the tangent weight mode has the fo
 
 ### Moving curves up and down
 
-The whole curve can be dragged up and down directly after tapping the curve.
+The whole curve can be dragged up and down directly after double tapping the curve.
