@@ -2,38 +2,7 @@
 
 **项目设置** 面板通过点击编辑器主菜单栏中的 **项目 -> 项目设置** 即可打开，主要用于设置特定项目的相关配置项。这些设置会保存在项目的 `settings/packages` 文件夹中。如果需要在不同开发者之间同步项目设置，请将 `settings` 目录加入到版本控制。
 
-**项目设置** 由几个不同的分页组成，包括 **Macro Config**、**功能裁剪**、**项目数据**、**Layers**、**物理**、**脚本** 和 **纹理压缩**。修改设置之后 **项目设置** 面板会自动保存修改。
-
-## Macro Config（引擎宏配置）
-
-**引擎宏设置** 提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
-
-![macro](./index/macro.png)
-
-- **ENABLE_TILEDMAP_CULLING**：是否开启 TiledMap 的自动裁减功能，默认开启。需要注意的是 TiledMap 如果设置了 `skew` 和 `rotation` 的话，建议手动关闭该项，否则会导致渲染出错。
-
-- **TOUCH_TIMEOUT**：用于甄别一个触点对象是否已经失效并且可以被移除的延时时长。开发者可通过修改这个值来获得想要的效果，默认值是 5000 毫秒。详情请参考 API 文档 [TOUCH_TIMEOUT](__APIDOC__/zh/#/docs/3.4/zh/core/ObjectLiteral/macro?id=touch_timeout)。
-
-- **ENABLE_TRANSPARENT_CANVAS**：用于设置 Canvas 背景是否支持 Alpha 通道，默认不开启支持。
-
-    - 若希望 Canvas 背景是透明的，并显示背后的其他 DOM 元素，便可开启该项。
-    - 若关闭该项，则会有更高的性能表现。
-
-- **ENABLE_WEBGL_ANTIALIAS**：是否开启 WebGL 的抗锯齿配置，默认开启。这个配置只影响 WebGL 后端，对应在创建 WebGL Context 时是否传入抗锯齿选项。
-
-- **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](../../advanced-topics/dynamic-atlas.md)。该项默认不开启。
-
-- **ENABLE_MULTI_TOUCH**：是否开启多点触摸，默认开启。
-
-- **MAX_LABEL_CANVAS_POOL_SIZE**：设置 Label 使用的 Canvas 对象池的最大数量，请根据项目同场景的 Label 数量进行调整。
-
-更多关于引擎宏模块的具体信息与代码可以参考 **Engine Macro**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)）。
-
-## 功能裁剪
-
-**功能裁剪** 分页主要是针对发布游戏时引擎中使用的模块进行裁剪，达到减小发布版引擎包体的效果。列表中未选中的模块在打包、预览时将会被裁剪掉。建议打包后进行完整的测试，避免场景和脚本中使用到了被裁剪掉的模块。
-
-![feature-core](./index/feature-crop.png)
+**项目设置** 由几个不同的分页组成，包括 **项目数据**、**Layers**、**物理**、**脚本**、**Macro Config**、**功能裁剪** 和 **纹理压缩**。修改设置之后 **项目设置** 面板会自动保存修改。
 
 ## 项目数据
 
@@ -84,7 +53,51 @@
 
 - **启用宽松模式**：启用宽松模式进行脚本编译。
 
+- **导入映射**：该项用于控制 TypeScript/JavaScript 的导入行为，详情请参考 [Import Map](../../scripting/modules/import-map.md)。
+
+- **用于预览的浏览器列表**：设置在预览时 TypeScript/JavaScript 代码编译的浏览器列表文件。
+
 - **导出条件**：为条件化导出模块指定解析条件，详情可参考 [条件性导出](../../scripting/modules/spec.md#%E6%9D%A1%E4%BB%B6%E6%80%A7%E5%AF%BC%E5%87%BA)。
+
+## Macro Config（引擎宏配置）
+
+**引擎宏设置** 提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
+
+![macro](./index/macro.png)
+
+- **ENABLE_TILEDMAP_CULLING**：是否开启 TiledMap 的自动裁减功能，默认开启。需要注意的是 TiledMap 如果设置了 `skew` 和 `rotation` 的话，建议手动关闭该项，否则会导致渲染出错。
+
+- **TOUCH_TIMEOUT**：用于甄别一个触点对象是否已经失效并且可以被移除的延时时长。开发者可通过修改这个值来获得想要的效果，默认值是 5000 毫秒。详情请参考 API 文档 [TOUCH_TIMEOUT](__APIDOC__/zh/#/docs/3.4/zh/core/ObjectLiteral/macro?id=touch_timeout)。
+
+- **ENABLE_TRANSPARENT_CANVAS**：用于设置 Canvas 背景是否支持 Alpha 通道，默认不开启支持。
+
+    - 若希望 Canvas 背景是透明的，并显示背后的其他 DOM 元素，便可开启该项。
+
+    - 若关闭该项，则会有更高的性能表现。
+
+- **ENABLE_WEBGL_ANTIALIAS**：是否开启 WebGL 的抗锯齿配置，默认开启。这个配置只影响 WebGL 后端，对应在创建 WebGL Context 时是否传入抗锯齿选项。
+
+- **ENABLE_ANTIALIAS_FXAA**：用于开启 FXAA 抗锯齿。
+
+- **ENABLE_BLOOM**：用于开启 BLOOM 后效。
+
+- **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](../../advanced-topics/dynamic-atlas.md)。该项默认不开启。
+
+- **ENABLE_MULTI_TOUCH**：是否开启多点触摸，默认开启。
+
+- **MAX_LABEL_CANVAS_POOL_SIZE**：设置 Label 使用的 Canvas 对象池的最大数量，请根据项目同场景的 Label 数量进行调整。
+
+- **Custom Macro**：用于自定义宏配置，为当前项目脚本提供一个宏标记的功能，便于可视化配置。点击下方的 **+** 按钮即可添加新的宏配置，将鼠标悬浮在已添加的宏配置上，左侧会显示 **删除** 和 **修改** 按钮，分别用于删除/重命名当前宏配置。
+
+  ![macro](./index/custom-macro.png)
+
+更多关于引擎宏模块的具体信息与代码可以参考 **Engine Macro**（[GitHub](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824)）。
+
+## 功能裁剪
+
+**功能裁剪** 分页主要是针对发布游戏时引擎中使用的模块进行裁剪，达到减小发布版引擎包体的效果。列表中未选中的模块在打包、预览时将会被裁剪掉。建议打包后进行完整的测试，避免场景和脚本中使用到了被裁剪掉的模块。
+
+![feature-core](./index/feature-crop.png)
 
 ## 压缩纹理
 

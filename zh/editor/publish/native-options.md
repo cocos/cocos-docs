@@ -59,7 +59,11 @@ Android 平台的构建选项如下：
 
 #### 渲染后端
 
-目前支持 [VULKAN](https://www.vulkan.org/)、[GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) 和 [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) 三种，默认勾选 **GLES3**。在同时勾选多个的情况下，运行时将会根据设备实际支持情况选择使用的渲染后端。
+目前支持 [VULKAN](https://www.vulkan.org/)、[GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) 和 [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) 三种，要求至少勾选一项，默认使用 **GLES3**。
+
+若选择 **GLES 2/3**，则默认必须勾选 **GLES3**，不允许单独选择 **GLES2**。
+
+在同时勾选多个的情况下，运行时将会根据设备实际支持情况选择使用的渲染后端。
 
 #### 应用 ID 名称
 
@@ -131,19 +135,19 @@ Windows 平台的构建选项包括 **渲染后端** 和 **生成平台**。
 
 ### iOS 平台构建选项
 
-iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向**、**目标版本**、**渲染后端** 和 **开发者**，其中 **屏幕方向** 的设置与 Android 平台一致。
+iOS 平台的构建选项包括 **应用 ID 名称**、**屏幕方向**、**跳过 Xcode 工程的更新**、**渲染后端**、**开发者** 和 **目标版本**，其中 **屏幕方向** 的设置与 Android 平台一致。
 
 ![iOS build options](publish-native/ios-options.png)
 
-#### Bundle Identifier
+#### 应用 ID 名称（Bundle Identifier）
 
 包名，通常以产品网站 URL 倒序排列，如 `com.mycompany.myproduct`。
 
 > **注意**：包名中只能包含数字 (0~9)、字母 (A~Z、a~z)、中划线（-）和点（.），此外包名最后一部分必须以字母开头，不能以下划线或数字开头。详情请参考 [包的唯一标识符](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier)。
 
-#### 目标版本
+#### 跳过 Xcode 工程的更新
 
-该项主要用于指定发布 iOS 平台时的 iOS 软件版本，默认值为 **12.0**。构建后版本号会记录在发布包目录 `proj/cfg.cmake` 文件的 `TARGET_IOS_VERSION` 字段中。
+若勾选该项，则再次构建工程时，CMake 打包工具不会触发更新 Xcode 工程，以保留之前对 Xcode 工程文件的修改内容。但需要注意的是，后续若对 CMake 配置文件进行修改，也不会再更新 Xcode 工程。
 
 #### 渲染后端
 
@@ -153,9 +157,13 @@ iOS 平台的构建选项包括 **Bundle Identifier**、**屏幕方向**、**目
 
 该项用于配置构建编译 iOS 工程时的 Development Team 签名信息。若使用 Xcode 编译时，在 Xcode 中手动配置了签名信息，则以 Xcode 中的配置为准。当执行重新构建时，该项的值会覆盖 Xcode 中配置的值。
 
+#### 目标版本
+
+该项主要用于指定发布 iOS 平台时的 iOS 软件版本，默认值为 **12.0**。构建后版本号会记录在发布包目录 `proj/cfg.cmake` 文件的 `TARGET_IOS_VERSION` 字段中。
+
 ### Mac 平台构建选项
 
-Mac 平台的构建选项包括 **Bundle Identifier**、**目标版本**、**Support M1** 和 **渲染后端**。
+Mac 平台的构建选项包括 **Bundle Identifier**、**目标版本**、**Support Apple Silicon** 和 **渲染后端**。
 
 ![Mac build options](publish-native/mac-options.png)
 
@@ -167,9 +175,13 @@ Mac 平台的构建选项包括 **Bundle Identifier**、**目标版本**、**Sup
 
 该项主要用于指定发布 Mac 平台时的 macOS 系统版本，默认值为 **10.14**。构建后版本号会记录在发布包目录 `proj/cfg.cmake` 文件的 `TARGET_OSX_VERSION` 字段中。
 
-#### Support M1
+#### Support Apple Silicon
 
 该项用于更好地提示一些已知的引擎模块在 Apple M1（Silicon）架构设备上的支持问题。
+
+#### 跳过 Xcode 工程的更新
+
+若勾选该项，则再次构建工程时，CMake 打包工具不会触发更新 Xcode 工程，以保留之前对 Xcode 工程文件的修改内容。但需要注意的是，后续若对 CMake 配置文件进行修改，也不会再更新 Xcode 工程。
 
 #### 渲染后端
 

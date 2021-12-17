@@ -18,18 +18,18 @@
 
 | 属性 |   功能说明
 | :-------------- | :----------- |
-| Max Width | 单张图集最大宽度
-| Max Height | 单张图集最大高度
-| Padding | 图集中碎图之间的间距
-| Allow Rotation | 是否允许旋转碎图
-| Force Squared | 是否强制将图集长宽大小设置成正方形
-| Power of Two | 是否将图集长宽大小设置为二次方倍数
-| Algorithm | 算法，图集打包策略，目前暂时只有一个选项 `MaxRects`
-| Padding Bleed | 扩边，在碎图的边框外扩展出一像素外框，并复制相邻碎图像素到外框中。该功能也称作 **Extrude**
-| Filter Unused Resources| 剔除未使用的图片，即构建时不包含未被引用的资源，默认勾选。仅在构建后生效
-| Remove unused texture force in Bundle | 剔除在 Bundle 内未被使用的 Texture2D 资源，仅在构建后生效
-| Remove unused image force in Bundle | 剔除在 Bundle 内未被使用的 image 资源，仅在构建后生效
-| Remove unused sprite atlas in Bundle | 剔除在 Bundle 内未被使用的图集序列化信息，仅在构建后生效
+| 最大宽度   | 单张图集最大宽度
+| 最大高度   | 单张图集最大高度
+| 间距      | 图集中碎图之间的间距
+| 允许旋转   | 是否允许旋转碎图
+| 输出大小为正方形  | 是否强制将图集长宽大小设置成正方形
+| Power of Two   | 是否将图集长宽大小设置为二次方倍数
+| 算法      | 算法，图集打包策略，目前暂时只有一个选项 `MaxRects`
+| 扩边      | 扩边，在碎图的边框外扩展出一像素外框，并复制相邻碎图像素到外框中。该功能也称作 **Extrude**
+| 剔除未使用的图片 | 构建时不包含未被引用的资源。默认勾选，仅在构建后生效，预览时不生效
+| 剔除在 Bundle 内未被使用的 Texture2D 资源 | 默认勾选，仅在构建后生效，预览时不生效
+| 剔除在 Bundle 内未被使用的图片资源         | 默认勾选，仅在构建后生效，预览时不生效
+| 剔除在 Bundle 内未被使用的 Sprite 图集资源 | 默认勾选，仅在构建后生效，预览时不生效
 | UseCompressTexture | 是否使用压缩纹理，详情请参考 [压缩纹理](compress-texture.md)。
 
 其余属性与 Texture 是一样的，详情请参考 [纹理贴图](./texture.md#%E5%AD%90%E8%B5%84%E6%BA%90-texture2d-%E7%9A%84%E5%B1%9E%E6%80%A7%E9%9D%A2%E6%9D%BF)。

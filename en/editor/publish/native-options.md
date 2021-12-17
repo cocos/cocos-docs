@@ -62,7 +62,11 @@ Android platform build options:
 
 #### Render BackEnd
 
-Rendering currently supports using [VULKAN](https://www.vulkan.org/), [GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) and [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/) of these three types, **GLES3** is used by default. In the case of multiple being selected at the same time, the runtime will select the rendering backend to be used according to the actual support of the device.
+Render Backend currently supports [VULKAN](https://www.vulkan.org/), [GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) and [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/), and requires at least one selection, with **GLES3** being used by default.
+
+If **GLES 2/3** is selected, **GLES3** must be checked by default, and **GLES2** is not allowed to be selected separately.
+
+In the case of multiple being selected at the same time, the runtime will select the rendering backend to be used according to the actual support of the device.
 
 #### Game Package Name
 
@@ -103,6 +107,7 @@ The screen orientation currently includes **Portrait**, **Landscape Left**, and 
 Check this option to package and publish the game to Google Play Instant. Google Play Instant relies on Google Play and is not a new distribution channel, but closer to a game micro-end solution. It can realize that the game can be played immediately without installation, which is conducive to the trial play, sharing and conversion of the game.
 
 > **The following notes are required when using**:
+>
 > 1. The Android Studio should be v4.0 and above.
 > 2. The Android Phone should be v6.0 and above. Devices with Android SDK version between 6.0 and 7.0 need to install Google Service Framework, while those with SDK version 8.0 or higher do not need it and can install it directly.
 > 3. For the first compilation, open the built project with Android Studio to download the **Google Play Instant Development SDK (windows)** or **Instant Apps Development SDK (Mac)** support package. If the download is unsuccessful, it is recommended to set up the HTTP proxy of Android Studio.
@@ -133,7 +138,7 @@ Set the compilation architecture, both **x64** and **win32** are currently suppo
 
 ### Build Options for the iOS Platform
 
-The build options for the iOS platform include **Bundle Identifier**, **Orientation**, **Target iOS Version**, **Render BackEnd** and **Developer Team**. The setting of **Orientation** is the same as the Android platform.
+The build options for the iOS platform include **Bundle Identifier**, **Orientation**, **Skip the update of Xcode project**, **Render BackEnd**, **Developer Team** and **Target iOS Version**. The setting of **Orientation** is the same as the Android platform.
 
 ![iOS build options](publish-native/ios-options.png)
 
@@ -143,9 +148,9 @@ Package name, usually in reverse order of product website URL, such as `com.myco
 
 > **Note**: the package name can only contain numbers (0~9), letters (A~Z, a~z), underscores (-) and dots (.). The last part of the package name must start with a letter, not an underscore or number.
 
-#### Target iOS Version
+#### Skip the update of Xcode project
 
-The option specifies the version of the iOS software when publishing to the iOS platform and defaults to **12.0**. The version number is recorded in the `TARGET_IOS_VERSION` field of the `proj/cfg.cmake` file in the release package directory after the build.
+If this option is checked, the CMake packaging tool will not update the Xcode project when rebuilding the project, so that the previous changes to the Xcode project files are retained. However, if changes are subsequently made to the CMake configuration file, the Xcode project will also not be updated.
 
 #### Render BackEnd
 
@@ -155,9 +160,13 @@ Currently, only **METAL** is supported for the Render BackEnd. See the official 
 
 This option is used to configure the Development Team signature information when building and compiling iOS projects. If the signature information is manually configured in Xcode when compiling with Xcode, the configuration in Xcode takes precedence. When a rebuild is performed, the value of this option will override the value configured in Xcode.
 
+#### Target iOS Version
+
+The option specifies the version of the iOS software when publishing to the iOS platform and defaults to **12.0**. The version number is recorded in the `TARGET_IOS_VERSION` field of the `proj/cfg.cmake` file in the release package directory after the build.
+
 ### Mac Platform Build Options
 
-The build options for the Mac platform include **Bundle Identifier**, **Target macOS Version**, **Support M1** and **Render BackEnd**.
+The build options for the Mac platform include **Bundle Identifier**, **Target macOS Version**, **Support Apple Silicon**, **Skip the update of Xcode project** and **Render BackEnd**.
 
 ![Mac build options](publish-native/mac-options.png)
 
@@ -169,9 +178,13 @@ Package name, usage is consistent with the iOS platform.
 
 This option specifies the macOS system version when publishing to the Mac platform and defaults to **10.14**. The version number is recorded in the `TARGET_OSX_VERSION` field of the `proj/cfg.cmake` file in the release package directory after the build.
 
-#### Support M1
+#### Support Apple Silicon
 
 This option is used to better flag support issues for some known engine modules on Apple M1 (Silicon) architecture devices.
+
+#### Skip the update of Xcode project
+
+If this option is checked, the CMake packaging tool will not update the Xcode project when rebuilding the project, so that the previous changes to the Xcode project files are retained. However, if changes are subsequently made to the CMake configuration file, the Xcode project will also not be updated.
 
 #### Render BackEnd
 

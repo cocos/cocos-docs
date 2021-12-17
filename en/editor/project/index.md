@@ -2,38 +2,7 @@
 
 The **Project Settings** panel can be opened by clicking on **Project -> Project Settings** in the editor's main menu bar and is mainly used to set project-specific configuration items. These settings are stored in the project's `settings/packages` folder. To synchronize project settings between developers, please add the `settings` directory to version control.
 
-**Project Settings** consists of several different sub-pages, including **Macro Config**, **Feature Cropping**, **Project Data**, **Layers**, **Physics**, **Scripts**, and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
-
-## Macro Config
-
-**Macro Config** provides a shortcut to modify the macro configuration. The configured macros will take effect on preview and build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
-
-![macro](./index/macro.png)
-
-- **ENABLE_TILEDMAP_CULLING**: whether or not to enable TiledMap auto-culling. It's enabled by default. Note that if `skew` and `rotation` are set in the TiledMap, it's necessary to turn it off manually, otherwise it will cause rendering errors.
-
-- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](__APIDOC__/en/#/docs/3.4/en/core/ObjectLiteral/macro?id=touch_timeout) for details.
-
-- **ENABLE_TRANSPARENT_CANVAS**: used to set whether the Canvas background supports alpha channels.
-
-    - If enabled, the Canvas background will be transparent and show the other DOM elements behind it.
-    - If disabled, it will result in higher performance.
-
-- **ENABLE_WEBGL_ANTIALIAS**: whether to activate WebGL antialias setting in the engine, it's enabled by default. This setting only affect WebGL graphics back-end, it indicates whether to turn on the anti-aliasing option when creating WebGL Context.
-
-- **CLEANUP_IMAGE_CACHE**: whether to clear the image cache after uploading a texture to GPU. If the cache is cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported. It's disabled by default.
-
-- **ENABLE_MULTI_TOUCH**: whether to enable multi-touch.
-
-- **MAX_LABEL_CANVAS_POOL_SIZE**: set the maximum number of Canvas object pools used by the Label, and adjust it according to the number of Labels in the same scene of the project.
-
-For more specific information and code about the engine macro module, please refer to the [Engine Macro source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
-
-## Feature Cropping
-
-The **Feature Cropping** tab is mainly for modules used in the engine when releasing the game, to achieve the effect of reducing the package size of the released version of the engine. The unchecked modules in the list will be cropped out when packaging and previewing. It is recommended to do a complete test after packaging to avoid scenes and scripts that use modules that have been cropped out.
-
-![feature-core](./index/feature-crop.png)
+**Project Settings** consists of several different sub-pages, including **Project Data**, **Layers**, **Physics**, **Scripting**, **Macro Config**, **Feature Cropping** and **Texture Compression**. The **Project Settings** panel will automatically save the changes after modifying the settings.
 
 ## Project Data
 
@@ -86,7 +55,48 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 - **Import Map**: used to control the import behavior of TypeScript/JavaScript, see the [Import Map](../../scripting/modules/import-map.md) documentation for details.
 
+- **Browser list used for preview**: sets the browser list config file for TypeScript/JavaScript compilation at preview time.
+
 - **Exports Conditions**: specify the parsing conditions for conditionalized export modules, see [Conditional exports](../../scripting/modules/spec.md) for details.
+
+## Macro Config
+
+**Macro Config** provides a shortcut to modify the macro configuration. The configured macros will take effect on preview and build, and will also follow the custom engine configuration to update the default values of the current macro configuration.
+
+![macro](./index/macro.png)
+
+- **ENABLE_TILEDMAP_CULLING**: whether or not to enable TiledMap auto-culling. It's enabled by default. Note that if `skew` and `rotation` are set in the TiledMap, it's necessary to turn it off manually, otherwise it will cause rendering errors.
+
+- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](__APIDOC__/en/#/docs/3.4/en/core/ObjectLiteral/macro?id=touch_timeout) for details.
+
+- **ENABLE_TRANSPARENT_CANVAS**: used to set whether the Canvas background supports alpha channels.
+
+    - If enabled, the Canvas background will be transparent and show the other DOM elements behind it.
+    - If disabled, it will result in higher performance.
+
+- **ENABLE_WEBGL_ANTIALIAS**: whether to activate WebGL antialias setting in the engine, it's enabled by default. This setting only affect WebGL graphics back-end, it indicates whether to turn on the anti-aliasing option when creating WebGL Context.
+
+- **ENABLE_ANTIALIAS_FXAA**: used to enable FXAA anti-aliasing.
+
+- **ENABLE_BLOOM**: used to enable the BLOOM aftereffect.
+
+- **CLEANUP_IMAGE_CACHE**: whether to clear the image cache after uploading a texture to GPU. If the cache is cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported. It's disabled by default.
+
+- **ENABLE_MULTI_TOUCH**: whether to enable multi-touch.
+
+- **MAX_LABEL_CANVAS_POOL_SIZE**: set the maximum number of Canvas object pools used by the Label, and adjust it according to the number of Labels in the same scene of the project.
+
+- **Custom Macro**: used to customize macro configurations, providing a macro tagging feature for current project scripts for easy visual configuration. Click the **+** button below to add a new macro configuration, hover over the added macro configuration and the **Delete** and **Modify** buttons will be displayed on the left side for deleting/renaming the current macro configuration respectively.
+
+  ![macro](./index/custom-macro.png)
+
+For more specific information and code about the engine macro module, please refer to the [Engine Macro source](https://github.com/cocos-creator/engine/blob/3d/cocos/core/platform/macro.ts#L824).
+
+## Feature Cropping
+
+The **Feature Cropping** tab is mainly for modules used in the engine when releasing the game, to achieve the effect of reducing the package size of the released version of the engine. The unchecked modules in the list will be cropped out when packaging and previewing. It is recommended to do a complete test after packaging to avoid scenes and scripts that use modules that have been cropped out.
+
+![feature-core](./index/feature-crop.png)
 
 ## Texture Compression
 

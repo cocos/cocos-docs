@@ -52,7 +52,7 @@ When the model asset file (`.fbx` or `.gltf`) is selected in the __Assets__ pane
 
 ### Model module
 
-![mesh_model](mesh/mesh_model.jpg)
+![mesh_model](mesh/mesh_model.png)
 
 | Property | Description |
 | :--- | :--- |
@@ -63,7 +63,7 @@ When the model asset file (`.fbx` or `.gltf`) is selected in the __Assets__ pane
 
 ### Animation Module
 
-![mesh_animation](mesh/mesh_animation.jpg)
+![mesh_animation](mesh/mesh_animation.png)
 
 The above image is all the animation asset information under the current model, and the editing area of ​​the specific frame number information of the currently selected animation. You can change the animation name or perform simple animation cropping here. To do so:
 
@@ -73,7 +73,7 @@ The above image is all the animation asset information under the current model, 
 
 ### Material module
 
-![mesh_material](mesh/mesh_material.jpg)
+![mesh_material](mesh/mesh_material.png)
 
 - `DumpMaterial`: When you are not satisfied with the material that comes with the model file and want to modify it, you need to enable this option to dump the material files in the file structure directory out of the model assets. You can adjust and modify the materials.
 

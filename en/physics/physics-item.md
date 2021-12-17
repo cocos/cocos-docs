@@ -38,7 +38,7 @@ However, due to the large package size of the **PhysX** (about 5MB) and some lim
 - Various mini game platforms with package size restrictions.
 - Android x86 device.
 
-Some newer platforms, such as HarmonyOS, Apple M1 (Silicon) architecture devices, will be supported in the future. Please pay attention to the update announcement.
+Some newer platforms and devices, such as HarmonyOS devices, will be supported in the future. Please pay attention to the update announcement. Apple M1 (Silicon) architecture devices are already supported in v3.4.0.
 
 In addition, the ByteDance platform provides the underlying native physics functionality, so this functionality can also be run in ByteDance Mini Games. For specific details, please refer to [publish ByteDance Mini Games](../editor/publish/publish-bytedance-mini-game.md).
 
