@@ -79,7 +79,7 @@
 
 - **ENABLE_ANTIALIAS_FXAA**：用于开启 FXAA 抗锯齿。
 
-- **ENABLE_BLOOM**：用于开启 BLOOM 后效。
+- **ENABLE_BLOOM**：用于开启 BLOOM 后处理特效。
 
 - **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](../../advanced-topics/dynamic-atlas.md)。该项默认不开启。
 

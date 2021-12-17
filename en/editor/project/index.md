@@ -78,7 +78,7 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 - **ENABLE_ANTIALIAS_FXAA**: used to enable FXAA anti-aliasing.
 
-- **ENABLE_BLOOM**: used to enable the BLOOM aftereffect.
+- **ENABLE_BLOOM**: used to enable the BLOOM post-processing.
 
 - **CLEANUP_IMAGE_CACHE**: whether to clear the image cache after uploading a texture to GPU. If the cache is cleared, [Dynamic Atlas](../../advanced-topics/dynamic-atlas.md) will not be supported. It's disabled by default.
 
