@@ -18,7 +18,7 @@ If the current platform is `Web-Mobile`, then `build-templates/web-mobile/index.
 
 In addition, the file types currently supported by the build template include **ejs type** and **json type**. Please refer to the **supported platform list** below for details on the support for each platform.
 
-## ejs type
+## `ejs` type
 
 Since the content of the package is not guaranteed to be exactly the same in every version, when the build template within the editor is updated, the developer also needs to update the build template within their project. For example, if the MD5 Cache option is checked at build time, taking `index.html` on the web platform as an example, the `css` file referenced in it will have an MD5 Hash suffix, which may not match the one in the original template and may not work. <br>
 To optimize this problem, a new way is added to use the template. Click on **Project -> Create preview template** in the main menu, and an `ejs` template file will be generated for the corresponding platform.
@@ -33,7 +33,7 @@ Taking the creation of a Web Mobile build template as an example, the generated 
 
 > **Note**: the copy template occurs after the rendered template. For example, if both `index.ejs` and `index.html` exist in this directory, the final packaged package will be the `index.html` file instead of the `index.ejs` rendered file.
 
-### JSON Type
+### `json` Type
 
 Many mini games have their own configuration `JSON` files, like `game.json` to WeChat Mini Games. Files in the build templates folder will just copy in **default**, but this configuration JSON will be merged instead of overwrite. Of course, it doesn't mean that all `JSON` file will be merged, you can check it in the tables below.
 
@@ -62,7 +62,7 @@ The supported file types for build templates by platform are as follows:
 All platforms generate a startup script `application.js` after the build. To customize the startup script, there are two ways:
 
 - Refer to the way described at the beginning of this article, place `application.js` in the specified directory and then customize it as needed.
-- Click **Project -> Create Project Build Template** in Creator's top menu bar, then select **application.ejs template** to customize the generated `application.ejs` file, and the generated directory will be displayed in the **Console** panel. The `application.ejs` file will be compiled into an `application.js` file when built.
+- Click **Project -> Create Build Template** in Creator's top menu bar, then select **application.ejs** to customize the generated `application.ejs` file, and the generated directory will be displayed in the **Console** panel. The `application.ejs` file will be compiled into an `application.js` file when built.
 
 The directory where the `application.ejs` file is located determines the platform on which it will take effect.
 
