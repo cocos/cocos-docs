@@ -59,7 +59,7 @@
 ```ts
 // builder.ts
 
-// 允许外部开发者替换部分构建资源处理方法模块
+// 允许外部开发者替换部分构建资源的处理方法模块。详情请参考下文“自定义纹理压缩处理”部分的内容
 export const assetHandlers: string = './asset-handlers';
 
 export const configs: IConfigs = {
@@ -209,47 +209,53 @@ export async function onBeforeCompressSettings(options, result) {
 
 ### 自定义纹理压缩处理
 
-入口脚本处指定的 assetHandler 路径配置，是构建计划开放的，允许外部开发者注册的一些资源处理函数。目前暂时仅开放纹理压缩处理函数的注册。
+上文 **入口脚本配置** 中指定的 `assetHandler` 路径配置，允许外部开发者注册一些资源处理函数，用以替换引擎在构建部分资源时的处理方法模块。目前仅开放 **纹理压缩** 处理函数的注册。
 
-构建目前虽然提供了压缩纹理资源处理流程，但并非专注于图像压缩处理。类似于 PNG 的压缩，有业界熟知的 TinyPNG 网站做相关支持，当然大数量的图片压缩能力会需要用户付费。由于编辑器自带的压缩工具需要兼容不同的用户环境，通常编辑器将选择能在大部分人电脑上正常运行的工具，而不是压缩效率最高的。基于以上原因，构建开放了对应的插件机制，允许**用户直接注册对应纹理的压缩处理，构建将会在对应的处理时机进行调用**。
+Creator 在构建时，虽然提供了自带的压缩工具用于处理压缩纹理资源，但并非专注于图像压缩处理，因为需要兼容不同的用户环境，通常压缩工具会选择能在大部分电脑上正常运行而不是效率最高的。因此 Creator 在 v3.4 开放了相应的插件机制，**允许用户直接注册对应纹理资源的压缩处理函数，构建时便会在相应的处理时机进行调用**。
 
-具体处理方式如下：
+具体操作步骤如下：
 
-1. 在入口脚本处，编写 assetHandlers 的模块脚本相对路径；
+1. 在入口脚本处，编写 `assetHandlers` 的模块脚本相对路径：
 
-```ts
-export const assetHandlers = './asset-handlers';
-```
+    ```ts
+    export const assetHandlers = './asset-handlers';
+    ```
 
-2. 在 assetHandlers 脚本模块里，暴露 `compressTextures` 函数，编写对应的处理函数即可，构建将会在纹理压缩阶段调用该函数。**处理函数都会接收当前剩余的未被处理的纹理压缩任务数组，处理完需要从原数组内移除，未被移除的纹理压缩任务视为未处理，构建将会将其放置到原有的纹理压缩流程内**；当有多个插件注册该方法时，按照插件启动顺序执行，如果前一个插件处理了全部的纹理压缩任务，则后续插件注册的纹理压缩处理函数将不会收到任务。
+2. 在 `assetHandlers` 脚本模块里，我们开放了 `compressTextures` 函数，开发者直接在 `compressTextures` 中编写相应的处理函数即可，构建时便会在纹理压缩处理阶段调用该处理函数。
 
-```ts
-type ITextureCompressType =
-    | 'jpg'
-    | 'png'
-    | 'webp'
-    | 'pvrtc_4bits_rgb'
-    | 'astc_12x12'; // 详细格式请参见接口定义
-interface ICompressTasks {
-    src: string; // 源文件地址
-    dest: string; // 生成的目标文件地址（后缀默认为 png，需要自行更改）
-    quality: number | IPVRQuality | IASTCQuality | IETCQuality; // 压缩质量 0 - 100 或者其他的压缩等级
-    format: ITextureCompressType; // 压缩类型
-}
-export async function compressTextures(tasks: ICompressTasks[]) {
-        for (let i = 0; i < Array.from(tasks).length; i++) {
-        const task = Array.from(tasks)[i];
-        if (task.format !== 'jpg') {
-            // 跳过处理的纹理格式会进入构建原有的纹理压缩流程
-            continue;
-        }
-        task.dest = task.dest.replace('.png', '.jpg');
-        await pngToJPG(task.src, task.dest, task.quality);
-        // 处理完的格式，将其从 tasks 里移除，这样构建不会再次处理
-        tasks.splice(i, 1);
+    处理函数会接收当前剩余的未被处理的纹理压缩任务数组，处理完成后从原数组中移除。未被移除的纹理压缩任务视为未处理，会被放置到下一个相应的处理函数进行处理，直到所有的处理函数都处理完了，若还有未处理的纹理压缩任务，则放置回 Creator 原有的纹理压缩流程中进行处理。
+
+    当有多个插件注册了纹理压缩处理函数时，按照插件启动顺序执行，如果前一个插件处理了全部的纹理压缩任务，则后续插件注册的处理函数将不会收到任务。
+
+    代码示例如下：
+
+    ```ts
+    type ITextureCompressType =
+        | 'jpg'
+        | 'png'
+        | 'webp'
+        | 'pvrtc_4bits_rgb'
+        | 'astc_12x12'; // 详细格式请参见接口定义
+    interface ICompressTasks {
+        src: string; // 源文件地址
+        dest: string; // 生成的目标文件地址（后缀默认为 PNG，其他类型需要自行更改）
+        quality: number | IPVRQuality | IASTCQuality | IETCQuality; // 压缩质量 0 - 100 或者其他的压缩等级
+        format: ITextureCompressType; // 压缩类型
     }
-}
-```
+    export async function compressTextures(tasks: ICompressTasks[]) {
+            for (let i = 0; i < Array.from(tasks).length; i++) {
+            const task = Array.from(tasks)[i];
+            if (task.format !== 'jpg') {
+                // 跳过处理的纹理压缩任务会传递给下一个处理函数，直至最后进入 Creator 原有的构建时纹理压缩流程
+                continue;
+            }
+            task.dest = task.dest.replace('.png', '.jpg');
+            await pngToJPG(task.src, task.dest, task.quality);
+            // 处理完的纹理压缩任务，将其从 tasks 里移除，这样构建时便不会再次处理
+            tasks.splice(i, 1);
+        }
+    }
+    ```
 
 ## 调试构建扩展插件
 

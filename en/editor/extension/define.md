@@ -36,6 +36,12 @@ Type `{string}` Required
 
 The version number of the extension is used to submit the version verification of the extension, as well as some upgrades of the extension itself, and the data migration is used as the basis for comparison.
 
+## editor
+
+Type `{string}` Optional
+
+Describes the version of the editor that the extension supports using, conforming to the [Semver Specification](https://semver.org/).
+
 ## author
 
 Type `{string}` Optional

@@ -289,6 +289,7 @@
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
+    - [扩展管理器面板](editor/extension/extension-manger.md)
     - [创建扩展](editor/extension/create-extension.md)
     - [第一个扩展包](editor/extension/first.md)
     - [第一个面板](editor/extension/first-panel.md)

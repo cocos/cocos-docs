@@ -72,6 +72,21 @@ When the Rect Gizmo is active:
 
 In the layout of UI elements, it is often necessary to use the **Rect Gizmo** to directly control the position and length of the node's four edges precisely. For image elements where the original image aspect ratio must be maintained, the Rect Gizmo is not usually used to resize.
 
+### Smart Guide Alignment
+
+Smart guide alignment is enabled by default when a **rect transform gizmo** is active. If the conditions for alignment are met when the dragged UI element is moving in the Scene, the alignment guide line will be displayed and the element automatically snapped to the position of the guide line.
+
+![auto snapping](img/auto-snapping.gif)
+
+Click the **Settings** button to the right of the Rectangle Transform Tool to set the Smart Alignment in the configuration panel that pops up:
+
+![rect tool config](img/rect-tool-config.png)
+
+| Option | Description |
+| :-- | :-- |
+| Enable auto snap | Check this option to enable the Smart Alignment feature, which is enabled by default. |
+| Snap threshold | Set the threshold value for adsorption detection (world space unit). |
+
 ### Transform Snapping
 
 The transform snapping feature can be used to manipulate nodes in a set step size when using the move/rotate/scale transform tools in the scene editor. The transform snapping feature can be triggered in the following two ways:
@@ -79,34 +94,15 @@ The transform snapping feature can be used to manipulate nodes in a set step siz
 1. Press and hold the <kdb>Ctrl</kdb> key while using transform tools to trigger the transform snapping feature.
 2. In the transform snapping configuration panel, use the button to enable the automatic snapping feature of corresponding transform tools. See below for details.
 
-Click on the fifth **Transform snapping configuration** button in the toolbar in the upper left corner of the editor's main window:
+Click on the fifth **Transform snapping configuration** button in the toolbar in the upper left corner of the editor's main window, the transform snapping configuration panel will pop up, which can be used to set the step size of corresponding transform tools, and enable the auto snapping feature:
 
 ![transform snap config](img/transform-snap-config.png)
-
-The transform snapping configuration panel will pop up, which can be used to set the step size of corresponding transform tools, and enable the auto snapping feature:
-
-![transform snap config panel](img/transform-snap-config-panel.png)
 
 | Button | Description |
 | :-- | :-- |
 | ![position snap](img/position-snap.png)| This button is used to set whether to enable the automatic snapping when using the **Move Transform Tool**. X, Y, and Z are used to set the move steps on the X, Y, and Z axes respectively, and the default X, Y, and Z values are the same for X, or you can click the ![position snap](img/position-snap1.png) button to set the step size for each axis separately.  |
 | ![rotation snap](img/rotation-snap.png)| This button is used to set whether to enable automatic snapping when using the **Rotation Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
 | ![scale snap](img/scale-snap.png)| This button is used to set whether to enable automatic snapping when using the **Scale Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
-
-### Smart Guide Alignment
-
-Smart guide alignment is enabled by default when a **rect transform gizmo** is active. If the conditions for alignment are met when the dragged UI element is moving, the alignment guide line will be displayed and the element automatically snapped to the position of the guide line.
-
-![auto snapping](img/auto-snapping.gif)
-
-The relevant parameters for smart alignment can be set in the transform snapping configuration panel.
-
-![rect tool config](img/rect-tool-config.png)
-
-| Option | Description |
-| :-- | :-- |
-| Enable auto snap | whether to enable the smart guide alignment
-| Snap threshold | snap threshold
 
 ## Transform Gizmo Control Point Setting
 
