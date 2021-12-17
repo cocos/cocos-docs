@@ -39,25 +39,23 @@ Many mini games have their own configuration `JSON` files, like `game.json` to W
 
 ## Custom build template supported platform list
 
-The `JSON` files corresponding to the data fusion for each mini game are as follows:
+The supported file types for build templates by platform are as follows:
 
-| Platform | Actual Name | Custom Build Template |
-| -------- | ---------- | ----------- |
-| **WeChat Mini Game** | wechatgame | `game.ejs`, `game.json`, `project.config.json` |
-| **Web Mobile** | web-mobile | `index.ejs` |
-| **Web Desktop** | web-desktop | `index.ejs` |
-| **Xiaomi Quick Game** | xiaomi-quick-game | `manifest.json` |
-| **Huawei Quick Game** | huawei-quick-game | Use the Build Panel's|
-| **Cocos Play** | cocos-play | `game.config.json` |
-| **Baidu Mini Game** | baidu-mini-game | `game.json`, `project.swan.json` |
-| **OPPO Mini Game** | oppo-mini-game | `manifest.json` |
-| **vivo Mini Game** | vivo-mini-game | `project.config.json` |
+| Platform | Actual Name | Supported File Type |
+| :-------- | :---------- | :----------- |
+| **Huawei AGC** | huawei-agc | not supported yet |
 | **Alipay Mini Game** | alipay-mini-game | `game.json` |
-| **Native** | native | X (Not recommended) |
-
-## Custom Build Plugins
-
-It is currently in the internal testing phase and is not open to the public at this time.
+| **ByteDance Mini Game** | bytedance-mini-game | `game.ejs`、`game.json`、`project.config.json` |
+| **OPPO Mini Game** | oppo-mini-game | `manifest.json` |
+| **Huawei Quick Game** | huawei-quick-game | not supported yet |
+| **Cocos Play** | cocos-play | `game.config.json` |
+| **vivo Mini Game** | vivo-mini-game | `project.config.json` |
+| **Xiaomi Quick Game** | xiaomi-quick-game | `manifest.json` |
+| **Baidu Mini Game** | baidu-mini-game | `game.json`, `project.swan.json` |
+| **WeChat Mini Game** | wechatgame | `game.ejs`, `game.json`, `project.config.json` |
+| **Web Desktop** | web-desktop | `index.ejs` |
+| **Web Mobile** | web-mobile | `index.ejs` |
+| **Native** | native | not supported yet |
 
 ## Customizing `application.js`
 
