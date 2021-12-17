@@ -1,38 +1,35 @@
-# Custom Project Build Process
+# Custom Project Build Template
 
-## Custom Project Build Template
-
-**Cocos Creator** supports custom build templates for each project. Add a `build-templates` folder to the project path, divide the sub-folder according to the `platform` path. Then all the files in this folder will be automatically **copied** to the build generated project according to the corresponding folder structure after the build. Currently, all platforms except the native platform support this function, the specific platform name can be referred to the following **custom build template platform support table**.
+**Cocos Creator** supports custom build templates for each project. Add a `build-templates` folder to the project path, divide the sub-folder according to the **platform name**. Then all the files in this folder will be automatically **copied** to the build generated project according to the corresponding folder structure after the build. Currently, all platforms except the native platform support this function, the specific **platform name** can be referred to the following **custom build template supported platform list**.
 
 Folder Structure:
 
-```
+```bash
 project-folder
  |--assets
  |--build
  |--build-templates
       |--web-mobile
+            // The file to be added, such as index.html
             |--index.html
 ```
 
 If the current platform is `Web-Mobile`, then `build-templates/web-mobile/index.html` will be copied to `build/web-mobile/index.html`.
 
-In addition to this, build templates can be customized in the following ways.
+In addition, the file types currently supported by the build template include **ejs type** and **json type**. Please refer to the **supported platform list** below for details on the support for each platform.
 
-### ejs type
+## ejs type
 
-Since the content of the package is not guaranteed to be exactly the same in every version, when the build template within the editor is updated, the developer also needs to update the build template within their project. Now add a new way to use the template, click on **Project -> Create preview template** in the main menu, and an `ejs` template file will be generated for the corresponding platform.
+Since the content of the package is not guaranteed to be exactly the same in every version, when the build template within the editor is updated, the developer also needs to update the build template within their project. For example, if the MD5 Cache option is checked at build time, taking `index.html` on the web platform as an example, the `css` file referenced in it will have an MD5 Hash suffix, which may not match the one in the original template and may not work. <br>
+To optimize this problem, a new way is added to use the template. Click on **Project -> Create preview template** in the main menu, and an `ejs` template file will be generated for the corresponding platform.
 
-```md
-project-folder
- |--assets
- |--build
- |--build-templates
-      |--web-mobile
-            |--index.ejs
-```
+![build template](custom-project-build-template/build-template.png)
 
-Parameters are imported into these templates during the build, and content that is frequently changed during the build is placed in sub-templates of that template. You only need to modify what you want to use, so that the build templates within the project can be updated less frequently.
+Developers only need to customize the generated build template in the `.ejs`, the build will automatically synchronize the updates of the editor build template to the custom build template, and the frequently changed content will be synchronized to the sub-template (`.ejs`) referenced by the template, so that the custom build template can be updated manually without frequent updates.
+
+Taking the creation of a Web Mobile build template as an example, the generated build template directory structure is as follows:
+
+![web-mobile](custom-project-build-template/web-mobile.png)
 
 > **Note**: the copy template occurs after the rendered template. For example, if both `index.ejs` and `index.html` exist in this directory, the final packaged package will be the `index.html` file instead of the `index.ejs` rendered file.
 
@@ -40,7 +37,7 @@ Parameters are imported into these templates during the build, and content that 
 
 Many mini games have their own configuration `JSON` files, like `game.json` to WeChat Mini Games. Files in the build templates folder will just copy in **default**, but this configuration JSON will be merged instead of overwrite. Of course, it doesn't mean that all `JSON` file will be merged, you can check it in the tables below.
 
-### Custom build template platform supports tables
+## Custom build template supported platform list
 
 The `JSON` files corresponding to the data fusion for each mini game are as follows:
 
@@ -62,6 +59,16 @@ The `JSON` files corresponding to the data fusion for each mini game are as foll
 
 It is currently in the internal testing phase and is not open to the public at this time.
 
-## Customize application.js
+## Customizing `application.js`
 
-`application.js` is the startup script generated by the build that is the same for all platforms. If you need to customize it, you can place `application.js` in the specified directory in the manner described above to customize. Or click **Project -> Create project build template -> Create application.ejs** in the main menu to generate the corresponding ejs file, and modify it in it. The `application.ejs` placed in the `build-templates/common` folder will work for all build platforms. Placed in the `build-templates/{platform}` directory will only work for the specified platform. By default, the files in the platform's build path are used first for the build. Using ejs, you can avoid that after checking the MD5 Cache option, some file path changes cause the customized `application.js` to become unavailable. However, it should be noted that because the startup script and the engine interface are strongly related, it cannot be completely guaranteed to remain the same in the upgrade iteration of the major version. If there is a modification, we will mention it in the update log. Please pay attention after the upgrade version.
+All platforms generate a startup script `application.js` after the build. To customize the startup script, there are two ways:
+
+- Refer to the way described at the beginning of this article, place `application.js` in the specified directory and then customize it as needed.
+- Click **Project -> Create Project Build Template** in Creator's top menu bar, then select **application.ejs template** to customize the generated `application.ejs` file, and the generated directory will be displayed in the **Console** panel. The `application.ejs` file will be compiled into an `application.js` file when built.
+
+The directory where the `application.ejs` file is located determines the platform on which it will take effect.
+
+- If it is placed in the `build-templates/common` directory, it will take effect for all platforms.
+- If it is placed in the `build-templates/{platform}` directory, it will take effect for the specified platform. The `application.ejs` file in this directory is used first when building.
+
+Using the `ejs` method of customization prevents the custom `application.js` from becoming unavailable if the MD5 Cache option is checked during the build. However, it should be noted that since the startup scripts and the engine interface are strongly correlated, it is not possible to ensure that they remain completely unchanged during major iterations of the upgrade, so we will mark any changes in the changelog.

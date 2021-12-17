@@ -22,6 +22,6 @@ In addition to general curve editing operations, the curve editor area within th
 
 ### Bezier Curve Preset
 
-There are some standard Bezier curve presets built into the animation editor. After entering the curve editing view, click the curve preset panel in the sidebar to show the curve presets. Click the curve to select the curve clip, and then click the preset on the curve preset panel you can applying the curve preset. After apllying preset, the interpMode of the keyframes at both ends of the curve clip will be adjusted to curve mode by default, and the weightMode of the keyframes will be modified to a state where the left and right sides of the curve clip can be stretched freely to achieve the same effect as the curve preset.
+There are some standard Bezier curve presets built into the animation editor. After entering the curve editing view, click the curve preset panel in the sidebar to show the curve presets. Click the curve to select the curve clip, and then click the preset on the curve preset panel you can applying the curve preset. After applying preset, the interpMode of the keyframes at both ends of the curve clip will be adjusted to curve mode by default, and the weightMode of the keyframes will be modified to a state where the left and right sides of the curve clip can be stretched freely to achieve the same effect as the curve preset.
 
 ![animation-curve-preset](animation-curve/animation-curve-preset.gif)
