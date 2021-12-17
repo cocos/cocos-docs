@@ -1,6 +1,27 @@
-# 渲染纹理资源（RenderTexture）
+# 渲染纹理资源（Render Texture）
 
 渲染纹理是一张在 GPU 上的纹理。通常我们会把它设置到相机的 **目标纹理** 上，使相机照射的内容通过离屏的 `frambuffer` 绘制到该纹理上。一般可用于制作汽车后视镜，动态阴影等功能。
+
+## 创建渲染纹理资源
+
+在 **资源管理器** 中点击左上方的 **+** 按钮，然后选择 **渲染纹理**，即可创建渲染纹理资源：
+
+![add-render-texture](render-texture/add-render-texture.png)
+
+然后在 **属性检查器** 中便可以设置渲染纹理资源的相关属性：
+
+![render-texture-property](render-texture/render-texture-property.png)
+
+| 属性 | 说明 |
+| :--- | :--- |
+| **Width** | 设置渲染纹理的宽 |
+| **Height** | 设置渲染纹理的高 |
+| **Anisotropy** | 各项异性值 |
+| **Min Filter** | 缩小过滤算法 |
+| **Mag Filter** | 放大过滤算法 |
+| **Mip Filter** | 多级纹理过滤算法 |
+| **Wrap Mode S** | S（U）方向纹理寻址模式 |
+| **Wrap Mode T** | T（V）方向纹理寻址模式 |
 
 ## 使用 RenderTexture
 

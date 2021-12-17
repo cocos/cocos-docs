@@ -18,7 +18,7 @@ The `spriteFrame` has the following properties:
 
 | Property | Description |
 | :--- | :--- |
-| Packable | Whether to be packed into Dynamic Atlas. |
+| Packable | Whether to participate in Dynamic Atlas and automatic atlas building processes. |
 | Rotated  | Read-only property, cannot be changed. Used to see if the sub-asset in the Texture Packer asset is rotated. |
 | Offset X, Y | Read-only property, cannot be changed. Used to view the offset of the rectangle in Texture Packer asset. |
 | Trim Type | Set the trim type, including:<br>1. Auto -- Automatic trim. For details, please refer to the [Auto Trim for SpriteFrame](../ui-system/components/engine/trim.md) documentation.<br>2. Custom -- Custom trim<br>3. None -- No trim, use original texture. |

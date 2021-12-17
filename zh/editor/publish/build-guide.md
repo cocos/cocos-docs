@@ -126,7 +126,7 @@ Cocos Creator 的通用构建流程，主要包括以下内容：
     BundleVers: Record<string, string>; // Bundle 的 md5 值
     subpackages: string[]; // 分包信息
     remoteBundles: string[]; // 记录远程包 Bundle 的集合
-    server: string; // 记录远程服务器地址（注意：v3.4 之前该项存放在 `application.js` 文件中）
+    server: string; // 记录远程服务器地址（注意：v3.4 之前该项存放在 ‘application.js’ 文件中）
     hasResourcesBundle: boolean; // 是否含有 resources 内置 Bundle
     hasStartSceneBundle: boolean; // 是否含有初始场景内置 Bundle
     customJointTextureLayouts?: ICustomJointTextureLayout[];

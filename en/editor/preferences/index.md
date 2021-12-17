@@ -74,12 +74,13 @@ For details on customizing the engine, please review the [Engine customization w
 
 The **Asset database** tab is used to set the [Assets](../assets/index.md) panel with information about the asset database, including **Log Levels**, **Ignore (regular)** and **Default Meta**.
 
-![asset-db](./index/asset-db.jpg)
+![asset-db](./index/asset-db.png)
 
 - **Log Level**: used to set the type of information output to the **console** from the asset database in the **Assets** panel. This currently includes **Error Only**, **Error and Warning Only**, **Error, Warning, and Log**, and **Output All Information**.
 - **Ignore (Glob)**: use the Glob expression and fill in the path match of the asset to be ignored, then the asset will be ignored. For example, `! **/*.txt` means that all `.txt` files are ignored.
-- **Default Meta**: used to set the default configuration when importing assets within a project. Please refer to the description below for details.
 - **Update resources automatically**: automatically refresh resources when returning to the editor from outside. See below for details.
+- **Automatically overwrite metadata on import**: when importing assets to replace existing assets, if the imported assets come with Meta, use this option to set whether to overwrite the Meta of the existing assets.
+- **Default Meta**: used to set the default configuration when importing assets within a project. Please refer to the description below for details.
 
 ### Update resources automatically
 
@@ -175,7 +176,9 @@ The **Laboratory** tab will occasionally provide some new technical solutions or
 
   > **Note**: in daily use, as long as the scene is opened normally, all the scene files cached before the current scene is opened will be cleared. If you have special needs to view the specified scene files in the cache, please close the corresponding scene in the editor first.
 
-- **Turn on baking feature**: Used to turn on the Lightmapping. For details, please refer to the [Lightmapping](./../../concepts/scene/light/lightmap.md) documentation.
+- **Enable Animation Graph**: used to enable the Marionette animation system, which is enabled by default. Please refer to the [Marionette Animation System](../../animation/marionette/index.md) documentation for details.
+
+- **Enable baking feature**: Used to enable the Lightmapping. For details, please refer to the [Lightmapping](./../../concepts/scene/light/lightmap.md) documentation.
 
 ### Caution
 

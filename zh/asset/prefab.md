@@ -56,7 +56,7 @@
 
 | 按钮图标  | 说明 |
 | :--- | :--- |
-| ![unlink prefab button](prefab/unlink-prefab-button.png) | 还原为普通节点。预制件节点可变为普通节点，即完全脱离和资源的关系。还可以通过点击 Creator 顶部菜单栏中的 **节点 -> 取消关联当前的 Prefab 资源** 来实现。 |
+| ![unlink prefab button](prefab/unlink-prefab-button.png) | 还原为普通节点。预制件节点可变为普通节点，即完全脱离和资源的关系。还可以通过点击 Creator 顶部菜单栏中的 **节点 -> 取消关联当前的 Prefab 资源** 来实现。v3.4 支持批量取消关联。 |
 | ![locate prefab button](prefab/locate-prefab-button.png) | 定位资源。便于快速在 **资源管理器** 中定位到预制件资源。 |
 | ![revert prefab button](prefab/revert-prefab-button.png) | 从资源还原。将当前预制件实例的数据还原为预制件资源中的数据，其中名字、位置和旋转不会被还原为预制件资源中的数据。 |
 | ![apply prefab button](prefab/apply-prefab-button.png)   | 更新到资源。将当前预制件实例的所有数据更新到所关联的预制件资源中。 |
