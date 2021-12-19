@@ -84,6 +84,8 @@
 
 - **启用宽松模式**：启用宽松模式进行脚本编译。
 
+- **导入映射**：该项用于控制 TypeScript/JavaScript 的导入行为，详情请参考 [Import Map](../../scripting/modules/import-map.md)。
+
 - **导出条件**：为条件化导出模块指定解析条件，详情可参考 [条件性导出](../../scripting/modules/spec.md#%E6%9D%A1%E4%BB%B6%E6%80%A7%E5%AF%BC%E5%87%BA)。
 
 ## 压缩纹理
