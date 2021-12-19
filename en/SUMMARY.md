@@ -214,6 +214,8 @@
 
 - [Audio System](audio-system/overview.md)
     - [AudioSource Component Reference](audio-system/audiosource.md)
+    - [AudioSource Playback Example](audio-system/audioExample.md)
+    - [Compatibility Notes](audio-system/audioLimit.md)
 
 - [Physics System](physics/index.md)
     - [Physics 2D](physics-2d/physics-2d.md)
