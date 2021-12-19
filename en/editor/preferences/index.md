@@ -42,7 +42,7 @@ The **External Program** tab is used to set up the development environment requi
 
 - **HarmonyOS SDK**: used to set the HarmonyOS SDK path, please refer to the [Publish for the Huawei HarmonyOS](../publish/publish-huawei-ohos.md) documentation.
 
-- **Default Script Editor**: choose any executable file from an external text editing tool (e.g.: VS Code) as the way to open the script file when you double-click it in the **Assets** panel. The executable file of the preferred text editor can be selected by clicking the **Search** button after the input box. The folder icon is used to open the path to the text editor that has been set up.
+- **Default Script Editor**: choose any executable file from an external text editing tool (e.g.: [VS Code](../../scripting/coding-setup.md)) as the way to open the script file when you double-click it in the **Assets** panel. The executable file of the preferred text editor can be selected by clicking the **Search** button after the input box. The folder icon is used to open the path to the text editor that has been set up.
 
 - **Default Browser**: used to select the browser to be used when previewing the editor. A browser path can be specified by clicking the **Search icon** button behind the input box.
 
