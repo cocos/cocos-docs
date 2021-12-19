@@ -4,7 +4,7 @@ The Animation Graph panel is used to view and edit animation graph assets. Once 
 
 ## Opening the Panel
 
-Select the animation graph asset in the **Assets** panel, then click **Edit in the Animation Graph panel** in the **Inspector** panel:
+Select the animation graph asset in the **Assets** panel, then click **Edit** in the **Inspector** panel:
 
 ![open-animation-graph-panel](animation-graph-panel/open-animation-graph-panel.png)
 
@@ -41,9 +41,9 @@ This tab is mainly used to create, view and edit the variables of the state mach
 ### Creating variables
 
 In the following figure, for example, the steps are:
-- Fill in the variable name in the ① input box
-- Select the variable type in the ② drop-down box. The supported variable types include **Float**, **Boolean**, **Trigger** and **Integer**, please refer to **Variable Types** section below for details.
-- Finally, click the **+** button in ③ to create the variables, and the created variables will be displayed in order at the bottom of the tab.
+- Fill in the variable name in the **Name** input box
+- Select the variable type in the **Type** drop-down box. The supported variable types include **Float**, **Boolean**, **Trigger** and **Integer**, please refer to **Variable Types** section below for details.
+- Finally, click the **Add** button to create the variables, and the created variables will be displayed in order at the bottom of the tab.
 
 ![add variables](animation-graph-panel/add-variables.png)
 
