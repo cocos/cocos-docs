@@ -1,6 +1,6 @@
 # Hello World
 
-Now that we understand how to use the Dashboard, let's see how to create and open a Hello World project.
+Now that we understand how to use the [Dashboard](./dashboard.md), let's see how to create and open a Hello World project.
 
 ## Create a New Project
 

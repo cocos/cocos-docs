@@ -2,6 +2,8 @@
 
 启动 Cocos Creator 并使用 Cocos 开发者帐号登录以后，就会打开 Dashboard 界面，在这里你可以新建项目、打开已有项目或者获得帮助信息。
 
+> **注意**：Cocos Creator 从 **v2.3.2** 开始接入了全新的 Dashboard 系统，将做为 Creator 各引擎统一的下载器和启动入口，支持同时对多版本 Creator 和项目进行统一升级和管理！具体的下载、安装及使用方法请参考 [Cocos Dashboard](https://docs.cocos.com/creator/3.0/manual/zh/getting-started/install/)。
+
 ## 界面总览
 
 ![](dashboard/overview.png)

@@ -1,6 +1,6 @@
 # Hello World
 
-了解 Dashboard 以后，我们现在看看如何创建和打开一个 Hello World 项目。
+了解 [Dashboard](./dashboard.md) 以后，我们现在看看如何创建和打开一个 Hello World 项目。
 
 ## 创建项目
 

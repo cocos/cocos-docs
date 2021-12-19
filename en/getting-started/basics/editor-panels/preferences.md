@@ -39,7 +39,7 @@ This category is used to set the default open mode for scripts and resources. In
 
 ![data editing](preferences/data-editing.png)
 
-* **External Script Editor**: You can use the executable file of any external text editing tool as the opening method when you double-click the script file in **Assets**. You can click the `Browse` button to select the preferred text editor executable file. And the built-in script editor is not recommended.
+* **External Script Editor**: You can use the executable file of any external text editing tool (e.g.: [Visual Studio Code](../../coding-setup.md)) as the opening method when you double-click the script file in **Assets**. You can click the `Browse` button to select the preferred text editor executable file. And the built-in script editor is not recommended.
 
 * **External Picture Editor**: Similar to the above option, used here to set when Assets, double-click the picture file, open the picture with the default application path.
 
