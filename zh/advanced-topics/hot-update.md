@@ -49,7 +49,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ![](./hot-update/table.png)
 
-> **注意**：项目中包含的 `remove-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remove-assets` 中的资源而导致脚本失效。
+> **注意**：项目中包含的 `remote-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remote-assets` 中的资源而导致脚本失效。
 
 ### 使用 Version Generator 来生成 Manifest 文件
 

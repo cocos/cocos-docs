@@ -2,7 +2,7 @@
 
 If you have not downloaded and started Cocos Creator while reading this document, please follow the steps below.
 
-> **Note**: As of v2.3.2, Cocos Creator is equipped with a new **Dashboard** system, which will serve as a unified downloader and startup portal for all Cocos Creator, supporting the upgrade and management of multiple versions of Creator and projects at the same time! Please refer to the [Cocos Dashboard](https://docs.cocos.com/creator/3.0/manual/en/getting-started/install/) documentation for details on downloading, installation and usage.
+> **Note**: as of v2.3.2, Cocos Creator is equipped with a new **Dashboard** system, which will serve as a unified downloader and startup portal for all Cocos Creator, supporting the upgrade and management of multiple versions of Creator and projects at the same time! Please refer to the [Cocos Dashboard](https://docs.cocos.com/creator/3.0/manual/en/getting-started/install/) documentation for details on downloading, installation and usage.
 
 ## Download Cocos Creator
 

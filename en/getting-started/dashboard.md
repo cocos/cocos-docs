@@ -2,6 +2,8 @@
 
 After starting Cocos Creator and logging in with your Cocos developer account, the Dashboard interface will open. You can create a new project, open an existing project or obtain helpful information here.
 
+> **Note**: as of **v2.3.2**, Cocos Creator is equipped with a new Dashboard system, which will serve as a unified downloader and startup portal for all Cocos Creator, supporting the upgrade and management of multiple versions of Creator and projects at the same time! Please refer to the [Cocos Dashboard](https://docs.cocos.com/creator/3.0/manual/en/getting-started/install/) documentation for details on downloading, installation and usage.
+
 ## Overview of the interface
 
 ![Dashboard Overview](dashboard/overview.png)

@@ -1,6 +1,6 @@
 # Hello World
 
-了解 Dashboard 以后，我们现在看看如何创建和打开一个 Hello World 项目。
+了解 [Dashboard](./dashboard.md) 以后，我们现在看看如何创建和打开一个 Hello World 项目。
 
 ## 创建项目
 
@@ -36,7 +36,7 @@ Cocos Creator 会使用您的默认浏览器运行当前游戏场景，效果如
 
 Cocos Creator 以数据驱动为核心的最初体现，就在于当我们需要改变 Hello World 的问候文字时，不需要再编辑脚本代码，而是直接修改场景中保存的文字属性。
 
-首先在 **层级管理器** 中选中 `Canvas` 节点，我们的 `HelloWorld` 组件脚本就挂在这个节点上。
+首先在 **层级管理器** 中选中 `Canvas` 节点，我们的 `HelloWorld` 组件脚本就挂载在这个节点上。
 
 接下来在 **属性检查器** 面板下方找到 `HelloWorld` 组件属性，然后将 `Text` 属性里的文本改成 `你好，世界！`：
 
