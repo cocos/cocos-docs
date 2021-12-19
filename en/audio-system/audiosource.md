@@ -1,4 +1,4 @@
-# AudioSource Component References
+# AudioSource Component Reference
 
 The AudioSource component is used to control the playback of music and sound effects.
 
