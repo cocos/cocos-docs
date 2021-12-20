@@ -57,7 +57,7 @@ project-folder
 | Web Mobile | web-mobile | `index.ejs` |
 | 原生平台 | native | 暂不支持 |
 
-## 定制 `application.js`
+<!-- ## 定制 `application.js`
 
 所有平台在构建后都会生成一个启动脚本 `application.js`，若要定制启动脚本，有以下两种方式：
 
@@ -69,4 +69,4 @@ project-folder
 - 若放置在 `build-templates/common` 目录下，则对所有平台生效；
 - 若放置在 `build-templates/{platform}` 目录下，则对指定平台生效。构建时会优先使用该目录下的 `application.ejs` 文件。
 
-使用 `ejs` 的方式进行定制，可以避免构建时勾选了 MD5 Cache 选项后，一些文件路径的更改导致定制的 `application.js` 不可用。不过需要注意的是，由于启动脚本和引擎接口是强相关的，无法确保在大版本的升级迭代中保持完全不变，如果发生修改我们会在更新日志中标注，请在升级版本后关注对应版本的更新日志。
+使用 `ejs` 的方式进行定制，可以避免构建时勾选了 MD5 Cache 选项后，一些文件路径的更改导致定制的 `application.js` 不可用。不过需要注意的是，由于启动脚本和引擎接口是强相关的，无法确保在大版本的升级迭代中保持完全不变，如果发生修改我们会在更新日志中标注，请在升级版本后关注对应版本的更新日志。 -->
