@@ -112,7 +112,6 @@ The keyframe has left and right tangents, and the tangent weight mode has the fo
 
 By default, the left and right tangent slopes of the keyframe are kept the same. Adjusting the tangent lever on either side will follow the adjustment on the other side, which makes it easier for us to adjust the transition more naturally. In some cases, the curve does not always transition smoothly. At this time, right-click the keyframe and click the Broken option in the right-click menu to disconnect the key left and right joysticks. After disconnecting, the keyframes can be adjusted separately using the left and right joysticks.
 
-
 ### Moving curves up and down
 
 The whole curve can be dragged up and down directly after double tapping the curve.
