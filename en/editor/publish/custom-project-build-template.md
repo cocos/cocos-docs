@@ -21,7 +21,7 @@ In addition, the file types currently supported by the build template include **
 ## `ejs` type
 
 Since the content of the package is not guaranteed to be exactly the same in every version, when the build template within the editor is updated, the developer also needs to update the build template within their project. For example, if the MD5 Cache option is checked at build time, taking `index.html` on the web platform as an example, the `css` file referenced in it will have an MD5 Hash suffix, which may not match the one in the original template and may not work. <br>
-To optimize this problem, a new way is added to use the template. Click on **Project -> Create preview template** in the main menu, and an `ejs` template file will be generated for the corresponding platform.
+To optimize this problem, a new way is added to use the template. Click on **Project -> Create Preview Template** in the main menu, and an `ejs` template file will be generated for the corresponding platform.
 
 ![build template](custom-project-build-template/build-template.png)
 
@@ -57,6 +57,7 @@ The supported file types for build templates by platform are as follows:
 | **Web Mobile** | web-mobile | `index.ejs` |
 | **Native** | native | not supported yet |
 
+<!--
 ## Customizing `application.js`
 
 All platforms generate a startup script `application.js` after the build. To customize the startup script, there are two ways:
@@ -70,3 +71,4 @@ The directory where the `application.ejs` file is located determines the platfor
 - If it is placed in the `build-templates/{platform}` directory, it will take effect for the specified platform. The `application.ejs` file in this directory is used first when building.
 
 Using the `ejs` method of customization prevents the custom `application.js` from becoming unavailable if the MD5 Cache option is checked during the build. However, it should be noted that since the startup scripts and the engine interface are strongly correlated, it is not possible to ensure that they remain completely unchanged during major iterations of the upgrade, so we will mark any changes in the changelog.
+-->
