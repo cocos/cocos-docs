@@ -1,12 +1,12 @@
 # Native Scene Culling
 
-Creator supports native scene culling starting from v3.4.0, including **Octree Viewing Frustum Culling** and **Occlusion Query Culling** for native platforms only.
+Creator supports native scene culling starting from v3.4.0, including **Octree Scene Culling** and **Occlusion Query Culling** for native platforms only.
 
-## Octree Viewing Frustum Culling
+## Octree Scene Culling
 
 Generally, the engine culls models that are not in the viewing frustum (the visible range of the camera) by checking whether the bounding boxes of the models are in the viewing frustum one by one, which is slower. If octree culling is enabled, the models that are not in the viewing frustum can be quickly culled by the octree.
 
-This feature is disabled by default, to enable it, select the scene root node **Scene** in the **Hierarchy** panel, then you can see the **Octree Scene Culling** option in the **Inspector** panel, and check **Enabled**.
+This feature is disabled by default, to enable it, select the scene root node **Scene** in the **Hierarchy** panel, then notice the **Octree Scene Culling** option in the **Inspector** panel, and check **Enabled**.
 
 ![octree scene culling](./native-scene-culling/octree-scene-culling.png)
 
@@ -35,5 +35,5 @@ director.root.pipeline.setOcclusionQueryEnabled(true);
 
 ## Performance optimization suggestions
 
-- If most of the objects in the scene are visible, it is recommended not to enable **Octree Viewing Frustum Culling** and **Occlusion Query Culling**.
+- If most of the objects in the scene are visible, it is recommended not to enable **Octree Scene Culling** and **Occlusion Query Culling**.
 - Performance may vary slightly from device to device, so decide whether to turn on the corresponding culling function after comparing performance tests.
