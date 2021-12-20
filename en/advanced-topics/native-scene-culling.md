@@ -1,39 +1,39 @@
-# 原生场景剔除
+# Native Scene Culling
 
-Creator 从 v3.4.0 开始支持原生场景剔除，包括 **八叉树视锥剔除** 和 **遮挡查询剔除**，仅对原生平台生效。
+Creator supports native scene culling starting from v3.4.0, including **Octree Scene Culling** and **Occlusion Query Culling** for native platforms only.
 
-## 八叉树视锥剔除
+## Octree Scene Culling
 
-一般情况下，引擎剔除不在视锥（摄像机的可见范围）内的模型，是通过逐个检测模型的包围盒是否在视锥内，速度较慢。若开启八叉树视锥剔除，则通过八叉树可以快速剔除不在视锥内的模型。
+Generally, the engine culls models that are not in the viewing frustum (the visible range of the camera) by checking whether the bounding boxes of the models are in the viewing frustum one by one, which is slower. If octree culling is enabled, the models that are not in the viewing frustum can be quickly culled by the octree.
 
-该功能默认关闭，若需要开启，在 **层级管理器** 中选中场景根节点 **Scene**，然后在 **属性检查器** 中便可看到 **Octree Scene Culling** 项，勾选 **Enabled** 即可：
+This feature is disabled by default, to enable it, select the scene root node **Scene** in the **Hierarchy** panel, then notice the **Octree Scene Culling** option in the **Inspector** panel, and check **Enabled**.
 
 ![octree scene culling](./native-scene-culling/octree-scene-culling.png)
 
-开启八叉树视锥剔除后，在 **场景编辑器** 中会显示整个世界的包围盒（例如上图场景中白色边框的立方体）。
+When octree culling is enabled, the whole world's bounding box (e.g. the white bordered cube in the scene above) will be displayed in the **Scene** panel.
 
-**Octree Scene Culling** 的属性说明如下：
+The properties of **Octree Scene Culling** are described as follows:
 
-| 属性 | 说明 |
+| Property | Description |
 | :-- | :-- |
-| Enabled       | 勾选该项即可开启八叉树视锥剔除，仅对原生平台生效 |
-| World MinPos  | 世界包围盒的最小顶点坐标（超出包围盒的物体不渲染） |
-| World MaxPos  | 世界包围盒的最大顶点坐标（超出包围盒的物体不渲染） |
-| Depth         | 八叉树深度，默认值为 8。若场景较小，该值建议不要设置太大，否则可能会耗费内存 |
+| Enabled      | Check this option to enable Octree Scene Culling, only for native platforms. |
+| World MinPos | The minimum vertex coordinates of the world bounding box (objects beyond the bounding box are not rendered). |
+| World MaxPos | The maximum vertex coordinates of the world bounding box (objects beyond the bounding box are not rendered). |
+| Depth        | Depth of the octree, the default value is 8. If the scene is small, it is recommended not to set this value too large, otherwise it may consume memory. |
 
-## 遮挡查询剔除
+## Occlusion Query Culling
 
-**遮挡查询剔除** 默认关闭，如果开启，则 GFX 后端会通过图形 API 进行遮挡查询，若物体被遮挡，则只使用简化的包围盒及材质来渲染该物体，以提升性能。
+**Occlusion Query Culling** is off by default, if it is on, the GFX backend will perform an occlusion query through the graphics API and if the object is occluded, only the simplified bounding box and material will be used to render the object to improve performance.
 
-该功能可通过代码开启：
+This feature can be turned on with code that says
 
 ```ts
 director.root.pipeline.setOcclusionQueryEnabled(true);
 ```
 
-> **注意**：GLES 2.0 不支持遮挡查询剔除，某些 GLES 3.0 设备如果没有 `GL_EXT_occlusion_query_boolean` 扩展也不支持。
+> **Note**: GLES 2.0 does not support occlusion query culling, and some GLES 3.0 devices do not support it without the `GL_EXT_occlusion_query_boolean` extension.
 
-## 性能优化建议
+## Performance optimization suggestions
 
-- 如果场景中大部分物体都可见，建议不要开启 **八叉树视锥剔除** 和 **遮挡查询剔除**。
-- 不同设备可能表现略有差异，可通过性能测试对比后，决定是否开启相应的剔除功能。
+- If most of the objects in the scene are visible, it is recommended not to enable **Octree Scene Culling** and **Occlusion Query Culling**.
+- Performance may vary slightly from device to device, so decide whether to turn on the corresponding culling function after comparing performance tests.
