@@ -69,6 +69,12 @@ Except for the `JPG` and `PNG` supported by all platforms, the details of other 
 | iOS               | ASTC / PVR / WEBP / ETC1 / ETC2 |
 | Android           | ASTC / ETC2 / ETC1 / WEBP |
 
+<<<<<<< Updated upstream
 ## Custom build texture compression processing
 
 Texture compression currently takes effect after the build, and the editor comes with a set of processing tools. To customize the compression tool, please refer to the [Extending Build Process -- Custom Texture Compression](../editor/publish/custom-build-plugin.md) documentation.
+=======
+## Custom Build Texture Compression Processing
+
+Texture compression is currently in effect after the build, and the editor comes with a set of processing tools. For those who need custom compression tools, please refer to [Custom Build Plugin -- Custom Texture Compression](./editor/publish/custom-build-plugin.md#custom-texture-compression-handling) process.
+>>>>>>> Stashed changes
