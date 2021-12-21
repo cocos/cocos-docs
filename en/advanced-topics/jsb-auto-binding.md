@@ -25,15 +25,15 @@ It is very simple to use and can be called cross-platform in one line of code, a
 
 Fixing this problem requires a JSB modification for log calls, along with a caching mechanism related to jni to optimize performance. jSB binding is simply the process of converting objects between the C++ and script layers, and forwarding script layer function calls to the C++ layer.
 
-JSB binding is usually done in two ways: **manual binding** and **automatic binding**. The manual binding method can be found in [Using JSB Manual Binding](jsb-manual-binding.md).
-- The advantage of manual binding is that it is flexible and customizable; the disadvantage is that you have to write all the code yourself, especially the conversion between C++ type and TypeScript type, which can easily lead to memory leaks and some pointers or objects not being freed.
-- Auto-binding will save you a lot of trouble, which directly generates the relevant code through a script in one click, and subsequently, if there are new codes or changes, you only need to re-execute the script once. So auto-binding is perfect for cases where you don't need to do strong customization and need to finish JSB quickly. The following is a step-by-step explanation of how to implement automatic JSB binding.
+JSB binding is usually done in two ways: **manual binding** and **automatic binding**. The manual binding method can be found in the [Using JSB Manual Binding](jsb-manual-binding.md) documentation.
+- The advantage of manual binding is that it is flexible and customizable; the disadvantage is the necessity to write all the code yourself, especially the conversion between C++ type and TypeScript type, which can easily lead to memory leaks and some pointers or objects not being freed.
+- Auto-binding will save a lot of trouble, which directly generates the relevant code through a script in one click, and subsequently, if there are new codes or changes, simply re-execute the script once. Auto-binding is perfect for cases where it is not necessary to do strong customization and then need to finish JSB quickly. The following is a step-by-step explanation of how to implement automatic JSB binding.
 
 ## Environment Configuration and Auto-Binding Demonstration
 
 ### Environment Configuration
 
-Auto-binding, to put it simply, is a matter of executing a python script to automatically generate the corresponding `.cpp` and `.h` files. So first you need to make sure that your computer has a python runtime environment, so here's an example of how to install it on a Mac.
+Auto-binding, to put it simply, is a matter of executing a python script to automatically generate the corresponding `.cpp` and `.h` files. First,make sure that the computer has a python runtime environment. Example of how to install it on a Mac:
 
 To install python 3.0, download the installation package from the python website:
 
@@ -61,7 +61,7 @@ Here's a demonstration of how the files under the cocos engine, i.e. the **cocos
 
 ![](jsb/auto-file.png)
 
-In fact, you can see from the beginning of these file names that there are some specific rules for naming these files, so how are these files generated? First, open a terminal, cd to the **tools/tojs** directory, and then run `./genbindings.py`.
+In fact, the beginning of these file names that there are some specific rules for naming these files, so how are these files generated? First, open a terminal, `cd` to the **tools/tojs** directory, and then run `./genbindings.py`.
 
 ![](jsb/generate-file.png)
 
@@ -71,15 +71,15 @@ After about a minute or so of running, the following message will appear, indica
 
 After the above steps, all the files under **cocos/bindings/auto** will be automatically generated, which is very convenient.
 
-The following is an example of how the TS layer prints logs by calling the Native layer log method through jsb, and how to implement the auto-binding tool to generate the corresponding auto-binding files based on the C++ code you write.
+The following is an example of how the TS layer prints logs by calling the Native layer log method through JSB, and how to implement the auto-binding tool to generate the corresponding auto-binding files based on the C++ code written.
 
 ## Writing the c++ layer implementation
 
-C++ is the bridge between TS and Native layers. Since we want to implement jsb calls, the first step is to prepare the header files and implementation for the C++ layer.
+C++ is the bridge between Typescript and Native layers. To implement JSB calls, the first step is to prepare the header files and implementation for the C++ layer.
 
 ![](jsb/store-file.png)
 
-Here we prepare `ABCJSBBridge.h`, which mainly declares an `abcLog` function for the TS layer to call the logging, and because the logging method will certainly be used in many places in the ts layer, a singleton pattern is used here, providing `getInstance()` to get the current instance of the class.
+`ABCJSBBridge.h`, declares an `abcLog` function for the Typescript layer to call the logging, and because the logging method will certainly be used in many places in the ts layer, a singleton pattern is used here, providing `getInstance()` to get the current instance of the class.
 
 ```cpp
 #pragma once
@@ -157,11 +157,11 @@ namespace abc
 
 ## JSB Configuration Scripting
 
-We find the `genbindings.py` script in the **tools/tojs** directory, copy it and rename it to `genbindings_test.py`, then modify the `genbindings_test.py` module configuration to keep only the cocos2dx_test module.
+Find the `genbindings.py` script in the **tools/tojs** directory, copy it and rename it to `genbindings_test.py`, then modify the `genbindings_test.py` module configuration to keep only the cocos2dx_test module.
 
 ![](jsb/cancel-output_dir.png)
 
-The next step is to add a custom configuration file `cocos2dx_test.ini` to the **tools/tojs** directory, which is actually similar to the other `.ini` files under **tools/tojs**, mainly to let the auto-binding tool know which APIs to bind and in what way. You can refer directly to Cocos' existing ini file to write this, here is the contents of `cocos2dx_test.ini`:
+The next step is to add a custom configuration file `cocos2dx_test.ini` to the **tools/tojs** directory, which is actually similar to the other `.ini` files under **tools/tojs**, mainly to let the auto-binding tool know which APIs to bind and in what way. Refer directly to Cocos' existing `.ini` file to write this, here is the contents of `cocos2dx_test.ini`:
 
 ``` ini
 [cocos2dx_test]
@@ -231,7 +231,7 @@ In fact, the annotations inside are also very detailed, and here are a few of th
 
 ![](jsb/ini-file-properties.png)
 
-Once the above configuration is done, you can cd to the **tools/tojs** directory and run `./genbindings_test.py` to automatically generate the bindings file. Then you will see two more bindings under **cocos/bindings/auto**:
+Once the above configuration is done, `cd` to the `tools/tojs` directory and run `./genbindings_test.py` to automatically generate the bindings file. Notice the two bindings under `cocos/bindings/auto`:
 
 ![](jsb/binding-file.png)
 
@@ -325,9 +325,9 @@ Doesn't it look familiar? It's exactly the same as Cocos' existing `.cpp` files,
 
 ## Cocos Compilation Configuration
 
-Although we have generated the bindings after the above step, the TS layer can't be used directly because we still need to configure the generated bindings into the CMakeLists.txt file to be compiled with other C++ files, which is the last part of the CMakeLists.txt compilation configuration.
+Although we have generated the bindings after the above step, the Typescript layer can't be used directly because we still need to configure the generated bindings into the `CMakeLists.txt` file to be compiled with other C++ files, which is the last part of the `CMakeLists.txt` compilation configuration.
 
-1. Open the `CMakeLists.txt` file and add the initial ABCJSBBridge.h and ABCJSBBridge.cpp to it, as well as the jsb_cocos2dx_test_auto.h and jsb_cocos2dx_test_auto.cpp files generated by the automatic bindings:
+1. Open the `CMakeLists.txt` file and add the initial `ABCJSBBridge.h` and `ABCJSBBridge.cpp` to it, as well as the `jsb_cocos2dx_test_auto.h` and `jsb_cocos2dx_test_auto.cpp` files generated by the automatic bindings:
 
     ![](jsb/111.png)
 
@@ -336,7 +336,7 @@ Although we have generated the bindings after the above step, the TS layer can't
     ![](jsb/112.png)
 
 
-After the above configuration, you can finally call it directly from the ts layer like this.
+After the above configuration, call it directly from the ts layer like this:
 
 ``` typescript
 import { _decorator, Component, Node } from 'cc';
@@ -353,7 +353,7 @@ export class Test extends Component {
 
 ## Restrictions on Auto-Binding
 
-Auto-binding relies on the Bindings Generator tool, which Cocos has officially singled out on GitHub: <https://github.com/cocos-creator/bindings-generator>. The Bindings Generator tool can Bind public methods and public properties of C++ classes to the scripting layer. The automatic binding tool, although very powerful, has a few limitations:
+Auto-binding relies on the [Bindings Generator tool](https://github.com/cocos-creator/bindings-generator). The Bindings Generator tool can Bind public methods and public properties of C++ classes to the scripting layer. The automatic binding tool, although very powerful, has a few limitations:
 1. it can only generate bindings for classes, not structs, independent functions, etc.
 2. it is not possible to generate `Delegate` type APIs, because objects in scripts cannot inherit from the `Delegate` class in C++ and override the `Delegate` functions in it.
 3. the child class overrides the API of the parent class while overriding this API. 

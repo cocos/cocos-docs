@@ -133,7 +133,7 @@ namespace se {
 }
 ```
 
-If a `se::Value` stores the underlying data types, such as `number`, `string`, `boolean`, which is directly stored by `value copy`. <br>
+If `se::Value` stores the underlying data types, such as `number`, `string`, `boolean`, which is directly stored by `value copy`. <br>
 The storage of `object` is special because it is a `weak reference` to JS objects via `se::Object*`.
 
 #### se::Object
@@ -176,7 +176,7 @@ It is precisely because the `se::Object` holds a weak reference to a JS object s
 
 `se::Object` provides `root/unroot` method for developers to invoke, `root` will put JS object into the area not be scanned by the GC. After calling `root`, `se::Object*` is a strong reference to the JS object. JS object will be put back to the area scanned by the GC only when `se::Object` is destructed or `unroot` is called to make root count to zero.
 
-Under normal circumstances, if CPP object is not a subclass of `cc::Ref`, CPP object will be used to control the life cycle of the JS object in binding. Binding the engine modules, like Spine, DragonBones, Box2d and other third-party libraries uses this method. When the CPP object is released, you need to find the corresponding `se::Object` in the `NativePtrToObjectMap`, then manually `unroot` and `decRef` it. Take the binding of `spTrackEntry` in spine as an example:
+Under normal circumstances, if the C++ object is not a subclass of `cc::Ref`, the C++ object will be used to control the life cycle of the JS object in binding. Binding the engine modules, like Spine, DragonBones, Box2d and other third-party libraries uses this method. When the C++ object is released, it is necessary to find the corresponding `se::Object` in the `NativePtrToObjectMap`, then manually `unroot` and `decRef` it. Take the binding of `spTrackEntry` in Spine as an example:
 
 ```c++
 spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
@@ -298,7 +298,7 @@ Is equal to:
 
 > **NOTES**:
 >
-> 1. Do not try to use `se::HandleObject` to create a native binding object. In the `JS controls of CPP` mode, the release of the bound object will be automatically handled by the abstraction layer. In the `CPP controls JS` mode, the previous chapter has already described.
+> 1. Do not try to use `se::HandleObject` to create a native binding object. In the `JavaScript controls of C++` mode, the release of the bound object will be automatically handled by the abstraction layer. In the `C++ controls JavaScript` mode, the previous chapter has already described it.
 > 2. The `se::HandleObject` object can only be allocated on the stack, and a `se::Object` pointer must be passed in.
 
 #### se::Class
@@ -307,10 +307,10 @@ Is equal to:
 
 It has the following methods:
 
-- `static se::Class* create(className, obj, parentProto, ctor)`: **Creating a Class**. If the registration is successful, we could create an object by `var xxx = new SomeClass ();` in the JS layer.
+- `static se::Class* create(className, obj, parentProto, ctor)`: **Creating a Class**. If the registration is successful, it is then possible to create an object by calling `var xxx = new SomeClass ();` in the JavaScript layer.
 - `bool defineFunction(name, func)`: Define a member function for a class.
 - `bool defineProperty(name, getter, setter)`: Define a property accessor for a class.
-- `bool defineStaticFunction(name, func)`: Define a static function for a class, the JS function could be accessed by `SomeClass.foo()` rather than the method of `var obj = new SomeClass(); obj.foo()`, means it's a class method instead of an instance method.
+- `bool defineStaticFunction(name, func)`: Define a static function for a class, the JavaScript function could be accessed by `SomeClass.foo()` rather than calling `var obj = new SomeClass(); obj.foo()`, this means it's a class method instead of an instance method.
 - `bool defineStaticProperty(name, getter, setter)`: Define a static property accessor which could be invoked by `SomeClass.propertyA`, it's nothing about instance object.
 - `bool defineFinalizeFunction(func)`: Define the finalize callback function after JS object is garbage collected.
 - `bool install()`: Install a class JS engine.
@@ -903,10 +903,10 @@ bool ok = seval_to_int32(args[0], &v); // The second parameter is the output par
 
 **Developers must understand the difference to make sure these conversion functions not being misused. In that case, JS memory leaks, which is really difficult to fix, could be avoided.**
 
-- `native_ptr_to_seval` is used in `JS control CPP object life cycle` mode. This method can be called when a `se::Value` needs to be obtained from a CPP object pointer at the binding code. Most subclasses in the Cocos Creator that inherit from `cc::Ref` take this approach to get `se::Value`. Please remember, when the binding object, which is controlled by the JS object's life cycle, need to be converted to seval, use this method, otherwise consider using `native_ptr_to_rooted_seval`.
-- `native_ptr_to_rooted_seval` is used in `CPP controlling JS object lifecycle` mode. In general, this method is used for object bindings in third-party libraries. This method will try to find the cached `se::Object` according the incoming CPP object pointer, if the cached `se::Object`is not exist, then it will create a rooted `se::Object` which isn't controlled by Garbage Collector and will always keep alive until `unroot` is called. Developers need to observe the release of the CPP object, and `unroot` `se::Object`. Please refer to the section introduces `spTrackEntry` binding (spTrackEntry_setDisposeCallback) described above.
+- `native_ptr_to_seval` is used in `JavaScript control C++ object life cycle` mode. This method can be called when `se::Value` needs to be obtained from a C++ object pointer at the binding code. Most subclasses in the Cocos Creator that inherit from `cc::Ref` take this approach to get `se::Value`. Please remember, when the binding object, which is controlled by the JavaScript object's life cycle, needs to be converted to `seval`, use this method, otherwise consider using `native_ptr_to_rooted_seval`.
+- `native_ptr_to_rooted_seval` is used in `C++ controlling JavaScript object lifecycle` mode. In general, this method is used for object bindings in third-party libraries. This method will try to find the cached `se::Object` according to the incoming C++ object pointer, if the cached `se::Object`is not exist, then it will create a rooted `se::Object` which isn't controlled by Garbage Collector and will always keep alive until `unroot` is called. Developers need to observe the release of the C++ object, and `unroot` `se::Object`. Please refer to the section introduces `spTrackEntry` binding (spTrackEntry_setDisposeCallback) described above.
 
-More on manual binding can be found in [Using JSB Manual Binding](jsb-manual-binding.md).
+More on manual binding can be found in the [Using JSB Manual Binding](jsb-manual-binding.md) documentation.
 
 ## Automatic Binding
 
