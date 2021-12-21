@@ -50,9 +50,9 @@ Example `package.json`:
 }
 ```
 
-> **Note**: the `builder` field specifies the `./dist/builder.js` entry script is the compiled script, and the source file of the entry script is located in `./source/builder.ts`, if you need to configure the entry script, please change it in the source file.
+> **Note**: the `builder` field specifies the `./dist/builder.js` start script is the compiled script, and the source file of the start script is located in `./source/builder.ts`, if you need to configure the start script, please change it in the source file.
 
-### Entry script configuration
+### Start script configuration
 
 The plugin entry configuration code example is shown below:
 
@@ -106,9 +106,9 @@ export const configs: IConfigs = {
 };
 ```
 
-Please pay extra attention to the following points when writing entry scripts:
+Please pay extra attention to the following points when writing start scripts:
 
-1. The environment variables in different processes will be different. The entry script will be loaded by the rendering process and the main process at the same time, do not use the editor interface that only exists in a single process in the entry script.
+1. The environment variables in different processes will be different. The start script will be loaded by the rendering process and the main process at the same time, do not use the editor interface that only exists in a single process in the start script.
 
 2. There are two ways to configure the key of `config`: 
 
@@ -118,7 +118,7 @@ Please pay extra attention to the following points when writing entry scripts:
 
     > **Note**: these two configuration methods are mutually exclusive, please do not use both in the same build extension package. Otherwise the configuration for a single platform (key value `platform build plugin name`) will overwrite the configuration for all platforms (key value `*`).
 
-### Entry script interface definition
+### Start script interface definition
 
 The detailed interface definition is described as follows:
 
@@ -209,13 +209,13 @@ export async function onBeforeCompressSettings(options, result) {
 
 ### Custom texture compression processing
 
-The `assetHandler` path configuration specified in the **entry script configuration** above allows external developers to register some asset handling functions to replace the engine's handler module when building partial assets. Currently only **texture compression** handler registration is available.
+The `assetHandler` path configuration specified in the **start script configuration** above allows external developers to register some asset handling functions to replace the engine's handler module when building partial assets. Currently only **texture compression** handler registration is available.
 
 Creator provides its own compression tools to handle compressed texture assets at build time, but does not focus on image compression because it needs to be compatible with different user environments and usually the compression tools are chosen to work on most computers rather than the most efficient ones. Therefore, Creator has opened up a plug-in mechanism in v3.4, **which allows users to directly register compression processing functions for the corresponding texture assets, which will be called at the appropriate processing time when building**.
 
 The specific steps are as follows:
 
-1. In the entry script, write the relative path of the `assetHandlers` module script:
+1. In the start script, write the relative path of the `assetHandlers` module script:
 
     ```ts
     export const assetHandlers = './asset-handlers';
@@ -261,13 +261,13 @@ The specific steps are as follows:
 
 When the build extension plugin is involved in the build process, the associated code runs in the following three processes:
 
-- **Main Process**: executes the entry script and its dependent assets.
-- **Rendering Process**: executes some of the fields registered in the entry script to the **Build** panel.
-- **Build Process**: executes the script defined in the `hooks` field of the entry script.
+- **Main Process**: executes the start script and its dependent assets.
+- **Rendering Process**: executes some of the fields registered in the start script to the **Build** panel.
+- **Build Process**: executes the script defined in the `hooks` field of the start script.
 
-### Main Process (Entry Script)
+### Main Process (Start Script)
 
-The main process mainly executes the entry script used in the build extension plugin to participate in the build process (the script specified in the `builder` field), and the plugin's own entry script (the script specified in the `main` field).
+The main process mainly executes the start script used in the build extension plugin to participate in the build process (the script specified in the `builder` field), and the plugin's own start script (the script specified in the `main` field).
 
 When the code running in the main process is modified, the plugin must be restarted and then the process to be updated must be refreshed (this will be optimized later to try to solve the code update problem with a single restart, but refreshing is still the most thorough reloading method). The main process currently does not have a more appropriate debugging method, you can use the command line to open the editor to view the main process code log to assist debugging:
 
@@ -281,7 +281,7 @@ When the code running in the main process is modified, the plugin must be restar
 
 ### Rendering Process (Build Panel)
 
-The entry script of the build extension plugin has some fields that are registered to the **Build** panel, such as the display configuration of `options`, the `panel` field, and the `panel` script itself, which is loaded and executed in the render process. The rendering process is actually the window's own execution process. Open the DevTools to debug the `dom` elements, styles, scripts, etc. on the **Build** panel.
+The start script of the build extension plugin has some fields that are registered to the **Build** panel, such as the display configuration of `options`, the `panel` field, and the `panel` script itself, which is loaded and executed in the render process. The rendering process is actually the window's own execution process. Open the DevTools to debug the `dom` elements, styles, scripts, etc. on the **Build** panel.
 
 If you modify the code registered to the **Build** panel, just refresh the panel without restarting the plugin.
 
@@ -295,7 +295,7 @@ If you modify the code registered to the **Build** panel, just refresh the panel
 
 ### Build Process (`hooks` Script)
 
-The actual execution phase of the build is a separate worker process, ensuring that even if an abnormal crash occurs, it will not affect the normal use of other windows. The scripts defined in the `hooks` field of the entry script are also loaded and executed in this separate worker process.
+The actual execution phase of the build is a separate worker process, ensuring that even if an abnormal crash occurs, it will not affect the normal use of other windows. The scripts defined in the `hooks` field of the start script are also loaded and executed in this separate worker process.
 
 If only the script defined in the `hook` field is modified, the build process can be refreshed without restarting the plugin. To do this, press **Ctrl/Command + R** after opening the build DevTools, as in the **Build** panel above.
 
