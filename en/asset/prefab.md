@@ -55,7 +55,7 @@ In the __Hierarchy__ panel, select the __Prefab Node__, and notice there are sev
 
 | Button Icon | Description |
 | :--- | :--- |
-| ![unlink prefab](prefab/unlink-prefab-button.png) | Revert to __normal node__. __Prefab Instance__ can become ordinary __Nodes__, that is, completely separated from the relationship between assets. This function is also available in the top-level menu `Node`. |
+| ![unlink prefab](prefab/unlink-prefab-button.png) | Revert to __normal node__. __Prefab Instance__ can become ordinary __Nodes__, that is, completely separated from the relationship between assets. This function is also available in the top-level menu `Node`. Support batch disassociation in v3.4. |
 | ![locate prefab](prefab/locate-prefab-button.png) | Locating assets. It is convenient to quickly locate __Prefab Asset__ in the __Assets__ panel. |
 | ![revert prefab](prefab/revert-prefab-button.png) | Restore from asset. Restore the data of the current __Prefab Instance__ to the data in the __Prefab Asset__, but the name, location, and rotation will not be restored. |
 | ![apply prefab](prefab/apply-prefab-button.png)   | Update to asset. Update all data of the current __Prefab Instance__ to the associated __Prefab Asset__. |

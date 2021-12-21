@@ -36,7 +36,7 @@ Click on the created terrain node. There is a terrain component (`cc.Terrain`) i
 
 ## Editing a terrain
 
-After assigning the terrain assets, the **cc.Terrain** editing panel can be accessed from the **Scene** panel. The terrain editing system includes three major functions: **Manage**, **Sculpt**, and **Paint**. These three functions can be switched between by clicking on the corresponding tabs.
+After assigning the terrain assets, the **cc.Terrain** editing panel can be accessed from the **Scene** panel. The terrain editing system includes three major functions: **Manage**, **Sculpt**, **Paint** and **Select**. These three functions can be switched between by clicking on the corresponding tabs.
 
 ![terrain component](./images/terrain-panel.png)
 
@@ -46,6 +46,7 @@ It is also possible to switch functions via the tools in the upper left corner o
 - 3 -- Corresponds to the **Sunken** `BrushMode` in the **Sculpt** function.
 - 4 -- Corresponds to the **Smooth** `BrushMode` in the **Sculpt** function.
 - 5 -- Corresponds to the **Paint** function.
+- 6 -- Corresponds to the **Select** function.
 
 ### Management of terrains
 
@@ -56,9 +57,9 @@ Management is adjusting various parameters of a terrain. Tile is the smallest un
 | Parameter | Description |
 | :--- | :-- |
 | **TileSize** | The size of the terrain tile. Currently, a terrain block consists of 32 x 32 tiles, so the side length of a terrain block is **32 x TileSize**. |
-| **BlockCount** | Number of terrain blocks in two dimensions |
 | **WeightMapSize** | Weight map size |
 | **LightmapSize** | Lightmap size |
+| **BlockCount** | Number of terrain blocks in two dimensions |
 
 ### Sculpting a terrain
 
@@ -102,3 +103,15 @@ Click the **+** or **-** button at the top right to **add** or **delete** layers
 | **Metallic** | Set the metal properties of the current Layer |
 | **Roughness** | Sets the roughness of the current Layer |
 | **TileSize**       | The tile size of the texture. The smaller the value, the more tiles will be used in the same size area |
+
+### Select
+
+When switching to the **Select** tab and selecting a terrain block in the **Scene** panel, information about the current terrain block will be displayed.
+
+![edit layer](./images/terrain-select.png)
+
+| Parameter | Description |
+| :--- | :--- |
+| Index  | The index of the currently selected terrain block.    |
+| Layers | The texture list of the currently selected terrain block. |
+| Wight  | The weight map of the currently selected terrain block.  |

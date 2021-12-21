@@ -49,11 +49,11 @@ Checking the created animation state displays a yellow highlight in the blue gra
 
 > **Note**: the properties that can be set for animation blending and sub-state machines may differ, please refer to the corresponding content below.
 
-- The name of the currently selected state will be displayed in yellow font in the **Inspector** tab, for example `Clip Motion` in the above picture, click the gear icon button on the right to rename it.
+- The name of the currently selected state will be displayed in the upper left corner of the **Inspector** tab, for example `Clip Motion` in the above picture, click the gear icon button on the right to rename it.
 
 - **Speed**: used to set the playback speed of the animation clip attached on the current state, the default is 1, the smaller the value the slower the playback speed.
 
-- **Animation Clip Motion**: used to specify the animation clip attached on the current state. Drag and drop the clip directly from the **Assets** panel into the **Clip** property box, or click the arrow button behind the **Clip** property box to select it directly. Once an animation clip is set, the current state will play the content of the specified animation clip.
+- **Animation Clip Motion**: used to specify the animation clip attached on the current state. Drag and drop the clip directly from the **Assets** panel into the **Clip** property box, or click the arrow button behind the **Clip** property box to select it directly. Once an animation clip is set, the current state will play the content of the specified animation clip, and the state name will be changed to the animation clip name.
 
   > **Note**: if no animation clip is specified, it will cause problems.
 
@@ -140,7 +140,7 @@ The basic operation of 2D animation blending is basically the same as 1D animati
 
 ![animation-blend 2D](animation-graph-basics/blend2.png)
 
-The range of the first input parameter in the above figure is `[-1, 0]` and the range of the second input parameter is `[-1, 1]`.
+The range of the first input parameter in the above figure is `[-1, 1]` and the range of the second input parameter is `[-1, 1]`.
 
 ## Sub-State Machine
 

@@ -1,27 +1,31 @@
-# 实验性功能：简化版本的使用 JavaScript 调用 Java 方法
+# 简化使用 JavaScript 调用 Objective-C 方法（实验性功能）
 
 ## 背景
 
-在以往通过反射机制从 [`JavaScript` 调用 `OC`/`JAVA`](./java-reflection.md) 的方法中，我们不仅需要严格声明包名，和函数签名，还需要严格校对参数数量保证能够正常运行，步骤较多调试困难。为此我们提供了另外一种实验性方法，来简化脚本层到原生层的调用。这是一种通道，或者说是一个桥梁，在引入其他脚本系统前，我们将其命名为 `JsbBridge` 。意为通过 `Jsb` 绑定来沟通脚本和原生APP的桥梁。
+在 v3.4.0 之前，通过原生语言的反射机制在 [JavaScript 调用 Objective-C](./oc-reflection.md) 的方法中，我们不仅需要严格声明包名和函数签名，还需要严格校对参数数量以确保正常运行，步骤较为复杂。
 
-## JS 接口介绍
+因此在 v3.4.0 中我们额外提供了另外一种实验性方法，用于简化脚本层到原生层的调用。这是一种通道，或者说是一个桥梁，在引入其他脚本系统前，我们将其命名为 `JsbBridge`，意为通过 `JSB` 绑定作为沟通脚本和原生 APP 的桥梁。
 
-在脚本层的接口只有两个，分别是 `sendToNative` 和 `onNative` ，分别传输和接收原生层参数。需要注意的有几点:
+> **注意**：这两种方式都是可以正常使用的，开发者可以根据实际需要选择使用。若要使用之前的方式，请前往 [JavaScript 调用 Objective-C](./oc-reflection.md) 文档查看。
 
-- 由于现在这个功能还在实验阶段，所以只支持string的传输，如果需要传输包含多种参数的对象，请考虑将其转化为Json形式进行传输并在不同层级解析。
-- `onNative` 同一时间只会记录一个函数，当再次set该属性的时候会覆盖原先的 `onNative` 方法。
-- `sendToScript` 方法是单向通信，其不会关心下层的返回情况，也不会告知 `JavaScript` 操作成功或者失败。开发者需要自行处理操作情况。
+## JavaScript 接口介绍
+
+在脚本层的接口只有 `sendToNative` 和 `onNative` 两个，分别是 **传输** 和 **接收原生层** 参数。使用时需要注意以下几点：
+
+- 由于现在这个功能还在实验阶段，所以只支持 `string` 的传输，如果需要传输包含多种参数的对象，请考虑将其转化为 `Json` 形式进行传输，并在不同层级解析。
+- `onNative` 同一时间只会记录一个函数，当再次 `set` 该属性时会覆盖原先的 `onNative` 方法。
+- `sendToScript` 方法是单向通信，不会关心下层的返回情况，也不会告知 `JavaScript` 操作成功或者失败。开发者需要自行处理操作情况。
 
 ```js
-//JavaScript
+// JavaScript
 export namespace bridge{
     /**
-     * send to native with at least one argument.
+     * Send to native with at least one argument.
      */
     export function sendToNative(arg0: string, arg1?: string): void;
     /**
-     * save your own callback controller with a js function,
-     * use jsb.bridge.onNative = (arg0: String, arg1: String | null)=>{...}
+     * Save your own callback controller with a JavaScript function,
+     * Use 'jsb.bridge.onNative = (arg0: String, arg1: String | null)=>{...}'
      * @param args : received from native
      */
     export function onNative(arg0: string, arg1?: string | null): void;
@@ -30,7 +34,10 @@ export namespace bridge{
 
 ### Objective-C 接口介绍
 
-对应的 `ObjC` 接口同样以两个为主，`onScript` 命名对应 `onNative`，来表示收到脚本信息后的响应行为。通过创建为 `ICallback` 来封装，并且使用 `setCallback` 来启用该接口函数。`sendToScript` 对应 `sendToNative`，表示需要传输到 `JavaScript` 的参数。
+对应的 `ObjC` 接口同样以两个为主，包括 `sendToScript` 和 `onScript`：
+
+- `sendToScript` 对应 `sendToNative`，表示需要传输到 `JavaScript` 的参数。
+- `onScript` 对应 `onNative`，表示收到脚本信息后的响应行为。通过创建名为 `ICallback` 的接口来封装行为，并且使用 `setCallback` 来启用该接口函数。
 
 ```objc
 //Objective-c
@@ -49,11 +56,11 @@ typedef void (^ICallback)(NSString*, NSString*);
 
 ## 基本使用
 
-### 触发 Objective-C 的回调
+### JavaScript 触发 Objective-C 的回调
 
 假设我们的广告接口设置在原生层，那么当玩家点击打开广告的按钮时，理应触发 `ObjC` 打开广告的操作。
 
-我们会将打开广告的接口写成以下脚本
+打开广告的接口的代码示例如下：
 
 ```ObjC
 static ICallback cb = ^void (NSString* _arg0, MSString* _arg1){
@@ -61,35 +68,37 @@ static ICallback cb = ^void (NSString* _arg0, MSString* _arg1){
 }
 ```
 
-这时候我们需要先将打开广告的事件注册起来。
+这时候需要先注册打开广告的事件：
 
 ```ObjC
 JsbBridge* m = [JsbBridge sharedInstance];
 [m setCallback:cb];
 ```
 
-并且在js层脚本中对按钮的点击事件进行打开操作
+并且在 JavaScript 层脚本中对按钮的点击事件执行打开操作：
 
 ```ts
 public static onclick(){
-    //usrName and defaultAdUrl are both string
+    // 'usrName' and 'defaultAdUrl' are both string
     jsb.bridge.sendToNative(usrName, defaultAdUrl);
 } 
 ```
 
-这样就可以通过 `Jsb.Bridge` 这个通道将需要的信息发送到 `ObjC` 层进行操作了
+这样就可以通过 `Jsb.Bridge` 这个通道将需要的信息发送到 `ObjC` 层进行操作了。
 
-### 触发Js的回调
+### Objective-C 触发 JavaScript 的回调
 
-假设我们的动画播放操作记录在Js层，并且希望在 Java 层播放这个动画，我们也可以将它注册起来。我们首先定义该函数。
+假设我们的动画播放操作记录在 JavaScript 层，并且希望在 Objective-C 层播放这个动画，也可以注册一个播放动画的事件。
+
+首先需要定义一个播放动画的函数：
 
 ```ts
 public void playAnimation(animationName: string, isLoop: boolean){
-    //Code to play Animation
+    // Code to play Animation
 }
 ```
 
-然后在 `onNative` 中记录该方法
+然后在 `onNative` 中记录该方法：
 
 ```ts
 jsb.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
@@ -102,15 +111,15 @@ jsb.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
 }
 ```
 
-`Objc` 代码示范：
+`ObjC` 代码示例如下：
 
-```Objc
+```ObjC
 JsbBridge* m = [JsbBridge sharedInstance];
 [m sendToScript:@"Animation1" arg1:@"true"];
 ```
 
-就可以调用到JS的播放操作了。
+通过上述操作，便可以调用到 JavaScript 的播放操作了。
 
 ## 示例工程：简单的多事件调用
 
-开发者可以通过 [3.4/native-script-bridge](https://github.com/cocos-creator/example-3d/tree/v3.4/native-script-bridge) 示例工程来学习应用。
+Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.4/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.4/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。

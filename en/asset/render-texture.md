@@ -1,6 +1,27 @@
-# RenderTexture
+# Render Texture
 
-A __rendered texture__ is a texture on the __GPU__. Usually, we set it to the camera's __target texture__, so that the content illuminated by the camera is drawn to the texture through the frambuffer off the screen.
+A __render texture__ is a texture on the __GPU__. Usually, we set it to the camera's __target texture__, so that the content illuminated by the camera is drawn to the texture via the `frambuffer` off the screen. Typically can be used to create car mirrors, implement dynamic shadows, etc.
+
+## Creating a RenderTexture
+
+Click the **+** button in the top left of the **Assets** panel and select **RenderTexture** to create a Render Texture:
+
+![add-render-texture](render-texture/add-render-texture.png)
+
+The properties associated with the render texture asset can then be set in the **Inspector** panel.
+
+![render-texture-property](render-texture/render-texture-property.png)
+
+| Property | Description |
+| :--- | :--- |
+| **Width**  | Set the width of the render texture.  |
+| **Height** | Set the height of the render texture. |
+| **Anisotropy** | Anisotropy value. |
+| **Min Filter** | Narrowing filtering algorithm.     |
+| **Mag Filter** | Amplification filtering algorithm. |
+| **Mip Filter** | Multi-level texture filtering algorithm. |
+| **Wrap Mode S** | S(U) direction texture addressing mode. |
+| **Wrap Mode T** | T(V) direction texture addressing mode. |
 
 ## Using RenderTexture
 

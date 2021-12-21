@@ -63,7 +63,7 @@ In the Curve Editor, the keyframe values are already displayed visually, draggin
 
 ### Interpolation Mode
 
-Right-click on the keyframe and select the corresponding value for `Interpolation Mode` in the pop-up menu.
+Right-click on the keyframe and select the corresponding value for `Interpolation Mode` in the pop-up menu. The linear interpolation mode will affect the way the value changes between the current keyframe and the next frame, and different option values will have different display effects. See below for more details on the options.
 
 ![interopMode](./animation-curve/interopMode.png)
 
@@ -71,25 +71,21 @@ Right-click on the keyframe and select the corresponding value for `Interpolatio
 
 The interpolation mode includes the following option values:
 
-- **Linear**: linearly vary the value between keyframes, with the tangent direction pointing to the adjacent keyframes.
+- **Linear**: linear mode, linearly varying the value between the current frame and the next keyframe, with the tangent direction pointing to the next keyframe.
 
     ![linear](animation-curve/linear.png)
 
-- **Constant**: the change between the current keyframe and the next keyframe remains a constant value.
+- **Constant**: constant mode, where changes between the current keyframe and the next keyframe keep the current keyframe value unchanged.
 
     ![constant](animation-curve/constant.png)
 
-- **Cubic**: free curve mode, only in the current mode the left and right tangent levers appear when the keyframe is selected.
+- **Cubic**: free curve mode, where the value between the current frame and the next keyframe changes in a curve. Only in the current mode the left and right tangent levers appear when the keyframe is selected.
 
     ![cubic](animation-curve/cubic.png)
 
 ### Editing keyframe tangents
 
 A keyframe has two tangents on the left and right, the length and direction of the tangents will control the shape of the curve between keyframes. In `Cubic` interpolation mode, just drag the tangent control point to edit it directly. In different tangent weight modes, the tangent lever can be operated in different ranges, please refer to the next paragraph.
-
-#### Broken
-
-By default, the left and right tangent slopes of the keyframe are kept the same. Adjusting the tangent lever on either side will follow the adjustment on the other side, which makes it easier for us to adjust the transition more natural curve. But in some cases, we hope that the curve does not always transition smoothly. At this time, we can right-click the keyframe and click the Broken option in the right-click menu to disconnect the key left and right joysticks. After disconnecting, the keyframes can be adjusted separately The left and right joysticks.
 
 #### Tangent Weight Mode
 
@@ -111,6 +107,10 @@ The keyframe has left and right tangents, and the tangent weight mode has the fo
 - `Left`: left tangent is in weighting mode, right tangent is in no-weighting mode.
 - `Right`: right tangent is in in weighting mode, left tangent is in no-weighting mode.
 - `Both`: both left and right tangents are in weighting mode.
+
+#### Broken
+
+By default, the left and right tangent slopes of the keyframe are kept the same. Adjusting the tangent lever on either side will follow the adjustment on the other side, which makes it easier for us to adjust the transition more naturally. In some cases, the curve does not always transition smoothly. At this time, right-click the keyframe and click the Broken option in the right-click menu to disconnect the key left and right joysticks. After disconnecting, the keyframes can be adjusted separately using the left and right joysticks.
 
 ### Moving curves up and down
 

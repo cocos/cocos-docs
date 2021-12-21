@@ -126,7 +126,7 @@ The description of the `settings.json` configuration is as follows:
     BundleVers: Record<string, string>; // Bundle's md5 file value.
     subpackages: string[]; // subpackage information.
     remoteBundles: string[]; // Record the collection of remote Bundle.
-    server: string; // Record the remote server address (note: before v3.4 this item was stored in the `application.js` file).
+    server: string; // Record the remote server address (note: before v3.4 this option was stored in the 'application.js' file).
     hasResourcesBundle: boolean; // Does it contain the built-in Bundle "resources".
     hasStartSceneBundle: boolean; // Does it contain the built-in Bundle "start-scene".
     customJointTextureLayouts?: ICustomJointTextureLayout[];
