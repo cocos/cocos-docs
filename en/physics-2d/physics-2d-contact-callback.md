@@ -112,7 +112,7 @@ The callback parameters contain all the collision contact information, and each 
 
 - **selfCollider**: refers to the collider on the node of the callback script.
 - **otherCollider**: refers to the other collider.
-- **contact**: it's an interface of the class [IPhysics2DContact](__APIDOC__/en/#/docs/3.4/en/physics2d/Interface/IPhysics2DContact). Contains the most important information about the collision. Some useful information in **contact** object are location of the collision and the normal vector. **contact** store location information according to rigidbody's local coordinate system. What we need however is information from world coordinate system. We can use `contact.getWorldManifold` to get these information. Note that the builtin physics module parameter is null.
+- **contact**: it's an interface of the class IPhysics2DContact. Contains the most important information about the collision. Some useful information in **contact** object are location of the collision and the normal vector. **contact** store location information according to rigidbody's local coordinate system. What we need however is information from world coordinate system. We can use `contact.getWorldManifold` to get these information. Note that the builtin physics module parameter is null.
 
 ### worldManifold
 
