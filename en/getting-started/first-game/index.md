@@ -467,7 +467,7 @@ The __start menu__ is an indispensable part of most any game. Add the game name,
 
     ![add player to game manager](./images/game-manager-player.png)
 
-    Modify the code in the `GameManger`:
+    Modify the code in the `GameManager`:
 
     ```ts
     start () {
