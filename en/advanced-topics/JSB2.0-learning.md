@@ -86,6 +86,7 @@ After a developer has bound a JS function, remember to wrap the callback functio
 - **SE_BIND_FINALIZE_FUNC**: Wrap the finalize function of a JS object, finalize function is invoked when the object is released by Garbage Collector
 - **SE_DECLARE_FINALIZE_FUNC**: Declares the finalize function of a JS object
 - **_SE**: The macro for making callback be recognized by different JS engine. Note that the first character is underscored, similar to `_T ('xxx')` in Windows for wrapping Unicode or MultiBytes string
+
     > **Note**: the first character is an underscore, similar to `_T("xxx")` used in Windows to wrap Unicode or MultiBytes strings.
 
 ## API
@@ -208,7 +209,7 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
             // The private data (native object) may be a different object associated with other se::Object. 
             // Therefore, don't clear the mapping again.
             seObj->clearPrivateData(false);
-            seObj->unroot(); // unroot, making JS objects subject to GC management
+            seObj->unroot(); // Unroot, making JS objects subject to GC management
             seObj->decRef(); // Release se::Object
         };
 
@@ -221,7 +222,7 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
     });
 ```
 
-__se::Object Types__
+__Object Types__
 
 The creation of native binding object has been hidden in the `SE_BIND_CTOR` and `SE_BIND_SUB_CLS_CTOR` macros, if developers need to use the `se::Object` in the binding callback, just get it by invoking `s.thisObject()`. Where `s` is `se::State&` which will be described in the following chapters.
 
@@ -243,7 +244,7 @@ se::Object* obj = se::Object::createPlainObject();
 obj->decRef(); // Decrease the reference count to avoid memory leak
 ```
 
-#### se::HandleObject （recommended helper class for managing the objects created manually）.
+#### se::HandleObject (recommended helper class for managing the objects created manually).
 
 - If using manual creation of objects in complex logic, developers often forget to deal with `decRef` in different conditions
 
