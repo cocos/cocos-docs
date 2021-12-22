@@ -66,6 +66,7 @@ const result = await Editor.Message.request('scene', 'execute-scene-script', opt
 ```
 
 这样就可以在扩展包中获取到场景所有节点的名字，当然还可以用来对场景节点进行更多的查询和操作。
-返回的对象 result 则是 log 方法里 return 的对象。
+
+> **注意**：返回的对象 `result` 则是 `log` 方法里 `return` 的对象。
 
 > **注意**：由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。建议只传输纯 JSON 对象。
