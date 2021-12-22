@@ -155,7 +155,7 @@ declare interface IConfigItem {
 }
 
 declare interface IUiOptions extends IOptionsBase {
-    //     // Validation rules array, build provides some basic rules, and you can also specify new validation rules through “verifyRuleMap”. Only when pass in “require” will be a valueless checksum, otherwise only when there is a value.
+    // Validation rules array, build provides some basic rules, and you can also specify new validation rules through “verifyRuleMap”. Only when pass in “require” will be a valueless checksum, otherwise only when there is a value.
     verifyRules?: string[];
 }
 
