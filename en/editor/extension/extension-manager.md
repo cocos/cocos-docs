@@ -6,13 +6,13 @@ The **Extension Manager** is used to manage extensions in the editor. Click on *
 
 The relevant functions at the top of the extension manager are described as follows:
 
-**1**: extension categories, currently including **Internal**, **Project**, **Global** and **Develop**, please refer to the **Extension Types** section below for details.
+**1**: Extension categories, currently including **Internal**, **Project**, **Global** and **Develop**, please refer to the **Extension Types** section below for details.
 
-**2**: scan button, scan for extensions under the extensions directory (`extensions`), uninstall non-existent extensions, and install extensions that have not been imported.
+**2**: Scan button, scan for extensions under the extensions directory (`extensions`), uninstall non-existent extensions, and install extensions that have not been imported.
 
-**3**: import button, import extensions to the extensions type tab you are currently in.
+**3**: Import button, import extensions to the extensions type tab you are currently in.
 
-**4**: search field, enter the name of the extension to search for the extension in the list of extension types you are currently in.
+**4**: Search field, enter the name of the extension to search for the extension in the list of extension types you are currently in.
 
 ## Extension List
 
@@ -22,13 +22,13 @@ The **Extension Manager** panel displays the corresponding extensions according 
 
 In the extension list, the extension-related information is displayed on the left side of the extension, and the descriptions of the buttons on the right side are as follows:
 
-- ![folder](first/folder.png): opens the extension package in the operating system's file manager.
+- ![folder](first/folder.png): Opens the extension package in the operating system's file manager.
 
-- ![refresh](first/refresh.png): refresh button, used to reload the current extension.
+- ![refresh](first/refresh.png): Refresh button, used to reload the current extension.
 
-- ![delete](first/delete.png): uninstall the extension, when clicked it will remove the current extension from the extension list and delete the extension package.
+- ![delete](first/delete.png): Uninstall the extension, when clicked it will remove the current extension from the extension list and delete the extension package.
 
-- ![enable](first/enable.png): enable/disable the extension, the button shows green for enable and gray for disable.
+- ![enable](first/enable.png): Enable/disable the extension, the button shows green for enable and gray for disable.
 
 ## Extension Types
 
