@@ -13,7 +13,7 @@ In this section, the `global input events` of __Cocos Creator__ will be introduc
 
 - Mouse
 - Touch
-- Keyboard
+- Keyboard 
 - DeviceMotion
 
 ## How to define the input events
@@ -37,7 +37,7 @@ Pointer events include mouse and touch events.
 - Callback Function:
     - Custom Function: callback(event);
 - Callback Parameter:
-    - [EventMouse](__APIDOC__/en/#/docs/3.4/en/event/Class/EventMouse) or [EventTouch](__APIDOC__/en/#/docs/3.4/en/event/Class/EventTouch)
+    - [EventMouse](__APIDOC__/en/#/docs/3.4/en/cocos-input-types-event/Class/EventMouse) or [EventTouch](__APIDOC__/en/#/docs/3.4/en/cocos-input-types-event/Class/EventTouch)
 
 Examples of the use of pointer events are as follows:
 
@@ -110,7 +110,7 @@ export class Example extends Component {
 - Callback:
   - Custom Function: `callback(event);`;
 - Callback parameter:
-  - [EventAcceleration](__APIDOC__/en/#/docs/3.4/en/event/Class/EventAcceleration)
+  - [EventAcceleration](__APIDOC__/en/#/docs/3.4/en/cocos-input-types-event/Class/EventAcceleration)
 
 ```ts
 import { _decorator, Component, input, Input, log } from 'cc';

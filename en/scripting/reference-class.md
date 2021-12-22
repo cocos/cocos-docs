@@ -85,7 +85,7 @@ class Foo extends Object {
 console.log(Foo.count); // The result is 11, because `count` inherits from the `Object` class
 
 Foo.range.w = 200;
-console.log(Object.range.w); // The result is 200 because `Sprite.range` and `Object.range` refer to the same object
+console.log(Object.range.w); // The result is 200 because 'Foo.range' and 'Object.range' refer to the same object
 ```
 
 Private static members can also be defined directly outside of the class if inheritance is not a concern:
