@@ -27,7 +27,7 @@
 
 ```javascript
 const { join } = require('path');
-// 加载 cc 需要设置搜索路径
+// 加载 ‘cc’ 需要设置搜索路径
 module.paths.push(join(Editor.App.path, 'node_modules'));
 
 // 模块加载的时候触发的函数
