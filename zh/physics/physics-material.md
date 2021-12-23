@@ -6,7 +6,7 @@
 
 物理材质属性如下图所示：
 
-![物理材质](img/material-panel.png)
+![物理材质](img/physics-mat-panel.png)
 
 | 属性 | 属性说明 |
 | :-- | :-- |

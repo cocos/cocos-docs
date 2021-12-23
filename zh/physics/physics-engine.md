@@ -22,20 +22,20 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 - 3D 碰撞组件中的 **IsTrigger** 属性无效，所有的碰撞组件都只能用作 [触发器](physics-event.md)。
 - 3D 碰撞组件中的 `Material` 属性无效.
 - 3D 碰撞组件中的 `Attached` 为 `null`。
-- 3D 物理[刚体组件](physics-rigidbody.md) 无效.
-- 3D 物理[恒力组件](physics-constantForce.md) 无效。
-- 3D 物理[约束组件](physics-constraint.md) 无效。
+- 3D 物理 [刚体组件](physics-rigidbody.md) 无效.
+- 3D 物理 [恒力组件](physics-constantForce.md) 无效。
+- 3D 物理 [约束组件](physics-constraint.md) 无效。
 
 ### cannon.js
 
 **cannon.js**（[GitHub](https://github.com/cocos-creator/cannon.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/cannon.js)）是一个开源的物理引擎，使用 JavaScript 开发并实现了比较全面的物理模拟功能。
 
-当选择的物理引擎为 **cannon.js** 时，需要在节点上添加 刚体组件 才能进行物理模拟。然后再根据需求添加 碰撞组件，该节点就会增加相应的碰撞体，用于检测是否与其它碰撞体产生碰撞。
+当选择的物理引擎为 **cannon.js** 时，需要在节点上添加 **刚体组件** 才能进行物理模拟。然后再根据需求添加 **碰撞组件**，该节点就会增加相应的碰撞体，用于检测是否与其它碰撞体产生碰撞。
 
 目前 cannon.js 支持情况如下：
 
 - [刚体](physics-rigidbody.md)
-- [Box \ Sphere 碰撞组件](physics-collider.md)
+- [Box/Sphere 碰撞组件](physics-collider.md)
 - 触发和碰撞事件
 - 物理材质
 - 射线检测

@@ -1,18 +1,33 @@
 # 物理系统配置
 
-物理系统模块（PhysicsSystem）用于管理所有物理相关的功能，目前它负责同步物理元素、触发物理事件和调度物理世界的迭代。
-
-物理系统接口请参考 [PhysicsSystem API](__APIDOC__/zh/classes/physics.physicssystem.html)。
-
-## 物理世界
-
-物理世界迭代时会对物理元素进行物理计算，比如计算各物体是否产生碰撞，以及物体的受力情况。当计算完成后，物理系统会将物理世界更新到场景世界中，从而使游戏对象产生相应的物理行为。
-
-场景世界与物理世界：
-
-![场景世界与物理世界](img/physics-world.jpg)
+物理系统模块（PhysicsSystem）用于管理整个物理系统，负责同步物理元素、触发物理事件和调度物理世界的迭代。
 
 ## 物理配置
+
+### 通过物理配置面板
+
+通过 **项目设置 -> 物理配置** 可以对物理系统进行相关配置。
+
+![Physics](./img/physics-config-index.png)
+
+| 属性 | 说明 |
+| :--- | :--- |
+| **Gravity X** | 重力矢量，设置 x 分量上的重力值 |
+| **Gravity Y** | 重力矢量，设置 y 分量上的重力值 |
+| **Gravity Z** | 重力矢量，设置 z 分量上的重力值 |
+| **AllowSleep** | 是否允许系统进入休眠状态，默认值 `true` |
+| **SleepThreshold** | 进入休眠的默认速度临界值，默认值 `0.1`，最小值 `0` |
+| **AutoSimulation** | 是否开启自动模拟, 默认值 `true` |
+| **FixedTimeStep** | 每步模拟消耗的固定时间，默认值 `1/60`，最小值 `0` |
+| **MaxSubSteps** | 每步模拟的最大子步数，默认值 `1`，最小值 `0` |
+| **Friction** | 摩擦系数，默认值 `0.5` |
+| **RollingFriction** | 滚动摩擦系数，默认值 `0.1` |
+| **SpinningFriction** | 自旋摩擦系数，默认值 `0.1` |
+| **Restitution** | 弹性系数，默认值 `0.1` |
+| **CollisionMatrix** | 碰撞矩阵，仅用于初始化 |
+<!-- - `useNodeChains` 是否使用节点链组合刚体，默认值 *true* -->
+
+>**注意**：目前 **2D**/**3D** 物理共用一个配置。
 
 ### 通过代码
 
@@ -45,70 +60,31 @@ export class Example extends Component {
 }
 ```
 
-### 通过物理配置面板
-
-物理配置面板通过在 **项目设置 -> 物理配置**
-
-![Physics](./img/physics-config-index.png)
-
-| 属性 | 说明 |
-| :--- | :--- |
-| **Gravity X** | 重力矢量，设置 x 分量上的重力值 |
-| **Gravity Y** | 重力矢量，设置 y 分量上的重力值 |
-| **Gravity Z** | 重力矢量，设置 z 分量上的重力值 |
-| **AllowSleep** | 是否允许系统进入休眠状态，默认值 `true` |
-| **SleepThreshold** | 进入休眠的默认速度临界值，默认值 `0.1`，最小值 `0` |
-| **AutoSimulation** | 是否开启自动模拟, 默认值 `true` |
-| **FixedTimeStep** | 每步模拟消耗的固定时间，默认值 `1/60`，最小值 `0` |
-| **MaxSubSteps** | 每步模拟的最大子步数，默认值 `1`，最小值 `0` |
-| **Friction** | 摩擦系数，默认值 `0.5` |
-| **RollingFriction** | 滚动摩擦系数，默认值 `0.1` |
-| **SpinningFriction** | 自旋摩擦系数，默认值 `0.1` |
-| **Restitution** | 弹性系数，默认值 `0.1` |
-| **CollisionMatrix** | 碰撞矩阵，仅用于初始化 |
-<!-- - `useNodeChains` 是否使用节点链组合刚体，默认值 *true* -->
-
->**注意**：目前 **2D**/**3D** 物理共用一个配置。
+更多 API 内容请查看物理系统接口请参考：[PhysicsSystem API](__APIDOC__/zh/classes/physics.physicssystem.html)。
 
 ## 碰撞矩阵
 
 碰撞矩阵是 [分组和掩码](physics-group-mask.md) 功能的进一步封装，它用于初始化物理元素的分组和掩码。
 
-默认情况下只有一个 **DEFAULT** 分组，新建分组默认不与其它组碰撞。
+![Physics-collision](img/physics-collision.png)
 
-![Physics-collision](./img/physics-collision.png)
+碰撞矩阵默认情况下只有一个 **DEFAULT** 分组，新建分组默认不与其它组碰撞。
 
-### 分组的概念
+点击 **+** 按钮可以新增分组。新增分组的 **Index** 和 **Name** 均不能不填。
 
-在编辑器中，碰撞矩阵分组的格式为 `{index, name}` ，`index` 是从 `0` 到 `31` 的位数，而 `name` 是该组的名称，新项目工程会有一个默认分组：`{index: 0, name: 'DEFAULT'}`。
+- **Index** 代表的是碰撞分组值， 最高支持 32 位，即数值范围为 `[0, 31)`。分组值不可重复。
+- **Name** 代表的是碰撞分组名。此处在这里设置的名字只是为了用户进行碰撞分组配置方便，无法通过代码获取，代码能获取到的只有分组值。
 
-点击 **+** 按钮可以新增分组。
+![collider-matrix](img/collider-matrix.png)
 
-> **注意**：
-> - 新增分组的 **index** 和 **name** 均不能为空，且不能与现有项重复。
-> - 分组不可以删除，但可以修改分组的名称。
+图上所示的就是一个飞行射击类游戏碰撞分组的配置。从图中可以看出，当添加一个分组的时候，面板上会出现横向和纵向都有分组的名字。我们把横向的部分称之为 **分组**，纵向的部分称之为 **掩码**。假设我现在进行了如下勾选：
 
-### 如何配置
+![set-collider-config](img/set-collider-config.png)
 
-以新增一个 **water** 分组为例：
+此配置代表的意思是分组 **ENEMY_PLANE** 可以与分组 **ENEMY_BULLET** 和 **SELF_BULLET** 产生碰撞。这里的分组 **ENEMY_BULLET** 和 **SELF_BULLET** 就是分组 **ENEMY_PLANE** 的掩码。同样，对于分组 **ENEMY_BULLET** 来说 **ENEMY_PLANE** 也是它的掩码。
 
-![Physics-collision-demo](img/physics-collision-demo.png)
+配置完成碰撞矩阵之后，就可以对需要产生碰撞的对象添加 **刚体（RigidBody）** 组件，设置碰撞分组 `Group`。
 
-这张表列出了所有的分组，可以通过勾选来决定哪两组会进行碰撞检测。
+![set-group](img/set-group.png)
 
-如上图所示，**DEFAULT** 和 **water** 是否会进行碰撞检测将取决于是否选中了对应的复选框。
-
-根据上面的规则，在这张表里产生的碰撞对有：
-
-- **DEFAULT** - **water**
-- **DEFAULT** - **DEFAULT**
-
-而不进行碰撞检测的分组对有：
-
-- **water** - **water**
-
-### 配置物理组件的分组
-
-通过刚体组件上的 **Group** 属性来配置对应的物理元素的分组：
-
-![rigidbody-group](img/rigidbody-group.jpg)
+> **注意**：分组不可以删除，但可以修改分组的名称。

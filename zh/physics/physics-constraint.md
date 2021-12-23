@@ -17,6 +17,8 @@
 | **PivotB** | 在本地空间中，连接刚体相对于约束关节的位置 |
 | **Axis** | 在本地空间中，约束关节旋转的方向 |
 
+![physics-hinge](img/physics-hinge.gif)
+
 铰链约束接口请参考 [HingeConstraint API](__APIDOC__/zh/classes/physics.hingeconstraint.html)。
 
 ## 点对点约束 PointToPointConstraint
@@ -32,5 +34,7 @@
 | **EnableCollision** | 获取或设置关节连接的两刚体之间是否开启碰撞 |
 | **PivotA** | 在本地空间中，自身刚体相对于约束关节的位置 |
 | **PivotB** | 在本地空间中，连接刚体相对于约束关节的位置 |
+
+![physics-p2p](img/physics-p2p.gif)
 
 点对点约束接口请参考 [PointToPointConstraint API](__APIDOC__/zh/classes/physics.hingeconstraint.html)。
