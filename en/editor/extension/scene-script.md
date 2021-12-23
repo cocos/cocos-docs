@@ -26,7 +26,7 @@ Define `scene.js` as follows:
 
 ```javascript
 const { join } = require('path');
-// Loading 'cc' requires setting the search path.
+// Loading 'cc' needs to set the search path.
 module.paths.push(join(Editor.App.path, 'node_modules'));
 // Function triggered when the module is loaded
 exports.load = function() {};
@@ -69,6 +69,6 @@ const result = await Editor.Message.request('scene', 'execute-scene-script', opt
 
 This allows retreiving the names of all the nodes of the scene in the extended package, and of course can be used to perform more queries and operations on the scene nodes.
 
-> **Note**: the returned object `result` is the object of `return` in the `log` method.
+> **Note**: the `result` of the returned object is the object of the `return` in the `log` method.
 
 **Because communication is based on the underlying IPC implementation of Electron, remember that the transmitted data cannot contain native objects, otherwise it can cause process crashes or memory explosion. It is recommended to only transfer pure JSON objects.**
