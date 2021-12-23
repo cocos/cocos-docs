@@ -11,3 +11,4 @@
 - [扩展面板](./panel.md)
 - [扩展已有功能](./contributions.md)
 - [基础功能](./basic.md)
+- [Editor 接口说明](./editor-api.md)
