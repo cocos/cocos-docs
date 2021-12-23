@@ -1,7 +1,7 @@
 # Using JSB Auto Binding
 
 > This article is republished from [Tencent Online Education Department Technical Blog](https://oedx.github.io/2019/07/03/cocos-creator-js-binding-auto/)<br>
-> Author: Kevin X. Zhang
+> Author: kevinxzhang
 
 Creator provides `jsb.reflection.callStaticMethod` method to support the interface of calling Native side (Android/iOS/Mac) directly from TS side, but after much practice, we found that the performance of this interface is very low under a lot of frequent calls, especially on Android side, such as calling the interface implemented on Native side for printing logs. And it is easy to cause some native crashes, such as `local reference table overflow` and other problems. Throughout the implementation of Cocos native code, basically all interface methods are implemented based on the JSB approach, so this article mainly explains the JSB auto-binding logic to help you quickly implement the `callStaticMethod` to JSB transformation process.
 
