@@ -14,7 +14,7 @@
 
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
-| `type` | `string` |             |
+| `type` | `string` | 选中的类型   |
 
 **返回结果**
 
@@ -34,7 +34,7 @@ Editor.Selection.clear('asset');
 
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
-| `type` | `string` |             |
+| `type` | `string` | 选中的类型   |
 
 **返回结果**
 
@@ -68,7 +68,7 @@ const type = Editor.Selection.getLastSelectedType();
 
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
-| `type` | `string` |             |
+| `type` | `string` | 选中的类型   |
 
 **返回结果**
 
@@ -89,8 +89,8 @@ const uuids = Editor.Selection.getSelected('asset');
 
 | Name    | Type     | Description |
 | :------ | :------- | ----------- |
-| `type`  | `string` |             |
-| `uuid?` | `string` |             |
+| `type`  | `string` | 选中的类型   |
+| `uuid?` | `string` | 元素的 uuid  |
 
 **返回结果**
 
@@ -110,8 +110,8 @@ Editor.Selection.hover('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 
 | Name   | Type                   | Description |
 | :----- | :--------------------- | ----------- |
-| `type` | `string`               |             |
-| `uuid` | `string` \| `string`[] |             |
+| `type` | `string`               | 选中的类型   |
+| `uuid` | `string` | `string`[] | 元素的 uuid   |
 
 **返回结果**
 
@@ -131,8 +131,8 @@ Editor.Selection.select('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 
 | Name   | Type                   | Description |
 | :----- | :--------------------- | ----------- |
-| `type` | `string`               |             |
-| `uuid` | `string` \| `string`[] |             |
+| `type` | `string`               | 选中的类型   |
+| `uuid` | `string` | `string`[] | 元素的 uuid   |
 
 **返回结果**
 
@@ -152,8 +152,8 @@ Editor.Selection.unselect('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 
 | Name    | Type       | Description |
 | :------ | :--------- | ----------- |
-| `type`  | `string`   |             |
-| `uuids` | `string`[] |             |
+| `type`  | `string`   | 选中的类型   |
+| `uuids`  | `string`[] | 元素的 uuid |
 
 **返回结果**
 

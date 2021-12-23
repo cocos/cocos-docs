@@ -51,7 +51,7 @@ Parameters
 `string`
 
 ```typescript
-const newFileName = Editor.Utils.File.getName('E:\\CocosCreatorWorkSpace\\HelloWorld');  // 无作用？
+const newFileName = Editor.Utils.File.getName('E:\\CocosCreatorWorkSpace\\HelloWorld');
 ```
 
 #### unzip

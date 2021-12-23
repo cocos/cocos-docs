@@ -103,8 +103,8 @@ const isLogIn = await Editor.User.isLoggedIn();
 
 | Name       | Type     | Description |
 | :--------- | :------- | ----------- |
-| `username` | `string` |             |
-| `password` | `string` |             |
+| `username` | `string` | 用户名       |
+| `password` | `string` | 用户密码     |
 
 **返回结果**
 
@@ -138,10 +138,10 @@ Editor.User.logout();
 
 **请求参数**
 
-| Name     | Type       | Description |
-| :------- | :--------- | ----------- |
-| `action` | `string`   |             |
-| `handle` | `Function` |             |
+| Name     | Type       | Description            |
+| :------- | :--------- | ---------------------- |
+| `action` | `string`   | 监听事件的名称           |
+| `handle` | `Function` | 事件触发时执行的处理     |
 
 **返回结果**
 
@@ -156,10 +156,10 @@ Editor.User.logout();
 
 **请求参数**
 
-| Name     | Type       | Description |
-| :------- | :--------- | ----------- |
-| `action` | `string`   |             |
-| `handle` | `Function` |             |
+| Name     | Type       | Description            |
+| :------- | :--------- | ---------------------- |
+| `action` | `string`   | 监听事件的名称           |
+| `handle` | `Function` | 事件触发时执行的处理     |
 
 **返回结果**
 
@@ -174,10 +174,10 @@ Editor.User.logout();
 
 **请求参数**
 
-| Name     | Type       | Description |
-| :------- | :--------- | ----------- |
-| `action` | `string`   |             |
-| `handle` | `Function` |             |
+| Name     | Type       | Description            |
+| :------- | :--------- | ---------------------- |
+| `action` | `string`   | 监听事件的名称           |
+| `handle` | `Function` | 事件触发时执行的处理     |
 
 **返回结果**
 

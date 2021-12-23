@@ -62,11 +62,11 @@ const temp = Editor.App.temp;  // "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\Co
 
 **属性说明**
 
-| Name     | Type     | Description |
-| :------- | :------- | ----------- |
-| `api`    | `string` |             |
-| `forum`  | `string` |             |
-| `manual` | `string` |             |
+| Name     | Type     |    Description    |
+| :------- | :------- | ----------------- |
+| `api`    | `string` |   api 文档地址     |
+| `forum`  | `string` |   论坛地址         |
+| `manual` | `string` |   手册地址         |
 
 ```typescript
 const urls = Editor.App.urls;

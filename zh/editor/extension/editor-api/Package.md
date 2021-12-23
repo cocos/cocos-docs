@@ -35,10 +35,10 @@ type PathType = 'home' | 'data' | 'temp';
 
 **请求参数**
 
-| Name      | Type     | Description |
-| :-------- | :------- | ----------- |
-| `path`    | `string` |             |
-| `options` | `any`    |             |
+| Name      | Type     | Description      |
+| :-------- | :------- | ---------------- |
+| `path`    | `string` | 插件所在路径      |
+| `options` | `any`    | 关闭时带上的配置   |
 
 **返回结果**
 
@@ -56,9 +56,9 @@ Editor.Package.disable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app
 
 **请求参数**
 
-| Name   | Type     | Description |
-| :----- | :------- | ----------- |
-| `path` | `string` |             |
+| Name   | Type     | Description      |
+| :----- | :------- | ---------------- |
+| `path` | `string` | 插件所在路径      |
 
 **返回结果**
 
@@ -78,7 +78,7 @@ Editor.Package.enable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.
 
 | Name       | Type                | Description |
 | :--------- | :------------------ | ----------- |
-| `options?` | `GetPackageOptions` |             |
+| `options?` | `GetPackageOptions` | 查询条件     |
 
 **返回结果**
 
@@ -118,10 +118,10 @@ const path = Editor.Package.getPath('menu');  // "D:\\Program\\CocosEditor\\Crea
 
 **请求参数**
 
-| Name     | Type       | Description |
-| :------- | :--------- | ----------- |
-| `action` | `string`   |             |
-| `handle` | `Function` |             |
+| Name     | Type       | Description              |
+| :------- | :--------- | ------------------------ |
+| `action` | `string`   | 插件事件的名称            |
+| `handle` | `Function` | 插件事件触发执行的处理     |
 
 **返回结果**
 
@@ -140,10 +140,10 @@ Editor.Package.on('enable', () => {});
 
 **请求参数**
 
-| Name     | Type       | Description |
-| :------- | :--------- | ----------- |
-| `action` | `string`   |             |
-| `handle` | `Function` |             |
+| Name     | Type       | Description              |
+| :------- | :--------- | ------------------------ |
+| `action` | `string`   | 插件事件的名称            |
+| `handle` | `Function` | 插件事件触发执行的处理     |
 
 **返回结果**
 
@@ -162,9 +162,9 @@ Editor.Package.once('disable', () => {});
 
 **请求参数**
 
-| Name   | Type     | Description |
-| :----- | :------- | ----------- |
-| `path` | `string` |             |
+| Name   | Type     | Description    |
+| :----- | :------- | -------------- |
+| `path` | `string` | 插件所在路径    |
 
 **返回结果**
 
@@ -183,10 +183,10 @@ Editor.Package.register('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\ap
 
 **请求参数**
 
-| Name     | Type       | Description |
-| :------- | :--------- | ----------- |
-| `action` | `string`   |             |
-| `handle` | `Function` |             |
+| Name     | Type       | Description              |
+| :------- | :--------- | ------------------------ |
+| `action` | `string`   | 插件事件的名称            |
+| `handle` | `Function` | 插件事件触发执行的处理     |
 
 **返回结果**
 
@@ -205,9 +205,9 @@ Editor.Package.removeListener('enable', () => {});
 
 **请求参数**
 
-| Name   | Type     | Description |
-| :----- | :------- | ----------- |
-| `path` | `string` |             |
+| Name   | Type     | Description     |
+| :----- | :------- | --------------- |
+| `path` | `string` | 插件所在路径     |
 
 **返回结果**
 

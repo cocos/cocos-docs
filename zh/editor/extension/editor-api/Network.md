@@ -12,10 +12,10 @@ Get 方式请求某个服务器数据
 
 **请求参数**
 
-| Name    | Type     | Description |
-| :------ | :------- | ----------- |
-| `url`   | `string` |             |
-| `data?` | `Object` |             |
+| Name    | Type     | Description          |
+| :------ | :------- | -------------------- |
+| `url`   | `string` | 请求的 url            |
+| `data?` | `Object` | 请求时带上的数据       |
 
 **返回结果**
 
@@ -39,7 +39,7 @@ network.get(RUNTIME_REQUEST_URL).then((ret: any) => {
 
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
-| `port` | `number` |             |
+| `port` | `number` | 端口号      |
 
 **返回结果**
 
@@ -57,10 +57,10 @@ Post 方式请求某个服务器数据
 
 **请求参数**
 
-| Name    | Type     | Description |
-| :------ | :------- | ----------- |
-| `url`   | `string` |             |
-| `data?` | `Object` |             |
+| Name    | Type     | Description          |
+| :------ | :------- | -------------------- |
+| `url`   | `string` | 请求的 url            |
+| `data?` | `Object` | 请求时带上的数据       |
 
 **返回结果**
 
@@ -111,7 +111,7 @@ const res = await Editor.Network.testConnectServer();
 
 | Name | Type     | Description |
 | :--- | :------- | ----------- |
-| `ip` | `string` |             |
+| `ip` | `string` | ip 地址      |
 
 **返回结果**
 

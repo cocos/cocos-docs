@@ -68,7 +68,7 @@ const projectUUID = Editor.Project.uuid;
 
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
-| `path` | `string` |             |
+| `path` | `string` | 项目路径     |
 
 **返回结果**
 
@@ -104,7 +104,7 @@ Editor.Project.create();
 
 | Name    | Type     | Description |
 | :------ | :------- | ----------- |
-| `path?` | `string` |             |
+| `path?` | `string` | 项目路径     |
 
 **返回结果**
 

@@ -28,7 +28,7 @@ const themes = Editor.Theme.getList();  // ["creator", "dark", "light"]
 
 | Name    | Type     | Description |
 | :------ | :------- | ----------- |
-| `name?` | `string` |             |
+| `name?` | `string` | 主题名      |
 
 **返回结果**
 

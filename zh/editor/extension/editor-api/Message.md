@@ -13,10 +13,10 @@
 
 **请求参数**
 
-| Name          | Type     | Description |
-| :------------ | :------- | ----------- |
-| `name`        | `string` |             |
-| `messageInfo` | `Object` |             |
+| Name          | Type     | Description     |
+| :------------ | :------- | --------------- |
+| `name`        | `string` | 消息的名称       |
+| `messageInfo` | `Object` | 消息的内容       |
 
 **返回结果**
 
@@ -33,9 +33,9 @@
 
 **请求参数**
 
-| Name   | Type     | Description |
-| :----- | :------- | ----------- |
-| `name` | `string` |             |
+| Name   | Type     | Description     |
+| :----- | :------- | --------------- |
+| `name` | `string` | 消息的名称       |
 
 **返回结果**
 

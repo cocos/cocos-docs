@@ -73,10 +73,10 @@ const engineModules = await Editor.Profile.getProject('engine', 'modules.include
 
 **请求参数**
 
-| Name   | Type     | Description |
-| :----- | :------- | :---------- |
-| `name` | `string` | 插件名      |
-| `key?` | `string` | 配置路径    |
+| Name   | Type     | Description      |
+| :----- | :------- | :--------------  |
+| `name` | `string` | 插件名           |
+| `key?` | `string` | 配置路径，选填    |
 
 **返回结果**
 
@@ -94,11 +94,11 @@ const state = await Editor.Profile.getTemp('assets', 'state');
 
 **请求参数**
 
-| Name             | Type     | Description |
-| :--------------- | :------- | ----------- |
-| `pkgName`        | `string` |             |
-| `profileVersion` | `string` |             |
-| `profileData`    | `any`    |             |
+| Name             | Type     | Description           |
+| :--------------- | :------- | --------------------- |
+| `pkgName`        | `string` | 插件名                 |
+| `profileVersion` | `string` | 要迁移的插件版本号      |
+| `profileData`    | `any`    | 迁移的数据             |
 
 **返回结果**
 
@@ -117,11 +117,11 @@ await Editor.Profile.migrateGlobal('builder', '1.2.1', buildJson);
 
 **请求参数**
 
-| Name             | Type     | Description |
-| :--------------- | :------- | ----------- |
-| `pkgName`        | `string` |             |
-| `profileVersion` | `string` |             |
-| `profileData`    | `any`    |             |
+| Name             | Type     | Description           |
+| :--------------- | :------- | --------------------- |
+| `pkgName`        | `string` | 插件名                 |
+| `profileVersion` | `string` | 要迁移的插件版本号      |
+| `profileData`    | `any`    | 迁移的数据             |
 
 **返回结果**
 
@@ -139,11 +139,11 @@ await Editor.Profile.migrateLocal('builder', '1.2.1', buildJson);
 
 **请求参数**
 
-| Name             | Type     | Description |
-| :--------------- | :------- | ----------- |
-| `pkgName`        | `string` |             |
-| `profileVersion` | `string` |             |
-| `profileData`    | `any`    |             |
+| Name             | Type     | Description           |
+| :--------------- | :------- | --------------------- |
+| `pkgName`        | `string` | 插件名                 |
+| `profileVersion` | `string` | 要迁移的插件版本号      |
+| `profileData`    | `any`    | 迁移的数据             |
 
 **返回结果**
 
@@ -162,10 +162,10 @@ await Editor.Profile.migrateProject('builder', '1.2.1', buildJson);
 
 **请求参数**
 
-| Name     | Type       | Description |
-| :------- | :--------- | ----------- |
-| `action` | `string`   |             |
-| `handle` | `Function` |             |
+| Name     | Type       | Description                  |
+| :------- | :--------- | ---------------------------- |
+| `action` | `string`   | profile 事件的名称            |
+| `handle` | `Function` | profile 事件触发时执行的处理   |
 
 **返回结果**
 
@@ -185,10 +185,10 @@ Editor.Profile.on('save', () => {});
 
 **请求参数**
 
-| Name     | Type       | Description |
-| :------- | :--------- | ----------- |
-| `action` | `string`   |             |
-| `handle` | `Function` |             |
+| Name     | Type       | Description                  |
+| :------- | :--------- | ---------------------------- |
+| `action` | `string`   | profile 事件的名称            |
+| `handle` | `Function` | profile 事件触发时执行的处理   |
 
 **返回结果**
 
@@ -229,10 +229,10 @@ await Editor.Profile.removeConfig('device', 'enable', 'global');
 
 **请求参数**
 
-| Name     | Type       | Description |
-| :------- | :--------- | ----------- |
-| `action` | `string`   |             |
-| `handle` | `Function` |             |
+| Name     | Type       | Description                  |
+| :------- | :--------- | ---------------------------- |
+| `action` | `string`   | profile 事件的名称            |
+| `handle` | `Function` | profile 事件触发时执行的处理   |
 
 **返回结果**
 

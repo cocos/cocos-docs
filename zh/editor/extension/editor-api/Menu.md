@@ -51,8 +51,8 @@ export interface PopupOptions {
 
 | Name      | Type           | Description |
 | :-------- | :------------- | ----------- |
-| `path`    | `string`       |             |
-| `options` | `BaseMenuItem` |             |
+| `path`    | `string`       | 菜单路径     |
+| `options` | `BaseMenuItem` | 菜单配置     |
 
 **返回结果**
 
@@ -74,11 +74,11 @@ Editor.Menu.add('i18n:menu.extension', {
 
 **请求参数**
 
-| Name    | Type     | Description |
-| :------ | :------- | ----------- |
-| `path`  | `string` |             |
-| `name`  | `string` |             |
-| `order` | `number` |             |
+| Name    | Type     | Description       |
+| :------ | :------- | ----------------- |
+| `path`  | `string` | 菜单分组的路径       |
+| `name`  | `string` | 菜单分组的名称       |
+| `order` | `number` | 菜单分组排序       |
 
 **返回结果**
 
@@ -155,7 +155,7 @@ const res = await Editor.Menu.clickPopup('.main');
 
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
-| `path` | `string` |             |
+| `path` | `string` | 菜单路径     |
 
 **返回结果**
 
@@ -174,9 +174,9 @@ const resMenu = await Editor.Menu.get('i18n:menu.extension');
 
 **请求参数**
 
-| Name   | Type                                                        | Description |
-| :----- | :---------------------------------------------------------- | ----------- |
-| `json` | [`PopupOptions`](../interfaces/Editor.Menu.PopupOptions.md) |             |
+| Name   | Type                                                        | Description     |
+| :----- | :---------------------------------------------------------- | --------------- |
+| `json` | `PopupOptions`                                              | 右键菜单的配置   |
 
 **返回结果**
 
@@ -232,10 +232,10 @@ const resMenu = await Editor.Menu.queryPopup();
 
 **请求参数**
 
-| Name       | Type                 | Description |
-| :--------- | :------------------- | ----------- |
-| `name`     | `string`             |             |
-| `template` | `MenuTemplateItem[]` |             |
+| Name       | Type                 | Description  |
+| :--------- | :------------------- | ------------ |
+| `name`     | `string`             | 菜单模板名称  |
+| `template` | `MenuTemplateItem[]` | 菜单模板内容  |
 
 **返回结果**
 
@@ -256,8 +256,8 @@ Editor.Menu.registerTemplate('i18n:menu.template', []);
 
 | Name      | Type           | Description |
 | :-------- | :------------- | ----------- |
-| `path`    | `string`       |             |
-| `options` | `BaseMenuItem` |             |
+| `path`    | `string`       | 菜单路径     |
+| `options` | `BaseMenuItem` | 菜单配置     |
 
 **返回结果**
 
@@ -275,10 +275,10 @@ Editor.Menu.remove('i18n:menu.extension', {});
 
 **请求参数**
 
-| Name   | Type     | Description |
-| :----- | :------- | ----------- |
-| `path` | `string` |             |
-| `name` | `string` |             |
+| Name   | Type     | Description        |
+| :----- | :------- | ------------------ |
+| `path` | `string` | 菜单分组的路径      |
+| `name` | `string` | 菜单分组的名称      |
 
 **返回结果**
 
@@ -297,9 +297,9 @@ Editor.Menu.removeGroup('i18n:menu.extension.group', 'extendGroup');
 
 **请求参数**
 
-| Name   | Type     | Description |
-| :----- | :------- | ----------- |
-| `name` | `string` |             |
+| Name   | Type     | Description     |
+| :----- | :------- | --------------- |
+| `name` | `string` | 菜单模板名称     |
 
 **返回结果**
 

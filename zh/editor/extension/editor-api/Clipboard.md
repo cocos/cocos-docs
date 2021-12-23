@@ -26,9 +26,9 @@ Editor.Clipboard.clear();
 
 **请求参数**
 
-| Name   | Type        | Description |
-| :----- | :---------- | ----------- |
-| `type` | `ICopyType` |             |
+| Name   | Type        |   Description   |
+| :----- | :---------- | --------------- |
+| `type` | `ICopyType` | 剪贴板内容的类型  |
 
 **返回结果**
 
@@ -46,9 +46,9 @@ const res = Editor.Clipboard.has('files');  // false
 
 **请求参数**
 
-| Name   | Type        | Description |
-| :----- | :---------- | ----------- |
-| `type` | `ICopyType` |             |
+| Name   | Type        |  Description   |
+| :----- | :---------- | -------------  |
+| `type` | `ICopyType` | 剪贴板内容的类型 |
 
 **返回结果**
 
@@ -68,10 +68,10 @@ const filesRes = Editor.Clipboard.read('files');  // []
 
 **请求参数**
 
-| Name    | Type                                    | Description |
-| :------ | :-------------------------------------- | ----------- |
-| `type`  | `"image" | "text" | "files" | string`   |             |
-| `value` | `string`                                | `FileList`  |
+| Name    | Type                                    | Description             |
+| :------ | :-------------------------------------- | ----------------------- |
+| `type`  | `"image" | "text" | "files" | string`   | 剪贴板内容的类型          |
+| `value` | `string` | `FileList`                   | 复制到剪贴板中的内容      |
 
 **返回结果**
 

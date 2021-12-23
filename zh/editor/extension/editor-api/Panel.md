@@ -79,7 +79,7 @@ type Options<S, M, U extends (...args: any[]) => void> = {
 
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
-| `name` | `string` |             |
+| `name` | `string` | 面板名称     |
 
 **返回结果**
 
@@ -138,7 +138,7 @@ Editor.Panel.define({
 
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
-| `name` | `string` |             |
+| `name` | `string` | 面板名称     |
 
 **返回结果**
 
@@ -158,7 +158,7 @@ Editor.Panel.focus('assets');
 
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
-| `name` | `string` |             |
+| `name` | `string` | 面板名称     |
 
 **返回结果**
 
@@ -176,10 +176,10 @@ const res = await Editor.Panel.has('package-asset.import');
 
 **请求参数**
 
-| Name      | Type     | Description |
-| :-------- | :------- | ----------- |
-| `name`    | `string` |             |
-| `...args` | `any`[]  |             |
+| Name      | Type     | Description              |
+| :-------- | :------- | ------------------------ |
+| `name`    | `string` | 面板名称                  |
+| `...args` | `any`[]  | 打开面板时传递的参数       |
 
 **返回结果**
 
@@ -199,8 +199,8 @@ Editor.Panel.open('console');
 
 | Name       | Type     | Description |
 | :--------- | :------- | ----------- |
-| `name`     | `string` |             |
-| `selector` | `string` |             |
+| `name`     | `string` | 面板名称     |
+| `selector` | `string` | 选择器       |
 
 **返回结果**
 
