@@ -15,7 +15,7 @@ First, add a `scene` field to the `contributions` property of `pacakge.json`, th
     "contributions": {
         "scene": {
             "script": "./scene.js"
-        } 
+        }
     }
 }
 ```
@@ -36,7 +36,7 @@ exports.unload = function() {};
 // Methods defined within the module
 exports.methods = {
     log() {
-      const { director } = require('cc');
+        const { director } = require('cc');
         director.getScene();
         return {};
     },
