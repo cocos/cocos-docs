@@ -1,6 +1,6 @@
 # Extension Manager Panel Description
 
-The **Extension Manager** is used to manage extensions in the editor. Click on **Extension -> Extension Manager** in the top menu bar of Creator to open.
+The **Extension Manager** is used to manage extensions in the editor and can be opened by clicking on **Extension -> Extension Manager** in the top menu bar of the editor.
 
 ![extension-manager](./image/extension-manager.png)
 
@@ -36,7 +36,7 @@ Creator currently classifies extensions as **Internal**, **Project**, **Global**
 
 ### Internal Extensions
 
-The extensions in the Internal extensions tab are all built-in extensions of the editor. The internal extensions cannot be closed, uninstalled or refreshed, and external extensions cannot be imported as internal extensions, so the Scan and Import buttons above are grayed out and not available.
+The extensions in the Internal extensions tab are all built-in extensions of the editor. The internal extensions cannot be closed, uninstalled or refreshed, and external extensions cannot be imported as internal extensions. The Scan and Import buttons above are grayed out and not available.
 
 ![simple-extension](./image/extension-internal.png)
 
@@ -53,7 +53,7 @@ The extensions in the project extensions tab are only available for the current 
 
 ### Global Extensions
 
-The extensions in the Global Extensions tab are available to all projects that have the extension enabled. The global extensions are located in the following directories.
+The extensions in the Global Extensions tab are available to all projects that have the extension enabled. The global extensions are located in the following directories:
 
 - **Windows**: `%USERPROFILE%\.CocosCreator\extensions`
 - **MacOS**: `$HOME/.CocosCreator/extensions`
@@ -75,4 +75,4 @@ To facilitate the development of extensions, the **Develop** tab allows **tempor
 | Scan Button | This button is disabled. |
 | Import Button | Click this button to **temporarily** register the specified extensions to the extension list in the **Development** tab, but will not copy the corresponding extension packages to the current project. Note that temporarily registered extensions are not currently recorded and will need to be re-registered the next time the project is opened. |
 
-> **Note**: if you click the Uninstall button of an extension in the **Develop** tab, it will only remove the extension in the extension list, and will not delete the extension folder.
+> **Note**: clicking the Uninstall button of an extension in the **Develop** tab, will only remove the extension in the extension list, and will not delete the extension's folder.

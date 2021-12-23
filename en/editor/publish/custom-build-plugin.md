@@ -16,13 +16,13 @@ To build a platform plug-in a common editor plug-in format is required. For the 
 
         - `$Your project address/extensions`
 
-2. After the build extension is created, you will see the generation path of the plugin in the **Console**. Click on the path to open the build extension package in the file manager of the operating system.
+2. After the build extension is created, notice the generation path of the plugin in the **Console**. Click on the path to open the build extension package in the file manager of the operating system.
 
     ![console](./custom-project-build-template/console.png)
 
 3. Before enabling the build extension, execute `npm install` in the directory to install some dependent **@types** modules to compile normally. The interface definition that comes with the editor has been generated under the **@types** folder in the root directory. **Developer -> Export.d.ts** from the menu bar of the editor shows the latest interface definitions.
 
-4. Click **Extension -> Extension Manager** in the menu bar of the editor to open the **Extension Manager** panel. Then select the **Project**/**Global** tab in the **Extension Manager**, and click the **Refresh Icon** button to see the build extension you just added. Then click the **Enable** button on the right to run the plug-in normally.
+4. Click **Extension -> Extension Manager** in the menu bar of the editor to open the **Extension Manager** panel. Then select the **Project**/**Global** tab in the **Extension Manager**, and click the **Refresh Icon** button to see the build extension just added. Then click the **Enable** button on the right to run the plug-in normally.
 
     ![enable-plugin](./custom-project-build-template/enable-plugin.png)
 
@@ -30,13 +30,13 @@ To build a platform plug-in a common editor plug-in format is required. For the 
 
     ![plugin-template](./custom-project-build-template/plugin-template.png)
 
-6. If you need to modify the content of the build extension, directly modify the build extension package under the `extensions` directory, see the `readme.md` file in the build extension package directory for details. Then find the corresponding build extension in the **Extension Manager**, and click the **Reload** icon button. At this time, the extension in the editor will re-run with the latest code and files.
+6. To modify the content of the built extension, directly modify the build extension package under the `extensions` directory, review the `readme.md` file in the build extension package directory for details. Find the corresponding build extension in the **Extension Manager**, and click the **Reload** icon button. The extension in the editor will re-run with the latest code and files.
 
     ![reload](./custom-project-build-template/reload.png)
 
 ## Basic configuration process
 
-To extend the build function of the plug-in, you need to add the `builder` field to the `contributions` in `package.json`, and the relative path configuration of the corresponding module can be passed to the specified platform in the field.
+To extend the build function of the plug-in, add the `builder` field to the `contributions` in `package.json`, and the relative path configuration of the corresponding module can be passed to the specified platform in the field.
 
 Example `package.json`:
 
@@ -50,17 +50,17 @@ Example `package.json`:
 }
 ```
 
-> **Note**: the `builder` field specifies the `./dist/builder.js` start script is the compiled script, and the source file of the start script is located in `./source/builder.ts`, if you need to configure the start script, please change it in the source file.
+> **Note**: the `builder` field specifies the `./dist/builder.js` start script is the compiled script, and the source file of the start script is located in `./source/builder.ts`. To configure the start script, change it in the source file.
 
 ### Start script configuration
 
 The plugin entry configuration code example is shown below:
 
 ```ts
-//builder.ts
+// builder.ts
 
 // Allow external developers to replace parts of the build asset handler module. Please refer to the "Custom Texture Compression Processing" section below for details.
-export const assetHandlers: string = '. /asset-handlers';
+export const assetHandlers: string = './asset-handlers';
 
 export const configs: IConfigs = {
     'web-mobile': {
@@ -112,7 +112,7 @@ Please pay extra attention to the following points when writing start scripts:
 
 2. There are two ways to configure the key of `config`: 
 
-    - One is for a single platform configuration, and the key is filled in as **platform plugin name** (available in the editor menu bar **Extensions -> Extension Manager -> Internal** to view the platform plug-in name); 
+    - One is for a single platform configuration, and the key is filled in as **platform plugin name** (available in the editor menu bar **Extensions -> Extension Manager -> Internal** to view the platform plug-in name).
 
     - One is the configuration for all platforms, the key is filled in as `*`. These two configuration methods are mutually exclusive, please do not use them in the same build extension package.
 
@@ -221,7 +221,7 @@ The specific steps are as follows:
     export const assetHandlers = './asset-handlers';
     ```
 
-2. In the `assetHandlers` script module, we open up the `compressTextures` function, so developers can write the corresponding handler function directly in `compressTextures`, which will be called during the texture compression phase of the build.
+2. In the `assetHandlers` script module, the `compressTextures` function has been opened up for developers to write the corresponding handler function directly in `compressTextures`, which will be called during the texture compression phase of the build.
 
     The handler function takes the current array of remaining unprocessed texture compression tasks and removes them from the original array when processing is complete. Texture compression tasks that are not removed are considered unprocessed and are placed in the next corresponding processing function until all processing functions have been processed, and if there are still unprocessed texture compression tasks, they are placed back in the Creator's original texture compression process.
 
@@ -237,8 +237,8 @@ The specific steps are as follows:
         | 'pvrtc_4bits_rgb'
         | 'astc_12x12'; // See interface definition for detailed format
     interface ICompressTasks {
-        src: string; // source file address
-        dest: string; // address of the generated target file (default suffix is PNG, other types need to be changed manually)
+        src: string; // Source file address
+        dest: string; // Address of the generated target file (default suffix is PNG, other types need to be changed manually)
         quality: number | IPVRQuality | IASTCQuality | IETCQuality; // Compression quality 0 - 100 or other compression levels
         format: ITextureCompressType; // Compression type
     }
@@ -283,7 +283,7 @@ When the code running in the main process is modified, the plugin must be restar
 
 The start script of the build extension plugin has some fields that are registered to the **Build** panel, such as the display configuration of `options`, the `panel` field, and the `panel` script itself, which is loaded and executed in the render process. The rendering process is actually the window's own execution process. Open the DevTools to debug the `dom` elements, styles, scripts, etc. on the **Build** panel.
 
-If you modify the code registered to the **Build** panel, just refresh the panel without restarting the plugin.
+If the code registered to the **Build** panel is modified, refresh the panel without restarting the plugin.
 
 - **Open the DevTools for the rendering process of the Build panel**
 
@@ -291,7 +291,7 @@ If you modify the code registered to the **Build** panel, just refresh the panel
 
 - **How to reload (refresh) the panel**
 
-  Press **Ctrl/Command + R** after clicking the debug tool in the **Build** panel or the **Build Release** panel.
+  Press **Ctrl/Command + R** after clicking on the **Build** panel or the DevTool in the **Build** panel.
 
 ### Build Process (`hooks` Script)
 
@@ -315,4 +315,4 @@ This includes the following three ways:
     Editor.Message.send('builder', 'open-devtools');
     ```
 
-    You can extend this message method to suit your needs. For example, you can catch errors in the code you write to build the plugin, and automatically open DevTools once there is an exception or something like that.
+    `Editor.Message` can be extended to suit additional needs. For example, developers can catch errors in the code written to build the plugin, and automatically open DevTools once there is an exception or something like that.
