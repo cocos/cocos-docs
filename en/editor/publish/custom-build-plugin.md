@@ -194,7 +194,7 @@ type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void | 
 
 > **Notes**:
 > 1. the `result` parameter can be accessed only at the beginning of `onBeforeCompressSettings`, and the `options` passed to the hook function is a copy of the `options` used in the actual build process, and only used as a reference for information acquisition, so directly modifying it does not really affect the build process, although it can be modified successfully. To modify the build parameters, please set in the `options` field of the entry configuration code. Due to the numerous interface definitions, you can refer to the `@types/packages/builder` folder in the build extension package for detailed interface definitions.
-> 2. The hook function is allowed to be an asynchronous function. the next process.
+> 2. The hook function is allowed to be an asynchronous function, and the build will await the completion of the hook function execution before executing the next process by default.
 
 A simple example:
 
