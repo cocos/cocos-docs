@@ -1,5 +1,5 @@
-## A Simpler Way to Call Java Methods with JavaScript (Experimental)
-x
+# A Simpler Way to Call Java Methods with JavaScript (Experimental)
+
 ## Background
 
 Prior to v3.4.0, the reflection mechanism in [Using JavaScript to Call Java](./java-reflection.md) static methods, we not only needed to strictly declare package names and function signatures, but also needed to strictly check the number of parameters to ensure proper operation, which was a complicated step.
