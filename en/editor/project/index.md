@@ -86,6 +86,10 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 - **MAX_LABEL_CANVAS_POOL_SIZE**: set the maximum number of Canvas object pools used by the Label, and adjust it according to the number of Labels in the same scene of the project.
 
+- **ENABLE_WEBGL_HIGHP_STRUCT_VALUES**：whether to enable WebGL highp precision with fragment shader struct variables. These variables are mediump precision with Android+WebGL platform. It may lead to light calculation errors of some data requiring highp precision (such as position)。
+    - If enabled, you should use HIGHP_VALUE_STRUCT_DEFINE macro to define variables in fragment shader struct which needs to be highp precision, use HIGHP_VALUE_TO_STRUCT_DEFINED and HIGHP_VALUE_FROM_STRUCT_DEFINED macro to do assignment between struct varibles and non-struct variables.
+    - For more specific information and code about these macros, please refer to the [packing.chunk](https://github.com/cocos-creator/engine/blob/develop/editor/assets/chunks/packing.chunk#L40).
+
 - **Custom Macro**: used to customize macro configurations, providing a macro tagging feature for current project scripts for easy visual configuration. Click the **+** button below to add a new macro configuration, hover over the added macro configuration and the **Delete** and **Modify** buttons will be displayed on the left side for deleting/renaming the current macro configuration respectively.
 
   ![macro](./index/custom-macro.png)
