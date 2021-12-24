@@ -82,8 +82,9 @@ The top half of the properties are described below, while the bottom half shows 
 
 | Property | Description |
 | :--- | :--- |
-| DumpMaterial | When you are not satisfied with the material that comes with the model file and want to modify it, you need to enable this option to dump the material files in the file structure directory out of the model assets so that you can adjust and modify the materials. |
-| Dumper Directory | Here you can specify or view the directory location for the dumped files. |
+| DumpMaterial | It is possible to customize or modify the material that comes with the model file. Enable this option to dump the material files in the file structure directory out of the model assets for modifying the materials. |
+| Dumper Directory | Specify or view the directory location for the dumped files. |
+
 | Use vertex colors | Whether to use vertex colors. |
 | Depth-write if blending | Enable depth-write when Alpha mode is **Blend**. |
 
