@@ -89,7 +89,7 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 - **ENABLE_WEBGL_HIGHP_STRUCT_VALUES**: on the Android platform with WebGL backend, the internal variables of the structures defined in the fragment shader use **mediump** precision, which may lead to incorrect results for some data that requires high precision (such as position information). To avoid this problem, check this option (new in v3.4.1) and enable WebGL to calculate variables with **highp** precision.
 
     - If this option is enabled, use the `HIGHP_VALUE_STRUCT_DEFINE` macro in the fragment shader code to define structural variables, and use `HIGHP_VALUE_TO_STRUCT_DEFINED` and `HIGHP_VALUE_FROM_STRUCT_DEFINED` to assign values between structural and non-structural variables.
-    - For specific information and code on the above macro calls, please refer to [packing.chunk](https://github.com/cocos-creator/engine/blob/v3.4.1/editor/assets/chunks/packing.chunk#L40] for details.
+    - For specific information and code on the above macro calls, please refer to [packing.chunk](https://github.com/cocos-creator/engine/blob/v3.4.1/editor/assets/chunks/packing.chunk#L40) for details.
 
 - **Custom Macro**: used to customize macro configurations, providing a macro tagging feature for current project scripts for easy visual configuration. Click the **+** button below to add a new macro configuration, hover over the added macro configuration and the **Delete** and **Modify** buttons will be displayed on the left side for deleting/renaming the current macro configuration respectively.
 
