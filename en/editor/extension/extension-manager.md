@@ -73,6 +73,6 @@ To facilitate the development of extensions, the **Develop** tab allows **tempor
 | :------ | :-------- |
 | Extension List | Show temporarily installed extensions. |
 | Scan Button | This button is disabled. |
-| Import Button | Click this button to **temporarily** register the specified extensions to the extension list in the **Development** tab, but will not copy the corresponding extension packages to the current project. Note that temporarily registered extensions are not currently recorded and will need to be re-registered the next time the project is opened. |
+| Import Button | Click this button to **temporarily** register the specified extensions to the extension list in the **Develop** tab, but will not copy the corresponding extension packages to the current project. Note that temporarily registered extensions are not currently recorded and will need to be re-registered the next time the project is opened. |
 
-> **Note**: clicking the Uninstall button of an extension in the **Develop** tab, will only remove the extension in the extension list, and will not delete the extension's folder.
+> **Note**: clicking the Uninstall button of an extension in the **Develop** tab, will only remove the extension in the extension list, and will not delete the extension package.
