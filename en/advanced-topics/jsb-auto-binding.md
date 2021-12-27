@@ -228,8 +228,17 @@ abstract_classes = JSBBridge
 ```
 
 In fact, the annotations inside are also very detailed, and here are a few of the main properties and their meanings:
+<!-- 
+![](jsb/ini-file-properties.png) -->
 
-![](jsb/ini-file-properties.png)
+| Property | Description |
+|:--- | :--- |
+| prefix           | Define the name of the function inside the generated binding file. The combination of function name is `js + prefix + the function name` in the header file. For example, if we define `JSBBridge_ abcLog` in the header file and set the prefix to cocos2dx test, the function name in the final binding file will be `js_cocos2dx_test_JSBBridge_abcLog`. |
+| target_namespace | The target namespace in the script, e.g. cc. spine, etc. |
+| headers          | List of headers to be bound, separated by spaces, headers will be scanned recursively. |
+| cpp_headers      | List of header files that need to be included in the binding code but do not need to be scanned by the binding tool. |
+| classes          | List of class names to be bound, separated by spaces. |
+| abstract_classes | When configured as an abstract class, its constructors will not be bound, separated by spaces. |
 
 Once the above configuration is done, `cd` to the `tools/tojs` directory and run `./genbindings_test.py` to automatically generate the bindings file. Notice the two bindings under `cocos/bindings/auto`:
 
