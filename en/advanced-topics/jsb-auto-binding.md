@@ -3,11 +3,11 @@
 > This article is republished from [Tencent Online Education Department Technical Blog](https://oedx.github.io/2019/07/03/cocos-creator-js-binding-auto/)<br>
 > Author: kevinxzhang
 
-Creator provides `jsb.reflection.callStaticMethod` method to support the interface of calling Native side (Android/iOS/Mac) directly from TS side, but after much practice, we found that the performance of this interface is very low under a lot of frequent calls, especially on Android side, such as calling the interface implemented on Native side for printing logs. And it is easy to cause some native crashes, such as `local reference table overflow` and other problems. Throughout the implementation of Cocos native code, basically all interface methods are implemented based on the JSB approach, so this article mainly explains the JSB auto-binding logic to help you quickly implement the `callStaticMethod` to JSB transformation process.
+Creator provides `jsb.reflection.callStaticMethod` method to support the interface of calling Native side (Android/iOS/Mac) directly from TypeScript side, but after much practice, we found that the performance of this interface is very low under a lot of frequent calls, especially on Android side, such as calling the interface implemented on Native side for printing logs. And it is easy to cause some native crashes, such as `local reference table overflow` and other problems. Throughout the implementation of Cocos native code, basically all interface methods are implemented based on the JSB approach, so this article mainly explains the JSB auto-binding logic to help you quickly implement the `callStaticMethod` to JSB transformation process.
 
 ## Background
 
-For those who have used Cocos Creator (or CC for convenience), `jsb.reflection.callStaticMethod` is certainly no stranger to providing the ability to call the Native side from the TS side. For example, if we want to call the Native implementation of the log printing and persistence interface, we can easily do so in JavaScript as follows:
+For those who have used Cocos Creator (or CC for convenience), `jsb.reflection.callStaticMethod` is certainly no stranger to providing the ability to call the Native side from the TypeScript side. For example, if we want to call the Native implementation of the log printing and persistence interface, we can easily do so in JavaScript as follows:
 
 ```javascript
 if (sys.isNative && sys.os == sys.OS.IOS) {
@@ -71,7 +71,7 @@ After about a minute or so of running, the following message will appear, indica
 
 After the above steps, all the files under **cocos/bindings/auto** will be automatically generated, which is very convenient.
 
-The following is an example of how the TS layer prints logs by calling the Native layer log method through JSB, and how to implement the auto-binding tool to generate the corresponding auto-binding files based on the C++ code written.
+The following is an example of how the TypeScript layer prints logs by calling the Native layer log method through JSB, and how to implement the auto-binding tool to generate the corresponding auto-binding files based on the C++ code written.
 
 ## Writing the C++ layer implementation
 
@@ -79,7 +79,7 @@ C++ is the bridge between TypeScript and Native layers. To implement JSB calls, 
 
 ![](jsb/store-file.png)
 
-`ABCJSBBridge.h`, declares an `abcLog` function for the Typescript layer to call the logging, and because the logging method will certainly be used in many places in the ts layer, a singleton pattern is used here, providing `getInstance()` to get the current instance of the class.
+`ABCJSBBridge.h`, declares an `abcLog` function for the TypeScript layer to call the logging, and because the logging method will certainly be used in many places in the TypeScript layer, a singleton pattern is used here, providing `getInstance()` to get the current instance of the class.
 
 ```cpp
 #pragma once
@@ -163,7 +163,7 @@ Find the `genbindings.py` script in the **tools/tojs** directory, copy it and re
 
 The next step is to add a custom configuration file `cocos2dx_test.ini` to the **tools/tojs** directory, which is actually similar to the other `.ini` files under **tools/tojs**, mainly to let the auto-binding tool know which APIs to bind and in what way. Refer directly to Cocos' existing `.ini` file to write this, here is the contents of `cocos2dx_test.ini`:
 
-``` ini
+```ini
 [cocos2dx_test]
 # the prefix to be added to the generated functions. You might or might not use this in your own
 # templates
@@ -233,8 +233,8 @@ In fact, the annotations inside are also very detailed, and here are a few of th
 
 | Property | Description |
 |:--- | :--- |
-| prefix           | Define the name of the function inside the generated binding file. The combination of function name is `js + prefix + the function name` in the header file. For example, if we define `JSBBridge_ abcLog` in the header file and set the prefix to cocos2dx test, the function name in the final binding file will be `js_cocos2dx_test_JSBBridge_abcLog`. |
-| target_namespace | The target namespace in the script, e.g. cc. spine, etc. |
+| prefix           | Define the name of the function inside the generated binding file. The combination of function name is `js + prefix + the function name in the header file`. For example, if we define `JSBBridge_ abcLog` in the header file and set the `prefix` to `cocos2dx test`, the function name in the final binding file will be `js_cocos2dx_test_JSBBridge_abcLog`. |
+| target_namespace | The target namespace in the script, e.g.: `cc`, `spine`, etc. |
 | headers          | List of headers to be bound, separated by spaces, headers will be scanned recursively. |
 | cpp_headers      | List of header files that need to be included in the binding code but do not need to be scanned by the binding tool. |
 | classes          | List of class names to be bound, separated by spaces. |
@@ -244,7 +244,7 @@ Once the above configuration is done, `cd` to the `tools/tojs` directory and run
 
 ![](jsb/binding-file.png)
 
-Open the generated `jsb_cocos2dx_test_auto.cpp`.
+Open the generated `jsb_cocos2dx_test_auto.cpp`:
 
 ```cpp
 #include "cocos/bindings/auto/jsb_cocos2dx_test_auto.h"
@@ -334,7 +334,7 @@ Doesn't it look familiar? It's exactly the same as Cocos' existing `.cpp` files,
 
 ## Cocos Compilation Configuration
 
-Although we have generated the bindings after the above step, the Typescript layer can't be used directly because we still need to configure the generated bindings into the `CMakeLists.txt` file to be compiled with other C++ files, which is the last part of the `CMakeLists.txt` compilation configuration.
+Although we have generated the bindings after the above step, the TypeScript layer can't be used directly because we still need to configure the generated bindings into the `CMakeLists.txt` file to be compiled with other C++ files, which is the last part of the `CMakeLists.txt` compilation configuration.
 
 1. Open the `CMakeLists.txt` file and add the initial `ABCJSBBridge.h` and `ABCJSBBridge.cpp` to it, as well as the `jsb_cocos2dx_test_auto.h` and `jsb_cocos2dx_test_auto.cpp` files generated by the automatic bindings:
 
@@ -345,7 +345,7 @@ Although we have generated the bindings after the above step, the Typescript lay
     ![](jsb/112.png)
 
 
-After the above configuration, call it directly from the ts layer like this:
+After the above configuration, call it directly from the TypeScript layer like this:
 
 ``` typescript
 import { _decorator, Component, Node } from 'cc';
@@ -363,12 +363,13 @@ export class Test extends Component {
 ## Restrictions on Auto-Binding
 
 Auto-binding relies on the [Bindings Generator tool](https://github.com/cocos-creator/bindings-generator). The Bindings Generator tool can Bind public methods and public properties of C++ classes to the scripting layer. The automatic binding tool, although very powerful, has a few limitations:
-1. it can only generate bindings for classes, not structs, independent functions, etc.
-2. it is not possible to generate `Delegate` type APIs, because objects in scripts cannot inherit from the `Delegate` class in C++ and override the `Delegate` functions in it.
-3. the child class overrides the API of the parent class while overriding this API. 
-4. part of the API implementation is not fully reflected in its API definition.
-5. the API is actively called by C++ at runtime.
+1. It can only generate bindings for classes, not structs, independent functions, etc.
+2. It is not possible to generate `Delegate` type APIs, because objects in scripts cannot inherit from the `Delegate` class in C++ and override the `Delegate` functions in it.
+3. The child class overrides the API of the parent class while overriding this API. 
+4. Part of the API implementation is not fully reflected in its API definition.
+5. The API is actively called by C++ at runtime.
 
 ## Summary
 
 In summary, automatic binding of JSBs only requires the developer to write the relevant C++ implementation class, a configuration file, and then execute a single command to complete the entire binding process. If there is no special customization, it is still a lot more efficient than manual binding. The actual work can be done on a case-by-case basis by first using the auto-binding feature, and then manually modifying the generated binding file to achieve half the result with twice the effort.
+
