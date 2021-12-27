@@ -188,7 +188,7 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
             seObj = iter->second;
             // Unmap native and js object since native object was destroyed.
             // Otherwise, it may trigger 'assertion' in se::Object::setPrivateData later
-            // since native obj is already released and the new native object may be assigned with the same address.
+            // Since native obj is already released and the new native object may be assigned with the same address.
             se::NativePtrToObjectMap::erase(iter);
         } else {
             return;
