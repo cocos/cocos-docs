@@ -2,17 +2,17 @@
 
 ## Background
 
-Prior to v3.4.0, the reflection mechanism in [Using JavaScript to Call Java](./java-reflection.md) static methods, we not only needed to strictly declare package names and function signatures, but also needed to strictly check the number of parameters to ensure proper operation, which was a complicated step.
+Prior to v3.4.0, the reflection mechanism in [Using JavaScript to Call Java](./java-reflection.md) static methods, not only needed to strictly declare package names and function signatures, but also needed to strictly check the number of parameters to ensure proper operation, which was a complicated step.
 
-So in v3.4.0 we additionally provide another experimental method for simplifying calls from the scripting layer to the native layer. This is a kind of channel, or a bridge, which we named `JsbBridge` before introducing other scripting systems, meaning that it serves as a bridge to communicate between script and native APP via the `JSB` binding.
+Additionally provided in v3.4.0 is another experimental method for simplifying calls from the scripting layer to the native layer. This is a kind of channel, or a bridge, named `JsbBridge` before introducing other scripting systems, meaning that it serves as a bridge to communicate between script and native APP via the `JSB` binding.
 
-> **Note**: both ways are working fine, developers can choose to use them according to their actual needs. To use the previous way, please go to [Using JavaScript to Call Java](./java-reflection.md) documentation to see.
+> **Note**: both ways are working fine, developers can choose to use them according to their actual needs. To use the previous way, please review the [Using JavaScript to Call Java](./java-reflection.md) documentation.
 
 ## JavaScript Interface Introduction
 
 The only two interfaces at the scripting level are `sendToNative` and `onNative`, which are **transfer** and **receive native layer** parameters, respectively. The following points need to be noted when using them:
 
-- Since this feature is still in the experimental stage, only `string` transfers are supported. If you need to transfer objects containing multiple parameters, please consider converting them to `Json` form for transfer and parsing them at different levels.
+- This feature is still in the experimental stage, only `string` transfers are supported. To transfer objects containing multiple parameters, please consider converting them to the `JSON` format for transfer and parsing them at different levels.
 - `onNative` will only record one function at a time, and will override the original `onNative` method when the property is `set` again.
 - The `sendToScript` method is a one-way communication and does not care about the return of the lower level, nor does it tell `JavaScript` whether the operation succeeded or failed. The developer needs to handle the operation itself.
 
@@ -66,9 +66,9 @@ public class JsbBridge {
 
 ## Basic Usage
 
-### Using JavaScript to trigger Java
+### Using JavaScript to Trigger Java
 
-Assuming our ad interface is set in the native layer, then when the player clicks the button to open the ad, it is logical to trigger `JAVA` to open the ad.
+Assuming the ad interface is set in the native layer, then when the player clicks the button to open the ad, it is logical to trigger `JAVA` to open the ad.
 
 The code example for opening the ad interface is as follows:
 
@@ -78,7 +78,7 @@ public void openAd(String adUrl){
 }
 ```
 
-At this point we need to register the event to open the ad first:
+Register the event to open the ad first:
 
 ```JAVA
 JsbBridge.setCallback(new JsbBridge.ICallback() {
@@ -92,7 +92,7 @@ JsbBridge.setCallback(new JsbBridge.ICallback() {
     
 ```
 
-And perform the open action on the button click event in `JavaScript`:
+Perform the open action on the button click event in `JavaScript`:
 
 ```ts
 public static onclick(){
@@ -103,11 +103,11 @@ public static onclick(){
 
 This will send the required information to the `Java` layer through the `Jsb.Bridge` channel to perform the action of opening the ad.
 
-### Using JAVA to trigger JavaScript
+### Using JAVA to Trigger JavaScript
 
-Assuming that our animation playback operation is recorded in JavaScript and we want to play this animation in the Java layer, we can also register an event to play the animation.
+Assuming that the animation playback operation is recorded in JavaScript. To play this animation in the Java layer, register an event to play the animation.
 
-First you need to define a function to play the animation:
+First, define a function to play the animation:
 
 ```ts
 public void playAnimation(animationName: string, isLoop: boolean){
@@ -115,7 +115,7 @@ public void playAnimation(animationName: string, isLoop: boolean){
 }
 ```
 
-Then document the method in `onNative:
+Second, document the method in `onNative`:
 
 ```ts
 jsb.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
@@ -138,4 +138,4 @@ This will call the `JavaScript` playback operation.
 
 ## Sample project: simple multi-event calls
 
-The Creator provides the [native-script-bridge](https://github.com/cocos-creator/example-3d/tree/v3.4/native-script-bridge) example, which developers can download for reference use as needed.
+Creator provides the [native-script-bridge](https://github.com/cocos-creator/example-3d/tree/v3.4/native-script-bridge) example, which developers can download for reference use as needed.
