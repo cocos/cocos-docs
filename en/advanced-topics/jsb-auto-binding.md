@@ -35,16 +35,16 @@ JSB binding is usually done in two ways: **manual binding** and **automatic bind
 
 Auto-binding, to put it simply, is a matter of executing a python script to automatically generate the corresponding `.cpp` and `.h` files. First,make sure that the computer has a python runtime environment. Example of how to install it on a Mac:
 
-To install python 3.0, download the installation package from the python website:
+1. To install python 3.0, download the installation package from the python website:
 
-    https://www.python.org/downloads/release/python-398/
+    <https://www.python.org/downloads/release/python-398/>
 
 2. Install some of the python dependencies via pip3:
 
     ```shell
     sudo pip3 install pyyaml==5.4.1
     sudo pip3 install Cheetah3
-    ```shell
+    ```
 
 3. Install the NDK, which is definitely essential when it comes to C++. It is recommended to install the [Android NDK r16b](https://developer.android.com/ndk/downloads/older_releases?hl=zh-cn) version, set the `PYTH_profile` in `~/.bash_ profile`, then set `PYTHON_ROOT` and `NDK_ROOT` in `~/.bash_profile`, because these two environment variables will be used directly in the python file that will be executed later.
 
@@ -73,9 +73,9 @@ After the above steps, all the files under **cocos/bindings/auto** will be autom
 
 The following is an example of how the TS layer prints logs by calling the Native layer log method through JSB, and how to implement the auto-binding tool to generate the corresponding auto-binding files based on the C++ code written.
 
-## Writing the c++ layer implementation
+## Writing the C++ layer implementation
 
-C++ is the bridge between Typescript and Native layers. To implement JSB calls, the first step is to prepare the header files and implementation for the C++ layer.
+C++ is the bridge between TypeScript and Native layers. To implement JSB calls, the first step is to prepare the header files and implementation for the C++ layer, here we create a `test` folder in `cocos` directory to store the relevant files:
 
 ![](jsb/store-file.png)
 
