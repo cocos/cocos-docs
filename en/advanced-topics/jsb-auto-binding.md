@@ -46,7 +46,7 @@ Auto-binding, to put it simply, is a matter of executing a python script to auto
     sudo pip3 install Cheetah3
     ```
 
-3. Install the NDK, which is definitely essential when it comes to C++. It is recommended to install the [Android NDK r16b](https://developer.android.com/ndk/downloads/older_releases?hl=zh-cn) version, set the `PYTH_profile` in `~/.bash_ profile`, then set `PYTHON_ROOT` and `NDK_ROOT` in `~/.bash_profile`, because these two environment variables will be used directly in the python file that will be executed later.
+3. Install the NDK, which is definitely essential when it comes to C++. It is recommended to install the [Android NDK r16b](https://github.com/android/ndk/wiki/Unsupported-Downloads#r16b) version, set the `PYTH_profile` in `~/.bash_ profile`, then set `PYTHON_ROOT` and `NDK_ROOT` in `~/.bash_profile`, because these two environment variables will be used directly in the python file that will be executed later.
 
     ```shell
     export NDK_ROOT=/Users/kevin/android-ndk-r16b
