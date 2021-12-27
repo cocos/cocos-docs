@@ -366,7 +366,7 @@ SE_BIND_FUNC(foo)
 
 ## Does The Abstraction Layer Depend on Cocos Creator?
 
-**No**.
+**No, it doesn't.**
 
 This abstraction layer was originally designed as a stand-alone module which is completely independent of Cocos Creator engine. Developers can copy the abstraction layer code in `cocos/scripting/jswrapper` directory and paste them to other projects directly.
 
