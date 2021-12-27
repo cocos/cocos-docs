@@ -87,9 +87,9 @@
 
 - **MAX_LABEL_CANVAS_POOL_SIZE**：设置 Label 使用的 Canvas 对象池的最大数量，请根据项目同场景的 Label 数量进行调整。
 
-- **ENABLE_WEBGL_HIGHP_STRUCT_VALUES**：是否开启 WebGL 在片元着色器中定义的结构体内部变量使用highp精度。在安卓+WebGL平台上，这些变量都只有mediump精度，可能导致一些需要高精度的数据（如位置信息）计算出现错误结果。
-    - 如果开启，在片元着色器代码中需要使用HIGHP_VALUE_STRUCT_DEFINE宏来定义结构体变量，使用HIGHP_VALUE_TO_STRUCT_DEFINED和HIGHP_VALUE_FROM_STRUCT_DEFINED在结构体变量和非结构体变量之间赋值。
-    - 关于这些宏调用的具体信息与代码可以参考 **packing.chunk**（[GitHub](https://github.com/cocos-creator/engine/blob/develop/editor/assets/chunks/packing.chunk#L40) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/develop/editor/assets/chunks/packing.chunk#L40)）。
+- **ENABLE_WEBGL_HIGHP_STRUCT_VALUES**：在带有 WebGL 后端的 Android 平台上，片元着色器中定义的结构体内部变量使用的是 mediump 精度，可能会导致一些需要高精度的数据（如位置信息）计算出现错误结果。可以通过勾选该项（v3.4.1 新增），开启 WebGL 使用 highp 精度计算变量来避免该问题。
+    - 若开启该项，在片元着色器代码中需要使用 `HIGHP_VALUE_STRUCT_DEFINE` 宏来定义结构体变量，使用 `HIGHP_VALUE_TO_STRUCT_DEFINED` 和 `HIGHP_VALUE_FROM_STRUCT_DEFINED` 在结构体变量和非结构体变量之间赋值。
+    - 关于上述宏调用的具体信息与代码，详情请参考 **packing.chunk**（[GitHub](https://github.com/cocos-creator/engine/blob/v3.4.1/editor/assets/chunks/packing.chunk#L40) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/v3.4.1/editor/assets/chunks/packing.chunk#L40)）。
 
 - **Custom Macro**：用于自定义宏配置，为当前项目脚本提供一个宏标记的功能，便于可视化配置。点击下方的 **+** 按钮即可添加新的宏配置，将鼠标悬浮在已添加的宏配置上，左侧会显示 **删除** 和 **修改** 按钮，分别用于删除/重命名当前宏配置。
 
