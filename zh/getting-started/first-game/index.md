@@ -466,7 +466,7 @@ public startMenu: Node | null = null;
 
 ### 增加状态切换代码
 
-增加状态切换代码并修改 GameManger 脚本的初始化方法：
+增加状态切换代码并修改 GameManager 脚本的初始化方法：
 
 ```ts
 start () {

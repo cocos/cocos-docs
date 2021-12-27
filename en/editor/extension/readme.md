@@ -2,7 +2,7 @@
 
 This section focuses on extending the editor, including the following:
 
-- [Extension Manager](./extension-manger.md)
+- [Extension Manager](./extension-manager.md)
 - [The First Extension](./first.md)
 - [First Panel](./first-panel.md)
 - [First Data Interaction](./first-communication.md)
