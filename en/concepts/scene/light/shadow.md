@@ -36,7 +36,7 @@ The Planar shadow type is generally used for simpler scenes.
 | :--- | :--- |
 | **Enabled** | Whether to enable shadow effect |
 | **Type** | Shadow type |
-| **Saturation**  | Set the shadow saturation  |
+| **Saturation**  | Set the shadow saturation, it is recommended to set as **1**. If need to reduce the saturation of the directional light shadows, we recommend to do it by increasing the ambient light instead of adjusting this value  |
 | **ShadowColor** | Shadow color |
 | **Normal** | The normal line perpendicular to the shadow, used to adjust the slope of the shadow |
 | **Distance** | The distance of the shadow in the direction of the normal to the origin of the coordinate |
@@ -55,7 +55,7 @@ ShadowMap renders the scene with the lights as the viewpoint. From the position 
 | :--- | :--- |
 | **Enabled**         | Whether to enable the shadow effect. |
 | **Type**            | Choose the shadow type. |
-| **Saturation**      | Set the shadow saturation.  |
+| **Saturation**      | Set the shadow saturation, it is recommended to set as **1**. If need to reduce the saturation of the directional light shadows, we recommend to do it by increasing the ambient light instead of adjusting this value.  |
 | **Pcf**             | Set the anti-aliasing level of the shadow edge, currently including **HARD**, **SOFT**, **SOFT_2X**. Please refer to the section **PCF Soft Shadow** below for details.  |
 | **MaxReceived**     | The maximum number of lights supported for shadow generation, default is 4, can be adjusted as needed.  |
 | **Bias**            | Set the shadow offset value to prevent z-fitting. |
@@ -66,7 +66,7 @@ ShadowMap renders the scene with the lights as the viewpoint. From the position 
 | **FixedArea**       | Set whether to manually set the following properties to control the range of shadow effects displayed within the visible range of the Camera, as described in the **FixedArea Mode** section below. |
 | **Near**            | Set the near clipping plane of the main lights shadow camera. |
 | **Far**             | Set the far clipping plane of the main lights shadow camera. |
-| **OrthoSize**       | Set the ortho viewport size of the main lights shadow camera. |
+| **OrthoSize**       | Set the ortho viewport size of the main lights shadow camera, with the shadow quality inversely proportional to the size of this value. |
 
 > **Note**: starting with v3.3, the **Linear** and **Packing** options for Shadows in the **Inspector** panel have been removed, and Creator will automatically determine the hardware capabilities and choose the best way to render the shadows.
 
@@ -85,7 +85,7 @@ Cocos Creator currently supports **hard sampler (HARD mode)**, **4x sampler (SOF
 FixedArea mode is used to set whether to manually control the range of shadow effects displayed within the visible range of the Camera:
 
 - If this option is unchecked (default), the engine uses the same crop process and camera calculations as CSM (Cascaded Shadow Maps), calculating the range of shadows generated based on the orientation and position of the Camera.
-- If this option is checked, the range of shadow generation is controlled according to the `Near`, `Far`, and `OrthoSize` properties set manually.
+- If this option is checked, the range of shadow generation is controlled according to the `Near`, `Far`, and `OrthoSize` properties set manually. The shadows follow the position of the directional light nodes and are distributed around the directional light bounding box, rather than following the camera.
 
 ## Support dynamic batching to improve performance
 

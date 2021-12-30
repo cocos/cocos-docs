@@ -2,8 +2,6 @@
 
 The skybox in a video game is a cube that wraps around the entire scene and can render and display the entire scene environment very well. The Skybox can also contribute very important IBL ambient lighting the in PBR-based workflow.
 
-![skybox](skybox/Skybox.png)
-
 ## Enable Skybox
 
 Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property in the **Skybox** component of the **Inspector** panel to enable the skybox.
@@ -17,7 +15,6 @@ The **Skybox** component properties are as follows:
 | **Enabled** | Whether to enable skybox |
 | **UseIBL** | Whether to use ambient lighting |
 | **Envmap** | Environment map, TextureCube type, see below for details on how to set it. <br>When this property is empty, the skybox uses and displays pixel mapping by default |
-| **IsRGBE** | Whether the pixel format of the environment map is RGBE |
 
 ## Set the Environment Map of the Skybox
 
@@ -59,11 +56,11 @@ To use a CubeMap as the environment map for the skybox, you need to create a Cub
 
 1. Select all the six prepared texture assets in the **Assets** panel, and then set the **Type** property of these texture assets to **texture** in the **Inspector** panel, and click the green checkbox in the upper right corner.
 
-   ![cubemap-texture-type](skybox/cubemap-texture-type.png)
+   ![cubeMap-texture-type](skybox/cubemap-texture-type.png)
 
-2. Create a new CubeMap asset. Select the folder where you want to store CubeMap in the **Assets** panel, click the **+** button in the upper left corner, and then select **Cubemap**. Or you can right-click the folder where you want to store the CubeMap, and select **New -> Cubemap**.
+2. Create a new CubeMap asset. Select the folder where you want to store CubeMap in the **Assets** panel, click the **+** button in the upper left corner, and then select **CubeMap**. Or you can right-click the folder where you want to store the CubeMap, and select **New -> CubeMap**.
 
-   ![create Cubemap](skybox/create-cubemap.png)
+   ![create CubeMap](skybox/create-cubemap.png)
 
 3. Drag and drop the six images you just set as texture type into the corresponding property box of the CubeMap, and click the green tick button on the top right then you are done.
 
