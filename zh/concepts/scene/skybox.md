@@ -114,7 +114,7 @@ Creator 支持以下两种方式的环境漫反射照明，可通过是否勾选
 
 通过下面的 GIF 图可以更明显地看到对比：
 
-![Compare](skybox/Compare.gif)
+![Compare](skybox/compare.gif)
 
 > **注意**：
 >
