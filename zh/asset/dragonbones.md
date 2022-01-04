@@ -1,6 +1,6 @@
 # 骨骼动画资源（DragonBones）
 
-DragonBones 骨骼动画资源是由 [DragonBones 编辑器](http://dragonbones.com/) 导出的数据格式（支持 DragonBones v5.6.2 及以下）。
+DragonBones 骨骼动画资源是由 [DragonBones 编辑器](http://dragonbones.com/) 导出的数据格式（支持 DragonBones v5.6.3 及以下）。
 
 ## 导入 DragonBones 骨骼动画资源
 
