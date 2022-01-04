@@ -31,13 +31,13 @@
 - 原代码如下：
 
     ```ts
-    finalColor = CC_APPLY_FOG(finalColor);
+    CC_APPLY_FOG(finalColor);
     ```
 
 - 升级到 v3.4 后需要改成：
 
     ```ts
-    finalColor = CC_APPLY_FOG(finalColor, v_position.xyz);
+    CC_APPLY_FOG(finalColor, v_position.xyz);
     ```
 
 ## 全局雾类型
@@ -116,6 +116,6 @@
 | **FogTop**     | 模型顶点在世界坐标系垂直方向上的位置，小于该位置时所有的顶点都会受到雾效效果的影响   |
 | **FogRange**   | 雾化效果从设置的 **FogTop** 向下所影响的范围 |
 
-层雾的雾效计算相比前面三种雾效类型稍显复杂，引入了 `FogTop` 的概念，同时还需要在 **X-Z** 平面进行距离计算。
+层雾的雾效计算相比其他三种雾效类型稍显复杂，引入了 `FogTop` 的概念，同时还需要在 **X-Z** 平面进行距离计算。
 
 层雾在现实中还是比较常见的，高耸入云的山脉和建筑物都有它的身影，如果能合理利用，相信对场景展现效果有不错的提升，但与此同时计算量也会有一定的增大，开发者可根据需要决定是否使用。

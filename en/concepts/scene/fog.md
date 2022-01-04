@@ -31,13 +31,13 @@ When the old project was upgraded to v3.4, all the Effect code that calls to `CC
 - The original code is as follows:
 
     ```ts
-    finalColor = CC_APPLY_FOG(finalColor);
+    CC_APPLY_FOG(finalColor);
     ```
 
 - After upgrading to v3.4, the original code needs to be changed to the following:
 
     ```ts
-    finalColor = CC_APPLY_FOG(finalColor, v_position.xyz);
+    CC_APPLY_FOG(finalColor, v_position.xyz);
     ```
 
 ## Types of Global Fog
@@ -114,6 +114,6 @@ Layered Fog is parallel to the horizontal plane and has a specific height. The h
 | **FogTop**   | The position of the model vertices in the vertical direction of the world coordinate system, below which all vertices will be affected by the fog effect. |
 | **FogRange** | The range of the fog effect from the set **FogTop** downwards. |
 
-The fog calculation of Layered Fog is a bit more complicated than the previous three fog types, as it introduces the concept of `FogTop` and also requires distance calculation in the **X-Z** plane.
+The fog calculation of Layered Fog is a bit more complicated than the other three fog types, as it introduces the concept of `FogTop` and also requires distance calculation in the **X-Z** plane.
 
 Layered Fog is more common in reality, with towering mountains and buildings. If it is used wisely, it is believed to have a good effect on scene presentation, but at the same time, the computation will be increased, developers can decide according to their needs.
