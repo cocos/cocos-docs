@@ -36,7 +36,7 @@ The Planar shadow type is generally used for simpler scenes.
 | :--- | :--- |
 | **Enabled** | Whether to enable shadow effect |
 | **Type** | Shadow type |
-| **Saturation**  | Set the shadow saturation, it is recommended to set as **1**. If need to reduce the saturation of the directional light shadows, we recommend to do it by increasing the ambient light instead of adjusting this value  |
+| **Saturation**  | Set the shadow saturation, it is recommended to set it as **1**. If it is necessary to reduce the saturation of the directional light shadows, it is recommended to do it by increasing the ambient light instead of adjusting this value  |
 | **ShadowColor** | Shadow color |
 | **Normal** | The normal line perpendicular to the shadow, used to adjust the slope of the shadow |
 | **Distance** | The distance of the shadow in the direction of the normal to the origin of the coordinate |
@@ -55,7 +55,7 @@ ShadowMap renders the scene with the lights as the viewpoint. From the position 
 | :--- | :--- |
 | **Enabled**         | Whether to enable the shadow effect. |
 | **Type**            | Choose the shadow type. |
-| **Saturation**      | Set the shadow saturation, it is recommended to set as **1**. If need to reduce the saturation of the directional light shadows, we recommend to do it by increasing the ambient light instead of adjusting this value.  |
+| **Saturation**      | Set the shadow saturation. It is recommended to set as **1**. If it is necessary to reduce the saturation of the directional light shadows, it is recommended to do it by increasing the ambient light instead of adjusting this value.  |
 | **Pcf**             | Set the anti-aliasing level of the shadow edge, currently including **HARD**, **SOFT**, **SOFT_2X**. Please refer to the section **PCF Soft Shadow** below for details.  |
 | **MaxReceived**     | The maximum number of lights supported for shadow generation, default is 4, can be adjusted as needed.  |
 | **Bias**            | Set the shadow offset value to prevent z-fitting. |

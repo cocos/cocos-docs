@@ -2,7 +2,7 @@
 
 Global fog is used to simulate fog effects in outdoor environments in games. In addition to fog effects in the game, it can also be used to hide the model outside the camera's far clipping plane to improve the rendering performance.
 
-The global fog currently includes four types: Linear Fog, Exponential Fog, Exponential Squared Fog, and Layer Fog, please refer to the **Global Fog Types** section below for more details.
+The global fog currently includes four types: Linear Fog, Exponential Fog, Exponential Squared Fog, and Layer Fog, please refer to the **Global Fog Types** section below for additional details.
 
 ## Enable Global Fog
 
@@ -12,21 +12,21 @@ Check **Scene** in the **Hierarchy** panel, then check the **Enabled** property 
 
 ## Accurate Fog Computing
 
-Before v3.4, Creator used vertex fog by default, which caused unusual fog transitions on objects with a few vertices and a large volume. So starting with v3.4, Creator added the **Accurate** option to enable pixel fog to solve this problem.
+Prior to v3.4, Creator used vertex fog by default, which caused unusual fog transitions on objects with a few vertices and a large volume. Starting with v3.4, Creator added the **Accurate** option to enable pixel fog to solve this problem.
 
 ![accurate](./fog/accurate.png)
 
-The effect when the **Accurate** option is unchecked, that is, the pixel fog is not enabled, is as follows:
+The effect when the **Accurate** option is unchecked, i.e., the pixel fog is not enabled, is as follows:
 
 ![accuracy_off](./fog/accuracy_off.png)
 
-The effect when the **Accurate** option is checked, that is, the pixel fog is enable, is as follows:
+The effect when the **Accurate** option is checked, i.e., the pixel fog is enabled, is as follows:
 
 ![accuracy_on](./fog/accuracy_on.png)
 
 ### Version Upgrade - `Effect` Migration
 
-When the old project was upgraded to v3.4, all the Effect code that calls to `CC_APPLY_FOG` needed to be modified to add a second parameter, `worldPos`. e.g.:
+When a project is upgraded to v3.4, all the Effect code that calls to `CC_APPLY_FOG` needs to be modified to add a second parameter, `worldPos`. e.g.:
 
 - The original code is as follows:
 
