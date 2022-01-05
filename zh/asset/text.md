@@ -30,6 +30,7 @@ export class ItemTemplate extends Component {
 ```
 
 保存脚本内容后回到编辑器，将脚本挂载到相应的节点上，然后将 **资源管理器** 中的文本资源拖拽到脚本组件相应的属性框中。例如下图：
+
 ![text](text/text.png)
 
 ### 通过代码动态加载
