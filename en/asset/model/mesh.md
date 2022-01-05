@@ -59,7 +59,7 @@ When the model asset file (`.fbx` or `.gltf`) is selected in the __Assets__ pane
 | :--- | :--- |
 | Normals | Normals import setting, including the following four options:<br>1. **Optional**: Import normals only if the model file contains normals.<br>2. **Exclude**: Do not import normals.<br>3. **Required**: Import normals that are contained in the model file, or recalculate if not contained. It is recommended to use this option if the model data itself is fine, without additional processing.<br>4. **Recalculate**: Recalculate normals and import, ignoring whether if the model file contain normals. Selecting this option will increase the calculated amount, but it will eliminate the subsequent problems caused by the absence of normalization of the model's original normal data. |
 | Tangents | Tangents import setting, including Optional, Exclude, Require and Recalculate four options, option feature can refer to the description of **Normals**, the two are not very different. |
-| Morph Normals | Import the deformation normal information, including: <br>Optional: Import only the deformation normals contained in the model file, for cases where you know your model data very well.<br>Exclude: Not to import deformation normals. |
+| Morph Normals | Import the deformation normal information, including: <br>**Optional**: Import only the deformation normals contained in the model file, for cases where you know your model data very well.<br>**Exclude**: Not to import deformation normals. |
 | Skip Validation | Skip validation of the model file. |
 | Disable mesh split | Currently there is a joint-counting-based mesh splitting process during the import pipeline to workaround the max uniform vector limit problem for real-time calculated skeletal animation system on many platforms. This process has a preference impact on other runtime system too. So if it can be pre-determined that the real-time calculated skeletal animations (when `useBakedAnimation` option of the **SkeletalAnimation** component is unchecked) will not be used, this option can be checked to improve preference. But note that toggling this would update the corresponding prefab, so all the references in the scene should be updated as well to accompany that. This process will be removed in further refactors. |
 | Mesh Optimizer | Used to split the model. Generally, the number of bones in a single model is limited, so if there are too many bones, you can split them into multiple models with this option. |
@@ -82,9 +82,8 @@ The top half of the properties are described below, while the bottom half shows 
 
 | Property | Description |
 | :--- | :--- |
-| DumpMaterial | It is possible to customize or modify the material that comes with the model file. Enable this option to dump the material files in the file structure directory out of the model assets for modifying the materials. |
-| Dumper Directory | Specify or view the directory location for the dumped files. |
-
+| Dump material | It is possible to customize or modify the material that comes with the model file. Enable this option to dump the material files in the file structure directory out of the model assets for modifying the materials. |
+| Material dumper directory | Specify or view the directory location for the dumped files. |
 | Use vertex colors | Whether to use vertex colors. |
 | Depth-write if blending | Enable depth-write when Alpha mode is **Blend**. |
 
@@ -94,7 +93,6 @@ The top half of the properties are described below, while the bottom half shows 
 
 | Property | Description |
 | :--- | :--- |
-| Compatible with v1.x | If this option is checked, the import of models will be compatible with Cocos Creator 3D version 1.x. **Note**: enabling this option may affect assets that have already been imported and are used/referenced. |
 | Animation Baking Rate | Units are **frames per second** and options include **auto**, **24**, **25**, **30** and **60**. |
 | Promote single root node | When this option is enabled, if the FBX asset contains a scene with only one root node, that root node will be used as the root node of the prefab when converting the FBX scene to a Creator's prefab. Otherwise, the FBX scene will be used as the root node. |
 | Prefer Local Time Span | If this option is checked, imported FBX animations will use the animation time range recorded in the FBX file as a priority. <br>If this option is not checked, the animation time range from the FBX will not be used, and the animation time range will be calculated roughly. <br>Some FBX tools may not export animation time range information, so the animation time range is also calculated roughly. |
