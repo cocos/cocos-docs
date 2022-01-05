@@ -87,7 +87,7 @@ The top half of the properties are described below, while the bottom half shows 
 | Use vertex colors | Whether to use vertex colors. |
 | Depth-write if blending | Enable depth-write when Alpha mode is **Blend**. |
 
-### FBX 模块
+### FBX Module
 
 ![mesh material](mesh/mesh_fbx.png)
 
