@@ -1,43 +1,28 @@
-# Cross-platform Game Publish
+# Cross-Platform Game Publishing
 
-Cocos Creator supports all major platforms in depth, games can be quickly published to Web, iOS, Android, Windows, Mac, and various mini-game platforms, truly realizing one development and running on all platforms.
+Cocos Creator currently supports publishing games to the Web, iOS, Android, Windows, Mac, and various mini-game platforms. Developers can develop on one platform and deploy on all supported platforms.
 
-## Preparation Work
+## Preparation
 
-The game project can be published when it is developed normally and the preview results meet the requirements. The preparation work that need to be done before publishing includes:
+The preparation that needs to be done before publishing includes getting familiar with following concepts:
 
-- [About the Build Panel](build-panel.md)
+- [Build Panel](build-panel.md)
 - [Build Options](build-options.md)
 
-## Publishing Platform
+## Publishing Platforms
 
-Currently, Cocos Creator supports publishing to the following platforms:
+Currently, Cocos Creator supports publishing to Web, Native and mini-game platforms. Please refer to the following documentation for details:
 
-- [Publish to Web Platforms](publish-web.md)
-- [Publish to Native Platforms](native-options.md)
-    - [Setup Native Development Environment](setup-native-development.md)
-    - [Debugging JavaScript on Native Platforms](debug-jsb.md)
+- [Publish to Web platforms](publish-web.md)
+- [Publish to Native platforms](native-options.md)
 - [Publish to Mini Game Platforms](publish-mini-game.md)
-    - [Publish to HUAWEI AppGallery Connect](publish-huawei-agc.md)
-    - [Publish to Alipay Mini Games](publish-alipay-mini-game.md)
-    - [Publish to ByteDance Mini Games](publish-bytedance-mini-game.md)
-    - [Publish to Cocos Play](publish-cocos-play.md)
-    - [Publish to Huawei Quick Games](publish-huawei-quick-game.md)
-    - [Publish to OPPO Mini Games](publish-oppo-mini-game.md)
-    - [Publish to vivo Mini Games](publish-vivo-mini-game.md)
-    - [Publish to Xiaomi Quick Games](publish-xiaomi-quick-game.md)
-    - [Publish to Baidu Mini Games](publish-baidu-mini-game.md)
-    - [Publish to WeChat Mini Games](publish-wechatgame.md)
-        - [WeChat Engine Plugin](wechatgame-plugin.md)
-        - [Access to the WeChat PC Mini Games](publish-pc-wechatgame.md)
-    - [Access to Open Data Context](build-open-data-context.md)
 
-Developers can also publish game projects via the command line, see [Publish from the Command Line](publish-in-command-line.md) for details.
+Developers can also publish projects via the command line. For details, please refer to the [Publish from the Command Line](publish-in-command-line.md) documentation.
 
-## Advanced Topics
+## Advanced
 
-If you have some degree of familiarity and understanding of the build process, you can customize the build templates, extend the build process, etc. For more details, please refer to the following documentation:
+If you have a certain degree of familiarity and understanding of the build process, it is possible customize the build template and extend the build process. For details, please refer to the following documents:
 
-- [Build Process Introduction & FAQ](build-guide.md)
+- [Introduction to the Build Process and FAQ](build-guide.md)
 - [Custom Project Build Process](custom-project-build-template.md)
-- [Extend the Build Process](custom-build-plugin.md)
+- [Extended Build Process](custom-build-plugin.md)

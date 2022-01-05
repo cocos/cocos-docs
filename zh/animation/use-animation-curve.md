@@ -210,7 +210,7 @@ Cocos Creator 允许将该比例映射为另一个比例，以实现不同的“
 
     - 若曲线值的类型为 `number`、`Number`，将应用线性插值；
     - 若曲线值继承自 `ValueType`，将调用 `ValueType` 的 `lerp` 函数完成插值。Cocos Creator 内置的大多数值类型的 `lerp` 方法都是实现为线性插值，例如 `Vec3` 、`vec4` 等；
-    - 若曲线值是 [可插值的](__APIDOC__/zh/interfaces/animation.ilerpable.html)，将调用曲线值的 `lerp` 函数完成插值<sup id="a2">[2](#f2)</sup>。
+    - 若曲线值是 [可插值的](__APIDOC__/zh/interfaces/animation.ilerpable.html)，将调用曲线值的 `lerp` 函数完成插值[^1]。
 
 - 若曲线值不满足上述任何条件，或当曲线数据的 `interpolate` 属性为 `false` 时，将不会进行插值操作，而是永远使用前一帧的曲线值作为结果。
 
@@ -330,5 +330,4 @@ Cocos Creator 允许将该比例映射为另一个比例，以实现不同的“
 
 更多循环模式，详情请参考 API [WrapMode](__APIDOC__/zh/enums/animation.wrapmode.html) 以及文档 [循环模式与循环次数](./animation-state.md#%E5%BE%AA%E7%8E%AF%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0)。
 
-<b id="f1">1</b> 动画剪辑的所在节点是指引用该动画剪辑的动画状态对象所在动画组件所附加的节点。 [↩](#a1)<br>
-<b id="f2">2</b> 对于数值、四元数以及各种向量，Cocos 提供了相应的可插值类以实现 [三次样条插值](https://en.wikipedia.org/wiki/Spline_interpolation)。 [↩](#a2)
+[^1]: 对于数值、四元数以及各种向量，Cocos Creator 提供了相应的可插值类以实现 [三次样条插值](https://en.wikipedia.org/wiki/Spline_interpolation)。

@@ -7,12 +7,12 @@ The following are the coding standards that the Cocos Creator development team u
 - When naming the variables, functions and instances, we use camelCase nomenclature:
 
     ```ts
-    // bad
+    // Bad
     const FOOBar = {};
     const foo_bar = {};
     function FOOBar () {}
 
-    // good
+    // Good
     const fooBar = {};
     function fooBar () {}
     ```
@@ -20,12 +20,12 @@ The following are the coding standards that the Cocos Creator development team u
 - When variable, function, and instance naming involves abbreviations, the abbreviations are all lowercase at the beginning, and all uppercase in subsequent words:
 
     ```ts
-    // bad
+    // Bad
     const Id = 0;
     const iD = 0;
     function requireId () {}
     
-    // good
+    // Good
     const id = 0;
     const uuid = '';
     function requireID () {}
@@ -35,14 +35,14 @@ The following are the coding standards that the Cocos Creator development team u
 - When naming types or modules, use PascalCase nomenclature:
 
     ```ts
-    // bad
+    // Bad
     const foobar = cc.Class({
         foo: 'foo',
         bar: 'bar',
     });
     const foobar = require('foo-bar');
 
-    // good
+    // Good
     const FooBar = cc.Class({
         foo: 'foo',
         bar: 'bar',
@@ -53,31 +53,31 @@ The following are the coding standards that the Cocos Creator development team u
 - It is recommended to use full uppercase underline to name “constants”:
 
     ```ts
-    // bad
+    // Bad
     const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
 
-    // bad
+    // Bad
     var THING_TO_BE_CHANGED = 'should obviously not be uppercased';
 
-    // bad
+    // Bad
     let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
 
     // ---
 
-    // allowed but does not supply semantic value
+    // Allowed but does not supply semantic value
     export const apiKey = 'SOMEKEY';
 
-    // better in most cases
+    // Better in most cases
     export const API_KEY = 'SOMEKEY';
 
     // ---
 
-    // bad - unnecessarily uppercases key while adding no semantic value
+    // Bad - unnecessarily uppercases key while adding no semantic value
     export const MAPPING = {
         KEY: 'value'
     };
 
-    // good
+    // Good
     export const Type = {
         SIMPLE: 'value'
     };
@@ -86,11 +86,11 @@ The following are the coding standards that the Cocos Creator development team u
 - Use underscores `_` when naming private attributes:
 
     ```ts
-    // bad
+    // Bad
     this.__firstName__ = 'foobar';
     this.firstName_ = 'foobar';
 
-    // good
+    // Good
     this._firstName = 'foobar';
     ```
 
@@ -110,7 +110,7 @@ The following are the coding standards that the Cocos Creator development team u
 - When a class has a property declaration without initialization style, `declare` should be declared, otherwise may face performance problems. Please refer to [this issue](https://github.com/cocos-creator/3d-tasks/issues/2848) for details.
 
     ```typescript
-    // bad
+    // Bad
     class A {
         public a: number;
         constructor (a : number) {
@@ -120,7 +120,7 @@ The following are the coding standards that the Cocos Creator development team u
         }
     }
     
-    // good
+    // Good
     class A {
         public a: number = 0; // Ok.
         constructor (a : number) {
@@ -130,7 +130,7 @@ The following are the coding standards that the Cocos Creator development team u
         }
     }
 
-    // best
+    // Best
     class A {
         public declare a: number;
         public b: undefined | object; // OK: b No secondary assignment in the constructor.
@@ -146,49 +146,49 @@ The following are the coding standards that the Cocos Creator development team u
 - Use `Object.create(null)` to create an object:
 
     ```ts
-    // bad
+    // Bad
     const obj = new Object();
 
-    // bad
+    // Bad
     const obj = {};
 
-    // good
+    // Good
     const obj = Object.create(null);
     ```
 
 - Use `[]` to create an array:
 
     ```ts
-    // bad
+    // Bad
     const array = new Array();
 
-    // good
+    // Good
     const array = [];
     ```
 
 - Try your best to use single quotation marks `''` to define a string in TypeScript code:
 
     ```ts
-    // bad
+    // Bad
     const str = "Hello World";
 
-    // good
+    // Good
     const str = 'Hello World';
     ```
 
 - When defining multi-lines string, try your best to use `+`:
 
     ```ts
-    // bad
+    // Bad
     const errorMessage = 'This is a super long error that was thrown out because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
-    // bad
+    // Bad
     const errorMessage = 'This is a super long error that was thrown out because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
-    // good
+    // Good
     const errorMessage = 'This is a super long error that was thrown out because ' +
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
@@ -201,22 +201,22 @@ The following are the coding standards that the Cocos Creator development team u
 - Choose quadruple spacing or double spacing for indentation according to your own habits and the primary code writer's format:
 
     ```js
-    // bad
+    // Bad
     function() {
     ∙const name;
     }
 
-    // very bad
+    // Very bad
     function() {
     ∙∙<tab>∙∙const name;
     }
 
-    // good
+    // Good
     function() {
     ∙∙const name;
     }
 
-    // good
+    // Good
     function() {
     ∙∙∙∙const name;
     }
@@ -225,13 +225,13 @@ The following are the coding standards that the Cocos Creator development team u
 - Do not leave spaces at the end of the line. Leave an empty line at the bottom of the file:
 
     ```js
-    // bad
+    // Bad
     function () {∙
     ∙∙∙∙const name;∙
     }
     /* EOF */
 
-    // good
+    // Good
     function () {
     ∙∙∙∙const name;
     }
@@ -242,37 +242,37 @@ The following are the coding standards that the Cocos Creator development team u
 - Please add `;` at the end of the statement:
 
     ```js
-    // bad
+    // Bad
     proto.foo = function () {
     }
 
-    // good
+    // Good
     proto.foo = function () {
     };
 
-    // bad
+    // Bad
     function foo () {
         return 'test'
     }
 
-    // very bad
-    //   returns `undefined` instead of the value on the next line,
-    //   always happens when `return` is on a line by itself because of Automatic Semicolon Insertion!
+    // Very bad
+    //   Returns `undefined` instead of the value on the next line,
+    //   Always happens when `return` is on a line by itself because of Automatic Semicolon Insertion!
     function foo () {
         return
             'test'
     }
 
-    // good
+    // Good
     function foo () {
         return 'test';
     }
 
-    // bad
+    // Bad
     function foo () {
     };
 
-    // good, this is not the end of the statement
+    // Good, this is not the end of the statement
     function foo () {
     }
     ```
@@ -280,32 +280,32 @@ The following are the coding standards that the Cocos Creator development team u
 - Try to put `{` and the expression in the same line:
 
     ```js
-    // bad
+    // Bad
     if ( isFoobar )
     {
     }
 
-    // good
+    // Good
     if ( isFoobar ) {
     }
 
-    // bad
+    // Bad
     function foobar()
     {
     }
 
-    // good
+    // Good
     function foobar() {
     }
 
-    // bad
+    // Bad
     const obj =
     {
         foo: 'foo',
         bar: 'bar',
     }
 
-    // good
+    // Good
     const obj = {
         foo: 'foo',
         bar: 'bar',
@@ -315,7 +315,7 @@ The following are the coding standards that the Cocos Creator development team u
 - Put a space before `{`:
 
     ```js
-    // bad
+    // Bad
     if (isJedi){
         fight();
     }
@@ -323,20 +323,20 @@ The following are the coding standards that the Cocos Creator development team u
         escape();
     }
 
-    // good
+    // Good
     if (isJedi) {
         fight();
     } else {
         escape();
     }
 
-    // bad
+    // Bad
     dog.set('attr',{
         age: '1 year',
         breed: 'Bernese Mountain Dog',
     });
 
-    // good
+    // Good
     dog.set('attr', {
         age: '1 year',
         breed: 'Bernese Mountain Dog',
@@ -346,7 +346,7 @@ The following are the coding standards that the Cocos Creator development team u
 - Please put a space before `(` of the logic state expressions ( `if`, `else`, `while`, `switch`):
 
     ```js
-    // bad
+    // Bad
     if(isJedi) {
         fight ();
     }
@@ -354,7 +354,7 @@ The following are the coding standards that the Cocos Creator development team u
         escape();
     }
 
-    // good
+    // Good
     if (isJedi) {
         fight();
     } else {
@@ -365,19 +365,19 @@ The following are the coding standards that the Cocos Creator development team u
 - Leave one space between the binary ternary operators:
 
     ```js
-    // bad
+    // Bad
     const x=y+5;
     const left = rotated? y: x;
 
-    // good
+    // Good
     const x = y + 5;
     const left = rotated ? y : x;
 
-    // bad
+    // Bad
     for (let i=0; i< 10; i++) {
     }
 
-    // good
+    // Good
     for (let i = 0; i < 10; i++) {
     }
     ```
@@ -385,22 +385,22 @@ The following are the coding standards that the Cocos Creator development team u
 - The way some functions are declared:
 
     ```js
-    // bad
+    // Bad
     const test = function () {
         console.log('test');
     };
 
-    // good
+    // Good
     function test () {
         console.log('test');
     }
 
-    // bad
+    // Bad
     function divisibleFunction () {
         return DEBUG ? 'foo' : 'bar';
     }
 
-    // good
+    // Good
     const divisibleFunction = DEBUG ?
         function () {
             return 'foo';
@@ -409,53 +409,53 @@ The following are the coding standards that the Cocos Creator development team u
             return 'bar';
         };
 
-    // bad
+    // Bad
     function test(){
     }
 
-    // good
+    // Good
     function test () {
     }
 
-    // bad
+    // Bad
     const obj = {
         foo: function () {
         }
     };
 
-    // good
+    // Good
     const obj = {
         foo () {
         }
     };
 
-    // bad
+    // Bad
     array.map(x=>x + 1);
     array.map(x => {
         return x + 1;
     });
 
-    // good
+    // Good
     array.map(x => x + 1);
     ```
 
 - Put a space between Block definitions:
 
     ```js
-    // bad
+    // Bad
     if (foo) {
         return bar;
     }
     return baz;
 
-    // good
+    // Good
     if (foo) {
         return bar;
     }
 
     return baz;
 
-    // bad
+    // Bad
     const obj = {
         x: 0,
         y: 0,
@@ -466,7 +466,7 @@ The following are the coding standards that the Cocos Creator development team u
     };
     return obj;
 
-    // good
+    // Good
     const obj = {
         x: 0,
         y: 0,
@@ -484,21 +484,21 @@ The following are the coding standards that the Cocos Creator development team u
 - Do not use a comma to define:
 
     ```js
-    // bad
+    // Bad
     const story = [
           once
         , upon
         , aTime
     ];
 
-    // good
+    // Good
     const story = [
         once,
         upon,
         aTime,
     ];
 
-    // bad
+    // Bad
     const hero = {
           firstName: 'Ada'
         , lastName: 'Lovelace'
@@ -506,7 +506,7 @@ The following are the coding standards that the Cocos Creator development team u
         , superPower: 'computers'
     };
 
-    // good
+    // Good
     const hero = {
         firstName: 'Ada',
         lastName: 'Lovelace',
@@ -518,15 +518,15 @@ The following are the coding standards that the Cocos Creator development team u
 - Single line comments, please add a space after the slash:
 
     ```js
-    //bad
-    // good
+    // Bad
+    // Good
     ```
 
 - Multiline comments:
 
     ```js
     /*
-     * good
+     * Good
      */
     ```
 
@@ -534,7 +534,7 @@ The following are the coding standards that the Cocos Creator development team u
 
     ```js
     /**
-     * good
+     * Good
      */
     ```
 

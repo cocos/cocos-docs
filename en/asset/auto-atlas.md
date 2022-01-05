@@ -1,6 +1,6 @@
 # Auto Atlas
 
-**Auto Atlas** is the picture-combining method that comes as part of __Cocos Creator__. **Auto Atlas** packs a specified series of images into a __sprite sheet__. This capability is very similar to the function of __Texture Packer__.
+**Auto Atlas** is the picture-combining method that comes as part of Cocos Creator. **Auto Atlas** packs a specified series of images into a __sprite sheet__. This capability is very similar to the function of __Texture Packer__.
 
 ## Creating Auto Atlas Assets
 

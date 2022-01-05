@@ -25,7 +25,7 @@
 - [预制资源](prefab.md)
 - [脚本资源](script.md)
 - [字体资源](font.md)
-- [声音资源](audio.md)
+- [音频资源](audio.md)
 - [材质资源](material.md)
 - [模型资源](./model/mesh.md)
     - [从第三方工具导出模型资源](./model/dcc-export-mesh.md)
