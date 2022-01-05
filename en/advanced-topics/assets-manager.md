@@ -75,7 +75,7 @@ It is important to note that the remote information (including `packageUrl`, `re
 
 ### The difference between the assets in the project and the published package
 
-Everyone in the creation of a Cocos Creator project, you can see it catalog under the assets of the catalog, which saved your scenes, scripts, prefab, etc., corresponding to the editor in the assets of the panel. But these engineering assets are not the same as the packaged assets, in the use of building a building to build the original version, we will find the directory to find res and src folder, these two folders are saved really let the game run up Of the game package within the assets. Where src contains all the scripts, res contains all the assets.
+Everyone in the creation of a Cocos Creator project, you can see it catalog under the assets of the catalog, which saved your scenes, scripts, prefab, etc., corresponding to the **Assets** panel in the editor. But these project assets are not the same as the packaged assets. When building the native platform via the **Build** panel, we will find the `assets` folder in the build directory, which saves the game package assets that actually make the game run.
 
 So our asset hot update should naturally update the built assets, not the project's assets directory.
 
