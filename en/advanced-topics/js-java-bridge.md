@@ -78,7 +78,7 @@ public void openAd(String adUrl){
 }
 ```
 
-Register the event to open the ad first:
+Register the event that opens the ad first:
 
 ```JAVA
 JsbBridge.setCallback(new JsbBridge.ICallback() {

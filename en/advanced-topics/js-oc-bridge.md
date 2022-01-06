@@ -68,7 +68,7 @@ static ICallback cb = ^void (NSString* _arg0, MSString* _arg1){
 }
 ```
 
-At this point, register the event to open the ad first:
+At this point, register the event that opens the ad first:
 
 ```ObjC
 JsbBridge* m = [JsbBridge sharedInstance];
