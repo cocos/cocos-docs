@@ -74,7 +74,7 @@ The code example of the interface to open the ad is as follows:
 
 ```JAVA
 public void openAd(String adUrl){
-    //Code to open ad
+    // Code to open ad
 }
 ```
 
@@ -111,7 +111,7 @@ First, define a function to play the animation:
 
 ```ts
 public void playAnimation(animationName: string, isLoop: boolean){
-    //Code to play Animation
+    // Code to play Animation
 }
 ```
 
