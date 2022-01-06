@@ -6,7 +6,7 @@ Prior to v3.4.0, the reflection mechanism in [Using JavaScript to Call Objective
 
 Additionally provided in v3.4.0 is another experimental method for simplifying calls from the scripting layer to the native layer. This is a kind of channel, or a bridge, named `JsbBridge` before introducing other scripting systems, meaning that it serves as a bridge to communicate between script and native APP via the `JSB` binding.
 
-> **Note**: both ways are working fine, developers can choose to use them according to their actual needs. To use the previous way, please review the  [Using JavaScript to Call Objective-C](./oc-reflection.md).
+> **Note**: both ways are working fine, developers can choose to use them according to their actual needs. To use the previous way, please review the  [Using JavaScript to Call Objective-C](./oc-reflection.md) documentation.
 
 ## JavaScript Interface Introduction
 
@@ -60,7 +60,7 @@ typedef void (^ICallback)(NSString*, NSString*);
 
 Assuming the ad interface is set in the native layer, then when the player clicks the button to open the ad, it is logical to trigger `ObjC` to open the ad.
 
-The code example for opening the ad interface is as follows:
+The code example of the interface to open the ad is as follows:
 
 ```ObjC
 static ICallback cb = ^void (NSString* _arg0, MSString* _arg1){
@@ -75,7 +75,7 @@ JsbBridge* m = [JsbBridge sharedInstance];
 [m setCallback:cb];
 ```
 
-Perform the open action on the button click event in the `JavaScript` layer script:
+Perform the open action on the button's click event in the `JavaScript` layer script:
 
 ```ts
 public static onclick(){
@@ -86,7 +86,7 @@ public static onclick(){
 
 This will send the required information to the `ObjC` layer through the `Jsb.Bridge` channel to perform the action of opening the ad.
 
-### Using Objective-C to trigger JavaScript
+### Using Objective-C to trigger JavaScript Callbacks
 
 Assume that the animation playback operation is recorded in JavaScript. To play this animation in the Objective-C layer, register an event to play the animation.
 
@@ -94,7 +94,7 @@ First, define a function to play the animation:
 
 ```ts
 public void playAnimation(animationName: string, isLoop: boolean){
-    //Code to play Animation
+    // Code to play Animation
 }
 ```
 

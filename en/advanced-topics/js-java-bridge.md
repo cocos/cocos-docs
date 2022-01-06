@@ -66,11 +66,11 @@ public class JsbBridge {
 
 ## Basic Usage
 
-### Using JavaScript to Trigger Java
+### Using JavaScript to Trigger Java Methods
 
 Assuming the ad interface is set in the native layer, then when the player clicks the button to open the ad, it is logical to trigger `JAVA` to open the ad.
 
-The code example for opening the ad interface is as follows:
+The code example of the interface to open the ad is as follows:
 
 ```JAVA
 public void openAd(String adUrl){
@@ -92,7 +92,7 @@ JsbBridge.setCallback(new JsbBridge.ICallback() {
     
 ```
 
-Perform the open action on the button click event in `JavaScript`:
+Perform the open action on the button's click event in `JavaScript`:
 
 ```ts
 public static onclick(){
@@ -101,9 +101,9 @@ public static onclick(){
 } 
 ```
 
-This will send the required information to the `Java` layer through the `Jsb.Bridge` channel to perform the action of opening the ad.
+This will send the required information to the `Java` layer through the `Jsb.Bridge` channel.
 
-### Using JAVA to Trigger JavaScript
+### Using JAVA to Trigger JavaScript Methods
 
 Assuming that the animation playback operation is recorded in JavaScript. To play this animation in the Java layer, register an event to play the animation.
 
