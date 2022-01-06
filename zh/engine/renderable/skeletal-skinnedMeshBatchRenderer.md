@@ -1,6 +1,6 @@
 # SkinnedMeshBatchRenderer 组件参考
 
-目前底层上传 GPU 的骨骼纹理已做到全局自动合批复用，上层数据目前可以通过使用 **批量蒙皮网格渲染器组件**（SkinnedMeshBatchRenderer）将同一个骨骼动画组件控制的所有子蒙皮模型合并：
+SkinnedMeshBatchRenderer 就是批量蒙皮网格渲染组件，用于将同一个骨骼动画组件控制的所有子蒙皮模型合并渲染。
 
 ![meshbatch](./skeletal-skinnedMeshRenderer/meshbatch.png)
 
@@ -26,6 +26,4 @@
 
 批量蒙皮网格渲染器组件相关接口请参考 [SkinnedMeshBatchRenderer API](__APIDOC__/zh/#/docs/3.4/zh/3d/Class/SkinnedMeshBatchRenderer)。
 
-合批版 effect 书写相对复杂一点，但基本可以基于子材质使用的普通 effect，加入一些相对直接的预处理和接口改动即可。可参考在编辑器内置资源（`util/batched-unlit`）中提供的合批版 `builtin-unlit`。
-
-> **注意**：只有预烘焙系统下使用批量蒙皮网格渲染器组件可以保证正确性，实时计算框架下虽然也能使用，但当合并后的骨骼数量超过 30 个（Uniform 数组最大数量限制）时会有渲染问题。
+具体合批相关内容，请参考文档 [骨骼动画](../../animation/skeletal-animation.md)
