@@ -25,7 +25,7 @@ After opening the Skybox, it is also necessary to set the Skybox environment map
 
 The skybox supports the following environment map assets:
 
-1. a single texture of type TextureCube, which can be set in the Creator.
+1. a single texture of type TextureCube, which can be set in Creator.
 
     - Cube Cross images
 
@@ -47,7 +47,7 @@ The skybox supports the following environment map assets:
 
     ![Set environment map for skybox](skybox/set-envmap.png)
 
-Then the setup is done. The developer can directly see the set environment map of the skybox in the **Scene** panel. If the map is not displayed correctly, you need to check if the value of **SkyIllum parameter** is too low, or **modify the Clear Flag** of Camera.
+The setup is done. The developer can directly see the set environment map of the skybox in the **Scene** panel. If the map is not displayed correctly, check if the value of **SkyIllum parameter** is too low, or **modify the Clear Flag** of Camera.
 
 #### SkyIllum Property
 
@@ -94,7 +94,7 @@ If the **UseIBL** property is disabled, objects in the scene will only use diffu
 
 ### Diffuse Lighting
 
-The Creator supports the following two types of ambient diffuse lighting, which can be toggled by checking or unchecking the **ApplyDiffuseMap** property, noting that this property is only displayed when **UseIBL** is checked.
+Creator supports the following two types of ambient diffuse lighting, which can be toggled by checking or unchecking the **ApplyDiffuseMap** property, noting that this property is only displayed when **UseIBL** is checked.
 
 1. **Hemispheric Light**: when the **ApplyDiffuseMap** property is unchecked, hemispheric light diffusion will be used. This method is controlled by the **SkyLightingColor** and **GroundLightingColor** properties in the **Ambient** component, and has higher rendering performance, but less detail and poor lighting directionality. **Manually adjustable, but may become inconsistent with the environment map**.
 
