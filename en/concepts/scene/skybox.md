@@ -21,11 +21,11 @@ The **Skybox** component properties are as follows:
 
 ## Setting the Environment Map of the Skybox
 
-After opening the Skybox, it is also necessary to set the Skybox environment map. Drag and drop the map asset into the **Envmap** property box of the Skybox component, or click the arrow button behind the **Envmap** property box to select the desired map asset. If not set, the Skybox will use and display pixel maps by default.
+After enabling the Skybox, it is also necessary to set the environment map, which is used to generate ambient lighting in the scene. Drag and drop the map asset into the **Envmap** property box of the Skybox component, or click the arrow button behind the **Envmap** property box to select the desired map asset. If not set, the Skybox will use and display pixel maps by default.
 
 The skybox supports the following environment map assets:
 
-1. a single texture of type TextureCube, which can be set in Creator.
+1. A single texture of type TextureCube, which can be set in Creator.
 
     - Cube Cross images
 
@@ -112,13 +112,13 @@ When using diffuse reflection with convolution map, the effect is as follows. Co
 
 ![DiffuseMap](skybox/diffusemap.png)
 
-The contrast can be seen more clearly in the following GIF image:
+The contrast can be seen more clearly in the following GIF:
 
 ![Compare](skybox/compare.gif)
 
 > **Notes**:
 > 
-> 1. When replacing the environment map in the **Envmap** property, the Creator will automatically calculate the corresponding ambient lighting information, as well as the diffuse lighting (only CubeMap in the form of image files is supported, not including manually created CubeMap).
+> 1. When replacing the environment map in the **Envmap** property, Creator will automatically calculate the corresponding ambient lighting information, as well as the diffuse lighting (only CubeMap in the form of image files is supported, not including manually created CubeMap).
 > 2. If the **UseIBL** property is checked, but **ApplyDiffuseMap** is not checked, the hemispheric light diffuse reflection will be used, and the effect is the same as if **UseIBL** is not checked.
 
 ## Toggling HDR/LDR mode
@@ -127,6 +127,6 @@ The **UseHDR** option in the Skybox component is used to toggle the HDR/LDR mode
 
 ![use-hdr](skybox/use-hdr.png)
 
-- HDR (High Dynamic Range): High dynamic range, with **photometric intensity of the light source** and **exposure parameters of the camera** to achieve a more realistic level of contrast between light and dark. If this mode is used, the intensity of all light sources (including parallel light, point light, spot light, etc.) **will become photometric physical units** and ambient light cube map should use **HDR format images** to provide a high dynamic range data source.
+- HDR (High Dynamic Range): High dynamic range, with **photometric intensity of the lights** and **exposure parameters of the camera** to achieve a more realistic level of contrast between light and dark. If this mode is used, the intensity of all lights (including parallel light, point light, spot light, etc.) **will become photometric physical units** and ambient light cube map should use **HDR format images** to provide a high dynamic range data source.
 
-- LDR (Low Dynamic Range): Low dynamic range. If this mode is used, the **light source intensity becomes unitless** and no longer has any connection to photometry or camera exposure. This mode is suitable for scenarios where you want the original map color to be reflected without any color tinting. Ambient light cube map can be done using images in formats such as **PNG**.
+- LDR (Low Dynamic Range): Low dynamic range. If this mode is used, the **lights intensity becomes unitless** and no longer has any connection to photometry or camera exposure. This mode is suitable for scenarios where you want the original map color to be reflected without any color tinting. Ambient light cube map can be done using images in formats such as **PNG**.
