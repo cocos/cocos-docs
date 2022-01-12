@@ -222,6 +222,7 @@
         - [动画图面板](animation/marionette/animation-graph-panel.md)
         - [动画状态机](animation/marionette/animation-graph-basics.md)
         - [状态过渡](animation/marionette/state-transition.md)
+        - [动画控制器](animation/marionette/animation-controller.md)
 
 - [音频系统](audio-system/overview.md)
     - [AudioSource 组件参考](audio-system/audiosource.md)

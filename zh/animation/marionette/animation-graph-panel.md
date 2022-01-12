@@ -71,6 +71,27 @@
   这些图都是用 ProcessOn 进行编辑的，源文件以 POS 格式保存在 zh/animation/marionette 目录下，可将其导入到 ProcessOn 再次编辑。
   -->
 
+### 在脚本中使用变量
+
+在脚本中可以通过写入变量的值来操控动画流程。
+
+下列代码演示了如何对变量进行读写：
+
+```
+
+//获取动画控制器组件：
+let animationController:AnimationController = this.node.getComponent(AnimationController);
+
+//写入变量的值：
+animationController.setValue("vertical", 1.0)
+
+//读取变量的值：
+let vertical: Number = aniamtionController.getValue("vertical");
+
+```
+
+此操作会改变变量的值，但不会立即计算条件过渡。
+
 ## 属性（Inspector）
 
 该分页主要用于设置状态机中各类状态的属性和过渡条件，详情请参考 [动画状态机](animation-graph-basics.md)。

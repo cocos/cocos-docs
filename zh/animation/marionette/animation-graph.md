@@ -33,3 +33,5 @@
 或者直接将 **资源管理器** 中的动画图资源拖拽到动画控制器组件的 **Graph** 属性框中即可：
 
 ![animation-controller](animation-graph/animation-controller.png)
+
+若要使用动画控制器(Animation Controller)，可参考 [动画控制器](animation-controller.md) 。

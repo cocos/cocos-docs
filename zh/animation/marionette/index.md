@@ -37,15 +37,3 @@ Marionette 动画系统相关功能名词的说明如下：
 ## 范例参考
 
 Creator 提供了 **Ms.Amoy**（[GitHub](https://github.com/cocos-creator/MarionetteDemo)|[Gitee](https://gitee.com/mirrors_cocos-creator/MarionetteDemo)）范例，演示了 Marionette 动画系统的使用方式，用户可根据需要下载参考使用。
-
-## 脚本中使用动画控制组件
-
-在脚本中使用动画控制组件可以参考：
-
-[在脚本中使用](animation-scriptable)
-
-## 状态组件
-
-状态组件的使用可参考：
-
-[使用状态组件](animation-statemachinecomponent.md)
