@@ -72,7 +72,7 @@ Creator v2.4.7 upgrades the Android Gradle version to **6.7.1** and the correspo
       > **Note**:
       >
       > 1. On the **File Directory**, deprecate the `instantapp` and `game` modules and merge them into a new `instantapp` module. New features that were to be added to the deprecated module will need to be added to the new `instantapp` module after the upgrade.
-      > 2. Since the original `instantapp` module's instant app functionality has been merged into the base app module, to publish to the Android Instant platform, need to set the project as `instantapp` in Android Studio: click **Run -> Edit Configurations** in the top menu bar, then check **Deploy as instant app** in the panel that opens, as shown in the following image:
+      > 2. Since the original `instantapp` module's instant app functionality has been merged into the base app module, to [publish to the Android Instant](./publish-android-instant.md), need to set the project as `instantapp` in Android Studio: click **Run -> Edit Configurations** in the top menu bar, then check **Deploy as instant app** in the panel that opens, as shown in the following image:
       >
       >     ![gradle plugin](setup-native-development/gradle-plugin.png)
       >
