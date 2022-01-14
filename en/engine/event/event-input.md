@@ -2,8 +2,13 @@
 
 As mentioned in the previous document, `EventTarget` supports a complete set of event listening and emitting mechanisms. In Cocos Creator v3.4.0, `input` object is supported, which implements the event registering interface of `EventTarget`, and can register global system input events through this object. The original `systemEvent` object has been deprecated since v3.4.0, and the differences between `systemEvent` and `input` are as follows:
 
+- The declaration of touch event callback in `systemEvent` is `(touch: Touch, event: EventTouch) => void`
+- The declaration of touch event callback in `input` is `(event: EventTouch) => void`
+
+__Note__: in v3 4.0 there are also the following differences between the two objects:
 - The event listener of `systemEvent` will be intercepted by the event listener of the node.
 - `input` objects have higher priority than nodes and will not be intercepted.
+We have lowered the priority of 'input' in v3.4.1. At present, there is no difference in priority between the two objects.
 
 > __Note__: the `systemEvent` object is no longer recommended and will be phased out in the future, we recommend using the `input` object as a replacement.
 
