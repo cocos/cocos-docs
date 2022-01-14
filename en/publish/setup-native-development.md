@@ -63,22 +63,22 @@ Creator v2.4.7 upgrades the Android Gradle version to **6.7.1** and the correspo
 
 - **File Directory**
 
-  All Android projects with `instant-app` may encounter problems due to the following adjustments to the file directory of `instantApp` for this upgrade:
+  All Android projects with `instant-app` may encounter problems after the upgrade, as the following adjustments have been made to the `instantApp` file directory for this upgrade:
 
-    - Removed `game` and merged the project settings from `build.gradle` into `instantapp`.
+    - Removed `game` and merged its project settings into `instantapp`.
 
     - Upgraded `gradle plugin`, the original lower version of the plugin will have renaming problem in the higher version, for example, the developer may need to add `useAndroidX` to enable the original old plugin.
 
       > **Note**:
       >
       > 1. On the **File Directory**, deprecate the `instantapp` and `game` modules and merge them into a new `instantapp` module. New features that were to be added to the deprecated module will need to be added to the new `instantapp` module after the upgrade.
-      > 2. Since the original `instantapp` module's instant app functionality has been merged into the base application module, to compile the instant app, set the project as `instantapp`, i.e. **manually** check the option in the following image:
+      > 2. Since the original `instantapp` module's instant app functionality has been merged into the base app module, to publish to the Android Instant platform, need to set the project as `instantapp` in Android Studio: click **Run -> Edit Configurations** in the top menu bar, then check **Deploy as instant app** in the panel that opens, as shown in the following image:
       >
       >     ![gradle plugin](setup-native-development/gradle-plugin.png)
       >
       >     Since this option cannot be saved by `build.gradle`, it can only be enabled manually by the developer.
 
-    - The new project will have no problems with building the new App.
+    - New projects will have no problems when publishing to the Android Instant platform.
 
 - **Old Functionality Module**
 
