@@ -14,4 +14,5 @@
 - [在脚本中使用](material-script.md)
 - [材质系统结构指南](material-structure.md)
 - [v2.x升级指南](effect-2.x-to-3.0.md)
-- [Effect 总览](shader/../index.md)
+
+若要了解更多着色器的内容，请参考： [着色器](../shader/index.md)

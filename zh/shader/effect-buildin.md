@@ -13,23 +13,23 @@
 | builtin-particle-trail.effect      | 粒子拖尾                                                                   |
 | builtin-particle.effect            | 粒子                                                                       |
 | builtin-reflection-deferred.effect | 反射                                                                       |
-| builtin-spine.effect               | spine骨骼动画                                                              |
+| builtin-spine.effect               | Spine 骨骼动画的着色器                                                     |
 | builtin-sprite-gpu.effect          |                                                                            |
-| builtin-sprite.effect              | 精灵                                                                       |
-| builtin-standard.effect            | [标准pbr材质](effect-buildin-pbr.md)                                       |
-| builtin-terrain.effect             | 地形                                                                       |
+| builtin-sprite.effect              | 标准精灵着色器                                                             |
+| builtin-standard.effect            | [标准 PBR 材质](effect-buildin-pbr.md)                                     |
+| builtin-terrain.effect             | 地形系统默认着色器                                                         |
 | builtin-toon.effect                | [卡通渲染](effect-buildin-toon.md)                                         |
-| builtin-unlit.effect               | [无光照渲染模型](effect-buildin-unlic.md)                                  |
-| builtin-wireframe.effect           | 网格                                                                       |
+| builtin-unlit.effect               | [无光照模型](effect-buildin-unlic.md)                                      |
+| builtin-wireframe.effect           | 以网格方式进行绘制                                                         |
 
 
 # 内置管线特效着色器
 
 | 管线特效                 | 说明        |
 | :----------------------- | :---------- |
-| bloom.effect             | 高光？      |
+| bloom.effect             |             |
 | deferred-lighting.effect |             |
-| planar-shadow.effect     | 平面投影    |
+| planar-shadow.effect     | 平面阴影    |
 | post-process.effect      | 后处理      |
 | skybox.effect            | 天空盒      |
 | smaa.effect              | SMAA 抗锯齿 |
