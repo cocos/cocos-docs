@@ -44,12 +44,45 @@ After installing Android Studio, refer to the official documentation and open th
 
 ![Sdk manager](setup-native-development/sdk-manager.jpg)
 
-> **Note**: currently, the version of Android Gradle supported by Creator is **4.10.x**, and the corresponding Gradle Tool version is **3.x** (v3.2.0 is recommended). When using Android Studio to compile, please **do not** upgrade when prompted to upgrade the Android Gradle Plugin.
+### Android Gradle Upgrade
 
-![](setup-native-development/gradle-update.png)
+Since we upgraded the Android Gradle version in Creator v2.4.7, it is necessary to explain it in the following two situations.
+
+#### Before Creator v2.4.7
+
+The supported version of Android Gradle before Creator v2.4.7 is **4.10.x**, and the corresponding Gradle Tool version is **3.x** (v3.2.0 is recommended). When using Android Studio to compile, please **do not** upgrade when prompted to upgrade the Android Gradle Plugin.
+
+![gradle-update](setup-native-development/gradle-update.png)
 
 - View the file path for the Android Gradle version as: `YourProject\build\jsb-link\frameworks\runtime-src\proj.android-studio\build.gradle`
 - View the file path for the Gradle Tool version as: `YourProject\build\jsb-link\frameworks\runtime-src\proj.android-studio\gradle\wrapper\gradle-wrapper.properties`
+
+#### Creator v2.4.7 and later
+
+Creator v2.4.7 upgrades the Android Gradle version to **6.7.1** and the corresponding Gradle Tool version to **4.2.2**. This upgrade mainly requires attention to the **File Directory** and **Old Functionality Module** sections.
+
+- **File Directory**
+
+  All Android projects with `instant-app` may encounter problems after the upgrade, as the following adjustments have been made to the `instantApp` file directory for this upgrade:
+
+    - Removed `game` and merged its project settings into `instantapp`.
+
+    - Upgraded `gradle plugin`, the original lower version of the plugin will have renaming problem in the higher version, for example, the developer may need to add `useAndroidX` to enable the original old plugin.
+
+      > **Note**:
+      >
+      > 1. On the **File Directory**, deprecate the `instantapp` and `game` modules and merge them into a new `instantapp` module. New features that were to be added to the deprecated module will need to be added to the new `instantapp` module after the upgrade.
+      > 2. Since the original `instantapp` module's instant app functionality has been merged into the base app module, to [publish to the Android Instant](./publish-android-instant.md), need to set the project as `instantapp` in Android Studio: click **Run -> Edit Configurations** in the top menu bar, then check **Deploy as instant app** in the panel that opens, as shown in the following image:
+      >
+      >     ![gradle plugin](setup-native-development/gradle-plugin.png)
+      >
+      >     Since this option cannot be saved by `build.gradle`, it can only be enabled manually by the developer.
+
+    - New projects will have no problems when publishing to the Android Instant platform.
+
+- **Old Functionality Module**
+
+  Some old functional modules of Gradle Tool v3.2.0 are deprecated after the upgrade, such as `'com.google.android.instantapps:instantapps:1.1.0’`​, developers need to adapt them according to the module features. Please refer to the [Android Gradle plugin release notes](https://developer.android.com/studio/releases/gradle-plugin) documentation for details.
 
 ## Install C++ compiling environment
 

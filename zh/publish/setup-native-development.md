@@ -44,12 +44,45 @@ java -version
 
 ![sdk manager](setup-native-development/sdk-manager.jpg)
 
-**注意**：目前 Creator 支持的 Android Gradle 版本为 **4.10.x**，对应的 Gradle Tool 版本为 **3.x**（推荐使用 v3.2.0）。在使用 Android Studio 编译时，若出现 Android Gradle 插件的升级提示，建议不要升级。
+### Android Gradle 升级
 
-![](setup-native-development/gradle-update.png)
+由于我们在 Creator v2.4.7 对 Android Gradle 版本进行了升级，因此需要分以下两种情况说明。
+
+#### Creator v2.4.7 之前
+
+Creator v2.4.7 之前支持的 Android Gradle 版本为 **4.10.x**，对应的 Gradle Tool 版本为 **3.x**（推荐使用 v3.2.0）。在使用 Android Studio 编译时，若出现 Android Gradle 插件的升级提示，建议不要升级。
+
+![gradle-update](setup-native-development/gradle-update.png)
 
 - 查看 Android Gradle 版本的文件路径：`YourProject\build\jsb-link\frameworks\runtime-src\proj.android-studio\build.gradle`
 - 查看 Gradle Tool 版本的文件路径：`YourProject\build\jsb-link\frameworks\runtime-src\proj.android-studio\gradle\wrapper\gradle-wrapper.properties`
+
+#### Creator v2.4.7 及之后版本
+
+Creator v2.4.7 将 Android Gradle 版本升级为 **6.7.1**，对应的 Gradle Tool 版本升级为 **4.2.2**。本次升级主要需要注意 **文件目录** 和 **旧功能模块** 两部分的内容。
+
+- **文件目录**
+
+  所有 Android 项目中的 `instant-app` 升级后都可能遇到问题，因为本次升级 `instantApp` 的文件目录有以下调整：
+
+    - 删除了 `game`，将其项目设置合并到 `instantapp` 中；
+
+    - 升级了 `gradle plugin`，原本低版本的插件在高版本会出现重命名的问题，例如开发者可能需要添加 `useAndroidX` 来启用原本的老插件；
+
+      > **注意**：
+      >
+      > 1. 在 **文件目录** 上，废弃 `instantapp` 和 `game` 这两个模块，将其合并成一个新的 `instantapp` 模块，原本要添加到已废弃模块中的新功能，升级后需要添加到新的 `instantapp` 模块中。
+      > 2. 由于原本 `instantapp` 模块的免安装应用功能已经合并到了基础应用模块中，所以如果要 [发布到 Android Instant](./publish-android-instant.md)，需要在 Android Studio 中将项目设置为 `instantapp`：点击顶部菜单栏中的 **Run -> Edit Configurations**，然后在打开的面板中勾选 **Deploy as instant app**，如下图所示：
+      >
+      >     ![gradle plugin](setup-native-development/gradle-plugin.png)
+      >
+      >     由于该选项无法被 `build.gradle` 保存，所以只能开发者手动开启。
+
+    - 新的项目在发布到 Android Instant 平台时不会有问题。
+
+- **旧功能模块**
+
+  Gradle Tool v3.2.0 的部分旧功能模块在升级后被舍弃，如 `'com.google.android.instantapps:instantapps:1.1.0’`​，开发者需要根据模块特性进行调整。详情请参考 [Android Gradle 插件版本说明](https://developer.android.google.cn/studio/releases/gradle-plugin)。
 
 ## 安装 C++ 编译环境
 
