@@ -8,7 +8,7 @@ As mentioned in the previous document, `EventTarget` supports a complete set of 
 __Note__: in v3 4.0 there are also the following differences between the two objects:
 - The event listener of `systemEvent` will be intercepted by the event listener of the node.
 - `input` objects have higher priority than nodes and will not be intercepted.
-We have lowered the priority of 'input' in v3.4.1. At present, there is no difference in priority between the two objects.
+We have lowered the priority of 'input' in v3.4.1. Currently, there is no difference in priority between the two objects.
 
 > __Note__: the `systemEvent` object is no longer recommended and will be phased out in the future, we recommend using the `input` object as a replacement.
 
