@@ -23,9 +23,10 @@ Pass 中的参数主要分为开发者可自定义的 effect 参数和引擎提�
 Properties 存储着这个 Pass 中需要显示在 **属性检查器** 上的可定制的参数，这些参数可以是 shader 中某个 uniform 的完整映射，也可以是具体某个分量的映射（使用 target 参数）：
 
 ```yaml
-albedo: { value: [1, 1, 1, 1] } # uniform vec4 albedo
-roughness: { value: 0.8, target: pbrParams.g } # uniform vec4 pbrParams
-offset: { value: [0, 0], target: tilingOffset.zw } # uniform vec4 tilingOffset
+properties:
+  albedo: { value: [1, 1, 1, 1] } # uniform vec4 albedo
+  roughness: { value: 0.8, target: pbrParams.g } # uniform vec4 pbrParams
+  offset: { value: [0, 0], target: tilingOffset.zw } # uniform vec4 tilingOffset
 # say there is another uniform, vec4 emissive, that doesn't appear here
 # so it will be assigned a default value of [0, 0, 0, 0] and will not appear in the inspector
 ```
@@ -210,3 +211,24 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 | targets[i].<br>blendDstAlpha  | 补充说明 | **zero** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
 | targets[i].<br>blendAlphaEq   | 补充说明 | **add** | add, sub, rev_sub                                                           |
 | targets[i].<br>blendColorMask | 补充说明 | **all** | all, none, r, g, b, a, rg, rb, ra, gb, ga, ba, rgb, rga, rba, gba           |
+
+
+## Default Values
+
+| 类型        |  默认值 | 可选项   |
+| :---------- | :----- | :------ |
+| int         |  | 0                                        |
+| ivec2       |  | [0, 0]                                   |
+| ivec3       |  | [0, 0, 0]                                |
+| ivec4       |  | [0, 0, 0, 0]                             |
+| float       |  | 0                                        |
+| vec2        |  | [0, 0]                                   |
+| vec3        |  | [0, 0, 0]                                |
+| vec4        |  | [0, 0, 0, 0]                             |
+| sampler2D   | **default**      | black, grey, white, normal, default  |
+| samplerCube | **default-cube** | black-cube, white-cube, default-cube |
+
+对于 defines：
+- boolean 类型默认值为 false。
+- number 类型默认值为 0，默认取值范围为 [0, 3]。
+- string 类型默认值为 options 数组第一个元素。
