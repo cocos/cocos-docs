@@ -7,16 +7,16 @@
 | builtin-billboard.effect           | 公告板，公告板是一种使物体始终朝向摄像机的渲染方案，适用于树木，血条等渲染 |
 | builtin-camera-texture.effect      | 相机纹理                                                                   |
 | builtin-clear-stencil.effect       | 清理模板缓存                                                               |
-| builtin-graphics.effect            |                                                                            |
+| builtin-graphics.effect| graphics 组件的着色器|
 | builtin-occlusion-query.effect     | 遮挡检查                                                                   |
 | builtin-particle-gpu.effect        | 粒子                                                                       |
 | builtin-particle-trail.effect      | 粒子拖尾                                                                   |
 | builtin-particle.effect            | 粒子                                                                       |
 | builtin-reflection-deferred.effect | 反射                                                                       |
 | builtin-spine.effect               | Spine 骨骼动画的着色器                                                     |
-| builtin-sprite-gpu.effect          |                                                                            |
-| builtin-sprite.effect              | 标准精灵着色器                                                             |
-| builtin-standard.effect            | [基于物理的标准 PBR 着色器](effect-buildin-pbr.md)                         |
+| builtin-sprite-gpu.effect          | 精灵着色器|
+| builtin-sprite.effect              | 精灵着色器|
+| builtin-standard.effect            | [基于物理的光照模型 PBR](effect-buildin-pbr.md)                         |
 | builtin-terrain.effect             | 地形系统默认着色器                                                         |
 | builtin-toon.effect                | [卡通渲染](effect-buildin-toon.md)                                         |
 | builtin-unlit.effect               | [无光照模型](effect-buildin-unlit.md)                                      |

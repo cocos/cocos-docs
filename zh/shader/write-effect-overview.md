@@ -12,9 +12,9 @@
 
 ![默认着色器模板](img/default-effect.png)
 
-若要基于内置着色器修改，可从项目内 Asset\internal\effects 内拷贝到外界进行修改。
+若要基于内置着色器修改，可从项目内 **Asset\internal\effects** 内拷贝到外界进行修改。
 
-了解更多内置着色器的内容：[内置着色器](effect-buildin.md) 。
+<!-- 了解更多内置着色器的内容：[内置着色器](effect-buildin.md) 。 -->
 
 本节将包含以下内容：
 
