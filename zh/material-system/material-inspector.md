@@ -19,6 +19,8 @@
 
 在任何持有 `MeshRenderer` ，`SkeletonMeshRenderer` 等的组件上选择 `Materials` ，通过下拉选择框，选择相应的材质。
 
+也可以直接从 Assets 目录拖拽材质到对应的组件属性查看器上。
+
 ![select-material](use-material/select.png)
 
 #### 导出模型资源中的材质
@@ -54,10 +56,6 @@
 在属性查看器内的 `Effect` 下拉框中，可以选择当前引擎内置的 `Effect` 以及用户自定义 `Effect` 。
 
 ![](inspector/select-effect.png)
-
-若要查看内置 `Effect`的说明请查看： [内置 `Effect`]()
-
-若要了解更多 `Effect`的内容请查看： [ `Effect`系统]()
 
 ### 更改预览材质的模型
 

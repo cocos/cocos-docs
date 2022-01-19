@@ -4,8 +4,10 @@
 
 `Cocos Effect` 通常由两个部分组成：
 
-- 由 `CCEffect` 声明的渲染技术（Technique）和通道（Pass）块
+- 由 `CCEffect` 声明的渲染技术（Technique）和通道（Pass）等属性块
 - 由 `CCProgram` 声明的 `GLSL` 顶点着色器（Vertex Shader）和片元着色器（Fragment Shader）代码片段块。
+
+### 着色器语法框架
 
 此处以 `builtin-unlit.effect` 为例，说明 Cocos Effect 的语法框架。
 

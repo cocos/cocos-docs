@@ -122,7 +122,8 @@ struct myStruct
   vec2 uv;
 };
 ```
-结构体的赋值和比较要求两个结构体拥有相同的类型且组件分量（component-wise）都必须相同。
+
+结构体支持赋值（=）和比较（==，！=），但要求两个结构体拥有相同的类型且组件分量（component-wise）都必须相同。
 ### 数组
 
 数组的用法和 C 语言类似：
@@ -141,6 +142,21 @@ for(int i =0; i < 4; i ++)
 }
 
 ```
+
+<!-- 
+### UBO（Uniform Block Object）
+
+UBO 是 GLSL 内，为OpenGL 和应用程序交互所定义的特殊语法。
+
+在旧有的着色器写法中，通常会使用 uniform 限定符对比变量进行离散声明：
+
+```glsl
+uniform float floatVlaue = 1.0;
+```
+
+目前
+
+-->
 
 ## 语句
 
@@ -249,6 +265,8 @@ lowp vec4 cc_shadowColor;
 ## 预处理宏定义
 
 GLSL 允许定义和 C 语言类似的宏定义。
+
+预处理宏定义允许着色器通过动态分支，确定最终的渲染效果。
 
 ```glsl
 #define
