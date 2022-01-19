@@ -17,25 +17,25 @@
 | 参数         | 说明                                                              |
 | :------------- | :---------------------------------------------------------------- |
 | tilingOffset   | 模型 UV 的平铺和偏移量，xy 对应平铺，zw 对应偏移|
-| mainColor      |
-| colorScale     |
-| alphaThreshold |
-| shadeColor1    |
-| shadeColor2    |
-| specular       |
-| baseStep       |
-| baseFeather    |
+| mainColor      | 主颜色
+| colorScale     | 颜色缩放
+| alphaThreshold | 半透明物体剪裁的 alpha 区间
+| shadeColor1    | 色阶颜色1
+| shadeColor2    | 色阶颜色2
+| specular       | 反射光
+| baseStep       | 
+| baseFeather    | 
 | shadeStep      |
 | shadeFeather   |
 | emissive       |
-| emissiveScale  |
-| normalStrenth  |
-| normalMap      |
-| mainTexture    |
-| shadeMap1      |
-| shadeMap2      |
-| specularMap    |
-| emissiveMap    |
+| emissiveScale  | 
+| normalStrenth  | 法线伸缩量
+| normalMap      | 法线贴图
+| mainTexture    | 主纹理
+| shadeMap1      | 色阶贴图1
+| shadeMap2      | 色阶贴图2
+| specularMap    | 反射光贴图
+| emissiveMap    | 散射光贴图
 
  # 宏
 

@@ -9,15 +9,15 @@
  |名称| 说明|
 |:--|:--|
 |aces.chunk||
-|alpha-test.chunk||
-|anti-aliasing.chunk||
-|cc-diffusemap.chunk||
-|cc-environment.chunk||
-|cc-fog-base.chunk||
-|cc-fog-fs.chunk||
-|cc-fog-vs.chunk||
-|cc-forward-light.chunk||
-|cc-global.chunk||
+|alpha-test.chunk| 半透明测试的帮助方法 |
+|anti-aliasing.chunk| 抗锯齿 |
+|cc-diffusemap.chunk| 漫反射贴图|
+|cc-environment.chunk| 环境光贴图|
+|cc-fog-base.chunk| 雾效相关的着色器片段 |
+|cc-fog-fs.chunk| 雾效片元着色器|
+|cc-fog-vs.chunk| 雾效顶点着色器|
+|cc-forward-light.chunk| 前向渲染的光源定义相关|
+|cc-global.chunk| 内置全局变量包括 `cc_matView`、`cc_cameraPos`等等|
 |cc-local-batch.chunk||
 |cc-local.chunk||
 |cc-shadow-map-base.chunk||
@@ -37,7 +37,7 @@
 |deprecated.chunk||
 |embedded-alpha.chunk||
 |embedded-alpha.met||
-|fxaa.chunk||
+|fxaa.chunk| FXAA抗锯齿算法|
 |gamma.chunk||
 |general-vs.chunk||
 |input-standard.chunk||

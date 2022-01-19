@@ -18,7 +18,7 @@ int/ivec2/ivec3/ivec4 | 包含 1，2，3，4 个整型向量 | 0/[0, 0]/[0, 0, 0
 float/vec2/vec3/vec4 | 包含 1，2，3，4 个浮点型向量 | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | 无
 sampler2D | 表示 2D 纹理 | **default** | black, grey, white, normal, default
 samplerCube | 表示立方体纹理 | **default-cube** | black-cube, white-cube, default-cube
-mat[2..3] |  表示 2-3 阶的矩阵 | | 
+mat[2..3] |  表示 2-3 阶的矩阵 | 不可用 | 
 mat4 |  表示 4 阶的矩阵 | [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1] | 
 
 ### 标量
@@ -122,23 +122,23 @@ struct myStruct
   vec2 uv;
 };
 ```
-结构体的赋值和比较要求两个结构体拥有相同的类型切组件分量（component-wise）都必须相同。
+结构体的赋值和比较要求两个结构体拥有相同的类型且组件分量（component-wise）都必须相同。
 ### 数组
 
 数组的用法和 C 语言类似：
 
-- 数组必须声明
+- 数组必须声明长度
 - 数组不能在声明的同时初始化
-- 数组必须有常量表达式初始化
+- 数组必须由常量表达式初始化
 - 数组不能用 `const` 修饰
 - 低于 OpenGL 4.3 则不支持多维数组
 
 ```glsl
-  float array[4];
-  for(int i =0; i < 4; i ++)
-  {
-      array[i] = 0.0;
-  }
+float array[4];
+for(int i =0; i < 4; i ++)
+{
+    array[i] = 0.0;
+}
 
 ```
 
