@@ -1,2 +1,0 @@
-# UBO （Uniform buffer object）
-

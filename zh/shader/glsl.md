@@ -18,8 +18,8 @@ int/ivec2/ivec3/ivec4 | 包含 1，2，3，4 个整型向量 | 0/[0, 0]/[0, 0, 0
 float/vec2/vec3/vec4 | 包含 1，2，3，4 个浮点型向量 | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | 无
 sampler2D | 表示 2D 纹理 | **default** | black, grey, white, normal, default
 samplerCube | 表示立方体纹理 | **default-cube** | black-cube, white-cube, default-cube
-mat[2..3] |  表示 2-3 阶的矩阵 | 不可用 | 
-mat4 |  表示 4 阶的矩阵 | [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1] | 
+mat[2..3] |  表示 2x2, 3x3 的矩阵 | 不可用 | 
+mat4 |  表示 4x4 的矩阵 | [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1] | 
 
 ### 标量
 
@@ -123,7 +123,7 @@ struct myStruct
 };
 ```
 
-结构体支持赋值（=）和比较（==，！=），但要求两个结构体拥有相同的类型且组件分量（component-wise）都必须相同。
+结构体支持赋值（=）和比较（==，!=），但要求两个结构体拥有相同的类型且组件分量（component-wise）都必须相同。
 ### 数组
 
 数组的用法和 C 语言类似：
@@ -132,7 +132,7 @@ struct myStruct
 - 数组不能在声明的同时初始化
 - 数组必须由常量表达式初始化
 - 数组不能用 `const` 修饰
-- 低于 OpenGL 4.3 则不支持多维数组
+<!-- - 低于 OpenGL 4.3 则不支持多维数组 -->
 
 ```glsl
 float array[4];
@@ -191,7 +191,7 @@ GLSL 支持标准的 C/C++ 控制流程，含：
     }
  ```
 
- 错误实例：
+ 错误示例：
 
  ```glsl
     float value = 10.;  
@@ -230,6 +230,22 @@ void scaleMatrix (inout mat4 m, float s){
 |attribute|	应用程序和顶点着色器通信用于确定顶点格式
 |uniform	| 应用程序和着色器之间交互数据。在顶点着色器和片元着色器中保持一致
 |varying	| 顶点着色器传输给片元着色器的插值值
+
+#### Uniform
+
+在一个通道内声明的 Uniform 不能重复，即如果在顶点着色器里面定义了某个变量 `variableA` 那么其也必定在片元着色器内存在切值相同。
+
+在引擎中，不支持离散声明的 Uniform 变量，必须使用 UBO 并保持内存对齐避免 implicit padding。
+
+#### varying
+
+varying 是由顶点着色器输出传输给片元着色器的变量，在管线的作用下，这些值并不会和顶点着色器的输出一致，而是由管线进行插值。
+
+因此可能会出现顶点输出的法线没有归一化的情况。这种情况如果在片元着色器里面使用，则需要对法线进行归一化：
+
+```glsl
+vec3 normal = normalize(v_normal);
+```
 
 ### 参数限定符
 
@@ -273,6 +289,7 @@ GLSL 允许定义和 C 语言类似的宏定义。
 #undef
 #if
 #ifdef
+
 #ifndef
 #else
 #elif

@@ -8,7 +8,7 @@
 
 在现代显卡中，若要正确的绘制物体，需要书写基于顶点（ Vertex ）和片元（ Fragment ）的着色器代码片段，这些代码片段被称为 Shader ，在基于 OpenGL 系列驱动的硬件设备上，支持一种叫做 GLSL（ OpenGL Shading Language ） 的着色器语言。
 
-引擎在 GLSL 的基础上封装了着色器为材质系统提供多样化渲染。
+在 Cocos Creator 中，为适配工业化制作流，提升着着色器片段的易用性，封装了基于 GLSL 的着色器（Effect）。
 
 <!-- 
 本章主要围绕以下几个部分：
@@ -31,8 +31,7 @@
   - [Pass 参数](pass-parameter-list.md)
   - [YAML 101 语法](yaml-101.md)
   - [GLSL 简介](glsl.md)
-  - [预处理宏定义](macros.md)
-  - [UBO 布局](ubo.md)
+  - [预处理宏定义](macros.md)  
   - [着色器片段（Chunk）](effect-chunk-index.md)
     - [内置着色器片段（Buildin Chunk）](effect-buildin-chunk.md)         
     - [全局 Uniform](uniform.md)  

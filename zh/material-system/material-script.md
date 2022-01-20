@@ -42,7 +42,7 @@ sprite.customMaterial = mat;
 mat.setProperty("uniform name", uniformValue)
 ```
 
-`Uniform` 对应了 `Shader` 内声明的 `Uniform` 变量。 若要了解更多 `Uniform` 的信息可参考： [Uniform](../shader/uniform.md)
+`Uniform` 对应了 `Shader` 内声明的由 `Uniform` 限定的变量。 若要了解更多 `Uniform` 的信息可参考： [Uniform](../shader/uniform.md)
 
 若需频繁设置 `Uniform` 的值，请使用 `Pass.setUniform` 来获得更好的性能。
 

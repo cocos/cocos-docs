@@ -9,12 +9,10 @@
 | builtin-clear-stencil.effect       | 清理模板缓存                                                               |
 | builtin-graphics.effect| graphics 组件的着色器|
 | builtin-occlusion-query.effect     | 遮挡检查                                                                   |
-| builtin-particle-gpu.effect        | 粒子                                                                       |
 | builtin-particle-trail.effect      | 粒子拖尾                                                                   |
 | builtin-particle.effect            | 粒子                                                                       |
-| builtin-reflection-deferred.effect | 反射                                                                       |
+| builtin-reflection-deferred.effect | 用于defer-render的反射处理|
 | builtin-spine.effect               | Spine 骨骼动画的着色器                                                     |
-| builtin-sprite-gpu.effect          | 精灵着色器|
 | builtin-sprite.effect              | 精灵着色器|
 | builtin-standard.effect            | [基于物理的光照模型 PBR](effect-buildin-pbr.md)                         |
 | builtin-terrain.effect             | 地形系统默认着色器                                                         |
@@ -33,7 +31,6 @@
 | post-process.effect      | 后处理      |
 | skybox.effect            | 天空盒      |
 | smaa.effect              | SMAA 抗锯齿 |
-| tonemap.effect           |             |
 
 
 

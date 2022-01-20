@@ -36,9 +36,9 @@ CCEffect %{
 
 其中：
 
-1. CCEffect 核心是 technique 对象，它代表渲染器，一个渲染流程描述文件可以支持定义多个渲染器，但在实际使用中，只能选择其中一种渲染器。例如上图中的 `builtin-unlit.effect`，它是一个无光照的 Cocos Effect，包含了 `opaque` 专门用来渲染不透明物体的渲染器和 `transparent` 专门用来渲染透明物体的渲染器。在实际的使用过程中，一个渲染对象只能选择 `opaque` 或 `transparent` 其中一种渲染器使用。
+1. CCEffect 核心是 technique 对象，它代表渲染技术，一个渲染流程描述文件可以支持定义多个渲染技术，但在实际使用中，只能选择其中一种渲染技术。例如上图中的 `builtin-unlit.effect`，它是一个无光照的 Cocos Effect，包含了 `opaque` 专门用来渲染不透明物体的渲染技术和 `transparent` 专门用来渲染透明物体的渲染技术。在实际的使用过程中，一个渲染对象只能选择 `opaque` 或 `transparent` 其中一种渲染技术使用。
 
-2. 每一个渲染器都包含名字 name 和通道 passes，名字用来标记渲染器的用途，通道则定义一个了完整的渲染流程所需要的全部信息。一个渲染器可以定义多个通道，通道之间按定义的先后顺序执行。
+2. 每一个渲染技术都包含名字 name 和通道 passes，名字用来标记渲染技术的用途，通道则定义一个了完整的渲染流程所需要的全部信息。一个渲染技术可以定义多个通道，通道之间按定义的先后顺序执行。
     - 一个通道必须包含一个顶点着色器和片元着色器，而开发者自定义的 Cocos Effect 参数以及引擎提供的渲染管线可配置状态等信息则是可选配置。参考 [passes 参数](pass-parameter-list.md)。
     - 顶点/片元着色器需要指定使用的 shader，也就是用 [CCProgram](#CCProgram) 声明的着色器。以及指定着色器的入口函数，每一个着色器的入口函数都需要返回相对应的输出，Cocos Creator 最终会将输出的数据传递给当前渲染后端相对应的接口。
 
@@ -47,7 +47,7 @@ CCEffect %{
 ```glsl
 CCEffect %{
   techniques:
-  - name: opaque # 定义一个不透明的渲染器
+  - name: opaque # 定义一个不透明的渲染技术
     passes:
     - vert: vs:entry # 选择一个 CCProgram 声明的顶点着色器 vs，入口函数是 entry
       frag: fs:entry # 选择一个 CCProgram 声明的片元着色器 fs，入口函数是 entry
@@ -87,7 +87,7 @@ CCProgram shader-name %{
 
 着色器中通过读取着色器代码中的宏来实现动态分支处理。
 
-若要了解更多宏，可参考：
+若要了解更多，可参考：
 
 - [预处理宏定义](macros.md)
 - [GLSL 语法](glsl.md)

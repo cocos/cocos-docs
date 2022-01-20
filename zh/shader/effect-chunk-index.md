@@ -23,3 +23,32 @@
 - 引用了编辑器其他 DB 的头文件（Internal 或各类插件 DB 等）只能指定项目绝对路径。当多个 DB 在此路径下有相同文件时，优先级为：用户项目 DB > 插件 DB > Internal DB；
 - 编辑器内置头文件资源就在 internal DB 的 `assets/chunks` 目录下，所以可以不加目录直接引用，主要包括一些常用的工具函数和标准光照模型等。
 - 所有在同一个 effect 文件中声明的 CCProgram 代码块都可以相互引用。
+
+### 创建着色器片段
+
+在 Asset 目录点击右键，选择 创建->着色器片段（ Chunk ） 
+
+![](img/create-chunk.png)
+
+创建后，引擎会根据片段模板生成：
+
+```glsl
+// you can write GLSL code directly in here
+
+#include <cc-global>
+
+#define iResolution cc_screenSize
+#define iTime cc_time.x
+#define iTimeDelta cc_time.y
+#define iFrame cc_time.z
+
+// shadertoy template
+void mainImage (out vec4 fragColor, in vec2 fragCoord) {
+  // Normalized pixel coordinates (from 0 to 1)
+  vec2 uv = fragCoord / iResolution.xy;
+  // Time varying pixel color
+  vec3 col = 0.5 + 0.5 * cos(iTime + uv.xyx + vec3(0, 2, 4));
+  // Output to screen
+  fragColor = vec4(col, 1.0);
+}
+```
