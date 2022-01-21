@@ -1,8 +1,6 @@
 #  着色器简介
 
-<!-- 
-![](img/effect-overview.png)
--->
+![](img/effect-show.png)
 
 着色器 Cocos Effect 是一种基于 YAML 和 GLSL 的单源码嵌入式领域特定语言（single-source embedded domain-specific language），YAML 部分声明流程控制清单，GLSL 部分声明实际的 shader 片段，这两部分内容上相互补充，共同构成了一个完整的渲染流程描述。
 

@@ -14,6 +14,7 @@
 
 - [材质操作指南](material-inspector.md)
 - [在脚本中使用](material-script.md)
+<!-- 需重做 -->
 - [材质系统结构指南](material-structure.md)
 - [v2.x 升级 v3.0 指南](effect-2.x-to-3.0.md)
 

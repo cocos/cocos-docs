@@ -10,9 +10,10 @@
 
 在 Cocos Creator 中，为适配工业化制作流，提升着着色器片段的易用性，封装了基于 GLSL 的着色器（Effect）。
 
+在原生平台上，采用其他渲染驱动（Vulkan 或 Metal）的情况下，着色器会被被编译到对应的平台。
+
 <!-- 
 本章主要围绕以下几个部分：
-
 - [Effect 语法](effect-syntax.md)
 - [Pass 可选配置参数](pass-parameter-list.md)
 - [内置 Uniform](builtin-shader-uniforms.md)

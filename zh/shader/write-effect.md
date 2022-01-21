@@ -29,7 +29,7 @@ RimLight 实现简单，效率高，效果也不错。
 
 由于不考虑半透明的渲染，因此可删掉半透明的渲染技术部分,并将 `frag` 修改为： `rimlight-fs:frag`
 
-```glsl
+```yaml
 # 删除如下的部分
 - name: transparent
     passes:
@@ -71,7 +71,7 @@ CCEffect %{
 }%
 ```
 
-需要在片元着色器的 `uniform Constant` 内增加对应的 `rimColor` 字段：
+注意需要在片元着色器的 `uniform Constant` 内增加对应的 `rimColor` 字段：
 
 ```glsl
 uniform Constant {        
@@ -294,7 +294,7 @@ float rimInstensity = rimColor.a; // alpha 通道为亮度的指数
 col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对点积进行指数级修改
 ```
 
->pow 是 GLSL 的内置函数，其形式为：pow(x, p) 意味着以 x 为底数，p 为指数的指数函数
+>pow 是 GLSL 的内置函数，其形式为：pow(x, p)，代表以 x 为底数，p 为指数的指数函数。
 
 最终片元着色器代码：
 
@@ -326,5 +326,52 @@ col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对
 
 ![](img/opt-overview.png)
 
+最终的着色器代码： 
+
+```glsl
+CCEffect %{
+  techniques:
+  - name: opaque
+    passes:
+    - vert: general-vs:vert # builtin header
+      frag: rimlight-fs:frag
+      properties: &props
+        mainTexture:    { value: white } 
+        mainColor:      { value: [1, 1, 1, 1], editor: { type: color } }    
+        # Rim Light 的颜色，只依赖 rgb 三个通道的分量
+        rimLightColor:  { value: [1.0, 1.0, 1.0], target: rimColor.rgb, editor: { displayName: Rim Color, type: color } }
+        # rimLightColor 的 alpha 通道没有被用到，复用该通道用来描述 rimLightColor 的强度。
+        rimInstensity:  { value: 1.0, target: rimColor.a, editor: {slide: true, range: [0, 10], step: 0.1}}   
+}%
+
+CCProgram rimlight-fs %{
+  precision highp float;
+  #include <cc-global>
+  #include <output>
+  #include <cc-fog-fs>
+
+  in vec2 v_uv;
+  in vec3 v_normal;
+  in vec3 v_position;
+
+  uniform sampler2D mainTexture;
+
+  uniform Constant {
+    vec4 mainColor;
+    vec4 rimColor;  
+  }; 
+  vec4 frag(){     
+    vec3 normal = normalize(v_normal);  //重新归一化法线。
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; //计算视点的方向
+    vec3 normalizedViewDirection = normalize(viewDirection);  //对视点方向进行归一化
+    float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);//计算 RimLight 的亮度
+    vec4 col = mainColor * texture(mainTexture, v_uv); //计算最终的颜色
+    float rimInstensity = rimColor.a;  // alpha 通道为亮度的指数
+    col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; //增加边缘光
+    CC_APPLY_FOG(col, v_position); 
+    return CCFragOutput(col);  
+  }
+}%
+```
 
  
