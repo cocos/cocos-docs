@@ -77,7 +77,7 @@
 
 下列代码演示了如何对变量进行读写：
 
-```
+```ts
 
 //获取动画控制器组件：
 let animationController:AnimationController = this.node.getComponent(AnimationController);
@@ -87,6 +87,9 @@ animationController.setValue("vertical", 1.0)
 
 //读取变量的值：
 let vertical: Number = aniamtionController.getValue("vertical");
+
+//获取所有的值：
+let variables= animationController.getVariables();
 
 ```
 

@@ -18,7 +18,7 @@
 
 | 方法名                 | 说明                       |
 | :--------------------- | :------------------------- |
-| getVariables           | 获取所有的变量。           |
+| getVariables           | 获取所有的变量类型，名字，以及值。           |
 | setValue               | 设置变量的值。             |
 | getValue               | 获取变量的值。             |
 | getCurrentStateStatus  | 获取当前状态的信息。       |
