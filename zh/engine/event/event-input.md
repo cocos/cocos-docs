@@ -2,8 +2,13 @@
 
 `EventTarget` 支持了一套完整的 [事件监听和发射机制](event-emit.md) 。在 Cocos Creator 3.4.0 中，我们支持了 `input` 对象，该对象实现了 `EventTarget` 的事件监听接口，可以通过 `input` 对象监听全局的系统输入事件。而原先的 `systemEvent` 对象则从 v3.4.0 开始废弃了，`systemEvent` 和 `input` 二者的区别在于：
 
+- `systemEvent` 的触摸事件回调的类型定义是 `(touch: Touch, event: EventTouch) => void`
+- `input` 的触摸事件回调的类型定义是 `(event: EventTouch) => void`
+
+**注意**：在 v3.4.0 两者还存在以下差异：
 - `systemEvent` 的事件监听器会被节点的事件监听器拦截
-- `input` 对象优先级比节点高，不会被拦截。
+- `input` 对象优先级比节点高，不会被拦截
+我们已经在 v3.4.1 里降低了 `input` 优先级，目前两者已经没有优先级上的差异了
 
 > **注意**：`systemEvent` 对象目前已不推荐使用，未来将逐步移除，建议使用 `input` 对象作为替代。
 
