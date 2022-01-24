@@ -17,7 +17,7 @@ The **Entry**, **Exit**, and **Any** are fixed units that exist in the state mac
 
 - **Entry**: marks the entry of the state machine. **Entry** can only be the source where the state transition occurs, not the target of the transition.
 
-- **Exit**: exits the state machine after the state transition to **Exit**. **Entry** can only be used as the target of a state transition, not as the source of the transition.
+- **Exit**: exits the state machine after the state transition to **Exit**. **Exit** can only be used as the target of a state transition, not as the source of the transition.
 
     **Exit exists only in the sub-state machine** because after exiting the sub-state machine, it is necessary to return to the parent state machine to continue executing the next transition. If the top-level state machine is exited, the animation flow terminates and the character is stationary, whereas in general, the character is continuously moving. <br>To make the character completely stationary, turn off the animation controller component where the current animation graph is located.
 

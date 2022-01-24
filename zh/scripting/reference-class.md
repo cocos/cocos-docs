@@ -85,7 +85,7 @@ class Foo extends Object {
 console.log(Foo.count);    // 结果是 11，因为 count 继承自 Object 类
 
 Foo.range.w = 200;
-console.log(Object.range.w);  // 结果是 200，因为 Sprite.range 和 Object.range 指向同一个对象
+console.log(Object.range.w);  // 结果是 200，因为 Foo.range 和 Object.range 指向同一个对象
 ```
 
 如果不需要考虑继承，私有的静态成员也可以直接定义在类的外面：

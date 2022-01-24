@@ -32,7 +32,7 @@ export namespace bridge{
 }
 ```
 
-### Objective-C 接口介绍
+## Objective-C 接口介绍
 
 对应的 `ObjC` 接口同样以两个为主，包括 `sendToScript` 和 `onScript`：
 

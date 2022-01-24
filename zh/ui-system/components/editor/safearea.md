@@ -4,7 +4,7 @@
 
 ![Renderings](./safearea/renderings.png)
 
-开发者只需要将 SafeArea 组件添加到节点上。该组件在启用时会通过 [sys.getSafeAreaRect()](__APIDOC__/zh/#/docs/3.4/zh/core/ObjectLiteral/sys?id=getsafearearect) 获取到当前 iOS 或 Android 设备的安全区域，并通过 Widget 组件（如果没有 Widget 组件会自动添加）实现适配。
+开发者只需要将 SafeArea 组件添加到节点上。该组件在启用时会通过 `sys.getSafeAreaRect()` 获取到当前 iOS 或 Android 设备的安全区域，并通过 Widget 组件（如果没有 Widget 组件会自动添加）实现适配。
 
 SafeArea 脚本接口请参考 [Mask API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/SafeArea)。
 

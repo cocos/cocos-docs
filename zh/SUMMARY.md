@@ -219,6 +219,7 @@
         - [动画状态](animation/animation-state.md)
     - [Marionette 动画系统](animation/marionette/index.md)
         - [动画图资源](animation/marionette/animation-graph.md)
+        - [动画控制器组件参考](animation/marionette/animation-controller.md)
         - [动画图面板](animation/marionette/animation-graph-panel.md)
         - [动画状态机](animation/marionette/animation-graph-basics.md)
         - [状态过渡](animation/marionette/state-transition.md)
@@ -289,7 +290,7 @@
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
-    - [扩展管理器面板](editor/extension/extension-manger.md)
+    - [扩展管理器面板](editor/extension/extension-manager.md)
     - [创建扩展](editor/extension/create-extension.md)
     - [第一个扩展包](editor/extension/first.md)
     - [第一个面板](editor/extension/first-panel.md)

@@ -42,7 +42,7 @@
 - 事件触发后的回调函数：
     - 自定义回调函数：`callback(event)`;
 - 回调参数：
-    - [EventMouse](__APIDOC__/zh/#/docs/3.4/zh/event/Class/EventMouse) 或 [EventTouch](__APIDOC__/zh/#/docs/3.4/zh/event/Class/EventTouch)
+    - [EventMouse](__APIDOC__/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventMouse) 或 [EventTouch](__APIDOC__/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventTouch)
 
 指针事件的使用范例如下：
 
@@ -115,7 +115,7 @@ export class Example extends Component {
 - 事件触发后的回调函数：
     - 自定义回调函数：`callback(event);`
 - 回调参数：
-    - [EventAcceleration](__APIDOC__/zh/#/docs/3.4/zh/event/Class/EventAcceleration)
+    - [EventAcceleration](__APIDOC__/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventAcceleration)
 
 ```ts
 import { _decorator, Component, input, Input, log } from 'cc';
@@ -124,7 +124,7 @@ const { ccclass } = _decorator;
 @ccclass("Example")
 export class Example extends Component {
     onLoad () {
-        input.setAccelerometerEnabled(true);
+        input.setAccelerometerEnabled(true); 
         input.on(Input.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
     }
 

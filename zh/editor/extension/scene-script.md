@@ -26,6 +26,10 @@
 定义 `scene.js` 的方法如下：
 
 ```javascript
+const { join } = require('path');
+// 加载 ‘cc’ 需要设置搜索路径
+module.paths.push(join(Editor.App.path, 'node_modules'));
+
 // 模块加载的时候触发的函数
 exports.load = function() {};
 // 模块卸载的时候触发的函数
@@ -34,9 +38,10 @@ exports.unload = function() {};
 // 模块内定义的方法
 exports.methods = {
     log() {
-        const { director } = require('cc')
-        director.getScene()
-    }
+        const { director } = require('cc');
+        director.getScene();
+        return {};
+    },
 };
 ```
 
@@ -60,9 +65,12 @@ const options: ExecuteSceneScriptMethodOptions = {
     args: []
 };
 
-await Editor.Message.request('scene', 'execute-scene-script', options); 
+// result: {}
+const result = await Editor.Message.request('scene', 'execute-scene-script', options);
 ```
 
 这样就可以在扩展包中获取到场景所有节点的名字，当然还可以用来对场景节点进行更多的查询和操作。
 
-> **注意**：由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。建议只传输纯 JSON 对象。
+> **注意**：返回的对象 `result` 则是 `log` 方法里 `return` 的对象。
+
+**由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。建议只传输纯 JSON 对象。**
