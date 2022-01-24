@@ -25,7 +25,7 @@ export class tweentest extends Component {
 
     start () {
         /** 缓动 _pos */
-        tween(this._pos)
+        let tw = new Tween(this._pos)
             .to(3, new Vec3(10, 10, 10), { easing: 'bounceInOut' })
             .to(3, new Vec3(0, 0, 0), { easing: 'elasticOut' })
             .union()
@@ -33,7 +33,7 @@ export class tweentest extends Component {
             .start();
 
         /** 缓动 Node，这里将缓动 Node 的 position 属性 */
-        tween(this.node)
+        tw = new Tween(this.node)
             .to(3, { position: new Vec3(10, 10, 10) }, { easing: 'bounceInOut' })
             .to(3, { position: new Vec3(0, 0, 0) }, { easing: 'elasticOut' })
             .union()
@@ -62,7 +62,7 @@ repeat 注释中写道
 示例：
 
 ```
-tween(this.node)
+const tw = new Tween(this.node)
     .by(1, { position: new Vec3(100, 0, 0) })
     .to(1, { scale: new Vec3(2, 2, 2) })
     .call(()=>{
@@ -105,7 +105,7 @@ this.node.setPosition(_pos);    // 这里将通过接口 setPosition
 错误示范：
 
 ```
-tween(this.node.position)
+const tw = new Tween(this.node.position)
     .by(1, new Vec3(100, 0, 0))
     .call(()=>{
         this.node.position = new Vec3(0, 0, 0);
@@ -118,7 +118,7 @@ tween(this.node.position)
 正确示范：
 
 ```
-tween(this.node)
+const tw = new Tween(this.node)
     .by(1, { position: new Vec3(100, 0, 0) })
     .call(()=>{
         this.node.position = new Vec3(0, 0, 0);
@@ -179,7 +179,7 @@ interface ITweenOption {
 import { Node, tween, Vec3 } from 'cc';
 const nodeArray: Node[] = []; // 此处替换成你的节点数组
 const tweenTargetVec3 = new Vec3();
-tween(tweenTargetVec3)
+const tw = new Tween(tweenTargetVec3)
     .by(1, new Vec3(1, 1, 1), {
         'onUpdate': (target: Vec3, ratio: number) => {
             for (let i = 0; i < nodeArray.length; i++)
@@ -191,7 +191,7 @@ tween(tweenTargetVec3)
 `call` 的使用
 
 ```typescript
-cc.tween(this.node)
+const tw = new Tween(this.node)
     .to(2, { rotation: 90})
     .to(1, { scale: 2})
     // 当前面的动作都执行完毕后才会调用这个回调函数
@@ -208,7 +208,7 @@ cc.tween(this.node)
 `cc.tween` 在调用 start 时会将之前生成的 action 队列重新组合生成一个 cc.sequence 队列，所以 `cc.tween` 的链式结构是依次执行每一个 API 的，也就是会执行完一个 API 再执行下一个 API。
 
 ```js
-cc.tween(this.node)
+const tw = new Tween(this.node)
     // 0s 时，node 的 scale 还是 1
     .to(1, { scale: 2 })
     // 1s 时，执行完第一个 action，scale 为 2
@@ -226,7 +226,7 @@ cc.tween(this.node)
 - `by`：对属性进行相对值计算，最终的运行结果是设置的属性值加上开始运行时节点的属性值，即变化值。
 
 ```js
-cc.tween(node)
+const tw = new Tween(node)
   .to(1, {scale: 2})      // node.scale === 2
   .by(1, {scale: 2})      // node.scale === 4 (2 + 2)
   .by(1, {scale: 1})      // node.scale === 5
@@ -237,7 +237,7 @@ cc.tween(node)
 ### 同时执行多个属性
 
 ```js
-cc.tween(this.node)
+const tw = new Tween(this.node)
     // 同时对 scale, position, rotation 三个属性缓动
     .to(1, { scale: 2, position: cc.v2(100, 100), rotation: 90 })
     .start()
@@ -249,14 +249,14 @@ cc.tween(this.node)
 
 ```js
 // 传入 easing 名字，直接使用内置 easing 函数
-cc.tween().to(1, { scale: 2 }, { easing: 'sineOutIn'})
+let tw = new Tween().to(1, { scale: 2 }, { easing: 'sineOutIn'})
 
 // 使用自定义 easing 函数
-cc.tween().to(1, { scale: 2 }, { easing: t => t*t; })
+tw = new Tween().to(1, { scale: 2 }, { easing: t => t*t; })
 
 // 只对单个属性使用 easing 函数
 // value 必须与 easing 或者 progress 配合使用
-cc.tween().to(1, { scale: 2, position: { value: cc.v3(100, 100, 100), easing: 'sineOutIn' } })
+tw = new Tween().to(1, { scale: 2, position: { value: cc.v3(100, 100, 100), easing: 'sineOutIn' } })
 ```
 
 Easing 类型说明可参考 [API 文档](../../../api/zh/classes/Easing.html)。
@@ -267,14 +267,14 @@ Easing 类型说明可参考 [API 文档](../../../api/zh/classes/Easing.html)�
 
 ```js
 // 对所有属性自定义 progress
-cc.tween().to(1, { scale: 2, rotation: 90 }, {
+let tw = new Tween().to(1, { scale: 2, rotation: 90 }, {
   progress: (start, end, current, ratio) => {
     return start + (end - start) * ratio;
   }
 })
 
 // 对单个属性自定义 progress
-cc.tween().to(1, {
+tw = new Tween().to(1, {
   scale: 2,
   position: {
     value: cc.v3(),
@@ -292,7 +292,7 @@ clone 函数会克隆一个当前的缓动，并接受一个 target 作为参数
 
 ```js
 // 先创建一个缓动作为模板
-let tween = cc.tween().to(4, { scale: 2 })
+let tween = new Tween().to(4, { scale: 2 })
 
 // 复制 tween，并使用节点 Canvas/cocos 作为 target
 tween.clone(cc.find('Canvas/cocos')).start()
@@ -305,14 +305,14 @@ tween.clone(cc.find('Canvas/cocos2')).start()
 你可以事先创建一些固定的缓动，然后通过组合这些缓动形成新的缓动来减少代码的编写。
 
 ```js
-let scale = cc.tween().to(1, { scale: 2 })
-let rotate = cc.tween().to(1, { rotation: 90})
-let move = cc.tween().to(1, { position: cc.v3(100, 100, 100)})
+let scale = new Tween().to(1, { scale: 2 })
+let rotate = new Tween().to(1, { rotation: 90})
+let move = new Tween().to(1, { position: cc.v3(100, 100, 100)})
 
 // 先缩放再旋转
-cc.tween(this.node).then(scale).then(rotate)
+let tw = new Tween(this.node).then(scale).then(rotate)
 // 先缩放再移动
-cc.tween(this.node).then(scale).then(move)
+tw = new Tween(this.node).then(scale).then(move)
 ```
 
 ### 并行执行缓动
@@ -338,7 +338,7 @@ t(this.node)
 repeat/repeatForever 函数会将前一个 action 作为作用对象。但是如果有参数提供了其他的 action 或者 tween，则 repeat/repeatForever 函数会将传入的 action 或者 tween 作为作用对象。
 
 ```js
-cc.tween(this.node)
+let tw = new Tween(this.node)
     .by(1, { scale: 1 })
     // 对前一个 by 重复执行 10次
     .repeat(10)
@@ -346,14 +346,14 @@ cc.tween(this.node)
     .start()
 
 // 也可以这样用
-cc.tween(this.node)
+tw = new Tween(this.node)
     .repeat(10,
-        cc.tween().by(1, { scale: 1 })
+        new Tween().by(1, { scale: 1 })
     )
     .start()
 
 // 一直重复执行下去
-cc.tween(this.node)
+tw = new Tween(this.node)
     .by(1, { scale: 1 })
     .repeatForever()
     .start()
@@ -362,7 +362,7 @@ cc.tween(this.node)
 ### 延迟执行
 
 ```js
-cc.tween(this.node)
+const tw = new Tween(this.node)
     // 延迟 1s
     .delay(1)
     .to(1, { scale: 2 })
