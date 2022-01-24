@@ -32,7 +32,7 @@ export namespace bridge{
 }
 ```
 
-### Java Interface Introduction
+## Java Interface Introduction
 
 The corresponding `JAVA` interfaces are also dominated by two, including `sendToScript` and `onScript`:
 

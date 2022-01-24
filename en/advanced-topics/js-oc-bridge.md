@@ -32,14 +32,14 @@ export namespace bridge{
 }
 ```
 
-### Objective-C Interface Introduction
+## Objective-C Interface Introduction
 
 The corresponding `ObjC` interfaces are also dominated by two, including `sendToScript` and `onScript`:
 
 - `sendToScript` corresponds to `sendToNative` and represents the parameters to be transferred to `JavaScript`.
 - `onScript` corresponds to `onNative`, which indicates the response behavior after receiving a script message. Wrap the behavior by creating an interface called `ICallback` and use `setCallback` to enable the interface function.
 
-```objc
+```ObjC
 //Objective-c
 typedef void (^ICallback)(NSString*, NSString*);
 

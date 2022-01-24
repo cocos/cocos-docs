@@ -32,7 +32,7 @@ export namespace bridge{
 }
 ```
 
-### Java 接口介绍
+## Java 接口介绍
 
 对应的 `JAVA` 接口同样以两个为主，包括 `sendToScript` 和 `onScript`：
 
