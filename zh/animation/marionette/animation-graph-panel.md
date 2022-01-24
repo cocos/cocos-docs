@@ -71,6 +71,10 @@
   这些图都是用 ProcessOn 进行编辑的，源文件以 POS 格式保存在 zh/animation/marionette 目录下，可将其导入到 ProcessOn 再次编辑。
   -->
 
+### 通过脚本控制变量
+
+开发者也可以在脚本中通过动画控制器组件获取和修改变量的值，详情请参考 [动画控制器组件参考](animation-controller.md)。
+
 ## 属性（Inspector）
 
 该分页主要用于设置状态机中各类状态的属性和过渡条件，详情请参考 [动画状态机](animation-graph-basics.md)。
