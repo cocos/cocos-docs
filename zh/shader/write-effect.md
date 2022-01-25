@@ -25,6 +25,8 @@ RimLight 实现简单，效率高，效果也不错。
 
 首先参考[新建着色器](write-effect-overview.md)新建一个名为 `rimlight.effect` 的着色器。
 
+![](img/rim-light-effect.png)
+
 ## CCEffect 
 
 由于不考虑半透明的渲染，因此可删掉半透明的渲染技术部分,并将 `frag` 修改为： `rimlight-fs:frag`

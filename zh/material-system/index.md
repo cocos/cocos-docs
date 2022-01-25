@@ -13,9 +13,10 @@
 本节将包含以下内容： 
 
 - [材质操作指南](material-inspector.md)
-- [在脚本中使用](material-script.md)
-<!-- 需重做 -->
-- [材质系统结构指南](material-structure.md)
+- [在程序中使用材质](material-script.md)
+- [材质接口说明](material-interface.md)
+- [内置材质](buildin-material.md)
+- [材质系统结构指南](material-structure.md) <!-- 需重做 -->
 - [v2.x 升级 v3.0 指南](effect-2.x-to-3.0.md)
 
 若要了解更多着色器的内容，请参考： [着色器](../shader/index.md)
