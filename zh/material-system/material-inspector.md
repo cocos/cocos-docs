@@ -1,4 +1,4 @@
-# 材质操作指南 
+# 材质操作指南
 
 本节将主要介绍以下内容：
 
@@ -25,7 +25,7 @@
 
 #### 导出模型资源中的材质
 
-通常模型文件都由外部工具（Maya、Blender 或 3DMax 等）制作并导出为 `FBX` 文件。 
+通常模型文件都由外部工具（Maya、Blender 或 3DMax 等）制作并导出为 `FBX` 文件。
 
 这些资源文件内部可能会带有在外部工具中制作的材质。
 
@@ -33,7 +33,7 @@
 
 若要使用这些材质，点击 `FBX` 文件，在右侧的属性查看器内选择 `Material` 栏， 勾选 `Dump materials` 单选框，并选择保存材质则可以将材质提取为单独的文件。提取完成后，这些材质资源会自动和 `MeshRenderer` 中的 `Materials` 属性绑定。
 
-![](inspector/dump-material.png) ![](inspector/gen-material.png)
+![导出模型](inspector/dump-material.png) ![导出模型预览](inspector/gen-material.png)
 
 开发者可查看 [模型资源](asset/model/mesh.md) 查看更多容。
 
@@ -49,7 +49,7 @@
 
 属性查看器中的可编辑属性都来自于着色器系统。
 
-若要了解更多关于着色器的内容，请查看 [着色器]() 。
+若要了解更多关于着色器的内容，请查看 [着色器](../shader/index.md) 。
 
 在材质内修改属性并不会影响着色器。
 
@@ -57,7 +57,7 @@
 
 在属性查看器内的着色器下拉框中，可以选择当前引擎内置的着色器以及用户自定义着色器。
 
-![](inspector/select-effect.png)
+![选择着色器](inspector/select-effect.png)
 
 对于内置着色器的用法可查看：[内置着色器](../shader/effect-buildin.md)
 
@@ -65,7 +65,7 @@
 
 在属性查看器的右上角可以选择下拉菜单选择不同的预览模型：
 
-![](inspector/preview-model-select.png)
+![预览模型](inspector/preview-model-select.png)
 
 ### 保存和重置（Reset）材质
 
@@ -77,7 +77,7 @@
 
 >注意：一旦保存，则不能再重置。
 
-![](inspector/save-material.png)
+![保存修改](inspector/save-material.png)
 
 #### 重置（Reset）材质
 
@@ -87,9 +87,4 @@
 
 >注意：未保存的修改会丢失。
 
-![](inspector/revert-material.png)
-
-
-
-
-
+![重置修改](inspector/revert-material.png)

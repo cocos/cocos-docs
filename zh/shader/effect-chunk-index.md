@@ -26,9 +26,9 @@
 
 ### 创建着色器片段
 
-在 Asset 目录点击右键，选择 创建->着色器片段（ Chunk ） 
+在 Asset 目录点击右键，选择 创建->着色器片段（ Chunk ）
 
-![](img/create-chunk.png)
+![创建着色器片段](img/create-chunk.png)
 
 创建后，引擎会根据片段模板生成：
 

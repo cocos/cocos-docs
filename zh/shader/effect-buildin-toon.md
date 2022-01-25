@@ -2,17 +2,17 @@
 
  相对于[真实渲染](effect-buildin-pbr.md)（PBR），非真实渲染（Non-Photorealistic Rendering NPR）通过特性化渲染，实现于真实世界完全不同的美术表现。
 
- 卡通渲染（Toon）是非真实渲染的常见实现之一。 
+ 卡通渲染（Toon）是非真实渲染的常见实现之一。
 
- 常见的卡通渲染内容包含 
+ 常见的卡通渲染内容包含
 
- - 对物体进行边缘描边
- - 模拟色阶不连续现象
- - 其他光照计算
-  
- ![toon](img/toon.png) 
+- 对物体进行边缘描边
+- 模拟色阶不连续现象
+- 其他光照计算
 
- # 参数
+ ![toon](img/toon.png)
+
+# 参数
 
 | 参数         | 说明                                                              |
 | :------------- | :---------------------------------------------------------------- |
@@ -20,11 +20,11 @@
 | mainColor      | 主颜色，该颜色会作为最初的色阶|
 | colorScale     | 颜色缩放，对主颜色，一阶和二阶颜色的 RGB 通道相乘 |
 | alphaThreshold | 半透明物体剪裁的 alpha 区间
-| shadeColor1    | 一阶色阶的颜色，该颜色会作为卡通着色的中间色阶 | 
+| shadeColor1    | 一阶色阶的颜色，该颜色会作为卡通着色的中间色阶 |
 | shadeColor2    | 二阶色阶的颜色，该颜色会作为卡通着色的最后一个色阶 |
 | specular       | 反射光颜色
-| baseStep       | 
-| baseFeather    | 
+| baseStep       |
+| baseFeather    |
 | shadeStep      |
 | shadeFeather   |
 | emissive       | 自发光颜色，独立于光照计算，由模型本身直接发散出的颜色  |
@@ -37,7 +37,7 @@
 | specularMap    | 反射光贴图<br>若有指定，则会和反射光颜色做相乘， |
 | emissiveMap    | 自发光贴图<br>如果有指定，这项会和自发光颜色相乘，因此需要把自发光颜色（默认是黑色）调高才会有效果 |
 
- # 宏
+# 宏
 
  | 宏名                          | 说明                      |
  | :---------------------------- | :------------------------ |
@@ -55,14 +55,14 @@
  | BASE_COLOR_MAP_AS_SHADE_MAP_2 | 使用 baseColorMap 作为二阶着色 |
  | SHADE_MAP_1_AS_SHADE_MAP_2    | 给二阶着色叠加一阶着色|
 
- # 制作标准
+# 制作标准
 
- # 原理
+# 原理
 
  卡通渲染由两个 Pass 组成
- 
- - Pass 0 描边（可选）
- - Pass 1 正常绘制
+
+- Pass 0 描边（可选）
+- Pass 1 正常绘制
 
 ## Pass 0
 
@@ -74,7 +74,7 @@
 
 ## Pass 1
 
-色阶不连续现象通过三个颜色组成： 
+色阶不连续现象通过三个颜色组成：
 
 - `baseColor`
 - `shadeColor1`
@@ -82,7 +82,7 @@
 
 其颜色对应关系如下图：
 
-![](img/shade-color.png)
+![toon-shade-color](img/shade-color.png)
 
 勾选 `USE_1ST_SHADE_MAP` 和 `USE_2ND_SHADE_MAP` 的情况下，使用外部进行纹理模拟色阶不连续现象，该纹理通常采用手绘或外部工具生成。
 

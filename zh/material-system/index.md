@@ -10,10 +10,10 @@
 通过材质系统，既可以实现基于物理的真实渲染（PBR）， 也可以自定义非真实渲染（NPR）。
 -->
 
-本节将包含以下内容： 
+本节将包含以下内容：
 
 - [材质操作指南](material-inspector.md)
-- [在程序中使用材质](material-script.md)
+- [在脚本中使用材质](material-script.md)
 - [材质接口说明](material-interface.md)
 - [内置材质](buildin-material.md)
 - [材质系统结构指南](material-structure.md) <!-- 需重做 -->

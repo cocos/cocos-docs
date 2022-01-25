@@ -1,4 +1,4 @@
-# 在脚本中使用
+# 在脚本中使用材质
 
 ## 创建材质
 
@@ -24,7 +24,7 @@ mat.initialize({
 
 对任意可渲染组件，设置其材质后：
 
-![](img/add-material.png)
+![设置材质](img/add-material.png)
 
 可通过下列代码访问：
 
@@ -86,5 +86,3 @@ mat.setProperty("uniform name", uniformValue)
 材质实例为材质的运行时实例。
 
 -->
-
-

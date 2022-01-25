@@ -26,7 +26,7 @@
 |属性|说明|
 |:--|:--|
 |getHash| 静态方法,获得材质的哈希值。<br>哈希值相同的材质才可以进行合批|
-|initialize| 通过 `IMaterialInfo` 结构初始化材质，程序化控制可参考：[在程序中使用材质](material-script.md)|
+|initialize| 通过 `IMaterialInfo` 结构初始化材质，程序化控制可参考：[在脚本中使用材质](material-script.md)|
 |reset| 通过 `IMaterialInfo` 结构重置材质|
 |destroy| 彻底销毁材质<br>**注意：销毁后无法重新初始化**|
 |recompileShaders| 使用指定预处理宏重新编译当前渲染过程中的着色器片段。<br>**注意：该方法只允许对材质实例（`MaterialInstance`）执行** |
@@ -39,9 +39,9 @@
 |initDefault| 使用传入的 `uuid` 将实例初始化为内置无光照着色器
 |validate| 判断材质是否有效，同时满足着色器资源不为空、着色器资源已初始化且着色器的渲染过程数组长度大于 0 |
  
-## `IMaterialInfo` 的属性和方法
+## `IMaterialInfo` 的属性
 
-`IMaterialInfo` 是用于初始化材质的接口。若要手动初始化材质可以参考：[在程序中使用材质](material-script.md)
+`IMaterialInfo` 是用于初始化材质的接口。若要手动初始化材质可以参考：[在脚本中使用材质](material-script.md)
 
 ### 属性
 
@@ -51,7 +51,7 @@
 |effectName|  材质引用的着色器资源的名字 <br> 和 `effectAsset` 必须二选一|
 |technique | 指定着色器的渲染技术的索引, 默认为 0 |
 |defines| 这个材质定义的预处理宏，默认全为 0， 可指定 1 个宏或者多个宏的数组|
-|states| 这个材质的自定义管线状态，将覆盖 effect 中的属性 <br>注意：在可能的情况下请尽量少的自定义管线状态，以减小对渲染效率的影响|
+|states| 这个材质的自定义管线状态，将覆盖 effect 中的属性 <br>**注意：在可能的情况下请尽量少的自定义管线状态，以减小对渲染效率的影响**|
 
 创建代码示例：
 
@@ -68,6 +68,7 @@ mat.initialize({
 ## 材质说明
 
 在可渲染组件中，材质会以共享材质和材质实例两种情况存在。
+
 - 共享材质受多个可渲染组件共享，修改共享材质会影响所有使用它的可渲染组件。
 - 材质实例属于可渲染组件的独享属性，修改材质实例仅影响使用它的可渲染组件。
 - 材质在未进行实例生成操作之前，默认以共享材质方式存在。
@@ -76,7 +77,7 @@ mat.initialize({
 
 Q : **为何我修改了材质的属性，Draw Call会增加？**
 
-A: 有可能是使用了可渲染组件的`getMaterialInstance`或者`get RenderableComponent.material`方法，导致新的材质实例生成，影响了合批功能。
+A : 有可能是使用了可渲染组件的`getMaterialInstance`或者`get RenderableComponent.material`方法，导致新的材质实例生成，影响了合批功能。
 
 当调用 `RenderableComponent.getMaterialInstance` 或 `get RenderableComponent.material` 时，引擎会根据当前的材质创建材质实例。
 
@@ -86,7 +87,6 @@ A: 有可能是使用了可渲染组件的`getMaterialInstance`或者`get Render
 
 - 修改共享材质，会影响所有使用此共享材质的可渲染组件。下列代码演示了如何获取共享材质：
 ```ts
-
 // 获取可渲染组件
 let renderableComponent = this.node.getComponent(MeshRenderer) as RenderableComponent
 
