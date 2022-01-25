@@ -38,7 +38,7 @@
 
 由于我们在 v3.4.1 中采用了新的渲染数据提交设计，所以需要注意以下几点：
 
-1. **项目设置 -> Macro Configurations** 面板中的 **BATCHER2D_MEM_INCREMENT** 的值会影响每个 MeshBuffer 可容纳的最大顶点数量，当这个值越大，同一个 MeshBuffer 可容纳的 2D 渲染对象也就越多，但与此同时，内存增加的幅度也会越大，请用户结合自身项目规模酌情设置大小。
+1. **项目设置 -> Macro Configurations** 面板中的 **BATCHER2D_MEM_INCREMENT** 的值会影响每个 MeshBuffer 可容纳的最大顶点数量，当这个值越大，同一个 MeshBuffer 可容纳的 2D 渲染对象也就越多。但与此同时，内存增加的幅度也会越大，请用户结合自身项目规模酌情设置大小。
 
 2. **BATCHER2D_MEM_INCREMENT** 的单位为 **KB**，与可容纳的顶点数量之间的转换关系如下：
 
@@ -61,11 +61,11 @@
 
       - **9** 表示 `vfmtPosUvColor` 条件下每个顶点占用的 `float` 值；
 
-      - **4** 表示每个 float 占用的字节数；
+      - **4** 表示每个 `float` 占用的字节数；
 
       - **1024** 表示字节与 KB 转换单位。
 
-    因此 **BATCHER2D_MEM_INCREMENT** 的默认值 144KB，表示可容纳 `144 * 1024 / (9 * 4）= 4096` 个标准格式的顶点。需要注意的是：同一 MeshBuffer 容纳的最大顶点数不可超过 **65535** 个，即 **BATCHER2D_MEM_INCREMENT** 的最大值不可大于等于 `65536 * 9 * 4 / 1024 = 2304（KB）`。
+    因此 **BATCHER2D_MEM_INCREMENT** 的默认值 144KB，表示可容纳 `144 * 1024 / (9 * 4）= 4096` 个标准格式的顶点。需要注意的是：同一 MeshBuffer 容纳的最大顶点数不可超过 **65535** 个，即 **BATCHER2D_MEM_INCREMENT** 的最大值不可大于 `65535 * 9 * 4 / 1024 ≈ 2303.96（KB）`。
 
 3. 目前 2D 渲染使用的核心为 **static VB**，其主要内容包括：
 
