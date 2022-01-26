@@ -9,7 +9,7 @@ To batch render 2D assets, the following criteria are required:
 | Nodes are hosted in the same layer | Assets in different layers are unable to be batched as layers predetermine the render process. |
 | Assets are drawn with the same material | As Cocos Creator instantiates materials after `uniforms` are set which prevents batching. **It is prominent for assets to be batched to share the same material.** <br>If you created a `uniform` for a custom material and wish for the material to be batched after said `uniform` is no longer being used, you can reassign the material to the component via interface `CustomMaterial`. |
 | Material instances share the same settings for `BlendState` and `DepthStencilState` | `DepthStencilState` is automatized by the engine to perform depth testing and create stencil buffers. It is primarily used to implement visual effects such as masking. In general, it is not necessary for users to modify its parameters. |
-| Vertex data are transferred in the same **buffer** (new in 3.4.1.) | Vertex data are automatized by the engine under most scenarios and require no manual management. For more information, please see below for section **MeshBuffer Guidelines**. |
+| Vertex data are transferred in the same **buffer** (new in 3.4.1.) | Vertex data are automatized by the engine under most scenarios and require no manual management. For more information, please see below in section **MeshBuffer Guidelines**. |
 | Textures share the same source and sampler type | The most common issue that prevents batching is mismatch between textures. For example, Sprites and Labels are unable to be batched due to different sampler types. We recommend a general workflow to achieve optimal batching results in Cocos Creator. Please see below in section **Batching Workflow Guidelines** for more details. |
 
 ## Batching Workflow Guidelines
@@ -34,7 +34,7 @@ Spites and Labels are in general unable to be batched together due to different 
 - For sprites, combine textures with [Auto Atlas](../../../asset/auto-atlas.md) and [Dynamic Atlas](../../../advanced-topics/dynamic-atlas.md). Texture Atlases can be batched with other components as long as the prerequisites are met.
 - For labels, create a bitmap cache to combine textures allowing them to be batched with sprites. However, it is ill-advised to frequently alter the content of label texts once bitmap caches are created.
 
-In summary, we recommend optimizing Node Tree structure in conjunction with combing textures with Auto Atlas, Dynamic Atlas and Bitmap Caches to achieve ideal batching results.
+In summary, we recommend optimizing Node Tree structure in conjunction with combing textures with Auto Atlas, Dynamic Atlas and bitmap caches to achieve ideal batching results.
 
 ## MeshBuffer Guidelines
 
@@ -48,7 +48,7 @@ Total vertex number in the scene exceeds the maximum capacity of a MeshBuffer (6
 
 Render data structures are redesigned in version 3.4.1. Please take note:
 
-1. Property **BATCHER2D_MEM_INCREMENT** under **Project Properties -> Macro Configuration** indicates the maximum vertex number for a MeshBuffer. Increasing the value will allow a MeshBuffer to host more assets to render but will also increase memory usage.
+1. Property **BATCHER2D_MEM_INCREMENT** under **Project Properties -> Macro Configuration** indicates the maximum vertex number for a MeshBuffer. Increasing the value will allow a MeshBuffer to host more assets to be rendered but will also increase memory usage.
 
 2. **BATCHER2D_MEM_INCREMENT** is measured in **kilobytes**. Users can follow the instructions below to calculate the corresponding capacity for vertex numbers:
 
@@ -85,6 +85,6 @@ Render data structures are redesigned in version 3.4.1. Please take note:
 
     - Index buffer has a simpler data structure and lighter data volume compared to vertex buffer. Updating at each frame, index buffer defines the order for vertices to be rendered and takes an insignificant amount of processing power, requiring no sophisticated memory management.
 
-    - Due to vertex buffer being static, it is advisable to preload vertex buffer at the very beginning of the component's lifespan. At loading, component will request relevant vertex buffers from MeshBuffer, and returns them at destruction.
+    - Due to vertex buffer being static, it is advisable to preload vertex buffer at the very beginning of the component's lifespan. At loading, component will request relevant vertex buffers from MeshBuffer and returns them at destruction.
 
     - When MeshBuffer is unable to provide the vertex buffer requested by the component, the engine will create a new MeshBuffer in accordance with **BATCHER2D_MEM_INCREMENT** so that vertex buffer can be successfully distributed.
