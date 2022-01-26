@@ -1,4 +1,4 @@
-# 常用 shader 内置 Uniform
+# 常用 Shader 内置 Uniform
 
 要在 shader 中使用内置变量，需要包含对应头文件。
 目前所有的内置变量，按所在头文件分组，依次有：

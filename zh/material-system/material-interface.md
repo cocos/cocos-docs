@@ -38,7 +38,7 @@
 |copy| 复制目标材质到当前的材质实例|
 |initDefault| 使用传入的 `uuid` 将实例初始化为内置无光照着色器
 |validate| 判断材质是否有效，同时满足着色器资源不为空、着色器资源已初始化且着色器的渲染过程数组长度大于 0 |
- 
+
 ## `IMaterialInfo` 的属性
 
 `IMaterialInfo` 是用于初始化材质的接口。若要手动初始化材质可以参考：[在脚本中使用材质](material-script.md)
@@ -86,6 +86,7 @@ A : 有可能是使用了可渲染组件的`getMaterialInstance`或者`get Rende
 **材质修改示例代码：**
 
 - 修改共享材质，会影响所有使用此共享材质的可渲染组件。下列代码演示了如何获取共享材质：
+
 ```ts
 // 获取可渲染组件
 let renderableComponent = this.node.getComponent(MeshRenderer) as RenderableComponent
@@ -99,7 +100,9 @@ let sharedMaterials = renderableComponent.sharedMaterials
 //获取共享材质数组中索引 0 的元素
 let sharedMaterial = renderableComponent.getMaterial(0)
 ```
+
 - 若只想修改单个可渲染组件的材质，需要修改其材质实例。下面代码演示了如何获取/创建材质实例：
+
 ```ts
 // 获取可渲染组件
 let renderableComponent = this.node.getComponent(MeshRenderer) as RenderableComponent
@@ -129,6 +132,3 @@ let materilInstance = renderableComponent.getMaterialInstance(materialIndex);
 - 材质实例
 在运行时，如对材质属性进行修改，就会根据当前材质（`Material`）创建出新的材质实例（`MaterialInstance`）。如果多个可渲染组件共用一个材质，当某个可渲染组件的材质被修改后，引擎会为该材质创建出材质实例以避免其他使用该材质的组件受影响。**这种情况下，材质实例和材质不能进行合批，会导致 DrawCall 的增加。**
 -->
-
-
-

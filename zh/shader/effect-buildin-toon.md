@@ -55,8 +55,6 @@
  | BASE_COLOR_MAP_AS_SHADE_MAP_2 | 使用 baseColorMap 作为二阶着色 |
  | SHADE_MAP_1_AS_SHADE_MAP_2    | 给二阶着色叠加一阶着色|
 
-## 制作标准
-
 ## 原理
 
  卡通渲染由两个 Pass 组成
@@ -64,7 +62,7 @@
 - Pass 0 描边（可选）
 - Pass 1 正常绘制
 
-## Pass 0
+### Pass 0
 
 描边时，选择 `CullMode=FRONT` 将物体朝前的面进行剔除，之后将顶点按照法线方向进行扩展。此操作将得到一个略比原模型更大的单色模型。
 
@@ -72,7 +70,7 @@
 
 ![USE_OUTLINE_PASS 开启](img/outline-on.png) ![USE_OUTLINE_PASS 关闭](img/outline-off.png)
 
-## Pass 1
+### Pass 1
 
 色阶不连续现象通过三个颜色组成：
 

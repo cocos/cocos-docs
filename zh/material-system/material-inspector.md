@@ -2,7 +2,7 @@
 
 ## 创建材质
 
-在编辑器的资源界面点击选择 **创建**->**材质（Material）** 可以创建一个新的材质。
+在编辑器的 **资源管理器** 点击选择 **创建 -> 材质（Material）** 可以创建一个新的材质。
 
 ![创建材质](create-material/create.png)
 
@@ -12,9 +12,9 @@
 
 ### 在网格渲染组件中使用
 
-在任何持有 `MeshRenderer` ，`SkeletonMeshRenderer` 等的组件上选择 `Materials` ，通过下拉选择框，选择相应的材质。
+在任何持有 `MeshRenderer` ，`SkeletonMeshRenderer` 等组件的 **属性查看器上** 上选择 `Materials` ，通过下拉选择框，选择相应的材质。
 
-也可以直接从 Assets 目录拖拽材质到对应的组件属性查看器上。
+也可以直接从 Assets 目录拖拽材质到对应的组件 **属性查看器上**。
 
 ![select-material](use-material/select.png)
 
@@ -26,7 +26,7 @@
 
 当导入引擎后，这些材质处于只读状态。
 
-若要使用这些材质，点击 `FBX` 文件，在右侧的属性查看器内选择 `Material` 栏， 勾选 `Dump materials` 单选框，并选择保存材质则可以将材质提取为单独的文件。提取完成后，这些材质资源会自动和 `MeshRenderer` 中的 `Materials` 属性绑定。
+若要使用这些材质，点选 `FBX` 文件，在右侧的 **属性查看器上** 内选择 `Material` 栏， 勾选 `Dump materials` 单选框，并选择保存材质则可以将材质提取为单独的文件。提取完成后，这些材质资源会自动和 `MeshRenderer` 中的 `Materials` 属性绑定。
 
 ![导出模型](inspector/dump-material.png) ![导出模型预览](inspector/gen-material.png)
 
@@ -36,7 +36,7 @@
 
 `UI` 和 `2D` 系统在默认情况下只支持一个单独的自定义材质。若留空则会使用引擎内置的标准材质。
 
-若要进行自定义，在组件属性查看器内，通过选择 `Custom Material` 的下拉框选择相应的材质。
+若要进行自定义，在组件 **属性查看器上**，通过选择 `Custom Material` 的下拉框选择相应的材质。
 
 ![ui-select-mat](use-material/ui-select.png)
 
