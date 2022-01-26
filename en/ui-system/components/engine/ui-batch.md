@@ -1,20 +1,20 @@
-# 2D Render Batching Guidelines
+# 2D Renderable Components Batching Guidelines
 
 ## Prerequisites
 
-To batch render 2D assets, the following criteria are required:
+To batch render 2D renderable components, the following criteria are required:
 
 | Prerequisite | Description |
 | :-- | :--- |
-| Nodes are hosted in the same layer | Assets in different layers are unable to be batched as layers predetermine the render process. |
-| Assets are drawn with the same material | As Cocos Creator instantiates materials after `uniforms` are set which prevents batching. **It is prominent for assets to be batched to share the same material.** <br>If you created a `uniform` for a custom material and wish for the material to be batched after said `uniform` is no longer being used, you can reassign the material to the component via interface `CustomMaterial`. |
+| Nodes are hosted in the same layer | Renderable components in different layers are unable to be batched as layers predetermine the render process. |
+| Renderable components are drawn with the same material | As Cocos Creator instantiates materials after `uniforms` are set which prevents batching. **It is prominent for renderable components to be batched to share the same material.** <br>If you created a `uniform` for a custom material and wish for the material to be batched after said `uniform` is no longer being used, you can reassign the material to the component via interface `CustomMaterial`. |
 | Material instances share the same settings for `BlendState` and `DepthStencilState` | `DepthStencilState` is automatized by the engine to perform depth testing and create stencil buffers. It is primarily used to implement visual effects such as masking. In general, it is not necessary for users to modify its parameters. |
 | Vertex data are transferred in the same **buffer** (new in 3.4.1.) | Vertex data are automatized by the engine under most scenarios and require no manual management. For more information, please see below in section **MeshBuffer Guidelines**. |
 | Textures share the same source and sampler type | The most common issue that prevents batching is mismatch between textures. For example, Sprites and Labels are unable to be batched due to different sampler types. We recommend a general workflow to achieve optimal batching results in Cocos Creator. Please see below in section **Batching Workflow Guidelines** for more details. |
 
 ## Batching Workflow Guidelines
 
-Please note that Cocos Creator renders 2D assets in accordance with the **Node Tree** structure. Batching is prone to be interrupted when encountering a node that is prohibited from batching, thus preventing the rest of the nodes in the tree to be batched. Users are encouraged to manage their Node Tree structure to achieve optimized outcome. 
+Please note that Cocos Creator renders components based on the hierarchy of the **Node Tree** structure. Batching is prone to be interrupted when encountering a node that is prohibited from batching, thus preventing the rest of the nodes in the tree to be batched. Users are encouraged to manage their Node Tree structure to achieve optimized outcome. 
 
 Components that are prohibited from batching include:
 
@@ -48,7 +48,7 @@ Total vertex number in the scene exceeds the maximum capacity of a MeshBuffer (6
 
 Render data structures are redesigned in version 3.4.1. Please take note:
 
-1. Property **BATCHER2D_MEM_INCREMENT** under **Project Properties -> Macro Configuration** indicates the maximum vertex number for a MeshBuffer. Increasing the value will allow a MeshBuffer to host more assets to be rendered but will also increase memory usage.
+1. Property **BATCHER2D_MEM_INCREMENT** under **Project Properties -> Macro Configuration** indicates the maximum vertex number for a MeshBuffer. Increasing the value will allow a MeshBuffer to host more data to be rendered but will also increase memory consumption.
 
 2. **BATCHER2D_MEM_INCREMENT** is measured in **kilobytes**. Users can follow the instructions below to calculate the corresponding capacity for vertex numbers:
 
@@ -65,7 +65,7 @@ Render data structures are redesigned in version 3.4.1. Please take note:
     ];
     ```
 
-    It can be inferred that a vertex takes 9 `float` numbers, which in memory space equates to: `1 * 9 * 4 / 1024（KB）`, specifically:
+    It can be inferred that a vertex takes 9 `float` numbers, which in memory space equates to: `1 * 9 * 4 / 1024 (KB)`, specifically:
 
       - **1** is the number of vertices
 
@@ -87,4 +87,4 @@ Render data structures are redesigned in version 3.4.1. Please take note:
 
     - Due to vertex buffer being static, it is advisable to preload vertex buffer at the very beginning of the component's lifespan. At loading, component will request relevant vertex buffers from MeshBuffer and returns them at destruction.
 
-    - When MeshBuffer is unable to provide the vertex buffer requested by the component, the engine will create a new MeshBuffer in accordance with **BATCHER2D_MEM_INCREMENT** so that vertex buffer can be successfully distributed.
+    - When MeshBuffer is unable to provide the vertex buffer requested by the component, the engine will create a new MeshBuffer allocated with the amount of memory space as dictated in **BATCHER2D_MEM_INCREMENT** so that vertex buffer can be successfully distributed.
