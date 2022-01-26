@@ -7,7 +7,7 @@
 菲涅尔现象指的是不同材质上，光照强度随着视角的变化而变化的现象。
 
 <!-- 没有找到版权图片 -->
-![没有找到版权图片](img/fesnel.png) <!-- 没有找到版权图片 -->
+![没有找到版权图片](img/fresnel.png) <!-- 没有找到版权图片 -->
 
 RimLight:
 
@@ -15,7 +15,7 @@ RimLight:
 
 RimLight 是菲涅尔现象的一种应用，通过计算物体法线和视角方向的夹角的大小，调整发光的位置和颜色，是一种简单，高效的提升渲染效果的着色器。
 
-![](img/rim-preview.png) 
+![](img/rim-preview.png)
 
 <!-- 
 RimLight 实现简单，效率高，效果也不错。 
@@ -27,9 +27,11 @@ RimLight 实现简单，效率高，效果也不错。
 
 ![](img/rim-light-effect.png)
 
-## CCEffect 
+## CCEffect
 
-由于不考虑半透明的渲染，因此可删掉半透明的渲染技术部分,并将 `frag` 修改为： `rimlight-fs:frag`
+暂时不考虑半透明的情况下，可以将 `transparent` 部分删掉,并将 `frag` 修改为： `rimlight-fs:frag`。
+
+其中 `rimlight-fs` 是接下来要实现的边缘光的片元着色器部分。
 
 ```yaml
 # 删除如下的部分
@@ -48,6 +50,7 @@ RimLight 实现简单，效率高，效果也不错。
 ```
 
 为了方便调整 RimLight 的颜色，增加一个用于调整 RimLight 颜色的属性，由于不考虑半透明，只使用该颜色的 RGB 通道：
+
 ```yaml
 rimLightColor:  { value: [1.0, 1.0, 1.0],   # RGB 的默认值
                   target: rimColor.rgb,     # 绑定到 Uniform rimColor 的 RGB 通道上
@@ -89,6 +92,7 @@ uniform Constant {
 ```yaml
  - vert: general-vs:vert # builtin header
 ```
+
 ## 片元着色器
 
 将片元着色器 `CCProgram unlit-fs` 修改为： `CCProgram rimlight-fs` 。
@@ -96,6 +100,7 @@ uniform Constant {
 要计算视点的方向，需要获取当前相机的位置，之后用相机的位置减去当前的坐标， 包含 `cc-global` 这个着色器片段，
 
 为片元着色器增加下面的代码：
+
 ```glsl
 #include <cc-global>  // 包含 Cocos Creator 内置全局变量  
 ```
@@ -139,13 +144,14 @@ vec3 normalizedViewDirection = normalize(viewDirection);  //对视点方向进�
     return CCFragOutput(col);  
   }
 ```
+
 接下来需要计算法线和视角的夹角，由于使用的是内置标准顶点着色器 `general-vs:vert` ，法线已由顶点着色器传入到片元着色器，若要在片元着色器里面使用，只需在代码如增加：
 
 ```glsl
 in vec3 v_normal;
 ```
 
-此时的片元着色器： 
+此时的片元着色器：
 
 ```glsl
 CCProgram rimlight-fs %{
@@ -182,13 +188,17 @@ vec4 frag(){
 ```
 
 这时可计算法线和视角的夹角，在线性代数里面，点积表示为：
+
 ```math
 a·b = |a||b|cos(θ)
 ```
+
 可得出：
+
 ```math
 cos(θ) = a·b /(|a|*|b|)
 ```
+
 由于法线和视角方向都已经归一化，因此他们的模长为 1，点积的结果则表示为法线和视角的 cos 值。
 
 ```glsl
@@ -208,6 +218,7 @@ float rimPower = max(dot(normal, normalizedViewDirection), 0.0);//计算 RimLigh
 vec4 col = mainColor * texture(mainTexture, v_uv); //计算最终的颜色
 col.rgb += rimPower * rimColor.rgb; //增加边缘光
 ```
+
 着色器代码如下：
 
 ```glsl
@@ -259,6 +270,7 @@ vec4 frag(){
 虽然已经出现的边缘光，但是如果希望通过参数去调整则不是很方便，可在着色器的 CCEffect 段内增加一个可调整的参数 rimIntensity。由于之前 rimColor 的 alpha 分量没有被使用到，因此借用该分量进行绑定可节约额外的 Uniform 字段：
 
 增加如下代码：
+
 ```yaml
 rimInstensity:  { value: 1.0,         # 默认值为 1 
                   target: rimColor.a, # 绑定到 rimColor 的 alpha 通道
@@ -318,7 +330,7 @@ col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对
 
 ![](img/intensity.png)
 
-此时可观察到边缘光照更自然： 
+此时可观察到边缘光照更自然：
 
 ![](img/preview-instensity.png)
 
@@ -328,7 +340,7 @@ col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对
 
 ![](img/opt-overview.png)
 
-最终的着色器代码： 
+最终的着色器代码：
 
 ```glsl
 CCEffect %{
@@ -375,5 +387,3 @@ CCProgram rimlight-fs %{
   }
 }%
 ```
-
- 

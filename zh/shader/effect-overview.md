@@ -6,11 +6,7 @@
 
 >注意：如果希望在引擎中实现自定义的着色效果，需要书写自定义 Cocos Effect。我们推荐使用 VSCode，搜索安装 Cocos Effect 插件，以便编辑任何 effect 文件。
 
-`GLSL` 是基于 C 语言风格的着色语言（OpenGL Shading Language）， 通过 `GLSL`
-
-更多有关渲染的基础知识可以参考：
-
-- [OpenGL](https://learnopengl-cn.github.io/)
+`GLSL` 是基于 C 语言风格的着色语言（OpenGL Shading Language），对于不熟悉 GLSL 语法的开发者，我们也准备一些常用的语法参考。
 
 本节主要包含以下内容：
 
@@ -22,3 +18,7 @@
 - [着色器片段（Chunk）](effect-chunk-index.md)
     - [内置着色器片段（Buildin Chunk）](effect-buildin-chunk.md)
     - [全局 Uniform](uniform.md)
+
+着色器的书写是基于图形学的了解，更多有关渲染的基础知识可以参考：
+
+- [OpenGL](https://learnopengl-cn.github.io/)

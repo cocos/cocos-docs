@@ -8,7 +8,7 @@ PRB 的优势在于：
 
 - 制作标准化
 - 纹理不受光照变化的影响
- 
+
 ## 参数
 
 | 参数 | 说明 |
@@ -47,7 +47,7 @@ PRB 的优势在于：
 | USE_PBR_MAP | 是否使用 PBR 参数三合一贴图（**按 glTF 标准，RGB 通道必须分别对应遮挡、粗糙和金属度**） |
 | USE_METALLIC_ROUGHNESS_MAP | 是否使用金属粗糙二合一贴图（**按 glTF 标准，GB 通道必须分别对应粗糙和金属度**） |
 | USE_OCCLUSION_MAP | 是否使用遮挡贴图（**按 glTF 标准，只会使用 R 通道**） |
-| USE_EMISSIVE_MAP | 是否使用自发光贴图 | 
+| USE_EMISSIVE_MAP | 是否使用自发光贴图 |
 
 ## 制作标准
 
@@ -55,7 +55,6 @@ PRB 的优势在于：
 
 下图是 builtin-standard 材质各着色参数的组装流程：
 
-![](../material-system/standard-material-graph.png)
+![pbr 组装流程](../material-system/standard-material-graph.png)
 
 若要了解 PBR 的原理可参考： [PBR 理论](https://learnopengl-cn.github.io/07%20PBR/01%20Theory/#pbr)
-

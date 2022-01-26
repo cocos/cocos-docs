@@ -1,4 +1,4 @@
-## 着色器片段
+# 着色器片段
 
 着色器片段是为了使 Shader 代码可进行复用而创建的文件。
 
@@ -6,7 +6,7 @@
 
 在标准 GLSL 语法上，Creator 引入了以下几种非常自然的 C 风格语法扩展。
 
-### Include 机制
+## Include 机制
 
 类似 C/C++ 的头文件 include 机制，你可以在任意 shader 代码（CCProgram 块或独立的头文件）中引入其他代码片段：
 
@@ -24,13 +24,13 @@
 - 编辑器内置头文件资源就在 internal DB 的 `assets/chunks` 目录下，所以可以不加目录直接引用，主要包括一些常用的工具函数和标准光照模型等。
 - 所有在同一个 effect 文件中声明的 CCProgram 代码块都可以相互引用。
 
-### 创建着色器片段
+## 创建着色器片段
 
 在 Asset 目录点击右键，选择 创建->着色器片段（ Chunk ）
 
 ![创建着色器片段](img/create-chunk.png)
 
-创建后，引擎会根据片段模板生成：
+创建后，引擎会根据片段模板生成片段：
 
 ```glsl
 // you can write GLSL code directly in here
