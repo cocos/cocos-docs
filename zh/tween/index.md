@@ -238,7 +238,7 @@ const tw = new Tween(node)
 
 ```js
 const tw = new Tween(this.node)
-    // 同时对 scale, position, rotation 三个属性缓动
+    // 同时对 ‘scale’、‘position’、‘rotation’ 三个属性进行缓动
     .to(1, { scale: 2, position: cc.v2(100, 100), rotation: 90 })
     .start()
 ```
