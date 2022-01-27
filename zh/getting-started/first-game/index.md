@@ -119,7 +119,7 @@ export class PlayerController extends Component {
 我们在脚本 `PlayerController` 中添加对鼠标事件的监听，让 Player 动起来：
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from 'cc';
+import { _decorator, Component, Vec3, input, Input, EventMouse, Animation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -151,7 +151,7 @@ export class PlayerController extends Component {
 
     start () {
         // Your initialization goes here.
-        systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     }
 
     onMouseUp(event: EventMouse) {
@@ -432,14 +432,14 @@ enum GameState{
 ```ts
 start () {
     // Your initialization goes here.
-    // systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+    // input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
 }
 
 setInputActive(active: boolean) {
     if (active) {
-        systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     } else {
-        systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     }
 }
 ```
@@ -791,7 +791,7 @@ onOnceJumpEnd() {
 **PlayerController.ts**
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation } from 'cc';
+import { _decorator, Component, Vec3, input, Input, EventMouse, Animation, SkeletalAnimation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -822,9 +822,9 @@ export class PlayerController extends Component {
 
     setInputActive(active: boolean) {
         if (active) {
-            systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
         } else {
-            systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
         }
     }
 

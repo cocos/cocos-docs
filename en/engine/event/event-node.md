@@ -120,7 +120,7 @@ Touch events support the event bubbling on the node tree, take the pictures belo
 
 In the scene shown in the picture, suppose node A has a child node B which has a child node C. The developer sets the touch event listeners for all these three nodes (each node has a touch event listener in examples below by default).
 
-When the mouse or finger was applied in the node C region, the event will be triggered at node C first and the node C listener will receive the event (this is the target phase). Then the node C will pass this event to its parent node, so the node B listener will receive this event. Similarly the node B will also pass the event to its parent node A. This is a basic event bubbling phase. 
+When the mouse or finger was applied in the node C region, the event will be triggered at node C first and the node C listener will receive the event (this is the target phase). Then the node C will pass this event to its parent node, so the node B listener will receive this event. Similarly the node B will also pass the event to its parent node A. This is a basic event bubbling phase.
 
 > __Note__: it needs to be emphasized that there is no hit test in parent nodes in the bubbling phase, which means that nodes A and B can receive touch events even though the touch location is out of their node area.
 
@@ -132,9 +132,9 @@ Suppose the node B and C in the picture above are brother nodes, while C partly 
 
 At the same time, if C has a parent node, it will also pass the touch event to its parent node through the event bubble mechanism.
 
-In v3.4.0, the ability of event penetrating dispatch is supported. In this example, if the event needs to be dispatched to node B, the event can be prevented from being swallowed by node C by calling `event.preventSwallow = true`. 
+In v3.4.0, the ability of event penetrating dispatch is supported. In this example, if the event needs to be dispatched to node B, the event can be prevented from being swallowed by node C by calling `event.preventSwallow = true`.
 
-> __Note__: the event penetrating dispatch reduces the efficiency of event dispatch, please use it with caution. 
+> __Note__: the event penetrating dispatch reduces the efficiency of event dispatch, please use it with caution.
 
 ### Point of Contact Attribution for Different Canvas
 
@@ -158,7 +158,7 @@ Only touch or mouse events can be registered in the capturing phase, while the o
 
 ### Event Interception
 
-Normal events are dispensed as described above. However, if the node has components such as `Button`, `Toggle` or `BlockInputEvents` on it, it will stop event bubbling. 
+Normal events are dispensed as described above. However, if the node has components such as `Button`, `Toggle` or `BlockInputEvents` on it, it will stop event bubbling.
 
 Look at the picture below. There are two buttons, priority 1 for Canvas0 and priority 2 for Canvas1. Click on the intersection of the two buttons, which is the blue area in the picture, it appears that button priority 2 received the contact event successfully, while button priority 1 did not. <br>That's because according to the event reception rules above, button priority 2 receives contact events first and intercepts them (`event.propagationStopped = true`) to prevent event penetration. If the node is a non-button node, events can also be intercepted by adding the `BlockInputEvents` component to prevent penetration.
 
@@ -243,15 +243,3 @@ Resume node system events
 // Example
 this.node.resumeSystemEvents();
 ```
-
-
-
-
-
-
-
-
-
-
-
-

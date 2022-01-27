@@ -42,6 +42,8 @@ In addition, the game submission, review and release process of the **WeChat Min
 
 ### Build Options
 
+![build](./publish-wechatgame/wechat-build.png)
+
 | Options | Optional or not | Default | Explanation |
 | :-- | :-- | :-- | :-- |
 | **appid** | Required | `wx6ac3f5090a6b99c5` | The appid of the WeChat Mini Games, it will be written to `project.config.json` file.|
@@ -51,6 +53,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 | **Orientation** | Required | `landscape` | Device orientation, it will be written to `game.json` file.|
 | **Separate Engine** | Optional | Empty | Whether to use WeChat Mini Games engine plugin, please refer to [WeChat Mini Games Engine Plugin Instructions](./wechatgame-plugin.md) for details. |
 | **Wasm 3D physics system (based on `ammo.js`)** | Optional | Enabled | This option is used to select whether to enable **Wasm**, which takes effect when using **bullet（ammo.js）** physics. Please refer to the **WebAssembly Support** section below for more details. |
+| **Whether to enabled WebGL2** (Experimental feature) | - | Forced Off | In order to allow WebGL 2.0 to be enabled on WeChat Mini Games in the future, we have added this option in **v3.4.1** to support to enable WebGL 2.0 following the configuration in the **Project Settings** panel, and to turn off to reduce the package by default.<br>If this option is set to **Consistent with project settings** and **WebGL 2.0** is checked in **Project Settings -> Feature Cropping**, it will be successfully enabled in the future if the WeChat environment supports WebGL 2.0. |
 
 ## Asset Management for WeChat Mini Game Environment
 
