@@ -100,7 +100,7 @@ this.node.setPosition(_pos);    // 这里将通过接口 setPosition
 
 #### 针对readonly字段的缓动
 
-例如 node.position 的类型是 Readonly<Vec3> ，它的分量 x/y/z 无法在 tween 里被修改，所以我们需要在 node 挂载 tween 且指定目标 position ，而不能 tween(node.position)，这样是无效的。
+例如节点上 `position` 属性的类型是 `Readonly<Vec3>`，它的分量 `x`/`y`/`z` 无法在 tween 里被修改，所以我们需要在 node 挂载 tween 且指定目标为 `position`。使用 `tween(node.position)` 这样的方式是无效的。
 
 错误示范：
 
