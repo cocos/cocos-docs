@@ -39,9 +39,10 @@
 - [内置着色器（Buildin Effect）](effect-buildin.md)
     - [基于物理的光照模型 PBR](effect-buildin-pbr.md)
     - [卡通渲染](effect-buildin-toon.md)
-    - [无光照模型](effect-buildin-unlit.md)
+    - [无光照](effect-buildin-unlit.md)
 - [编写着色器](write-effect-overview.md)
     - [编写普通着色器](write-effect.md)
+<!-- - [编写 UI 自定义着色器](write-ui-effect.md) -->
 <!-- 
   - [编写表面着色器](write-surf-shader.md) 
 -->

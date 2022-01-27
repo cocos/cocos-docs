@@ -7,12 +7,21 @@
  常见的卡通渲染内容包含
 
 - 对物体进行边缘描边
-- 模拟色阶不连续现象
+- 降低色阶的数量并模拟色阶不连续现象
 - 其他光照计算
 
  ![toon](img/toon.png)
 
 ## 参数
+
+### 渲染通道 0
+
+| 参数         | 说明                                                              |
+| :------------- | :---------------------------------------------------------------- |
+|LineWidth| 描边的宽度
+|DepthBias| 描边的深度位移调整因子
+
+### 渲染通道 1
 
 | 参数         | 说明                                                              |
 | :------------- | :---------------------------------------------------------------- |
@@ -23,15 +32,15 @@
 | shadeColor1    | 一阶色阶的颜色，该颜色会作为卡通着色的中间色阶 |
 | shadeColor2    | 二阶色阶的颜色，该颜色会作为卡通着色的最后一个色阶 |
 | specular       | 反射光颜色
-| baseStep       |
-| baseFeather    |
-| shadeStep      |
-| shadeFeather   |
+| baseStep       | 一阶着色的步长
+| baseFeather    | 一阶着色和主颜色混合因子 <br> 和 baseStep 配合调整一阶色阶所占比例和混合的形式
+| shadeStep      | 二阶着色的步长
+| shadeFeather   | 二阶着色和一阶着色的混合因子 <br> 和 shadeStep 配合调整二阶色阶所占比例和混合的形式
 | emissive       | 自发光颜色，独立于光照计算，由模型本身直接发散出的颜色  |
 | emissiveScale  | 自发光强度<br>用于控制自发光颜色对于最终颜色的影响权重 |
 | normalStrenth  | 法线伸缩量<br>只有在启用 USE_NORMAL_MAP 后才可以调整并对法线的 xy 轴进行缩放|
 | normalMap      | 法线贴图
-| mainTexture    | 基础着色器贴图，定义物体的基础纹理
+| mainTexture    | 主纹理，定义物体的基础纹理
 | shadeMap1      | 一阶色阶纹理 <br> 若指定则会和 shadeColor1 相乘 |
 | shadeMap2      | 二阶色阶纹理 <br> 若指定则会和 shadeColor2 相乘 |
 | specularMap    | 反射光贴图<br>若有指定，则会和反射光颜色做相乘， |
@@ -53,7 +62,7 @@
  | USE_SPECULAR_MAP              | 是否使用反射光贴图        |
  | BASE_COLOR_MAP_AS_SHADE_MAP_1 | 使用 baseColorMap 作为一阶着色 |
  | BASE_COLOR_MAP_AS_SHADE_MAP_2 | 使用 baseColorMap 作为二阶着色 |
- | SHADE_MAP_1_AS_SHADE_MAP_2    | 给二阶着色叠加一阶着色|
+ | SHADE_MAP_1_AS_SHADE_MAP_2    | 二阶着色是否和一阶着色叠加|
 
 ## 原理
 

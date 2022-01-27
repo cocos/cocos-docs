@@ -24,7 +24,7 @@
 - 编辑器内置头文件资源就在 internal DB 的 `assets/chunks` 目录下，所以可以不加目录直接引用，主要包括一些常用的工具函数和标准光照模型等。
 - 所有在同一个 effect 文件中声明的 CCProgram 代码块都可以相互引用。
 
-> DB（Database ）是编辑器的概念，指的是由编辑器内置数据（internal），项目数据目录（assets），插件目录等数据文件的集合。
+> DB（Database）是编辑器的概念，指的是由编辑器内置数据（internal），项目数据目录（assets），插件目录等数据文件的集合。
 > 下图内包含了 DB assets 和 DB internal：
 >
 > ![DB](img/db.png)

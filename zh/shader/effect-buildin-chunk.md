@@ -23,7 +23,7 @@
 |cc-shadow-map-base.chunk||
 |cc-shadow-map-fs.chunk||
 |cc-shadow-map-vs.chunk||
-|cc-shadow.chunk||
+|cc-shadow.chunk| 定义阴影的全局 UBO |
 |cc-skinning.chunk||
 |cc-sprite-common.chunk||
 |cc-sprite-fs-gpu.chunk||

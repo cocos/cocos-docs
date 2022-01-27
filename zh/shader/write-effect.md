@@ -97,9 +97,7 @@ uniform Constant {
 
 将片元着色器 `CCProgram unlit-fs` 修改为： `CCProgram rimlight-fs` 。
 
-要计算视点的方向，需要获取当前相机的位置，之后用相机的位置减去当前的坐标， 包含 `cc-global` 这个着色器片段，
-
-为片元着色器增加下面的代码：
+要计算视点的方向，需要获取当前 **摄像机** 的位置，之后用 **摄像机** 的位置减去当前的坐标，**摄像机** 位置的全局 Uniform 存放 `cc-global` 这个着色器片段内。通过 `include` 关键字，包含这个头文件：
 
 ```glsl
 #include <cc-global>  // 包含 Cocos Creator 内置全局变量  
@@ -125,7 +123,7 @@ CCProgram rimlight-fs %{
 vec3 viewDirection = cc_cameraPos.xyz - v_position; //计算视点的方向
 ```
 
-我们不关心视角向量的长度，因此得到 viewDirection 后，通过 normalize 方法进行归一化处理：
+我们不关心视角向量的长度，因此得到 `viewDirection` 后，通过 `normalize` 方法进行归一化处理：
 
 ```glsl
 vec3 normalizedViewDirection = normalize(viewDirection);  //对视点方向进行归一化
