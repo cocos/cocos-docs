@@ -51,7 +51,7 @@ skybox 组件属性如下：
 
 若 **场景编辑器** 中天空盒的环境贴图已经可以正确显示，但是在项目运行之后仍然没有生效，此时就需要修改 Camera 组件的 **ClearFlag** 为 **SKYBOX**：
 
-![](skybox/skybox-camera.png)
+![skybox-camera](skybox/skybox-camera.png)
 
 ### 通过设置 CubeMap（立方体贴图）
 
@@ -59,7 +59,7 @@ skybox 组件属性如下：
 
 1. 在 **资源管理器** 中将准备好的六张贴图资源全部选中，然后在 **属性检查器** 中将这些贴图资源的 **Type** 属性批量设置为 **texture**，并点击右上角的绿色打钩按钮。
 
-   ![](skybox/cubemap-texture-type.png)
+   ![cubemap-texture-type](skybox/cubemap-texture-type.png)
 
 2. 新建 CubeMap 资源。在 **资源管理器** 中选中要存放 CubeMap 的文件夹，点击左上角的 **+** 按钮，然后选择 **Cubemap** 即可。或者也可以右键点击要存放 CubeMap 的文件夹，选择 **新建 -> Cubemap**。
 
@@ -69,9 +69,11 @@ skybox 组件属性如下：
 
     ![Set CubeMap](skybox/cubemap-properties.png)
 
-    **注意**：
-    - CubeMap 中未设置贴图的属性框将使用默认资源进行填充。
-    - CubeMap 中的 6 个属性框 **不要使用同一张贴图**，否则会导致某些平台无法正常显示。
+    > **注意**：
+    >
+    > - CubeMap 中未设置贴图的属性框将使用默认资源进行填充。
+    >
+    > - CubeMap 中的 6 个属性框 **不要使用同一张贴图**，否则会导致某些平台无法正常显示。
 
 4. 最后，将完成的 CubeMap 资源拖入到 skybox 组件的 **Envmap** 属性框中，这样就完成了 CubeMap 的应用。
 

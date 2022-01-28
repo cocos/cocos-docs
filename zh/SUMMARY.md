@@ -46,6 +46,7 @@
         - [纹理贴图资源](asset/texture.md)
         - [精灵帧资源](asset/sprite-frame.md)
             - [图像资源的自动剪裁](ui-system/components/engine/trim.md)
+        - [立方体贴图资源](asset/texture-cube.md)
         - [图集资源](asset/atlas.md)
         - [自动图集资源](asset/auto-atlas.md)
         - [艺术数字资源](asset/label-atlas.md)
