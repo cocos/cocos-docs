@@ -16,7 +16,7 @@
     - [GLSL 简介](glsl.md)
     - [预处理宏定义](macros.md)
 - [着色器片段（Chunk）](effect-chunk-index.md)
-    - [内置着色器片段（Buildin Chunk）](effect-buildin-chunk.md)
+    <!-- - [内置着色器片段（Buildin Chunk）](effect-buildin-chunk.md) -->
     - [全局 Uniform](uniform.md)
 
 着色器的书写是基于图形学的了解，更多有关渲染的基础知识可以参考：

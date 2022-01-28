@@ -73,24 +73,30 @@
 
 ### Pass 0
 
-描边时，选择 `CullMode=FRONT` 将物体朝前的面进行剔除，之后将顶点按照法线方向进行扩展。此操作将得到一个略比原模型更大的单色模型。
+描边时，选择剔除正面 `CullMode=Front` 并将模型的顶点沿法线进行扩张，由此得到一个比原模型较大的单色模型，在 Pass 1 中再将模型绘制一次用于遮挡。
 
 可通过勾选 `USE_OUTLINE_PASS` 开启或关闭。
 
 ![USE_OUTLINE_PASS 开启](img/outline-on.png) ![USE_OUTLINE_PASS 关闭](img/outline-off.png)
 
+若需要调整深度效果，可通过 `DepthBias` 参数调整。
+
 ### Pass 1
 
-色阶不连续现象通过三个颜色组成：
+卡通渲染的核心思路是通过降低色阶的数量，模拟器卡通中的赛璐璐（Celluloid）现象。
+
+在着色器中将色阶降低为三个色阶，并通过三个颜色组成：
 
 - `baseColor`
 - `shadeColor1`
 - `shadeColor2`
-
+没
 其颜色对应关系如下图：
 
 ![toon-shade-color](img/shade-color.png)
 
-勾选 `USE_1ST_SHADE_MAP` 和 `USE_2ND_SHADE_MAP` 的情况下，使用外部进行纹理模拟色阶不连续现象，该纹理通常采用手绘或外部工具生成。
+勾选 `USE_1ST_SHADE_MAP` 和 `USE_2ND_SHADE_MAP` 的情况下，使用外部进行纹理模拟色阶不连续现象。
+
+![shade map](img/shade-map.png)
 
 通过着色器的 `surf` 方法计算表面着色器（`ToonSurface`）的参数，并由 `CCToonShading` 方法计算最终的着色。

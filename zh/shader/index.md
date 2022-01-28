@@ -34,7 +34,7 @@
     - [GLSL 简介](glsl.md)
     - [预处理宏定义](macros.md)
     - [着色器片段（Chunk）](effect-chunk-index.md)
-        - [内置着色器片段（Buildin Chunk）](effect-buildin-chunk.md)
+        <!-- - [内置着色器片段（Buildin Chunk）](effect-buildin-chunk.md)-->
         - [全局 Uniform](uniform.md)
 - [内置着色器（Buildin Effect）](effect-buildin.md)
     - [基于物理的光照模型 PBR](effect-buildin-pbr.md)

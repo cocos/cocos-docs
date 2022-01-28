@@ -19,7 +19,7 @@
 | builtin-standard.effect            | [基于物理的光照模型 PBR](effect-buildin-pbr.md)
 | builtin-terrain.effect             | 地形系统默认着色器
 | builtin-toon.effect                | [卡通渲染](effect-buildin-toon.md)
-| builtin-unlit.effect               | [无光照模型](effect-buildin-unlit.md)
+| builtin-unlit.effect               | [无光照](effect-buildin-unlit.md)
 | builtin-wireframe.effect           | 以网格方式进行绘制
 
 ## 内置管线特效着色器
