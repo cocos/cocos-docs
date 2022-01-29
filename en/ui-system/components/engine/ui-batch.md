@@ -40,7 +40,7 @@ In summary, we recommend optimizing Node Tree structure in conjunction with comb
 
 Please be reminded that it is required for vertex data to be transferred in the same MeshBuffer for batching to be successful. The following scenarios will result in switching between MeshBuffers:
 
-### Before Version 3.4.1
+### Before v3.4.1
 
 Total vertex number in the scene exceeds the maximum capacity of a MeshBuffer (65535.)
 
