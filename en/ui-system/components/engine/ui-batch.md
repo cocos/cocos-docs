@@ -44,7 +44,7 @@ Please be reminded that it is required for vertex data to be transferred in the 
 
 Total vertex number in the scene exceeds the maximum capacity of a MeshBuffer (65535.)
 
-### After Version 3.4.1
+### After v3.4.1
 
 Render data structures are redesigned in version 3.4.1. Please take note:
 
