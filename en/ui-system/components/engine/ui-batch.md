@@ -88,3 +88,4 @@ Render data structures are redesigned in version 3.4.1. Please take note:
     - Due to vertex buffer being static, it is advisable to preload vertex buffer at the very beginning of the component's lifespan. At loading, component will request relevant vertex buffers from MeshBuffer and returns them at destruction.
 
     - When MeshBuffer is unable to provide the vertex buffer requested by the component, the engine will create a new MeshBuffer allocated with the amount of memory space as dictated in **BATCHER2D_MEM_INCREMENT** so that vertex buffer can be successfully distributed.
+
