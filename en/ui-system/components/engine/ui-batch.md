@@ -52,7 +52,7 @@ Render data structures are redesigned in version 3.4.1. Please take note:
 
 2. **BATCHER2D_MEM_INCREMENT** is measured in **kilobytes**. Users can follow the instructions below to calculate the corresponding capacity for vertex numbers:
 
-    Vertices in Cocos Creators are formatted as [vfmtPosUvColor](https://github.com/cocos-creator/engine/blob/v3.4.1/cocos/2d/renderer/vertex-format.ts#L43), its definitions as follows:
+    Vertices in Cocos Creator are formatted as [vfmtPosUvColor](https://github.com/cocos-creator/engine/blob/v3.4.1/cocos/2d/renderer/vertex-format.ts#L43), its definitions as follows:
 
     ```ts
     export const vfmtPosUvColor = [
