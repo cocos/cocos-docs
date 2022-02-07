@@ -34,7 +34,7 @@ Spites and Labels are in general unable to be batched together due to different 
 - For sprites, combine textures with [Auto Atlas](../../../asset/auto-atlas.md) and [Dynamic Atlas](../../../advanced-topics/dynamic-atlas.md). Texture Atlases can be batched with other components as long as the prerequisites are met.
 - For labels, create a bitmap cache to combine textures allowing them to be batched with sprites. However, it is ill-advised to frequently alter the content of label texts once bitmap caches are created.
 
-In summary, we recommend optimizing Node Tree structure in conjunction with combing textures with Auto Atlas, Dynamic Atlas and bitmap caches to achieve ideal batching results.
+In summary, it is recommended to optimize the Node Tree structure in conjunction with combing textures with Auto Atlas, Dynamic Atlas and bitmap caches to achieve ideal batching results.
 
 ## MeshBuffer Guidelines
 
