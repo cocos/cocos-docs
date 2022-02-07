@@ -4,7 +4,7 @@
 
 **菲涅尔现象（Fresnel Effect）**：
 
-菲涅尔现象指的是不同材质上，光照强度随着法线的变化而变化的现象。
+菲涅尔现象指的是不同材质上，光照强度随着法线和视线的夹角变化而变化的现象。
 
 <!-- 没有找到版权图片 -->
 ![fresnel](img/fresnel.png) <!-- 没有找到版权图片 -->
@@ -13,7 +13,8 @@ RimLight:
 
 也称为“内发光”、“轮廓光”或者“边缘光”，是一种通过使物体的边缘发出高亮，让物体更加生动的技术。
 
-RimLight 是菲涅尔现象的一种应用，通过计算物体法线和视角方向的夹角的大小，调整发光的位置和颜色，是一种简单，高效的提升渲染效果的着色器。在边缘光的计算中，视角和法线的夹角越大，则边缘光越明显。
+RimLight 是菲涅尔现象的一种应用，通过计算物体法线和视角方向的夹角的大小，调整发光的位置和颜色，是一种简单，高效的提升渲染效果的着色器。
+在边缘光的计算中，视线和法线的夹角越大，则边缘光越明显。
 
 ![rimlight preview](img/rim-preview.png)
 
@@ -23,13 +24,15 @@ RimLight 实现简单，效率高，效果也不错。
 
 本文将以 RimLight 为例，实现 Cocos Creator 的着色器。
 
+## 新建着色器
+
 首先参考 [新建着色器](write-effect-overview.md) 新建一个名为 `rimlight.effect` 的着色器。
 
 ![create rimlight](img/rim-light-effect.png)
 
 ## CCEffect
 
-暂时不考虑半透明的情况下，可以将 `transparent` 部分删掉,并将 `frag` 修改为： `rimlight-fs:frag`。
+暂时不考虑半透明的情况下，可以将 `transparent` 部分删掉，并将 `frag` 修改为： `rimlight-fs:frag`。
 
 其中 `rimlight-fs` 是接下来要实现的边缘光的片元着色器部分。
 
@@ -85,7 +88,7 @@ uniform Constant {
 }; 
 ```
 
-> 引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-framework.md)，因此在使用 3 维（vec3）的向量时，需要使用 4 维向量（vec4）代替。
+> 引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-framework.md)，因此在使用 3 维向量（vec3）时，需要使用 4 维向量（vec4）代替。
 > 不用担心，alpha 通道会被利用起来不被浪费。
 
 ## 顶点着色器
@@ -100,7 +103,7 @@ uniform Constant {
 
 将片元着色器 `CCProgram unlit-fs` 修改为： `CCProgram rimlight-fs` 。
 
-要计算视点的方向，需要获取当前 **摄像机** 的位置，之后用 **摄像机** 的位置减去当前的坐标，**摄像机** 位置的全局 Uniform 存放 `cc-global` 这个着色器片段内。通过 `include` 关键字，包含这个头文件：
+要计算视点的方向，需要获取当前 **摄像机** 的位置，使用 **摄像机** 的位置减去当前的坐标来获取视角的向量，**摄像机** 位置的全局 Uniform 存放 `cc-global` 这个着色器片段内。通过 `include` 关键字，包含这个头文件：
 
 ```glsl
 #include <cc-global>  // 包含 Cocos Creator 内置全局变量  
@@ -188,7 +191,7 @@ vec4 frag(){
 }
 ```
 
-这时可计算法线和视角的夹角，在线性代数里面，点积表示为：
+这时可计算法线和视角的夹角，在线性代数里面，点积表示为两个向量的模乘以夹角的余弦值：
 
 ```math
 a·b = |a||b|cos(θ)
@@ -274,11 +277,11 @@ vec4 frag(){
 
 ![one minus dot result](img/1-dot.png)
 
-虽然已经出现的边缘光，但是光照太强，并且不是很方便调整，可在着色器的 CCEffect 段内增加一个可调整的参数 rimIntensity。由于之前 rimColor 的 alpha 分量没有被使用到，因此借用该分量进行绑定可节约额外的 Uniform 字段：
+虽然已经出现的边缘光，但是光照太强，并且不方便调整，可在着色器的 CCEffect 段内增加一个可调整的参数 rimIntensity。由于之前 rimColor 的 alpha 分量没有被使用到，因此借用该分量进行绑定可节约额外的 Uniform 字段：
 
 > 写着色器时，需要避免 implict padding，关于这点可以参考: [关于 UBO 内存布局](./effect-framework.md)，这里使用未被使用的 alpha 通道可以最大限度的利用 `rimColor` 的字段。
 
-增加如下代码：
+在 CCEffect 内增加如下代码：
 
 ```yaml
 rimInstensity:  { value: 1.0,         # 默认值为 1 
@@ -289,7 +292,7 @@ rimInstensity:  { value: 1.0,         # 默认值为 1
                     step: 0.1}        # 每次点击调整按钮时，数值的变化值
 ```
 
-CCEffect 代码：
+此时的CCEffect 代码：
 
 ```yaml
 CCEffect %{
@@ -342,7 +345,7 @@ col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对
   }
 ```
 
-之后将材质属性检查器面板的 rimIntensity 的值修改为 3：
+之后将材质 **属性检查器** 上的 rimIntensity 的值修改为 3：
 
 ![设置 intensity](img/intensity.png)
 
@@ -410,10 +413,12 @@ CCProgram rimlight-fs %{
  col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; //增加边缘光
 ```
 
-修改为：
+改为：
 
 ```glsl
- col.rgb *= 1.0 + pow(rimPower, rimInstensity) * rimColor.rgb; //增加边缘光
+ col.rgb *= 1.0 + pow(rimPower, rimInstensity) * rimColor.rgb; //边缘光受物体着色的影响
 ```
+
+此时的边缘光则会受到最终纹理和顶点颜色的影响：
 
 ![color](img/effect-by-color.png)

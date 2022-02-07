@@ -1,6 +1,6 @@
 # 基于物理的光照模型（Physically based rendering PBR）
 
-自 3.x 起，引擎提供了基于物理的渲染（PBR）`builtin-standard`。
+自 3.x 起，引擎提供了基于物理渲染（PBR）的光照算法：`builtin-standard`。
 
 PBR 根据现实中光线的原理，模拟出近似于真实物理光照的效果。
 
@@ -49,7 +49,14 @@ PRB 的优势在于：
 | USE_OCCLUSION_MAP | 是否使用遮挡贴图（**按 glTF 标准，只会使用 R 通道**） |
 | USE_EMISSIVE_MAP | 是否使用自发光贴图 |
 
+<!-- 
+
 ## 制作标准
+
+通过 albedo 提供物体基础的纹理，如要通过法线体现高模细节则可以勾选 USE_NORMAL_MAP 来使用法线贴图。
+
+法线贴图的制作如下： 
+-->
 
 ## 实现原理
 
