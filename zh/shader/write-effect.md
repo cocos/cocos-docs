@@ -2,20 +2,20 @@
 
 本文将基于 RimLight 编写一个基础的 `GLSL` 着色器。
 
-菲涅尔现象（Fresnel Effect）：
+**菲涅尔现象（Fresnel Effect）**：
 
-菲涅尔现象指的是不同材质上，光照强度随着视角的变化而变化的现象。
+菲涅尔现象指的是不同材质上，光照强度随着法线的变化而变化的现象。
 
 <!-- 没有找到版权图片 -->
-![没有找到版权图片](img/fresnel.png) <!-- 没有找到版权图片 -->
+![fresnel](img/fresnel.png) <!-- 没有找到版权图片 -->
 
 RimLight:
 
 也称为“内发光”、“轮廓光”或者“边缘光”，是一种通过使物体的边缘发出高亮，让物体更加生动的技术。
 
-RimLight 是菲涅尔现象的一种应用，通过计算物体法线和视角方向的夹角的大小，调整发光的位置和颜色，是一种简单，高效的提升渲染效果的着色器。
+RimLight 是菲涅尔现象的一种应用，通过计算物体法线和视角方向的夹角的大小，调整发光的位置和颜色，是一种简单，高效的提升渲染效果的着色器。在边缘光的计算中，视角和法线的夹角越大，则边缘光越明显。
 
-![](img/rim-preview.png)
+![rimlight preview](img/rim-preview.png)
 
 <!-- 
 RimLight 实现简单，效率高，效果也不错。 
@@ -23,9 +23,9 @@ RimLight 实现简单，效率高，效果也不错。
 
 本文将以 RimLight 为例，实现 Cocos Creator 的着色器。
 
-首先参考[新建着色器](write-effect-overview.md)新建一个名为 `rimlight.effect` 的着色器。
+首先参考 [新建着色器](write-effect-overview.md) 新建一个名为 `rimlight.effect` 的着色器。
 
-![](img/rim-light-effect.png)
+![create rimlight](img/rim-light-effect.png)
 
 ## CCEffect
 
@@ -54,7 +54,7 @@ RimLight 实现简单，效率高，效果也不错。
 ```yaml
 rimLightColor:  { value: [1.0, 1.0, 1.0],   # RGB 的默认值
                   target: rimColor.rgb,     # 绑定到 Uniform rimColor 的 RGB 通道上
-                  editor: {                 # 在 material 的属性查看器内的样式定义
+                  editor: {                 # 在 material 的属性检查器内的样式定义
                     displayName: Rim Color, # 显示 Rim Color 作为显示名称
                     type: color } }         # 该字段的类型为颜色值
 ```
@@ -84,6 +84,9 @@ uniform Constant {
   vec4 rimColor;  
 }; 
 ```
+
+> 引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-framework.md)，因此在使用 3 维（vec3）的向量时，需要使用 4 维向量（vec4）代替。
+> 不用担心，alpha 通道会被利用起来不被浪费。
 
 ## 顶点着色器
 
@@ -191,13 +194,19 @@ vec4 frag(){
 a·b = |a||b|cos(θ)
 ```
 
-可得出：
+通过简单的交换律可得出：
 
 ```math
 cos(θ) = a·b /(|a|*|b|)
 ```
 
-由于法线和视角方向都已经归一化，因此他们的模长为 1，点积的结果则表示为法线和视角的 cos 值。
+由于法线和视角方向都已经归一化，因此他们的模为 1，点积的结果则表示为法线和视角的 cos 值。
+
+```math
+cos(θ) = a·b
+```
+
+将其转化为代码：
 
 ```glsl
 dot(normal, normalizedViewDirection)
@@ -236,11 +245,11 @@ vec4 frag(){
 
 >此步骤若无法观察到效果，可调整 `MainColor` 使其不为白色。因为默认的 `MainColor` 颜色是白色遮盖了边缘光的颜色。
 
-![](img/dot.png)
+![dot result](img/dot.png)
 
 要调整这个结果，只需用 1 减去点积的结果即可，删除下面的代码：
 
-~~float rimPower = max(dot(normal, normalizedViewDirection), 0.0);~~
+~~``` float rimPower = max(dot(normal, normalizedViewDirection), 0.0); ```~~
 
 并改为：
 
@@ -263,16 +272,18 @@ vec4 frag(){
   }
 ```
 
-![](img/1-dot.png)
+![one minus dot result](img/1-dot.png)
 
-虽然已经出现的边缘光，但是如果希望通过参数去调整则不是很方便，可在着色器的 CCEffect 段内增加一个可调整的参数 rimIntensity。由于之前 rimColor 的 alpha 分量没有被使用到，因此借用该分量进行绑定可节约额外的 Uniform 字段：
+虽然已经出现的边缘光，但是光照太强，并且不是很方便调整，可在着色器的 CCEffect 段内增加一个可调整的参数 rimIntensity。由于之前 rimColor 的 alpha 分量没有被使用到，因此借用该分量进行绑定可节约额外的 Uniform 字段：
+
+> 写着色器时，需要避免 implict padding，关于这点可以参考: [关于 UBO 内存布局](./effect-framework.md)，这里使用未被使用的 alpha 通道可以最大限度的利用 `rimColor` 的字段。
 
 增加如下代码：
 
 ```yaml
 rimInstensity:  { value: 1.0,         # 默认值为 1 
                   target: rimColor.a, # 绑定到 rimColor 的 alpha 通道
-                  editor: {           # 属性查看器的样式
+                  editor: {           # 属性检查器的样式
                     slide: true,      # 使用滑动条来作为显示样式
                     range: [0, 10],   # 滑动条的值范围
                     step: 0.1}        # 每次点击调整按钮时，数值的变化值
@@ -295,11 +306,18 @@ CCEffect %{
         # rimLightColor 的 alpha 通道没有被用到，复用该通道用来描述 rimLightColor 的强度。
         rimInstensity:  { value: 1.0, target: rimColor.a, editor: {slide: true, range: [0, 10], step: 0.1}}   
 }%               
+
 ```
 
-通过 pow 函数，可调整边缘光，使其范围不是线性变化：
+增加此属性后，材质 **属性检查器** 上会增加可调整的 RimIntensity：
 
-~~col.rgb += rimPower * rimColor.rgb;~~
+![intensity](./img/add-intensity.png)
+
+通过 pow 函数，可调整边缘光，使其范围不是线性变化，可体现更好的效果，删除如下代码：
+
+~~``` col.rgb += rimPower * rimColor.rgb; ```~~
+
+新增下列代码：
 
 ```glsl
 float rimInstensity = rimColor.a; // alpha 通道为亮度的指数
@@ -324,21 +342,21 @@ col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对
   }
 ```
 
-之后将材质属性查看器面板的 rimIntensity 的值修改为 3：
+之后将材质属性检查器面板的 rimIntensity 的值修改为 3：
 
-![](img/intensity.png)
+![设置 intensity](img/intensity.png)
 
 此时可观察到边缘光照更自然：
 
-![](img/preview-instensity.png)
+![增加亮度调整后](img/preview-instensity.png)
 
 通过 Rim Color 和 rimIntensity 可调整边缘光的颜色和范围：
 
-![](img/adjust-option.png)
+![调整颜色值](img/adjust-option.png)
 
-![](img/opt-overview.png)
+![调整颜色结果](img/opt-overview.png)
 
-最终的着色器代码：
+完整的着色器代码：
 
 ```glsl
 CCEffect %{
@@ -385,3 +403,17 @@ CCProgram rimlight-fs %{
   }
 }%
 ```
+
+若要让边缘光的颜色受纹理颜色的影响，可修改下列代码：
+
+```glsl
+ col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; //增加边缘光
+```
+
+修改为：
+
+```glsl
+ col.rgb *= 1.0 + pow(rimPower, rimInstensity) * rimColor.rgb; //增加边缘光
+```
+
+![color](img/effect-by-color.png)
