@@ -14,7 +14,7 @@ To batch render 2D renderable components, the following criteria are required:
 
 ## Batching Workflow Guidelines
 
-Please note that Cocos Creator renders components based on the hierarchy of the **Node Tree** structure. Batching is prone to be interrupted when encountering a node that is prohibited from batching, thus preventing the rest of the nodes in the tree to be batched. Users are encouraged to manage their Node Tree structure to achieve optimized outcome. 
+> **Note**: Cocos Creator renders components based on the hierarchy of the **Node Tree** structure. Batching is prone to be interrupted when encountering a node that is prohibited from batching, thus preventing the rest of the nodes in the tree to be batched. Users are encouraged to manage their Node Tree structure to achieve an optimized outcome. 
 
 Components that are prohibited from batching include:
 
