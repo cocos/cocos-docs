@@ -1,6 +1,6 @@
 # 基于物理的光照模型（Physically based rendering PBR）
 
-自 3.x 起，引擎提供了基于物理的渲染（PBR）`builtin-standard`。
+自 3.x 起，引擎提供了基于物理渲染（PBR）的光照算法：`builtin-standard`。
 
 PBR 根据现实中光线的原理，模拟出近似于真实物理光照的效果。
 
@@ -8,7 +8,7 @@ PRB 的优势在于：
 
 - 制作标准化
 - 纹理不受光照变化的影响
- 
+
 ## 参数
 
 | 参数 | 说明 |
@@ -47,15 +47,21 @@ PRB 的优势在于：
 | USE_PBR_MAP | 是否使用 PBR 参数三合一贴图（**按 glTF 标准，RGB 通道必须分别对应遮挡、粗糙和金属度**） |
 | USE_METALLIC_ROUGHNESS_MAP | 是否使用金属粗糙二合一贴图（**按 glTF 标准，GB 通道必须分别对应粗糙和金属度**） |
 | USE_OCCLUSION_MAP | 是否使用遮挡贴图（**按 glTF 标准，只会使用 R 通道**） |
-| USE_EMISSIVE_MAP | 是否使用自发光贴图 | 
+| USE_EMISSIVE_MAP | 是否使用自发光贴图 |
+
+<!-- 
 
 ## 制作标准
+
+通过 albedo 提供物体基础的纹理，如要通过法线体现高模细节则可以勾选 USE_NORMAL_MAP 来使用法线贴图。
+
+法线贴图的制作如下： 
+-->
 
 ## 实现原理
 
 下图是 builtin-standard 材质各着色参数的组装流程：
 
-![](../material-system/standard-material-graph.png)
+![pbr 组装流程](../material-system/standard-material-graph.png)
 
 若要了解 PBR 的原理可参考： [PBR 理论](https://learnopengl-cn.github.io/07%20PBR/01%20Theory/#pbr)
-

@@ -4,7 +4,7 @@
 
 `Cocos Effect` 通常由两个部分组成：
 
-- 由 `CCEffect` 声明的渲染技术（Technique）和通道（Pass）等属性块
+- 由 `CCEffect` 声明的渲染技术（Technique）和渲染过程（Pass）等属性块
 - 由 `CCProgram` 声明的 `GLSL` 顶点着色器（Vertex Shader）和片元着色器（Fragment Shader）代码片段块。
 
 ### 着色器语法框架
@@ -38,8 +38,8 @@ CCEffect %{
 
 1. CCEffect 核心是 technique 对象，它代表渲染技术，一个渲染流程描述文件可以支持定义多个渲染技术，但在实际使用中，只能选择其中一种渲染技术。例如上图中的 `builtin-unlit.effect`，它是一个无光照的 Cocos Effect，包含了 `opaque` 专门用来渲染不透明物体的渲染技术和 `transparent` 专门用来渲染透明物体的渲染技术。在实际的使用过程中，一个渲染对象只能选择 `opaque` 或 `transparent` 其中一种渲染技术使用。
 
-2. 每一个渲染技术都包含名字 name 和通道 passes，名字用来标记渲染技术的用途，通道则定义一个了完整的渲染流程所需要的全部信息。一个渲染技术可以定义多个通道，通道之间按定义的先后顺序执行。
-    - 一个通道必须包含一个顶点着色器和片元着色器，而开发者自定义的 Cocos Effect 参数以及引擎提供的渲染管线可配置状态等信息则是可选配置。参考 [passes 参数](pass-parameter-list.md)。
+2. 每一个渲染技术都包含名字 name 和最少一个渲染过程 passes，名字用来标记渲染技术的用途，渲染过程则定义一个了完整的渲染流程所需要的全部信息。一个渲染技术可以定义多个渲染过程，渲染过程之间按定义的先后顺序执行。
+    - 一个渲染过程必须包含一个顶点着色器和片元着色器，而开发者自定义的 Cocos Effect 参数以及引擎提供的渲染管线可配置状态等信息则是可选配置。参考 [passes 参数](pass-parameter-list.md)。
     - 顶点/片元着色器需要指定使用的 shader，也就是用 [CCProgram](#CCProgram) 声明的着色器。以及指定着色器的入口函数，每一个着色器的入口函数都需要返回相对应的输出，Cocos Creator 最终会将输出的数据传递给当前渲染后端相对应的接口。
 
 **示例**：
@@ -168,7 +168,7 @@ vec4 frag () {
 
 **注意**：`CCFragOutput` 函数一般还是不需要自己实现，它只起到与渲染管线对接的作用，且对于这种含有光照计算的输出，因为计算结果已经在 HDR 范围，所以应该包含 `output-standard` 而非 `output` 头文件。
 
-## Pass 可选参数
+## 渲染过程（Pass）可选参数
 
 每个 Pass 只有 `vert` 和 `frag` 两个必填参数，声明了当前 pass 使用的 shader，格式为 `片段名:入口函数名`。这个名字可以是本文件中声明的 shader 片段名，也可以是引擎提供的标准头文件。<br>
 片段中不应该出现 main 函数入口，在 effect 编译期会插入 wrapper，将指定入口函数的返回值赋值给当前 shader 的输出（`gl_Position` 或最终的输出颜色）。

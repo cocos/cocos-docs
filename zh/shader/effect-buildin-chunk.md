@@ -2,9 +2,9 @@
 
  引擎内部提供了大量的内置着色器片段以供不同的着色器使用。
 
- 若要对内部着色器进行修改或查看， 可查看 **Assets->internal->chunks**：
- 
- ## 内置着色器片段说明
+ 若要对内部着色器进行修改或查看， 可查看 **资源管理器->internal->chunks**：
+
+## 内置着色器片段说明
 
  |名称| 说明|
 |:--|:--|
@@ -23,7 +23,7 @@
 |cc-shadow-map-base.chunk||
 |cc-shadow-map-fs.chunk||
 |cc-shadow-map-vs.chunk||
-|cc-shadow.chunk||
+|cc-shadow.chunk| 定义阴影的全局 UBO |
 |cc-skinning.chunk||
 |cc-sprite-common.chunk||
 |cc-sprite-fs-gpu.chunk||

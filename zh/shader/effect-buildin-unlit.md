@@ -5,7 +5,7 @@
 - 物体不受光源影响
 - 画面要求不高或性能要求高的场景
 
-![](img/unlit-shademode.png)  
+![unlit](img/unlit-shademode.png)
 
 ## 制作标准
 
@@ -33,4 +33,3 @@
 | USE_TEXTURE      | 是否使用主纹理（mainTexture）                                     |
 | USE_ALPHA_TEST   | 是否进行半透明测试（AlphaTest）                                   |
 | SAMPLE_FROM_RT   | 是否是从 RenderTexture 中采样，这种情况下需要对 uv 的翻转进行考量 |
-
