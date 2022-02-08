@@ -42,8 +42,8 @@
     - [卡通渲染](effect-buildin-toon.md)
     - [无光照](effect-buildin-unlit.md)
 - [编写着色器](write-effect-overview.md)
-    - [编写普通着色器](write-effect.md)
-    - [编写 2D 精灵自定义着色器](write-sprite-effect.md)
+    - [3D 着色器：RimLight](write-effect-3d-rim-light.md)
+    - [2D 着色器：Gradient](write-effect-2d-sprite-gradient.md)
 <!-- 
   - [编写表面着色器](write-surf-shader.md) 
 -->
