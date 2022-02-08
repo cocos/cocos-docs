@@ -2,7 +2,11 @@
 
 ![macro-simple](img/macro-simple.png)
 
-Cocos Effect 系统的设计倾向于在游戏项目运行时可以方便地利用 shader 中的各类预处理宏，动态处理逻辑。编辑器会在加载资源时收集所有在 shader 中出现的宏定义，然后引擎在运行时动态地将需要的声明加入 shader 内容。所以如果要使用这些预处理宏，只需要像下面这样处理即可：
+预处理宏只在编译期有效，不同的预处理宏组合会生成不同的代码。这使得我们可以更加方便的管理 Cocos Effect 代码内容，同时生成的 Shader 代码又是无冗余的、高效的。
+
+Cocos Creator 编辑器会在加载资源时收集所有在 Cocos Effect 中出现的宏定义，然后将其显示在 **属性检查器** 上，以方便用户进行调整，如上图所示。
+
+如果要使用预处理宏，只需要像下面这样处理即可：
 
 ```glsl
 CCProgram unlit-vs %{
@@ -12,11 +16,16 @@ CCProgram unlit-vs %{
 }%
 ```
 
-所有的宏定义都会被显示在 **属性检查器** 上，以便随时调整。宏定义的声明规则有以下几点：
-- 当定义一个简单宏定义（用布尔开关宏）时，无法指定该宏的默认值，所有的宏定义默认值都为 false，需要通过 **属性检查器** 或代码修改。如果设计上某些宏之间存在互斥关系（不可能同时为 true），可以通过使用 tag 声明的宏来处理，请参考 [Macro Tags](#Macro-Tags)。
-- 运行时会显式定义所有 shader 中出现的自定义宏（默认定义为 0），所以 **除了 GLSL 语言内置宏外（`GL_` 开头的 extension 等）**，请不要使用 `#ifdef` 或 `#if defined` 这样的形式做判断，否则执行结果会始终为 true；
-- 运行时会对宏定义组合计算 hash，目前的计算机制在宏定义组合数 **2^32** 以内（一个 int 的范围），相对高效，对应到 shader 中相当于 32 个布尔开关。所以请尽量不要超出此限制，定义过多运行时可调整的宏定义，会影响运行效率。
-- 宏定义不仅可以应用在 CCProgram 里，动态处理宏定义内的逻辑，还可以应用在 CCEffect 中，动态显示可编辑属性。
+上面代码中的 `USE_TEXTURE` 就是一个预处理宏。
+
+
+宏定义的声明规则如下：
+- 当定义一个简单宏定义（比如：用于布尔开关的宏）时，无法指定该宏的默认值，所有的宏定义默认值都为 false，需要通过 **属性检查器** 或代码修改。如果设计上某些宏之间存在互斥关系（不可能同时为 true），可以通过使用 tag 声明的宏来处理，请参考 [Macro Tags](#Macro-Tags)。
+- 运行时会显式定义所有 Shader 中出现的自定义宏（默认定义为 0），所以 **除了 GLSL 语言内置宏外（`GL_` 开头的 extension 等）**，请不要使用 `#ifdef` 或 `#if defined` 这样的形式做判断，否则执行结果会始终为 true；
+- 运行时会对宏定义组合进行 hash 计算，目前的计算机制最多可支持 `32` 个布尔开关，所以请不要超出此限制。
+- 宏定义不仅可以应用在 `CCProgram` 里，控制宏定义内的代码逻辑，还可以应用在 `CCEffect` 中，将可编辑属性的显示状态与宏定义关联。
+
+  如下所示，仅当 `USE_TEXTURE` 预处理宏开启时，`mainTexture` 才会显示在 **属性检查器** 面板上：
 
     ```glsl
     CCEffect %{
@@ -64,17 +73,21 @@ float metallic = texture(pbrMap, uv).METALLIC_SOURCE;
 
 ```glsl
 #pragma define LAYERS range([4, 5])
+```
+上面的 `LAYERS` 宏，在 range 这个 tag 的作用下，使它在运行时可能的取值范围为 `[4, 5]`。
+
+```glsl
 #pragma define METALLIC_SOURCE options([r, g, b, a])
 ```
+上面的 `METALLIC_SOURCE` 宏，在 options 的作用下，它在运行时可能的取值为 'r'、'g'、'b'、'a' 四种。
 
-一个是名为 `LAYERS` 的宏定义，它在运行时可能的取值范围为 `[4, 5]`。<br>
-另一个是名为 `METALLIC_SOURCE` 的宏定义，它在运行时可能的取值为 'r'、'g'、'b'、'a' 四种。
-
-**注意**：语法中的每个 tag 都只有一个参数，这个参数可以直接用 YAML 语法指定。
+>注意：语法中的每个 tag 都只有一个参数，这个参数可以直接用 YAML 语法指定。
 
 ### Functional Macros
 
-由于 WebGL1 不支持原生，Creator 将函数式宏定义提供为 effect 编译期的功能，输出的 shader 中就已经将此类宏定义展开。这非常适用于 inline 一些简单的工具函数，或需要大量重复定义的相似代码。事实上，内置头文件中不少工具函数都是函数式宏定义：
+由于 WebGL 1.0 不支持函数式宏定义，所以 Cocos Creator 将函数式宏定义提供为 Cocos Effect 的编译期功能，在输出的 Shader 中就已经将此类宏定义展开。
+
+这个操作对于一些需要 inline 的工具函数，或需要大量重复定义的相似代码非常有帮助。在 Cocos Effect 的内置头文件中，有不少工具函数都是函数式宏定义，比如：：
 
 ```glsl
 #define CCDecode(position) \
@@ -87,7 +100,9 @@ float metallic = texture(pbrMap, uv).METALLIC_SOURCE;
   #pragma // empty pragma trick to get rid of trailing semicolons at effect compile time
 ```
 
-但与 C/C++ 的宏定义系统相同，这套机制不会对宏定义的 [卫生情况](https://en.wikipedia.org/wiki/Hygienic_macro) 做任何处理，由不卫生的宏展开而带来的问题需要开发者自行处理，因此我们推荐，并也确保所有内置头文件中，谨慎定义含有局部变量的预处理宏：
+与 C/C++ 的宏定义系统相同，这套机制不会对宏定义的 [卫生情况](https://en.wikipedia.org/wiki/Hygienic_macro) 做任何处理，由不卫生的宏展开而带来的问题需要开发者自行处理。
+
+因此，请谨慎定义含有局部变量的预处理宏：
 
 ```glsl
 // please do be careful with unhygienic macros like this

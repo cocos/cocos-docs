@@ -1,6 +1,6 @@
-# GLSL 基础语法
+# GLSL 语法基础
 
-GLSL 是为图形计算量身定制用来编写着色器的语言，它包含一些针对向量和矩阵操作的特性，使渲染管线具有可编程性。本章主要罗列出一些大家在编写 shader 时常用的一些语法，包括以下几个：
+GLSL 是为图形计算量身定制用来编写着色器的语言，它包含一些针对向量和矩阵操作的特性，使渲染管线具有可编程性。本章主要罗列出一些大家在编写 Shader 时常用的一些语法，包括以下几个方面：
 
 - 变量
 - 语句
@@ -9,17 +9,22 @@ GLSL 是为图形计算量身定制用来编写着色器的语言，它包含一
 
 ## 变量
 
-变量及变量类型
+| dd | ddd |
+| :-- | :-- |
+| d | d |
 
-变量类型 | 描述 | Cocos Effect 中的默认值 ｜ Cocos Effect 中的可选项
-:-- | :-- | :-- | :--
-bool | 布尔型标量数据类型 | false | 无
-int/ivec2/ivec3/ivec4 | 包含 1，2，3，4 个整型向量 | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | 无
-float/vec2/vec3/vec4 | 包含 1，2，3，4 个浮点型向量 | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | 无
-sampler2D | 表示 2D 纹理 | **default** | black, grey, white, normal, default
-samplerCube | 表示立方体纹理 | **default-cube** | black-cube, white-cube, default-cube
-mat[2..3] |  表示 2x2, 3x3 的矩阵 | 不可用 |
-mat4 |  表示 4x4 的矩阵 | [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1] |
+
+### 变量及变量类型
+
+| 变量类型 | 描述 | Cocos Effect 中的默认值 | Cocos Effect 中的可选项 |
+| :-- | :-- | :-- | :-- |
+| bool | 布尔型标量数据类型 | false | 无 |
+| int/ivec2/ivec3/ivec4 | 包含 1，2，3，4 个整型向量 | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | 无 |
+| float/vec2/vec3/vec4 | 包含 1，2，3，4 个浮点型向量 | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | 无 |
+| sampler2D | 表示 2D 纹理 | **default** | black, grey, white, normal, default |
+| samplerCube | 表示立方体纹理 | **default-cube** | black-cube, white-cube, default-cube |
+| mat[2..3] |  表示 2x2, 3x3 的矩阵 | 不可用 |
+| mat4 |  表示 4x4 的矩阵 | [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1] |
 
 ### 标量
 
@@ -46,10 +51,13 @@ vec4 newVec4 = vec4(1.0, 1.0, myVec2);// newVec4 = {1.0, 1.0, 0.5, 0.5}
 向量在访问时可通过 `r, g, b, a` 或 `x, y, z, w` 来进行访问， 也可以同时访问多个角标：
 
 ```glsl
-vec4 myVec4 = vec4(1.0);
+vec4 myVec4_0 = vec4(1.0); // myVec4_0 = { 1.0, 1.0, 1.0, 1.0 }
+vec4 myVec4 = vec4(1.0, 2.0, 3.0, 4.0); // myVec4 = { 1.0, 2.0, 3.0, 4.0 }
 float x = myVec4.x;       // x = 1.0;
-vec3 myVec3 = myVec4.xyz; // myVec3 = { 1.0, 1.0, 1.0 }
-vec3 myVec3 = myVec4.rgb; // myVec3 = { 1.0, 1.0, 1.0 }
+vec3 myVec3_0 = myVec4.xyz; // myVec3_0 = { 1.0, 2.0, 3.0 }
+vec3 myVec3_1 = myVec4.rgb; // myVec3_1 = { 1.0, 2.0, 3.0 }
+vec3 myVec3_2 = myVec4.zyx; // myVec3_2 = { 3.0, 2.0, 1.0 }
+vec3 myVec3_3 = myVec4.xxx; // myVec3_3 = { 1.0, 1.0, 1.0 }
 ```
 
 ### 矩阵
@@ -319,4 +327,4 @@ GLSL 允许定义和 C 语言类似的宏定义。
 
 和引擎的交互部分可参考： [预处理宏定义](macros.md)
 
->注意：在引擎中，材质的预处理宏定义在材质初始化完成后则不能修改，如果要修改，需要通过 `Material.initialize`或`Material.reset` 方法进行。
+>注意：在引擎中，材质的预处理宏定义在材质初始化完成后则不能修改，如果要修改，需要通过 `Material.initialize`或`Material.reset` 方法。
