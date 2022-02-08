@@ -26,7 +26,7 @@ RimLight 实现简单，效率高，效果也不错。
 
 ## 新建着色器
 
-首先参考 [新建着色器](write-effect-overview.md) 新建一个名为 `rimlight.effect` 的着色器。
+首先参考 [新建着色器](write-effect-overview.md) 新建一个名为 `rimlight.effect` 的着色器，并创建一个使用该着色器的材质 `rimlight.mtl`。
 
 ![create rimlight](img/rim-light-effect.png)
 
@@ -52,13 +52,13 @@ RimLight 实现简单，效率高，效果也不错。
       properties: *props 
 ```
 
-为了方便调整 RimLight 的颜色，增加一个用于调整 RimLight 颜色的属性，由于不考虑半透明，只使用该颜色的 RGB 通道：
+为了方便调整边缘光的颜色，增加一个用于调整边缘光颜色的属性 `rimLightColor`，由于不考虑半透明，只使用该颜色的 RGB 通道：
 
 ```yaml
 rimLightColor:  { value: [1.0, 1.0, 1.0],   # RGB 的默认值
                   target: rimColor.rgb,     # 绑定到 Uniform rimColor 的 RGB 通道上
                   editor: {                 # 在 material 的属性检查器内的样式定义
-                    displayName: Rim Color, # 显示 Rim Color 作为显示名称
+                    displayName: Rim Color, # 显示 Rim Color 作为显示名称 
                     type: color } }         # 该字段的类型为颜色值
 ```
 
@@ -88,7 +88,9 @@ uniform Constant {
 }; 
 ```
 
-> 引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-framework.md)，因此在使用 3 维向量（vec3）时，需要使用 4 维向量（vec4）代替。
+这个绑定意味着着色器的 `rimLightColor` 的 RGB 分量的值，会通过引擎传输到 Uniform `rimColor` 的 rgb 三个分量里。
+
+> 引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-framework.md)，因此在使用 3 维向量（vec3）时，可选择用 4 维向量（vec4）代替。
 > 不用担心，alpha 通道会被利用起来不被浪费。
 
 ## 顶点着色器
@@ -101,9 +103,27 @@ uniform Constant {
 
 ## 片元着色器
 
-将片元着色器 `CCProgram unlit-fs` 修改为： `CCProgram rimlight-fs` 。
+将通过模板创建的片元着色器代码内 `CCProgram unlit-fs` 修改为： `CCProgram rimlight-fs` 。
 
-要计算视点的方向，需要获取当前 **摄像机** 的位置，使用 **摄像机** 的位置减去当前的坐标来获取视角的向量，**摄像机** 位置的全局 Uniform 存放 `cc-global` 这个着色器片段内。通过 `include` 关键字，包含这个头文件：
+修改前：
+
+```glsl
+CCProgram unlit-fs %{
+  precision highp float;
+  ...
+}%
+```
+
+修改后：
+
+```glsl
+CCProgram rimlight-fs %{
+  precision highp float;
+  ...
+}%
+```
+
+要计算视点的方向，需要获取当前 **摄像机** 的位置，使用 **摄像机** 的位置减去当前的坐标来获取视角的向量，**摄像机** 位置的全局 Uniform 存放 `cc-global` 这个着色器片段的 `cc_cameraPos` 变量内。通过 `include` 关键字，包含这个头文件：
 
 ```glsl
 #include <cc-global>  // 包含 Cocos Creator 内置全局变量  
@@ -119,23 +139,24 @@ CCProgram rimlight-fs %{
   #include <cc-fog-fs>
 
   ...
-
 }
 ```
 
-视点方向的计算是通过当前相机的位置向量减去片元着色器内由顶点着色器传入的位置信息 `v_position`：
+> 内置的全局 Uniform 可通过 [全局 Uniform](uniform.md) 查看。
+
+视线方向的计算是通过当前相机的位置（`cc_cameraPos`）减去片元着色器内由顶点着色器传入的位置信息 `in vec3 v_position`：
 
 ```glsl
 vec3 viewDirection = cc_cameraPos.xyz - v_position; //计算视点的方向
 ```
 
-我们不关心视角向量的长度，因此得到 `viewDirection` 后，通过 `normalize` 方法进行归一化处理：
+我们不关心视线向量的长度，因此得到 `viewDirection` 后，通过 `normalize` 方法进行归一化处理：
 
 ```glsl
 vec3 normalizedViewDirection = normalize(viewDirection);  //对视点方向进行归一化
 ```
 
-注意 cc_cameraPos 的 xyz 分量表示了相机的位置， w 分量不会用到。
+`cc_cameraPos` 的 xyz 分量表示了相机的位置。
 
 此时的片元着色器代码：
 
@@ -194,7 +215,7 @@ vec4 frag(){
 这时可计算法线和视角的夹角，在线性代数里面，点积表示为两个向量的模乘以夹角的余弦值：
 
 ```math
-a·b = |a||b|cos(θ)
+a·b = |a|*|b|*cos(θ)
 ```
 
 通过简单的交换律可得出：
@@ -254,7 +275,7 @@ vec4 frag(){
 
 ~~``` float rimPower = max(dot(normal, normalizedViewDirection), 0.0); ```~~
 
-并改为：
+并增加：
 
 ```glsl
 float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);
@@ -277,9 +298,9 @@ vec4 frag(){
 
 ![one minus dot result](img/1-dot.png)
 
-虽然已经出现的边缘光，但是光照太强，并且不方便调整，可在着色器的 CCEffect 段内增加一个可调整的参数 rimIntensity。由于之前 rimColor 的 alpha 分量没有被使用到，因此借用该分量进行绑定可节约额外的 Uniform 字段：
+虽然可观察到边缘光效果，但是光照太强，并且不方便调整，可在着色器的 CCEffect 段内增加一个可调整的参数 rimIntensity。由于之前 rimColor 的 alpha 分量没有被使用到，因此借用该分量进行绑定可节约额外的 Uniform。
 
-> 写着色器时，需要避免 implict padding，关于这点可以参考: [关于 UBO 内存布局](./effect-framework.md)，这里使用未被使用的 alpha 通道可以最大限度的利用 `rimColor` 的字段。
+> 写着色器时，需要避免 implict padding，关于这点可以参考: [UBO 内存布局](./effect-framework.md)，这里使用未被使用的 alpha 通道来存储边缘光的强度可以最大限度的利用 `rimColor` 的字段。
 
 在 CCEffect 内增加如下代码：
 
@@ -316,7 +337,7 @@ CCEffect %{
 
 ![intensity](./img/add-intensity.png)
 
-通过 pow 函数，可调整边缘光，使其范围不是线性变化，可体现更好的效果，删除如下代码：
+通过 pow 函数调整边缘光，使其范围不是线性变化，可体现更好的效果，删除如下代码：
 
 ~~``` col.rgb += rimPower * rimColor.rgb; ```~~
 
@@ -353,7 +374,7 @@ col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对
 
 ![增加亮度调整后](img/preview-instensity.png)
 
-通过 Rim Color 和 rimIntensity 可调整边缘光的颜色和范围：
+通过 Rim Color 和 rimIntensity 可方便的调整边缘光的颜色和强度：
 
 ![调整颜色值](img/adjust-option.png)
 
@@ -407,7 +428,7 @@ CCProgram rimlight-fs %{
 }%
 ```
 
-若要让边缘光的颜色受纹理颜色的影响，可修改下列代码：
+若要让边缘光的颜色受纹理颜色的影响，可将下列代码：
 
 ```glsl
  col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; //增加边缘光
