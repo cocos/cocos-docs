@@ -6,7 +6,7 @@
 
 | 着色器名称 | 说明 |
 | :---| :----|
-| builtin-billboard.effect           | 公告板，公告板是一种使物体始终朝向摄像机的渲染方案，适用于树木，血条等渲染
+| builtin-billboard.effect           | 公告板<br>公告板是一种使物体始终朝向摄像机的渲染方案，适用于树木，血条等渲染
 | builtin-camera-texture.effect      | 相机纹理
 | builtin-clear-stencil.effect       | 清理模板缓存
 | builtin-graphics.effect| graphics 组件的着色器
