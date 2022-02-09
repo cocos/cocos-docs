@@ -1,29 +1,26 @@
 # Summary
-
-## 新手入门
-
-[介绍](index.md)
-
-- [基础使用](getting-started/index.md)
+[Cocos Creator 3.4 用户手册](index.md)
+## 基础使用
+- [新手上路](getting-started/index.md)
     - [关于 Cocos Creator](getting-started/introduction/index.md)
     - [安装和启动](getting-started/install/index.md)
     - [使用 Dashboard](getting-started/dashboard/index.md)
     - [Hello World!](getting-started/helloworld/index.md)
     - [项目结构](getting-started/project-structure/index.md)
-    - [编辑器界面](editor/index.md)
-        - [场景编辑器](editor/scene/index.md)
-        - [层级管理器](editor/hierarchy/index.md)
-        - [资源管理器](editor/assets/index.md)
-        - [属性检查器](editor/inspector/index.md)
-        - [控制台](editor/console/index.md)
-        - [偏好设置](editor/preferences/index.md)
-        - [项目设置](editor/project/index.md)
-        - [主菜单](editor/mainMenu/index.md)
-        - [工具栏](editor/toolbar/index.md)
-        - [编辑器布局](editor/editor-layout/index.md)
-        - [预览调试](editor/preview/index.md)
-    - [获取帮助和支持](getting-started/support.md)
-    - [注意事项](getting-started/attention/index.md)
+- [编辑器界面](editor/index.md)
+    - [场景编辑器](editor/scene/index.md)
+    - [层级管理器](editor/hierarchy/index.md)
+    - [资源管理器](editor/assets/index.md)
+    - [属性检查器](editor/inspector/index.md)
+    - [控制台](editor/console/index.md)
+    - [偏好设置](editor/preferences/index.md)
+    - [项目设置](editor/project/index.md)
+    - [主菜单](editor/mainMenu/index.md)
+    - [工具栏](editor/toolbar/index.md)
+    - [编辑器布局](editor/editor-layout/index.md)
+    - [预览调试](editor/preview/index.md)
+- [获取帮助和支持](getting-started/support.md)
+- [注意事项](getting-started/attention/index.md)
 - [快速上手：制作第一个游戏](getting-started/first-game/index.md)
 - [升级指南](release-notes/index.md)
     - [v3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
@@ -33,7 +30,7 @@
     - [资源分包升级指南](asset/subpackage-upgrade-guide.md)
     - [资源管理模块升级指南](asset/asset-manager-upgrade-guide.md)
 
-## 基本工作流
+## 工作流
 
 - [场景制作](concepts/scene/index.md)
     - [场景资源](asset/scene.md)
