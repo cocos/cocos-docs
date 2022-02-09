@@ -4,11 +4,9 @@ Pass 中的参数主要分两个部分：
 - 为开发者可自定义的属性面板参数 properties
 - 用于控制渲染管线状态的 PipelineStates
 
-
 ## Properties
 
 properties 用于将 Shader 中定义的 uniform 进行别名映射。这个映射可以是某个 uniform 的完整映射，也可以是具体某个分量的映射（使用 target 参数），示例如下：
-
 
 ```yaml
 properties:
@@ -27,7 +25,6 @@ properties:
 properties:
   factor: { value: 1.0, editor: { visible: false } }
 ```
-
 
 在 TypeScript 代码中可以使用 Material 类的 setProperty 方法以及 Pass 的 setUniform 方法进行设置，如下所示：
 
@@ -57,7 +54,6 @@ properties:
 
 这样 uniform `a` 和 `b` 已声明的各项参数都不会受到影响，但都不会显示在 **属性检查器** 中（visible 为 false），而 uniform `c` 仍会正常显示。
 
-
 ### Property 参数列表
 
 Property 中可配置的参数如下表所示，任何可配置的字段如果和默认值相同都可以省掉。
@@ -85,7 +81,6 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 | editor.<br>range          | **undefined** | undefined, [ min, max, [step] ]  |   |
 | editor.<br>deprecated     | **false**  | true, false | For any material using this effect, delete the existing data for this property after next saving |
 
-
 ## 默认值列表
 
 | 类型        |  默认值 | 可选项   |
@@ -105,8 +100,6 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 - boolean 类型默认值为 false。
 - number 类型默认值为 0，默认取值范围为 [0, 3]。
 - string 类型默认值为 options 数组第一个元素。
-
-
 
 ## PipelineStates
 
@@ -217,8 +210,6 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 再次总结一下为防止数据丢失所设置的相关规则：
 - 为避免有效旧数据丢失，只要没有显式指定 `removeImmediately` 规则，就不会在导入时自动删除旧数据；
 - 为避免有效的新数据被覆盖，如果没有指定为强制更新模式，对于那些既有旧数据，又有对应的新数据的材质，不会做任何迁移操作。
-
-
 
 ### RasterizerState
 
