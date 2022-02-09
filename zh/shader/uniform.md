@@ -1,7 +1,8 @@
-# 常用 shader 内置 Uniform
+# Cocos Effect 内置 Uniform
 
-要在 shader 中使用内置变量，需要包含对应头文件。
-目前所有的内置变量，按所在头文件分组，依次有：
+要在 Cocos Effect 中使用内置变量，需要包含对应的着色器片段（Chunk）头文件。
+
+目前所有的内置变量，按所在头文件分组，列表如下：
 
 ## `cc-local.chunk`
 
@@ -14,7 +15,7 @@
 
 | Name | Type | Info |
 | :-- | :-- | :-- |
-| `cc_time` | vec4 | x：游戏运行时间（秒）|
+| `cc_time` | vec4 | x：游戏运行时间（秒）<br> y：帧时间(秒）<br> z：游戏运行帧数 <br>w：未使用|
 | `cc_screenSize` | vec4 | xy：屏幕尺寸<br>zw：屏幕尺寸倒数 |
 | `cc_screenScale` | vec4 | xy：屏幕缩放<br>zw：屏幕缩放倒数 |
 | `cc_nativeSize` | vec4 | xy：实际着色缓冲的尺寸<br>zw：实际着色缓冲的尺寸倒数 |
@@ -24,12 +25,12 @@
 | `cc_matProjInv`  | mat4 | 投影逆矩阵 |
 | `cc_matViewProj` | mat4 | 视图投影矩阵 |
 | `cc_matViewProjInv` | mat4 | 视图投影逆矩阵 |
-| `cc_cameraPos` | vec4 | xyz：相机位置 |
+| `cc_cameraPos` | vec4 | xyz：相机位置<br> w：combineSignY |
 | `cc_exposure` | vec4 | x：相机曝光<br>y：相机曝光倒数<br>z：是否启用 HDR<br>w：HDR 转 LDR 缩放参数 |
-| `cc_mainLitDir` | vec4 | xyz：主方向光源方向 |
+| `cc_mainLitDir` | vec4 | xyz：主方向光源方向 <br>w: 是否启用阴影 |
 | `cc_mainLitColor` | vec4 | xyz：主方向光颜色<br>w：主方向光强度 |
 | `cc_ambientSky` | vec4 | xyz：天空颜色<br>w：亮度 |
-| `cc_ambientGround` | vec4 | xyz：地面反射光颜色 |
+| `cc_ambientGround` | vec4 | xyz：地面反射光颜色<br> w：环境贴图Mipmap等级 |
 
 ## `cc-environment.chunk`
 

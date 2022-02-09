@@ -1,12 +1,33 @@
-# 材质系统总览
+# 材质系统
+
+![mat-show](img/material-show.png)
+
+在真实世界里，所有的物体都会与光交互。材质是一个数据集，包括纹理贴图、光照算法等，用于表现物体对光的交互，供渲染器读取数据，从而计算出光照结果，实现真实可信的光影效果。
+
+
+
+
+## 基础面板
+
+![mat-inspector](img/mat-inspector.png)
+
+材质可应用到网格物体上，用它控制物体的可视外观。它包含对 [着色器](../shader/index.md)（Shader）对象的引用。如果着色器对象定义了材质属性，则材质还可能会包含纹理贴图。比如一个立方形物体究竟是水池还是箱子，是一个木头箱子还是铁皮箱，以及它们在受光情况下的明暗表现、光点、光反射、光散射等效果，这些都可以通过材质来描述。
+
+## 材质系统类图
+
+材质系统控制着每个模型最终的着色流程与顺序，在引擎内相关类间结构如下：
+
+[![Assets](img/material.png "Click to view diagram source")](material.dot)
+
+其中，[材质](../asset/material.md)（Material）和着色器资源（EffectAsset）属于资源。Material 负责 EffectAsset 声明的 Uniform、宏数据存储以及 Shader 使用和管理。编辑器可根据该数据提供可视化材质面板。Material 通常是被渲染组件使用，所有继承自 RenderableComponent 的组件都是渲染组件，MeshRenderer、Sprite 等都继承自 RenderableComponent。EffectAsset 负责提供属性、宏、Shader 列表定义。每个 EffectAsset 最终都会被编译成引擎内使用的格式，引擎根据该格式解析以及应用。所有解析后的 EffectAsset 信息都会被注册近引擎内的 ProgramLib 库里，方便用户直接通过代码获取实际引擎所使用的 EffectAsset 资源。
 
 ## 材质系统升级指南
 
 Cocos Creator 从 v2.x 开始就支持了材质系统，在 v3.0 中我们持续改进了材质系统的设计和内置 Shader API，所以从 v2.x 升级到 v3.0 及后续版本时，部分内容可能还需要开发者手动进行调整，具体请参考下方的升级指南：
 
-- [v3.0 材质升级指南](./effect-2.x-to-3.0.md)
-- [v3.1 材质升级指南](./Material-upgrade-documentation-for-v3.0-to-v3.1.md)
+- [v2.x to v3.0 材质升级指南](./effect-2.x-to-3.0.md)
 
+<!--
 ## 材质系统类图
 
 材质系统控制着每个模型最终的着色流程与顺序，在引擎内相关类间结构如下：
@@ -223,7 +244,16 @@ const mat2 = comp2.material; // 拷贝实例化，mat2 是一个 MaterialInstanc
 
 Material 与 MaterialInstance 的最大区别在于，MaterialInstance 从一开始就永久地挂载在唯一的 Renderable 上，且只会对这个模型生效，而 Material 则无此限制。
 
-对于 MaterialInstance，可以修改 defines 或 states，只提供重载即可：
+对于一个已初始化的材质，如果希望修改最初的基本信息，可以直接再次调用 initialize 函数，重新创建渲染资源。
+
+```ts
+mat.initialize({
+  effectName: 'builtin-standard',
+  technique: 1
+});
+```
+
+特别地，如果只是希望修改 defines 或 states，引擎提供了更高效的直接设置接口，只需提供相对当前值的重载即可：
 
 ```ts
 mat2.recompileShaders({
@@ -235,6 +265,8 @@ mat2.overridePipelineStates({
   }
 });
 ```
+
+**注意**：这些接口只能调用 MaterialInstance 实例，而不能调用 Material 资源。
 
 每帧动态更新 uniform 值是非常常见的需求，在类似这种需要更高效接口的情况下，可以手动调用对应 pass 的接口：
 
@@ -249,9 +281,7 @@ color.a = Math.sin(director.getTotalFrames() * 0.01) * 127 + 127;
 pass.setUniform(hColor, color);
 ```
 
-除此之外的其他任何修改（effect 或 technique 的变化等）都需要重新创建 Material 并赋值给目标 RenderableComponent。
-
-## 内置材质
+## Builtins
 
 编辑器内置了几种常见类型的材质，包括无光照的 unlit、基于物理光照的 standard、skybox、粒子、sprite 等。
 
@@ -285,7 +315,7 @@ pass.setUniform(hColor, color);
 | 宏定义 | 说明 |
 | :---- | :--- |
 | USE_BATCHING | 是否启用动态 VB 合并式合批 |
-| USE_INSTANCING | 是否启用动态 instancing[^1] |
+| USE_INSTANCING | 是否启用动态 instancing |
 | HAS_SECOND_UV | 是否存在第二套 UV |
 | ALBEDO_UV | 指定采样漫反射贴图使用的 uv，默认为第一套 |
 | EMISSIVE_UV | 指定采样自发光贴图使用的 uv，默认为第一套 |
@@ -297,6 +327,4 @@ pass.setUniform(hColor, color);
 | USE_PBR_MAP | 是否使用 PBR 参数三合一贴图（**按 glTF 标准，RGB 通道必须分别对应遮挡、粗糙和金属度**） |
 | USE_METALLIC_ROUGHNESS_MAP | 是否使用金属粗糙二合一贴图（**按 glTF 标准，GB 通道必须分别对应粗糙和金属度**） |
 | USE_OCCLUSION_MAP | 是否使用遮挡贴图（**按 glTF 标准，只会使用 R 通道**） |
-| USE_EMISSIVE_MAP | 是否使用自发光贴图 |
-
-[^1]: Instancing 只应该在场景中有大量相同模型的实例时启用，适当合理地应用 Instancing 可以有不错的性能提升，但过度使用反而很可能会因为额外的开销维护导致性能下降。
+| USE_EMISSIVE_MAP | 是否使用自发光贴图 | -->
