@@ -1,6 +1,8 @@
 # YAML 101
 
-Cocos Creator 3.0 使用的是符合 YAML 1.2 标准的解析器，这意味着 Creator 是与 JSON 完全兼容的，直接使用 JSON 完全不会有问题：
+从 Cocos Creator 3.0 版本开始，Cocos Effect 使用的是符合 YAML 1.2 标准的解析器。
+
+这意味着 Cocos Effect 与 JSON 是完全兼容的，直接使用 JSON 也完全不会有问题：
 
 ```yaml
 "techniques":
@@ -52,7 +54,7 @@ Cocos Creator 3.0 使用的是符合 YAML 1.2 标准的解析器，这意味着 
       key3: { nested1: 'but no unquoted string allowed inside brackets', nested2: 'also notice the comma is back too' }
   ```
 
-综合以上几点，文档开头的 effect 内容就可以很简洁地写成这样：
+综合以上几点，本文开头的内容就可以简化成下面这样：
 
 ```yaml
 techniques:
@@ -119,7 +121,7 @@ techniques:
   }
   ```
 
-对应到我们的 effect 中，比如多个 pass 拥有相同的 property 内容，或很多其他情景下，都可以很方便地复用数据：
+对应到我们的 Cocos Effect 中，比如多个 Pass 拥有相同的 properties 内容时（或更多其他需要复用数据的情景下），可以很方便地复用数据：
 
 ```yaml
 techniques:
@@ -133,7 +135,7 @@ techniques:
     properties: *props # reference anywhere
 ```
 
-最后，在实际 effect 文件中任何流程声明都需要包在 **CCEffect** 语法块内：
+最后需要注意一点，在 Cocos Effect 文件中使用 YAML 进行的所有流程声明，都需要确保在 **CCEffect** 语法块内：
 
 ```yaml
 CCEffect %{
@@ -148,4 +150,4 @@ CCEffect %{
 - <https://en.wikipedia.org/wiki/YAML>
 - <https://yaml.org/spec/1.2/spec.html>
 
-[^1]: 标准 YAML 并不支持制表符，但在解析 effect 数据时，我们会先尝试把其中所有的制表符替换为 2 个空格，以避免偶然插入制表符带来的琐碎的麻烦。但整体上，请一定尽量避免插入制表符来确保编译无误。
+[^1]: 标准 YAML 并不支持制表符，但在解析 Cocos Effect 内容时，我们会先尝试把其中所有的制表符替换为 2 个空格，以避免偶然插入制表符带来的麻烦。但请尽量避免插入制表符来确保编译无误。

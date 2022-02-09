@@ -1,14 +1,15 @@
 # 卡通渲染
 
- 相对于[真实渲染](effect-buildin-pbr.md)（PBR），非真实渲染（Non-Photorealistic Rendering NPR）通过特性化渲染，实现于真实世界完全不同的美术表现。
+ 相对于[真实渲染](effect-buildin-pbr.md)（Physical Based Rendering - PBR），非真实渲染（Non-Photorealistic Rendering - NPR）通过特性化渲染，实现与真实世界完全不同的美术表现。
 
- 卡通渲染（Toon）是非真实渲染的常见实现之一。
+ 卡通渲染（Toon Shading）是非真实渲染的常见效果之一。
 
- 常见的卡通渲染内容包含
+ 通常，卡通渲染内容包含以下几个基础部分：
 
 - 对物体进行边缘描边
 - 降低色阶的数量并模拟色阶不连续现象
-- 其他光照计算
+- 明暗色调分离
+- 阴影形状干扰等
 
  ![toon](img/toon.png)
 
@@ -25,13 +26,13 @@
 
 | 参数         | 说明                                                              |
 | :------------- | :---------------------------------------------------------------- |
-| tilingOffset   | 模型 UV 的平铺和偏移量，xy 对应平铺，zw 对应偏移|
+| tilingOffset   | 模型 UV 的缩放和偏移量，xy 对应缩放，zw 对应偏移|
 | mainColor      | 主颜色，该颜色会作为最初的色阶|
 | colorScale     | 颜色缩放，对主颜色，一阶和二阶颜色的 RGB 通道相乘 |
-| alphaThreshold | 半透明物体剪裁的 alpha 区间
+| alphaThreshold | Alpha测试阀值，Alpha值低于此值的像素将被抛弃
 | shadeColor1    | 一阶色阶的颜色，该颜色会作为卡通着色的中间色阶 |
 | shadeColor2    | 二阶色阶的颜色，该颜色会作为卡通着色的最后一个色阶 |
-| specular       | 反射光颜色
+| specular       | 高光颜色
 | baseStep       | 一阶着色的步长
 | baseFeather    | 一阶着色和主颜色混合因子 <br> 和 baseStep 配合调整一阶色阶所占比例和混合的形式
 | shadeStep      | 二阶着色的步长
@@ -43,7 +44,7 @@
 | mainTexture    | 主纹理，定义物体的基础纹理
 | shadeMap1      | 一阶色阶纹理 <br> 若指定则会和 shadeColor1 相乘 |
 | shadeMap2      | 二阶色阶纹理 <br> 若指定则会和 shadeColor2 相乘 |
-| specularMap    | 反射光贴图<br>若有指定，则会和反射光颜色做相乘， |
+| specularMap    | 高光贴图<br>若有指定，则会和高光颜色做相乘， |
 | emissiveMap    | 自发光贴图<br>如果有指定，这项会和自发光颜色相乘，因此需要把自发光颜色（默认是黑色）调高才会有效果 |
 
 ## 宏
@@ -57,16 +58,16 @@
  | USE_BASE_COLOR_MAP            | 是否使用基础贴图          |
  | USE_1ST_SHADE_MAP             | 是否使用贴图作为一阶色阶 |
  | USE_2ND_SHADE_MAP             | 是否使用贴图作为二阶色阶图 |
- | USE_EMISSIVE_MAP              | 是否使用发射？贴图        |
+ | USE_EMISSIVE_MAP              | 是否使用自发光贴图        |
  | USE_ALPHA_TEST                | 是否进行半透明测试        |
- | USE_SPECULAR_MAP              | 是否使用反射光贴图        |
+ | USE_SPECULAR_MAP              | 是否使用高光贴图        |
  | BASE_COLOR_MAP_AS_SHADE_MAP_1 | 使用 baseColorMap 作为一阶着色 |
  | BASE_COLOR_MAP_AS_SHADE_MAP_2 | 使用 baseColorMap 作为二阶着色 |
  | SHADE_MAP_1_AS_SHADE_MAP_2    | 二阶着色是否和一阶着色叠加|
 
 ## 原理
 
- 卡通渲染由两个 Pass 组成
+ 卡通渲染由两个渲染过程（Pass）组成
 
 - Pass 0 描边（可选）
 - Pass 1 正常绘制
@@ -83,14 +84,14 @@
 
 ### Pass 1
 
-卡通渲染的核心思路是通过降低色阶的数量，模拟器卡通中的赛璐璐（Celluloid）现象。
+卡通渲染的核心思路是通过降低色阶的数量，模拟器卡通中的赛璐璐（Celluloid）画风。
 
 在着色器中将色阶降低为三个色阶，并通过三个颜色组成：
 
 - `baseColor`
 - `shadeColor1`
 - `shadeColor2`
-没
+
 其颜色对应关系如下图：
 
 ![toon-shade-color](img/shade-color.png)

@@ -1,6 +1,6 @@
-# 编写着色器
+# 3D 着色器：RimLight
 
-本文将基于 RimLight 编写一个基础的 `GLSL` 着色器。
+本文将通过实现一个 RimLight 效果，来演示如何编写一个在 Cocos Creator 可用于 3D 模型渲染的着色器（`Cocos Effect`） 。
 
 **菲涅尔现象（Fresnel Effect）**：
 
