@@ -184,7 +184,7 @@ CCGetWorldMatrixFull(matWorld, matWorldIT);
 
 更多关于 Cocos Effect 内置的 uniform 内容，可以参考 [Cocos Effect 内置 Uniform](uniform.md)。
 
-### `CCFragOutput`
+## `CCFragOutput`
 
 `Cocos Effect` 提供了 `CCFragOutput` 工具函数用以简化片元着色器的输出。可以直接在 fs 返回时类似这样写：
 
