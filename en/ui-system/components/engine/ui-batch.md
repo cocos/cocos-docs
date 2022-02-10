@@ -48,7 +48,7 @@ Total vertex number in the scene exceeds the maximum capacity of a MeshBuffer (6
 
 Render data structures are redesigned in v3.4.1. Please take note:
 
-1. Property BATCHER2D_MEM_INCREMENT under Project Properties -> Macro Configuration indicates the maximum memory size for a MeshBuffer. Increasing the value will allow a MeshBuffer to host more data to be rendered but will also increase memory consumption.
+1. Property **BATCHER2D_MEM_INCREMENT** under **Project Properties -> Macro Configuration** indicates the maximum memory size for a MeshBuffer. Increasing the value will allow a MeshBuffer to host more data to be rendered but will also increase memory consumption.
 
 2. **BATCHER2D_MEM_INCREMENT** is measured in **kilobytes**. Users can follow the instructions below to calculate the corresponding capacity for vertex numbers:
 
