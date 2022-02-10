@@ -28,4 +28,4 @@ Effect 的创建方式跟 Material 的创建方式类似。
 
 ![effect-show](material/effect-show.png)
 
-以上就是一个材质的创建流程，更多信息可以参考：[Effect 书写格式与语法](../material-system/effect-syntax.md)
+以上就是一个材质的创建流程，更多信息可以参考：[Effect 书写格式与语法](../shader/index.md)

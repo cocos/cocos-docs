@@ -62,7 +62,7 @@ Creator 提供了几个简单的静态 3D 模型，其中包含了立方体、�
 关于蒙皮模型的支持及相关设定，参考 [骨骼动画组件](../../animation/skeletal-animation.md#关于动态-Instancing)。
 
 另外 instancing 还支持自定义额外的 instanced attributes，可以传递更多不同 instance 之间的差异性数据（比如不同人物间给一个漫反射颜色的外观差异，或大片草地中的风力影响）。<br>
-这需要自定义 effect 的支持，更详细的说明可以参考 [语法指南](../../material-system/effect-syntax.md#自定义-Instanced-属性)。
+这需要自定义 effect 的支持，更详细的说明可以参考 [语法指南](../../shader/effect-framework.md#自定义几何体实例化属性)。
 
 ### 合并 VB 合批
 

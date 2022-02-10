@@ -7,7 +7,6 @@
 - `CCEffect` ：用于声明渲染技术（Technique）、渲染过程（Pass）、渲染状态、材质参数等属性。
 - `CCProgram`：用于声明顶点着色器（Vertex Shader）和片元着色器（Fragment Shader）代码片段。
 
-
 此处以 `builtin-unlit.effect` 为例，说明 `Cocos Effect` 的语法框架。
 
 ![effect](img/effect.png)
@@ -77,7 +76,6 @@ CCEffect %{
 
 所有其他可选参数及默认值见 [渲染过程参数完整列表](pass-parameter-list.md)。
 
-
 ### CCProgram
 
 在 `Cocos Effect` 中由 `CCProgram` 包裹的部分是由 GLSL 语法声明的 Shader 片段。建议在编写 CCProgram 之前，先了解 [GLSL 基础语法](./glsl.md) 。
@@ -111,6 +109,7 @@ CCProgram shader-name %{
 ## CCVertInput[^1]
 
 为对接骨骼动画与数据解压流程，我们提供了 `CCVertInput` 工具函数，它有 `general` 和 `standard` 两个版本，内容如下：
+
 ```glsl
 // genral version in input.chunk
 #define CCVertInput(position) \
@@ -135,6 +134,7 @@ CCProgram shader-name %{
   #pragma // empty pragma trick to get rid of trailing semicolons at effect compile time
 
 ```
+
 如果只需要获取顶点位置信息，可以使用 `general` 版本，可在顶点着色器函数的开头这样写：
 
 ```glsl
@@ -200,6 +200,7 @@ vec4 frag () {
 `CCFragOutput` 会根据管线状态来决定是否需要做`ToneMap`转码处理，这样中间的颜色计算就不必区分当前渲染管线是否为HDR流程。
 
 代码如下：
+
 ```glsl
 vec4 CCFragOutput (vec4 color) {
   #if CC_USE_HDR
@@ -210,7 +211,7 @@ vec4 CCFragOutput (vec4 color) {
 }
 ```
 
-**特别注意：** 
+**特别注意：**
 
 如果采用 `CCFragOutput` 作为片元输出，中间的颜色运算必须转到 `Linear` 空间，因为 `CCFragOutput` 认为传入的参数是在 `Linear` 空间的，总是会进行 `LinearToSRGB` 转码。
 
@@ -219,6 +220,7 @@ vec4 CCFragOutput (vec4 color) {
 如需包含标准的PBR光照计算，可使用 `StandardSurface` 结构体与函数 `CCStandardShadingBase` 一起构成 PBR 着色流程。
 
 `StandardSurface` 结构体内容如下：
+
 ```glsl
 
 struct StandardSurface {
@@ -270,10 +272,9 @@ CCProgram shader-fs %{
 }%
 ```
 
-
 ## 自定义几何体实例化属性
 
-通过 **几何体实例化** 特性（GPU Instancing）可使 GPU 批量绘制模型相同且材质相同的渲染对象。 如果我们想在不打破这一特性的情况下单独修改某个对象的显示效果，就需要通过自定义几何体实例化属性属性。
+通过 **几何体实例化** 特性（GPU Instancing）可使 GPU 批量绘制模型相同且材质相同的渲染对象。 如果我们想在不打破这一特性的情况下单独修改某个对象的显示效果，就需要通过自定义几何体实例化属性。
 
 实例化属性相关的变量声明、定义、使用，都需要依赖`USE_INSTANCING` 预处理宏定义，否则在切换 `USE_INSTANCING` 开关时，会发生编译错误。 示例代码如下：
 
@@ -317,7 +318,6 @@ comp.setInstancedAttribute('a_instanced_color', [100, 150, 200, 255]); // should
 ```
 
 在 Cocos Effect 编译期我们会解析所有已经为常量的宏控制流，生成不同版本的 GLSL Shader 代码。
-
 
 ## 关于 UBO 内存布局
 
@@ -383,7 +383,6 @@ uniform Constants {
 这意味着大量的空间浪费，且某些设备的驱动实现也并不完全符合此标准[^5]，因此目前 `Cocos Effect` 选择限制这部分功能的使用，以帮助排除一部分非常隐晦的运行时问题。
 
 >再次提醒：uniform 的类型与 inspector 的显示和运行时参数赋值时的程序接口可以不直接对应，通过 [property target](pass-parameter-list.md#Properties) 机制，可以独立编辑任意 uniform 的具体分量。
-
 
 [^1]: 不包含粒子、Sprite、后期效果等不基于 Mesh 渲染的 Shader。
 
