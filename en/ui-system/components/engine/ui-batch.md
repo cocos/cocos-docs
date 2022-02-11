@@ -42,7 +42,7 @@ MeshBuffer is an internal data type used to store vertex and index data in 2D re
 
 ### Before v3.4.1
 
-Total vertex number in the scene exceeds the maximum capacity of a MeshBuffer (65535.)
+The total vertex number in the scene exceeds the maximum capacity of a MeshBuffer (65535).
 
 ### After v3.4.1
 
