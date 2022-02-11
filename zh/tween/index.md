@@ -1,5 +1,19 @@
 # 缓动系统
 
+![tween-index.png](tween-index.png)
+
+缓动系统被广泛的应用于游戏开发中，其主要目的之一是用于解决离线动画无法满足需求时的动态动画的问题。
+
+在 Cocos Creator 中，缓动除了可以用于变换位置、旋转、缩放和颜色等常规动画信息，还支持延迟，队列，并行等动作行为。
+
+本节包含以下内容：
+
+- [接口说明](tween-interface.md)
+- [缓动示例](tween-example.md)
+
+<!-- 
+## 从 v2.x 升级
+
 Cocos Creator 3.0 为了全面兼容和保持 Cocos Creator v2.x 缓动系统的使用体验，移植了所有的功能实现。需要注意的是：
 
 1. `action` 已经被废弃了，请使用 `tween`
@@ -73,7 +87,9 @@ this.node.setPosition(_pos);    // 这里将通过接口 setPosition
 
 ## Tween 接口介绍
 
-| 接口               | 功能说明                                     |
+### 接口说明
+
+| 接口               | 功能说明                                     | 
 | :---------------- | :------------------------------------------ |
 | **to**            | 添加一个对属性进行 **绝对值** 计算的间隔动作  |
 | **by**            | 添加一个对属性进行 **相对值** 计算的间隔动作  |
@@ -93,6 +109,15 @@ this.node.setPosition(_pos);    // 这里将通过接口 setPosition
 | **show**          | **启用节点链上的渲染，缓动目标需要为 Node** |
 | **hide**          | **禁用节点链上的渲染，缓动目标需要为 Node** |
 | **removeSelf**    | **将节点移出场景树，缓动目标需要为 Node**   |
+
+#### 静态接口说明
+
+|接口 | 功能说明 | 
+|:-- |:---|
+|**stopAll**| 停止所有缓动 <br> 该接口会移除底层所有已注册的 Tween 动画  
+|**stopAllByTag**|停止所有指定标签的缓动  <br> 该接口将移除 通过 **tag()** 方法指定的所有缓动 <br> 可通过传入第二个 **target:Node** 来指定是否仅移除指定对象上带有某个标签的缓动
+|**stopAllByTarget** |停止所有指定对象的缓动
+
 
 ### to 和 by 的可选属性
 
@@ -134,3 +159,6 @@ tween(tweenTargetVec3)
 当缓动目标为 `Node` 时，将会监听其销毁事件进行缓动的自动销毁，调用 `target` 方法也会自动更新监听。
 
 具体的使用方法，详情请参考范例 **Tween**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/tween) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/tween)）。
+
+-->
+
