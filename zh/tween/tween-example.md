@@ -288,7 +288,7 @@ tween(this.node)
 
 ### 添加回调动作
 
-`call` 接口允许在缓动的内添加一个回调：
+`call` 接口允许给缓动添加一个回调动作：
 
 ```ts
 tween(this.node)
@@ -312,7 +312,7 @@ tween(this.node)
 
 ### 复制缓动
 
-`clone` 方法可将当前的缓动复制绑定到目标参数上：
+`clone` 方法可将当前的缓动复制到目标参数上：
 
 ```ts
 tween()
