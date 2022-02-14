@@ -30,7 +30,7 @@
 
 ### DB
 
-DB（Database）是编辑器的概念，指的是由编辑器内置数据（internal），项目数据目录（assets），插件目录等数据文件的集合。
+DB（Database）是编辑器的概念，指的是编辑器内置数据 DB（internal），项目数据目录 DB（assets）。
 
 资源管理器（Assets）窗口中的 assets 即为 DB assets，它位于项目目录下。资源管理器窗口中的 internal 即为 DB internal，它位于 Cocos Creator 安装目录下。
 
