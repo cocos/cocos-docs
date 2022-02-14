@@ -78,7 +78,7 @@ uniform Constant {
 
 这个绑定意味着着色器的 `rimLightColor` 的 RGB 分量的值，会通过引擎传输到 Uniform `rimColor` 的 rgb 三个分量里。
 
-> 引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-framework.md)，因此在使用 3 维向量（vec3）时，可选择用 4 维向量（vec4）代替。
+> 引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-syntax.md)，因此在使用 3 维向量（vec3）时，可选择用 4 维向量（vec4）代替。
 > 不用担心，alpha 通道会被利用起来不被浪费。
 
 ## 顶点着色器
@@ -288,7 +288,7 @@ vec4 frag(){
 
 虽然可观察到边缘光效果，但是光照太强，并且不方便调整，可在着色器的 CCEffect 段内增加一个可调整的参数 rimIntensity。由于之前 rimColor 的 alpha 分量没有被使用到，因此借用该分量进行绑定可节约额外的 Uniform。
 
-> 写着色器时，需要避免 implict padding，关于这点可以参考: [UBO 内存布局](./effect-framework.md)，这里使用未被使用的 alpha 通道来存储边缘光的强度可以最大限度的利用 `rimColor` 的字段。
+> 写着色器时，需要避免 implict padding，关于这点可以参考: [UBO 内存布局](./effect-syntax.md)，这里使用未被使用的 alpha 通道来存储边缘光的强度可以最大限度的利用 `rimColor` 的字段。
 
 在 CCEffect 内增加如下代码：
 

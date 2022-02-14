@@ -28,7 +28,7 @@
 
 -->
 - [着色器（Effect）简介](effect-overview.md)
-    - [着色器语法](effect-framework.md)
+    - [着色器语法](effect-syntax.md)
     - [Pass 参数](pass-parameter-list.md)
     - [YAML 101 语法](yaml-101.md)
     - [GLSL 简介](glsl.md)

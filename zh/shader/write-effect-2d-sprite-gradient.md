@@ -78,7 +78,7 @@ CCEffect %{
 
 注意这里定义了两个颜色值 `startColor` 和 `endColor`，如果要将这两个颜色正确的传入给着色器片段，则需要增加对应的 Uniform。
 
->在引擎中离散的 Uniform 声明已不是一个选择，因此需要使用 UBO 来声明。 若要了解更多 UBO 的内容可参考：[着色器语法](effect-framework.md)。
+>在引擎中离散的 Uniform 声明已不是一个选择，因此需要使用 UBO 来声明。 若要了解更多 UBO 的内容可参考：[着色器语法](effect-syntax.md)。
 
 在 `CCProgram sprite-fs` 段内添加下列的代码：
 

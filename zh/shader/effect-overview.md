@@ -8,7 +8,7 @@ Cocos 中的着色器（Cocos Effect）是一种基于 YAML 和 GLSL 的单源�
 
 本节主要包含以下内容：
 
-- [着色器语法](effect-framework.md)
+- [着色器语法](effect-syntax.md)
     - [Pass 参数](pass-parameter-list.md)
     - [YAML 101 语法](yaml-101.md)
     - [GLSL 简介](glsl.md)

@@ -1,6 +1,6 @@
 # 内置材质
 
-![内置材质](img/buildin-material.png)
+![内置材质](img/builtin-material.png)
 
 引擎内部提供的使用内置着色器制作的默认材质，开发者可在 **Assets->internal->default_materials** 目录内进行查看：
 

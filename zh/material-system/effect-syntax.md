@@ -1,3 +1,9 @@
+# 着色器语法
+
+<!-- 注意：编辑器生成着色器模板时会引入这个文档的链接，因此需要重定向到 shader/index.md-->
+我们在 v3.4 对材质系统模块的文档进行了更系统化的完善和更新，着色器语法相关的内容请移步至 [最新版本](../shader/index.md)。
+
+<!-- 
 # Effect 语法
 
 Cocos Effect 是一种基于 YAML 和 GLSL 的单源码嵌入式领域特定语言（single-source embedded domain-specific language），YAML 部分声明流程控制清单，GLSL 部分声明实际的 shader 片段，这两部分内容上相互补充，共同构成了一个完整的渲染流程描述。
@@ -307,3 +313,5 @@ Creator 规定在 shader 中所有非 sampler 的 uniform 都应以 block 形式
 [^3]: [OpenGL 4.5, Section 7.6.2.2, page 137](http://www.opengl.org/registry/doc/glspec45.core.pdf#page=159)
 [^4]: 注意在示例代码中，UBO IncorrectUBOOrder 的总长度为 32 字节，实际上这个数据到今天也依然是平台相关的，看起来是由于 GLSL 标准的疏忽，更多相关讨论可以参考 [这里](https://bugs.chromium.org/p/chromium/issues/detail?id=988988)。
 [^5]: **Interface Block - OpenGL Wiki**：<https://www.khronos.org/opengl/wiki/Interface_Block_(GLSL)#Memory_layout>
+
+-->
