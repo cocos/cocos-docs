@@ -4,7 +4,7 @@
 
 ## 链式 API
 
-大部分 `Tween` 的接口都会返回 `this`，因此可以方便的使用链式调用来进行组合。
+大部分和动作相关的接口都会返回 `this` 或者一个新的 `Tween` 对象，因此可以方便的使用链式调用来进行组合。
 
 ```ts
 tween()
@@ -307,7 +307,7 @@ tween(this.node)
 ```ts
 tween(this.node)
     .delay(1.0)
-    .set( { position: new Vec3(0, 100, 0)})
+    .set({ position: new Vec3(0, 100, 0) })
     .start();
 ```
 
@@ -317,7 +317,7 @@ tween(this.node)
 
 ```ts
 tween()
-    .by( 1.0, { position: new Vec3(0, 10, 0)})
+    .by( 1.0, { position: new Vec3(0, 10, 0) })
     .clone(this.node)
     .start();
 ```
