@@ -13,7 +13,7 @@
 | 属性 | 说明 |
 | :--- | :--- |
 | Type | 用于设置图像资源的类型，包括 **raw**、**texture**（默认）、**normal map**、**sprite-frame**、**texture cube**，具体说明可参考下文 **图像资源类型** 部分的内容。 |
-| Flip Vertical | 是否沿 X 轴垂直翻转导入的高度贴图。 |
+| Flip Vertical | 是否沿 X 轴垂直翻转导入的贴图。 |
 | useComponentTexture | 是否使用压缩纹理，详情请参考 [压缩纹理](compress-texture.md)。 |
 
 ## 图像资源的类型
@@ -26,7 +26,7 @@
 
 - **texture**：图像资源类型，也是导入的图像资源的默认类型，详情可参考 [纹理贴图资源](texture.md)。
 
-- **normal map**：法线贴图类型，常用于渲染 3D 模型，可在模型材质中勾选 `USE NORMAL MAP` 属性使用。需要注意的是，如果材质中没有定义 `USE NORMAL MAP` 的话就没有该项。
+- **normal map**：法线贴图类型，常用于渲染 3D 模型，可在模型材质中勾选 `USE NORMAL MAP` 属性使用。需要注意的是，如果材质中没有定义 `USE NORMAL MAP` 就没有该属性。
 
   ![normal-map](texture/normal-map.png)
 

@@ -18,4 +18,4 @@ TextureCube 为立方体纹理，常用于设置场景的 [天空盒](../concept
 
 ![CubeMap](../concepts/scene/skybox/cubemap-properties.png)
 
-关于 TextureCube 具体的使用与制作 CubeMap 的方式，请参考 [天空盒 — 设置 CubeMap](../concepts/scene/skybox.md)。
+关于 TextureCube 具体的使用，以及制作 CubeMap 的方式，请参考 [天空盒 — 设置 CubeMap](../concepts/scene/skybox.md)。
