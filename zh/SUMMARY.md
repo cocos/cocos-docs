@@ -1,6 +1,9 @@
 # Summary
+
 [Cocos Creator 3.4 用户手册](index.md)
+
 ## 基础使用
+
 - [新手上路](getting-started/index.md)
     - [关于 Cocos Creator](getting-started/introduction/index.md)
     - [安装和启动](getting-started/install/index.md)
@@ -158,7 +161,7 @@
         - [内置着色器（Buildin Effect）](shader/effect-buildin.md)
             - [基于物理的光照模型 PBR](shader/effect-buildin-pbr.md)
             - [卡通渲染](shader/effect-buildin-toon.md)
-            - [无光照](shader/effect-buildin-unlit.md) 
+            - [无光照](shader/effect-buildin-unlit.md)
         - [编写着色器](shader/write-effect-overview.md)
             - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
             - [2D 着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)
@@ -288,6 +291,8 @@
             - [控制面板](particle-system/editor/particle-effect-panel.md)
 
 - [缓动系统](tween/index.md)
+    - [接口描述](tween/tween-interface.md)
+    - [缓动示例](tween/tween-example.md)
 
 - [地形系统](editor/terrain/index.md)
 

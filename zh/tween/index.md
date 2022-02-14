@@ -1,6 +1,6 @@
 # 缓动系统
 
-![tween-index.png](tween-index.png)
+![tween-index.png](img/homeImgGame.png)
 
 缓动系统被广泛的应用于游戏开发中，其主要目的之一是用于解决离线动画无法满足需求时的动态动画的问题。
 

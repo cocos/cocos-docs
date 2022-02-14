@@ -6,6 +6,7 @@
 
 | 接口               | 功能说明                                     |
 | :---------------- | :------------------------------------------ |
+| **tag**           | 为当前缓动添加一个数值类型（`number`）的标签 |
 | **to**            | 添加一个对属性进行 **绝对值** 计算的间隔动作  |
 | **by**            | 添加一个对属性进行 **相对值** 计算的间隔动作  |
 | **set**           | 添加一个 **直接设置目标属性** 的瞬时动作      |
@@ -27,12 +28,12 @@
 
 ### 静态接口说明
 
-这些方法为静态方法，调用方式为 `Tween.stopAll`。
+这些方法为 `Tween` 的静态方法，调用方式示例： `Tween.stopAll`。
 
 |接口 | 功能说明 |
 |:-- |:---|
 |**stopAll**| 停止所有缓动 <br> 该接口会移除底层所有已注册的缓动动画 <br> **注意**：该方法会影响所有对象
-|**stopAllByTag**|停止所有指定标签的缓动  <br> 该接口将移除 通过 **tag()** 方法指定的所有缓动 <br> 可通过传入第二个 **target:Node** 来指定是否仅移除指定对象上带有某个标签的缓动
+|**stopAllByTag**|停止所有指定标签的缓动  <br> 该接口将移除 通过 **tag** 方法指定的所有缓动 <br> 可通过传入第二个 **target:Node** 来指定是否仅移除指定对象上带有某个标签的缓动
 |**stopAllByTarget** |停止所有指定对象的缓动
 
 ## 工具函数说明
@@ -46,14 +47,16 @@
 这里以一个的 to 缓动动画作为示例演示缓动的用法：
 
 ```ts
-let tweenDuration : number = 1.0;         // 缓动的时长
+let tweenDuration : number = 1.0;                                   // 缓动的时长
 tween(this.node.position).to( tweenDuration, new Vec3(0, 10, 0),    //这里以node的位置信息坐标缓动的目标 
-    { //ITweenOption 的接口实现：
-    onUpdate : (target:Vec3, ratio:number)=>{  // onUpdate 接受当前缓动的进度
-        this.node.position = target;  // 将缓动系统计算出的结果赋予 node 的位置
+    {                                                               //ITweenOption 的接口实现：
+    onUpdate : (target:Vec3, ratio:number)=>{                       // onUpdate 接受当前缓动的进度
+        this.node.position = target;                                // 将缓动系统计算出的结果赋予 node 的位置
     }
-}).start(); // 调用 start 方法，开启缓动
+}).start();                                                         // 调用 start 方法，开启缓动
 ```
+
+更多示例可查看 [缓动示例](tween-example.md)
 
 ## 一些限制
 
@@ -70,8 +73,6 @@ let _pos = new Vec3(0, 1, 0);
 this.node.position = _pos;      // 这里将通过 position 的 setter
 this.node.setPosition(_pos);    // 这里将通过接口 setPosition
 ```
-
-更多示例可查看 [缓动示例](tween-example.md)
 
 ## ITweenOption 接口说明
 
