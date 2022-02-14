@@ -16,8 +16,6 @@ tween()
     .start()
 ```
 
->这种以函数为核心的编程设计方式称之为：函数式编程
-
 ## to，by 简单示例
 
 通过 `tween` 方法或使用 `new Tween<T>(target: T)` 都可以构造缓动。
