@@ -136,7 +136,7 @@ tween(this.node.position)
 }) // 此时 Tween 内的动作数量为2 
 ```
 
-也可使用 `union`、`squence`、`paralle` 来组织多个缓动动作的行为。
+也可使用 `union`、`squence`、`parallel` 来组织多个缓动动作的行为。
 
 ### 整合多个缓动
 
@@ -168,7 +168,7 @@ tween(this.node).sequence(t1, t2).start(); //将 t1 和 t2 两个缓动加入到
 
 ### 同时执行多个缓动
 
-`parallel` 会将参入的缓动转化为并行形式并加入到当前的缓动内：
+`parallel` 会将传入的缓动转化为并行形式并加入到当前的缓动内：
 
 ```ts
 let tweenDuration: number = 1.0;
@@ -189,7 +189,8 @@ tween(this.node).parallel(t1, t2).start(); //将 t1 和 t2 转化为并行的缓
 let tweenAfter = tween(this.node)
     .to(1.0, { position: new Vec3(0, -10, 0) })
 
-tween(this.node).by(1.0, { position: new Vec3(0, 10, 0) })
+tween(this.node)
+    .by(1.0, { position: new Vec3(0, 10, 0) })
     .then(tweenAfter)
     .start();
 ```
@@ -224,12 +225,11 @@ tween(this.node)
 
 ### 重复执行
 
-接口 `repeat` 可以为缓动添加一个重复次数，若 `embedTween` 为空，则会使用当前缓动的最后一个动作作为参数。
+接口 `repeat` 可以为缓动添加一个重复次数，若 `embedTween` 参数为空，则会使用当前缓动的最后一个动作作为参数。
 
 这意味着，如果当前缓动由多个缓动组成，则只会重复 **最后一个**，请注意下面的示例：
 
 ```ts
-
 let tweenDuration: number = 1.0;
 tween(this.node)
     .to(tweenDuration, { position: new Vec3(0, 10, 0) })
@@ -241,7 +241,6 @@ tween(this.node)
 若第二个参数 `embedTween` 不为空，则会重复嵌入的缓动：
 
 ```ts
-
 let tweenDuration: number = 1.0;
 let embedTween = tween(this.node)
     .by(tweenDuration, { position: new Vec3(0, -10, 0) })
