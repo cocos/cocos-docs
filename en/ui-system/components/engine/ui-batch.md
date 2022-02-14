@@ -8,7 +8,7 @@ To batch render 2D renderable components, the following criteria are required:
 | :-- | :--- |
 | Nodes with same visibility | All nodes with renderable components are rendered in camera order, if two sibling nodes doesn't have the same visibility in one camera, they can not be batched. |
 | Renderable components are using the same material | With either different effect, defines or uniform values, gpu draws cannot be batched together, so this is the first thing to guarantee for batching elements in one draw call. |
-| Material instances share the same settings for `BlendState` and `DepthStencilState` | DepthStencilState is automatically set by the engine to perform depth & stencil writing and testing. It is primarily used to implement mask component and depth test. In short, user need to remember elements inside masks and elements outside can not be batched together. |
+| Material instances share the same settings for `BlendState` and `DepthStencilState` | `DepthStencilState` is automatically set by the engine to perform depth & stencil writing and testing. It is primarily used to implement mask component and depth test. In short, user need to remember elements inside masks and elements outside can not be batched together. |
 | Vertex data are transferred in the same **buffer** (new in v3.4.1.) | Vertex data are automatically set by the engine under most scenarios and require no manual management. |
 | Textures share the same source and sampler type | Sprites and Labels are unable to be batched due to the fact that labels are using independent textures. |
 
@@ -48,7 +48,7 @@ The total vertex number in the scene exceeds the maximum capacity of a MeshBuffe
 
 Render data structures are redesigned in v3.4.1. Please take note:
 
-1. Property **BATCHER2D_MEM_INCREMENT** under **Project Properties -> Macro Configuration** indicates the maximum memory size for a MeshBuffer. Increasing the value will allow a MeshBuffer to host more data to be rendered but will also increase memory consumption.
+1. Property **BATCHER2D_MEM_INCREMENT** under **Project -> Project Settings -> Macro Configurations** indicates the maximum memory size for a MeshBuffer. Increasing the value will allow a MeshBuffer to host more data to be rendered but will also increase memory consumption.
 
 2. **BATCHER2D_MEM_INCREMENT** is measured in **kilobytes**. Users can follow the instructions below to calculate the corresponding capacity for vertex numbers:
 
@@ -87,5 +87,6 @@ Render data structures are redesigned in v3.4.1. Please take note:
 
     - Due to vertex buffer being static, it is advisable to preload vertex buffer at the very beginning of the component's lifespan. At loading, component will request relevant vertex buffers from MeshBuffer and returns them at destruction.
 
-    - When MeshBuffer is unable to provide the vertex buffer requested by the component, the engine will create a new MeshBuffer allocated with the amount of memory space as dictated in **BATCHER2D_MEM_INCREMENT** so that vertex buffer can be successfully distributed.
+    - When MeshBuffer is unable to provide the vertex buffer requested by the component, the engine will create a new MeshBuffer allocated with the amount of memory space as indicated in **BATCHER2D_MEM_INCREMENT** so that vertex buffer can be successfully distributed.
+
 
