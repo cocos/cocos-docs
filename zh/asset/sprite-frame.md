@@ -34,7 +34,7 @@ spriteFrame 资源属性如下：
 
 ## 使用 SpriteFrame
 
-### 渲染 texture
+### 使用 texture 渲染
 
 将 SpriteFrame 资源拖拽到 [Sprite 组件](../ui-system/components/editor/sprite.md) 的 **SpriteFrame** 属性框中，即可切换 Sprite 显示的图像。
 
@@ -103,7 +103,7 @@ resources.load(url, SpriteFrame, (err: any, spriteFrame) => {
     sprite.spriteFrame = sp;
     ```
 
-### 渲染 RenderTexture
+### 使用 RenderTexture 渲染
 
 RenderTexture 是一个渲染纹理，它可以将摄像机上的内容直接渲染到一张纹理上而不是屏幕上。SpriteFrame 通过管理 RenderTexture 可以轻松地将 3D 相机内容显示在 UI 上。具体的使用方法及代码示例如下：
 

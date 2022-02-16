@@ -27,7 +27,7 @@ Texture2D 是纹理贴图资源的一种，通常用于 3D 模型的渲染，如
 | **Anisotropy** | 各向异性值，应用各向异性过滤算法的最大阈值 |
 | **Min/Mag Filter** | 缩小或者放大贴图时采用的纹理过滤方式，可选项包括 **nearest**（默认）和 **linear**。详情请参考下文 **过滤方式** 部分的内容 |
 | **Mip Filter** | 多级纹理过滤算法，可选项包括 **none**、**nearest** 和 **linear**，当设置为 **nearest** 或者 **linear** 时，便会自动生成 mipmap。详情请参考下文 **genMipmaps** 部分的内容 |
-| **Wrap Mode S/T** | 设置 S（U）/T（V）方向上的纹理寻址模式，也就是像素对纹理在 S（U）或者 T（V）方向上的映射模式。可选项包括 **repeat**（默认）、**clamp-to-edge** 和 **mirrored-repeat**。详情请参考下文 **寻址模式** 部分的内容 |
+| **Wrap Mode S/T** | 设置 S（U）/ T（V）方向上的纹理寻址模式，也就是像素对纹理在 S（U）或者 T（V）方向上的映射模式。可选项包括 **repeat**（默认）、**clamp-to-edge** 和 **mirrored-repeat**。详情请参考下文 **寻址模式** 部分的内容 |
 
 接下来我们对部分属性进行简单的说明。
 
