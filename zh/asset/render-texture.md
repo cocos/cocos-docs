@@ -2,10 +2,26 @@
 
 渲染纹理是一张在 GPU 上的纹理。通常我们会把它设置到相机的 **目标纹理** 上，使相机照射的内容通过离屏的 `frambuffer` 绘制到该纹理上。一般可用于制作汽车后视镜，动态阴影等功能。
 
+## 创建 RenderTexture
+
+在 **资源管理器** 中点击左上方的 **+** 按钮，选择 **渲染纹理**，即可创建渲染纹理资源：
+
+![add-render-texture](render-texture/add-render-texture.png)
+
+然后在 **属性检查器** 中便可以设置渲染纹理资源的相关属性：
+
+![render-texture-property](render-texture/render-texture-property.png)
+
+| 属性 | 说明 |
+| :--- | :--- |
+| **Width** | 设置渲染纹理的宽 |
+| **Height** | 设置渲染纹理的高 |
+
 ## 使用 RenderTexture
 
+方法一：将 3D 相机可见范围内的内容绘制到 UI 的精灵帧上
+
 ```typescript
-// 方法一：把 3D 相机照射的内容绘制到 UI 的精灵帧上
 export class CaptureToWeb extends Component {
     @property(Sprite)
     sprite: Sprite = null;
@@ -40,8 +56,11 @@ export class CaptureToWeb extends Component {
         this.sprite.spriteFrame = sp;
     }
 }
+```
 
-// 方法二：把 3D 相机照射的内容绘制到 3D 模型上
+方法二：将 3D 相机可见范围内的内容绘制到 3D 模型上
+
+```ts
 export class RenderCameraToModel extends Component {
     @property(MeshRenderer)
     model: MeshRenderer = null;
