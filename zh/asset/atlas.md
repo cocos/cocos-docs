@@ -28,7 +28,9 @@
 
 ![atlas files](atlas/atlas_files.png)
 
-使用 TexturePacker 打包图集时需要注意，Creator 3.0 不支持 TexturePacker v4.x 以下的图集格式，否则导入时会出现报错。
+使用 TexturePacker 打包图集时的设置可参考 [TexturePacker 设置](../ui-system/components/engine/trim.md#texturepacker-%E8%AE%BE%E7%BD%AE)。
+
+> **注意**：Cocos Creator 3.x 不支持 TexturePacker v4.x 以下的图集格式，否则导入时会出现报错。
 
 ## 导入图集资源
 
@@ -36,11 +38,11 @@
 
 ### Atlas 和 SpriteFrame
 
-在[图像资源文档](../ui-system/components/editor/sprite.md)中，我们介绍了 Texture 和 SpriteFrame 的关系。导入图集资源后，我们可以看到类型为 `Atlas` 的图集资源可以点击左边的三角图标展开，展开后可以看到图集资源里包含了很多类型为 `SpriteFrame` 的子资源，每个子资源都是可以单独使用和引用的图片。
+导入图集资源后，点击类型为 **Atlas** 的图集资源左边的三角图标，展开后可以看到图集资源里包含了很多类型为 `SpriteFrame` 的子资源，每个子资源都可以单独使用/引用。
 
 ![sprite frame](atlas/spriteframes.png)
 
-接下来对于 Sprite Frame 的使用方法就和图像资源中介绍的一样了，请查阅相关文档。
+关于 SpriteFrame 的使用方式，详情请参考 [SpriteFrame](sprite-frame.md) 文档。
 
 <!-- ## 碎图转图集
 
