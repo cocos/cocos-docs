@@ -16,8 +16,8 @@ PBR 的优势在于：
 | :------- | :--- |
 | tilingOffset | 模型 UV 的缩放和偏移量，xy 对应缩放，zw 对应偏移 |
 | albedo/mainColor | 指定模型的固有色或固有色贴图 |
-| albedoMap/mainTexture | 漫反射贴图，如果有指定，这项会和漫反射颜色相乘 |
-| albedoScale | 模型的漫反射强度，用于控制漫反射颜色对于最终颜色的影响权重 |
+| albedoMap/mainTexture | 固有色贴图，如果有指定，这项会和固有色颜色相乘 |
+| albedoScale | 模型的固有色强度，用于控制固有色颜色对于最终颜色的影响权重 |
 | alphaThreshold | 半透明测试阈值，alpha 值低于此值的像素会被 discard 掉 |
 | normalMap | 法线贴图，用于增加表面细节 |
 | normalStrenth | 法线贴图强度，控制凹凸质感的强弱 |
@@ -38,12 +38,12 @@ PBR 的优势在于：
 | USE_BATCHING | 是否启用动态Mesh合批 |
 | USE_INSTANCING | 是否启用几何体实例化 |
 | HAS_SECOND_UV | 是否存在第二套 UV |
-| ALBEDO_UV | 指定采样漫反射贴图使用的 uv，默认为第一套 |
+| ALBEDO_UV | 指定采样固有色贴图使用的 uv，默认为第一套 |
 | EMISSIVE_UV | 指定采样自发光贴图使用的 uv，默认为第一套 |
 | ALPHA_TEST_CHANNEL | 指定透明测试的测试通道，默认为 A 通道 |
-| USE_VERTEX_COLOR | 如果启用，顶点色会与漫反射颜色相乘 |
+| USE_VERTEX_COLOR | 如果启用，顶点色会与固有色颜色相乘 |
 | USE_ALPHA_TEST | 是否开启透明测试（镂空效果） |
-| USE_ALBEDO_MAP | 是否使用漫反射贴图 |
+| USE_ALBEDO_MAP | 是否使用固有色射贴图 |
 | USE_NORMAL_MAP | 是否使用法线贴图 |
 | USE_PBR_MAP | 是否使用 PBR 参数三合一贴图（**按 glTF 标准，RGB 通道必须分别对应环境光遮蔽、粗糙度和金属度**） |
 | USE_METALLIC_ROUGHNESS_MAP | 是否使用金属粗糙二合一贴图（**按 glTF 标准，GB 通道必须分别对应粗糙和金属度**） |
