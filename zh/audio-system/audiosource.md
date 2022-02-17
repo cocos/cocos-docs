@@ -29,6 +29,7 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 ### 通过编辑器
 
 1. 在节点上添加 AudioSource 组件。
+
 2. 将所需的音频资源从 **资源管理器** 拖拽到 AudioSource 组件的 Clip 属性框中，如下所示：
 
     ![audioClip](audio/audiocilp.gif)
@@ -40,6 +41,7 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 如果要更灵活地控制 AudioSource 播放音频，可以将自定义脚本添加到 **AudioSource 组件** 所在的节点，然后调用相应的 API 来控制音频播放。
 
 1. 在节点上添加 AudioSource 组件并指定音频资源。
+
 2. 在 **资源管理器** 中 [创建脚本](../scripting/setup.md) 并命名（例如 `AudioController`），然后双击打开脚本进行编写，内容如下：
 
     ```typescript
@@ -75,7 +77,7 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 
 3. 在 **层级管理器** 选中节点，然后将 **资源管理器** 中的脚本拖拽到 **属性检查器** 即可添加脚本组件到节点。如下所示：
 
-    ![audioSource](audio/audiosource.png)
+    ![AudioController](audio/AudioControl.png)
 
 #### 音效播放
 
@@ -88,6 +90,7 @@ Cocos Creator 3.x 使用 AudioSource 控制音频的播放。AudioSource 是组�
 
 ```typescript
 // AudioController.ts
+
 import { AudioClip, AudioSource, Component, _decorator } from 'cc';
 const { ccclass, property } = _decorator;
 

@@ -2,7 +2,7 @@
 
 Custom materials for 2D rendering objects are a best practice to extend the performance of 2D rendering objects and enhance the capabilities of 2D rendering objects themselves, allowing for cool rendering effects such as dissolve and glow.
 
-Most of the 2D rendering components in v3.0 support the use of custom materials, with the following interface (using the Sprite component as an example).
+Most of the 2D renderable components in v3.0 support the use of custom materials, with the following interface (using the Sprite component as an example).
 
 ![UIMaterial](ui-material/UIMaterial.png)
 
@@ -14,7 +14,7 @@ The usage is no different from other built-in materials, just drag and drop the 
 4. The **Grayscale** property on the panel is disabled when a custom material for 2D rendering objects is used, and the user can choose to implement this feature in the material itself.
 5. When a custom material is used, the BlendFactor settings panel on the component will be automatically hidden and the settings will be disabled, and the BlendFactor will be based on the settings in the custom material.
 6. When a custom material is used, the depth detection information of the component will be based on the material. To achieve occlusion with 3D objects, please use custom materials and turn on depth detection. See the example [2d-rendering-in-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d).
-7. For custom materials, getting the uploaded texture requires introducing the `cc-sprite-texture` header file in the shader, where `cc_spriteTexture` corresponds to the SpriteFrame image asset set in the 2D rendering component properties panel. For example, a fragment shader that simply uses the panel to set a SpriteFrame to sample textures should look like the following:
+7. For custom materials, getting the uploaded texture requires introducing the `cc-sprite-texture` header file in the shader, where `cc_spriteTexture` corresponds to the SpriteFrame image asset set in the 2D renderable component properties panel. For example, a fragment shader that simply uses the panel to set a SpriteFrame to sample textures should look like the following:
 
     ```
     CCProgram sprite-fs %{
@@ -58,7 +58,7 @@ The usage is no different from other built-in materials, just drag and drop the 
     // The sharedMaterial method is a "shared material asset", and operations performed on the material will affect all rendering objects that use the material, this operation will not instantiate the asset and will not affect the batch
     let material = spriteComp.sharedMaterial;
 
-    // The material method gets the "example material used by the current rendering component", and operations on the Material Instance will only affect the current component, this operation will instantiate the asset, and once instantiated, this component cannot be combined with other components
+    // The material method gets the "example material used by the current renderable component", and operations on the Material Instance will only affect the current component, this operation will instantiate the asset, and once instantiated, this component cannot be combined with other components
     let materialInstance = spriteComp.material;
     ```
 

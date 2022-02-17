@@ -28,7 +28,7 @@ In the **Hierarchy** panel, select the node where you want to add the ArmatureDi
 
 > **Notes**:
 > 1. The **Anchor** and **Size** properties on the Node component in the **Inspector** panel are disabled when using the ArmatureDisplay component.
-> 2. The ArmatureDisplay component is a UI rendering component, and the `Canvas` node is the rendering root for UI rendering, so the node with this component must be a child of the `Canvas` node (or a node with a `RenderRoot2D` component) to be displayed properly in the scene.
+> 2. The ArmatureDisplay component is a UI renderable component, and the `Canvas` node is the rendering root for UI rendering, so the node with this component must be a child of the `Canvas` node (or a node with a `RenderRoot2D` component) to be displayed properly in the scene.
 
 ## DragonBones ReplaceTexture
 

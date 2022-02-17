@@ -63,7 +63,7 @@ If the glTF node specifies an initial weight, the converted (skinned) meshrender
 
 After import, the glTF mesh will be converted to a mesh asset in Cocos Creator.
 
-All [primitives](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#meshprimitives-white_check_mark) in the glTF mesh will be converted to submeshes in the Creator one by one.
+All [primitives](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#meshprimitives-white_check_mark) in the glTF mesh will be converted to submeshes in Creator one by one.
 
 If [weight](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#meshweights) is specified for the glTF mesh, the corresponding weights will be stored in the converted Creator mesh.
 

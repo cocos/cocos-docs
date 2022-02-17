@@ -36,7 +36,7 @@ Cocos Creator supports TypeScript 4.1.0. The following restrictions are based on
 
 `tsconfig.json` is not read at compile time, meaning that the compile option for `tsconfig.json` does not affect compilation.
 
-Developers can still use `tsconfig.json` in their projects to work with the IDE to implement features such as type checking. In order to make the IDE's TypeScript checking compatible with the Creator's behavior, developers need to pay some extra attention to [tsconfig](./tsconfig.md).
+Developers can still use `tsconfig.json` in their projects to work with the IDE to implement features such as type checking. In order to make the IDE's TypeScript checking compatible with the behavior of Creator, developers need to pay some extra attention to [tsconfig](./tsconfig.md).
 
 ### TypeScript Reference Tutorial
 
@@ -54,7 +54,7 @@ Developers can still use `tsconfig.json` in their projects to work with the IDE 
 
 ### Language Features
 
-The JavaScript language specification supported by the Creator is ES6.
+The JavaScript language specification supported by Creator is ES6.
 
 In addition, the following language features or proposals, updated to the ES6 specification, are still supported.
 

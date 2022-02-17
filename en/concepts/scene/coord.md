@@ -4,13 +4,13 @@ In the documents, [Scene Panel](../../editor/scene/index.md), and [Nodes and Com
 
 ## Coordinate Systems
 
-Position properties for nodes can be set, but where will a node with a specific position property be rendered on the screen when the game is running? Just as longitude and latitude specify coordinates for a location on a planet it is necessary to understand the coordinate system of Cocos Creator 3.0 to understand the meaning of node positions.
+Position properties for nodes can be set, but where will a node with a specific position property be rendered on the screen when the game is running? Just as longitude and latitude specify coordinates for a location on a planet it is necessary to understand the coordinate system of Cocos Creator 3.x to understand the meaning of node positions.
 
 ### World Coordinate
 
-The world coordinate system, also called absolute coordinate system, represents a unified coordinate system in the scene space in Cocos Creator 3.0 game development, and "world" is used to represent our game scene.
+The world coordinate system, also called absolute coordinate system, represents a unified coordinate system in the scene space in Cocos Creator 3.x game development, and "world" is used to represent our game scene.
 
-The Creator 3.0 world coordinate system uses a Cartesian right-handed coordinate system with default **x** to the right, **y** to the top, **z** to the outside, and the **-z** axis for the front.
+The world coordinate system of Cocos Creator 3.x  uses a Cartesian right-handed coordinate system with default **x** to the right, **y** to the top, **z** to the outside, and the **-z** axis for the front.
 
 ![right hand](coord/right_hand.png)
 
@@ -18,7 +18,7 @@ The Creator 3.0 world coordinate system uses a Cartesian right-handed coordinate
 
 The local coordinate system, also called the relative coordinate system, is the coordinate system associated with the node. Each node has a separate coordinate system, and when the node moves or changes direction, the coordinate system associated with that node will move or change direction with it.
 
-Creator 3.0 has a hierarchy of parent-child relationships between **Nodes**, and the position of a node set by modifying its `Position` property is the node's **local coordinate system** with respect to its parent, not the world coordinate system.
+Creator has a hierarchy of parent-child relationships between **Nodes**, and the position of a node set by modifying its `Position` property is the node's **local coordinate system** with respect to its parent, not the world coordinate system.
 
 Finally when drawing the whole scene, Creator will map the local coordinates of these nodes to world coordinate system coordinates. <br>
 Suppose there are three nodes in the scene: NodeA, NodeB, and NodeC. The structure of the nodes is shown in the following figure.
