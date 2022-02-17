@@ -242,27 +242,27 @@ se::Object* obj = se::Object::createPlainObject();
 obj->decRef(); // Decrease the reference count to avoid memory leak
 ```
 
-#### se::HandleObject (recommended helper class for managing the objects created manually).
+#### se::HandleObject (recommended helper class for managing the objects created manually)
 
 - If using manual creation of objects in complex logic, developers often forget to deal with `decRef` in different conditions
 
-```c++
-bool foo()
-{
-    se::Object* obj = se::Object::createPlainObject();
-    if (var1)
-        return false; // Return directly, forget to do 'decRef' operation
-    
-    if (var2)
-        return false; // Return directly, forget to do 'decRef' operation
-    ...
-    ...
-    obj->decRef();
-    return true;
-}
-```
+    ```c++
+    bool foo()
+    {
+        se::Object* obj = se::Object::createPlainObject();
+        if (var1)
+            return false; // Return directly, forget to do 'decRef' operation
+        
+        if (var2)
+            return false; // Return directly, forget to do 'decRef' operation
+        ...
+        ...
+        obj->decRef();
+        return true;
+    }
+    ```
 
-Plus adding `decRef` to different return condition branches can result in logically complex and difficult to maintain, and it is easy to forget about `decRef` if you make another return branch later.
+    Plus adding `decRef` to different return condition branches can result in logically complex and difficult to maintain, and it is easy to forget about `decRef` if you make another return branch later.
 
 - If the JS engine did a GC operationJS engine right after `se::Object::createXXX`, which will result in the `se::Object` reference to an illegal pointer, the program may crash.
 
@@ -285,7 +285,7 @@ Is equal to:
 ```C++
 {
     se::Object* obj = se::Object::createPlainObject();
-    obj->root(); // Root the object immediatelly to prevent the object being garabge collected.
+    obj->root(); // Root the object immediately to prevent the object being garbage collected.
 
     obj->setProperty(...);
     otherObject->setProperty("foo", se::Value(obj));
@@ -1031,7 +1031,7 @@ Change to:
 
 #### Windows/Mac
 
-- Compile, run the game (or run directly in the Creator simulator)
+- Compile, run the game (or run directly in the simulator of Creator)
 
 - Open with Chrome: <devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:5086/00010002-0003-4004-8005-000600070008>. (If you are using an older version of Chrome, you need to change the `devtools` at the beginning of the address to `chrome-devtools`)
 

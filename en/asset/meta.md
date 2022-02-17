@@ -78,7 +78,7 @@ Updating resources also triggers updates to the corresponding **meta** files:
 
   ![add](meta/add.png)
 
-  - Files in the `assets` directory can be added, deleted, changed, on your local **file-system**. When the changes are complete, switch to the Creator editor interface, where you can see the process of **Assets** panel refresh. The **Assets** panel is refreshed with each change, as to always show the current state of the resources.
+  - Files in the `assets` directory can be added, deleted, changed, on your local **file-system**. When the changes are complete, switch to editor interface of Creator, where you can see the process of **Assets** panel refresh. The **Assets** panel is refreshed with each change, as to always show the current state of the resources.
 
   ![refresh](meta/refresh.png)
 

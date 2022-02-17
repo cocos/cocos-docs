@@ -59,7 +59,7 @@ export class example extends Component {
         slider!.slideEvents.push(sliderEventHandler);
     }
 
-    callback(event: Event, customEventData: string) {
+    callback(slider: Slider, customEventData: string) {
         // The event here is a Touch Event object, and you can get the send node of the event by event.target
         // The customEventData parameter here is equal to the "foobar" you set before
     }

@@ -2,7 +2,7 @@
 
 ## cc 类
 
-将装饰器 [ccclass](#ccclass) 应用在类上时，此类称为 cc 类。cc 类注入了额外的信息以控制 Cocos Creator 对该类对象的序列化、编辑器对该类对象的展示等。因此，未声明 `ccclass` 的组件类，也无法作为组件添加到节点上。
+将装饰器 `ccclass` 应用在类上时，此类称为 cc 类。cc 类注入了额外的信息以控制 Cocos Creator 对该类对象的序列化、编辑器对该类对象的展示等。因此，未声明 `ccclass` 的组件类，也无法作为组件添加到节点上。
 
 `ccclass` 装饰器的参数 `name` 指定了 cc 类的名称，cc 类名是 **独一无二** 的，这意味着即便在不同目录下的同名类也是不允许的。当需要获取相应的 cc 类时，可以通过其 cc 类名来查找，例如：
 
@@ -110,7 +110,7 @@ export class Example extends Component {
 
 ## 属性装饰器
 
-属性装饰器 [property](#property) 可以被应用在 cc 类的属性或访问器上。属性装饰器用于控制 Cocos Creator 编辑器中对该属性的序列化、**属性检查器** 中对该属性的展示等。
+属性装饰器 `property` 可以被应用在 cc 类的属性或访问器上。属性装饰器用于控制 Cocos Creator 编辑器中对该属性的序列化、**属性检查器** 中对该属性的展示等。
 
 属性装饰器的各种特性是通过 `@property()` 的参数来指定的。完整可选择参数可以参考：[属性参数](./reference/attributes.md)
 

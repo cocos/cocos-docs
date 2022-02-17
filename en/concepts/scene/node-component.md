@@ -75,7 +75,7 @@ Next, set the properties of the **Directional Light** component, e.g.: adjust th
 > **Notes**:
 >
 > 1. This is just a brief example of a more obvious effect. It is not recommended to add a **DirectionalLight** component to a sphere node.
-> 2. That only one rendering component can be added to a node. Rendering components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
+> 2. That only one renderable component can be added to a node. Renderable components include: **MeshRenderer**, **Sprite**, **Label**, **Graphics**, **Mask**, **RichText**, **UIStaticBatch**, etc.
 
 ## Setting the visibility of nodes
 

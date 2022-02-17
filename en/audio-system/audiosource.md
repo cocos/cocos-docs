@@ -8,18 +8,18 @@ Select the node in the **Hierarchy** panel, then click the **Add Component** but
 
 ## AudioSource Properties
 
-|Property | Description |
-|:-- | :-- |
-|Clip | The added [audio asset](../asset/audio.md) for playback , default is empty, click the arrow button behind it to select. |
-|Loop | Whether to loop. |
-|PlayOnAwake | Whether the audio will be played automatically when the game is running (component is active). |
-|Volume | Volume, in the range 0~1. |
+| Property | Description |
+| :-- | :-- |
+| Clip | The added [audio asset](../asset/audio.md) for playback , default is empty, click the arrow button behind it to select. |
+| Loop | Whether to loop. |
+| PlayOnAwake | Whether the audio will be played automatically when the game is running (component is active). |
+| Volume | Volume, in the range 0~1. |
 
 ## Audio Playback
 
 Cocos Creator 3.x uses AudioSource to control the playback of audio, which is a component that can be added to the scene, set by the **Editor**, or called in a **script**.
 
-In addition, the Creator divides audio into longer **music** and shorter **sound effects** based on their length.
+In addition, Creator divides audio into longer **music** and shorter **sound effects** based on their length.
 
 - If you control audio playback through the editor, there is no difference between playing music and sound effects, but long music is recommended. See the **Playback via Editor** section below for details.
 - If audio playback is controlled via script, the AudioSource component additionally provides the `playOneShot` interface for playing short sound effects, see the **Sound Effect Playback** section below for details.
@@ -29,8 +29,8 @@ In addition, the Creator divides audio into longer **music** and shorter **sound
 ### Via the editor
 
 1. Add the AudioSource component to the node.
-2. Drag and drop the required audio asset from the **Assets** panel into the **Clip** property box of the AudioSource component as follows:
 
+2. Drag and drop the required audio asset from the **Assets** panel into the **Clip** property box of the AudioSource component as follows:
 
     ![audioClip](audio/audiocilp.gif)
 
@@ -77,7 +77,7 @@ For more flexible control of AudioSource playback, you can add a custom script t
 
 3. Select the node in the **Hierarchy** panel, then drag and drop the script from the **Assets** panel to the **Inspector** panel to add the script component to the node. As shown below:
 
-    ![audioSource](audio/audiosource.png)
+    ![AudioController](audio/AudioControl.png)
 
 #### Audio Playback
 
@@ -90,6 +90,7 @@ The **AudioSource** component provides the `playOneShot` interface to play sound
 
 ```typescript
 // AudioController.ts
+
 import { AudioClip, AudioSource, Component, _decorator } from 'cc';
 const { ccclass, property } = _decorator;
 

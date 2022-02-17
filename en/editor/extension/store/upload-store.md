@@ -66,7 +66,7 @@ Visit the [Cocos Developer Center](https://auth.cocos.com/#/) and login. Next, v
     - **Version Number**: extension version number, defined in the `package.json` file of the extension package. Please follow the [semver specification](https://semver.org/) for the writing specification.
     - **Creator Minimum Version Requirement**: the extension's requirement for Creator version.
 
-    > **Note**: since Creator 2.x and 3.x extensions are not compatible with each other, if there is no corresponding version of the supported extension package, the work will not be displayed in the corresponding version of the Creator extension store.
+    > **Note**: since Creator 2.x and 3.x extensions are not compatible with each other, if there is no corresponding version of the supported extension package, the work will not be displayed in the corresponding version of the extension store of Creator.
 
   Click **Next** to go to the **Submit for Review** page after completing the form.
 
