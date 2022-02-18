@@ -106,7 +106,7 @@ export class TweenTest extends Component {
                 'onUpdate': (target: object | undefined, ratio: number | undefined) => {
                     if (target instanceof Vec3) {
                         for (let i = 0; i < nodeArray.length; i++)
-                        nodeArray[i].worldPosition = target;
+                            nodeArray[i].worldPosition = target;
                     }
                 }
             });
@@ -161,6 +161,10 @@ const tw = new Tween(this.node)
 - **间隔动作** 包括 `to`、`by` 等。
 
 `repeat`/`repeatForever` 不可与 **瞬时动作** 搭配使用，否则会出现异常。与 **间隔动作** 搭配使用时，前面需要有间隔动作或者包含间隔动作的 `union`。
+
+### 自动销毁
+
+当缓动目标为 `Node` 时，将会监听其销毁事件进行缓动的自动销毁，调用 `target` 方法也会自动更新监听。
 
 ## 注意事项
 
@@ -395,10 +399,10 @@ export class TweenTest extends Component {
         const tween = new Tween(this.node).to(4, { scale: new Vec3(2, 2, 2) })
 
         // 复制 tween，并使用节点 ‘Canvas/cocos’ 作为 target
-        tween.clone( find( 'Canvas/cocos' )! ).start()
+        tween.clone( find('Canvas/cocos')! ).start()
 
         // 复制 tween，并使用节点 ‘Canvas/cocos2’ 作为 target
-        tween.clone( find( 'Canvas/cocos2' )! ).start()
+        tween.clone( find('Canvas/cocos2')! ).start()
     }
 
 } 
@@ -486,15 +490,15 @@ export class TweenTest extends Component {
             .start()
 
         // 也可以这样用
-        const tw1 = new Tween(this.node)
-            .repeat(10,
-                new Tween().by(1, { scale: new Vec3(1, 1, 1) })
-            )
-            .start()
+        // const tw1 = new Tween(this.node)
+        //     .repeat(10,
+        //         new Tween().by(1, { scale: new Vec3(1, 1, 1) })
+        //     )
+        //     .start()
 
-        // 一直重复执行下去
         const tw2 = new Tween(this.node)
             .by(1, { scale: new Vec3(1, 1, 1) })
+            // 一直重复执行下去
             .repeatForever()
             .start()
 
@@ -528,8 +532,6 @@ export class TweenTest extends Component {
 }
 ```
 
-## 自动销毁
+## 范例
 
-当缓动目标为 `Node` 时，将会监听其销毁事件进行缓动的自动销毁，调用 `target` 方法也会自动更新监听。
-
-具体的使用方法，详情请参考范例 **Tween**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tween) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tween)）。
+更多关于 Tween 具体的使用方法，详情请参考范例 **Tween**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tween) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/tween)）。
