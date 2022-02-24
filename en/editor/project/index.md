@@ -74,9 +74,9 @@ Used to configure various parameters of physics, please refer to the [Physics Co
     - If enabled, the Canvas background will be transparent and show the other DOM elements behind it.
     - If disabled, it will result in higher performance.
 
-- **ENABLE_WEBGL_ANTIALIAS**: whether to activate WebGL antialias setting in the engine, it's enabled by default. This setting only affect WebGL graphics back-end, it indicates whether to turn on the anti-aliasing option when creating WebGL Context.
+- **ENABLE_WEBGL_ANTIALIAS**: whether to activate WebGL antialias setting in the engine, it's enabled by default. This setting only affect WebGL graphics back-end, it indicates whether to turn on the anti-aliasing option when creating WebGL Context(For forward pipeline only).
 
-- **ENABLE_ANTIALIAS_FXAA**: used to enable FXAA anti-aliasing.
+- **ENABLE_ANTIALIAS_FXAA**: used to enable FXAA anti-aliasing(For deferred pipeline only).
 
 - **ENABLE_BLOOM**: used to enable the BLOOM post-processing.
 

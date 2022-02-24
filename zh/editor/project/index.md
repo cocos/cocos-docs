@@ -75,9 +75,9 @@
 
     - 若关闭该项，则会有更高的性能表现。
 
-- **ENABLE_WEBGL_ANTIALIAS**：是否开启 WebGL 的抗锯齿配置，默认开启。这个配置只影响 WebGL 后端，对应在创建 WebGL Context 时是否传入抗锯齿选项。
+- **ENABLE_WEBGL_ANTIALIAS**：是否开启 WebGL 的抗锯齿配置，默认开启。这个配置只影响 WebGL 后端，对应在创建 WebGL Context 时是否传入抗锯齿选项(仅适用于前向渲染管线)。
 
-- **ENABLE_ANTIALIAS_FXAA**：用于开启 FXAA 抗锯齿。
+- **ENABLE_ANTIALIAS_FXAA**：用于开启 FXAA 抗锯齿(仅适用于延迟渲染管线)。
 
 - **ENABLE_BLOOM**：用于开启 BLOOM 后处理特效。
 
