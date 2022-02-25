@@ -50,68 +50,71 @@ Benefits of adopting PBR include:
 | USE_OCCLUSION_MAP | Whether to use ambient occlusion map (**By glTF specifications，R channels must correspond to ambient occlusion.**） |
 | USE_EMISSIVE_MAP | Whether to use emissive map. |
 
-## 制作标准
+## Production Guidelines
 
-<br>![flakes.jpg](./img/final_alarmclock.jpg#center)
+<br>![](./img/final_alarmclock.jpg#center)
 
-Cocos Creator 中的默认 PBR 材质使用 PBR 流程中的 Metal / Roughness 工作流。在使用 Cocos Creator 默认 PBR 材质进行渲染时，为获得正确的渲染效果，最少需要为材质系统提供以下数据：
+The default PBR shader in Cocos Creator adopts the Metal / Roughness workflow. To correctly render imagery, it is required to assign values to the following parameters:
 
-- 固有色（Albedo）颜色
-    - 可在材质属性面板中的 `Albedo` 参数中直接设置
-- 粗糙度（Roughness）数值
-    - 可在材质属性面板中的 `Roughness` 参数中直接设置，粗糙度数值的范围是 [0, 1]
-- 金属度（Metallic）数值
-    - 可在材质属性面板中的 `Metallic` 参数中直接设置，金属度数值的范围是 [0. 1]
+- Albedo
+    - Albedo color can be assigned via the `Albedo` parameter in the material inspector.
+- Roughness
+    - Roughness value can be assigned via the `Roughness` parameter in the material inspector, which is within the range [0, 1].
+- Metallic
+    - Metallic value can be assigned via the `Metallic` parameter in the material inspector, which is within the range [0, 1].
 
-除了在材质属性面板中直接赋予数值以外，也可以为材质的固有色（Albedo）、粗糙度（Roughness）、金属度（Metallic）赋予贴图，以更精准地进行材质表达。除此之外，可以为材质赋予法线（Normal）贴图以获得更多表面结构细节，环境光遮蔽（Ambient Occlusion）贴图以获得细节明暗关系，自发光（Emissive）贴图以获得自发光效果。
+Besides constant values, it is also advisable to assign texture maps for albedo, roughness and metallic parameters to better convey the artistic vision for the material. In addition, it is also possible to achieve better visuals by assigning normal maps to convey more structural details, ambient occlusion maps for detailed light & shade relations, and emissive maps for self-incandescence.
 
-### 固有色（Albedo）
+### Albedo
 
-<br>![flakes.jpg](./img/albedo.jpg#center)
+<br>![](./img/albedo.jpg#center)
 
-固有色（Albedo）表达材质在没有光照的情况下所表达的颜色信息。美术上，可以将固有色理解为材质用肉眼观察时所表达的颜色信息。
+Albedo expresses the material’s color diffusion under no additional lighting of external influences. Artistically, it can be viewed as the material’s color as generally observed by the naked eye.
 
-在 PBR 流程中，固有色代表的是材质**非金属**部分的**漫反射**（Diffuse）颜色，与材质**金属**部分的**高光**（Specular）颜色的集合。
+In PBR specifications, albedo is defined as the combination of **diffuse color of non-metal materials** and **specular color of metallic materials.**
 
-> 注意：在 Metal / Roughness 工作流中，所有金属的漫反射（Diffuse）颜色都是黑色，金属肉眼所见的颜色表现是由其反射光线所造成的，因此在非 Metal / Roughness 工作流中，金属的颜色由高光（Specular）颜色决定。使用非 Metal / Roughness 工作流制作的颜色贴图，将不能在 Cocos Creator 默认 PBR 材质中正确渲染金属的颜色信息。
-用户可以在材质属性面板的 Albedo 参数中直接赋予固有色颜色，或者勾选 `USE ALBEDO MAP`，为材质赋予一张 sRGB 颜色空间的 RGBA 贴图。
+> Note: In Metal / Roughness workflow, diffuse color for all metallic materials should be black as colors on metallic materials are caused by specular lights. In other workflows, metallic color should be designated by specular color. Albedo textures created under such workflows will not be rendered with correct metallic colors in Cocos Creator’s default PBR shader.
 
-依据标准 PBR 流程的制作准则，为了获得符合物理现实的渲染效果，在制作固有色贴图的过程中需要注意:
-- 固有色的 sRGB 数值应当避免极高或极低的取值：最高不应超过 **240**；最低不应低于 **30 - 50**
-- 在表达金属的固有色时，应当遵循金属 70% - 100% 反射率的物理规律，其 sRGB 取值应在 **180 – 255** 的范围之内
+Albedo can be assigned with a constant color via the `Albedo` parameter, or with an RGBA texture map in sRGB color space after enabling `USE ALBEDO MAP`.
 
-### 粗糙度（Roughness）
+In alignment with PBR specifications, albedo colors and textures should follow these criteria:
 
-<br>![flakes.jpg](./img/roughness.jpg#center)
+- Avoid extremely high or low sRGB color values. At maximum, the RGB values should not exceed **240.** At minimum, the RGB values should not exceed **30 - 50.**
+- When expressing color for metallic materials, the RGB values should be within the range of **180 – 255** as metals typically have a 70% to 100% reflectivity rate.
 
-粗糙度（Roughness）表达材质因其表面细微的结构细节所导致的反光强弱程度，其数值范围为 [0, 1]。
+### Roughness
 
-当粗糙度为 0 时，代表材质表面绝对光滑，反射率达到 100%。
+<br>![](./img/roughness.jpg#center)
 
-当粗糙度为 1 时，代表材质表面绝对粗糙，反射率为 0%。
+Roughness expresses the material’s level of reflectivity due to varying microscopic surface structures. Its value falls in the range of [0, 1].
 
-用户可以在材质属性面板的 `Roughness` 参数中直接赋予粗糙度数值，或者使用一张 sRGB 颜色空间的 RGBA 贴图的**绿通道**表达粗糙度值。在 Cocos Creator 默认 PBR 材质中，可以通过以下方式使用这张贴图：
+At 0, it indicates that the material has an absolute smooth surface with 100% reflectivity.
 
-- 勾选 `USE PBR MAP`，将贴图赋予 `PbrMap` 参数
-- 勾选 `USE METALLIC ROUGHNESS MAP`，将贴图赋予 `MetallicRoughnessMap` 参数
+At 1, it indicates that the material has an absolute rough surface with 0% reflectivity.
 
-### 金属度（Metallic）
+Roughness can be assigned with a constant value via the `Roughness` parameter in the material inspector, or with the **G (Green) channel** of or with an RGBA texture map in sRGB color space. This map can be assigned to the shader in the following ways:
 
-<br>![flakes.jpg](./img/metallic.jpg#center)
+- Enable `USE PBR MAP`, assign the map to parameter `PbrMap`.
+- Enable `USE METALLIC ROUGHNESS MAP`, assign the map to parameter `MetallicRoughnessMap`.
 
-金属度（Metallic）表达材质的金属属性，其数值范围为 [0, 1]。在使用过程中，通常选择 0 或者 1 作为取值。
+### Metallic
 
-当金属度为 0 时，代表材质为非金属。
+<br>![](./img/metallic.jpg#center)
 
-当金属度为 1 时，代表材质为金属。
+Metallic expresses the material’s property of being metal or non-metal. Its value falls in the range of [0, 1]. Typically, metallic takes the value of either 0 or 1.
 
-当金属度为 0 - 1 的浮点数时，通常用于表达表面带有非金属脏迹的金属。
+At 0, it indicates that the material is non-metal.
 
-> 注意：当金属度为 1 时，材质被认定为金属，同时会表现金属的特征，这包括：固有色比金属度为 0 时明度和饱和度更低；材质的高光部分颜色混合了材质的固有色；反射更加强烈。这是因为随着金属度的提升，固有色被认定为反射光线造成的颜色。
-用户可以在材质属性面板的 `Metallic` 参数中直接赋予金属度数值，或者使用一张 sRGB 颜色空间的 RGBA 贴图的**蓝通道**表达金属度值。在 Cocos Creator 默认 PBR 材质中，可以通过以下方式使用这张贴图：
+At 1, it indicates that the material is metal.
 
-- 勾选 `USE PBR MAP`，将贴图赋予 `PbrMap` 参数
-- 勾选 `USE METALLIC ROUGHNESS MAP`，将贴图赋予 `MetallicRoughnessMap` 参数
+At a float value between 0 and 1, it typically indicates the material is metal with non-metallic dirt and smudge on the surface.
+
+> Note: When metallic is at 1, the material is deemed as metal and will display metallic properties which includes: lower value in albedo color compared to non-metal materials; specular color displays a mixture of the light source’s color and the material’s albedo color; higher level of reflectivity compared to non-metal materials. This is due to albedo being interpreted as color caused by specular lights as metallic value increments.
+
+Metallic can be assigned with a constant value via the `Metallic` parameter in the material inspector, or with the **B (Blue) channel** of or with an RGBA texture map in sRGB color space. This map can be assigned to the shader in the following ways:
+
+- Enable `USE PBR MAP`, assign the map to parameter `PbrMap`.
+- Enable `USE METALLIC ROUGHNESS MAP`, assign the map to parameter `MetallicRoughnessMap`.
 
 ### 环境光遮蔽（Ambient Occlusion）
 
