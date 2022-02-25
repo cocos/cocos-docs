@@ -147,7 +147,7 @@
         - [内置材质](material-system/builtin-material.md)
         - [材质系统类图](material-system/material-structure.md)
     - [着色器](shader/index.md)
-        - [着色器属性查看器](shader/effect-inspector.md)
+        - [着色器资源](shader/effect-inspector.md)
         - [着色器语法](shader/effect-syntax.md)
             - [Pass 参数](shader/pass-parameter-list.md)
             - [YAML 101 语法](shader/yaml-101.md)
