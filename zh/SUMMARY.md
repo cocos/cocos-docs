@@ -1,6 +1,9 @@
 # Summary
+
 [Cocos Creator 3.4 用户手册](index.md)
+
 ## 基础使用
+
 - [新手上路](getting-started/index.md)
     - [关于 Cocos Creator](getting-started/introduction/index.md)
     - [安装和启动](getting-started/install/index.md)
@@ -138,7 +141,7 @@
     - [纹理](module-map/texture/index.md)
         - [压缩纹理](asset/compress-texture.md)
         - [渲染纹理](asset/render-texture.md)
-    - [材质系统](material-system/index.md)
+    - [材质系统](material-system/overview.md)
         - [材质操作指南](material-system/material-inspector.md)
         - [在脚本中使用材质](material-system/material-script.md)
         - [材质接口说明](material-system/material-interface.md)
@@ -158,7 +161,7 @@
         - [内置着色器（Buildin Effect）](shader/effect-buildin.md)
             - [基于物理的光照模型 PBR](shader/effect-buildin-pbr.md)
             - [卡通渲染](shader/effect-buildin-toon.md)
-            - [无光照](shader/effect-buildin-unlit.md) 
+            - [无光照](shader/effect-buildin-unlit.md)
         - [编写着色器](shader/write-effect-overview.md)
             - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
             - [2D 着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)

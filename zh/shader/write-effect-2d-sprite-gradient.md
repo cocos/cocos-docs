@@ -1,12 +1,12 @@
 # 2D 精灵着色器：Gradient
 
-默认的情况下，UI 和 2D 组件会使用引擎内置的着色器，这些着色器放在 **资源管理器 -> internal -> effects** 目录内，可查看 [内置着色器](effect-buildin.md) 来了解其作用。
+默认的情况下，UI 和 2D 组件会使用引擎内置的着色器，这些着色器放在 **资源管理器 -> internal -> effects** 目录内，可查看 [内置着色器](effect-builtin.md) 来了解其作用。
 
 对于任何持有 CustomMaterial 属性的 UI 和 2D 组件，都可在 **属性检查器** 内通过该属性的下拉框选择或者从 **资源管理器** 内拖拽实现自定义材质。
 
 引擎规定 UI 组件的自定义材质只能有一个。
 
-![内置的 UI 着色器](img/buildin-ui-effect.png)
+![内置的 UI 着色器](img/builtin-ui-effect.png)
 
 > 需要注意的是，在使用自定义材质后，可能会打断合批。
 > 关于 UI 和 2D 组件合批的使用，可以参考：[2D 渲染组件合批规则说明](../ui-system/components/engine/ui-batch.md)
@@ -23,7 +23,7 @@
 
 在 **资源管理器** 内创建下列资源：
 - gradient.effect 的着色器文件
-- 拷贝 **资源管理器 -> intenal -> effects** 内的 `buildin-sprite` 着色器的内容到 gradient.effect 内
+- 拷贝 **资源管理器 -> intenal -> effects** 内的 `builtin-sprite` 着色器的内容到 gradient.effect 内
 - 一个名为 gradient.mtl 的材质并在 **属性查看器** 内的 Effect 栏选择 gradient.effect
 - 导入任意的纹理
 
