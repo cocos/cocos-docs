@@ -27,9 +27,9 @@ Label 的组件接口请参考 [Label API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/
 | Font | 指定文本渲染需要的 [字体资源](../../../asset/font.md)。若要使用艺术数字字体，请参考 [艺术数字资源](../../../asset/label-atlas.md) 文档进行配置。<br>如果使用系统字体，则此属性可以为空。
 | UseSystemFont | 布尔值，是否使用系统字体。
 | CacheMode | 文本缓存类型，仅对 **系统字体** 或 **TTF** 字体有效，BMFont 字体无需进行这个优化。包括 **NONE**、**BITMAP**、**CHAR** 三种模式。详情见下方的 [文本缓存类型](#%E6%96%87%E6%9C%AC%E7%BC%93%E5%AD%98%E7%B1%BB%E5%9E%8B%EF%BC%88cache-mode%EF%BC%89)。
-| IsBold | 文字是否加粗，支持系统字体以及部分 TTF 字体。
-| IsItalic | 文字是否倾斜，支持系统字体以及 TTF 字体。
-| IsUnderline | 文字是否加下划线，支持系统字以及 TTF 字体。
+| IsBold | 文字是否加粗，支持系统字体以及部分 TTF 字体。当 CacheMode 为 CHAR 模式是暂不生效。
+| IsItalic | 文字是否倾斜，支持系统字体以及 TTF 字体。当 CacheMode 为 CHAR 模式是暂不生效。
+| IsUnderline | 文字是否加下划线，支持系统字以及 TTF 字体。当 CacheMode 为 CHAR 模式是暂不生效。
 
 <!--| SpacingX | 文本字符之间的间距。（使用 BMFont 位图字体时生效）-->
 
