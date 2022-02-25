@@ -18,6 +18,7 @@
 
 本章节主要包含以下内容：
 
+- [着色器属性查看器](effect-inspector.md)
 - [着色器语法](effect-syntax.md)
     - [Pass 可选配置参数](pass-parameter-list.md)
     - [YAML 101 语法简介](yaml-101.md)
@@ -25,7 +26,6 @@
     - [预处理宏定义](macros.md)
     - [着色器片段（Chunk）](effect-chunk-index.md)
         - [Cocos Effect 内置 Uniform](uniform.md)
-    - [着色器属性查看器](effect-inspector.md)
 - [内置着色器（builtin Effect）](effect-builtin.md)
     - [基于物理的光照模型 PBR](effect-builtin-pbr.md)
     - [卡通渲染](effect-builtin-toon.md)
