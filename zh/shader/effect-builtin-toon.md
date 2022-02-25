@@ -1,6 +1,6 @@
 # 卡通渲染
 
- 相对于[真实渲染](effect-buildin-pbr.md)（Physical Based Rendering - PBR），非真实渲染（Non-Photorealistic Rendering - NPR）通过特性化渲染，实现与真实世界完全不同的美术表现。
+ 相对于[真实渲染](effect-builtin-pbr.md)（Physical Based Rendering - PBR），非真实渲染（Non-Photorealistic Rendering - NPR）通过特性化渲染，实现与真实世界完全不同的美术表现。
 
  卡通渲染（Toon Shading）是非真实渲染的常见效果之一。
 

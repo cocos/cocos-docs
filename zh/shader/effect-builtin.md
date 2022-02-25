@@ -16,10 +16,10 @@
 | builtin-reflection-deferred.effect | 用于延迟着色中的反射处理
 | builtin-spine.effect               | Spine 骨骼动画的着色器
 | builtin-sprite.effect              | 精灵着色器
-| builtin-standard.effect            | [基于物理的光照模型 PBR](effect-buildin-pbr.md)
+| builtin-standard.effect            | [基于物理的光照模型 PBR](effect-builtin-pbr.md)
 | builtin-terrain.effect             | 地形系统默认着色器
-| builtin-toon.effect                | [卡通渲染](effect-buildin-toon.md)
-| builtin-unlit.effect               | [无光照](effect-buildin-unlit.md)
+| builtin-toon.effect                | [卡通渲染](effect-builtin-toon.md)
+| builtin-unlit.effect               | [无光照](effect-builtin-unlit.md)
 | builtin-wireframe.effect           | 以线框模式进行绘制
 
 ## 内置管线特效着色器
