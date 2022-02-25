@@ -92,7 +92,7 @@ At 0, it indicates that the material has an absolute smooth surface with 100% re
 
 At 1, it indicates that the material has an absolute rough surface with 0% reflectivity.
 
-Roughness can be assigned with a constant value via the `Roughness` parameter in the material inspector, or with the **G (Green) channel** of or with an RGBA texture map in sRGB color space. This map can be assigned to the shader in the following ways:
+Roughness can be assigned with a constant value via the `Roughness` parameter in the material inspector, or with the **G (Green) channel** of an RGBA texture map in sRGB color space. This map can be assigned to the shader in the following ways:
 
 - Enable `USE PBR MAP`, assign the map to parameter `PbrMap`.
 - Enable `USE METALLIC ROUGHNESS MAP`, assign the map to parameter `MetallicRoughnessMap`.
@@ -111,64 +111,66 @@ At a float value between 0 and 1, it typically indicates the material is metal w
 
 > Note: When metallic is at 1, the material is deemed as metal and will display metallic properties which includes: lower value in albedo color compared to non-metal materials; specular color displays a mixture of the light source’s color and the material’s albedo color; higher level of reflectivity compared to non-metal materials. This is due to albedo being interpreted as color caused by specular lights as metallic value increments.
 
-Metallic can be assigned with a constant value via the `Metallic` parameter in the material inspector, or with the **B (Blue) channel** of or with an RGBA texture map in sRGB color space. This map can be assigned to the shader in the following ways:
+Metallic can be assigned with a constant value via the `Metallic` parameter in the material inspector, or with the **B (Blue) channel** of an RGBA texture map in sRGB color space. This map can be assigned to the shader in the following ways:
 
 - Enable `USE PBR MAP`, assign the map to parameter `PbrMap`.
 - Enable `USE METALLIC ROUGHNESS MAP`, assign the map to parameter `MetallicRoughnessMap`.
 
-### 环境光遮蔽（Ambient Occlusion）
+### Ambient Occlusion
 
-<br>![flakes.jpg](./img/ao.jpg#center)
+<br>![](./img/ao.jpg#center)
 
-环境光遮蔽（Ambient Occlusion）表达材质因表面的结构细节所导致的明暗关系。美术上，可以将环境光遮蔽理解为材质自身结构所产生的阴影。
+Ambient occlusion expresses the light & shade relations of the material caused by surface structures. Artistically, it can be viewed as the material’s self-shadowing due to uneven surfaces.
 
-用户可以使用一张 sRGB 颜色空间的 RGBA 贴图的**红通道**表达环境光遮蔽关系。在 Cocos Creator 默认 PBR 材质中，可以通过以下方式使用这张贴图：
+Ambient occlusion can be assigned with with the **R (Red) channel** of an RGBA texture map in sRGB color space. This map can be assigned to the shader in the following way:
 
-- 勾选 `USE PBR MAP`，将贴图赋予 `PbrMap` 参数
-- 勾选 `USE METALLIC ROUGHNESS MAP`，将贴图赋予 `MetallicRoughnessMap` 参数
-- 勾选 `USE OCCLUSION MAP`，将贴图赋予 `OcclusionMap` 参数
+- Enable `USE PBR MAP`, assign the map to parameter `PbrMap`.
+- Enable `USE METALLIC ROUGHNESS MAP`, assign the map to parameter `MetallicRoughnessMap`.
+- Enable `USE OCCLUSION MAP`，assign the map to parameter `OcclusionMap`.
 
-### 法线（Normal）
+### Normal
 
-<br>![flakes.jpg](./img/normal.jpg#center)
+<br>![](./img/normal.jpg#center)
 
-法线（Normal）贴图是一张用 sRGB 颜色空间的 RGB 数值代表模型切线空间的顶点坐标位置的贴图。其作用是将贴图中的顶点坐标数据叠加到模型自身的顶点坐标数据上参与 PBR 光影的计算，使顶点数量较低的低模也能够表现顶点数量较高的高模的光影变化效果。美术上，可以将法线贴图理解为一张表达物体表面结构细节的贴图。
+Normal map is a texture map in sRGB color space using RGB values to represent vertex positions in tangent space. It can be used to bring additional vertex position data stored in the map to the 3D mesh for PBR calculations so that it can be rendered with detailed shading properties despite having a low number of vertices. Artistically, it can be viewed as a map expressing the detailed geometric structures on the surface of the mesh.
 
-法线贴图通常有两种制作方法：
-- 分别制作一个顶点数量较高的高模和一个顶点数量较低的低模，将高模的顶点坐标数据烘培到一张使用低模的 UV 的贴图上
-- 将一张 2D 图片转换为法线贴图
+Typically, normal maps can be created in 2 ways:
+- Create a mesh with high vertex count and one with low vertex count. Bake the vertex position data of the high-poly mesh onto a map using the low-poly mesh’s UVs.
+- Convert 2D images into normal maps.
 
-> 注意：在从高模烘培法线时，请确保烘培器使用右手坐标系（Y轴向上）和 MIKK 切线空间算法。
-### 自发光（Emissive）
+> Note: When baking normal maps, make sure the baker uses the right-hand coordinates system (Y-axis up) and MIKK tangent space algorithms.
 
-自发光颜色（Emissive）表达材质自身作为光源向外发光的颜色信息。
+### Emissive
 
-用户可以在材质属性面板的 `Emissive` 参数中直接赋予固有色颜色，或者勾选 `USE EMISSIVE MAP`，为材质赋予一张 sRGB 颜色空间的 RGBA 贴图。通过 `EmissiveScale` 参数可调节自发光颜色的红、绿、蓝通道的发光强度。
+Emissive expresses the self-emanating colors of the material.
 
-> 注意：自发光通常配合高于 1 的 `EmissiveScale` 数值使用。当 `EmissiveScale` 等于 1 时，自发光材质的效果等同于 unlit 材质效果。
-### 模板遮罩（Stencil）
+Albedo can be assigned with a constant color via the `Albedo` parameter, or with an RGBA texture map in sRGB color space after enabling `USE ALBEDO MAP`. Emission intensity can be adjusted via the RGB channels of the `EmissiveScale` parameter.
 
-<br>![flakes.jpg](./img/leaves.jpg#center)
+> Note: To create an emissive material, it is usually necessary to give parameter `EmissiveScale` values higher than 1. When `EmissiveScale` is at 1, an emissive material produces the same shading properties as an unlit material.
 
-当渲染使用了模板遮罩（Stencil）的材质时，可以开启 Cocos Creator 默认 PBR 材质的 Alpha Test 功能，将遮罩之外的片元去除。操作过程可参考以下步骤：
+### Stencil Masking
 
-- 将模板遮罩（Stencil）作为 **Alpha 通道**或**红通道**，存储在固有色贴图中；
-- 创建一个新的 Cocos Creator 默认 PBR 材质，将固有色贴图赋予新材质；
-- 勾选 `USE ALPHA TEST`；
-- 在 `ALPHA TEST CHANNEL` 参数中选择模板遮罩（Stencil）所在的通道（Alpha 通道或红通道）；
-- 使用 `AlphaThreshold` 参数，调节抛弃片元明度的阈值；
-- 如果有需要，可以配合 Cocos Creator 默认 PBR 材质的其他功能，实现法线、环境光遮蔽等效果。
+<br>![](./img/leaves.jpg#center)
 
-### 透明材质
+When creating a material with a stencil, it is possible to discard fragments outside of the stencil by enabling the alpha test function. This can be done as follows:
 
-当渲染透明或半透明的材质时，可以在材质的 `Technique` 参数中，选择 `1-transparent`，开启 Alpha Blending 功能。
+- Store the stencil mask as the **alpha channel** or **red channel** of the albedo map.
+- Create a new Cocos Creator default PBR material and assign the albedo map to the material.
+- Enable `USE ALPHA TEST`.
+- In the dropdown menu of `ALPHA TEST CHANNEL` select the channel where the stencil mask is stored in (alpha or red channel.)
+- Adjust the `AlphaThreshold` property and discard fragments.
+- If needed, apply normal, ambient occlusion or other maps to utilize other PBR shading capabilities to achieve better results.
 
-当切换到透明材质模式时，材质所有的功能与不透明模式没有差别。用户可以依照上述的工作流程进行材质制作。
+### Transparency
 
-由于当 Alpha Blending 开启时，引擎的渲染管线对深度的控制发生了改变，因此在切换到透明材质模式时，**需要勾选材质属性面板 PipelineStates -> DepthStencilState 下的 `DepthWrite` 参数。**
+Transparent or semi-transparent materials can be created by enabling the alpha blending function for the shader, which can be done by selecting `1-transparent` from the `Technique` parameter.
 
-## PBR主要参数组装流程
+While switched to transparent mode, the shader functions the same way as in opaque mode. The guidelines above are still viable for material creation.
 
-![pbr 组装流程](../material-system/standard-material-graph.png)
+While alpha blending is enable, the render pipeline also switched to a different order for processing the depth of the 3D space. When switched to transparent mode, **make sure to enable the `DepthWrite` property under PipelineStates -> DepthStencilState.**
 
-若要了解 PBR 的原理可参考： [PBR 理论](https://learnopengl-cn.github.io/07%20PBR/01%20Theory/#pbr)
+## PBR Parameter Assembly
+
+![](../material-system/standard-material-graph.png)
+
+For more information on rendering in PBR, please see： [PBR Theory](https://learnopengl-cn.github.io/07%20PBR/01%20Theory/#pbr)
