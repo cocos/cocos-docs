@@ -142,7 +142,6 @@
         - [压缩纹理](asset/compress-texture.md)
         - [渲染纹理](asset/render-texture.md)
     - [材质系统](material-system/overview.md)
-        - [材质资源](./asset/material.md)
         - [在脚本中使用材质](material-system/material-script.md)
         - [内置材质](material-system/builtin-material.md)
         - [材质系统类图](material-system/material-structure.md)

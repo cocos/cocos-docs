@@ -1,5 +1,11 @@
 # 着色器语法
 
+Cocos 中的着色器（Cocos Effect）是一种基于 YAML 和 GLSL 的单源码嵌入式领域特定语言（single-source embedded domain-specific language），YAML 部分声明流程控制清单，GLSL 部分声明实际的 Shader 片段，这两部分内容相互补充，共同构成了一个完整的渲染流程描述。
+
+>注意：推荐使用 Visual Studio Code 进行 Cocos Effect编写。安装 Cocos Effect 插件，可获得语法高亮提示。
+
+![Cocos Effect 插件](img/vs-ext.png)
+
 ## 语法框架
 
 `Cocos Effect` 通常由两个部分组成：

@@ -12,7 +12,6 @@ Cocos Creator 通过 **材质** 来描述物体外观，例如一个小球是玻
 
 本节将包含以下内容：
 
-- [材质资源](../asset/material.md)
 - [程序化使用材质](material-script.md)
 - [内置材质](builtin-material.md)
 - [材质系统类图](material-structure.md)

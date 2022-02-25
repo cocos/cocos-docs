@@ -30,7 +30,28 @@ Effect 的创建方式跟 Material 的创建方式类似。
 
 以上就是一个材质的创建流程，更多信息可以参考：[Effect 书写格式与语法](../shader/index.md)
 
+
+
+
+## 材质资源属性
+
+| 属性 | 说明 |
+| :-- | :-- |
+| Effect（着色器） | 当前材质所使用的着色器，默认使用的是内置 PBR 着色器 `builtin-standard.effect`。<br>点击 Effect 的下拉框，可以看到当前项目中所有的着色器，开发者可根据需要选择使用。当切换了着色器后其他属性也会同步更新，详情请参考 [着色器语法](../shader/effect-syntax.md)。<br>点击右侧的 ![image](../material-system/img/locate.png) 按钮，会在 **资源管理器** 中定位当前使用的着色器。 |
+| Technique | Technique 下拉框会列出当前使用的着色器中所有的 Technique。一个着色器中可能会存在多个 Technique，每个 Technique 适用于不同的情况，例如效果差一点但是性能更好的 Technique 更适合用于手机平台。当切换了 Technique 后 Pass 列表也会同步更新。 |
+| USE INSTANCING | 是否启用动态 Instancing。需要注意的是，Instancing 只应该在场景中有大量相同模型的实例时启用，适当合理地应用 Instancing 可以有不错的性能提升，但过度使用反而很可能会因为额外的开销维护导致性能下降 |
+| USE BATCHING | 是否启用动态 VB 合并式合批。 |
+| Pass | Pass 列表会列出当前使用的 Technique 中所有的 Pass（例如 Pass 0、Pass 1、Pass 2......）。<br>每个 Pass 可能会有不同的属性和定义，开发者可以分别设置这些属性和定义。如果属性是被定义包裹住的，需要先勾上定义才能看到对应的属性。详情请参考 [Pass 可选配置参数](../shader/pass-parameter-list.md) |
+
+在 **属性检查器** 面板右上方还可以选择其他的模型以预览效果：
+
+![image](../material-system/img/preview-model-select.png)
+
+若修改了材质属性，面板右上角会出现 ![image](../material-system/img/save-material.png) 保存和 ![image](../material-system/img/revert-material.png) 重置按钮。重置会将材质属性回退到上一次保存时的设置，而一旦点击保存后便无法再重置。
+
 ## 使用材质
+
+一般情况下，3D 模型、2D 对象以及粒子系统都需要指定材质才可以正确渲染出物体表面的外观。
 
 ### 在 3D 模型中使用
 
@@ -71,45 +92,3 @@ Effect 的创建方式跟 Material 的创建方式类似。
 ![img-particle](../material-system/img/particle-material.png)
 
 详情可参考：[粒子发射器](../particle-system/index.md)
-
-## 属性调整
-
-下图所示的 **属性检查器** 内的可编辑属性都来自于着色器。如果想要自定义材质的 **属性查看器**，请查看 [着色器](../shader/index.md) 。
-
-![属性查看器](../material-system/img/inspector.png)
-
-### 选择着色器
-
-在属性检查器内的着色器下拉框中，可以选择当前引擎内置的着色器以及用户自定义着色器。
-
-![选择着色器](../material-system/img/select-effect.png)
-
-对于内置着色器的用法可查看：[内置着色器](../shader/effect-builtin.md)
-
-### 更改预览材质的模型
-
-在属性检查器的右上角可以选择下拉菜单选择不同的预览模型：
-
-![预览模型](../material-system/img/preview-model-select.png)
-
-### 保存和重置（Reset）材质
-
-在对材质进行修改后，属性检查器的右上角会出现保存和重置的按钮。
-
-#### 保存材质
-
-在修改材质后，点击右上角的绿色的勾可以将材质资源进行保存。
-
->注意：一旦保存，则不能再重置。
-
-![保存修改](../material-system/img/save-material.png)
-
-#### 重置（Reset）材质
-
-若对修改不满意，则可以点击红色按钮进行重置。
-
-重置会将材质的属性重置到上一次保存的状态。
-
->注意：未保存的修改会丢失。
-
-![重置修改](../material-system/img/revert-material.png)

@@ -26,11 +26,9 @@ mat.initialize({
 
 ## 使用材质
 
-对任意渲染器组件，可以在脚本模块中进行程序化访问。
-
 ![设置材质](img/add-material.png)
 
-可通过代码访问，代码示例如下：
+对任意渲染器组件，可以在脚本模块中进行程序化访问，代码示例如下：
 
 ```ts
 // 通过网格渲染器组件（MeshRenderer、SkinnedMeshRenderer、SkinnedMeshBatchRenderer）可访问 3D 物体的材质
