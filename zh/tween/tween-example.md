@@ -4,7 +4,7 @@
 
 ## 链式 API
 
-大部分和动作相关的接口都会返回 `this` 或者一个新的 `Tween` 对象，因此可以方便的使用链式调用来进行组合。
+大部分和动作相关的接口都会返回 `this` 或者一个新的 `Tween` 对象，因此可以方便的使用链式调用来进行组合：
 
 ```ts
 tween()
@@ -22,7 +22,7 @@ tween()
 
 >`tween` 是引擎提供的工具方法，并非 `Tween` 的成员，请注意区分。关于这点可以参考接口说明： [Tween 接口说明](tween-interface.md)。
 
-这里演示了如何使用一个 `to` 类型的缓动绑定 Node 的位置信息并将 `node` 的位置沿 Y 轴偏移 10 个单位：
+这里演示了如何使用一个 `to` 类型的缓动绑定节点的位置信息并将其位置沿 Y 轴偏移 10 个单位：
 
 ```ts
 let tweenDuration : number = 1.0;                                    // 缓动的时长
@@ -37,7 +37,7 @@ tween(this.node.position)
 }).start();                                                          // 调用 start 方法，开启缓动
 ```
 
-开发中使用 Node 作为绑定对象的情景会更多一些：
+开发中使用 `Node` 作为绑定目标的情景会更多一些：
 
 ```ts
 let  quat : Quat = new Quat();
@@ -51,7 +51,7 @@ tween(this.node)
     .start();                                           //调用 start 方法，开启缓动
 ```
 
-实际上缓动可以绑定任何你想的类：
+实际上缓动可以绑定对象：
 
 ```ts
 class BindTarget{
@@ -89,7 +89,7 @@ tween(this.node)
 
     },
     progress: (start: number, end: number, current: number, ratio: number): number => {
-        //return yourProgress;
+        // 返回自定义插值结果;
         return 0.0;
     }
 }).start(); // 调用 start 方法，开启缓动
@@ -323,6 +323,12 @@ tween()
 
 ## 销毁
 
+### 自动销毁
+
+当缓动目标为 `Node` 时，将会监听其销毁事件进行缓动的自动销毁，调用 `target` 方法也会自动更新监听。
+
+### 手动销毁
+
 大部分缓动在最后一个动作完毕后，都会对自身进行销毁，但是对于未能正确销毁的缓动， 如 `repeatForever` 在切换场景后，会一直驻留在内存中。需要手动调用销毁接口进行销毁。
 
 如果要停止并销毁缓动，有下列的方法：
@@ -351,6 +357,4 @@ Tween.stopAllByTarget(this.node); // 销毁该节点上的所有缓动
 
 > **注意**：切换场景时记得停止相应的缓动。
 
-### 自动销毁
 
-当缓动目标为 `Node` 时，将会监听其销毁事件进行缓动的自动销毁，调用 `target` 方法也会自动更新监听。
