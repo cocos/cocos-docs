@@ -155,7 +155,7 @@
             - [预处理宏定义](shader/macros.md)
             - [着色器片段（Chunk）](shader/effect-chunk-index.md)
                 - [全局 Uniform](shader/uniform.md)
-        - [内置着色器（Buildin Effect）](shader/effect-buildin.md)
+        - [内置着色器（Builtin Effect）](shader/effect-buildin.md)
             - [基于物理的光照模型 PBR](shader/effect-buildin-pbr.md)
             - [卡通渲染](shader/effect-buildin-toon.md)
             - [无光照](shader/effect-buildin-unlit.md)
