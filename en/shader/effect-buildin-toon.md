@@ -1,16 +1,16 @@
-Toon Shading
+# Toon Shading
 
- Unlike physically based rendering [](effect-buildin-pbr.md) (PBR,) non-photorealistic rendering (NPR) produces images from a stylized approach without consideration for physical accuracy. Among its many implementations, toon shading is most commonly used.
+Unlike physically based rendering [](effect-buildin-pbr.md) (PBR,) non-photorealistic rendering (NPR) produces images from a stylized approach without consideration for physical accuracy. Among its many implementations, toon shading is most commonly used.
 
- Generally, toon shader offers render capabilities including:
+Generally, toon shader offers render capabilities including:
 
- - Border edges
- - Non-linear color steps
- - Customized lighting
+- Border edges
+- Non-linear color steps
+- Customized lighting
   
  ![toon](img/toon.png)
 
- # Parameters
+ ## Parameters
 
 | Parameter      | Description                                                              |
 | :------------- | :---------------------------------------------------------------- |
@@ -35,7 +35,7 @@ Toon Shading
 | specularMap    |
 | emissiveMap    |
 
- # Macros
+ ## Macros
 
  | Definition                    | Description                      |
  | :---------------------------- | :------------------------ |
@@ -53,22 +53,22 @@ Toon Shading
  | BASE_COLOR_MAP_AS_SHADE_MAP_2 |                           |
  | SHADE_MAP_1_AS_SHADE_MAP_2    |                           |
 
- # Production Guidelines
+ ## Production Guidelines
 
- # Description
+ ## Description
 
  The default toon shader in Cocos Creator consists of 2 passes:
  
  - Pass 0: border edges (optional)
  - Pass 1: color steps, customized lighting and other shading attributes
 
-## Pass 0
+### Pass 0
 
 This pass is used solely for drawing the border edges of the material, hence requires the front of the mesh to be culled (`CullMode=FRONT`.) In this pass, the vertices are extended in the direction of the vertex normal, returning a mesh slightly larger than the mesh being shaded.
 
 This pass can be enabled or disabled with the `USE_OUTLINE_PASS` parameter.
 
-## Pass 1
+### Pass 1
 
 The base color of the material is broken into 3 color steps, which respectively are controlled by 3 color parameters:
 
