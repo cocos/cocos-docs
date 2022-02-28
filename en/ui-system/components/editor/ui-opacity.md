@@ -2,7 +2,7 @@
 
 The UIOpacity Component records a transparency modification flag for the node, which is used to influence all the render nodes inside its sub tree. Normally it's used on a non render nodes, otherwise its opacity will be multiplied with the render component's opacity. The render nodes can set transparency individually by setting the alpha channel of `color`.
 
-Notice: this component is only functional when its root node have Canvas component or RenderRoot2D component.
+> **Note**: this component is only functional when its root node have Canvas component or RenderRoot2D component.
 
 The method of use is as follows:
 
