@@ -1,12 +1,12 @@
 # Pass 可选配置参数
 
 Pass 中的参数主要分两个部分：
-- 为开发者可自定义的属性面板参数 properties
-- 用于控制渲染管线状态的 PipelineStates
+- 开发者可自定义的 **属性检查器** 面板参数 `properties`
+- 引擎提供的用于控制渲染管线状态的 `PipelineStates`
 
 ## Properties
 
-properties 用于将 Shader 中定义的 uniform 进行别名映射。这个映射可以是某个 uniform 的完整映射，也可以是具体某个分量的映射（使用 target 参数），示例如下：
+`properties` 用于将 Shader 中定义的 `uniform` 进行别名映射。这个映射可以是某个 `uniform` 的完整映射，也可以是具体某个分量的映射（使用 `target` 参数），代码示例如下：
 
 ```yaml
 properties:
@@ -17,32 +17,30 @@ properties:
 # so it will be assigned a default value of [0, 0, 0, 0] and will not appear in the inspector
 ```
 
-默认情况下，properties 中定义的属性参数会暴露给 Cocos Creator 中的**属性检查器**，以方便在 Cocos Creator 中进行可视化控制。
+默认情况下，`properties` 中定义的属性参数会暴露并显示在编辑器的 **属性检查器** 面板中，方便进行可视化控制。
 
-如果不想显示在属性面板上，可在定义属性时加上 `editor: { visible: false }` ，如下所示：
+如果不想显示在 **属性检查器** 面板上，可在定义属性时加上 `editor: { visible: false }`，代码示例如下：
 
 ```yaml
 properties:
   factor: { value: 1.0, editor: { visible: false } }
 ```
 
-在 TypeScript 代码中可以使用 Material 类的 setProperty 方法以及 Pass 的 setUniform 方法进行设置，如下所示：
+在 TypeScript 中可以使用 `Material` 类的 `setProperty` 方法以及 `Pass` 的 `setUniform` 方法进行设置，代码示例如下：
 
 ```js
-// as long as it is a real uniform
-// it doesn't matter whether it is specified in the property list or not
-mat.setProperty('emissive', Color.GREY); // this works
-mat.setProperty('albedo', Color.RED); // directly set uniform
-mat.setProperty('roughness', 0.2); // set certain component
-const h = mat.passes[0].getHandle('offset'); // or just take the handle,
-mat.passes[0].setUniform(h, new Vec2(0.5, 0.5)); // and use Pass.setUniform interface instead
+mat.setProperty('emissive', Color.GREY); // 直接设置对应的 Uniform 变量
+mat.setProperty('albedo', Color.RED); 
+mat.setProperty('roughness', 0.2); // 仅设置对应的分量
+const h = mat.passes[0].getHandle('offset'); // 获取对应的 Uniform 的句柄
+mat.passes[0].setUniform(h, new Vec2(0.5, 0.5)); // 使用 ‘Pass.setUniform’ 设置 Uniform 属性
 ```
 
->注意：在 Shader 中定义了的 uniform 都可以使用以上代码进设置，即使没有使用 properties 暴露。
+> **注意**：在 Shader 中定义的 `uniform` 也可以使用上述代码进行设置，即使没有在 `properties` 中定义。
 
-未指定的 uniform 将由引擎在运行时根据自动分析出的数据类型给予 [默认值](#默认值列表)。
+未指定的 `uniform`，引擎将会在运行时根据自动分析出的数据类型给予默认值。更多关于默认值的内容，请参考下文说明。
 
-为方便声明各 property 子属性，可以直接在 properties 内声明 `__metadata__` 项，所有 property 都会继承它声明的内容，如：
+为方便声明各 `property` 子属性，可以直接在 `properties` 内声明 `__metadata__` 项，所有 `property` 都会继承它声明的内容，如：
 
 ```yaml
 properties:
@@ -81,7 +79,9 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 | editor.<br>range          | **undefined** | undefined, [ min, max, [step] ]  |   |
 | editor.<br>deprecated     | **false**  | true, false | For any material using this effect, delete the existing data for this property after next saving |
 
-## 默认值列表
+### Property 默认值
+
+对于 Property 的默认值， Cocos Effect 做出了如下的规定：
 
 | 类型        |  默认值 | 可选项   |
 | :---------- | :----- | :------ |
@@ -96,14 +96,14 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 | sampler2D   | **default**      | black, grey, white, normal, default  |
 | samplerCube | **default-cube** | black-cube, white-cube, default-cube |
 
-对于 defines：
+对于 `defines`：
 - boolean 类型默认值为 false。
 - number 类型默认值为 0，默认取值范围为 [0, 3]。
 - string 类型默认值为 options 数组第一个元素。
 
 ## PipelineStates
 
-以下为 PipelineStates 相关参数，所有参数不区分大小写。
+以下为 `PipelineStates` 相关参数，所有参数不区分大小写。
 
 | 参数名 | 说明 | 默认值  | 备注 |
 | :---- | :-- | :----- | :--- |
@@ -113,7 +113,7 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 | phase          | 指定这个 pass 归属于管线的哪个 phase。可以是运行时管线中任何注册的 Phase 名称 | **default** | 对于默认的 forward 管线，可以是 `default`、`forward-add` 或者 `shadow-caster`  |
 | propertyIndex  | 指定这个 pass 运行时的 uniform 属性数据要和哪个 pass 保持一致，例如 forward add 等 pass 需要和 base pass 一致才能保证正确的渲染效果。可以是任意有效的 pass 索引 | 未定义 | 一旦指定了此参数，材质面板上就不会再显示这个 pass 的任何属性 |
 | embeddedMacros | 指定在这个 pass 的 shader 基础上额外定义的常量宏，可以是一个包含任意宏键值对的对象 | 未定义 | 只有当宏定义不同时才能在多个 pass 中使用此参数来复用 shader 资源 |
-| properties     | Properties 存储着这个 pass 中需要显示在 **属性检查器** 上的可定制的参数 |                 | 详见下文 **Properties** 部分的介绍    |
+| properties     | Properties 存储着这个 pass 中需要显示在 **属性检查器** 上的可定制的参数 |                 | 详见上文 **Properties** 部分的内容    |
 | migrations     | 迁移旧的材质数据  |           | 详见下文 **Migrations** 部分的介绍                                                     |
 | primitive      | 创建材质顶点数据    | **triangle_list** | 可选项包括：point_list、line_list、line_strip、line_loop<br>**triangle_list**、triangle_strip、triangle_fan<br>line_list_adjacency、line_strip_adjacency<br>triangle_list_adjacency、triangle_strip_adjacency<br>triangle_patch_adjacency、quad_patch_list、iso_line_list |
 | dynamics      | 补充说明 | **[]** | 数组，包括：viewport、scissor、line_width、depth_bias、blend_constants、depth_bounds、stencil_write_mask、stencil_compare_mask |
@@ -127,7 +127,7 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 
 在 effect 导入成功后会 **立即更新工程内所有** 依赖于此 effect 的材质资源，对每个材质资源，会尝试寻找所有指定的旧参数数据（包括 **property** 和 **宏定义** 两类），然后将其复制或迁移到新属性中。
 
-**注意**：使用迁移功能前请一定先备份好项目工程，以免丢失数据！
+>**注意**：使用迁移功能前请一定先备份好项目工程，以免丢失数据！
 
 对于一个现有的 effect，迁移字段声明如下：
 
@@ -211,13 +211,13 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 - 为避免有效旧数据丢失，只要没有显式指定 `removeImmediately` 规则，就不会在导入时自动删除旧数据；
 - 为避免有效的新数据被覆盖，如果没有指定为强制更新模式，对于那些既有旧数据，又有对应的新数据的材质，不会做任何迁移操作。
 
-### RasterizerState
+## RasterizerState
 
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :-- | :----- | :--- |
 | cullMode | 补充说明 | **back** | front, back, none  |
 
-### DepthStencilState
+## DepthStencilState
 
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :-- | :----- | :--- |
@@ -234,7 +234,7 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 | stencilRef       | 补充说明   | **1**    | 1, `[0, 0, 0, 1]`                                                           |
 | stencil\*Front/Back | 补充说明  |        | **\*set above stencil properties for specific side**                        |
 
-### BlendState
+## BlendState
 
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :--- | :----- | :--- |
