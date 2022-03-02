@@ -55,11 +55,28 @@
 
 ## 挂点系统
 
-如果需要将某些外部节点挂到指定的骨骼关节上，需要使用骨骼动画组件的 **挂点（Socket）系统**：
+如果需要将某些外部节点挂到指定的骨骼关节上，使其在动画过程中随骨骼关节一起运动变换，需要使用骨骼动画组件的 **挂点（Socket）系统**。下面通过一个范例来介绍如何使用骨骼挂点。
 
-- 在要对接的骨骼动画组件下新建一个子节点（直属父节点应为动画组件所在节点）；
-- 在骨骼动画组件的 sockets 属性中添加一个数组元素，path 从下拉列表中选择要挂载的那根骨骼的路径（注意骨骼动画组件的 defaultClip 一定要有值，下拉列表的选项依赖这个属性），target 指定为刚刚创建的子节点；
-- 这个子节点就成为目标挂点了，可以把任何外部节点放到这个子节点下，都会跟随指定骨骼的变换而变换。
+### 在编辑器中配置挂点
+1. 在要对接的骨骼动画组件下新建一个子节点（直属父节点应为动画组件所在节点）。
+2. 在骨骼动画组件的 sockets 属性中添加一个数组元素，path 从下拉列表中选择要挂载的那根骨骼的路径（注意骨骼动画组件的 defaultClip 一定要有值，下拉列表的选项依赖这个属性），target 指定为刚刚创建的子节点（节点将被自动重命名）。
+3. 这个子节点就成为目标挂点了，可以把任何外部节点放到这个子节点下，都会跟随指定骨骼的变换而变换。
+
+![attach0](./animation/sockets-attach0.png)
+
+### 通过脚本配置挂点
+```
+    let target = new Node();
+    this.cubeNode.parent = target; // cubeNode 包含一个立方体模型
+    let skeletalAnimation = this.node.getComponent(SkeletalAnimation);
+    target.parent = skeletalAnimation.node; //target父节点需设置为SkeletalAnimation所在的node
+    let path = "root/_rootJoint/b_Root_00/b_Hip_01/b_Tail01_012/b_Tail02_013/b_Tail03_014";
+    let socket = new SkeletalAnimation.Socket(path, target);
+    skeletalAnimation.sockets.push(socket);
+```
+点击预览按钮，即可看见立方体小块随狐狸模型的尾巴一起摆动。
+
+![attach1](./animation/sockets-attach1.gif)
 
 **FBX** 或 **glTF** 资源内的挂点模型会自动对接挂点系统，无需任何手动操作。
 
