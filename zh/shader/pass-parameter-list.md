@@ -116,9 +116,8 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 | properties     | Properties 存储着这个 pass 中需要显示在 **属性检查器** 上的可定制的参数 |                 | 详见上文 **Properties** 部分的内容    |
 | migrations     | 迁移旧的材质数据  |           | 详见下文 **Migrations** 部分的介绍                                                     |
 | primitive      | 创建材质顶点数据    | **triangle_list** | 可选项包括：point_list、line_list、line_strip、line_loop<br>**triangle_list**、triangle_strip、triangle_fan<br>line_list_adjacency、line_strip_adjacency<br>triangle_list_adjacency、triangle_strip_adjacency<br>triangle_patch_adjacency、quad_patch_list、iso_line_list |
-| dynamics      | 补充说明 | **[]** | 数组，包括：viewport、scissor、line_width、depth_bias、blend_constants、depth_bounds、stencil_write_mask、stencil_compare_mask |
-| RasterizerState   | 补充说明 |  | 详见下文 **RasterizerState** 部分的介绍 |
-| DepthStencilState | 补充说明 |  | 详见下文 **DepthStencilState** 部分的介绍    |
+| RasterizerState   | 光栅化时的可选渲染状态 |  | 详见下文 **RasterizerState** 部分的介绍 |
+| DepthStencilState | 深度和模板缓存的测试与状态 |  | 详见下文 **DepthStencilState** 部分的介绍    |
 | BlendState        | 材质混合状态 | **false** | 详见下文 **BlendState** 部分的介绍 |
 
 ## Migrations
@@ -215,23 +214,33 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :-- | :----- | :--- |
-| cullMode | 补充说明 | **back** | front, back, none  |
+| cullMode | 选择光栅化时的剔除模式 | **back** | front, back, none  |
+| isDiscard |  | false | true, false |
+| polygonMode | 多边形绘制模式 |fill| point，line，fill|
+| shadeModel | 着色模型 |flat| flat, gourand|
+| isFrontFaceCCW| 是否逆时针（CCW）前向|true| true，false|
+| depthBias| 深度偏移 | 0.5|
+| depthBiasSlop | 深度偏差斜率 | 0 |
+| depthBiasClamp | 深度截断 | 0 | |
+| isDepthClip | | true | true, false
+| isMultisample| | false | true, false
+| lineWidth |  线宽 | 1 |
 
 ## DepthStencilState
 
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :-- | :----- | :--- |
-| depthTest        | 补充说明   | **true** | true, false                                                                 |
-| depthWrite       | 补充说明   | **true** |true, false                                                                  |
-| depthFunc        | 补充说明   | **less** | never, less, equal, less_equal, greater, not_equal, greater_equal, always   |
-| stencilTest      | 补充说明   | **false**  | true, false                                                               |
-| stencilFunc      | 补充说明   | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
-| stencilReadMask  | 补充说明   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
-| stencilWriteMask | 补充说明   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
+| depthTest        | 深度测试   | **true** | true, false                                                                 |
+| depthWrite       | 是否写入深度缓存   | **true** |true, false                                                                  |
+| depthFunc        | 深度缓存的写入函数  | **less** | never, less, equal, less_equal, greater, not_equal, greater_equal, always   |
+| stencilTest      | 是否开启模板缓存 | **false**  | true, false                                                               |
+| stencilFunc      | 模板缓存的写入函数   | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
+| stencilReadMask  | 模板缓存的读取掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
+| stencilWriteMask | 模板缓存写入掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
 | stencilFailOp    | 补充说明   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
 | stencilZFailOp   | 补充说明   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
 | stencilPassOp    | 补充说明   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilRef       | 补充说明   | **1**    | 1, `[0, 0, 0, 1]`                                                           |
+| stencilRef       | 模板缓存中的比较函数用于比较的值   | **1**    | 1, `[0, 0, 0, 1]`                                                           |
 | stencil\*Front/Back | 补充说明  |        | **\*set above stencil properties for specific side**                        |
 
 ## BlendState
