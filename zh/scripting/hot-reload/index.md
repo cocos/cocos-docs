@@ -4,7 +4,46 @@
 
 在构建面板中，勾选 `热重载支持（实验性质）` 后，Creator 将集成热更新支持到运行时。
 
-## 接口
+> ⚠️ 注意：本功能还在十分初级的实验阶段，后续存在较大变动的可能。请谨慎使用。
+
+Creator 仅在模块系统上提供了热重载支持，但由用户自己定义以及实现：
+
+- 热重载的时机
+
+- 热重载的范围：哪些模块作为热重载的入口
+
+- 模块源（文件）的替换
+
+## 模块系统接口
+
+使用 `System.reload(specifiers)` 引发一次热重载。其中：
+
+- `specifiers` 是要热重载的模块的路径。它们是相对于 `<构建输出目录>/src` 目录的相对路径，以 `./` 开头，以 `/` 分割子路径。
+
+- 此接口返回 `Promise<boolean>` 指示热重载的结果。若该 Promise 解析为 `true`，表示热重载成功；否则，若该 Promise 解析为 `false`，表示热重载终止——无法完成热重载请求，在这种情况下，应用程序需要全量重载。
+
+```ts
+declare global {
+    let System: {
+        reload(specifiers: string[]): Promise<void>;
+    };
+}
+
+listen(async (specifiers: string[]) => {
+    const success = await System.reload(changedChunks);
+    if (success) {
+        console.log(`热重载成功。`);
+    } else {
+        console.log(`热重载失败。`);
+
+        // 重新加载当前应用。
+        // ⚠️ 注意，此句仅适用于 Web 环境中。
+        window?.location.reload();
+    }
+});
+```
+
+## 模块接口
 
 默认情况下，当一个模块更新后，所有递归导入它的模块都将更新。并且，如果这样的更新蔓延到了顶级模块，那么所有模块都将重新加载、执行。
 
