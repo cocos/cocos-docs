@@ -214,47 +214,60 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :-- | :----- | :--- |
-| cullMode | 选择光栅化时的剔除模式 | **back** | front, back, none  |
-| isDiscard |  | **false** | true, false |
+| cullMode | 光栅化时剔除模式 | **back** | front, back, none  |
+| isDiscard | 引擎预留 | **false** | true, false |
 | polygonMode | 多边形绘制模式 | **fill** | point，line，fill|
 | shadeModel | 着色模型 | **flat** | flat, gourand|
 | isFrontFaceCCW| 是否逆时针（CCW）前向| **true** | true，false|
 | depthBias| 深度偏移 | **0.5** |
 | depthBiasSlop | 深度偏差斜率 | **0** |
 | depthBiasClamp | 深度截断 | **0** | |
-| isDepthClip | | **true** | true, false
-| isMultisample| | **false** | true, false
+| isDepthClip | 允许深度剪裁操作<br> [Vulkan](https://www.khronos.org/registry/vulkan/specs/1.3-extensions/man/html/VK_EXT_depth_clip_enable.html) 专用 | **true** | true, false
+| isMultisample| 是否开启多重采样 | **false** | true, false
 | lineWidth |  线宽 | 1 |
 
 ## DepthStencilState
 
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :-- | :----- | :--- |
-| depthTest        | 深度测试   | **true** | true, false                                                                 |
-| depthWrite       | 是否写入深度缓存   | **true** |true, false                                                                  |
-| depthFunc        | 深度缓存的写入函数  | **less** | never, less, equal, less_equal, greater, not_equal, greater_equal, always   |
-| stencilTest      | 是否开启模板缓存 | **false**  | true, false                                                               |
-| stencilFunc      | 模板缓存的写入函数   | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
-| stencilReadMask  | 模板缓存的读取掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
-| stencilWriteMask | 模板缓存写入掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
-| stencilFailOp    | 补充说明   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilZFailOp   | 补充说明   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilPassOp    | 补充说明   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilRef       | 模板缓存中的比较函数用于比较的值   | **1**    | 1, `[0, 0, 0, 1]`                                                           |
-| stencil\*Front/Back | 补充说明  |        | **\*set above stencil properties for specific side**                        |
+| depthTest        | 是否开启深度测试   | **true** | true, false                                                                 |
+| depthWrite       | 是否开启深度缓存写入   | **true** |true, false                                                                  |
+| depthFunc        | 深度缓存比较方法  | **less** | never, less, equal, less_equal, greater, not_equal, greater_equal, always   |
+| stencilTestFront     | 是否开启正面模板缓存测试 | **false**  | true, false                                                               |
+| stencilFuncFront      | 正面模板缓存比较方法   | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
+| stencilReadMaskFront  | 正面模板缓存读取掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
+| stencilWriteMaskFront | 正面模板缓存写入掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
+| stencilFailOpFront    | 正面模板缓存测试失败失败时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
+| stencilZFailOpFront   | 正面模板缓存深度测试失败时，如何处理缓冲区的值 | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
+| stencilPassOpFront    | 正面模板缓存测试通过时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
+| stencilRefFront       | 正面模板缓存中的比较函数用于比较的值   | **1**    | 1, `[0, 0, 0, 1]`                                                           |
+| stencilTestBack | 是否开启背面模板缓存测试 | **false**  | true, false                                                               |
+| stencilFuncBack | 背面模板缓存比较方法   | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always
+| stencilReadMaskBack | 背面模板缓存读取掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`
+| stencilWriteMaskBack | 背面模板缓存写入掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
+| stencilFailOpBack | 背面模板缓存测试失败时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
+| stencilZFailOpBack | 背面模板缓存深度测试失败时，如何处理缓冲区的值  | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
+| stencilRefBack | 背面模板缓存中的比较函数用于比较的值   | **1**    | 1, `[0, 0, 0, 1]`                                                           |
 
 ## BlendState
 
+| 参数名 | 说明 | 默认值 | 可选项 |
+| :--- | :--- |:--- | :--- |
+| isA2C | 是否开启半透明反锯齿（Alpha To Coverage）| **false** | true，false
+| isIndepend | RGB 和 Alpha 是否分开混合 | **false** | true，false
+| blendColor | 指定混合颜色 | **0** | 0, `[0, 0, 0, 0]`  |
+| targets    | 混合配置, 请参考下方的 targets | [] | |
+
+### Targets
+
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :--- | :----- | :--- |
-| BlendColor | 混合颜色 | **0** | 0, `[0, 0, 0, 0]`  |
-| Targets    | 指定混合状态的配置 | [] | |
-| Targets[i].<br>blend          | 是否开启混合 | **false** | true, false                                                               |
-| Targets[i].<br>blendEq        | 分别设置 RGB 与 Alpha 的混合方程 | **add** | add, sub, rev_sub                                                           |
-| Targets[i].<br>blendSrc       | 源颜色的混合方法| **one** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
-| Targets[i].<br>blendDst       | 混合目标的混合方式 | **zero** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
-| Targets[i].<br>blendSrcAlpha  | 混合源使用 Alpha 的方法 | **one** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
-| Targets[i].<br>blendDstAlpha  | 混合目标使用 Alpha 的方法 | **zero** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
-| Targets[i].<br>blendAlphaEq   | 补充说明 | **add** | add, sub, rev_sub                                                           |
-| Targets[i].<br>blendColorMask | 写入帧缓存的颜色掩码 | **all** | all, none, r, g, b, a, rg, rb, ra, gb, ga, ba, rgb, rga, rba, gba           |
+| Targets[i].<br>blend          | 是否开启 **混合** | **false** | true, false                                                               |
+| Targets[i].<br>blendEq        | 指定 **混合源** 和 **混合目标** 的 RGB 的混合方程 | **add** | add, sub, rev_sub                                                           |
+| Targets[i].<br>blendSrc       | 指定 **混合源** 的 RGB 混合因子 | **one** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
+| Targets[i].<br>blendDst       | 指定 **混合目标** 的 RGB 混合因子 | **zero** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
+| Targets[i].<br>blendSrcAlpha  | 指定 **混合源** 的 Alpha 混合因子 | **one** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
+| Targets[i].<br>blendDstAlpha  |  指定 **混合目标** 的 Alpha 混合因子 | **zero** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
+| Targets[i].<br>blendAlphaEq   |  指定 **混合源** 与 **混合目标** 的 Alpha 混合方法 | **add** | add, sub, rev_sub                                                           |
+| Targets[i].<br>blendColorMask | 指定是否可将 RGB，Alpha 分量写入帧缓存 | **all** | all, none, r, g, b, a, rg, rb, ra, gb, ga, ba, rgb, rga, rba, gba           |
 | dynamics | 可动态更新的管线状态  | [] |    LINE_WIDTH, DEPTH_BIAS = 2, BLEND_CONSTANTS, DEPTH_BOUNDS = 8, STENCIL_WRITE_MASK = 16, STENCIL_COMPARE_MASK = 32|
