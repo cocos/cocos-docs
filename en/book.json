@@ -14,7 +14,7 @@
                     },
                     {
                         "name": "API Ref",
-                        "link": "__APIDOC__/en/"
+                        "link": "https://docs.cocos.com/creator/3.4/api/en/"
                     }
                 ]
             },
