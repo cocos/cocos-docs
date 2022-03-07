@@ -6,7 +6,7 @@ Layout 是一种容器组件，容器能够开启自动布局功能，自动按�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI -> Layout** 即可添加 Layout 组件到节点上。
 
-布局的组件接口请参考 [Layout API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/Layout)。
+布局的组件接口请参考 [Layout API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/ui/Class/Layout)。
 
 具体使用方法可参考范例 **Layout**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/05.layout) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/05.layout)）。
 

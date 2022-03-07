@@ -6,7 +6,7 @@ ProgressBar（进度条）经常被用于在游戏中显示某个操作的进度
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/ProgressBar** 即可添加 ProgressBar 组件到节点上。
 
-进度条的脚本接口请参考 [ProgressBar API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/ProgressBar)。
+进度条的脚本接口请参考 [ProgressBar API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/ui/Class/ProgressBar)。
 
 关于使用可以参考范例 **Progress**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/11.progress) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/11.progress)）。
 

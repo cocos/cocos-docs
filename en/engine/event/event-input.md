@@ -72,7 +72,7 @@ Pointer events include mouse and touch events.
 
 - Callback parameter
 
-    - [EventMouse](__APIDOC__/en/#/docs/3.4/en/cocos-input-types-event/Class/EventMouse) or [EventTouch](__APIDOC__/en/#/docs/3.4/en/cocos-input-types-event/Class/EventTouch)
+    - [EventMouse](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/cocos-input-types-event/Class/EventMouse) or [EventTouch](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/cocos-input-types-event/Class/EventTouch)
 
 Examples of the use of pointer events are as follows:
 
@@ -113,7 +113,7 @@ export class Example extends Component {
 
 - Callback parameter
 
-    - [EventKeyboard](__APIDOC__/en/#/docs/3.4/en/event/Class/EventKeyboard)
+    - [EventKeyboard](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/event/Class/EventKeyboard)
 
 Examples of the use of keyboard events are as follows:
 
@@ -163,7 +163,7 @@ export class Example extends Component {
 
 - Callback parameter
 
-    - [EventAcceleration](__APIDOC__/en/#/docs/3.4/en/cocos-input-types-event/Class/EventAcceleration)
+    - [EventAcceleration](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/cocos-input-types-event/Class/EventAcceleration)
 
 Examples of the use of DeviceMotion events are as follows:
 

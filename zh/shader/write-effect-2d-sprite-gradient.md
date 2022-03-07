@@ -1,14 +1,15 @@
 # 2D 精灵着色器：Gradient
 
-默认的情况下，UI 和 2D 组件会使用引擎内置的着色器，这些着色器放在 **资源管理器 -> internal -> effects** 目录内，可查看 [内置着色器](effect-builtin.md) 来了解其作用。
+默认的情况下，UI 和 2D 组件会使用引擎内置的着色器，这些着色器放在 **资源管理器** 面板的 **internal -> effects** 目录下，可查看 [内置着色器](effect-builtin.md) 来了解其作用。
 
 对于任何持有 CustomMaterial 属性的 UI 和 2D 组件，都可在 **属性检查器** 内通过该属性的下拉框选择或者从 **资源管理器** 内拖拽实现自定义材质。
 
 引擎规定 UI 组件的自定义材质只能有一个。
 
-![内置的 UI 着色器](img/builtin-ui-effect.png)
+![内置的 UI 着色器](../material-system/img/ui-select.png)
 
-> 需要注意的是，在使用自定义材质后，可能会打断合批。
+> **注意**：
+> 在使用自定义材质后，可能会打断合批。
 > 关于 UI 和 2D 组件合批的使用，可以参考：[2D 渲染组件合批规则说明](../ui-system/components/engine/ui-batch.md)
 
 本文将通过实现一个精灵的渐变着色器来演示如何为 UI 和 2D 组件使用自定义着色器。

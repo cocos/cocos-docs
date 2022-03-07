@@ -23,7 +23,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 **center**  |  本地坐标系下形状的原点
 **size**  |  盒的大小，即长、宽、高
 
-盒碰撞器组件接口请参考 [BoxCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/BoxCollider)。
+盒碰撞器组件接口请参考 [BoxCollider API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/BoxCollider)。
 
 ### 球碰撞器组件 SphereCollider
 
@@ -33,7 +33,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 :---|:---
 **radius** | 球的半径
 
-球碰撞器组件接口请参考 [SphereCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/SphereCollider)。
+球碰撞器组件接口请参考 [SphereCollider API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/SphereCollider)。
 
 ### 圆柱碰撞器组件 CylinderCollider
 
@@ -45,7 +45,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 **height** | 圆柱的总高度
 **radius** | 圆柱两端圆面的半径
 
-圆柱碰撞器组件接口请参考 [CylinderCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/CylinderCollider)。
+圆柱碰撞器组件接口请参考 [CylinderCollider API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/CylinderCollider)。
 
 ### 胶囊碰撞器组件 CapsuleCollider
 
@@ -56,7 +56,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 **cylinderHeight** | 胶囊中圆柱的高度
 **radius** | 胶囊中球体的半径
 
-胶囊碰撞器组件接口请参考 [CapsuleCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/CapsuleCollider)。
+胶囊碰撞器组件接口请参考 [CapsuleCollider API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/CapsuleCollider)。
 
 > **注意**：`cannon.js` 不支持胶囊组件，建议使用两个球和圆柱拼凑。
 
@@ -69,7 +69,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 **radius** | 圆锥中底面圆的半径
 **height** | 圆锥的高度
 
-圆锥碰撞器组件接口请参考 [ConeCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/ConeCollider)。
+圆锥碰撞器组件接口请参考 [ConeCollider API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/ConeCollider)。
 
 ### 平面碰撞器组件 PlaneCollider
 
@@ -80,7 +80,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 **normal** | 平面的法向量
 **constant** | 平面沿着法向量移动的距离
 
-平面碰撞器组件接口请参考 [PlaneCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/PlaneCollider)。
+平面碰撞器组件接口请参考 [PlaneCollider API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/PlaneCollider)。
 
 ### 网格碰撞器组件 MeshCollider
 
@@ -95,7 +95,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 > 1. `cannon.js` 对网格碰撞器组件支持程度很差，只允许与少数碰撞器（球、平面）产生检测。
 > 2. `convex` 功能目前仅 `ammo.js` 后端支持。
 
-网格碰撞器组件接口请参考 [MeshCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/MeshCollider)。
+网格碰撞器组件接口请参考 [MeshCollider API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/MeshCollider)。
 
 ### 单纯形碰撞器组件 SimplexCollider
 
@@ -111,7 +111,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 
 > **注**：`cannon.js` 对线和三角面的支持目前还不完善。
 
-单纯形碰撞器组件接口请参考 [SimplexCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/SimplexCollider)。
+单纯形碰撞器组件接口请参考 [SimplexCollider API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/SimplexCollider)。
 
 ## 刚体组件 RigidBody
 
@@ -131,7 +131,7 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 **linerFactor** | 线性因数，可影响每个轴向的线性速度的变化
 **angularFactor** | 旋转因数，可影响每个轴向的旋转速度的变化
 
-刚体组件接口请参考 [RigidBody API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/RigidBody)。
+刚体组件接口请参考 [RigidBody API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/RigidBody)。
 
 ## 恒力组件 ConstantForce
 
@@ -146,4 +146,4 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 **torque** |  在世界坐标系中对刚体施加的扭矩
 **localTorque** |   在本地坐标系中对刚体施加的扭矩
 
-恒力组件接口请参考 [ConstantForce API](__APIDOC__/zh/#/docs/3.4/zh/physics/Class/ConstantForce)。
+恒力组件接口请参考 [ConstantForce API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/physics/Class/ConstantForce)。

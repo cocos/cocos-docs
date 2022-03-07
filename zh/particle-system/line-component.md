@@ -12,4 +12,4 @@ Line 组件用于渲染 3D 场景中给定的点连成的线段。Line 组件渲
 **offset**     | 贴图坐标的偏移。
 **color**      | 线段颜色，如果采用渐变色，则表示沿着线段方向上的颜色渐变。
 
-Line 组件接口请参考 [Line API](__APIDOC__/zh/#/docs/3.4/zh/particle/Class/Line)。
+Line 组件接口请参考 [Line API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/particle/Class/Line)。

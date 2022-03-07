@@ -14,7 +14,7 @@ The light location and color, as well as its illumination range can be clearly s
 
 Adding spherical lights to the scene can be done as described in [Adding Lights](index.md#adding-lights).
 
-For the spherical light component interface, please refer to [SphereLight API](__APIDOC__/en/#/docs/3.4/en/component-light/Class/SphereLight).
+For the spherical light component interface, please refer to [SphereLight API](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/component-light/Class/SphereLight).
 
 ## Sphere Light Properties
 

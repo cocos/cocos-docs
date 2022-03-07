@@ -13,7 +13,7 @@ const opacityComp = this.getComponent(UIOpacity);
 opacityComp.opacity = 157;
 ```
 
-To use `UIOpacity`, please refer to the [UIOpacity API](__APIDOC__/en/#/docs/3.4/en/ui/Class/UIOpacity) documentation and the [Opacity](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/other/opacity) scene of the test-cases-3d project.
+To use `UIOpacity`, please refer to the [UIOpacity API](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/ui/Class/UIOpacity) documentation and the [Opacity](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/other/opacity) scene of the test-cases-3d project.
 
 ## UIOpacity Properties
 

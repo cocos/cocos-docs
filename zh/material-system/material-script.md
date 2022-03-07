@@ -64,7 +64,7 @@ particleSystem.renderer.trailMaterial = trailMaterial;
 
 ## 设置材质的属性
 
-材质通过 `IMaterialInfo` 接口初始化后，只能通过 `Material.setProperty` 来设置材质的 `Uniform` 变量代码示例如下：
+材质通过 `IMaterialInfo` 接口初始化后，只能通过 `Material.setProperty` 来设置材质的 `Uniform` 变量，代码示例如下：
 
 ```ts
 mat.setProperty("uniform name", uniformValue)

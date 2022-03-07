@@ -28,7 +28,7 @@
 #include "../headers/my-shading-algorithm.chunk"
 ```
 
-关规则和注意事项：
+相关规则和注意事项：
 
 - 着色器片段的扩展名默认为 `.chunk`，在 include 时可忽略。引入其他代码片段时可使用双括号或者尖括号，二者无区别，例如：
 

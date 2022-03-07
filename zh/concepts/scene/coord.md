@@ -65,7 +65,7 @@ Creator 3.0 的 **节点（Node）** 之间可以有父子关系的层级结构�
 
 上图所示的节点层级关系和前一张图相同，只是节点 NodeA 在 z 轴上的 **旋转（Rotation）** 属性设为了 **60** 度，可以看到除了 NodeA 本身在以 z 轴为中心 **逆时针** 旋转了 60 度之外，其子节点 NodeB 也以 NodeA 的 z 轴为中心，一起 **逆时针** 旋转了 60 度。这也意味着旋转属性会影响到子节点。
 
-**注意**：节点上的 [rotation](__APIDOC__/zh/#/docs/3.4/zh/scene-graph/Class/Node?id=rotation) 属性是一个四元数，表示的是绕任意轴旋转的角度。与 **属性检查器** 中的 `Rotation` 所对应的属性是欧拉角属性 [EulerAngles](__APIDOC__/zh/#/docs/3.4/zh/scene-graph/Class/Node?id=eulerangles)。这两个属性可以根据需求分别使用，在使用 API 时请一定要注意它们和编辑器面板属性名的对应区别。
+**注意**：节点上的 [rotation](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/scene-graph/Class/Node?id=rotation) 属性是一个四元数，表示的是绕任意轴旋转的角度。与 **属性检查器** 中的 `Rotation` 所对应的属性是欧拉角属性 [EulerAngles](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/scene-graph/Class/Node?id=eulerangles)。这两个属性可以根据需求分别使用，在使用 API 时请一定要注意它们和编辑器面板属性名的对应区别。
 
 在 **场景编辑器** 中，可以随时使用 [旋转变换工具](../../editor/toolbar/index.md#%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2%E5%B7%A5%E5%85%B7) 来设置节点的旋转。
 

@@ -66,7 +66,7 @@ In the **Scene** panel, use the [Move Transform Tool](../../editor/toolbar/index
 
 The node hierarchy shown above is the same as the previous figure, except that the **Rotation** property of NodeA on the z-axis is set to **60** degrees, notice that in addition to NodeA itself being **counterclockwise** rotated by 60 degrees on the z-axis, its child NodeB is also **centered** on the z-axis. NodeB is also rotated **counterclockwise** on NodeA's z-axis. This also means that the rotation property affects the child nodes.
 
-> **Note**: the [rotation](__APIDOC__/en/#/docs/3.4/en/scene-graph/Class/Node?id=rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](__APIDOC__/en/#/docs/3.4/en/scene-graph/Class/Node?id=eulerangles). These two properties can be used separately according to your needs. When using the API, make sure to pay attention to the difference between them and the editor panel property names.
+> **Note**: the [rotation](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/scene-graph/Class/Node?id=rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/scene-graph/Class/Node?id=eulerangles). These two properties can be used separately according to your needs. When using the API, make sure to pay attention to the difference between them and the editor panel property names.
 
 In the **Scene** panel, use the [Rotate Transform Tool](../../editor/toolbar/index.md) to set the rotation of the node.
 
