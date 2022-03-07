@@ -69,7 +69,7 @@
 
 ### 在粒子系统中使用
 
-粒子系统渲染模块 Renderer 中的 **ParticleMaterial** 和 **TrailMaterial** 属性分别用于渲染粒子材质和粒子拖尾，将所需的材质资源从 **资源管理器** 直接拖拽到渲染模块相应的属性框中即可。
+粒子系统渲染模块 Renderer 中的 **ParticleMaterial** 和 **TrailMaterial** 属性分别用于渲染粒子材质和粒子拖尾，将所需的材质资源从 **资源管理器** 直接拖拽到 **渲染器（Renderer）** 相应的属性框中即可。
 
 ![img-particle](../material-system/img/particle-material.png)
 

@@ -117,5 +117,5 @@ mat.setProperty("uniform name", uniformValue)
 
 ### FAQ
 
-**Q**：修改了材质的属性后，DrawCall 增加了？
+**Q**：修改了材质的属性后，DrawCall 增加了？<br>
 **A**：可能是因为使用了渲染器组件的 `getMaterialInstance` 或者 `RenderableComponent.material` 的 `getter` 方法，导致新的材质实例生成，影响了合批流程。
