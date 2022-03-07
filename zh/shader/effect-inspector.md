@@ -6,7 +6,7 @@
 
 ![1](img/create-effect.png)
 
-便会在 **资源管理器** 中创建一个默认名为 **effect** 的着色器资源：
+引擎会在 **资源管理器** 中创建一个默认名为 **effect** 的着色器资源：
 
 ![image](img/new-effect.png)
 

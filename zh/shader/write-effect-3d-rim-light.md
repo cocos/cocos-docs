@@ -83,7 +83,7 @@ CCEffect %{
 > }; 
 > ```
 
-这个绑定意味着着色器的 `rimLightColor` 的 RGB 分量的值会通过引擎传输到 Uniform `rimColor` 的 rgb 三个分量里。
+这个绑定意味着着色器的 `rimLightColor` 的 RGB 分量的值会通过引擎传输到 Uniform `rimColor` 的 `rgb` 三个分量里。
 
 > **注意**：
 > 引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-syntax.md)，因此在使用 3 维向量（vec3）时，可选择用 4 维向量（vec4）代替。
@@ -145,13 +145,13 @@ CCProgram rimlight-fs %{
 视线方向的计算是通过当前相机的位置（`cc_cameraPos`）减去片元着色器内由顶点着色器传入的位置信息 `in vec3 v_position`：
 
 ```glsl
-vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视点的方向
+vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视线的方向
 ```
 
 我们不关心视线向量的长度，因此得到 `viewDirection` 后，通过 `normalize` 方法进行归一化处理：
 
 ```glsl
-vec3 normalizedViewDirection = normalize(viewDirection);  // 对视点方向进行归一化
+vec3 normalizedViewDirection = normalize(viewDirection);  // 对视线方向进行归一化
 ```
 
 `cc_cameraPos` 的 xyz 分量表示了相机的位置。
@@ -160,8 +160,8 @@ vec3 normalizedViewDirection = normalize(viewDirection);  // 对视点方向进�
 
 ```glsl
   vec4 frag(){ 
-    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视点的方向
-    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视点方向进行归一化
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视线的方向
+    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视线方向进行归一化
     vec4 col = mainColor * texture(mainTexture, v_uv); // 计算最终的颜色
     CC_APPLY_FOG(col, v_position);
     return CCFragOutput(col);  
@@ -202,8 +202,8 @@ vec3 normal = normalize(v_normal);  // 重新归一化法线。
 ```glsl
 vec4 frag(){ 
     vec3 normal = normalize(v_normal);  // 重新归一化法线。
-    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视点的方向
-    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视点方向进行归一化
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视线的方向
+    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视线方向进行归一化
     vec4 col = mainColor * texture(mainTexture, v_uv); // 计算最终的颜色
     CC_APPLY_FOG(col, v_position);
     return CCFragOutput(col);  
@@ -253,8 +253,8 @@ col.rgb += rimPower * rimColor.rgb; // 增加边缘光
 ```glsl
 vec4 frag(){ 
     vec3 normal = normalize(v_normal);// 重新归一化法线。
-    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视点的方向
-    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视点方向进行归一化
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视线的方向
+    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视线方向进行归一化
     float rimPower = max(dot(normal, normalizedViewDirection), 0.0); // 计算 RimLight 的亮度
     vec4 col = mainColor * texture(mainTexture, v_uv); // 计算最终的颜色
     col.rgb += rimPower * rimColor.rgb; // 增加边缘光
@@ -265,7 +265,7 @@ vec4 frag(){
 
 可观察到物体中心比边缘更亮，这是因为边缘顶点的法线和视角的夹角更大，得到的余弦值更小。
 
->> **注意**：此步骤若无法观察到效果，可调整 `MainColor` 使其不为白色。因为默认的 `MainColor` 颜色是白色，遮盖了边缘光的颜色。
+> **注意**：此步骤若无法观察到效果，可调整 `MainColor` 使其不为白色。因为默认的 `MainColor` 颜色是白色，遮盖了边缘光的颜色。
 
 ![dot result](img/dot.jpg)
 
@@ -284,8 +284,8 @@ float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);
 ```glsl
 vec4 frag(){ 
     vec3 normal = normalize(v_normal);  // 重新归一化法线。
-    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视点的方向
-    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视点方向进行归一化
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视线的方向
+    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视线方向进行归一化
     float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);
     vec4 col = mainColor * texture(mainTexture, v_uv); // 计算最终的颜色
     col.rgb += rimPower * rimColor.rgb; // 增加边缘光
@@ -335,7 +335,7 @@ CCEffect %{
 
 ![intensity](./img/add-intensity.png)
 
-通过 pow 函数调整边缘光，使其范围不是线性变化，可体现更好的效果，删除如下代码：
+通过 `pow` 函数调整边缘光，使其范围不是线性变化，可体现更好的效果，删除如下代码：
 
 ~~``` col.rgb += rimPower * rimColor.rgb; ```~~
 
@@ -343,7 +343,7 @@ CCEffect %{
 
 ```glsl
 float rimInstensity = rimColor.a; // alpha 通道为亮度的指数
-col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对点积进行指数级修改
+col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 ‘pow’ 函数对点积进行指数级修改
 ```
 
 `pow` 是 GLSL 的内置函数，其形式为：`pow(x, p)`，代表以 `x` 为底数，`p` 为指数的指数函数。
@@ -352,19 +352,19 @@ col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对
 
 ```glsl
   vec4 frag(){ 
-    vec3 normal = normalize(v_normal);  //重新归一化法线。
-    vec3 viewDirection = cc_cameraPos.xyz - v_position; //计算视点的方向
-    vec3 normalizedViewDirection = normalize(viewDirection);  //对视点方向进行归一化
-    float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);//计算 RimLight 的亮度
-    vec4 col = mainColor * texture(mainTexture, v_uv); //计算最终的颜色
+    vec3 normal = normalize(v_normal);  // 重新归一化法线。
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视线的方向
+    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视线方向进行归一化
+    float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);// 计算 RimLight 的亮度
+    vec4 col = mainColor * texture(mainTexture, v_uv); // 计算最终的颜色
     float rimInstensity = rimColor.a;  // alpha 通道为亮度的指数
-    col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; //增加边缘光
-    CC_APPLY_FOG(col, v_position); 
+    col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; // 增加边缘光
+    CC_APPLY_FOG(col, v_position);  
     return CCFragOutput(col);  
   }
 ```
 
-之后将材质 **属性检查器** 上的 rimIntensity 的值修改为 3：
+之后将材质 **属性检查器** 上的 **rimIntensity** 的值修改为 3：
 
 ![设置 intensity](img/intensity.png)
 
@@ -372,7 +372,7 @@ col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // 使用 pow 函数对
 
 ![增加亮度调整后](img/preview-instensity.jpg)
 
-通过 Rim Color 和 rimIntensity 可方便的调整边缘光的颜色和强度：
+通过 **Rim Color** 和 **rimIntensity** 可方便的调整边缘光的颜色和强度：
 
 ![调整颜色值](img/adjust-option.png)
 
@@ -413,13 +413,13 @@ CCProgram rimlight-fs %{
     vec4 rimColor;  
   }; 
   vec4 frag(){     
-    vec3 normal = normalize(v_normal);  //重新归一化法线。
-    vec3 viewDirection = cc_cameraPos.xyz - v_position; //计算视点的方向
-    vec3 normalizedViewDirection = normalize(viewDirection);  //对视点方向进行归一化
-    float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);//计算 RimLight 的亮度
-    vec4 col = mainColor * texture(mainTexture, v_uv); //计算最终的颜色
+    vec3 normal = normalize(v_normal);  // 重新归一化法线。
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; // 计算视线的方向
+    vec3 normalizedViewDirection = normalize(viewDirection);  // 对视线方向进行归一化
+    float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);// 计算 RimLight 的亮度
+    vec4 col = mainColor * texture(mainTexture, v_uv); // 计算最终的颜色
     float rimInstensity = rimColor.a;  // alpha 通道为亮度的指数
-    col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; //增加边缘光
+    col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; // 增加边缘光
     CC_APPLY_FOG(col, v_position); 
     return CCFragOutput(col);  
   }
@@ -429,17 +429,17 @@ CCProgram rimlight-fs %{
 若要让边缘光的颜色受纹理颜色的影响，可将下列代码：
 
 ```glsl
- col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; //增加边缘光
+col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; // 增加边缘光
 ```
 
 改为：
 
 ```glsl
- col.rgb *= 1.0 + pow(rimPower, rimInstensity) * rimColor.rgb; //边缘光受物体着色的影响
+col.rgb *= 1.0 + pow(rimPower, rimInstensity) * rimColor.rgb; // 边缘光受物体着色的影响
 ```
 
 此时的边缘光则会受到最终纹理和顶点颜色的影响：
 
 ![color](img/effect-by-color.jpg)
 
-[^1]: 菲涅尔现象：奥古斯丁·让·菲涅耳是18世界法国著名的物理学家，他提出的菲涅尔方程很好的解释了光线的反射和折射的关系。如果去观察阳光照射下的平静水面可以发现，距离观察点越远的水面反射越强烈，这种光线强度随着观察角度变化而变化的现象，被称为菲涅尔现象。![fresnel](img/fresnel.jpg)
+[^1]: 菲涅尔现象：奥古斯丁·让·菲涅耳是 18 世纪法国著名的物理学家，他提出的菲涅尔方程很好的解释了光线的反射和折射的关系。如果去观察阳光照射下的平静水面可以发现，距离观察点越远的水面反射越强烈，这种光线强度随着观察角度变化而变化的现象，被称为菲涅尔现象。![fresnel](img/fresnel.jpg)

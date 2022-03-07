@@ -219,7 +219,7 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 | shadeModel | 着色模型 | **flat** | flat, gourand|
 | cullMode | 光栅化时剔除模式 | **back** | front, back, none  |
 | isFrontFaceCCW| 是否逆时针（CCW）前向 | **true** | true，false|
-| depthBias| 深度偏移 | **0.5** |
+| depthBias| 深度偏移 | **0** |
 | depthBiasSlop | 深度偏差斜率 | **0** |
 | depthBiasClamp | 深度截断 | **0** | |
 | isDepthClip | 允许深度剪裁操作<br> [Vulkan](https://www.khronos.org/registry/vulkan/specs/1.3-extensions/man/html/VK_EXT_depth_clip_enable.html) 专用 | **true** | true, false
@@ -237,7 +237,7 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 | stencilFuncFront | 正面模板缓存比较方法 | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
 | stencilReadMaskFront | 正面模板缓存读取掩码 | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]` |
 | stencilWriteMaskFront | 正面模板缓存写入掩码 | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`|
-| stencilFailOpFront | 正面模板缓存测试失败失败时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert |
+| stencilFailOpFront | 正面模板缓存测试失败时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert |
 | stencilZFailOpFront | 正面模板缓存深度测试失败时，如何处理缓冲区的值 | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert |
 | stencilPassOpFront | 正面模板缓存测试通过时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert |
 | stencilRefFront | 正面模板缓存中的比较函数用于比较的值 | **1**    | 1, `[0, 0, 0, 1]`                                                           |
