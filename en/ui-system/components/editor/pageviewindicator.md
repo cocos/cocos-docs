@@ -6,7 +6,7 @@ The __PageViewIndicator__ component is used to display the current page number o
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/PageViewIndicator__ to add the __PageViewIndicator__ component to the node.
 
-To use `PageView`, please refer to the [PageView API](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/ui/Class/PageViewIndicator) documentation and the [PageView](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/15.pageview) scene of the test-cases-3d project.
+To use `PageView`, please refer to the [PageView API](__APIDOC__/en/#/docs/3.4/en/ui/Class/PageViewIndicator) documentation and the [PageView](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/15.pageview) scene of the test-cases-3d project.
 
 ## PageviewIndicator Properties
 

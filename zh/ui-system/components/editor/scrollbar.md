@@ -6,7 +6,7 @@ ScrollBar 允许用户通过拖动滑块来滚动一张图片，它与 `Slider` 
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/ScrollBar** 即可添加 ScrollBar 组件到节点上。
 
-滚动条的脚本接口请参考 [ScrollBar API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/ui/Class/ScrollBar)。
+滚动条的脚本接口请参考 [ScrollBar API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/ScrollBar)。
 
 ## ScrollBar 属性
 

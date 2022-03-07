@@ -4,7 +4,7 @@
 
 材质（Material）资源可以看成是着色器资源（EffectAsset）在场景中的资源实例。
 
-Creator 支持在 **资源管理器** 中手动 [创建材质资源](../asset/material.md)，同时也支持通过 [IMaterialInfo](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/material/Interface/IMaterialInfo) 接口在脚本模块中程序化地创建材质。`IMaterialInfo` 的可配置参数包括：
+Creator 支持在 **资源管理器** 中手动 [创建材质资源](../asset/material.md)，同时也支持通过 [IMaterialInfo](__APIDOC__/zh/#/docs/3.4/zh/material/Interface/IMaterialInfo) 接口在脚本模块中程序化地创建材质。`IMaterialInfo` 的可配置参数包括：
 
 - `effectAsset`/`effectName`：effect 资源引用，指定使用哪个 EffectAsset 所描述的流程进行渲染。（`effectAsset` 和 `effectName` 二者必须选其一）
 - `technique`：指定使用 EffectAsset 中的第几个 technique，默认为第 0 个。

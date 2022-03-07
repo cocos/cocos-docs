@@ -15,7 +15,7 @@
                     },
                     {
                         "name": "API 参考",
-                        "link": "https://docs.cocos.com/creator/3.4/api/zh/"
+                        "link": "__APIDOC__/zh/"
                     }
                 ]
             },

@@ -6,7 +6,7 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI/Render** 中选择 **Label**，即可添加 Label 组件到节点上。
 
-Label 的组件接口请参考 [Label API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/ui/Class/Label)。
+Label 的组件接口请参考 [Label API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/Label)。
 
 具体使用方法可参考范例 **Label**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/02.label) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/02.label)）。
 

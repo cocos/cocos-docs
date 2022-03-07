@@ -150,7 +150,7 @@ This option contains mainly development-related menu functions such as scripts, 
 | Option | Description |
 | :--- | :--- |
 | User Manual | Open [User Manual](../../index.md) in default browser. |
-| API Reference | Open [API Reference Documentation](https://docs.cocos.com/creator/3.4/api/en/#/) in default browser. |
+| API Reference | Open [API Reference Documentation](__APIDOC__/en/#/) in default browser. |
 | Forum | Open [Cocos Creator Forum](https://forum.cocos.org/c/58) in default browser. |
 | Release Notes | Open the [release notes](https://www.cocos.com/creator) for each version of Cocos Creator in default browser. |
 | Engine Repository | Open [TypeScript Engine Repository](https://github.com/cocos-creator/engine) in default browser. |

@@ -2,11 +2,11 @@
 
 动画剪辑仅描述某一类对象的动画数据，例如角色的跑、走、跳等，但并未绑定具体要执行动画的对象。动画状态便是用于控制在某个对象上使用的动画剪辑，类似于播放机，除了提供动画组件也有的简单的控制函数外，还提供了更多的动画信息以及动画控制接口，允许对动画播放进行调速、设置循环模式等控制。一个动画剪辑可以同时被多个动画状态使用。
 
-动画状态由 [类 `AnimationState`](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/animation/Class/AnimationState) 管理。
+动画状态由 [类 `AnimationState`](__APIDOC__/zh/#/docs/3.4/zh/animation/Class/AnimationState) 管理。
 
 ## 设置播放速度
 
-首先可以通过 [getState()](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/animation/Class/Animation?id=getstate) 获取动画状态：
+首先可以通过 [getState()](__APIDOC__/zh/#/docs/3.4/zh/animation/Class/Animation?id=getstate) 获取动画状态：
 
 ```ts
 // 获取动画组件
@@ -33,14 +33,14 @@ animationComponent.getState('idle').speed = 2.0; // speed 值越大速度越快�
 
 任意时刻动画所处的播放位置称为 **进度时间**，因此进度时间总是在 `[0, 动画周期]` 范围内。
 
-- **累计播放时间** 由 `AnimationState` 的 [time](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/animation/Class/AnimationState?id=time) 字段获取，并且可以显式设置。
-- **进度时间** 由 `AnimationState` 的 [current](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/animation/Class/AnimationState?id=current) 字段获取，是 **只读** 的。
+- **累计播放时间** 由 `AnimationState` 的 [time](__APIDOC__/zh/#/docs/3.4/zh/animation/Class/AnimationState?id=time) 字段获取，并且可以显式设置。
+- **进度时间** 由 `AnimationState` 的 [current](__APIDOC__/zh/#/docs/3.4/zh/animation/Class/AnimationState?id=current) 字段获取，是 **只读** 的。
 
 动画播放的循环模式与循环次数决定了累计播放至某一时间时动画的进度时间，不管 **累计播放时间** 因为时间的推移而增加还是因为直接设置而更改，**进度时间** 都会相应发生改变。
 
 ## 循环模式与循环次数
 
-动画可以播放到结尾就停止，或者一直循环播放，或者也可以先播放到结尾再从结尾播放到开头如此循环，这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/animation/Class/AnimationClip?id=wrapmode) 表示，包括以下几种：
+动画可以播放到结尾就停止，或者一直循环播放，或者也可以先播放到结尾再从结尾播放到开头如此循环，这些统称为循环模式，由枚举 [`AnimationClip.WrapMode`](__APIDOC__/zh/#/docs/3.4/zh/animation/Class/AnimationClip?id=wrapmode) 表示，包括以下几种：
 
 | 循环模式 | 说明 |
 | :--- | :--- |
@@ -91,4 +91,4 @@ animationComponent.getState('idle').speed = 2.0; // speed 值越大速度越快�
 
 ![Playback control](./animation-state/playback-control.svg)
 
-通过动画状态可以获取到所有动画的信息，以便利用这些信息来判断需要做哪些事，更多接口请参考 [类 `AnimationState`](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/animation/Class/AnimationState)。
+通过动画状态可以获取到所有动画的信息，以便利用这些信息来判断需要做哪些事，更多接口请参考 [类 `AnimationState`](__APIDOC__/zh/#/docs/3.4/zh/animation/Class/AnimationState)。

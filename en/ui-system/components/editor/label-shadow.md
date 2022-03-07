@@ -12,7 +12,7 @@ Click the **Add Component** button at the bottom of the **Inspector** panel and 
 > 2. LabelShadow does not take effect when the **CacheMode** property of the Label component is set to **CHAR**.
 > 3. LabelShadow does not support native platforms.
 
-LabelShadow script interface, please refer to the [LabelShadow API](https://docs.cocos.com/creator/3.4/api/api/en/classes/ui.labelshadow.html) for details.
+LabelShadow script interface, please refer to the [LabelShadow API](__APIDOC__/api/en/classes/ui.labelshadow.html) for details.
 
 ## LabelShadow Properties
 

@@ -7,7 +7,7 @@
 - 启用 `useBakedAnimation` 时会使用预烘焙骨骼动画系统
 - 禁用 `useBakedAnimation` 后会使用实时计算骨骼动画系统
 
-骨骼动画的组件接口请参考 [SkeletalAnimation API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/animation/Class/SkeletalAnimation)。
+骨骼动画的组件接口请参考 [SkeletalAnimation API](__APIDOC__/zh/#/docs/3.4/zh/animation/Class/SkeletalAnimation)。
 
 ## 预烘焙骨骼动画系统
 

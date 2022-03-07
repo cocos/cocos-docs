@@ -14,7 +14,7 @@ Adding directional lights to the scene can be done as described in [Adding Light
 
 A directional light node `Main Light` will be created automatically by default when creating a new scene.
 
-For the interface of the directional light component, please refer to [DirectionalLight API](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/component-light/Class/DirectionalLight).
+For the interface of the directional light component, please refer to [DirectionalLight API](__APIDOC__/en/#/docs/3.4/en/component-light/Class/DirectionalLight).
 
 ## Directional Light Properties
 

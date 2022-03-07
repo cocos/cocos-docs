@@ -13,7 +13,58 @@
 
 ![toon](img/toon.png)
 
-## 参数
+## 渲染过程
+
+Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为例，我们在材质资源中将  **Effect** 属性中的着色器切换为 `builtin-toon.effect`，可以看到卡通渲染由两个渲染过程（Pass）组成：
+
+![渲染过程](img/toon-pass.png)
+
+- 渲染过程 0（Pass 0）：用于描边，默认不启用，可勾选右侧的 **USE_OUTLINE_PASS** 开启。
+- 渲染过程 1（Pass 1）：正常渲染模型
+
+### Pass 0
+
+渲染过程 0 会将光栅化状态中的剔除模式选择为正面剔除（`CullMode = FRONT`）并将模型的顶点沿法线进行扩张，由此得到一个比原模型较大的单色模型，之后 Pass 1 会正常渲染一次模型并遮盖住 Pass 0 的渲染结果，由于 Pass 1 的模型尺寸小于 Pass 0 的尺寸，因此会留下一个纯色的边缘形成描边。
+
+![cull-front](img/cull-front.png)
+
+可通过勾选 **USE_OUTLINE_PASS** 开启或关闭。
+
+当勾选 **USE_OUTLINE_PASS** 开启 Pass 0 的描边功能后，效果图如下：
+
+![USE_OUTLINE_PASS 开启](img/outline-on.png)
+
+若需要调整描边的深度效果，可通过 **DepthBias** 属性进行调整：
+
+![DepthBias](img/toon-depth-bias.png)
+
+当不勾选 **USE_OUTLINE_PASS** 关闭 Pass 0 的描边功能后，效果图如下：
+
+![USE_OUTLINE_PASS 关闭](img/outline-off.png)
+
+### Pass 1
+
+卡通渲染的核心思路是通过降低色阶的数量，模拟器卡通中的赛璐璐（Celluloid）画风。
+
+在着色器中将色阶降低为三个色阶，并通过三个颜色组成：
+
+- **baseColor**：基础颜色
+- **shadeColor1**：一阶着色的颜色
+- **shadeColor2**：二阶着色的颜色
+
+其颜色与编辑器材质属性的对应关系如下图：
+
+![toon-shade-color](img/shade-color.png)
+
+勾选 **USE_1ST_SHADE_MAP** 和 **USE_2ND_SHADE_MAP** 的情况下，使用外部进行纹理模拟色阶不连续现象。
+
+![shade map](img/shade-map.png)
+
+通过着色器的 `surf` 方法计算表面着色器（`ToonSurface`）的参数，并由 `CCToonShading` 方法计算最终的着色。
+
+![surf 代码](img/toon-surf.png)
+
+## 参数和预编译宏定义
 
 ### 渲染过程 0
 
@@ -49,7 +100,7 @@
 | specularMap    | 高光贴图，若指定了贴图，则会和高光颜色相乘。该项仅在勾选 **USE SPECULAR MAP** 后显示 |
 | emissiveMap    | 自发光贴图，若指定则会和自发光颜色相乘，因此需要将自发光颜色（默认是黑色）中的 RGBA 调高才会有效果。该项仅在勾选 **USE EMISSIVE MAP** 后显示 |
 
-## 宏
+## 宏定义
 
 | 宏名                          | 说明                      |
 | :---------------------------- | :------------------------ |
@@ -66,54 +117,3 @@
 | BASE_COLOR_MAP_AS_SHADE_MAP_1 | 使用 baseColorMap 作为一阶着色 |
 | BASE_COLOR_MAP_AS_SHADE_MAP_2 | 使用 baseColorMap 作为二阶着色 |
 | SHADE_MAP_1_AS_SHADE_MAP_2    | 二阶着色是否和一阶着色叠加|
-
-## 渲染过程
-
-Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为例，我们在材质资源中将 **Effect** 属性中的着色器切换为 `builtin-toon.effect`，可以看到卡通渲染由两个渲染过程（Pass）组成：
-
-![渲染过程](img/toon-pass.png)
-
-- 渲染过程 0（Pass 0）：用于描边，默认不启用，可勾选右侧的 **USE_OUTLINE_PASS** 开启。
-- 渲染过程 1（Pass 1）：正常渲染模型
-
-### Pass 0
-
-渲染过程 0 会将光栅化状态中的剔除模式选择为正面剔除（`CullMode=FRONT`）并将模型的顶点沿法线进行扩张，由此得到一个比原模型较大的单色模型，之后 Pass 1 会正常渲染一次模型并遮盖住 Pass 0 的渲染结果，由于 Pass 1 的模型尺寸小于 Pass 0 的尺寸，因此会留下一个纯色的边缘形成描边。
-
-![cull-front](img/cull-front.png)
-
-可通过勾选 **USE_OUTLINE_PASS** 开启或关闭。
-
-当勾选 `USE_OUTLINE_PASS` 开启 Pass 0 的描边功能后，效果图如下：
-
-![USE_OUTLINE_PASS 开启](img/outline-on.png)
-
-若需要调整描边的深度效果，可通过 **DepthBias** 属性进行调整：
-
-![DepthBias](img/toon-depth-bias.png)
-
-当不勾选 **USE_OUTLINE_PASS** 关闭 Pass 0 的描边功能后，效果图如下：
-
-![USE_OUTLINE_PASS 关闭](img/outline-off.png)
-
-### Pass 1
-
-卡通渲染的核心思路是通过降低色阶的数量，模拟器卡通中的赛璐璐（Celluloid）画风。
-
-在着色器中将色阶降低为三个色阶，并通过三个颜色组成：
-
-- **baseColor**：基础颜色
-- **shadeColor1**：一阶着色的颜色
-- **shadeColor2**：二阶着色的颜色
-
-其颜色与编辑器材质属性的对应关系如下图：
-
-![toon-shade-color](img/shade-color.png)
-
-勾选 `USE_1ST_SHADE_MAP` 和 `USE_2ND_SHADE_MAP` 的情况下，使用外部进行纹理模拟色阶不连续现象。
-
-![shade map](img/shade-map.png)
-
-通过着色器的 `surf` 方法计算表面着色器（`ToonSurface`）的参数，并由 `CCToonShading` 方法计算最终的着色。
-
-![surf 代码](img/toon-surf.png)

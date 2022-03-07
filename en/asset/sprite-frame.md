@@ -84,4 +84,4 @@ const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = spriteFrame;
 ```
 
-For API information, please refer to the [SpriteFrame](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/asset/Class/SpriteFrame) documentation.
+For API information, please refer to the [SpriteFrame](__APIDOC__/en/#/docs/3.4/en/asset/Class/SpriteFrame) documentation.

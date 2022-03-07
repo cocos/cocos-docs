@@ -72,7 +72,7 @@
 
 - 回调参数
 
-    - [EventMouse](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventMouse) 或 [EventTouch](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventTouch)
+    - [EventMouse](__APIDOC__/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventMouse) 或 [EventTouch](__APIDOC__/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventTouch)
 
 指针事件的使用范例如下：
 
@@ -113,7 +113,7 @@ export class Example extends Component {
 
 - 回调参数
 
-    - [EventKeyboard](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/event/Class/EventKeyboard)
+    - [EventKeyboard](__APIDOC__/zh/#/docs/3.4/zh/event/Class/EventKeyboard)
 
 使用键盘事件的代码示例如下：
 
@@ -163,7 +163,7 @@ export class Example extends Component {
 
 - 回调参数
 
-    - [EventAcceleration](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventAcceleration)
+    - [EventAcceleration](__APIDOC__/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventAcceleration)
 
 使用设备重力传感事件的代码示例如下：
 

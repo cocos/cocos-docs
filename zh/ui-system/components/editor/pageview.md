@@ -6,7 +6,7 @@ PageView 是一种页面视图容器.
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/PageView** 即可添加 PageView 组件到节点上。
 
-页面视图的脚本接口请参考 [PageView API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/ui/Class/PageView)。
+页面视图的脚本接口请参考 [PageView API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/PageView)。
 
 关于使用可以参考范例 **PageView**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/15.pageview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/15.pageview)）。
 
@@ -14,7 +14,7 @@ PageView 是一种页面视图容器.
 
 | 属性                     | 功能说明 |
 | :-------------           | :---------- |
-| SizeMode                 | 页面视图中每个页面大小类型，目前有 Unified 和 Free 类型。<!--详情可参考 [SizeMove API](https://docs.cocos.com/creator/3.4/api/zh/#/docs/3.4/zh/ui/Class/PageView?id=sizemode) -->  |
+| SizeMode                 | 页面视图中每个页面大小类型，目前有 Unified 和 Free 类型。<!--详情可参考 [SizeMove API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/PageView?id=sizemode) -->  |
 | Content                  | 它是一个节点引用，用来创建 PageView 的可滚动内容 |
 | Direction                | 页面视图滚动方向 |
 | ScrollThreshold          | 滚动临界值，默认单位百分比，当拖拽超出该数值时，松开会自动滚动下一页，小于时则还原 |

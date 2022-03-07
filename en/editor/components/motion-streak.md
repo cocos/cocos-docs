@@ -10,7 +10,7 @@ For details on how to use it, please refer to the [MotionStreak](https://github.
 
 ![add motionStreak](motion-streak/add-motion-streak.png)
 
-For script interfaces of MotionStreak, please refer to [MotionStreak API](https://docs.cocos.com/creator/3.4/api/en/#/docs/3.4/en/particle2d/Class/MotionStreak).
+For script interfaces of MotionStreak, please refer to [MotionStreak API](__APIDOC__/en/#/docs/3.4/en/particle2d/Class/MotionStreak).
 
 ## MotionStreak Properties
 
