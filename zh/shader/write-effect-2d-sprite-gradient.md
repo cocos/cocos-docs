@@ -18,14 +18,15 @@
 
 通过 CocosDashBoard 创建一个新的 2D 项目。
 
-创建一个新的场景并在场景内添加一个 Sprite 组件：
+创建一个新的场景并在场景内添加一个 Sprite：
 
 ![create sprite](img/create-sprite.png)
 
-在 **资源管理器** 内创建下列资源：
-- gradient.effect 的着色器文件
+在 **资源管理器** 内执行以下的操作：
+
+- 创建名为 gradient.effect 的着色器文件
 - 拷贝 **资源管理器 -> intenal -> effects** 内的 `builtin-sprite` 着色器的内容到 gradient.effect 内
-- 一个名为 gradient.mtl 的材质并在 **属性查看器** 内的 Effect 栏选择 gradient.effect
+- 创建名为 gradient.mtl 的材质并在 **属性查看器** 内的 Effect 栏选择 gradient.effect
 - 导入任意的纹理
 
 材质和着色器的创建可通过在 **资源管理器** 内任意空白处点击鼠标右键，或单击 **资源管理** 上的 `+` 按钮
@@ -79,22 +80,22 @@ CCEffect %{
 
 注意这里定义了两个颜色值 `startColor` 和 `endColor`，如果要将这两个颜色正确的传入给着色器片段，则需要增加对应的 Uniform。
 
->在引擎中离散的 Uniform 声明已不是一个选择，因此需要使用 UBO 来声明。 若要了解更多 UBO 的内容可参考：[着色器语法](effect-syntax.md)。
-
-在 `CCProgram sprite-fs` 段内添加下列的代码：
+引擎规定，不允许离散使用 Uniform，因此在 `CCProgram sprite-fs` 段内添加下列的代码：
 
 ```glsl
-   uniform Constant{
+uniform Constant{
     vec4 startColor;
     vec4 endColor;
-  }; 
+}; 
 ```
 
-此时引擎会自动将 properties 内定义的属性和 `Constant` 内的 Uniform 进行关联。
+此时引擎会自动将 `properties` 内定义的属性和 `Constant` 内的 Uniform 进行关联。
 
 ## 顶点着色器
 
 通常不用对顶点着色器做额外的处理，因此保留系统内置的 `sprite-vs`。
+
+![顶点着色器](img/2d-gradient-vs.png)
 
 ## 片元着色器
 
@@ -108,6 +109,7 @@ CCEffect %{
     o.r = o.g = o.b = gray;
     #endif
 
+    // 根据 UV 的变化来调整渐变色
     o.rgb *= mix(startColor, endColor, vec4(uv0.x)).rgb;
 #endif
 ```
@@ -116,9 +118,12 @@ CCEffect %{
 
 ![use-texture](img/check-use-texture.png)
 
-此时通过调整材质上的 `startColor` 和 `endColor` 则可以观察到不同的渐变：
+此时通过调整材质上的 **startColor** 和 **endColor** 则可以观察到不同的渐变：
 
 ![material-color](img/adjust-gradient-color.png)
+
+精灵着色的变化：
+
 ![preview](img/view-x-gradient.png)
 
 ## 使用预处理宏定义
@@ -143,7 +148,6 @@ o.rgb *= mix(startColor, endColor, vec4(uv0.x)).rgb;
 
 这里声明了两个预处理宏定义 `USE_HORIZONTAL` 和 `USE_VERTICAL` 分别代表了水平方向和垂直方向的渐变，可以方便的按需使用：
 
-![macro-setting](img/macro-setting.png)
 ![macro-preview](img/macro-preview.png)
 
 完整的着色器代码：

@@ -28,7 +28,7 @@ Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为�
 
 ![cull-front](img/cull-front.png)
 
-可通过勾选 **USE_OUTLINE_PASS** 开启或关闭。
+Pass 0 可通过勾选 **USE_OUTLINE_PASS** 开启或关闭。
 
 当勾选 **USE_OUTLINE_PASS** 开启 Pass 0 的描边功能后，效果图如下：
 
