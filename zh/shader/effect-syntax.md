@@ -113,7 +113,7 @@ CCProgram shader-name %{
 - 为对接骨骼动画与数据解压流程，我们提供了 `CCVertInput` 工具函数，它有 `general` 和 `standard` 两个版本，内容如下：
 
   ```glsl
-  // genral version in input.chunk
+  // 位于 ‘input.chunk’ 的通用顶点着色器输入
   #define CCVertInput(position) \
     CCDecode(position);         \
     #if CC_USE_MORPH            \
@@ -123,8 +123,8 @@ CCProgram shader-name %{
       CCSkin(position);         \
     #endif                      \
     #pragma // 空 ‘pragma’ 技巧，在编译时消除尾随分号
-
-  // standard version in input-standard.chunk
+  
+  // 位于 ‘input-standard.chunk’ 的标准顶点着色器输入
   #define CCVertInput(In) \
     CCDecode(In);         \
     #if CC_USE_MORPH      \
@@ -173,13 +173,12 @@ struct StandardVertInput {
 
 > **注意**：引用头文件后，不要在 Shader 内重复声明这些 attributes（`a_position`、`a_normal`、`a_tangent` 等）。对于其他顶点数据（如 uv 等）还是需要声明 attributes 后再使用。
 
-如果要对接引擎动态Mesh合批和几何体实例化（GPU Instancing）流程，需要包含 `cc-local-batch` 头文件，通过 `CCGetWorldMatrix` 工具函数获取世界矩阵，示例如下：
+如果要对接引擎动态 Mesh 合批和几何体实例化（GPU Instancing），需要包含 `cc-local-batch` 头文件，通过 `CCGetWorldMatrix` 工具函数获取世界矩阵，示例如下：
 
 ```glsl
-// unlit version (when normal is not needed)
 mat4 matWorld;
 CCGetWorldMatrix(matWorld);
-// standard version
+
 mat4 matWorld, matWorldIT;
 CCGetWorldMatrixFull(matWorld, matWorldIT);
 ```
@@ -217,7 +216,7 @@ vec4 CCFragOutput (vec4 color) {
 
 如果采用 `CCFragOutput` 作为片元输出，中间的颜色运算必须转到 `Linear` 空间，因为 `CCFragOutput` 认为传入的参数是在 `Linear` 空间的，总是会进行 `LinearToSRGB` 转码。
 
-`CCFragOutput` 函数一般还是不需要自己实现，它只起到与渲染管线对接的作用，且对于这种含有光照计算的输出，因为计算结果已经在 HDR 范围，所以应该包含 `output-standard` 而非 `output` 头文件。
+`CCFragOutput` 函数一般不需要自己实现，它只起到与渲染管线对接的作用，且对于这种含有光照计算的输出，因为计算结果已经在 HDR 范围，所以应该包含 `output-standard` 而非 `output` 头文件。
 
 如需包含标准的 PBR 光照计算，可使用 `StandardSurface` 结构体与函数 `CCStandardShadingBase` 一起构成 PBR 着色流程。
 
@@ -287,10 +286,10 @@ CCProgram shader-fs %{
 #endif
 ```
 
->**注意**：
+> **注意**：
 >- 这里的 `format` 用于指定此属性的具体数据格式，参数可以为引擎 `GFXFormat` 中的任意枚举名[^2]；如未声明则默认为 32 位 >float 类型。
 >- 所有实例化属性都是从利用顶点着色器（vs）的 attribute 输入，如果要在片元着色器（fs）中使用，需要先在 vs 中声明，再传递给 fs。
->- 记得确保代码在所有分支都能正常执行，无论 `USE_INSTANCING` 启用与否。
+>- 请确保代码在所有分支都能正常执行，无论 `USE_INSTANCING` 是否启用。
 
 实例化属性的值在运行时会初始化为 0，可在脚本中通过 `MeshRenderer.setInstancedAttribute` 接口进行设置，示例代码如下：
 

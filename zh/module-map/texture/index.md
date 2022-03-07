@@ -2,7 +2,7 @@
 
 纹理是一张可显示的图像，或一段用于计算的中间数据，通过 UV 坐标映射到渲染物体表面，使之效果更为丰富精彩且真实。Creator 中纹理的应用包括以下几种：
 
-- 用于 2D、UI 渲染，参考 [SpriteFrame](../../asset/sprite-frame.md)。
+- 用于 2D UI 渲染，参考 [SpriteFrame](../../asset/sprite-frame.md)。
 
 - 用于 3D 模型渲染，需要在材质中指定 [纹理贴图资源](../../asset/texture.md)，才能将其渲染映射到网格表面。纹理贴图还支持在 [导入图像资源](../../asset/image.md) 时将其切换为 **立方体贴图** 和 **法线贴图**。
 

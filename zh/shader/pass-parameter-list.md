@@ -214,40 +214,40 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :-- | :----- | :--- |
-| cullMode | 光栅化时剔除模式 | **back** | front, back, none  |
 | isDiscard | 引擎预留 | **false** | true, false |
 | polygonMode | 多边形绘制模式 | **fill** | point，line，fill|
 | shadeModel | 着色模型 | **flat** | flat, gourand|
-| isFrontFaceCCW| 是否逆时针（CCW）前向| **true** | true，false|
+| cullMode | 光栅化时剔除模式 | **back** | front, back, none  |
+| isFrontFaceCCW| 是否逆时针（CCW）前向 | **true** | true，false|
 | depthBias| 深度偏移 | **0.5** |
 | depthBiasSlop | 深度偏差斜率 | **0** |
 | depthBiasClamp | 深度截断 | **0** | |
 | isDepthClip | 允许深度剪裁操作<br> [Vulkan](https://www.khronos.org/registry/vulkan/specs/1.3-extensions/man/html/VK_EXT_depth_clip_enable.html) 专用 | **true** | true, false
 | isMultisample| 是否开启多重采样 | **false** | true, false
-| lineWidth |  线宽 | 1 |
+| lineWidth | 线宽 | 1 |
 
 ## DepthStencilState
 
 | 参数名      | 说明 | 默认值  | 可选项 |
 | :--------- | :-- | :----- | :--- |
-| depthTest        | 是否开启深度测试   | **true** | true, false                                                                 |
-| depthWrite       | 是否开启深度缓存写入   | **true** |true, false                                                                  |
-| depthFunc        | 深度缓存比较方法  | **less** | never, less, equal, less_equal, greater, not_equal, greater_equal, always   |
-| stencilTestFront     | 是否开启正面模板缓存测试 | **false**  | true, false                                                               |
-| stencilFuncFront      | 正面模板缓存比较方法   | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
-| stencilReadMaskFront  | 正面模板缓存读取掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
-| stencilWriteMaskFront | 正面模板缓存写入掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
-| stencilFailOpFront    | 正面模板缓存测试失败失败时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilZFailOpFront   | 正面模板缓存深度测试失败时，如何处理缓冲区的值 | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilPassOpFront    | 正面模板缓存测试通过时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilRefFront       | 正面模板缓存中的比较函数用于比较的值   | **1**    | 1, `[0, 0, 0, 1]`                                                           |
-| stencilTestBack | 是否开启背面模板缓存测试 | **false**  | true, false                                                               |
-| stencilFuncBack | 背面模板缓存比较方法   | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always
-| stencilReadMaskBack | 背面模板缓存读取掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`
-| stencilWriteMaskBack | 背面模板缓存写入掩码   | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`                                            |
-| stencilFailOpBack | 背面模板缓存测试失败时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilZFailOpBack | 背面模板缓存深度测试失败时，如何处理缓冲区的值  | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert               |
-| stencilRefBack | 背面模板缓存中的比较函数用于比较的值   | **1**    | 1, `[0, 0, 0, 1]`                                                           |
+| depthTest | 是否开启深度测试 | **true** | true,false |
+| depthWrite | 是否开启深度缓存写入 | **true** |true, false |
+| depthFunc | 深度缓存比较方法 | **less** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
+| stencilTestFront | 是否开启正面模板缓存测试 | **false**  | true, false |
+| stencilFuncFront | 正面模板缓存比较方法 | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
+| stencilReadMaskFront | 正面模板缓存读取掩码 | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]` |
+| stencilWriteMaskFront | 正面模板缓存写入掩码 | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`|
+| stencilFailOpFront | 正面模板缓存测试失败失败时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert |
+| stencilZFailOpFront | 正面模板缓存深度测试失败时，如何处理缓冲区的值 | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert |
+| stencilPassOpFront | 正面模板缓存测试通过时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert |
+| stencilRefFront | 正面模板缓存中的比较函数用于比较的值 | **1**    | 1, `[0, 0, 0, 1]`                                                           |
+| stencilTestBack | 是否开启背面模板缓存测试 | **false** | true, false                                                               |
+| stencilFuncBack | 背面模板缓存比较方法 | **always** | never, less, equal, less_equal, greater, not_equal, greater_equal, always |
+| stencilReadMaskBack | 背面模板缓存读取掩码 | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]`
+| stencilWriteMaskBack | 背面模板缓存写入掩码 | **0xffffffff** | 0xffffffff, `[1, 1, 1, 1]` |
+| stencilFailOpBack | 背面模板缓存测试失败时，如何处理缓冲区的值   | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert |
+| stencilZFailOpBack | 背面模板缓存深度测试失败时，如何处理缓冲区的值  | **keep** | keep, zero, replace, incr, incr_wrap, decr, decr_wrap, invert |
+| stencilRefBack | 背面模板缓存中的比较函数用于比较的值   | **1**    | 1, `[0, 0, 0, 1]` |
 
 ## BlendState
 
@@ -255,7 +255,7 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 | :--- | :--- |:--- | :--- |
 | isA2C | 是否开启半透明反锯齿（Alpha To Coverage）| **false** | true，false
 | isIndepend | RGB 和 Alpha 是否分开混合 | **false** | true，false
-| blendColor | 指定混合颜色 | **0** | 0, `[0, 0, 0, 0]`  |
+| blendColor | 指定混合颜色 | **0** | 0, `[0, 0, 0, 0]` |
 | targets    | 混合配置, 请参考下方的 targets | [] | |
 
 ### Targets
@@ -270,4 +270,4 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 | Targets[i].<br>blendDstAlpha  |  指定 **混合目标** 的 Alpha 混合因子 | **zero** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
 | Targets[i].<br>blendAlphaEq   |  指定 **混合源** 与 **混合目标** 的 Alpha 混合方法 | **add** | add, sub, rev_sub                                                           |
 | Targets[i].<br>blendColorMask | 指定是否可将 RGB，Alpha 分量写入帧缓存 | **all** | all, none, r, g, b, a, rg, rb, ra, gb, ga, ba, rgb, rga, rba, gba           |
-| dynamics | 可动态更新的管线状态  | [] |    LINE_WIDTH, DEPTH_BIAS = 2, BLEND_CONSTANTS, DEPTH_BOUNDS = 8, STENCIL_WRITE_MASK = 16, STENCIL_COMPARE_MASK = 32|
+| dynamics | 可动态更新的管线状态  | [] |    LINE_WIDTH, DEPTH_BIAS, BLEND_CONSTANTS, DEPTH_BOUNDS, STENCIL_WRITE_MASK, STENCIL_COMPARE_MASK |
