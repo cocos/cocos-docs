@@ -60,7 +60,7 @@ If you need to attach some external nodes to a given skeletal joint, making them
 ### Implementing via the editor
 
 1. Create a new child node under the skeletal animation component to be docked (the immediate parent node should be the node where the animation component is located).
-2. Add an array element to the `sockets` property of the skeletal animation component, select the `path` of the skeleton to be attached from the drop-down list (note that the defaultClip of the skeletal animation component must have a value, the options in the drop-down list depend on this property), and specify the child node just created as the `target`.
+2. Add an array element to the **Sockets** property of the skeletal animation component, select the **Path** of the skeleton to be attached from the drop-down list (note that the defaultClip of the skeletal animation component must have a value, the options in the drop-down list depend on this property), and specify the child node just created as the **Target**.
 3. This child node becomes the target socket, any external node can be put under this child node and will follow the transformation of the specified skeleton.
 
 ![attach0](./animation/sockets-attach0.png)
