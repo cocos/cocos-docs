@@ -67,7 +67,7 @@
 
 ### 通过脚本配置挂点
 
-```
+```ts
     let target = new Node();
     this.cubeNode.parent = target; // cubeNode 包含一个立方体模型
     let skeletalAnimation = this.node.getComponent(SkeletalAnimation);
