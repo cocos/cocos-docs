@@ -30,7 +30,9 @@
 
     ![build](./publish-huawei-ohos/build.png)
 
-    > **注意**：**HarmonyOS** 展开项中的 **应用 ID 名称** 需要与在 AppGallery Connect 后台添加 HarmonyOS 应用时的包名保持一致。
+    > **注意**：
+    > 1. **HarmonyOS** 展开项中的 **应用 ID 名称** 需要与在 AppGallery Connect 后台添加 HarmonyOS 应用时的包名保持一致。
+    > 2. 由于 **HarmonyOS** 已全面支持 GLES3，因此在 v3.4.2 中我们取消了 **Render BackEnd** 中 GLES2 的可选项。
 
 3. 构建完成后打开项目目录，可以看到在 `native\engine` 目录下生成了 `ohos` 文件夹，该文件夹就包含了构建生成的 HarmonyOS 工程。
 
