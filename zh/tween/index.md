@@ -10,6 +10,6 @@
 
 本章包含以下内容：
 
-- [接口说明](./tween-interface.md)
-- [缓动示例](./tween-example.md)
+- [缓动接口](./tween-interface.md)
 - [缓动函数](./tween-function.md)
+- [缓动示例](./tween-example.md)
