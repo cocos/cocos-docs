@@ -66,6 +66,7 @@
 ![attach0](./animation/sockets-attach0.png)
 
 ### 通过脚本配置挂点
+
 ```
     let target = new Node();
     this.cubeNode.parent = target; // cubeNode 包含一个立方体模型
