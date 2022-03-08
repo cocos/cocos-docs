@@ -68,13 +68,13 @@
 ### 通过脚本配置挂点
 
 ```ts
-    let target = new Node();
-    this.cubeNode.parent = target; // cubeNode 包含一个立方体模型
-    let skeletalAnimation = this.node.getComponent(SkeletalAnimation);
-    target.parent = skeletalAnimation.node; //target父节点需设置为SkeletalAnimation所在的node
-    let path = "root/_rootJoint/b_Root_00/b_Hip_01/b_Tail01_012/b_Tail02_013/b_Tail03_014";
-    let socket = new SkeletalAnimation.Socket(path, target);
-    skeletalAnimation.sockets.push(socket);
+let target = new Node();
+this.cubeNode.parent = target; // cubeNode 包含一个立方体模型
+let skeletalAnimation = this.node.getComponent(SkeletalAnimation);
+target.parent = skeletalAnimation.node; // target 父节点需设置为 SkeletalAnimation 所在的 Node
+let path = "root/_rootJoint/b_Root_00/b_Hip_01/b_Tail01_012/b_Tail02_013/b_Tail03_014";
+let socket = new SkeletalAnimation.Socket(path, target); // 基于路径和目标节点创建一个 ‘Socket’
+skeletalAnimation.sockets.push(socket);
 ```
 点击预览按钮，即可看见立方体小块随狐狸模型的尾巴一起摆动。
 
