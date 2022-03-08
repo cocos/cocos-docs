@@ -68,13 +68,13 @@ If you need to attach some external nodes to a given skeletal joint, making them
 ### Implementing via code
 
 ```ts
-    let target = new Node();
-    this.cubeNode.parent = target; // the cubeNode contains a cube model
-    let skeletalAnimation = this.node.getComponent(SkeletalAnimation);
-    target.parent = skeletalAnimation.node; //setting target's parent node which contain a SkeletalAnimation component.
-    let path = "root/_rootJoint/b_Root_00/b_Hip_01/b_Tail01_012/b_Tail02_013/b_Tail03_014";
-    let socket = new SkeletalAnimation.Socket(path, target); // create Socket object with path and target
-    skeletalAnimation.sockets.push(socket);
+let target = new Node();
+this.cubeNode.parent = target; // The cubeNode contains a cube model
+let skeletalAnimation = this.node.getComponent(SkeletalAnimation);
+target.parent = skeletalAnimation.node; // Setting target's parent node which contain a SkeletalAnimation component.
+let path = "root/_rootJoint/b_Root_00/b_Hip_01/b_Tail01_012/b_Tail02_013/b_Tail03_014";
+let socket = new SkeletalAnimation.Socket(path, target); // Create Socket object with path and target
+skeletalAnimation.sockets.push(socket);
 ```
 Click the Preview button, you will see the cube handing from the fox's tail and shaking along with the fox's tail.
 
