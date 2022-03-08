@@ -31,6 +31,7 @@
     ![build](./publish-huawei-ohos/build.png)
 
     > **注意**：
+    >
     > 1. **HarmonyOS** 展开项中的 **应用 ID 名称** 需要与在 AppGallery Connect 后台添加 HarmonyOS 应用时的包名保持一致。
     > 2. 由于 **HarmonyOS** 已全面支持 GLES3 渲染后端，因此在 v3.4.2 中我们移除了 **HarmonyOS** 展开项中的 **Render BackEnd** 选项。
 
