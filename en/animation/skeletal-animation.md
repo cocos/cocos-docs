@@ -66,6 +66,7 @@ If you need to attach some external nodes to a given skeletal joint, making them
 ![attach0](./animation/sockets-attach0.png)
 
 ### Implementing via code
+
 ```
     let target = new Node();
     this.cubeNode.parent = target; // the cubeNode contains a cube model
