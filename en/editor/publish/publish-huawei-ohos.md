@@ -30,7 +30,8 @@ Starting with v3.2, Cocos Creator supports packaging games as Huawei **HarmonyOS
 
     ![build](./publish-huawei-ohos/build.png)
 
-    > **Note**: 
+    > **Notes**:
+    > 
     > 1. **Game Package Name** in the expanded option of **HarmonyOS** needs to be consistent with the **Package name** when adding the HarmonyOS application in the AppGallery Connect.
     > 2. We deprecated the GLES2 option in **Render Backend** since v3.4.2 due to **HarmonyOS** offering full support to GLES3.
 
