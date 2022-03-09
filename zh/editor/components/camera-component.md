@@ -62,7 +62,7 @@ Visibility 属性可以同时选择多个 Layer，同时 Node 上的 Layer 也�
 
 **Aperture**, **Shutter**，**Iso** 这三个相机的物理参数会决定进光量，进而影响曝光量（Exposure Value）。仅在场景开启 HDR 的情况下生效。其算法通常为：
 
-![ev](./camera/ev.png)
+ev = <mlog>log</mlog><sub>2</sub>(ApertureValue<sup>2</sup> / ShutterValue*k / IsoValue)
 
 其中 `ApertureValue`、`ShutterValue` 和 `IsoValue` 通过 **Aperture**, **Shutter**，**Iso** 这三个属性的枚举值查表得出。
 
