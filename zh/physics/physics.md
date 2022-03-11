@@ -27,19 +27,11 @@ Cocos Creator 3.X 3D 物理支持以下几种物理引擎：
 
 > **注意**：此处的 “刚体” 并非刚体组件，而是物理世界内的刚体（指在运动中和受力作用后，形状和大小不变，而且内部各点的相对位置不变的物体），刚体组件用于控制刚体物理行为。
 
-### 物理世界的更新
+### 物理世界的流程
 
-物理世界会在 `postUpdate` 时对物理世界进行模拟并将结果同步到节点的变换上。而 `postUpdate` 的更新时机是在 **组件（Component）** 的 `lateUpdate` 之后，因此在组件的 `update` 和 `lateUpdate` 中都可以给物体添加力或者速度。
+当所有组件都完成 `lateUpdate` 之后，引擎会将持有物理属性的节点（刚体组件、碰撞体组件）同步到物理世界，并驱动物理引擎进行模拟，模拟完成以后再将物理引擎计算出的结果同步到场景的各个节点上。整体流程如下图所示：
 
-```flow
-st=>start: Start
-op=>operation: Physics
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
+![phy](img/physics-pipeline.png)
 
 ## 添加物理元素
 

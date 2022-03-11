@@ -260,8 +260,8 @@
         - [物理组件](physics/physics-component.md)
         - [物理材质](physics/physics-material.md)
         - [物理事件](physics/physics-event.md)
+        - [射线检测](physics/physics-raycast.md)
         - [物理应用案例](physics/physics-example.md)
-            - [射线检测](physics/physics-raycast.md)
 
 - [粒子系统](particle-system/index.md)
     - [2D 粒子](particle-system/2d-particle/2d-particle.md)
