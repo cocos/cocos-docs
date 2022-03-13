@@ -54,7 +54,7 @@ The custom Asset Bundle is configured in **folders**. When we select a folder in
 | Configuration Options | Function Explanation |
 | :---  | :---- |
 | **Bundle Name**      | The name of the Asset Bundle after it is built, which will use the name of this folder by default, can be modified as needed.  |
-| **Bundle Priority**  | Creator opens up 10 configurable priorities, and the Asset Bundle will be built in descending order of priority. For more detail, see [Asset Bundle -- Priority](bundle.md#priority) documentation. |
+| **Bundle Priority**  | Creator opens up 20 configurable priorities, and the Asset Bundle will be built in descending order of priority. For more detail, see [Asset Bundle -- Priority](bundle.md#priority) documentation. |
 | **Target Platform**  | An Asset Bundle can have different settings on different platforms and the editor will choose the corresponding setting at build time. |
 | **Compression Type** | Determines the final output form of the Asset Bundle, including the five compression types **Merge Depend**, **None**, **Merge All JSON**, **Mini Game Subpackage**、**Zip**. For more detail, see [Asset Bundle -- Compression Type](bundle.md#compression-type) documentation. |
 | **Is Remote Bundle** | Whether to configure the Asset Bundle as a remote package and not support the Web platform.<br>If checked, the Asset Bundle will be placed in the **remote** folder after the build, and you will need to place the entire **remote** folder on the remote server.<br>When building mini game platforms such as OPPO, vivo, Huawei, etc., the Asset Bundle will not be packaged into rpk if this option is checked. |
@@ -78,7 +78,7 @@ Another possibility is that a resource is in one Asset Bundle folder, but is als
 ![shared2](bundle/shared2.png)
 
 In both cases, `resource c` belongs to both `Asset Bundle A` and `Asset Bundle B`. So which Asset Bundle does `resource c` actually exist in? This needs to be specified by adjusting the priority of the Asset Bundle.<br>
-Creator opens up 10 configurable priorities, and the editor will build the Asset Bundle in **descending order** of priority at build time.
+Creator opens up 20 configurable priorities, and the editor will build the Asset Bundle in **descending order** of priority at build time.
 
 - When the same resource is referenced by multiple Asset Bundles with **different priorities**, the resource will be placed in the high-priority Asset Bundle, while the lower-priority Asset Bundle stores only one record message. In this case the lower-priority Asset Bundle relies on the higher-priority Asset Bundle.
 

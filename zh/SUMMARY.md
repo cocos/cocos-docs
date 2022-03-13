@@ -211,7 +211,7 @@
         - [编辑动画缓动曲线](animation/animation-curve.md)
         - [添加动画事件](animation/animation-event.md)
         - [使用动画曲线](animation/use-animation-curve.md)
-    - [骨骼动画](animation/skeletal-animation.md)
+    - [骨骼动画组件](animation/skeletal-animation.md)
         - [骨骼贴图布局设置](animation/joint-texture-layout.md)
     - [使用脚本控制动画](animation/animation-component.md)
         - [动画状态](animation/animation-state.md)
