@@ -101,7 +101,7 @@
 
 球体发射器和半球体发射器的属性是一样的，这里我们以球体发射器为例：
 
-![Sphere_emitter_property](emitter/Sphere_emitter_property.png)
+![Sphere_emitter_property](emitter/sphere-emitter-property.png)
 
 特有的属性项说明如下：
 
@@ -113,8 +113,8 @@
 
 球体发射器在 **场景编辑器** 中会有一个球 Gizmo，显示发射器的形状大小：
 
-![Sphere_emitter](emitter/Sphere_emitter.png)
+![Sphere_emitter](emitter/sphere-emitter.png)
 
 同样的，半球体发射器在 **场景编辑器** 中也有一个半球 Gizmo，显示发射器的形状大小：
 
-![Hemisphere_emitter](emitter/Hemisphere_emitter.png)
+![Hemisphere_emitter](emitter/hemisphere-emitter.png)

@@ -6,11 +6,11 @@
 
 根据选择的编辑模式不同，属性框的显示也有一定的差异：
 
-- **Color**（默认）：设定的颜色在属性的整个生命周期内是固定的；
+- **Color**（默认）：设定的颜色在属性整个生命周期内不会发生变化；
 
     ![color](gradient-editor/color.png)
 
-- **Gradient**：属性的颜色变化由设置的颜色渐变图指定；
+- **Gradient**：属性切换为渐变色编辑形式，点击属性框即可打开渐变色编辑器。属性的颜色变化由设置的颜色渐变图指定；
 
     ![gradient](gradient-editor/gradient.png)
 
@@ -18,11 +18,11 @@
 
     ![two-colors](gradient-editor/two-colors.png)
 
-- **TwoGradients**：两个渐变图定义了颜色在生命周期内给定点的渐变上限和下限，当前颜色在两个边界之间进行插值；
+- **TwoGradients**：两个渐变图定义了属性颜色在生命周期内某一点的渐变上限和下限，当前颜色在两个边界之间进行插值；
 
     ![two-gradients](gradient-editor/two-gradients.png)
 
-- **RadomColor**：取 **Gradient** 模式下的渐变图中的随机颜色
+- **RadomColor**：取 **Gradient** 模式下的渐变图中的随机颜色。
 
     ![radom-color](gradient-editor/radom-color.png)
 

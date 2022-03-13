@@ -21,4 +21,4 @@
 | **ColorOverTrail**      | 拖尾颜色随着拖尾自身长度的变化而变化
 | **ColorOvertime**       | 拖尾颜色随着时间的变化而变化
 
-点击属性输入框右侧的 ![menu button](main-module/menu-button.png) 按钮，可选择对属性进行曲线编辑/渐变色编辑，详情请参考 [粒子属性编辑](../editor/index.md)。
+点击属性输入框右侧的 ![menu button](main-module/menu-button.png) 按钮，可选择对属性进行曲线编辑/渐变色编辑，详情请参考 [粒子属性编辑](./editor/index.md)。
