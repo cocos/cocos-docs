@@ -98,7 +98,7 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 
 不同的物理引擎，其内部的设计和算法都不相同，因此会出现一些参数相同但是效果不同的情况，这些差异主要包括以下三类：
 
-1. 刚体组件上的 `damping` 属性
+1. 刚体组件上的 **damping** 属性
 
     由于 PhysX 物理使用了不同的阻尼算法模型导致的差异。但此差异已被内部消除，如果需要同步之前在 PhysX 中设置的阻尼值，可以参考以下代码进行转换：
 
@@ -107,9 +107,9 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
     const newDamping = 1 - (1 - oldDamping * dt) ** (1 / dt);
     ```
 
-2. 刚体组件上的 `factor` 属性
+2. 刚体组件上的 **factor** 属性
 
-    由于 PhysX 物理只固定刚体自由度，没有提供刚体速度的缩放因子导致的，即刚体组件中的 `Linear Factor` 和 `Angular Factor` 属性对 PhysX 物理只有固定效果。之后将会在内部消除此差异。
+    由于 PhysX 物理只固定刚体自由度，没有提供刚体速度的缩放因子导致的，即刚体组件中的 **Linear Factor** 和 **Angular Factor** 属性对 PhysX 物理只有固定效果。之后将会在内部消除此差异。
 
 3. 物理材质
 

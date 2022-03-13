@@ -32,6 +32,15 @@
 
 ![Centroid](img/center-of-mass.jpg)
 
+这里用一个示例来说明如何调整碰撞的质心：
+
+- 新建一个空的节点 **Node** 并添加下图所示的组件：
+  ![add comp](img/center-add-comp.png)
+- 在 **Node** 的子节点下添加一个胶囊体，如下图所示：
+  ![add capsule](img/center-add-cupsule.png)
+- 调整 **cc.CapsuleCollider** 的 Center 为下图所示，则此时胶囊体的质心则在胶囊体的底部：
+  ![result](img/center-result.png)
+
 ## 添加刚体
 
 ### 通过编辑器添加
@@ -53,7 +62,7 @@ let rigidBody = this.node.getComponent(RigidBody);
 1. 配置碰撞分组并让其生效。
 2. 物体需要具备运动学或动力学行为。
 
->**注意**：物体需要具备物理特性的前提条件物体同时具备 **刚体** 和 **碰撞体**，调整好其质心位置和碰撞体的形状才可以进行完全的物理模拟。
+>**注意**：物体需要具备完全物理特性的前提条件物体同时具备 **刚体** 和 **碰撞体**，并调整好其质心位置和碰撞体的形状。
 
 ## 刚体属性
 
@@ -84,8 +93,8 @@ let rigidBody = this.node.getComponent(RigidBody);
 
 针对不同的类型，让刚体运动的方式不同：
 
-- 对于静态刚体（**STATIC**），应当尽可能保持物体静止，但仍然可以通过变换（Transform）来改变物体的位置。
-- 对于运动学刚体（**KINEMATIC**），应当通过改变变换（Transform）使其运动。
+- 对于静态刚体（**STATIC**），应当尽可能保持物体静止，但仍然可以通过变换（位置、旋转等）来改变物体的位置。
+- 对于运动学刚体（**KINEMATIC**），应当通过改变变换（位置、旋转等）使其运动。
 
 对于动力学（**DYNAMIC**）刚体，需要改变其速度，有以下几种方式：
 
@@ -155,6 +164,8 @@ if (rigidBody.isSleeping) {
 }
 ```
 
+> **注意**：执行部分接口，例如施加力或冲量、改变速度、分组和掩码会尝试唤醒刚体。
+
 #### 通过阻尼
 
 刚体组件提供了 **linearDamping** 线性阻尼和 **angularDamping** 旋转阻尼属性，可以通过 `linearDamping` 和 `angularDamping` 方法对其获取或设置。
@@ -170,8 +181,6 @@ if (rigidBody) {
     let angularDamping = rigidBody.angularDamping;
 }
 ```
-
-> **注意**：执行部分接口，例如施加力或冲量、改变速度、分组和掩码会尝试唤醒刚体。
 
 #### 通过因子
 

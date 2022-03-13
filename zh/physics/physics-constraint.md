@@ -4,7 +4,7 @@
 
 约束依赖 [刚体组件](physics-rigidbody.md)，若节点无刚体组件，则添加约束时，引擎会自动添加刚体组件。
 
->目前的约束仅在物理引擎选择为 Bullet、PhysX 或 Cannon.js 的情况下生效。
+> **注意**：目前的约束仅在物理引擎选择为 Bullet、PhysX 或 Cannon.js 的情况下生效。
 
 ## 铰链约束 HingeConstraint
 

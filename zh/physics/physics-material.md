@@ -21,9 +21,9 @@
 
 ### 在编辑器内创建
 
-在 **属性检查器** 内点击右键或使用 + 号间都可以创建物理材质：
+在 **属性检查器** 内右键任意空白处或点击 **+** 号间都可以创建物理材质：
 
-![创建物理材质](img/material-create-pmtl.jpg)
+![创建物理材质](img/material-create-pmtl.png)
 
 ### 通过代码创建
 
@@ -45,7 +45,7 @@ newPMtl.restitution = 0.5;
 
 应用到 **Collider** 同样也分编辑器操作和代码操作两种方式。
 
-编辑器内操作，只需要将资源拖入到 `cc.PhysicMaterial` 属性框中即可，如下图所示：
+编辑器内操作，只需要将资源拖入到 **cc.PhysicMaterial** 属性框中即可，如下图所示：
 
 ![应用物理材质](img/apply-pmtl.jpg)
 

@@ -13,7 +13,7 @@ Cocos Creator 3.X 3D 物理支持以下几种物理引擎：
 - **cannon.js**：具有碰撞检测和物理模拟的物理引擎。
 - **PhysX**: 由 [NVIDIA](https://developer.nvidia.com/physx-sdk) 公司开发的游戏物理引擎。具备碰撞检测和物理模拟的物理引擎。
 
-开发者根据开发需求或不同的应用场景选择不同的物理引擎，详情请参考：[设置物理引擎](physics-engine.md)。
+开发者根据开发对物理特性需求或应用场景选择不同的物理引擎，详情请参考：[设置物理引擎](physics-engine.md)。
 
 > **注意**：在低版本中 PhysX 不被支持。如要使用 PhysX 请确保引擎升级到最新版本。
 
@@ -40,7 +40,7 @@ Cocos Creator 3.X 3D 物理支持以下几种物理引擎：
 在游戏世界中添加一个物理元素可以分为以下步骤：
 
 1. 新建一个节点。此处新建一个立方体模型 **Cube**；
-2. 添加碰撞组件，此处添加一个 [盒碰撞体组件](physics-collider.md)。在 **属性检查器** 面板下方点击 **添加组件** 按钮，在 **Physics** 目录下选择 **BoxCollider** 并调整参数；
+2. 添加碰撞组件，此处添加一个 [盒碰撞体组件](physics-collider.md#%E7%9B%92%E7%A2%B0%E6%92%9E%E5%99%A8%E7%BB%84%E4%BB%B6-boxcollider)。在 **属性检查器** 面板下方点击 **添加组件** 按钮，在 **Physics** 目录下选择 **BoxCollider** 并调整参数；
 3. 为了使它具有物理行为，接着添加一个[刚体 RigidBody](physics-rigidbody.md) 组件。
 
 这样，便有了一个 **既有碰撞器又有物理行为** 的一个物理元素。
