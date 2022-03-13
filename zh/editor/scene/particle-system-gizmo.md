@@ -1,10 +1,10 @@
 # 粒子系统 Gizmo
 
-粒子系统的 Gizmo 主要用于可视化粒子系统的 [ShapeModule](../../particle-system/emitter.md)
+粒子系统的 Gizmo 主要用于可视化粒子系统的发射器 [ShapeModule](../../particle-system/emitter.md)。
 
-## 方块（Box）
+## 盒子（Box）
 
-**方块 Gizmo** 显示了方块的长宽高，同时可以使用方块控制点来编辑长宽高。
+**盒子 Gizmo** 显示了盒子的长宽高，同时可以使用方块控制点来编辑长宽高。
 
 ![particle box gizmo](images/particle-box-gizmo.png)
 
