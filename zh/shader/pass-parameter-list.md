@@ -77,7 +77,7 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 | editor.<br>visible        | **true**   | true, false                  |      |
 | editor.<br>tooltip        | **\*property name** | \*property name     | 任意字符串 |
 | editor.<br>range          | **undefined** | undefined, [ min, max, [step] ]  |   |
-| editor.<br>deprecated     | **false**  | true, false | deprecated 标记的数据表示该数据在导入时已更新或在当前版本已废弃，其内容在保存时会被自动删除 |
+| editor.<br>deprecated     | **false**  | true, false | deprecated 标记的数据表示在导入时已更新或在当前版本已废弃，其内容在保存时会被自动删除 |
 
 ### Property 默认值
 
