@@ -1,4 +1,4 @@
-# Particle System Overview
+# 3D 粒子系统
 
 粒子系统是游戏引擎特效表现的基础，它可以用于模拟的火、烟、水、云、雪、落叶等自然现象，也可用于模拟发光轨迹、速度线等抽象视觉效果。
 
@@ -19,34 +19,28 @@
 4. 粒子类，存储粒子的属性
 5. 粒子系统类，管理上面的模块
 
-## 添加粒子系统
+## 添加 3D 粒子系统
 
 在编辑器中添加粒子系统组件有以下两种方式：
 
 1. 在 **层级管理器** 中选中节点，然后点击右侧 **属性检查器** 面板上的 **添加组件** 按钮添加粒子，如下图：
 
-    ![](particle-system/new_ParticleSystemComponent.png)
+    ![new_ParticleSystemComponent](overview/new_ParticleSystemComponent.png)
 
-2. 在左侧的 **层级管理器** 面板中点击鼠标右键，然后选择 **创建 -> 特效 -> 粒子系统** 来添加一个粒子系统组件，如下图：
+2. 在左侧的 **层级管理器** 面板中点击鼠标右键，然后选择 **创建 -> 特效 -> 粒子系统**，即可创建一个带有粒子系统组件的节点，如下图：
 
-    ![](particle-system/new_ParticleSystemComponent_node.png)
+    ![new_ParticleSystemComponent_node](overview/new_ParticleSystemComponent_node.png)
 
-## 粒子模块
+添加完成后，粒子在 **场景编辑器** 中显示如下：
 
-Cocos Creator 粒子系统操作面板如下：
+![particle panel](overview/particle-panel.png)
 
-![](particle-system/inspector_1.png)
+右下角的粒子系统控制面板用于控制粒子的播放暂停等，详情请参考 [粒子控制面板](./editor/particle-effect-panel.md)。
 
-![](particle-system/inspector_2.png)
+## 内容
 
-Cocos Creator 粒子系统用模块来组织功能，包括以下模块：
+粒子系统主要包括以下两部分内容：
 
-| 模块 | 说明 |
-| :--- | :--- |
-| Node | 粒子节点，用于设置粒子发射器的位置、方向、大小、渲染层级 |
-| [ParticleSystem](main-module.md) | 用于存储在 **属性检查器** 中显示的所有数据，管理粒子生成、更新、销毁相关模块，控制粒子播放 |
-| [ShapeModule](emitter.md) | 用于控制粒子发射，包括发射方向与速度，支持预定义的发射方向，包括方块、圆、锥体、球、半球 |
-| [AnimatorModule](module.md) | 用于控制粒子发射后的状态更新。已支持的功能有：[速度模块(VelocityOvertimeModule)](velocity-module.md)、[加速模块(ForceOvertimeModule)](force-module.md)、[大小模块(SizeOvertimeModule)](size-module.md)、[旋转模块(RotationOvertimeModule)](rotation-module.md)、[颜色模块(ColorOvertimeModule)](color-module.md)、[贴图动画模块(TextureAnimationModule)](texture-animation-module.md)、[限速模块(LimitVelocityOvertimeModule)](limit-velocity-module.md)、[拖尾模块(TrailModule)](trail-module.md) |
-| [ParticleSystemRenderer](renderer.md) | 用于生成粒子渲染所需要的数据。包括 vb、ib、渲染状态相关的控制 |
+- [粒子系统模块](./module.md)
 
-
+- [粒子属性编辑](./editor/index.md)

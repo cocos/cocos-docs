@@ -30,7 +30,7 @@ Select the node and choose **Add Component -> Spine -> Skeleton** on the **Inspe
 
 > **Notes**:
 > 1. The `Anchor` and `Size` properties on the Node component in the **Inspector** panel are invalid when using the Skeleton component.
-> 2. The Spine Skeletal component is a UI rendering component, and the `Canvas` node is the rendering root for UI rendering, the node with this component must be a child of the `Canvas` node (or a node with a `RenderRoot2D` component) to be displayed properly in the scene.
+> 2. The Spine Skeletal component is a UI renderable component, and the `Canvas` node is the rendering root for UI rendering, the node with this component must be a child of the `Canvas` node (or a node with a `RenderRoot2D` component) to be displayed properly in the scene.
 > 3. When using the Spine Skeleton component, since it has the `UseTint` property, its custom material needs to have two color information, otherwise the Spine staining effect may be wrong. Please refer to the [builtin-spine.effect](https://github.com/cocos-creator/engine/blob/v3.0.0/editor/assets/effects/builtin-spine.effect) example to achieve this.
 
 ## Spine ReplaceTexture

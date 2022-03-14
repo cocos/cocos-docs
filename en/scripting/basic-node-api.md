@@ -122,7 +122,7 @@ this.node.setScale(2,2,2);
 `Component` is the base class of all components, and any component includes the following common interfaces (assuming that we use this to refer to this component in the script of the component):
 
 - `this.node`: The node instance to which this component belongs.
-- `this.enabled`: Whether to execute the `update` method of the component every frame, and also to control whether the rendering component is displayed.
+- `this.enabled`: Whether to execute the `update` method of the component every frame, and also to control whether the renderable component is displayed.
 - `update(deltaTime: number)`: As a member method of the component, when the component's `enabled` property is `true`, the code in it will be executed every frame.
 - `onLoad()`: Executed when the node where the component is located is initialized (when the node is added to the node tree).
 - `start()`: It will be executed before the first `update` of the component, usually used for logic that needs to be executed after the `onLoad` of all components is initialized.

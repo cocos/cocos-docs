@@ -1,6 +1,6 @@
 # Toggle 组件参考
 
-Toggle 是一个 CheckBox，当它和 ToggleGroup 一起使用的时候，可以变成 RadioButton。
+Toggle 是一个 CheckBox，当它和 ToggleContainer 一起使用的时候，可以变成 RadioButton。
 
 ![toggle1](toggle/toggle.png)
 
@@ -82,7 +82,7 @@ export class example extends Component {
        this.toggle.node.on('toggle', this.callback, this);
     }
 
-    callback(toggle: ToggleComponnet){
+    callback(toggle: ToggleComponent){
         // 回调的参数是 toggle 组件，注意这种方式注册的事件，无法传递 customEventData
     }
 }

@@ -61,7 +61,7 @@ export class example extends Component {
         slider!.slideEvents.push(sliderEventHandler);
     }
 
-    callback(event: Event, customEventData: string) {
+    callback(slider: Slider, customEventData: string) {
         //这里 event 是一个 Touch Event 对象，你可以通过 event.target 取到事件的发送节点
         // 这里的 customEventData 参数就等于之前设置的 'foobar'
     }

@@ -21,7 +21,7 @@ The **Skybox** component properties are as follows:
 
 ## Set the Environment Map of the Skybox
 
-After enabling the skybox, you also need to set the skybox's environment map. The environment map asset of the skybox can be a single map of TextureCube type or a CubeMap which is a combination of six texture type maps. So the developer can set the environment map of the skybox in the following two ways:
+After enabling the skybox, you also need to set the skybox environment map, which is used to generate ambient lighting in the scene. The environment map asset of the skybox can be a single map of TextureCube type or a CubeMap which is a combination of six texture type maps. So the developer can set the environment map of the skybox in the following two ways:
 
 ### By Setting the Texture Assets of TextureCube Type
 

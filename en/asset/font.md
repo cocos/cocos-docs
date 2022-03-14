@@ -2,13 +2,13 @@
 
 There are three types of font assets available to games made with __Cocos Creator__: __system fonts__, __dynamic fonts__, and __bitmap fonts__.
 
-The __system font__ renders text by calling the __system font__ that comes with the game running platform, and does not require the user to add any related assets to the project. To use __system fonts__, use the **Use System Font** property in the [Label](../ui-system/components/editor/label.md) documentation.
+The __system font__ renders text by calling the __system font__ that comes with the game running platform, and does not require the user to add any related assets to the project. To use __system fonts__, use the __Use System Font__ property in the [Label](../ui-system/components/editor/label.md) documentation.
 
 ## Importing font assets
 
 ### Dynamic fonts
 
-__Cocos Creator__ currently supports dynamic fonts in **True Type** format. Simply drag a font file with an extension of `.ttf` into the **Assets** panel, and you can import the font asset.
+__Cocos Creator__ currently supports dynamic fonts in __True Type__ format. Simply drag a font file with an extension of `.ttf` into the __Assets__ panel, and you can import the font asset.
 
 ### Bitmap fonts
 
@@ -18,15 +18,15 @@ The bitmap font is composed of a font file in `.fnt` format and a `.png` image. 
 - [Hiero](https://github.com/libgdx/libgdx/wiki/Hiero)
 - [BMFont (Windows)](http://www.angelcode.com/products/bmfont/)
 
-When importing bitmap fonts, be sure to drag both the `.fnt` file and the `.png` file into the **Assets** panel at the same time.
+When importing bitmap fonts, be sure to drag both the `.fnt` file and the `.png` file into the __Assets__ panel at the same time.
 
-> **Note**: after importing the bitmap font, you need to change the type of the `.png` file to __sprite-frame__, otherwise the bitmap font will not work properly.
+> __Note__: after importing the bitmap font, you need to change the type of the `.png` file to __sprite-frame__, otherwise the bitmap font will not work properly.
 
-The imported fonts are displayed in the **Assets** panel, as follows:
+The imported fonts are displayed in the __Assets__ panel, as follows:
 
 ![imported font asset](font/imported.png)
 
-> **Note**: in order to improve the efficiency of asset management, it is recommended that the imported `.fnt` and `.png` files be stored in separate directories and not mixed with other assets.
+> __Note__: in order to improve the efficiency of asset management, it is recommended that the imported `.fnt` and `.png` files be stored in separate directories and not mixed with other assets.
 
 ## Using font assets
 
@@ -34,7 +34,7 @@ The font asset needs to be rendered through the `Label` component. Here is how t
 
 ### Creating a Label (Font) Node Using the Menu
 
-Click on the **Create Node** button in the upper left corner of the **Hierarchy** panel and select `Create Render Node --> Label (Text)`, and a component with `Label` will be created in the `Scene` node.
+Click on the __Create Node__ button in the upper left corner of the __Hierarchy__ panel and select `Create Render Node --> Label (Text)`, and a component with `Label` will be created in the `Scene` node.
 
 ![from hierarchy](font/create_label.png)
 
@@ -52,9 +52,9 @@ Currently, the font used in a scene will be immediately rendered using the font 
 
 If you want to restore the use of __system fonts__, you can click the property check box of __Use System Font__ to clear the font file specified in the __Font__ property.
 
-### Dragging and droping to create a Label node
+### Dragging and dropping to create a Label node
 
-Another quick way to create font nodes using specified assets is to directly __drag and drop__ font files, either __TTF__ or __bitmap fonts__, from the **Assets** panel into the __Hierarchy__ panel. The only difference from the menu created above is that text nodes created using drag and drop will automatically use the dragged font asset to set the `Font` property of the **Label** component.
+Another quick way to create font nodes using specified assets is to directly __drag and drop__ font files, either __TTF__ or __bitmap fonts__, from the __Assets__ panel into the __Hierarchy__ panel. The only difference from the menu created above is that text nodes created using drag and drop will automatically use the dragged font asset to set the `Font` property of the __Label__ component.
 
 <!-- ## 位图字体合并渲染
 

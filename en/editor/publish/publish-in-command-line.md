@@ -41,7 +41,7 @@ Currently, when using the command line to build, except for the required build o
     - `outputName`: The name of the release folder generated after the build.
     - `name`: Game name.
     - `platform`: Required, the platform needs to be built.
-    - `buildPath`: The game's release path, the default release path is in the `build` under the project folder.
+    - `buildPath`: Specify the directory where the build release package is generated, the default is the `build` directory under the project directory. Either an absolute path or a path relative to the project (e.g.: `project://release`) can be used. Note that relative paths like `../` is expected to be supported in v3.4.2.
     - `startScene`: The UUID of the main scene (the participating scene will use the build option parameters in the **Build** panel from the last build), and the first scene from the **Included Scenes** will be used if not specified.
     - `scenes`: Information about the scenes involved in the build, which defaults to all scenes when not specified.
     - `debug`: Whether or not debug mode, the default is `false`.

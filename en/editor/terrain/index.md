@@ -1,6 +1,6 @@
 # Terrain system
 
-The __terrain system__ displays the mountainous landscape of nature in an efficient way. Developers can easily use a __brush__ to sculpt basins, mountains, valleys, plains and other landforms.
+The **terrain system** displays the mountainous landscape of nature in an efficient way. Developers can easily use a **brush** to sculpt basins, mountains, valleys, plains and other landforms.
 
 ![terrain](./images/terrain.png)
 
@@ -8,11 +8,11 @@ The __terrain system__ displays the mountainous landscape of nature in an effici
 
 Two steps are required to create a terrain:
 
-1. Click the right mouse button in __Hierarchy__ panel and click __Create -> Terrain__ to create a terrain node. Terrain nodes can be moved, but rotation and zoom are not yet supported.
+1. Click the right mouse button in **Hierarchy** panel and click **Create -> Terrain** to create a terrain node. Terrain nodes can be moved, but rotation and zoom are not yet supported.
 
     ![create terrain](./images/create-terrain.png)
 
-2. Click the right mouse button in the __Assets__ panel and click __Create -> Terrain__ in the pop-up menu to create the necessary terrain assets.
+2. Click the right mouse button in the **Assets** panel and click **Create -> Terrain** in the pop-up menu to create the necessary terrain assets.
 
     ![create terrain asset](./images/createTerrainAsset.png)
 
@@ -28,7 +28,7 @@ Two steps are required to create a terrain:
 
 ## Using a terrain
 
-Click on the created terrain node. There is a terrain component (`cc.Terrain`) in the __Inspector__ panel, and the created terrain assets are assigned to the __Asset__ in the terrain component.
+Click on the created terrain node. There is a terrain component (`cc.Terrain`) in the **Inspector** panel, and the created terrain assets are assigned to the **Assets** in the terrain component.
 
 ![terrain inspector](./images/terrain-inspector.png)
 
@@ -68,7 +68,7 @@ Sculpting is changing the shape of a terrain.
 | :--- | :--- |
 | **BrushSize**     | The size of the brush |
 | **BrushStrength** | The strength of the brush |
-| **BrushMode** | The type of the brush, including **Bulge**、**Sunken** and **Smooth** |
+| **BrushMode** | The type of the brush, including **Bulge**, **Sunken** and **Smooth** |
 | **Brush** | Custom brush style, by selecting a style picture to generate a custom brush. |
 
 To control the bulging/depression of the terrain, use the **left mouse** button and the **Shift + left mouse** button, respectively. The bulge and depression operation often makes the terrain look sharp, use the smoothing function to overdo it.

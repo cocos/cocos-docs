@@ -245,4 +245,4 @@ If the engine fails to compile, please check if the installation package is comp
 
 ### Other errors
 
-If errors are encountered that cannot be resolved, please send feedback to the [Cocos Forum](https://discuss.cocos2d-x.org/c/creator/33) with the Creator version, build options configuration, build log file from the build task, and a demo that reproduces the issue.
+If errors are encountered that cannot be resolved, please send feedback to the [Cocos Forum](https://discuss.cocos2d-x.org/c/creator/33) with the version of Creator, build options configuration, build log file from the build task, and a demo that reproduces the issue.
