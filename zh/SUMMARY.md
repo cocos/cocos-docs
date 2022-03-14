@@ -137,6 +137,8 @@
         - [光照贴图](concepts/scene/light/lightmap.md)
     - [网格](module-map/mesh/index.md)
         - [MeshRenderer](engine/renderable/model-component.md)
+        - [SkinnedMeshRenderer 组件](module-map/mesh/skinnedMeshRenderer.md)
+        - [SkinnedMeshBatchRenderer 组件](module-map/mesh/skinnedMeshBatchRenderer.md)
     - [纹理](module-map/texture/index.md)
         - [压缩纹理](asset/compress-texture.md)
         - [渲染纹理](asset/render-texture.md)
