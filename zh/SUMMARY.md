@@ -47,6 +47,7 @@
         - [纹理贴图资源](asset/texture.md)
         - [精灵帧资源](asset/sprite-frame.md)
             - [图像资源的自动剪裁](ui-system/components/engine/trim.md)
+        - [立方体贴图资源](asset/texture-cube.md)
         - [图集资源](asset/atlas.md)
         - [自动图集资源](asset/auto-atlas.md)
         - [艺术数字资源](asset/label-atlas.md)
@@ -60,6 +61,8 @@
     - [Spine 骨骼动画资源](asset/spine.md)
     - [DragonBones 骨骼动画资源](asset/dragonbones.md)
     - [TiledMap 瓦片图资源](asset/tiledmap.md)
+    - [JSON 资源](asset/json.md)
+    - [文本资源](asset/text.md)
 
 - [脚本指南及事件机制](scripting/index.md)
     - [编程语言支持](scripting/language-support.md)
@@ -136,6 +139,8 @@
         - [光照贴图](concepts/scene/light/lightmap.md)
     - [网格](module-map/mesh/index.md)
         - [MeshRenderer](engine/renderable/model-component.md)
+        - [SkinnedMeshRenderer 组件](module-map/mesh/skinnedMeshRenderer.md)
+        - [SkinnedMeshBatchRenderer 组件](module-map/mesh/skinnedMeshBatchRenderer.md)
     - [纹理](module-map/texture/index.md)
         - [压缩纹理](asset/compress-texture.md)
         - [渲染纹理](asset/render-texture.md)
@@ -256,9 +261,9 @@
             - [拖尾模块](particle-system/trail-module.md)
             - [渲染模块](particle-system/renderer.md)
         - [粒子属性编辑](particle-system/editor/index.md)
-            - [曲线编辑](particle-system/editor/curve-editor.md)
-            - [渐变色编辑](particle-system/editor/gradient-editor.md)
             - [控制面板](particle-system/editor/particle-effect-panel.md)
+            - [曲线编辑器](particle-system/editor/curve-editor.md)
+            - [渐变色编辑器](particle-system/editor/gradient-editor.md)
 
 - [缓动系统](tween/index.md)
 

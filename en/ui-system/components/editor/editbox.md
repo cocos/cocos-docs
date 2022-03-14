@@ -38,7 +38,7 @@ For event structure you can refer to the [Button](./button.md) documentation.
 - __Editing Did Ended__: This event will be triggered when the __EditBox loses focus__.
     - When in __single line input mode__, it's triggered after user presses __Enter__ key or __clicks__ the area __outside__ of __EditBox__.
     - When in __multiline input mode__, it's triggered only after user __clicks__ the area __outside__ of __EditBox__.
-- __Text Changed__: This event will be triggered when the __content__ in __EditBox__ is __changed each time__.
+- __Text Changed__: This event will be triggered when the __content__ in __EditBox__ is __changed each time__. However, it is not dispatched if it is set by `setter` of `EditBox.string`.
 
 ## Detailed Explanation
 

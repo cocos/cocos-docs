@@ -110,7 +110,7 @@ export class Example extends Component {
 
 ## 属性装饰器
 
-属性装饰器 [property](#property) 可以被应用在 cc 类的属性或访问器上。属性装饰器用于控制 Cocos Creator 编辑器中对该属性的序列化、**属性检查器** 中对该属性的展示等。
+属性装饰器 `property` 可以被应用在 cc 类的属性或访问器上。属性装饰器用于控制 Cocos Creator 编辑器中对该属性的序列化、**属性检查器** 中对该属性的展示等。
 
 属性装饰器的各种特性是通过 `@property()` 的参数来指定的。完整可选择参数可以参考：[属性参数](./reference/attributes.md)
 

@@ -38,7 +38,7 @@ The planar shadows are generally used for simpler scenes.
 | **Type** | The type of shadows. |
 | **ShadowColor** | The color of shadows. |
 | **Normal** | The normal line perpendicular to shadows, used to adjust the slope of shadows. |
-| **Distance** | The distance of shadows in the direction of the normal to the origin of the coordinate. |
+| **Distance** | The distance between the shadow receiving plane and the origin of the coordinate. |
 
 Adjust the direction of the directional light to adjust the position of shadows.
 

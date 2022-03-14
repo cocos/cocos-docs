@@ -12,7 +12,7 @@ v3.0 的 2D 渲染组件大部分都支持使用自定义材质，其使用界�
 2. 2D 渲染对象并不支持多材质，自定义材质的数量最多为一个。
 3. 请使用 **builtin-spine** 或 **builtin-sprite** 等 2D 专用 Shader 来自定义材质，请勿选择其他 3D 组件使用的 shader。
 4. 当使用了 2D 渲染对象自定义材质之后，面板上的 **Grayscale** 属性功能将会失效，用户可选择自行在材质中实现此功能。
-5. 使用了自定义材质之后，组件上的 BlendFactor 设置面板会自动隐藏且设置会失效，此时的 BlendFactor 会以自定义材质中的设置为准。
+5. 若代码中设置了 BlendFactor，在使用了自定义材质后，会以自定义材质中 BlendFactor 的设置为准。
 6. 使用了自定义材质之后，组件的深度检测信息会以材质为准。如果想要实现和 3D 物体的遮挡，请使用自定义材质并开启深度检测。可参考范例 **2d-rendering-in-3d**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/2d-rendering-in-3d)）。
 7. 针对自定义材质，获取上传的贴图需要在 shader 中引入 `cc-sprite-texture` 头文件，文件中的 `cc_spriteTexture` 就对应在 2D 渲染组件属性面板上设置的 SpriteFrame 图片资源。例如一个简单地使用了面板设置 SpriteFrame 来采样纹理的 fragment shader 应该是下面的样子：
 

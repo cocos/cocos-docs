@@ -4,13 +4,13 @@ In the documents, [Scene Panel](../../editor/scene/index.md), and [Nodes and Com
 
 ## Coordinate Systems
 
-Position properties for nodes can be set, but where will a node with a specific position property be rendered on the screen when the game is running? Just as longitude and latitude specify coordinates for a location on a planet it is necessary to understand the coordinate system of Cocos Creator 3.0 to understand the meaning of node positions.
+Position properties for nodes can be set, but where will a node with a specific position property be rendered on the screen when the game is running? Just as longitude and latitude specify coordinates for a location on a planet it is necessary to understand the coordinate system of Cocos Creator 3.x to understand the meaning of node positions.
 
 ### World Coordinate
 
 The world coordinate system, also called absolute coordinate system, represents a unified coordinate system in the scene space in Cocos Creator game development, and "world" is used to represent our game scene.
 
-The world coordinate system of Creator 3.0 uses a Cartesian right-handed coordinate system with default **x** to the right, **y** to the top, **z** to the outside, and the **-z** axis for the front.
+The world coordinate system of Creator 3.X uses a Cartesian right-handed coordinate system with default **x** to the right, **y** to the top, **z** to the outside, and the **-z** axis for the front.
 
 ![right hand](coord/right_hand.png)
 
@@ -66,7 +66,7 @@ In the **Scene** panel, use the [Move Transform Tool](../../editor/toolbar/index
 
 The node hierarchy shown above is the same as the previous figure, except that the **Rotation** property of NodeA on the z-axis is set to **60** degrees, notice that in addition to NodeA itself being **counterclockwise** rotated by 60 degrees on the z-axis, its child NodeB is also **centered** on the z-axis. NodeB is also rotated **counterclockwise** on NodeA's z-axis. This also means that the rotation property affects the child nodes.
 
-> **Note**: the [rotation](__APIDOC__/en/classes/scene_graph.node-1.html#rotation) property on a node is a quaternion that represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** is the property [EulerAngles](__APIDOC__/en/classes/scene_graph.node-1.html#eulerangles). These two properties can be used separately according to your needs. When using the API, make sure to pay attention to the difference between them and the editor panel property names.
+> **Note**: the quaternion [rotation](__APIDOC__/en/classes/scene_graph.node-1.html#rotation) property on a node represents the angle of rotation about any axis. The property corresponding to `Rotation` in the **Inspector** panel is the property [EulerAngles](__APIDOC__/en/classes/scene_graph.node-1.html#eulerangles), and the value of `Rotation` can be obtained in the script via `Node.eulerAngles`. These two properties can be used separately according to your needs. When using the API, make sure to pay attention to the difference between them and the editor panel property names.
 
 In the **Scene** panel, use the [Rotate Transform Tool](../../editor/toolbar/index.md) to set the rotation of the node.
 
