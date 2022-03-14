@@ -14,7 +14,7 @@ PBR 的优势在于：
 
 在使用 PBR 材质进行渲染时，为获得正确的渲染效果，至少需要设置材质的 **固有色（Albedo）**、**粗糙度（Roughness）** 和 **金属度（Metallic）**。这些都可以在材质资源属性面板中进行设置：
 
-![image](https://user-images.githubusercontent.com/19702899/156523610-b38b18b8-e085-4794-a1b9-596ceecf8d1b.png)
+![image](./img/pbr-maps.png)
 
 除了在材质属性面板中直接赋予数值以外，也可以为材质的固有色（Albedo）、粗糙度（Roughness）、金属度（Metallic）赋予 **贴图**，以更精准地进行材质表达。除此之外， 可以为材质赋予法线（Normal）贴图以获得更多表面结构细节，环境光遮蔽（Ambient Occlusion） 贴图以获得细节明暗关系，自发光（Emissive）贴图以获得自发光效果。
 
@@ -146,7 +146,7 @@ PBR 的优势在于：
 
 由于当 Alpha Blending 开启时，引擎的渲染管线对深度的控制发生了改变，因此在切换到透明材质模式时，**需要勾选材质属性面板 PipelineStates -> DepthStencilState 下的 `DepthWrite` 参数。**
 
-### PBR主要参数组装流程
+### PBR 主要参数组装流程
 
 ![pbr 组装流程](../material-system/standard-material-graph.png)
 

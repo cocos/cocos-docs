@@ -25,23 +25,23 @@ CCProgram unlit-vs %{
 
 如下所示，仅当 `USE_TEXTURE` 预处理宏开启时，`mainTexture` 才会显示在 **属性检查器** 面板上：
 
-  ```glsl
-  CCEffect %{
-      # ...
-      properties:
-          mainTexture:  { value: white, editor: { parent: USE_TEXTURE } }
-          # ...
-  }%
+```glsl
+CCEffect %{
+    # ...
+    properties:
+        mainTexture:  { value: white, editor: { parent: USE_TEXTURE } }
+        # ...
+}%
 
-  CCProgram unlit-fs %{
-      // ...
-      vec4 frag () {
-          #if USE_TEXTURE
-            // 处理 mainTexture 逻辑
-          #endif
-      }
-  }%
-  ```
+CCProgram unlit-fs %{
+    // ...
+    vec4 frag () {
+        #if USE_TEXTURE
+          // 处理 mainTexture 逻辑
+        #endif
+    }
+}%
+```
 
 ![macro-property](img/macro-property.png)
 
@@ -85,7 +85,7 @@ float metallic = texture(pbrMap, uv).METALLIC_SOURCE;
 
 由于 WebGL 1.0 不支持函数式宏定义，因此 Creator 在 Cocos Effect 编译时支持了函数式宏定义，在输出的 Shader 中就已经将此类宏定义展开。
 
-这个操作对于一些需要 inline 的工具函数，或需要大量重复定义的相似代码非常有帮助。在 Cocos Effect 的内置头文件中，有不少工具函数都是函数式宏定义，比如：：
+这个操作对于一些需要 inline 的工具函数，或需要大量重复定义的相似代码非常有帮助。在 Cocos Effect 的内置头文件中，有不少工具函数都是函数式宏定义，比如：
 
 ```glsl
 #define CCDecode(position) \
@@ -109,3 +109,4 @@ float metallic = texture(pbrMap, uv).METALLIC_SOURCE;
 int a = 4, b = 8;
 INCI(b); // correct, b would be 9 after this
 INCI(a); // wrong! a would still be 4
+```

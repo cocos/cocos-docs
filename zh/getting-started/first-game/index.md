@@ -929,7 +929,7 @@ export class GameManager extends Component {
     public playerCtrl: PlayerController | null = null;
     // 关联步长文本组件
     @property({type: Label})
-    public stepsLabel: Label | null= null!;
+    public stepsLabel: Label | null = null!;
 
     start () {
         this.curState = GameState.GS_INIT;

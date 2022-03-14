@@ -1,4 +1,4 @@
-# 着色器（Effect）
+# 着色器（Cocos Effect）
 
 ![effect-show](img/effect-show.jpg)
 
@@ -19,8 +19,8 @@
     - [GLSL 语法简介](glsl.md)
     - [预处理宏定义](macros.md)
     - [着色器片段（Chunk）](effect-chunk-index.md)
-        - [Cocos Effect 内置 Uniform](uniform.md)
-- [内置着色器（builtin Effect）](effect-builtin.md)
+    - [Cocos Effect 内置 Uniform](uniform.md)
+- [内置着色器](effect-builtin.md)
     - [基于物理的光照模型 PBR](effect-builtin-pbr.md)
     - [卡通渲染](effect-builtin-toon.md)
     - [无光照](effect-builtin-unlit.md)

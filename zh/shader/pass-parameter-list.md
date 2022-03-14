@@ -70,14 +70,14 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 | sampler.<br>cmpFunc       | **never**           | never, less, equal, less_equal, greater, not_equal, greater_equal, always |    |
 | sampler.<br>borderColor   | **[0, 0, 0, 0]**    | [0, 0, 0, 0]           |    |
 | sampler.<br>minLOD        | **0** | 0  |    |
-| sampler.<br>maxLOD        | **0** | 0  | Remember to override this when enabling mip filter |
+| sampler.<br>maxLOD        | **0** | 0  | 如果允许 mipmap 则要根据贴图修改最大 mip 值 |
 | sampler.<br>mipLODBias    | **0** | 0  |    |
 | editor.<br>displayName    | **\*property name** | \*property name     | 任意字符串 |
 | editor.<br>type           | **vector** | vector, color                |      |
 | editor.<br>visible        | **true**   | true, false                  |      |
 | editor.<br>tooltip        | **\*property name** | \*property name     | 任意字符串 |
 | editor.<br>range          | **undefined** | undefined, [ min, max, [step] ]  |   |
-| editor.<br>deprecated     | **false**  | true, false | For any material using this effect, delete the existing data for this property after next saving |
+| editor.<br>deprecated     | **false**  | true, false | deprecated 标记的数据表示该数据在导入时已更新或在当前版本已废弃，其内容在保存时会被自动删除 |
 
 ### Property 默认值
 
@@ -256,7 +256,7 @@ newFloat: { formerlySerializedAs: oldVec4.w! }
 | isA2C | 是否开启半透明反锯齿（Alpha To Coverage）| **false** | true，false
 | isIndepend | RGB 和 Alpha 是否分开混合 | **false** | true，false
 | blendColor | 指定混合颜色 | **0** | 0, `[0, 0, 0, 0]` |
-| targets    | 混合配置, 请参考下方的 targets | [] | |
+| targets    | 混合配置，请参考下方的 targets | [] | |
 
 ### Targets
 

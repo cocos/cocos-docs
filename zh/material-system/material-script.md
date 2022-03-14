@@ -70,7 +70,10 @@ particleSystem.renderer.trailMaterial = trailMaterial;
 mat.setProperty("uniform name", uniformValue)
 ```
 
-`Uniform` 对应了 `Shader` 内声明的由 `Uniform` 限定的变量。若要了解更多 `Uniform` 的信息可参考： [Cocos Effect 内置 Uniform](../shader/uniform.md) 以及 [GLSL 存储限定符](../shader/glsl.md#存储限定符)
+`Uniform` 对应了 `Shader` 内声明的由 `Uniform` 限定的变量。若要了解更多 `Uniform` 的信息请参考：
+
+- [Cocos Effect 内置 Uniform](../shader/uniform.md)
+- [GLSL 存储限定符](../shader/glsl.md#存储限定符)
 
 若需频繁设置 `Uniform` 的值，请使用 `Pass.setUniform` 来获得更好的性能。
 

@@ -22,15 +22,15 @@ Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为�
 - 渲染过程 0（Pass 0）：用于描边，默认不启用，可勾选右侧的 **USE_OUTLINE_PASS** 开启。
 - 渲染过程 1（Pass 1）：正常渲染模型
 
-### Pass 0
+### 渲染过程 0
 
-渲染过程 0 会将光栅化状态中的剔除模式选择为正面剔除（`CullMode = FRONT`）并将模型的顶点沿法线进行扩张，由此得到一个比原模型较大的单色模型，之后 Pass 1 会正常渲染一次模型并遮盖住 Pass 0 的渲染结果，由于 Pass 1 的模型尺寸小于 Pass 0 的尺寸，因此会留下一个纯色的边缘形成描边。
+渲染过程 0 会将光栅化状态中的剔除模式选择为正面剔除（`CullMode = FRONT`）并将模型的顶点沿法线进行扩张，由此得到一个比原模型较大的单色模型，之后 **渲染过程 1** 会正常渲染一次模型并遮盖住 **渲染过程 0** 的渲染结果，由于 **渲染过程 1** 的模型尺寸小于 **渲染过程 0** 的尺寸，因此会留下一个纯色的边缘形成描边。
 
 ![cull-front](img/cull-front.png)
 
-Pass 0 可通过勾选 **USE_OUTLINE_PASS** 开启或关闭。
+ **渲染过程 0** 可通过勾选 **USE_OUTLINE_PASS** 开启或关闭。
 
-当勾选 **USE_OUTLINE_PASS** 开启 Pass 0 的描边功能后，效果图如下：
+当勾选 **USE_OUTLINE_PASS** 开启  **渲染过程 0**  的描边功能后，效果图如下：
 
 ![USE_OUTLINE_PASS 开启](img/outline-on.png)
 
@@ -38,11 +38,11 @@ Pass 0 可通过勾选 **USE_OUTLINE_PASS** 开启或关闭。
 
 ![DepthBias](img/toon-depth-bias.png)
 
-当不勾选 **USE_OUTLINE_PASS** 关闭 Pass 0 的描边功能后，效果图如下：
+当不勾选 **USE_OUTLINE_PASS** 关闭  **渲染过程 0**  的描边功能后，效果图如下：
 
 ![USE_OUTLINE_PASS 关闭](img/outline-off.png)
 
-### Pass 1
+### 渲染过程 1
 
 卡通渲染的核心思路是通过降低色阶的数量，模拟器卡通中的赛璐璐（Celluloid）画风。
 

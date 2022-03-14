@@ -12,7 +12,7 @@
 
 ## 新建材质与着色器
 
-首先参考 [着色器资源](./effect-inspector.md.md) 新建一个名为 **rimlight.effect** 的着色器，并创建一个使用该着色器的材质 **rimlight.mtl**。
+首先参考 [着色器资源](./effect-inspector.md) 新建一个名为 **rimlight.effect** 的着色器，并创建一个使用该着色器的材质 **rimlight.mtl**。
 
 ![create rimlight](img/rim-light-effect.png)
 
@@ -85,9 +85,7 @@ CCEffect %{
 
 这个绑定意味着着色器的 `rimLightColor` 的 RGB 分量的值会通过引擎传输到 Uniform `rimColor` 的 `rgb` 三个分量里。
 
-> **注意**：
-> 引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-syntax.md)，因此在使用 3 维向量（vec3）时，可选择用 4 维向量（vec4）代替。
-> 不用担心，alpha 通道会被利用起来不被浪费。
+> **注意**：引擎规定不能使用 vec3 类型的矢量来避免 [implict padding](./effect-syntax.md)，因此在使用 3 维向量（vec3）时，可选择用 4 维向量（vec4）代替。不用担心，alpha 通道会被利用起来不被浪费。
 
 ## 顶点着色器
 
@@ -311,7 +309,7 @@ rimInstensity:  { value: 1.0,         # 默认值为 1
                   step: 0.1 }         # 每次点击调整按钮时，数值的变化值
 ```
 
-此时的CCEffect 代码：
+此时的 CCEffect 代码：
 
 ```yaml
 CCEffect %{

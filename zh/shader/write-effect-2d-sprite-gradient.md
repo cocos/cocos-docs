@@ -9,8 +9,8 @@
 ![内置的 UI 着色器](../material-system/img/ui-select.png)
 
 > **注意**：
-> 在使用自定义材质后，可能会打断合批。
-> 关于 UI 和 2D 组件合批的使用，可以参考：[2D 渲染组件合批规则说明](../ui-system/components/engine/ui-batch.md)
+> 1. 在使用自定义材质后，可能会打断合批。
+> 2. 关于 UI 和 2D 组件合批的使用，可以参考：[2D 渲染组件合批规则说明](../ui-system/components/engine/ui-batch.md)
 
 本文将通过实现一个精灵的渐变着色器来演示如何为 UI 和 2D 组件使用自定义着色器。
 
@@ -146,7 +146,7 @@ o.rgb *= mix(startColor, endColor, vec4(uv0.x)).rgb;
 #endif        
 ```
 
-这里声明了两个预处理宏定义 `USE_HORIZONTAL` 和 `USE_VERTICAL` 分别代表了水平方向和垂直方向的渐变，可以方便的按需使用：
+这里声明了 `USE_HORIZONTAL` 和 `USE_VERTICAL` 这两个预处理宏定义，分别代表了水平方向和垂直方向的渐变，可以方便地按需使用：
 
 ![macro-preview](img/macro-preview.png)
 
