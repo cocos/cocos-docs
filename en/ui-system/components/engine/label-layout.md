@@ -1,16 +1,17 @@
 # Label Layout
 
-The __Label__ component is one of the key rendering components. You need to learn about how to set up label layout in order to have a perfect display when the UI system adapts to various resolutions and sets up alignment.
+The __Label__ component is one of the key renderable components. You need to learn about how to set up label layout in order to have a perfect display when the UI system adapts to various resolutions and sets up alignment.
 
 ## Alignment of labels in the bounding box
 
 Like other renderer components, the layout of the Label component is also based on the size information (`contentSize`) possessed by the [UITransform](../editor/ui-transform.md) component, that is, the range specified by the Bounding Box.
 
-![label_in_boundingbox](label-layout/label_in_boundingbox.png)
+![label in bounding box](label-layout/label_in_boundingbox.png)
 
 What is shown in the picture above is the display effect of labels rendered by Label in the blue bounding box. The following properties in Label determines the position of labels in the bounding box:
 
 - `Horizontal Align`: the horizontal alignment of labels in the bounding box, which can be chosen from 3 positions: Left, Right, Center.
+
 - `Vertical Align`: the vertical alignment of labels in the bounding box, which can be chosen from 3 positions: Top, Bottom, Center.
 
   ![horizontal-vertical-align](label-layout/horizontal-vertical-align.png)

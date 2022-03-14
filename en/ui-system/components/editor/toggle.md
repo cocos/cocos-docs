@@ -1,6 +1,6 @@
 # Toggle Component Reference
 
-The Toggle component is a CheckBox, when it's used together with a ToggleGroup, it could be treated as a RadioButton.
+The Toggle component is a CheckBox, when it's used together with a ToggleContainer, it could be treated as a RadioButton.
 
 ![toggle1](toggle/toggle.png)
 
@@ -82,7 +82,7 @@ export class example extends Component {
        this.toggle.node.on('toggle', this.callback, this);
     }
 
-    callback(toggle: ToggleComponnet){
+    callback(toggle: ToggleComponent){
         // The callback parameter is the Toggle component, note that events registered this way cannot pass customEventData.
     }
 }

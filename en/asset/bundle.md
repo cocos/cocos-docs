@@ -54,7 +54,7 @@ The custom Asset Bundle is configured in **folders**. When we select a folder in
 | Configuration Options | Function Explanation |
 | :---  | :---- |
 | **Bundle Name**      | The name of the Asset Bundle after it is built, which will use the name of this folder by default, can be modified as needed.  |
-| **Bundle Priority**  | Creator opens up 10 configurable priorities, and the Asset Bundle will be built in descending order of priority. For more detail, see [Asset Bundle -- Priority](bundle.md#priority) documentation. |
+| **Bundle Priority**  | Creator opens up 20 configurable priorities, and the Asset Bundle will be built in descending order of priority. For more detail, see [Asset Bundle -- Priority](bundle.md#priority) documentation. |
 | **Target Platform**  | An Asset Bundle can have different settings on different platforms and the editor will choose the corresponding setting at build time. |
 | **Compression Type** | Determines the final output form of the Asset Bundle, including the five compression types **Merge Depend**, **None**, **Merge All JSON**, **Mini Game Subpackage**、**Zip**. For more detail, see [Asset Bundle -- Compression Type](bundle.md#compression-type) documentation. |
 | **Is Remote Bundle** | Whether to configure the Asset Bundle as a remote package and not support the Web platform.<br>If checked, the Asset Bundle will be placed in the **remote** folder after the build, and you will need to place the entire **remote** folder on the remote server.<br>When building mini game platforms such as OPPO, vivo, Huawei, etc., the Asset Bundle will not be packaged into rpk if this option is checked. |
@@ -63,7 +63,7 @@ After the configuration, click the **green tick button** at the top right of the
 
 > **Notes**:
 >
-> 1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in the Creator, including **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.
+> 1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in Creator, including **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.
 > 2. The [mini game subpackage](../editor/publish/subpackage.md) can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
 > 3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.
 
@@ -78,7 +78,7 @@ Another possibility is that a resource is in one Asset Bundle folder, but is als
 ![shared2](bundle/shared2.png)
 
 In both cases, `resource c` belongs to both `Asset Bundle A` and `Asset Bundle B`. So which Asset Bundle does `resource c` actually exist in? This needs to be specified by adjusting the priority of the Asset Bundle.<br>
-Creator opens up 10 configurable priorities, and the editor will build the Asset Bundle in **descending order** of priority at build time.
+Creator opens up 20 configurable priorities, and the editor will build the Asset Bundle in **descending order** of priority at build time.
 
 - When the same resource is referenced by multiple Asset Bundles with **different priorities**, the resource will be placed in the high-priority Asset Bundle, while the lower-priority Asset Bundle stores only one record message. In this case the lower-priority Asset Bundle relies on the higher-priority Asset Bundle.
 
@@ -184,7 +184,7 @@ When the Asset Bundle is loaded, the engine triggers a callback and returns an e
 
 ### Versions of the Asset Bundle
 
-The Asset Bundle continues the MD5 scheme of the Creator for updates. When you need to update the Asset Bundle on the remote server, check the **MD5 Cache** option in the **Build** panel. Then the filename of the `config.json` in the built Asset Bundle will come with a Hash value. As shown in the following figure:
+Asset Bundle continues the MD5 scheme of Creator for updates. When you need to update the Asset Bundle on the remote server, check the **MD5 Cache** option in the **Build** panel. Then the filename of the `config.json` in the built Asset Bundle will come with a Hash value. As shown in the following figure:
 
 ![md5 cache](subpackage/bundle_md5.png)
 
@@ -331,7 +331,7 @@ assetManager.removeBundle(bundle);
   1. Resource subpackage is actually splitting out some textures, meshes into a separate packages, but the package is incomplete and illogical and cannot be reused.<br>
   while Asset Bundle is modularizing resources through logical division. The Asset Bundle includes resources, scripts, metadata and resource lists, so it is complete, logical and reusable, and we can load an entire scene or any other resources from Asset Bundle. By splitting the Asset Bundle, you can greatly reduce the number of `json` and the size of `settings.json` in the first package.
 
-  2. Resource subpackage is essentially a basic function controlled by the mini game platform. For example, the WeChat Mini Game supports subpackage, and then Creator made a layer of encapsulation on top of that to help the developers set up resource subpackage. If the WeChat Mini Game doesn't support subpackage anymore, neither does the Creator.<br>
+  2. Resource subpackage is essentially a basic function controlled by the mini game platform. For example, the WeChat Mini Game supports subpackage, and then Creator made a layer of encapsulation on top of that to help the developers set up resource subpackage. If the WeChat Mini Game doesn't support subpackage anymore, neither does Creator.<br>
   While the Asset Bundle is designed and implemented entirely by Creator, it is a modular tool to help developers divide their resources, independent of the platform, and can theoretically be supported on all platforms.
 
   3. Resource subpackage is related to the platform, meaning that it needs to be set up in the way required by the platform. For example, the subpackage of the WeChat Mini Game cannot be placed on the remote server, and can only be placed on Tencent's server.<br>

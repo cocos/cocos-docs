@@ -4,23 +4,23 @@
 
 __Cocos Creator 3.0__ integrates all the functions of the original __2D__ and __3D__ products, brings many major updates, and will become the main version of __Cocos Creator__. At the same time, 3.0 also continues __Cocos's__ advantages of light weight and high efficiency in 2D categories, and provides an efficient development experience for 3D heavy games.
 
-In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, Cocos Creator 2.4 will be used as the LTS (long-term support) version and provide continuous updates for the next **two years**! In **2021**, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in **2022**, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore:
+In order to ensure the smooth transition of an existing __Cocos Creator 2.4__ project, Cocos Creator 2.4 will be used as the LTS (long-term support) version and provide continuous updates for the next __two years__! In __2021__, v2.4 will continue to be updated to provide bug fixes and new mini-game platform support to ensure the successful launch of your project; in __2022__, we will continue to provide developers with the key to v2.4 bug fixes to ensure the smooth operation of online games! Therefore:
 
-- **Existing 2.x projects can continue to develop without compulsory upgrade to 3.0**.
+- __Existing 2.x projects can continue to develop without compulsory upgrade to 3.0__.
 
-- **For new projects, it is recommended to use version 3.0 for development**. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
+- __For new projects, it is recommended to use version 3.0 for development__. We will continue to optimize the development experience and operating efficiency of 3.0 to support the smooth launch of heavy games of different categories such as 2D and 3D.
 
-__Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform. 
+__Cocos Creator 3.0__ uses a new future-oriented engine architecture, which will bring high-performance, data-oriented and load-balanced renderers to the engine, and seamlessly support Vulkan & Metal multi-backend rendering. In the future, it will also support mobile VR/AR and some Host platform.
 
 For a detailed introduction to the __Cocos Creator 3.0__, please visit the [Official Website Update Instructions](https://cocos.com/creator).
 
 ## How to migrate Cocos Creator 2.x projects
 
-Although **it is not recommended to force projects in development, especially those about to go live, to upgrade to v3.0**, a v2.x resource import tool has been introduced in Cocos Creator 3.0. This tool supports the perfect import of resources from old projects, as well as assistance in migrating code.
+Although __it is not recommended to force projects in development, especially those about to go live, to upgrade to v3.0__, a v2.x resource import tool has been introduced in Cocos Creator 3.0. This tool supports the perfect import of resources from old projects, as well as assistance in migrating code.
 
 ### Resource Import
 
-Developers only need to click **File -> Import Cocos Creator 2.x project** in the main menu.
+Developers only need to click __File -> Import Cocos Creator 2.x project__ in the main menu.
 
 ![import-menu](import-menu.png)
 
@@ -28,13 +28,13 @@ Next, select the root directory of the v2.x project in the file browse dialog th
 
 ![import-select-project](import-select-project.png)
 
-> **Note**: it is recommended to upgrade to v2.4.3 or above before importing to v3.0 for older projects, otherwise the correctness of the import result cannot be ensured.
+> __Note__: it is recommended to upgrade to v2.4.3 or above before importing to v3.0 for older projects, otherwise the correctness of the import result cannot be ensured.
 
-All the resources in the v2.x project will be automatically presented in the popup **Import Cocos Creator 2.x Project** panel. Developers can reconfirm the resources to be imported and then click the **Import** button in the bottom right corner of the panel to complete the import. If the developer wants to switch the imported 2.x project, click the search icon button in the image below to reselect the project.
+All the resources in the v2.x project will be automatically presented in the popup __Import Cocos Creator 2.x Project__ panel. Developers can reconfirm the resources to be imported and then click the __Import__ button in the bottom right corner of the panel to complete the import. If the developer wants to switch the imported 2.x project, click the search icon button in the image below to reselect the project.
 
 ![import-project](import-panel.png)
 
-The **Manual** button in the bottom left corner of the panel will take you to the GitHub repository for the Import Plugin, which can be used to [update the Import Plugin](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md) or submit feedback.
+The __Manual__ button in the bottom left corner of the panel will take you to the GitHub repository for the Import Plugin, which can be used to [update the Import Plugin](https://github.com/cocos-creator/plugin-import-2.x/blob/main/README.md) or submit feedback.
 
 ### Code Migration
 
@@ -65,7 +65,7 @@ cc.Class({
 });
 ```
 
-Due to the differences in how the code is written in each project and the different levels of complexity, the current import plugin only adds **component type declarations**, **property declarations** and **function declarations** to the code migration, the references to the components in the scene are **preserved** and the code inside the function is migrated as **comments**. <br>
+Due to the differences in how the code is written in each project and the different levels of complexity, the current import plugin only adds __component type declarations__, __property declarations__ and __function declarations__ to the code migration, the references to the components in the scene are __preserved__ and the code inside the function is migrated as __comments__. <br>
 In addition, the original code of v2.x is kept intact as a comment at the end of the migrated code, so that developers can refer to it when converting manually.
 
 The example code above, after the code assisted migration by the import plugin, looks like this:
@@ -116,10 +116,10 @@ export class AudioController extends Component {
 // });
 ```
 
-> **Note**.
+> __Notes__
 >
-> 1. When converting from JavaScript to TypeScript, it is necessary to declare **all properties** in TypeScript and set the default values.
-> 2. If the **Inspector** panel data is missing, check if the property type is the same as v2.x.
+> 1. When converting from JavaScript to TypeScript, it is necessary to declare __all properties__ in TypeScript and set the default values.
+> 2. If the __Inspector__ panel data is missing, check if the property type is the same as v2.x.
 > 3. If the JavaScript code uses external types, TypeScript prompts: Fix by importing external source files or declarations.
 
 ## Quick start for developers of older versions
@@ -144,9 +144,9 @@ In v3.0, there are continued improvements to the design of the material system a
 
     - The remaining interfaces are as follows:
 
-        - `color`: needs to get the rendering component on the node first (e.g.: `Sprite` component), and then use the corresponding interface.
+        - `color`: needs to get the renderable component on the node first (e.g.: `Sprite` component), and then use the corresponding interface.
 
-        - `opacity`: If there is a rendering component on the node, set the `color` of the rendering component directly. If there is no rendering component, you can set the rendering component's `color` by adding the `UIOpacity` component and setting the related property.
+        - `opacity`: If there is a renderable component on the node, set the `color` of the renderable component directly. If there is no renderable component, you can set the renderable component's `color` by adding the `UIOpacity` component and setting the related property.
 
         - `skew`: The interface has been removed.
 
@@ -160,10 +160,10 @@ In v3.0, there are continued improvements to the design of the material system a
 
     - Remove the interfaces: `copyWithZone`, `copy`, `clone` and `ensureLoadTexture`.
 
-    - Change the interface: 
+    - Change the interface:
 
     `setFlipX` and `isFlipX` -> `flipUVX`
-    
+
     `setFlipY` and `isFlipY` -> `flipUVY`
 
     `getTexture` and `setTexture` -> `texture` (where the type is Texture2D/ RenderTexture).
@@ -178,37 +178,37 @@ In v3.0, there are continued improvements to the design of the material system a
 
 - `Action`: Remove all related.
 
-- **Physics**:
+- __Physics__:
 
     - 2D changed components: `cc.Collider` -> `Collider2D`, `cc.BoxCollider` -> `BoxCollider2D`, `cc.RigidBody` -> `RigidBody2D`, etc.
 
     - 3D changed components: `cc.Collider3D` -> `Collider`, `cc.BoxCollider3D` -> `BoxCollider`, `cc.RigidBody3D` -> `RigidBody`, etc.
 
-- **tween**:
+- __tween__:
 
     - Change the interface: `cc.repeatForever` -> `Tween.repeatForever`, `cc.reverseTime` -> `Tween.reverseTime`, `cc.show` ->  `Tween.show`, etc.
 
-- **Animation**:
+- __Animation__:
 
     - Change the interface: `addClip`-> `createState`, `getClips`-> `clips`, `playAdditive`-> `crossFade`, `getAnimationState`-> `getState`, etc.
 
-- **Camera**:
+- __Camera__:
 
     - Remove the interfaces: `findCamera`, `alignWithScreen`, `main`, `cameras`, `zoomRatio` and `containsNode`.
 
     - Change the interface: `backgroundColor` -> `clearColor`, `cullingMask` -> `visibility`, `depth`->`clearDepth`, `getScreenToWorldPoint`->`screenToWorld`, `getWorldToScreenPoint`->`worldToScreen`, `getRay`->`screenPointToRay`, etc.
 
-- **Audio**:
+- __Audio__:
 
     - Change the interface: `getLoop` and `setLoop` -> `loop`, `getVolume` and `setVolume` -> `volume`, `getCurrentTime` and `setCurrentTime` -> `currentTime`, `src` -> `clip`.
 
-- **Materials**:
+- __Materials__:
 
-    - All relevant changes need to be done by getting a **Material instance** on **MeshRenderer** or its subclasses.
+    - All relevant changes need to be done by getting a __Material instance__ on __MeshRenderer__ or its subclasses.
 
     - Remove the interfaces: `setBlend`, `setDepth`, `setStencilEnabled`, `setStencil` and `setCullMode` and call `overridePipelineStates` to complete the update. `define` calls `recompileShaders` to complete the update.
 
-- The platform variable changes under **sys** are as follows:
+- The platform variable changes under __sys__ are as follows:
 
 | Cocos Creator 2.x | Cocos Creator 3.0     |
 |:----------------- |:--------------------- |
@@ -221,7 +221,7 @@ In v3.0, there are continued improvements to the design of the material system a
 | `ALIPAY_GAME`     | `ALIPAY_MINI_GAME`    |
 | `BYTEDANCE_GAME`  | `BYTEDANCE_MINI_GAME` |
 
-- The **global variables** are changed as follows:
+- The __global variables__ are changed as follows:
 
 | Cocos Creator 2.x | Cocos Creator 3.0 |
 |:----------------- |:----------------- |
@@ -236,7 +236,7 @@ In v3.0, there are continued improvements to the design of the material system a
 | `CC_RUNTIME`      | `RUNTIME_BASED`   |
 | `CC_SUPPORT_JIT`  | `SUPPORT_JIT`     |
 
-- **Dynamic Loading**:
+- __Dynamic Loading__:
 
     When using `bundle.load` or `resources.load` to dynamically load a `sprite-frame` or `texture` in v3.0, the path needs to be specified to a specific sub-asset:
 
@@ -303,7 +303,7 @@ After the old project is upgraded, the editor will automatically scan all the co
 
 #### Editor Extension System Upgrade
 
-Cocos Creator 3.0 has a more powerful extension system. Almost all internal modules of the editor are built with extension system. You can quickly create your own extensions in the extended menu to achieve the customizations you want. In addition, v3.0 also provides an **Extension Manager**, which can easily manage the operation and uninstallation of all extensions.
+Cocos Creator 3.x has a more powerful extension system. Almost all internal modules of the editor are built with extension system. You can quickly create your own extensions in the extended menu to achieve the customizations you want. In addition, v3.0 also provides an __Extension Manager__, which can easily manage the operation and uninstallation of all extensions.
 
 ![image](extension-plugin.png)
 
@@ -328,7 +328,9 @@ From the above two figures, notice the directory generated after building the We
     ![image](web-cocosjs.png)
 
 2. V2.4.3 has only one startup script `main.js`, while v3.0 has the following two startup scripts:
+
     - `index.js` -- Used to do some pre-processing work.
+
     - `application.js` -- Used to start the game.
 
 3. The `src/settings.js` used to manage configuration in v2.4.3 is changed to `src/settings.json` in v3.0.
@@ -373,19 +375,19 @@ The release package generated by v3.0 after building the __Windows__ platform is
 
 Notice from the above two figures, there is a big difference between v2.4.3 and v3.0 in the release package generated after building the __Windows__ platform.
 
-1. The release package name for v2.4.3 is based on the **Templete** in the **Build** panel (e.g.: `jsb-link`), while v3.0 is based on the **current build of the native platform** (e.g.: `windows`, `Android`).
+1. The release package name for v2.4.3 is based on the __Template__ in the __Build__ panel (e.g.: `jsb-link`), while v3.0 is based on the __current build of the native platform__ (e.g.: `windows`, `Android`).
 
 2. Since the underlying C++ code generated after building on each native platform (e.g.: Android, Windows) is completely consistent. V3.0 extracts the underlying C++ code that was stored in the release package `jsb-link/frameworks/runtime-src/Classes` directory in v2.4.3 and placed it in a shared `native/engine/common` folder under the project directory. This way, when building the native platform, if the folder is detected to already exist, this part will no longer be processed, to speed up the build.
 
     ![image](engine-common.png)
 
-3. The files related to the application layer in the v2.4.3 release package directory have been merged into the `assets` directory in v3.0. 
+3. The files related to the application layer in the v2.4.3 release package directory have been merged into the `assets` directory in v3.0.
 
     The application layer files include the following:
 
-    - **assets** -- Resource directory.
-    - **jsb-adapter** -- Directory, store the adaptation layer code.
-    - **src** -- Directory, store engine related code, plugin scripts,  `settings.js` etc.
+    - __assets__ -- Resource directory.
+    - __jsb-adapter__ -- Directory, store the adaptation layer code.
+    - __src__ -- Directory, store engine related code, plugin scripts,  `settings.js` etc.
     - Related configuration files (`.cocos-project.json`, `cocos-project-template.json`, `project.json`).
     - The startup script (`main.js`).
 
@@ -419,7 +421,7 @@ Notice from the above two figures, there is a big difference between v2.4.3 and 
 
 Cocos Creator 3.x enables Strict Mode for TypeScript, which will review the code more strictly and eliminate any problems that may occur due to negligence during the development process.
 
-To avoid using strict mode, check **Enable loose mode** in **Project -> Project Settings -> Scripting** in the top menu bar of Creator. As a reminder, turning off strict mode is not encouraged as strict null checking can reduce some low-level errors in the code runtime.
+To avoid using strict mode, check __Enable loose mode__ in __Project -> Project Settings -> Scripting__ in the top menu bar of Creator. As a reminder, turning off strict mode is not encouraged as strict null checking can reduce some low-level errors in the code runtime.
 
 For writing specifications in strict mode, please refer to the [Taxi Game 3D](https://github.com/cocos-creator/tutorial-taxi-game) as a test case.
 
@@ -439,7 +441,7 @@ uiTrans.setContentSize(size);
 
 ### Modifying the `color` of a 2D node does not work
 
-Obtain the rendering component on the node (e.g. Sprite component) first, and then use the corresponding interface, e.g.:
+Obtain the renderable component on the node (e.g. Sprite component) first, and then use the corresponding interface, e.g.:
 
 ```typescript
 const uiColor = node.getComponent(Sprite)! ;
@@ -450,27 +452,27 @@ uiColor.color = color(255,255,255);
 
 As of v3.0, the `skew` interface has been removed.
 
-### Grouping is not available, but there are still grouping settings (Layers) in the Creator's project settings panel
+### Grouping is not available, but there are still grouping settings (Layers) in the project settings panel of Creator
 
-The `group` group management in v2.x has been changed to `Layer` since v3.0, as shown below. In v2.x the group name is obtained from `node.group`, while in v3.x the group value is obtained from `node.layer` as **group value**, and the group value is set in exponential power of 2.
+The `group` group management in v2.x has been changed to `Layer` since v3.0, as shown below. In v2.x the group name is obtained from `node.group`, while in v3.x the group value is obtained from `node.layer` as __group value__, and the group value is set in exponential power of 2.
 
 ![update-setting](update-setting.png)
 
 The layer value of User Layer 0 is: 2<sup>0</sup> = 1.<br>
-The layer value of User Layer 1 is: 2<sup>1</sup> = 2.<br> 
+The layer value of User Layer 1 is: 2<sup>1</sup> = 2.<br>
 The layer value of User Layer 6 is: 2<sup>6</sup> = 64.
 
 ### The sibling node set by `zIndex` is invalid
 
 As of v3.0, the `zIndex` interface has been removed. To reorder the node tree please use the `setSiblingIndex` method instead.
 
-### The script mounted on the node is not available via `getComponent()`.
+### The script mounted on the node is not available via `getComponent()`
 
 Please look up the class name of the corresponding script, not the script name. v3.x script components are based on the class name defined in the script, not the script name. There are often problems with scripts not being found due to letter cases. Please refer to the [Create Script](../scripting/setup.md) documentation for more details.
 
 ### Dynamic loading of images in the `resources` folder is not found
 
-When an image is set to `sprite-frame`, `texture` or other image type, an asset of the corresponding type will be generated in the **Assets** panel. However, if loading an `testAssets/image` directly, the type obtained will be `ImageAsset` and it is necessary to specify the path to the specific child asset.
+When an image is set to `sprite-frame`, `texture` or other image type, an asset of the corresponding type will be generated in the __Assets__ panel. However, if loading an `testAssets/image` directly, the type obtained will be `ImageAsset` and it is necessary to specify the path to the specific child asset.
 
 For example, if an image of type `sprite-frame` is set to `testAssets/image` in the `resources` folder, then to load `SpriteFrame` consider the following code:
 
@@ -506,23 +508,23 @@ if (collider) {
 
 ### After the upgrade, the physics collision grouping is gone
 
-Currently the import plugin does not support the physics collision matrix, so for now the developer needs to set the collision matrix manually, which can be reset in the Creator main menu **Project -> Project Settings -> Physics**.
+Currently the import plugin does not support the physics collision matrix, so for now the developer needs to set the collision matrix manually, which can be reset in the main menu __Project -> Project Settings -> Physics__ of Creator.
 
 ### The `audioEngine` interface for the audio system is not working and audio cannot be played
 
-Starting from v3.0, the `audioEngine` interface has been removed and the **AudioSource** component is used to control the playback of audio. Please refer to the [AudioSource Component](../audio-system/audiosource.md) documentation for more details.
+Starting from v3.0, the `audioEngine` interface has been removed and the __AudioSource__ component is used to control the playback of audio. Please refer to the [AudioSource Component](../audio-system/audiosource.md) documentation for more details.
 
 ### `Button` button is not clickable
 
-To rule out code and rendering level problems, please check if the value of `Z` axis in the `Scale` property of the **Button** node is 0, if so, change it to 1.
+To rule out code and rendering level problems, please check if the value of `Z` axis in the `Scale` property of the __Button__ node is 0, if so, change it to 1.
 
 ### The editor is stuck when making changes to the script after upgrade
 
-Check if the property decorator `property` of the component type defined in the script after upgrade is undefined, if not, it is caused by the imported plugin being too old, please refer to [Plugin Upgrade](https://github.com/cocos-creator/plugin-import-2.x) to update the imported plugin Upgrade. After updating the imported plugins, you need to **re-do the project upgrade**.
+Check if the property decorator `property` of the component type defined in the script after upgrade is undefined, if not, it is caused by the imported plugin being too old, please refer to [Plugin Upgrade](https://github.com/cocos-creator/plugin-import-2.x) to update the imported plugin Upgrade. After updating the imported plugins, you need to __re-do the project upgrade__.
 
 ### When modifying the `Position` of a node in a script after an upgrade, direct changes through the node (e.g. `node.x`) do not take effect
 
-As of v3.0, direct access to coordinate positions is not allowed on `node` nodes, it is necessary to access `position` before accessing coordinate values. And `position` is a **read-only property** in v3.x. To change it, please use the `setPosition` method. For example:
+As of v3.0, direct access to coordinate positions is not allowed on `node` nodes, it is necessary to access `position` before accessing coordinate values. And `position` is a __read-only property__ in v3.x. To change it, please use the `setPosition` method. For example:
 
 ```typescript
 // v2.x
