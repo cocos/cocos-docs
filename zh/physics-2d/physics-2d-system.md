@@ -102,7 +102,7 @@ const colliderList = PhysicsSystem2D.instance.testAABB(rect);
 Box2D 物理模块（Builtin 模块没有）提供了射线检测来检测给定的线段穿过哪些碰撞体，我们还可以获取到碰撞体在线段穿过碰撞体的那个点的法线向量和其他一些有用的信息。
 
 ```ts
-const results = PhysicsSystem2D.instance.rayCast(p1, p2, type, mask);
+const results = PhysicsSystem2D.instance.raycast(p1, p2, type, mask);
 
 for (const i = 0; i < results.length; i++) {
     const result = results[i];
