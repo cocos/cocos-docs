@@ -16,7 +16,7 @@ PBR 的优势在于：
 
 ![image](https://user-images.githubusercontent.com/19702899/156523610-b38b18b8-e085-4794-a1b9-596ceecf8d1b.png)
 
-除了在材质属性面板中直接赋予数值以外，也可以为材质的固有色（Albedo）、粗糙度（Roughness）、金属度（Metallic）赋予 **贴图**，以更精准地进行材质表达。除此之外，可以为材质赋予法线（Normal）贴图以获得更多表面结构细节，环境光遮蔽（Ambient Occlusion） **贴图** 以获得细节明暗关系，自发光（Emissive）贴图以获得自发光效果。
+除了在材质属性面板中直接赋予数值以外，也可以为材质的固有色（Albedo）、粗糙度（Roughness）、金属度（Metallic）赋予 **贴图**，以更精准地进行材质表达。除此之外， 可以为材质赋予法线（Normal）贴图以获得更多表面结构细节，环境光遮蔽（Ambient Occlusion） 贴图以获得细节明暗关系，自发光（Emissive）贴图以获得自发光效果。
 
 接下来我们以下图为例，看一下通过设置上述材质参数获得的效果：
 
