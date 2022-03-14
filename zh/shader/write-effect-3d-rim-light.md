@@ -291,7 +291,7 @@ vec4 frag(){
     col.rgb += rimPower * rimColor.rgb; // 增加边缘光
     CC_APPLY_FOG(col, v_position);
     return CCFragOutput(col);  
-  }
+}
 ```
 
 ![one minus dot result](img/1-dot.jpg)
@@ -306,9 +306,9 @@ vec4 frag(){
 rimInstensity:  { value: 1.0,         # 默认值为 1 
                   target: rimColor.a, # 绑定到 rimColor 的 alpha 通道
                   editor: {           # 属性检查器的样式
-                    slide: true,      # 使用滑动条来作为显示样式
-                    range: [0, 10],   # 滑动条的值范围
-                    step: 0.1}        # 每次点击调整按钮时，数值的变化值
+                  slide: true,        # 使用滑动条来作为显示样式
+                  range: [0, 10],     # 滑动条的值范围
+                  step: 0.1 }         # 每次点击调整按钮时，数值的变化值
 ```
 
 此时的CCEffect 代码：
