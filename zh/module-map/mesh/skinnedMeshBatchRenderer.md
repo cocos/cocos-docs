@@ -1,6 +1,6 @@
-# 蒙皮网格渲染器组件（SkinnedMeshBatchRenderer）
+# 批量蒙皮网格渲染器组件（SkinnedMeshBatchRenderer）
 
-蒙皮网格渲染器组件（SkinnedMeshBatchRenderer）用于将同一个骨骼动画组件控制的所有子蒙皮模型网格合并渲染。
+批量蒙皮网格渲染器组件（SkinnedMeshBatchRenderer）用于将同一个骨骼动画组件控制的所有子蒙皮模型网格合并渲染。
 
 ![mesh batch](./img/batched-skinning-model-component.png)
 
