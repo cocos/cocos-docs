@@ -58,9 +58,9 @@ const trailMaterial = particleSystem.renderer.trailMaterial;
 particleSystem.renderer.trailMaterial = trailMaterial;
 ```
 
->**注意**：
->1. 这里访问的是共享材质。
->2. 材质中存在共享材质和材质实例两种情况，共享材质无法和材质实例进行合批。
+> **注意**：
+> 1. 这里访问的是共享材质。
+> 2. 材质中存在共享材质和材质实例两种情况，共享材质无法和材质实例进行合批。
 
 ## 设置材质的属性
 
