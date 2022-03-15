@@ -2,7 +2,7 @@
 
 插件
 
-## 函数
+## 接口说明
 
 ```typescript
 interface GetPackageOptions {
@@ -12,6 +12,7 @@ interface GetPackageOptions {
     enable?: boolean;
     invalid?: boolean;
 }
+
 interface PackageJson {
     author?: string;
     debug?: boolean;
@@ -24,12 +25,15 @@ interface PackageJson {
     editor?: string;
     panel?: any;
 }
+
 type PathType = 'home' | 'data' | 'temp';
 ```
 
+## 函数
+
 ### disable
 
-▸ **disable**(`path: string`, `options: any`): `any`
+▸ **disable**(path: `string`, options: `any`): `any`
 
 关闭一个插件
 
@@ -40,17 +44,13 @@ type PathType = 'home' | 'data' | 'temp';
 | `path`    | `string` | 插件所在路径      |
 | `options` | `any`    | 关闭时带上的配置   |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Package.disable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets', {});
 ```
 
 ### enable
 
-▸ **enable**(`path`): `any`
+▸ **enable**(path: `string`): `any`
 
 启动一个插件
 
@@ -60,17 +60,13 @@ Editor.Package.disable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app
 | :----- | :------- | ---------------- |
 | `path` | `string` | 插件所在路径      |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Package.enable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets', {});
 ```
 
 ### getPackages
 
-▸ **getPackages**(`options?: GetPackageOptions`): `EditorInterfacePackageInfo`[]
+▸ **getPackages**(options?: `GetPackageOptions`): `EditorInterfacePackageInfo[]`
 
 查询插件列表
 
@@ -90,7 +86,7 @@ const pkgs = Editor.Package.getPackages({ enable: true });
 
 ### getPath
 
-▸ **getPath**(`extensionName`, `type?`): `any`
+▸ **getPath**(extensionName: `string`, type?: `PathType`): `any`
 
 获取一个插件的几个预制目录地址
 
@@ -101,61 +97,13 @@ const pkgs = Editor.Package.getPackages({ enable: true });
 | `extensionName` | `string`   | 扩展的名字                                                   |
 | `type?`         | `PathType` | 地址类型（temp 临时目录，data 需要同步的数据目录,不传则返回现在打开的插件路径） |
 
-**返回结果**
-
-`any`
-
 ```typescript
 const path = Editor.Package.getPath('menu');  // "D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\menu"
 ```
 
-### on
-
-▸ **on**(`action: string`, `handle: Function`): `any`
-
-监听插件事件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name     | Type       | Description              |
-| :------- | :--------- | ------------------------ |
-| `action` | `string`   | 插件事件的名称            |
-| `handle` | `Function` | 插件事件触发执行的处理     |
-
-**返回结果**
-
-`any`
-
-```typescript
-Editor.Package.on('enable', () => {});
-```
-
-### once
-
-▸ **once**(`action: string`, `handle: Function`): `any`
-
-监听一次插件事件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name     | Type       | Description              |
-| :------- | :--------- | ------------------------ |
-| `action` | `string`   | 插件事件的名称            |
-| `handle` | `Function` | 插件事件触发执行的处理     |
-
-**返回结果**
-
-`any`
-
-```typescript
-Editor.Package.once('disable', () => {});
-```
-
 ### register
 
-▸ **register**(`path: string`): `any`
+▸ **register**(path: `string`): `any`
 
 注册一个插件
 谨慎使用，之后会被移除
@@ -166,39 +114,13 @@ Editor.Package.once('disable', () => {});
 | :----- | :------- | -------------- |
 | `path` | `string` | 插件所在路径    |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Package.register('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets');
 ```
 
-### removeListener
-
-▸ **removeListener**(`action: string`, `handle: Function`): `any`
-
-移除监听插件的事件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name     | Type       | Description              |
-| :------- | :--------- | ------------------------ |
-| `action` | `string`   | 插件事件的名称            |
-| `handle` | `Function` | 插件事件触发执行的处理     |
-
-**返回结果**
-
-`any`
-
-```typescript
-Editor.Package.removeListener('enable', () => {});
-```
-
 ### unregister
 
-▸ **unregister**(`path: string`): `any`
+▸ **unregister**(path: `string`): `any`
 
 反注册一个插件
 谨慎使用，之后会被移除
@@ -208,10 +130,6 @@ Editor.Package.removeListener('enable', () => {});
 | Name   | Type     | Description     |
 | :----- | :------- | --------------- |
 | `path` | `string` | 插件所在路径     |
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Package.unregister('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets');

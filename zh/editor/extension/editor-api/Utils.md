@@ -4,6 +4,8 @@
 
 ## File
 
+### 接口说明
+
 ```typescript
 interface UnzipOptions {
     peel?: boolean;
@@ -14,7 +16,7 @@ interface UnzipOptions {
 
 #### copy
 
-▸ **copy**(`source: string`, `target: string`): `void`
+▸ **copy**(source: `string`, target: `string`): `void`
 
 复制一个文件到另一个位置
 
@@ -25,17 +27,13 @@ interface UnzipOptions {
 | `source` | `string` |             |
 | `target` | `string` |             |
 
-**返回结果**
-
-`void`
-
 ```typescript
 Editor.Utils.File.copy('C:\\CocosCreatorWorkSpace\\HelloWorld', 'E:\\CocosCreatorWorkSpace\\HelloWorld');
 ```
 
 #### getName
 
-▸ **getName**(`file: string`): `string`
+▸ **getName**(file: `string`): `string`
 
 初始化一个可用的文件名
 返回可用名称的文件路径
@@ -56,7 +54,7 @@ const newFileName = Editor.Utils.File.getName('E:\\CocosCreatorWorkSpace\\HelloW
 
 #### unzip
 
-▸ **unzip**(`zip: string`, `target: string`, `options?: UnzipOptions`): `Promise`<`void`\>
+▸ **unzip**(zip: `string`, target: `string`, options?: `UnzipOptions`): Promise<`void`\>
 
 解压文件夹
 
@@ -70,7 +68,7 @@ const newFileName = Editor.Utils.File.getName('E:\\CocosCreatorWorkSpace\\HelloW
 
 **返回结果**
 
-`Promise`<`void`\>
+Promise<`void`\>
 
 ```typescript
 await Editor.Utils.File.unzip('E:\\repositories\\utils.zip', 'E:\\CocosCreatorWorkSpace\\HelloWorld');
@@ -82,7 +80,7 @@ await Editor.Utils.File.unzip('E:\\repositories\\utils.zip', 'E:\\CocosCreatorWo
 
 #### add
 
-▸ **add**(`arg1： string | number`, `arg2： string | number`): `number`
+▸ **add**(arg1: `string | number`, arg2: `string | number`): `number`
 
 加法函数
 入参：函数内部转化时会先转字符串再转数值，因而传入字符串或 number 均可
@@ -105,7 +103,7 @@ const res = Editor.Utils.Math.add('123', 12.12);  // 135.12
 
 #### clamp
 
-▸ **clamp**(`val: number`, `min: number`, `max: number`): `any`
+▸ **clamp**(val: `number`, min: `number`, max: `number`): `any`
 
 取给定边界范围的值
 
@@ -117,17 +115,13 @@ const res = Editor.Utils.Math.add('123', 12.12);  // 135.12
 | `min` | `number` |             |
 | `max` | `number` |             |
 
-**返回结果**
-
-`any`
-
 ```typescript
 const res = Editor.Utils.Math.clamp(100, 1, 99);  // 99
 ```
 
 #### clamp01
 
-▸ **clamp01**(`val:number`): `number`
+▸ **clamp01**(val: `number`): `number`
 
 取给 0 - 1 范围内的值
 
@@ -147,7 +141,7 @@ const res = Editor.Utils.Math.clamp01(0.5);  // 0.5
 
 #### sub
 
-▸ **sub**(`arg1： string | number`, `arg2： string | number`): `number`
+▸ **sub**(arg1: `string | number`, arg2: `string | number`): `number`
 
 减法函数
 入参：函数内部转化时会先转字符串再转数值，因而传入字符串或number均可
@@ -170,7 +164,7 @@ const res = Editor.Utils.Math.sub('123', 12.12);  // 110.88
 
 #### toFixed
 
-▸ **toFixed**(`val: number`, `num: number`): `number`
+▸ **toFixed**(val: `number`, num: `number`): `number`
 
 保留小数点
 
@@ -191,6 +185,8 @@ const res = Editor.Utils.Math.toFixed(12.1294, 2);  // 12.13
 
 ## Parse
 
+### 接口说明
+
 ```typescript
 interface WhenParam {
     PanelName?: string;
@@ -202,7 +198,7 @@ interface WhenParam {
 
 #### checkWhen
 
-▸ **checkWhen**(`when: string`): `boolean`
+▸ **checkWhen**(when: `string`): `boolean`
 
 判断一个 when 数据是否符合当前条件
 
@@ -222,15 +218,17 @@ const res = Editor.Utils.Parse.checkWhen("PanelName === '' && EditMode === ''");
 
 #### when
 
-▸ **when**(`when: string`): `WhenParam`
+▸ **when**(when: `string`): `WhenParam`
 
 解析 when 参数
 when 的格式：PanelName === '' && EditMode === ''
 整理后的数据格式：
-    {
-        PanelName: '',
-        EditMode: '',
-    }
+``` json5
+{
+    "PanelName": "",
+    "EditMode": "",
+}
+```
 
 **请求参数**
 
@@ -252,21 +250,17 @@ const res = Editor.Utils.Parse.when("PanelName === '' && EditMode === ''");
 
 #### delimiter
 
-• **delimiter**: ``";"`` \| ``":"``
-
-
+• **delimiter**: `";" | ":"`
 
 #### sep
 
-• **sep**: ``"\\"`` \| ``"/"``
-
-
+• **sep**: `"\\" | "/"`
 
 ### 函数
 
 #### basename
 
-▸ **basename**(`p: string`, `ext?: string`): `string`
+▸ **basename**(p: `string`, ext?: `string`): `string`
 
 返回路径的最后一部分
 
@@ -287,7 +281,7 @@ const fileName = Editor.Utils.Path.basename('E:\\CocosCreatorWorkSpace\\HelloWor
 
 #### basenameNoExt
 
-▸ **basenameNoExt**(`path: string`): `string`
+▸ **basenameNoExt**(path: `string`): `string`
 
 返回一个不含扩展名的文件名
 
@@ -307,7 +301,7 @@ const fileName = Editor.Utils.Path.basenameNoExt('E:\\CocosCreatorWorkSpace\\Hel
 
 #### contains
 
-▸ **contains**(`pathA: string`, `pathB: string`): `boolean`
+▸ **contains**(pathA: `string`, pathB: `string`): `boolean`
 
 判断路径 pathA 是否包含 pathB
 
@@ -331,7 +325,7 @@ const res = Editor.Utils.Path.contains('foo/bar/foobar', 'foobar/bar/foo');  // 
 
 #### dirname
 
-▸ **dirname**(`p: string`): `string`
+▸ **dirname**(p: `string`): `string`
 
 返回路径的目录名
 
@@ -352,7 +346,7 @@ const dirname = Editor.Utils.Path.dirname('E:\\CocosCreatorWorkSpace\\HelloWorld
 
 #### extname
 
-▸ **extname**(`p: string`): `string`
+▸ **extname**(p: `string`): `string`
 
 返回路径的扩展名
 
@@ -372,7 +366,7 @@ const extname = Editor.Utils.Path.extname('E:\\CocosCreatorWorkSpace\\HelloWorld
 
 #### format
 
-▸ **format**(`pP`): `string`
+▸ **format**(p: `FormatInputPathObject`): `string`
 
 根据对象数据返回路径字符串
 
@@ -380,7 +374,7 @@ const extname = Editor.Utils.Path.extname('E:\\CocosCreatorWorkSpace\\HelloWorld
 
 | Name | Type                    | Description |
 | :--- | :---------------------- | ----------- |
-| `pP` | `FormatInputPathObject` |             |
+| `p` | `FormatInputPathObject` |             |
 
 **返回结果**
 
@@ -396,7 +390,7 @@ const path = Editor.Utils.Path.format({
 
 #### isAbsolute
 
-▸ **isAbsolute**(`p: string`): `boolean`
+▸ **isAbsolute**(p: `string`): `boolean`
 
 判断路径是否为绝对路径
 
@@ -416,7 +410,7 @@ const res = Editor.Utils.Path.isAbsolute('E:\\CocosCreatorWorkSpace\\HelloWorld\
 
 #### join
 
-▸ **join**(...`paths: `string`[]`): `string`
+▸ **join**(...paths: `string[]`): `string`
 
 使用特定于平台的分隔符作为定界符将所有给定的 `path` 片段连接在一起，然后规范化生成的路径
 
@@ -424,7 +418,7 @@ const res = Editor.Utils.Path.isAbsolute('E:\\CocosCreatorWorkSpace\\HelloWorld\
 
 | Name       | Type       | Description |
 | :--------- | :--------- | ----------- |
-| `...paths` | `string`[] |             |
+| `...paths` | `string[]` |             |
 
 **返回结果**
 
@@ -436,7 +430,7 @@ const path = Editor.Utils.Path.join('/foo', 'bar', 'abc/def', 'g');  // "\\foo\\
 
 #### normalize
 
-▸ **normalize**(`path: string`): `string`
+▸ **normalize**(path: `string`): `string`
 
 格式化路径
 如果是 Windows 平台，需要将盘符转成小写进行判断
@@ -457,7 +451,7 @@ const path = Editor.Utils.Path.normalize('/foo/bar//abc/def/g');  // "\\foo\\bar
 
 #### parse
 
-▸ **parse**(`p: string`): `ParsedPath`
+▸ **parse**(p: `string`): `ParsedPath`
 
 返回一个对象，表示路径的重要信息
 
@@ -477,7 +471,7 @@ const res = Editor.Utils.Path.parse('/foo/bar//abc/def/g.txt');
 
 #### relative
 
-▸ **relative**(`from: string`, `to: string`): `string`
+▸ **relative**(from: `string`, to: `string`): `string`
 
 根据当前工作目录返回从 `from` 到 `to` 的相对路径
 
@@ -498,7 +492,7 @@ const relativePath = Editor.Utils.Path.relative('C:\\program\\test\\aaa', 'C:\\p
 
 #### resolve
 
-▸ **resolve**(...`pathSegments: `string`[]`): `string`
+▸ **resolve**(...pathSegments: `string[]`): `string`
 
 将路径或路径片段的序列解析为绝对路径
 
@@ -506,7 +500,7 @@ const relativePath = Editor.Utils.Path.relative('C:\\program\\test\\aaa', 'C:\\p
 
 | Name              | Type       | Description |
 | :---------------- | :--------- | ----------- |
-| `...pathSegments` | `string`[] |             |
+| `...pathSegments` | `string[]` |             |
 
 **返回结果**
 
@@ -518,7 +512,7 @@ const path = Editor.Utils.Path.resolve('/foo/bar', './abc');  // "D:\\foo\\bar\\
 
 #### slash
 
-▸ **slash**(`path: string`): `string`
+▸ **slash**(path: `string`): `string`
 
 将 \ 统一换成 /
 
@@ -538,7 +532,7 @@ const path = Editor.Utils.Path.slash('\\foo\\bar');  // "/foo/bar"
 
 #### stripExt
 
-▸ **stripExt**(`path: string`): `string`
+▸ **stripExt**(path: `string`): `string`
 
 删除一个路径的扩展名
 
@@ -558,7 +552,7 @@ const path = Editor.Utils.Path.stripExt('E:\\HelloWorld\\package.json');  // "E:
 
 #### stripSep
 
-▸ **stripSep**(`path: string`): `string`
+▸ **stripSep**(path: `string`): `string`
 
 去除路径最后的斜杆，返回一个不带斜杆的路径
 
@@ -582,7 +576,7 @@ const path = Editor.Utils.Path.stripSep('E:\\HelloWorld\\package.json\\');  // "
 
 #### getDocUrl
 
-▸ **getDocUrl**(`relativeUrl: string`, `type?: "manual" | "api"`): `string`
+▸ **getDocUrl**(relativeUrl: `string`, type?: `"manual" | "api"`): `string`
 
 快捷获取文档路径
 
@@ -591,7 +585,7 @@ const path = Editor.Utils.Path.stripSep('E:\\HelloWorld\\package.json\\');  // "
 | Name          | Type                      | Description |
 | :------------ | :------------------------ | ----------- |
 | `relativeUrl` | `string`                  |             |
-| `type?`       | ``"manual"`` \| ``"api"`` |             |
+| `type?`       | `"manual" | "api"`        |             |
 
 **返回结果**
 
@@ -608,7 +602,7 @@ const url = Editor.Utils.Url.getDocUrl('publish/publish-bytedance.html');
 
 #### compressUUID
 
-▸ **compressUUID**(`uuid: string`, `min: boolean`): `string`
+▸ **compressUUID**(uuid: `string`, min: `boolean`): `string`
 
 压缩 UUID
 
@@ -629,7 +623,7 @@ const uuid = Editor.Utils.UUID.compressUUID('7bf9df40-4bc9-4e25-8cb0-9a500f94910
 
 #### decompressUUID
 
-▸ **decompressUUID**(`str: string`): `string`
+▸ **decompressUUID**(str: `string`): `string`
 
 解压 UUID
 
@@ -663,7 +657,7 @@ const uuid = Editor.Utils.UUID.generate();
 
 #### isUUID
 
-▸ **isUUID**(`str: string`): `string`
+▸ **isUUID**(str: `string`): `string`
 
 检查输入字符串是否是 UUID
 

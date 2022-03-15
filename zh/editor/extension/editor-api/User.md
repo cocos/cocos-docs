@@ -2,7 +2,7 @@
 
 用户
 
-## 函数
+## 接口说明
 
 ```typescript
 interface UserData {
@@ -14,15 +14,17 @@ interface UserData {
 }
 ```
 
+## 函数
+
 ### getData
 
-▸ **getData**(): `Promise`<[`UserData`](../interfaces/Editor.User.UserData.md)\>
+▸ **getData**(): Promise<`UserData`\>
 
 获取 user 数据
 
 **返回结果**
 
-`Promise`<[`UserData`](../interfaces/Editor.User.UserData.md)\>
+Promise<`UserData`\>
 
 ```typescript
 const userData = await Editor.User.getData();
@@ -30,7 +32,7 @@ const userData = await Editor.User.getData();
 
 ### getSessionCode
 
-▸ **getSessionCode**(`extensionId: number`): `Promise`<`string`\>
+▸ **getSessionCode**(extensionId: `number`): Promise<`string`\>
 
 根据插件 id 返回 session code
 
@@ -42,7 +44,7 @@ const userData = await Editor.User.getData();
 
 **返回结果**
 
-`Promise`<`string`\>
+Promise<`string`\>
 
 ```typescript
 const sessionCode = await Editor.User.getSessionCode('1027'); // {session_code: "73163bc6d45a0ea5e6f4a1dc6e20a904a856f54a"}
@@ -50,14 +52,14 @@ const sessionCode = await Editor.User.getSessionCode('1027'); // {session_code: 
 
 ### getUserToken
 
-▸ **getUserToken**(): `Promise`<`string`\>
+▸ **getUserToken**(): Promise<`string`\>
 
 获取用户 token
 失败会抛出异常
 
 **返回结果**
 
-`Promise`<`string`\>
+Promise<`string`\>
 
 ```typescript
 const token = await Editor.User.getUserToken(); // { access_token: '', cocos_uid: 111, expires_in: 222}
@@ -70,23 +72,19 @@ const token = await Editor.User.getUserToken(); // { access_token: '', cocos_uid
 隐藏用户登陆遮罩层
 谨慎使用，之后会被移除
 
-**返回结果**
-
-`void`
-
 ```typescript
 Editor.User.hideMask();
 ```
 
 ### isLoggedIn
 
-▸ **isLoggedIn**(): `Promise`<`boolean`\>
+▸ **isLoggedIn**(): Promise<`boolean`\>
 
 检查用户是否登陆
 
 **返回结果**
 
-`Promise`<`boolean`\>
+Promise<`boolean`\>
 
 ```typescript
 const isLogIn = await Editor.User.isLoggedIn();
@@ -94,7 +92,7 @@ const isLogIn = await Editor.User.isLoggedIn();
 
 ### login
 
-▸ **login**(`username: string`, `password: string`): `Promise`<[`UserData`](../interfaces/Editor.User.UserData.md)\>
+▸ **login**(username: `string`, password: `string`): Promise<`UserData`\>
 
 用户登陆
 失败会抛出异常
@@ -108,7 +106,7 @@ const isLogIn = await Editor.User.isLoggedIn();
 
 **返回结果**
 
-`Promise`<[`UserData`](../interfaces/Editor.User.UserData.md)\>
+Promise<`UserData`\>
 
 ```typescript
 await Editor.User.login('youUserName@cocos.com', 'yourPassword');
@@ -121,17 +119,13 @@ await Editor.User.login('youUserName@cocos.com', 'yourPassword');
 退出登陆
 失败会抛出异常
 
-**返回结果**
-
-`void`
-
 ```typescript
 Editor.User.logout();
 ```
 
 ### on
 
-▸ **on**(`action: string`, `handle: Function`): `any`
+▸ **on**(action: `string`, handle: `Function`): `any`
 
 监听事件
 谨慎使用，之后会被移除
@@ -143,13 +137,9 @@ Editor.User.logout();
 | `action` | `string`   | 监听事件的名称           |
 | `handle` | `Function` | 事件触发时执行的处理     |
 
-**返回结果**
-
-`any`
-
 ### once
 
-▸ **once**(`action: string`, `handle: Function`): `any`
+▸ **once**(action: `string`, handle: `Function`): `any`
 
 监听一次事件
 谨慎使用，之后会被移除
@@ -161,13 +151,9 @@ Editor.User.logout();
 | `action` | `string`   | 监听事件的名称           |
 | `handle` | `Function` | 事件触发时执行的处理     |
 
-**返回结果**
-
-`any`
-
 ### removeListener
 
-▸ **removeListener**(`action: string`, `handle: Function`): `any`
+▸ **removeListener**(action: `string`, handle: `Function`): `any`
 
 取消已经监听的事件
 谨慎使用，之后会被移除
@@ -179,20 +165,12 @@ Editor.User.logout();
 | `action` | `string`   | 监听事件的名称           |
 | `handle` | `Function` | 事件触发时执行的处理     |
 
-**返回结果**
-
-`any`
-
 ### showMask
 
 ▸ **showMask**(): `void`
 
 显示用户登陆遮罩层
 谨慎使用，之后会被移除
-
-**返回结果**
-
-`void`
 
 ```typescript
 Editor.User.showMask();
@@ -204,10 +182,6 @@ Editor.User.showMask();
 
 跳过 User
 谨慎使用，之后会被移除
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.User.skip();

@@ -59,7 +59,7 @@ const projectUUID = Editor.Project.uuid;
 
 ### add
 
-▸ **add**(`path: string`): `any`
+▸ **add**(path: `string`): `any`
 
 添加一个项目
 谨慎使用，之后会被移除
@@ -69,10 +69,6 @@ const projectUUID = Editor.Project.uuid;
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
 | `path` | `string` | 项目路径     |
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Project.add('E:\\CocosCreatorWorkSpace\\HelloWorld');
@@ -85,17 +81,13 @@ Editor.Project.add('E:\\CocosCreatorWorkSpace\\HelloWorld');
 创建一个项目
 谨慎使用，之后会被移除
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Project.create();
 ```
 
 ### open
 
-▸ **open**(`path?: string`): `Promise`<`any`\>
+▸ **open**(path?: `string`): Promise<`any`\>
 
 打开一个项目
 谨慎使用，之后会被移除
@@ -108,7 +100,7 @@ Editor.Project.create();
 
 **返回结果**
 
-`Promise`<`any`\>
+Promise<`any`\>
 
 ```typescript
 await Editor.Project.open('E:\\CocosCreatorWorkSpace\\HelloWorld');

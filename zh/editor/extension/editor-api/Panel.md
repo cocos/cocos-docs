@@ -2,18 +2,7 @@
 
 面板
 
-## 变量
-
-
-### \_kitControl
-
-• **\_kitControl**: `any`
-
-```typescript
-const obj = Editor.Panel._kitControl;
-```
-
-## 函数
+## 接口说明
 
 ```typescript
 type Selector<$> = { $: Record<keyof $, HTMLElement | null> }
@@ -69,9 +58,22 @@ type Options<S, M, U extends (...args: any[]) => void> = {
 } & ThisType<Selector<S> & M>
 ```
 
+## 变量
+
+
+### \_kitControl
+
+• **\_kitControl**: `any`
+
+```typescript
+const obj = Editor.Panel._kitControl;
+```
+
+## 函数
+
 ### close
 
-▸ **close**(`name: string`): `any`
+▸ **close**(name: `string`): `any`
 
 关闭一个面板
 
@@ -80,10 +82,6 @@ type Options<S, M, U extends (...args: any[]) => void> = {
 | Name   | Type     | Description |
 | :----- | :------- | ----------- |
 | `name` | `string` | 面板名称     |
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Panel.close('package-asset.import');
@@ -97,19 +95,15 @@ Editor.Panel.close('package-asset.import');
 
 | Name       | Type                                   | Description |
 | :--------- | :------------------------------------- | ----------- |
-| `U`        | extends (...`args`: `any`[]) => `void` |             |
-| `Selector` | `Record`<`string`, `string`\>          |             |
-| `M`        | `Record`<`string`, `Function`\>        |             |
+| `U`        | `extends (...args: any[]) => void`     |             |
+| `Selector` | `Record<string, string>`               |             |
+| `M`        | `Record<string, Function>`             |             |
 
 **请求参数**
 
 | Name      | Type                             | Description |
 | :-------- | :------------------------------- | ----------- |
 | `options` | `Options`<`Selector`, `M`, `U`\> |             |
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Panel.define({
@@ -130,7 +124,7 @@ Editor.Panel.define({
 
 ### focus
 
-▸ **focus**(`name: string`): `any`
+▸ **focus**(name: `string`): `any`
 
 将焦点传递给一个面板
 
@@ -140,17 +134,13 @@ Editor.Panel.define({
 | :----- | :------- | ----------- |
 | `name` | `string` | 面板名称     |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Panel.focus('assets');
 ```
 
 ### has
 
-▸ **has**(`name: string`): `Promise`<`boolean`\>
+▸ **has**(name: `string`): Promise<`boolean`\>
 
 检查面板是否已经打开
 
@@ -162,7 +152,7 @@ Editor.Panel.focus('assets');
 
 **返回结果**
 
-`Promise`<`boolean`\>
+Promise<`boolean`\>
 
 ```typescript
 const res = await Editor.Panel.has('package-asset.import');
@@ -170,7 +160,7 @@ const res = await Editor.Panel.has('package-asset.import');
 
 ### open
 
-▸ **open**(`name: string`, ...`args: any[]`): `any`
+▸ **open**(name: `string`, ...args: `any[]`): `any`
 
 打开一个面板
 
@@ -181,17 +171,13 @@ const res = await Editor.Panel.has('package-asset.import');
 | `name`    | `string` | 面板名称                  |
 | `...args` | `any`[]  | 打开面板时传递的参数       |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Panel.open('console');
 ```
 
 ### querySelector
 
-▸ **querySelector**(`name: string`, `selector: string`): `Promise`<`any`\>
+▸ **querySelector**(name: `string`, selector: `string`): Promise<`any`\>
 
 查询当前窗口里某个面板里的元素列表
 
@@ -204,7 +190,7 @@ Editor.Panel.open('console');
 
 **返回结果**
 
-`Promise`<`any`\>
+Promise<`any`\>
 
 ```typescript
 const res = await Editor.Panel.querySelector('assets', '.tree-node');

@@ -10,17 +10,13 @@
 
 获取所有主题的名字
 
-**返回结果**
-
-`any`
-
 ```typescript
 const themes = Editor.Theme.getList();  // ["creator", "dark", "light"]
 ```
 
 ### use
 
-▸ **use**(`name?: string`): `any`
+▸ **use**(name?: `string`): `any`
 
 使用某个皮肤
 
@@ -29,10 +25,6 @@ const themes = Editor.Theme.getList();  // ["creator", "dark", "light"]
 | Name    | Type     | Description |
 | :------ | :------- | ----------- |
 | `name?` | `string` | 主题名      |
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Theme.use('creator');

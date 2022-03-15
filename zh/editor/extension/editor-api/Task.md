@@ -2,7 +2,7 @@
 
 任务
 
-## 函数
+## 接口说明
 
 ```typescript
 interface NoticeOptions {
@@ -14,9 +14,11 @@ interface NoticeOptions {
 }
 ```
 
+## 函数
+
 ### addNotice
 
-▸ **addNotice**(`options: NoticeOptions`): `any`
+▸ **addNotice**(options: `NoticeOptions`): `any`
 
 添加一个通知
 
@@ -26,17 +28,13 @@ interface NoticeOptions {
 | :-------- | :-------------- | :---------- |
 | `options` | `NoticeOptions` | 消息配置    |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Task.addNotice({ title: 'add success', type: 'success' });
 ```
 
 ### addSyncTask
 
-▸ **addSyncTask**(`title: string`, `describe?: string`, `message?: string`): `any`
+▸ **addSyncTask**(title: `string`, describe?: `string`, message?: `string`): `any`
 
 添加一个同步任务
 会在主窗口显示一个遮罩层
@@ -49,17 +47,13 @@ Editor.Task.addNotice({ title: 'add success', type: 'success' });
 | `describe?` | `string` | 任务描述    |
 | `message?`  | `string` | 任务内容    |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Task.addSyncTask('Task Title');
 ```
 
 ### changeNoticeTimeout
 
-▸ **changeNoticeTimeout**(`id: number`, `time: number`): `any`
+▸ **changeNoticeTimeout**(id: `number`, time: `number`): `any`
 
 修改 notice 自动移除的时间
 
@@ -69,10 +63,6 @@ Editor.Task.addSyncTask('Task Title');
 | :----- | :------- | :---------- |
 | `id`   | `number` | 通知 id     |
 | `time` | `number` | 超时时间    |
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Task.changeNoticeTimeout(12, 1000);
@@ -84,17 +74,13 @@ Editor.Task.changeNoticeTimeout(12, 1000);
 
 查询所有通知
 
-**返回结果**
-
-`any`
-
 ```typescript
 const notices = Editor.Task.queryNotices();
 ```
 
 ### removeNotice
 
-▸ **removeNotice**(`id: number`): `any`
+▸ **removeNotice**(id: `number`): `any`
 
 删除一个通知
 
@@ -104,17 +90,13 @@ const notices = Editor.Task.queryNotices();
 | :--- | :------- | :---------- |
 | `id` | `number` | 通知 id     |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Task.removeNotice(12);
 ```
 
 ### removeSyncTask
 
-▸ **removeSyncTask**(`title: string`): `any`
+▸ **removeSyncTask**(title: `string`): `any`
 
 删除一个同步任务
 
@@ -123,10 +105,6 @@ Editor.Task.removeNotice(12);
 | Name    | Type     | Description |
 | :------ | :------- | :---------- |
 | `title` | `string` | 任务的名字  |
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Task.removeSyncTask('Task Title');
@@ -139,17 +117,13 @@ Editor.Task.removeSyncTask('Task Title');
 页面进程立即同步一次主进程数据
 谨慎使用，之后会被移除
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Task.sync();
 ```
 
 ### updateSyncTask
 
-▸ **updateSyncTask**(`title: string`, `describe?: string`, `message?: string`): `any`
+▸ **updateSyncTask**(title: `string`, describe?: `string`, message?: `string`): `any`
 
 更新某一个同步任务显示的数据
 
@@ -160,10 +134,6 @@ Editor.Task.sync();
 | `title`     | `string` | 任务名字    |
 | `describe?` | `string` | 任务描述    |
 | `message?`  | `string` | 任务内容    |
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Task.updateSyncTask('Task Title');

@@ -2,15 +2,19 @@
 
 配置
 
-## 函数
+## 接口说明
 
 ```typescript
 type preferencesProtocol = 'default' | 'global' | 'local';
+
 type projectProtocol = 'default' | 'project';
+
 type tempProtocol = 'temp';
+
 interface ProfileGetOptions {
     type: 'deep' | 'current' | 'inherit';
 }
+
 interface ProfileObj {
     get: (key?: string, options?: ProfileGetOptions) => any;
     set: (key?: string, value?: any) => any;
@@ -21,9 +25,11 @@ interface ProfileObj {
 }
 ```
 
+## 函数
+
 ### getConfig
 
-▸ **getConfig**(`name: string`, `key?: `, `type?: preferencesProtocol`): `Promise`<`any`\>
+▸ **getConfig**(name: `string`, key?: `string`, type?: `preferencesProtocol`): Promise<`any`\>
 
 读取插件配置
 
@@ -37,7 +43,7 @@ interface ProfileObj {
 
 **返回结果**
 
-`Promise`<`any`\>
+Promise<`any`\>
 
 ```typescript
 const value = await Editor.Profile.getConfig('asset-db', 'autoScan');
@@ -45,7 +51,7 @@ const value = await Editor.Profile.getConfig('asset-db', 'autoScan');
 
 ### getProject
 
-▸ **getProject**(`name: string`, `key?: string`, `type?: projectProtocol`): `Promise`<`any`\>
+▸ **getProject**(`name: `string`, key?: `string`, type?: `projectProtocol`): Promise<`any`\>
 
 读取插件内的项目配置
 
@@ -59,7 +65,7 @@ const value = await Editor.Profile.getConfig('asset-db', 'autoScan');
 
 **返回结果**
 
-`Promise`<`any`\>
+Promise<`any`\>
 
 ```typescript
 const engineModules = await Editor.Profile.getProject('engine', 'modules.includeModules');
@@ -67,7 +73,7 @@ const engineModules = await Editor.Profile.getProject('engine', 'modules.include
 
 ### getTemp
 
-▸ **getTemp**(`name: string`, `key?: string`): `Promise`<`any`\>
+▸ **getTemp**(name: `string`, key?: `string`): Promise<`any`\>
 
 读取插件配置
 
@@ -80,7 +86,7 @@ const engineModules = await Editor.Profile.getProject('engine', 'modules.include
 
 **返回结果**
 
-`Promise`<`any`\>
+Promise<`any`\>
 
 ```typescript
 const state = await Editor.Profile.getTemp('assets', 'state');
@@ -88,7 +94,7 @@ const state = await Editor.Profile.getTemp('assets', 'state');
 
 ### migrateGlobal
 
-▸ **migrateGlobal**(`pkgName: string`, `profileVersion: string`, `profileData: any`): `any`
+▸ **migrateGlobal**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `any`
 
 迁移插件某个版本的全局配置数据到编辑器最新版本
 
@@ -100,10 +106,6 @@ const state = await Editor.Profile.getTemp('assets', 'state');
 | `profileVersion` | `string` | 要迁移的插件版本号      |
 | `profileData`    | `any`    | 迁移的数据             |
 
-**返回结果**
-
-`any`
-
 ```typescript
 // const buildJson = { xxx };
 await Editor.Profile.migrateGlobal('builder', '1.2.1', buildJson);
@@ -111,7 +113,7 @@ await Editor.Profile.migrateGlobal('builder', '1.2.1', buildJson);
 
 ### migrateLocal
 
-▸ **migrateLocal**(`pkgName: string`, `profileVersion: string`, `profileData: any`): `any`
+▸ **migrateLocal**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `any`
 
 迁移插件某个版本的本地配置数据到编辑器最新版本
 
@@ -123,17 +125,13 @@ await Editor.Profile.migrateGlobal('builder', '1.2.1', buildJson);
 | `profileVersion` | `string` | 要迁移的插件版本号      |
 | `profileData`    | `any`    | 迁移的数据             |
 
-**返回结果**
-
-`any`
-
 ```typescript
 await Editor.Profile.migrateLocal('builder', '1.2.1', buildJson);
 ```
 
 ### migrateProject
 
-▸ **migrateProject**(`pkgName: string`, `profileVersion: string`, `profileData: any`): `any`
+▸ **migrateProject**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `any`
 
 迁移插件某个版本的项目配置数据到编辑器最新版本
 
@@ -145,62 +143,13 @@ await Editor.Profile.migrateLocal('builder', '1.2.1', buildJson);
 | `profileVersion` | `string` | 要迁移的插件版本号      |
 | `profileData`    | `any`    | 迁移的数据             |
 
-**返回结果**
-
-`any`
-
 ```typescript
 await Editor.Profile.migrateProject('builder', '1.2.1', buildJson);
 ```
 
-### on
-
-▸ **on**(`action: string`, `handle: Function`): `any`
-
-监听 profile 事件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name     | Type       | Description                  |
-| :------- | :--------- | ---------------------------- |
-| `action` | `string`   | profile 事件的名称            |
-| `handle` | `Function` | profile 事件触发时执行的处理   |
-
-**返回结果**
-
-`any`
-
-```typescript
-Editor.Profile.on('change', () => {});
-Editor.Profile.on('save', () => {});
-```
-
-### once
-
-▸ **once**(`action: string`, `handle: Function`): `any`
-
-监听一次 profile 事件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name     | Type       | Description                  |
-| :------- | :--------- | ---------------------------- |
-| `action` | `string`   | profile 事件的名称            |
-| `handle` | `Function` | profile 事件触发时执行的处理   |
-
-**返回结果**
-
-`any`
-
-```typescript
-Editor.Profile.once('save', () => {});
-```
-
 ### removeConfig
 
-▸ **removeConfig**(`name: string`, `key: string`, `type?: preferencesProtocol`): `Promise`<`void`\>
+▸ **removeConfig**(name: `string`, key: `string`, type?: `preferencesProtocol`): Promise<`void`\>
 
 删除某个插件配置
 
@@ -214,37 +163,15 @@ Editor.Profile.once('save', () => {});
 
 **返回结果**
 
-`Promise`<`void`\>
+Promise<`void`\>
 
 ```typescript
 await Editor.Profile.removeConfig('device', 'enable', 'global');
 ```
 
-### removeListener
-
-▸ **removeListener**(`action: string`, `handle: Function`): `any`
-
-移除监听的 profile 事件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name     | Type       | Description                  |
-| :------- | :--------- | ---------------------------- |
-| `action` | `string`   | profile 事件的名称            |
-| `handle` | `Function` | profile 事件触发时执行的处理   |
-
-**返回结果**
-
-`any`
-
-```typescript
-Editor.Profile.removeListener('change', () => {});
-```
-
 ### removeProject
 
-▸ **removeProject**(`name: string`, `key: string`, `type?: projectProtocol`): `Promise`<`void`\>
+▸ **removeProject**(name: `string`, key: `string`, type?: `projectProtocol`): Promise<`void`\>
 
 删除插件内的项目配置
 
@@ -258,7 +185,7 @@ Editor.Profile.removeListener('change', () => {});
 
 **返回结果**
 
-`Promise`<`void`\>
+Promise<`void`\>
 
 ```typescript
 await Editor.Profile.removeProject('engine', 'modules.includeModules');
@@ -266,7 +193,7 @@ await Editor.Profile.removeProject('engine', 'modules.includeModules');
 
 ### removeTemp
 
-▸ **removeTemp**(`name: string`, `key: string`): `Promise`<`void`\>
+▸ **removeTemp**(name: `string`, key: `string`): Promise<`void`\>
 
 删除某个插件配置
 
@@ -279,7 +206,7 @@ await Editor.Profile.removeProject('engine', 'modules.includeModules');
 
 **返回结果**
 
-`Promise`<`void`\>
+Promise<`void`\>
 
 ```typescript
 await Editor.Profile.removeTemp('assets', 'state');
@@ -287,7 +214,7 @@ await Editor.Profile.removeTemp('assets', 'state');
 
 ### setConfig
 
-▸ **setConfig**(`name: string`, `key: string`, `value: any`, `type?: preferencesProtocol`): `Promise`<`void`\>
+▸ **setConfig**(name: `string`, key: `string`, value: `any`, type?: `preferencesProtocol`): Promise<`void`\>
 
 设置插件配置
 
@@ -302,7 +229,7 @@ await Editor.Profile.removeTemp('assets', 'state');
 
 **返回结果**
 
-`Promise`<`void`\>
+Promise<`void`\>
 
 ```typescript
 await Editor.Profile.setConfig('package-asset', 'import-path', dirname(result.filePaths[0]));
@@ -311,7 +238,7 @@ await Editor.Profile.setConfig('reference-image', 'show', true);
 
 ### setProject
 
-▸ **setProject**(`name: string`, `key: string`, `value: any`, `type?: preferencesProtocol`): `Promise`<`void`\>
+▸ **setProject**(name: `string`, key: `string`, value: `any`, type?: `preferencesProtocol`): Promise<`void`\>
 
 设置插件内的项目配置
 
@@ -326,7 +253,7 @@ await Editor.Profile.setConfig('reference-image', 'show', true);
 
 **返回结果**
 
-`Promise`<`void`\>
+Promise<`void`\>
 
 ```typescript
 await Editor.Profile.setProject('node-library', 'custom', {});
@@ -334,7 +261,7 @@ await Editor.Profile.setProject('node-library', 'custom', {});
 
 ### setTemp
 
-▸ **setTemp**(`name: string`, `key: string`, `value: any`): `Promise`<`void`\>
+▸ **setTemp**(name: `string`, key: `string`, value: `any`): Promise<`void`\>
 
 设置插件配置
 
@@ -348,7 +275,7 @@ await Editor.Profile.setProject('node-library', 'custom', {});
 
 **返回结果**
 
-`Promise`<`void`\>
+Promise<`void`\>
 
 ```typescript
 Editor.Profile.setTemp('assets', 'state', {});

@@ -2,7 +2,7 @@
 
 对话框
 
-## 函数
+## 接口说明
 
 弹窗具体参数参考 [Electron 官方文档](https://www.electronjs.org/zh/docs/latest/api/dialog)
 
@@ -27,10 +27,11 @@ export interface MessageDialogOptions {
     buttons?: string[];
 }
 ```
+## 函数
 
 ### error
 
-▸ **error**(`message: string`, `options?: MessageDialogOptions`, `window?: BrowserWindow`): `Promise`<`MessageBoxReturnValue`\>
+▸ **error**(message: `string`, options?: `MessageDialogOptions`, window?: `BrowserWindow`): Promise<`MessageBoxReturnValue`\>
 
 错误弹窗
 
@@ -44,7 +45,7 @@ export interface MessageDialogOptions {
 
 **返回结果**
 
-`Promise`<`MessageBoxReturnValue`\>
+Promise<`MessageBoxReturnValue`\>
 
 ```typescript
 await Editor.Dialog.error('error content', {
@@ -54,7 +55,7 @@ await Editor.Dialog.error('error content', {
 
 ### info
 
-▸ **info**(`message: string`, `options?: MessageDialogOptions`, `window?: BrowserWindow`): `Promise`<`MessageBoxReturnValue`\>
+▸ **info**(message: `string`, options?: `MessageDialogOptions`, window?: `BrowserWindow`): Promise<`MessageBoxReturnValue`\>
 
 信息弹窗
 
@@ -62,13 +63,13 @@ await Editor.Dialog.error('error content', {
 
 | Name       | Type                   | Description                          |
 | :--------- | :--------------------- | :----------------------------------- |
-| `message`  | `string`               | 显示的消息                           |
-| `options?` | `MessageDialogOptions` | 信息弹窗可选参数                     |
-| `window?`  | `BrowserWindow`        | 依附于哪个窗口（插件主进程才可使用） |
+| `message`  | `string`               | 显示的消息                            |
+| `options?` | `MessageDialogOptions` | 信息弹窗可选参数                       |
+| `window?`  | `BrowserWindow`        | 依附于哪个窗口（插件主进程才可使用）    |
 
 **返回结果**
 
-`Promise`<`MessageBoxReturnValue`\>
+Promise<`MessageBoxReturnValue`\>
 
 ```typescript
 const result = await Editor.Dialog.info('Dialog Message', {
@@ -84,7 +85,7 @@ if (0 == result.response) {
 
 ### save
 
-▸ **save**(`options?: MessageDialogOptions`, `window?: BrowserWindow`): `Promise`<`SaveDialogReturnValue`\>
+▸ **save**(options?: `MessageDialogOptions`, `window?: `BrowserWindow`): Promise<`SaveDialogReturnValue`\>
 
 保存文件弹窗
 
@@ -97,7 +98,7 @@ if (0 == result.response) {
 
 **返回结果**
 
-`Promise`<`SaveDialogReturnValue`\>
+Promise<`SaveDialogReturnValue`\>
 
 ```typescript
 const result = await Editor.Dialog.save({
@@ -114,7 +115,7 @@ if (!result.filePath) {
 
 ### select
 
-▸ **select**(`options?: SelectDialogOptions`, `window?: BrowserWindow`): `Promise`<`OpenDialogReturnValue`\>
+▸ **select**(options?: `SelectDialogOptions`, window?: `BrowserWindow`): Promise<`OpenDialogReturnValue`\>
 
 选择文件弹窗
 
@@ -127,7 +128,7 @@ if (!result.filePath) {
 
 **返回结果**
 
-`Promise`<`OpenDialogReturnValue`\>
+Promise<`OpenDialogReturnValue`\>
 
 ```typescript
 const result = await Editor.Dialog.select({
@@ -144,7 +145,7 @@ if (result.filePaths && result.filePaths[0]) {
 
 ### warn
 
-▸ **warn**(`message: string`, `options?: MessageDialogOptions`, `window?: BrowserWindow`): `Promise`<`MessageBoxReturnValue`\>
+▸ **warn**(message: `string`, options?: `MessageDialogOptions`, window?: `BrowserWindow`): Promise<`MessageBoxReturnValue`\>
 
 警告弹窗
 
@@ -158,7 +159,7 @@ if (result.filePaths && result.filePaths[0]) {
 
 **返回结果**
 
-`Promise`<`MessageBoxReturnValue`\>
+Promise<`MessageBoxReturnValue`\>
 
 ```typescript
 await Editor.Dialog.warn('Warn Message');

@@ -6,7 +6,7 @@
 
 ### apply
 
-▸ **apply**(`json: any`): `any`
+▸ **apply**(json: `any`): `any`
 
 应用布局信息
 
@@ -16,19 +16,15 @@
 | :----- | :---- | :----------- |
 | `json` | `any` | 布局文件内容 |
 
-**返回结果**
-
-`any`
+```typescript
+Editor.Layout.apply(fs.readJSONSync(ps.join(Editor.App.path, './default.json')));
+```
 
 ### init
 
 ▸ **init**(): `any`
 
 初始化布局系统
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Layout.init();

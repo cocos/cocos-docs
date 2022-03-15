@@ -86,7 +86,7 @@ const urls = Editor.App.urls;
 用户代理信息
 
 ```typescript
-const ua = Editor.App.userAgent;  // "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) CocosCreator/3.4.0 Chrome/91.0.4472.106 Electron/13.1.4 Safari/537.36"
+const UA = Editor.App.userAgent;  // "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) CocosCreator/3.4.0 Chrome/91.0.4472.106 Electron/13.1.4 Safari/537.36"
 ```
 
 ### version

@@ -2,11 +2,13 @@
 
 剪切板
 
-## 函数
+## 接口说明
 
 ```typescript
 export type ICopyType = 'image' | 'text' | 'files' | string;
 ```
+
+## 函数
 
 ### clear
 
@@ -20,9 +22,9 @@ Editor.Clipboard.clear();
 
 ### has
 
-▸ **has**(`type: ICopyType`): `boolean`
+▸ **has**(type: `ICopyType`): `boolean`
 
-判断当前剪贴板内是否是指定类型
+判断当前剪贴板内容是否含有指定类型的数据
 
 **请求参数**
 
@@ -40,7 +42,7 @@ const res = Editor.Clipboard.has('files');  // false
 
 ### read
 
-▸ **read**(`type: ICopyType`): `any`
+▸ **read**(type: `ICopyType`): `any`
 
 获取剪贴板内容
 
@@ -50,28 +52,23 @@ const res = Editor.Clipboard.has('files');  // false
 | :----- | :---------- | -------------  |
 | `type` | `ICopyType` | 剪贴板内容的类型 |
 
-**返回结果**
-
-`any`
-
 ```typescript
 const textRes = Editor.Clipboard.read('text');  // 'your copy text'
-const imageRes = Editor.Clipboard.read('image');
 const filesRes = Editor.Clipboard.read('files');  // []
 ```
 
 ### write
 
-▸ **write**(`type: ICopyType`, `value: string | FileList`): `boolean`
+▸ **write**(type: `ICopyType`, value: `string | FileList`): `boolean`
 
 写入剪贴板内容
 
 **请求参数**
 
-| Name    | Type                                    | Description             |
-| :------ | :-------------------------------------- | ----------------------- |
-| `type`  | `"image" | "text" | "files" | string`   | 剪贴板内容的类型          |
-| `value` | `string` | `FileList`                   | 复制到剪贴板中的内容      |
+| Name    | Type                       | Description             |
+| :------ | :------------------------- | ----------------------- |
+| `type`  | `ICopyType`                | 剪贴板内容的类型         |
+| `value` | `string` \| `FileList`     | 复制到剪贴板中的内容      |
 
 **返回结果**
 

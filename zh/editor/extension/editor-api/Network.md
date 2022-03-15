@@ -6,7 +6,7 @@
 
 ### get
 
-▸ **get**(`url: string`, `data?`: Object): `Promise`<`Buffer`\>
+▸ **get**(url: `string`, data?: `Object`): Promise<`Buffer`\>
 
 Get 方式请求某个服务器数据
 
@@ -19,7 +19,7 @@ Get 方式请求某个服务器数据
 
 **返回结果**
 
-`Promise`<`Buffer`\>
+Promise<`Buffer`\>
 
 ```typescript
 network.get(RUNTIME_REQUEST_URL).then((ret: any) => {
@@ -31,7 +31,7 @@ network.get(RUNTIME_REQUEST_URL).then((ret: any) => {
 
 ### portIsOccupied
 
-▸ **portIsOccupied**(`port: number`): `Promise`<`boolean`\>
+▸ **portIsOccupied**(port: `number`): Promise<`boolean`\>
 
 检查一个端口是否被占用
 
@@ -43,15 +43,15 @@ network.get(RUNTIME_REQUEST_URL).then((ret: any) => {
 
 **返回结果**
 
-`Promise`<`boolean`\>
+Promise<`boolean`\>
 
 ```typescript
-const isOccupied = await Editor.Network.portIsOccupied(8000);
+const isOccupied = await Editor.Network.portIsOccupied(8000);  // false
 ```
 
 ### post
 
-▸ **post**(`url: string`, `data?: Object`): `Promise`<`Buffer`\>
+▸ **post**(url: `string`, data?: `Object`): Promise<`Buffer`\>
 
 Post 方式请求某个服务器数据
 
@@ -64,7 +64,7 @@ Post 方式请求某个服务器数据
 
 **返回结果**
 
-`Promise`<`Buffer`\>
+Promise<`Buffer`\>
 
 ```typescript
 let res: Buffer = await Editor.Network.post('https://creator-api.cocos.com/api/session/token', {
@@ -75,27 +75,27 @@ let res: Buffer = await Editor.Network.post('https://creator-api.cocos.com/api/s
 
 ### queryIPList
 
-▸ **queryIPList**(): `string`[]
+▸ **queryIPList**(): `string[]`
 
 查询当前电脑的 ip 列表
 
 **返回结果**
 
-`string`[]
+`string[]`
 
 ```typescript
-const ipList = Editor.Network.queryIPList();
+const ipList = Editor.Network.queryIPList();  // ["127.0.0.1", "192.168.52.154"]
 ```
 
 ### testConnectServer
 
-▸ **testConnectServer**(): `Promise`<`boolean`\>
+▸ **testConnectServer**(): Promise<`boolean`\>
 
 测试是否可以联通 passport.cocos.com 服务器
 
 **返回结果**
 
-`Promise`<`boolean`\>
+Promise<`boolean`\>
 
 ```typescript
 const res = await Editor.Network.testConnectServer();
@@ -103,7 +103,7 @@ const res = await Editor.Network.testConnectServer();
 
 ### testHost
 
-▸ **testHost**(`ip: string`): `Promise`<`boolean`\>
+▸ **testHost**(ip: `string`): Promise<`boolean`\>
 
 测试是否可以联通某一台主机
 
@@ -115,7 +115,7 @@ const res = await Editor.Network.testConnectServer();
 
 **返回结果**
 
-`Promise`<`boolean`\>
+Promise<`boolean`\>
 
 ```typescript
 const res = await Editor.Network.testHost('192.168.0.0');

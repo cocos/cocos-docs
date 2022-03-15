@@ -6,7 +6,7 @@
 
 ### clear
 
-▸ **clear**(`type: string`): `any`
+▸ **clear**(type: `string`): `any`
 
 清空一个类型的所有选中元素
 
@@ -16,17 +16,13 @@
 | :----- | :------- | ----------- |
 | `type` | `string` | 选中的类型   |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Selection.clear('asset');
 ```
 
 ### getLastSelected
 
-▸ **getLastSelected**(`type: string`): `string`
+▸ **getLastSelected**(type: `string`): `string`
 
 获取某个类型内，最后选中的元素
 
@@ -60,7 +56,7 @@ const type = Editor.Selection.getLastSelectedType();
 
 ### getSelected
 
-▸ **getSelected**(`type: string`): `string`[]
+▸ **getSelected**(type: `string`): `string[]`
 
 获取一个类型选中的所有元素数组
 
@@ -72,7 +68,7 @@ const type = Editor.Selection.getLastSelectedType();
 
 **返回结果**
 
-`string`[]
+`string[]`
 
 ```typescript
 const uuids = Editor.Selection.getSelected('asset');
@@ -80,7 +76,7 @@ const uuids = Editor.Selection.getSelected('asset');
 
 ### hover
 
-▸ **hover**(`type: string`, `uuid?: string`): `any`
+▸ **hover**(type: `string`, uuid?: `string`): `any`
 
 悬停触碰了某个元素
 会发出 selection:hover 的广播消息
@@ -92,17 +88,13 @@ const uuids = Editor.Selection.getSelected('asset');
 | `type`  | `string` | 选中的类型   |
 | `uuid?` | `string` | 元素的 uuid  |
 
-**返回结果**
-
-`any`
-
 ```typescript
 Editor.Selection.hover('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 ```
 
 ### select
 
-▸ **select**(`type: string`, `uuid:`string` | `string`[]`): `any`
+▸ **select**(type: `string`, uuid:`string` | `string[]`): `any`
 
 选中一个或者一组元素
 
@@ -111,11 +103,7 @@ Editor.Selection.hover('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 | Name   | Type                   | Description |
 | :----- | :--------------------- | ----------- |
 | `type` | `string`               | 选中的类型   |
-| `uuid` | `string` | `string`[] | 元素的 uuid   |
-
-**返回结果**
-
-`any`
+| `uuid` | `string` | `string[]`  | 元素的 uuid   |
 
 ```typescript
 Editor.Selection.select('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
@@ -123,7 +111,7 @@ Editor.Selection.select('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 
 ### unselect
 
-▸ **unselect**(`type: string`, `uuid:`string` | `string`[]`): `any`
+▸ **unselect**(type: `string`, uuid:`string` | `string[]`): `any`
 
 取消一个或者一组元素的选中状态
 
@@ -132,11 +120,7 @@ Editor.Selection.select('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 | Name   | Type                   | Description |
 | :----- | :--------------------- | ----------- |
 | `type` | `string`               | 选中的类型   |
-| `uuid` | `string` | `string`[] | 元素的 uuid   |
-
-**返回结果**
-
-`any`
+| `uuid` | `string` | `string[]` | 元素的 uuid   |
 
 ```typescript
 Editor.Selection.unselect('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
@@ -144,7 +128,7 @@ Editor.Selection.unselect('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 
 ### update
 
-▸ **update**(`type: string`, `uuids: string[]`): `any`
+▸ **update**(type: `string`, uuids: `string[]`): `any`
 
 更新当前选中的类型数据
 
@@ -154,10 +138,6 @@ Editor.Selection.unselect('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 | :------ | :--------- | ----------- |
 | `type`  | `string`   | 选中的类型   |
 | `uuids`  | `string`[] | 元素的 uuid |
-
-**返回结果**
-
-`any`
 
 ```typescript
 Editor.Selection.update('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
