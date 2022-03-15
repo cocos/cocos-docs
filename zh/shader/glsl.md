@@ -289,4 +289,4 @@ GLSL 允许定义和 C 语言类似的宏定义。
 
 预处理宏定义和引擎的交互部分可参考： [预处理宏定义](macros.md)
 
->> **注意**：在引擎中，材质的预处理宏定义在材质初始化完成后便不能修改。如果需要修改，请使用 `Material.initialize` 或 `Material.reset` 方法。代码示例可参考：[程序化使用材质](../material-system/material-script.md)
+> **注意**：在引擎中，材质的预处理宏定义在材质初始化完成后便不能修改。如果需要修改，请使用 `Material.initialize` 或 `Material.reset` 方法。代码示例可参考：[程序化使用材质](../material-system/material-script.md)
