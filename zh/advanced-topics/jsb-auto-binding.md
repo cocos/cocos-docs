@@ -12,7 +12,7 @@
 ```javascript
 if (sys.isNative && sys.os == sys.OS.IOS) {
     msg = this.buffer_string + '\n[cclog][' + clock + '][' + tag + ']' + msg;
-    jsb.reflection.callStaticMethod("ABCLogServuce", "log:module:level:", msg, 'cclog', level);
+    jsb.reflection.callStaticMethod("ABCLogService", "log:module:level:", msg, 'cclog', level);
     return;
 } else if (sys.isNative && sys.os == sys.OS.ANDROID) {
     msg = this.buffer_string + '\n[cclog][' + clock + '][' + tag + ']' + msg;
@@ -53,7 +53,7 @@ JSB 绑定通常有 **手动绑定** 和 **自动绑定** 两种方式。手动�
     export PYTHON_BIN=python3
     ```
 
-Window 下直接参考上面需要安装的模块直接安装就好了，最后也要记得配置环境变量。
+Windows 下直接参考上面需要安装的模块直接安装就好了，最后也要记得配置环境变量。
 
 ### 自动绑定展示
 

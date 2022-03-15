@@ -1,10 +1,16 @@
-## 旋转模块(RotationOvertimeModule)
+# 旋转模块（RotationOvertimeModule）
 
-![](particle-system/rotation_module.png)
+旋转模块用于设置粒子运行时在移动中旋转，可用于模拟类似下落的雪花这类随机旋转特效。
 
-属性| 作用
----|---
-**separateAxes** | 是否三个轴分开进行旋转。
-**X、Y、Z** | 旋转随时间变化的曲线，可对三个坐标轴设置不同旋转，可采用不同计算模式，X、Y 仅当 separateAxes 为 true 时有效。
+![rotation_module](module/rotate_overtime.gif)
 
-![](particle-system/rotate_overtime.gif)
+## 属性
+
+![rotation_module](module/rotation_module.png)
+
+| 属性 | 说明 |
+| :--- | :--- |
+| **SeparateAxes** | 是否分开设置三个轴的粒子旋转（预计在 v3.3 支持该功能） |
+| **X、Y、Z** | 绕 X、Y、Z 轴设定旋转角速度。其中 **X**、**Y** 仅在勾选 **SeparateAxes** 属性后显示。 |
+
+点击属性输入框右侧的 ![menu button](main-module/menu-button.png) 按钮，可选择对属性进行曲线编辑，详情请参考 [曲线编辑器](./editor/curve-editor.md)。
