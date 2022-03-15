@@ -15,7 +15,7 @@
 
 ## 渲染过程
 
-Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为例，我们在材质资源中将  **Effect** 属性中的着色器切换为 `builtin-toon.effect`，可以看到卡通渲染由两个渲染过程（Pass）组成：
+Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为例，我们在材质资源中将 **Effect** 属性中的着色器切换为 `builtin-toon.effect`，可以看到卡通渲染由两个渲染过程（Pass）组成：
 
 ![渲染过程](img/toon-pass.png)
 
@@ -30,7 +30,7 @@ Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为�
 
  **渲染过程 0** 可通过勾选 **USE_OUTLINE_PASS** 开启或关闭。
 
-当勾选 **USE_OUTLINE_PASS** 开启  **渲染过程 0**  的描边功能后，效果图如下：
+当勾选 **USE_OUTLINE_PASS** 开启 **渲染过程 0** 的描边功能后，效果图如下：
 
 ![USE_OUTLINE_PASS 开启](img/outline-on.png)
 
@@ -38,7 +38,7 @@ Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为�
 
 ![DepthBias](img/toon-depth-bias.png)
 
-当不勾选 **USE_OUTLINE_PASS** 关闭  **渲染过程 0**  的描边功能后，效果图如下：
+当不勾选 **USE_OUTLINE_PASS** 关闭 **渲染过程 0** 的描边功能后，效果图如下：
 
 ![USE_OUTLINE_PASS 关闭](img/outline-off.png)
 
