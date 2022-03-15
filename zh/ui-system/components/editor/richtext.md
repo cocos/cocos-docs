@@ -18,6 +18,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 | :-------------   | :--------- |
 | String           | 富文本的内容字符串，你可以在里面使用 BBCode 来指定特定文本的样式  |
 | Horizontal Align | 水平对齐方式    |
+| Vertical Align   | 竖直对齐方式    |
 | Font Size        | 字体大小，单位是 point（**注意**：该字段不会影响 BBCode 里面设置的字体大小）  |
 | Font             | 富文本定制字体，所有的 label 片段都会使用这个定制的 TTF 字体    |
 | Font Family      | 富文本定制系统字体。                                       |
