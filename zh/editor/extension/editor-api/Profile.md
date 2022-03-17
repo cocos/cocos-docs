@@ -94,7 +94,7 @@ const state = await Editor.Profile.getTemp('assets', 'state');
 
 ### migrateGlobal
 
-▸ **migrateGlobal**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `any`
+▸ **migrateGlobal**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `void`
 
 迁移插件某个版本的全局配置数据到编辑器最新版本
 
@@ -113,7 +113,7 @@ await Editor.Profile.migrateGlobal('builder', '1.2.1', buildJson);
 
 ### migrateLocal
 
-▸ **migrateLocal**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `any`
+▸ **migrateLocal**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `void`
 
 迁移插件某个版本的本地配置数据到编辑器最新版本
 
@@ -131,7 +131,7 @@ await Editor.Profile.migrateLocal('builder', '1.2.1', buildJson);
 
 ### migrateProject
 
-▸ **migrateProject**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `any`
+▸ **migrateProject**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `void`
 
 迁移插件某个版本的项目配置数据到编辑器最新版本
 

@@ -34,7 +34,7 @@ const projectPath = Editor.Project.path;
 const projectTmpDir = Editor.Project.tmpDir;
 ```
 
-### type
+<!-- ### type
 
 • **type**: ``"2d"`` \| ``"3d"``
 
@@ -43,7 +43,7 @@ const projectTmpDir = Editor.Project.tmpDir;
 
 ```typescript
 const projectType = Editor.Project.type;
-```
+``` -->
 
 ### uuid
 
@@ -55,7 +55,7 @@ const projectType = Editor.Project.type;
 const projectUUID = Editor.Project.uuid;
 ```
 
-## 函数
+<!-- ## 函数
 
 ### add
 
@@ -104,4 +104,4 @@ Promise<`any`\>
 
 ```typescript
 await Editor.Project.open('E:\\CocosCreatorWorkSpace\\HelloWorld');
-```
+``` -->

@@ -1,6 +1,6 @@
 # Package
 
-插件
+插件管理器
 
 ## 接口说明
 
@@ -101,7 +101,7 @@ const pkgs = Editor.Package.getPackages({ enable: true });
 const path = Editor.Package.getPath('menu');  // "D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\menu"
 ```
 
-### register
+<!-- ### register
 
 ▸ **register**(path: `string`): `any`
 
@@ -133,4 +133,4 @@ Editor.Package.register('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\ap
 
 ```typescript
 Editor.Package.unregister('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets');
-```
+``` -->

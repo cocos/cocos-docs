@@ -65,7 +65,7 @@ Promise<`string`\>
 const token = await Editor.User.getUserToken(); // { access_token: '', cocos_uid: 111, expires_in: 222}
 ```
 
-### hideMask
+<!-- ### hideMask
 
 ▸ **hideMask**(): `void`
 
@@ -74,7 +74,7 @@ const token = await Editor.User.getUserToken(); // { access_token: '', cocos_uid
 
 ```typescript
 Editor.User.hideMask();
-```
+``` -->
 
 ### isLoggedIn
 
@@ -121,68 +121,4 @@ await Editor.User.login('youUserName@cocos.com', 'yourPassword');
 
 ```typescript
 Editor.User.logout();
-```
-
-### on
-
-▸ **on**(action: `string`, handle: `Function`): `any`
-
-监听事件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name     | Type       | Description            |
-| :------- | :--------- | ---------------------- |
-| `action` | `string`   | 监听事件的名称           |
-| `handle` | `Function` | 事件触发时执行的处理     |
-
-### once
-
-▸ **once**(action: `string`, handle: `Function`): `any`
-
-监听一次事件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name     | Type       | Description            |
-| :------- | :--------- | ---------------------- |
-| `action` | `string`   | 监听事件的名称           |
-| `handle` | `Function` | 事件触发时执行的处理     |
-
-### removeListener
-
-▸ **removeListener**(action: `string`, handle: `Function`): `any`
-
-取消已经监听的事件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name     | Type       | Description            |
-| :------- | :--------- | ---------------------- |
-| `action` | `string`   | 监听事件的名称           |
-| `handle` | `Function` | 事件触发时执行的处理     |
-
-### showMask
-
-▸ **showMask**(): `void`
-
-显示用户登陆遮罩层
-谨慎使用，之后会被移除
-
-```typescript
-Editor.User.showMask();
-```
-
-### skip
-
-▸ **skip**(): `any`
-
-跳过 User
-谨慎使用，之后会被移除
-
-```typescript
-Editor.User.skip();
 ```

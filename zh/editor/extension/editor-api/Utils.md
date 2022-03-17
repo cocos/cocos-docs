@@ -35,8 +35,8 @@ Editor.Utils.File.copy('C:\\CocosCreatorWorkSpace\\HelloWorld', 'E:\\CocosCreato
 
 ▸ **getName**(file: `string`): `string`
 
-初始化一个可用的文件名
-返回可用名称的文件路径
+初始化一个可用的文件名，返回可用名称的文件路径
+遇到重名时会自动递增直到获取到一个不会冲突的可用文件地址
 
 Parameters
 

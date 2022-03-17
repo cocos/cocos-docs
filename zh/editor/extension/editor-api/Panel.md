@@ -1,6 +1,6 @@
 # Panel
 
-面板
+面板管理器
 
 ## 接口说明
 
@@ -58,17 +58,6 @@ type Options<S, M, U extends (...args: any[]) => void> = {
 } & ThisType<Selector<S> & M>
 ```
 
-## 变量
-
-
-### \_kitControl
-
-• **\_kitControl**: `any`
-
-```typescript
-const obj = Editor.Panel._kitControl;
-```
-
 ## 函数
 
 ### close
@@ -89,21 +78,13 @@ Editor.Panel.close('package-asset.import');
 
 ### define
 
-▸ **define**<`U`, `Selector`, `M`\>(`options`): `any`
-
-**类型参数**
-
-| Name       | Type                                   | Description |
-| :--------- | :------------------------------------- | ----------- |
-| `U`        | `extends (...args: any[]) => void`     |             |
-| `Selector` | `Record<string, string>`               |             |
-| `M`        | `Record<string, Function>`             |             |
+▸ **define**(options: `Options`): `any`
 
 **请求参数**
 
-| Name      | Type                             | Description |
-| :-------- | :------------------------------- | ----------- |
-| `options` | `Options`<`Selector`, `M`, `U`\> |             |
+| Name      | Type                             | Description          |
+| :-------- | :------------------------------- | -----------          |
+| `options` | `Options`<`Selector`, `M`, `U`\> | 面板的配置            |
 
 ```typescript
 Editor.Panel.define({

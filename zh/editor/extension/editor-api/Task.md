@@ -110,7 +110,7 @@ Editor.Task.removeNotice(12);
 Editor.Task.removeSyncTask('Task Title');
 ```
 
-### sync
+<!-- ### sync
 
 ▸ **sync**(): `any`
 
@@ -119,7 +119,7 @@ Editor.Task.removeSyncTask('Task Title');
 
 ```typescript
 Editor.Task.sync();
-```
+``` -->
 
 ### updateSyncTask
 

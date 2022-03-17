@@ -1,5 +1,6 @@
 # UI
 
+<!-- TODO: 先注释，ui-kit 单独文档，这边显示插件需要注册的接口就好 -->
 UI 组件
 
 ## 变量
@@ -136,7 +137,7 @@ UI 组件
 
 • **Tooltip**: `any`
 
-## 函数
+<!-- ## 函数
 
 ### register
 
@@ -154,4 +155,4 @@ UI 组件
 
 ```typescript
 Editor.UI.register('ui-new-tag', NewTag);
-```
+``` -->

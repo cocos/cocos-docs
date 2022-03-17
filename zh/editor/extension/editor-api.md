@@ -19,6 +19,4 @@
 - [Selection](./editor-api/Selection.md)
 - [Task](./editor-api/Task.md)
 - [Theme](./editor-api/Theme.md)
-- [UI](./editor-api/UI.md)
-- [User](./editor-api/User.md)
 - [Utils](./editor-api/Utils.md)

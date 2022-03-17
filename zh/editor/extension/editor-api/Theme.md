@@ -6,7 +6,7 @@
 
 ### getList
 
-▸ **getList**(): `any`
+▸ **getList**(): `string[]`
 
 获取所有主题的名字
 
