@@ -30,12 +30,12 @@ After selecting the generated __Texture2D__ sub-asset, you can see the following
 
 The following describes the properties of the panel:
 
-| Property | Explanation |
-| :--- | :--- |
-| __Anisotropy__ | Anisotropy value |
-| __Min Filter__ | Narrowing Filter Algorithm |
-| __Mag Filter__ | Magnification Filter Algorithm |
-| __Mip Filter__ | Multi-level texture filtering algorithm |
+| Property        | Explanation                             |
+| :-------------- | :-------------------------------------- |
+| __Anisotropy__  | Anisotropy value                        |
+| __Min Filter__  | Narrowing Filter Algorithm              |
+| __Mag Filter__  | Magnification Filter Algorithm          |
+| __Mip Filter__  | Multi-level texture filtering algorithm |
 | __Wrap Mode S__ | S (U) direction texture addressing mode |
 | __Wrap Mode T__ | T (V) direction texture addressing mode |
 
@@ -63,3 +63,17 @@ __TextureCube__ obtained by making a __CubeMap__ in __Cocos Creator__:
 ![CubeMap](../concepts/scene/skybox/Cubemap_Inspector.png)
 
 To learn more about the use of __TextureCube__ and __CubeMaps__, please refer to the [Skybox](../concepts/scene/skybox.md) documentation.
+
+
+## Set MipMap range during runtime
+The mipmap range of `Texture2D` and `TextureCube` can be set during runtime. After setting the limits, the program will only use the mipmaps in the given range. We can avoid the use of low-level mipmaps to save bandwidth, and avoid the use of high-level mipmaps to ensure render quality.
+
+The method is as follow:
+
+```Javascript
+   texture2d.setMipRange(minLod, maxLod);
+   // or
+   textureCube.setMipRange(minLod, maxLod);
+```
+where `minLod` specifies the min-limit, and `maxLod` specifies the max-limit.
+> **Note**: The limit exceeding the origin `mipmapLevel` is invalid.
