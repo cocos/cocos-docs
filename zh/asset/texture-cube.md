@@ -32,3 +32,4 @@ texture.setMipRange(minLevel, maxLevel);
 
 其中 minLevel 指定了最小限制，maxLevel 指定了最大限制。
 > **注意**，该限制无法超出已有的 mipmap 层级。
+> **Note**: 该方法对 WebGL 和 GLES2 后端无效.

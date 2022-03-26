@@ -77,3 +77,4 @@ The method is as follow:
 ```
 where `minLod` specifies the min-limit, and `maxLod` specifies the max-limit.
 > **Note**: The limit exceeding the origin `mipmapLevel` is invalid.
+> **Note**: This method doesn't work on WebGL 1 and GLES2.
