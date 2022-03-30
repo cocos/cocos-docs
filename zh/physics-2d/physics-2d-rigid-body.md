@@ -4,6 +4,33 @@
 
 由于 Builtin 2D 物理系统只带有碰撞检测的功能，所以刚体对于 Builtin 2D 物理系统是不生效的，本篇设置只对其他 2D 物理系统产生作用。
 
+## 添加刚体
+
+点击 **属性检查器** 的 **添加组件** 按钮，输入 Rigidbody2D 即可以添加 2D 刚体组件。
+
+![add-rigid](image/add-rigid.png)
+
+## 属性说明
+
+![rigidbody-2d](image/rigidbody-2d.png)
+
+| 属性 | 说明 |
+| :-- | :-- |
+| **Group** | 刚体的分组。通过 [碰撞矩阵](../editor/project/physics-configs.md) 可设置不同分组间碰撞的可能性|
+| **EnabledContactListener** | 开启监听 [碰撞回调](./physics-2d-contact-callback.md) |
+| **Bullet** | 这个刚体是否是一个快速移动的刚体，并且需要禁止穿过其他快速移动的刚体 <br>请参考 [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D) 获取更多信息 |
+| **Type** | 刚体类型，详情请参考下方 **刚体类型** |
+| **AlllowSleep** | 是否允许刚体休眠 <br> [物理配置](../editor/project/physics-configs.md) 中可调整休眠的临界值 |
+| **GravityScale** | 重力缩放比例 |
+| **LinearDamping** | 移动速度衰减系数 |
+| **AngularDamping** | 旋转速度衰减系数 |
+| **LinearVelocity** | 移动速度 |
+| **AngularVelocity** | 旋转速度 |
+| **FixedRotation** | 是否固定旋转 |
+| **AwakeOnLoad** | 加载完成后立刻唤醒刚体 |
+
+刚体组件接口请参考 [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D)。
+
 ## 刚体属性
 
 ### 质量
@@ -70,15 +97,13 @@ rigidbody.angularDamping = damping;
 
 旋转、位移与缩放是游戏开发中最常用的功能，几乎每个节点都会对这些属性进行设置。而在物理系统中，系统会自动将节点的这些属性与 Box2D 中对应属性进行同步。
 
-**注意**：
-
-1. Box2D 中只有旋转和位移，并没有缩放，所以如果设置节点的缩放属性时，会重新构建这个刚体依赖的全部碰撞体。一个有效避免这种情况发生的方式是将渲染的节点作为刚体节点的子节点，只对这个渲染节点作缩放，尽量避免对刚体节点进行直接缩放。
-
-2. 在物理系统每次迭代（物理系统是在 postUpdate 进行迭代的）的最后会把所有刚体信息同步到对应节点上去，而出于性能考虑，只有当开发者对刚体所在节点的相关属性进行显示设置时，节点的信息才会同步到刚体上，并且刚体只会监视他所在的节点，也就是说，如果修改了节点的父节点的旋转位移，是不会同步这些信息的。
+> **注意**：
+> 1. Box2D 中只有旋转和位移，并没有缩放，所以如果设置节点的缩放属性时，会重新构建这个刚体依赖的全部碰撞体。一个有效避免这种情况发生的方式是将渲染的节点作为刚体节点的子节点，只对这个渲染节点作缩放，尽量避免对刚体节点进行直接缩放。
+> 2. 在物理系统每次迭代（物理系统是在 postUpdate 进行迭代的）的最后会把所有刚体信息同步到对应节点上去，而出于性能考虑，只有当开发者对刚体所在节点的相关属性进行显示设置时，节点的信息才会同步到刚体上，并且刚体只会监视他所在的节点，也就是说，如果修改了节点的父节点的旋转位移，是不会同步这些信息的。
 
 ### 固定旋转
 
-做平台跳跃游戏时通常都不会希望主角的旋转属性也被加入到物理模拟中，因为这样会导致主角在移动过程中东倒西歪，这时可以设置刚体的 `fixedRotation` 为 true，固定旋转。
+做平台跳跃游戏时通常都不会希望主角的旋转属性也被加入到物理模拟中，因为这样会导致主角在移动过程中东倒西歪，这时可以设置刚体的 `fixedRotation` 为 true，固定旋转，代码示例如下：
 
 ```ts
 rigidbody.fixedRotation = true;
@@ -86,7 +111,7 @@ rigidbody.fixedRotation = true;
 
 ### 开启碰撞监听
 
-只有开启了刚体的碰撞监听，刚体发生碰撞时才会回调到对应的组件上。
+只有开启了刚体的碰撞监听，刚体发生碰撞时才会回调到对应的组件上。代码示例如下：
 
 ```ts
 rigidbody.enabledContactListener = true;
@@ -114,6 +139,15 @@ Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **
 - `RigidBodyType.Animated`
 
   动画刚体，在上面已经提到过，从 Kinematic 衍生的类型，主要用于刚体与动画编辑结合使用。
+
+### 碰撞响应
+
+| -- | Static | Dynamic| Kinematic | Animated |
+| :-- | :-- | :-- | :-- | :-- |
+| **Static**    |  | √ |  √ | √|
+| **Dynamic**   | √ | √ | √ | √ |
+| **Kinematic** | √| √ | √ | √ |
+| **Animated**  | √ | √ | √ | √ |
 
 ## 刚体方法
 
