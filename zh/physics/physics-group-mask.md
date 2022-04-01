@@ -80,8 +80,8 @@ Enum(PHY_GROUP);
 ```ts
 // 此处案例使用的是上方 “定义分组” 处定义的枚举
 const rigid = this.getComponent(RigidBody);
-rigid.setGroup(PHY_GROUP.SELF_PLANE);
 // 等价于 rigid.setGroup(1 << 1) 或 rigid.setGroup(1)
+rigid.setGroup(PHY_GROUP.SELF_PLANE);
 
 rigid.getGroup();
 ```
