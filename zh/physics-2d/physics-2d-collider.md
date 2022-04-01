@@ -1,5 +1,7 @@
 # 2D 碰撞组件
 
+## 添加碰撞组件
+
 目前引擎支持三种不同的碰撞组件： **盒碰撞组件（BoxCollider2D）**、**圆形碰撞组件（CircleCollider2D）** 和 **多边形碰撞组件（PolygonCollider2D）**。在 **属性检查器** 上点击 **添加组件** 按钮，输入碰撞组件的名称即可添加。
 
 ![碰撞组件](image/collider-types.png)
