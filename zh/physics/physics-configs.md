@@ -44,7 +44,7 @@
 | **raycastClosestResult** | 获取 **raycastClosest** 的检测结果（只读） |
 | **collisionMatrix** | 获取碰撞矩阵，仅用于初始化 |
 
-代码可以通过 `PhysicsSystem.instance` 设置。部分设置代码如下：
+可以通过 `PhysicsSystem.instance` 对物理系统进行配置。部分代码示例如下：
 
 ```ts
 import { _decorator, Component, Node, Vec3, PhysicsSystem } from 'cc';
@@ -59,6 +59,8 @@ export class Example extends Component {
 }
 ```
 
+> **注意**：物理系统是单例类，通过 `PhysicsSystem.instance` 获取物理系统的实例。
+
 也可通过 `PhysicsSystem.resetConfiguration` 接口来重置物理配置，代码示例如下：
 
 ```ts
@@ -67,7 +69,7 @@ conf.gravity = new Vec3(10, 10, 0);
 PhysicsSystem.instance.resetConfiguration(conf);
 ```
 
-更多 API 内容请查看物理系统接口请参考：[PhysicsSystem API](__APIDOC__/zh/classes/physics.physicssystem.html)。
+更多 API 内容请查看物理系统接口请参考：[PhysicsSystem API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/physicssystem.html)。
 
 ## 碰撞矩阵
 

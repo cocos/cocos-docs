@@ -9,7 +9,7 @@
 Cocos Creator 3.X 3D 物理支持以下几种物理引擎：
 
 - **ammo.js**：默认物理引擎，[Bullet 物理引擎](https://pybullet.org/wordpress/) 的 asm.js/wasm 版本。具备碰撞检测和物理模拟的物理引擎。
-- **builtin**：仅用于碰撞检测的轻量引擎。
+- **builtin**：内置物理引擎，仅用于碰撞检测的轻量引擎。
 - **cannon.js**：具有碰撞检测和物理模拟的物理引擎。
 - **PhysX**: 由 [NVIDIA](https://developer.nvidia.com/physx-sdk) 公司开发的游戏物理引擎。具备碰撞检测和物理模拟的物理引擎。
 

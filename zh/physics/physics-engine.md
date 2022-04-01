@@ -14,7 +14,7 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 
 ### builtin
 
-**builtin** 物理引擎 **仅有碰撞检测** 的功能。相对于其它的物理引擎，它没有复杂的物理模拟计算，如果您的项目不需要这一部分的物理模拟，那么建议使用 **builtin**，使游戏的包体更小。
+**builtin** 内置物理引擎 **仅有碰撞检测** 的功能。相对于其它的物理引擎，它没有复杂的物理模拟计算，如果您的项目不需要这一部分的物理模拟，那么建议使用 **builtin**，使游戏的包体更小。
 
 使用 **builtin** 进行开发时，请注意以下事项：
 
@@ -59,7 +59,7 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 
 ### 不同物理后端碰撞形状支持情况
 
-| 功能特性 | builtin | cannon.js | ammo.js | physics
+| 功能特性 | builtin | cannon.js | ammo.js | PhysX
 |:--------|:--------|:----------|:--------|:----|
 | 质心     | ✔       | ✔         | ✔       |✔ |
 | 盒、球 | ✔ | ✔ | ✔ |✔ |

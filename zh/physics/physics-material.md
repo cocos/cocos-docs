@@ -49,6 +49,8 @@ newPMtl.restitution = 0.5;
 
 ![应用物理材质](img/apply-pmtl.jpg)
 
+在代码中操作：
+
 ```ts
 import { Collider } from 'cc';
 
