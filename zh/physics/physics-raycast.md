@@ -109,7 +109,7 @@ if(bResult){
 
 ### 返回结果说明
 
-射线检测的结果由 [PhysicsRayResult](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/physics.physicsrayresult.html) 进行存储，主要有以下信息：
+射线检测的结果由 [PhysicsRayResult](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/physicsrayresult.html) 进行存储，主要有以下信息：
 
 - `collider`：击中的碰撞器
 - `distance`：击中点与射线起点的距离
