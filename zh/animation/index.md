@@ -22,4 +22,4 @@ Cocos Creator 内置了通用的动画系统用以实现基于关键帧的动画
 
 - [Marionette 动画系统](./marionette/index.md)：v3.4 新增，实现了由状态机控制的自动化且可复用的骨骼动画流程。
 
-具体的动画实现根据不同的动画需求，操作步骤以及代码实现都不同，可参考官方范例 **animation**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/animation) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/animation)），主要介绍一些常见的编辑操作方法以及代码范例，以供参考。
+具体的动画实现根据不同的动画需求，操作步骤以及代码实现都不同，可参考官方范例 **animation**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.4/assets/cases/animation) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/animation)），主要介绍一些常见的编辑操作方法以及代码范例，以供参考。

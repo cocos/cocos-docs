@@ -14,4 +14,4 @@
 - [阴影](light/shadow.md)
 - [光照贴图](light/lightmap.md)
 
-Creator 提供了 **lighting 范例**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/light) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/light)），主要介绍一些光照常见的编辑操作方法以及代码范例，以供参考。
+Creator 提供了 **lighting 范例**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.4/assets/cases/light) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/light)），主要介绍一些光照常见的编辑操作方法以及代码范例，以供参考。
