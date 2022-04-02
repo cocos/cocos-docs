@@ -92,6 +92,10 @@ let rigidBody = this.node.getComponent(RigidBody);
 
   ![result](img/center-result.png)
 
+通过下图可观察到当质心不一致时的运动表现，右边的胶囊体质心位于胶囊体的底部，左边的胶囊体质心位于物体的中心。
+
+  ![result](img/center-of-mass.gif)
+
 ## 控制刚体
 
 ### 让刚体运动起来
