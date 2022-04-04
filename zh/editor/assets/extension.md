@@ -19,14 +19,14 @@
   ```json5
   // package.json
   {
-    contributions: {
-      assets: {
-        menu: {
-          methods: './assets-menu.js', // 下面 Demo 示例中有这个文件
-          createMenu: 'onCreateMenu',
-          assetMenu: 'onAssetMenu',
-          dbMenu: 'onDBMenu',
-          panelMenu: 'onPanelMenu',
+    "contributions": {
+      "assets": {
+        "menu": {
+          "methods": "./assets-menu.js", // 下面 Demo 示例中有这个文件
+          "createMenu": "onCreateMenu",
+          "assetMenu": "onAssetMenu",
+          "dbMenu": "onDBMenu",
+          "panelMenu": "onPanelMenu",
         },
       },
     },
@@ -34,6 +34,8 @@
   ```
 
 - 文末的 **Demo 示例** 中 `assets-menu.js` 部分代码示例如下：
+
+  Javascript
 
   ```javascript
   // assets-menu.js
@@ -54,6 +56,53 @@
   };
 
   exports.onAssetMenu = function (assetInfo) {
+    return [
+      {
+        label: 'i18n:extend-assets-demo.menu.assetCommandParent',
+        submenu: [
+          {
+            label: 'i18n:extend-assets-demo.menu.assetCommand1',
+            enabled: assetInfo.isDirectory,
+            click() {
+              console.log('get it');
+              console.log(assetInfo);
+            },
+          },
+          {
+            label: 'i18n:extend-assets-demo.menu.assetCommand2',
+            enabled: !assetInfo.isDirectory,
+            click() {
+              console.log('yes, you clicked');
+              console.log(assetInfo);
+            },
+          },
+        ],
+      },
+    ];
+  };
+  ```
+
+  Typescript
+
+  ```typescript
+  // assets-menu.js
+  export function onCreateMenu(assetInfo: any) {
+    return [
+      {
+        label: 'i18n:extend-assets-demo.menu.createAsset',
+        click() {
+          if (!assetInfo) {
+            console.log('get create command from header menu');
+          } else {
+            console.log('get create command, the detail of diretory asset is:');
+            console.log(assetInfo);
+          }
+        },
+      },
+    ];
+  };
+
+  export function onAssetMenu(assetInfo: any) {
     return [
       {
         label: 'i18n:extend-assets-demo.menu.assetCommandParent',
@@ -128,20 +177,20 @@
 ```json5
 // package.json
 {
-  contributions: {
-    assets: {
-      drop: [
+  "contributions": {
+    "assets": {
+      "drop": [
         {
-          type: 'my-defined-asset-type-for-drop', // 对应 Demo 示例中 panel.html 的用法
-          message: 'drop-asset',
+          "type": "my-defined-asset-type-for-drop", // 对应 Demo 示例中 panel.html 的用法
+          "message": "drop-asset",
         },
       ],
-      menu: './assets-menu.js',
+      "menu": "./assets-menu.js",
     },
   },
-  messages: {
-    'drop-asset': {
-      methods: ['default.dropAsset'], // 'default' 是指当前插件的默认面板
+  "messages": {
+    "drop-asset": {
+      "methods": ["default.dropAsset"], // 'default' 是指当前插件的默认面板
     },
   },
 }
@@ -149,9 +198,23 @@
 
 - 文末的 **Demo 示例** 中 `panel.js` 文件：
 
+  Javascript
+  
   ```javascript
   exports.methods = {
     dropAsset(assetInfo, dragInfo) {
+      console.log(Editor.I18n.t('extend-assets-demo.drop.callback'));
+      console.log(assetInfo);
+      console.log(dragInfo);
+    },
+  };
+  ```
+
+  Typescript
+
+  ```typescripscript
+  export const methods = {
+    dropAsset(assetInfo: any, dragInfo: any) {
       console.log(Editor.I18n.t('extend-assets-demo.drop.callback'));
       console.log(assetInfo);
       console.log(dragInfo);

@@ -21,7 +21,26 @@
 
 ## 自定义 Component 渲染
 
-默认提供的组件渲染器有时候并不能满足我们的需求，我们可以在插件的 package.json 里这样注册一份数据：
+默认提供的组件渲染器有时候并不能满足我们的需求，这时候我们就需要自定义一个组件的渲染方式。
+
+首先在项目内书写一个 ts 文件命名为 NewComponent.ts，内容如下:
+
+```typescript
+import { _decorator, Component, Node } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('NewComponent')
+export class NewComponent extends Component {
+    @property({
+        type: String,
+    })
+    test: string = '';
+}
+```
+
+将组件拖到节点上，这时候能看到组件上有一个 string 输入框。
+
+然后新建一个插件，在插件 package.json 里这样注册一份 contributions.inspector 数据：
 
 ```json
 {
@@ -44,44 +63,143 @@
 
 然后我们针对这个书写一个 `./dist/contributions/inspector/comp-label.js` 文件：
 
+Javascript
+
+```javascript
+'use strict';
+
+exports.template = `
+<ui-prop>
+    <ui-label>Custom Render</ui-label>
+</ui-prop>
+<ui-prop type="dump" class="test"></ui-prop>
+`;
+
+exports.$ = {
+    test: '.test',
+};
+
+exports.update = function(dump: any) {
+    // 使用 ui-porp 自动渲染，设置 prop 的 type 为 dump
+    // render 传入一个 dump 数据，能够自动渲染出对应的界面
+    // 自动渲染的界面修改后，能够自动提交数据
+    this.$.test.render(dump.value.test);
+}
+exports.ready = function() {}
+```
+
+Typescript
+
 ```typescript
 'use strict';
 
-module.exports = Editor.Panel.define({
-    $: {
-        button: 'ui-button[slot=content]',
-    },
-    template: `
+type Selector<$> = { $: Record<keyof $, any | null> }
+
+export const template = `
 <ui-prop>
-    <ui-label value="Button" slot="label"></ui-label>
-    <ui-button slot="content">Console</ui-button>
+    <ui-label>Custom Render</ui-label>
 </ui-prop>
-    `,
-    update(dump: any) {
-        // TODO something
-    },
-    ready() {
-        this.$.button.addEventListener('confirm', () => {
-            console.log('Custom Inspector: Label Button...');
-        });
-    },
-    close() {
-        // TODO something
-    },
-});
+<ui-prop type="dump" class="test"></ui-prop>
+`;
+
+export const $ = {
+    test: '.test',
+};
+
+export function update(this: Selector<typeof $> & typeof methods, dump: any) {
+    // 使用 ui-porp 自动渲染，设置 prop 的 type 为 dump
+    // render 传入一个 dump 数据，能够自动渲染出对应的界面
+    // 自动渲染的界面修改后，能够自动提交数据
+    this.$.test.render(dump.value.test);
+}
+export function ready(this: Selector<typeof $> & typeof methods) {}
 ```
 
-`Editor.Panel.define` 是 v3.3 新增的接口，主要是合并一些数据。
-
-需要兼容之前版本的话可以加一行：
-
-```typescript
-Editor.Panel.define = Editor.Panel.define || function(panel: any) {return panel;}
-```
-
-这样我们就能够在 inspector 内的 Label 组件最后添加一个 button。
+这样我们就能够在 inspector 内接管 NewComponent 组件的渲染了。
 
 这里需要注意的是，多个插件注册的数据是并存的。如果一个的 Component 已经有其他插件注册或者内置了自定义渲染器，那么再次注册的自定义渲染器都会附加在后面。如果一个 Component 没有内置自定义渲染器，使用的是默认的渲染，那么当插件注册渲染器的时候，会完全接管渲染内容。
+
+如果我们希望手动渲染，而不使用自动渲染，那我们也可以手动通过 prop 提交数据：
+
+Javascript
+
+```javascript
+'use strict';
+
+exports.template = `
+<ui-prop>
+    <ui-label>Custom Render</ui-label>
+</ui-prop>
+<!-- 帮忙提交数据的元素 -->
+<ui-prop type="dump" class="test"></ui-prop>
+<!-- 实际渲染的元素 -->
+<ui-input class="test-input"></ui-input>
+`;
+
+exports.$ = {
+    test: '.test',
+    testInput: '.test-input',
+};
+
+exports.update = function(dump: any) {
+    // 缓存 dump 数据，请挂在 this 上，否则多开的时候可能出现问题
+    this.dump = dump;
+    // 将 dump 数据传递给帮忙提交数据的 prop 元素
+    this.$.test.dump = dump.value.test;
+    // 更新负责输入和显示的 input 元素上的数据
+    this.$.testInput.value = dump.value.test.value;
+}
+exports.ready = function(this: PanelThis) {
+    // 监听 input 上的提交事件，当 input 提交数据的时候，更新 dump 数据，并使用 prop 发送 change-dump 事件
+    this.$.testInput.addEventListener('confirm', () => {
+        this.dump.value.test.value = this.$.testInput.value;
+        this.$.test.dispatch('change-dump');
+    });
+}
+```
+
+Typescript
+
+```typescript
+'use strict';
+
+type Selector<$> = { $: Record<keyof $, any | null> }
+
+export const template = `
+<ui-prop>
+    <ui-label>Custom Render</ui-label>
+</ui-prop>
+<!-- 帮忙提交数据的元素 -->
+<ui-prop type="dump" class="test"></ui-prop>
+<!-- 实际渲染的元素 -->
+<ui-input class="test-input"></ui-input>
+`;
+
+export const $ = {
+    test: '.test',
+    testInput: '.test-input',
+};
+
+type PanelThis = Selector<typeof $> & { dump: any };
+
+export function update(this: PanelThis, dump: any) {
+    // 缓存 dump 数据，请挂在 this 上，否则多开的时候可能出现问题
+    this.dump = dump;
+    // 将 dump 数据传递给帮忙提交数据的 prop 元素
+    this.$.test.dump = dump.value.test;
+    // 更新负责输入和显示的 input 元素上的数据
+    this.$.testInput.value = dump.value.test.value;
+}
+export function ready(this: PanelThis) {
+    // 监听 input 上的提交事件，当 input 提交数据的时候，更新 dump 数据，并使用 prop 发送 change-dump 事件
+    this.$.testInput.addEventListener('confirm', () => {
+        this.dump.value.test.value = this.$.testInput.value;
+        this.$.test.dispatch('change-dump');
+    });
+}
+```
+
+这个示例通过一个空的 prop 元素进行数据提交。这样我们可以使用 html 自定义任何界面，再通过对应的隐藏的 prop 提交数据实现多种多样的界面效果。
 
 ## 自定义 Asset 渲染
 
@@ -104,6 +222,40 @@ Editor.Panel.define = Editor.Panel.define || function(panel: any) {return panel;
 ```
 
 和 Component 注册一样，在 contributions 数据里，向 **属性检查器** 提供一份数据，请求渲染 "section" 区域内的 "asset" 类型里的 "effect" 资源。
+
+Javascript
+
+```javascript
+exports.$ = {
+    'test': '.test',
+};
+exports.template = `
+<ui-prop>
+    <ui-label slot="label">Test</ui-label>
+    <ui-checkbox slot="content" class="test"></ui-checkbox>
+</ui-prop>
+`;
+exports.update = function(assetList: Asset[], metaList: Meta[]) {
+    this.assetList = assetList;
+    this.metaList = metaList;
+    this.$.test.value = metaList[0].userData.test || false;
+};
+exports.ready() {
+    this.$.test.addEventListener('confirm', () => {
+        this.metaList.forEach((meta: any) => {
+            // 修改对应的 meta 里的数据
+            meta.userData.test = !!this.$.test.value;
+        });
+        // 修改后手动发送事件通知
+        this.dispatch('change');
+    });
+};
+exports.close() {
+    // TODO something
+};
+```
+
+Typescript
 
 ```typescript
 'use strict';
@@ -141,32 +293,41 @@ interface Meta {
     ver: string;
 }
 
-// 兼容 v3.3 之前的版本
-Editor.Panel.define = Editor.Panel.define || function(panel: any) {return panel;}
+type Selector<$> = { $: Record<keyof $, any | null> } & { dispatch(str: string): void, assetList: Asset[], metaList: Meta[] };
 
-module.exports = Editor.Panel.define({
-    $: {
-        button: 'ui-button[slot=content]',
-    },
-    template = `
+export const $ = {
+    'test': '.test',
+};
+
+export const template = `
 <ui-prop>
-    <ui-label value="Button" slot="label"></ui-label>
-    <ui-button slot="content">Console</ui-button>
+    <ui-label slot="label">Test</ui-label>
+    <ui-checkbox slot="content" class="test"></ui-checkbox>
 </ui-prop>
-    `,
-    update(assetList: Asset[], metaList: Meta[]) {
-        // TODO something
-    },
-    ready() {
-        // @ts-ignore
-        this.$.button.addEventListener('confirm', () => {
-            console.log('Custom Inspector: Label Button...');
+`;
+
+type PanelThis = Selector<typeof $>;
+
+export function update(this: PanelThis, assetList: Asset[], metaList: Meta[]) {
+    this.assetList = assetList;
+    this.metaList = metaList;
+    this.$.test.value = metaList[0].userData.test || false;
+};
+
+export function ready(this: PanelThis) {
+    this.$.test.addEventListener('confirm', () => {
+        this.metaList.forEach((meta: any) => {
+            // 修改对应的 meta 里的数据
+            meta.userData.test = !!this.$.test.value;
         });
-    },
-    close() {
-        // TODO something
-    },
-});
+        // 修改后手动发送事件通知
+        this.dispatch('change');
+    });
+};
+
+export function close(his: PanelThis, ) {
+    // TODO something
+};
 ```
 
 这样我们就能够在 inspector 内的 effect 资源页面最后添加一个 button。

@@ -4,6 +4,8 @@
 
 这时候就需要在 panel 定义中标识 main 入口文件，并填充其内容：
 
+Javascript
+
 ```javascript
 'use strict';
 
@@ -26,9 +28,70 @@ exports.beforeClose = async function() {};
 exports.close = async function() {};
 ```
 
+Typescript
+
+```typescript
+'use strict';
+
+// html 文本
+export const template = '';
+// 样式文本
+export const style = '';
+// 渲染后 html 选择器
+export const $ = {};
+// 面板上的方法
+export const methods = {};
+// 面板上触发的事件
+export const listeners = {};
+
+// 当面板渲染成功后触发
+export async function ready() {};
+// 尝试关闭面板的时候触发
+export async function beforeClose() {};
+// 当面板实际关闭后触发
+export async function close() {};
+```
+
+如果使用的是 Typescript，这时候 ready 等函数内识别的 this 不正确，我们可以加上 this 定义：
+
+```typescript
+'use strict';
+
+type Selector<$> = { $: Record<keyof $, HTMLElement | null> }
+
+export const $ = {
+    test: '.test',
+};
+
+export const methods = {
+    update() {},
+};
+
+export async function ready(this: Selector<typeof $> & typeof methods) {
+    this.update();
+};
+```
+
+也可以使用 Editor.Pabel.define 常见 panel 对象：
+
+```typescript
+module.exprots = Editor.Panel.degine({
+    methods: {
+        update() {},
+    },
+    ready() {
+        this.update();
+    },
+});
+```
+
+**Editor.Panel.define 是 3.3 新增的接口**
+
 ## template
 
 html 字符串，例如：
+
+Javascript
 
 ```javascript
 exports.template = `
@@ -41,12 +104,35 @@ exports.template = `
 `;
 ```
 
+Typescript
+
+```typescript
+export const template = `
+<header>
+    Header
+</header>
+<section class="test">
+    Section
+</section>
+`;
+```
+
 也可以直接读取一个 html 文件：
+
+Javascript
 
 ```javascript
 const { readFileSync } = require('fs');
 const { join } = require('path');
 exports.template = readFileSync(join(__dirname, '../static/default.html'), 'utf8');
+```
+
+Typescript
+
+```typescript
+import { readFileSync } from 'fs';
+import { join } from 'path';
+export const template = readFileSync(join(__dirname, '../static/default.html'), 'utf8');
 ```
 
 当定义好 template 后，面板被打开的时候，将自动把 template 的内容渲染到界面上。
@@ -57,13 +143,25 @@ exports.template = readFileSync(join(__dirname, '../static/default.html'), 'utf8
 
 有了 html，还需要自定义一些样式就需要使用 style 了，style 和 template 一样是一个字符串。
 
+Javascript
+
 ```javascript
 exports.style = `
 header { padding: 10px; }
 `;
 ```
 
+Typescript
+
+```typescript
+export const style = `
+header { padding: 10px; }
+`;
+```
+
 当然，也可以读取一个 css 文件：
+
+Javascript
 
 ```javascript
 const { readFileSync } = require('fs');
@@ -71,9 +169,19 @@ const { join } = require('path');
 exports.style = readFileSync(join(__dirname, '../static/default.css'), 'utf8');
 ```
 
+Typescript
+
+```typescript
+import { readFileSync } from 'fs';
+import { join } from 'path';
+export const style = readFileSync(join(__dirname, '../static/default.css'), 'utf8');
+```
+
 ## $
 
 这是一个 html 元素选择器，直接调用 querySelector 查找到指定元素后，作为一个快捷方式使用。
+
+Javascript
 
 ```javascript
 exports.$ = {
@@ -82,10 +190,30 @@ exports.$ = {
 };
 ```
 
+Typescript
+
+```typescript
+export const $ = {
+    header: 'header',
+    test: '.test',
+};
+```
+
 首先定义好选择器，编辑器会在 template 渲染完成后，自动调用 document.querySelector 找到对应的元素，并挂在 this.$ 上：
+
+Javascript
 
 ```javascript
 exports.ready = function() {
+    console.log(this.$.header); // <header>
+    console.log(this.$.test); // <section class="test">
+}
+```
+
+Typescript
+
+```typescript
+export function ready() {
     console.log(this.$.header); // <header>
     console.log(this.$.test); // <section class="test">
 }
@@ -97,6 +225,8 @@ exports.ready = function() {
 
 这个对象里都是函数，请不要挂载其他类型的对象到这里。
 
+Javascript
+
 ```javascript
 const packageJSON = require('./package.json');
 exports.methods = {
@@ -106,9 +236,22 @@ exports.methods = {
 };
 ```
 
+Typescript
+
+```typescript
+import { name } from './package.json';
+export const methods = {
+    open() {
+        Editor.Panel.open(packageJSON.name);
+    },
+};
+```
+
 ## listeners
 
 基础的布局完成后，我们有时候需要根据一些情况，去更新一些面板上的状态，这时候就需要使用 listeners 功能了。
+
+Javascript
 
 ```javascript
 exports.listeners = {
@@ -128,6 +271,38 @@ exports.listeners = {
      * 面板大小更改的时候触发
      */
     resize() {
+        console.log(this.clientHeight);
+        console.log(this.clientWidth);
+    },
+};
+```
+
+Typescript
+
+```typescript
+interface PanelInfo {
+    hidden: boolean;
+    clientHeight: number;
+    clientWidth: number;
+}
+
+export const listeners = {
+    /**
+     * 面板隐藏的时候触发
+     */
+    hide(this: PanelInfo) {
+        console.log(this.hidden);
+    },
+    /**
+     * 面板显示的时候触发
+     */
+    show(this: PanelInfo) {
+        console.log(this.hidden);
+    },
+    /**
+     * 面板大小更改的时候触发
+     */
+    resize(this: PanelInfo) {
         console.log(this.clientHeight);
         console.log(this.clientWidth);
     },
