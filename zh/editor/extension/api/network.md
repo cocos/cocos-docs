@@ -1,6 +1,6 @@
 # Network
 
-网络
+Creator 网络工具函数
 
 ## 函数
 
@@ -14,8 +14,8 @@ Get 方式请求某个服务器数据
 
 | Name    | Type     | Description          |
 | :------ | :------- | -------------------- |
-| `url`   | `string` | 请求的 url            |
-| `data?` | `Object` | 请求时带上的数据       |
+| `url`   | `string` | 请求的 url |
+| `data?` | `Object` | 请求时带上的数据 |
 
 **返回结果**
 
@@ -29,26 +29,6 @@ network.get(RUNTIME_REQUEST_URL).then((ret: any) => {
 });
 ```
 
-### portIsOccupied
-
-▸ **portIsOccupied**(port: `number`): Promise<`boolean`\>
-
-检查一个端口是否被占用
-
-**请求参数**
-
-| Name   | Type     | Description |
-| :----- | :------- | ----------- |
-| `port` | `number` | 端口号      |
-
-**返回结果**
-
-Promise<`boolean`\>
-
-```typescript
-const isOccupied = await Editor.Network.portIsOccupied(8000);  // false
-```
-
 ### post
 
 ▸ **post**(url: `string`, data?: `Object`): Promise<`Buffer`\>
@@ -59,8 +39,8 @@ Post 方式请求某个服务器数据
 
 | Name    | Type     | Description          |
 | :------ | :------- | -------------------- |
-| `url`   | `string` | 请求的 url            |
-| `data?` | `Object` | 请求时带上的数据       |
+| `url`   | `string` | 请求的 url |
+| `data?` | `Object` | 请求时带上的数据 |
 
 **返回结果**
 
@@ -71,6 +51,26 @@ let res: Buffer = await Editor.Network.post('https://creator-api.cocos.com/api/s
     ip: '127.0.0.1',
     client_type: 1
 });
+```
+
+### portIsOccupied
+
+▸ **portIsOccupied**(port: `number`): Promise<`boolean`\>
+
+检查一个端口是否被占用
+
+**请求参数**
+
+| Name   | Type     | Description |
+| :----- | :------- | ----------- |
+| `port` | `number` | 端口号 |
+
+**返回结果**
+
+Promise<`boolean`\>
+
+```typescript
+const isOccupied = await Editor.Network.portIsOccupied(8000);  // false
 ```
 
 ### queryIPList
@@ -111,7 +111,7 @@ const res = await Editor.Network.testConnectServer();
 
 | Name | Type     | Description |
 | :--- | :------- | ----------- |
-| `ip` | `string` | ip 地址      |
+| `ip` | `string` | ip 地址 |
 
 **返回结果**
 

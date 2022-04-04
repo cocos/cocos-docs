@@ -13,17 +13,14 @@ interface GetPackageOptions {
     invalid?: boolean;
 }
 
-interface PackageJson {
-    author?: string;
-    debug?: boolean;
-    description?: string;
-    main?: string;
-    menu?: any;
+interface EditorInterfacePackageInfo {
+    debug: boolean;
+    invalid: boolean;
+    enable: boolean;
     name: string;
+    path: string;
     version: string;
-    windows: string;
-    editor?: string;
-    panel?: any;
+    info: PackageJson;
 }
 
 type PathType = 'home' | 'data' | 'temp';
@@ -33,7 +30,7 @@ type PathType = 'home' | 'data' | 'temp';
 
 ### disable
 
-▸ **disable**(path: `string`, options: `any`): `any`
+▸ **disable**(path: `string`): `any`
 
 关闭一个插件
 
@@ -41,8 +38,8 @@ type PathType = 'home' | 'data' | 'temp';
 
 | Name      | Type     | Description      |
 | :-------- | :------- | ---------------- |
-| `path`    | `string` | 插件所在路径      |
-| `options` | `any`    | 关闭时带上的配置   |
+| `path`    | `string` | 插件所在路径 |
+| `options` | `any`    | 关闭时带上的配置 |
 
 ```typescript
 Editor.Package.disable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets', {});
@@ -58,7 +55,7 @@ Editor.Package.disable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app
 
 | Name   | Type     | Description      |
 | :----- | :------- | ---------------- |
-| `path` | `string` | 插件所在路径      |
+| `path` | `string` | 插件所在路径 |
 
 ```typescript
 Editor.Package.enable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets', {});
@@ -74,7 +71,7 @@ Editor.Package.enable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.
 
 | Name       | Type                | Description |
 | :--------- | :------------------ | ----------- |
-| `options?` | `GetPackageOptions` | 查询条件     |
+| `options?` | `GetPackageOptions` | 查询条件 |
 
 **返回结果**
 
@@ -92,45 +89,11 @@ const pkgs = Editor.Package.getPackages({ enable: true });
 
 **请求参数**
 
-| Name            | Type       | Description                                                  |
-| :-------------- | :--------- | :----------------------------------------------------------- |
-| `extensionName` | `string`   | 扩展的名字                                                   |
+| Name            | Type       | Description   |
+| :-------------- | :--------- | :------------ |
+| `extensionName` | `string`   | 扩展的名字 |
 | `type?`         | `PathType` | 地址类型（temp 临时目录，data 需要同步的数据目录,不传则返回现在打开的插件路径） |
 
 ```typescript
 const path = Editor.Package.getPath('menu');  // "D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\menu"
 ```
-
-<!-- ### register
-
-▸ **register**(path: `string`): `any`
-
-注册一个插件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name   | Type     | Description    |
-| :----- | :------- | -------------- |
-| `path` | `string` | 插件所在路径    |
-
-```typescript
-Editor.Package.register('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets');
-```
-
-### unregister
-
-▸ **unregister**(path: `string`): `any`
-
-反注册一个插件
-谨慎使用，之后会被移除
-
-**请求参数**
-
-| Name   | Type     | Description     |
-| :----- | :------- | --------------- |
-| `path` | `string` | 插件所在路径     |
-
-```typescript
-Editor.Package.unregister('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets');
-``` -->

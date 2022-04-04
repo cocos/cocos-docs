@@ -1,6 +1,6 @@
 # Utils
 
-工具
+Creator 内置的一些工具函数
 
 ## File
 
@@ -181,67 +181,6 @@ const res = Editor.Utils.Math.sub('123', 12.12);  // 110.88
 
 ```typescript
 const res = Editor.Utils.Math.toFixed(12.1294, 2);  // 12.13
-```
-
-## Parse
-
-### 接口说明
-
-```typescript
-interface WhenParam {
-    PanelName?: string;
-    EditMode?: string;
-}
-```
-
-### 函数
-
-#### checkWhen
-
-▸ **checkWhen**(when: `string`): `boolean`
-
-判断一个 when 数据是否符合当前条件
-
-**请求参数**
-
-| Name   | Type     | Description |
-| :----- | :------- | ----------- |
-| `when` | `string` |             |
-
-**返回结果**
-
-`boolean`
-
-```typescript
-const res = Editor.Utils.Parse.checkWhen("PanelName === '' && EditMode === ''");  // false
-```
-
-#### when
-
-▸ **when**(when: `string`): `WhenParam`
-
-解析 when 参数
-when 的格式：PanelName === '' && EditMode === ''
-整理后的数据格式：
-``` json5
-{
-    "PanelName": "",
-    "EditMode": "",
-}
-```
-
-**请求参数**
-
-| Name   | Type     | Description |
-| :----- | :------- | ----------- |
-| `when` | `string` |             |
-
-**返回结果**
-
-`WhenParam`
-
-```typescript
-const res = Editor.Utils.Parse.when("PanelName === '' && EditMode === ''"); 
 ```
 
 ## Path
