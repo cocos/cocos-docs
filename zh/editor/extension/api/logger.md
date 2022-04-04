@@ -1,6 +1,6 @@
 # Logger
 
-日志
+Creator 日志管理
 
 ## 函数
 
