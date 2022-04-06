@@ -1,4 +1,4 @@
-# 2D Rendering Components
+# 2D Renderable Components
 
 - [Sprite Component Reference](sprite.md)
 - [Label Component Reference](label.md)

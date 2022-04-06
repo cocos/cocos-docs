@@ -8,11 +8,11 @@ The rendering requirements for the 2D render object are twofold:
 
 ## 2D Rendering Object Visibility Description
 
-Since there is no difference between 2D rendering objects and 3D rendering nodes in terms of camera visibility, users need to control the layer property of the node and set the Visibility of the camera to match the group rendering. If there are multiple cameras in the scene, wrong layer settings may cause the node to be rendered repeatedly or not at all.
+Since there is no difference between 2D rendering objects and 3D renderable nodes in terms of camera visibility, users need to control the layer property of the node and set the Visibility of the camera to match the group rendering. If there are multiple cameras in the scene, wrong layer settings may cause the node to be rendered repeatedly or not at all.
 
-## 2D Rendering Components
+## 2D Renderable Components
 
-Components that have rendering capabilities in their own right are called 2D rendering components, including:
+Components that have rendering capabilities in their own right are called 2D Renderable components, including:
 
 - [Sprite Component Reference](../../ui-system/components/editor/sprite.md)
 - [Label Component Reference](../../ui-system/components/editor/label.md)
@@ -26,20 +26,20 @@ Components that have rendering capabilities in their own right are called 2D ren
 - [DragonBones ArmatureDisplay Component Reference](../../editor/components/dragonbones.md)
 - [MotionStreak Component Reference](../../editor/components/motion-streak.md)
 
-## How to add 2D Rendering Components
+## How to add 2D Renderable Components
 
-Some 2D rendering components are built into the editor. After creating a RenderRoot node, create a node with 2D rendering components under this node:
+Some 2D renderable components are built into the editor. After creating a RenderRoot node, create a node with 2D renderable components under this node:
 
 ![create-2d](./create-2d.png)
 
-2D rendering components can also be added by adding components to the node, the nodes under the 2D menu in the components menu are all 2D rendering components:
+2D renderable components can also be added by adding components to the node, the nodes under the 2D menu in the components menu are all 2D renderable components:
 
 ![add-render-component](./add-render-component.png)
 
-> **Note**: only one rendering component can be added to each node, and repeated additions will result in error reporting.
+> **Note**: only one renderable component can be added to each node, and repeated additions will result in error reporting.
 
-## 2D rendering component rules introduction
+## 2D Renderable Component Rules Introduction
 
 - [Rendering Order Rules](../../ui-system/components/engine/priority.md)
-- [2D Rendering Component Batching Rules](../../ui-system/components/engine/ui-batch.md)
+- [2D Renderable Component Batching Rules](../../ui-system/components/engine/ui-batch.md)
 - [Custom Materials for 2D Rendering Objects](../../ui-system/components/engine/ui-material.md)
