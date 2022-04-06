@@ -2,7 +2,7 @@
 
 刚体是组成物理世界的基本对象，你可以将刚体想象成一个你不能看到（绘制）也不能摸到（碰撞）的带有属性的物体。
 
-由于 Builtin 2D 物理系统只带有碰撞检测的功能，所以刚体对于 Builtin 2D 物理系统是不生效的，本篇设置只对其他 2D 物理系统产生作用。
+由于 Builtin 2D 物理系统只带有碰撞检测的功能，所以刚体对于 Builtin 2D 物理系统是不生效的，本篇设置只对 Box 2D 物理系统产生作用。
 
 ## 添加刚体
 
@@ -21,11 +21,11 @@
 | **Bullet** | 这个刚体是否是一个快速移动的刚体，并且需要禁止穿过其他快速移动的刚体 <br>请参考 [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D) 获取更多信息 |
 | **Type** | 刚体类型，详情请参考下方 **刚体类型** |
 | **AlllowSleep** | 是否允许刚体休眠 <br> [物理配置](../editor/project/physics-configs.md) 中可调整休眠的临界值 |
-| **GravityScale** | 重力缩放比例 |
+| **GravityScale** | 重力缩放比例 <br> 仅对 **Dynamic** 类型的刚体生效 |
 | **LinearDamping** | 移动速度衰减系数 |
 | **AngularDamping** | 旋转速度衰减系数 |
-| **LinearVelocity** | 移动速度 |
-| **AngularVelocity** | 旋转速度 |
+| **LinearVelocity** | 移动速度 <br> 仅对 **Dynamic** 和 **Kinematic** 类型的刚体生效 |
+| **AngularVelocity** | 旋转速度 <br> 仅对 **Dynamic** 和 **Kinematic** 类型的刚体生效 |
 | **FixedRotation** | 是否固定旋转 |
 | **AwakeOnLoad** | 加载完成后立刻唤醒刚体 |
 
@@ -103,6 +103,8 @@ rigidbody.angularDamping = damping;
 
 ### 固定旋转
 
+![fix ratation](image/fix-rotation.png)
+
 做平台跳跃游戏时通常都不会希望主角的旋转属性也被加入到物理模拟中，因为这样会导致主角在移动过程中东倒西歪，这时可以设置刚体的 `fixedRotation` 为 true，固定旋转，代码示例如下：
 
 ```ts
@@ -110,6 +112,8 @@ rigidbody.fixedRotation = true;
 ```
 
 ### 开启碰撞监听
+
+![contact](image/enable-contact.png)
 
 只有开启了刚体的碰撞监听，刚体发生碰撞时才会回调到对应的组件上。代码示例如下：
 
@@ -119,28 +123,36 @@ rigidbody.enabledContactListener = true;
 
 ## 刚体类型
 
+![type](image/rigidbody-type.png)
+
 Box2D 原本的刚体类型是三种：**Static**、**Dynamic**、**Kinematic**。在 Cocos Creator 中多添加了一个类型：**Animated**。
 
-Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。<br>
+Animated 是从 Kinematic 类型衍生出来的，一般的刚体类型修改 **旋转** 或 **位移** 属性时，都是直接设置的属性，而 Animated 会根据当前旋转或位移属性，与目标旋转或位移属性计算出所需的速度，并且赋值到对应的移动或旋转速度上。
+
 添加 Animated 类型主要是防止对刚体做动画时可能出现的奇怪现象，例如穿透。
 
-- `RigidBodyType.Static`
+| 刚体类型 | 说明 |
+| :-- | :-- |
+| **Static** | 静态刚体，零质量，零速度，即不会受到重力或速度影响，但是可以设置他的位置来进行移动。该类型通常用于制作场景 |
+| **Dynamic** | 动态刚体，有质量，可以设置速度，会受到重力影响。 <br> 唯一可以通过 `applyForce` 和 `applyTorque` 等方法改版受力的刚体类型 |
+| **Kinematic** | 运动刚体，零质量，可以设置速度，不会受到重力的影响，但是可以设置速度来进行移动 |
+| **Animated** | 动画刚体，在上面已经提到过，从 Kinematic 衍生的类型，主要用于刚体与动画编辑结合使用 |
 
-  静态刚体，零质量，零速度，即不会受到重力或速度影响，但是可以设置他的位置来进行移动。
+通过代码可以获取或修改刚体的类型，代码示例如下：
 
-- `RigidBodyType.Dynamic`
+```ts
+import { RigidBody2D, ERigidBody2DType } from 'cc';
 
-  动态刚体，有质量，可以设置速度，会受到重力影响。
+const rigibodyType = this.rigidbody2D.type
 
-- `RigidBodyType.Kinematic`
+this.rigidbody2D.type = ERigidBody2DType.Animated        
+```
 
-  运动刚体，零质量，可以设置速度，不会受到重力的影响，但是可以设置速度来进行移动。
-
-- `RigidBodyType.Animated`
-
-  动画刚体，在上面已经提到过，从 Kinematic 衍生的类型，主要用于刚体与动画编辑结合使用。
+2D 刚体的类型定义在枚举 `ERigidBody2DType` 内，请注意和 3D 物理的 `ERigidBodyType` 区分。
 
 ### 碰撞响应
+
+不同类型的刚体之间，并非都可进行碰撞，其结果整理如下：
 
 | -- | Static | Dynamic| Kinematic | Animated |
 | :-- | :-- | :-- | :-- | :-- |
@@ -244,3 +256,5 @@ rigidbody.applyAngularImpulse(impulse);
 ```ts
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
+
+更多刚体的方法可以参考 [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D)
