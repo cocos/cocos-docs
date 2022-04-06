@@ -35,7 +35,7 @@ const boxCollider = this.node.addComponent(BoxCollider);
 | 属性 | 说明 |
 | :---|:--- |
 | **Attached** | 碰撞器所绑定的 [刚体](physics-rigidbody.md) |
-| **Material** | 碰撞器所使用的 [物理材质](physics-material.md)，未设置时使用引擎内置的物理材质 |
+| **Material** | 碰撞器所使用的 [物理材质](physics-material.md)，未设置时使用引擎默认的物理材质 |
 | **IsTrigger** | 是否为 [触发器](physics-event.md)，触发器不会产生物理反馈 |
 
 刚体获取请注意以下几点：

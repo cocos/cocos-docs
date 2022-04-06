@@ -60,3 +60,35 @@ if (collider) {
     collider.material.rollingFriction = 0.1;
 }
 ```
+
+## 共享材质
+
+在物理系统中，物理材质拥有共享材质和独享材质两种状态。
+
+- 共享材质：不同的碰撞体，共用同一个材质，对该材质的修改会影响到所有持有该材质的碰撞体。在默认情况下，碰撞体的物理材质都通过引擎的默认物理材质初始化。通过 `sharedMaterial` 可以访问，代码示例如下：
+
+    ```ts
+    import { Collider } from 'cc';
+    let collider = this.node.getComponent(Collider);
+    if (collider) {        
+        let sharedMaterial = collider.sharedMaterial; 
+        // 或
+        collider.sharedMaterial.friction = 0.5
+
+        collider.sharedMaterial = newPMtl;
+    }
+    ```
+
+- 独享材质：只供该碰撞体使用，修改该材质不会影响其他碰撞体。
+
+  若一个碰撞体的物理材质处于共享状态，则在调用 `material` 的 `getter` 时，会生成新的物理材质。
+
+  下列代码演示了当物理材质处于共享状态时，调用 `getter` 后，该碰撞体的材质变为独享状态。
+
+    ```ts
+    import { Collider } from 'cc';
+    let collider = this.node.getComponent(Collider);
+    if (collider) {
+        const material = collider.material; 
+    }
+    ```
