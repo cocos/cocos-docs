@@ -259,20 +259,20 @@ exports.listeners = {
      * 面板隐藏的时候触发
      */
     hide() {
-        console.log(this.hidden);
+        console.log(`hide: ${this.hidden}`);
     },
     /**
      * 面板显示的时候触发
      */
     show() {
-        console.log(this.hidden);
+        console.log(`hide: ${this.hidden}`);
     },
     /**
      * 面板大小更改的时候触发
      */
     resize() {
-        console.log(this.clientHeight);
-        console.log(this.clientWidth);
+        console.log(`height: ${this.clientHeight}`);
+        console.log(`width: ${this.clientWidth}`);
     },
 };
 ```
@@ -291,20 +291,20 @@ export const listeners = {
      * 面板隐藏的时候触发
      */
     hide(this: PanelInfo) {
-        console.log(this.hidden);
+        console.log(`hide: ${this.hidden}`);
     },
     /**
      * 面板显示的时候触发
      */
     show(this: PanelInfo) {
-        console.log(this.hidden);
+        console.log(`hide: ${this.hidden}`);
     },
     /**
      * 面板大小更改的时候触发
      */
     resize(this: PanelInfo) {
-        console.log(this.clientHeight);
-        console.log(this.clientWidth);
+        console.log(`height: ${this.clientHeight}`);
+        console.log(`width: ${this.clientWidth}`);
     },
 };
 ```

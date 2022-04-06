@@ -60,8 +60,8 @@ export const template = '';
 export const style = '';
 
 export const methods = {
-    console(str) {
-        console.log(str);
+    console(str: string) {
+        console.log(`console: ${str}`);
     },
 };
 
