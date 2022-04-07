@@ -101,6 +101,8 @@
 
 内容如下:
 
+Javascript
+
 ```javascript
 'use strict';
 
@@ -116,6 +118,25 @@ exports.load = function() {};
 
 // 当扩展被关闭的时候执行
 exports.unload = function() {};
+```
+
+Typescript
+
+```typescript
+'use strict';
+
+// 扩展内定义的方法
+export const methods = {
+    log() {
+        console.log('Hello World');
+    },
+};
+
+// 当扩展被启动的时候执行
+export function load() {};
+
+// 当扩展被关闭的时候执行
+export function unload() {};
 ```
 
 `exports.methods` 中定义的方法，将会作为操作的接口，通过 [消息系统](./messages.md) 跨扩展调用，或者是和面板通信。

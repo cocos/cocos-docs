@@ -51,13 +51,15 @@
 }
 ```
 
-hello-world:increasing 是指我们监听了一个 hello-world 上的 increasing 消息。"default.increasing" 指的是交给 default 面板的 "increasing" 方法处理。
+hello-world:increasing 是指我们监听了一个 hello-world 上的 increasing 消息。"default.increasing" 指的是交给 default 面板的 "increasing" 方法处理:
 
 panel 字段含义可以参考 [编写面板](./panel-boot.md)。
 
 ### 在 browser.js 里增加 increasing
 
-然后需要在 `browser.js` 的 `methods` 中新增一个 `increasing` 方法，负责记录一个 `num`，并在每次触发的时候递增并广播出去：
+然后需要在 `browser.js` 的 `methods` 中新增一个 `increasing` 方法，负责记录一个 `num`，并在每次触发的时候递增并广播出去。
+
+Javascrript
 
 ```javascript
 'use strict';
@@ -87,9 +89,43 @@ exports.load = function() {};
 exports.unload = function() {};
 ```
 
+Typescript
+
+```typescript
+'use strict';
+
+type Selector<$> = { $: Record<keyof $, HTMLElement | null> }
+
+let num = 0;
+// 扩展内定义的方法
+export const methods = {
+    log() {
+        console.log('Hello World');
+    },
+    openPanel() {
+        Editor.Panel.open('hello-world');
+    },
+    queryNum() {
+        return num;
+    },
+    increasing() {
+        num++;
+        Editor.Message.broadcast('hello-world:increasing', num);
+    },
+};
+
+// 当扩展被启动的时候执行
+export function load() {};
+
+// 当扩展被关闭的时候执行
+export function unload() {};
+```
+
 ### 在 panel 里增加 increasing 按钮以及广播处理
 
 接下来在界面上增加一个 **increasing** 按钮，以及展示 num 的区域和接受 num 变化的广播消息：
+
+Javascript
 
 ```javascript
 'use strict';
@@ -130,6 +166,51 @@ exports.ready = async function() {
 
 // 面板关闭后的钩子函数
 exports.close = function() {};
+```
+
+Typescript
+
+```typescript
+'use strict';
+
+type Selector<$> = { $: Record<keyof $, HTMLElement | null> }
+
+// 面板的内容
+export const template = `
+<div>Hello</div>
+<div><ui-button>increasing</ui-button></div>
+<div><span>Num: </span><span class="num">-</span></div>
+`;
+
+// 面板上的样式
+export const style = 'div { color: yellow; }';
+
+// 快捷选择器
+export const $ = {
+    elem: 'div',
+    button: 'ui-button',
+    num: '.num',
+};
+
+export const methods = {
+    increasing(num) {
+        this.$.num.innerHTML = num;
+    },
+};
+
+// 面板启动后触发的钩子函数
+export async function ready(this: Selector<typeof $> & typeof methods) {
+    this.$.elem.innerHTML = 'Hello World';
+
+    this.$.button.addEventListener('confirm', () => {
+        Editor.Message.send('hello-world', 'increasing');
+    });
+
+    this.$.num.innerHTML = await Editor.Message.request('hello-world', 'query-num');
+};
+
+// 面板关闭后的钩子函数
+export function close() {};
 ```
 
 ## 刷新扩展

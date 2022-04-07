@@ -36,6 +36,8 @@ messages.console 里的 methods 定义的方法名称是 default.console。表�
 
 然后定义面板的 panel.js 文件：
 
+Javascript
+
 ```javascript
 exports.template = '';
 exports.style = '';
@@ -49,6 +51,23 @@ exports.methods = {
 exports.ready = async function() {};
 
 exports.close = function() {};
+```
+
+Typescript
+
+```typescript
+export const template = '';
+export const style = '';
+
+export const methods = {
+    console(str: string) {
+        console.log(`console: ${str}`);
+    },
+};
+
+export async function ready() {};
+
+export function close() {};
 ```
 
 ## 发送消息
