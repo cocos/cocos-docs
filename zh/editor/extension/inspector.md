@@ -29,8 +29,8 @@
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('NewComponent')
-export class NewComponent extends Component {
+@ccclass('CustomLabelComponent')
+export class CustomLabelComponent extends Component {
     @property({
         type: String,
     })
@@ -320,7 +320,7 @@ export function ready(this: PanelThis) {
             // 修改对应的 meta 里的数据
             meta.userData.test = !!this.$.test.value;
         });
-        // 修改后手动发送事件通知
+        // 修改后手动发送事件通知，资源面板是修改资源的 meta 文件，不是修改 dump 数据，所以发送的事件和组件属性修改不一样
         this.dispatch('change');
     });
 };

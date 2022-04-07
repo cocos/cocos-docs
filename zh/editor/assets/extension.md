@@ -212,7 +212,7 @@
 
   Typescript
 
-  ```typescripscript
+  ```typescript
   export const methods = {
     dropAsset(assetInfo: any, dragInfo: any) {
       console.log(Editor.I18n.t('extend-assets-demo.drop.callback'));

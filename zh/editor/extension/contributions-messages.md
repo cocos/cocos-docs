@@ -106,6 +106,7 @@ Cocos Creator 内，所有的交互都是通过 [消息系统](./messages.md)。
 在扩展代码里可以在合适的时机，发送这个广播：
 
 ```typescript
+// 广播消息使用 插件名:消息名
 Editor.Message.broadcast('hello-world:ready');
 ```
 
