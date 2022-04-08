@@ -56,11 +56,14 @@ RenderTexture 可以像普通贴图一样使用。以 Sprite 为例，从 **资�
 
 ## 程序化使用
 
-使用 RenderTexture 有以下两种方法：
+程序化使用 RenderTexture 有以下两种方法：
 
 - **方法一**：把 3D 相机照射的内容绘制到 UI 的精灵帧上
 
     ```typescript
+    import { _decorator, Component, RenderTexture, SpriteFrame, Sprite, Camera } from 'cc';
+    const { ccclass, property } = _decorator;
+
     @ccclass('CaptureToWeb')
     export class CaptureToWeb extends Component {
         @property(Sprite)
@@ -87,6 +90,9 @@ RenderTexture 可以像普通贴图一样使用。以 Sprite 为例，从 **资�
 - **方法二**：把 3D 相机照射的内容绘制到 3D 模型上
 
     ```typescript
+    import { _decorator, Component, MeshRenderer, RenderTexture, Camera, Material } from 'cc';
+    const { ccclass, property, requireComponent } = _decorator;
+
     @ccclass("RenderCameraToModel")
     @requireComponent(Camera)
     export class RenderCameraToModel extends Component {
