@@ -50,7 +50,7 @@ The `Visibility` property is used to set which layers of nodes should be observe
 
 When you check multiple Layers in the `Visibility` property, the value of the `Visibility` property is calculated by performing a `|` operation on the property values of multiple Layers.
 
-For example, in the following image, the `Visibility` property of the camera has both __UI_3D__ and __DEFAULT__ Layer checked, and by looking up [the value of the Layer property](../../concepts/scene/layer.md), notice the value of the __UI_3D__ property is __1 << 23__ , the value of the __DEFAULT__ property is __1 << 30__, and the value of the `Visibility` property is __1 << 23 | 1 << 30 = 1820327937__.
+For example, in the following image, the `Visibility` property of the camera has both __UI_3D__ and __DEFAULT__ Layer checked, and by looking up [the value of the Layer property](../../concepts/scene/layer.md), notice the value of the __UI_3D__ property is __1 << 23__ , the value of the __DEFAULT__ property is __1 << 30__, and the value of the `Visibility` property is __1 << 23 | 1 << 30 = 1082130432__.
 
 ![camera visibility gizmo](camera/camera-visibility-gizmo.png)
 

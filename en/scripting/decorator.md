@@ -27,7 +27,7 @@ By default, all components are executed only at runtime, meaning that their life
 ```ts
 const { ccclass, executeInEditMode } = _decorator;
 
-@cclass('Example')
+@ccclass('Example')
 @executeInEditMode(true)
 export class Example extends Component {
     update (dt: number) {
@@ -43,7 +43,7 @@ The `requireComponent` decorator is used to specify a dependent component for th
 ```ts
 const { ccclass, requireComponent } = _decorator;
 
-@cclass('Example')
+@ccclass('Example')
 @requireComponent(Sprite)
 export class Example extends Component {
 }
@@ -61,7 +61,7 @@ This ordering setting is only valid for `onLoad`, `onEnable`, `start`, `update` 
 ```ts
 const { ccclass, executionOrder } = _decorator;
 
-@cclass('Example')
+@ccclass('Example')
 @executionOrder(3)
 export class Example extends Component {
 }
@@ -74,7 +74,7 @@ Only allow one component of the same type (with subclasses) to be added to the s
 ```ts
 const { ccclass, disallowMultiple } = _decorator;
 
-@cclass('Example')
+@ccclass('Example')
 @disallowMultiple(true)
 export class Example extends Component {
 }
@@ -87,7 +87,7 @@ export class Example extends Component {
 ```ts
 const { ccclass, menu } = _decorator;
 
-@cclass('Example')
+@ccclass('Example')
 @menu('foo/bar')
 export class Example extends Component {
 }
@@ -102,7 +102,7 @@ Specify the URL of the current component's help page. Once set, a help icon will
 ```ts
 const { ccclass, help } = _decorator;
 
-@cclass('Example')
+@ccclass('Example')
 @help('https://docs.cocos.com/creator/3.4/manual/en/scripting/decorator.html')
 export class Example extends Component {
 }
@@ -110,7 +110,7 @@ export class Example extends Component {
 
 ## Property decorator
 
-The decorator [property](#property) is applied to a property or accessor of a `cc class`. Similar to the `ccclass` decorator, the `property` decorator injects additional information to control Cocos Creator's serialization of the property, the presentation of the property in the **Inspector** panel, and so on.
+The decorator `property` is applied to a property or accessor of a `cc class`. Similar to the `ccclass` decorator, the `property` decorator injects additional information to control Cocos Creator's serialization of the property, the presentation of the property in the **Inspector** panel, and so on.
 
 The various features of the `property` decorator are specified via its attributes in `@property({})`. Usage of all attributes can be found in: [Property Attributes](./reference/attributes.md).
 

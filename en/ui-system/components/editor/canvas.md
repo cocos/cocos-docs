@@ -2,7 +2,7 @@
 
 ![canvas component](canvas/canvas.png)
 
-The node where the **RenderRoot2D** component is located is the data collection entry point for the 2D rendering component, and the **Canvas** component inherits from the **RenderRoot2D** component, so the **Canvas** component is also the data collection entry point. There can be multiple Canvas nodes in the scene, **all 2D rendering elements must be rendered as children of RenderRoot2D**.
+The node where the **RenderRoot2D** component is located is the data collection entry point for the 2D renderable component, and the **Canvas** component inherits from the **RenderRoot2D** component, so the **Canvas** component is also the data collection entry point. There can be multiple Canvas nodes in the scene, **all 2D rendering elements must be rendered as children of RenderRoot2D**.
 
 In addition to the data entry capability inherited from RenderRoot2D, the Canvas node itself is also an important component for screen adaptation, and plays a key role in multi-resolution adaptation in game production. Please refer to the [Multi-Resolution Adaptation](../engine/multi-resolution.md) documentation. The design resolution and adaptation scheme of Canvas are configured through **Project Settings**.
 

@@ -117,7 +117,7 @@ The contrast can be seen more clearly in the following GIF:
 ![Compare](skybox/compare.gif)
 
 > **Notes**:
-> 
+>
 > 1. When replacing the environment map in the **Envmap** property, Creator will automatically calculate the corresponding ambient lighting information, as well as the diffuse lighting (only CubeMap in the form of image files is supported, not including manually created CubeMap).
 > 2. If the **UseIBL** property is checked, but **ApplyDiffuseMap** is not checked, the hemispheric light diffuse reflection will be used, and the effect is the same as if **UseIBL** is not checked.
 

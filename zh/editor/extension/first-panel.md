@@ -48,6 +48,8 @@ panel 字段含义可以参考 [扩展面板](./panel.md)。
 
 上个步骤我们在 panel 数据里定义了入口为 `panels/default.js` 文件，需要将它新建出来：
 
+Javascript
+
 ```javascript
 'use strict';
 
@@ -71,6 +73,35 @@ exports.ready = function() {
 exports.close = function() {};
 ```
 
+Typescript
+
+```typescript
+'use strict';
+
+type Selector<$> = { $: Record<keyof $, HTMLElement | null> }
+
+// 面板的内容
+export const template = '<div>Hello</div>';
+
+// 面板上的样式
+export const style = 'div { color: yellow; }';
+
+// 快捷选择器
+export const $ = {
+    elem: 'div',
+};
+
+export const methods = {};
+
+// 面板启动后触发的钩子函数
+export function ready(this: Selector<typeof $> & typeof methods) {
+    this.$.elem.innerHTML = 'Hello World';
+};
+
+// 面板关闭后的钩子函数
+export function close() {};
+```
+
 template 是面板的 html 内容，style 为自定义的 style。
 
 更多的参数请参考 [编写面板](./panel-boot.md)。
@@ -78,6 +109,8 @@ template 是面板的 html 内容，style 为自定义的 style。
 ### 在 browser 上增加 openPanel 方法
 
 接下来需要在 browser.js 的 methods 中新增一个 openPanel 方法：
+
+Javascript
 
 ```javascript
 'use strict';
@@ -97,6 +130,28 @@ exports.load = function() {};
 
 // 当扩展被关闭的时候执行
 exports.unload = function() {};
+```
+
+Typescript
+
+```typescript
+'use strict';
+
+// 扩展内定义的方法
+export const methods = {
+    log() {
+        console.log('Hello World');
+    },
+    openPanel() {
+        Editor.Panel.open('hello-world');
+    },
+};
+
+// 当扩展被启动的时候执行
+export function load(this: typeof methods) {};
+
+// 当扩展被关闭的时候执行
+export function unload(this: typeof methods) {};
 ```
 
 openPanel 方法里调用了 Editor.Panel.open 方法，传入参数是 **插件名字** + **.** + **面板名**，如果是 default 则可忽略，例如：
