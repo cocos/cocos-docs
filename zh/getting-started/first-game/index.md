@@ -119,7 +119,7 @@ export class PlayerController extends Component {
 我们在脚本 `PlayerController` 中添加对鼠标事件的监听，让 Player 动起来：
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from 'cc';
+import { _decorator, Component, Vec3, input, Input, EventMouse, Animation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -151,7 +151,7 @@ export class PlayerController extends Component {
 
     start () {
         // Your initialization goes here.
-        systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     }
 
     onMouseUp(event: EventMouse) {
@@ -432,14 +432,14 @@ enum GameState{
 ```ts
 start () {
     // Your initialization goes here.
-    // systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+    // input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
 }
 
 setInputActive(active: boolean) {
     if (active) {
-        systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     } else {
-        systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     }
 }
 ```
@@ -466,7 +466,7 @@ public startMenu: Node | null = null;
 
 ### 增加状态切换代码
 
-增加状态切换代码并修改 GameManger 脚本的初始化方法：
+增加状态切换代码并修改 GameManager 脚本的初始化方法：
 
 ```ts
 start () {
@@ -791,7 +791,7 @@ onOnceJumpEnd() {
 **PlayerController.ts**
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation } from 'cc';
+import { _decorator, Component, Vec3, input, Input, EventMouse, Animation, SkeletalAnimation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -822,9 +822,9 @@ export class PlayerController extends Component {
 
     setInputActive(active: boolean) {
         if (active) {
-            systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
         } else {
-            systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
         }
     }
 
@@ -918,8 +918,8 @@ export class GameManager extends Component {
     @property({type: Prefab})
     public cubePrfb: Prefab | null = null;
     // 赛道长度
-    @property
-    public roadLength = 50;
+    @property({type: CCInteger})
+    public roadLength: Number = 50;
     private _road: BlockType[] = [];
     // 主界面根节点
     @property({type: Node})
@@ -929,11 +929,11 @@ export class GameManager extends Component {
     public playerCtrl: PlayerController | null = null;
     // 关联步长文本组件
     @property({type: Label})
-    public stepsLabel: Label = null!;
+    public stepsLabel: Label | null = null!;
 
     start () {
         this.curState = GameState.GS_INIT;
-        this.playerCtrl.node.on('JumpEnd', this.onPlayerJumpEnd, this);
+        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
     }
 
     init() {
@@ -958,14 +958,20 @@ export class GameManager extends Component {
             case GameState.GS_INIT:
                 this.init();
                 break;
-            case GameState.GS_PLAYING:
-                this.startMenu.active = false;
-                this.stepsLabel.string = '0';   // 将步数重置为0
-            // 设置 active 为 true 时会直接开始监听鼠标事件，此时鼠标抬起事件还未派发
-            // 会出现的现象就是，游戏开始的瞬间人物已经开始移动
-            // 因此，这里需要做延迟处理
-                setTimeout(() => {
-                    this.playerCtrl.setInputActive(true);
+            case GameState.GS_PLAYING: 
+                if (this.startMenu) {
+                    this.startMenu.active = false;
+                }
+
+                if (this.stepsLabel) {
+                    this.stepsLabel.string = '0';   // 将步数重置为0
+                }
+                // 会出现的现象就是，游戏开始的瞬间人物已经开始移动
+                // 因此，这里需要做延迟处理
+                setTimeout(() => { 
+                    if (this.playerCtrl) {
+                        this.playerCtrl.setInputActive(true);
+                    }
                 }, 0.1);
                 break;
             case GameState.GS_END:
@@ -992,18 +998,40 @@ export class GameManager extends Component {
         }
 
         // 根据赛道类型生成赛道
+        let linkedBlocks = 0;
         for (let j = 0; j < this._road.length; j++) {
-            let block: Node = this.spawnBlockByType(this._road[j]);
-            // 判断是否生成了道路，因为 spawnBlockByType 有可能返回坑（值为 null）
-            if (block) {
-                this.node.addChild(block);
-                block.setPosition(j, -1.5, 0);
+            if(this._road[j]) {
+                ++linkedBlocks;
+            }
+            if(this._road[j] == 0) {
+                if(linkedBlocks > 0) {
+                    this.spawnBlockByCount(j - 1, linkedBlocks);
+                    linkedBlocks = 0;
+                }
+            }        
+            if(this._road.length == j + 1) {
+                if(linkedBlocks > 0) {
+                    this.spawnBlockByCount(j, linkedBlocks);
+                    linkedBlocks = 0;
+                }
             }
         }
     }
 
+    spawnBlockByCount(lastPos: number, count: number) {
+        let block: Node|null = this.spawnBlockByType(BlockType.BT_STONE);
+        if(block) {
+            this.node.addChild(block);
+            block?.setScale(count, 1, 1);
+            block?.setPosition(lastPos - (count - 1) * 0.5, -1.5, 0);
+        }
+    }
     spawnBlockByType(type: BlockType) {
-        let block = null;
+        if (!this.cubePrfb) {
+            return null;
+        }
+
+        let block: Node|null = null;
         switch(type) {
             case BlockType.BT_STONE:
                 block = instantiate(this.cubePrfb);

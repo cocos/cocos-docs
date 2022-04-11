@@ -34,6 +34,8 @@
 - [Spine 骨骼动画资源](spine.md)
 - [DragonBones 骨骼动画资源](dragonbones.md)
 - [TiledMap 瓦片图资源](tiledmap.md)
+- [JSON 资源](json.md)
+- [文本资源](text.md)
 
 ## 资源管理
 

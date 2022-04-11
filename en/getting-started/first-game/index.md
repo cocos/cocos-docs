@@ -126,7 +126,7 @@ This code is the structure needed to write a __component__. Scripts with this st
 Monitoring of mouse events needs to be added in the script to let the `Player` node move. Modify the code in `PlayerController` as follows:
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation } from 'cc';
+import { _decorator, Component, Vec3, input, Input, EventMouse, Animation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -151,7 +151,7 @@ export class PlayerController extends Component {
 
     start () {
         // Your initialization goes here.
-        systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     }
 
     onMouseUp(event: EventMouse) {
@@ -439,14 +439,14 @@ The __start menu__ is an indispensable part of most any game. Add the game name,
     ```ts
     start () {
         // Your initialization goes here.
-        //systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        //input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     }
 
     setInputActive(active: boolean) {
         if (active) {
-            systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
         } else {
-            systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
         }
     }
     ```
@@ -467,7 +467,7 @@ The __start menu__ is an indispensable part of most any game. Add the game name,
 
     ![add player to game manager](./images/game-manager-player.png)
 
-    Modify the code in the `GameManger`:
+    Modify the code in the `GameManager`:
 
     ```ts
     start () {
@@ -776,7 +776,7 @@ When previewing, the results are as follows:
 The final code for `PlayerController.ts` should look like this:
 
 ```ts
-import { _decorator, Component, Vec3, systemEvent, SystemEvent, EventMouse, Animation, SkeletalAnimation } from 'cc';
+import { _decorator, Component, Vec3, input, Input, EventMouse, Animation, SkeletalAnimation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass("PlayerController")
@@ -808,9 +808,9 @@ export class PlayerController extends Component {
 
     setInputActive(active: boolean) {
         if (active) {
-            systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
         } else {
-            systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
         }
     }
 

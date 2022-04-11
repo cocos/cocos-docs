@@ -104,7 +104,7 @@ const colliderList = PhysicsSystem2D.instance.testAABB(rect);
 The __Box2D__ physics module (not available in the Builtin module) also provides ray detection to detect which collision bodies a given line segment passes through. We can also obtain the normal vector at the point where the given line passes through and other useful information.
 
 ```ts
-const results = PhysicsSystem2D.instance.rayCast(p1, p2, type, mask);
+const results = PhysicsSystem2D.instance.raycast(p1, p2, type, mask);
 
 for (const i = 0; i < results.length; i++) {
     const result = results[i];
@@ -115,7 +115,7 @@ for (const i = 0; i < results.length; i++) {
 }
 ```
 
-The third parameter of the `rayCast` function specifies the type of detection, and the ray detection supports four types. This is because the ray detection of __Box2D__ is not detected from the nearest object of the ray starting point, so the result of the test can not guarantee that the result is sorted by the distance from the object near the start of the ray. __Cocos Creator__'s physics system will determine whether the __Box2d__ test results are sorted based on the type of detection. This type will affect the result return to user.
+The third parameter of the `raycast` function specifies the type of detection, and the ray detection supports four types. This is because the ray detection of __Box2D__ is not detected from the nearest object of the ray starting point, so the result of the test can not guarantee that the result is sorted by the distance from the object near the start of the ray. __Cocos Creator__'s physics system will determine whether the __Box2d__ test results are sorted based on the type of detection. This type will affect the result return to user.
 
 - `ERaycast2DType.Any`
 
@@ -123,7 +123,7 @@ The third parameter of the `rayCast` function specifies the type of detection, a
 
 - `ERaycast2DType.Closest`
 
-  Detect the nearest collider on the ray path, which is the default for the `rayCast` detection, slightly slower than above method.
+  Detect the nearest collider on the ray path, which is the default for the `raycast` detection, slightly slower than above method.
 
 - `ERaycast2DType.All`
 

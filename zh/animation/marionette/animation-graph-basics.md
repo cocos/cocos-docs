@@ -17,7 +17,7 @@
 
 - **入口**：标志着状态机的进入。**入口** 只能作为状态过渡发生的源头，无法作为过渡的目标。
 
-- **出口**：当状态过渡到 **出口** 后，退出状态机。**入口** 只能作为状态过渡的目标，无法作为过渡的源头。
+- **出口**：当状态过渡到 **出口** 后，退出状态机。**出口** 只能作为状态过渡的目标，无法作为过渡的源头。
 
     **出口仅存在于子状态机中**，因为退出子状态机后，需要返回到父状态机继续执行下一个过渡；若退出顶层状态机，则动画流程终止，角色静止不动，而在一般情况下，角色是在持续做运动的。<br>若需要让角色完全静止不动，可以通过关闭当前动画图所在的动画控制器组件来实现。
 
@@ -168,15 +168,25 @@
 
 ![sub state](animation-graph-basics/sub-state.png)
 
-## 动画状态组件
+## 动画状态组件（Animation Graph Script）
 
 状态和子状态机都可以挂载动画状态组件。动画状态组件可直接在 **资源管理器** 中创建，右键点击 **资源管理器** 左上方的 **+** 按钮，然后选择 **动画状态组件** 即可：
 
 ![create-graph-script](animation-graph-basics/create-graph-script.png)
 
-创建完成后会生成一个默认名为 `AnimationGraphComponent` 的组件：
+创建完成后会生成一个默认名为 **AnimationGraphComponent** 的组件：
 
 ![animation-graph-component](animation-graph-basics/animation-graph-component.png)
+
+创建好动画状态组件后，在动画图面板右侧的网格布局区域中选中状态，然后在左侧的 **属性** 分页中点击 **添加状态组件** 即可将组件挂载到当前状态。或者也可以点击 **属性** 分页右上方的齿轮图标按钮，然后选择 **添加状态组件**，支持添加多个。
+
+![add-graph-script](animation-graph-basics/add-graph-script.png)
+
+点击添加的状态组件右侧的齿轮图标按钮，即可删除当前状态组件：
+
+![create-graph-script](animation-graph-basics/remove-graph-script.png)
+
+### 方法
 
 动画状态组件类继承自 `animation.StateMachineComponent`，其基类中提供了一些方法，表示状态机的一些特定事件。子类可以覆写这些方法，以便在状态进入、离开时添加一些业务逻辑。
 
@@ -194,10 +204,6 @@
 
 - `motionStateStatus: animation.MotionStateStatus`：表示事件主体动作状态的运作状态。仅状态（伪状态除外）相关的方法（`onMotionStateEnter`、`onMotionStateExit`）可接受此参数。
 
-创建好动画状态组件后，在动画图面板中选中状态，然后在左侧的 **属性** 分页中点击 **添加状态组件** 即可将组件挂载到当前状态：
-
-![add-graph-script](animation-graph-basics/add-graph-script.png)
-
 ### 示例：进入状态时播放特效
 
 ```ts
@@ -212,7 +218,7 @@ export class AnimationGraphComponent extends animation.StateMachineComponent {
      * @param stateStatus The status of the motion.
      */
     public onMotionStateEnter (controller: animation.AnimationController, stateStatus: Readonly<animation.MotionStateStatus>): void {
-        // 播放动画控制器所在节点上的所有例子特效
+        // 播放动画控制器组件所在节点上的所有粒子特效
         for (const particleSystem of controller.node.getComponents(ParticleSystem)) {
             particleSystem.play();
         }

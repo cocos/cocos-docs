@@ -50,7 +50,7 @@
 module.exports = Editor.Panel.define({
     $: {
         button: 'ui-button[slot=content]',
-    }.
+    },
     template: `
 <ui-prop>
     <ui-label value="Button" slot="label"></ui-label>

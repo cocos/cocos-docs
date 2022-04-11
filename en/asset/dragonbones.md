@@ -1,6 +1,6 @@
 # Skeletal Animation Assets (DragonBones)
 
-DragonBones skeletal animation assets are data formats exported by [DragonBones](http://dragonbones.com/) (supports DragonBones v5.6.2 and below).
+DragonBones skeletal animation assets are data formats exported by [DragonBones](http://dragonbones.com/) (supports DragonBones v5.6.3 and below).
 
 ## Import DragonBones Skeleton Animation Assets
 

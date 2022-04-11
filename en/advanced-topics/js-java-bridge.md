@@ -1,20 +1,20 @@
-# 简化使用 JavaScript 调用 Java 方法（实验性功能）
+# A Simpler Way to Call Java Methods with JavaScript (Experimental)
 
-## 背景
+## Background
 
-在 v3.4.0 之前，通过反射机制在 [JavaScript 调用 JAVA](./java-reflection.md) 的静态方法中，我们不仅需要严格声明包名和函数签名，还需要严格校对参数数量以确保正常运行，步骤较为复杂。
+Prior to v3.4.0, the reflection mechanism in [Using JavaScript to Call Java](./java-reflection.md) static methods, not only needed to strictly declare package names and function signatures, but also needed to strictly check the number of parameters to ensure proper operation, which was a complicated step.
 
-因此在 v3.4.0 中我们额外提供了另外一种实验性方法，用于简化脚本层到原生层的调用。这是一种通道，或者说是一个桥梁，在引入其他脚本系统前，我们将其命名为 `JsbBridge`，意为通过 `JSB` 绑定作为沟通脚本和原生 APP 的桥梁。
+Additionally provided in v3.4.0 is another experimental method for simplifying calls from the scripting layer to the native layer. This is a kind of channel, or a bridge, named `JsbBridge` before introducing other scripting systems, meaning that it serves as a bridge to communicate between script and native APP via the `JSB` binding.
 
-> **注意**：这两种方式都是可以正常使用的，开发者可以根据实际需要选择使用。若要使用之前的方式，请前往 [JavaScript 调用 JAVA](./java-reflection.md) 文档查看。
+> **Note**: both ways are working fine, developers can choose to use them according to their actual needs. To use the previous way, please review the [Using JavaScript to Call Java](./java-reflection.md) documentation.
 
-## JavaScript 接口介绍
+## JavaScript Interface Introduction
 
-在脚本层的接口只有 `sendToNative` 和 `onNative` 两个，分别是 **传输** 和 **接收原生层** 参数。使用时需要注意以下几点：
+The only two interfaces at the scripting level are `sendToNative` and `onNative`, which are **transfer** and **receive native layer** parameters, respectively. The following points need to be noted when using them:
 
-- 由于现在这个功能还在实验阶段，所以只支持 `string` 的传输，如果需要传输包含多种参数的对象，请考虑将其转化为 `Json` 形式进行传输，并在不同层级解析。
-- `onNative` 同一时间只会记录一个函数，当再次 `set` 该属性时会覆盖原先的 `onNative` 方法。
-- `sendToScript` 方法是单向通信，不会关心下层的返回情况，也不会告知 `JavaScript` 操作成功或者失败。开发者需要自行处理操作情况。
+- This feature is still in the experimental stage, only `string` transfers are supported. To transfer objects containing multiple parameters, please consider converting them to the `JSON` format for transfer and parsing them at different levels.
+- `onNative` will only record one function at a time, and will override the original `onNative` method when the property is `set` again.
+- The `sendToScript` method is a one-way communication and does not care about the return of the lower level, nor does it tell `JavaScript` whether the operation succeeded or failed. The developer needs to handle the operation itself.
 
 ```js
 // JavaScript
@@ -32,12 +32,12 @@ export namespace bridge{
 }
 ```
 
-### Java 接口介绍
+## Java Interface Introduction
 
-对应的 `JAVA` 接口同样以两个为主，包括 `sendToScript` 和 `onScript`：
+The corresponding `JAVA` interfaces are also dominated by two, including `sendToScript` and `onScript`:
 
-- `sendToScript` 对应 `sendToNative`，表示需要传输到 `JavaScript` 的参数。
-- `onScript` 对应 `onNative`，表示收到脚本信息后的响应行为。通过创建名为 `ICallback` 的接口来封装行为，并且使用 `setCallback` 来启用该接口函数。
+- `sendToScript` corresponds to `sendToNative` and represents the parameters to be transferred to `JavaScript`.
+- `onScript` corresponds to `onNative`, which indicates the response behavior after receiving a script message. Wrap the behavior by creating an interface called `ICallback` and use `setCallback` to enable the interface function.
 
 ```JAVA
 // JAVA
@@ -51,11 +51,11 @@ public class JsbBridge {
          */
         void onScript(String arg0, String arg1);
     }
-    /** Add a callback which you would like to apply
+    /* Add a callback which you would like to apply
      * @param f ICallback, the method which will be actually applied. multiple calls will override
-     * */
+     * multiple calls will override */
     public static void setCallback(ICallback f);
-    /**
+    /*
      * Java dispatch Js event, use native c++ code
      * @param arg0 input values
      */
@@ -64,21 +64,21 @@ public class JsbBridge {
 }
 ```
 
-## 基本使用
+## Basic Usage
 
-### JavaScript 触发 Java 的方法
+### Using JavaScript to Trigger Java Methods
 
-假设我们的广告接口设置在原生层，那么当玩家点击打开广告的按钮时，理应触发 `JAVA` 打开广告的操作。
+Assuming the ad interface is set in the native layer, then when the player clicks the button to open the ad, it is logical to trigger `JAVA` to open the ad.
 
-打开广告的接口的代码示例如下：
+The code example of the interface to open the ad is as follows:
 
 ```JAVA
 public void openAd(String adUrl){
-    //Code to open ad
+    // Code to open ad
 }
 ```
 
-这时候我们需要先注册打开广告的事件：
+Register the event that opens the ad first:
 
 ```JAVA
 JsbBridge.setCallback(new JsbBridge.ICallback() {
@@ -92,7 +92,7 @@ JsbBridge.setCallback(new JsbBridge.ICallback() {
     
 ```
 
-并且在 `JavaScript` 中对按钮的点击事件执行打开操作：
+Perform the open action on the button's click event in `JavaScript`:
 
 ```ts
 public static onclick(){
@@ -101,21 +101,21 @@ public static onclick(){
 } 
 ```
 
-这样就可以通过 `Jsb.Bridge` 这个通道将需要的信息发送到 `Java` 层执行打开广告的操作了。
+This will send the required information to the `Java` layer through the `Jsb.Bridge` channel.
 
-### JAVA 触发 JavaScript 的方法
+### Using JAVA to Trigger JavaScript Methods
 
-假设我们的动画播放操作记录在 JavaScript，并且希望在 Java 层播放这个动画，也可以注册一个播放动画的事件。
+Assuming that the animation playback operation is recorded in JavaScript. To play this animation in the Java layer, register an event to play the animation.
 
-首先需要定义一个播放动画的函数：
+First, define a function to play the animation:
 
 ```ts
 public void playAnimation(animationName: string, isLoop: boolean){
-    //Code to play Animation
+    // Code to play Animation
 }
 ```
 
-然后在 `onNative` 中记录该方法：
+Second, document the method in `onNative`:
 
 ```ts
 jsb.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
@@ -128,14 +128,14 @@ jsb.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
 }
 ```
 
-仍然以安卓项目为例，`Java` 代码示例如下：
+Still using the Android project as an example, the `Java` code example is as follows:
 
 ```JAVA
 JsbBridge.sendToScript("SkeletonAnim001", "true");
 ```
 
-这样便可以调用到 `JavaScript` 的播放操作了。
+This will call the `JavaScript` playback operation.
 
-## 示例工程：简单的多事件调用
+## Sample project: simple multi-event calls
 
-Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.4/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.4/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。
+Creator provides the [native-script-bridge](https://github.com/cocos-creator/example-3d/tree/v3.4/native-script-bridge) example, which developers can download for reference use as needed.

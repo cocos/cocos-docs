@@ -1,4 +1,4 @@
-# Particle System Overview
+# 3D 粒子系统
 
 粒子系统是游戏引擎特效表现的基础，它可以用于模拟的火、烟、水、云、雪、落叶等自然现象，也可用于模拟发光轨迹、速度线等抽象视觉效果。
 
@@ -19,7 +19,7 @@
 4. 粒子类，存储粒子的属性
 5. 粒子系统类，管理上面的模块
 
-## 添加粒子系统
+## 添加 3D 粒子系统
 
 在编辑器中添加粒子系统组件有以下两种方式：
 
@@ -30,6 +30,12 @@
 2. 在左侧的 **层级管理器** 面板中点击鼠标右键，然后选择 **创建 -> 特效 -> 粒子系统**，即可创建一个带有粒子系统组件的节点，如下图：
 
     ![new_ParticleSystemComponent_node](overview/new_ParticleSystemComponent_node.png)
+
+添加完成后，粒子在 **场景编辑器** 中显示如下：
+
+![particle panel](overview/particle-panel.png)
+
+右下角的粒子系统控制面板用于控制粒子的播放暂停等，详情请参考 [粒子控制面板](./editor/particle-effect-panel.md)。
 
 ## 内容
 

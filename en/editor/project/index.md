@@ -74,9 +74,9 @@ Used to configure various parameters of physics, please refer to the [Physics Co
     - If enabled, the Canvas background will be transparent and show the other DOM elements behind it.
     - If disabled, it will result in higher performance.
 
-- **ENABLE_WEBGL_ANTIALIAS**: whether to activate WebGL antialias setting in the engine, it's enabled by default. This setting only affect WebGL graphics back-end, it indicates whether to turn on the anti-aliasing option when creating WebGL Context.
+- **ENABLE_WEBGL_ANTIALIAS**: whether to activate WebGL antialias setting in the engine, it's enabled by default. This setting only affects WebGL graphics back-end, it indicates whether to turn on the anti-aliasing option when creating WebGL Context (for forward pipeline only).
 
-- **ENABLE_ANTIALIAS_FXAA**: used to enable FXAA anti-aliasing.
+- **ENABLE_ANTIALIAS_FXAA**: used to enable FXAA anti-aliasing (for deferred pipeline only).
 
 - **ENABLE_BLOOM**: used to enable the BLOOM post-processing.
 
@@ -85,6 +85,14 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 - **ENABLE_MULTI_TOUCH**: whether to enable multi-touch.
 
 - **MAX_LABEL_CANVAS_POOL_SIZE**: set the maximum number of Canvas object pools used by the Label, and adjust it according to the number of Labels in the same scene of the project.
+
+- **ENABLE_WEBGL_HIGHP_STRUCT_VALUES** (new in v3.4.1): on the Android platform with WebGL backend, the internal variables of the structures defined in the fragment shader use **mediump** precision, which may lead to incorrect results for some data that requires high precision (such as position information). To avoid this problem, check this option and enable WebGL to calculate variables with **highp** precision.
+
+    - If this option is enabled, use the `HIGHP_VALUE_STRUCT_DEFINE` macro in the fragment shader code to define structural variables, and use `HIGHP_VALUE_TO_STRUCT_DEFINED` and `HIGHP_VALUE_FROM_STRUCT_DEFINED` to assign values between structural and non-structural variables.
+
+    - For specific information and code on the above macro calls, please refer to [packing.chunk](https://github.com/cocos-creator/engine/blob/v3.4.1/editor/assets/chunks/packing.chunk#L40) for details.
+
+- **BATCHER2D_MEM_INCREMENT** (new in v3.4.1): this option affects the maximum number of vertices in each MeshBuffer, the default value is 144KB, please refer to the [MeshBuffer Batch Description](../../ui-system/components/engine/ui-batch.md) documentation for the conversion relationship between the number and the value.
 
 - **Custom Macro**: used to customize macro configurations, providing a macro tagging feature for current project scripts for easy visual configuration. Click the **+** button below to add a new macro configuration, hover over the added macro configuration and the **Delete** and **Modify** buttons will be displayed on the left side for deleting/renaming the current macro configuration respectively.
 
