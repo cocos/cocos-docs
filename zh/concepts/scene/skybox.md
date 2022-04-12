@@ -111,7 +111,7 @@ Creator 支持以下三种方式的环境漫反射照明，可以在 **Env Light
 
     ![ambient-diffuse](skybox/hemisphere.png)
 
-2. **半球漫反射和环境反射**：当 **Env Lighting Type** 属性为 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 时，该方式可以通过 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制漫反射。同时也会正确表达环境贴图所产生的漫反射效果。
+2. **半球漫反射和环境反射**：当 **Env Lighting Type** 属性为 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 时，该方式可以通过 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制漫反射。同时也会表达环境贴图所产生的漫反射效果。
 
     ![autogen-hemisphere](skybox/autogen-hemisphere.png)
 
@@ -119,22 +119,11 @@ Creator 支持以下三种方式的环境漫反射照明，可以在 **Env Light
 
     ![apply-diffuseMap](skybox/diffuse-map-with-reflection.png)
 
-当使用半球光漫反射时，效果如下：
-
-![DiffuseMap](skybox/hemisphere-lighting.png)
-
-当使用卷积图漫反射时，效果如下图。相比上图可以明显看出下图左侧背光面较暗，突出了整体的层次感，明暗对比细节也有较大的提升。
-
-![DiffuseMap](skybox/diffusemap.png)
-
-通过下面的 GIF 图可以更明显地看到对比：
+通过下面的 GIF 图可以更明显地看到 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 与 **DIFFUSEMAP_WITH_REFLECTION** 的对比，在 **Env Lighting Type** 为 **DIFFUSEMAP_WITH_REFLECTION** 的情况下背光面较暗，突出了整体的层次感，明暗对比细节也有较大的提升。
 
 ![Compare](skybox/compare.gif)
 
-> **注意**：
->
-> 1. 当更换 **Envmap** 属性中的环境贴图时，Creator 会自动计算对应的环境光照信息，以及漫反射光照（仅支持图片文件形式的 CubeMap，不包括手动制作的 CubeMap）
-> 2. 当 **Env Lighting Type** 属性为 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 时，在不调整 **Ambient** 时，其光照效果和 **DIFFUSEMAP_WITH_REFLECTION** 是一样的。
+> **注意**：当更换 **Envmap** 属性中的环境贴图时，Creator 会自动计算对应的环境光照信息，以及漫反射光照（仅支持图片文件形式的 CubeMap，不包括手动制作的 CubeMap）
 
 ## 切换 HDR/LDR 模式
 
