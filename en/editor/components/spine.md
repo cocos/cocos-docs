@@ -141,7 +141,7 @@ Spine Attachments can be implemented by using both editor and script. Here is an
 
 1. First, create a new `Canvas` node in the **Hierarchy** panel, and then create a new empty node and name it to `Spine` under the `Canvas` node. Select `Spine` and add the **Skeleton** component to the **Inspector** panel. Drag and drop the asset into the `SkeletonData` property box of the **Skeleton** component and set the Skeleton component properties.
 
-2. Second, right-click on the Spine node in the **Hierarchy** panel and select **Create -> Empty Node** to add a child node for it and name it `targetNode`. **Create -> 2D Object -> Sprite** to add a sprite component named `star` under `targetNode`. Drag the star asset to the `SpriteFrame` property of the Sprite component in the **Inspector** panel.
+2. Second, right-click on the Spine node in the **Hierarchy** panel and select **Create -> Empty Node** to add a child node for it and name it `targetNode`. **Create -> 2D Object -> Sprite** to add a sprite component named `star` under `targetNode`. Drag the star asset to the **SpriteFrame** property of the Sprite component in the **Inspector** panel.
 
     ![attach1](./spine/attach1.png)
 
@@ -149,8 +149,9 @@ Spine Attachments can be implemented by using both editor and script. Here is an
 
     ![attach2](./spine/attach2.png)
 
-4. Next, set the `Path` and `Target` properties of the `Sockets`. The `Path` drop-down box will list all the skeletons, select the target bone you want to attach, here take the dragon's tail as an example, drag the `targetNode` node to the `Target` property box. Notice the star attached on the dragon's tail in the **Scene** panel.
-    > **Note**：Do not set the `star` node as `Target` node, because this will make UITransform of `star` invalid. Please create a new empty node as the Target node and set components which to be attached as children nodes of Target node.
+4. Next, set the **Path** and **Target** properties of the **Sockets**. The **Path** drop-down box will list all the skeletons, select the target bone you want to attach, here take the dragon's tail as an example, drag the `targetNode` node to the **Target** property box. Notice the star attached on the dragon's tail in the **Scene** panel.
+
+    > **Note**：Do not set the `star` node as **Target** node, because this will make UITransform of `star` invalid. Please create a new empty node as the **Target** node and set components which to be attached as children nodes of **Target ** node.
 
     ![attach3](./spine/attach3.png)
 
@@ -186,7 +187,7 @@ Spine Attachments can be implemented by using both editor and script. Here is an
 
     If the name of the target bone is unknown, set the `Sockets` property in the Skeleton component to **1** and then look for the name of the desired target bone in the `Path` drop-down box. When the search is complete, restore the `Sockets` property to 0.
 
-3. Next, attach the `SpineAttach` script to the `Canvas` node, i.e. drag and drop the script into the node's **Inspector** panel. Drag and drop the `Spine` node with the Skeleton component attached and the `targetNode` node in the **Hierarchy** panel to the `Skeleton` property box and the `AttachNode` property box of the script component, respectively, and save the scene.
+3. Next, attach the `SpineAttach` script to the `Canvas` node, i.e. drag and drop the script into the node's **Inspector** panel. Drag and drop the `Spine` node with the Skeleton component attached and the `targetNode` node in the **Hierarchy** panel to the **Skeleton** property box and the **AttachNode** property box of the script component, respectively, and save the scene.
 
 4. Click the **Preview** button at the top of the editor to see the star hanging from the dragon's tail and shaking along with the dragon's tail.
 
