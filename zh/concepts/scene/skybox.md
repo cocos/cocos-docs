@@ -107,7 +107,7 @@ Creator 支持以下三种方式的环境漫反射照明，可以在 **Env Light
 | **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** | 半球漫反射和环境反射 |
 | **DIFFUSEMAP_WITH_REFLECTION** | 漫反射卷积图和环境反射 |
 
-1. **半球漫反射**：当 **Env Lighting Type** 属性为 **HEMISPHERE_DIFFUSE** 时，使用半球光漫反射。该方式由 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制，渲染性能更高，但是细节度不够，照明方向性差。**可手动调节，但可能会和环境贴图变得不统一**。
+1. **半球漫反射**：当 **Env Lighting Type** 属性为 **HEMISPHERE_DIFFUSE** 时，使用半球光漫反射。该方式由 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制，渲染性能更高，但是细节度不够，照明方向性差。**可手动调节，但可能会和环境贴图变得不统一**。在此模式下，IBL 将不可用，环境贴图无效。
 
     ![ambient-diffuse](skybox/hemisphere.png)
 
@@ -115,7 +115,7 @@ Creator 支持以下三种方式的环境漫反射照明，可以在 **Env Light
 
     ![autogen-hemisphere](skybox/autogen-hemisphere.png)
 
-3. **漫反射卷积图和环境反射**：当 **Env Lighting Type** 属性为 **DIFFUSEMAP_WITH_REFLECTION** 时，使用卷积图漫反射。该方式是高级漫反射，可以正确表达环境贴图产生的漫反射照明，有较好的照明方向性和细节。但和 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 不同的是漫反射是由自动生成的卷积图来表达的，不允许编辑。
+3. **漫反射卷积图和环境反射**：当 **Env Lighting Type** 属性为 **DIFFUSEMAP_WITH_REFLECTION** 时，使用卷积图漫反射。该方式是高级漫反射，可以正确表达环境贴图产生的漫反射照明，有较好的照明方向性和细节。但和 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 不同的是漫反射是由自动生成的卷积图来表达，不允许编辑。
 
     ![apply-diffuseMap](skybox/diffuse-map-with-reflection.png)
 
