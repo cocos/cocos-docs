@@ -20,6 +20,7 @@ To use `RichText`, please refer to the [RichText API](__APIDOC__/en/#/docs/3.4/e
 | FontSize         | Font size, in points (__Note__: this field does not affect the font size set in BBCode.) |
 | HandleTouchEvent | Once checked, the __RichText__ will block all input events (mouse and touch) within the bounding box of the node, preventing the input from penetrating into the underlying node. |
 | Horizontal Align | Horizontal alignment   |
+| Vertical Align   | Vertical alignment   |
 | ImageAtlas       | The image atlas for the `img` tag. For each `src` value in the `img` tag, there should be a valid `spriteFrame` in the imageAtlas. |
 | Font Family      | Custom system font of RichText.                                                       |
 | Use System Font  | Whether to use the system default font.                                               |
