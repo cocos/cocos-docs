@@ -107,11 +107,11 @@ Creator 支持以下三种方式的环境漫反射照明，可以在 **Env Light
 | **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** | 半球漫反射和环境反射 |
 | **DIFFUSEMAP_WITH_REFLECTION** | 漫反射卷积图和环境反射 |
 
-1. **半球漫反射**：当 **Env Lighting Type** 属性为 **HEMISPHERE_DIFFUSE** 时，使用半球光漫反射。该方式由 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制，渲染性能更高，但是细节度不够，照明方向性差。**可手动调节，但可能会和环境贴图变得不统一**。在此模式下，IBL 将不可用，环境贴图无效。
+1. **半球漫反射**：当 **Env Lighting Type** 属性为 **HEMISPHERE_DIFFUSE** 时，使用半球光漫反射。该方式由 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制，渲染性能更高，但是细节度不够，照明方向性差。**可手动调节，但可能会和环境贴图变得不统一**。在此模式下，IBL 将不可用，环境贴图对反射不起作用。
 
     ![ambient-diffuse](skybox/hemisphere.png)
 
-2. **半球漫反射和环境反射**：当 **Env Lighting Type** 属性为 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 时，该方式可以通过 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制漫反射。同时也会表达环境贴图所产生的漫反射效果。
+2. **半球漫反射和环境反射**：当 **Env Lighting Type** 属性为 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 时，该方式可以通过 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制漫反射。同时也会表达环境贴图所产生的镜面反射效果。
 
     ![autogen-hemisphere](skybox/autogen-hemisphere.png)
 
