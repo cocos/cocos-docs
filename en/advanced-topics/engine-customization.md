@@ -1,9 +1,8 @@
 # Engine Customization Workflow
 
-The engine part of Cocos Creator 3.x includes **TypeScript** and **engine-native**. The engine is all open-source on GitHub. The addresses are as follows:
+The engine part of Cocos Creator 3.x includes **TypeScript** and **engine-native**. The engine is all open-source on GitHub. They are in the same Github repo. The address is:
 
-- [TypeScript engine](https://github.com/cocos-creator/engine/)
-- [engine-native engine](https://github.com/cocos-creator/engine-native/)
+- [cocos engine](https://github.com/cocos/cocos-engine/)
 
 It is recommended to maintain custom code using the GitHub's Fork workflow. This workflow allows developers to easily update custom engine parts when the engine is upgraded in the future. This workflow is described in the [Fork a repo](https://help.github.com/articles/fork-a-repo) documentation. For more GitHub-related workflows, please refer to the [GitHub Help](https://help.github.com).
 
@@ -58,30 +57,15 @@ This command will generate a `bin` folder under the engine directory and compile
 
 ## 2 Customize the engine-native Engine
 
-If you need to customize the engine features related to the native platform, you may need to modify the **engine-native** engine in parallel with the TypeScript engine.
+Since v3.5.0, engine-native engine is merged into and TypeScript engine. But you can custom them separately.
 
 ### 2.1 Get the engine-native Engine
 
-If you only need to make some tweaks based on the current version, modify the **engine-native** engine built into Cocos Creator. The procedure is the same as for the TypeScript engine, click the **App** button at the top right of the Creator editor, then copy the built-in `engine-native` directory to another local path.
-
-To get the latest official version in development, download or clone it from the GitHub repository specified above. Similar to the TypeScript engine, the **engine-native** engine should be checked for the current branch before use.
+engine-native engine and TypeScript engine are merged. After cloning TypeScript engine, engine-native engine is in `cocos-engine/native`.
 
 ### 2.2 Initialization
 
-After downloading or cloning the **engine-native** engine repository, go to the engine path at the command line and execute the following command:
-
-> **Note**: if you copied the built-in `engine-native` directory from the editor, skip this step.
-
-```bash
-# Go to the engine-native engine path at the command line
-cd E:/engine-native
-# Install the gulp build tool
-npm install -g gulp
-# Install dependent modules
-npm install
-# Initialize the repository
-gulp init
-```
+Since engine-native is merged into engine. So it is the same as TypeScript engine initialization.
 
 ### 2.3 Configure a custom engine-native in Cocos Creator 3.x
 
@@ -103,7 +87,7 @@ To prevent the package from becoming too large, Creator excludes the native engi
 
     - If the developer is customizing the **TypeScript** part, click **Developer -> Rebuild Native Engine** in the top menu bar of Creator after the customization is finished.
 
-    - If the developer is customizing the **C++** part, after the customization is completed, execute the following commands in the `engine-native` directory in order.
+    - If the developer is customizing the **C++** part, after the customization is completed, execute the following commands in the `cocos-engine/native` directory in order.
 
         ```bash
         # Install the dependent modules
@@ -112,4 +96,4 @@ To prevent the package from becoming too large, Creator excludes the native engi
         gulp gen-simulator
         ```
 
-        Once executed, a simulator project and simulator executable will be generated under the `engine-native/simulator` path, and the native simulator will be ready to run.
+        Once executed, a simulator project and simulator executable will be generated under the `cocos-engin/native/simulator` path, and the native simulator will be ready to run.
