@@ -139,7 +139,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
 1. 首先在 **层级管理器** 中新建一个 Canvas 节点，然后在 Canvas 节点下新建一个空节点并命名为 `Spine`。选中 `Spine` 节点，并在 **属性检查器** 中添加 Skeleton 组件，将资源拖拽到 Skeleton 组件的 SkeletonData 属性框中，设置好 Skeleton 组件属性。
 
-2. 在 **层级管理器** 中右键点击 Spine 节点，选择 **创建 -> 2D 对象 -> Sprite** 为其添加一个子节点并命名为 `star`。然后将星星资源拖拽到 **属性检查器** 中 Sprite 组件的 `SpriteFrame` 属性上。
+2. 在 **层级管理器** 中右键点击 Spine 节点，选择 **创建 -> 空节点** 在 Spine 节点下添加一个空节点并命名为 `targetNode`。 然后在 `targetNode` 节点下添加 Sprite 子节点并命名为 `star`。然后将星星资源拖拽到 **属性检查器** 中 Sprite 组件的 **SpriteFrame** 属性上。
 
     ![attach1](./spine/attach1.png)
 
@@ -147,11 +147,13 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
     ![attach2](./spine/attach2.png)
 
-4. 然后设置 Sockets 中的 `Path` 和 `Target` 属性，`Path` 的下拉框中会列出所有的骨骼，选择想要挂载的目标骨骼，这里以龙的尾巴为例，然后将 `star` 节点拖拽到 `Target` 属性框中。即可在 **场景编辑器** 中看到星星挂在了龙的尾巴上。
+4. 然后设置 **Sockets** 中的 **Path** 和 **Target** 属性，**Path** 的下拉框中会列出所有的骨骼，选择想要挂载的目标骨骼，这里以龙的尾巴为例，然后将 `targetNode` 节点拖拽到 **Target** 属性框中。即可在 **场景编辑器** 中看到星星挂在了龙的尾巴上。
+
+    > **注意**：请不要直接将 `star` 节点设置为 **Target**，这样会让 `star` 节点自身的 UITransform 无效。请 **新建空节点** 作为 **Target**，并将要挂载的组件作为 **Target** 节点的子节点。
 
     ![attach3](./spine/attach3.png)
 
-5. 保存场景，点击编辑器上方的预览按钮，也可以看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。具体可参考官方 **SpineAttach**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/spine)）范例。
+5. 保存场景，点击编辑器上方的预览按钮，也可以看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。具体可参考官方 **SpineAttach**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine)）范例。
 
 ### 通过脚本实现 Spine 挂点
 
@@ -183,13 +185,11 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
     > **注意**：若不知道目标骨骼的名称，可将 Spine 组件中的 Sockets 属性设置为 1，然后在 `Path` 的下拉框中查找所需的目标骨骼名称。查找完成后再将 Sockets 属性还原为 0 即可。
 
-3. 然后将 `SpineAttach` 脚本挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。再将 **层级管理器** 中挂载了 Skeleton 组件的 `Spine` 节点和 `star` 节点分别拖拽到脚本组件对应的 Skeleton 属性框和 AttachNode 属性框中，并保存场景。
-
-    ![attach4](./spine/attach4.png)
+3. 然后将 `SpineAttach` 脚本挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。再将 **层级管理器** 中挂载了 Skeleton 组件的 `Spine` 节点和 `targetNode` 节点分别拖拽到脚本组件对应的 **Skeleton** 属性框和 **AttachNode** 属性框中，并保存场景。
 
 4. 点击编辑器上方的预览按钮，即可看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。
 
-    ![attach-ts](./spine/attach-ts.png)
+    ![attach-ts](./spine/attach-ts.gif)
 
 ## Spine 碰撞检测
 
