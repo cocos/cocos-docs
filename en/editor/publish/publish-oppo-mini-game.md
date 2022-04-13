@@ -51,7 +51,7 @@ For the general build options for each platform, please refer to [General Build 
 
 - **Screen Orientation**: The screen orientation currently includes **Portrait** and **Landscape**.
 
-- **Seperate Engine**: This feacture reduces the size of the first package for each mini-game by sharing the global engine. When enabled, if the engine already has a cache in the phone, the first pacakge download will automatically remove the gine file and load the full version of the engine cached in the phone. If there is no cache in the phone, the full first package will be loaded, and the complete first package will contain the culled engine.
+- **Seperate Engine**: This feacture reduces the size of the first package for each mini-game by sharing the global engine. When enabled, if the engine already has a cache in the phone, the first pacakge download will automatically remove the egine file and load the full version of the engine cached in the phone. If there is no cache in the phone, the full first package will be loaded, and the complete first package will contain the culled engine.
 
 - **Keystore**: when you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**.
 
