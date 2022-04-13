@@ -46,7 +46,7 @@
 
 在层级内空白处点击鼠标右键可以打开层级菜单。
 
-![menu](animation-layer/open-layer-menu.png)
+![Edit](animation-graph-panel/edit.png)
 
 - **添加状态 - 动画剪辑**：该菜单会在层级上创建一个默认为 Clip Motion 的动画剪辑状态，之后可以在左侧的 **属性** 面板内指定动画剪辑的资源。 相关操作方式请参考 [设置状态属性](animation-graph-basics.md##%E5%88%9B%E5%BB%BA%E7%8A%B6%E6%80%81)：
 
@@ -81,7 +81,7 @@
 
 引出到 **空状态** 状态的过渡，就相当于源头动画的动画效果在不断衰减，直到过渡完成，相当于当前层级被禁用。
 
-如在下图的示例中，当 **Empty** 仅在触发器 **trigger** 被触发后才会过渡到 **run_shoot** 状态，而在 **Empty** 的情况下，该层级不会影响到签名层级的动画效果。
+如在下图的示例中，当 **Empty** 仅在触发器 **trigger** 被触发后才会过渡到 **run_shoot** 状态，而在 **Empty** 的情况下，该层级不会影响到前面层级的动画效果。
 
 ![layer](animation-graph/empty-state.png)
 
