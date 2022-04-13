@@ -64,7 +64,7 @@
 
 - **使用内置原生引擎**：是否使用 Cocos Creator 安装路径下自带的 `engine/naive` 路径作为原生引擎路径。这个引擎用于构建发布时所有原生平台（iOS、 Android、Mac、Windows）的工程构建和编译。
 
-- **自定义原生引擎路径**：取消上一项 **使用内置原生引擎** 的选择后，就可以手动指定原生引擎路径了。注意这里使用的原生引擎必须从 **engine-native**（[GitHub](https://github.com/cocos/cocos-engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/enginee)）或该仓库的 fork 下载。
+- **自定义原生引擎路径**：取消上一项 **使用内置原生引擎** 的选择后，就可以手动指定原生引擎路径了。注意这里使用的原生引擎必须从 **engine-native**（[GitHub](https://github.com/cocos/cocos-engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)）或该仓库的 fork 下载。
 
 关于自定义引擎，具体内容可参考 [引擎定制工作流程](../../advanced-topics/engine-customization.md)
 
