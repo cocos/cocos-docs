@@ -49,6 +49,10 @@ For the general build options for each platform, please refer to [General Build 
 
 - **Supported Minimum Platform Version Number**: is required. According to the requirements for OPPO Mini Games, this value must be greater than or equal to **1031**, and **1060** is recommended. Refer to the [Instructions [cn]](https://cdofs.oppomobile.com/cdo-activity/static/201810/26/quickgame/documentation/#/games/use) for details.
 
+- **Screen Orientation**: The screen orientation currently includes **Portrait** and **Landscape**.
+
+- **Seperate Engine**: This feacture reduces the size of the first package for each mini-game by sharing the global engine. When enabled, if the engine already has a cache in the phone, the first pacakge download will automatically remove the gine file and load the full version of the engine cached in the phone. If there is no cache in the phone, the full first package will be loaded, and the complete first package will contain the culled engine.
+
 - **Keystore**: when you check the **Keystore**, the default is to build the rpk package with a certificate that comes with Creator, which is used only for **debugging**.
 
   > **Note**: when the rpk package is to be used to submit an audit, do not check the **Keystore** to build it.
