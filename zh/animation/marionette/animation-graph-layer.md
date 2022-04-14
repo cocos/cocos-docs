@@ -42,33 +42,23 @@
 
 也可以在代码中通过 `AnimationController.prototype.setLayerWeight` 动态修改层级权重。
 
-## 菜单
+## 网格布局操作
 
-在层级内空白处点击鼠标右键可以打开层级菜单。
+在网格内点击空白处点击鼠标右键可以打开层级菜单。
 
 ![Edit](animation-graph-panel/edit.png)
 
-- **添加状态 - 动画剪辑**：该菜单会在层级上创建一个默认为 Clip Motion 的动画剪辑状态，之后可以在左侧的 **属性** 面板内指定动画剪辑的资源。 相关操作方式请参考 [设置状态属性](animation-graph-basics.md##%E5%88%9B%E5%BB%BA%E7%8A%B6%E6%80%81)：
+菜单中可以添加 **子状态、子状态机、混合以及空状态**。
 
-  ![create animation clip](animation-layer/create-animation-clip.png)
+- **子状态、子状态机** 和 **混合** 的使用方式请参考 [动画状态机](animation-graph-basics.md)。
 
-- **添加状态 - 一维混合**：该菜单会在层级上创建一个默认为 Blend 1D 的一维混合。双击可以进行编辑。相关操作方式请参考 [一维动画混合](animation-graph-basics.md#%E4%B8%80%E7%BB%B4%E5%8A%A8%E7%94%BB%E6%B7%B7%E5%90%88)：
-
-  ![create 1d blend](animation-layer/create-1d-blend.png)
-
-- **添加状态 - 二维混合**：该菜单会在层级上创建一个默认为 Blend 2D 的二维混合。双击可以进行编辑。相关操作方式请参考 [二维动画混合](animation-graph-basics.md#%E4%BA%8C%E7%BB%B4%E5%8A%A8%E7%94%BB%E6%B7%B7%E5%90%88)：
-
-  ![create 1d blend](animation-layer/create-2d-blend.png)
-
-- **添加子状态机**：该菜单会在层级上创建一个默认为 State Machine 的子状态机，双击可以进行编辑。相关操作方式请参考 [子状态机](animation-graph-basics.md#%E5%AD%90%E7%8A%B6%E6%80%81%E6%9C%BA)：
-
-   ![create 1d blend](animation-layer/create-sub-machine.png)
-
-- **添加空状态**：该菜单会在层级上创建一个默认为 Empty 的空状态，请参考下文 **空状态** 部分获取更多信息。
+- **添加空状态**：该菜单会在层级上创建一个默认名为 Empty 的空状态，请参考下文 **空状态** 部分获取更多信息。
 
   ![craete empty](animation-layer/create-empty.png)
 
 - **返回中心视角**：该菜单会将层级的视角返回到层级的中心。
+
+- 按住鼠标右键或滚轮，可以移动层级网格；使用滚动可以对层级进行缩放。
 
 ## 空状态
 
