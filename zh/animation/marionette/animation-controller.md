@@ -14,7 +14,7 @@
 
 | 属性  | 说明          |
 | :---- | :----------- |
-| Graph | 添加的 [动画图资源](animation-graph-layer)，默认为空 |
+| Graph | 添加的 [动画图资源](animation-graph.md)，默认为空 |
 
 ## 程序化控制动画图
 
