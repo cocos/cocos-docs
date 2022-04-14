@@ -24,7 +24,7 @@
 
 在一切开始前，需要确定选择骨骼遮罩影响的所有骨骼。
 
-在 **属性检查器** 上，点击 ![import](animation-mask/import.png) 按钮，在弹出的预制体选择对话框中，我们选择骨骼层次所在的预制体。一般情况下，他就是目标模型所在模型文件（FBX、glTF）中导入的预制体，且通常只有一个。
+在 **属性检查器** 上，点击 ![import](animation-mask/import.png) 按钮，在弹出的预制体选择对话框中，我们选择骨骼层次所在的预制体。一般情况下，我们选择目标模型所在模型文件（FBX、glTF）中导入的预制体，且通常只有一个。
 
 ![import mask](animation-mask/import-skeleton.png)
 
