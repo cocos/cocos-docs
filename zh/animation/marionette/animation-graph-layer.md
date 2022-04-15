@@ -42,7 +42,7 @@
 
 也可以在代码中通过 `AnimationController.prototype.setLayerWeight` 动态修改层级权重。
 
-## 网格布局操作
+## 网格布局区域操作
 
 在网格内空白处点击鼠标右键可以打开层级菜单。
 

@@ -72,6 +72,9 @@
   <!--
   这些图都是用 ProcessOn 进行编辑的，源文件以 POS 格式保存在 zh/animation/marionette 目录下，可将其导入到 ProcessOn 再次编辑。
   -->
+  在 v3.5.0 中，我们增加了新的机制 **下一帧重置（Reset on next frame）**，在勾选后，触发器会在动画更新后立即重置。
+
+  ![reset on next frame](animation-graph-panel/reset-on-nextframe.png)
 
 ### 通过脚本控制变量
 
