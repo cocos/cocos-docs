@@ -2,7 +2,7 @@
 
 开发者如果想要扩展构建流程的话，可以通过插件来实现，需要使用到 [扩展包](../extension/first.md)。扩展构建功能的前提是需要对构建的整体处理流程有所了解，不熟悉的开发者建议先阅读 [构建流程简介与常见问题指南](./build-guide.md)。
 
-## 基本操作流程
+## 快速开始
 
 1. 在编辑器的菜单栏中点击 **项目 -> 新建构建扩展包**，选择 **全局**/**项目** 后即可创建一个构建扩展插件包。
 
@@ -34,9 +34,13 @@
 
     ![reload](./custom-project-build-template/reload.png)
 
-## 入口脚本
+## 开发细则
 
-构建扩展包需要在 `package.json` 的 `contributions` 中添加 `builder` 字段，然后在 `builder` 字段中指定一个 JavaScript 脚本的 **相对路径**，作为构建扩展插件参与到构建流程的入口脚本。
+扩展构建功能需要在 package.json 内
+
+### 插件的扩展构建脚本
+
+构建扩展包需要在 `package.json` 的 `contributions` 中添加 `builder` 字段，然后在 `builder` 字段中指定一个 JavaScript 脚本的 **相对路径**，作为构建扩展插件参与到构建流程的扩展构建脚本。
 
 例如：
 
@@ -50,65 +54,11 @@
 }
 ```
 
-> **注意**：`builder` 字段里指定的 `./dist/builder.js` 入口脚本是编译后的脚本，入口脚本的源文件则位于 `./source/builder.ts`，若需要配置入口脚本，请在源文件中修改。
+> **注意**：构建插件模板内的 `builder` 字段里指定的 `./dist/builder.js` 扩展构建脚本是编译后的脚本，扩展构建脚本的源文件则位于 `./source/builder.ts`，若需要配置扩展构建脚本，请在源文件中修改。
 
-### 入口脚本配置
+在编写扩展构建脚本时还需要额外注意以下几点：
 
-关于入口脚本的配置，代码示例如下：
-
-```ts
-// builder.ts
-
-// 允许外部开发者替换部分构建资源的处理方法模块。详情请参考下文“自定义纹理压缩处理”部分的内容
-export const assetHandlers: string = './asset-handlers';
-
-export const configs: IConfigs = {
-    'web-mobile': {
-        hooks: './hooks',
-        options: {
-            remoteAddress: {
-                label: 'i18n:xxx',
-                render: {
-                    ui: 'ui-input',
-                    attributes: {
-                        placeholder: 'Enter remote address...',
-                    },
-                },
-                // 校验规则，目前内置了几种常用的校验规则，需要自定义的规则可以在 "verifyRuleMap" 字段中配置
-                verifyRules: ['require', 'http'],
-            },
-            enterCocos: {
-                    label: 'i18n:cocos-build-template.options.enterCocos',
-                    description: 'i18n:cocos-build-template.options.enterCocos',
-                    default: '',
-                    render: {
-                        // 请点击编辑器菜单栏中的“开发者 -> UI 组件”，查看所有支持的 UI 组件列表。
-                        ui: 'ui-input',
-                        attributes: {
-                            placeholder: 'i18n:cocos-build-template.options.enterCocos',
-                        },
-                    },
-                    verifyRules: ['ruleTest']
-                }
-            },
-            verifyRuleMap: {
-                ruleTest: {
-                    message: 'i18n:cocos-build-template.ruleTest_msg',
-                    func(val, option) {
-                        if (val === 'cocos') {
-                            return true;
-                        }
-                        return false;
-                    }
-                }
-            }
-        },
-};
-```
-
-在编写入口脚本时还需要额外注意以下几点：
-
-1. 不同进程中的环境变量会有所差异。入口脚本会同时被 **渲染进程** 和 **主进程** 加载，所以请不要在入口脚本中使用仅存在于单一进程中的编辑器接口。进程相关详情请参考下文 **调试构建扩展插件** 部分的内容。
+1. 不同进程中的环境变量会有所差异。扩展构建脚本会同时被 **渲染进程** 和 **主进程** 加载，所以请不要在扩展构建脚本中使用仅存在于单一进程中的编辑器接口。进程相关详情请参考下文 **调试构建扩展插件** 部分的内容。
 
 2. `config` 的 key 有两种配置方式：
 
@@ -118,9 +68,9 @@ export const configs: IConfigs = {
 
     > **注意**：这两种配置方式是互斥的，请不要在同一个构建扩展包中同时使用。否则单个平台的配置（key 值为 `平台构建插件名`）会覆盖掉所有平台的配置（key 值为 `*`）。
 
-### 入口脚本接口定义
+### 扩展构建脚本接口定义
 
-关于入口脚本详细的接口定义，说明如下：
+关于扩展构建脚本详细的接口定义，说明如下：
 
 ```ts
 declare type IConfigs = Record<Platform | '*', IPlatformConfig>;
@@ -166,9 +116,62 @@ declare interface IUiOptions extends IOptionsBase {
 
 其中 `IOptionsBase` 的接口定义需要参考 [ui-prop 自动渲染规则定义](../extension/ui.md)。
 
-### 钩子函数
+### 自定义构建参数
 
-在入口脚本的 `hooks` 字段中定义的脚本，可用于编写构建生命周期的钩子函数。所有的钩子函数都是在构建进程中按照顺序依次执行，不同的钩子函数接收到的数据会有所差异。在构建进程中可以直接使用引擎提供的 API 和 `Editor` 全局变量，关于 Editor 详细的接口定义请点击编辑器主菜单的 **开发者 —> 导出 .d.ts** 获取和查看。关于构建进程的说明请参考下文 **构建进程** 部分的内容。
+自定义构建参数是在扩展构建脚本内配置的，接口定义可以查看上一篇文档。代码示例如下：
+
+```ts
+// builder.ts
+
+// 允许外部开发者替换部分构建资源的处理方法模块。详情请参考下文“自定义纹理压缩处理”部分的内容
+export const assetHandlers: string = './asset-handlers';
+
+export const configs: IConfigs = {
+    'web-mobile': {
+        options: {
+            remoteAddress: {
+                label: 'i18n:xxx',
+                render: {
+                    ui: 'ui-input',
+                    attributes: {
+                        placeholder: 'Enter remote address...',
+                    },
+                },
+                // 校验规则，目前内置了几种常用的校验规则，需要自定义的规则可以在 "verifyRuleMap" 字段中配置
+                verifyRules: ['require', 'http'],
+            },
+            enterCocos: {
+                    label: 'i18n:cocos-build-template.options.enterCocos',
+                    description: 'i18n:cocos-build-template.options.enterCocos',
+                    default: '',
+                    render: {
+                        // 请点击编辑器菜单栏中的“开发者 -> UI 组件”，查看所有支持的 UI 组件列表。
+                        ui: 'ui-input',
+                        attributes: {
+                            placeholder: 'i18n:cocos-build-template.options.enterCocos',
+                        },
+                    },
+                    verifyRules: ['ruleTest']
+                }
+            },
+            verifyRuleMap: {
+                ruleTest: {
+                    message: 'i18n:cocos-build-template.ruleTest_msg',
+                    func(val, option) {
+                        if (val === 'cocos') {
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+            }
+        },
+};
+```
+
+### 构建阶段钩子函数
+
+在扩展构建脚本的 `hooks` 字段中定义的脚本，可用于编写构建生命周期的钩子函数。所有的钩子函数都是在构建进程中按照顺序依次执行，不同的钩子函数接收到的数据会有所差异。在构建进程中可以直接使用引擎提供的 API 和 `Editor` 全局变量，关于 Editor 详细的接口定义请点击编辑器主菜单的 **开发者 —> 导出 .d.ts** 获取和查看。关于构建进程的说明请参考下文 **构建进程** 部分的内容。
 
 公开的钩子函数与构建的生命周期的关系请参考下图：
 
@@ -193,7 +196,7 @@ type IBaseHooks = (options: IBuildTaskOptions, result?: IBuildResult) => void | 
 ```
 
 > **注意**：
-> 1. 在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数中的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息获取的参考，因而直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在入口脚本的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展包中 `@types/packages/builder` 目录下的内容。
+> 1. 在 `onBeforeCompressSettings` 开始才能访问到 `result` 参数，并且传递到钩子函数中的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息获取的参考，因而直接修改它虽然能修改成功但并不会真正地影响构建流程。构建参数请在扩展构建脚本的 `options` 字段中修改。由于接口定义比较多，详细的接口定义可以参考构建扩展包中 `@types/packages/builder` 目录下的内容。
 > 2. 钩子函数允许为异步函数，构建执行钩子函数时默认会 await 等待其执行完毕才会执行下一个流程。
 
 简单的代码示例：
@@ -209,13 +212,13 @@ export async function onBeforeCompressSettings(options, result) {
 
 ### 自定义纹理压缩处理
 
-上文 **入口脚本配置** 中指定的 `assetHandler` 路径配置，允许外部开发者注册一些资源处理函数，用以替换引擎在构建部分资源时的处理方法模块。目前仅开放 **纹理压缩** 处理函数的注册。
+上文 **扩展构建脚本配置** 中指定的 `assetHandler` 路径配置，允许外部开发者注册一些资源处理函数，用以替换引擎在构建部分资源时的处理方法模块。目前仅开放 **纹理压缩** 处理函数的注册。
 
 Creator 在构建时，虽然提供了自带的压缩工具用于处理压缩纹理资源，但并非专注于图像压缩处理，因为需要兼容不同的用户环境，通常压缩工具会选择能在大部分电脑上正常运行而不是效率最高的。因此 Creator 在 v3.4 开放了相应的插件机制，**允许用户直接注册对应纹理资源的压缩处理函数，构建时便会在相应的处理时机进行调用**。
 
 具体操作步骤如下：
 
-1. 在入口脚本处，编写 `assetHandlers` 的模块脚本相对路径：
+1. 在扩展构建脚本处，编写 `assetHandlers` 的模块脚本相对路径：
 
     ```ts
     export const assetHandlers = './asset-handlers';
@@ -261,13 +264,13 @@ Creator 在构建时，虽然提供了自带的压缩工具用于处理压缩纹
 
 构建扩展插件参与到构建流程时，相关代码会运行在以下三种进程：
 
-- **主进程**：执行入口脚本及其依赖资源
-- **渲染进程**：执行入口脚本中注册到 **构建发布** 面板上的部分字段
-- **构建进程**：执行入口脚本中 `hooks` 字段定义的脚本
+- **主进程**：执行扩展构建脚本及其依赖资源
+- **渲染进程**：执行扩展构建脚本中注册到 **构建发布** 面板上的部分字段
+- **构建进程**：执行扩展构建脚本中 `hooks` 字段定义的脚本
 
-### 主进程（入口脚本）
+### 主进程（扩展构建脚本）
 
-主进程主要执行构建扩展插件中用于参与构建流程的入口脚本（`builder` 字段中指定的脚本），以及插件自身的入口脚本（`main` 字段中指定的脚本）。
+主进程主要执行构建扩展插件中用于参与构建流程的扩展构建脚本（`builder` 字段中指定的脚本），以及插件自身的扩展构建脚本（`main` 字段中指定的脚本）。
 
 当修改了运行在主进程中的代码时，必须要重启插件，然后再刷新需要更新的进程（这一点会在之后优化，尽量通过一次重启便解决代码更新问题，但刷新依旧是最彻底的重载方法）。主进程目前没有比较合适的调试方法，可以使用命令行打开编辑器查看主进程代码日志来辅助调试：
 
@@ -281,7 +284,7 @@ Creator 在构建时，虽然提供了自带的压缩工具用于处理压缩纹
 
 ### 渲染进程（构建面板）
 
-构建扩展插件的入口脚本中，有部分字段是注册到 **构建发布** 面板上的，例如 `options` 的显示配置、`panel` 字段，以及 `panel` 脚本本身，这部分内容会在渲染进程载入执行。渲染进程其实就是窗口自己的执行进程，打开调试工具，可以调试 **构建发布** 面板上的 dom 元素、样式、脚本等。
+构建扩展插件的扩展构建脚本中，有部分字段是注册到 **构建发布** 面板上的，例如 `options` 的显示配置、`panel` 字段，以及 `panel` 脚本本身，这部分内容会在渲染进程载入执行。渲染进程其实就是窗口自己的执行进程，打开调试工具，可以调试 **构建发布** 面板上的 dom 元素、样式、脚本等。
 
 如果是修改了注册到 **构建发布** 面板上的代码时，只需要刷新面板即可，无需重启插件。
 
@@ -295,7 +298,7 @@ Creator 在构建时，虽然提供了自带的压缩工具用于处理压缩纹
 
 ### 构建进程（`hooks` 脚本）
 
-构建的实际执行阶段是单独的一个 worker 进程，确保即使发生异常崩溃也不会影响到其他窗口的正常使用。在入口脚本的 `hooks` 字段中定义的脚本也是在这个单独的 worker 进程中载入执行的。
+构建的实际执行阶段是单独的一个 worker 进程，确保即使发生异常崩溃也不会影响到其他窗口的正常使用。在扩展构建脚本的 `hooks` 字段中定义的脚本也是在这个单独的 worker 进程中载入执行的。
 
 如果仅修改 `hook` 字段定义的脚本，刷新构建进程即可，无需重启插件。刷新方式同上文的 **构建发布** 面板一致，打开构建调试工具后，按下快捷键 **Ctrl/Cmd + R** 即可。
 
