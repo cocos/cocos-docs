@@ -54,7 +54,7 @@
 
 - **添加空状态**：该菜单会在层级上创建一个默认名为 Empty 的空状态，请参考下文 **空状态** 部分获取更多信息。
 
-  ![craete empty](animation-layer/create-empty.png)
+  ![create empty](animation-layer/create-empty.png)
 
 - **返回中心视角**：该菜单会将层级的视角返回到层级的中心。
 
