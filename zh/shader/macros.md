@@ -70,16 +70,18 @@ float metallic = texture(pbrMap, uv).METALLIC_SOURCE;
 比如声明一个 `LAYERS` 宏，当 tag 为 `range` 时，当前宏在运行时可能的取值范围为 `[4, 5]`。
 
 ```glsl
-#pragma define LAYERS range([4, 5])
+#pragma define-meta LAYERS range([4, 5])
 ```
 
 比如声明一个 `METALLIC_SOURCE` 宏，当 tag 为 `options` 时，当前宏在运行时可能的取值范围为 'r'、'g'、'b'、'a' 四种。
 
 ```glsl
-#pragma define METALLIC_SOURCE options([r, g, b, a])
+#pragma define-meta METALLIC_SOURCE options([r, g, b, a])
 ```
 
 > **注意**：语法中的每个 tag 都只有一个参数，这个参数可以直接用 YAML 语法指定。
+
+> **注意**：在 v3.5 之前，Macro Tags 功能的语法是 `#pragma define`，但是从 v3.5 开始 effect 资源升级过程中会自动被替换为 `#pragma define-meta`，在书写新的 effect 资源或使用外部不带 meta 的 effect 资源时请注意语法的正确性。
 
 ### Functional Macros
 
@@ -88,9 +90,9 @@ float metallic = texture(pbrMap, uv).METALLIC_SOURCE;
 这个操作对于一些需要 inline 的工具函数，或需要大量重复定义的相似代码非常有帮助。在 Cocos Effect 的内置头文件中，有不少工具函数都是函数式宏定义，比如：
 
 ```glsl
-#define CCDecode(position) \
+#pragma define CCDecode(position) \
   position = vec4(a_position, 1.0)
-#define CCVertInput(position) \
+#pragma define CCVertInput(position) \
   CCDecode(position);         \
   #if CC_USE_SKINNING         \
     CCSkin(position);         \
@@ -104,9 +106,11 @@ float metallic = texture(pbrMap, uv).METALLIC_SOURCE;
 
 ```glsl
 // please do be careful with unhygienic macros like this
-#define INCI(i) do { int a=0; ++i; } while(0)
+#pragma define INCI(i) do { int a=0; ++i; } while(0)
 // when invoking
 int a = 4, b = 8;
 INCI(b); // correct, b would be 9 after this
 INCI(a); // wrong! a would still be 4
 ```
+
+> **注意**：在 v3.5 之前，预处理宏功能的语法是 `#define`，但是从 v3.5 开始 effect 资源升级过程中会自动被替换为 `#pragma define`，在书写新的 effect 资源或使用外部不带 meta 的 effect 资源时请注意语法的正确性。
