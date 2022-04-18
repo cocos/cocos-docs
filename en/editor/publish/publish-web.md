@@ -63,7 +63,7 @@ Browsers tested on mobile devices include: **Safari (iOS)**, **Chrome (Android)*
 
 ## Retina Settings
 
-Set whether to use high resolution through `view.enableRetina(true)` in the script. Retina display will be turned on by default when it is built on the Web platform. For details, please refer to the [enableRetina](__APIDOC__/en/#/docs/3.4/en/core/Class/View?id=enableretina) API.
+Set whether to use high resolution through `view.enableRetina(true)` in the script. Retina display will be turned on by default when it is built on the Web platform. For details, please refer to the [enableRetina](__APIDOC__/en/#/docs/3.5/en/core/Class/View?id=enableretina) API.
 
 ## Publish to Web Server
 

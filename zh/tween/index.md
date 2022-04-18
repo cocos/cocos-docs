@@ -134,9 +134,9 @@ const tw = new Tween(this.node)
 
 #### 与 `union` 的搭配使用
 
-`repeat` 的 [API 注释](__APIDOC__/zh/#/docs/3.4/zh/tween/Class/Tween?id=repeat) 为：添加一个重复 action，这个 action 会将 **前一个动作** 作为它的参数。
+`repeat` 的 [API 注释](__APIDOC__/zh/#/docs/3.5/zh/tween/Class/Tween?id=repeat) 为：添加一个重复 action，这个 action 会将 **前一个动作** 作为它的参数。
 
-`repeatForever` 的 [API 注释](__APIDOC__/zh/#/docs/3.4/zh/tween/Class/Tween?id=repeatforever) 为：添加一个永久重复 action，这个 action 会将 **前一个动作** 作为它的参数。
+`repeatForever` 的 [API 注释](__APIDOC__/zh/#/docs/3.5/zh/tween/Class/Tween?id=repeatforever) 为：添加一个永久重复 action，这个 action 会将 **前一个动作** 作为它的参数。
 
 由此可以看出 `repeat` 和 `repeatForever` 都是重复执行它前一个 action。所以，当我们需要重复应用一些复杂的缓动时，可以在 `repeat` 前加一个 `union` 将前面所有的 action 整合为一个 action。
 
@@ -339,11 +339,11 @@ export class TweenTest extends Component {
 }
 ```
 
-更多的内置 Easing 类型，详情可参考 API [TweenEasing](__APIDOC__/zh/#/docs/3.4/zh/tween/TypeAlias/TweenEasing)。
+更多的内置 Easing 类型，详情可参考 API [TweenEasing](__APIDOC__/zh/#/docs/3.5/zh/tween/TypeAlias/TweenEasing)。
 
 ### 自定义 `progress`
 
-相对于 `easing`，自定义 [progress](__APIDOC__/zh/#/docs/3.4/zh/tween/Interface/ITweenOption?id=progress) 函数可以更自由地控制缓动的过程。代码示例如下：
+相对于 `easing`，自定义 [progress](__APIDOC__/zh/#/docs/3.5/zh/tween/Interface/ITweenOption?id=progress) 函数可以更自由地控制缓动的过程。代码示例如下：
 
 ```js
 import { _decorator, Component, Vec3, Tween, Quat, math } from 'cc';
@@ -384,7 +384,7 @@ export class TweenTest extends Component {
 
 ### 复制缓动
 
-[clone](__APIDOC__/zh/#/docs/3.4/zh/tween/Class/Tween?id=clone) 函数会克隆一个当前的缓动，并接受一个 `target` 作为参数。代码示例如下：
+[clone](__APIDOC__/zh/#/docs/3.5/zh/tween/Class/Tween?id=clone) 函数会克隆一个当前的缓动，并接受一个 `target` 作为参数。代码示例如下：
 
 ```js
 import { _decorator, Component, Vec3, Tween, find } from 'cc';
@@ -471,7 +471,7 @@ export class TweenTest extends Component {
 
 ### 重复执行
 
-[repeat](__APIDOC__/zh/#/docs/3.4/zh/tween/Class/Tween?id=repeat)/[repeatForever](__APIDOC__/zh/#/docs/3.4/zh/tween/Class/Tween?id=repeatforever) 函数会将前一个 action 作为作用对象。但是如果有参数提供了其他的 action 或者 tween，则 `repeat`/`repeatForever` 函数会将传入的 action 或者 tween 作为作用对象。
+[repeat](__APIDOC__/zh/#/docs/3.5/zh/tween/Class/Tween?id=repeat)/[repeatForever](__APIDOC__/zh/#/docs/3.5/zh/tween/Class/Tween?id=repeatforever) 函数会将前一个 action 作为作用对象。但是如果有参数提供了其他的 action 或者 tween，则 `repeat`/`repeatForever` 函数会将传入的 action 或者 tween 作为作用对象。
 
 ```js
 import { _decorator, Component, Vec3, Tween } from 'cc';

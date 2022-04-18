@@ -33,7 +33,7 @@ Click the ![menu button](main-module/menu-button.png) button to the right of the
 
 ![set-pro](main-module/set-pro.png)
 
-To use Particle System, please refer to the [Particle System API](__APIDOC__/en/#/docs/3.4/en/particle/Class/ParticleSystem).
+To use Particle System, please refer to the [Particle System API](__APIDOC__/en/#/docs/3.5/en/particle/Class/ParticleSystem).
 
 ## Particle System Asset Culling
 

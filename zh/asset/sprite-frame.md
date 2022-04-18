@@ -56,7 +56,7 @@ resources.load(url, SpriteFrame, (err: any, spriteFrame) => {
 });
 ```
 
-但在有些情况下只能加载到图像源资源 ImageAsset，因此我们提供了 [createWithImage](__APIDOC__/zh/#/docs/3.4/zh/asset/Class/SpriteFrame?id=createwithimage) 方法来帮助用户通过加载到的 ImageAsset 创建一个 SpriteFrame 资源。根据 ImageAsset 的来源不同，有以下两种创建方式：
+但在有些情况下只能加载到图像源资源 ImageAsset，因此我们提供了 [createWithImage](__APIDOC__/zh/#/docs/3.5/zh/asset/Class/SpriteFrame?id=createwithimage) 方法来帮助用户通过加载到的 ImageAsset 创建一个 SpriteFrame 资源。根据 ImageAsset 的来源不同，有以下两种创建方式：
 
 1. 存放在服务器上的资源只能加载到图像源资源 ImageAsset，加载方法请参考 [动态加载资源](./dynamic-load-resources.md)。创建 SpriteFrame 资源的代码示例如下：
 
@@ -125,4 +125,4 @@ const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = spriteFrame;
 ```
 
-API 接口文档：[SpriteFrame 资源类型](__APIDOC__/zh/#/docs/3.4/zh/asset/Class/SpriteFrame)。
+API 接口文档：[SpriteFrame 资源类型](__APIDOC__/zh/#/docs/3.5/zh/asset/Class/SpriteFrame)。

@@ -14,7 +14,7 @@ Cocos Creator 3.x 的球面光与 v2.x 的点光源（Point Light）类似。
 
 在场景中添加球面光的方式可参考 [添加光源](index.md)。
 
-球面光组件接口请参考 [SphereLight API](__APIDOC__/zh/#/docs/3.4/zh/component-light/Class/SphereLight)。
+球面光组件接口请参考 [SphereLight API](__APIDOC__/zh/#/docs/3.5/zh/component-light/Class/SphereLight)。
 
 ## 球面光属性
 

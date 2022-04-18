@@ -10,7 +10,7 @@
 
 在场景中添加聚光灯的方式可参考 [添加光源](index.md)。
 
-聚光灯组件接口请参考 [SpotLight API](__APIDOC__/zh/#/docs/3.4/zh/component-light/Class/SpotLight)。
+聚光灯组件接口请参考 [SpotLight API](__APIDOC__/zh/#/docs/3.5/zh/component-light/Class/SpotLight)。
 
 ## 聚光灯属性
 

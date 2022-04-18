@@ -16,7 +16,7 @@
 | **Sockets**           | 用于将某些外部节点挂到指定的骨骼关节上，属性的值表示挂点的数量。详情请参考下文 **挂点系统** 部分的内容。|
 | **useBakedAnimation** | 该项用于切换使用 **预烘焙骨骼动画** 或 **实时计算骨骼动画**，详情请参考下文 **骨骼动画系统** 部分的内容。|
 
-骨骼动画的组件接口请参考 [SkeletalAnimation API](__APIDOC__/zh/#/docs/3.4/zh/animation/Class/SkeletalAnimation)。
+骨骼动画的组件接口请参考 [SkeletalAnimation API](__APIDOC__/zh/#/docs/3.5/zh/animation/Class/SkeletalAnimation)。
 
 ## 挂点系统
 

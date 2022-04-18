@@ -20,7 +20,7 @@ The __collider component__ is used to represent the shape of the __collision bod
   **center** | The origin of the shape in the local coordinate system
   **size** | The size of the box, ie length, width, height
 
-To use __BoxCollider__, please refer to the [BoxCollider API](__APIDOC__/en/#/docs/3.4/en/physics/Class/BoxCollider).
+To use __BoxCollider__, please refer to the [BoxCollider API](__APIDOC__/en/#/docs/3.5/en/physics/Class/BoxCollider).
 
 ### SphereCollider
 
@@ -30,7 +30,7 @@ Properties | Description (Other reference box colliders)
 ---|---
 **radius** | Radius of the sphere
 
-To use __SphereCollider__, please refer to the [SphereCollider API](__APIDOC__/en/#/docs/3.4/en/physics/Class/SphereCollider).
+To use __SphereCollider__, please refer to the [SphereCollider API](__APIDOC__/en/#/docs/3.5/en/physics/Class/SphereCollider).
 
 ### CylinderCollider
 
@@ -42,7 +42,7 @@ Properties | Description (Other reference box colliders)
 **height** | The total height of the cylinder
 **radius** | The radius of the circular surfaces at both ends of the cylinder
 
-To use __CylinderCollider__, please refer to the [CylinderCollider API](__APIDOC__/en/#/docs/3.4/en/physics/Class/CylinderCollider).
+To use __CylinderCollider__, please refer to the [CylinderCollider API](__APIDOC__/en/#/docs/3.5/en/physics/Class/CylinderCollider).
 
 ### CapsuleCollider
 
@@ -53,7 +53,7 @@ Properties | Description (Other reference cylinders and box colliders)
 **cylinderHeight** | The height of the cylinder in the capsule
 **radius** | The radius of the sphere in the capsule
 
-To use __CapsuleCollider__, please refer to the [CapsuleCollider API](__APIDOC__/en/#/docs/3.4/en/physics/Class/CapsuleCollider).
+To use __CapsuleCollider__, please refer to the [CapsuleCollider API](__APIDOC__/en/#/docs/3.5/en/physics/Class/CapsuleCollider).
 
 > **Note**: __cannon.js__ does not support capsule components. It is recommended to use two spheres and cylinders and piece them together.
 
@@ -66,7 +66,7 @@ Properties | Description (Other reference cylinders and box colliders)
 **radius** | The radius of the circle of the underside of the cone
 **height** | The height of the cone
 
-To use __ConeCollider__, please refer to the [ConeCollider API](__APIDOC__/en/#/docs/3.4/en/physics/Class/ConeCollider).
+To use __ConeCollider__, please refer to the [ConeCollider API](__APIDOC__/en/#/docs/3.5/en/physics/Class/ConeCollider).
 
 ### PlaneCollider
 
@@ -77,7 +77,7 @@ Properties | Description (Other reference box colliders)
 **normal** | The normal vector to the plane
 **constant** | The distance that the plane moves along the normal vector
 
-To use __PlaneCollider__, please refer to the [PlaneCollider API](__APIDOC__/en/#/docs/3.4/en/physics/Class/PlaneCollider).
+To use __PlaneCollider__, please refer to the [PlaneCollider API](__APIDOC__/en/#/docs/3.5/en/physics/Class/PlaneCollider).
 
 ### MeshCollider
 
@@ -88,7 +88,7 @@ Properties | Description (Other reference box colliders)
 **mesh** | The mesh asset referenced by the mesh collider, used to initialize the mesh collision volume
 **convex** | Whether used the convex hull of the mesh is approximated, the number of vertices of the mesh should be less than 255 (through which any convex collider and dynamic rigid body can be supported).
 
-To use __MeshCollider__, please refer to the [MeshCollider API](__APIDOC__/en/#/docs/3.4/en/physics/Class/MeshCollider).
+To use __MeshCollider__, please refer to the [MeshCollider API](__APIDOC__/en/#/docs/3.5/en/physics/Class/MeshCollider).
 
 > **Note**: __cannon.js__ has poor support for the mesh collider component, and only allows detection with the sphere\plane collider.
 > **Note**: currently only __ammo.js__ backend supports __convex__ functionality.
@@ -107,7 +107,7 @@ Properties | Description (Other reference box colliders)
 
 > **Note**: `cannon.js` has imperfect support for line and triangular face.
 
-To use __SimplexCollider__, please refer to the [SimplexCollider API](__APIDOC__/en/#/docs/3.4/en/physics/Class/SimplexCollider).
+To use __SimplexCollider__, please refer to the [SimplexCollider API](__APIDOC__/en/#/docs/3.5/en/physics/Class/SimplexCollider).
 
 ## RigidBody
 
@@ -126,7 +126,7 @@ Properties | Description (The property values ​​in the above picture are all
 **linerFactor** | Linear factor, which can affect the change of linear velocity in each axis
 **angularFactor** | Rotation factor, which can affect the change of the rotation speed of each axis
 
-To use __RigidBody__, please refer to the [RigidBody API](__APIDOC__/en/#/docs/3.4/en/physics/Class/RigidBody).
+To use __RigidBody__, please refer to the [RigidBody API](__APIDOC__/en/#/docs/3.5/en/physics/Class/RigidBody).
 
 ## ConstantForce
 
@@ -141,4 +141,4 @@ Properties | Description
 **torque** | Torque applied to the rigid body in the world coordinate system
 **localTorque** | Torque applied to the rigid body in the local coordinate system
 
-To use __ConstantForce__, please refer to the [ConstantForce API](__APIDOC__/en/#/docs/3.4/en/physics/Class/ConstantForce).
+To use __ConstantForce__, please refer to the [ConstantForce API](__APIDOC__/en/#/docs/3.5/en/physics/Class/ConstantForce).

@@ -12,7 +12,7 @@
 
 Click **Add Component** at the bottom of **Properties** panel and select **VideoPlayer** from **UI Component** to add the **VideoPlayer** component to the node.
 
-For more information about **VideoPlayer**'s scripting interface, please refer to the [VideoPlayer API](__APIDOC__/en/#/docs/3.4/en/component-video/Class/VideoPlayer) documentation.
+For more information about **VideoPlayer**'s scripting interface, please refer to the [VideoPlayer API](__APIDOC__/en/#/docs/3.5/en/component-video/Class/VideoPlayer) documentation.
 
 ## VideoPlayer Properties
 
@@ -28,7 +28,7 @@ For more information about **VideoPlayer**'s scripting interface, please refer t
 | **Keep Aspect Ratio**    | Whether keep the aspect ratio of the original video. |
 | **Full Screen On Awake** | Whether play video in fullscreen mode. |
 | **Stay On Bottom**       | Display video below the game view (Only available on web). |
-| **Video Player Event**   | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](__APIDOC__/en/#/docs/3.4/en/component-video/Class/VideoPlayer?id=videoplayerevent) for more details. |
+| **Video Player Event**   | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](__APIDOC__/en/#/docs/3.5/en/component-video/Class/VideoPlayer?id=videoplayerevent) for more details. |
 
 > **Note**: in the **Node** of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant **VideoPlayer** event according to the user's needs.
 
@@ -43,7 +43,7 @@ For more information about **VideoPlayer**'s scripting interface, please refer t
 | **handler**         | Specify a callback, when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.|
 | **customEventData** | The user specifies that any string is passed in as the last parameter of the event callback |
 
-For more information, please refer to the [Component.EventHandler Class](__APIDOC__/en/#/docs/3.4/en/event/Class/EventHandler) documentation.
+For more information, please refer to the [Component.EventHandler Class](__APIDOC__/en/#/docs/3.5/en/event/Class/EventHandler) documentation.
 
 ### Parameter of VideoPlayerEvent
 
@@ -61,7 +61,7 @@ For more information, please refer to the [Component.EventHandler Class](__APIDO
 
 > **Note**: on iOS, due to the platform limitations, the **CLICKED** event can't be fired when **VideoPlayer** is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the **CLICKED** event properly, you should use a **Widget** component to hack the **VideoPlayer's** size.
 
-For more information, please refer to the [VideoPlayer Events](__APIDOC__/en/#/docs/3.4/en/component-video/Class/VideoPlayer?id=videoplayerevent) documentation or the [21.video-player example](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/21.video-player) in the `test-cases-3d` samples bundled with __Cocos Creator__.
+For more information, please refer to the [VideoPlayer Events](__APIDOC__/en/#/docs/3.5/en/component-video/Class/VideoPlayer?id=videoplayerevent) documentation or the [21.video-player example](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/21.video-player) in the `test-cases-3d` samples bundled with __Cocos Creator__.
 
 ## Detailed Explanation
 
@@ -128,7 +128,7 @@ export class VideoPlayerCtrl extends Component {
 
 Likewise, it is also posible to register the `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `ready-to-play` parameters.
 
-Please refer to the [VideoPlayer API](__APIDOC__/en/#/docs/3.4/en/component-video/Class/VideoPlayer) documentation for details on **VideoPlayer** events.
+Please refer to the [VideoPlayer API](__APIDOC__/en/#/docs/3.5/en/component-video/Class/VideoPlayer) documentation for details on **VideoPlayer** events.
 
 > **Note**: as **VideoPlayer** is a special component, it cannot register `touch` or `mouse` events on the node with **VideoPlayer** component.
 

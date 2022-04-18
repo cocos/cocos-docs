@@ -6,7 +6,7 @@ The ScrollBar allows the user to scroll by dragging a sliding block. It's a bit 
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/ScrollBar__ to add the ScrollBar component to the node.
 
-Please refer to the [ScrollBar API](__APIDOC__/en/#/docs/3.4/en/ui/Class/ScrollBar).
+Please refer to the [ScrollBar API](__APIDOC__/en/#/docs/3.5/en/ui/Class/ScrollBar).
 
 ## ScrollBar Properties
 
