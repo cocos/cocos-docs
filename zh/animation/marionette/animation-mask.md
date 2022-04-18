@@ -38,7 +38,7 @@
 
 当希望某骨骼上的动画效果被禁用时，确保其前方的勾选框保持未勾选状态即可。
 
-操作方式为在导入的骨骼中可以通过点击骨骼名字旁边的单选框 ![checkbox](animation-mask/checkbox.png) 。
+操作方式为在导入的骨骼中点击骨骼名字旁边的单选框 ![checkbox](animation-mask/checkbox.png) 。
 
 通过点击 ![expand](animation-mask/expand.png) 可以展开/隐藏子骨骼。
 
