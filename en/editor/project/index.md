@@ -110,7 +110,9 @@ The **Feature Cropping** tab is mainly for modules used in the engine when relea
 
 The preset configuration of texture compression is moved to **Project Settings**, and developers can select how the image asset is preset in the **Inspector** panel. The editor will automatically scan all the texture compression configurations in the project and sort out a few presets. Since it is automatically scanned, the preset names may not match the project and can be modified here by developers.
 
-![compress-texture](./texture-compress/compress-texture.png)
+### Compress Presets
+
+![compress-texture](./texture-compress/compress-presets.png)
 
 This panel is mainly used to add presets for texture compression. Each texture compression configuration allows to tailor the configuration for different platforms. Once added, developers can quickly add a texture compression preset in the **Inspector** panel by selecting the image asset in the **Hierarchy** panel. It is also possible to modify the preset directly in this panel to achieve the need to update the compression texture configuration in bulk.
 
@@ -123,7 +125,7 @@ The following platforms are currently supported for configuring texture compress
 
 Please refer to the [Texture Compression](../../asset/compress-texture.md) documentation for details of texture compression on each platform.
 
-### Adding/Removing Texture Compression Presets
+#### Adding/Removing Texture Compression Presets
 
 Enter a texture compression preset name in the upper input box and click Enter or the "+" button on the right to add a preset. The other two buttons are for importing/exporting texture compression presets, please refer to the description below for details.
 
@@ -135,7 +137,7 @@ After adding a compressed texture, it can be deleted by hovering over the preset
 
 > **Note**: the two presets **default** and **transparent** built into the panel cannot be modified/deleted.
 
-### Adding/Deleting Texture Compression Format
+#### Adding/Deleting Texture Compression Format
 
 Select the platform, then click the **Add Format** button, select the desired texture format, and then configure the corresponding quality level. Currently the same type of image format can only be added once.
 
@@ -145,13 +147,13 @@ To delete, move the mouse over the texture format and click the red delete butto
 
 ![delete-format](./texture-compress/delete-format.png)
 
-### Modifying the Texture Compression Preset Name
+#### Modifying the Texture Compression Preset Name
 
 The name of the texture compression preset is for display purposes only. When a texture compression preset is added, a random UUID is generated as the ID of the preset, so changing the preset name directly does not affect the reference to the preset at the image asset.
 
 ![edit](./texture-compress/edit.png)
 
-### Exporting/Importing Texture Compression Presets
+#### Exporting/Importing Texture Compression Presets
 
 The texture compression configuration page allows importing/exporting texture compression presets for better cross-project reuse of the configuration, or edit the texture compression presets externally and import them to the editor.
 
@@ -240,6 +242,32 @@ interface ICompressPresetItem {
     }
 }
 ```
+
+### Custom Compress Format
+
+Since v3.5.0, custom texture compression pages have been supported in order to make it easy for users to customize the texture compression tool and some custom parameters, encryption, etc. Interface interaction is similar to texture compression presets.
+
+![custom-compress](./texture-compress/custom-compress.png)
+
+### Configuration
+
+- **Compress format**: Config the processing format. After selecting a different format, quality options will keep the same type. If the customized compression mode fails, the system will automatically revert to the original compression scheme of the editor.
+
+    ![overwrite-format](./texture-compress/custom-format.png)
+    
+- **Overwrite original format**: If this option is selected, the original compression format in the existing texture compression preset will be automatically overwritten. The name of the custom compression mode will appear next to the original configuration name. One format can only be overwritten by one custom compression mode.
+
+  ![overwrite-format](./texture-compress/overwrite-format.png)
+
+- **Compression tool**:
+    - **program**: compress tool path.
+    - **Command line parameters**: Sets the parameters to be passed by the calling program. The names of the parameters to be passed by default to build texture compression can be added quickly through the control on the right of the parameter input box. Currently, the 'src, dest, quality' fields are passed by default.
+
+#### Custom Compress Format In Build
+
+After the custom texture format is configured, the word `custom-compress` and the command line parameter information will be printed to console when build the project.
+
+![custom-compress-log](./texture-compress/custom-compress-log.png)
 
 ## Extending the Project Settings Panel
 
