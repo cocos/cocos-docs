@@ -107,8 +107,8 @@ For these special usages, you'll have to explicitly declare the macro, using mac
 Declarations for the above case are:
 
 ```glsl
-#pragma define LAYERS range([4, 5])
-#pragma define METALLIC_SOURCE options([r, g, b, a])
+#pragma define-meta LAYERS range([4, 5])
+#pragma define-meta METALLIC_SOURCE options([r, g, b, a])
 ```
 
 The first line declares a macro named `LAYERS`, with possible range of [4, 5].
@@ -116,6 +116,8 @@ The first line declares a macro named `LAYERS`, with possible range of [4, 5].
 The second line declares a macro named `METALLIC_SOURCE`, with four possible options: 'r', 'g', 'b', 'a'.
 
 > **Note**: every tag accepts a single parameter, in the syntax of YAML.
+
+> **Note**：Before v3.5, the syntax for Macro Tags feature is `#pragma define`, but from v3.5, the syntax will be automatically upgraded to `#pragma define-meta` during effect migration process, please pay attention to use the right syntax if you are writing new effect or using external effects without meta file.
 
 ### Functional Macros
 
@@ -126,9 +128,9 @@ This is an good match for inlining some simple utility functions, or similar cod
 In fact, many built-in utility functions are functional macros:
 
 ```glsl
-#define CCDecode(position) \
+#pragma define CCDecode(position) \
   position = vec4(a_position, 1.0)
-#define CCVertInput(position) \
+#pragma define CCVertInput(position) \
   CCDecode(position);         \
   #if CC_USE_SKINNING         \
     CCSkin(position);         \
@@ -140,12 +142,14 @@ Meanwhile, same as the macro system in C/C++, the mechanism does nothing on chec
 
 ```glsl
 // please do be careful with unhygienic macros like this
-#define INCI(i) do { int a=0; ++i; } while(0)
+#pragma define INCI(i) do { int a=0; ++i; } while(0)
 // when invoking
 int a = 4, b = 8;
 INCI(b); // correct, b would be 9 after this
 INCI(a); // wrong! a would still be 4
 ```
+
+> **Note**: Before v3.5, the standard define in glsl is occupied by Functional Macros, so developers aren't able to use standard define like `#ifdef` or `#ifndef`. But from v3.5, the syntax of Functional Macros is upgraded to `#pragma define`. All Functional Macros will be automatically upgraded during effect migration process, and developers can directly use standard defines inn the shader. Just need some extra attention to use the right syntax if you are writing new effect or using external effects without meta file.
 
 ### Vertex Input[^1]
 
