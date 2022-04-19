@@ -59,13 +59,14 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 | WeChat Mini Game  | ASTC / ETC1 / PVR           |
 | AliPay Mini Game  | ETC1 / PVR           |
 | Baidu Mini Game   | ETC1 / PVR           |
+| ByteDance Mini Game | ETC1 / ETC2 / PVR           |
 | OPPO Mini Game    | ETC1                 |
 | vivo Mini Game    | ETC1                 |
 | Huawei Quick Game | ETC1                 |
 | Cocos Play        | ETC1                 |
 | Xiaomi Quick Game | ETC1                 |
 | iOS               | ASTC / PVR / WEBP / ETC1 / ETC2  |
-| Android           | ASTC / ETC2 / ETC1 / WEBP |
+| Android / Huawei AGC | ASTC / ETC2 / ETC1 / WEBP |
 <!-- | Mac               | ASTC / PVR           | -->
 
 ## 自定义构建纹理压缩处理

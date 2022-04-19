@@ -34,7 +34,9 @@ To build a platform plug-in a common editor plug-in format is required. For the 
 
     ![reload](./custom-project-build-template/reload.png)
 
-## Basic configuration process
+## Contribution to Build process
+
+### Configure the build main script path
 
 To extend the build function of the plug-in, add the `builder` field to the `contributions` in `package.json`, and the relative path configuration of the corresponding module can be passed to the specified platform in the field.
 
@@ -50,11 +52,59 @@ Example `package.json`:
 }
 ```
 
-> **Note**: the `builder` field specifies the `./dist/builder.js` start script is the compiled script, and the source file of the start script is located in `./source/builder.ts`. To configure the start script, change it in the source file.
+> **Note**: the `builder` field specifies the `./dist/builder.js` build main script is the compiled script, and the source file of the build main script is located in `./source/builder.ts`. To configure the build main script, change it in the source file.
 
-### Start script configuration
+### Build main script interface definition
 
-The plugin entry configuration code example is shown below:
+The detailed interface definition is described as follows:
+
+```ts
+declare type IConfigs = Record<Platform | '*', IPlatformConfig>;
+declare interface IBuildPlugin {
+    hooks?: string; // Storage path of hook function
+    options?: IDisplayOptions; // Platform parameter configuration that needs to be injected
+    verifyRuleMap?: IVerificationRuleMap; // Register parameter verification rule function
+}
+declare type IDisplayOptions = Record<string, IConfigItem>;
+declare interface IConfigItem {
+    // The default value, the registered default value will be in the "options.[platform].xxx" field in the plugin configuration
+    default?: any;
+
+    render: ?{
+        // The rules for rendering UI components are consistent with the unified rules at "ui-prop". Only configurations with UI properties specified will be displayed on the Build panel
+        ui?: string;
+        // The configuration parameters passed to the UI component
+        attributes?: IUiOptions;
+    };
+
+    // Configure the displayed name, if you need to translate, then pass in "i18n:${key}"
+    label?: string;
+
+    // A brief description of the setting, which will be displayed on the title when the mouse hovers over the configuration name.
+    description?: string;
+
+    // Type of configuration
+    type?: 'array' | 'object';
+
+    // If type is an array, the data will be rendered according to the specified data type and "itemConfigs"
+    itemConfigs?: Record<string, IConfigItem> | IConfigItem[];
+}
+
+declare interface IUiOptions extends IOptionsBase {
+    // Validation rules array, build provides some basic rules, and you can also specify new validation rules through “verifyRuleMap”. Only when pass in “require” will be a valueless checksum, otherwise only when there is a value.
+    verifyRules?: string[];
+}
+
+declare interface IUiOptions extends IOptionsBase {
+    class?: string | string[]; // The name of the style that needs to be set on the current "ui-prop"
+}
+```
+
+For the interface definition of `IOptionsBase` please refer to [ui-prop automatic rendering rule definition](../extension/ui.md).
+
+### Custom Build Options
+
+Custom build options can be configured in the build main script. for the interface about build main script, please refer to **build main script interface definition**. The plugin entry configuration code example is shown below:
 
 ```ts
 // builder.ts
@@ -106,11 +156,11 @@ export const configs: IConfigs = {
 };
 ```
 
-Please pay extra attention to the following points when writing start scripts:
+Please pay extra attention to the following points when writing Build main scripts:
 
-1. The environment variables in different processes will be different. The start script will be loaded by the rendering process and the main process at the same time, do not use the editor interface that only exists in a single process in the start script.
+1. The environment variables in different processes will be different. The build main script will be loaded by the rendering process and the main process at the same time, do not use the editor interface that only exists in a single process in the build main script.
 
-2. There are two ways to configure the key of `config`: 
+2. There are two ways to configure the key of `config`:
 
     - One is for a single platform configuration, and the key is filled in as **platform plugin name** (available in the editor menu bar **Extensions -> Extension Manager -> Internal** to view the platform plug-in name).
 
@@ -118,55 +168,7 @@ Please pay extra attention to the following points when writing start scripts:
 
     > **Note**: these two configuration methods are mutually exclusive, please do not use both in the same build extension package. Otherwise the configuration for a single platform (key value `platform build plugin name`) will overwrite the configuration for all platforms (key value `*`).
 
-### Start script interface definition
-
-The detailed interface definition is described as follows:
-
-```ts
-declare type IConfigs = Record<Platform | '*', IPlatformConfig>;
-declare interface IBuildPlugin {
-    hooks?: string; // Storage path of hook function
-    options?: IDisplayOptions; // Platform parameter configuration that needs to be injected
-    verifyRuleMap?: IVerificationRuleMap; // Register parameter verification rule function
-}
-declare type IDisplayOptions = Record<string, IConfigItem>;
-declare interface IConfigItem {
-    // The default value, the registered default value will be in the "options.[platform].xxx" field in the plugin configuration
-    default?: any;
-
-    render: ?{
-        // The rules for rendering UI components are consistent with the unified rules at "ui-prop". Only configurations with UI properties specified will be displayed on the Build panel
-        ui?: string;
-        // The configuration parameters passed to the UI component
-        attributes?: IUiOptions;
-    };
-
-    // Configure the displayed name, if you need to translate, then pass in "i18n:${key}"
-    label?: string;
-
-    // A brief description of the setting, which will be displayed on the title when the mouse hovers over the configuration name.
-    description?: string;
-
-    // Type of configuration
-    type?: 'array' | 'object';
-
-    // If type is an array, the data will be rendered according to the specified data type and "itemConfigs"
-    itemConfigs?: Record<string, IConfigItem> | IConfigItem[];
-}
-
-declare interface IUiOptions extends IOptionsBase {
-    // Validation rules array, build provides some basic rules, and you can also specify new validation rules through “verifyRuleMap”. Only when pass in “require” will be a valueless checksum, otherwise only when there is a value.
-    verifyRules?: string[];
-}
-
-declare interface IUiOptions extends IOptionsBase {
-    class?: string | string[]; // The name of the style that needs to be set on the current "ui-prop"
-}
-```
-
-For the interface definition of `IOptionsBase` please refer to [ui-prop automatic rendering rule definition](../extension/ui.md).
-
-## Custom build hook function code configuration
+### Custom build hook function code configuration
 
 In the script module defined by the hooks field in the entry configuration, hook functions can be written that build the life cycle. In different hook functions, the data received will be different. All hook functions run in the build process, and the engine method can be used directly in the build process.
 
@@ -209,13 +211,13 @@ export async function onBeforeCompressSettings(options, result) {
 
 ### Custom texture compression processing
 
-The `assetHandler` path configuration specified in the **start script configuration** above allows external developers to register some asset handling functions to replace the engine's handler module when building partial assets. Currently only **texture compression** handler registration is available.
+The `assetHandler` path configuration specified in the **build main script configuration** above allows external developers to register some asset handling functions to replace the engine's handler module when building partial assets. Currently only **texture compression** handler registration is available.
 
 Creator provides its own compression tools to handle compressed texture assets at build time, but does not focus on image compression because it needs to be compatible with different user environments and usually the compression tools are chosen to work on most computers rather than the most efficient ones. Therefore, Creator has opened up a plug-in mechanism in v3.4, **which allows users to directly register compression processing functions for the corresponding texture assets, which will be called at the appropriate processing time when building**.
 
 The specific steps are as follows:
 
-1. In the start script, write the relative path of the `assetHandlers` module script:
+1. In the build main script, write the relative path of the `assetHandlers` module script:
 
     ```ts
     export const assetHandlers = './asset-handlers';
@@ -261,13 +263,13 @@ The specific steps are as follows:
 
 When the build extension plugin is involved in the build process, the associated code runs in the following three processes:
 
-- **Main Process**: executes the start script and its dependent assets.
-- **Rendering Process**: executes some of the fields registered in the start script to the **Build** panel.
-- **Build Process**: executes the script defined in the `hooks` field of the start script.
+- **Main Process**: executes the build main script and its dependent assets.
+- **Rendering Process**: executes some of the fields registered in the build main script to the **Build** panel.
+- **Build Process**: executes the script defined in the `hooks` field of the build main script.
 
-### Main Process (Start Script)
+### Main Process (build main script)
 
-The main process mainly executes the start script used in the build extension plugin to participate in the build process (the script specified in the `builder` field), and the plugin's own start script (the script specified in the `main` field).
+The main process mainly executes the build main script used in the build extension plugin to participate in the build process (the script specified in the `builder` field), and the plugin's own build main script (the script specified in the `main` field).
 
 When the code running in the main process is modified, the plugin must be restarted and then the process to be updated must be refreshed (this will be optimized later to try to solve the code update problem with a single restart, but refreshing is still the most thorough reloading method). The main process currently does not have a more appropriate debugging method, you can use the command line to open the editor to view the main process code log to assist debugging:
 
@@ -281,7 +283,7 @@ When the code running in the main process is modified, the plugin must be restar
 
 ### Rendering Process (Build Panel)
 
-The start script of the build extension plugin has some fields that are registered to the **Build** panel, such as the display configuration of `options`, the `panel` field, and the `panel` script itself, which is loaded and executed in the render process. The rendering process is actually the window's own execution process. Open the DevTools to debug the `dom` elements, styles, scripts, etc. on the **Build** panel.
+The build main script of the build extension plugin has some fields that are registered to the **Build** panel, such as the display configuration of `options`, the `panel` field, and the `panel` script itself, which is loaded and executed in the render process. The rendering process is actually the window's own execution process. Open the DevTools to debug the `dom` elements, styles, scripts, etc. on the **Build** panel.
 
 If the code registered to the **Build** panel is modified, refresh the panel without restarting the plugin.
 
@@ -295,7 +297,7 @@ If the code registered to the **Build** panel is modified, refresh the panel wit
 
 ### Build Process (`hooks` Script)
 
-The actual execution phase of the build is a separate worker process, ensuring that even if an abnormal crash occurs, it will not affect the normal use of other windows. The scripts defined in the `hooks` field of the start script are also loaded and executed in this separate worker process.
+The actual execution phase of the build is a separate worker process, ensuring that even if an abnormal crash occurs, it will not affect the normal use of other windows. The scripts defined in the `hooks` field of the build main script are also loaded and executed in this separate worker process.
 
 If only the script defined in the `hook` field is modified, the build process can be refreshed without restarting the plugin. To do this, press **Ctrl/Command + R** after opening the build DevTools, as in the **Build** panel above.
 

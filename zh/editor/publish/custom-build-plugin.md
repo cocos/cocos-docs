@@ -34,11 +34,9 @@
 
     ![reload](./custom-project-build-template/reload.png)
 
-## 开发细则
+## 扩展构建功能
 
-扩展构建功能需要在 package.json 内
-
-### 插件的扩展构建脚本
+### 配置构建插扩展脚本地址
 
 构建扩展包需要在 `package.json` 的 `contributions` 中添加 `builder` 字段，然后在 `builder` 字段中指定一个 JavaScript 脚本的 **相对路径**，作为构建扩展插件参与到构建流程的扩展构建脚本。
 
@@ -118,7 +116,7 @@ declare interface IUiOptions extends IOptionsBase {
 
 ### 自定义构建参数
 
-自定义构建参数是在扩展构建脚本内配置的，接口定义可以查看上一篇文档。代码示例如下：
+自定义构建参数是在扩展构建脚本内配置的，接口定义可以查看上文的 **扩展构建脚本接口定义文档**。代码示例如下：
 
 ```ts
 // builder.ts

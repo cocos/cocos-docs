@@ -1,6 +1,6 @@
 # Custom Project Build Template
 
-**Cocos Creator** supports custom build templates for each project. Add a `build-templates` folder to the project path, divide the sub-folder according to the **platform name**. Then all the files in this folder will be automatically **copied** to the build generated project according to the corresponding folder structure after the build. Currently, all platforms except the native platform support this function, the specific **platform name** can be referred to the following **custom build template supported platform list**.
+**Cocos Creator** supports custom build templates for each project. Add a `build-templates/[platform]` folder to the project path, and divide the sub-folder according to the **platform name**. Then all the files in this folder will be automatically **copied** to the build generated project according to the corresponding folder structure after the build. Currently, all platforms except the native platform support this function, the specific **platform name** can be referred to as the following **custom build template supported platform list**.
 
 Folder Structure:
 
@@ -16,7 +16,7 @@ project-folder
 
 If the current platform is `Web-Mobile`, then `build-templates/web-mobile/index.html` will be copied to `build/web-mobile/index.html`.
 
-In addition, the file types currently supported by the build template include **ejs type** and **json type**. Please refer to the **supported platform list** below for details on the support for each platform.
+In addition, the file types currently supported by the build template include **ejs type** and **json type**. These two types will not copied directly but rather parsed. Please refer to the **Special Custom Build Template Platform support list** below for details on the support for these two template types by platform.
 
 ## `ejs` type
 
@@ -37,9 +37,9 @@ Taking the creation of a Web Mobile build template as an example, the generated 
 
 Many mini games have their own configuration `JSON` files, like `game.json` to WeChat Mini Games. Files in the build templates folder will just copy in **default**, but this configuration JSON will be merged instead of overwrite. Of course, it doesn't mean that all `JSON` file will be merged, you can check it in the tables below.
 
-## Custom build template supported platform list
+## Special Custom Build Template supported Platform list
 
-The supported file types for build templates by platform are as follows:
+Most files placed in the `build-templates/[platform]` directory will be copied directly to the corresponding directory. In addition, many platforms support some template files with special name formats. The supported file with special name formats for build templates by the platform are as follows:
 
 | Platform | Actual Name | Supported File Type |
 | :-------- | :---------- | :----------- |
