@@ -245,25 +245,27 @@ interface ICompressPresetItem {
 
 ### Custom Compress Format
 
-Since 3.5.0, custom texture compression pages have been supported in order to make it easy for users to customize the texture compression tool and some custom parameters, encryption, etc. Interface interaction is similar to texture compression presets.
+Since v3.5.0, custom texture compression pages have been supported in order to make it easy for users to customize the texture compression tool and some custom parameters, encryption, etc. Interface interaction is similar to texture compression presets.
 
 ![custom-compress](./texture-compress/custom-compress.png)
 
 ### Configuration
 
-- **Compress format** : Config the processing format. After selecting different format, quality options will keep the same type. If the customized compression mode fails, the system will automatically revert to the original compression scheme of the editor.
+- **Compress format**: Config the processing format. After selecting a different format, quality options will keep the same type. If the customized compression mode fails, the system will automatically revert to the original compression scheme of the editor.
+
     ![overwrite-format](./texture-compress/custom-format.png)
-- **Overwrite original format** : If this option is selected, the original compression format in the existing texture compression preset will be automatically overwritten. The name of the custom compression mode will appear next to the original configuration name. One format can only be overwritten by one custom compression mode.
+    
+- **Overwrite original format**: If this option is selected, the original compression format in the existing texture compression preset will be automatically overwritten. The name of the custom compression mode will appear next to the original configuration name. One format can only be overwritten by one custom compression mode.
 
   ![overwrite-format](./texture-compress/overwrite-format.png)
 
 - **Compression tool**:
-    - **program** : compress tool path.
-    - **Command line parameters** : Sets the parameters to be passed by the calling program. The names of the parameters to be passed by default to build texture compression can be added quickly through the control on the right of the parameter input box. Currently, the 'src, dest, quality' fields are passed by default.
+    - **program**: compress tool path.
+    - **Command line parameters**: Sets the parameters to be passed by the calling program. The names of the parameters to be passed by default to build texture compression can be added quickly through the control on the right of the parameter input box. Currently, the 'src, dest, quality' fields are passed by default.
 
 #### Custom Compress Format In Build
 
-After the custom texture format is configured, the word `custom-compress` will printed and the command line parameter information when build the project.
+After the custom texture format is configured, the word `custom-compress` and the command line parameter information will be printed to console when build the project.
 
 ![custom-compress-log](./texture-compress/custom-compress-log.png)
 
