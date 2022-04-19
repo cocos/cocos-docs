@@ -73,7 +73,7 @@ Cocos Creator 开发过程中测试的桌面浏览器包括：**Chrome**、**Fir
 
 使用 **模拟器** 预览时，支持自动打开调试窗口进行调试，可在 **Cocos Creator -> 偏好设置 -> 预览** 中设置，详情请参考 [偏好设置 — 预览](../preferences/index.md)。
 
-若需要在 Apple M1（Silicon）架构的设备中添加对 iOS 模拟器的支持，需要在 Creator 右上角点击 **编辑器** 按钮，打开编辑器目录 `resources\3d\engine-native\external` 目录下的 `CMakeLists.txt` 文件，取消 iOS 模拟器相关的代码注释，同时注释 iOS 真机相关代码，如下图所示：
+若需要在 Apple M1（Silicon）架构的设备中添加对 iOS 模拟器的支持，需要在 Creator 右上角点击 **编辑器** 按钮，打开编辑器目录 `resources\3d\engine\native\external` 目录下的 `CMakeLists.txt` 文件，取消 iOS 模拟器相关的代码注释，同时注释 iOS 真机相关代码，如下图所示：
 
 ![simulator](index/ios-simulator-m1.png)
 
