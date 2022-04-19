@@ -19,6 +19,7 @@ TextureCube 为立方体纹理，常用于设置场景的 [天空盒](../concept
 ![CubeMap](../concepts/scene/skybox/cubemap-properties.png)
 
 关于 TextureCube 具体的使用，以及制作 CubeMap 的方式，请参考 [天空盒 — 设置 CubeMap](../concepts/scene/skybox.md)。
+
 ## 立方贴图的 mipmap 范围
 
 TextureCube 可以在运行时动态选择 mipmap 的范围。设置完 mipmap 范围后，只有在范围之内的 mipmap 可以被使用。这允许我们通过跳过低层级来达到节约带宽的目的，同时也可以避免使用过高层级而降低效果。

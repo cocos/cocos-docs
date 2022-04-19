@@ -39,7 +39,7 @@ The following describes the properties of the panel:
 | __Wrap Mode S__ | S (U) direction texture addressing mode |
 | __Wrap Mode T__ | T (V) direction texture addressing mode |
 
-> __Note__: since the default **Wrap Mode** may result in black edges when rendering transparent edges of an image, Creator will change the __Wrap Mode S__ and __Wrap Mode T__ properties of the texture resource to __clamp-to-edge__ automatically when setting the image resource type to __sprite-frame__, which can be modified by the developer if there is a special need.
+> __Note__: since the default __Wrap Mode__ may result in black edges when rendering transparent edges of an image, Creator will change the __Wrap Mode S__ and __Wrap Mode T__ properties of the texture resource to __clamp-to-edge__ automatically when setting the image resource type to __sprite-frame__, which can be modified by the developer if there is a special need.
 
 ### Using Texture2D
 
@@ -63,6 +63,7 @@ __TextureCube__ obtained by making a __CubeMap__ in __Cocos Creator__:
 ![CubeMap](../concepts/scene/skybox/Cubemap_Inspector.png)
 
 To learn more about the use of __TextureCube__ and __CubeMaps__, please refer to the [Skybox](../concepts/scene/skybox.md) documentation.
+
 ## Set MipMap range during runtime
 
 The mipmap range of __Texture2D__ and __TextureCube__ can be set during runtime. After setting the limits, the program will only use the mipmaps in the given range. We can avoid the use of low-level mipmaps to save bandwidth, and avoid the use of high-level mipmaps to ensure render quality.
@@ -75,7 +76,7 @@ texture2d.setMipRange(minLod, maxLod);
 textureCube.setMipRange(minLod, maxLod);
 ```
 
-where ‘minLod' specifies the minimum limit, and ‘maxLod' specifies the maximum limit. 
-> **Note**:
+where `minLod` specifies the minimum limit, and `maxLod` specifies the maximum limit.
+> __Note__:
 > 1. The limit exceeding the origin `mipmapLevel` is invalid.
 > 2. This method doesn't work on WebGL 1 and GLES2.
