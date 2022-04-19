@@ -61,7 +61,7 @@ Since v3.5.0, engine-native engine is merged into and TypeScript engine. But you
 
 ### 2.1 Get the engine-native Engine
 
-engine-native engine and TypeScript engine are merged. After cloning TypeScript engine, engine-native engine is in `cocos-engine/native`.
+The engine-native engine and TypeScript engine are merged. After cloning TypeScript engine, engine-native engine is in `cocos-engine/native`.
 
 ### 2.2 Initialization
 
@@ -96,4 +96,4 @@ To prevent the package from becoming too large, Creator excludes the native engi
         gulp gen-simulator
         ```
 
-        Once executed, a simulator project and simulator executable will be generated under the `cocos-engin/native/simulator` path, and the native simulator will be ready to run.
+        Once executed, a simulator project and simulator executable will be generated under the `cocos-engine/native/simulator` path, and the native simulator will be ready to run.
