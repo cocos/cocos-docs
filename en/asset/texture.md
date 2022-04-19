@@ -77,6 +77,7 @@ textureCube.setMipRange(minLod, maxLod);
 ```
 
 where `minLod` specifies the minimum limit, and `maxLod` specifies the maximum limit.
+
 > __Note__:
 > 1. The limit exceeding the origin `mipmapLevel` is invalid.
 > 2. This method doesn't work on WebGL 1 and GLES2.
