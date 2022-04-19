@@ -113,4 +113,4 @@ INCI(b); // correct, b would be 9 after this
 INCI(a); // wrong! a would still be 4
 ```
 
-> **注意**：在 v3.5 之前，预处理宏功能的语法是 `#define`，但是从 v3.5 开始 effect 资源升级过程中会自动被替换为 `#pragma define`，在书写新的 effect 资源或使用外部不带 meta 的 effect 资源时请注意语法的正确性。
+> **注意**：在 v3.5 之前，glsl 标准的 `#define` 语句被函数式宏定义占用，因此不能使用相关语句如 `#ifdef` / `#ifndef` 等。但是从 v3.5 开始，`#define` 和 `#ifdef` / `ifndef` 等都可以正常使用了。函数式宏定义从 v3.5 开始被替换为 `#pragma define`，而 effect 资源升级过程中会自动被替换，在书写新的 effect 资源或使用外部不带 meta 的 effect 资源时请注意语法的正确性。

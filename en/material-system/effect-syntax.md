@@ -149,7 +149,7 @@ INCI(b); // correct, b would be 9 after this
 INCI(a); // wrong! a would still be 4
 ```
 
-> **Note**：Before v3.5, the syntax for Functional Macros feature is `#define`, but from v3.5, the syntax will be automatically upgraded to `#pragma define` during effect migration process, please pay attention to use the right syntax if you are writing new effect or using external effects without meta file.
+> **Note**: Before v3.5, the standard define in glsl is occupied by Functional Macros, so developers aren't able to use standard define like `#ifdef` or `#ifndef`. But from v3.5, the syntax of Functional Macros is upgraded to `#pragma define`. All Functional Macros will be automatically upgraded during effect migration process, and developers can directly use standard defines inn the shader. Just need some extra attention to use the right syntax if you are writing new effect or using external effects without meta file.
 
 ### Vertex Input[^1]
 
