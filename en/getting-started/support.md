@@ -38,7 +38,7 @@ More engine dynamics, quality tutorials, and interviews can be viewed at [![twit
 ### 2D skeleton animation tools
 
 - [Spine](http://www.esotericsoftware.com)
-- [Spriter](http://brashmonkey.com/spriter.htm)
+- [Spriter](http://brashmonkey.com/)
 - [DragonBones](http://dragonbones.github.io/)
 
 ### Tools for making special effect particles
