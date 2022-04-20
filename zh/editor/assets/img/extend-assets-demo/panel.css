@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  padding: 20px;
+}
+
+ui-drag-item {
+  margin: 20px;
+  padding: 10px;
+  border: 1px dashed #fff;
+}
+
+ui-drag-item:hover {
+  border-color: rgb(20, 226, 106);
+}

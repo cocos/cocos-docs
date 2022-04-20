@@ -1,46 +1,52 @@
 # 扩展包的定义
 
-扩展包需要预先定义好所有功能以及一些基础信息，这些信息都需要填写并存放在 package.json 文件里。
+扩展包需要在 `package.json` 文件里预先定义好所有功能以及一些基础信息，如下所示：
 
 ```json
 {
-    "name": "hello-world",
+    "package_version": 2,
     "version": "1.0.0",
-    "author": "Creator",
-    "description": "description",
-
-    "main": "./browser.js",
-
-    "panels": {
-        "default": {
-            ...
-        },
-        "list": {
-            ...
-        }
+    "name": "first-panel",
+    "description": "i18n:first-panel.description",
+    "author": "Cocos Creator",
+    "editor": ">=3.4.2",
+    "main": "./dist/main.js",
+    "dependencies": { ... },
+    "devDependencies": { ... },
+    "panels": { ... },
+    "contributions": {
     },
-
-    "contributions": {}
+    "scripts": {
+        "build": "tsc -b",
+        "watch": "tsc -w"
+    }
 }
 ```
 
-## name
+## package_version
 
-类型 {string} 必填
+类型 {number} 必填
 
-扩展的名称，这个名字需要和扩展文件夹一一对应
+扩展的版本号，用于提交扩展的版本校验，以及扩展自身的一些升级，数据迁移作为对比的依据。
 
 ## version
 
 类型 {string} 必填
 
-扩展的版本号，用于提交扩展的版本校验，以及扩展自身的一些升级，数据迁移作为对比的依据。
+扩展的版本号，主要用于显示，如需进行逻辑判断，推荐使用 `package_version`。
 
-## editor
+## name
+
+类型 {string} 必填
+
+扩展的名称，这个名字需要和扩展文件夹一一对应。
+
+## description
 
 类型 {string} 可选
 
-描述扩展支持的编辑器版本，符合 [`semver` 语义化版本控制规范](https://semver.org/)。
+扩展的描述，简单概括一下扩展的功能。支持 i18n:key 的多语言语法。
+
 
 ## author
 
@@ -48,11 +54,13 @@
 
 扩展作者的名字，将会显示在 "扩展管理器" 内。
 
-## description
+## editor
 
 类型 {string} 可选
 
-扩展的描述，简单概括一下扩展的功能。支持 i18n:key 的多语言语法。
+描述扩展支持的编辑器版本，符合 [`semver` 语义化版本控制规范](https://semver.org/)。
+
+
 
 ## main
 
@@ -70,4 +78,9 @@
 
 类型 {[name: string]: any} 可选
 
-扩展已经存在的功能，能够在定制一些其他功能模块对外开放的功能。详细信息请参看 [扩展已有功能](./contributions.md)
+`contributions` 提供了与编辑器各功能系统交互的能力，更多信息请参看文档 [扩展已有功能](./contributions.md)。
+
+## scripts
+类型 {[name: string]: any} 必填
+
+扩展可执行的命令行。

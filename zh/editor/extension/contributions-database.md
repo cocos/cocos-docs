@@ -1,12 +1,15 @@
 # 扩展资源数据库
 
-所有项目内的资源文件都是通过资源数据库进行管理，其中项目内的 assets 目录存放的是当前项目的资源，引擎仓库里 editor/assets 里存放的是引擎内置的资源。资源包括常见的图片等美术资源，也包括脚本等。
-当我们希望书写一个插件，并在插件内使用资源的时候，这些资源需要随着插件一起发布，这时候就需要注册一个扩展内的文件夹到资源数据库里。
-通过本文我们将学会通过 `contributions` 向 `asset-db` 注册一个资源文件夹，并在其他脚本里使用刚刚注册的文件夹里的脚本资源。
+所有项目内的资源文件都是通过资源数据库进行管理，其中项目内的 `assets` 目录存放的是当前项目的资源，引擎仓库里 `editor/assets` 里存放的是引擎内置的资源（如：常见的图片、脚本等）。
 
-## 注册方式
+当我们在扩展内使用了资源时，需要将扩展内的资源文件夹注册到资源数据库里，并在扩展发布时将资源随着扩展一起发布。
 
-在 package.json 里的 contributions 注册 asset-db 数据:
+
+通过本文我们将学会如何注册一个资源文件夹，并在脚本里使用资源。
+
+## 注册配置
+
+资源注册需要在 `contributions` 中使用 `asset-db` 字段进行配置，如下所示： 
 
 ```json5
 {
@@ -22,20 +25,11 @@
 }
 ```
 
-```typescript
-interface AssetDBConfig {
-    mount:{
-        //资源的目录，相对于扩展
-        path: string；
-        //资源是否只读，默认可读可写
-        readonly?: boolean;
-    }
-}
-```
+上面的示例中， 我们把扩展 `test-package` 根目录下的 `assets` 文件夹注册到了资源数据库中。
 
-## 在扩展中编写脚本资源
+## 脚本资源
 
-我们可以在刚才注册的 `test-package\assets\` 资源文件夹中定义脚本，我们先创建一个脚本 `foo.ts`，
+在 `test-package/assets/` 目录下创建一个脚本 `foo.ts`，内容如下：
 
 ```typescript
 /// foo.ts
@@ -51,15 +45,43 @@ export class Foo extends Component {
 }
 ```
 
-> **注意**：为了使用 cc 的定义，我们需要拷贝 `{项目目录}\temp\declarations` 的定义文件到扩展目录下。
+为了使用 cc 的定义，我们需要拷贝 `{项目目录}\temp\declarations` 的定义文件到扩展根目录下。
 
-## 导入扩展注入的脚本资源
+由于 `foo.ts` 不属于插件源码，所以我们需要在 `tsconfig.json` 中加入 `exclude` 配置进行排除，否则会出现编译错误。
+```json5
+{
+    "compilerOptions": { 
+        ... 
+    },
+    "exclude": ["./assets"]
+}
+```
+> 扩展中的脚本资源可以在 Cocos Creator 工程中编写并测试完成后，再复制到扩展的 `assets` 目录。
 
-前面我们新建了一个扩展 `test-package`，该扩展将 `test-package\assets` 路径下的资源注入到了资源数据库。
+## 其他资源
 
-在项目的脚本 `bar.ts` 中我们可以使用如下方式导入 `foo.ts` 脚本。
+图片、文本、字体等资源直接放入 `assets` 目录下即可。
 
+
+## 使用扩展中的资源
+
+刷新扩展，可以在 Cocos Creator 编辑器的 **资源管理器** 窗口中看到新增了一个 `test-package` 资源包，如下图所示：
+
+![](./image/extension-database.png)
+
+## 拖拽引用
+若要以拖拽到组件方式引用包内的资源，使用方式与 `assets` 和 `internal` 中的资源一致。
+
+
+## import 脚本
+
+若要在项目中引用脚本，只需要从资源目录库引用即可，如下所示：
 ```typescript
 /// bar.ts
-import { value, Foo } from 'db://test-package/foo';
+import { Foo } from 'db://test-package/foo';
 ```
+可以不用刻意关注某个类是否来自某个扩展包，`TypeScript` 开发环境的自动补齐功能会提示 **import** 目录的，无需担心。
+
+
+**注意**：扩展资源包中的类名应当保持唯全局唯一，否则会造成冲突，实际开发中尽量添加一个适合的前缀（如 `test-pacakge` 可简称为 `TP`，资源包中所有类统一加上 `TP` 前缀，变成 `TPFoo` ）。
+
