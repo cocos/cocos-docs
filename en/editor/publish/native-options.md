@@ -61,6 +61,14 @@ Android platform build options:
 
 ![Android build options](publish-native/android-options.png)
 
+#### Enable Swappy
+
+Enable or disable Swappy, which supports GLES and Vulkan.
+
+This option actively adjusts the rendering time with the screen refresh rate to stabilize the frame rate and reduce invalid drawings. The build parameter is swappy.
+
+For more information, please refer to [Frame Pacing Library Overview](https://source.android.com/devices/graphics/frame-pacing).
+
 #### Render BackEnd
 
 Render Backend currently supports [VULKAN](https://www.vulkan.org/), [GLES3](https://www.khronos.org/registry/OpenGL-Refpages/es3/) and [GLES2](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/), and requires at least one selection, with **GLES3** being used by default.
