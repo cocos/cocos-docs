@@ -90,7 +90,7 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
     - If this option is enabled, use the `HIGHP_VALUE_STRUCT_DEFINE` macro in the fragment shader code to define structural variables, and use `HIGHP_VALUE_TO_STRUCT_DEFINED` and `HIGHP_VALUE_FROM_STRUCT_DEFINED` to assign values between structural and non-structural variables.
 
-    - For specific information and code on the above macro calls, please refer to [packing.chunk](https://github.com/cocos-creator/engine/blob/v3.4.1/editor/assets/chunks/packing.chunk#L40) for details.
+    - For specific information and code on the above macro calls, please refer to [packing.chunk](https://github.com/cocos-creator/engine/blob/v3.5.0/editor/assets/chunks/packing.chunk#L40) for details.
 
 - **BATCHER2D_MEM_INCREMENT** (new in v3.4.1): this option affects the maximum number of vertices in each MeshBuffer, the default value is 144KB, please refer to the [MeshBuffer Batch Description](../../ui-system/components/engine/ui-batch.md) documentation for the conversion relationship between the number and the value.
 

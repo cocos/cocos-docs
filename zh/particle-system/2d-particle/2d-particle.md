@@ -43,4 +43,4 @@ ParticleSystem2D 的脚本接口请参考 [ParticleSystem API](__APIDOC__/zh/#/d
 | EndRadius            | 结束半径及变化范围。仅在 Emitter Mode 设为 **RADIUS** 时生效
 | RotatePerS           | 粒子每秒围绕起始点的旋转角度及变化范围。仅在 Emitter Mode 设为 **RADIUS** 时生效
 
-更多具体的使用方式可参考官方范例 **ui/25.particle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/25.particle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/25.particle)）。
+更多具体的使用方式可参考官方范例 **ui/25.particle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/25.particle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/25.particle)）。

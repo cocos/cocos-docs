@@ -15,7 +15,7 @@ The following joints are available in the physics system:
 - __SpringJoint2D__: Connects objects at both ends of the joint like a spring.
 - __WheelJoint2D__: Consist of Revolute and Prismatic joint, used to simulate motor vehicle wheels.
 
-For information on using each Joint component, please refer to the [Joints example case](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/dragonbones) for details.
+For information on using each Joint component, please refer to the [Joints example case](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/dragonbones) for details.
 
 ## Common properties of joints
 

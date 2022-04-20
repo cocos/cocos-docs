@@ -8,7 +8,7 @@ Slider 是一个滑动器组件。
 
 滑动器的脚本接口请参考 [Slider API](__APIDOC__/zh/#/docs/3.5/zh/ui/Class/Slider)。
 
-关于使用可以参考范例 **Slider**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/10.slider) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/10.slider)）。
+关于使用可以参考范例 **Slider**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/10.slider) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/10.slider)）。
 
 ## Slider 属性
 

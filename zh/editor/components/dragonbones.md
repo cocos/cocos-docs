@@ -6,7 +6,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 
 在 **层级管理器** 中选中需要添加 ArmatureDisplay 组件的节点，然后点击 **属性检查器** 下方的 **添加组件 -> DragonBones -> ArmatureDisplay** 按钮，即可添加 ArmatureDisplay 组件到节点上。
 
-- ArmatureDisplay 组件的使用方法可参考 **DragonBones**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/dragonbones)）范例。
+- ArmatureDisplay 组件的使用方法可参考 **DragonBones**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/dragonbones)）范例。
 - DragonBones 相关的脚本接口请参考 [DragonBones API](__APIDOC__/zh/#/docs/3.5/zh/dragonBones/Class/ArmatureDisplay)。
 
 ## DragonBones 属性
@@ -111,7 +111,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 
     ![dragonbones-cloth](./dragonbones/cloth4.png)
 
-    详情可参考官方范例 **ReplaceSlotDisplay**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/dragonbones)）。
+    详情可参考官方范例 **ReplaceSlotDisplay**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/dragonbones)）。
 
     > **注意**：
     >

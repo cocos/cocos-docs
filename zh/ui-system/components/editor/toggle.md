@@ -8,7 +8,7 @@ Toggle 是一个 CheckBox，当它和 ToggleContainer 一起使用的时候，�
 
 Toggle 的组件接口请参考 [Toggle API](__APIDOC__/zh/#/docs/3.5/zh/ui/Class/Toggle)。
 
-关于使用可以参考范例 **Toggle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/09.toggle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/09.toggle)）。
+关于使用可以参考范例 **Toggle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/09.toggle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/09.toggle)）。
 
 ## Toggle 属性
 

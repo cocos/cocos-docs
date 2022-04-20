@@ -10,7 +10,7 @@ ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有
 
 滚动视图的脚本接口请参考 [ScrollView API](__APIDOC__/zh/#/docs/3.5/zh/ui/Class/ScrollView)。
 
-关于使用可以参考范例 **ScrollView**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/06.scrollview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/06.scrollview)）。
+关于使用可以参考范例 **ScrollView**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/06.scrollview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/06.scrollview)）。
 
 ## ScrollView 属性
 

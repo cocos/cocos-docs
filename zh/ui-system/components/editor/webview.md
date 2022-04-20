@@ -40,7 +40,7 @@ WebView 的脚本接口请参考 [WebView API](__APIDOC__/zh/#/docs/3.5/zh/compo
 
 详情可参考 API [WebView 事件](__APIDOC__/zh/#/docs/3.5/zh/component-web-view/Class/WebView?id=webviewevents)。
 
-使用方式可参考范例 **Webview**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/22.webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/22.webview)）。
+使用方式可参考范例 **Webview**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/22.webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/22.webview)）。
 
 ## 详细说明
 
