@@ -60,13 +60,13 @@ The **Engine Manager** tab is used to configure the engine path when customizing
 
 - **Use built-in TypeScript engine**: whether to use the engine path that comes with the Cocos Creator installation path as the TypeScript engine path. This engine is used for scene rendering in the scene editor, declaration of built-in components and other engine modules in the web environment.
 
-- **Custom TypeScript engine path**: in addition to using your own engine, an engine can also be cloned from the [engine repository](https://github.com/cocos-creator/engine/) or forked to any local location for customization, uncheck **Use built-in TypeScript engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
+- **Custom TypeScript engine path**: in addition to using your own engine, an engine can also be cloned from the [engine repository](https://github.com/cocos/cocos-engine/) or forked to any local location for customization, uncheck **Use built-in TypeScript engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
 
 - **Use built-in native engine**: whether to use the `engine-naive` path that comes with the Cocos Creator installation path as the native engine path. This engine is used to build and compile projects for all native platforms (iOS, Android, Mac, Windows) when building.
 
-- **Custom native engine path**: after unchecking the previous item **Use built-in native engine**, the native engine path can be specified manually.
+- **Custom native engine path**: after unselecting the previous item **Use built-in native engine**, the native engine path can be specified manually.
 
-> **Note**: the native engine used here must be from [engine-native](https://github.com/cocos-creator/engine-native) or the fork of that repository.
+> **Note**: the native engine used here must be from [engine-native](https://github.com/cocos/cocos-engine) or the fork of that repository.
 
 For details on customizing the engine, please review the [Engine customization workflow](../../advanced-topics/engine-customization.md) documentation.
 

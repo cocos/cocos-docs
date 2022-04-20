@@ -14,6 +14,10 @@
 
 ![mount clip](./animation-create/mount-clip.png)
 
+如果已有 **动画剪辑（Animation Clip）**，即使该节点无动画组件或无任何动画剪辑，也可以通过拖拽 Animation Clip 到 Animation 窗口上，引擎会自动创建 **Animation** 组件并
+
+![drag and drop](animation-create/drag-clip.gif)
+
 以上简单介绍了如何在 **动画编辑器** 中创建动画组件和动画剪辑，更多关于动画组件的创建和属性说明请参考 [动画组件参考](./animation-comp.md)。更多创建动画剪辑的方法请参考文末部分的内容。
 
 然后继续点击 **进入动画编辑模式** 即可开始 [编辑动画剪辑](edit-animation-clip.md)。新建的空的动画剪辑在动画编辑器中显示如下：

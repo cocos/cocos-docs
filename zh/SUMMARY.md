@@ -242,8 +242,10 @@
         - [动画图资源](animation/marionette/animation-graph.md)
         - [动画控制器组件参考](animation/marionette/animation-controller.md)
         - [动画图面板](animation/marionette/animation-graph-panel.md)
+        - [动画图层级](animation/marionette/animation-graph-layer.md)
         - [动画状态机](animation/marionette/animation-graph-basics.md)
         - [状态过渡](animation/marionette/state-transition.md)
+        - [动画遮罩资源](animation/marionette/animation-mask.md)
 
 - [音频系统](audio-system/overview.md)
     - [AudioSource 组件参考](audio-system/audiosource.md)

@@ -13,15 +13,16 @@ Skybox 组件属性如下：
 | 属性 | 说明 |
 | :---| :--- |
 | **Enabled** | 勾选该项即可开启天空盒 |
-| **UseIBL** | 是否使用环境光照，详情请参考下文 **使用 IBL** 部分的内容。 |
+| **Env Lighting Type** | 环境光类型，请参考下文 **漫反射照明** 获取更多参考 |
 | **UseHDR** | 若勾选该项则开启 HDR（高动态范围），若不勾选该项，则使用 LDR（低动态范围）。详情请参考下文 **切换 HDR/LDR 模式** 部分的内容。 |
-| **Envmap** | 天空盒的环境贴图，TextureCube 类型，具体设置方法可参考下文介绍。<br>当该属性为空时，天空盒默认使用和显示的是像素贴图 |
-| **ApplyDiffuseMap** | 若勾选该项，场景物体将使用更精确的漫反射图来取代默认的半球光照。该项仅在勾选 **UseIBL** 后显示。详情请参考下文 **漫反射照明** 部分的内容。 |
-| **DiffuseMap**      | 勾选 **ApplyDiffuseMap** 属性后，自动生成的用于高级漫反射的卷积图，不支持手动编辑。该项仅在勾选 **UseIBL** 后显示。 |
+| **Envmap** | 天空盒的环境贴图，[TextureCube](../../asset/texture-cube.md) 类型，具体设置方法可参考下文介绍。<br>当该属性为空时，天空盒默认使用和显示的是像素贴图 |
+| **DiffuseMap**      | 自动生成的用于高级漫反射的卷积图，不支持手动编辑。<br> 该选项只在 **Env Lighting Type** 为 **DIFFUSEMAP_WITH_REFLECTION** 时生效 |
 
 ## 设置天空盒的环境贴图
 
 开启天空盒之后还需要设置天空盒的环境贴图，用于在场景中产生环境光照。将贴图资源拖拽到 Skybox 组件的 **Envmap** 属性框中，或者点击 **Envmap** 属性框后面的箭头按钮选择所需的贴图资源即可。若不设置，则天空盒默认使用和显示的是像素贴图。
+
+![envmap](skybox/envmap.png)
 
 天空盒的环境贴图资源支持：
 
@@ -48,6 +49,12 @@ Skybox 组件属性如下：
     ![设置天空盒的环境贴图](skybox/set-envmap.png)
 
 这样子就设置完成了，开发者可以直接在 **场景编辑器** 中看到设置后的天空盒的环境贴图。若贴图没有正确显示，需要检查 **SkyIllum 参数** 的值是否太低，或者 **修改 Camera 的 Clear Flag**。
+
+### 使用引擎内置的资源
+
+在 **资源管理器 -> internal** 目录下，引擎提供了部分内置的 TextureCube 资源，开发者也可以根据上述步骤按需使用。
+
+![builtin skybox](skybox/builtin.png)
 
 #### SkyIllum 参数
 
@@ -86,40 +93,37 @@ Skybox 组件属性如下：
     > 1. CubeMap 中未设置贴图的属性框将使用默认资源进行填充。
     > 2. CubeMap 中的 6 个属性框 **不要使用同一张贴图**，否则会导致某些平台无法正常显示。
 
-## 使用 IBL
-
-若勾选 **UseIBL** 属性，则场景中的物体使用的是天空盒产生的环境照明的镜面反射，同时允许使用更精确的漫反射照明（卷积图）。
-
-若禁用 **UseIBL** 属性，则场景中的物体只能使用半球光方式的漫反射照明。
-
 ### 漫反射照明
 
-Creator 支持以下两种方式的环境漫反射照明，可通过是否勾选 **ApplyDiffuseMap** 属性来切换使用，需要注意的是该属性仅在勾选 **UseIBL** 后显示。
+Creator 支持以下三种方式的环境漫反射照明，可以在 **Env Lighting Type** 属性的下拉列表中进行选择。
 
-1. **半球光**：不勾选 **ApplyDiffuseMap** 属性时，使用半球光漫反射。该方式由 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制，渲染性能更高，但是细节度不够，照明方向性差。**可手动调节，但可能会和环境贴图变得不统一**。
+![type](skybox/sky-box-type.png)
 
-    ![ambient-diffuse](skybox/ambient-diffuse.png)
+其类型与描述如下所示：
 
-2. **卷积图**：勾选 **ApplyDiffuseMap** 属性时，使用卷积图漫反射。该方式是高级漫反射，可以正确表达环境贴图产生的漫反射照明，有较好的照明方向性和细节。但 **DiffuseMap** 属性中的卷积图是自动生成来进行漫反射的，不允许手动编辑。
+| 类型 | 描述 |
+| :-- | :-- |
+| **HEMISPHERE_DIFFUSE** | 半球漫反射 |
+| **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** | 半球漫反射和环境反射 |
+| **DIFFUSEMAP_WITH_REFLECTION** | 漫反射卷积图和环境反射 |
 
-    ![apply-diffuseMap](skybox/diffusemap-prop.png)
+1. **半球漫反射**：当 **Env Lighting Type** 属性为 **HEMISPHERE_DIFFUSE** 时，使用半球光漫反射。该方式由 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制，渲染性能更高，但是细节度不够，照明方向性差。**可手动调节，但可能会和环境贴图变得不统一**。在此模式下，IBL 将不可用，环境贴图对反射不起作用。
 
-当使用半球光漫反射时，效果如下：
+    ![ambient-diffuse](skybox/hemisphere.png)
 
-![DiffuseMap](skybox/hemisphere-lighting.png)
+2. **半球漫反射和环境反射**：当 **Env Lighting Type** 属性为 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 时，该方式可以通过 **Ambient** 组件中的 **SkyLightingColor** 和 **GroundLightingColor** 属性控制漫反射。同时也会表达环境贴图所产生的镜面反射效果。
 
-当使用卷积图漫反射时，效果如下图。相比上图可以明显看出下图左侧背光面较暗，突出了整体的层次感，明暗对比细节也有较大的提升。
+    ![autogen-hemisphere](skybox/autogen-hemisphere.png)
 
-![DiffuseMap](skybox/diffusemap.png)
+3. **漫反射卷积图和环境反射**：当 **Env Lighting Type** 属性为 **DIFFUSEMAP_WITH_REFLECTION** 时，使用卷积图漫反射。该方式是高级漫反射，可以正确表达环境贴图产生的漫反射照明，有较好的照明方向性和细节。但和 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 不同的是漫反射是由自动生成的卷积图来表达，不允许编辑。
 
-通过下面的 GIF 图可以更明显地看到对比：
+    ![apply-diffuseMap](skybox/diffuse-map-with-reflection.png)
+
+通过下面的 GIF 图可以更明显地看到 **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** 与 **DIFFUSEMAP_WITH_REFLECTION** 的对比，在 **Env Lighting Type** 为 **DIFFUSEMAP_WITH_REFLECTION** 的情况下背光面较暗，突出了整体的层次感，明暗对比细节也有较大的提升。
 
 ![Compare](skybox/compare.gif)
 
-> **注意**：
->
-> 1. 当更换 **Envmap** 属性中的环境贴图时，Creator 会自动计算对应的环境光照信息，以及漫反射光照（仅支持图片文件形式的 CubeMap，不包括手动制作的 CubeMap）
-> 2. 勾选了 UseIBL 属性，但不勾选 ApplyDiffuseMap，使用的是半球光漫反射，效果与不勾选 UseIBL 是一样的。
+> **注意**：当更换 **Envmap** 属性中的环境贴图时，Creator 会自动计算对应的环境光照信息，以及漫反射光照（仅支持图片文件形式的 CubeMap，不包括手动制作的 CubeMap）
 
 ## 切换 HDR/LDR 模式
 

@@ -105,24 +105,6 @@ resources.load(url, SpriteFrame, (err: any, spriteFrame) => {
 
 ### 使用 RenderTexture 渲染
 
-RenderTexture 是一个渲染纹理，它可以将摄像机上的内容直接渲染到一张纹理上而不是屏幕上。SpriteFrame 通过管理 RenderTexture 可以轻松地将 3D 相机内容显示在 UI 上。具体的使用方法及代码示例如下：
-
-```typescript
-const cameraComp = this.getComponent(Camera);
-const renderTexture = new RenderTexture();
-const size = view.getVisibleSize();
-renderTexture.reset({
-   width: size.width,
-   height: size.height,
-   colorFormat: RenderTexture.PixelFormat.RGBA8888,
-   depthStencilFormat: RenderTexture.DepthStencilFormat.DEPTH_24_STENCIL_8
-});
-
-cameraComp.targetTexture = renderTexture;
-const spriteFrame = new SpriteFrame();
-spriteFrame.texture = renderTexture;
-const sprite = this.getComponent(Sprite);
-sprite.spriteFrame = spriteFrame;
-```
+RenderTexture 是一个渲染纹理，它可以将摄像机上的内容直接渲染到一张纹理上而不是屏幕上。SpriteFrame 通过管理 RenderTexture 可以轻松地将 3D 相机内容显示在 UI 上。具体的使用方法及代码示例可参考 [渲染纹理资源](render-texture.md)。
 
 API 接口文档：[SpriteFrame 资源类型](__APIDOC__/zh/#/docs/3.5/zh/asset/Class/SpriteFrame)。

@@ -16,9 +16,11 @@
 
 ## 层级（Layers）
 
-该分页主要用于创建、查看和编辑动画图的层级，每个层级分别由一个状态机控制，但目前仅支持一个动画图层。点击层级右侧的齿轮图标按钮可对动画图层进行重命名：
+该分页主要用于创建、查看和编辑动画图的层级，每个层级分别由一个状态机控制，点击 **Layers** 按钮可以进入层级编辑状态。
 
 ![Layers](animation-graph-panel/layers.png)
+
+更多关于层级的信息请参考 [动画图层级](animation-graph-layer.md)。
 
 ## 网格布局区域
 
@@ -70,6 +72,9 @@
   <!--
   这些图都是用 ProcessOn 进行编辑的，源文件以 POS 格式保存在 zh/animation/marionette 目录下，可将其导入到 ProcessOn 再次编辑。
   -->
+  在 v3.5.0 中，我们增加了新的机制 **下一帧重置（Reset on next frame）**，在勾选后，触发器会在动画更新后立即重置。
+
+  ![reset on next frame](animation-graph-panel/reset-on-nextframe.png)
 
 ### 通过脚本控制变量
 
