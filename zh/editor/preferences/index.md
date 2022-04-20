@@ -170,7 +170,7 @@
 
 ![laboratory](./index/laboratory.png)
 
-- **启用延迟渲染管线**：在默认情况下，延迟渲染管线处于关闭状态。详情可参考 [延迟渲染管线](../../render-pipeline/builtin-pipeline.md#%E5%BB%B6%E8%BF%9F%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF)。
+- **启用延迟渲染管线**：启用或者禁用延迟渲染管线。在默认情况下，延迟渲染管线处于关闭状态。详情可参考 [延迟渲染管线](../../render-pipeline/builtin-pipeline.md#%E5%BB%B6%E8%BF%9F%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF)。
 
 - **场景即时缓存**：该项默认开启，主要用于在场景编辑过程中每隔一段时间（目前时间间隔为 5s）便将场景文件缓存到项目目录下的 `temp/scene/[SCENE_UUID]/[TIME].json` 文件中。如遇突发情况比如场景崩溃、进程卡死等，再次打开编辑器时将会弹窗提示是否应用缓存内最近一次的场景文件。
 
