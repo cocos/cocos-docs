@@ -62,7 +62,7 @@ Android 平台的构建选项如下：
 
 #### 平滑帧率
 
-**平滑帧率（Enable Swappy）**：是否启用引擎里集成的 Swappy 功能。目前支持 GLSL 和 Vulkan。
+**平滑帧率（Enable Swappy）**：是否启用引擎里集成的 Swappy 功能。目前支持 GLES 和 Vulkan。
 
 该选项会主动配合屏幕刷新率调整渲染时间，以达到稳定帧率和减少无效绘制。构建参数为 swappy。
 
