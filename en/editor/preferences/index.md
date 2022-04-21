@@ -60,13 +60,13 @@ The **Engine Manager** tab is used to configure the engine path when customizing
 
 - **Use built-in TypeScript engine**: whether to use the engine path that comes with the Cocos Creator installation path as the TypeScript engine path. This engine is used for scene rendering in the scene editor, declaration of built-in components and other engine modules in the web environment.
 
-- **Custom TypeScript engine path**: in addition to using your own engine, an engine can also be cloned from the [engine repository](https://github.com/cocos-creator/engine/) or forked to any local location for customization, uncheck **Use built-in TypeScript engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
+- **Custom TypeScript engine path**: in addition to using your own engine, an engine can also be cloned from the [engine repository](https://github.com/cocos/cocos-engine/) or forked to any local location for customization, uncheck **Use built-in TypeScript engine** and specify **Custom TypeScript engine path** as the customized engine path, then it's ready to use.
 
 - **Use built-in native engine**: whether to use the `engine-naive` path that comes with the Cocos Creator installation path as the native engine path. This engine is used to build and compile projects for all native platforms (iOS, Android, Mac, Windows) when building.
 
-- **Custom native engine path**: after unchecking the previous item **Use built-in native engine**, the native engine path can be specified manually.
+- **Custom native engine path**: after unselecting the previous item **Use built-in native engine**, the native engine path can be specified manually.
 
-> **Note**: the native engine used here must be from [engine-native](https://github.com/cocos-creator/engine-native) or the fork of that repository.
+> **Note**: the native engine used here must be from [engine-native](https://github.com/cocos/cocos-engine) or the fork of that repository.
 
 For details on customizing the engine, please review the [Engine customization workflow](../../advanced-topics/engine-customization.md) documentation.
 
@@ -171,6 +171,8 @@ The **Build** tab is used to set up the execution of the [Build](../publish/buil
 The **Laboratory** tab will occasionally provide some new technical solutions or experimental features that can be selected via a switch option to be used or not, and in most cases are turned on by default. Currently these include **Scene Real-time Cache** and **Enable baking feature**.
 
 ![laboratory](./index/laboratory.png)
+
+- **Enable Deferred Render Pipeline**: Enable or disable the Deferred Render Pipeline. Deferred Render Pipeline is disable by default. Please refer to [Deferred Render Pipeline](../../render-pipeline/builtin-pipeline.md#Deferred%Render%Pipeline) for more information.
 
 - **Scene Real-time Cache**: This option is enabled by default and is mainly used to cache scene data to the `temp/scene/[SCENE_UUID]/[TIME].json` file in the project directory at regular intervals (currently 5s) during scene editing. In case of emergencies such as scene crash, process stuck, etc., a popup window will be displayed when the editor is opened again to indicate whether to apply the most recent scene file in the cache.
 

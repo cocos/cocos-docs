@@ -12,7 +12,7 @@ Compared with other memory leak detection tools, the built-in memory leak detect
 
 ## Usage steps
 
-1. The memory leak detection system is disabled by default. To enable it, you need to modify the value of the macro `USE_MEMORY_LEAK_DETECTOR` in the `engine-native/cocos/base/Config.h` file of the engine directory to **1**.
+1. The memory leak detection system is disabled by default. To enable it, you need to modify the value of the macro `USE_MEMORY_LEAK_DETECTOR` in the `cocos-engine/native/cocos/base/Config.h` file of the engine directory to **1**.
 
     ```c++
     #ifndef USE_MEMORY_LEAK_DETECTOR
