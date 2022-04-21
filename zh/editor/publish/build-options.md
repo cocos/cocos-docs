@@ -98,6 +98,10 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 若勾选该项，脚本导入速度更快，但无法使用模块特性，例如 `import.meta`、`import()` 等。
 
+### 跳过纹理压缩流程
+
+默认为 `false`，若勾选该选项，则构建时会跳过整个纹理压缩流程，以减少构建时间。构建命令为：`skipCompressTexture`。
+
 <!--
 ### 内联所有 SpriteFrame
 自动合并资源时，将所有 SpriteFrame 与被依赖的资源合并到同一个包中。建议网页平台开启，启用后会略微增大总包体，多消耗一点点网络流量，但是能显著减少网络请求数量。建议原生平台关闭，因为会增大热更新时的体积。
