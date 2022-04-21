@@ -89,6 +89,10 @@ When the mouse is moved to this option, the **Edit Icon** button will appear. Cl
 
 If this option is checked, the script import speed is faster, but module features such as `import.meta`, `import()`, etc. cannot be used.
 
+### Skip Compress Texture
+
+The default is 'false'. If this option is checked, the build skips the entire texture compression process to reduce build time. The command parameter is `skipCompressTexture`.
+
 ### Cocos Service Config Set
 
 This option is used to display all the services integrated in the [Service](https://service.cocos.com/document/en/) panel for the current project.
