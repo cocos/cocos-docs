@@ -1,4 +1,4 @@
-# 扩展模板与构建
+# 扩展模板与编译构建
 
 本文将详细介绍如何通过 Creator 提供的扩展模板创建一个带有面板的扩展并使用。
 
@@ -31,18 +31,23 @@ Cocos Creator 提供了 4 种扩展模板，用于快速创建一个新的扩展
 
 ## 扩展位置
 
-- **项目(Project)**，将扩展包应用到指定的 Cocos Creator 项目，**项目** 路径为：
+**项目(Project)**
 
-    - `$你的项目地址/extensions`
+将扩展包应用到指定的 Cocos Creator 项目，**项目** 路径为：
 
-- **全局(Global)**，将扩展包应用到所有的 Cocos Creator 项目，**全局** 路径为：
+- `$你的项目地址/extensions`
 
-    - **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
+**全局(Global)**
 
-    - **MacOS**：`$HOME/.CocosCreator/extensions`
+将扩展包应用到所有的 Cocos Creator 项目，**全局** 路径为：
 
+- **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
 
-## 依赖安装与构建
+- **MacOS**：`$HOME/.CocosCreator/extensions`
+
+> 可采用 `Editor.App.path` 打印全局路径。
+
+## 依赖安装与编译构建
 
 创建完成后打开扩展包所在目录，执行以下命令：
 

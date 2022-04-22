@@ -12,7 +12,7 @@
 
 
 ## 定义一条消息
-只有在 `package.json` 文件的 `contributions.contributions` 字段里定义过的消息才能被使用。消息的定义如下所示：
+只有在 `package.json` 文件的 `contributions.messages` 字段里定义过的消息才能被使用。消息的定义如下所示：
 
 ```json
 {

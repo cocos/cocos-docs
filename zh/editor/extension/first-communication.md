@@ -16,7 +16,7 @@
 有时候我们需要在自己写的扩展中打开另一个扩展，接下来我们就试着对 **入门示例-菜单** 中的扩展示例进行改造 ，使它可以打开 **入门示例-面板**。
 
 修改后的 `package.json` 如下：
-```json
+```json5
 {
     "package_version": 2,
     "version": "1.0.0",
@@ -100,7 +100,7 @@ Editor.Message.broadcast(message:string, ...args:any[])`
 接下来我们定义一个叫 `first-panel:open` 的广播消息，由 `first-panel` 扩展来广播，由 `hello-world` 扩展来监听。
 
 在 `hello-world` 中，我们新增一个消息监听，并指定处理函数，修改后的 `contributions.messages` 如下：
-```json
+```json5
 {
     "messages": {
         "log": {
@@ -131,21 +131,18 @@ onFirstPanelOpen(){
 
 作为监听方的改造就完成了，接下来我们修改一下广播方 `first-panel`。
 
-在 `first-panel` 的 `contributions.messages` 中加入如下定义：
-```json
-"first-panel:open":{                   
-}
-```
-再在 `first-panel` 项目的 `src/panels/default/index.ts :ready` 函数中加入如下广播消息代码：
+在 `first-panel` 项目的 `src/panels/default/index.ts :ready` 函数中加入如下广播消息代码：
 ```typescript
 Editor.Message.broadcast("first-panel:open");
 ```
 
 `ready` 函数会在 `first-panel` 的默认面板打开时调用，此时会对 `first-panel:open` 消息进行广播。
 
+> 广播方也可以在 messages 中监听自己的广播消息，但通常没必要。
 
 分别编译并刷新两个扩展，再次点击 **Develop** -> **HelloWorld** -> **open other** 菜单项，除了可以看到示例面板被打开，还能在 Cocos Creator 的控制台窗口中看到如下打印：
-```
+
+```bash
 hello-world knows first-panel is open
 ```
 这就表示 `hello-world` 扩展收到了 `first-panel` 扩展的广播消息。

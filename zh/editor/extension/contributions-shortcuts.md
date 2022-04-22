@@ -1,4 +1,4 @@
-# 快捷键
+# 自定义快捷键
 
 编辑器内的快捷键由 "快捷键管理器" 统一管理。每一个快捷键可以绑定一个消息，当快捷键按下的时候，会触发绑定的消息。
 
@@ -22,7 +22,7 @@
         "shortcuts": [
             {
                 "message": "undo",
-                "when": "panel.hello-world",
+                "when": "panelName === 'hello-world'",
                 "win": "ctrl+z",
                 "mac": "cmd+z",
             }
@@ -45,15 +45,13 @@
 
 快捷键绑定的消息，当这个快捷键被触发时，会发送此消息。快捷键按下的消息只能发送给当前扩展。
 
-### when(experimental)
+### when
 
 类型 {string} 可选 
 
-**实验性功能，这个功能语法可能会进行调整**
-
 在某些条件下才会触发这个快捷键。
 
-`panel.hello-world` 则是在 `hello-world` 面板获得焦点的时候，快捷键才会生效。
+`"when": "PanelName === 'hello-world'"` 表示当获得焦点的面板名称为 `hello-world`时，按下快捷键才会发送 `message` 消息。
 
 ### win
 

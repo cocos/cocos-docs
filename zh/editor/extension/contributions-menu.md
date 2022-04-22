@@ -1,4 +1,4 @@
-# 扩展主菜单
+# 自定义主菜单
 
 编辑器顶部有一栏主菜单，在扩展内可以方便的在这个菜单栏添加自己的菜单。
 
@@ -27,7 +27,7 @@
 }
 ```
 
-上面的配置信息将会在编辑器的 "扩展" 菜单里新增一个 "Open Hello World" 菜单，点击这个菜单后将会发送一条 `open-panel` 消息，若有扩展实现了 `openPanel` 处理函数，将会被触发。 
+上面的配置信息将会在编辑器的 "扩展" 菜单里新增一个 "Open Hello World" 菜单，点击这个菜单后将会按照 message 配置发送一条 `open-panel` 消息给当前扩展，若当前扩展配置了这个消息的监听以及对应的 `openPanel` 处理函数，将会被触发。
 
 关于消息的定义请参考文档 [自定义消息](./contributions-messages.md)。
 
@@ -44,11 +44,11 @@
 - `MyMenu/Hello World` - 在顶部菜单栏添加一个 `MyMenu`，并再添加一个 `Hello World` 菜单项作为父菜单
 
 顶部菜单栏中，预设的菜单有：
-- i18n:menu.project - 项目菜单
-- i18n:menu.node - 节点菜单
-- i18n:menu.panel - 面板菜单
-- i18n:menu.extension -扩展菜单
-- i18n:menu.develop - 开发者菜单 
+- i18n:menu.project - “项目” 菜单
+- i18n:menu.node - “节点” 菜单
+- i18n:menu.panel - “面板” 菜单
+- i18n:menu.extension - “扩展” 菜单
+- i18n:menu.develop - “开发者” 菜单 
 
 ### label
 

@@ -1,4 +1,4 @@
-# 扩展资源数据库
+# 自定义资源数据库
 
 所有项目内的资源文件都是通过资源数据库进行管理，其中项目内的 `assets` 目录存放的是当前项目的资源，引擎仓库里 `editor/assets` 里存放的是引擎内置的资源（如：常见的图片、脚本等）。
 
@@ -34,7 +34,6 @@
 ```typescript
 /// foo.ts
 import { _decorator, Component, Node } from 'cc';
-export const value = 123;
 const { ccclass, property } = _decorator;
  
 @ccclass('Foo')
@@ -47,7 +46,7 @@ export class Foo extends Component {
 
 为了使用 cc 的定义，我们需要拷贝 `{项目目录}\temp\declarations` 的定义文件到扩展根目录下。
 
-由于 `foo.ts` 不属于插件源码，所以我们需要在 `tsconfig.json` 中加入 `exclude` 配置进行排除，否则会出现编译错误。
+由于 `foo.ts` 只是作资源使用，不属于扩展源码，所以我们需要在 `tsconfig.json` 中加入 `exclude` 配置进行排除，否则会出现编译错误。
 ```json5
 {
     "compilerOptions": { 
@@ -83,5 +82,5 @@ import { Foo } from 'db://test-package/foo';
 可以不用刻意关注某个类是否来自某个扩展包，`TypeScript` 开发环境的自动补齐功能会提示 **import** 目录的，无需担心。
 
 
-**注意**：扩展资源包中的类名应当保持唯全局唯一，否则会造成冲突，实际开发中尽量添加一个适合的前缀（如 `test-pacakge` 可简称为 `TP`，资源包中所有类统一加上 `TP` 前缀，变成 `TPFoo` ）。
+**注意**：扩展资源包中的类名应当保持全局唯一，否则会造成冲突，实际开发中尽量添加一个适合的前缀（如 `test-pacakge` 可简称为 `TP`，资源包中所有类统一加上 `TP` 前缀，变成 `TPFoo` ）。
 

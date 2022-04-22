@@ -1,9 +1,9 @@
-# 扩展资源管理器面板
+# 增强资源管理器面板
 
-为了能更好的理解本篇文档内容，在继续阅读本文档之前，推荐大家先阅读 Cocos Creator [扩展编辑器](../extension/readme.md) 文档，了解扩展开发相关知识。
+为了能更好的理解本篇文档内容，在继续阅读本文档之前，推荐大家先阅读 Cocos Creator [扩展编辑器](../extension/readme.md) 文档，了解插件开发相关知识。
 
-## 扩展右击菜单
-新建一个扩展，在扩展的 `package.json`文件中， 通过定义 `contributions.assets.menu` 字段，即可对 **资源管理器** 面板的右击菜单显示事件进行监听，可以实现菜单的追加，如下所示：
+## 自定义右击菜单
+新建一个插件，在插件的 `package.json`文件中， 通过定义 `contributions.assets.menu` 字段，即可对 **资源管理器** 面板的右击菜单显示事件进行监听，可以实现菜单的追加，如下所示：
 
   ```json5
   // package.json
@@ -87,14 +87,10 @@
     - `extends`：string[] - 可选，继承类
     - `importer`：string - 导入器名字
     - `isDirectory`：boolean - 是否是文件夹
-    - `instantiation`：string - 可选，虚拟资源可以实例化成实体的话，会带上这个扩展名
     - `imported`：boolean - 是否导入完成
     - `invalid`：boolean - 是否导入失败
     - `name`：string - 资源名字
     - `file`：string - 资源文件所在的磁盘绝对路径
-    - `redirect`：{} - 跳转指向资源
-      - `type`：string - 资源类型
-      - `uuid`：string - 资源 ID
     - `readonly`：boolean - 是否只读
     - `type`：string - 资源类型
     - `url`：string - db:// 开头的资源地址
@@ -106,12 +102,14 @@
     - `sublabel`：string - 可选，显示的二级文本
     - `submenu`：MenuItem[] - 可选，子项菜单
     - `click`：function - 可选，点击事件
-    - `enable`：boolean - 可选，是否可用，不可用会有置灰样式
+    - `enabled`：boolean - 可选，是否可用，不可用会有置灰样式
     - `visible`：boolean - 可选，是否显示
     - `accelerator`：string - 可选，显示快捷键
     - `checked`：boolean - 可选，当 type 为 `checkbox` / `radio` 时是否选中
 
     更多属性可参考 [electron menu-item](https://www.electronjs.org/docs/api/menu-item) 的数据格式。
+
+示例中以 `i18n:` 开始的字符串，需要配置多语言相关内容，请参考[多语言系统（i18n）](../extension/i18n.md)。
 
 最终实现效果如下图所示：
 
@@ -119,13 +117,13 @@
 
 >**注意** 新增的自定义菜单默认显示在编辑器现有菜单的后面。
 
-## 扩展拖入识别
+## 拖入识别
 
-假设我们做了一个拥有若干资源的扩展包，且有一个面板用于展示这些资源的图标。 我们希望实现将面板上的图标拖放到资源窗口时，即可将资源包中的资源拷贝到资源窗口。
+假设我们做了一个拥有若干资源的插件包，且有一个面板用于展示这些资源的图标。 我们希望实现将面板上的图标拖放到资源窗口时，即可将资源包中的资源拷贝到资源窗口。
 
-在 Cocos Creator 扩展中实现这个流程并不复杂。只需要定义一个 `<ui-drag-item type="xxx">`  UI 组件，自定义一个拖入类型，并注入到 **资源管理器** 面板的识别范围内。后续在编辑器其他面板将含有该自定义类型的 `<ui-drag-item>` 元素拖入 **资源管理器** 面板时，**资源管理器** 面板便能识别到它，并给自定义类型的注册方（插件）发送消息，注册方便能执行一个自定义的动作，比如执行新建一组资源。
+在 Cocos Creator 插件中实现这个流程并不复杂。只需要定义一个 `<ui-drag-item type="xxx">`  UI 组件，自定义一个拖入类型，并注入到 **资源管理器** 面板的识别范围内。后续在编辑器其他面板将含有该自定义类型的 `<ui-drag-item>` 元素拖入 **资源管理器** 面板时，**资源管理器** 面板便能识别到它，并给自定义类型的注册方（插件）发送消息，注册方便能执行一个自定义的动作，比如执行新建一组资源。
 
-和 **扩展右击菜单** 一样，我们需要在 `package.json` 文件做对应的配置。
+和 **自定义右击菜单** 一样，我们需要在 `package.json` 文件做对应的配置。
 ```json5
 // package.json
 {
@@ -147,7 +145,7 @@
 }
 ```
 
-- 在扩展的 `default` 面板中加入 `dropAsset` 方法，如下所示：
+- 在插件的 `default` 面板中加入 `dropAsset` 方法，如下所示：
   ```typescript
   export const methods = {
     dropAsset(assetInfo: any, dragInfo: any) {
@@ -162,7 +160,7 @@
     - `type`：string - 该资源的类型
     - `isDirectory`：boolean - 该资源是否是文件夹
 
-- 在扩展的 `defualt` 面板中加入 `ui-drag-item` UI 组件，如下所示：
+- 在插件的 `defualt` 面板中加入 `ui-drag-item` UI 组件，如下所示：
 
   ```html
   <ui-drag-item

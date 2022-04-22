@@ -19,7 +19,7 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 
 为了更简单的演示模板创建流程，我们选择 **Blank** 模板，点击面板右下方的 **创建扩展** 按钮建一个扩展包。
 
-更多模板创建相关内容，请参考文档 [扩展模板与构建-模板类型](./create-extension.md#模板类型)。
+更多模板创建相关内容，请参考文档 [扩展模板与编译构建-模板类型](./create-extension.md)。
 
 
 ## 扩展管理
@@ -28,7 +28,7 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 
 ![extension](first/extension.png)
 
-更多扩展管理内容请参考文档 [扩展管理器-扩展列表](./extension-manager.md#扩展列表)。
+更多扩展管理内容请参考文档 [扩展管理器-扩展列表](./extension-manager.md)。
 
 
 ## 扩展目录
@@ -79,7 +79,7 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 各字段含义如下：
 - `package_version`：Number - 版本号数值。
 - `version`：String - 版本号字符串，推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
-- `name`：String - 定义了包的名字，包的名字是全局唯一的。命名规则请参考 [选项说明](./create-extension.md#选项说明)。
+- `name`：String - 定义了包的名字，包的名字是全局唯一的。命名规则请参考 [选项说明](./create-extension.md)。
 - `description`：Stirng - 扩展描述，用于简要介绍扩展关键特性、用途等信息，支持 **i18n** 多语言设置。
 - `main`：String - 入口程序文件。
 - `devDependencies`：{} - 扩展依赖。如本示例中，扩展依赖的 NodeJS 版本为 16.0.1，依赖的 TypeScript 版本为 4.3.4。
@@ -126,12 +126,12 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 
 新增字段含义如下：
 - `contributions`：Object（可选）- 对编辑器已有功能进行扩展的相关配置
-    - `menu`：[]，注册菜单，并绑定消息。具体内容请参考 [扩展主菜单](./contributions-menu.md)。
+    - `menu`：[]，注册菜单，并绑定消息。具体内容请参考 [自定义主菜单](./contributions-menu.md)。
     - `messages`：[] - 注册编辑器消息，可以绑定一个或多个的扩展内定义的方法。更多定义数据请参考 [自定义消息](./contributions-messages.md)。
 
 更多关于 `package.json` 格式的定义，请参考 [扩展包的定义](./define.md)。
 
-## 构建扩展
+## 安装依赖和编译构建
 
 扩展创建完成后打开扩展包所在目录，执行以下命令：
 
@@ -142,7 +142,7 @@ npm install
 npm run build
 ```
 
-更多扩展构建相关信息参考文档 [扩展模板与构建-依赖安装与构建](./create-extension.md#依赖安装与构建)。
+更多扩展编译构建相关信息参考文档 [扩展模板与编译构建](./create-extension.md)。
 
 ## 运行扩展
 

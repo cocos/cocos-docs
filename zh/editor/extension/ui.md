@@ -1,5 +1,6 @@
 # UI 组件
 
+## UI 组件面板
 为了方便布局，编辑器内提供了许多预设的 UI 组件。
 
 1、找到编辑器顶部主菜单中的 **开发者 -> UI 组件** 查看。
@@ -40,4 +41,6 @@
     - `value` 值
     - `label` 显示标签
 
-具体使用示例请参考文档 [扩展偏好设置面板](./contributions-preferences.md) 和 [扩展项目设置面板](./contributions-project.md)。
+具体使用示例请参考文档 [自定义偏好设置面板](./contributions-preferences.md) 和 [自定义项目设置面板](./contributions-project.md)。
+
+UI 组件的更多例子，请打开 [UI 组件面板](#ui-组件面板) 查看相关使用说明。

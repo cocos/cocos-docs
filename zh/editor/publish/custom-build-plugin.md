@@ -1,31 +1,30 @@
-# 扩展构建流程
+# 自定义构建流程
 
-扩展构建流程的前提是需要对构建的整体处理流程有所了解，不熟悉的开发者建议先阅读 [构建流程简介与常见问题指南](./build-guide.md)。
+对构建流程进行自定义的前提是需要对构建发布的整体流程有所了解，不熟悉的开发者建议先阅读 [构建流程简介与常见问题指南](./build-guide.md)。
 
 为了能更好的理解本篇文档内容，在继续阅读本文档之前，推荐大家先阅读 Cocos Creator [扩展编辑器](../extension/readme.md) 文档，了解扩展开发相关知识。
 
+为方便书写，本文中我们约定将用于自定义构建流程的扩展简称为： **构建扩展**
 
 ## 构建扩展模板
-Cocos Creator 提供了快捷的生成构建扩展包的方式：点击 **项目** -> **新建构建扩展包** 菜单即可生成 `cocos-build-template` 扩展包，如下图所示：
+Cocos Creator 提供了快捷方式生成 **构建扩展模板**：点击 **项目** -> **新建构建扩展包** 菜单即可生成 `cocos-build-template`，如下图所示：
 
 ![](./custom-build-plugin/cocos-build-template-menu.png)
 
-**注意：** 生成扩展包时会选择扩展作用于 **项目** 还是 **全局**，建议选择 **项目**，除非真的需要一个作用于所有项目的构建扩展包。
+**注意：** 生成此扩展模板时会选择其作用于 **项目** 还是 **全局**，建议选择 **项目**，除非真的需要将此扩展作用于所有项目。
 
-在此构建扩展包的基础上可快速完成项目需求。
-
-下面我们将重现此扩展包的制作过程，并逐一讲解细节
+下面我们将重现此扩展包的制作过程，并逐一讲解细节。
 
 ## 创建扩展
 
-对扩展创建不太熟悉的开发者可参考文档 [入门示例](../extension/first.md) 创建一个名为 `custom-build-example` 的扩展。
+对扩展的创建和开发不太熟悉的开发者可参考文档 [入门示例](../extension/first.md)，创建一个名为 `custom-build-example` 的扩展。
 
 >为了方便与 `cocos-build-template` 对比学习，我们使用另一个不同的名字。
 
-## 扩展定义与入口脚本
+## 扩展包定义与自定义构建入口脚本
 
-在 `package.json` 中添加 `contributions.builder` 字段，此字段指向一个 `JavaScript` 脚本的 **相对路径**，作为扩展构建流程的入口脚本，如下所示：
-```json
+在 `package.json` 中添加 `contributions.builder` 字段，此字段指向一个 `JavaScript` 脚本的 **相对路径**，作为构建流程的入口脚本（以下简称**自定义构建脚本**），如下所示：
+```json5
 // package.json
 {
     "contributions": {
@@ -36,12 +35,23 @@ Cocos Creator 提供了快捷的生成构建扩展包的方式：点击 **项目
 
 > **注意**：`./dist/builder.js` 是由 `./src/builder.ts` 编译后生成的脚本。
 
-## 入口脚本结构
+## 自定义构建脚本结构
 `builder.ts` 完整结构示例如下：
 ```ts
+
+import { BuildPlugin, IBuildTaskOption } from "../@types/packages/builder/@types";
+
+export const load: BuildPlugin.load = function() {
+    console.debug('custom-build-example load');
+};
+
+export const unload: BuildPlugin.load = function() {
+    console.debug('custom-build-example unload');
+};
+
 export const assetHandlers: string = './asset-handlers';
 
-export const configs = {
+export const configs:BuildPlugin.Configs = {
     'web-mobile': {
         options: {
             opt_1:{ ... },
@@ -64,25 +74,27 @@ export const configs = {
 ```
 
 `assetHandlers`：string - 用于替换部分构建方法的脚本文件的相对路径，详情请参考下文[自定义纹理压缩处理](#自定义纹理压缩处理)。
-`configs`：{} - 构建面板相关的配置
+
+`configs`：BuildPlugin.Configs - 构建面板相关的配置
 - `web-mobile`：string - Cocos Creator 支持的平台名，与点击 **构建** 按钮后生成的文件夹一致。 如果平台标记为 `*`，则里面的配置对所有构建平台生效。
 - `options`：{} -  构建面板选项，每一个选项都会在构建面板中新增一个显示项，详情请参考下文 [自定义构建面板选项](#自定义构建面板选项) 。
-- `verifyRuleMap`：{} - 自定义参数校验规则函数，请参考下文 [参数校验](#参数校验)。 
+- `verifyRuleMap`：{} - 自定义参数校验规则函数，请参考下文 [参数校验规则](#参数校验规则)。 
 - `hooks`：string - 指定一个脚本，里面可以包含构建生命周期内的一系列钩子函数，详情请参考下文 [钩子函数](#钩子函数) 。
 
 ## 自定义构建面板选项
 
-为了方便测试，本文将以 web-mobile 为例，来展示如何在构建面板上新增选项并显示。
+为了方便测试，本文将以 web-mobile 为例来展示如何在构建面板上新增选项并显示。
+
 新建 `src/builder.ts` 脚本文件，并在 `builder.ts`中编写如下代码：
  ```ts
 import { BuildPlugin, IBuildTaskOption } from "../@types/packages/builder/@types";
 
 export const load: BuildPlugin.load = function() {
-    console.debug('cocos-build-template load');
+    console.debug('custom-build-example load');
 };
 
 export const unload: BuildPlugin.load = function() {
-    console.debug('cocos-build-template unload');
+    console.debug('custom-build-example unload');
 };
 
 export const configs:BuildPlugin.Configs = {
@@ -123,13 +135,13 @@ export const configs:BuildPlugin.Configs = {
     },
 };
  ```
-在上面的 `configs` 中我们定义 3 个参数：
+在上面的 `configs` 中我们定义了 2 个参数：
 - `testInput`：string - 字符串变量，采用输入框方式修改
 - `testCheckbox`：boolean - 布尔变量，采用复选框方式修改
 
-参数各字段含义如下：
-- `label`：string - 必填，此参数在界面上显示的名称，支持 i18n:key 配置
-- `description`：string 可选，简要描述信息，用于鼠标悬停在 label 上时显示提示，支持 i18n:key 配置
+构建选项配置的参数各字段含义如下：
+- `label`：string - 必填，此参数在界面上显示的名称，支持 `i18n:key` 配置
+- `description`：string 可选，简要描述信息，用于鼠标悬停在 label 上时显示提示，支持 `i18n:key` 配置
 - `default`：any - 可选，参数的默认值
 - `render`：{} - 必填，配置渲染组件相关信息
     - `ui`：string - 必填，UI 组件名，详情请参考文档 [UI 组件](../extension/ui.md)
@@ -138,19 +150,19 @@ export const configs:BuildPlugin.Configs = {
 - `verifyRules`：[] - 可选，参数检验规则
 - `verifyRuleMap`：[] - 可选，自定义参数检验规则函数，参考下文 [参数校验规则](#参数校验规则)
 
-执行 `npm run build` 编译扩展并在扩展列表中刷新此扩展后，打开构建面板，在 web-mobile 构建任务中可以看到末尾多出了 3 个构建参数，如下图所示：
+执行 `npm run build` 编译此扩展并刷新后，打开构建面板，在 web-mobile 构建任务中可以看到末尾多出了 2 个构建参数，如下图所示：
 
 ![](./custom-build-plugin/custom-build-example-options.png)
 
 ### 特别注意事项
 
-1. 不同进程中的环境变量会有所差异。扩展构建脚本会同时被 **渲染进程** 和 **主进程** 加载，所以请不要在扩展构建脚本中使用仅存在于单一进程中的编辑器接口。进程相关详情请参考下文 **调试构建扩展插件** 部分的内容。
+1. 不同进程中的环境变量会有所差异，自定义构建脚本会同时被 **渲染进程** 和 **主进程** 加载，所以请不要在自定义构建脚本中使用仅存在于单一进程中的编辑器接口。进程相关详情请参考下文 [调试构建扩展](#调试构建扩展) 部分的内容。
 
-2. `configs` 的 key 有两种配置方式：
+2. `configs` 的 `key` 有两种配置方式：
 
-    - 针对 **单个平台** 的配置，`key` 值填写为 `平台名`，参考上面的代码示例。各平台对应的构建插件名可在编辑器主菜单的 **扩展 -> 扩展管理器 -> 内置** 中查看。
+    - 针对 **单个平台** 的配置，`key` 值填写为 `平台名`，参考上面的代码示例。各平台对应的构建名可在编辑器主菜单的 **扩展 -> 扩展管理器 -> 内置** 中查看。
 
-    - 针对 **所有平台** 的配置，`key` 值填写为 `*`，参考通过编辑器菜单栏的 **新建构建扩展包** 生成的 `source/builder.ts` 文件。
+    - 针对 **所有平台** 的配置，`key` 值填写为 `*`，参考[构建扩展模板](#构建扩展模板) 中的 `source/builder.ts` 文件。
 
     > **注意**：优先级 `平台名` > `*`， 若某平台有对应的 `平台名` 配置，则会优先使用对应的配置, `*` 中的所有配置对此平台无效。
 
@@ -164,21 +176,23 @@ verifyRules: ['required','ruleTest']
 
 ### 内置参数校验规则
 
-上面的 `verifyRules` 定义的 `required`，是扩展系统的内置校验规则，它表示此选项为必填项，不能为空，在界面上会有 `*` 以及红字提示：
+上面的 `verifyRules` 定义的 `required`，是扩展系统的内置校验规则，它表示此选项为必填项，不能为空，在界面上会有 `*` 提示，未填写时也会有红字提示：
 
 ![](./custom-build-plugin/custom-build-example-options.png)
 
 完整的内置参数校验规则如下：
 
-- `required` - 必选
+- `required` - 参数为必填
 - `array` - 参数内容必须满足数组格式
 - `string` - 参数内容只能是字符串形式
 - `number` - 参数只能是数字
 
 
 
-`verifyRules` 数组中还定义了一个叫 `ruleTest` 的自定义校验规则。构建扩展在进行匹配时，会优先从 `verifyRuleMap` 去寻找匹配，若不能匹配到任何一个自定义校验规则，才会从内置的参数校验规则中去寻找。自定义规则属性含义如下：
-- `message`：string - 当规则校验失败后，会在控制台窗口打印出此消息，支持 i18n:key 形式。
+`verifyRules` 数组中还定义了一个叫 `ruleTest` 的自定义校验规则。自定义构建脚本在进行匹配时，会优先从 `verifyRuleMap` 去寻找匹配，若不能匹配到任何一个自定义校验规则，才会从内置的参数校验规则中去寻找。
+
+自定义规则属性含义如下：
+- `message`：string - 当规则校验失败后，会在控制台窗口打印出此消息，支持 `i18n:key` 形式。
 - `func`：function - 自定义校验规则函数
     - `val`：any - 当前值
     - `options`：IBuildTaskOption - 整个构建面板的选项信息，详情请前往 `d.ts` 查看定义
@@ -193,12 +207,12 @@ verifyRules: ['required','ruleTest']
 
 ![build-process](./custom-project-build-template/build-process.jpg)
 
-参考上图，所有的钩子函数都是在构建进程中按照顺序依次执行，不同的钩子函数接收到的数据会有所差异。钩子函数中可以直接使用引擎提供的 `API` 和 `Editor` 相关全局变量。
+参考上图，所有的钩子函数都是在构建流程中按照顺序依次执行，不同的钩子函数接收到的数据会有所差异。钩子函数中可以直接使用引擎提供的 `API` 和 `Editor` 相关全局变量。
 
 关于 `Editor` 详细的接口定义请点击编辑器主菜单的 **开发者 —> 导出 .d.ts** 获取和查看。关于构建进程的说明请参考下文 [构建进程](#构建进程hooks-脚本) 部分的内容。
 
 
-要实现钩子函数，需要先在 builder.ts 中加入 `hooks` 字段，参考上文的 [入口脚本结构](#入口脚本结构)，并创建一个 `src/hooks.ts` 脚本文件写入如下代码：
+要实现钩子函数，需要先在 `builder.ts` 中加入 `hooks` 字段，参考上文的 [自定义构建脚本结构](#自定义构建脚本结构)，并创建一个 `src/hooks.ts` 脚本文件写入如下代码：
 ```ts
 import { BuildHook } from "../@types/packages/builder/@types";
 
@@ -258,16 +272,17 @@ export namespace BuildHook {
 ```
 
 > **注意**：
-> 1. 传递到钩子函数中的 `options` 是实际构建进程中使用的 `options` 的一个副本，仅作为信息获取的参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。若要修改构建参数请在入口脚本的 `options` 字段中修改。
-> 2. 钩子函数允许为异步函数，构建执行钩子函数时默认会 await 等待其执行完毕才会执行下一个流程。
-> 3. 详细的接口定义可以参考构建扩展包中 `@types/packages/builder` 目录下的内容。
+> 1. 传递到钩子函数中的 `options` 是实际构建流程中 `options` 对象的一个副本，仅作为信息获取的参考，直接修改它虽然能修改成功但并不会真正地影响构建流程。若要修改构建参数请在自定义构建脚本的 `options` 字段中修改。
+> 2. 钩子函数允许为异步函数，构建流程在执行钩子函数时默认会 `await` 等待其执行完毕才会执行下一个流程。
+> 3. 详细的接口定义可以参考扩展中 `@types/packages/builder` 目录下的内容。
 
 
-编译、并刷新扩展后，再次执行 web-mobile 构建任务，可在构建日志文件中看到相关打印信息。可通过下图所示按钮打开日志文件：
+编译、并刷新此扩展后，再次执行 web-mobile 构建任务，可在构建日志文件中看到相关打印信息。可通过下图所示按钮打开日志文件：
 
 ![](./custom-build-plugin/custom-build-example-hooks-log.png)
 
 ## 自定义纹理压缩处理
+<span id="compress_tex"></span>
 
 Cocos Creator 提供了自带的压缩工具用于处理压缩纹理资源，但因需要兼容不同的用户环境，通常压缩工具会选择兼容性更高的，而不是性能最高的。
 
@@ -277,7 +292,7 @@ Cocos Creator 提供了自带的压缩工具用于处理压缩纹理资源，但
 
 ### 添加资源处理器脚本相对路径
 
-在 `src/builder.ts` 入口脚本中，添加如下所示代码：
+在自定义构建脚本 `src/builder.ts` 中，添加如下所示代码：
 
 ```ts
 export const assetHandlers = './asset-handlers';
@@ -299,16 +314,16 @@ export const compressTextures: AssetHandlers.compressTextures = async (tasks) =>
 图所示：
 ![](./custom-build-plugin/custom-build-compress-tex-option.png)
 
-编译、并刷新扩展后，再次执行 web-mobile 构建任务，可在构建日志文件中看到相关打印信息。
+编译、并刷新此扩展后，再次执行 web-mobile 构建任务，可在构建日志文件中看到相关打印信息。
 
-> **注意：** 测试时请先删除已经构建好的 web-mobile 目录，否则会因为缓存机制导致不会再次执行压缩任务。
+> **注意：** 测试时请先点击构建面板右上角的清理缓存按钮清理项目缓存，否则会因为纹理压缩的缓存机制导致不会再次执行压缩任务。
 
 ### 执行流程
 在 `assetHandlers` 脚本模块里，我们开放了 `compressTextures` 函数，构建时便会在纹理压缩处理阶段调用该处理函数。
 
 处理函数会接收当前剩余的未被处理的纹理压缩任务数组，处理完成后从原数组中移除。未被移除的纹理压缩任务视为未处理，会被放置到下一个相应的处理函数进行处理，直到所有的处理函数都处理完了，若还有未处理的纹理压缩任务，则放置回 Cocos Creator 原有的纹理压缩流程中进行处理。
 
-当有多个插件注册了纹理压缩处理函数时，按照插件启动顺序执行，如果前一个插件处理了全部的纹理压缩任务，则后续插件注册的处理函数将不会收到任务。
+当有多个扩展都注册了纹理压缩处理函数时，按照扩展启动顺序执行，如果前一个扩展处理了全部的纹理压缩任务，则后注册的扩展的处理函数将不会收到任务。
 
 代码示例如下：
 ```ts
@@ -339,19 +354,19 @@ export async function compressTextures(tasks: ICompressTasks[]) {
 }
 ```
 
-## 调试构建扩展插件
+## 调试构建扩展
 
-构建扩展插件参与到构建流程时，相关代码会运行在以下三种进程：
+构建扩展参与到自定义构建流程时，相关代码会运行在以下三种进程：
 
-- **主进程**：执行扩展构建入口脚本（`package.json` 中 `builder` 字段指定的脚本）及其依赖资源
-- **渲染进程**：执行扩展构建入口脚本中注册到 **构建发布** 面板上的部分字段
-- **构建进程**：执行扩展构建入口脚本中 `hooks` 字段定义的脚本
+- **主进程**：执行自定义构建脚本（`package.json` 中 `builder` 字段指定的脚本）及其依赖资源
+- **渲染进程**：执行自定义构建脚本中注册到 **构建发布** 面板上的部分字段
+- **构建进程**：执行自定义构建脚本中 `hooks` 字段定义的脚本
 
 ### 主进程（入口脚本）
 
-主进程主要执行构建扩展插件中用于参与构建流程的扩展构建入口脚本，以及插件自身的扩展构建脚本（`main` 字段中指定的脚本）。
+主进程主要执行用于参与构建流程的自定义构建脚本，以及扩展自身的入口脚本（`main` 字段中指定的脚本）。
 
-当修改了运行在主进程中的代码时，必须要重启插件，然后再刷新需要更新的进程（这一点会在之后优化，尽量通过一次重启便解决代码更新问题，但刷新依旧是最彻底的重载方法）。主进程目前没有比较合适的调试方法，可以使用命令行打开编辑器查看主进程代码日志来辅助调试：
+当修改了运行在主进程中的代码时，必须要重启扩展，然后再刷新需要更新的进程（这一点会在之后优化，尽量通过一次重启便解决代码更新问题，但刷新依旧是最彻底的重载方法）。主进程目前没有比较合适的调试方法，可以使用命令行打开编辑器查看主进程代码日志来辅助调试：
 
 ```bash
 // Mac
@@ -363,9 +378,9 @@ export async function compressTextures(tasks: ICompressTasks[]) {
 
 ### 渲染进程（构建发布面板）
 
-扩展脚本中，有部分字段是注册到 **构建发布** 面板上的，例如 `options` 的显示配置、`panel` 字段，以及 `panel` 脚本本身，这部分内容会在渲染进程载入执行。渲染进程其实就是窗口自己的执行进程，打开调试工具，可以调试 **构建发布** 面板上的 dom 元素、样式、脚本等。
+自定义构建脚本中，有部分字段是注册到 **构建发布** 面板上的，例如 `options` 的显示配置、`panel` 字段，以及 `panel` 脚本本身，这部分内容会在渲染进程载入执行。渲染进程其实就是窗口自己的执行进程，打开调试工具，可以调试 **构建发布** 面板上的 dom 元素、样式、脚本等。
 
-如果是修改了注册到 **构建发布** 面板上的代码时，只需要刷新面板即可，无需重启插件。
+如果是修改了注册到 **构建发布** 面板上的代码时，只需要刷新面板即可，无需重启扩展。
 
 - **打开构建发布面板渲染进程的调试工具**
 
@@ -377,9 +392,9 @@ export async function compressTextures(tasks: ICompressTasks[]) {
 
 ### 构建进程（`hooks` 脚本）
 
-构建的实际执行阶段是单独的一个 `worker` 进程，确保即使发生异常崩溃也不会影响到其他窗口的正常使用。在扩展构建入口脚本的 `hooks` 字段中定义的脚本也是在这个单独的 `worker` 进程中载入执行的。
+构建流程的实际执行环境是单独的一个 `worker` 进程，确保即使发生异常崩溃也不会影响到其他窗口的正常使用。在自定义构建脚本的 `hooks` 字段中定义的脚本也是在这个单独的 `worker` 进程中载入执行的。
 
-如果仅修改 `hooks` 字段定义的脚本，刷新构建进程即可，无需重启插件。刷新方式同上文的 **构建发布** 面板一致，打开构建调试工具后，按下快捷键 **Ctrl/Cmd + R** 即可。
+如果仅修改 `hooks` 字段定义的脚本，刷新构建进程即可，无需重启扩展。刷新方式同上文的 **构建发布** 面板一致，打开构建调试工具后，按下快捷键 **Ctrl/Cmd + R** 即可。
 
 ### 打开构建进程的调试工具
 
@@ -391,13 +406,13 @@ export async function compressTextures(tasks: ICompressTasks[]) {
 
 2. 点击编辑器主菜单中的 **开发者 -> 打开构建调试工具** 即可。
 
-3. 在任意插件代码或者控制台中，执行以下代码：
+3. 在任意控制台或者扩展的代码中，执行以下代码：
 
     ```ts
     Editor.Message.send('builder', 'open-devtools');
     ```
 
-    可以在这个消息方法的基础上，根据自己的需要进行扩展。例如：可以在自己编写的构建插件的代码中捕获错误，一旦有异常就自动打开调试工具之类的。
+    可以在这个消息方法的基础上，根据自己的需要进行加工处理。（例如：可以在自己编写的构建扩展代码中捕获错误，一旦有异常就自动打开调试工具）。
 
 
 

@@ -21,8 +21,8 @@ Cocos Creator 目前支持发布游戏到 Web、iOS、Android、Windows、Mac，
 
 ## 进阶
 
-如果对构建流程有了一定程度上的熟悉和了解，就可以自定义构建模板、扩展构建流程等。详情可参考以下文档：
+如果对构建流程有了一定程度上的熟悉和了解，就可以自定义构建模板、自定义构建流程等。详情可参考以下文档：
 
 - [构建流程简介与常见错误处理](build-guide.md)
 - [定制项目的构建模版](custom-project-build-template.md)
-- [扩展构建流程](custom-build-plugin.md)
+- [自定义构建流程](custom-build-plugin.md)

@@ -7,6 +7,7 @@
     "package_version": 2,
     "version": "1.0.0",
     "name": "first-panel",
+    "tilte": "i18n:first-panel.title",
     "description": "i18n:first-panel.description",
     "author": "Cocos Creator",
     "editor": ">=3.4.2",
@@ -41,11 +42,16 @@
 
 扩展的名称，这个名字需要和扩展文件夹一一对应。
 
+## title
+类型 {string} 可选
+
+扩展的显示标题，当配置了 `title` 时，在需要展示扩展名的地方会优先采用 `title`，支持 [多语言（i18n）](./i18n.md) 配置。
+
 ## description
 
 类型 {string} 可选
 
-扩展的描述，简单概括一下扩展的功能。支持 i18n:key 的多语言语法。
+扩展的描述，简单概括一下扩展的功能。支持 [多语言（i18n）](./i18n.md) 的多语言语法。
 
 
 ## author
@@ -72,13 +78,13 @@
 
 类型 {[name: string]: PanelInfo} 可选
 
-扩展内定义的面板信息。可以使用 Editor.Panel.open('hello-world.list'); 打开定义好的面板。详细信息请参看 [扩展面板](./panel.md)
+扩展内定义的面板信息。可以使用 Editor.Panel.open('hello-world.list'); 打开定义好的面板。详细信息请参看 [面板系统](./panel.md)
 
 ## contributions
 
 类型 {[name: string]: any} 可选
 
-`contributions` 提供了与编辑器各功能系统交互的能力，更多信息请参看文档 [扩展已有功能](./contributions.md)。
+`contributions` 提供了与编辑器各功能系统交互的能力，更多信息请参看文档 [增强已有功能](./contributions.md)。
 
 ## scripts
 类型 {[name: string]: any} 必填
