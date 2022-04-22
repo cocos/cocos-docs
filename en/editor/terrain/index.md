@@ -69,12 +69,21 @@ Sculpting is changing the shape of a terrain.
 
 | Parameter | Description |
 | :--- | :--- |
-| **BrushSize**     | The size of the brush |
-| **BrushStrength** | The strength of the brush |
-| **BrushMode** | The type of the brush, including **Bulge**, **Sunken** and **Smooth** |
-| **Brush** | Custom brush style, by selecting a style picture to generate a custom brush. |
+| **Brush Size**     | The size of the brush |
+| **Brush Strength** | The strength of the brush |
+| **Brush Mode** | The mode of the brush, including **Bulge**, **Sunken**, **Smooth**, **Flatten**, **Set Height** |
+| **Brush Height** | The height of the brush, only use for **Set Height** mode |
+| **Brush** | Custom brush style, by selecting a style picture to generate a custom brush, use a channel as brush mask |
 
-To control the bulging/depression of the terrain, use the **left mouse** button and the **Shift + left mouse** button, respectively. The bulge and depression operation often makes the terrain look sharp, use the smoothing function to overdo it.
+| Brush mode | Description |
+| :--- | :--- |
+| Bulge | Bulge terrain |
+| Sunken | Sunken terrain |
+| Smooth | Smooth terrain |
+| Flatten | Flatten terrain |
+| Set Height | Use **Brush Height** to set terrain height |
+
+use the **left mouse** button to sculpt terrain, also use the **Shift + left mouse** button to depression terrain when in **Bulge** mode, 
 
 ### Painting a terrain
 
