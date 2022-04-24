@@ -1,67 +1,114 @@
-# 第一个扩展
+# 入门示例-菜单
 
-我们将通过本文，学会创建一个 Creator 扩展，并通过扩展执行一段自定义脚本。
+本文将演示如何创建一个 Cocos Creator 扩展，本文将包含以下知识点：
+- 创建扩展
+- 新增菜单
+- 菜单消息
 
 ## 创建并安装扩展
 
-在编辑器的菜单栏中点击 **扩展 -> 创建扩展**，选择 **全局**/**项目** 后即可创建一个扩展包。
+在编辑器的菜单栏中找到 **扩展 -> 创建扩展** 菜单，如下图所示：
 
-- 若选择 **全局**，则是将扩展包应用到所有的 Cocos Creator 项目，**全局** 路径为：
+![](image/create-extension-menu.png)
 
-    - **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
+点击 **创建扩展** 后，会弹出如下图所示的创建面板：
 
-    - **MacOS**：`$HOME/.CocosCreator/extensions`
+![](image/create-extension-panel.png)
 
-- 若选择 **项目**，则是将扩展包应用到指定的 Cocos Creator 项目，**项目** 路径为：
+Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一个新的扩展项目。
 
-    - `$你的项目地址/extensions`
+为了更简单的演示模板创建流程，我们选择 **Blank** 模板，点击面板右下方的 **创建扩展** 按钮建一个扩展包。
 
-创建扩展时会提示是否直接启动该扩展，可根据需要自行选择（示例中选择启动）：
+更多模板创建相关内容，请参考文档 [扩展模板与编译构建-模板类型](./create-extension.md)。
 
-![whether enable extension](first/enable-or-not.png)
 
-然后点击顶部菜单栏中的 **扩展 -> 扩展管理器 -> 项目/全局**，即可看到刚才创建的扩展，默认名称为 `simple-时间戳`：
+## 扩展管理
+
+扩展创建成功后，点击顶部菜单栏中的 **扩展 -> 扩展管理器 -> 项目/全局**，即可看到刚才创建的扩展。新创建的扩展默认是未启用状态，点击启用按钮即可启用此扩展：
 
 ![extension](first/extension.png)
 
-- ![folder](first/folder.png)：在操作系统的文件管理器中打开扩展包
-- ![refresh](first/refresh.png)：刷新扩展
-- ![delete](first/delete.png)：删除扩展
-- ![enable](first/enable.png)：启动/关闭扩展
+更多扩展管理内容请参考文档 [扩展管理器-扩展列表](./extension-manager.md)。
 
-点击 ![folder](first/folder.png) 按钮打开扩展包，扩展包的目录结构如下：
 
-![extension package](first/extension-package.png)
+## 扩展目录
 
-## 定义描述文件 `package.json`
+点击 ![folder](first/folder.png) 按钮可打开扩展包所在目录。以 **Blank** 模板为例，目录结构如下：
 
-每个扩展都需要有一份 `package.json` 文件，用于描述改扩展的用途。只有完整定义了描述文件 `package.json` 后，编辑器才能知道这个扩展里定义的具体功能，以及加载入口等信息。
+![extension-folder](image/extension-folder-blank.png)
 
-虽然 `package.json` 在很多字段上的定义和 `node.js` 的 npm package 相似，但它们显然是为不同的产品服务而特殊定制的。所以从 npm 社区中下载的 npm 模块，并不能直接放入到 Cocos Creator 中变成扩展，但是我们可以在 Creator 扩展中使用 npm 社区里的模块。
+各子文件（夹）功能如下：
+- `@types` - TypeScript 定义文件。
+- `dist` - TypeScript 生成的 javascript 代码。
+- `i18n` - 多语言配置。
+- `src` - TypeScript 源代码。
+- `package.json` - 扩展描述文件。
+- `README-CN/EN.md` - 中文/英文说明文件。
+- `tsconfig.json` - TypeScript 配置文件。
 
-让我们接着刚刚的操作，打开 `package.json` 文件，可以看到以下内容：
+## 扩展定义文件 `package.json`
+
+每个扩展都需要有一份 `package.json` 文件，用于描述改扩展的用途。
+
+只有完整定义了描述文件 `package.json` 后，编辑器才能知道这个扩展里定义的具体功能、加载入口等信息。
+
+>**注意：** 虽然 `package.json` 很多字段的定义和 `node.js`  npm 模块的 `package.json` 相似，但从 npm 社区中下载的 npm 模块并不能直接作为 Cocos Creator 扩展使用。可以在 Cocos Creator 扩展中调用 npm 模块，使扩展具备相应的能力。
+
+打开 `package.json` 文件，可以看到以下内容：
 
 ```json
 {
-    "name": "simple-1634093231454",
     "package_version": 2,
     "version": "1.0.0",
-    "description": "A Simple Extension",
-    "author": "Unknown",
-    "main": "browser.js"
+    "name": "simple-1649426645745",
+    "description": "i18n:simple-1649426645745.description",
+    "main": "./dist/main.js",
+    "devDependencies": {
+        "@types/node": "^16.0.1",
+        "typescript": "^4.3.4"
+    },
+    "author": "Cocos Creator",
+    "editor": ">=3.4.2",
+    "scripts": {
+        "build": "tsc -b",
+        "watch": "tsc -w"
+    }
 }
-```
 
-将其改为：
+```
+各字段含义如下：
+- `package_version`：Number - 版本号数值。
+- `version`：String - 版本号字符串，推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
+- `name`：String - 定义了包的名字，包的名字是全局唯一的。命名规则请参考 [选项说明](./create-extension.md)。
+- `description`：Stirng - 扩展描述，用于简要介绍扩展关键特性、用途等信息，支持 **i18n** 多语言设置。
+- `main`：String - 入口程序文件。
+- `devDependencies`：{} - 扩展依赖。如本示例中，扩展依赖的 NodeJS 版本为 16.0.1，依赖的 TypeScript 版本为 4.3.4。
+- `author`：String - 作者信息。
+- `editor`：String - 支持的 Cocos Creator 编辑器版本。
+- `scripts`：{} - 脚本编译相关命令。
+
+
+## 定义菜单和消息
+将 `package.json` 改为如下内容：
 
 ```json
 {
-    "name": "hello-world",
     "package_version": 2,
     "version": "1.0.0",
-    "description": "A Simple Extension",
-    "author": "Unknown",
-    "main": "browser.js",
+    "name": "simple-1649426645745",
+    "description": "i18n:simple-1649426645745.description",
+    "main": "./dist/main.js",
+    "devDependencies": {
+        "@types/node": "^16.0.1",
+        "typescript": "^4.3.4"
+    },
+    "author": "Cocos Creator",
+    "editor": ">=3.4.2",
+    "scripts": {
+        "build": "tsc -b",
+        "watch": "tsc -w"
+    },
+    //------------------------------
     "contributions": {
         "menu": [{
             "path": "Develop",
@@ -77,78 +124,80 @@
 }
 ```
 
-其中字段含义如下：
+新增字段含义如下：
+- `contributions`：Object（可选）- 对编辑器已有功能进行扩展的相关配置
+    - `menu`：[]，注册菜单，并绑定消息。具体内容请参考 [自定义主菜单](./contributions-menu.md)。
+    - `messages`：[] - 注册编辑器消息，可以绑定一个或多个的扩展内定义的方法。更多定义数据请参考 [自定义消息](./contributions-messages.md)。
 
-- `name` String - 定义了包的名字，包的名字是全局唯一的，关系到今后在官网服务器上登录时的名字
+更多关于 `package.json` 格式的定义，请参考 [扩展包的定义](./define.md)。
 
-  > **注意**：插件若要上传到 Cocos Store，对包名有一定的限制，只允许使用 **小写字母**、**数字**，**连字符（`-`）**、**下划线（`_`）** 和 **点（`.`）**，并以 **小写字母** 或 **数字** 开头。
+## 安装依赖和编译构建
 
-- `version` String：版本号，我们推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
+扩展创建完成后打开扩展包所在目录，执行以下命令：
 
-- `main` String（可选）：入口程序文件
-
-- `description` String（可选）：一句话描述你的包是做什么的
-
-- `contributions` Object（可选）：对编辑器已有功能进行扩展的配置对象
-    - `menu`：数组，向 menu 组件提供一个菜单的基础信息，最后将这个菜单绑定到一条的消息。具体内容请参考 [扩展主菜单](./contributions-menu.md)。
-    - `messages`：`messages` 对象，这是编辑器消息注册的方法，这个消息可以绑定一个或多个的扩展内定义的方法。更多定义数据请参考 [消息通信](./contributions-messages.md)。
-
-更多关于 `package.json` 格式的定义，请参考 [扩展定义](./define.md)。
-
-## 入口程序 `browser.js`
-
-定义好描述文件 `package.json` 之后，接下来就要书写入口程序 `browser.js` 了。
-
-内容如下:
-
-Javascript
-
-```javascript
-'use strict';
-
-// 扩展内定义的方法
-exports.methods = {
-    log() {
-        console.log('Hello World');
-    },
-};
-
-// 当扩展被启动的时候执行
-exports.load = function() {};
-
-// 当扩展被关闭的时候执行
-exports.unload = function() {};
+```bash
+# install dependencies
+npm install
+# build
+npm run build
 ```
 
-Typescript
-
-```typescript
-'use strict';
-
-// 扩展内定义的方法
-export const methods = {
-    log() {
-        console.log('Hello World');
-    },
-};
-
-// 当扩展被启动的时候执行
-export function load() {};
-
-// 当扩展被关闭的时候执行
-export function unload() {};
-```
-
-`exports.methods` 中定义的方法，将会作为操作的接口，通过 [消息系统](./messages.md) 跨扩展调用，或者是和面板通信。
-
-这份入口程序是扩展的主进程，会在 Cocos Creator 的启动过程中被加载。因为 Creator 启动时会启动各个扩展，启动扩展便会加载扩展的主进程。
+更多扩展编译构建相关信息参考文档 [扩展模板与编译构建](./create-extension.md)。
 
 ## 运行扩展
 
-返回编辑器，点击顶部菜单栏中的 **扩展 -> 扩展管理器 -> 项目/全局**，找到之前创建的扩展。点击扩展右侧的 ![refresh](first/refresh.png) 按钮，使上面的修改内容生效，可以看到扩展的名称改成了 **hello-world**。
+返回编辑器，点击顶部菜单栏中的 **扩展 -> 扩展管理器 -> 项目/全局**，找到之前创建的扩展。点击扩展右侧的 ![refresh](first/refresh.png) 按钮，使上面的修改内容生效。
 
-![extension](first/extension-hello-world.png)
+若扩展已生效，在 Cocos Creator 顶部菜单栏区域会出现一个 **Develop** 菜单，并带有一个 **test** 菜单项，如下图所示：
 
-若扩展已启动，在 Creator 顶部菜单栏区域会出现一个 **Develop** 菜单，里面有一个 **test** 菜单项。点击 **test**，便会根据定义触发消息发送，并根据消息定义，执行扩展里的对应方法，然后在 **控制台** 打印出日志信息 “Hello World”。
+![menu-test](first/extension-menu-test.png)
 
-恭喜你已经编写了第一个简单的编辑器扩展。
+此时点击 **test** 菜单项会发现没有任何反应，这是因为我们还没有为菜单信息编写对应的代码。
+
+接下来我们便看看如何让菜单与扩展通信。
+
+## 入口程序 `main.ts`
+
+
+每一个扩展都有一个唯一的入口程序 `main.ts`，默认生成的内容如下：
+
+```typescript
+/**
+ * @en Registration method for the main process of Extension
+ * @zh 为扩展的主进程的注册方法
+ */
+export const methods: { [key: string]: (...any: any) => any } = { };
+
+/**
+ * @en Hooks triggered after extension loading is complete
+ * @zh 扩展加载完成后触发的钩子
+ */
+export const load = function() { };
+
+/**
+ * @en Hooks triggered after extension uninstallation is complete
+ * @zh 扩展卸载完成后触发的钩子
+ */
+export const unload = function() { };
+```
+
+`export const methods` 中定义的方法，将会作为操作的接口，通过 [消息系统](./messages.md) 跨扩展调用，或者是和面板通信。
+
+入口程序是扩展的主进程，会在 Cocos Creator 的启动过程中被加载。
+
+## 菜单消息处理
+我们对入口程序稍作修改，添加一个接收 `log` 消息的处理函数，如下所示：
+```typescript
+export const methods: { [key: string]: (...any: any) => any } = { 
+    log(){console.log('Hello World')},
+};
+```
+
+执行 `npm run build` 命令，编译扩展。
+
+点击扩展右侧的 ![refresh](first/refresh.png) 按钮，使上面的修改内容生效。
+
+
+再次点击 `Develop/test`菜单项，会发现在 Cocos Creator **控制台** 打印出了 “Hello World”。
+
+
