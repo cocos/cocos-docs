@@ -67,7 +67,7 @@ Except for the `JPG` and `PNG` supported by all platforms, the details of other 
 | Cocos Play        | ETC1                 |
 | Xiaomi Quick Game | ETC1                 |
 | iOS               | ASTC / PVR / WEBP / ETC1 / ETC2 |
-| Android           | ASTC / ETC2 / ETC1 / WEBP |
+| Android / Huawei AGC | ASTC / ETC2 / ETC1 / WEBP |
 
 ## Custom build texture compression processing
 
