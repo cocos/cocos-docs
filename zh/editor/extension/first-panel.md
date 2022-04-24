@@ -1,168 +1,143 @@
-# 第一个面板
+# 入门示例-面板
 
-[第一个扩展包](./first.md) 中介绍了怎么创建一个最简单的插件。接下来我们将在这篇文档继续学习如何创建一个面板并与之通信。
+在文档 [入门示例-菜单](./first.md) 中讲解了怎么创建一个最简单的扩展，接下来我们看看如何创建一个面板并与之通信。
 
-## 在描述文件 package.json 内定义面板
+## 通过模板创建
 
-在使用面板之前，需要先在 `package.json` 里进行定义，增加 `"panels"` 字段，并在 `contributions.messages` 里增加一条消息 `"open-panel"`，以及一个 `"menu"`：
+在 Cocos Creator 中创建面板最快捷的方式是通过 **包含面板的扩展模板** 创建，如下图所示：
+
+![](./first/extension-first-panel-create.png)
+
+点击 **创建扩展** 按钮后，可以在项目根目录下找到 extensions/first-panel 扩展。
+
+### 编译、安装
+在命令行工具中，定位到 extensions/first-panel 目录，并执行以下语句：
+
+```
+npm install
+npm run build
+```
+
+命令执行完成后，回到 **扩展管理器** 中，找到 first-panel 扩展，启用并刷新，如下图所示：
+
+![](./first/extension-first-panel-enable.png)
+
+### 查看面板
+
+启用并刷新插件后，可以在 面板（Panel） 菜单中找到如下图所示的菜单项：
+
+![](./first/extension-first-panel-menu.png)
+
+点击 **默认面板（Default panel）** 菜单项，即可弹出如下所示面板：
+
+![](./first/extension-first-panel.png)
+
+本示例还在 **开发者（Developer）** 菜单中定义了另一个用于通信的菜单项，如下图所示：
+
+![](./first/extension-first-panel-sendmsg.png)
+
+点击上图中红色方框所示的 **发送消息给面板（Send message to Default Panel）** 按钮后，可以看到面板上显示的内容会发生改变。
+
+## 面板讲解
+
+接下来，我们逐一讲解面板目录结构、定义与通信机制。
+
+### 面板目录结构
+
+![](./first/extension-first-panel-folder.png)
+
+如上图所示，比 hello-world 多出了 `static` 和 `panels`目录。
+
+`static` - 用于存放面板布局文件，如 css\html 等。
+
+`panels` - 用于存放面板相关的源代码，每一个面板有一个 `index.ts` 入口源文件。
+
+`index.ts` 、 `style` 、 `template` 请参考文档 [编写面板](./panel-boot.md) 
+
+### 描述文件 package.json
+
+在理解面板之前，我们先看看 `package.json` 中，面板相关的定义，如下所示：
 
 ```json
 {
-    "name": "hello-world",
+    "package_version": 2,
     "version": "1.0.0",
-    "main": "./browser.js",
-    "description": "一份简单的扩展",
+    "name": "first-panel",
+    "description": "i18n:first-panel.description",
+    "main": "./dist/main.js",
+    "dependencies": {
+        "fs-extra": "^10.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^16.0.1",
+        "@types/fs-extra": "^9.0.5",
+        "typescript": "^4.3.4"
+    },
     "panels": {
         "default": {
-            "title": "simple panel",
-            "main": "./panels/default.js"
+            "title": "first-panel Default Panel",
+            "type": "dockable",
+            "main": "dist/panels/default",
+            "size": {
+                "min-width": 400,
+                "min-height": 300,
+                "width": 1024,
+                "height": 600
+            }
         }
     },
     "contributions": {
         "menu": [
             {
-                "path": "Develop",
-                "label": "test",
-                "message": "log"
-            }, {
-                "path": "i18n:menu.panel/Custom",
-                "label": "Open Hello World",
+                "path": "i18n:menu.panel/first-panel",
+                "label": "i18n:first-panel.open_panel",
                 "message": "open-panel"
+            },
+            {
+                "path": "i18n:menu.develop/first-panel",
+                "label": "i18n:first-panel.send_to_panel",
+                "message": "send-to-panel"
             }
         ],
         "messages": {
-            "log": {
-                "methods": ["log"]
-            },
             "open-panel": {
-                "methods": ["openPanel"]
+                "methods": [
+                    "openPanel"
+                ]
+            },
+            "send-to-panel": {
+                "methods": [
+                    "default.hello"
+                ]
             }
         }
+    },
+    "author": "Cocos Creator",
+    "editor": ">=3.4.2",
+    "scripts": {
+        "build": "tsc -b",
+        "watch": "tsc -w"
     }
 }
 ```
 
-panel 字段含义可以参考 [扩展面板](./panel.md)。
+`panels`：{} - 本扩展中定义的面板
+- default：String - 定义了一个名为 default 的面板
+    - title：String - 面板标题
+    - type：String - 面板类型
+    - main：String - 面板源码目录
+    - size：{} - 大小信息
+        - min-width：Number - 最小宽度
+        - min-height：Number - 最小高度
+        - width：Number - 面板默认宽度
+        - height：Number - 面板默认高度
 
-### 增加 panels/default.js 面板文件
 
-上个步骤我们在 panel 数据里定义了入口为 `panels/default.js` 文件，需要将它新建出来：
 
-Javascript
 
-```javascript
-'use strict';
+## 更多阅读
+`panel` 详细的面板讲解，请参考文档 [面板系统](./panel.md)。
 
-// 面板的内容
-exports.template = '<div>Hello</div>';
+`i18n` 为多语言配置，请参考文档 [多语言系统(i18n)](./i18n.md)。
 
-// 面板上的样式
-exports.style = 'div { color: yellow; }';
-
-// 快捷选择器
-exports.$ = {
-    elem: 'div',
-};
-
-// 面板启动后触发的钩子函数
-exports.ready = function() {
-    this.$.elem.innerHTML = 'Hello World';
-};
-
-// 面板关闭后的钩子函数
-exports.close = function() {};
-```
-
-Typescript
-
-```typescript
-'use strict';
-
-type Selector<$> = { $: Record<keyof $, HTMLElement | null> }
-
-// 面板的内容
-export const template = '<div>Hello</div>';
-
-// 面板上的样式
-export const style = 'div { color: yellow; }';
-
-// 快捷选择器
-export const $ = {
-    elem: 'div',
-};
-
-export const methods = {};
-
-// 面板启动后触发的钩子函数
-export function ready(this: Selector<typeof $> & typeof methods) {
-    this.$.elem.innerHTML = 'Hello World';
-};
-
-// 面板关闭后的钩子函数
-export function close() {};
-```
-
-template 是面板的 html 内容，style 为自定义的 style。
-
-更多的参数请参考 [编写面板](./panel-boot.md)。
-
-### 在 browser 上增加 openPanel 方法
-
-接下来需要在 browser.js 的 methods 中新增一个 openPanel 方法：
-
-Javascript
-
-```javascript
-'use strict';
-
-// 扩展内定义的方法
-exports.methods = {
-    log() {
-        console.log('Hello World');
-    },
-    openPanel() {
-        Editor.Panel.open('hello-world');
-    },
-};
-
-// 当扩展被启动的时候执行
-exports.load = function() {};
-
-// 当扩展被关闭的时候执行
-exports.unload = function() {};
-```
-
-Typescript
-
-```typescript
-'use strict';
-
-// 扩展内定义的方法
-export const methods = {
-    log() {
-        console.log('Hello World');
-    },
-    openPanel() {
-        Editor.Panel.open('hello-world');
-    },
-};
-
-// 当扩展被启动的时候执行
-export function load(this: typeof methods) {};
-
-// 当扩展被关闭的时候执行
-export function unload(this: typeof methods) {};
-```
-
-openPanel 方法里调用了 Editor.Panel.open 方法，传入参数是 **插件名字** + **.** + **面板名**，如果是 default 则可忽略，例如：
-
-```javascript
-Editor.Panel.open('hello-world');
-Editor.Panel.open('hello-world.simple');
-```
-
-## 刷新扩展
-
-以上修改完成并保存后，再次打开 Cocos Creator，找到并打开顶部菜单栏中的 **扩展 -> 扩展管理器**，在面板上选择扩展位置（**全局** 或者 **项目**）。然后找到对应插件并点击刷新按钮，Creator 便会重新加载插件内容使之生效。
-
-然后便可以在顶部菜单栏的 **面板 -> Custom** 中看到新增了 **Open Hello World** 按钮，点击即可打开我们创建的第一个面板。
+`messages` 完整的消息定义机制，请参考文档 [自定义消息](./contributions-messages.md)。

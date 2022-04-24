@@ -1,108 +1,110 @@
-# 扩展项目设置面板
+# 自定义项目设置面板
 
-[项目设置](../../editor/project/index.md) 里存放的是和项目运行相关的配置。这部分配置允许进入版本管理，多人共享配置。
+## 面板介绍
+**项目设置**里存放的是和项目运行相关的配置，这部分配置存放在项目目录下的 `settings` 文件夹中，需要纳入版本管理，多人共享配置，否则可能导致不同机器上运行不一致的问题。
 
-例如构建的模块配置、项目内 layers 的配置。这部分配置如果不同步可能造成不同机器上的运行效果不一致。
+可在顶部菜单栏中找到  **项目** -> **项目设置** 菜单，如下图所示：
 
-如果是编辑器相关的配置，请移步至 [扩展偏好设置](./contributions-preferences.md) 文档。
+![](./image/project-settings-menu.png)
 
-## 面板简介
+点击后可打开设置设置面板，如下图所示：
 
-项目设置分成左右两部分:
+![](./image/project-settings-panel.png)
 
-- 左侧是功能模块内部的功能选项卡
-- 右侧则是配置的修改界面
+项目设置面板左侧是功能模块选项卡，右侧则对应功能的配置修改界面。
 
-项目设置允许一个功能插件注册多个选项卡，所以左侧选项卡上会有一行小字，标示选项卡属于哪一个功能。
+我们可以通过自定义此面板的显示数据，为项目新增自定义配置，借助项目设置面板实现项目配置的可视化管理。
 
-## 注册方式
+如果想对所有项目都生效，则需要自定义编辑器相关的配置，请参考文档 [自定义偏好设置](./contributions-preferences.md)。
 
-我们首先需要在 `contributions.profile.project` 里定义好配置。然后就可以在 `contributions.project` 里定义项目设置里需要显示的数据。
 
-> **注意**：项目设置里配置的数据，都应该存放在 `project` 位置。
+**自定义项目设置** 功能允许一个我们注册多个选项卡，所以左侧选项卡上会有一行小字，标示选项卡属于哪一个功能。
 
-## 注册项目设置数据
+## 数据配置与显示
 
-定义一份简单的扩展
+自定义项目设置需要依赖数据配置，需要先在 `contributions.profile.project` 里定义好相关数据字段。
 
-`package.json`
+> **注意**：项目设置里的配置数据，都应该存放在 `profile.project` 字段中。
 
-```JSON
+当定义好数据字段后，还需要在 `contributions.project` 字段里定义需要显示的数据以及用什么 ui 组件来显示。如下所示：
+
+```json5
+//`package.json`
 {
     "name": "project-test",
     "contributions": {
         "profile": {
             "project": {
                 "foo": {
-                    "default": 1,
+                    "default": 1
+                },
+                "foo1": {
+                    "default": 1
+                },
+                "foo2": {
+                    "default": false
+                },
+                "foo3": {
+                    "default": 0
                 }
             }
         },        
         "project": {
             "tab1": {
                 "label": "test",
-                "content": {
-                    "foo": {
-                        "ui": "ui-num-input"
+                "foo": {
+                    "ui": "ui-num-input"
+                },
+                "foo1": {
+                    "ui": "ui-slider",
+                    "attributes": {
+                        "min": 0,
+                        "max": 1,
+                        "step": 0.1
                     }
+                },
+                "foo2": {
+                    "ui": "ui-checkbox"
+                },
+                "foo3": {
+                    "ui": "ui-select",
+                    "items": [
+                        {
+                            "value": 0,
+                            "label": "ITEM 0"
+                        },
+                        {
+                            "value": 1,
+                            "label": "ITEM 1"
+                        },
+                        {
+                            "value": 2,
+                            "label": "ITEM 2"
+                        }
+                    ]
                 }
+            },
+            "tab1": {
+                "label": "test"
             }
         }        
     }
 }
 ```
 
-这样我们就在项目设置左边新增了一个叫 test 的标签页，
-通过主菜单的 **项目->项目设置** 菜单打开**项目设置**,
-选中后我们即可在右边的面板修改我们的 foo 配置。
+上面的示例中，在 `contributions.profile.project` 字段定义了 4 个数据项： `foo`、`foo1`、`foo2`、`foo3`。
 
-关于如何定义 profile 详细请参看 [Profile](./profile.md)。
+关于如何定义 `profile` 相关配置，请参看 [配置系统](./profile.md)。
 
-```typescript
-interface Package
-{
-    'name': string;
-    'contributions': {
-        'profile': {
-            'project': {
-                [key:string]: ProfileItem;
-            };
-        };
-        "project": {
-            [key:string]: ProjectGroup;
-        }
-    }
-}
+在 `contributions.project` 字段中定义了 2 个标签页： `test`、`tes2`。
 
-interface ProjectGroup {
-    /**
-     * 项目设置中左侧标签的文字，支持i18n。
-     **/
-    label: string;
-    /**
-     * project字段对应注入到项目设置的配置信息，定义的都是 object 对象。
-     * object 的 key 作为项目设置的唯一标识，value 则是描述这个项目设置的基本信息。
-     **/ 
-    content?: { [key: string]: UIInfo };
-    /**
-     * 如果配置比较复杂，自动渲染无法满足需求，可以填写 custom 数据。
-     * 自定义在项目设置中的渲染面板，该面板会在自动渲染的下方出现（如果定义了 properties）。
-     **/ 
-    custom?: string;
-}
+在 `test` 标签页中， 对 4 个数据项分别做了配置，具体的配置属性请看后面的 [常用 UI 组件介绍](#常用-ui-组件介绍)。
 
-/**
- * 渲染一个配置所需要的信息
- **/ 
-interface UIInfo {
-    // 使用哪种 ui 元素渲染，例如 "ui-num-input"
-    ui: string;
-    attributes: {
-        // ui 元素上允许传入的 attribute 数据，每一种 ui 允许传入的参数不一样，详细参考 ui-kit 章节
-        // 假设 ui 为 "ui-num-input",此处可以填入 "step": 1
-        [key:string]: any;
-    };
-}
-```
+在扩展管理器列表中刷新扩展后，通过 **项目->项目设置** 菜单再次打开 **项目设置面板**, 可看到如下界面：
 
-[点击查看面板的定义](./panel-boot.md)
+![](./image/project-settings-panel-custom.png)
+
+
+## UI 组件配置
+
+本示例展示了 4 种常见 ui 组件在自定义项目设置面板时的用法，理论上所有带 `value` 属性的 ui 组件都可以用于自定义项目设置面板，具体用法请参考文档 [UI 组件](./ui.md)。
