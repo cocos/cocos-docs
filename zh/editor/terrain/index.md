@@ -70,12 +70,21 @@
 
 | 参数 | 说明 |
 | :--- | :--- |
-| BrushSize     | 画刷的大小 |
-| BrushStrength | 画刷的力度  |
-| BrushMode | 画刷类型，包括 **Bulge**、**Sunken** 和 **Smooth** |
-| Brush | 自定义画刷样式，通过选取样式图片生成自定义画刷 |
+| Brush Size | 画刷的大小 |
+| Brush Strength | 画刷的力度  |
+| Brush Mode | 画刷类型，包括 **Bulge**、**Sunken**、**Smooth**、**Flatten**、**Set Height** |
+| Brush Height | 画刷高度，只有画刷模式为**Set Height**时生效 |
+| Brush | 自定义画刷样式，通过选取样式图片生成自定义画刷，使用R通道来作为画刷蒙版 |
 
-可通过 **鼠标左键** 控制地形的 **隆起**，通过 **Shift + 鼠标左键** 控制地形的 **凹陷**。而隆起/凹陷的操作往往会使地形看上去很尖锐，此时就可以使用平滑功能进行过度。
+| 画刷模式 | 说明 |
+| :--- | :--- |
+| Bulge | 隆起地形 |
+| Sunken | 下凹地形  |
+| Smooth | 平滑地形 |
+| Flatten | 整平地形 |
+| Set Height | 使用**画刷高度**设置地形高度 |
+
+通过 **鼠标左键** 来雕刻地形，当使用**Bulge**模式时，还可以通过 **Shift + 鼠标左键** 下凹地形
 
 ### 涂料（Paint）
 
