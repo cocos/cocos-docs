@@ -186,6 +186,6 @@
 
 我们欢迎用户开启试用这些功能，并且在 [论坛](https://forum.cocos.org/c/58) 提供宝贵的反馈意见，让这些功能更适合自己的使用场景，为项目提供更强大的助力。
 
-## 扩展偏好设置面板
+## 自定义偏好设置面板
 
-Creator 支持在 **偏好设置** 右侧添加自定义功能页，详情请参考 [扩展偏好设置](../../editor/extension/contributions-preferences.md)。
+Creator 支持在 **偏好设置** 右侧添加自定义功能页，详情请参考 [自定义偏好设置面板](../../editor/extension/contributions-preferences.md)。
