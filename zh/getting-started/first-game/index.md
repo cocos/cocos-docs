@@ -138,7 +138,7 @@ export class PlayerController extends Component {
     private _jumpStep: number = 0;
     // 当前跳跃时间
     private _curJumpTime: number = 0;
-    // 每次跳跃时常
+    // 每次跳跃时长
     private _jumpTime: number = 0.1;
     // 当前跳跃速度
     private _curJumpSpeed: number = 0;
@@ -781,6 +781,8 @@ onOnceJumpEnd() {
     this.node.emit('JumpEnd', this._curMoveIndex);
 }
 ```
+
+> 当跳跃完成时会触发 `onOnceJumpEnd`，详情请见 `PlayerController.ts` 中的 `update` 函数实现。
 
 预览效果如下：
 
