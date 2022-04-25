@@ -139,7 +139,7 @@ export class PlayerController extends Component {
     // 当前跳跃时间
     private _curJumpTime: number = 0;
     // 每次跳跃时长
-    private _jumpTime: number = 0.1;
+    private _jumpTime: number = 0.3;
     // 当前跳跃速度
     private _curJumpSpeed: number = 0;
     // 当前角色位置
@@ -229,6 +229,8 @@ export class PlayerController extends Component {
 
 3. 我们还可以通过 **资源管理器** 来创建 Clip。创建一个名为 `twoStep` 的 Clip 并将它添加到 Body 的 `Animation` 上，这里为了录制方便调整了一下面板布局。
 
+    **注意**：若发现无法拖动到 `Animation` 上，请检查 `import {...} from "cc" ` 语句中是否包含了 `Animation`。
+
     ![add animation from assets](./images/add-animation-from-assets.gif)
 
 4. 进入动画编辑模式，选择并编辑 `twoStep` 的 Clip，类似第 2 步，添加三个 position 的关键帧，分别为（0，0，0）、（0，1，0）、（0，0，0）。
@@ -270,7 +272,12 @@ export class PlayerController extends Component {
 
 ### 游戏管理器（GameManager）
 
-一般游戏都会有一个管理器，主要负责整个游戏生命周期的管理，可以将跑道的动态创建代码放到这里。在场景中创建一个名为 GameManager 的节点，然后在 `assets/Scripts` 中创建一个名为 GameManager 的 TypeScript 脚本文件，并将它添加到 GameManager 节点上。
+一般游戏都会有一个管理器，主要负责整个游戏生命周期的管理，可以将跑道的动态创建代码放到这里。
+
+### 创建管理器
+1. 在场景中创建一个名为 GameManager 的节点
+2. 然后在 `assets/Scripts` 中创建一个名为 GameManager 的 TypeScript 脚本文件
+3. 将 `GameManager` 组件添加到 GameManager 节点上。
 
 ### 制作Prefab
 
