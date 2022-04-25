@@ -4,147 +4,224 @@
 
 在 Cocos Creator 中，脚本也是资源的一部分。在 **资源管理器** 中创建的脚本，默认是一个 NewComponent 组件，我们称之为组件脚本。可通过以下两种方式创建：
 
-- 在 **资源管理器** 中选中想要放置组件脚本的文件夹，然后右键点击并选择 **TypeScript** 即可。
-- 直接点击 **资源管理器** 左上角的 **+** 按钮，然后选择 **TypeScript** 即可。
+- **资源管理器** 面板空白位置或某个文件夹资源下右击菜单，选择 **Create** > **TypeScript** > **NewComponent**。
+- **资源管理器** 左上角的 **+** 按钮，点击后选择 **TypeScript** > **NewComponent**。
 
 ![create-script](setup/create-script.png)
 
-在创建脚本时，名称不能为空，默认为 `NewComponent`。我们将创建的组件脚本命名为 `say-hello`，可以看到在 **资源管理器** 中生成了一个名为 `say-hello` 的脚本文件：
+在创建脚本时，名称不能为空，输入框默认为 `NewComponent`。我们将其修改为 `say-hello` ，可以看到在 **资源管理器** 中生成了一个名为 `say-hello` 的脚本文件。
 
-![ts](setup/ts.png)
+![say-hello-1](setup/say-hello-1.png)
 
-一份基础的组件脚本如下：
+![say-hello-2](setup/say-hello-2.png)
+
+新建后的初始脚本代码如下：
 
 ```ts
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables given by default, for some project management needs.
- * 
- * Name = SayHello
- * DateTime = Thu Jul 29 2021 15:19:02 GMT+0800 (中国标准时间)
- * Author = <%Author%> // 若未登录则该字段为空
- * FileBasename = say-hello.ts
- * FileBasenameNoExtension = say-hello
- * URL = db://assets/say-hello.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/zh/
- *
- */
- 
-@ccclass('SayHello')
-export class SayHello extends Component {
-    // [1]
-    // dummy = '';
+@ccclass('say_hello')
+export class say_hello extends Component {
+    start() {
 
-    // [2]
-    // @property
-    // serializableDummy = 0;
-
-    start () {
-        // [3]
     }
 
-    // update (deltaTime: number) {
-    //     // [4]
-    // }
+    update(deltaTime: number) {
+        
+    }
 }
-
-/**
- * [1] Class member could be defined like this.
- * [2] Use `property` decorator if your want the member to be serializable.
- * [3] Your initialization goes here.
- * [4] Your update function goes here.
- *
- * Learn more about scripting: https://docs.cocos.com/creator/3.4/manual/zh/scripting/
- * Learn more about CCClass: https://docs.cocos.com/creator/3.4/manual/zh/scripting/decorator.html
- * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.4/manual/zh/scripting/life-cycle-callbacks.html
- */
 ```
+**创建脚本时的注意点**
 
-创建脚本时，其初始文件名会处理为它的 `className`，`className` 在项目中不允许重复。需要注意的是，重命名创建后的脚本文件，不会自动同步更新 `className`，详情请参考下文 **脚本重命名** 部分的内容。
+> 项目中所有脚本的类名 `ClassName` （如上例中的 'say_hello'） 不允许重复，即使脚本文件在不同的目录下，各自的代码里也不允许有相同的类名。
 
-> **注意**：我们更推荐用户使用 TypeScript 来编写脚本，目前 **资源管理器** 中仅支持创建 TypeScript 文件。但如果用户想要使用 JavaScript 来编写脚本的话，可以直接在操作系统的文件夹中创建 JavaScript 文件，也可以在代码编辑器中创建 JavaScript 文件。
+> 脚本文件名称和脚本的类名不同，在输入初始的文件名之后，文件名会被处理为类名，处理的逻辑详见下文 **类名的生成**。脚本文件生成后，对文件的后续操作**脚本重命名**，新的文件名不会再去生成并替换代码里的类名，不再影响了。
+
+> 我们推荐用户使用 TypeScript 来编写脚本，目前 **资源管理器** 中仅支持创建 TypeScript 文件。但如果用户想要使用 JavaScript 来编写脚本的话，可以直接在操作系统的文件夹中创建 JavaScript 文件，或在其他代码编辑软件中创建 JavaScript 文件。
+
+
+## 类名的生成
+在获得初始文件名数据后，会生成两种规则的类名 `ClassName`，并以变量的方式提供给**脚本模板**。
+
+- 下划线格式，变量名为 `<%UnderscoreCaseClassName%>`。这种格式是为了保持类名尽可能地与文件名一致，保持一致的好处是有利于代码全局搜索和替换。
+- 驼峰格式，变量名为 `<%CamelCaseClassName%>`。这种格式是为了保持与主流的脚本标准一致，首字母大写的驼峰格式。
+
+## 添加脚本到场景节点中
+
+**将脚本添加到场景节点中，实际上就是为这个节点添加一个脚本组件。**
+在 **层级管理器** 选中某个节点，此时 **属性检查器** 面板会显示该节点的属性。以下两种添加方式：
+
+- 直接将 **资源管理器** 中的脚本拖拽当前节点的到 **属性检查器** 中，即为挂载了一个组件。
+
+- 点击 **属性检查器** 最下方的 **添加组件** 按钮，选择 **自定义脚本 -> say_hello**，即为挂载组件。
+
+    ![add component](setup/add-component.png)
+    ![add component done](setup/add-component-done.png)
 
 ## 编辑脚本
 
-开发者可根据自己的需求，选择自己喜爱的文本工具（如：Vim、Sublime Text、Web Storm、VSCode 等）进行脚本编辑，请在编辑器菜单栏 **偏好设置** 的 [外部程序](../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%A8%8B%E5%BA%8F) 中设置脚本编辑器。
+开发者可根据自己的需求，选择自己喜爱的代码编辑软件（如：Vim、Sublime Text、Web Storm、VSCode 等）进行脚本编辑。编辑器的 **偏好设置** > [**外部程序**](../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%A8%8B%E5%BA%8F) 可设置指定的脚本打开工具。
 
-然后双击脚本资源，可以直接打开脚本编辑器进行编辑。编辑完脚本并保存，然后返回编辑器，Cocos Creator 会自动检测到脚本的改动，并迅速编译。
+![preference script editor](setup/preference-script-editor.png)
 
-在代码编写之前，可先阅读以下文档了解更多关于脚本的内容：
+外部程序配置完成后，在**资源管理器**中双击脚本资源，便会用指定的程序打开该脚本。
+编辑脚本代码保存后，回到编辑器 Cocos Creator 会自动检测到脚本的改动，重新对其进行编译后使用。
+
+编写脚本代码，可阅读以下文档了解相关内容：
 
 - [配置代码编辑环境](coding-setup.md)
 - [脚本基础](basic.md)
 
-## 添加脚本到场景节点中
+脚本文件创建成功后，再对文件进行重命名，或者对代码里的类名进行修改，文件名和类名均不会再互相影响。
 
-将脚本添加到场景节点中，实际上就是为这个节点添加一个脚本组件。在 **层级管理器** 中选中希望添加脚本的场景节点，此时该节点的属性会显示在 **属性检查器** 中，添加脚本组件包括以下两种方式：
+- 以 `say-hello` 为例，我们在 **资源管理器** 中将其重命名为 `hello`。
+重新选中该资源，查看 **属性检查器**，代码还是显示 `class say_hello`，不会变动。
+重新选中 **层级管理器** 上刚添加组件的节点 **Node**，查看 **属性检查器**，组件名称还是显示 `say_hello`，不会变动。
 
-1. 直接将 **资源管理器** 中的脚本拖拽到 **属性检查器** 中。
+我们继续双击当前的 `hello` 资源，将类名改为 **say**，保存后回到编辑器：
 
-    ![add script component](setup/add-script-component.png)
-
-2. 点击 **属性检查器** 最下方的 **添加组件** 按钮，然后选择 **自定义脚本 -> SayHello** 来添加我们刚刚编写的脚本组件，或者也可以直接搜索 **SayHello** 来添加。
-
-    ![add script component](setup/add-script-component2.png)
-
-## 脚本重命名
-
-脚本组件的组件名是以脚本中定义的类名为准的，而不是脚本文件名。创建脚本时，脚本文件会按照以下规则生成脚本类名：
-
-- 使用大驼峰式命名法
-- 头部不能有数字
-- 不含特殊字符
-- 以脚本文件名中的符号和空格作为间隔，每个间隔后的首字母大写。例如脚本文件名为 `say-hello`，脚本类名则为 `SayHello`。
-
-之后如果有对脚本文件名/脚本类名进行二次修改，这两者之间并不会自动同步，如果需要的话，可以手动同步。<br>
-以上文中的 `say-hello.ts` 为例，若我们在 **资源管理器** 中将其重命名为 `hello`，可以看到 **属性检查器** 中的脚本组件名还是原来的 **SayHello**，只有脚本名称变成了 `hello`：
-
-![change script name](setup/change-scriptname.png)
-
-若我们双击打开 `say-hello.ts`，将类名改为 **Hello**：
-
-```TypeScript
+```ts
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('Hello')
-export class Hello extends Component {}
+@ccclass('say')
+export class say extends Component {
+    start() {
+
+    }
+
+    update(deltaTime: number) {
+        
+    }
+}
 ```
 
-保存脚本后返回编辑器，可以看到 **属性检查器** 中的脚本组件名变成了 **Hello**，但是脚本文件名还是原来的 `say-hello`：
+同样的脚本文件名 `hello` 不会变化。节点 **Node** 里的组件名称变为 **say**。
 
-![change-class name](setup/change-classname.png)
+![modify script](setup/modify-script.png)
 
-## 自定义脚本模板
+## 脚本模板
 
-从 v3.3 开始，Creator 支持在项目中自定义脚本模板。操作步骤如下：
+从编辑器 v3.3 开始，支持在项目中管理不同的脚本模板。
 
-1. 在项目目录下新建 `.creator/asset-template/typescript` 目录，并在 `typescript` 目录下添加包含了自定义脚本模板内容的文本文件，该文件可以是任意格式或者不带格式的文件。
+- 新建一个项目，新项目不会自动创建自定义脚本模板所在的目录 `.creator/asset-template/typescript` 。
+- 可以手动创建上述目录。也可以通过 **资源管理器** 的右击菜单里的菜单，点击后才生成目录。
+![custom script](setup/custom-script.png)
 
-    ![custom component file](setup/custom-file.png)
 
-    自定义脚本模板的内容可参考引擎目录下 `resources\3d\engine\editor\assets\default_file_content\ts` 文件，其中包含了默认给定的几个预设参数，用于满足部分项目管理的需求：
+默认的 `NewComponent` 脚本模板仍在引擎内置资源目录下 `resources\3d\engine\editor\assets\default_file_content\ts`。
+文件内容为：
 
-    ```ts
-    /**
-    * Predefined variables
-    * Name = <%Name%>
-    * DateTime = <%DateTime%>
-    * Author = <%Author%>
-    * FileBasename = <%FileBasename%>
-    * FileBasenameNoExtension = <%FileBasenameNoExtension%>
-    * URL = <%URL%>
-    * ManualUrl = <%ManualUrl%>
-    *
-    */
-    ```
+```ts
+import { _decorator, Component, Node } from 'cc';
+const { ccclass, property } = _decorator;
 
-2. 然后回到编辑器，可以看到在 **资源管理器** 创建资源菜单的 **TypeScript** 下出现了二级菜单，其中包含了原先编辑器自带的组件脚本模板（`NewComponent`），以及在上个步骤中添加的三个自定义脚本模板：
+@ccclass('<%UnderscoreCaseClassName%>')
+export class <%UnderscoreCaseClassName%> extends Component {
+    start() {
 
-    ![add-custom-comp](setup/add-custom-comp.png)
+    }
 
-    创建自定义脚本时，编辑器会读取自定义脚本模板中的文本内容，并将其处理为 TypeScript 脚本：
+    update(deltaTime: number) {
+        
+    }
+}
 
-    ![add-custom-comp](setup/add-custom-comp.gif)
+/**
+ * COMMENTS_GENERATE_IGNORE
+ * Use "COMMENTS_GENERATE_IGNORE" tag if you do not want later created scripts to contain these comments.
+ * 
+ * Predefined Variables
+ * You can use predefined variables below to setup your scripting preference. For example, whether to use camel case style.
+ * 
+ * <%UnderscoreCaseClassName%>, class name in underscore format, like 'new_component'
+ * <%CamelCaseClassName%>, class name in camel format, like 'NewComponent'
+ * <%Author%>, Who create this file
+ * <%DateTime%>, when create this file
+ * <%FileBasename%>, creating file name with extension
+ * <%FileBasenameNoExtension%>, creating file name without extension
+ * <%URL%>, url of this file in COCOS ASSET URL format
+ * <%ManualUrl%>, url of office help document, like 'https://docs.cocos.com/creator/manual/en/'
+ *
+ * 
+ * Example:
+ * 
+  @ccclass('<%UnderscoreCaseClassName%>')
+  export class <%UnderscoreCaseClassName%> extends Component {
+  
+    // class member could be defined like this.
+    dummy = '';
+
+    // Use 'property' decorator if your want the member to be serializable.
+    @property
+    serializableDummy = 0;
+
+    start () {
+        // Your initialization goes here.
+    }
+
+    update (deltaTime: number) {
+        // Your update function goes here.
+    }
+
+  }
+ *
+ * Learn more about scripting: <%ManualUrl%>scripting/
+ * Learn more about CCClass: <%ManualUrl%>scripting/decorator.html
+ * Learn more about life-cycle callbacks: <%ManualUrl%>scripting/life-cycle-callbacks.html
+ */
+
+```
+**注意点**
+
+> 脚本模板中大量的注释并不会生成到脚本文件中，因为在注释里我们使用了关键词标注 `COMMENTS_GENERATE_IGNORE` 只要此关键词在某段注释里，那么生成脚本文件就会将该段注释忽略掉。
+
+> `Predefined Variables` 我们准备了一些预制的变量，在生成脚本文件的时候可以辅助产生的业务信息，比如作者 `<%Author%>`。
+
+> 特别准备了两种类名格式：`<%UnderscoreCaseClassName%>` 和 `<%CamelCaseClassName%>`。名称前后仍可以添加自定义的前缀或后缀，如加个 `Robot` 前缀 `Robot<%CamelCaseClassName%>`
+
+> 项目自定义脚本模板目录下会自动生成一个文档网址快捷链接，双击即会调出浏览器打开指定网页。 `Custom Script Template Help Documentation`
+![custom script help](setup/custom-script-help.png)
+
+
+### 添加脚本模板
+我们从复制上述内置 `NewComponent` 模板的代码内容进行修改，类名为驼峰格式，加 `Robot` 前缀，文件另存为无后缀名的文件 `CustomComponent`， 保存在项目自定义脚本模板的路径下，即 `.creator/asset-template/typescript/CustomComponent`。 
+
+![custom script file](setup/custom-script-file.png)
+
+`CustomComponent` 模板内容修改为：
+```ts
+import { _decorator, Component, Node } from 'cc';
+const { ccclass, property } = _decorator;
+
+/**
+ * 
+ * <%UnderscoreCaseClassName%>
+ * <%CamelCaseClassName%>
+ * <%Author%>
+ * <%DateTime%>
+ * <%FileBasename%>
+ * <%FileBasenameNoExtension%>
+ * <%URL%>
+ * <%ManualUrl%>
+ *
+ */
+
+@ccclass('Robot<%CamelCaseClassName%>')
+export class Robot<%CamelCaseClassName%> extends Component {
+    start() {
+
+    }
+
+    update(deltaTime: number) {
+        
+    }
+}
+
+```
+那么我们新建一个资源看看，最后的效果如下图；
+
+![custom script menu](setup/custom-script-menu.png)
+
+![custom script result](setup/custom-script-result.png)
