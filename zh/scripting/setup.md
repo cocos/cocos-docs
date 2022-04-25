@@ -7,7 +7,7 @@
 - **资源管理器** 面板空白位置或某个文件夹资源下右击菜单，选择 **Create** > **TypeScript** > **NewComponent**。
 - **资源管理器** 左上角的 **+** 按钮，点击后选择 **TypeScript** > **NewComponent**。
 
-![create-script](setup/create-script.png)
+![create script](setup/create-script.png)
 
 在创建脚本时，名称不能为空，输入框默认为 `NewComponent`。我们将其修改为 `say-hello` ，可以看到在 **资源管理器** 中生成了一个名为 `say-hello` 的脚本文件。
 
@@ -32,7 +32,7 @@ export class say_hello extends Component {
     }
 }
 ```
-**创建脚本时的注意点**
+**注意点**
 
 > 项目中所有脚本的类名 `ClassName` （如上例中的 'say_hello'） 不允许重复，即使脚本文件在不同的目录下，各自的代码里也不允许有相同的类名。
 
@@ -61,12 +61,12 @@ export class say_hello extends Component {
 
 ## 编辑脚本
 
-开发者可根据自己的需求，选择自己喜爱的代码编辑软件（如：Vim、Sublime Text、Web Storm、VSCode 等）进行脚本编辑。编辑器的 **偏好设置** > [**外部程序**](../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%A8%8B%E5%BA%8F) 可设置指定的脚本打开工具。
+开发者可根据自己的需求，选择自己喜爱的代码编辑软件（如：Vim、Sublime Text、Web Storm、VSCode 等）进行脚本编辑。编辑器的 **偏好设置** > **外部程序** 可设置指定的脚本打开工具。
 
 ![preference script editor](setup/preference-script-editor.png)
 
 外部程序配置完成后，在**资源管理器**中双击脚本资源，便会用指定的程序打开该脚本。
-编辑脚本代码保存后，回到编辑器 Cocos Creator 会自动检测到脚本的改动，重新对其进行编译后使用。
+编辑脚本代码保存后，鼠标点击回到编辑器，编辑器会自动检测到脚本的改动，重新对其进行编译后使用。
 
 编写脚本代码，可阅读以下文档了解相关内容：
 
@@ -101,7 +101,7 @@ export class say extends Component {
 
 ![modify script](setup/modify-script.png)
 
-## 脚本模板
+## <a id="custom-script-template">脚本模板</a>
 
 从编辑器 v3.3 开始，支持在项目中管理不同的脚本模板。
 
@@ -111,7 +111,7 @@ export class say extends Component {
 
 
 默认的 `NewComponent` 脚本模板仍在引擎内置资源目录下 `resources\3d\engine\editor\assets\default_file_content\ts`。
-文件内容为：
+文件代码为：
 
 ```ts
 import { _decorator, Component, Node } from 'cc';
@@ -177,20 +177,22 @@ export class <%UnderscoreCaseClassName%> extends Component {
 
 > 脚本模板中大量的注释并不会生成到脚本文件中，因为在注释里我们使用了关键词标注 `COMMENTS_GENERATE_IGNORE` 只要此关键词在某段注释里，那么生成脚本文件就会将该段注释忽略掉。
 
-> `Predefined Variables` 我们准备了一些预制的变量，在生成脚本文件的时候可以辅助产生的业务信息，比如作者 `<%Author%>`。
+> `Predefined Variables` 我们准备了一些预制的变量，在生成脚本文件的时候可以作为辅助的信息，比如作者 `<%Author%>`。
 
 > 特别准备了两种类名格式：`<%UnderscoreCaseClassName%>` 和 `<%CamelCaseClassName%>`。名称前后仍可以添加自定义的前缀或后缀，如加个 `Robot` 前缀 `Robot<%CamelCaseClassName%>`
 
-> 项目自定义脚本模板目录下会自动生成一个文档网址快捷链接，双击即会调出浏览器打开指定网页。 `Custom Script Template Help Documentation`
+> 通过点击右击菜单的方式，项目自定义脚本模板目录下会自动生成一个文档网址快捷链接，双击即会调出浏览器打开指定网页。 `Custom Script Template Help Documentation`
 ![custom script help](setup/custom-script-help.png)
 
 
 ### 添加脚本模板
-我们从复制上述内置 `NewComponent` 模板的代码内容进行修改，类名为驼峰格式，加 `Robot` 前缀，文件另存为无后缀名的文件 `CustomComponent`， 保存在项目自定义脚本模板的路径下，即 `.creator/asset-template/typescript/CustomComponent`。 
+
+我们从复制上述内置 `NewComponent` 模板的代码进行修改，类名为驼峰格式，加 `Robot` 前缀，文件另存为无后缀名的文件 `CustomComponent`， 保存在项目自定义脚本模板的路径下，即 `.creator/asset-template/typescript/CustomComponent`。 
 
 ![custom script file](setup/custom-script-file.png)
 
 `CustomComponent` 模板内容修改为：
+
 ```ts
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
@@ -220,7 +222,7 @@ export class Robot<%CamelCaseClassName%> extends Component {
 }
 
 ```
-那么我们新建一个资源看看，最后的效果如下图；
+那么最后的我们新建一个 `wake up` 脚本资源看看，效果如下图:
 
 ![custom script menu](setup/custom-script-menu.png)
 
