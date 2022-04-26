@@ -30,7 +30,14 @@
 
 ![image](../material-system/img/preview-model-select.png)
 
+**属性检查器** 会对当前材质的用户数据进行缓存，用户数据是指现在修改的或者之前修改的数据，当切换 `Effect` 或 `Technique` 时，缓存的数据会进行迁移，使用户数据得到维持。
+
 若修改了材质属性，面板右上角会出现 ![image](../material-system/img/save-material.png) 保存和 ![image](../material-system/img/revert-material.png) 重置按钮。重置会将材质属性回退到上一次保存时的设置，而一旦点击保存后便无法再重置。
+
+材质编辑过程中，支持撤销（undo）和重做（redo）的快捷键操作。
+在 **属性检查器** 面板获得焦点的情况下，
+- undo ：Ctrl/Cmd + Z
+- redo ：Ctrl/Cmd + Shift + Z
 
 ## 使用材质
 
