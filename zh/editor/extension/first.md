@@ -9,18 +9,17 @@
 
 在编辑器的菜单栏中找到 **扩展 -> 创建扩展** 菜单，如下图所示：
 
-![](image/create-extension-menu.png)
+![create-extension-menu](image/create-extension-menu.png)
 
 点击 **创建扩展** 后，会弹出如下图所示的创建面板：
 
-![](image/create-extension-panel.png)
+![create-extension-panel](image/create-extension-panel.png)
 
 Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一个新的扩展项目。
 
 为了更简单的演示模板创建流程，我们选择 **Blank** 模板，点击面板右下方的 **创建扩展** 按钮建一个扩展包。
 
 更多模板创建相关内容，请参考文档 [扩展模板与编译构建-模板类型](./create-extension.md)。
-
 
 ## 扩展管理
 
@@ -29,7 +28,6 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 ![extension](first/extension.png)
 
 更多扩展管理内容请参考文档 [扩展管理器-扩展列表](./extension-manager.md)。
-
 
 ## 扩展目录
 
@@ -52,7 +50,7 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 
 只有完整定义了描述文件 `package.json` 后，编辑器才能知道这个扩展里定义的具体功能、加载入口等信息。
 
->**注意：** 虽然 `package.json` 很多字段的定义和 `node.js`  npm 模块的 `package.json` 相似，但从 npm 社区中下载的 npm 模块并不能直接作为 Cocos Creator 扩展使用。可以在 Cocos Creator 扩展中调用 npm 模块，使扩展具备相应的能力。
+> **注意：** 虽然 `package.json` 很多字段的定义和 `node.js` npm 模块的 `package.json` 相似，但从 npm 社区中下载的 npm 模块并不能直接作为 Cocos Creator 扩展使用。可以在 Cocos Creator 扩展中调用 npm 模块，使扩展具备相应的能力。
 
 打开 `package.json` 文件，可以看到以下内容：
 
@@ -76,6 +74,7 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 }
 
 ```
+
 各字段含义如下：
 - `package_version`：Number - 版本号数值。
 - `version`：String - 版本号字符串，推荐使用 [semver](http://semver.org/) 格式管理你的包版本。
@@ -87,8 +86,8 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 - `editor`：String - 支持的 Cocos Creator 编辑器版本。
 - `scripts`：{} - 脚本编译相关命令。
 
-
 ## 定义菜单和消息
+
 将 `package.json` 改为如下内容：
 
 ```json
@@ -158,7 +157,6 @@ npm run build
 
 ## 入口程序 `main.ts`
 
-
 每一个扩展都有一个唯一的入口程序 `main.ts`，默认生成的内容如下：
 
 ```typescript
@@ -186,7 +184,9 @@ export const unload = function() { };
 入口程序是扩展的主进程，会在 Cocos Creator 的启动过程中被加载。
 
 ## 菜单消息处理
+
 我们对入口程序稍作修改，添加一个接收 `log` 消息的处理函数，如下所示：
+
 ```typescript
 export const methods: { [key: string]: (...any: any) => any } = { 
     log(){console.log('Hello World')},
@@ -197,7 +197,4 @@ export const methods: { [key: string]: (...any: any) => any } = {
 
 点击扩展右侧的 ![refresh](first/refresh.png) 按钮，使上面的修改内容生效。
 
-
 再次点击 `Develop/test`菜单项，会发现在 Cocos Creator **控制台** 打印出了 “Hello World”。
-
-

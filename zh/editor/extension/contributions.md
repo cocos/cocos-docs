@@ -8,7 +8,7 @@ Cocos Creator 支持各个扩展间互相提供数据（`contributions`）。
 
 `contributions` 功能，统一在 `package.json` 里的 `contributions` 字段中定义，如下所示：
 
-```json
+```JSON5
 {
     "name": "hello-world",
     "contributions": {
@@ -30,13 +30,13 @@ Cocos Creator 支持各个扩展间互相提供数据（`contributions`）。
 
 `contributions` 提供了与编辑器各功能系统交互的能力，主要涉及到的功能如下：
 
-- `builder` - 自定义构建流程，详细信息请参考文档 [自定义构建流程](../publish/custom-build-plugin.md)
+- `builder` - 自定义构建流程，详细信息请参考文档 [自定义构建流程](../publish/custom-build-plugin.md)。
 
 - `assets` - 增强资源管理器面板，详细信息请参考文档 [增强资源管理器面板](../assets/extension.md)。
 
 - `profile` - 定义扩展需要用到的配置，详细信息请参看文档 [配置系统](./profile.md)。
 
-- `scene` - 在扩展中编写需要和引擎、项目脚本交互的脚本，详细信息请参看文档 [调用引擎 API 和项目脚本](./scene-script.md)
+- `scene` - 在扩展中编写需要和引擎、项目脚本交互的脚本，详细信息请参看文档 [调用引擎 API 和项目脚本](./scene-script.md)。
 
 - `inspector` - 自定义 **属性检查器** 面板，详细信息请参看文档 [自定义属性检查器面板](./inspector.md)。
 
@@ -49,5 +49,3 @@ Cocos Creator 支持各个扩展间互相提供数据（`contributions`）。
 - `preferences` - 自定义偏好设置，详细信息请参看文档 [自定义偏好设置面板](./contributions-preferences.md)。
 
 - `project` - 自定义项目设置，详细信息请参看文档 [自定义项目设置面板](./contributions-project.md)。
-
-

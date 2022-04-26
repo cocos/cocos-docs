@@ -6,37 +6,42 @@
 
 在 Cocos Creator 中创建面板最快捷的方式是通过 **包含面板的扩展模板** 创建，如下图所示：
 
-![](./first/extension-first-panel-create.png)
+![extension-first-panel-create](./first/extension-first-panel-create.png)
 
 点击 **创建扩展** 按钮后，可以在项目根目录下找到 extensions/first-panel 扩展。
 
 ### 编译、安装
+
 在命令行工具中，定位到 extensions/first-panel 目录，并执行以下语句：
 
-```
+```bash
 npm install
 npm run build
 ```
 
 命令执行完成后，回到 **扩展管理器** 中，找到 first-panel 扩展，启用并刷新，如下图所示：
 
-![](./first/extension-first-panel-enable.png)
+![extension-first-panel-enable](./first/extension-first-panel-enable.png)
 
 ### 查看面板
 
-启用并刷新插件后，可以在 面板（Panel） 菜单中找到如下图所示的菜单项：
+启用并刷新插件后，可以在 **面板（Panel）** 菜单中找到如下图所示的菜单项：
 
-![](./first/extension-first-panel-menu.png)
+![extension-first-panel-menu](./first/extension-first-panel-menu.png)
 
 点击 **默认面板（Default panel）** 菜单项，即可弹出如下所示面板：
 
-![](./first/extension-first-panel.png)
+![extension-first-panel](./first/extension-first-panel.png)
 
 本示例还在 **开发者（Developer）** 菜单中定义了另一个用于通信的菜单项，如下图所示：
 
-![](./first/extension-first-panel-sendmsg.png)
+![extension-first-panel-sendmsg](./first/extension-first-panel-sendmsg.png)
 
 点击上图中红色方框所示的 **发送消息给面板（Send message to Default Panel）** 按钮后，可以看到面板上显示的内容会发生改变。
+
+> **注意**：如果没有显示该菜单，请打开 **扩展管理器** 面板，并确认该插件已启用。
+>
+> ![enable-first-panel](./image/enable-first-panel.png)
 
 ## 面板讲解
 
@@ -44,7 +49,9 @@ npm run build
 
 ### 面板目录结构
 
-![](./first/extension-first-panel-folder.png)
+在项目所在目录，找到 `./extensions/first-panel` 文件夹，即可以总览整个插件的目录：
+
+![extension-first-panel-folder](./first/extension-first-panel-folder.png)
 
 如上图所示，比 hello-world 多出了 `static` 和 `panels`目录。
 
@@ -52,7 +59,7 @@ npm run build
 
 `panels` - 用于存放面板相关的源代码，每一个面板有一个 `index.ts` 入口源文件。
 
-`index.ts` 、 `style` 、 `template` 请参考文档 [编写面板](./panel-boot.md) 
+`index.ts` 、 `style` 、 `template` 请参考文档 [编写面板](./panel-boot.md)
 
 ### 描述文件 package.json
 
@@ -132,10 +139,8 @@ npm run build
         - width：Number - 面板默认宽度
         - height：Number - 面板默认高度
 
-
-
-
 ## 更多阅读
+
 `panel` 详细的面板讲解，请参考文档 [面板系统](./panel.md)。
 
 `i18n` 为多语言配置，请参考文档 [多语言系统(i18n)](./i18n.md)。
