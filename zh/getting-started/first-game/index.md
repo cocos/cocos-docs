@@ -229,7 +229,7 @@ export class PlayerController extends Component {
 
 3. 我们还可以通过 **资源管理器** 来创建 Clip。创建一个名为 `twoStep` 的 Clip 并将它添加到 Body 的 `Animation` 上，这里为了录制方便调整了一下面板布局。
 
-    **注意**：若发现无法拖动到 `Animation` 上，请检查 `import {...} from "cc" ` 语句中是否包含了 `Animation`。
+    > **注意**：若发现无法拖动到 `Animation` 上，请检查 `import {...} from "cc" ` 语句中是否包含了 `Animation`。
 
     ![add animation from assets](./images/add-animation-from-assets.gif)
 
@@ -275,8 +275,9 @@ export class PlayerController extends Component {
 一般游戏都会有一个管理器，主要负责整个游戏生命周期的管理，可以将跑道的动态创建代码放到这里。
 
 ### 创建管理器
-1. 在场景中创建一个名为 GameManager 的节点
-2. 然后在 `assets/Scripts` 中创建一个名为 GameManager 的 TypeScript 脚本文件
+
+1. 在场景中创建一个名为 GameManager 的节点。
+2. 然后在 `assets/Scripts` 中创建一个名为 GameManager 的 TypeScript 脚本文件。
 3. 将 `GameManager` 组件添加到 GameManager 节点上。
 
 ### 制作Prefab
@@ -789,7 +790,7 @@ onOnceJumpEnd() {
 }
 ```
 
-> 当跳跃完成时会触发 `onOnceJumpEnd`，详情请见 `PlayerController.ts` 中的 `update` 函数实现。
+> **注意**：当跳跃完成时会触发 `onOnceJumpEnd`，详情请见 `PlayerController.ts` 中的 `update` 函数实现。
 
 预览效果如下：
 
