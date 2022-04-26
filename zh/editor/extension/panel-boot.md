@@ -9,11 +9,11 @@ Javascript
 ```javascript
 'use strict';
 
-// html 文本
+// HTML 文本
 exports.template = '';
 // 样式文本
 exports.style = '';
-// 渲染后 html 选择器
+// 渲染后 HTML 选择器
 exports.$ = {};
 // 面板上的方法
 exports.methods = {};
@@ -33,11 +33,11 @@ Typescript
 ```typescript
 'use strict';
 
-// html 文本
+// HTML 文本
 export const template = '';
 // 样式文本
 export const style = '';
-// 渲染后 html 选择器
+// 渲染后 HTML 选择器
 export const $ = {};
 // 面板上的方法
 export const methods = {};
@@ -85,7 +85,7 @@ module.exprots = Editor.Panel.degine({
 });
 ```
 
-**Editor.Panel.define 是 3.3 新增的接口**
+`Editor.Panel.define` 是 v3.3 新增的接口。
 
 ## template
 
@@ -117,7 +117,7 @@ export const template = `
 `;
 ```
 
-也可以直接读取一个 html 文件：
+也可以直接读取一个 HTML 文件：
 
 Javascript
 
@@ -141,7 +141,7 @@ export const template = readFileSync(join(__dirname, '../static/default.html'), 
 
 ## style
 
-有了 html，还需要自定义一些样式就需要使用 style 了，style 和 template 一样是一个字符串。
+有了 HTML，还需要自定义一些样式就需要使用 style 了，style 和 template 一样是一个字符串。
 
 Javascript
 
@@ -179,7 +179,7 @@ export const style = readFileSync(join(__dirname, '../static/default.css'), 'utf
 
 ## $
 
-这是一个 html 元素选择器，直接调用 querySelector 查找到指定元素后，作为一个快捷方式使用。
+这是一个 HTML 元素选择器，直接调用 querySelector 查找到指定元素后，作为一个快捷方式使用。
 
 Javascript
 

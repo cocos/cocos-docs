@@ -4,7 +4,7 @@
 
 ## 自定义右击菜单
 
-若要自定义右击菜单，请先参考 [创建并安装扩展](../extension/first.md/#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95) 新建一个插件，在插件的 `package.json`文件中， 通过定义 `contributions.assets.menu` 字段，即可对 **资源管理器** 面板的右击菜单显示事件进行监听，可以实现菜单的追加，如下所示：
+若要自定义右击菜单，请先参考 [创建并安装扩展](../extension/first.md/#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95) 新建一个插件，在插件的 `package.json`文件中，通过定义 `contributions.assets.menu` 字段，即可对 **资源管理器** 面板的右击菜单显示事件进行监听，可以实现菜单的追加，如下所示：
 
 ```json5
 // package.json
@@ -173,7 +173,7 @@ export function onAssetMenu(assetInfo: AssetInfo) {
   </ui-drag-item>
   ```
 
-  >**注意**：`ui-drag-item` 中的 `type` 需要与 `contributions.assets.drop.type` 一致，才能产生关联。
+  > **注意**：`ui-drag-item` 中的 `type` 需要与 `contributions.assets.drop.type` 一致，才能产生关联。
 
 执行效果如下图所示：
 

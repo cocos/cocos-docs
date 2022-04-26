@@ -19,7 +19,7 @@
 
 如果修改了文件夹名称，**i18n** 多语言相关的字符串路径也需要一并修改，如下所示：
 
-```json
+```json5
 // "description": "i18n:simple-1649426645745.description",
 "description": "i18n:hello-world.description",
 ```

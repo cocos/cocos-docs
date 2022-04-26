@@ -10,7 +10,7 @@ Electron 是一个集成了 [Node.js](https://nodejs.org/) 和 [Google Chromium]
 
 ## 多进程机制
 
-在 Electron 的架构中，一份应用程序由主进程和渲染进程组成，其主进程负责管理平台相关的调度，如窗口的开启关闭、菜单选项、基础对话框等等。而每一个新开启的窗口就是一个独立的渲染进程。每个进程独立享有自己的 `JavaScript` 内容，且彼此之间无法直接访问。当需要在进程之间传递数据时，需要使用进程间通信（IPC）机制。
+在 Electron 的架构中，一份应用程序由主进程和渲染进程组成，其主进程负责管理平台相关的调度，如窗口的开启关闭、菜单选项、基础对话框等等。而每一个新开启的窗口就是一个独立的渲染进程。每个进程独立享有自己的 JavaScript 内容，且彼此之间无法直接访问。当需要在进程之间传递数据时，需要使用进程间通信（IPC）机制。
 
 相关功能可以通过阅读 [Electron's introduction document](https://github.com/atom/electron/blob/master/docs/tutorial/quick-start.md) 更深入的理解 Electron 中的主进程和渲染进程的关系。
 

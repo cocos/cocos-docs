@@ -50,7 +50,7 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 
 只有完整定义了描述文件 `package.json` 后，编辑器才能知道这个扩展里定义的具体功能、加载入口等信息。
 
-> **注意：** 虽然 `package.json` 很多字段的定义和 `node.js` npm 模块的 `package.json` 相似，但从 npm 社区中下载的 npm 模块并不能直接作为 Cocos Creator 扩展使用。可以在 Cocos Creator 扩展中调用 npm 模块，使扩展具备相应的能力。
+> **注意**：虽然 `package.json` 很多字段的定义和 `node.js` npm 模块的 `package.json` 相似，但从 npm 社区中下载的 npm 模块并不能直接作为 Cocos Creator 扩展使用。可以在 Cocos Creator 扩展中调用 npm 模块，使扩展具备相应的能力。
 
 打开 `package.json` 文件，可以看到以下内容：
 

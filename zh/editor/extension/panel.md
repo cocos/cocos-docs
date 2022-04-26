@@ -74,7 +74,7 @@ module.exports = Editor.Panel.define({
 ```
 
 `listeners` - 面板的一些事件监听
-`template` - 面板的 html 布局文件
+`template` - 面板的 HTML 布局文件
 `stype` - 面板的 css 文件
 `$` - 全局选择器，用于快速访问一些元素
 `methods` - 此面板对外的方法接口
@@ -134,7 +134,7 @@ await Editor.Message.request(pacakgeName, 'saveData', dataName,dataValue);
 
 上面的消息定义了一个 log 消息，并由此扩展的主进程中的 log 方法处理。接下来我们稍作修改，使消息的接收方变成面板：
 
-```json
+```json5
 // package.json
 {
 "contributions": {
@@ -162,7 +162,7 @@ module.exports = Editor.Panel.define({
 });
 ```
 
-大部分情况下，面板布局不可能这么简单。如果继续将复杂的 html 布局和 css 样式写在这里，代码将变得不可维护。可以参考文档 [入门示例-面板](./first-panel.md) 中创建的项目，我们可以将 `html` 和 `css` 代码分离为独立的文件，放入 `static` 文件夹中。
+大部分情况下，面板布局不可能这么简单。如果继续将复杂的 HTML 布局和 css 样式写在这里，代码将变得不可维护。可以参考文档 [入门示例-面板](./first-panel.md) 中创建的项目，我们可以将 `html` 和 `css` 代码分离为独立的文件，放入 `static` 文件夹中。
 
 最终形成的面板模板代码如下所示：
 

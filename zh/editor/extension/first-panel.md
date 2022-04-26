@@ -59,7 +59,7 @@ npm run build
 
 `panels` - 用于存放面板相关的源代码，每一个面板有一个 `index.ts` 入口源文件。
 
-`index.ts` 、 `style` 、 `template` 请参考文档 [编写面板](./panel-boot.md)
+`index.ts`、`style`、`template` 请参考文档 [编写面板](./panel-boot.md)
 
 ### 描述文件 package.json
 
