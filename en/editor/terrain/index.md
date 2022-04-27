@@ -1,117 +1,121 @@
-# Terrain system
+# Terrain System
 
-The **terrain system** displays the mountainous landscape of nature in an efficient way. Developers can easily use a **brush** to sculpt basins, mountains, valleys, plains and other landforms.
+The **terrain system** is an efficient tool for creating mountainous landscapes. Users can use various tools to sculpt out basins, mountains, valleys, plains and other landforms.
 
 ![terrain](./images/terrain.png)
 
-## Creating a terrain
+## Creating Terrain Objects and Assets
 
-Two steps are required to create a terrain:
+To create a new terrain in the project, users need to create a terrain object in the scene in conjunction with a terrain asset in the project directory:
 
-1. Click the right mouse button in **Hierarchy** panel and click **Create -> Terrain** to create a terrain node. Terrain nodes can be moved, but rotation and zoom are not yet supported.
+1. Right click anywhere in the **Hierarchy** panel and select **Create -> Terrain**. This will create a new terrain object in the current scene. Terrain objects can be moved but is prohibited from rotating and scaling.
 
     ![create terrain](./images/create-terrain.png)
 
-2. Click the right mouse button in the **Assets** panel and click **Create -> Terrain** in the pop-up menu to create the necessary terrain assets.
+2. Right click anywhere in the **Assets** panel and select **Create -> Terrain**. This will create a new terrain asset in the project directory. Terrain objects require terrain assets in conjunction to work properly.
 
     ![create terrain asset](./images/create-terrain-asset.png)
 
-## Using a terrain
+## Configuring Terrain Properties
 
-Click on the created terrain node. There is a terrain component (`cc.Terrain`) in the **Inspector** panel, and the created terrain assets are assigned to the `Asset` in the terrain component.
+Select the terrain object in the **Hierarchy** panel. Drag and drop the terrain asset from the **Assets** panel in the `Asset` property of the terrain component (`cc.Terrain`,) or click the arrow button behind the `Asset` property and select the terrain asset from the drop-down menu.
+
+The terrain component includes properties as follows:
 
 ![terrain inspector](./images/terrain-inspector.png)
 
 | Property   | Description |
 | :----- | :---- |
-| Asset  | Terrain asset |
-| Effect Asset | Terrain effect asset |
-| Receive Shadow | Accept the shadow |
-| Use Normal Map | Use normal map |
-| Use PBR | Use physical materials |
-| Lod Enable | Enable Terrain Lod, used to reduce the number of rendered faces and improve rendering performance |
-| Lod Bias | Set the starting distance of Lod |
+| Asset  | Specify terrain asset |
+| Effect Asset | Specify a shader to render terrain, e.g. `builtin-standard.effect` |
+| Receive Shadow | Allow shadows to be casted on the terrain object |
+| Use Normal Map | Allow terrain to be rendered with normal maps |
+| Use PBR | Allow terrain to be rendered using PBR maps |
+| Lod Enable | Enable LODs for the terrain mesh to improve rendering performance |
+| Lod Bias | Specify the distance at which the LOD level is switched |
 
-## Editing a terrain
+## Terrain Editing Tools
 
-After assigning the terrain assets, the **cc.Terrain** editing panel can be accessed from the **Scene** panel. The terrain editing system includes three major functions: **Manage**, **Sculpt**, **Paint** and **Select**. These three functions can be switched between by clicking on the corresponding tabs.
+With the terrain asset specified in the `Asset` property, users now have access to the terrain editing panel in lower right corner of the **Scene** panel, as well as terrain editing tools on the upper left corner of the **Scene** panel.
+
+Terrain editing panel includes properties brush size and intensity, terrain material and layers, etc. which can be accessed via **Manage**, **Sculpt**, **Paint** and **Select** tabs.
 
 ![terrain panel](./images/terrain-panel.png)
 
-It is also possible to switch functions via the tools in the upper left corner of the **Scene** panel:
-- **Manage** function.
-- **Bulge** `BrushMode` in the **Sculpt** function.
-- **Sunken** `BrushMode` in the **Sculpt** function.
-- **Smooth** `BrushMode` in the **Sculpt** function.
-- **Paint** function.
-- **Select** function.
+Terrain editing tools can be found at the upper left corner of the **Scene** panel:
+- **Manage** tool: Switch to Manage tab in terrain editing panel.
+- **Paint Bulge** tool: Switch to the bulge brush. This is equivalent to selecting **Bulge** in the `BrushMode` property under Sculpt tab in the terrain editing panel. With the bulge brush, users may sculpt bumps in the terrain mesh.
+- **Paint Sunken** tool: Switch to the sunken brush. This is equivalent to selecting **Sunken** in the `BrushMode` property under Sculpt tab in the terrain editing panel. With the bulge brush, users may sculpt recesses in the terrain mesh.
+- **Paint Smooth** tool: Switch to the smooth brush. This is equivalent to selecting **Smooth** in the `BrushMode` property under Sculpt tab in the terrain editing panel. With the smooth brush, users may smooth out the excessive bumpiness of the terrain mesh by averaging the vertices heights.
+- **Paint** tool: Switch to the material painting brush. This is equivalent to selecting the **Paint** tab in the terrain editing panel. With the paint brush, users may no longer sculpt structures on the terrain mesh. Instead the brush allows users to paint a layer of texture on top of the existing texture layer of the terrain mesh.
+- **Select** tool: Switch to the selection tool. This is equivalent to selecting the **Select** tab in the terrain editing panel. With the selection tool, users may gain more information including texture layers and height alphas by selecting a tile in the terrain object.
 
-### Management of terrains
+### Working with Terrain: Manage
 
-Management is adjusting various parameters of a terrain. Tile is the smallest unit of terrain. Tile constitutes one 32x32 block of tiles with each terrain needing to consist of at least one tile block.
+The **Manage** tab includes properties to adjust the overall size, density and texel density of the terrain object. A terrain object consists of multiple instances of an editable surface known as a tile block, which is 32 by 32 meters by default (with **TileSize** being equal to 1.) A terrain object requires at least one tile block.
 
 ![edit manage](./images/terrain-manage.png)
 
 | Parameter | Description |
 | :--- | :-- |
-| Tile Size | The size of the terrain tile. Currently, a terrain block consists of 32 x 32 tiles, so the side length of a terrain block is **32 x Tile Size**. |
-| Weight Map Size | Weight map size |
-| Light Map Size | Light map size |
-| Block Count | Number of terrain blocks in two dimensions |
+| Tile Size | Scalar for a single tile. By default, a tile block is 32 by 32 meters. This property scales the tile block linearly, which means the final size of a tile block is **32 * Tile Size** square meters. |
+| Weight Map Size | Resolution of the weight map which produces the bumps and recesses in the terrain mesh. Higher resolution yields more detailed structures in the terrain mesh. |
+| Light Map Size | Resolution of the light map |
+| Block Count | Number of tile blocks in the current terrain object |
 
-### Sculpting a terrain
+### Working with Terrain: Sculpt
 
-Sculpting is changing the shape of a terrain.
+Users may create the structure of the terrain object by sculpting bumps and recesses in the terrain mesh.
 
 ![edit sculpt](./images/terrain-sculpt.png)
 
 | Parameter | Description |
 | :--- | :--- |
-| Brush Size | The size of the brush |
-| Brush Strength | The strength of the brush |
-| Brush Mode | The mode of the brush, including **Bulge**, **Sunken**, **Smooth**, **Flatten**, **Set Height** |
-| Brush Height | The height of the brush, only use for **Set Height** mode |
-| Brush | Custom brush style, by selecting a style picture to generate a custom brush, use a channel as brush mask |
+| Brush Size | Size of the active brush |
+| Brush Strength | Intensity of the active brush |
+| Brush Mode | Active mode of the brush, including **Bulge**, **Sunken**, **Smooth**, **Flatten**, **Set Height** |
+| Brush Height | Height of the brush, only availabe with **Set Height** mode |
+| Brush | Stencil of the brush, requires a texture map with alpha channel as stencil |
 
 | Brush mode | Description |
 | :--- | :--- |
-| Bulge | Bulge terrain |
-| Sunken | Sunken terrain |
-| Smooth | Smooth terrain |
-| Flatten | Flatten terrain |
-| Set Height | Use **Brush Height** to set terrain height |
+| Bulge | Sculpt bumps in the terrain mesh |
+| Sunken | Sculpt recesses in the terrain mesh |
+| Smooth | Smooth out terrain bumpiness by averaging vertices heights |
+| Flatten | Flatten terrain by resetting vertices heights to the same value |
+| Set Height | Used in conjunction with the **Brush Height** property to reset vertices heights to a certain value |
 
-use the **left mouse** button to sculpt terrain, also use the **Shift + left mouse** button to depression terrain when in **Bulge** mode, 
+While a brush tool is activated, use **LMB** to sculpt or paint on the terrain mesh. Hold **Shift** to temporarily switch from **Bulge** mode to **Sunken** mode when **Bulge** brush is activated, or vice versa when **Sunken** brush is activated.
 
-### Painting a terrain
+### Working with Terrain: Paint
 
-Painting is the texture used to depict the appearance of a terrain.
+With the **Paint** tool, users may paint textures on the terrain mesh. **Paint** tool includes properties as follows:
 
 ![edit paint](./images/terrain-paint.png)
 
 | Parameter | Description |
 | :--- | :--- |
-| Terrain Layer | Set the Layer of the terrain, as described in section **Layer editing** below. |
-| Brush Size | The size of the brush |
-| Brush Strength | The strength of the brush  |
-| Brush Falloff | Brush falloff, this value determines the sharpness of the brush edge.<br>**0.0** means that the brush has full effect in the whole range (all covered by the current layer texture), with sharp edges.<br>**1.0** means that the brush has full effect only in its center, and the influence will be attenuated when reaching the edge. |
-| Brush | Custom brush style. by selecting a style picture to generate a custom brush. |
+| Terrain Layer | Texture layers for the current terrain object, see below in section **Layer editing**. |
+| Brush Size | Size of the active brush |
+| Brush Strength | Intensity of the active brush |
+| Brush Falloff | Hardness of the active brush <br>**0.0** indicates full hardness. <br>**1.0** indicates full feathering. |
+| Brush | Stencil of the brush, requires a texture map with alpha channel as stencil |
 
-#### Layer editing
+#### Painting with Layers
 
 ![terrain layer](./images/terrain-layer.png)
 
-Click the **+** or **-** button at the top right to **add** or **delete** layers (up to **4** layers are supported). Once a Layer is selected, you can edit the Layer and its texture.
+Users may paint multiple layers of texture on the terrain mesh. Click the **+** or **-** button at the top right of the terrain editing panel to **add** or **delete** layers (up to **4** layers are supported.) Once a Layer is selected, use the **Paint** tool to paint on the corresponding layer.
 
 | Parameter | Description |
 | :--- | :--- |
-| Terrain Layer | Current Layer texture |
-| Normal Map | To set the normal map of the current Layer, check the **Use Normal Map** property for the terrain component |
-| Metallic | Set the metal properties of the current Layer |
-| Roughness | Sets the roughness of the current Layer |
-| Tile Size | The tile size of the texture. The smaller the value, the more tiles will be used in the same size area |
+| Terrain Layer | Texture layers for the current terrain object |
+| Normal Map | Assign a normal texture to the selected layer. For this property to take effect, the **Use Normal Map** property in the terrain component must be enabled. |
+| Metallic | Set the metallic value of the selected layer |
+| Roughness | Set the roughness value of the selected layer |
+| Tile Size | Scalar for a single tile. This will only take effect regarding texture projection. Users may use a smaller tile scale compared to that in terms of the terrain construction (**Tile Size** under **Manage** tab) to achieve higher texel density. |
 
-### Select
+### Working with Terrain: Select
 
 When switching to the **Select** tab and selecting a terrain block in the **Scene** panel, information about the current terrain block will be displayed.
 
@@ -119,6 +123,6 @@ When switching to the **Select** tab and selecting a terrain block in the **Scen
 
 | Parameter | Description |
 | :--- | :--- |
-| Index  | The index of the currently selected terrain block.    |
-| Layers | The texture list of the currently selected terrain block. |
-| Wight  | The weight map of the currently selected terrain block.  |
+| Index  | Index of the selected block (in x and y axis.) |
+| Layers | Texture layers being applied to the selected block |
+| Weight  | Weight maps of the selected block |
