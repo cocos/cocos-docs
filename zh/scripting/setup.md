@@ -9,7 +9,7 @@
 
 ![create script](setup/create-script.png)
 
-在创建脚本时，名称不能为空，输入框默认为 `NewComponent`。我们将其修改为 `say-hello` ，可以看到在 **资源管理器** 中生成了一个名为 `say-hello` 的脚本文件。
+在创建脚本时，名称不能为空，输入框默认为 `NewComponent`。我们将其修改为 `say-hello`，可以看到在 **资源管理器** 中生成了一个名为 `say-hello` 的脚本文件。
 
 ![say-hello-1](setup/say-hello-1.png)
 
@@ -32,13 +32,14 @@ export class say_hello extends Component {
     }
 }
 ```
-**注意点**
 
-> 项目中所有脚本的类名 `ClassName` （如上例中的 'say_hello'） 不允许重复，即使脚本文件在不同的目录下，各自的代码里也不允许有相同的类名。
-
-> 脚本文件名称和脚本的类名不同，在输入初始的文件名之后，文件名会被处理为类名，处理的逻辑详见下文 **类名的生成**。脚本文件生成后，对文件的后续操作**脚本重命名**，新的文件名不会再去生成并替换代码里的类名，不再影响了。
-
-> 我们推荐用户使用 TypeScript 来编写脚本，目前 **资源管理器** 中仅支持创建 TypeScript 文件。但如果用户想要使用 JavaScript 来编写脚本的话，可以直接在操作系统的文件夹中创建 JavaScript 文件，或在其他代码编辑软件中创建 JavaScript 文件。
+> **注意点**：
+>
+> 1. 项目中所有脚本的类名 `ClassName` （如上例中的 'say_hello'） 不允许重复，即使脚本文件在不同的目录下，各自的代码里也不允许有相同的类名。
+>
+> 2. 脚本文件名称和脚本的类名不同，在输入初始的文件名之后，文件名会被处理为类名，处理的逻辑详见下文 **类名的生成**。脚本文件生成后，对文件的后续操作**脚本重命名**，新的文件名不会再去生成并替换代码里的类名，不再影响了。
+> 
+> 3. 我们推荐用户使用 TypeScript 来编写脚本，目前 **资源管理器** 中仅支持创建 TypeScript 文件。但如果用户想要使用 JavaScript 来编写脚本的话，可以直接在操作系统的文件夹中创建 JavaScript 文件，或在其他代码编辑软件中创建 JavaScript 文件。
 
 
 ## 类名的生成
@@ -65,7 +66,7 @@ export class say_hello extends Component {
 
 ![preference script editor](setup/preference-script-editor.png)
 
-外部程序配置完成后，在**资源管理器**中双击脚本资源，便会用指定的程序打开该脚本。
+外部程序配置完成后，在 **资源管理器** 中双击脚本资源，便会用指定的程序打开该脚本。
 编辑脚本代码保存后，鼠标点击回到编辑器，编辑器会自动检测到脚本的改动，重新对其进行编译后使用。
 
 编写脚本代码，可阅读以下文档了解相关内容：
@@ -76,7 +77,9 @@ export class say_hello extends Component {
 脚本文件创建成功后，再对文件进行重命名，或者对代码里的类名进行修改，文件名和类名均不会再互相影响。
 
 - 以 `say-hello` 为例，我们在 **资源管理器** 中将其重命名为 `hello`。
+
 重新选中该资源，查看 **属性检查器**，代码还是显示 `class say_hello`，不会变动。
+
 重新选中 **层级管理器** 上刚添加组件的节点 **Node**，查看 **属性检查器**，组件名称还是显示 `say_hello`，不会变动。
 
 我们继续双击当前的 `hello` 资源，将类名改为 **say**，保存后回到编辑器：
@@ -99,15 +102,18 @@ export class say extends Component {
 
 同样的脚本文件名 `hello` 不会变化。节点 **Node** 里的组件名称变为 **say**。
 
+> **注意**：这里需要记得将装饰器 `@ccclass('say_hello')` 中的内容也改为 `@ccclass('say')`。
+
 ![modify script](setup/modify-script.png)
 
 ## <a id="custom-script-template">脚本模板</a>
 
 从编辑器 v3.3 开始，支持在项目中管理不同的脚本模板。
 
-- 新建一个项目，新项目不会自动创建自定义脚本模板所在的目录 `.creator/asset-template/typescript` 。
+- 新建一个项目，新项目不会自动创建自定义脚本模板所在的目录 `.creator/asset-template/typescript`。  
 - 可以手动创建上述目录。也可以通过 **资源管理器** 的右击菜单里的菜单，点击后才生成目录。
-![custom script](setup/custom-script.png)
+
+    ![custom script](setup/custom-script.png)
 
 
 默认的 `NewComponent` 脚本模板仍在引擎内置资源目录下 `resources\3d\engine\editor\assets\default_file_content\ts`。
@@ -173,21 +179,24 @@ export class <%UnderscoreCaseClassName%> extends Component {
  */
 
 ```
-**注意点**
 
-> 脚本模板中大量的注释并不会生成到脚本文件中，因为在注释里我们使用了关键词标注 `COMMENTS_GENERATE_IGNORE` 只要此关键词在某段注释里，那么生成脚本文件就会将该段注释忽略掉。
 
-> `Predefined Variables` 我们准备了一些预制的变量，在生成脚本文件的时候可以作为辅助的信息，比如作者 `<%Author%>`。
+> **注意**：
+>
+> 1. 脚本模板中大量的注释并不会生成到脚本文件中，因为在注释里我们使用了关键词标注 `COMMENTS_GENERATE_IGNORE` 只要此关键词在某段注释里，那么生成脚本文件就会将该段注释忽略掉。
+>
+> 2. `Predefined Variables` 我们准备了一些预制的变量，在生成脚本文件的时候可以作为辅助的信息，比如作者 `<%Author%>`。
+>
+> 3. 特别准备了两种类名格式：`<%UnderscoreCaseClassName%>` 和 `<%CamelCaseClassName%>`。名称前后仍可以添加自定义的前缀或后缀，如加个 `Robot` 前缀 `Robot<%CamelCaseClassName%>`。
 
-> 特别准备了两种类名格式：`<%UnderscoreCaseClassName%>` 和 `<%CamelCaseClassName%>`。名称前后仍可以添加自定义的前缀或后缀，如加个 `Robot` 前缀 `Robot<%CamelCaseClassName%>`
-
-> 通过点击右击菜单的方式，项目自定义脚本模板目录下会自动生成一个文档网址快捷链接，双击即会调出浏览器打开指定网页。 `Custom Script Template Help Documentation`
-![custom script help](setup/custom-script-help.png)
+> 4. 通过点击右击菜单的方式，项目自定义脚本模板目录下会自动生成一个文档网址快捷链接，双击即会调出浏览器打开指定网页：`Custom Script Template Help Documentation`。
+>
+>    ![custom script help](setup/custom-script-help.png)
 
 
 ### 添加脚本模板
 
-我们从复制上述内置 `NewComponent` 模板的代码进行修改，类名为驼峰格式，加 `Robot` 前缀，文件另存为无后缀名的文件 `CustomComponent`， 保存在项目自定义脚本模板的路径下，即 `.creator/asset-template/typescript/CustomComponent`。 
+我们从复制上述内置 `NewComponent` 模板的代码进行修改，类名为驼峰格式，加 `Robot` 前缀，文件另存为无后缀名的文件 `CustomComponent`，保存在项目自定义脚本模板的路径下，即 `.creator/asset-template/typescript/CustomComponent`。 
 
 ![custom script file](setup/custom-script-file.png)
 
@@ -222,7 +231,8 @@ export class Robot<%CamelCaseClassName%> extends Component {
 }
 
 ```
-那么最后的我们新建一个 `wake up` 脚本资源看看，效果如下图:
+
+那么最后的我们新建一个 `wake up` 脚本资源看看，效果如下图：
 
 ![custom script menu](setup/custom-script-menu.png)
 
