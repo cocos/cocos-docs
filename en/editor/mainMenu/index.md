@@ -65,12 +65,12 @@ This option contains functions to adjust the view, disconnect prefabricated node
 | Disconnect Node With Prefab Asset Recursively | Recursively convert prefab nodes containing nested nodes in the scene to normal nodes, see [Prefab](../../asset/prefab.md) for details.
 | Empty Node | Creates an empty node in the scene. If the node is already selected in the scene before the command is executed, the newly created node will become a child of the selected node. |
 | 3D Objects | Creator provides some relatively basic static model controls for use, currently including **Cube**, **Cylinder**, **Sphere**, **Capsule**, **Cone**, **Torus**, **Flat** and **Quad**. To create other types of models, refer to the [MeshRenderer component](../../engine/renderable/model-component.md) documentation. |
-| 2D Objects | Create Creator's pre-defined 2D nodes in the scene containing the base rendering components, which currently include **Graphics**, **Label**, **Mask**, **ParticleSystem2D**, **Sprite**, **SpriteSplash** (monochrome) and **TiledMap** (map), for details please refer to the [Introduction to 2D Rendering Components](../../ui-system/components/editor/render-component.md) documentation. |
+| 2D Objects | Create Creator's pre-defined 2D nodes in the scene containing the base renderable components, which currently include **Graphics**, **Label**, **Mask**, **ParticleSystem2D**, **Sprite**, **SpriteSplash** (monochrome) and **TiledMap** (map), for details please refer to the [Introduction to 2D Renderable Components](../../ui-system/components/editor/render-component.md) documentation. |
 | UI Components | Create Creator's pre-defined nodes containing basic UI components in the scene, which currently include Common UI controls such as **Button**, **Widget**, **Layout**, **ScrollView**, **EditBox** nodes, etc. For more UI components, please refer to the [UI Basic Components](../../ui-system/components/editor/base-component.md) documentation. |
 | Lighting | Create Creator preset nodes in the scene containing base light components, currently including **Parallel Light**, **Spherical Light** and **Spot Light**, please refer to the [Lighting](../../concepts/scene/light.md) documentation. |
 | Effects | Create a Creator preset in the scene containing [Particle System](../../particle-system/overview.md) component in the scene. More effects components can be added in the **Property Inspector** panel by clicking **Add Component -> Special Effects**. |
-| Camera | Creates a node in the scene with the Camera component pre-defined by the Creator. For details on how to use it, please refer to the [Camera component](../components/camera-component.md) documentation. |
-| Terrain | Creates a node containing the terrain component pre-defined by the Creator in the scene. Please refer to the [Terrain System](../terrain/index.md) documentation for more details on how to use it. |
+| Camera | Creates a node in the scene with the Camera component pre-defined by Creator. For details on how to use it, please refer to the [Camera component](../components/camera-component.md) documentation. |
+| Terrain | Creates a node containing the terrain component pre-defined by Creator in the scene. Please refer to the [Terrain System](../terrain/index.md) documentation for more details on how to use it. |
 
 ## Project
 
@@ -151,6 +151,6 @@ This option contains mainly development-related menu functions such as scripts, 
 | :--- | :--- |
 | User Manual | Open [User Manual](../../index.md) in default browser. |
 | API Reference | Open [API Reference Documentation](__APIDOC__/en/#/) in default browser. |
-| Forum | Open [Cocos Creator Forum](https://forum.cocos.org/c/58) in default browser. |
+| Forum | Open [Cocos Creator Forum](https://discuss.cocos2d-x.org/c/33) in default browser. |
 | Release Notes | Open the [release notes](https://www.cocos.com/creator) for each version of Cocos Creator in default browser. |
 | Engine Repository | Open [TypeScript Engine Repository](https://github.com/cocos-creator/engine) in default browser. |

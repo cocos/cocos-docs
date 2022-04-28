@@ -13,3 +13,8 @@
 - [缓动接口](./tween-interface.md)
 - [缓动函数](./tween-function.md)
 - [缓动示例](./tween-example.md)
+
+## 范例
+
+更多关于 Tween 具体的使用方法，详情请参考范例 **Tween**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/tween) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/tween)）。
+

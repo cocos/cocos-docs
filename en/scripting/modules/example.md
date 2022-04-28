@@ -247,6 +247,6 @@ declare module "<package name>/dist/**.js" {
 
 ### Special case: firebase usage
 
-This is a special case, take a look at the special features of this case. After installing the `firebase` package in the way described above, and analyzing the package according to the `package.json` file, notice the package is in **CJS** format. Based on the entry file, infer that this package is customized for Node (this can be tested according to [Case 4: Using web3](#case-4-using-web3)), so we have to use the Web custom version `index.esm.js`. The problem is, `index.esm.js` is an **ESM** module, and the Creator recognizes this package as a **CJS** module, but it is also an **ESM** module, which naturally causes errors.
+This is a special case, take a look at the special features of this case. After installing the `firebase` package in the way described above, and analyzing the package according to the `package.json` file, notice the package is in **CJS** format. Based on the entry file, infer that this package is customized for Node (this can be tested according to [Case 4: Using web3](#case-4-using-web3)), so we have to use the Web custom version `index.esm.js`. The problem is, `index.esm.js` is an **ESM** module, and Creator recognizes this package as a **CJS** module, but it is also an **ESM** module, which naturally causes errors.
 
 The proposed solution is for the user to package it as a separate js file as a **non-npm module** via a packaging tool like `rollup`.

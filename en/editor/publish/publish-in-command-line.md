@@ -35,13 +35,13 @@ Currently, when using the command line to build, except for the required build o
 
   When parameters are not specified after `--build`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. When additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
-    - `configPath`: Parameter file path. If define `configPath`, then __Cocos Creator__ will load this file as a build parameter in the `JSON` file format. This parameter can be modified by yourself or exported directly from the **Build** panel.
+    - `configPath`: Parameter file path. If define `configPath`, then Cocos Creator will load this file as a build parameter in the `JSON` file format. This parameter can be modified by yourself or exported directly from the **Build** panel.
     - `logDest`: Specify the log output path.
     - `includedModules`: Customize the engine packaged modules, only the required modules are packaged. The corresponding field of each module can be found in the `features` field in [this file](https://github.com/cocos-creator/engine/blob/3d/cc.config.json) of engine repository.
     - `outputName`: The name of the release folder generated after the build.
     - `name`: Game name.
     - `platform`: Required, the platform needs to be built.
-    - `buildPath`: The game's release path, the default release path is in the `build` under the project folder.
+    - `buildPath`: Specify the directory where the build release package is generated, the default is the `build` directory under the project directory. Either an absolute path or a path relative to the project (e.g.: `project://release`) can be used. Starting with v3.4.2, relative paths like `../` are supported.
     - `startScene`: The UUID of the main scene (the participating scene will use the build option parameters in the **Build** panel from the last build), and the first scene from the **Included Scenes** will be used if not specified.
     - `scenes`: Information about the scenes involved in the build, which defaults to all scenes when not specified.
     - `debug`: Whether or not debug mode, the default is `false`.
