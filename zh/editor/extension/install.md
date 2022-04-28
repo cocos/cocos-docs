@@ -1,48 +1,50 @@
 # 安装与分享
 
 ## 安装位置
+
 Cocos Creator 在启动项目的过程中会搜索并加载 **全局** 和 **项目** 两个路径下的扩展。
 
 ### 全局
+
 如果需要将扩展应用到所有的 Cocos Creator 项目，可以选择将扩展包放在 **全局** 扩展包路径中：
 
 - **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
 - **macOS**：`$HOME/.CocosCreator/extensions`
 
 ### 项目
+
 如果只希望将扩展应用到指定的项目，可以选择将扩展包放在 **项目** 扩展包路径中：
 
-- `$你的项目地址/extensions`
-
+- `${你的项目地址}/extensions`
 
 ## 安装扩展
 
 可以通过三种方式获得扩展：
-- 其他开发者打包分享， 请参考 [打包扩展](#打包扩展)。
+- 其他开发者打包分享，请参考下文 [打包扩展](#%E6%89%93%E5%8C%85%E6%89%A9%E5%B1%95)。
 
 - 从 **Dashboard->商城** 下载。
-![](./image/dashboard-store.png)
+
+  ![dashboard-store](./image/dashboard-store.png)
 
 - 从 [Cocos Store·资源商城](http://store.cocos.com) 页面下载。
 
 获得扩展压缩包（zip 文件）后，在编辑器顶部菜单栏中点击 **扩展 -> 扩展管理器**：
 
-![](image/extension-manager-menu.png)
+![extension-manager-menu](image/extension-manager-menu.png)
 
 点击后可打开如下图所示的 **扩展管理器** 面板。
 
-![](image/extension-manager.png)
+![extension-manager](image/extension-manager.png)
 
 在 **扩展管理器** 中选择 **项目**/**全局**（上图所示 1） 选项卡，点击 **+** (上图所示 3) 按钮。
 
 在弹出的文件选择框中选择要导入的扩展压缩包，点击 **打开** 按钮即可导入。
 
-导入的扩展压缩包会被解压并放到指定的[安装位置](#安装位置)。
+导入的扩展压缩包会被解压并放到指定的 [安装位置](#%E5%AE%89%E8%A3%85%E4%BD%8D%E7%BD%AE)。
 
 最后在 **扩展管理器** 对应的 **项目**/**全局** 选项卡中找到扩展，点击右边的 **启用** 按钮，刚刚导入的扩展就可以正常运行了。如下图所示：
 
-![](image/enable-extension.png)
-
+![enable-extension](image/enable-extension.png)
 
 ## 卸载已安装的扩展
 
@@ -60,11 +62,11 @@ Cocos Creator 在启动项目的过程中会搜索并加载 **全局** 和 **项
 
 我们以 `first-panel` 扩展为例，其目录结构如下：
 
-![](./first/extension-first-panel-folder-origin.png)
+![extension-first-panel-folder-origin](./first/extension-first-panel-folder-origin.png)
 
 进入扩展根目录，选择相应文件并将所有文件压缩成 zip 包，如下图所示（截图为 macOS 系统，其余平台同理）：
 
-![](./first/extension-first-panel-install.png)
+![extension-first-panel-install](./first/extension-first-panel-install.png)
 
 上图中所选文件（夹）为必选，缺一不可，它们作用如下：
 - `dist` - 生成的 javascript 代码。
@@ -75,6 +77,6 @@ Cocos Creator 在启动项目的过程中会搜索并加载 **全局** 和 **项
 
 将压缩包命名为 `first-panel.zip`（建议与扩展文件夹同名），分享给其他人或者上传 Cocos Store 即可完成分享。
 
->请注意，要在扩展的目录下进行文件选择操作，否则可能导致目录结构不对。
+> **注意**：要在扩展的目录下进行文件选择操作，否则可能导致目录结构不对。
 
-若想上架扩展到[资源商店（Cocos Store）](https://store.cocos.com)，请参考文档 [上架扩展到资源商店](./store/upload-store.md)。
+若想上架扩展到 [资源商店（Cocos Store）](https://store.cocos.com)，请参考文档 [上架扩展到资源商店](./store/upload-store.md)。

@@ -2,7 +2,6 @@
 
 有自定义属性检查器需求的开发者建议先参考文档 [通过修饰器定义属性](../../scripting/decorator.md)，若该文档满足需求，建议优先使用该文档中的方法。
 
-
 **属性检查器** 作为 Cocos Creator 里显示当前选中状态的模块，为大家提供了一些基础的扩展能力。
 
 在 **属性检查器** 里，定义了两个层级的数据:
@@ -10,7 +9,7 @@
 1. 选中的物体主类型
 2. 渲染主类型内容时，内容里包含的子数据类型
 
-当在 **层级管理器**/**资源管理器** 中选中一个**节点**/**资源**时，Cocos Creator 会将物体被选中的消息进行广播。当 **属性检查器** 接收到消息后，会检查被选中的物体的类型，例如选中的是节点，那么类型便是 `node`。
+当在 **层级管理器**/**资源管理器** 中选中一个 **节点**/**资源** 时，Cocos Creator 会将物体被选中的消息进行广播。当 **属性检查器** 接收到消息后，会检查被选中的物体的类型，例如选中的是节点，那么类型便是 `node`。
 
 针对两种类型，允许注册两种渲染器：
 1. 主类型渲染器
@@ -64,6 +63,7 @@ export class CustomLabelComponent extends Component {
 ```
 
 ### 自动渲染
+
 编写一个 `src/contributions/inspector/comp-label.ts` 文件，内容如下：
 
 ```typescript
@@ -90,12 +90,12 @@ export function ready(this: Selector<typeof $> & typeof methods) {}
 
 编译并刷新插件后，我们可以发现 `CustomLabelComponent` 组件的渲染被接管了。
 
-> 每一个 `ui-prop` 对应一条属性，若要显示多条属性需要定义多个 `ui-prop`。
-
+> **注意**：每一个 `ui-prop` 对应一条属性，若要显示多条属性需要定义多个 `ui-prop`。
 
 ### 手动渲染
 
 上面的自动渲染示例中，我们使用了类型为 `dump` 的特殊的 `ui-prop` 进行渲染数据提交，它使我们可以快捷的接管组件的渲染，但若面临一些极端情况却很难处理一些细节问题，此时可以切换到手动渲染模式，代码如下所示：
+
 ```typescript
 'use strict';
 
@@ -160,7 +160,7 @@ export function ready(this: PanelThis) {
 `effect` 表示我们要对 Cocos Effect（*.effect） 文件类型的资源属性面板自定义渲染。常见的资源文件类型如下：
 - `scene` - 场景文件
 - `typescript` - TypeScript 脚本文件
-- `prefab` - 预制体文件 
+- `prefab` - 预制体文件
 - `fbx` - FBX 文件
 - `material` - 材质文件
 - `directory` - 文件夹
@@ -169,6 +169,7 @@ export function ready(this: PanelThis) {
 可通过查看文件对应的 `*.meta` 中的 `importer` 字段获取该文件的类型定义。
 
 接下来，在插件目录下新建一个 `src/contributions/inspector/asset-effect.ts` 脚本文件，并编写如下代码：
+
 ```typescript
 'use strict';
 
@@ -244,4 +245,4 @@ export function close(his: PanelThis, ) {
 
 编译、刷新扩展后，回到 Cocos Creator 编辑器界面，选中某个 `Cocos Effect` 文件，可以在属性检查器底部发现，多了一个 **Test 复选框**。
 
-**注意**：多个扩展注册的数据是并存的。如果一个**组件**/**资源**已经有了自定义渲染器，那么再次注册的自定义渲染器都会附加在后面。如果一个**组件**/**资源**没有内置自定义渲染器，使用的是默认的渲染器，那么当扩展注册自定义渲染器的时候，会完全接管渲染内容。
+> **注意**：多个扩展注册的数据是并存的。如果一个 **组件**/**资源** 已经有了自定义渲染器，那么再次注册的自定义渲染器都会附加在后面。如果一个 **组件**/**资源** 没有内置自定义渲染器，使用的是默认的渲染器，那么当扩展注册自定义渲染器的时候，会完全接管渲染内容。

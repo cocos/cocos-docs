@@ -6,7 +6,6 @@ Cocos Creator 中有许多独立运行进程，且这些进程间是相互隔离
 
 更多关于多进程构架和跨进程通信的介绍请参考文档 [基础结构](./package.md).
 
-
 ## 消息类型
 
 Cocos Creator 系统内的消息有两种类型：
@@ -41,12 +40,11 @@ const info = await Editor.Message.request('scene', 'query-node', uuid);
 
 这种消息类似一种远程调用 (RPC), 拿到的 `info` 对象就是实际查询的节点上的部分数据。
 
->由于是远程调用，`request` 是不会立即返回的，因此需要使用 `await` 将异步转为同步。
+> **注意**：由于是远程调用，`request` 是不会立即返回的，因此需要使用 `await` 将异步转为同步。
 
 #### 普通消息的命名规范
 
 请使用 **小写** 单词，并且不能包含特殊字符，单词间以 **-** 连接。如 `open-panel`、`text-changed`。
-
 
 ### 广播消息
 
@@ -54,7 +52,7 @@ const info = await Editor.Message.request('scene', 'query-node', uuid);
 
 #### 接收广播消息
 
-比如，**场景编辑器** 在启动一个场景后，需要通知所有人"场景"已经启动完毕，场景编辑器发送广播消息使用的是如下代码：
+比如，**场景编辑器** 在启动一个场景后，需要通知所有人 "场景" 已经启动完毕，**场景编辑器** 发送广播消息使用的是如下代码：
 
 ```typescript
 Editor.Message.broadcast('scene:ready', sceneUUID);
@@ -78,6 +76,7 @@ Editor.Message.broadcast('scene:ready', sceneUUID);
 每当场景准备就绪后，广播的 `scene:ready` 消息就会触发 "hello-world" 扩展里的 `initData` 方法。
 
 #### 发送广播消息
+
 若一个扩展想要发送广播消息，也需要在 `package.json` 里先定义。
 
 比如，"hello-world" 在准备好数据后，会向外广播一条消息，以方便其他扩展与之配合。如下所示：
@@ -105,8 +104,7 @@ Editor.Message.broadcast('scene:ready', sceneUUID);
 Editor.Message.broadcast('hello-world:ready');
 ```
 
->**注意：** 广播消息可以没有 `methods`，表示不监听。如上面的定义所示，表示 “hello-world” 不需要监听自己的初始化完成的消息。
-
+> **注意**：广播消息可以没有 `methods`，表示不监听。如上面的定义所示，表示 “hello-world” 不需要监听自己的初始化完成的消息。
 
 #### 广播消息的命名规范
 
