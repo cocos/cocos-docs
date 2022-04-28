@@ -75,13 +75,13 @@ __Collider__ 和 __RigidBody__ 组件都是服务于物理元素，分别操控�
 
 ![非均一缩放球](img/collider-non-uniform-scale.jpg)
 
-### 实现鹅软石
+### 实现鹅卵石
 
 对于此类情况，可以用网格碰撞体来代替基础的碰撞体。
 
 **注**：若需要支持动力学刚体，则必须开启 __convex__ 功能。
 
-![鹅软石](img/goose-soft-rock.jpg)
+![鹅卵石](img/goose-soft-rock.jpg)
 
 ## 物理材质
 
