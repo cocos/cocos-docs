@@ -292,6 +292,9 @@
             - [渐变色编辑器](particle-system/editor/gradient-editor.md)
 
 - [缓动系统](tween/index.md)
+    - [缓动接口](tween/tween-interface.md)
+    - [缓动函数](tween/tween-function.md)
+    - [缓动示例](tween/tween-example.md)
 
 - [地形系统](editor/terrain/index.md)
 
