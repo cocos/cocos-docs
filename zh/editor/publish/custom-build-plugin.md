@@ -79,7 +79,7 @@ export const configs:BuildPlugin.Configs = {
 
 部分属性与接口描述如下：
 
-`assetHandlers`：string - 用于替换部分构建方法的脚本文件的相对路径，详情请参考下文[自定义纹理压缩处理](##%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86)。
+`assetHandlers`：string - 用于替换部分构建方法的脚本文件的相对路径，详情请参考下文 [自定义纹理压缩处理](#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86)。
 
 `configs`：BuildPlugin.Configs - 构建面板相关的配置
 - `web-mobile`：string - Cocos Creator 支持的平台名，与点击 **构建** 按钮后生成的文件夹一致。 如果平台标记为 `*`，则里面的配置对所有构建平台生效。
