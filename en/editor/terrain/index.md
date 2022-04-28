@@ -18,7 +18,7 @@ To create a new terrain in the project, users need to create a terrain object in
 
 ## Configuring Terrain Properties
 
-Select the terrain object in the **Hierarchy** panel. Drag and drop the terrain asset from the **Assets** panel in the `Asset` property of the terrain component (`cc.Terrain`,) or click the arrow button behind the `Asset` property and select the terrain asset from the drop-down menu.
+Select the terrain object in the **Hierarchy** panel. Drag and drop the terrain asset from the **Assets** panel in the `Asset` property of the terrain component (`cc.Terrain`) or click the arrow button behind the `Asset` property and select the terrain asset from the drop-down menu.
 
 The terrain component includes properties as follows:
 
