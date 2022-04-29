@@ -38,11 +38,13 @@
 
 当希望某骨骼上的动画效果被禁用时，确保其前方的勾选框保持未勾选状态即可。
 
-操作方式为在导入的骨骼中点击骨骼名字旁边的单选框 ![checkbox](animation-mask/checkbox.png) 。
+操作方式为在导入的骨骼中点击骨骼名字旁边的单选框 ![checkbox](animation-mask/checkbox.png)。
+
+如果只想操作单一骨骼，则可以通过按下 <kbd>Alt</kbd> 的同时使用鼠标左键进行选择。
+
+不按下 <kbd>Alt</kbd> 时点击 ![checkbox](animation-mask/checkbox.png) 单选框会同时选中/取消当前骨骼以及其子骨骼。
 
 通过点击 ![expand](animation-mask/expand.png) 可以展开/隐藏子骨骼。
-
-按住 <kbd>Alt</kbd> 并点击 ![checkbox](animation-mask/checkbox.png) 单选框可以同时选中/取消当前骨骼以及其子骨骼。
 
 > **注意**：子骨骼和父级骨骼直接的启用/禁用关系是互不影响的。也就是说，即使父级骨骼被禁用，子骨骼依然可以生效。
 
