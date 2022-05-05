@@ -12,7 +12,7 @@ See [Adding Lights](index.md#adding-lights) for how to add spotlights to a scene
 
 For the Spotlight component interface, please refer to [SpotLight API](__APIDOC__/en/#/docs/3.4/en/component-light/Class/SpotLight).
 
-> **Note**: Starting with v3.5, **Spotlight Shadows** are separate from the Scene Settings panel and are no longer affected by the Global Shadows parameter.
+> **Note**: Starting with v3.5, **Spotlight Shadows** are separated from the Scene Settings panel and are no longer affected by the Global Shadows parameter.
 
 ## Spotlight Properties
 

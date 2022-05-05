@@ -16,7 +16,7 @@ A directional light node `Main Light` will be created automatically by default w
 
 For the interface of the directional light component, please refer to [DirectionalLight API](__APIDOC__/en/#/docs/3.4/en/component-light/Class/DirectionalLight).
 
-> **Note**: Starting with v3.5, **Parallel Light Shadows** are separate from the Scene Settings panel and do not set shadow properties globally.
+> **Note**: Starting with v3.5, **Parallel Light Shadows** are separated from the Scene Settings panel and do not set shadow properties globally.
 
 ## Directional Light Properties
 
