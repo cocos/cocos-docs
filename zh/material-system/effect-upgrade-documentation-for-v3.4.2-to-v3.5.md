@@ -4,10 +4,10 @@
 
 宏标记和功能宏的效果语法已升级，为避免占用标准的 glsl 定义，项目中旧的效果将自动升级，但如果您使用的是没有元的外部效果或编写新效果，则必须注意。
 
--宏标记的新语法：`#pragma define meta`
--函数宏的新语法：`#pragma define`
+- 宏标记的新语法：`#pragma define meta`
+- 函数宏的新语法：`#pragma define`
 
-有关详细信息，请参阅[Effect Syntax Guide](./effect-syntax.md#macro-tags)
+有关详细信息，请参阅 [Effect Syntax Guide](../shader/macros.md#macro-tags)。
 
 ## 模型级别的阴影偏移
 

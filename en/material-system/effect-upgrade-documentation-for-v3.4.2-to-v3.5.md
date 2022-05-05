@@ -7,7 +7,7 @@ The effect syntax for Macro Tags and Functional Macros have been upgraded to avo
 - New syntax for Macro Tag: `#pragma define-meta`
 - New syntax for Funtional Macro: `#pragma define`
 
-You can refer to [Effect Syntax Guide](./effect-syntax.md#macro-tags) for detailed information.
+You can refer to [Effect Syntax Guide](../shader/macros.md#macro-tags) for detailed information.
 
 ## Model level shadow bias
 
