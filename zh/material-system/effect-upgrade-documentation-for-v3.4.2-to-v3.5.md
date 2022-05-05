@@ -7,7 +7,7 @@
 - 宏标记的新语法：`#pragma define meta`
 - 函数宏的新语法：`#pragma define`
 
-有关详细信息，请参阅 [Effect Syntax Guide](../shader/macros.md#macro-tags)。
+有关详细信息，请参阅 [Effect Syntax - macro-tags](../shader/macros.md#macro-tags)。
 
 ## 模型级别的阴影偏移
 
