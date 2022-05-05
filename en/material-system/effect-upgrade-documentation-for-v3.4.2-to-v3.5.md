@@ -8,7 +8,7 @@ Solve the **effect** file from v3.4.x, upgrade to v3.5.0, shadowbias does not ta
 
 There are **four steps** to upgrade, please follow the following paragraphs in turn.
 
-## Before and after version comparison
+## Version comparison
 
 ```c
 // Vertex shader
