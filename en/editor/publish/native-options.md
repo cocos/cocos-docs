@@ -81,7 +81,7 @@ By convention, Game Package Name is the product website URL rearranged in revers
 
 `com.mycompany.myproduct`.
 
-> Note: Legal characters for package names include all alphanumeric characters, period (‘.’) and underscore (‘_’). The last section of the package name (in the example above: ‘myproduct’) cannot start with a number or underscore.
+> **Note**: Legal characters for package names include all alphanumeric characters, period (‘.’) and underscore (‘_’). The last section of the package name (in the example above: ‘myproduct’) cannot start with a number or underscore.
 
 #### Target API Level
 
@@ -115,7 +115,7 @@ Projects can be published in 3 screen orientation settings: **Portrait**, **Land
 
 To deploy the product on Google Play Instant, users can enable this property and adhere to the following prerequistes:
 
-> 1. Android Studio v4.0 or above installed
+> 1. Android Studio v4.0 or above installed.
 > 
 > 2. Since Google Play Instant can only be launched on devices with Android 6.0 or higher, users of Android SDK version 6.0 – 7.0 should also have Google Service Framework installed.
 > 
@@ -177,7 +177,7 @@ This information is used to configure Development Team signature when building a
 
 #### Target iOS Version
 
-This property specifies the target version of iOS platform and defaults to **12.0**. This can also be modified by the `TARGET_IOS_VERSION` variable in file ` proj/cfg.cmake` found in the release package after build is done.
+This property specifies the target version of iOS platform and defaults to **12.0**. This can also be modified by the `TARGET_IOS_VERSION` variable in file `proj/cfg.cmake` found in the release package after build is done.
 
 ### Build for Mac
 
@@ -275,7 +275,7 @@ For more information on CMake, please refer to [CMake Introduction](../../advanc
 
 ## Build and Run
 
-Cocos Creator supports Make and Run Preview via the editor or the corresponding IDE for each platform (e.g. Xcode, Android Studio, Visual Studio.)
+Cocos Creator supports Make and Run Preview via the editor or the corresponding IDE for each platform (e.g. Xcode, Android Studio, Visual Studio).
 
 ### Via Cocos Creator
 
