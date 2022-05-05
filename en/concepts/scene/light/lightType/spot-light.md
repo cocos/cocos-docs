@@ -33,7 +33,7 @@ For the Spotlight component interface, please refer to [SpotLight API](__APIDOC_
 
 ### Spotlight Shadow Properties
 
-![image](dirlights/spot-light-shadow-prop.png)
+![image](spotlight/spot-light-shadow-prop.png)
 
 | Property | Explanation |
 | :--- | :--- |
