@@ -8,8 +8,6 @@ Solve the **effect** file from v3.4.x, upgrade to v3.5.0, shadowbias does not ta
 
 There are **four steps** to upgrade, please follow the following paragraphs in turn.
 
-## Version comparison
-
 ```c
 // Vertex shader
 CCProgram xxx-vs %{
@@ -21,15 +19,7 @@ CCProgram xxx-vs %{
     // Vs output area
     out vec3 v_xxx;
     ...
-
-    1. vs out varying define
-    // v3.4.x
-
-    // v3.5.0
-    #if CC_RECEIVE_SHADOW
-        out mediump vec2 v_shadowBias;
-    #endif
-
+    // 1. vs out varying define
     ...
     out vec3 v_xxxx;
 
@@ -37,15 +27,7 @@ CCProgram xxx-vs %{
     void main () {
         xxx;
         ...
-
-        2. get vs shadow bias
-        // v3.4.x
-
-        // v3.5.0
-        #if CC_RECEIVE_SHADOW
-            v_shadowBias = CCGetShadowBias();
-        #endif
-
+        // 2. get vs shadow bias
         ...
         xxxx;
     }
@@ -61,15 +43,7 @@ CCProgram xxx-fs %{
     // Vs output area
     in vec3 v_xxx;
     ...
-
-    3. fs in varying define
-    // v3.4.x
-
-    // v3.5.0
-    #if CC_RECEIVE_SHADOW
-        in mediump vec2 v_shadowBias;
-    #endif
-
+    // 3. fs in varying define
     ...
     in vec3 v_xxxx;
 
@@ -77,17 +51,72 @@ CCProgram xxx-fs %{
     void surf (out StandardSurface s) {
         xxx;
         ...
-
-        4. fs shadow bias assignment
-        // v3.4.x
-
-        // v3.5.0
-        #if CC_RECEIVE_SHADOW
-            s.shadowBias = v_shadowBias;
-        #endif
-
+        // 4. fs shadow bias assignment
         ...
         xxxx;
     }
 }%
+
+...
+
 ```
+
+## Version comparison
+
+1. vs out varying define
+    - v3.4.x
+
+        ```c
+        ```
+
+    - v3.5.0
+
+        ```c
+        #if CC_RECEIVE_SHADOW
+            out mediump vec2 v_shadowBias;
+        #endif
+        ```
+
+2. get vs shadow bias
+
+    - v3.4.x
+
+        ```c
+        ```
+
+    - v3.5.0
+
+        ```c
+        #if CC_RECEIVE_SHADOW
+            v_shadowBias = CCGetShadowBias();
+        #endif
+        ```
+
+3. fs in varying define
+
+    - v3.4.x
+
+        ```c
+        ```
+
+    - v3.5.0
+
+    ```c
+    #if CC_RECEIVE_SHADOW
+        in mediump vec2 v_shadowBias;
+    #endif
+    ```
+
+4. fs shadow bias assignment
+    - v3.4.x
+
+        ```c
+        ```
+
+    - v3.5.0
+
+        ```c
+        #if CC_RECEIVE_SHADOW
+            s.shadowBias = v_shadowBias;
+        #endif
+        ```

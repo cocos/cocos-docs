@@ -8,8 +8,6 @@
 
 总共分 **四步** 升级，请按照下列段落依次进行。
 
-## 前后版本对比
-
 ```c
 // 顶点着色器
 CCProgram standard-vs %{
@@ -21,15 +19,7 @@ CCProgram standard-vs %{
     // vs 输出区域
     out vec3 v_xxx;
     ...
-
-    1. vs out varying 定义
-    // v3.4.x
-
-    // v3.5.0
-    #if CC_RECEIVE_SHADOW
-        out mediump vec2 v_shadowBias;
-    #endif
-
+    // 1.vs out varying 定义
     ...
     out vec3 v_xxxx;
 
@@ -37,15 +27,7 @@ CCProgram standard-vs %{
     void main () {
         xxx;
         ...
-
-        2. vs shadow bias 获取
-        // v3.4.x
-
-        // v3.5.0
-        #if CC_RECEIVE_SHADOW
-            v_shadowBias = CCGetShadowBias();
-        #endif
-
+        // 2. vs shadow bias 获取
         ...
         xxxx;
     }
@@ -61,15 +43,7 @@ CCProgram standard-fs %{
     // vs 输入区域
     in vec3 v_xxx;
     ...
-
-    3. fs in varying 定义
-    // v3.4.x
-
-    // v3.5.0
-    #if CC_RECEIVE_SHADOW
-        in mediump vec2 v_shadowBias;
-    #endif
-
+    // 3. fs in varying 定义
     ...
     in vec3 v_xxxx;
 
@@ -77,17 +51,72 @@ CCProgram standard-fs %{
     void surf (out StandardSurface s) {
         xxx;
         ...
-
         4. fs shadow bias 赋值
-        // v3.4.x
-
-        // v3.5.0
-        #if CC_RECEIVE_SHADOW
-            s.shadowBias = v_shadowBias;
-        #endif
-
         ...
         xxxx;
     }
 }%
+
+...
+
 ```
+
+## 版本对比
+
+1. vs out varying 定义
+    - v3.4.x
+
+        ```c
+        ```
+
+    - v3.5.0
+
+        ```c
+        #if CC_RECEIVE_SHADOW
+            out mediump vec2 v_shadowBias;
+        #endif
+        ```
+
+2. vs shadow bias 获取
+
+    - v3.4.x
+
+        ```c
+        ```
+
+    - v3.5.0
+
+        ```c
+        #if CC_RECEIVE_SHADOW
+            v_shadowBias = CCGetShadowBias();
+        #endif
+        ```
+
+3. fs in varying 定义
+
+    - v3.4.x
+
+        ```c
+        ```
+
+    - v3.5.0
+
+    ```c
+    #if CC_RECEIVE_SHADOW
+        in mediump vec2 v_shadowBias;
+    #endif
+    ```
+
+4. fs shadow bias 赋值
+    - v3.4.x
+
+        ```c
+        ```
+
+    - v3.5.0
+
+        ```c
+        #if CC_RECEIVE_SHADOW
+            s.shadowBias = v_shadowBias;
+        #endif
+        ```
