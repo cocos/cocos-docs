@@ -6,6 +6,7 @@ Cocos Creator has supported the material system since v2.x. In v3.0, the design 
 
 - [v3.0 Material Upgrade Guide](./effect-2.x-to-3.0.md)
 - [v3.1 Material Upgrade Guide](./Material-upgrade-documentation-for-v3.0-to-v3.1.md)
+- [v3.5 Material Upgrade Guide](./effect-upgrade-documentation-for-v3.4.2-to-v3.5.md)
 
 ## Material System Class Diagram
 
