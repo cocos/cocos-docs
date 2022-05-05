@@ -10,9 +10,9 @@
 
 在场景中添加聚光灯的方式可参考 [添加光源](index.md)。
 
-> **注意**：从 v3.5 开始，**聚光灯光阴影** 从场景设置面板中独立出来，不再受到全局阴影参数的影响。
+聚光灯组件接口请参考 [SpotLight API](__APIDOC__/zh/class/SpotLight)。
 
-聚光灯组件接口请参考 [SpotLight API](__APIDOC__/zh/#/docs/3.4/zh/component-light/Class/SpotLight)。
+> **注意**：从 v3.5 开始，**聚光灯光阴影** 从场景设置面板中独立出来，不再受到全局阴影参数的影响。
 
 ## 聚光灯属性
 

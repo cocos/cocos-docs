@@ -1,6 +1,6 @@
 # Summary
 
-[Cocos Creator 3.4 用户手册](index.md)
+[Cocos Creator 3.5 用户手册](index.md)
 
 ## 基础使用
 

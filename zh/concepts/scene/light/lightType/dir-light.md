@@ -14,7 +14,7 @@
 
 新建场景时，默认会自动创建一个 `Main Light` 平行光节点。
 
-平行光组件相关接口，请参考 [DirectionalLight API](__APIDOC__/zh/#/docs/3.4/zh/component-light/Class/DirectionalLight)。
+平行光组件相关接口，请参考 [DirectionalLight API](__APIDOC__/zh/class/DirectionalLight)。
 
 > **注意**：从 v3.5 开始，**平行光阴影** 从场景设置面板中独立出来，不在全局设置阴影属性。
 
