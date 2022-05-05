@@ -15,8 +15,7 @@
 - 左侧显示的是提供配置项目的功能扩展的名字。
 - 右侧是根据配置渲染出来的操作面板。
 
-面板上的修改，会立即修改到对应的配置项目上， 更多关于 **偏好设置** 面板的介绍，请参考文档 [偏好设置](../../editor/preferences/index.md)。
-
+面板上的修改，会立即修改到对应的配置项目上，更多关于 **偏好设置** 面板的介绍，请参考文档 [偏好设置](../../editor/preferences/index.md)。
 
 ## 自定义面板
 
@@ -25,6 +24,7 @@ Cocos Creator 允许每个扩展注册自己的编辑器配置，然后在偏好
 偏好设置控制的是编辑器相关的配置，会作用到所有项目上，如果只想增加特定项目的配置，请参考文档 [自定义项目设置面板](./contributions-project.md)。
 
 ### 偏好设置的两种方式
+
 偏好设置允许以两种方式显示配置：
 
 1. 通用配置
@@ -41,7 +41,7 @@ Cocos Creator 允许每个扩展注册自己的编辑器配置，然后在偏好
 
 > **注意**：偏好设置里的配置数据，都应该存放在 `profile.editor` 字段中。
 
-当定义好数据字段后，还需要在 `contributions.preferences` 字段里定义需要显示的数据以及用什么 ui 组件来显示。如下所示：
+当定义好数据字段后，还需要在 `contributions.preferences` 字段里定义需要显示的数据以及用什么 UI 组件来显示。如下所示：
 
 ```JSON5
 {
@@ -115,16 +115,14 @@ Cocos Creator 允许每个扩展注册自己的编辑器配置，然后在偏好
 
 `properties` 中定义的字段，将在偏好设置面板中新建一个与扩展同名的标签页独立显示，如下图所示：
 
-![](./image/preferences-tool-custom.png)
-
-
+![preferences-tool-custom](./image/preferences-tool-custom.png)
 
 ### 实验室配置（laboratory）
 
 `laboratory` 中定义的字段，将在偏好设置面板中的 **实验室（Laboratory）** 标签页中显示，如下图所示：
 
-![](./image/preferences-tool-custom-laboratory.png)
+![preferences-tool-custom-laboratory](./image/preferences-tool-custom-laboratory.png)
 
 ## UI 组件配置
 
-本示例展示了 4 种常见 ui 组件在自定义偏好设置面板时的用法，理论上所有带 `value` 属性的 ui 组件都可以用于偏好设置面板，具体用法请参考文档 [UI 组件](./ui.md)。
+本示例展示了 4 种常见 UI 组件在自定义偏好设置面板时的用法，理论上所有带 `value` 属性的 UI 组件都可以用于偏好设置面板，具体用法请参考文档 [UI 组件](./ui.md)。

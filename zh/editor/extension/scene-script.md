@@ -1,6 +1,6 @@
 # 调用引擎 API
 
-在扩展中可以定义一个特殊的 **场景脚本** 文件，该脚本会和项目中 `assets\` 目录下的脚本处于同一运行进程，具有相同的运行环境。 
+在扩展中可以定义一个特殊的 **场景脚本** 文件，该脚本会和项目中 `assets\` 目录下的脚本处于同一运行进程，具有相同的运行环境。
 
 在 **场景脚本** 里可以调用引擎 `API` 和其他项目脚本，通过这个特性我们可以实现：
 
@@ -25,6 +25,7 @@
 ## 场景脚本模板
 
 在 `src` 目录下新建一个 `scene.ts`，编写如下代码：
+
 ```typescript
 export function load() {};
 export function unload() {};
@@ -36,7 +37,6 @@ export const methods = { };
 `unload` - 模块卸载的时候触发的函数
 
 `methods` - 模块内定义的方法，可用于响应外部消息
-
 
 ## 调用引擎 API
 
@@ -70,15 +70,16 @@ export const methods = {
 上面的代码中，我们定义了一个 `rotateCamera` 方法，此方法每执行一次，就会让主摄像机绕 `Y` 轴旋转 `10` 度。
 
 在其他扩展脚本中，我们可以使用如下代码调用 `rotateCamera` 函数：
-```typescript
-    const options: ExecuteSceneScriptMethodOptions = {
-        name: packageJSON.name,
-        method: 'rotateCamera',
-        args: []
-    };
 
-    // result: {}
-    const result = await Editor.Message.request('scene', 'execute-scene-script', options);
+```typescript
+const options: ExecuteSceneScriptMethodOptions = {
+    name: packageJSON.name,
+    method: 'rotateCamera',
+    args: []
+};
+
+// result: {}
+const result = await Editor.Message.request('scene', 'execute-scene-script', options);
 ```
 
 `ExecuteSceneScriptMethodOptions` 的属性定义如下：

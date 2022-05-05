@@ -4,10 +4,11 @@
 
 ## 注册菜单
 
-当扩展插件需要添加菜单的时候，只需要填写 `contributions.menu` 对象。例如我们在 "扩展" 菜单里增加一个菜单项：
+当扩展插件需要添加菜单的时候，只需要填写 `contributions.menu` 对象。例如我们在 "扩展" 菜单里增加一个菜单项，可以修改 `package.json`，代码示例如下：
 
-```json
+```json5
 {
+    // package.json
     "name": "hello-world",
     "contributions": {
         "messages": {
@@ -48,7 +49,7 @@
 - i18n:menu.node - “节点” 菜单
 - i18n:menu.panel - “面板” 菜单
 - i18n:menu.extension - “扩展” 菜单
-- i18n:menu.develop - “开发者” 菜单 
+- i18n:menu.develop - “开发者” 菜单
 
 ### label
 
