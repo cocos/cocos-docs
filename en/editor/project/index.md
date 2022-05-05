@@ -67,7 +67,7 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 - **ENABLE_TILEDMAP_CULLING**: whether or not to enable TiledMap auto-culling. It's enabled by default. Note that if `skew` and `rotation` are set in the TiledMap, it's necessary to turn it off manually, otherwise it will cause rendering errors.
 
-- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](__APIDOC__/en/#/docs/3.5/en/core/ObjectLiteral/macro?id=touch_timeout) for details.
+- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](__APIDOC__/en/interface/Macro?id=TOUCH_TIMEOUT) for details.
 
 - **ENABLE_TRANSPARENT_CANVAS**: used to set whether the Canvas background supports alpha channels.
 
@@ -90,7 +90,7 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
     - If this option is enabled, use the `HIGHP_VALUE_STRUCT_DEFINE` macro in the fragment shader code to define structural variables, and use `HIGHP_VALUE_TO_STRUCT_DEFINED` and `HIGHP_VALUE_FROM_STRUCT_DEFINED` to assign values between structural and non-structural variables.
 
-    - For specific information and code on the above macro calls, please refer to [packing.chunk](https://github.com/cocos-creator/engine/blob/v3.5.0/editor/assets/chunks/packing.chunk#L40) for details.
+    - For specific information and code on the above macro calls, please refer to [packing.chunk](https://github.com/cocos-creator/engine/blob/v3.4.1/editor/assets/chunks/packing.chunk#L40) for details.
 
 - **BATCHER2D_MEM_INCREMENT** (new in v3.4.1): this option affects the maximum number of vertices in each MeshBuffer, the default value is 144KB, please refer to the [MeshBuffer Batch Description](../../ui-system/components/engine/ui-batch.md) documentation for the conversion relationship between the number and the value.
 

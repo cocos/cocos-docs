@@ -12,7 +12,7 @@ Create an empty node under the Layer node **automatically generated** during the
 
 ![add_tiledtile](./tiledtile/add_tiledtile.png)
 
-For related TiledTile script interface, please refer to the [TiledTile API](__APIDOC__/en/#/docs/3.5/en/tiledmap/Class/TiledTile).
+For related TiledTile script interface, please refer to the [TiledTile API](__APIDOC__/en/class/TiledTile).
 
 ### Create by Code
 
@@ -36,7 +36,7 @@ const tiledTile = node.addComponent(TiledTile);
 const tiledTile = this.layer.getTiledTileAt(0, 0);
 ```
 
-For the Layer script interface, please refer to the [TiledLayer API](__APIDOC__/en/#/docs/3.5/en/tiledmap/Class/TiledLayer).
+For the Layer script interface, please refer to the [TiledLayer API](__APIDOC__/en/class/TiledLayer).
 
 ## TiledTile Properties
 

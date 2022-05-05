@@ -11,4 +11,4 @@ The Billboard component is used to render a box that always faces the camera.
 | **Width** | The width of billboard. |
 | **Rotation** | The angle of rotation of the billboard around the center point. |
 
-To use `Billboard`, please refer to the [Billboard API](__APIDOC__/en/#/docs/3.5/en/particle/Class/Billboard).
+To use `Billboard`, please refer to the [Billboard API](__APIDOC__/en/en/class/Billboard).

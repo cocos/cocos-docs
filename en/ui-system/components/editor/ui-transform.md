@@ -4,7 +4,7 @@ The UITransform component defines the rectangle information on the UI, including
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UITransform__ from __UI__ to add the UITransform component to the node.
 
-Please refer to the [UITransform API](__APIDOC__/en/#/docs/3.5/en/ui/Class/UITransform).
+Please refer to the [UITransform API](__APIDOC__/en/class/UITransform).
 
 ## UITransform Properties
 

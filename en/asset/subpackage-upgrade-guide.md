@@ -38,4 +38,4 @@ Use the `loader.downloader.loadSubpackage` API to load the subpackage.
 
 For details on how to use the **Asset Bundle**, please refer to the [Asset Bundle](bundle.md) documentation.
 
-For APIs related to the **Asset Bundle**, please refer to the [Asset Bundle API](__APIDOC__/en/#/docs/3.5/en/asset-manager/Class/Bundle) documentation.
+For APIs related to the **Asset Bundle**, please refer to the [Asset Bundle API](__APIDOC__/en/class/AssetManager.Bundle) documentation.

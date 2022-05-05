@@ -7,7 +7,7 @@ The only switch between these two systems is the `useBakedAnimation` property in
 - When `useBakedAnimation` is enabled, the pre-baked skeletal animation system is used.
 - When `useBakedAnimation` is disabled, the real-time computed skeletal animation system will be used.
 
-For the component interface of skeletal animation, please refer to the [SkeletalAnimation API](__APIDOC__/en/#/docs/3.5/en/animation/Class/SkeletalAnimation).
+For the component interface of skeletal animation, please refer to the [SkeletalAnimation API](__APIDOC__/en/class/SkeletalAnimation).
 
 ## Pre-baked Skeletal Animation System
 
