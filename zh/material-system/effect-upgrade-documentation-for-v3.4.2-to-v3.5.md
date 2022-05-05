@@ -10,52 +10,6 @@
 
 ## 前后版本对比
 
-### v3.4.x 版本中 effect 文件
-
-```c
-// 顶点着色器
-CCProgram xxx-vs %{
-    // 头文件区域
-    #include <cc-xxx>
-    ...
-    #include <cc-xxxx>
-
-    // vs 输出区域
-    out vec3 v_xxx;
-    ...
-    out vec3 v_xxxx;
-
-    // vs 执行区域
-    void main () {
-        xxx;
-        ...
-        xxxx;
-    }
-}%
-
-// 片元着色器
-CCProgram xxx-fs %{
-    // 头文件区域
-    #include <cc-xxx>
-    ...
-    #include <cc-xxxx>
-
-    // vs 输入区域
-    in vec3 v_xxx;
-    ...
-    in vec3 v_xxxx;
-
-    // ps 执行区域
-    void surf (out StandardSurface s) {
-        xxx;
-        ...
-        xxxx;
-    }
-}%
-```
-
-### v3.5.0 升级后的 effect 文件
-
 ```c
 // 顶点着色器
 CCProgram standard-vs %{
@@ -67,10 +21,15 @@ CCProgram standard-vs %{
     // vs 输出区域
     out vec3 v_xxx;
     ...
-    // 步骤一: effect 中的 vs shader 添加 v_Shadowbias 输出
+
+    1. vs out varying 定义
+    // v3.4.x
+
+    // v3.5.0
     #if CC_RECEIVE_SHADOW
         out mediump vec2 v_shadowBias;
     #endif
+
     ...
     out vec3 v_xxxx;
 
@@ -78,10 +37,15 @@ CCProgram standard-vs %{
     void main () {
         xxx;
         ...
-        // 步骤二: 通过 CCGetShadowBias() 获取 shadowBias
+
+        2. vs shadow bias 获取
+        // v3.4.x
+
+        // v3.5.0
         #if CC_RECEIVE_SHADOW
             v_shadowBias = CCGetShadowBias();
         #endif
+
         ...
         xxxx;
     }
@@ -97,10 +61,15 @@ CCProgram standard-fs %{
     // vs 输入区域
     in vec3 v_xxx;
     ...
-    // 步骤三: effect 中的 ps shader 添加 v_Shadowbias 输入
+
+    3. fs in varying 定义
+    // v3.4.x
+
+    // v3.5.0
     #if CC_RECEIVE_SHADOW
         in mediump vec2 v_shadowBias;
     #endif
+
     ...
     in vec3 v_xxxx;
 
@@ -108,10 +77,15 @@ CCProgram standard-fs %{
     void surf (out StandardSurface s) {
         xxx;
         ...
-        // 步骤四: 将 ps 获取到的 shadowBias 传入到 StandardSurface 中
+
+        4. fs shadow bias 赋值
+        // v3.4.x
+
+        // v3.5.0
         #if CC_RECEIVE_SHADOW
             s.shadowBias = v_shadowBias;
         #endif
+
         ...
         xxxx;
     }
