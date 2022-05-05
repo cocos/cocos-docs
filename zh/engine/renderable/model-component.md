@@ -1,10 +1,10 @@
 # MeshRenderer 组件参考
 
-MeshRenderer（网格渲染器）组件用于显示一个静态的 3D 模型。通过 `Mesh` 属性设置模型网格，通过 `Materials` 属性控制模型的显示外观。
+MeshRenderer（网格渲染器）组件用于显示一个静态的 3D 模型。通过 **Mesh** 属性设置模型网格，通过 **Materials** 属性控制模型的显示外观。
 
 在 **属性检查器** 中点击 **添加组件 -> Mesh -> MeshRenderer** 即可添加 MeshRenderer 组件。
 
-![MeshRenderer properties](meshrenderer-properties.png)
+![Mesh Renderer properties](meshrenderer-properties.png)
 
 ## MeshRenderer 属性
 

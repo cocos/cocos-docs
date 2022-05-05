@@ -28,7 +28,7 @@ Components below are also prohibited from render batching but follows their sepa
 
 - TiledMap
 - Spine
-- DragoneBones
+- DragonBones
 
 Spites and Labels are in general unable to be batched together due to different texture types, but this can be circumvented by combining textures. The following is a workaround solution to achieve the same goal:
 - For sprites, combine textures with [Auto Atlas](../../../asset/auto-atlas.md) and [Dynamic Atlas](../../../advanced-topics/dynamic-atlas.md). Texture Atlases can be batched with other components as long as the prerequisites are met.
@@ -76,7 +76,7 @@ Render data structures are redesigned in v3.4.1. Please take note:
       - **1024** is the transference rate from bytes to kilobytes
 
     The default value for **BATCHER2D_MEM_INCREMENT** is 144KB with a capacity of `144 * 1024 / (9 * 4）= 4096` vertices.
-    
+
     Please note that the maximum capacity for a MeshBuffer is **65535**. In other words, the maximum value for **BATCHER2D_MEM_INCREMENT** is `65535 * 9 * 4 / 1024 ≈ 2303.96` kilobytes.
 
 3. The core mechanism for 2D rendering is **static vertex buffer**, specifically:
@@ -88,5 +88,3 @@ Render data structures are redesigned in v3.4.1. Please take note:
     - Due to vertex buffer being static, it is advisable to preload vertex buffer at the very beginning of the component's lifespan. At loading, component will request relevant vertex buffers from MeshBuffer and returns them at destruction.
 
     - When MeshBuffer is unable to provide the vertex buffer requested by the component, the engine will create a new MeshBuffer allocated with the amount of memory space as indicated in **BATCHER2D_MEM_INCREMENT** so that vertex buffer can be successfully distributed.
-
-

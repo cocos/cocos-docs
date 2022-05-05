@@ -25,6 +25,16 @@
 
 ![create prefab](prefab/create-prefab.gif)
 
+## v3.4.1 预制体更新说明
+
+在 v3.4.1 中我们对预制体资源增加了 **Persistent** 选项。该选项目前为引擎预留，开发者不必关心。其说明如下：
+
+| 属性  | 说明 | 默认值 | 可选项 |
+| :--- | :--- | :--- | :--- |
+| **Persistent** | 标记该预制体是否需要同步 | **false** | true, false |
+
+![persistent](prefab/persistent.png)
+
 ## 使用预制件
 
 将预制件资源从 **资源管理器** 拖拽到 **层级管理器** 或 **场景编辑器**，即可在场景中生成一个预制件的实例。<br>

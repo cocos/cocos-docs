@@ -27,9 +27,9 @@ So the Canvas node is the **root node** of UI rendering, and all rendering-relat
 
 #### 2D Rendering Nodes
 
-The **Create Node** menu allows you to create node types consisting of nodes and base rendering components like **ParticleSystem**, **Sprite**, **Label**, **Mask**, etc.
+The **Create Node** menu allows you to create node types consisting of nodes and base renderable components like **ParticleSystem**, **Sprite**, **Label**, **Mask**, etc.
 
-The base 2D rendering component here cannot be replaced by a combination of other components. Note that only one rendering component can be added to each node, and repeated additions will result in an error. However, complex interface controls can be implemented by combining different rendering nodes, such as the UI control node below.
+The base 2D renderable component here cannot be replaced by a combination of other components. Note that only one renderable component can be added to each node, and repeated additions will result in an error. However, complex interface controls can be implemented by combining different rendering nodes, such as the UI control node below.
 
 #### UI Control Node
 

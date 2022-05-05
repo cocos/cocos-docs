@@ -7,7 +7,7 @@ The engine part of Cocos Creator 3.x includes **TypeScript** and **engine-native
 
 It is recommended to maintain custom code using the GitHub's Fork workflow. This workflow allows developers to easily update custom engine parts when the engine is upgraded in the future. This workflow is described in the [Fork a repo](https://help.github.com/articles/fork-a-repo) documentation. For more GitHub-related workflows, please refer to the [GitHub Help](https://help.github.com).
 
-Also, depending on the Creator version, developers may need to switch to a different engine branch, it is recommended to use the same branch that corresponds to the version of Creator being used.
+Also, depending on the version of Creator, developers may need to switch to a different engine branch, it is recommended to use the same branch that corresponds to the version of Creator being used.
 
 ## 1 Customize the TypeScript engine
 
@@ -15,11 +15,11 @@ If you only need to customize the engine functionality of the web version of the
 
 ### 1.1 Get the TypeScript engine
 
-It is possible to modify the engine based on the one built in Cocos Creator 3.x to make some adjustments based on the current version. Click the **App** button at the top right of the Creator editor, and then copy the built-in `engine` directory to another local path.
+It is possible to modify the engine based on the one built in Cocos Creator 3.x to make some adjustments based on the current version. Click the **App** button at the top right of the editor, and then copy the built-in `engine` directory to another local path.
 
 ![open-engine](engine-customization/open-engine.png)
 
-To get the latest official version in development, fork or clone the original version of the TypeScript engine from GitHub (see above), and switch the corresponding branch of the TypeScript engine according to the Creator version before using it. Once downloaded, store it to any local path.
+To get the latest official version in development, fork or clone the original version of the TypeScript engine from GitHub (see above), and switch the corresponding branch of the TypeScript engine according to the version of Creator before using it. Once downloaded, store it to any local path.
 
 ![download-repo-js](engine-customization/download-repo-js.png)
 

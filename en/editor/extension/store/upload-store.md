@@ -47,7 +47,7 @@ Visit the [Cocos Developer Center](https://auth.cocos.com/#/) and login. Next, v
     - **Supported Platforms**: including Android, iOS, HTML5
     - **Icon**: icon size of **256 * 256**, size no more than **500KB**, **PNG** format.
     - **Screenshots**: upload a maximum of **5** screenshots in **jpg**/**png** format. The size of each screenshot is limited to a minimum of **640px** and a maximum of **2048px**, and the size should not exceed **1000KB**.
-    - **Description**: fill in the basic functions and usage of the extension. It includes **Chinese** and **English** languages, and will only be displayed in the extension store of the corresponding language version after filling it in. For example, only after filling in the English name and description, the extension will be displayed in the English version of the extension store.
+    - **Description**: fill in the basic functions and usage of the extension. It includes **Chinese** and **English** languages, and will only be displayed in the extension store of the corresponding language version after filling it in.<br>The Extension Store has certain formatting requirements for the descriptions of plugins, please refer to the [plugin description template [cn]](https://store.cocos.com/document/zh/cocos-store-template-extension.html) documentation for details.
 
   Click **Next** to enter the **Pricing** page after filling out the form.
 
@@ -66,7 +66,7 @@ Visit the [Cocos Developer Center](https://auth.cocos.com/#/) and login. Next, v
     - **Version Number**: extension version number, defined in the `package.json` file of the extension package. Please follow the [semver specification](https://semver.org/) for the writing specification.
     - **Creator Minimum Version Requirement**: the extension's requirement for Creator version.
 
-    > **Note**: since Creator 2.x and 3.x extensions are not compatible with each other, if there is no corresponding version of the supported extension package, the work will not be displayed in the corresponding version of the Creator extension store.
+    > **Note**: since Creator 2.x and 3.x extensions are not compatible with each other, if there is no corresponding version of the supported extension package, the work will not be displayed in the corresponding version of the extension store of Creator.
 
   Click **Next** to go to the **Submit for Review** page after completing the form.
 
