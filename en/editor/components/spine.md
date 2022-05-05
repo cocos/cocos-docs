@@ -6,8 +6,8 @@ The Spine Skeleton components support the data format exported by the official S
 
 Select the node and choose **Add Component -> Spine -> Skeleton** on the **Inspector** panel to add the Skeleton component to the node.
 
-- For information on using the Spine Skeleton component, please refer to the [Spine Skeleton example case](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/spine) for details.
-- For Spine Skeleton component related scripting interfaces, please refer to the [Spine Skeleton API](__APIDOC__/en/#/docs/3.4/en/spine/Class/Skeleton) for details.
+- For information on using the Spine Skeleton component, please refer to the [Spine Skeleton example case](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine) for details.
+- For Spine Skeleton component related scripting interfaces, please refer to the [Spine Skeleton API](__APIDOC__/en/class/Skeleton) for details.
 
 ## Spine Properties
 
@@ -127,7 +127,7 @@ The vertex effect is only available when Spine's `Animation Cache Mode` is in th
 
 3. Next, attach the `SpineExample` script to the `Canvas` node, i.e. drag and drop the script into the node's **Inspector** panel. Drag the `Spine` node with the **Skeleton** component attached in the **Hierarchy** panel to the corresponding `Skeleton` property box of the script component, and save the scene.
 
-4. Click the **Preview** button at the top of the editor to see the effect of vertex jitter of the Spine animation. For example, please refer to the [SpineMesh](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/spine) example.
+4. Click the **Preview** button at the top of the editor to see the effect of vertex jitter of the Spine animation. For example, please refer to the [SpineMesh](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine) example.
 
 ## Spine Attachment
 
@@ -282,7 +282,7 @@ The Spine attachment function allows for the detection of a collision of a part 
     }
     ```
 
-6. Click the **Preview** button at the top of the editor to see the effect. For details, please refer to the [SpineCollider](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/spine) example.
+6. Click the **Preview** button at the top of the editor to see the effect. For details, please refer to the [SpineCollider](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine) example.
 
     > **Note**: the collision detection based on attachment has a delay of one frame due to the implementation mechanism of the attachment.
 

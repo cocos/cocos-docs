@@ -8,7 +8,7 @@ Cocos Creator 提供了 **动态合图**（Dynamic Atlas）的功能，它能在
 
 ## 启用、禁用动态合图
 
-Cocos Creator 在初始化过程中，会根据不同的平台设置不同的 [CLEANUP_IMAGE_CACHE](__APIDOC__/zh/#/docs/3.4/zh/core/ObjectLiteral/macro?id=cleanup_image_cache) 参数，当禁用 `CLEANUP_IMAGE_CACHE` 时，动态合图就会默认开启。<br>
+Cocos Creator 在初始化过程中，会根据不同的平台设置不同的 [CLEANUP_IMAGE_CACHE](__APIDOC__/zh/interface/Macro?id=CLEANUP_IMAGE_CACHE) 参数，当禁用 `CLEANUP_IMAGE_CACHE` 时，动态合图就会默认开启。<br>
 启用动态合图会占用额外的内存，不同平台占用的内存大小不一样。目前在小游戏和原生平台上默认会禁用动态合图，但如果你的项目内存空间仍有富余的话建议开启。
 
 **若希望强制开启动态合图**，请在代码中加入：

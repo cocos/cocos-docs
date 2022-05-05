@@ -72,7 +72,7 @@
 
 - 回调参数
 
-    - [EventMouse](__APIDOC__/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventMouse) 或 [EventTouch](__APIDOC__/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventTouch)
+    - [EventMouse](__APIDOC__/zh/class/EventMouse) 或 [EventTouch](__APIDOC__/zh/class/EventTouch)
 
 指针事件的使用范例如下：
 
@@ -113,7 +113,7 @@ export class Example extends Component {
 
 - 回调参数
 
-    - [EventKeyboard](__APIDOC__/zh/#/docs/3.4/zh/event/Class/EventKeyboard)
+    - [EventKeyboard](__APIDOC__/zh/class/EventKeyboard)
 
 使用键盘事件的代码示例如下：
 
@@ -163,7 +163,7 @@ export class Example extends Component {
 
 - 回调参数
 
-    - [EventAcceleration](__APIDOC__/zh/#/docs/3.4/zh/cocos-input-types-event/Class/EventAcceleration)
+    - [EventAcceleration](__APIDOC__/zh/class/EventAcceleration)
 
 使用设备重力传感事件的代码示例如下：
 
@@ -188,7 +188,7 @@ export class Example extends Component {
 }
 ```
 
-具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/event)），其中包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。
+具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/event)），其中包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。
 
 ## 3D 物体的触摸检测
 

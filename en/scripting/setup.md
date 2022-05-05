@@ -42,17 +42,19 @@ export class say_hello extends Component {
 > 3. We recommend that users use TypeScript to write scripts. Currently, only TypeScript files are supported in **Assets**. But if users want to use JavaScript to write scripts, they can create JavaScript files directly in the operating system's folder, or create JavaScript files in other code editing software.
 
 ## Class Name Generation
+
 After obtaining the initial file name data, the class name `ClassName` of the two rules will be generated and provided to the **Custom Script Template** in the form of variables.
 
 - Underscore format, variable name is `<%UnderscoreCaseClassName%>`. This format is to keep the class name as consistent as possible with the file name. The advantage of being consistent is that it facilitates global search and replacement of code.
 - CamelCase format, the variable name is `<%CamelCaseClassName%>`. This format is to maintain consistency with mainstream scripting standards, with capitalized camel case.
+
 ## Add a Script to a Scene Node
 
 Adding a script to a scene node is actually adding a script component to that node. Select the scene node to which you wish to add a script in the **Hierarchy** panel, at which point the properties of that node will be displayed in the **Inspector** panel. Adding a script component includes the following two ways:
 
 - Drag and drop the script from **Assets** panel directly into the **Inspector** panel.
 
--  Click the **Add Component** button at the bottom of the **Inspector** panel and select **Custom script -> say_hello** to add the script component just created. It is also possible to add it by searching for **say_hello** in the **Add Component** search box.
+- Click the **Add Component** button at the bottom of the **Inspector** panel and select **Custom script -> say_hello** to add the script component just created. It is also possible to add it by searching for **say_hello** in the **Add Component** search box.
 
     ![add component](setup/add-component.png)
     ![add component done](setup/add-component-done.png)
@@ -70,11 +72,10 @@ Before writing code, please read the following documentations to learn more abou
 - [Coding Environment Setup](coding-setup.md)
 - [Operating Environment](basic.md)
 
-
 After the script file is successfully created, rename the file or modify the class name in the code, the file name and class name will no longer affect each other.
 
-- Take `say-hello` as an example, we renamed it to `hello` in **Asset**.  
-Re-select it and check the **Inspector**, the code still displays `class say_hello`, which will not change.  
+- Take `say-hello` as an example, we renamed it to `hello` in **Asset**.
+Re-select it and check the **Inspector**, the code still displays `class say_hello`, which will not change.
 Re-select the node **Node** where the component was just added on the **Hierarchy**, check the **Inspector**, the component name still displays `say_hello`, and it will not change.
 
 We continue to double-click the current `hello` asset, change the class name to **say**, save it and return to the editor:
@@ -100,7 +101,6 @@ The script file name `hello` will not change. The component name in the node **N
 > **Note**: don't forget to change the decorator `@ccclass('say_hello')` to @ccclass('say') .
 
 ![modify script](setup/modify-script.png)
-
 
 ## <a id="custom-script-template">Custom Script Template</a>
 
@@ -182,9 +182,8 @@ export class <%UnderscoreCaseClassName%> extends Component {
 > 2. `Predefined Variables` We have prepared some pre-made variables, which can be used as auxiliary information when generating script files, such as author `<%Author%>`.
 >
 > 3. By right-clicking the menu, a shortcut link to the document URL will be automatically generated in the project custom script template directory. Double-click to call up the browser to open the specified webpage. `Custom Script Template Help Documentation`
-
-    ![custom script help](setup/custom-script-help.png)
-
+>
+> ![custom script help](setup/custom-script-help.png)
 
 ### Make One Script Template
 
@@ -193,7 +192,6 @@ We modify the code from copying the above built-in `NewComponent` template, the 
 ![custom script file](setup/custom-script-file.png)
 
 The code of `CustomComponent` template is below:
-
 
 ```ts
 import { _decorator, Component, Node } from 'cc';

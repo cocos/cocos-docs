@@ -125,4 +125,4 @@ RenderTexture 可以像普通贴图一样使用。以 Sprite 为例，从 **资�
 
     ![use albedo](render-texture/use-albedo.png)
 
-更多使用方法可参考范例 **RenderTexture**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/rendertexture)）。
+更多使用方法可参考范例 **RenderTexture**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/rendertexture)）。
