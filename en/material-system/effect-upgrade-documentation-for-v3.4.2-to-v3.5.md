@@ -4,6 +4,8 @@
 
 Solve the **effect** file from v3.4.x, upgrade to v3.5.0, shadowbias does not take effect.
 
+> **Note**: If no shadows are used, or if **CC_TRANSFER_SHADOW(pos)** is not calculated, **ignore** the material upgrade.
+
 There are **four steps** to upgrade, please follow the following paragraphs in turn.
 
 ## Before and after version comparison
