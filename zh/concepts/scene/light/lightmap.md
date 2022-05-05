@@ -65,17 +65,18 @@
 
 3. 光照贴图UV
 	不同与纹理的UV, 光照贴图UV不能重叠
+
 	> **注意**：不正确的UV产生错误：
 	>
-    > 1. 不同平面的uv交错在一起
+        > 1. 不同平面的uv交错在一起
 	>
 	>    ![lightmap uv overlap](./lightmap/overlap_back.png)
 	>    ![lightmap uv overlap](./lightmap/overlap_front.png)
 	>    ![lightmap uv overlap](./lightmap/overlap_lightmap.png)
-    >
-    > 2. UV块间没有保留间隔
+        >
+        > 2. UV块间没有保留间隔
 	> 
-    >    ![lightmap uv space](./lightmap/uvspace_lightmap.png)
+        >    ![lightmap uv space](./lightmap/uvspace_lightmap.png)
 
 4. 打开 **光照贴图** 面板，并设置好对应参数。然后点击 **生成光照贴图** 按钮，会弹出一个文件存储对话框，需要指定一个文件夹（必须在 `assets` 目录下）用于存放生成的光照贴图数据信息。即可看到在 **光照贴图** 面板下方输出了烘焙进度的日志信息。
 
@@ -88,5 +89,3 @@
     1. **烘焙结果**：显示烘焙后生成的光照贴图，格式为 **RGBE8**，可根据需要选择 **R**/**G**/**B** 选项查看光照贴图对应的通道。
     2. **清空光照贴图**：用于删除生成的光照贴图及相关信息。
     3. **信息输出面板**：显示生成的光照贴图的文件名、大小等相关信息。
-
-	

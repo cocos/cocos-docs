@@ -65,17 +65,18 @@ The description of each property on the **Scene** page is as follows:
 	
 3. lightmap UVs
 	Unlike texture UVs, lightmap UVs cannot overlap
+
 	> **Notes**：Incorrect UVs produce errors：
 	>
-    > 1. UV of different planes are interlaced
+        > 1. UV of different planes are interlaced
 	>
 	>    ![lightmap uv overlap](./lightmap/overlap_back.png)
 	>    ![lightmap uv overlap](./lightmap/overlap_front.png)
 	>    ![lightmap uv overlap](./lightmap/overlap_lightmap.png)
-    >
-    > 2. There is no reserved interval between UV blocks
+        >
+        > 2. There is no reserved interval between UV blocks
 	> 
-    >    ![lightmap uv space](./lightmap/uvspace_lightmap.png)
+        >     ![lightmap uv space](./lightmap/uvspace_lightmap.png)
 
 4. Open the **Lightmapping** panel and set the corresponding properties. Then click the **Lightmap Generate** button, a file storage dialog will pop up, you need to specify a folder (must be in the `assets` directory) to store the generated lightmap data information. Notice the baking progress log at the bottom of the **Lightmapping** panel.
 
