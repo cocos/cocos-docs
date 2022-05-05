@@ -70,4 +70,4 @@ assetManager.pipeline.insert(function (task, done) {
 }, 1);
 ```
 
-具体内容可参考 [AssetManager.Task](__APIDOC__/zh/#/docs/3.5/zh/asset-manager/Class/Task) 类型。
+具体内容可参考 [AssetManager.Task](__APIDOC__/zh/class/AssetManager.Task) 类型。

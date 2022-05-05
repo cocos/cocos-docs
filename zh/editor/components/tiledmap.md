@@ -8,7 +8,7 @@ TiledMap（地图）用于在游戏中显示 TMX 格式的地图。
 
 ![](./tiledmap/add_tiledmap.png)
 
-TiledMap 的脚本接口请参考 [TiledMap API](__APIDOC__/zh/#/docs/3.5/zh/tiledmap/Class/TiledMap)。
+TiledMap 的脚本接口请参考 [TiledMap API](__APIDOC__/zh/class/TiledMap)。
 
 ## TiledMap 属性
 

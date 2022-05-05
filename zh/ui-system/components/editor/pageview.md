@@ -6,7 +6,7 @@ PageView 是一种页面视图容器.
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/PageView** 即可添加 PageView 组件到节点上。
 
-页面视图的脚本接口请参考 [PageView API](__APIDOC__/zh/#/docs/3.5/zh/ui/Class/PageView)。
+页面视图的脚本接口请参考 [PageView API](__APIDOC__/zh/class/PageView)。
 
 关于使用可以参考范例 **PageView**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/15.pageview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/15.pageview)）。
 

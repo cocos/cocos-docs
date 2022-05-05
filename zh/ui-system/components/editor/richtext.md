@@ -8,7 +8,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/Render/RichText** 即可添加 RichText 组件到节点上。
 
-富文本的脚本接口请参考 [RichText API](__APIDOC__/zh/#/docs/3.5/zh/ui/Class/RichText)。
+富文本的脚本接口请参考 [RichText API](__APIDOC__/zh/class/RichText)。
 
 关于使用可以参考范例 **RichText**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/07.richtext) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/07.richtext)）。
 

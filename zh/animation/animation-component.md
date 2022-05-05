@@ -20,7 +20,7 @@ function (node: Node) {
 
 #### 播放动画
 
-动画组件通过 [play()](__APIDOC__/zh/#/docs/3.5/zh/animation/Class/Animation?id=play) 控制指定动画的播放，例如：
+动画组件通过 [play()](__APIDOC__/zh/class/Animation?id=play) 控制指定动画的播放，例如：
 
 ```ts
 // 播放动画状态 'idle'
@@ -39,7 +39,7 @@ animationComponent.play();
 
 #### 切换动画
 
-使用 `play` 接口播放一个动画时，如果此时还有其他的动画正在播放，则会立即停止其他动画的播放。这种切换是非常突兀的，在某些情况下，我们希望这种切换是“淡入淡出”的效果，那么便可以使用 [crossFade()](__APIDOC__/zh/#/docs/3.5/zh/animation/Class/Animation?id=crossfade)，在指定的周期内平滑地完成切换。例如：
+使用 `play` 接口播放一个动画时，如果此时还有其他的动画正在播放，则会立即停止其他动画的播放。这种切换是非常突兀的，在某些情况下，我们希望这种切换是“淡入淡出”的效果，那么便可以使用 [crossFade()](__APIDOC__/zh/class/Animation?id=crossfade)，在指定的周期内平滑地完成切换。例如：
 
 ```ts
 // 播放动画状态 ‘walk’
@@ -55,7 +55,7 @@ animationComponent.crossFade('run', 0.3);
 
 即便如此，动画组件仍提供了 `pause()`、`resume()`、`stop()` 方法，这些方法在暂停、继续以及停止正在播放的所有动画状态的同时，也暂停、继续以及停止动画的切换。
 
-关于动画组件更多相关的控制接口，详情请参考 [类 `Animation`](__APIDOC__/zh/#/docs/3.5/zh/animation/Class/Animation)。
+关于动画组件更多相关的控制接口，详情请参考 [类 `Animation`](__APIDOC__/zh/class/Animation)。
 
 ## 动画状态
 
@@ -133,4 +133,4 @@ class MyScript extends Component {
 - `lastframe`：假如动画循环次数大于 1，当动画播放到最后一帧时触发。
 - `finished`：动画播放完成时触发
 
-更多内容请参考 [Animation.EventType](__APIDOC__/zh/#/docs/3.5/zh/animation/Class/Animation?id=eventtype)。
+更多内容请参考 [Animation.EventType](__APIDOC__/zh/namespace/Animation?id=EventType)。
