@@ -63,11 +63,26 @@
     >
     >    ![materials use lightmap](./lightmap/materials.png)
 
-3. 打开 **光照贴图** 面板，并设置好对应参数。然后点击 **生成光照贴图** 按钮，会弹出一个文件存储对话框，需要指定一个文件夹（必须在 `assets` 目录下）用于存放生成的光照贴图数据信息。即可看到在 **光照贴图** 面板下方输出了烘焙进度的日志信息。
+3. 光照贴图UV
+	不同与纹理的UV, 光照贴图UV不能重叠
+
+	> **注意**：不正确的UV产生错误：
+	>
+        > 1. 不同平面的uv交错在一起
+	>
+	>    ![lightmap uv overlap](./lightmap/overlap_back.png)
+	>    ![lightmap uv overlap](./lightmap/overlap_front.png)
+	>    ![lightmap uv overlap](./lightmap/overlap_lightmap.png)
+        >
+        > 2. UV块间没有保留间隔
+	> 
+        >    ![lightmap uv space](./lightmap/uvspace_lightmap.png)
+
+4. 打开 **光照贴图** 面板，并设置好对应参数。然后点击 **生成光照贴图** 按钮，会弹出一个文件存储对话框，需要指定一个文件夹（必须在 `assets` 目录下）用于存放生成的光照贴图数据信息。即可看到在 **光照贴图** 面板下方输出了烘焙进度的日志信息。
 
     ![bake param](./lightmap/lightmap-generate.png)
 
-4. 烘焙结束后可在 **光照贴图** 面板的 **Baked** 页面查看生成的光照贴图，以及文件名、尺寸等相关信息。生成的光照贴图引擎会自动处理使用，无需开发者手动操作。
+5. 烘焙结束后可在 **光照贴图** 面板的 **Baked** 页面查看生成的光照贴图，以及文件名、尺寸等相关信息。生成的光照贴图引擎会自动处理使用，无需开发者手动操作。
 
     ![bake result](./lightmap/lightmap-result.png)
 
