@@ -1,12 +1,53 @@
 # Upgrade Guide: Effect from v3.4.x to v3.5.0
 
-## Introduction
+## Macro tags and functional macros
 
-Solve the **effect** file from v3.4.x, upgrade to v3.5.0, shadowbias does not take effect.
+The effect syntax for Macro Tags and Functional Macros have been upgraded to avoid the occupation of standard glsl define, old effects in project will be upgrade automatically, but if you are using external effects without meta or writing a new one, you have to pay attention.
 
-> **Note**: If no shadows are used, or if **CC_TRANSFER_SHADOW(pos)** is not calculated, **ignore** the material upgrade.
+- New syntax for Macro Tag: `#pragma define-meta`
+- New syntax for Funtional Macro: `#pragma define`
 
-There are **four steps** to upgrade, please follow the following paragraphs in turn.
+You can refer to [Effect Syntax Guide](./effect-syntax.md#macro-tags) for detailed information.
+
+## Model level shadow bias
+
+In v3.5, we supported individual shadow bias configuration for models, this allows detailed control of shadow effect on simple or complex surfaces. If you have any customized effect, you may need to upgrade them for shadow bias configuration to take effect.
+
+> **Note**: If shadow map of lights are disabled, or if `CC_TRANSFER_SHADOW(pos)` is not invoked in your vertex shader, then you won't need to upgrade it.
+
+### Upgrade instructions
+
+There are **four elements** to add to your effect file, they are listed below:
+
+1. Output varying define in the vertex shader
+    ```
+    #if CC_RECEIVE_SHADOW
+        out mediump vec2 v_shadowBias;
+    #endif
+    ```
+
+2. Calculation of shadow bias in the vertex shader
+    ```
+    #if CC_RECEIVE_SHADOW
+        v_shadowBias = CCGetShadowBias();
+    #endif
+    ```
+
+3. Input varying define in the fragment shader
+    ```
+    #if CC_RECEIVE_SHADOW
+        in mediump vec2 v_shadowBias;
+    #endif
+    ```
+
+4. Shadow bias assignment in the fragment shader
+    ```
+    #if CC_RECEIVE_SHADOW
+        s.shadowBias = v_shadowBias;
+    #endif
+    ```
+
+### Example (code snippets)
 
 ```c
 // Vertex shader
@@ -19,7 +60,11 @@ CCProgram xxx-vs %{
     // Vs output area
     out vec3 v_xxx;
     ...
-    // 1. vs out varying define
+
+    #if CC_RECEIVE_SHADOW
+        out mediump vec2 v_shadowBias;
+    #endif
+
     ...
     out vec3 v_xxxx;
 
@@ -27,7 +72,11 @@ CCProgram xxx-vs %{
     void main () {
         xxx;
         ...
-        // 2. get vs shadow bias
+
+        #if CC_RECEIVE_SHADOW
+            v_shadowBias = CCGetShadowBias();
+        #endif
+
         ...
         xxxx;
     }
@@ -43,7 +92,11 @@ CCProgram xxx-fs %{
     // Vs output area
     in vec3 v_xxx;
     ...
-    // 3. fs in varying define
+    
+    #if CC_RECEIVE_SHADOW
+        in mediump vec2 v_shadowBias;
+    #endif
+
     ...
     in vec3 v_xxxx;
 
@@ -51,72 +104,13 @@ CCProgram xxx-fs %{
     void surf (out StandardSurface s) {
         xxx;
         ...
-        // 4. fs shadow bias assignment
+        
+        #if CC_RECEIVE_SHADOW
+            s.shadowBias = v_shadowBias;
+        #endif
+
         ...
         xxxx;
     }
 }%
-
-...
-
 ```
-
-## Version comparison
-
-1. vs out varying define
-    - v3.4.x
-
-        ```c
-        ```
-
-    - v3.5.0
-
-        ```c
-        #if CC_RECEIVE_SHADOW
-            out mediump vec2 v_shadowBias;
-        #endif
-        ```
-
-2. get vs shadow bias
-
-    - v3.4.x
-
-        ```c
-        ```
-
-    - v3.5.0
-
-        ```c
-        #if CC_RECEIVE_SHADOW
-            v_shadowBias = CCGetShadowBias();
-        #endif
-        ```
-
-3. fs in varying define
-
-    - v3.4.x
-
-        ```c
-        ```
-
-    - v3.5.0
-
-    ```c
-    #if CC_RECEIVE_SHADOW
-        in mediump vec2 v_shadowBias;
-    #endif
-    ```
-
-4. fs shadow bias assignment
-    - v3.4.x
-
-        ```c
-        ```
-
-    - v3.5.0
-
-        ```c
-        #if CC_RECEIVE_SHADOW
-            s.shadowBias = v_shadowBias;
-        #endif
-        ```
