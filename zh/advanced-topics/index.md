@@ -4,6 +4,7 @@
 - 热更新
     - [热更新范例教程](hot-update.md)
     - [热更新管理器](hot-update-manager.md)
+- [i18n 游戏多语言支持](i18n.md)
 - [动态合图](dynamic-atlas.md)
 - [引擎定制工作流程](engine-customization.md)
 - [网页预览定制工作流程](../editor/preview/browser.md)
