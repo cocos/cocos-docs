@@ -20,6 +20,7 @@ In v3.5, we supported individual shadow bias configuration for models, this allo
 There are **four elements** to add to your effect file, they are listed below:
 
 1. Output varying define in the vertex shader
+
     ```
     #if CC_RECEIVE_SHADOW
         out mediump vec2 v_shadowBias;
@@ -27,6 +28,7 @@ There are **four elements** to add to your effect file, they are listed below:
     ```
 
 2. Calculation of shadow bias in the vertex shader
+
     ```
     #if CC_RECEIVE_SHADOW
         v_shadowBias = CCGetShadowBias();
@@ -34,6 +36,7 @@ There are **four elements** to add to your effect file, they are listed below:
     ```
 
 3. Input varying define in the fragment shader
+
     ```
     #if CC_RECEIVE_SHADOW
         in mediump vec2 v_shadowBias;
@@ -41,6 +44,7 @@ There are **four elements** to add to your effect file, they are listed below:
     ```
 
 4. Shadow bias assignment in the fragment shader
+
     ```
     #if CC_RECEIVE_SHADOW
         s.shadowBias = v_shadowBias;
@@ -92,7 +96,7 @@ CCProgram xxx-fs %{
     // Vs output area
     in vec3 v_xxx;
     ...
-    
+
     #if CC_RECEIVE_SHADOW
         in mediump vec2 v_shadowBias;
     #endif
@@ -104,7 +108,7 @@ CCProgram xxx-fs %{
     void surf (out StandardSurface s) {
         xxx;
         ...
-        
+
         #if CC_RECEIVE_SHADOW
             s.shadowBias = v_shadowBias;
         #endif
