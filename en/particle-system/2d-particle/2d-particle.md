@@ -6,7 +6,7 @@ The ParticleSystem2D component is used to read the particle asset data and perfo
 
 Click the **Add Component** button at the bottom of the **Inspector** panel and select **ParticleSystem2D** from **Effects** to add the ParticleSystem2D component to the node.
 
-For the script interface of ParticleSystem2D, please refer to [ParticleSystem API](__APIDOC__/en/#/docs/3.4/en/particle2d/Class/ParticleSystem2D).
+For the script interface of ParticleSystem2D, please refer to [ParticleSystem API](__APIDOC__/en/class/ParticleSystem2D).
 
 ## ParticleSystem2D Properties
 
@@ -32,8 +32,8 @@ For the script interface of ParticleSystem2D, please refer to [ParticleSystem AP
 | StartSpin          | The initial spin angle and range of particles.
 | EndSpin            | The end spin angle and size of particles.
 | PosVar             | The range of the emitter position (horizontal and vertical).
-| PositionType       | The type of particle position, including **FREE**, **RELATIVE**, **GROUPED**. For details, please refer to [PositionType API](__APIDOC__/en/#/docs/3.4/en/particle2d/Class/ParticleSystem2D?id=positiontype).
-| EmitterMode        | The type of the emitter, including **GRAVITY**, **RADIUS**. For details, please refer to [EmitterMode API](__APIDOC__/en/#/docs/3.4/en/particle2d/Class/ParticleSystem2D?id=emittermode).
+| PositionType       | The type of particle position, including **FREE**, **RELATIVE**, **GROUPED**. For details, please refer to [PositionType API](__APIDOC__/en/class/ParticleSystem2D?id=positionType).
+| EmitterMode        | The type of the emitter, including **GRAVITY**, **RADIUS**. For details, please refer to [EmitterMode API](__APIDOC__/en/class/ParticleSystem2D?id=EmitterMode).
 | Gravity            | Gravity. Only works when Emitter Mode is set to **GRAVITY**.
 | Speed              | The speed and range. Only effective when Emitter Mode is set to **GRAVITY**.
 | TangentialAccel    | The tangential acceleration and range of each particle i.e. the acceleration perpendicular to the direction of gravity. Effective only when Emitter Mode is set to **GRAVITY**.
