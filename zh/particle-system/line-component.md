@@ -2,6 +2,10 @@
 
 Line 组件用于渲染 3D 场景中给定的点连成的线段。Line 组件渲染的线段是有宽度的，并且总是面向摄像机，这与 billboard 组件相似。
 
+## 属性与说明
+
+![line-component](./line/line-component.png)
+
 属性| 功能
 ---|---
 **texture**    | 线段中显示的贴图。
@@ -11,5 +15,19 @@ Line 组件用于渲染 3D 场景中给定的点连成的线段。Line 组件渲
 **tile**       | 贴图平铺次数。
 **offset**     | 贴图坐标的偏移。
 **color**      | 线段颜色，如果采用渐变色，则表示沿着线段方向上的颜色渐变。
+
+### 线段颜色
+
+![line-color](./line/line-color.png)
+
+点击 **颜色** 属性的右侧的下拉按钮可以对线段的着色方式进行更新更改，其可选项如下：
+
+| 属性 | 说明 |
+| :-- | :-- |
+| **Color** |  使用纯色 
+| **Gradient** | 使用渐变色
+| **TwoColors**  | 使用两个颜色
+| **TwoGradients** |
+| **RandomColor** | 
 
 Line 组件接口请参考 [Line API](__APIDOC__/zh/class/Line)。
