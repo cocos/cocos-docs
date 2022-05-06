@@ -1,16 +1,16 @@
-# Marionette Animation System
+# Marionette System
 
-Cocos Creator 3.5 introduces a new **Marionette** animation system that controls the skeletal animation of objects via state machines, enabling an automated, and reusable animation process.
+Cocos Creator introduced the Marionette animation system in v3.4 as the new bespoke state machine system for an automated, modularized skeletal animation workflow.
 
-To distinguish it from the animation system before v3.4, the new animation system is called the **Marionette** animation system and the animation system used before v3.4 the old animation system. Both animation systems work properly, but do not support simultaneous use. The main differences are as follows:
+To distinguish from the animation system from prior to v3.4 which is also accessible in the later versions of Cocos Creator, the new animation system will be referred as the **Marionette** system in this documentation while the animation system from prior to v3.4 will be referred as the **legacy** system. In general, the distinctions between the two include:
 
-- **Old Animation System**: animation components, animation states as the core, manual simple control of animation clips such as play and pause. Animation clips support the use of Animation Clips created through the editor and externally imported skeletal animations (`.fbx` and `.gltf`).
+- **Legacy**: Powered by the **Animation** component, the legacy system animates objects with animation states containing animation clips (which are keyframe animations created in Cocos Creator) and skeletal animations imported from external sources in the format of `.fbx` and `.gltf`.
 
-- **Marionette Animation System**: the animation controller component and the animation graph are the core of the animation system, and the animation clips are automatically controlled by the state machine according to the pre-built animation graph, such as playing and switching. Animation clips only support externally imported skeletal animations (`.fbx` and `.gltf`).
+- **Marionette**: Powered by the **Animation Controller** component, the Marionette system animate objects with pre-constructed animation graphs, which functions as a controller of multiple animation states that can only contain skeletal animations imported from external sources in the format of `.fbx` and `.gltf`.
 
 ## Content
 
-The main contents of the Marionette animation system include.
+The Marionette system consists of four modules:
 
 - [Animation Graph Assets](animation-graph.md)
 - [Animation Graph Panel](animation-graph-panel.md)
@@ -19,21 +19,19 @@ The main contents of the Marionette animation system include.
 
 ## Terminology
 
-Marionette animation system related function terms are explained as follows:
-
-| Function Noun | Description |
+| Function | Description |
 | :--- | :--- |
-| Animation Graph Assets | Used to store the entire animation flow data of the object, which can be created directly in the **Assets** panel. For details, please refer to the [Animation Graph Assets](animation-graph.md) documentation. |
-| Animation Controller Component | References the animation graph assets and applies it to the object. |
-| Animation Graph Panel | Once the skeleton animations are prepared for the object, they can be assembled into a complete animation flow via the Animation Graph Panel. For details, please refer to the [Animation Graph Panel](animation-graph-panel.md) documentation. |
-| State | An action that the object is in that plays a specific animation clip, such as standby, walk, move, attack, etc. <br>This state is different from the [animation state](../animation-state.md) created by the animation component for each animation clip in the old animation system. |
-| State Transition | In most cases, an object will have multiple states, and will switch between them according to a certain logic of requirements, which is called [state transition](state-transition.md). For example, if a character triggers a death condition while walking, the walking state will switch to the death state. |
-| Animated State Machine | Used to visually manage and control the states and transitions between states on an object, and can be thought of as a flowchart. See [Animation State Machine](animation-graph-basics.md) for details.
+| Animation Graph Assets | Asset that contains the flow chart of animation states, Can be created in the **Assets** panel. For more information, please refer to [Animation Graph Assets](animation-graph.md). |
+| Animation Controller Component | References to the Animation Graph Assets and applies it to a node in the scene. |
+| Animation Graph Panel |Animation clips can be imported and stored as animation states, which can be assembled into a flow chart to indicate the transition from one clip to another. This is done in the Animation Graph panel once an Animation Graph asset is created. For more information, please see [Animation Graph Panel](animation-graph-panel.md). |
+| State | A state is an action that is usually portrayed by an animation clip, such as standby, walk, move, attack, etc. This should be distinguished from an [animation state](../animation-state.md) as used in the legacy system. |
+| State Transition | An animated actor is likely to perform multiple actions, each portrayed by an animation clip and registered as an animation state. A [state transition](state-transition.md) contains the logical check for switching between different states. For instance, to create the death animation of a walking character, a state transition is needed to switch the walk state to the death state. |
+| Animated State Machine | Collectively, all the animation states and the transitions between them can be constructed in a flow chart, which is known as an [Animation State Machine](animation-graph-basics.md). |
 
-States and state transitions are displayed graphically in the Animation Graph panel, for example, the following diagram, where squares indicate states and arrows indicate transitions between states.
+A state machine as displayed in the Animation Graph panel is demonstrated in the screenshot below. In it, each blue rectangle represents a state, while the arrows between them the transitions between different states.
 
 ![example](animation-graph-basics/example.png)
 
-## Example Reference
+## Example Project
 
-Creator provides the [Ms.Amoy](https://github.com/cocos-creator/MarionetteDemo) demo project, which demonstrates the use of the Marionette animation system, can be downloaded and used as needed.
+To learn more and experiment with the Marionette system, users may access the example project [*Ms. Amoy*](https://github.com/cocos-creator/MarionetteDemo) with the link provided.
