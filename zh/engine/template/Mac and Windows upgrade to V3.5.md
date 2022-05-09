@@ -1,37 +1,47 @@
-### V3.5的新特性
-Mac平台，windows平台的AppDelegate已移入引擎内部实现，可以通过重载AppDelegate的方式来兼容以前的用法；
+# v3.5 已构建工程升级指南
 
-#### 平台定制与AppDelegate定制方法：
-以**Mac**为例：
+在  v3.5 中，Mac 和 Windows 平台的 `AppDelegate` 已移入引擎内部实现，可以通过重载 `AppDelegate` 的方式来兼容之前版本的用法；`game.cpp` 也进行了调整，已有工程需要重新构建进行升级。
+
+## 工程升级
+
+检查工程目录下 native/engine/commons 目录是否存在，如果存在，需要重命名备份文档（这个目录如果存在，重新构建时不会自动更新）；不存在，则直接构建即可。
+
+### 自定义代码迁移方法
+
+#### 平台与 AppDelegate 的定制方法
+
+以 **Mac** 为例：
 
 1、自定义AppDelegate（参考文件名：MyAppdelegate.h,MyAppdelegate.mm）
+
 ```
 @interface MyAppDelegate : NSObject<AppDelegate>
-    // 重载一些方法，也可以不继承AppDelegate，也可以使用组合的方式
+    // 定义需要重写的方法
     - (void)applicationWillResignActive:(UIApplication *)application;
 @end
 
 @implementation MyAppDelegate
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // 注意一定要调用父类的方法
+    // 注意：调用父类的方法
     [super applicationWillResignActive:application]
 }
 @end
 ```
 
 2、自定义平台（参考文件名：CustomMacPlatform.h）
+
 ```
 #include "platform/BasePlatform.h"
 #include "MyAppDelegate.h"
 
 class CustomMacPlatform : public MacPlatform {
 public:
-   // 重载平台初始化方法
+   // 重写平台初始化方法
    int32_t init() override {
-       // 需要主动调用下
+       // 调用父类的方法
        return MacPlatform::init();
    }
-   // 这里会死循环处理
+   // 这里进入oc的消息循环，直到程序退出
    int32_t run(int argc, const char** argv) {
         id delegate = [[MyAppDelegate alloc] init];
         NSApplication.sharedApplication.delegate = delegate;
@@ -40,7 +50,8 @@ public:
 }
 ```
 
-3、加载自定义平台（文件名：main.mm）
+3、加载自定义平台（参考文件名：main.mm）
+
 ```
 #include "CustomMacPlatform.h"
 
@@ -54,15 +65,11 @@ int main(int argc, const char * argv[]) {
 ```
 
 #### game.cpp迁移方法
-- 设置js加密秘钥：jsb_set_xxtea_key  -> 设置 _xxteaKey = ""; 或 调用setXXTeaKey
-- 设置调试： jsb_enable_debugger     -> 设置_debuggerInfo结构, 或者 setDebugIpAndPort
-- 设置异常回调：setExceptionCallback  -> 重载 handleException接口 
-- 运行自定义脚本：jsb_run_script      -> runScript
-- 可以通过使用engine来添加需要监听的事件, -> getEngine()->addEventCallback(WINDOW_OSEVENT, eventCb);
-- 自定义的游戏CustomGame，需要注册至引擎CC_REGISTER_APPLICATION(CustomGame)
 
-
-game继承cc::BaseGame是继承CocosApplication，可以重写部分实现改变部分逻辑；
-
-
-
+- 设置js加密秘钥：jsb_set_xxtea_key  -> 设置 `_xxteaKey` 成员变量; 或 调用 `setXXTeaKey`
+- 设置调试： jsb_enable_debugger     -> 设置 `_debuggerInfo` 结构, 或 调用 `setDebugIpAndPort`
+- 设置异常回调：setExceptionCallback  -> 重写 `handleException` 接口
+- 运行自定义脚本：jsb_run_script      -> 调用 `runScript`
+- 可以通过使用 `engine` 来添加需要监听的事件, -> `getEngine()->addEventCallback(WINDOW_OSEVENT, eventCb);`
+- 自定义的游戏 `CustomGame`，需要注册到引擎 `CC_REGISTER_APPLICATION(CustomGame)` 进行加载；
+- `game` 继承于 `cc::BaseGame`, 而 `cc::BaseGame` 继承于 `CocosApplication`，因此可以重写部分实现，增加自定义逻辑；

@@ -33,6 +33,7 @@
     - [v3.5 材质升级指南](material-system/effect-upgrade-documentation-for-v3.4.2-to-v3.5.md)
     - [资源分包升级指南](asset/subpackage-upgrade-guide.md)
     - [资源管理模块升级指南](asset/asset-manager-upgrade-guide.md)
+    - [v3.5 已构建工程升级指南](engine/template/Mac%20and%20Windows%20upgrade%20to%20V3.5.md)
 
 ## 工作流
 
