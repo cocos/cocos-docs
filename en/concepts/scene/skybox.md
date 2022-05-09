@@ -13,10 +13,10 @@ The **Skybox** component properties are as follows:
 | Property | Description |
 | :---| :--- |
 | **Enabled** | Check this option to enable skybox. |
-| **Env Lighting Type** | environment lighting type. Please refer to the **Diffuse Illumination** section below for more information. |
+| **Env Lighting Type** | Environment lighting type. Please refer to the **Diffuse Illumination** section below for more information. |
 | **UseHDR** | If this option is checked, HDR (High Dynamic Range) will be turned on, if not checked, LDR (Low Dynamic Range) will be used. For details, please refer to the section **Switching HDR/LDR Mode** below. |
 | **Envmap** | Environment map, TextureCube type, see below for details on how to set it. <br>When this property is empty, the skybox uses and displays pixel texture by default. |
-| **DiffuseMap** | The convolution map for advanced diffuse lighting that is automatically and does not support manual editing. This option is only shown when **Env Lighting Type** is **DIFFUSEMAP_WITH_REFLECTION** . |
+| **DiffuseMap** | The convolution map for advanced diffuse lighting. It's automatically generated and managed by the engine, currently doesn't support manually editing. This option is only shown when **Env Lighting Type** is **DIFFUSEMAP_WITH_REFLECTION** . |
 
 ## Setting the Environment Map of the Skybox
 
@@ -50,9 +50,9 @@ The skybox supports the following environment map assets:
 
 The setup is done. The developer can directly see the set environment map of the skybox in the **Scene** panel. If the map is not displayed correctly, check if the value of **SkyIllum parameter** is too low, or **modify the Clear Flag** of Camera.
 
-### Use Resources Built Into The Engine
+### Use engine builtin resources
 
-In the **file explorer -> internal** ，The engine provides some built-in TextureCube resources that developers can also use on demand by following these steps.
+In the internal database of the Assets Manager Panel, the engine provides some builtin TextureCube resources that developers can use on demand following the same instructions described above.
 
 ![builtin skybox](skybox/builtin.png)
 
@@ -99,15 +99,9 @@ Creator supports the following three types of ambient diffuse lighting, which ca
 
 ![type](skybox/sky-box-type.png)
 
-The types and descriptions are as follows:
+The types are described as follows:
 
-| Type | Description |
-| :---| :--- |
-| **HEMISPHERE_DIFFUSE** | hemisphere diffuse |
-| **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** | hemisphere diffuse and Environment reflection |
-| **DIFFUSEMAP_WITH_REFLECTION** | diffuse convolution map and environment reflection |
-
-1. **Hemisphere Diffuse**: when the **Env Lighting Type** options is **HEMISPHERE_DIFFUSE**, hemispheric light diffusion will be used. This method is controlled by the **SkyLightingColor** and **GroundLightingColor** properties in the **Ambient** component, and has higher rendering performance, but less detail and poor lighting directionality. **Manually adjustable, but may become inconsistent with the environment map**.
+1. **Hemisphere Diffuse**: when the **Env Lighting Type** options is **HEMISPHERE_DIFFUSE**, hemispheric light diffusion will be used. This method is controlled by the **SkyLightingColor** and **GroundLightingColor** properties in the **Ambient** component, and has higher rendering performance, but less detail and poor lighting directionality. **The properties are manually adjustable, but may become inconsistent with the environment map**.
 
     ![ambient-diffuse](skybox/hemisphere.png)
 
@@ -123,7 +117,7 @@ The comparison between the **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** and **
 
 ![Compare](skybox/compare.gif)
 
-> **注意**: When replacing the environment map in the **Envmap** property, Creator will automatically calculate the corresponding ambient lighting information, as well as the diffuse lighting (only CubeMap in the form of image files is supported, not including manually created CubeMap).
+> **NOTICE**: When replacing the environment map in the **Envmap** property, Creator will automatically calculate the corresponding ambient lighting information, as well as the diffuse lighting (only CubeMap in the form of image files is supported, manually created CubeMap is not supported).
 
 ## Toggling HDR/LDR mode
 
