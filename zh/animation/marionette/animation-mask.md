@@ -8,7 +8,7 @@
 
 在 **资源管理器** 点击左上方的 **+** 按钮，然后选择 **动画遮罩（Animation Mask）**：
 
-![create-animation-mask](animation-graph/create-animation-graph.png)
+![create-animation-mask](animation-mask/create.png)
 
 即可创建一个默认名为 **Animation Mask** 的动画遮罩资源：
 
