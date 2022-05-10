@@ -113,7 +113,7 @@ The types are described as follows:
 
     ![apply-diffuseMap](skybox/diffuse-map-with-reflection.png)
 
-The comparison between the **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** and **DIFFUSEMAP_WITH_REFLECTION** is more obvious from the GIF below，when the **Env Lighting Type** is **DIFFUSEMAP_WITH_REFLECTION** The backlight is dark, highlighting the overall sense of layering, light and shade contrast details are also greatly improved. 
+The comparison between the **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION** and **DIFFUSEMAP_WITH_REFLECTION** is more obvious from the GIF below，when the **Env Lighting Type** is **DIFFUSEMAP_WITH_REFLECTION** The backlight is dark, highlighting the overall sense of layering, light and shade contrast details are also greatly improved.
 
 ![Compare](skybox/compare.gif)
 
