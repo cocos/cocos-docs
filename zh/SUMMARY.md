@@ -296,6 +296,9 @@
             - [渐变色编辑器](particle-system/editor/gradient-editor.md)
 
 - [缓动系统](tween/index.md)
+    - [缓动接口](tween/tween-interface.md)
+    - [缓动函数](tween/tween-function.md)
+    - [缓动示例](tween/tween-example.md)
 
 - [地形系统](editor/terrain/index.md)
 
@@ -346,6 +349,7 @@
     - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
     - [热更新范例教程](advanced-topics/hot-update.md)
     - [热更新管理器](advanced-topics/hot-update-manager.md)
+    - [i18n 游戏多语言支持](advanced-topics/i18n.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
     - [网页预览定制工作流程](editor/preview/browser.md)
