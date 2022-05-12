@@ -12,12 +12,10 @@
 
 ```javascript
 var ctx = node.getComponent(cc.Graphics);
-ctx.circle(200,200, 200);
+ctx.circle(200, 200, 200);
 ctx.stroke();
 ```
 
-<a href="graphics/circle.png"><img src="graphics/circle.png"></a>
-
-<hr>
+![graphics/circle.png](graphics/circle.png)
 
 返回 [绘图组件](index.md)
