@@ -12,3 +12,5 @@ Cocos Creator 提供了以下图形功能，用以丰富图形以及加强图形
 - [特效](effects/index.md)
 - [天空盒](../concepts/scene/skybox.md)
 - [全局雾](../concepts/scene/fog.md)
+- [几何体渲染器](../geometry-renderer/index.md)
+- [原生调试渲染器](../debug-renderer/index.md)
