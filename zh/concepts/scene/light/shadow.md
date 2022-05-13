@@ -97,7 +97,7 @@ FixedArea 模式用于设置是否手动控制 Camera 可见范围内显示阴�
 - 若不勾选该项（默认），则引擎会使用和 CSM（级联阴影算法）模式相同的裁切流程和相机计算，根据 Camera 的方向和位置来计算阴影产生的范围。
 - 若勾选该项，则根据手动设置的 `Near`、`Far`、`OrthoSize` 属性来控制阴影产生的范围。阴影会跟随方向光节点的位置，在方向光包围盒附近分布，而非跟随相机。
 
-![image](./lightType/dirlights/dir-light-fixed-shadow-prop.png)
+   ![image](./lightType/dirlights/dir-fixedarea.png)
 
 | 属性 | 说明 |
 | :------ | :-- |
