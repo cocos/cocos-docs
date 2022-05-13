@@ -45,7 +45,7 @@
             #define CC_USE_PROFILER 0
         #endif
         ```
-    - 如果想要添加 `ObjectStats`， 比如统计每帧渲染模型的个数（需在每帧调用的函数如update中）：
+    - 如果想要添加 `ObjectStats` 的统计信息， 比如统计每帧渲染模型的个数（需在每帧调用的函数如update中）：
         ```
         void RenderScene::update(uint32_t stamp) {
             ... 
@@ -56,7 +56,7 @@
       - `CC_PROFILE_OBJECT_INC` 用于递增统计数量
       - `CC_PROFILE_OBJECT_DEC` 用于递减统计数量
     
-    - 如果想要添加 `MemoryStats`， 比如统计 `GeometryRenderer` 顶点缓冲区的内存使用量：
+    - 如果想要添加 `MemoryStats` 的统计信息， 比如统计 `GeometryRenderer` 顶点缓冲区的内存使用量：
         ```
         void GeometryVertexBuffer::init(gfx::Device *device, 
             uint32_t maxVertices, const gfx::AttributeList &attributes) {
@@ -64,10 +64,10 @@
             CC_PROFILE_MEMORY_INC(GeometryVertexBuffer, static_cast<uint32_t>(_maxVertices * sizeof(T)));
         }
         ```
-      - `CC_PROFILE_MEMORY_UPDATE` 用于更新内存使用量
-      - `CC_PROFILE_MEMORY_INC` 用于递增内存使用量
-      - `CC_PROFILE_MEMORY_DEC` 用于递减内存使用量
-    - 如果想要添加 `PerformanceStats`， 比如统计 `ForwardPipeline::render` 函数的执行时间：
+      - `CC_PROFILE_MEMORY_UPDATE` 用于更新内存使用量（字节）
+      - `CC_PROFILE_MEMORY_INC` 用于递增内存使用量（字节）
+      - `CC_PROFILE_MEMORY_DEC` 用于递减内存使用量（字节）
+    - 如果想要添加 `PerformanceStats` 的统计信息， 比如统计 `ForwardPipeline::render` 函数的执行时间（毫秒）：
         ```
         void ForwardPipeline::render(const ccstd::vector<scene::Camera *> &cameras) {
             CC_PROFILE(ForwardPipelineRender);
