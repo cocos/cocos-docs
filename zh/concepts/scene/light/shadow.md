@@ -90,6 +90,8 @@ ShadowMap 一般用于要求光影效果比较真实，且较为复杂的场景�
 | ShadowInvisibleOcclusionRange | 设置 Camera 可见范围外的物体产生的阴影是否需要投射到可见范围内，若需要则调大该值即可  |
 | ShadowDistance | 设置 Camera 可见范围内显示阴影效果的范围，阴影质量与该值的大小成反比 |
 
+平行光的使用请参考 [平行光](./lightType/dir-light.md)。
+
 #### FixedArea 模式
 
 FixedArea 模式用于设置是否手动控制 Camera 可见范围内显示阴影效果的范围：
@@ -116,6 +118,8 @@ FixedArea 模式用于设置是否手动控制 Camera 可见范围内显示阴�
 | ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
 | ShadowBias | 设置阴影偏移值，防止 z-fiting |
 | ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
+
+聚光灯的使用请参考 [聚光灯](./lightType/spot-light.md)。
 
 ### PCF 软阴影
 
