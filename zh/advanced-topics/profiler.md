@@ -40,13 +40,13 @@
     
 - 使用方式：
     - 在 `native/cocos/base/Config.h` 中把 `CC_USE_PROFILER` 宏定义改为 `1`，等性能及内存优化完成后，再改回 `0`，此时性能剖析器完全关闭，不会对代码造成任何副作用：
-        ```
+        ```c++
         #ifndef CC_USE_PROFILER
             #define CC_USE_PROFILER 0
         #endif
         ```
     - 如果想要添加 `ObjectStats` 的统计信息， 比如统计每帧渲染模型的个数（需在每帧调用的函数如update中）：
-        ```
+        ```c++
         void RenderScene::update(uint32_t stamp) {
             ... 
             CC_PROFILE_OBJECT_UPDATE(Models, _models.size());
@@ -57,7 +57,7 @@
       - `CC_PROFILE_OBJECT_DEC` 用于递减统计数量
     
     - 如果想要添加 `MemoryStats` 的统计信息， 比如统计 `GeometryRenderer` 顶点缓冲区的内存使用量：
-        ```
+        ```c++
         void GeometryVertexBuffer::init(gfx::Device *device, 
             uint32_t maxVertices, const gfx::AttributeList &attributes) {
             ...
@@ -68,7 +68,7 @@
       - `CC_PROFILE_MEMORY_INC` 用于递增内存使用量（字节）
       - `CC_PROFILE_MEMORY_DEC` 用于递减内存使用量（字节）
     - 如果想要添加 `PerformanceStats` 的统计信息， 比如统计 `ForwardPipeline::render` 函数的执行时间（毫秒）：
-        ```
+        ```c++
         void ForwardPipeline::render(const ccstd::vector<scene::Camera *> &cameras) {
             CC_PROFILE(ForwardPipelineRender);
             ...

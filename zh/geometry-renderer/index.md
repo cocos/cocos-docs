@@ -40,7 +40,7 @@
 
 - 使用方式：
   - 由于每帧渲染完这些几何体后会清空顶点缓存，所以需要在update等函数中，每帧往geometry renderer对象（位于camera中）添加几何体，除此之外不需要额外的操作，示例 `TS` 代码如下：
-    ```
+    ```ts
     let renderer = this.mainCamera.geometryRenderer;
     renderer.addBoundingBox(box, color, wireframe, depthTest, unlit, useTransform, transform);
     ```
