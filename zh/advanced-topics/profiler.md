@@ -4,7 +4,7 @@
   ![profiler](native-profiler/profiler.png)
 
 - 与左下角旧版的 `Profiler` 不同，新版的 `Profiler` 提供更详细的游戏性能与内存统计数据，并支持扩展，开发者可自由添加关心的性能及内存数据，默认的数据如下：
-  - 核心数据统计 `CoreStats` ，包括：
+1. 核心数据统计 `CoreStats` ，包括：
     - 帧数
     - 每帧渲染时间
     - GFX 后端
@@ -13,7 +13,7 @@
     - 是否开启阴影贴图
     - 屏幕分辨率
 
-  - 对象个数统计 `ObjectStats` ，包括：
+2. 对象个数统计 `ObjectStats` ，包括：
     - 渲染调用次数
     - 实例化个数
     - 三角面个数
@@ -21,14 +21,14 @@
     - 渲染模型个数
     - 摄像机个数
 
-  - 内存使用统计 `MemoryStats` ，包括：
+3. 内存使用统计 `MemoryStats` ，包括：
     - DebugRenderer的顶点缓冲区大小
     - 原生字体内存大小
     - 贴图占用的显存
     - Buffer占用的显存
     - GeometryRenderer顶点缓冲区大小
 
-  - 性能数据统计 `PerformanceStats` ，显示逻辑线程调用堆栈，包含每个剖析代码段的：
+4. 性能数据统计 `PerformanceStats` ，显示逻辑线程调用堆栈，包含每个剖析代码段的：
     - 每帧执行总时间
     - 每帧单次执行最大时间
     - 每帧执行总次数
