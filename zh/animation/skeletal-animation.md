@@ -105,6 +105,91 @@ Creator 内置了两种常见标准蒙皮算法，它们性能相近，只对最
 
 推荐对蒙皮动画质量有较高追求的项目可以尝试启用 DQS，但因 GLSL 400 之前都没有 `fma` 指令，例如 `cross` 等操作在某些 GPU 上无法绕过浮点抵消问题，误差较大，可能引入部分可见瑕疵。
 
+## 挂点系统
+
+如果需要将某些外部节点挂到指定的骨骼关节上，使其在动画过程中随骨骼关节一起运动变换，需要使用骨骼动画组件的 **挂点（Socket）系统**。下面通过一个范例来介绍如何使用骨骼挂点。
+
+### 在编辑器中配置挂点
+## 挂点系统
+
+如果需要将某些外部节点挂到指定的骨骼关节上，使其在动画过程中随骨骼关节一起运动变换，需要使用骨骼动画组件的 **挂点（Socket）系统**。下面通过一个范例来介绍如何使用骨骼动画挂点。
+
+> **注意**：**FBX** 或 **glTF** 资源内的挂点模型会自动对接挂点系统，无需任何手动操作。
+
+### 通过编辑器实现
+
+1. 将骨骼动画资源导入到 **资源管理器** 中，然后将其拖拽到 **层级管理器** 中，生成骨骼动画节点（例如下图中的 `Fox` 节点）；
+
+2. 在 Fox 节点下新建一个空子节点 `Node`；
+
+    ![add-sub-node](https://user-images.githubusercontent.com/19702899/157816984-dc5664bd-f0ba-4aa1-b43d-4e6d8c852f30.png)
+
+3. 在 **层级管理器** 中选中 Fox 节点，在 **属性检查器** 中将 SkeletalAnimation 组件的 **Sockets** 属性设置为 1（Sockets 属性的值代表了挂点的数量）。然后设置 **Sockets** 中的 **Path** 和 **Target** 属性：
+
+    - Path 的下拉框中会列出所有的骨骼，选择想要挂载的目标骨骼，这里以 Fox 的尾巴为例
+
+    - 将刚才创建的子节点 `Node` 拖拽到 Target 属性框中，可以看到 **层级管理器** 中的子节点 `Node` 根据所选的目标骨骼名称被自动重命名了。
+
+    ![set-sockets](https://user-images.githubusercontent.com/19702899/157817121-24401e5b-2100-42cd-b651-c2b8782efdfc.gif)
+
+4. 这样子节点就成为目标挂点了，接下来我们在子节点下创建一个 Torus（圆环）节点，即可在 **场景编辑器** 中看到圆环套在了狐狸尾巴上。
+
+    ![torus](https://user-images.githubusercontent.com/19702899/157817162-79b51f14-4cc7-417c-9a87-c71fa21d4f08.png)
+
+    Torus 节点可以根据自己的需要调整其位置大小等属性，也可以在作为目标节点的子节点下添加多个节点，都会跟随指定骨骼的变换而变换。
+
+5. 保存场景，点击编辑器上方的预览按钮，可以看到圆环套在狐狸的尾巴上，并随着狐狸的尾巴一起晃动。
+
+> **注意**：若要设置多个挂点，则相对应地，也需要在骨骼动画节点下创建多个空的子节点作为目标挂点。如下图：
+>
+> ![sockets](https://user-images.githubusercontent.com/19702899/157817196-6fcf1786-901a-4fc4-af2a-7c3adf106272.png)
+
+### 通过脚本配置挂点
+
+1. 前两个步骤与通过编辑器实现的一致。然后在骨骼动画节点的空子节点下再创建一个 Cube 节点。
+
+    ![image](https://user-images.githubusercontent.com/19702899/157819037-be188852-36bc-4080-ab4d-8282bc91dd49.png)
+
+2. 在 **资源管理器** 中新建一个 **TypeScript** 脚本并命名为 `SkeletalAttach`，编写组件脚本。脚本代码如下：
+
+    ```ts
+    import { _decorator, Component, Node, SkeletalAnimation } from 'cc';
+    const { ccclass, property } = _decorator;
+
+    @ccclass('SkeletalAttach')
+    export class SkeletalAttach extends Component {
+
+        @property(Node)
+        cubeNode: Node | undefined;
+
+        start () {
+            let target = new Node();
+            if(this.cubeNode != undefined) {
+                // cubeNode 包含一个立方体模型
+                this.cubeNode.parent = target;    
+            }        
+            let skeletalAnimation = this.node.getComponent(SkeletalAnimation);
+            if(skeletalAnimation! = null) {
+                // target 父节点需设置为 SkeletalAnimation 所在的节点
+                target.parent = skeletalAnimation.node;
+                let path = "root/_rootJoint/b_Root_00/b_Hip_01/b_Tail01_012/b_Tail02_013/b_Tail03_014";
+                // 基于路径和目标节点创建一个 ‘Socket’
+                let socket = new SkeletalAnimation.Socket(path, target);
+                skeletalAnimation.sockets.push(socket);
+            }       
+        }
+
+    }
+    ```
+
+    > **注意**：若不知道目标骨骼的名称，可将 SkeletalAnimation 组件中的 Sockets 属性设置为 1，然后在 Path 的下拉框中查找所需的目标骨骼名称。查找完成后再将 Sockets 属性还原为 0 即可。
+    
+点击预览按钮，即可看见立方体小块随狐狸模型的尾巴一起摆动。
+
+![attach1](./animation/sockets-attach1.gif)
+
+**FBX** 或 **glTF** 资源内的挂点模型会自动对接挂点系统，无需任何手动操作。
+
 ## 关于动态 Instancing
 
 基于 **预烘焙系统** 的框架设计，蒙皮模型的 instancing 也成为了触手可及的功能，但要保证正确性还需要收集一些比较底层的信息。
