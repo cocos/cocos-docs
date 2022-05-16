@@ -43,7 +43,7 @@
       - 历史单次执行最大时间
       - 历史执行总次数
       - 历史单次执行平均时间
-    
+
 ## 使用方式
 
 - 在 `native/cocos/base/Config.h` 中把 `CC_USE_PROFILER` 宏定义改为 `1`，等性能及内存优化完成后，再改回 `0`，此时性能剖析器完全关闭，不会对代码造成任何副作用：
@@ -53,7 +53,7 @@
         #define CC_USE_PROFILER 0
     #endif
     ```
-    
+
 - 如果想要添加 `ObjectStats` 的统计信息， 比如统计每帧渲染模型的个数（需在每帧调用的函数如update中）：
 
   下述宏都定义在 [native/cocos/profiler/Profiler.h](https://github.com/cocos/cocos-engine/blob/v3.6.0/native/cocos/profiler/Profiler.h) 内。开发者可根据需求使用。
@@ -64,10 +64,10 @@
       CC_PROFILE_OBJECT_UPDATE(Models, _models.size());
   }
   ```
-  
-  - `CC_PROFILE_OBJECT_UPDATE` 用于更新统计数量
-  - `CC_PROFILE_OBJECT_INC` 用于递增统计数量
-  - `CC_PROFILE_OBJECT_DEC` 用于递减统计数量
+
+    - `CC_PROFILE_OBJECT_UPDATE` 用于更新统计数量
+    - `CC_PROFILE_OBJECT_INC` 用于递增统计数量
+    - `CC_PROFILE_OBJECT_DEC` 用于递减统计数量
 
 - 如果想要添加 `MemoryStats` 的统计信息， 比如统计 `GeometryRenderer` 顶点缓冲区的内存使用量：
 
@@ -78,11 +78,11 @@
         CC_PROFILE_MEMORY_INC(GeometryVertexBuffer, static_cast<uint32_t>(_maxVertices * sizeof(T)));
     }
     ```
-    
-  - `CC_PROFILE_MEMORY_UPDATE` 用于更新内存使用量（字节）
-  - `CC_PROFILE_MEMORY_INC` 用于递增内存使用量（字节）
-  - `CC_PROFILE_MEMORY_DEC` 用于递减内存使用量（字节）
-  
+
+    - `CC_PROFILE_MEMORY_UPDATE` 用于更新内存使用量（字节）
+    - `CC_PROFILE_MEMORY_INC` 用于递增内存使用量（字节）
+    - `CC_PROFILE_MEMORY_DEC` 用于递减内存使用量（字节）
+
 - 如果想要添加 `PerformanceStats` 的统计信息， 比如统计 `ForwardPipeline::render` 函数的执行时间（毫秒）：
 
     ```c++
@@ -91,7 +91,7 @@
         ...
     }
     ```
-    
+
 - 通过以上修改后，编译，运行，屏幕上就可以看到新增的统计数据：
 
   ![add-stats](native-profiler/add-stats.png)

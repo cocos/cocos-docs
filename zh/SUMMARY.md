@@ -357,4 +357,5 @@
     - [CMake 使用简介](advanced-topics/cmake-learning.md)
     - [原生引擎内存泄漏检测系统](advanced-topics/memory-leak-detector.md)
     - [原生场景剔除](advanced-topics/native-scene-culling.md)
+    - [原生性能剖析器](advanced-topics/profiler.md)
     - [WebSocket 服务器](advanced-topics/websocket-server.md)
