@@ -6,7 +6,7 @@
 
 ![debug-renderer-demo](./debug-renderer-demo.png)
 
-## 使用方式：
+## 使用方式
 
 由于每帧渲染完这些文字后会清空顶点缓存，所以需要在 ``update`` 等函数中，每帧往 ``geometry renderer`` 对象（位于 ``camera`` 中）添加几何体，除此之外不需要额外的操作，示例 `C++` 代码如下：
 
@@ -20,7 +20,8 @@ renderer->addText("Show Debug Text...", screenPos);
 ```cpp
 void addText(const ccstd::string &text, const Vec2 &screenPos, const DebugTextInfo &info = DebugTextInfo());
 ```
-其参数描述如下： 
+
+其参数描述如下：
 
 - text：要输出的文字
 - screenPos：文字展示的位置
