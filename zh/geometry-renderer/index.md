@@ -47,11 +47,11 @@
 | 网格线框 | addMesh |
 | 基于索引的网格线框 | addIndexedMesh |
 
-### 使用方式：
+### 使用方式
 
-   由于每帧渲染完这些几何体后会清空顶点缓存，所以需要在 update 等函数中，每帧往 geometry renderer 对象（位于 camera 中）添加几何体，除此之外不需要额外的操作，示例 TS 代码如下：
+由于每帧渲染完这些几何体后会清空顶点缓存，所以需要在 update 等函数中，每帧往 geometry renderer 对象（位于 camera 中）添加几何体，除此之外不需要额外的操作，示例 TS 代码如下：
   
-    ```ts
-    let renderer = this.mainCamera.geometryRenderer;
-    renderer.addBoundingBox(box, color, wireframe, depthTest, unlit, useTransform, transform);
-    ```
+```ts
+let renderer = this.mainCamera.geometryRenderer;
+renderer.addBoundingBox(box, color, wireframe, depthTest, unlit, useTransform, transform);
+```
