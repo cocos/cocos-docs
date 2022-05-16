@@ -1,6 +1,6 @@
 # Marionette System
 
-Cocos Creator introduced the Marionette animation system in v3.4 as the new bespoke state machine system for an automated, modularized skeletal animation workflow.
+Cocos Creator 3.5 introduces a new **Marionette** animation system that controls the skeletal animation of objects via state machines, enabling an automated, and reusable animation process.
 
 To distinguish from the animation system from prior to v3.4 which is also accessible in the later versions of Cocos Creator, the new animation system will be referred as the **Marionette** system in this documentation while the animation system from prior to v3.4 will be referred as the **legacy** system. In general, the distinctions between the two include:
 

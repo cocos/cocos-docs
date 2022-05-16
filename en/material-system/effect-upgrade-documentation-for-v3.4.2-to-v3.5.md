@@ -1,13 +1,61 @@
-# upgrade effect
+# Upgrade Guide: Effect from v3.4.x to v3.5.0
 
-Solve the **effect** file from v3.4.x, upgrade to v3.5.0, shadowbias does not take effect.
+## Macro tags and functional macros
 
-There are **four steps** to upgrade, please follow the following paragraphs in turn.
+The effect syntax for Macro Tags and Functional Macros have been upgraded to avoid the occupation of standard glsl define, old effects in project will be upgrade automatically, but if you are using external effects without meta or writing a new one, you have to pay attention.
 
-> **Note**：The code is referenced directly when you see `//Copy Start` and is a complete upgrade step by the time you see `//Copy End`. Paragraph locations are given, the following code is pseudo-code except for the upgrade code.
+- New syntax for Macro Tag: `#pragma define-meta`
+- New syntax for Funtional Macro: `#pragma define`
+
+You can refer to [Effect Syntax - macro-tags](../shader/macros.md#macro-tags) for detailed information.
+
+## Model level shadow bias
+
+In v3.5, we supported individual shadow bias configuration for models, this allows detailed control of shadow effect on simple or complex surfaces. If you have any customized effect, you may need to upgrade them for shadow bias configuration to take effect.
+
+> **Note**: If shadow map of lights are disabled, or if `CC_TRANSFER_SHADOW(pos)` is not invoked in your vertex shader, then you won't need to upgrade it.
+
+### Upgrade instructions
+
+There are **four elements** to add to your effect file, they are listed below:
+
+1. Output varying define in the vertex shader
+
+    ```
+    #if CC_RECEIVE_SHADOW
+        out mediump vec2 v_shadowBias;
+    #endif
+    ```
+
+2. Calculation of shadow bias in the vertex shader
+
+    ```
+    #if CC_RECEIVE_SHADOW
+        v_shadowBias = CCGetShadowBias();
+    #endif
+    ```
+
+3. Input varying define in the fragment shader
+
+    ```
+    #if CC_RECEIVE_SHADOW
+        in mediump vec2 v_shadowBias;
+    #endif
+    ```
+
+4. Shadow bias assignment in the fragment shader
+
+    ```
+    #if CC_RECEIVE_SHADOW
+        s.shadowBias = v_shadowBias;
+    #endif
+    ```
+
+### Example (code snippets)
 
 ```c
-CCProgram standard-vs %{
+// Vertex shader
+CCProgram xxx-vs %{
     // Header file area
     #include <cc-xxx>
     ...
@@ -16,12 +64,11 @@ CCProgram standard-vs %{
     // Vs output area
     out vec3 v_xxx;
     ...
-    // Step 1: The vs shader in effect adds v_Shadowbias output
-    // Copy Start
+
     #if CC_RECEIVE_SHADOW
         out mediump vec2 v_shadowBias;
     #endif
-    // Copy End
+
     ...
     out vec3 v_xxxx;
 
@@ -29,18 +76,18 @@ CCProgram standard-vs %{
     void main () {
         xxx;
         ...
-        // Step 2: Get shadowBias via CCGetShadowBias()
-        // Copy Start
+
         #if CC_RECEIVE_SHADOW
             v_shadowBias = CCGetShadowBias();
         #endif
-        // Copy End
+
         ...
         xxxx;
     }
 }%
 
-CCProgram standard-fs %{
+// Pixel shader
+CCProgram xxx-fs %{
     // Header file area
     #include <cc-xxx>
     ...
@@ -49,12 +96,11 @@ CCProgram standard-fs %{
     // Vs output area
     in vec3 v_xxx;
     ...
-    // Step 3: Add v_Shadowbias to the ps shader in effect
-    // Copy Start
+
     #if CC_RECEIVE_SHADOW
         in mediump vec2 v_shadowBias;
     #endif
-    // Copy End
+
     ...
     in vec3 v_xxxx;
 
@@ -62,12 +108,11 @@ CCProgram standard-fs %{
     void surf (out StandardSurface s) {
         xxx;
         ...
-        // Step 4: Pass the shadowBias obtained by ps into StandardSurface
-        // Copy Start
+
         #if CC_RECEIVE_SHADOW
             s.shadowBias = v_shadowBias;
         #endif
-        // Copy End
+
         ...
         xxxx;
     }
