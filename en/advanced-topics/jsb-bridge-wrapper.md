@@ -55,7 +55,7 @@ As for Objective-C and Java, you will see `JsbBridgeWrapper` with a similar decl
 - [Objective-C](https://github.com/cocos/cocos-engine/blob/v3.5.0/native/cocos/platform/apple/JsbBridgeWrapper.h):
 
     ```objc
-    //In Objective-C
+    // In Objective-C
     typedef void (^OnScriptEventListener)(NSString*);
 
     @interface JsbBridgeWrapper : NSObject
