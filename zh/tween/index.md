@@ -1,5 +1,4 @@
 # 缓动系统
-# 缓动系统
 
 ![tween-index.png](img/homeImgGame.png)
 
