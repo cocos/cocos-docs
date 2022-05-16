@@ -1,27 +1,39 @@
-# 调试渲染器（Debug-Renderer），目前仅限于原生平台
+# 调试渲染器（Debug-Renderer）
 
-- 调试渲染器是 ``cocos-engine`` 提供的一种批量渲染屏幕文字的功能接口，主要用于调试：输出任意的文字调试信息到屏幕上。
+调试渲染器是引擎提供的一种批量渲染屏幕文字的功能接口，主要用于调试，输出任意的文字调试信息到屏幕上。目前仅支持原生平台。
 
-- 调试渲染器的效果展示如图：
-  ![debug-renderer-demo](./debug-renderer-demo.png)
+其效果图如下所示：
 
-- 使用方式：
-  - 由于每帧渲染完这些文字后会清空顶点缓存，所以需要在 ``update`` 等函数中，每帧往 ``geometry renderer`` 对象（位于 ``camera`` 中）添加几何体，除此之外不需要额外的操作，示例 `C++` 代码如下：
+![debug-renderer-demo](./debug-renderer-demo.png)
 
-    ```c++
-    auto *renderer = cc::DebugRenderer::getInstance();
-    renderer->addText("Show Debug Text...", screenPos);
-    ```
-  
-  - 通过 `addText` 最后一个可选的参数，可以定制输出文字的外观：
-    | DebugTextInfo 属性 | 说明 |
-    | :-- | :-- |
-    | color             | 文字颜色 |
-    | bold              | 是否粗体 |
-    | italic            | 是否斜体 |
-    | shadow            | 是否开启阴影效果 |
-    | shadowThickness   | 阴影宽度 |
-    | shadowColor       | 阴影颜色 |
-    | scale             | 文字缩放比例 |
+## 使用方式：
 
-  
+由于每帧渲染完这些文字后会清空顶点缓存，所以需要在 ``update`` 等函数中，每帧往 ``geometry renderer`` 对象（位于 ``camera`` 中）添加几何体，除此之外不需要额外的操作，示例 `C++` 代码如下：
+
+```c++
+auto *renderer = cc::DebugRenderer::getInstance();
+renderer->addText("Show Debug Text...", screenPos);
+```
+
+## 接口描述
+
+```cpp
+void addText(const ccstd::string &text, const Vec2 &screenPos, const DebugTextInfo &info = DebugTextInfo());
+```
+其参数描述如下： 
+
+- text：要输出的文字
+- screenPos：文字展示的位置
+- info：定义字体的样式
+
+DebugTextInfo 可以定制输出文字的外观，其参数描述如下：
+
+| 属性 | 说明 |
+| :-- | :-- |
+| color             | 文字颜色 |
+| bold              | 是否粗体 |
+| italic            | 是否斜体 |
+| shadow            | 是否开启阴影效果 |
+| shadowThickness   | 阴影宽度 |
+| shadowColor       | 阴影颜色 |
+| scale             | 文字缩放比例 |
