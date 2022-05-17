@@ -64,7 +64,7 @@ Visibility 属性可以同时选择多个 Layer，同时 Node 上的 Layer 也�
 
 ev = <mlog>log</mlog> <sub>2</sub> (ApertureValue<sup>2</sup> / ShutterValue*k / IsoValue)
 
-其中 `ApertureValue`、`ShutterValue` 和 `IsoValue` 通过 **Aperture**, **Shutter**，**Iso** 这三个属性的枚举值查表得出。
+其中 `ApertureValue`、`ShutterValue` 和 `IsoValue` 通过 **Aperture**, **Shutter**，**Iso** 这三个属性的枚举值查表得出。k 为常量。
 
 下图演示了曝光量对场景的影响：
 
