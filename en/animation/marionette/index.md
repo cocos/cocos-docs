@@ -4,9 +4,9 @@ Cocos Creator 3.5 introduces a new **Marionette** animation system that controls
 
 To distinguish from the animation system from prior to v3.4 which is also accessible in the later versions of Cocos Creator, the new animation system will be referred as the **Marionette** system in this documentation while the animation system from prior to v3.4 will be referred as the **legacy** system. In general, the distinctions between the two include:
 
-- **Legacy**: Powered by the **Animation** component, the legacy system animates objects with animation states containing animation clips (which are keyframe animations created in Cocos Creator) and skeletal animations imported from external sources in the format of `.fbx` and `.gltf`.
+- **Legacy**: Powered by the **Animation** component, the legacy system animates objects with animation states containing animation clips (which are keyframe animations created in Cocos Creator) and skeletal animations imported from external sources in the format of `.fbx`, `.gltf` and `.glb`.
 
-- **Marionette**: Powered by the **Animation Controller** component, the Marionette system animate objects with pre-constructed animation graphs, which functions as a controller of multiple animation states that can only contain skeletal animations imported from external sources in the format of `.fbx` and `.gltf`.
+- **Marionette**: Powered by the **Animation Controller** component, the Marionette system animate objects with pre-constructed animation graphs, which functions as a controller of multiple animation states that can only contain skeletal animations imported from external sources in the format of `.fbx`, `.gltf` and `.glb`.
 
 ## Content
 
