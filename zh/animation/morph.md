@@ -21,11 +21,39 @@ var morph = meshRenderer.mesh.struct.morph;
 
 只有持有变形动画数据的网格资源才支持变形动画。
 
+变形数据的数据结构如下所示：
+
+```ts
+export interface _cocos_3d_assets_morph__Morph {
+    /**
+     * Morph data of each sub-mesh.
+     */
+    subMeshMorphs: (_cocos_3d_assets_morph__SubMeshMorph | null)[];
+    /**
+     * Common initial weights of each sub-mesh.
+     */
+    weights?: number[];
+    /**
+     * Name of each target of each sub-mesh morph.
+     * This field is only meaningful if every sub-mesh has the same number of targets.
+     */
+    targetNames?: string[];
+}
+```
+
+其属性与描述如下：
+
+| 属性 | 描述 |
+| :-- | :-- |
+| subMeshMorphs | 子网格的变形数据 |
+| weights | 子网格的初始化权重 |
+| targetNames | 子网格变形数据的名称 |
+
 如果要改变变形动画的状态，可通过 [setWeight](__APIDOC__/zh/class/MeshRenderer?id=setWeight) 可以修改动画的权重。代码示例如下：
 
 ```ts
 var meshRenderer = this.node.getComponent(MeshRenderer);
-meshRenderer.setWeight( weight, iSubMeshMorph, iShape);
+meshRenderer.setWeight(weight, subMeshIndex, shapIndex);
 ```
 
 其接口和参数说明如下：
