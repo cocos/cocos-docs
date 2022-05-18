@@ -6,7 +6,7 @@
 
 ## 资源导入
 
-通常变形动画由外部工具（3DMax、Blender、Maya 等）制作，并导入引擎使用。导入方式请参考 [模型资源 - 模型导入](../asset/model/mesh.md#模型导入)。
+通常变形动画由外部工具（3DMax、Blender、Maya 等）制作，并导入引擎使用。导入方式请参考 [模型资源 - 模型导入](../asset/model/mesh.md#%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%85%A5)。
 
 ![import](./morph/import.png)
 
