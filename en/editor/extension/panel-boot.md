@@ -51,7 +51,7 @@ exports.template = readFileSync(join(__dirname,'../static/default.html'),'utf8')
 
 The template is defined, when the panel is opened, the content of the template will be automatically rendered on the interface.
 
-In addition, the editor also provides some custom elements, please refer to the [UI](../editor/extension/ui.md) documentation.
+In addition, the editor also provides some custom elements, please refer to the [UI](./ui.md) documentation.
 
 ## Style
 
