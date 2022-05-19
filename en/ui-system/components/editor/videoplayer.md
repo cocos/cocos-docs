@@ -149,7 +149,7 @@ You can display a UI upon a video in two steps:
 
 For more information, please refer to the [21.video-player example](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/21.video-player) in the `test-cases-3d` samples bundled with __Cocos Creator__. Results as shown below:
 
-![videoplayer-stayOnButtom](videoplayer/videoplayer-stayOnButtom.png)
+![videoplayer-stayOnButtom](videoplayer/videoplayer-stayonbuttom.png)
 
 ## Support platform
 
