@@ -2,7 +2,7 @@
 
 Billboard 组件用于渲染一个始终面向摄像机的方块。
 
-![](particle-system/billboard.png)
+![billboard](particle-system/billboard.png)
 
 | 属性 | 说明 |
 | :--- | :--- |
