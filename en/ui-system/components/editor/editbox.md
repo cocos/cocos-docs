@@ -30,7 +30,7 @@ To use `EditBox`, please refer to the [EditBox API](__APIDOC__/en/class/EditBox)
 
 ## EditBox Events
 
-![editbox-event](editbox/editbox-event.png)
+![editbox-event](editBox/editbox-event.png)
 
 For event structure you can refer to the [Button](./button.md) documentation.
 
