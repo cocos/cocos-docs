@@ -154,7 +154,7 @@
                 - [Built-in Shader Uniforms](shader/uniform.md)
         - [Built-in Effect](shader/effect-builtin.md)
             - [Physically Based Rendering - PBR](shader/effect-builtin-pbr.md)
-            - [Cartoon Rendering](shader/effect-builtin-toon.md)
+            - [Toon Shading](shader/effect-builtin-toon.md)
             - [Unlit](shader/effect-builtin-unlit.md)
         - [Custom effect](shader/write-effect-overview.md)
             - [3D Effect：RimLight](shader/write-effect-3d-rim-light.md)
