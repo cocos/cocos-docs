@@ -1,6 +1,6 @@
 # Custom Effect
 
-If the built-in effects cannot meet the requirements, users canm custom your own effects.
+If the built-in effects cannot meet the requirements, users can custom your own effects.
 
 There are two ways to customize effects:
 
