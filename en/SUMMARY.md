@@ -45,6 +45,7 @@
         - [Textures](asset/texture.md)
         - [Sprite Frames](asset/sprite-frame.md)
             - [Auto Trim for SpriteFrame](ui-system/components/engine/trim.md)
+        - [Texture Cube](asset/texture-cube.md)
         - [Atlas](asset/atlas.md)
         - [Auto Atlas](asset/auto-atlas.md)
         - [Label Atlas](asset/label-atlas.md)
