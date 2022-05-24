@@ -1,5 +1,7 @@
 # 发布到支付宝小游戏
 
+> **注意**：从 2022 年 5 月 24 日起，支付宝将不再支持小游戏的发布。
+
 ## 环境配置
 
 - 桌面端下载 [支付宝小程序开发者工具](https://render.alipay.com/p/f/fd-jwq8nu2a/pages/home/index.html) 并安装。
