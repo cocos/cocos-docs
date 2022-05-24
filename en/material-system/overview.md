@@ -4,7 +4,7 @@
 
 In the real world, all objects interact with light, and depending on the appearance of the surface of the object, the effect of the light is also different.
 
-Cocos Creator uses **material** to describe the appearance of objects, such as whether a small ball is a glass ball or a plastic ball, and a box is a wooden box or a metal box. The light and shade, light points, light reflections, light scattering and other effects they present under lighting conditions are all achieved by [shaders](../shader/index.md). The material is the data set of the shader (including texture maps, lighting algorithms, etc.), which is convenient for visual adjustment.
+Cocos Creator uses **material** to describe the appearance of objects, such as whether a small ball is a glass ball or a plastic ball, and a box is a wooden box or a metal box. The light and shade, light points, light reflections, light scattering and other effects they present under lighting conditions are all achieved by [Effect](../shader/index.md). The material is the data set of the shader (including texture maps, lighting algorithms, etc.), which is convenient for visual adjustment.
 
 The material system mainly includes the following:
 
