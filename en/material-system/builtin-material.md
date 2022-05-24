@@ -1,4 +1,4 @@
-# Builtin materials
+# Builtin Materials
 
 Creator has built-in several common materials in the **internal -> default_materials** directory of the **Assets** panel. The Effect used is [built-in shader](../shader/effect-builtin.md), the properties of the built-in materials are not allowed to be modified.
 
