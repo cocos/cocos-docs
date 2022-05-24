@@ -128,7 +128,7 @@ The color the sprite is as follows:
 
 ## Use preprocessing macros to define
 
-Within the above slice shader, only the gradient of the texture coordinate axis U is considered. For flexibility and to support more functionality, the gradient of the different axes is implemented through preprocessing macro definitions, so the following code is deleted.
+Within the above fragment shader, only the gradient of the texture coordinate axis U is considered. For flexibility and to support more functionality, the gradient of the different axes is implemented through preprocessing macro definitions, so the following code is deleted.
 
 ```glsl
 o.rgb *= mix(startColor, endColor, vec4(uv0.x)).rgb;
