@@ -1,5 +1,7 @@
 # Publish to Alipay Mini Game
 
+> **NOTE**: Starting May 24, 2022, Alipay will no longer support the release of mini-games.
+
 ## Environment Configuration
 
 - Download [Alipay Mini Program Studio](https://render.alipay.com/p/f/fd-jwq8nu2a/pages/home/index.html) to the desktop and install it.
