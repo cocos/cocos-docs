@@ -87,6 +87,9 @@ FBX材质管道用于将DCC使用的材质和纹理中导入到cocos引擎中，
 |----------------------------|------------------------------|
 | ![maya](maya-viewport.png) | ![cocos](cocos-viewport.png) |
 
+您可以参考以下工程文件设置maya standard surface确保导入器可以准确的导入贴图设置。
+[Maya Car Demo](maya_car.zip)
+
 说明:使用maya viewport预览时半透明材质时，建议开启depth peeling和alpha cut prepass以获取正准确的预览效果。
 为了获取最佳的配对效果，您可以配对maya和引擎的渲染环境。
 * 关于maya viewport渲染设置更多内容，您可参考[Maya官方文档](https://help.autodesk.com/view/MAYAUL/2022/ENU/index.html?contextId=Viewport20RendererDisplay)
