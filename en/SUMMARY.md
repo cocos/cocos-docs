@@ -266,6 +266,9 @@
             - [Particle Editor](particle-system/editor/particle-effect-panel.md)
 
 - [Tween System](tween/index.md)
+    - [Tween Interface](tween/tween-interface.md)
+    - [Tween Function](tween/tween-function.md)
+    - [Tween Examples](tween/tween-example.md)
 
 - [Terrain System](editor/terrain/index.md)
 
