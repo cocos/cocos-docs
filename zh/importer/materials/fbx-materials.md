@@ -26,7 +26,7 @@
 
 ---
 ## 不同 DCC 材质支持说明
-### 1. Autodesk 3ds Max
+### Autodesk 3ds Max
 - 材质: 支持以下材质类型:
   - Standard（Legacy）
   - Physical Material (建议使用)
@@ -58,7 +58,7 @@
 * 关于 Max Viewport 渲染更多设置内容，您可参考 [教程](https://www.youtube.com/watch?v=82hhg8Q1nus&list=PL9xXzsdQ6pbZGBnVSKMBO_BCYjzmFTj0R&index=2)
 * 关于 Cocos Creator 渲染环境配置详细内容，您可参考 [Cocos Creator 官方文档](https://docs.cocos.com/creator/manual/zh/module-map/graphics.html)
 
-### 2. Autodesk Maya
+### Autodesk Maya
 - 材质:支持以下材质类型:
   - Lambert、Blinn、Phong、Phong-E
   - Standard Surface (建议使用)
@@ -105,13 +105,13 @@
    - 材质:支持以下材质类型:
      - Principled bsdf
    - 纹理:
-   - 支持以下纹理:
-     - Base Color
-     - Roughness
-     - Metallic
-     - Normal
-     - Alpha
-   - 纹理导入要求:在导出 FBX 之前，除 Normal Map 可以用 Normal Map 节点矫正外，确保材质的其它贴图输入通道均为File纹理节点。
+     - 对于 Principled bsdf 材质支持以下纹理:
+       - Base Color
+       - Roughness
+       - Metallic
+       - Normal
+       - Alpha
+     - 纹理导入要求:在导出 FBX 之前，除 Normal Map 可以用 Normal Map 节点矫正外，确保材质的其它贴图输入通道均为File纹理节点。
 关于如何将简化纹理简化为只剩Bitmap节点，您可以参考 [Baking Procedural Materials to Image Textures in Blender](https://www.youtube.com/watch?v=AB24ITZHtuE)
 
 | 简化前                     | 简化后                     |
