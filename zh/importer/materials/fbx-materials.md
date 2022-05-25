@@ -88,7 +88,7 @@
 * 关于 Maya Viewport渲染设置更多内容，您可参考 [Maya 官方文档](https://help.autodesk.com/view/MayaUL/2022/ENU/index.html?contextId=Viewport20RendererDisplay)
 * 关于 Cocos Creator 渲染环境配置详细内容，您可参考 [Cocos Creator 官方文档](https://docs.cocos.com/creator/manual/zh/module-map/graphics.html)
 
-### 3. Cinema 4D
+### Cinema 4D
 - 材质:支持以下材质类型:
   - Standard Material
 - 纹理:
@@ -101,7 +101,7 @@
   - 纹理导出要求: C4D 导出 FBX 前，若一个模型有多个材质需要保证UV集的面和材质有唯一的对应关系。
     - [Example](https://github.com/cocos-creator/3d-tasks/issues/11267)
 
-### 4. Blender
+### Blender
    - 材质:支持以下材质类型:
      - Principled bsdf
    - 纹理:
