@@ -362,6 +362,65 @@ sprite2: Sprite = null!;
 
 ![decorator-group](decorator-group2.png)
 
+## 内置类型界面
+
+针对一些常用类型，引擎内部提供了默认界面，开发者可以根据自身的需求使用：
+
+- 颜色界面：
+
+    ![color](./decorator/color.png)
+
+    代码示例如下：
+
+    ```ts
+    @property(Color)
+    color:Color
+    ```
+
+- 曲线：用于保存曲线类型、样式以及采样数据。
+
+    ![color](./decorator/curve.png)
+
+    代码示例如下：
+
+    ```ts
+    @property(RealCurve)
+    realCurve:RealCurve = new RealCurve();
+    ```
+
+- 曲线范围：可以通过常量、曲线、双曲线或双常量进行控制。
+
+    ![color](./decorator/curve_range.png)
+
+    代码示例如下：
+
+    ```ts
+    @property(CurveRange)
+    curveRang : CurveRange = new CurveRange();    
+    ```
+
+- 渐变色：记录渐变色的关键值和用于计算渐变色的结果
+
+    ![graduebt](./decorator/gradient.png)
+
+    代码示例如下：
+
+    ```ts
+    @property(Gradient)
+    gradient = new Gradient();
+    ```
+
+- 渐变色范围：通过颜色、渐变色、双颜色或双渐变色控制颜色
+
+   ![graduebt](./decorator/gradient_range.png)
+
+   代码示例如下：
+
+    ```ts
+    @property(GradientRange)
+    gradientRange:GradientRange = new GradientRange();      
+    ```
+
 ## 参考链接
 
 - [属性参数](./reference/attributes.md)
