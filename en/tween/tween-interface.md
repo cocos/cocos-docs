@@ -49,7 +49,7 @@ Tween.stopAllByTarget(this.node);
 
 ### Example
 
-Here is an example of a `to` tween aniamtion to demonstrate the use of `tween<T>`:
+Here is an example of a `to` tween aniamtion to demonstrate the use of `tween()`:
 
 ```ts
 let tweenDuration : number = 1.0;                                   // Duration of the tween
@@ -65,7 +65,7 @@ More examples can be found in [Tween Example](tween-example.md)
 
 ## Some Restrictions
 
-In order to reduce the frequency of updating `Node Transform` information, `Node` maintains an internal `dirty` state, which is only set to `dirty` if an interface that may change `Node Transform` information is called.
+In order to reduce the frequency of updating `Node.Transform` information, `Node` maintains an internal `dirty` state, which is only set to `dirty` if an interface that may change `Node.Transform` information is called.
 
 However, the current interface has certain limitations, e.g. the `position` obtained via `this.node.position` is a generic `Vec3`.
 
