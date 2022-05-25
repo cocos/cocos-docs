@@ -25,7 +25,7 @@
 ![img_6.png](enable-smart-conversion.png)
 
 ---
-## FBX 智能材质导入支持说明
+## 不同 DCC 材质支持说明
 ### 1. Autodesk 3ds Max
 支持以下材质类型:
   - Standard（Legacy）
