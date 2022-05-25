@@ -4,7 +4,7 @@ The __Label__ component is used to display texts, the text can use __System Font
 
 ![label-property](./label/label-property.png)
 
-Select a node in the __Hierarchy__ panel, then click the __Add Component__ button at the bottom of the __Inspector__ panel and select __Label__ from __UI -> Render__ to add the __Label__ component to the node.
+Select a node in the __Hierarchy__ panel, then click the __Add Component__ button at the bottom of the __Inspector__ panel and select __Label__ from __2D__ to add the __Label__ component to the node.
 
 To use `Label`, please refer to the [Label API](__APIDOC__/en/class/Label) documentation and the [label](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/02.label) scene of the test-cases-3d project.
 

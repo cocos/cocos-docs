@@ -32,7 +32,7 @@ The __Camera Component__ is an important functional component that we use to pre
 | __Far__ | The far clipping distance of the camera, should be as small as possible within acceptable range |
 | __Aperture__ | The camera aperture, which affects the exposure parameters of the camera |
 | __Shutter__ | The camera shutter, which affects the exposure parameters of the camera |
-| __Iso__ | The camera ISO, which affects the exposure parameters of the camera |
+| __Iso__ | The camera ISO, which affects the exposure parameters of the camera <br> Please refer to __Exposure__ below for more information |
 | __Rect__ | The position and size of the viewport that the camera will eventually render to the screen |
 | __TargetTexture__ | Output render target texture of the camera, which renders directly to the screen. Defaults to null |
 
@@ -59,3 +59,19 @@ For additional information on the implementation of Layer, please refer to the [
 ### Visibility calculations for the camera
 
 The `Visibility` property allows multiple Layers to be selected at the same time, while the `Layer` on the Node has its own value, so the `Visibility` property of the camera is an __2<sup>32</sup>__ bit integer. Each visible Layer occupies one bit, using bitwise operations, and supports up to 32 different Layer labels (one bit for each Layer value, that is, represented by __2<sup>32</sup>__). When the camera is culling, the Layer's property value of each node will perform a `&` operation with the camera, and if the `Visibility` property of the camera contains this `Layer`, then the current node will be visible to the camera, and vice versa.
+
+### Exposure
+
+__Aperture__, __Shutter__, __Iso__: These three parameters of __Camera__ will determine the amount of incoming light, which in turn affects the exposure value. Only takes effect if the scene has HDR turned on. The algorithm is usually as follows:
+
+ev = <mlog>log</mlog> <sub>2</sub> (ApertureValue<sup>2</sup> / ShutterValue*k / IsoValue)
+
+`ApertureValue`, `ShutterValue` and `IsoValue` are obtained by looking up the enumeration values of the three attributes __Aperture__, __Shutter__, __Iso__. Where k is a cosntant.
+
+The following images demonstrate the effect of exposure on a scene:
+
+![hdr1](./camera/hdr1.png)
+
+![hdr2](./camera/hdr2.png)
+
+To enable scene HDR, please refer to [Skybox - Toggling HDR/LDR mode](../../concepts/scene/skybox.md#Toggling%HDR/LDR%mode).

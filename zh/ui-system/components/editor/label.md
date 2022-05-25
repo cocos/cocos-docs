@@ -4,7 +4,7 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 
 ![label-property](./label/label-property.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI/Render** 中选择 **Label**，即可添加 Label 组件到节点上。
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI** 中选择 **Label**，即可添加 Label 组件到节点上。
 
 Label 的组件接口请参考 [Label API](__APIDOC__/zh/result?keyword=Label)。
 
