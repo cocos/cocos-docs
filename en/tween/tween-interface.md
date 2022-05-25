@@ -12,18 +12,18 @@
 | **set**           | Add a transient action that **directly sets the target property** |
 | **delay**         | Add a **delay time** to a transient action |
 | **call**          | Add a **callback** transient
-| **target**        | Add a **directly set jogging target** transient
-| **union**         | **package the contextual jogging action into one** |
-| **then**          | **insert a tween into the jogging queue** |
+| **target**        | Add a **directly set tween target** transient
+| **union**         | **package the contextual tween action into one** |
+| **then**          | **insert a tween into the tween queue** |
 | **repeat**        | **execute several times** (previously repeated several times, please adapt in time) |
 | **repeatForever** | **repeatForever** | **repeatForever** |
-| **sequence**      | **add a sequential execution of the jog** |
-| **parallel**      | **add a simultaneous jogging** |
-| **start**         | **start jogging** |
-| **stop**          | **stop jogging** |
-| **clone**         | **clone jogging** |
-| **show**          | **enable rendering on node chains, jogging target needs to be Node** |
-| **hide**          | **disable rendering on the node chain, the jogging target needs to be Node** |
+| **sequence**      | **add a sequential execution of the tween** |
+| **parallel**      | **add a simultaneous tween** |
+| **start**         | **start tween** |
+| **stop**          | **stop tween** |
+| **clone**         | **clone tween** |
+| **show**          | **enable rendering on node chains, tween target needs to be Node** |
+| **hide**          | **disable rendering on the node chain, the tween target needs to be Node** |
 
 ### Static Interface
 
