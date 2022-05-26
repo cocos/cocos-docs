@@ -1,5 +1,5 @@
 # FBX Smart Material Conversion
-##  Smart Material Conversion in Importer is a feature of model importer, which can map some standard materials in DCC tools to Cocos Creator's built-in materials, and restore the effects of materials in DCC tools.
+FBX Smart Material Conversion in Importer is a feature of model importer, which can map some standard materials in DCC tools to Cocos Creator's built-in materials, and restore the effects of materials in DCC tools.
 * The following materials are supported:
 
 |         | Phong               | PBR               |
