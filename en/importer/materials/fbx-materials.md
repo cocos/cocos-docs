@@ -1,24 +1,23 @@
 # FBX Smart Material Conversion
-FBX Smart Material Conversion in Importer is a feature of model importer, which can map some standard materials in DCC tools to Cocos Creator's built-in materials, and restore the effects of materials in DCC tools.
+FBX Smart Material Conversion is a feature of model importer, it can map some standard materials in DCC tools to Cocos Creator's built-in materials, and restore the visual effects of materials in DCC tools.
 * The following materials are supported:
 
 |         | Phong               | PBR               |
 |---------|---------------------|-------------------|
 | 3ds Max | Standard(legacy)    | Physical Material |
-| Blender | None                | Principled BSDF   |
-| C4D     | Standard            | None              |
+| Blender | N/A                 | Principled BSDF   |
+| C4D     | Standard            | N/A               |
 | Maya    | Lambert/Blinn/Phong | Standard Surface  |
  
-* Here is the comparison of maya standard surface in Maya and Cocos Creator:
+* Here is the comparison of a model using maya standard surface viewed in Maya and viewed in Cocos Creator after import:
 
 | Maya Viewport              | Cocos Creator Viewport       |
 |----------------------------|------------------------------|
 | ![Maya](maya-viewport.png) | ![cocos](cocos-viewport.png) |
 
-You can refer to the following project files to ensure the importer can import Maya Standard Surface correctly.
- [Maya Car Demo](maya_car.zip)
+You can refer to the following project file to see how the example model with Maya Standard Surface is imported. [Maya Car Demo](maya_car.zip)
 
-## FBX Smart Material Conversion Importer Configuration and Process
+## Smart Material Conversion configuration and import process for FBX assets
 1. In the Cocos Creator main menu, go to Project -> Project Settings -> Model -> Smart Material Conversion and make sure the option is enabled.
 2. Select the FBX file in Cocos Creator, and make sure the Smart Material Conversion option is enabled in the Inspector panel of the FBX file.
 The following is the final settings:
@@ -84,8 +83,8 @@ Rendering Note: For Max Physical Material, you need to enable High Quality Rende
 | ![img_2.png](img_2.png) | ![img_3.png](img_3.png)  |
 
 Rendering Note: For transparent material, you need to enable Depth peeling and Alpha Cut Prepass in maya. In order to get a more accurate preview, you can pair Maya and Cocos Creator rendering environment.
-* For more information on Maya Viewport Rendering Settings, you can refer to [Maya 官方文档](https://help.autodesk.com/view/MayaUL/2022/ENU/index.html?contextId=Viewport20RendererDisplay)
-* For more information on Cocos Creator Viewport Rendering Settings, you can refer to [Cocos Creator 官方文档](https://docs.cocos.com/creator/manual/zh/module-map/graphics.html)
+* For more information on Maya Viewport Rendering Settings, you can refer to [Maya Document](https://help.autodesk.com/view/MAYAUL/2022/ENU/)
+* For more information on Cocos Creator Viewport Rendering Settings, you can refer to [Cocos Creator Document](https://docs.cocos.com/creator/manual/zh/module-map/graphics.html)
 
 ### Cinema 4D
 - Material:The following material type is supported:

@@ -5,8 +5,8 @@ FBX 智能材质导入是模型导入器中辅助转换材质的一个功能，�
 |         | Phong               | PBR               |
 |---------|---------------------|-------------------|
 | 3ds Max | Standard(legacy)    | Physical Material |
-| Blender | None                | Principled BSDF   |
-| C4D     | Standard            | None              |
+| Blender | N/A                 | Principled BSDF   |
+| C4D     | Standard            | N/A               |
 | Maya    | Lambert/Blinn/Phong | Standard Surface  |
  
 * 以 Maya Standard Surface 为例，材质导入 Cocos Creator 效果对比下表所示:
@@ -85,7 +85,7 @@ FBX 智能材质导入是模型导入器中辅助转换材质的一个功能，�
 
 渲染说明:使用 Maya Viewport 预览时半透明材质时，建议开启 Depth peeling 和 Alpha Cut Prepass 以获取正准确的预览效果。
 为了获取最佳的配对效果，您可以配对 Maya 和 Cocos Creator 的渲染环境。
-* 关于 Maya Viewport渲染设置更多内容，您可参考 [Maya 官方文档](https://help.autodesk.com/view/MayaUL/2022/ENU/index.html?contextId=Viewport20RendererDisplay)
+* 关于 Maya Viewport渲染设置更多内容，您可参考 [Maya 官方文档](https://help.autodesk.com/view/MAYAUL/2022/ENU/)
 * 关于 Cocos Creator 渲染环境配置详细内容，您可参考 [Cocos Creator 官方文档](https://docs.cocos.com/creator/manual/zh/module-map/graphics.html)
 
 ### Cinema 4D
