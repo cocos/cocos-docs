@@ -55,7 +55,7 @@ The following is the final settings:
 
 Rendering Note: For Max Physical Material, you need to enable High Quality Rendering in Max Viewport to get a relatively accurate preview. For a more accurate preview, you can pair Max and Cocos Creator rendering environment.
 * For more information on Max Viewport Rendering Settings, you can refer to [tutorial](https://www.youtube.com/watch?v=82hhg8Q1nus&list=PL9xXzsdQ6pbZGBnVSKMBO_BCYjzmFTj0R&index=2)
-* For more information on Cocos Creator Viewport Rendering Settings, you can refer to [Cocos Creator 官方文档](https://docs.cocos.com/creator/manual/zh/module-map/graphics.html)
+* For more information on Cocos Creator Viewport Rendering Settings, you can refer to [Cocos Creator Document](https://docs.cocos.com/creator/manual/zh/module-map/graphics.html)
 
 ### Autodesk Maya
 - Material:The following material types are supported:
