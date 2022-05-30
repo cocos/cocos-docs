@@ -8,7 +8,7 @@ Creator 将内置着色器大致归类为以下几种：
 - `pipeline`：管线特效着色器，包括延迟光照、后效和抗锯齿等。
 - `util`：存放一些零散的内置着色器，例如序列帧动画。
 - `dcc`：存放DCC材质导入相关的内置着色器。
-- `surfaces`：存放新的[Surface Shader](surface-shader.md)着色器。
+- `surfaces`：存放新的 [表面着色器](surface-shader.md)。
 - 其他的为内置着色器，详情请参考下文说明。
 
 ## 内置管线特效着色器
