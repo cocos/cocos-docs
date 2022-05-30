@@ -166,10 +166,10 @@
             - [基于物理的光照模型 PBR](shader/effect-builtin-pbr.md)
             - [卡通渲染](shader/effect-builtin-toon.md)
             - [无光照](shader/effect-builtin-unlit.md)
-            - [表面着色器（Surface Shader）](shader/surface-shader.md)
         - [自定义着色器](shader/write-effect-overview.md)
             - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
             - [2D 着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)
+        - [表面着色器（Surface Shader）](shader/surface-shader.md)
 
     - [特效组件](module-map/effects/index.md)
         - [广告牌](particle-system/billboard-component.md)
