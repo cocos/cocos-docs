@@ -257,7 +257,10 @@ In v3.0, there are continued improvements to the design of the material system a
     // v3.0
     resources.load('background/spriteFrame', SpriteFrame, () => {});
     ```
+##### `JSB` API relevant
 
+- `jsb.FileUtils`
+     - `getDataFromFile`: return type changed to `Uint8Array` from `ArrayBuffer`
 ### Editor upgrade
 
 #### Build Panel
