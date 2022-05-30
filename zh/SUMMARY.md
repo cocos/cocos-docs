@@ -152,6 +152,7 @@
     - [材质系统](material-system/overview.md)
         - [在脚本中使用材质](material-system/material-script.md)
         - [内置材质](material-system/builtin-material.md)
+        - [表面着色器](shader/surface-shader.md)
         - [材质系统类图](material-system/material-structure.md)
     - [着色器](shader/index.md)
         - [着色器资源](shader/effect-inspector.md)
