@@ -53,6 +53,7 @@
     - [Fonts](asset/font.md)
     - [Audio](asset/audio.md)
     - [Material](asset/material.md)
+        - [FBX Smart Material Conversion](importer/materials/fbx-materials.md)
     - [Model](asset/model/mesh.md)
         - [Importing Models Exported from DCC Tools](asset/model/dcc-export-mesh.md)
         - [glTF](asset/model/glTF.md)
