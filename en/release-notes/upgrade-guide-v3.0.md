@@ -260,7 +260,7 @@ In v3.0, there are continued improvements to the design of the material system a
 ##### `JSB` API relevant
 
 - `jsb.FileUtils`
-     - `getDataFromFile`: return type changed to `Uint8Array` from `ArrayBuffer`
+     - `getDataFromFile`: return type changed from `Uint8Array` to `ArrayBuffer`
 ### Editor upgrade
 
 #### Build Panel
