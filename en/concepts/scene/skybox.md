@@ -29,7 +29,7 @@ The skybox supports the following environment map assets:
 
     - Cube Cross images
 
-    - PNG or HDR format images
+    - PNG or HDR format images  
 
 2. CubeMap in the form of image files
 
