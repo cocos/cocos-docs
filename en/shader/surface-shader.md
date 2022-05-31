@@ -14,7 +14,7 @@ Surface Shader is still based on [Cocos Effect syntax](../material-system/effect
 
 Before understanding Surface Shader, there are a few concepts that need to be clarified.
 
-### 1、Rendering Usage
+### 1. Rendering Usage
 
 Describes where the object needs to be rendered to.
 
@@ -33,7 +33,7 @@ This section can be found in **Assets -> internal -> chunk -> shading-entries ->
 | render sky                                          | misc/sky               |                 |
 | post-processing or general-purpose computation Pass | misc/quad              | engine reserved |
 
-### 2、Lighting Model
+### 2. Lighting Model
 
 Describe how the microstructure and inherent optical properties of an object's surface affect and act on light.
 
@@ -44,7 +44,7 @@ For example, plastic will produce isotropic circular highlights, hair will produ
 | standard | PBR lighting, support GGX BRDF distribution of isotropic and anisotropic lighting, support convolutional ambient lighting |
 | toon | simple cartoon lighting, step lighting effect |
 
-### 3、Surface Material Model
+### 3. Surface Material Model
 
 Explain how some physical parameters of the object surface (albedo, roughness, etc.) affect the lighting results.
 
@@ -55,7 +55,7 @@ Often materials and lighting models must be used in association, and we will gra
 | standard | Standard PBR material with roughness and metallic description, similar to material nodes in SP, Blender, Maya, etc. |
 | toon | A simple cartoon material with multiple shade color treatments. |
 
-### 4、Shader Stage
+### 4. Shader Stage
 
 Rendering is done by different shaders, with different stages dealing with vertex, pixel or compute, as shown in the following table.
 
@@ -104,7 +104,7 @@ Searching for the `CCProgram macro-remapping` paragraph, you can see that the co
 
 ![macro-remapping](img/macro-remapping.png)
 
-#### 1、Macros Not Used In The Surface Function
+#### 1. Macros Not Used In The Surface Function
 
 ```glsl
 // ui displayed macros not used in this effect file
@@ -124,7 +124,7 @@ Searching for the `CCProgram macro-remapping` paragraph, you can see that the co
 Since the Surface Shader streamlines a lot of unnecessary public process code, such as VS FS pass-parameter definitions, etc., code like ~~`#if HAS_SECOND_UV`~~, which existed in the old process before, no longer exists. For such macros, they must be pre-defined here **`#pragma define-meta MACRONAME`** so that they can be displayed in the material panel.
 Once defined, the next line can use the standard GLSL predefined **`#define CC_SURFACES_MACRONAME MACRONAME`**.
 
-#### 2、Macros Used In The Surface Function
+#### 2. Macros Used In The Surface Function
 
 ```glsl
 // ui displayed macros used in this effect file
@@ -137,7 +137,7 @@ Once defined, the next line can use the standard GLSL predefined **`#define CC_S
 This part is much simpler, just define it as **#define CC_SURFACES_MACRONAME MACRONAME**.
 But `CC_SURFACES_USE_TANGENT_SPACE` macro should be paid special attention, usually with normal mapping or anisotropy on, you have to turn on this macro, otherwise there may be compilation errors.
 
-#### 3、Internal Functional Macros
+#### 3. Internal Functional Macros
 
 ```glsl
 // functionality for each effect
@@ -152,7 +152,7 @@ Just define the desired value directly.
 
 ![surface-node](img/surface-node.png)
 
-#### 1、Definition
+#### 1. Definition
 
 Surface material function blocks can be defined using `CCProgram` or a separate chunk.
 
@@ -177,19 +177,19 @@ Pre-defining the `CC_SURFACES_VERTEX_MODIFY_WORLD_POS` macro allows you to ignor
 
 > **Note**: The advantage of using this approach is that it is convenient to extend many different material models and code version upgrades. The functions added in the new version can be used with new names and parameters and still call the functions defined in the old version to get the calculation results without writing duplicate code and without worrying about compilation errors after the upgrade.
 
-#### 2、VS Corresponding Functions List
+#### 2. VS Corresponding Functions List
 
 The processing in VS has relatively little to do with the material model, so here we use generic functions with `SurfacesStandardVertexIntermediate` structures, which store the VS input and output data. The user no longer needs to care about the specific vertex input and output process, but only needs to focus on whether a certain data needs to be modified and how.
 
 | Predefined macros | Corresponding function definitions | Corresponding material models | Function descriptions |
-| :-------------------------------------- | :------------------------------------ | :-------------- | :-------------------------------------- | :------------- |
+| :--- | :-- | :-- | :-- | :-- |
 | CC_SURFACES_VERTEX_MODIFY_LOCAL_POS | vec3 SurfacesVertexModifyLocalPos | Common | Returns the modified model space coordinates |
 | CC_SURFACES_VERTEX_MODIFY_WORLD_POS | vec3 SurfacesVertexModifyWorldPos | Common | Returns the modified world space coordinates (world space animation) |
 | CC_SURFACES_VERTEX_MODIFY_CLIP_POS | vec4 SurfacesVertexModifyClipPos | Common | Returns the modified clipping (NDC) space coordinates (usually used to modify depth) |
 | CC_SURFACES_VERTEX_MODIFY_UV | void SurfacesVertexModifyUV | Common | Modifies UV0 and UV1 within the structure (using tiling, etc.) |
 | CC_SURFACES_VERTEX_MODIFY_WORLD_NORMAL | vec3 SurfacesVertexModifyWorldNormal | Common | Returns the modified world space normals (world space animation) |
 
-#### 3、FS Corresponding Functions List
+#### 3. FS Corresponding Functions List
 
 Most of the functions in FS modify only one item and are returned directly in the Surface function. Some functions may modify more than one (e.g. UV and tangent vector), in which case multiple values are passed in the argument list for modification. Please refer to the function definition for details on which case.
 
@@ -207,7 +207,7 @@ Most of the functions in FS modify only one item and are returned directly in th
 | CC_SURFACES_FRAGMENT_MODIFY_ TOON_SHADOW_COVER | vec4 SurfacesFragmentModify ToonShadowCover | Toon | Returns the modified parameters |
 | CC_SURFACES_FRAGMENT_MODIFY_ TOON_SPECULAR | vec4 SurfacesFragmentModify ToonSpecular | Toon | Returns the modified parameters |
 
-#### 4、VS Input Value Acquisition
+#### 4. VS Input Value Acquisition
 
 The VS input values are in the `SurfacesStandardVertexIntermediate` structure and are passed in as parameters to the Surface function:
 
@@ -225,7 +225,7 @@ The VS input values are in the `SurfacesStandardVertexIntermediate` structure an
 | worldTangent         | vec3 | CC_SURFACES_USE_TANGENT_SPACE             | World Tangent                        |
 | worldBinormal        | vec3 | CC_SURFACES_USE_TANGENT_SPACE             | World Binormal                       |
 
-#### 5、FS Input Value Acquisition
+#### 5. FS Input Value Acquisition
 
 FS input values are currently used as macros, and most of them are internally fault-tolerant and can be accessed at will regardless of the corresponding macro conditions.
 
@@ -247,7 +247,7 @@ We use the form of `include` different module headers to assemble the shader of 
 
 Searching the `standard-fs` section, you can see that the whole Fragment Shader assembly process is divided into 6 parts
 
-#### 1、Macros
+#### 1. Macros
 
 The necessary internal macro mapping and generic macro definitions need to be included first.
 
@@ -268,7 +268,7 @@ Pass shadow-caster-fs:
 #include <surfaces/effect-macros/render-to-shadowmap>
 ```
 
-#### 2、Shader Generic Header File
+#### 2. Shader Generic Header File
 
 Select the corresponding generic header file based on the **current Shader Stage name**, as follows:
 
@@ -279,7 +279,7 @@ Fragement Shader：
 #include <surfaces/includes/common-fs>
 ```
 
-#### 3、Surface Utility Functions
+#### 3. Surface Utility Functions
 
 Use the custom CCProgram code block or chunk file described in the Surface Function paragraph.
 
@@ -292,7 +292,7 @@ This is shown below.
 #include <surface-fragment>
 ```
 
-#### 4、Lighting Model
+#### 4. Lighting Model
 
 This section is **optional and limited to the default use of rendering to the scene and Fragment Shader use**.
 
@@ -318,7 +318,7 @@ Fragement Shader：
 #include <surfaces/includes/standard-fs>
 ```
 
-#### 6、Main Shader Function
+#### 6. Main Shader Function
 
 Use the current Pass **rendering use name + Shader Stage name** to select the corresponding main function header file.
 
