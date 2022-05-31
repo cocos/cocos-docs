@@ -182,7 +182,7 @@ Pre-defining the `CC_SURFACES_VERTEX_MODIFY_WORLD_POS` macro allows you to ignor
 The processing in VS has relatively little to do with the material model, so here we use generic functions with `SurfacesStandardVertexIntermediate` structures, which store the VS input and output data. The user no longer needs to care about the specific vertex input and output process, but only needs to focus on whether a certain data needs to be modified and how.
 
 | Predefined macros | Corresponding function definitions | Corresponding material models | Function descriptions |
-| :--- | :-- | :-- | :-- | :-- |
+| :--- | :-- | :-- | :-- |
 | CC_SURFACES_VERTEX_MODIFY_LOCAL_POS | vec3 SurfacesVertexModifyLocalPos | Common | Returns the modified model space coordinates
 | CC_SURFACES_VERTEX_MODIFY_WORLD_POS | vec3 SurfacesVertexModifyWorldPos | Common | Returns the modified world space coordinates (world space animation)
 | CC_SURFACES_VERTEX_MODIFY_CLIP_POS | vec4 SurfacesVertexModifyClipPos | Common | Returns the modified clipping (NDC) space coordinates (usually used to modify depth)
