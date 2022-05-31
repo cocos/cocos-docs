@@ -242,7 +242,7 @@ FS 的输入值目前作为宏来使用，大部分输入值在内部做了容�
 
 我们使用 include 不同模块头文件的形式，按顺序组装每个 Pass 的 Shader。
 
-搜索 `standard-fs` 一段，可以看到整个 Fragment Shader 的组装过程分为6个部分
+搜索 `standard-fs` 一段，可以看到整个 Fragment Shader 的组装过程分为 6 个部分
 
 #### 1、宏
 
@@ -280,7 +280,7 @@ Fragement Shader：
 
 使用在 Surface Function 一段中描述的自定义 CCProgram 代码块或 chunk 文件。
 
-由于 Surface 功能函数可能还会用到 Effect 参数相关的UBO内存布局，因此它也要提前被 Include，否则会编译出错。
+由于 Surface 功能函数可能还会用到 Effect 参数相关的 UBO 内存布局，因此它也要提前被 Include，否则会编译出错。
 
 如下所示：
 
