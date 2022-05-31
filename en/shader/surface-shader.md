@@ -183,11 +183,11 @@ The processing in VS has relatively little to do with the material model, so her
 
 | Predefined macros | Corresponding function definitions | Corresponding material models | Function descriptions |
 | :--- | :-- | :-- | :-- | :-- |
-| CC_SURFACES_VERTEX_MODIFY_LOCAL_POS | vec3 SurfacesVertexModifyLocalPos | Common | Returns the modified model space coordinates |
-| CC_SURFACES_VERTEX_MODIFY_WORLD_POS | vec3 SurfacesVertexModifyWorldPos | Common | Returns the modified world space coordinates (world space animation) |
-| CC_SURFACES_VERTEX_MODIFY_CLIP_POS | vec4 SurfacesVertexModifyClipPos | Common | Returns the modified clipping (NDC) space coordinates (usually used to modify depth) |
-| CC_SURFACES_VERTEX_MODIFY_UV | void SurfacesVertexModifyUV | Common | Modifies UV0 and UV1 within the structure (using tiling, etc.) |
-| CC_SURFACES_VERTEX_MODIFY_WORLD_NORMAL | vec3 SurfacesVertexModifyWorldNormal | Common | Returns the modified world space normals (world space animation) |
+| CC_SURFACES_VERTEX_MODIFY_LOCAL_POS | vec3 SurfacesVertexModifyLocalPos | Common | Returns the modified model space coordinates
+| CC_SURFACES_VERTEX_MODIFY_WORLD_POS | vec3 SurfacesVertexModifyWorldPos | Common | Returns the modified world space coordinates (world space animation)
+| CC_SURFACES_VERTEX_MODIFY_CLIP_POS | vec4 SurfacesVertexModifyClipPos | Common | Returns the modified clipping (NDC) space coordinates (usually used to modify depth)
+| CC_SURFACES_VERTEX_MODIFY_UV | void SurfacesVertexModifyUV | Common | Modifies UV0 and UV1 within the structure (using tiling, etc.)
+| CC_SURFACES_VERTEX_MODIFY_WORLD_NORMAL | vec3 SurfacesVertexModifyWorldNormal | Common | Returns the modified world space normals (world space animation)
 
 #### 3. FS Corresponding Functions List
 
@@ -200,7 +200,7 @@ Most of the functions in FS modify only one item and are returned directly in th
 | CC_SURFACES_FRAGMENT_MODIFY_ SHARED_DATA | void SurfacesFragmentModify SharedData | Common | If some mapping and calculations need to be used in multiple material nodes, they can be done in this function, directly modifying the Surface structure This function can be used to modify the parameters in the surface structure directly, reducing performance costs.
 | CC_SURFACES_FRAGMENT_MODIFY_ WORLD_TANGENT_AND_BINORMAL | void SurfacesFragmentModify WorldTangentAndBinormal | Standard PBR | Modify Surface structure The world tangent space vector in the body |
 | CC_SURFACES_FRAGMENT_MODIFY_ EMISSIVE | vec3 SurfacesFragmentModify Emissive | Standard PBR | Returns the modified self-illumination color |
-| CC_SURFACES_FRAGMENT_MODIFY_ PBRPARAMS | vec4 SurfacesFragmentModify PBRParams | Standard PBR | Returns the modified PBR parameters (ao, roughness, metallic. specularIntensity) | 
+| CC_SURFACES_FRAGMENT_MODIFY_ PBRPARAMS | vec4 SurfacesFragmentModify PBRParams | Standard PBR | Returns the modified PBR parameters (ao, roughness, metallic. specularIntensity) |
 | CC_SURFACES_FRAGMENT_MODIFY_ ANISOTROPY_PARAMS | vec4 SurfacesFragmentModify AnisotropyParams | Standard PBR | Returns modified anisotropy parameters (rotation, shape. unused, unused) |
 | CC_SURFACES_FRAGMENT_MODIFY_ BASECOLOR_AND_TOONSHADE | void SurfacesFragmentModify BaseColorAndToonShade | Toon | Modify Toon Render Base Color |
 | CC_SURFACES_FRAGMENT_MODIFY_ TOON_STEP_AND_FEATHER | vec4 SurfacesFragmentModify ToonStepAndFeather | Toon | Returns the modified parameters |
@@ -361,4 +361,4 @@ Surface already automatically contains common public function headers internally
 | shadow | shadow-related functions (pcf, hcs, etc.)
 | texture | mapping-related functions (sampling, mip calculation, etc.) |
 
-[^1]: Custom GPU geometry instantiation properties are not supported.
+[^1]: Custom GPU geometry instancing properties are not supported.
