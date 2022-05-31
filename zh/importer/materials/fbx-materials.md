@@ -4,18 +4,18 @@ FBX 智能材质导入是模型导入器中辅助转换材质的一个功能，�
 
 - 该功能当前支持以下材质：
 
-  |         | Phong               | PBR               |
-  |---------|---------------------|-------------------|
-  | 3ds Max | Standard(legacy)    | Physical Material |
-  | Blender | N/A                 | Principled BSDF   |
-  | C4D     | Standard            | N/A               |
-  | Maya    | Lambert/Blinn/Phong | Standard Surface  |
+  | Software | Phong               | PBR               |
+  |:-------- |:------------------- |:------------------|
+  | 3ds Max  | Standard(legacy)    | Physical Material |
+  | Blender  | N/A                 | Principled BSDF   |
+  | C4D      | Standard            | N/A               |
+  | Maya     | Lambert/Blinn/Phong | Standard Surface  |
 
 - 以 Maya Standard Surface 为例，材质导入 Cocos Creator 效果对比下表所示：
 
-  | Maya Viewport              | Cocos Creator Viewport       |
-  |----------------------------|------------------------------|
-  | ![Maya](maya-viewport.png) | ![cocos](cocos-viewport.png) |
+  |  Maya Viewport               | Cocos Creator Viewport       |
+  | :----------------------------|:-----------------------------|
+  | ![Maya](maya-viewport.png)   | ![cocos](cocos-viewport.png) |
 
 您可以参考以下工程文件设置，以确保导入器可以准确的导入 Maya Standard Surface 各个通道的贴图。
 
@@ -57,8 +57,8 @@ FBX 智能材质导入是模型导入器中辅助转换材质的一个功能，�
         - 在导出 FBX 前，除 Normal Map 可以用 Normal Bump 节点矫正外，请确保证材质右侧输入的纹理节点均为 Bitmap 节点。
         - 关于如何将简化纹理简化为只剩Bitmap节点，您可以参考 [Convert a Procedural texture into a bitmap image texture in 3ds Max](https://knowledge.autodesk.com/support/3ds-Max/learn-explore/caas/sfdcarticles/sfdcarticles/How-to-convert-a-Procedural-texture-into-a-bitmap-image-texture-in-3ds-Max-for-fbx-export.html)
 
-| 简化前                 | 简化后                |
-|---------------------|-------------------------|
+| 简化前                | 简化后                |
+|:---------------------|:-------------------------|
 | ![img.png](img.png) | ![img_1.png](img_1.png) |
 
 渲染说明：对于 Max Physical Material 材质，需要在 Max Viewport 中开启 High Quality 才可能获取相对准却的预览效果。为了获取最佳的配对效果，您可以配对 Max 和 Cocos Creator 的渲染环境。
@@ -88,7 +88,7 @@ FBX 智能材质导入是模型导入器中辅助转换材质的一个功能，�
     - 关于如何将简化纹理简化为只剩 File Texture 节点，您可以参考 [Convert a texture or shading network to a File Texture in Maya](https://knowledge.autodesk.com/support/Maya/learn-explore/caas/CloudHelp/cloudhelp/2016/ENU/Maya/files/GUID-0F504570-CB7A-49D3-A7A2-83438C353A9C-htm.html)
 
 | 简化前                     | 简化后                     |
-|-------------------------|-------------------------|
+|:-------------------------|:-------------------------|
 | ![img_2.png](img_2.png) | ![img_3.png](img_3.png) |
 
 渲染说明：使用 Maya Viewport 预览时半透明材质时，建议开启 Depth peeling 和 Alpha Cut Prepass 以获取正准确的预览效果。
@@ -126,5 +126,5 @@ FBX 智能材质导入是模型导入器中辅助转换材质的一个功能，�
 关于如何将简化纹理简化为只剩 Bitmap 节点，您可以参考 [Baking Procedural Materials to Image Textures in Blender](https://www.youtube.com/watch?v=AB24ITZHtuE)
 
 | 简化前                     | 简化后                |
-|-------------------------|-------------------------|
+|:-------------------------|:-------------------------|
 | ![img_4.png](img_4.png) | ![img_5.png](img_5.png) |
