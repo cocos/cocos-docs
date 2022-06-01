@@ -4,18 +4,18 @@ FBX 智能材质导入是模型导入器中辅助转换材质的一个功能，�
 
 - 该功能当前支持以下材质：
 
-  | Software | Phong               | PBR               |
-  |:-------- |:------------------- |:------------------|
-  | 3ds Max  | Standard(legacy)    | Physical Material |
-  | Blender  | N/A                 | Principled BSDF   |
-  | C4D      | Standard            | N/A               |
-  | Maya     | Lambert/Blinn/Phong | Standard Surface  |
+| Software | Phong               | PBR               |
+|:-------- |:------------------- |:------------------|
+| 3ds Max  | Standard(legacy)    | Physical Material |
+| Blender  | N/A                 | Principled BSDF   |
+| C4D      | Standard            | N/A               |
+| Maya     | Lambert/Blinn/Phong | Standard Surface  |
 
 - 以 Maya Standard Surface 为例，材质导入 Cocos Creator 效果对比下表所示：
 
-  |  Maya Viewport               | Cocos Creator Viewport       |
-  | :----------------------------|:-----------------------------|
-  | ![Maya](maya-viewport.png)   | ![cocos](cocos-viewport.png) |
+|  Maya Viewport               | Cocos Creator Viewport       |
+| :----------------------------|:-----------------------------|
+| ![Maya](maya-viewport.png)   | ![cocos](cocos-viewport.png) |
 
 您可以参考以下工程文件设置，以确保导入器可以准确的导入 Maya Standard Surface 各个通道的贴图。
 
