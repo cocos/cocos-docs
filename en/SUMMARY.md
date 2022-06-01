@@ -145,6 +145,7 @@
         - [Effect Syntax](material-system/effect-syntax.md)
         - [Pass Params](material-system/pass-parameter-list.md)
         - [Builtin Shader Uniforms](material-system/builtin-shader-uniforms.md)
+        - [Surface Shader](shader/surface-shader.md)
     - [Effects](module-map/effects/index.md)
         - [Billboard](particle-system/billboard-component.md)
         - [Line](particle-system/line-component.md)
