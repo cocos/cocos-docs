@@ -2,7 +2,7 @@
 
 FBX Smart Material Conversion is a feature of model importer, it can map some standard materials in DCC(Digital Content Creation) tools to Cocos Creator's built-in materials, and restore the visual effects of materials in DCC tools. This feature was added in v3.5.1.
 
-- The following materials are supported:
+The following materials are supported:
 
 |         | Phong               | PBR               |
 |---------|---------------------|-------------------|
@@ -11,7 +11,7 @@ FBX Smart Material Conversion is a feature of model importer, it can map some st
 | C4D     | Standard            | N/A               |
 | Maya    | Lambert/Blinn/Phong | Standard Surface  |
 
-- Here is the comparison of a model using maya standard surface viewed in Maya and viewed in Cocos Creator after import:
+Here is the comparison of a model using maya standard surface viewed in Maya and viewed in Cocos Creator after import:
 
 | Maya Viewport              | Cocos Creator Viewport       |
 |----------------------------|------------------------------|
