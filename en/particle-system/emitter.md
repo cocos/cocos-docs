@@ -6,17 +6,17 @@ The shape module is mainly used to set the particle emitter shape, particle emis
 
 ## Public properties
 
-There are a number of properties that are common to all types of launchers, including:
+There are a number of properties that are common to all types of emitters, including:
 
 Property | Features
 :---|:---
 | **ShapeType** | Emitter shapes. The types **Box**, **Circle**, **Cone**, **Sphere**, **Hemisphere** are currently supported. |
 | **Position** | The position of the emitter relative to the node where it is located |
 | **Rotation** | Rotation of the emitter relative to its node, which can be used to adjust the particle emission direction |
-| **Scale**    | Scaling of the emitter relative to the node it is on can be used to adjust the size of the emitter shape, i.e. the particle emission range |
+| **Scale** | Scaling of the emitter relative to the node it is on can be used to adjust the size of the emitter shape, i.e. the particle emission range |
 | **AlignToDirection** | The direction of particle movement is determined by the initial direction of particle emission, which can be used to simulate an effect similar to water spilling out of a bucket |
 | **RandomDirectionAmount** | Particle generation direction random mix setting. <br>No effect when set to 0; <br>Random direction when set to 1 |
-| **SphericalDirectionAmount** | indicates the interpolation between the current emission direction and the direction of the line from the current position to the center of the node.<br>When this value is set to 1, particles are emitted from the center to the outside (the same behavior as when **ShapeType** is set to **Sphere**) |
+| **SphericalDirectionAmount** | Indicates the interpolation between the current emission direction and the direction of the line from the current position to the center of the node.<br>When this value is set to 1, particles are emitted from the center to the outside (the same behavior as when **ShapeType** is set to **Sphere**) |
 | **RandomPositionAmount** | The particle generation position is set randomly, when this value is set **not 0**, the particle generation position will be out of the size range of the generator |
 
 ## Box
@@ -32,7 +32,7 @@ The special property items if box emitter are described as follows.
 | **EmitFrom** | The part of the box from which the emitter emits particles, including: <br>**Volume**: Emitted from inside the box<br>**Shell**: Emitted from the box surface<br>**Edge**: Emitted from the box edge |
 | **BoxThickness** | The thickness of the box in each emitting direction, effective only when **EmitFrom** is selected for **Shell** mode |
 
-Also in the **Scene Editor** there will be a box Gizmo that shows the shape size of the box launcher.
+Also in the **Scene Editor** there will be a box Gizmo that shows the shape size of the box emitter.
 
 ![box_emitter](emitter/box_emitter.png)
 
