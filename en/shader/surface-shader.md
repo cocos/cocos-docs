@@ -1,26 +1,26 @@
 # Surface Shader
 
-As rendering becomes more and more demanding in the game, shader implementation becomes more complex. In order to provide an efficient and unified shader process, in v3.5.1, we have added the Surface Shader framework.
+Rendering tends to become more processing-heavy as development criteria rise. We introduce the Surface Shader framework in v3.5.1 to provide a more efficient and structured process for creating shaders.
 
 Developers can find the corresponding shaders and shader fragments in **Assets -> internal -> effect -> surfaces** and **Assets -> internal -> chunk -> surfaces**.
 
-Surface Shader uses a unified rendering process and structure that allows users to create surface material information in clean code, specifying the lighting and shading models used for compositing. The advantages over the old version (Legacy Shader) are easier to write and maintain, better version compatibility, and less prone to rendering errors. And you can get a lot of public features from the unified process, such as unified full-scene lighting and Debug View debugging capabilities.
+Surface Shader aims to facilitate fast and streamlined shader creation with simple codes in unified structures and processes. Users may easily define lighting and shading attributes, access public properties such as global lighting and debug viewing with the additional benefit of low maintenance, better readability and higher compatibility.
 
-Creator is also easier to extend a variety of common complex materials to provide users, the future will also support Shader Graph automatic generation of Effect code, can greatly improve the efficiency of Shader developers. Once the lighting and shading mode is specified, the process will follow the established path and does not support temporary masking or changing some internal calculations. For such needs, please use Legacy Shader.
+With Surface Shader integrated, Material system in Cocos Creator will continue to expand in future versions including visual coding for shaders. However, it will also prohibit ad-hoc modifications such as custom lighting and shading calculations. In the event of such development scenario rises, please revert to the legacy shader system.
 
-Surface Shader is still based on [Cocos Effect syntax](../material-system/effect-syntax.md), and the previous definitions of material parameters, technique, pass and render state can be fully reused.
+Surface Shader is built on the [Cocos Effect](../material-system/effect-syntax.md) system, of which the syntax and properties are fully compatible.
 
 ## Related Concepts
 
-Before understanding Surface Shader, there are a few concepts that need to be clarified.
+The following sections illustrate new terminologies introduced by the Surface Shader framework.
 
 ### 1. Rendering Usage
 
-Describes where the object needs to be rendered to.
+Render Target specifies the destinations for the pixels rendered by the shader.
 
-We have a number of render passes for rendering the same object to different texture data, each of which has a built-in use. For example, the most commonly used **render to scene** can be used directly for screen display, or render shadow casts **render to shadow map**, or **render to dynamic environment reflection** to generate a reflection map, etc.
+A shader typically incorporates multiple passes to render to various data outlets, such as to the screen for displaying, to the shadow maps to create shadows, to the reflection map to create reflections, etc.
 
-This section can be found in **Assets -> internal -> chunk -> shading-entries -> main-functions**.
+Relevant functionalities can be found in the folder **Assets -> internal -> chunk -> shading-entries -> main-functions**.
 
 ![render-to](img/render-to-xxx.png)
 
@@ -35,9 +35,7 @@ This section can be found in **Assets -> internal -> chunk -> shading-entries ->
 
 ### 2. Lighting Model
 
-Describe how the microstructure and inherent optical properties of an object's surface affect and act on light.
-
-For example, plastic will produce isotropic circular highlights, hair will produce anisotropic streaked highlights, light will be scattered on the skin, while on an object like a mirror, which is closer to an ideal optical surface, the vast majority of light will only be reflected along the angle of reflection, etc.
+Lighting model refers to the manner in which the material’s microscopic structures interact with lights and the visual outcomes thereof, such as specular, diffusion, reflection, etc.
 
 | Illumination Model Name | Description |
 | :-- | :-- |
@@ -46,9 +44,9 @@ For example, plastic will produce isotropic circular highlights, hair will produ
 
 ### 3. Surface Material Model
 
-Explain how some physical parameters of the object surface (albedo, roughness, etc.) affect the lighting results.
+Surface model refers to the material’s surface attributes such as IOR and roughness.
 
-Often materials and lighting models must be used in association, and we will gradually expand the commonly used materials and lighting models.
+Surface models typically work in conjunction with lighting models. New models are to be introduced in future updates.
 
 | Material Model Name | Description |
 | :-- | :-- |
@@ -57,31 +55,31 @@ Often materials and lighting models must be used in association, and we will gra
 
 ### 4. Shader Stage
 
-Rendering is done by different shaders, with different stages dealing with vertex, pixel or compute, as shown in the following table.
+Shader stage refers to the different stages in the render process, which includes:
 
 | Shader Stage    | Identifier |
 | :-------------- | :--------- |
 | Vertex Shader   | vs         |
 | Fragment Shader | fs         |
-| Computer Shader | cs         |
+| Compute Shader | cs         |
 
 ## Framework
 
-In addition to the same definitions of CCEffect parameters, technique and UBO memory layout as Cocos Effect, there is no need to consider the handling of various internal macros, shader input and output variables, Instancing[^1], tedious vertex transformations, global pixel effects and detailed calculations for each rendering use.
+Similar to legacy shaders, Surface Shader code also consists of Cocos Effect’s properties, techniques and UBOs but excludes macro definitions, in/out parameters, instancing, coordinate transformations and other calculations found in the legacy shaders.
 
-A typical Surface Shader code usually consists of three parts.
+A typical Surface Shader is comprised of three parts:
 
-- `Macro Remapping`: Maps (part of) the macro names declared or used by the user in Effect to internal Surface macro names.
-- `Surface Functions`: Used to declare Surface functions related to surface material information.
-- `Shader Assembly`: code module for assembling each Vertex Shader and Fragment Shader.
+- `Macro Remapping`: Map declared parameters and macros in the Effect header to private macros
+- `Surface Functions`: Declare functions in the Surface Shader
+- `Shader Assembly`: Assemble the vertex shader and the fragment shader in the Surface Shader.
 
-The built-in shader `surfaces/standard.effect` is used here as an example to illustrate the code framework of the Surface Shader.
+Using the default shader `surfaces/standard.effect` as an example, A Surface Shader include code such as:
 
 ![effect](img/surface-effects.png)
 
 ### Macro Remapping
 
-Some macro switches are used in the internal calculations of Surface Shader, which need to be specified according to the corresponding macro names in the Effect. Considering that the macro names in the Effect are displayed directly in the material panel, the advantage of this is that the names in the Effect are freely available to the user without affecting the internal calculations in the Surface.
+When a certain functionality of the Surface Shader is required, users may choose to expose said functionality by defining a Marco in the Macro Mapping section of the Surface Shader. Doing so allows users to expose said functionalities in the Properties Panel with a name of the user’s choosing without interfering with the shading calculation involved.
 
 These macros start with `CC_SURFACES_` and the following is the complete list of macros.
 
@@ -121,8 +119,7 @@ Searching for the `CCProgram macro-remapping` paragraph, you can see that the co
 #define CC_SURFACES_USE_LEGACY_COMPATIBLE_LIGHTING USE_COMPATIBLE_LIGHTING   
 ```
 
-Since the Surface Shader streamlines a lot of unnecessary public process code, such as VS FS pass-parameter definitions, etc., code like ~~`#if HAS_SECOND_UV`~~, which existed in the old process before, no longer exists. For such macros, they must be pre-defined here **`#pragma define-meta MACRONAME`** so that they can be displayed in the material panel.
-Once defined, the next line can use the standard GLSL predefined **`#define CC_SURFACES_MACRONAME MACRONAME`**.
+Surface Shader omits certain codes compared to legacy shaders such as ~~`#if HAS_SECOND_UV`~~. To declare a macro of the same purpose, users may pre-defined the macro **`#pragma define-meta MACRONAME`** for it to be displayed in the Properties Panel first, then map the newly declared macro to one of Surface Shader’s functionalities as with standard GLSL: **`#define CC_SURFACES_MACRONAME MACRONAME`**.
 
 #### 2. Macros Used In The Surface Function
 
@@ -134,8 +131,7 @@ Once defined, the next line can use the standard GLSL predefined **`#define CC_S
 #endif
 ```
 
-This part is much simpler, just define it as **#define CC_SURFACES_MACRONAME MACRONAME**.
-But `CC_SURFACES_USE_TANGENT_SPACE` macro should be paid special attention, usually with normal mapping or anisotropy on, you have to turn on this macro, otherwise there may be compilation errors.
+Macros being used in the Surface Functions can be declare in the format: **#define CC_SURFACES_MACRONAME MACRONAME**. In this particular case, normal mapping and anisotropy requires `CC_SURFACES_USE_TANGENT_SPACE` to be enabled.
 
 #### 3. Internal Functional Macros
 
@@ -144,7 +140,7 @@ But `CC_SURFACES_USE_TANGENT_SPACE` macro should be paid special attention, usua
 #define CC_SURFACES_LIGHTING_ANISOTROPIC_ENVCONVOLUTION_COUNT 31
 ```
 
-Just define the desired value directly.
+Internal macros can be defined with its intended value attached.
 
 ### Surface Function
 
@@ -154,11 +150,9 @@ Just define the desired value directly.
 
 #### 1. Definition
 
-Surface material function blocks can be defined using `CCProgram` or a separate chunk.
+Surface functions can be declared in `CCProgram` code blocks or their separate .chunk files.
 
-> **Note**: The function blocks used by VS and FS must be separate. Generally speaking all VSs share one and all FSs share one. In our case `standard-vs` and `shadow-caster-vs` share the `surface-vertex` block, while `standard-fs` and `shadow-caster-fs` share the `surface-fragment` block.
->
-> The advantage of using this approach is that all the user-defined animation and material code only needs to be written in one copy, but can be kept uniform across rendering uses.
+> **Note**: For consistency’s sake, all vertex shader code should be encased in one block while all fragment shader code in another. Vertex shader and fragment shader should not use more than one code blocks each. Also, vertex shader and fragment shader should not share the same code block.
 
 Surface Shader provides simple default functions internally, so **these functions are not mandatory**, **if you want to overload a function, you need to predefine the macro corresponding to that function to do so**. These functions are named with `Surfaces + ShaderStage name` followed by the function description. They can be found in [editor/assets/chunks/surfaces/default-functions](https://github.com/cocos/cocos-engine/tree/v3.5.1/editor/assets/chunks/surfaces/default-functions) to see the specific definition and implementation of each Surface function in different material models, e.g.
 
@@ -173,13 +167,13 @@ vec3 SurfacesVertexModifyWorldPos(in SurfacesStandardVertexIntermediate In)
 }
 ```
 
-Pre-defining the `CC_SURFACES_VERTEX_MODIFY_WORLD_POS` macro allows you to ignore the internal default functions and let the Surface Shader use the functions you define to calculate the material parameters.
+Defining the macro `CC_SURFACES_VERTEX_MODIFY_WORLD_POS` allows its corresponding function to be overridden with the code in the current Surface Shader.
 
-> **Note**: The advantage of using this approach is that it is convenient to extend many different material models and code version upgrades. The functions added in the new version can be used with new names and parameters and still call the functions defined in the old version to get the calculation results without writing duplicate code and without worrying about compilation errors after the upgrade.
+> **Note**: Overriding functions can be assigned new names and parameters. Users may override functions according to their own design or call the default version of the same function. This allows easy extension for the shader capabilities and avoid conflicts with future updates.
 
 #### 2. VS Corresponding Functions List
 
-The processing in VS has relatively little to do with the material model, so here we use generic functions with `SurfacesStandardVertexIntermediate` structures, which store the VS input and output data. The user no longer needs to care about the specific vertex input and output process, but only needs to focus on whether a certain data needs to be modified and how.
+Functions relevant to vertex shaders are listed as follows. All functions takes the `SurfacesStandardVertexIntermediate` structure as parameter. As vertex shader rarely see customizations, these functions require no overriding in most scenarios.
 
 | Predefined macros | Corresponding function definitions | Corresponding material models | Function descriptions |
 | :--- | :-- | :-- | :-- |
@@ -191,7 +185,7 @@ The processing in VS has relatively little to do with the material model, so her
 
 #### 3. FS Corresponding Functions List
 
-Most of the functions in FS modify only one item and are returned directly in the Surface function. Some functions may modify more than one (e.g. UV and tangent vector), in which case multiple values are passed in the argument list for modification. Please refer to the function definition for details on which case.
+Functions relevant to fragment shaders are listed as follows. Most functions involve in modifying the value of one particular property while some modify more than one. In such cases, the respective functions can take multiple parameters.
 
 | Predefined macros | Corresponding function definitions | Corresponding material models | Function descriptions |
 | :--- |:--- |:--- |:--- |
@@ -209,7 +203,7 @@ Most of the functions in FS modify only one item and are returned directly in th
 
 #### 4. VS Input Value Acquisition
 
-The VS input values are in the `SurfacesStandardVertexIntermediate` structure and are passed in as parameters to the Surface function:
+Input values of the vertex shader, which is stored in the format of a `SurfacesStandardVertexIntermediate` structure, include members as follows:
 
 | Vertex Shader Inputs | Type | Requires macro to be turned on when using | Meaning                              |
 | :-------------------- | :---- | :----------------------------------------- | :------------------------------------ |
@@ -227,7 +221,7 @@ The VS input values are in the `SurfacesStandardVertexIntermediate` structure an
 
 #### 5. FS Input Value Acquisition
 
-FS input values are currently used as macros, and most of them are internally fault-tolerant and can be accessed at will regardless of the corresponding macro conditions.
+Input values of the fragment are listed as follows. Most can be accessed without macro condition evaluations.
 
 | Fragment Shader Input | Type  | Requires macro to be enabled when using | Meaning            |
 | :--------------------- | :----- | :--------------------------------------- | :------------------ |
@@ -243,17 +237,13 @@ FS input values are currently used as macros, and most of them are internally fa
 
 ### Shader Assembly
 
-We use the form of `include` different module headers to assemble the shader of each Pass in order.
-
-Searching the `standard-fs` section, you can see that the whole Fragment Shader assembly process is divided into 6 parts
+Users may assemble multiple modules with the `include` keyword for each pass of the Surface Shader. For instance, the fragment shader of the default Surface Shader is assembled by 6 parts:
 
 #### 1. Macros
 
-The necessary internal macro mapping and generic macro definitions need to be included first.
+Macros are required to be mapped and defined in the Marco Mapping section of the surface shader, which is integrated in the form of CCProgram code blocks or .chunk files.
 
-The macro mapping uses the custom CCProgram code block or chunk file described in the Macro Remapping paragraph.
-
-Next you need to include the common macro definition file `common-macros`, as follows.
+By including `common-macros`, users can integrate most macros to the Surface Shader.
 
 ```glsl
 Pass standard-fs:
@@ -261,7 +251,7 @@ Pass standard-fs:
 #include <surfaces/effect-macros/common-macros>
 ```
 
-For special rendering passes, many shader functions are turned off, so there is no need to include `common-macros`, just the macro definition file for the corresponding rendering use.
+In scenarios where only part of the Surface Shader’s capabilities are used, users can also include specific macros involved in the shading process.
 
 ```glsl
 Pass shadow-caster-fs:
@@ -270,7 +260,7 @@ Pass shadow-caster-fs:
 
 #### 2. Shader Generic Header File
 
-Select the corresponding generic header file based on the **current Shader Stage name**, as follows:
+Header files should be included with their Shader Stage specified, such as:
 
 ```glsl
 Vertex Shader：
@@ -281,11 +271,7 @@ Fragement Shader：
 
 #### 3. Surface Utility Functions
 
-Use the custom CCProgram code block or chunk file described in the Surface Function paragraph.
-
-Since the Surface function may also use the UBO memory layout associated with the Effect parameter, it should also be Include in advance, otherwise it will compile with errors.
-
-This is shown below.
+Surface functions that are created in their separate .chunk file need to be included accordingly. Surface functions require access to the shared memory allocation to function properly. For this reason, shared UBO also need to be included prior to the .chunk files in question.
 
 ```glsl
 #include <shared-ubos>
@@ -294,9 +280,9 @@ This is shown below.
 
 #### 4. Lighting Model
 
-This section is **optional and limited to the default use of rendering to the scene and Fragment Shader use**.
+Lighting models are **optional and can only be used in the fragment shader to render to screen.**
 
-Use **Lighting Model Name** to select the corresponding header file, as follows.
+When including lighting models, their corresponding names are also required to be specified.
 
 ```glsl
 Standard PBR Lighting：
@@ -307,9 +293,9 @@ Toon Lighting：
 
 #### 5. Surface Materials and Shading Models
 
-This section is **optional and is only used for the default purpose of rendering to the scene**.
+Surface material models are optional and can only be used to render to screen.
 
-**Material Model Name + Shader Stage Name** to select the corresponding header file, as follows.
+When including lighting models, their corresponding names and render stages involved are also required to be specified.
 
 ```glsl
 Vertex Shader：
@@ -320,7 +306,7 @@ Fragement Shader：
 
 #### 6. Main Shader Function
 
-Use the current Pass **rendering use name + Shader Stage name** to select the corresponding main function header file.
+When including main render loop functions, their corresponding render target and render stages involved are also required to be specified.
 
 ```glsl
 Pass standard-fs:
@@ -331,15 +317,12 @@ Pass shadow-caster-fs:
 
 ## Debug View
 
-When using the Surface Shader framework, the built-in Debug View feature will be available. By selecting the corresponding Debug mode in the interface, you can view the model, materials, lighting and other computational data on the same screen, so that you can quickly locate the problem when the rendering effect is abnormal.
-
-This feature is expected to be available in v3.6.
+Starting from v3.6, users may enable Debug View to print out data outputs for quick debugging.
 
 ## Advanced Usage
 
-1. add your own vs output and fs input: VS calculates and outputs the value in a Surface function after defining a new varying variable
-2. fs define a new varying variable and then get and use that value in a Surface function.
-3. You can even mix Surface Shader and Legacy Shader in different Shader main functions (but make sure the varying vertex data is the same in both phases).
+1. Manual inserting vertex shader outputs and fragment shader inputs: with the new varying property introduced in the Surface Shader framework, vertex shader outputs and fragment shader inputs can be accessed in particular Surface Functions.
+2. Surface Shader and legacy shader codes can be used in the same render loop as long as the varying vertex data are kept consistent between the two.
 
 ## Public function libraries
 
