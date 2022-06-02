@@ -1,5 +1,7 @@
 # Trail Module0
 
+The trail module is used to add a trail effect to the tail of the particle to achieve a trailing effect similar to the one in the following figure.
+
 ![trail](particle-system/trail.gif)
 
 ## Properties

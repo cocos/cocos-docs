@@ -1,5 +1,7 @@
 # Force Overtime Module
 
+The module allows acceleration of particles to simulate a wind-like effect.
+
 ![force_module](particle-system/force_module.png)
 
 Property | Features
