@@ -36,8 +36,8 @@
     例如我们在 [动画图面板](./animation-graph-panel.md#%E5%8F%98%E9%87%8F%EF%BC%88variables%EF%BC%89) 添加了多个变量，通过代码可以获取和修改变量的值，代码示例如下：
 
     ```ts
-    // 获取动画控制器组件
-    let animationController:AnimationController = this.node.getComponent(AnimationController);
+    // 获取动画控制器组件    
+    let animationController:animation.AnimationController = this.node.getComponent(animation.AnimationController)
 
     // 获取所有的变量
     let variables= animationController.getVariables();
@@ -53,11 +53,11 @@
 
 - 获取当前 **状态**
 
-    获取第 0 层级状态机当前 **状态** 的名称以及进度，代码示例如下：
+    获取第 0 层级状态机当前 **状态** 的归一化进度，代码示例如下：
 
     ```ts
     let states: animation.MotionStateStatus = animationController.getCurrentStateStatus(0)
-    console.log(states.__DEBUG_ID__, states.progress)
+    console.log(states.progress);
     ```
 
 - 获取当前 **过渡**
