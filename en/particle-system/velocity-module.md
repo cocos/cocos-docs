@@ -17,4 +17,3 @@ The velocity module is used to control the velocity of the particles during thei
 | **SpeedModifier** | Speed modifier, only supports CPU particles. It does not take effect when the **UseGPU** property is checked in [Particle Renderer](./renderer.md) |
 
 Some properties have a ![menu button](main-module/menu-button.png) button, you can click it to edit the curve of the property, please refer to [Curve Editor](./editor/curve-editor.md).
-
