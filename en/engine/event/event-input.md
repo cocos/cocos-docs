@@ -188,7 +188,7 @@ export class Example extends Component {
 }
 ```
 
-The specific usage can be found in the example [event](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/event), which contains the implementation of keyboard, accelerometer, single-touch, multi-touch and other functions.
+The specific usage can be found in the example [event](https://github.com/cocos/cocos-test-projects/tree/v3.4/assets/cases/event), which contains the implementation of keyboard, accelerometer, single-touch, multi-touch and other functions.
 
 ## Touch detection for 3D objects
 

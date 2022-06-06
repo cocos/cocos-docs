@@ -10,7 +10,7 @@ ToggleContainer 不是一个可见的 UI 组件，它可以用来修改一组 To
 
 ToggleContainer 的组件接口请参考 [ToggleContainer API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/ToggleContainer)。
 
-关于使用可以参考范例 **Toggle**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/09.toggle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/09.toggle)）。
+关于使用可以参考范例 **Toggle**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.4/assets/cases/ui/09.toggle) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/09.toggle)）。
 
 ## ToggleContainer 属性
 
