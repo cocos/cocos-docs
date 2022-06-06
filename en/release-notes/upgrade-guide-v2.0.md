@@ -270,7 +270,7 @@ In addition to the updates to the full modules above, there are some more import
     3. cc.pool
     4. Spine: Skeleton.setAnimationListener
 
-In addition to the above upgrades, for the engine core module, we recorded all API changes in [deprecated.js](https://github.com/cocos-creator/engine/blob/2.0.0/cocos2d/deprecated.js), in the preview or debug mode, the developer will see the relevant API update prompts. Just follow the prompts to upgrade, and then combine this document.
+In addition to the above upgrades, for the engine core module, we recorded all API changes in [deprecated.js](https://github.com/cocos/cocos-engine/blob/2.0.0/cocos2d/deprecated.js), in the preview or debug mode, the developer will see the relevant API update prompts. Just follow the prompts to upgrade, and then combine this document.
 
 # 4. Follow-up version plan
 

@@ -142,7 +142,7 @@ myPool.clear(); // 调用这个方法就可以清空对象池
 
 而之前的 `cc.pool` 接口是一个单例，无法正确处理节点回收和复用时的事件注册。不再推荐使用。
 
-对象池的基本功能其实非常简单，就是使用数组来保存已经创建的节点实例列表。如果有其他更复杂的需求，你也可以参考 **暗黑斩 Demo 中的 PoolMng 脚本**（[GitHub](https://github.com/cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js)）来实现自己的对象池。
+对象池的基本功能其实非常简单，就是使用数组来保存已经创建的节点实例列表。如果有其他更复杂的需求，你也可以参考 **暗黑斩 Demo 中的 PoolMng 脚本**（[GitHub](https://github.com/cocos/cocos-example-dark-slash/blob/master/assets/scripts/PoolMng.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js)）来实现自己的对象池。
 
 ## 使用 cc.NodePool 的注意事项
 

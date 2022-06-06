@@ -91,4 +91,4 @@ cc.Class({
 });
 ```
 
-Please refer to the `cases03_gameplay/01_player_control` directory of [example-cases](https://github.com/cocos-creator/example-cases) for a complete list of examples (including keyboard, accelerometer, single touch, multi-touch, etc. examples).
+Please refer to the `cases03_gameplay/01_player_control` directory of [example-cases](https://github.com/cocos/example-projects) for a complete list of examples (including keyboard, accelerometer, single touch, multi-touch, etc. examples).

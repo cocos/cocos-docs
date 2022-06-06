@@ -50,11 +50,11 @@
 
 * **使用内置 JavaScript 引擎**：是否使用 Cocos Creator 安装路径下自带的 `engine` 路径作为 JavaScript 引擎路径。这个引擎用于场景编辑器里场景的渲染，内置组件的声明和其他 Web 环境下的引擎模块。
 
-* **JavaScript 引擎路径**：除了使用自带的 `engine`，您也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos-creator/engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)）来克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 JavaScript 引擎**，然后设置 **JavaScript 引擎路径** 到您定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
+* **JavaScript 引擎路径**：除了使用自带的 `engine`，您也可以前往 **engine 仓库**（[GitHub](https://github.com/cocos/cocos-engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)）来克隆或 fork 一份引擎到本地的任意位置进行定制，然后取消勾选 **使用内置 JavaScript 引擎**，然后设置 **JavaScript 引擎路径** 到您定制好的引擎路径，就可以在编辑器中使用这份定制后的引擎了。
 
 * **使用内置 Cocos2d-x 引擎**：是否使用 Cocos Creator 安装路径下自带的 `cocos2d-x` 路径作为 Cocos2d-x C++ 引擎路径。这个引擎用于构建发布时所有原生平台（iOS、Android、Mac、Windows）的工程构建和编译。
 
-* **Cocos2d-x 路径**：取消上一项 **使用内置 cocos2d-x 引擎** 的选择后，就可以手动指定 Cocos2d-x 路径了。注意这里使用的 Cocos2d-x 引擎必须从 [GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native) 或该仓库的 fork 下载。
+* **Cocos2d-x 路径**：取消上一项 **使用内置 cocos2d-x 引擎** 的选择后，就可以手动指定 Cocos2d-x 路径了。注意这里使用的 Cocos2d-x 引擎必须从 [GitHub](https://github.com/cocos/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native) 或该仓库的 fork 下载。
 
 * **WeChatGame 程序路径**：设置 WeChatGame 程序路径，详情见 [发布到微信小游戏](../../../publish/publish-wechatgame.md#%E4%BD%BF%E7%94%A8-cocos-creator-%E5%8F%91%E5%B8%83%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F)
 

@@ -87,4 +87,4 @@ cc.Class({
 });
 ```
 
-详情可参考 **官方范例**（[GitHub](https://github.com/cocos-creator/example-cases) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases)）`assets/cases/03_gameplay/01_player_control` 目录下的完整范例（包含了键盘、重力感应、单点触摸、多点触摸等范例）。
+详情可参考 **官方范例**（[GitHub](https://github.com/cocos/example-projects) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases)）`assets/cases/03_gameplay/01_player_control` 目录下的完整范例（包含了键盘、重力感应、单点触摸、多点触摸等范例）。
