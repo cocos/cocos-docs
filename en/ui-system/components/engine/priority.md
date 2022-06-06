@@ -6,7 +6,7 @@
 
 - The nodes under Canvas can be found in **UI node ordering** below.
 
-- The nodes that are not under Canvas, the user can choose to enable depth detection and occlusion display of 3D objects through [custom materials](ui-material.md), which will render the occlusion according to the Z-axis coordinates of the object when enabled (see example [2d-rendering-in-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/2d-rendering-in-3d)).<br>If depth detection is disabled, the data will still be submitted in the order of the node tree, which means that nodes further down the node tree will be rendered later.
+- The nodes that are not under Canvas, the user can choose to enable depth detection and occlusion display of 3D objects through [custom materials](ui-material.md), which will render the occlusion according to the Z-axis coordinates of the object when enabled (see example [2d-rendering-in-3d](https://github.com/cocos/cocos-test-projects/tree/v3.3/assets/cases/2d-rendering-in-3d)).<br>If depth detection is disabled, the data will still be submitted in the order of the node tree, which means that nodes further down the node tree will be rendered later.
 
 ## UI node ordering
 

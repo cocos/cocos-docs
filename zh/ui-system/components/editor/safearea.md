@@ -8,4 +8,4 @@
 
 SafeArea 脚本接口请参考 [Mask API](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/SafeArea)。
 
-具体用法可参考官方范例 **SafeArea**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/23.safe-area) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/23.safe-area)）。
+具体用法可参考官方范例 **SafeArea**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.3/assets/cases/ui/23.safe-area) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/23.safe-area)）。

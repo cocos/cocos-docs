@@ -6,7 +6,7 @@
 
 - 在 Canvas 下的节点可参考下文 **UI 节点排序** 部分的内容。
 
-- 不在 Canvas 下的节点，用户可选择通过 [自定义材质](ui-material.md) 来开启深度检测实现和 3D 物体的遮挡显示，开启后会按照物体的 Z 轴坐标进行遮挡渲染（可参考范例 **2d-rendering-in-3d**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/2d-rendering-in-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/2d-rendering-in-3d)）。<br>若未开启深度检测，则数据提交依旧会按照节点树顺序提交，也就意味着节点树靠下的节点会后渲染。
+- 不在 Canvas 下的节点，用户可选择通过 [自定义材质](ui-material.md) 来开启深度检测实现和 3D 物体的遮挡显示，开启后会按照物体的 Z 轴坐标进行遮挡渲染（可参考范例 **2d-rendering-in-3d**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.3/assets/cases/2d-rendering-in-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.3/assets/cases/2d-rendering-in-3d)）。<br>若未开启深度检测，则数据提交依旧会按照节点树顺序提交，也就意味着节点树靠下的节点会后渲染。
 
 ## UI 节点排序
 

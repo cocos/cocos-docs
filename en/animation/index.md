@@ -20,4 +20,4 @@ Cocos Creator has a built-in universal animation system for implementing keyfram
 
     - [Animation State](animation-state.md): the state of animation clips is stored in an object called animation state, animation state can control the animation clips that need to be used on the object. Animation state provides more animation control interfaces, through which animation can be played, stopped, shifted, set to loop mode and other more detailed control.
 
-According to different animation requirements, the operation steps and code implementation for specific animations are different, please refer to the official example [animation](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/animation), which mainly introduces some common editing operations and code examples for reference.
+According to different animation requirements, the operation steps and code implementation for specific animations are different, please refer to the official example [animation](https://github.com/cocos/cocos-test-projects/tree/v3.3/assets/cases/animation), which mainly introduces some common editing operations and code examples for reference.

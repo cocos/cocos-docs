@@ -99,4 +99,4 @@ export class Example extends Component {
 }
 ```
 
-Please review the [test-cases-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/event) (This includes the keyboard, accelerometer, single point touch, multi-touch examples).
+Please review the [test-cases-3d](https://github.com/cocos/cocos-test-projects/tree/v3.3/assets/cases/event) (This includes the keyboard, accelerometer, single point touch, multi-touch examples).
