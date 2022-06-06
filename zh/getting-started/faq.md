@@ -21,7 +21,7 @@
 
 截屏方法：监听 `cc.Director.EVENT_AFTER_DRAW` 事件，在回调中调用 `cc._canvas.toDataURL()`，就可以获得 base64 格式的截屏。
 
-具体内容可参考 **官方范例**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)）中 **07_capture_texture** 关于三种不同平台如何截屏并保存的范例。
+具体内容可参考 **官方范例**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)）中 **07_capture_texture** 关于三种不同平台如何截屏并保存的范例。
 
 ### 在安卓第三方 App 自带的 WebView 上触摸时，引擎报错
 
@@ -65,7 +65,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 
 加载图片时 url 若缺失 .png 之类的后缀，`cc.loader.load` 需要改成传入 `{ url: url, type: "png" }`。
 
-具体内容可参考 **官方范例**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/dragonbones)）中的 **dragonBones/DragonMesh** 范例。
+具体内容可参考 **官方范例**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/dragonbones)）中的 **dragonBones/DragonMesh** 范例。
 
 ### 如何从服务器远程加载 DragonBones
 

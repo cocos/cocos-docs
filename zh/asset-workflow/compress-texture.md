@@ -13,7 +13,7 @@ JPG | 支持 | 支持 | 支持 | 支持
 WEBP | Android 4.0 以上原生支持<br>其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 不支持 | [部分支持](https://caniuse.com/#feat=webp)
 PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备
 ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备
-ETC2 | 只支持生成资源，引擎部分需要参考 pr 自己实现：<https://github.com/cocos-creator/engine-native/pull/1685>
+ETC2 | 只支持生成资源，引擎部分需要参考 pr 自己实现：<https://github.com/cocos/engine-native/pull/1685>
 
 默认情况下 Cocos Creator 在构建的时候输出的是原始图片，如果在构建时需要对某一张图片进行压缩，可以在 **资源管理器** 中选中这张图片，然后在 **属性管理器** 中对图片的纹理格式进行编辑。
 

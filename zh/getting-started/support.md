@@ -14,12 +14,12 @@
 
 ## 演示和范例项目
 
-- **范例集合**（[GitHub](https://github.com/cocos-creator/example-cases) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases)）：从基本的组件到交互输入，这个项目里包括了 case by case 的功能点用法介绍。
+- **范例集合**（[GitHub](https://github.com/cocos/example-projects) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases)）：从基本的组件到交互输入，这个项目里包括了 case by case 的功能点用法介绍。
 - **Star Catcher**（[GitHub](https://github.com/cocos-creator/tutorial-first-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-first-game)）：也就是 [快速上手](./quick-start.md) 文档里分步讲解制作的游戏。
 - **腾讯合作开发的 21 点游戏**（[GitHub](https://github.com/cocos-creator/tutorial-blackjack) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-blackjack))
-- **UI 展示 Demo**（[GitHub](https://github.com/cocos-creator/demo-ui) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-ui))
+- **UI 展示 Demo**（[GitHub](https://github.com/cocos/cocos-example-ui) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-ui))
 - **Duang Sheep**（[GitHub](https://github.com/cocos-creator/tutorial-duang-sheep) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-duang-sheep)）：复制 FlappyBird 的简单游戏，不过主角换成了绵羊。
-- **暗黑斩 Cocos Creator 复刻版**（[GitHub](https://github.com/cocos-creator/tutorial-dark-slash) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-dark-slash)）：由 Veewo Games 独家授权原版暗黑斩资源素材，在 Cocos Creator 里复刻的演示项目。
+- **暗黑斩 Cocos Creator 复刻版**（[GitHub](https://github.com/cocos/cocos-example-dark-slash) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-dark-slash)）：由 Veewo Games 独家授权原版暗黑斩资源素材，在 Cocos Creator 里复刻的演示项目。
 - **响应式 UI Demo**（[GitHub](https://github.com/cocos-creator/demo-responsive-ui) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-responsive-ui))：展示了可适配任意屏幕尺寸的 UI 系统
 - **战斗动画 Demo**（[GitHub](https://github.com/cocos-creator/demo-combat-animation) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-combat-animation)）：使用强力灵活的动画系统制作战斗动画
 - **组队界面 Demo**（[GitHub](https://github.com/cocos-creator/demo-team-build-ui) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-team-build-ui)）：展示使用 Prefab 实现数据和表现分离的动态 UI 构建

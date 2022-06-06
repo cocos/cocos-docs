@@ -9,7 +9,7 @@
 
 在开放数据域项目工程中，独立通过开放数据域打包流程打包，并放置到主域工程的百度发布包中，就可以作为完整的百度小游戏工程在模拟器和真机上进行预览调试了。
 
-百度开放数据域的具体使用方法，可参考 Cocos Creator 提供的 **开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/demo-baidu-subdomain) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-baidu-subdomain)）。
+百度开放数据域的具体使用方法，可参考 Cocos Creator 提供的 **开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/example-baidu-subdomain) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-baidu-subdomain)）。
 
 ## 主域项目工程
 
@@ -92,5 +92,5 @@
 
 ## 参考链接
 
-- **Cocos Creator 百度小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/demo-baidu-subdomain) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-baidu-subdomain)）
+- **Cocos Creator 百度小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/example-baidu-subdomain) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-baidu-subdomain)）
 - [百度官方文档：关系链数据使用指南](https://smartprogram.baidu.com/docs/game/tutorials/open_api/guide/#%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)

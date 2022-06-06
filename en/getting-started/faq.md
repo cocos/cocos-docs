@@ -20,7 +20,7 @@ Modify `libraryPath` and `rawAssetsBase` parameter in `main.js` to any path.
 
 Screenshot method: monitor `cc.Director.EVENT_AFTER_DRAW` event, calling `cc._canvas.toDataURL()` In the callback to get a screenshot of the Base64 format.
 
-For details, please refer to **07_capture_texture** in the [example-cases](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture), which shows how to take a screenshot and save on three different platforms.
+For details, please refer to **07_capture_texture** in the [example-cases](https://github.com/cocos/example-projects/tree/master/assets/cases/07_capture_texture), which shows how to take a screenshot and save on three different platforms.
 
 ### When it touches a third-party Android-brought WebView, the engine has an error.
 
@@ -64,7 +64,7 @@ Please upgrade to the version after 1.8.2.
 
 When you load a picture, the URL is missing such as .png suffix, `cc.loader.load` needs to be changed to incoming `{ url: url, type: "png" }`.
 
-For details, please refer to the **dragonBones/DragonMesh** in the [example-cases](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/dragonbones).
+For details, please refer to the **dragonBones/DragonMesh** in the [example-cases](https://github.com/cocos/example-projects/tree/master/assets/cases/dragonbones).
 
 ### How to load DragonBones remotely from a server
 
