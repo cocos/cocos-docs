@@ -8,7 +8,7 @@ __ScrollView__ is a container with a scroll function. It provides a way to brows
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/ScrollView__ to add the ScrollView component to the node.
 
-To use `ScrollView`, please refer to the [ScrollView API](__APIDOC__/en/classes/ui.scrollview.html) documentation and the [ScrollView](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/06.scrollview) scene of the test-cases-3d project.
+To use `ScrollView`, please refer to the [ScrollView API](__APIDOC__/en/classes/ui.scrollview.html) documentation and the [ScrollView](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/06.scrollview) scene of the test-cases-3d project.
 
 ## ScrollView Properties
 

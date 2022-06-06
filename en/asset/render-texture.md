@@ -65,4 +65,4 @@ export class RenderCameraToModel extends Component {
 }
 ```
 
-For more __Render Texture__ examples, please see these [test cases](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/rendertexture).
+For more __Render Texture__ examples, please see these [test cases](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/rendertexture).
