@@ -37,7 +37,7 @@ Currently, when using the command line to build, except for the required build o
 
     - `configPath`: Parameter file path. If define `configPath`, then Cocos Creator will load this file as a build parameter in the `JSON` file format. This parameter can be modified by yourself or exported directly from the **Build** panel.
     - `logDest`: Specify the log output path.
-    - `includedModules`: Customize the engine packaged modules, only the required modules are packaged. The corresponding field of each module can be found in the `features` field in [this file](https://github.com/cocos-creator/engine/blob/3d/cc.config.json) of engine repository.
+    - `includedModules`: Customize the engine packaged modules, only the required modules are packaged. The corresponding field of each module can be found in the `features` field in [this file](https://github.com/cocos/cocos-engine/blob/3d/cc.config.json) of engine repository.
     - `outputName`: The name of the release folder generated after the build.
     - `name`: Game name.
     - `platform`: Required, the platform needs to be built.
