@@ -103,8 +103,8 @@ The compression required by the texture can be set directly in the editor, and _
   - [UI] ToggleContainer adds a checkEvents event property similar to Toggle, which fires only when Toggle's isChecked state becomes true.
   - [Action] Added support for four actions of `cc.Rotate3DTo, cc.rotate3DTo, cc.Rotate3DBy, cc.rotate3DBy`.
   - [Native] Rejoined WebView and VideoPlayer support removed in v2.0.0 on iOS and Android platforms.
-  - [Native] The Mac native platform switches to the V8 engine. If you need to use JSC, you need to manually modify the macro. For details, see [#1515](https://github.com/cocos-creator/engine-native/pull/1515).
-  - [Native] Add the missing key and length properties of the native platform LocalStorage, see [#1371](https://github.com/cocos-creator/engine-native/pull/1371).
+  - [Native] The Mac native platform switches to the V8 engine. If you need to use JSC, you need to manually modify the macro. For details, see [#1515](https://github.com/cocos/engine-native/pull/1515).
+  - [Native] Add the missing key and length properties of the native platform LocalStorage, see [#1371](https://github.com/cocos/engine-native/pull/1371).
   - [Native] Adopts Pinyin input behavior unified with Android on iOS native platform, does not retain input of unfinished pinyin.
   - [Android] Upgrade Android compilation to NDK r16+ Clang, and compile Android pre-compiled library with Clang.
   - [Android] Upgrade the Android build tool to configure Gradle to 4.4, plugin to 3.1.4. (Gradle 4.6 has a known issue that will cause resource packaging to fail).
@@ -132,7 +132,7 @@ The compression required by the texture can be set directly in the editor, and _
   - [Core] Problem with activeInHierarchy being true after fixing node destroy.
   - [Core] Fix filter in RenderTexture, premultiply alpha setting is invalid.
   - [Core] Fixed an issue where the scene introduced by the plugin could not be loaded.
-  - [Web] Fixed a problem with white afterimages on Chrome 69, 70. (Since 2.0)[#3357](https://github.com/cocos-creator/engine/pull/3357).
+  - [Web] Fixed a problem with white afterimages on Chrome 69, 70. (Since 2.0)[#3357](https://github.com/cocos/cocos-engine/pull/3357).
   - [UI] Fix Button may have some state invalidation when multiple states are superimposed on each other.
   - [UI] Fix LabelOutline setting invalid color problem.
   - [UI] Fixed an issue where setting Toggle.isChecked to be invalid in the start method.
@@ -141,14 +141,14 @@ The compression required by the texture can be set directly in the editor, and _
   - [QQPlay] Fix the problem that QQ light game does not respond to the background background switching event.
   - [QQPlay] Fix the problem that the font will become very small if you use italics on QQ light games.
   - [QQPlay] Fix the problem that the QQ light game can't replay when the lock screen re-enters or the front and back switches.
-  - [QQPlay] Fixes the problem of the ended event after the audio setCurrentTime is fixed [#3373](https://github.com/cocos-creator/engine/pull/3373).
+  - [QQPlay] Fixes the problem of the ended event after the audio setCurrentTime is fixed [#3373](https://github.com/cocos/cocos-engine/pull/3373).
   - [Native] Fix native platform connection socket.io server may report Bad Request error.
   - [Native] Fix iOS and Android can't detect gravity sensor.
   - [Native] Fix iOS call cc.game.restart Restart the game and then enter text will crash.
   - [Native] Fixing the problem that the opacity attribute of Label on Windows native platform does not work.
   - [Native] Fixed an issue where Android could not listen to onKeyUp.
   - [Native] Fix the problem that the Android phone will fail to load if the built-in SSL certificate expires.
-  - [Native] Fixed an issue where server redirection was not supported when downloading images from Android native platform [#PR](https://github.com/cocos-creator/engine-native/pull/1584).
+  - [Native] Fixed an issue where server redirection was not supported when downloading images from Android native platform [#PR](https://github.com/cocos/engine-native/pull/1584).
   - [Physics] Fixed an issue where `MouseJoint` failed to respond to touch cancel.
   - [Spine] Fixes the problem that textures may be lost when Spine is reloaded under Mask.
 

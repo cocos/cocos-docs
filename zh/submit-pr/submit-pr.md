@@ -5,12 +5,12 @@
 和 Cocos2d-x 一样，Cocos Creator 也是一个开源引擎，连同范例、文档都是开源的。<br>
 在你开发游戏的过程中，当发现了引擎、文档或者范例不够完善的地方，如果仅仅是向官方团队提出建议，官方团队可能会因为人力资源的紧张而无法及时跟进。在此我们欢迎所有用户主动向我们提交 PR，帮助 Cocos 越做越好。引擎有 Bug？提 PR！范例难看？提 PR！API 注释不清晰？提 PR！文档有错别字？提 PR！想要把你的宝贵修改贡献给游戏社区？提 PR！以下几个是目前官方比较常用的开源仓库，这些仓库都可以提交 PR。
 
-JavaScript 引擎：[GitHub](https://github.com/cocos-creator/engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)<br>
-Cocos2d-x 引擎：[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)<br>
+JavaScript 引擎：[GitHub](https://github.com/cocos/cocos-engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)<br>
+Cocos2d-x 引擎：[GitHub](https://github.com/cocos/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)<br>
 jsb-adapter：[GitHub](https://github.com/cocos-creator-packages/jsb-adapter) | [Gitee](https://gitee.com/mirrors_cocos-creator/jsb-adapter)<br>
 weapp-adapter：[GitHub](https://github.com/cocos-creator-packages/weapp-adapter)<br>
 qqplay-adapter：[GitHub](https://github.com/cocos-creator-packages/qqplay-adapter)<br>
-微信开放数据域范例：[GitHub](https://github.com/cocos-creator/demo-wechat-subdomain) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-wechat-subdomain)
+微信开放数据域范例：[GitHub](https://github.com/cocos-creator/example-wechat-subdomain) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-wechat-subdomain)
 
 下面让我们来看一下，如何从零开始在 GitHub 上向 Cocos 提交代码。
 
