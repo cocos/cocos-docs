@@ -54,5 +54,5 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 - [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
 - [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)
 - [Web 平台接入集成](https://n-analytics.cocos.com/docs/h5/index.html)
-- [Cocos Analytics 范例工程初始项目](https://github.com/cocos-creator/tutorial-dark-slash)
-- [Cocos Analytics 范例工程完成项目](https://github.com/cocos-creator/tutorial-dark-slash/tree/analytics)
+- [Cocos Analytics 范例工程初始项目](https://github.com/cocos/cocos-example-dark-slash)
+- [Cocos Analytics 范例工程完成项目](https://github.com/cocos/cocos-example-dark-slash/tree/analytics)
