@@ -57,7 +57,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 
 > **Note**: on iOS platform, due to the platform limitations, the CLICKED event can't be fired when VideoPlayer is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the VideoPlayer's size.
 
-For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
+For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos/example-projects/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
 
 ## Detailed Explanation
 

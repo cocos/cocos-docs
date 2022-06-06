@@ -38,7 +38,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 | LOADED         | 表示网页加载已经完毕。   |
 | ERROR          | 表示网页加载出错了。     |
 
-详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 范例中的 **10_webview**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/10_webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/02_ui/10_webview)）。
+详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 范例中的 **10_webview**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/02_ui/10_webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/02_ui/10_webview)）。
 
 ## 详细说明
 

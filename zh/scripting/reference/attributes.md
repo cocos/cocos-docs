@@ -36,6 +36,6 @@ default | 定义属性的默认值 | (Any) | undefined | 详见 [default 参数]
 notify | 当属性被赋值时触发指定方法 | `function (oldValue) {}` | undefined | 需要定义 default 属性并且不能用于数组<br>不支持 ES6 定义方式
 override | 当重写父类属性时需要定义该参数为 true | boolean | false | 详见 [override 参数](class.md#override)
 animatable | 该属性是否能被动画编辑器修改 | boolean | undefined |
-url（废弃）| 该属性为指定资源的 url | `function` <br> (继承自 cc.RawAsset 的构造函数) | undefined | 详见 [获取和加载资源: Raw Asset](https://github.com/cocos-creator/creator-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/scripting/load-assets.md#raw-asset)<br>（已废弃，请改用 type）
+url（废弃）| 该属性为指定资源的 url | `function` <br> (继承自 cc.RawAsset 的构造函数) | undefined | 详见 [获取和加载资源: Raw Asset](https://github.com/cocos/cocos-docs/blob/8e6e4d7ef644390ec40d6cc5d30d8f1e96e46855/zh/scripting/load-assets.md#raw-asset)<br>（已废弃，请改用 type）
 
 > **注 1**：visible 的默认值取决于属性名。当属性名以下划线 `_` 开头时，默认隐藏，否则默认显示。
