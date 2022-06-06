@@ -79,7 +79,7 @@ Here is an example of how TiledLayer achieves overlap with nodes.
 
 4. Mount the script component onto the Canvas, it means dragging and dropping the script into the **Properties** of the node. Then drag and drop the auto-generated node with TiledLayer component in the **Node Tree** and the prefab in the **Assets** to the corresponding property box of script component. And save the Scene.
 
-5. Click the preview button at the top of the editor, we can see the effect that the nodes and the map layer mutual overlap. About the code, please refer to [ShieldNode](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/tiledmap) for details.
+5. Click the preview button at the top of the editor, we can see the effect that the nodes and the map layer mutual overlap. About the code, please refer to [ShieldNode](https://github.com/cocos/example-projects/tree/master/assets/cases/tiledmap) for details.
 
     ![](./tiledmap/shieldNode.png)
 

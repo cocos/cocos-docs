@@ -109,4 +109,4 @@ Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.h
 
 3. 然后将脚本组件挂载到 Canvas 节点或者其他节点上，即将脚本拖拽到节点的 **属性检查器** 中。再将 **层级管理器** 中的节点拖拽到脚本组件对应的属性框中，并保存场景。
 
-4. 点击编辑器上方的预览按钮，即可看到 Spine 动画的顶点抖动的效果。关于代码可参考 example-case 中的 **SpineMesh**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/spine)）范例。
+4. 点击编辑器上方的预览按钮，即可看到 Spine 动画的顶点抖动的效果。关于代码可参考 example-case 中的 **SpineMesh**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/spine)）范例。

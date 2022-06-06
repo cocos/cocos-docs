@@ -5,8 +5,8 @@
 和 Cocos2d-x 一样，Cocos Creator 也是一个开源引擎，连同范例、文档都是开源的。<br>
 在你开发游戏的过程中，当发现了引擎、文档或者范例不够完善的地方，如果仅仅是向官方团队提出建议，官方团队可能会因为人力资源的紧张而无法及时跟进。在此我们欢迎所有用户主动向我们提交 PR，帮助 Cocos 越做越好。引擎有 Bug？提 PR！范例难看？提 PR！API 注释不清晰？提 PR！文档有错别字？提 PR！想要把你的宝贵修改贡献给游戏社区？提 PR！以下几个是目前官方比较常用的开源仓库，这些仓库都可以提交 PR。
 
-JavaScript 引擎：[GitHub](https://github.com/cocos-creator/engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)<br>
-Cocos2d-x 引擎：[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)<br>
+JavaScript 引擎：[GitHub](https://github.com/cocos/cocos-engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)<br>
+Cocos2d-x 引擎：[GitHub](https://github.com/cocos/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)<br>
 jsb-adapter：[GitHub](https://github.com/cocos-creator-packages/jsb-adapter) | [Gitee](https://gitee.com/mirrors_cocos-creator/jsb-adapter)<br>
 Mini-game-adapters：[GitHub](https://github.com/cocos-creator-packages/adapters/) | [Gitee](https://gitee.com/mirrors_cocos-creator/adapters)
 
@@ -68,7 +68,7 @@ Sourcetree 是比较常用的 Git 客户端工具。如果不使用 Sourcetree �
 
 ## Fork 项目
 
-以手册文档的代码仓库 **creator-docs**（[GitHub](https://github.com/cocos-creator/creator-docs) | [Gitee](https://gitee.com/mirrors_cocos-creator/creator-docs)）为例。进入手册文档仓库页面，点击右上角的 Fork 按钮，如下图所示：
+以手册文档的代码仓库 **creator-docs**（[GitHub](https://github.com/cocos/cocos-docs) | [Gitee](https://gitee.com/mirrors_cocos-creator/creator-docs)）为例。进入手册文档仓库页面，点击右上角的 Fork 按钮，如下图所示：
 
 ![fork](submit-pr/fork.png)
 
@@ -146,7 +146,7 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 
 ![](submit-pr/setting_add.png)
 
-2、复制官方仓库 **creator-docs**（[GitHub](https://github.com/cocos-creator/creator-docs) | [Gitee](https://gitee.com/mirrors_cocos-creator/creator-docs)）的 HTTPS 地址，跟上个步骤复制你的仓库项目的 HTTPS 地址操作步骤一致，然后填入。完成后点击 **确定**。如下图所示：
+2、复制官方仓库 **creator-docs**（[GitHub](https://github.com/cocos/cocos-docs) | [Gitee](https://gitee.com/mirrors_cocos-creator/creator-docs)）的 HTTPS 地址，跟上个步骤复制你的仓库项目的 HTTPS 地址操作步骤一致，然后填入。完成后点击 **确定**。如下图所示：
 
 ![add upstream](submit-pr/add-upstream.png)
 
@@ -180,7 +180,7 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 
 填写完成后点击 **Submit new issue** 提交 issue，就完成了。
 
-2、或者也可以进入官方仓库 **creator-docs**（[GitHub](https://github.com/cocos-creator/creator-docs) | [Gitee](https://gitee.com/mirrors_cocos-creator/creator-docs)），选择 **Issue -> New issue** 进入提交 issue 界面，填写内容并提交。
+2、或者也可以进入官方仓库 **creator-docs**（[GitHub](https://github.com/cocos/cocos-docs) | [Gitee](https://gitee.com/mirrors_cocos-creator/creator-docs)），选择 **Issue -> New issue** 进入提交 issue 界面，填写内容并提交。
 
 本次提交 pr 和提交 issue 的教程到这里就结束了，若有不理解或者有误的地方请根据上述步骤向我们反馈。<br>
 有些人可能会问，为什么要这么麻烦的提交问题。其实，正确的提交问题可以节省很多的沟通成本，而且有些问题可能在初步排查的时候就可以解决了，或者会发现只是由于自己粗心大意导致的。而官方节省下来的人力就可以更好的去服务于 Creator，让 Creator 能更好地为游戏开发者服务。
@@ -220,7 +220,7 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 
 ## Fork 项目
 
-以手册文档的代码仓库 [creator-docs](https://github.com/cocos-creator/creator-docs) 为例。进入手册文档仓库页面，点击右上角的 Fork 按钮，如下图所示：
+以手册文档的代码仓库 [creator-docs](https://github.com/cocos/cocos-docs) 为例。进入手册文档仓库页面，点击右上角的 Fork 按钮，如下图所示：
 
 ![fork](submit-pr/fork.png)
 
@@ -296,7 +296,7 @@ Fork 完成后，会自动跳转到你的 GitHub 仓库页面，可以看到已�
 
 ![setting repository](submit-pr/setting_repository.png)
 
-2、复制官方仓库 [creator docs](https://github.com/cocos-creator/creator-docs) 的 SSH 地址，跟上个步骤复制你的仓库项目的 SSH 地址操作步骤一致，然后填入。完成后点击 **确定**。如下图所示：
+2、复制官方仓库 [creator docs](https://github.com/cocos/cocos-docs) 的 SSH 地址，跟上个步骤复制你的仓库项目的 SSH 地址操作步骤一致，然后填入。完成后点击 **确定**。如下图所示：
 
 ![add upstream](submit-pr/add_upstream.png)
 

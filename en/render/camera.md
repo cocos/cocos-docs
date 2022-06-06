@@ -122,7 +122,7 @@ camera.getWorldToScreenMatrix2D(out);
 
 ## Screenshot
 
-Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture).
+Screenshot is a very common demand in the game, through the camera and rendertexture we can quickly achieve a screenshot function. For the screenshot, there is a complete test example in example-case, the code example please refer to [07_capture_texture](https://github.com/cocos/example-projects/tree/master/assets/cases/07_capture_texture).
 
 ```javascript
 let node = new cc.Node();
@@ -182,7 +182,7 @@ camera.orthoSize = 100;
 camera.position = cc.v2(100, 100);
 ```
 
-Please refer to [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) and [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts) in example-cases for details.
+Please refer to [minimap-with-camera-rect](https://github.com/cocos/example-projects/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) and [minimap-with-rendertexture](https://github.com/cocos/example-projects/blob/master/assets/cases/camera/minimap-with-rendertexture.ts) in example-cases for details.
 
 ### Save screenshot file on native platform
 
@@ -194,7 +194,7 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-Please refer to [capture_to_native](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js) for details.
+Please refer to [capture_to_native](https://github.com/cocos/example-projects/blob/master/assets/cases/07_capture_texture/capture_to_native.js) for details.
 
 ## The screenshot in WeChat
 
@@ -202,4 +202,4 @@ Because of WeChat Mini Games does not support createImageData, nor does it suppo
 
 ## Case
 
-Please refer to [example-case](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) for details, create a Example Collection project from the editor to see the actual running effect.
+Please refer to [example-case](https://github.com/cocos/example-projects/tree/master/assets/cases/07_capture_texture) for details, create a Example Collection project from the editor to see the actual running effect.

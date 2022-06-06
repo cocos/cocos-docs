@@ -122,7 +122,7 @@ camera.getWorldToScreenMatrix2D(out);
 
 ## 截图
 
-截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 **07_capture_texture**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)）范例。
+截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 **07_capture_texture**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)）范例。
 
 ```javascript
 let node = new cc.Node();
@@ -181,7 +181,7 @@ camera.orthoSize = 100;
 camera.position = cc.v2(100, 100);
 ```
 
-详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos-creator/example-cases/blob/master/assets/cases/camera/minimap-with-rendertexture.ts)。
+详情可参考 example-cases 中的测试例 [minimap-with-camera-rect](https://github.com/cocos/example-projects/blob/master/assets/cases/camera/minimap-with-camera-rect.ts) 和 [minimap-with-rendertexture](https://github.com/cocos/example-projects/blob/master/assets/cases/camera/minimap-with-rendertexture.ts)。
 
 ### 在原生平台上保存截图文件
 
@@ -193,7 +193,7 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-详情请参考 example-case 中的 **capture_to_native**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture/capture_to_native.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)）范例。
+详情请参考 example-case 中的 **capture_to_native**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/07_capture_texture/capture_to_native.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)）范例。
 
 ## 微信中的截图
 
@@ -201,4 +201,4 @@ jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 
 ## 案例
 
-具体可以参考 **范例**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)），从编辑器创建范例集合项目可以看到实际运行效果。
+具体可以参考 **范例**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)），从编辑器创建范例集合项目可以看到实际运行效果。

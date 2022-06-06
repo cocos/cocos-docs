@@ -109,4 +109,4 @@ Vertex effect is only valid when the Animation Cache Mode property of Spine comp
 
 3. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the node in **Node Tree** to the corresponding property box of script component, and save the Scene.
 
-4. You can see the vertex jitter effect of the Spine animation by clicking the preview button above the editor. For the code, please refer to [SpineMesh](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) for details.
+4. You can see the vertex jitter effect of the Spine animation by clicking the preview button above the editor. For the code, please refer to [SpineMesh](https://github.com/cocos/example-projects/tree/master/assets/cases/spine) for details.
