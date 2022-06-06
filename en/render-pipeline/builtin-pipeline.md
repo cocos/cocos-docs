@@ -28,7 +28,7 @@ The builtin deferred pipeline mainly consists of **ShadowFlow**, **GBufferFlow**
 
 Since the delay pipeline needs to use the GPU's Multiple Render Targets feature to draw the **GBuffer**, most mobile platforms should support it, but for WebGL1.0 environment, if the platform does not support **WEBGL_draw_buffers** extension, it will not render properly.
 
-For custom Standard materials, you need to refer to the built-in [builtin-standard.effect](https://github.com/cocos-creator/engine/blob/v3.1-release/editor/assets/effects/builtin-standard.effect) to add the corresponding deferred pass declaration for the deferred pipeline. As follows as shown in the figure.
+For custom Standard materials, you need to refer to the built-in [builtin-standard.effect](https://github.com/cocos/cocos-engine/blob/v3.1-release/editor/assets/effects/builtin-standard.effect) to add the corresponding deferred pass declaration for the deferred pipeline. As follows as shown in the figure.
 
 <img src="./image/effect.png" width=760 height=647></img>
 

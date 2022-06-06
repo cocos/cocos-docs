@@ -2,7 +2,7 @@
 
 This component is used to adjust the layout of current node to respect the safe area of a notched mobile device such as the **iPhone X**.
 
-It is typically used for the top node of the UI interaction area. For specific usage, refer to the [SafeArea](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/23.safe-area) example in the example-cases.
+It is typically used for the top node of the UI interaction area. For specific usage, refer to the [SafeArea](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/23.safe-area) example in the example-cases.
 
 The concept of safe area is to give you a fixed inner rectangle in which you can safely display content that will be drawn on screen.
 

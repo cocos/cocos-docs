@@ -8,7 +8,7 @@ EditBox 是一种文本输入组件，该组件让你可以轻松获取用户输
 
 EditBox 的脚本接口请参考 [EditBox API](__APIDOC__/zh/classes/ui.editbox.html)。
 
-关于使用可以参考范例 **EditBox**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/12.editbox) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/12.editbox)）。
+关于使用可以参考范例 **EditBox**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/12.editbox) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/12.editbox)）。
 
 ## EditBox 属性
 

@@ -8,7 +8,7 @@ Graphics 组件提供了一系列绘画接口，这些接口参考了 Canvas 的
 
 Graphics 脚本接口请参考 [Graphics API](__APIDOC__/zh/classes/ui.graphics-1.html)。
 
-关于使用可以参考范例 **Graphics**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/14.graphics) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/14.graphics)）。
+关于使用可以参考范例 **Graphics**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/14.graphics) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/14.graphics)）。
 
 ## Graphics 组件属性
 

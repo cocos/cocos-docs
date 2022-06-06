@@ -105,6 +105,6 @@ export class GameRoot extends Component {
 
 > **Note**: this issue will be solved in v3.3, please pay attention to the release announcement.
 
-The above code snippet is just an example of one way to use the AudioSource component for playback, and is not complete. Cocos Creator provides a complete example of how to use the wrapped audio playback manager in the [tutorial-taxi-game](https://github.com/cocos-creator/tutorial-taxi-game) project. Developers can open the **Project** page in Dashboard, click the **New** button in the bottom right corner to enter the New Project page, and find the **Example Taxi Game**, fill in the project name and project location as needed to create and open.
+The above code snippet is just an example of one way to use the AudioSource component for playback, and is not complete. Cocos Creator provides a complete example of how to use the wrapped audio playback manager in the [tutorial-taxi-game](https://github.com/cocos/cocos-tutorial-taxi-game) project. Developers can open the **Project** page in Dashboard, click the **New** button in the bottom right corner to enter the New Project page, and find the **Example Taxi Game**, fill in the project name and project location as needed to create and open.
 
 ![audioEdit](audio/audioEdit.png)

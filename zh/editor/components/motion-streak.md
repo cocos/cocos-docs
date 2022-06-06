@@ -6,7 +6,7 @@ MotionStreak（拖尾）是运动轨迹，用于在游戏对象的运动轨迹�
 
 点击 **属性检查器** 下方的 **添加组件** 按钮，然后从 **Effects** 中选择 **MotionStreak**，即可添加 MotionStreak 组件到节点上。
 
-具体的使用方式可以参考 **MotionStreak** ([GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/24.motion-streak) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/24.motion-streak)) 范例。
+具体的使用方式可以参考 **MotionStreak** ([GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/24.motion-streak) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/24.motion-streak)) 范例。
 
 ![add motionStreak](motion-streak/add-motion-streak.png)
 
