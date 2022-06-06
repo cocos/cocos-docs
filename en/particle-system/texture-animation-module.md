@@ -8,7 +8,7 @@ The texture animation module is used to animate the texture specified by the **P
 
 ![texture_animation](particle-system/texture_animation.png)
 
-| 属性 | 说明 |
+| Properties | Description |
 | :--- | :--- |
 | **Mode** | Set the type of particle animation mapping, currently only **Grid** (grid) mode is supported. A texture contains one animation frame for particle playback.
 | **NumTilesX** | The number of maps divided by the texture in the horizontal (X) direction.

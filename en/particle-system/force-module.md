@@ -2,11 +2,17 @@
 
 The module allows acceleration of particles to simulate a wind-like effect.
 
-![force_module](particle-system/force_module.png)
+![force_overtime](module/force_overtime.gif)
 
-Property | Features
----|---
-**space** | In which coordinate system the acceleration is calculated.
-**x,y,z** | The acceleration components in the three directions, can be calculated in different modes.
+## Properties
 
-![force_overtime](particle-system/force_overtime.gif)
+![force_module](module/force_module.png)
+
+| Properties | Description |
+| :--- | :--- |
+| **Space** | The acceleration calculation is based on **World Coordinate System** or **Local Coordinate System** <br>(**Custom** is not supported at this time) |
+| **X** | Acceleration in the X-axis |
+| **Y** | Acceleration in the Y-axis |
+| **Z** | Acceleration in the Z-axis |
+
+Click the ![menu button](main-module/menu-button.png) button to the right of the property input box, you can choose to edit the curves of the property, please refer to [curve editor](./editor/curve-editor.md) for details.

@@ -1,6 +1,6 @@
 # Renderer
 
-The rendering module is used to generate the data needed for particle rendering.
+The renderer module is used to generate the data needed for particle rendering.
 
 ![renderer](particle-system/renderer.png)
 
