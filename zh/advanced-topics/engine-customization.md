@@ -2,7 +2,7 @@
 
 从 Cocos Creator v3.5.0 开始，TypeScript 和 engine-native 两个部分合并在一起了，在 GitHub 上开源。地址是：
 
-- Cocos 引擎：[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)
+- Cocos 引擎：[GitHub](https://github.com/cocos/cocos-engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)
 
 engine-native 在 `cocos-engine/native` 目录下。
 

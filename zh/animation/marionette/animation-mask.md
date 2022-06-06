@@ -54,4 +54,4 @@
 
 ## 示例
 
-完整示例请参考（[GitHub](https://github.com/cocos-creator/MarionetteDemo)|[Gitee](https://gitee.com/mirrors_cocos-creator/MarionetteDemo)）。
+完整示例请参考（[GitHub](https://github.com/cocos-creator/example-marionette)|[Gitee](https://gitee.com/mirrors_cocos-creator/MarionetteDemo)）。
