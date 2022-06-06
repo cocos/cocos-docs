@@ -6,7 +6,7 @@ The ArmatureDisplay component can render and play DragonBones assets.
 
 In the **Hierarchy** panel, select the node where you want to add the ArmatureDisplay component, and then click the **Add Components -> DragonBones -> ArmatureDisplay** button under the **Inspector** panel to add the ArmatureDisplay component to the node.
 
-- For information on using the ArmatureDisplay component, please refer to the [DragonBones example case](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/dragonbones) for details.
+- For information on using the ArmatureDisplay component, please refer to the [DragonBones example case](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/dragonbones) for details.
 - For DragonBones ArmatureDisplay related scripting interfaces, please refer to the [ArmatureDisplay API](__APIDOC__/en/class/dragonBones.ArmatureDisplay) for details.
 
 ## DragonBones Properties
@@ -107,7 +107,7 @@ The following is an example of how DragonBones replaces the texture. Replace the
 
     ![spine-cloth](./dragonbones/click-events.png)
 
-6. After saving the scene, click the **Preview** button at the top of the editor, and click the **Left**/**Right** button to see that the robot's left/right hand weapons have been replaced. For details, please refer to the [ReplaceSlotDisplay](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/dragonbones) example.
+6. After saving the scene, click the **Preview** button at the top of the editor, and click the **Left**/**Right** button to see that the robot's left/right hand weapons have been replaced. For details, please refer to the [ReplaceSlotDisplay](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/dragonbones) example.
 
     ![dragonbones-cloth](./dragonbones/cloth4.png)
 

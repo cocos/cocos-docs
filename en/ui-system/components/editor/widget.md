@@ -6,7 +6,7 @@ Widget is a frequently used UI layout component. It can automatically align the 
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/Widget__ to add the Widget component to the node.
 
-To use `Widget`, please refer to the [Widget API](__APIDOC__/en/class/Widget) documentation and the [Widget](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/04.widget) scene of the test-cases-3d project.
+To use `Widget`, please refer to the [Widget API](__APIDOC__/en/class/Widget) documentation and the [Widget](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/04.widget) scene of the test-cases-3d project.
 
 ## Widget Properties
 

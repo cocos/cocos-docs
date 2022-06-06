@@ -70,4 +70,4 @@ The **Learn** tab provides access to the Cocos Creator user manual, API manual, 
 
 ![learn](index/learn.png)
 
-Developers can also visit the official Cocos website for tutorials and other information by clicking on the icons in the lower-left corner of Cocos Dashboard. Connect with the team on [Twitter](https://twitter.com/cocos2dx), [LinkedIn](https://www.linkedin.com/company/cocos-technologies/), [YouTube](https://www.youtube.com/channel/UCAsPLdpiAQbFuYqiZvi0P5A) and [GitHub](https://github.com/cocos-creator/engine).
+Developers can also visit the official Cocos website for tutorials and other information by clicking on the icons in the lower-left corner of Cocos Dashboard. Connect with the team on [Twitter](https://twitter.com/cocos2dx), [LinkedIn](https://www.linkedin.com/company/cocos-technologies/), [YouTube](https://www.youtube.com/channel/UCAsPLdpiAQbFuYqiZvi0P5A) and [GitHub](https://github.com/cocos/cocos-engine).

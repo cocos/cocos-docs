@@ -38,7 +38,7 @@ For more information, please refer to the [Component.EventHandler Class](__APIDO
 | **LOADED**| WebView is finished loading.
 | **ERROR**| Errors occurred when loading web pages.
 
-For more information, please refer to the [WebView Events](__APIDOC__/en/class/WebView?id=webviewEvents) documentation or [22.webview example](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/22.webview) of the `test-cases-3d` samples bundled with Creator.
+For more information, please refer to the [WebView Events](__APIDOC__/en/class/WebView?id=webviewEvents) documentation or [22.webview example](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/22.webview) of the `test-cases-3d` samples bundled with Creator.
 
 ## Details Explanation
 

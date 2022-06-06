@@ -4,9 +4,9 @@ Cocos Creator 3.4 引入了一个全新的 Marionette 动画系统，通过状�
 
 为了跟 v3.4 之前的动画系统区分，我们将新的动画系统称为木偶（Marionette）动画系统，称 v3.4 之前使用的动画系统为旧式动画系统。两种动画系统都可以正常使用，但不支持同时使用。主要的区别在于：
 
-- 旧式动画系统：以动画组件、动画状态为核心，手动简单控制动画剪辑的播放暂停等。动画剪辑支持使用通过编辑器创建的 Animation Clip 和外部导入的骨骼动画（`.fbx` 和 `.gltf`）。
+- 旧式动画系统：以动画组件、动画状态为核心，手动简单控制动画剪辑的播放暂停等。动画剪辑支持使用通过编辑器创建的 Animation Clip 和外部导入的骨骼动画（`.fbx` 、 `.gltf` 和 `.glb`）。
 
-- Marionette 动画系统：以动画控制器组件、动画图为核心，按照事先搭建好的动画图，通过状态机自动控制动画剪辑的播放和切换等。动画剪辑只支持外部导入的骨骼动画（`.fbx` 和 `.gltf`）。
+- Marionette 动画系统：以动画控制器组件、动画图为核心，按照事先搭建好的动画图，通过状态机自动控制动画剪辑的播放和切换等。动画剪辑只支持外部导入的骨骼动画（`.fbx` 、 `.gltf` 和 `.glb`）。
 
 ## 内容
 
@@ -39,4 +39,4 @@ Marionette 动画系统相关功能名词的说明如下：
 
 ## 范例参考
 
-Creator 提供了 **Ms.Amoy**（[GitHub](https://github.com/cocos-creator/MarionetteDemo)|[Gitee](https://gitee.com/mirrors_cocos-creator/MarionetteDemo)）范例，演示了 Marionette 动画系统的使用方式，用户可根据需要下载参考使用。
+Creator 提供了 **Ms.Amoy**（[GitHub](https://github.com/cocos-creator/example-marionette)|[Gitee](https://gitee.com/mirrors_cocos-creator/MarionetteDemo)）范例，演示了 Marionette 动画系统的使用方式，用户可根据需要下载参考使用。

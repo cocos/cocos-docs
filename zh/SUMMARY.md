@@ -58,6 +58,7 @@
     - [字体资源](asset/font.md)
     - [音频资源](asset/audio.md)
     - [材质资源](asset/material.md)
+        - [FBX 智能材质导入](importer/materials/fbx-materials.md)
     - [模型资源](asset/model/mesh.md)
         - [从第三方工具导出模型资源](asset/model/dcc-export-mesh.md)
         - [glTF 模型](asset/model/glTF.md)
@@ -168,6 +169,7 @@
         - [自定义着色器](shader/write-effect-overview.md)
             - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
             - [2D 着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)
+        - [表面着色器（Surface Shader）](shader/surface-shader.md)
 
     - [特效组件](module-map/effects/index.md)
         - [广告牌](particle-system/billboard-component.md)
@@ -240,6 +242,7 @@
         - [骨骼贴图布局设置](animation/joint-texture-layout.md)
     - [程序化控制动画](animation/animation-component.md)
         - [动画状态](animation/animation-state.md)
+    - [变形动画](animation/morph.md)
     - [Marionette 动画系统](animation/marionette/index.md)
         - [动画图资源](animation/marionette/animation-graph.md)
         - [动画控制器组件参考](animation/marionette/animation-controller.md)
@@ -296,6 +299,9 @@
             - [渐变色编辑器](particle-system/editor/gradient-editor.md)
 
 - [缓动系统](tween/index.md)
+    - [缓动接口](tween/tween-interface.md)
+    - [缓动函数](tween/tween-function.md)
+    - [缓动示例](tween/tween-example.md)
 
 - [地形系统](editor/terrain/index.md)
 
@@ -346,6 +352,7 @@
     - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
     - [热更新范例教程](advanced-topics/hot-update.md)
     - [热更新管理器](advanced-topics/hot-update-manager.md)
+    - [i18n 游戏多语言支持](advanced-topics/i18n.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
     - [网页预览定制工作流程](editor/preview/browser.md)
@@ -354,6 +361,7 @@
         - [JSB 自动绑定](advanced-topics/jsb-auto-binding.md)
     - [Java 原生反射机制](advanced-topics/js-java-bridge.md)
     - [Objective-C 原生反射机制](advanced-topics/js-oc-bridge.md)
+    - [JsbBridgeWrapper 基于原生反射机制的事件处理](advanced-topics/jsb-bridge-wrapper.md)
     - [CMake 使用简介](advanced-topics/cmake-learning.md)
     - [原生引擎内存泄漏检测系统](advanced-topics/memory-leak-detector.md)
     - [原生场景剔除](advanced-topics/native-scene-culling.md)

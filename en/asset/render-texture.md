@@ -121,4 +121,4 @@ Setting the RenderTexture to a texture map consists of the following two steps:
 
     ![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
 
-For more information about the usage, please refer to the example [RenderTexture](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/rendertexture).
+For more information about the usage, please refer to the example [RenderTexture](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/rendertexture).
