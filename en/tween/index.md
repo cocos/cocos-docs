@@ -133,6 +133,6 @@ tween(tweenTargetVec3)
 
 In Cocos Creator 3.0, when the easing target is `Node`, it will listen to its destruction event for automatic destruction of the easing. This calls the `target` method and also automatically updates the listener.
 
-> **Note**: related test cases are located on [GitHub](https://github.com/cocos-creator/test-cases-3d).
+> **Note**: related test cases are located on [GitHub](https://github.com/cocos/cocos-test-projects).
 
 > **Note**: please refer to [Using the Tween System](https://docs.cocos.com/creator/manual/en/scripting/tween.html) documentation.

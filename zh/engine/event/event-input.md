@@ -97,4 +97,4 @@ export class Example extends Component {
 }
 ```
 
-具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event)），包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。
+具体使用方法可参考范例 **event**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/event) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/event)），包含了键盘、重力感应、单点触摸、多点触摸等功能的实现。
