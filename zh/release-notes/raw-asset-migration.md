@@ -2,7 +2,7 @@
 
 > 本文将详细介绍旧版本 Creator 项目升级到 v1.10 时的注意事项。如果你不是 Creator 旧版本的用户，不需要阅读本文。
 
-在 v1.10 之前的 [获取和加载资源](https://github.com/cocos-creator/creator-docs/blob/8271be5dee58e7281ba4b5c3e434f47418995dc1/zh/scripting/load-assets.md) 文档中，我们有提到过 Creator 的资源分成了 `Asset` 和 `RawAsset` 两种。当时这样划分主要是为了尽量重用已有的 Cocos2d-x 基础模块，并且降低 Cocos2d-x 用户的上手门槛。不过我们仍一直希望把 RawAsset 全部替换成标准的 Asset，随着 Creator 这两年的发展，是时候进行一轮重构了。重构后可以简化编辑器和引擎对资源的处理方式，减小发布后的 settings.js 文件体积，同时提升用户的开发体验。
+在 v1.10 之前的 [获取和加载资源](https://github.com/cocos/cocos-docs/blob/8271be5dee58e7281ba4b5c3e434f47418995dc1/zh/scripting/load-assets.md) 文档中，我们有提到过 Creator 的资源分成了 `Asset` 和 `RawAsset` 两种。当时这样划分主要是为了尽量重用已有的 Cocos2d-x 基础模块，并且降低 Cocos2d-x 用户的上手门槛。不过我们仍一直希望把 RawAsset 全部替换成标准的 Asset，随着 Creator 这两年的发展，是时候进行一轮重构了。重构后可以简化编辑器和引擎对资源的处理方式，减小发布后的 settings.js 文件体积，同时提升用户的开发体验。
 
 为了带来平滑的升级体验，我们将在一段时间内保留对 RawAsset 的兼容。从 v1.10 开始，会先支持调整后新的 API，并且对已经废弃的用法提出警告，请用户根据警告和本文的说明对代码进行调整，升级到新的用法。等到 v2.1 以上的某个版本，才会全面移除对 RawAsset 的兼容。
 

@@ -2,7 +2,7 @@
 
 > 文：Santy-Wang、Xunyi
 
-本文将详细介绍定制过项目构建流程的旧项目升级到 v2.4 时的注意事项。从 v2.4 开始，我们对项目构建流程做出了一些调整，事件回调时传入的参数也做了一定的改动。如果开发者在 v2.4 之前，有根据文档 [定制项目构建流程](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/publish/custom-project-build-template.md) 对项目进行过扩展，注册了 `before-change-files`、`build-finished` 事件来定制项目构建流程，那么：
+本文将详细介绍定制过项目构建流程的旧项目升级到 v2.4 时的注意事项。从 v2.4 开始，我们对项目构建流程做出了一些调整，事件回调时传入的参数也做了一定的改动。如果开发者在 v2.4 之前，有根据文档 [定制项目构建流程](https://github.com/cocos/cocos-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/publish/custom-project-build-template.md) 对项目进行过扩展，注册了 `before-change-files`、`build-finished` 事件来定制项目构建流程，那么：
 
 - 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。
 - 对 **程序** 而言，影响主要体现在需要修改扩展包中注册事件的回调函数的参数。

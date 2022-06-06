@@ -4,7 +4,7 @@
 
 > 本文将详细介绍旧项目中的资源分包升级到 v2.4 时的注意事项。
 
-在 v2.4 之前，[分包加载](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/scripting/subpackage.md) 功能仅支持各类小游戏平台，如微信小游戏、OPPO 小游戏等。但随着 Creator 的发展，开发者对分包的需求不断增加，例如多平台支持，原有的分包加载已经远远不能满足了。所以，Creator 从 v2.4 开始正式支持功能更为完整的 **Asset Bundle**。
+在 v2.4 之前，[分包加载](https://github.com/cocos/cocos-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/scripting/subpackage.md) 功能仅支持各类小游戏平台，如微信小游戏、OPPO 小游戏等。但随着 Creator 的发展，开发者对分包的需求不断增加，例如多平台支持，原有的分包加载已经远远不能满足了。所以，Creator 从 v2.4 开始正式支持功能更为完整的 **Asset Bundle**。
 
 - 对 **美术策划** 而言，项目中的所有资源，例如场景、动画、Prefab 都不需要修改，也不用升级。
 - 对 **程序** 而言，影响主要体现在原先代码中使用的 `cc.loader.downloader.loadSubpackage` 需要改为 Asset Manager 中的 `cc.assetManager.loadBundle`。以下将详细介绍这部分内容。

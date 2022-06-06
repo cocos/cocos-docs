@@ -4,7 +4,7 @@
 
 > 本文将详细介绍旧项目升级到 v2.4 时的注意事项。
 
-在 v2.4 之前，[获取和加载资源](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/scripting/load-assets.md) 是通过 `cc.loader` 模块（包括 `cc.loader.load`、`cc.loader.loadRes`、`cc.loader.loadResDir` 等系列 API）来实现的，`cc.loader` 模块主要用于加载资源。但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，原来的 `cc.loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。
+在 v2.4 之前，[获取和加载资源](https://github.com/cocos/cocos-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/zh/scripting/load-assets.md) 是通过 `cc.loader` 模块（包括 `cc.loader.load`、`cc.loader.loadRes`、`cc.loader.loadResDir` 等系列 API）来实现的，`cc.loader` 模块主要用于加载资源。但随着 Creator 的不断发展，开发者对于资源管理的需求不断增加，原来的 `cc.loader` 已无法满足大量的资源管理需求，一个新的资源管理模块呼之欲出。
 
 因此，Creator 在 v2.4 推出了全新的资源管理模块 —— **Asset Manager**。相较之前的 `cc.loader`，Asset Manager 不但提供了更好的加载性能，而且支持 Asset Bundle、预加载资源以及更加方便的资源释放管理。同时 Asset Manager 还拥有强大的扩展性，大大提升开发者的开发效率和使用体验，我们建议所有开发者都进行升级。
 

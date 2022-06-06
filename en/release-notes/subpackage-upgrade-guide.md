@@ -4,7 +4,7 @@
 
 > This document will detail the considerations for upgrading resource subpackages in older projects to v2.4.
 
-Before v2.4, the [Subpackage Loading](https://github.com/cocos-creator/creator-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/subpackage.md) only supported various mini game platforms, such as WeChat Mini Games, OPPO Mini Games, etc.. However, with the continuous development of Creator, developers' demands for subpackage have been increasing, such as multi-platform support, and the original subpackage loading is no longer enough. Therefore, starting from v2.4, the Creator officially supports the more complete **Asset Bundle**.
+Before v2.4, the [Subpackage Loading](https://github.com/cocos/cocos-docs/blob/e02ac31bab12d3ee767c0549050b0e42bd22bc5b/en/scripting/subpackage.md) only supported various mini game platforms, such as WeChat Mini Games, OPPO Mini Games, etc.. However, with the continuous development of Creator, developers' demands for subpackage have been increasing, such as multi-platform support, and the original subpackage loading is no longer enough. Therefore, starting from v2.4, the Creator officially supports the more complete **Asset Bundle**.
 
 - For the **Artist and Game Designer**, all resources in your project (e.g. scenes, animations, prefab) do not need to be modified or upgraded.
 - For **Programmers**, the `cc.loader.downloader.loadSubpackage` needs to be changed to the `cc.assetManager.loadBundle` from **Asset Manager**. The related content will be described in detail in this document.

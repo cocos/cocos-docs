@@ -128,5 +128,5 @@
 
 ## 参考链接
 
-- **Cocos Creator 小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/OpenDataContext_TestCase) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)）
+- **Cocos Creator 小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos/cocos-example-open-data-context) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)）
 - [微信官方文档：关系链数据使用指南](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/open-data.html)

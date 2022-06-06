@@ -18,7 +18,7 @@ Once configured, click the **Apply** button at the top right and the folder will
 
 After the project is built, this Asset Bundle folder is packaged into the **subpackages** folder in the release package directory of the mini game platform. Each folder contained in this folder is an Asset Bundle.
 
-**For example**, if the **cases/01_graphics** folder in the [example-case](https://github.com/cocos-creator/example-cases) is configured as an Asset Bundle on the WeChat Mini Game, then after the project is built, a **01_graphics** folder is generated in the **subpackages** folder in the release package directory, and the **01_graphics** folder is an Asset Bundle.
+**For example**, if the **cases/01_graphics** folder in the [example-case](https://github.com/cocos/example-projects) is configured as an Asset Bundle on the WeChat Mini Game, then after the project is built, a **01_graphics** folder is generated in the **subpackages** folder in the release package directory, and the **01_graphics** folder is an Asset Bundle.
 
 ![](subpackage/subpackage.png)
 

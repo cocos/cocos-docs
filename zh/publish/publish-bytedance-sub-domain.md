@@ -9,7 +9,7 @@
 
 在开放数据域项目工程中，独立通过开放数据域打包流程打包，并将构建后生成的发布包放置到主域工程的发布包 `build/bytedance` 目录中，就可以作为完整的字节工程在模拟器和真机上进行预览调试了。
 
-字节跳动小游戏开放数据域的具体使用方法，可参考 Cocos Creator 提供的 **开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/OpenDataContext_TestCase) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)）。
+字节跳动小游戏开放数据域的具体使用方法，可参考 Cocos Creator 提供的 **开放数据域范例工程**（[GitHub](https://github.com/cocos/cocos-example-open-data-context) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)）。
 
 ## 主域项目工程
 
@@ -113,6 +113,6 @@
 
 ### 参考链接
 
-- **Cocos Creator 小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos-creator/OpenDataContext_TestCase) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)）
+- **Cocos Creator 小游戏开放数据域范例工程**（[GitHub](https://github.com/cocos/cocos-example-open-data-context) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)）
 - [字节跳动官方文档 — 关系链数据使用指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game#%E5%85%B3%E7%B3%BB%E9%93%BE%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8)
 - [字节开放能力 — 开放数据 API 文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/open-capacity/open-data/tt-get-cloud-storage-by-relation)

@@ -129,6 +129,6 @@ Since the code and resources of the WeChat Open Data Context cannot be shared wi
 
 ### Reference link
 
-- [Cocos Creator Open Data Context Sample Project of Mini Games](https://github.com/cocos-creator/OpenDataContext_TestCase)
+- [Cocos Creator Open Data Context Sample Project of Mini Games](https://github.com/cocos/cocos-example-open-data-context)
 
 - [WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/en/dev/guide/open-ability/open-data.html)

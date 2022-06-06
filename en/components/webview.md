@@ -38,7 +38,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 | LOADED| WebView is finished loading.
 | ERROR| Errors occurred when loading web pages.
 
-For more information, please refer to the [WebView Events](../../../api/en/classes/WebView.html#events) or [10_webview](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/10_webview) of the example-cases samples bundled with Creator.
+For more information, please refer to the [WebView Events](../../../api/en/classes/WebView.html#events) or [10_webview](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/10_webview) of the example-cases samples bundled with Creator.
 
 ## Details Explanation
 

@@ -58,7 +58,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 
 > **Note**: on iOS platform, due to the platform limitations, the CLICKED event can't be fired when VideoPlayer is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the VideoPlayer's size.
 
-For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
+For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
 
 ## Detailed Explanation
 
@@ -144,7 +144,7 @@ You can display a UI upon a video in three steps:
 > 2. The specific effects are not guaranteed to be consistent, depending on whether each browser supports or restricts.
 > 3. After the **stayOnBottom** is enabled, the `clicked` event in `VideoPlayerEvent` cannot be listened normally.
 
-For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator. Results as shown below:
+For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator. Results as shown below:
 
 ![videoplayer-stayOnButtom](videoplayer/videoplayer-stayOnButtom.png)
 

@@ -120,4 +120,4 @@ start () {
 }
 ```
 
-更多的范例可以到 [GitHub](https://github.com/cocos-creator/example-cases/tree/v2.4.3/assets/cases/collider) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/v2.4.3/assets/cases/collider) 上查看。
+更多的范例可以到 [GitHub](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/collider) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/v2.4.3/assets/cases/collider) 上查看。
