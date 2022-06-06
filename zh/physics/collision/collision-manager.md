@@ -120,4 +120,4 @@ onCollisionExit: function (other, self) {
     }
 ```
 
-更多的范例可以到 [GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/collider) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/collider) 上查看。
+更多的范例可以到 [GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/collider) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/collider) 上查看。
