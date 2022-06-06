@@ -2,8 +2,8 @@
 
 The engine part of Cocos Creator 3.x includes **TypeScript** and **engine-native**. The engine is all open-source on GitHub. The addresses are as follows:
 
-- [TypeScript engine](https://github.com/cocos-creator/engine/)
-- [engine-native engine](https://github.com/cocos-creator/engine-native/)
+- [TypeScript engine](https://github.com/cocos/cocos-engine/)
+- [engine-native engine](https://github.com/cocos/engine-native/)
 
 It is recommended to maintain custom code using the GitHub's Fork workflow. This workflow allows developers to easily update custom engine parts when the engine is upgraded in the future. This workflow is described in the [Fork a repo](https://help.github.com/articles/fork-a-repo) documentation. For more GitHub-related workflows, please refer to the [GitHub Help](https://help.github.com).
 

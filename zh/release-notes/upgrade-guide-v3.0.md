@@ -443,7 +443,7 @@ Cocos Creator 3.x 开启了 TypeScript 的严格模式，会对代码进行更�
 
 如果不想使用严格模式，可以在 Creator 顶部菜单栏的 **项目 -> 项目设置 -> 脚本** 中勾选 **启用宽松模式**。需要提醒的是，我们并不鼓励关闭严格模式，因为严格空值检查能够减少代码运行时的一些低级报错。
 
-关于严格模式下的书写规范，可以参照官方案例 **快上车 3D**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）。
+关于严格模式下的书写规范，可以参照官方案例 **快上车 3D**（[GitHub](https://github.com/cocos/cocos-tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）。
 
 ### Action 动作全都失效
 

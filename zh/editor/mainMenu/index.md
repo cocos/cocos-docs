@@ -154,4 +154,4 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | API 文档 | 在默认浏览器打开 [API 参考文档](__APIDOC__/zh/#/) |
 | 论坛 | 在默认浏览器打开 [Cocos Creator 论坛](https://forum.cocos.org/c/58)|
 | 更新日志 |  在默认浏览器打开 Cocos Creator 各版本的 [更新日志](https://www.cocos.com/creator)  |
-| 引擎仓库 |  在默认浏览器打开 [TypeScript 引擎仓库](https://github.com/cocos-creator/engine) |
+| 引擎仓库 |  在默认浏览器打开 [TypeScript 引擎仓库](https://github.com/cocos/cocos-engine) |
