@@ -4,7 +4,7 @@
 
 Currently supports the **Android / iOS / Web** platform. **Note**: The Web platform only supports channel SDK access and must use the AnySDK Enterprise Version. For more information, please refer to [AnySDK Enterprise Version](http://docs.anysdk.com/enterprise/overview/).
 
-This document is based on **v2.0.7**, and if the user is using a version before v2.0.7, please refer to the [old version document](https://github.com/cocos-creator/creator-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/en/sdk/anysdk-overview.md).
+This document is based on **v2.0.7**, and if the user is using a version before v2.0.7, please refer to the [old version document](https://github.com/cocos/cocos-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/en/sdk/anysdk-overview.md).
 
 ## Create game
 

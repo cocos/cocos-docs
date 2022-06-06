@@ -42,7 +42,7 @@
 
   如果你需要做一些屏幕的后期特效，可以先将屏幕渲染到 `targetTexture`，然后再对 `targetTexture` 做整体处理，最后再通过一个 `sprite` 将这个 `targetTexture` 显示出来。
 
-  具体可以参考 **example-case**（[GitHub](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)） 中的 `/assets/cases/07_render_texture/render_to_sprite.js`。
+  具体可以参考 **example-case**（[GitHub](https://github.com/cocos/example-projects/blob/next/assets/cases/07_render_texture/render_to_sprite.js#L31) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)） 中的 `/assets/cases/07_render_texture/render_to_sprite.js`。
 
 ## 摄像机方法
 
@@ -88,7 +88,7 @@ camera.getWorldToCameraMatrix(out);
 
 ## 截图
 
-截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 **07_capture_texture**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)）范例。
+截图是游戏中一个非常常见的需求，通过摄像机和 RenderTexture 我们可以快速实现一个截图功能。对于截图功能，在 example-cases 中有完整的测试例，代码示例可参考 **07_capture_texture**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/07_capture_texture) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture)）范例。
 
 ```javascript
 let node = new cc.Node();
@@ -144,7 +144,7 @@ var filePath = jsb.fileUtils.getWritablePath() + 'Image.png';
 jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 ```
 
-详情请参考：**capture_to_native**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/07_capture_texture/capture_to_native.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)）。
+详情请参考：**capture_to_native**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/07_capture_texture/capture_to_native.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/blob/master/assets/cases/07_capture_texture/capture_to_native.js)）。
 
 ## 微信中的截图
 
@@ -152,4 +152,4 @@ jsb.saveImageData(data, imgWidth, imgHeight, filePath)
 
 ## 案例
 
-具体可以参考 example-case 中的 **render_to_canvas**（[GitHub](https://github.com/cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js)）范例。
+具体可以参考 example-case 中的 **render_to_canvas**（[GitHub](https://github.com/cocos/example-projects/blob/next/assets/cases/07_render_texture/render_to_canvas.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/blob/next/assets/cases/07_render_texture/render_to_canvas.js)）范例。

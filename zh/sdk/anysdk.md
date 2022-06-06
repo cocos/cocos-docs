@@ -2,7 +2,7 @@
 
 **AnySDK** 为 CP 提供了一套第三方 SDK 接入解决方案，整个接入过程，不改变任何 SDK 的功能、特性、参数等，对于最终玩家而言是完全透明无感知的。目的是让 CP 商能有更多时间专注于游戏本身的品质。第三方 SDK 包括了渠道 SDK、用户系统、支付系统、广告系统、统计系统、分享系统等等。目前支持 Android／iOS／Web 平台，**注意**：Web 平台只支持渠道 SDK 接入，并且必须使用 AnySDK 企业版。详情可参考 [AnySDK 企业版](http://docs.anysdk.com/enterprise/overview/)。
 
-本文档基于 **v2.0.7** 编写，若用户使用的版本在 v2.0.7 之前，请参考 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/zh/sdk/anysdk-overview.md)。
+本文档基于 **v2.0.7** 编写，若用户使用的版本在 v2.0.7 之前，请参考 [旧版本文档](https://github.com/cocos/cocos-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/zh/sdk/anysdk-overview.md)。
 
 ## 创建游戏
 

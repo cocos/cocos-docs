@@ -87,7 +87,7 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
 ### Reference link
 
-- [Cocos Creator Open Data Context Sample Project of WeChat Mini Games](https://github.com/cocos-creator/demo-wechat-subdomain/archive/master.zip)
+- [Cocos Creator Open Data Context Sample Project of WeChat Mini Games](https://github.com/cocos-creator/example-wechat-subdomain/archive/master.zip)
 
 - [WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/en/dev/tutorial/open-ability/open-data.html)
 
@@ -167,6 +167,6 @@ Since the code and resources of the WeChat open data context cannot be shared wi
 
 ### Reference link
 
-- [Cocos Creator Open Data Context Sample Project of WeChat Mini Games](https://github.com/cocos-creator/demo-wechat-subdomain/archive/1.x.zip)
+- [Cocos Creator Open Data Context Sample Project of WeChat Mini Games](https://github.com/cocos-creator/example-wechat-subdomain/archive/1.x.zip)
 
 - [WeChat official document: Relationship Chain Data Usage Guide](https://developers.weixin.qq.com/minigame/en/dev/tutorial/open-ability/open-data.html)

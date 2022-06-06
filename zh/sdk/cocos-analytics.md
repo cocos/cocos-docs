@@ -2,7 +2,7 @@
 
 Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了数据分析支持。目前支持 Android／iOS／Web 平台。
 
-本文档基于 **v2.0.7** 编写，若用户使用的版本在 v2.0.7 之前，请参考 [旧版本文档](https://github.com/cocos-creator/creator-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/zh/sdk/cocos-analytics.md)。
+本文档基于 **v2.0.7** 编写，若用户使用的版本在 v2.0.7 之前，请参考 [旧版本文档](https://github.com/cocos/cocos-docs/blob/3e87b0f25c73e74acdc316c141971c592fc8f982/zh/sdk/cocos-analytics.md)。
 
 ## 操作流程
 
@@ -54,5 +54,5 @@ Cocos 数据统计用于记录玩家的游戏行为，并且在后台提供了�
 - [Android 平台接入集成](https://n-analytics.cocos.com/docs/android/index.html)
 - [iOS 平台接入集成](https://n-analytics.cocos.com/docs/ios/index.html)
 - [Web 平台接入集成](https://n-analytics.cocos.com/docs/h5/index.html)
-- **Cocos Analytics 范例工程初始项目**（[GitHub](https://github.com/cocos-creator/tutorial-dark-slash) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-dark-slash)）
-- **Cocos Analytics 范例工程完成项目**（[GitHub](https://github.com/cocos-creator/tutorial-dark-slash/tree/analytics) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-dark-slash/tree/analytics/)）
+- **Cocos Analytics 范例工程初始项目**（[GitHub](https://github.com/cocos/cocos-example-dark-slash) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-dark-slash)）
+- **Cocos Analytics 范例工程完成项目**（[GitHub](https://github.com/cocos/cocos-example-dark-slash/tree/analytics) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-dark-slash/tree/analytics/)）
