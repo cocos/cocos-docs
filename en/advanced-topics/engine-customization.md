@@ -2,8 +2,8 @@
 
 The game engine in Cocos Creator has two parts: JavaScript engine with ECS (entity-component system) and Cocos2d-x (custom version of Cocos2d-x). They are both open sourced on GitHub:
 
-- [Creator-JS engine](https://github.com/cocos-creator/engine)
-- [Cocos2d-x engine](https://github.com/cocos-creator/engine-native)
+- [Creator-JS engine](https://github.com/cocos/cocos-engine)
+- [Cocos2d-x engine](https://github.com/cocos/engine-native)
 
 If you want to customize engine, we recommend that you follow the __fork workflow__ thru GitHub. Please read [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo) to learn the details.
 
@@ -80,7 +80,7 @@ gulp init
 
 ```bash
 > ==> Ready to download 'v3-deps-54.zip' from
-> 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
+> 'https://github.com/cocos/cocos-engine-external/archive/v3-deps-54.zip'
 > Traceback (most recent call last):
 > ...
 > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
@@ -123,7 +123,7 @@ Next, you can start working on updating code for Cocos2d-x. If you want to use s
     gulp update-simulator-config
     ```
 
-**Attention**: If you need to debug your customized simulator on macOS, you must sign the Xcode project first. See [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention) for details.
+**Attention**: If you need to debug your customized simulator on macOS, you must sign the Xcode project first. See [Build simulator](https://github.com/cocos/engine-native/blob/develop/README.md#git-user-attention) for details.
 
 ![](engine-customization/sign.png)
 

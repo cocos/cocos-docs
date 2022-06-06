@@ -2,8 +2,8 @@
 
 Cocos Creator 的引擎部分包括 JavaScript 和 Cocos2d-x 两个部分。全部都在 GitHub 上开源。地址在：
 
-- **Creator-JS 引擎**：[GitHub](https://github.com/cocos-creator/engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)
-- **Cocos2d-x 引擎**：[GitHub](https://github.com/cocos-creator/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)
+- **Creator-JS 引擎**：[GitHub](https://github.com/cocos/cocos-engine) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine)
+- **Cocos2d-x 引擎**：[GitHub](https://github.com/cocos/engine-native) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native)
 
 我们建议您通过 GitHub 的 fork 工作流程来维护自己定制的仓库，具体操作方式请阅读 [GitHub help: Fork A Repo](https://help.github.com/articles/fork-a-repo)。关于更多 GitHub 相关工作流程请参考 [GitHub help](https://help.github.com)。
 
@@ -79,7 +79,7 @@ gulp init
 
 ```bash
 > ==> Ready to download 'v3-deps-54.zip' from
-> 'https://github.com/cocos-creator/cocos2d-x-lite-external/archive/v3-deps-54.zip'
+> 'https://github.com/cocos/cocos-engine-external/archive/v3-deps-54.zip'
 > Traceback (most recent call last):
 > ...
 > URLError: <urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)>
@@ -122,7 +122,7 @@ gulp gen-simulator
 gulp update-simulator-config
 ```
 
-> **注意**：如果需要在 Mac 上通过 Safari 来调试模拟器中的 JavaScript 代码，则需要在生成自定义模拟器之前先在 Xcode 中随便设置一个签名。详见 [Build simulator](https://github.com/cocos-creator/engine-native/blob/develop/README.md#git-user-attention)。
+> **注意**：如果需要在 Mac 上通过 Safari 来调试模拟器中的 JavaScript 代码，则需要在生成自定义模拟器之前先在 Xcode 中随便设置一个签名。详见 [Build simulator](https://github.com/cocos/engine-native/blob/develop/README.md#git-user-attention)。
 
 ![](engine-customization/sign.png)
 

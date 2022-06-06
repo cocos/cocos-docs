@@ -157,4 +157,4 @@ When a Node Pool instance is not referenced anywere, the builtin garbage collect
 
 The old API `cc.pool` is a singleton and cannot handle event register on node correctly, so it **deprecated**.
 
-The basic function of Node Pool is no more than an array to store the reference of a group of instantiated nodes. If you want to customize the behavior of the pool, you can take the example in [Dark Slash PoolMng](https://github.com/cocos-creator/tutorial-dark-slash/blob/master/assets/scripts/PoolMng.js) and make your own pooling mechanics.
+The basic function of Node Pool is no more than an array to store the reference of a group of instantiated nodes. If you want to customize the behavior of the pool, you can take the example in [Dark Slash PoolMng](https://github.com/cocos/cocos-example-dark-slash/blob/master/assets/scripts/PoolMng.js) and make your own pooling mechanics.

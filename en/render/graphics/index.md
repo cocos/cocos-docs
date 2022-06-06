@@ -44,7 +44,7 @@ Here are some third-party advanced drawing libraries and related demo based on G
 
 - GitHub: <https://github.com/2youyou2/ccc.raphael>
 
-- Demo: <https://github.com/cocos-creator/raphael-example>
+- Demo: <https://github.com/cocos-creator/example-raphael-legacy>
 
 - Feature (continually updated)
 
