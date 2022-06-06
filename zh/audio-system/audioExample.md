@@ -87,6 +87,6 @@ export class audioManager {
 }
 ```
 
-以上代码片段只是举例了 AudioSource 组件播放的一种使用方式，并不完整。Creator 在范例项目 **快上车**（[GitHub](https://github.com/cocos-creator/tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）中提供了完整的封装好的音频播放管理器的使用示例。开发者可打开 Dashboard 的 **项目** 页面，点击右下角的 **新建** 按钮，进入新建项目页面，即可看到 **Example Taxi Game** 范例，根据需要填写项目名称和项目位置后即可创建并打开：
+以上代码片段只是举例了 AudioSource 组件播放的一种使用方式，并不完整。Creator 在范例项目 **快上车**（[GitHub](https://github.com/cocos/cocos-tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）中提供了完整的封装好的音频播放管理器的使用示例。开发者可打开 Dashboard 的 **项目** 页面，点击右下角的 **新建** 按钮，进入新建项目页面，即可看到 **Example Taxi Game** 范例，根据需要填写项目名称和项目位置后即可创建并打开：
 
 ![audioEdit](audio/audioEdit.png)

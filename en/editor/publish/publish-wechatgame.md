@@ -138,4 +138,4 @@ The **Wasm 3D physics system** option is enabled by default, and the engine will
 - [WeChat Mini Game API Documentation](https://developers.weixin.qq.com/minigame/en/dev/api/)
 - [WeChat DevTools](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/devtools.html)
 - [WeChat DevTools Download](https://mp.weixin.qq.com/debug/wxagame/en/dev/devtools/download.html)
-- [WeChat Cache Space Overflow Case](https://github.com/cocos-creator/WeChatMiniGameTest)
+- [WeChat Cache Space Overflow Case](https://github.com/cocos-creator/test-wechat-mini-game)
