@@ -109,7 +109,7 @@ Vertex effect is only valid when the Animation Cache Mode property of Spine comp
 
 3. Mount the script component onto the Canvas or other node, it means dragging and dropping the script into the **Properties** of the node. Then drag the node in **Node Tree** to the corresponding property box of script component, and save the scene.
 
-4. You can see the vertex jitter effect of the Spine animation by clicking the preview button above the editor. For the code, please refer to [SpineMesh](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) for details.
+4. You can see the vertex jitter effect of the Spine animation by clicking the preview button above the editor. For the code, please refer to [SpineMesh](https://github.com/cocos/example-projects/tree/master/assets/cases/spine) for details.
 
 ## Spine Attachments
 
@@ -137,7 +137,7 @@ We can implement the Spine Attachments by using both the editor and the script. 
 
     ![](./spine/attach4.png)
 
-4. Finally, drag the star resource to the `Sprite Frame` property of the Sprite component. Save the scene and click the **Preview** button above the editor, then you can see a star hanging on the dragon's tail and shaking with the dragon's tail. For details, please refer to the [SpineAttach](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) in example-case.
+4. Finally, drag the star resource to the `Sprite Frame` property of the Sprite component. Save the scene and click the **Preview** button above the editor, then you can see a star hanging on the dragon's tail and shaking with the dragon's tail. For details, please refer to the [SpineAttach](https://github.com/cocos/example-projects/tree/master/assets/cases/spine) in example-case.
 
 > **Note**: after finish the Spine Attachments, you can delete unused skeleton nodes in the **Node Tree** panel to reduce the computational overhead at runtime. Note that the parent node of the target bone node cannot be deleted.
 
@@ -269,6 +269,6 @@ Here is an example of Spine how to implement collision detection. And determines
 
     ![collider](./spine/group_setting.png)
 
-7. You can see the effect by clicking the preview button above the editor. For details, please refer to the [SpineCollider](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/spine) in example-case.
+7. You can see the effect by clicking the preview button above the editor. For details, please refer to the [SpineCollider](https://github.com/cocos/example-projects/tree/master/assets/cases/spine) in example-case.
 
 > **Note**: due to the implementation mechanism of Spine Attachments, there is a delay of one frame in the collision detection based on Spine Attachments.

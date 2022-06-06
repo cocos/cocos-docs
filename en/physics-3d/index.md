@@ -19,4 +19,4 @@ The 3D Physics and Collision includes the following:
 The group management of 3D Physics and Collision is completely the same as 2D, please refer to [Collision Group Management](../physics/collision/collision-group.md) for details.  
 For information about 2D, please refer to [2D Physics and Collision](../physics/index.md).
 
-For more usage, please refer to [3D Physics Examples](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/3d_physics).
+For more usage, please refer to [3D Physics Examples](https://github.com/cocos/example-projects/tree/master/assets/cases/3d_physics).

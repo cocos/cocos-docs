@@ -8,7 +8,7 @@ Open the editor, click **Project -> Project Settings -> Module Config** in the m
 
 ## Physics Engine (cannon.js)
 
-[cannon.js](https://github.com/cocos-creator/cannon.js) is an open source physics engine. It uses JavaScript to develop and implement a comprehensive physics simulation function.
+[cannon.js](https://github.com/cocos-creator/cocos-cannon.js) is an open source physics engine. It uses JavaScript to develop and implement a comprehensive physics simulation function.
 
 When the selected physics engine is `cannon.js`, you need to add a [RigidBody component](./physics-rigidbody.md) to the node for physics simulation. Then add the [Collision component](./physics-collider.md) as needed, and the node will add the corresponding collider, which is used to detect whether it collides with other colliders.
 

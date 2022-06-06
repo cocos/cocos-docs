@@ -242,7 +242,7 @@ HTML 只支持 H.264 编码格式的 MP4，建议使用视频格式转换工具�
 material.setProperty("diffuseTexture", texture);
 ```
 
-具体内容可参考官方范例中的 **custom_material** 范例（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/06_rendering/custom_material) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/06_rendering/custom_material)）。
+具体内容可参考官方范例中的 **custom_material** 范例（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/06_rendering/custom_material) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/06_rendering/custom_material)）。
 
 ### Scheduler 取消失败，仍然运行
 

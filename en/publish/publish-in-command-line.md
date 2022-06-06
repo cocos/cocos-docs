@@ -38,7 +38,7 @@ You can also to compile the native project of the native platform separately by 
 
   If no parameters are specified after `--build` or `--compile`, then the parameters used in the **Build** panel, such as platforms, templates, and so on, will be used as default parameters. If additional parameter settings are specified, the default parameters will be overwritten with the specified parameters. The available parameters are:
 
-  - `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/cocos-creator/engine/blob/master/modules.json)
+  - `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/cocos/cocos-engine/blob/master/modules.json)
   - `title` - Project title
   - `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, xiaomi, alipay, qgame, quickgame, huawei, cocosplay, fb-instant-games, android-instant]
   - `buildPath` - Publish path

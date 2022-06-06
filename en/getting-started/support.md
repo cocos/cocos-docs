@@ -6,11 +6,11 @@ More engine dynamics, quality tutorials, and interviews can be viewed at [![twit
 
 ## Demo and example projects
 
-- [Example Collections](https://github.com/cocos-creator/example-cases): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
+- [Example Collections](https://github.com/cocos/example-projects): You can also get access to it by creating a new project using that template. It's a case by case introduction of most Cocos Creator components and features.
 - [Your first Cocos Creator game: Star Catcher](https://github.com/cocos-creator/tutorial-first-game): Please read [Quick Start Tutorial](quick-start.md) to build it step by step!
 - [Blackjack Demo co-developed with Tencent Games](https://github.com/cocos-creator/tutorial-blackjack)
-- [UI Demo](https://github.com/cocos-creator/demo-ui)
-- [Dark Slash](https://github.com/cocos-creator/tutorial-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
+- [UI Demo](https://github.com/cocos/cocos-example-ui)
+- [Dark Slash](https://github.com/cocos/cocos-example-dark-slash): Original Dark Slash resources authorized by Veewo Games to recreate Dark Slash in Cocos Creator as a demo.
 - [Responsive UI Demo](https://github.com/cocos-creator/demo-responsive-ui): Responsive UI system that can fit any device screen size.
 - [Combat Animation Demo](https://github.com/cocos-creator/demo-combat-animation): Use flexible and powerful animation editor to create combat animation.
 - [Team Building UI Demo](https://github.com/cocos-creator/demo-team-build-ui): Showcase how to use prefab and json data to populate dynamic UI contents.

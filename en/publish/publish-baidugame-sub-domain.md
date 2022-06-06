@@ -9,7 +9,7 @@ Since the open data context is a closed, independent JavaScript scope, developer
 
 In the open data context project, it is packaged independently through the open data context packaging process and placed in the Baidu release package of the main context project, which can be previewed and debugged on the simulator and physical device as a complete Baidu Mini Game project.
 
-The specific use method of baidu Baidu Mini Game Open Data Context, please refer to [The sample project for Open Data Context](https://github.com/cocos-creator/demo-baidu-subdomain).
+The specific use method of baidu Baidu Mini Game Open Data Context, please refer to [The sample project for Open Data Context](https://github.com/cocos-creator/example-baidu-subdomain).
 
 ## Main context project
 
@@ -92,6 +92,6 @@ It should be noted that the developer cannot remove the **Canvas Renderer** modu
 
 ## Reference link
 
-- [Cocos Creator Open Data Context Sample Project of Baidu Mini Games](https://github.com/cocos-creator/demo-baidu-subdomain)
+- [Cocos Creator Open Data Context Sample Project of Baidu Mini Games](https://github.com/cocos-creator/example-baidu-subdomain)
 
 - [Baidu official document: Relationship Chain Data Usage Guide](https://smartprogram.baidu.com/docs/game/tutorials/open_api/guide/#%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E5%9F%9F)

@@ -241,7 +241,7 @@ The diffuse texture can be modified by using `setProperty` in this way:
 material.setProperty("diffuseTexture", texture);
 ```
 
-For details, please refer to the [custom_material](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/06_rendering/custom_material) in the example-cases.
+For details, please refer to the [custom_material](https://github.com/cocos/example-projects/tree/master/assets/cases/06_rendering/custom_material) in the example-cases.
 
 ### Failed to cancel a schedule, still running
 

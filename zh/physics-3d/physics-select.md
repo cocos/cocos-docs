@@ -8,7 +8,7 @@
 
 ## 物理引擎（cannon.js）
 
-**cannon.js**（[GitHub](https://github.com/cocos-creator/cannon.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/cannon.js)）是一个开源的物理引擎，使用 JavaScript 开发并实现了比较全面的物理模拟功能。
+**cannon.js**（[GitHub](https://github.com/cocos-creator/cocos-cannon.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/cannon.js)）是一个开源的物理引擎，使用 JavaScript 开发并实现了比较全面的物理模拟功能。
 
 当选择的物理引擎为 `cannon.js` 时，需要在节点上添加 [刚体组件](./physics-rigidbody.md) 才能进行物理模拟。然后再根据需求添加 [碰撞组件](./physics-collider.md)，该节点就会增加相应的碰撞体，用于检测是否与其它碰撞体产生碰撞。
 

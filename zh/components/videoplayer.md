@@ -144,7 +144,7 @@ cc.Class({
 - 各个浏览器具体效果无法保证一致，跟浏览器是否支持与限制有关。
 - 开启 **stayOnBottom** 后，将无法正常监听 `VideoPlayerEvent` 中的 `clicked` 事件。
 
-详情可参考引擎自带的 example-cases 测试例中的 **09_videoplayer/videoPlayer-stayOnBotton**（[GitHub](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer)）。最终效果如下图所示：
+详情可参考引擎自带的 example-cases 测试例中的 **09_videoplayer/videoPlayer-stayOnBotton**（[GitHub](https://github.com/cocos/example-projects/tree/master/assets/cases/02_ui/09_videoplayer) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer)）。最终效果如下图所示：
 
 ![videoplayer-stayOnButtom](videoplayer/videoplayer-stayonbuttom.png)
 

@@ -143,7 +143,7 @@ You can display a UI upon a video in three steps:
 > 2. The specific effects are not guaranteed to be consistent, depending on whether each browser supports or restricts.
 > 3. After the **stayOnBottom** is enabled, the `clicked` event in `VideoPlayerEvent` cannot be listened normally.
 
-For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos-creator/example-cases/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator. Results as shown below:
+For more information, please refer to the [09_videoplayer/videoPlayer-stayOnBotton](https://github.com/cocos/example-projects/tree/master/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator. Results as shown below:
 
 ![videoplayer-stayOnButtom](videoplayer/videoplayer-stayOnButtom.png)
 
