@@ -49,7 +49,7 @@ java -version
 
 ### Android SDK 10 依赖
 
-从 v1.2.2 开始，默认的 Android 项目模板将指定 `android-10` sdk platform 版本作为默认的 target，详情可见 [Pull Request Use API Level 10](https://github.com/cocos-creator/engine-native/pull/316)。
+从 v1.2.2 开始，默认的 Android 项目模板将指定 `android-10` sdk platform 版本作为默认的 target，详情可见 [Pull Request Use API Level 10](https://github.com/cocos/engine-native/pull/316)。
 
 如果编译 Android 工程时遇到 '未找到 android-10' 之类的报错，可以通过上文介绍的方式下载 Android SDK API Level 10。
 

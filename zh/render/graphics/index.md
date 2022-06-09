@@ -43,7 +43,7 @@
 
 - GitHub：<https://github.com/2youyou2/ccc.raphael>
 
-- demo：[GitHub](https://github.com/cocos-creator/raphael-example) | [Gitee](https://gitee.com/mirrors_cocos-creator/raphael-example)
+- demo：[GitHub](https://github.com/cocos-creator/example-raphael-legacy) | [Gitee](https://gitee.com/mirrors_cocos-creator/raphael-example)
 
 - 特性（持续更新中）
 

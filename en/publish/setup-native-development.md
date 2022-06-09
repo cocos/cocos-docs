@@ -49,7 +49,7 @@ After installing Android Studio, refer to the official documentation and open th
 
 ### Android SDK 10 dependencies
 
-Starting with v1.2.2, the default Android project template will specify the `android-10` sdk platform version as the default target. For more information, see [Pull Request Use API Level 10](https://github.com/cocos-creator/engine-native/pull/316).
+Starting with v1.2.2, the default Android project template will specify the `android-10` sdk platform version as the default target. For more information, see [Pull Request Use API Level 10](https://github.com/cocos/engine-native/pull/316).
 
 If you encounter build error like 'not found android-10', you can download `Android SDK API Level 10` according to the description below.
 
