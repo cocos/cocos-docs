@@ -2,8 +2,8 @@
 
 Cocos Creator 3.0 的引擎部分包括 TypeScript 和 engine-native，全部都在 GitHub 上开源。地址在：
 
-- TypeScript 引擎：[GitHub](https://github.com/cocos-creator/engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)
-- engine-native 引擎：[GitHub](https://github.com/cocos-creator/engine-native/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native/)
+- TypeScript 引擎：[GitHub](https://github.com/cocos/cocos-engine/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/)
+- engine-native 引擎：[GitHub](https://github.com/cocos/engine-native/) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine-native/)
 
 建议通过 GitHub 的 fork 工作流程来维护自己定制的代码，以便在将来引擎升级时，可以方便地将定制的部分更新上去，具体操作方式请阅读 [Fork a repo](https://help.github.com/articles/fork-a-repo)。如果你愿意帮助 Cocos 越做越好，欢迎在 GitHub 提交你的修改，请参考 [如何向 Cocos 提交代码](../submit-pr/submit-pr.md)。关于更多 GitHub 相关工作流程请参考 [GitHub Help](https://help.github.com)。
 

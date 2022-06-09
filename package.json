@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cocos-creator/creator-docs.git"
+    "url": "git+https://github.com/cocos/cocos-docs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cocos-creator/creator-docs/issues"
+    "url": "https://github.com/cocos/cocos-docs/issues"
   },
-  "homepage": "https://github.com/cocos-creator/creator-docs#readme"
+  "homepage": "https://github.com/cocos/cocos-docs#readme"
 }

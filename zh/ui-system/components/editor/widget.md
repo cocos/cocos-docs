@@ -8,7 +8,7 @@ Widget (对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节
 
 对齐挂件的脚本接口请参考 [Widget API](__APIDOC__/zh/classes/ui.widget.html)。
 
-关于使用可以参考范例 **Widget**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/04.widget) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/04.widget)）。
+关于使用可以参考范例 **Widget**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/04.widget) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/04.widget)）。
 
 ## 选项
 

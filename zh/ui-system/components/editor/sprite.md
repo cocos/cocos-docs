@@ -8,7 +8,7 @@ Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点�
 
 图像的组件接口请参考 [Sprite API](__APIDOC__/zh/classes/ui.sprite.html)。
 
-关于使用可以参考范例 **Sprite**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/01.sprite) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/01.sprite)）。
+关于使用可以参考范例 **Sprite**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/01.sprite) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/ui/01.sprite)）。
 
 ## Sprite 属性
 

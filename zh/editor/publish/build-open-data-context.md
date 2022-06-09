@@ -106,4 +106,4 @@ export default {
 - [微信官方文档 — 小游戏 Canvas 引擎](https://wechat-miniprogram.github.io/minigame-canvas-engine/)
 - [小游戏 Canvas 引擎源码](https://github.com/wechat-miniprogram/minigame-canvas-engine)
 - [doT 模版引擎](http://olado.github.io/doT/?spm=a2c6h.12873639.0.0.36f45227oKu0XO)
-- **Cocos Creator 小游戏开放数据域范例工程**：[GitHub](https://github.com/cocos-creator/OpenDataContext_TestCase) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)
+- **Cocos Creator 小游戏开放数据域范例工程**：[GitHub](https://github.com/cocos/cocos-example-open-data-context) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)

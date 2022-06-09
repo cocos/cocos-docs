@@ -83,4 +83,4 @@ export class RenderCameraToModel extends Component {
 }
 ```
 
-更多方法请参考范例 **RenderTexture**（[GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.0/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/rendertexture)）。
+更多方法请参考范例 **RenderTexture**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.0/assets/cases/rendertexture)）。
