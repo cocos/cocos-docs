@@ -1,10 +1,13 @@
-# Shortcuts
+# Extending Shortcut
 
-The shortcut keys in the editor are managed uniformly by the **Shortcut Key Manager**. Each shortcut key needs to be bound to a message. When the shortcut key is pressed, the bound message is triggered.
+Shortcut keys within the editor are managed by the "Shortcut Key Manager". Each shortcut key can be bound to a message, and when the shortcut key is pressed, the bound message will be triggered.
 
-## Define
+## Defining Shortcut
 
-```json
+Defining the shortcuts needs to be done in the `contributions.shortcuts` field of `package.json`, as follows:
+
+```json5
+// package.json
 {
     "name": "hello-world",
     "panels": {
@@ -22,7 +25,7 @@ The shortcut keys in the editor are managed uniformly by the **Shortcut Key Mana
         "shortcuts": [
             {
                 "message": "undo",
-                "when": "panel.hello-world",
+                "when": "panelName === 'hello-world'",
                 "win": "ctrl+z",
                 "mac": "cmd+z",
             }
@@ -31,34 +34,38 @@ The shortcut keys in the editor are managed uniformly by the **Shortcut Key Mana
 }
 ```
 
-For details, please refer to the [Message](./contributions-messages.md) documentation.
+In this example, we define a shortcut key for the **undo** operation, which is `CTRL + Z` on Windows and `CMD + Z` on macOS.
 
-`contributions.shortcuts` Parameter Description:
+When the corresponding shortcut key is pressed, the `undo` message is sent.
+
+> **Note**: This message needs to be defined in `contributions.messages`, please refer to the documentation [Customized Messages](./contributions-messages.md).
+
+## Parameter descriptions
+
+Let's take a look at the details of each parameter of `contributions.shortcuts`.
 
 ### message
 
-Type `{string}` Required
+Type {string} Required
 
-The message bound to the shortcut key is sent when the shortcut key is triggered.
+Shortcut-bound message that will be sent when this shortcut is triggered. Shortcut pressed messages can only be sent to the current extension.
 
-### when(experimental)
+### when
 
-Type `{string}` Optional
+Type {string} Optional
 
-> **Note**: this is an experimental feature, this functional syntax may be adjusted in the future.
+The shortcut will be triggered only under certain conditions.
 
-This shortcut will only be triggered under certain conditions.
-
-`panel.hello-world` will only take effect when the `hello-world` panel gets the focus.
+`"when": "PanelName === 'hello-world'"` means that the `message` message will be sent when the shortcut key is pressed when the panel name that gets focus is `hello-world`.
 
 ### win
 
-Type `{string}` Required
+type {string} required
 
-On the windows platform, the monitored button.
+On Windows platform, the keystroke to listen to.
 
 ### mac
 
-Type `{string}` Required
+Type {string} Required
 
-On MacOS, monitor keystrokes.
+On macOS, the keystroke to listen to.

@@ -54,6 +54,30 @@ exports.load = function() {};
 exports.unload = function() {};
 ```
 
+Typescript
+
+```typescript
+interface PackagelItem {
+    cache: {
+        [path: string]: any;
+    }
+}
+export const methods = {
+    saveData(this: PackagelItem, path: string, data: any) {
+        // 收到数据后缓存起来
+        this.cache[path] = data;
+    },
+    queryData(this: PackagelItem, path: string) {
+        const result = this.cache[path];
+        delete this.cache[path];
+        return result;
+    },
+};
+
+export function load() {};
+export function unloal() {};
+```
+
 **Last**, define the main file of the panel:
 
 ```javascript
@@ -70,6 +94,24 @@ exports.close() {
     // Upload the data to the extension process after receiving the data
     Editor.Message.send(packageJSON.name, 'upload', 'tab', 1);
     Editor.Message.send(packageJSON.name, 'upload', 'subTab', 0);
+};
+```
+
+Typescript
+
+```typescript
+import { name } from './package.json';
+exports.ready = async () => {  
+    const tab = await Editor.Message.request(name, 'query', 'tab');
+    const subTab = await Editor.Message.request(name, 'query', 'subTab');
+    // 打印查询到的数据
+    console.log(tab, subTab):
+    // TODO 使用这两个数据初始化
+};
+exports.close() {
+    // 收到数据后上传到扩展进程
+    Editor.Message.send(name, 'upload', 'tab', 1);
+    Editor.Message.send(name, 'upload', 'subTab', 0);
 };
 ```
 

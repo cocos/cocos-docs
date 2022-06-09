@@ -1,138 +1,128 @@
 # Extending the Preferences Panel
 
-The editor allows each extension to register its own configuration, and then displays some or all of the editor configuration within the Preferences panel. In this panel, the modifications are editor feature-related configurations.
+## Preferences Panel Introduction
 
-For project-related configurations, please review the [Project Settings](./contributions-project.md) documentation.
+The **Cocos Creator -> Preferences** menu can be found in the top menu bar, as shown in the following image:
 
-## Description of the Preferences Panel
+![preferences](./image/preferences-menu.png)
 
-The Preferences panel can be opened via the top menu **Cocos Creator -> Preferences**.
+Clicking on it opens the Preferences panel, as shown below.
 
 ![preferences](./image/preferences-tool.png)
 
 The Preferences panel is divided into left and right sides.
 
-- The left side shows the names of functional extensions that provide configuration items.
-- On the right side is an action panel rendered according to the configuration.
+- The left side shows the names of the feature extensions that provide configuration items.
+- On the right side is the operation panel rendered according to the configuration.
 
-Changes made in the panel are immediately modified to the corresponding configuration items.
+Changes on the panel are immediately modified to the corresponding configuration items. For more information about the **Preferences** panel, please refer to the document [Preferences](.../.../editor/preferences/index.md).
 
-Normally, the configuration is stored at the global level. If the configuration needs to be put into a project, then move the mouse over the configuration entry and select **Record to project** on the small icon that appears on the left side. This data will be saved to the project, and changes to it will not affect other projects.
+## Customization panel
 
-> **Notes**:
-> 1. If the auto-rendered configuration is stored in the project, the icon on the left side will turn yellow to indicate it. To reuse the global configuration, click the icon on the left side and select **Restore to Global Configuration**, doing so will discard the project settings.
-> 2. Only auto-rendered configurations will automatically add icons. If properties are not defined, implement the icon change function in the panel as needed.
+Cocos Creator allows each extension to register its own editor configuration, which is then displayed within the Preferences panel.
 
-Also, there are some configurations that cannot switch between global and local storage location, such as preview scenes, which must be stored in the project. This part of the configuration should use the custom panel.
+The preferences control editor-related configurations and will act on all projects. If you want to add only project-specific configurations, please refer to the documentation [Custom Project Settings Panel](./contributions-project.md).
 
-For more information about the **Preferences** panel, please refer to the [Preferences](../../editor/preferences/index.md) documentation.
+### Two ways of preference setting
 
-## Registration Methods
+Preference settings allow to display the configuration in two ways.
 
-Preferences allow to display configurations in two ways.
-
-1. General configuration
+1. general configuration
 2. Lab configuration
 
-General settings are displayed directly as tabs, while lab switches are displayed centrally in a separate tab.
+Generic settings are displayed directly as tabs, while lab switches are displayed centrally in a separate tab.
 
-- When the functionality provided by the extension is more stable it is recommended to place the configuration data within the generic functionality.
-- When the functionality provided by the extension is in the development stage, it is recommended that the switch configuration data of the functionality be placed in the lab configuration.
+- When the functionality provided by the plug-in is more stable it is recommended to place the configuration data within the generic functionality.
+- When the functions provided by the plug-in are in the development stage it is recommended that the switch configuration data of the function be placed in the lab configuration.
 
-First define the configuration in `contributions.profile.editor`. The data to be displayed in the **Preferences** panel can then be defined in `contributions.preferences`.
+### Preferences definition
 
-For details on how to define a `profile`, please review the [Profile](./profile.md) documentation.
+Extending preferences depend on data configuration and need to be defined in `contributions.profile.editor` first.
 
-## Registering Preferences Data
+> **Note**: The configuration data in the preferences should be stored in the `profile.editor` field.
 
-`package.json`
+Once the data fields are defined, you also need to define the data to be displayed and the UI components to be used to display it in the `contributions.preferences` field. This is shown below.
 
 ```JSON5
 {
-    "name": "hello-world",
+    //`package.json`
+    "name": "first-panel",
     "contributions": {
         "profile": {
             "editor": {
                 "foo": {
-                    "default": 0,
-                    "label": "foo"
+                    "default": 1,
+                    "label":"foo"
                 },
-                "bar": {
+                "foo1": {
+                    "default": 1,
+                    "label":"foo1"
+                },
+                "foo2": {
                     "default": false,
-                    "label": "bar"
+                    "label":"foo2"
+                },
+                "foo3": {
+                    "default": 0,
+                    "label":"foo3"
                 }
             }
         },
         "preferences": {
             "properties": {
-                "foo": {
-                    "ui": "ui-num-input"
+                "foo1": {
+                    "ui": "ui-slider",
+                    "attributes": {
+                        "min": 0,
+                        "max": 1,
+                        "step": 0.1
+                    }
+                },
+                "foo2": {
+                    "ui": "ui-checkbox"
+                },
+                "foo3": {
+                    "ui": "ui-select",
+                    "items": [
+                        {
+                            "value": 0,
+                            "label": "ITEM 0"
+                        },
+                        {
+                            "value": 1,
+                            "label": "ITEM 1"
+                        },
+                        {
+                            "value": 2,
+                            "label": "ITEM 2"
+                        }
+                    ]
                 }
             },
-            "laboratory": ["bar"]
+            "laboratory": ["foo"]
         }    
     }
 }
 ```
 
-Two editor configurations, `foo` and `bar`, have been defined and added the configurations to the `preferences`.
-- The `foo` is stored in the general profile.
-- The `bar` is stored in the `laboratory` profile.
+In the above example, 4 data items are defined in the `contributions.profile.project` field: `foo`, `foo1`, `foo2`, `foo3`.
 
-The defined `profile` data will be automatically registered to `default`. Using `Editor.Profile.getConfig` will get the default values.
+For more information on how to define `profile` related configuration, please refer to [Configuration System](./profile.md).
 
-The `contributions` of `package.json` need to be defined like the following:
+In the `contributions.preferences` field, we define `properties` and `laboratory`.
 
-```typescript
-interface package
-{
-    "name": string;
-    "contributions": {
-        "profile": {
-            "editor": {
-                [key:string]: ProfileItem;
-            };
-        };
-        "preferences": {
-            /**
-             * The properties data can be filled in to auto-render the configuration.
-             * The key in properties corresponds to the editor configuration key, and the value corresponds to the information needed for auto-rendering.
-             * If there is a ui defined in properties then it will be automatically rendered under the tab of the functional extension name.
-             **/
-            "properties": {
-                [key:string]: UIInfo
-            };
-            /**
-             * If the configuration is more complex and auto-rendering can't meet the demand, you can fill in custom data.
-             * Fill in the entry for the custom panel there.
-             * The panel will appear below the autorender (if properties are defined).
-             **/ 
-            "custom": string;
-            /**
-             * The labs are listed as a separate tab within the editor, mainly to provide a switch display for some experimental functions.
-             * You can fill in laboratory data to add an editor configuration of type Boolean to the lab switches.
-             * Laboratory is an array, the key in the array points to the key in the editor configuration, the corresponding data must be of Boolean type.
-             * The key filled in here will be displayed in the Lab tab of Preferences.
-             **/
-            "laboratory": string[];
-        };
-        ...
-    }
-    ...
-}
-```
+### General configuration (properties)
 
-```typescript
-interface UIInfo {
-    // which ui element to use for rendering, e.g.: "ui-num-input"
-    ui: string;
-    attributes: {
-        // The attribute data allowed on the ui element, each ui allows different parameters, see the ui-kit chapter for details
-        // Assuming the ui is "ui-num-input"
-        // This can be filled with "step": 1
-        [key:string]: any;
-    };
-}
-```
+The fields defined in `properties` will be displayed independently in a new tab with the same name as the extension in the preferences panel, as follows:
 
-For more information on how to customize the panel please review the [Panel Definition](./panel.md) documentation.
+![preferences-tool-custom](./image/preferences-tool-custom.png)
+
+### Laboratory configuration (laboratory)
+
+The fields defined in `laboratory` will be displayed in the **Laboratory** tab in the preferences panel, as follows:
+
+![preferences-tool-custom-laboratory](./image/preferences-tool-custom-laboratory.png)
+
+## UI Component Configuration
+
+This example shows the usage of 4 common UI components in customizing the preferences panel, in theory all UI components with `value` attribute can be used in the preferences panel, please refer to the document [UI Components](./ui.md).

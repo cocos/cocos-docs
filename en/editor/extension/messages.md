@@ -1,19 +1,21 @@
-# Message system
+# Message System
 
-There are many independently running processes in **Cocos Creator**, and these processes are isolated from each other. When you need to interact with other functions in the editor, you need to interact through **messages**.
+There are many independent processes running in Cocos Creator, and they are isolated from each other. When you need to interact with other functions within the editor, you need to do so through the "messaging mechanism".
 
-The **message system** in the editor is a function expansion package of IPC (Interprocess Communication). This system bears the burden of communication and interaction in the entire editor.
+The "Message System" in the editor is a functional extension of the IPC (Inter-Process Communication) wrapper. This system carries the burden of communication and interaction within the editor.
+
+For more information about multi-process architecture and cross-process communication, please refer to the document [Extension Infrastructure](./package.md).
 
 ## Message Types
 
-Message interaction is divided into two situations:
+There are two types of messages within the Cocos Creator system.
 
-1. General message: Actively send a message to a function (extended)
-2. Broadcast message: After a certain function (extension) completes an operation, a notification is sent to everyone to inform that the operation has been completed
+1. Normal message: a message is sent to a function (extension) on its own initiative
+2. Broadcast messages: a function (extension) sends a notification to everyone that an operation has been completed
 
-### General Message
+### Normal messages
 
-It can be understood as a kind of external api, for example, **scene editor** defines a **message** API `query-node`.
+It can be understood as an external interface, for example the engine's **Scene Editor** module has defined a `query-node` message for querying nodes, as follows:
 
 ```json
 {
@@ -28,25 +30,35 @@ It can be understood as a kind of external api, for example, **scene editor** de
 }
 ```
 
-When writing an extension, use this API to send messages:
+For more information on how to customize messages and the meaning of the message fields, please refer to the document [Customized Messages](./contributions-messages.md).
 
-```javascript
+When we want to query a scene node in an extension we have written, we can use this message to do so, as follows:
+
+```typescript
 const info = await Editor.Message.request('scene', 'query-node', uuid);
 ```
 
-At this time, a promise object will be returned. After await, the info object obtained is part of the data on the node actually queried. This message is similar to a remote API call.
+This message is similar to a remote process call (RPC), where the `info` object is part of the data on the actual node being queried.
 
-### Broadcast message
+> **Note**: Since this is a remote call, `request` will not return immediately, so you need to use `await` to convert asynchronous to synchronous.
 
-Broadcast message is a kind of notification to the outside after the operation in a certain function is completed. Take the **scene editor** as an example.
+#### Naming Convention for Normal Messages
 
-After starting a scene, the **scene editor** informs everyone that the **scene** has been started:
+Please use **lowercase** words, and no special characters, with **-** concatenated between words. For example, `open-panel`, `text-changed`.
 
-```javascript
-Editor.Message.broadcast('scene: ready', sceneUUID);
+### Broadcast Messages
+
+A broadcast message is a notification to the outside world after the completion of an operation within a function.
+
+#### Receive Broadcast Messages
+
+For example, if the **Scene Editor** needs to notify everyone that a scene has been started after it has been started, the **Scene Editor** sends a broadcast message using the following code.
+
+```typescript
+Editor.Message.broadcast('scene:ready', sceneUUID);
 ```
 
-It needs to be defined like this in the extension:
+If an extension wants to receive `scene:ready` messages, they need to be defined first in `package.json`, as follows:
 
 ```json
 {
@@ -61,36 +73,69 @@ It needs to be defined like this in the extension:
 }
 ```
 
-After that, whenever the scene is ready, broadcasting scene:ready will trigger the `initData` method in the `hello-world` extension.
+The broadcast `scene:ready` message triggers the `initData` method in the "hello-world" extension whenever the scene is ready.
 
-## Message Naming Conventions
+#### Sending Broadcast Messages
 
-### General Message
+If an extension wants to send a broadcast message, it also needs to be defined in `package.json` first.
 
-Please use lowercase words and cannot contain special characters. Use **-** to connect between words.
+For example, "hello-world" will broadcast a message to other extensions when it is ready for data. As shown below:
 
-### Broadcast Message
+```json
+{
+    "name": "hello-world",
+    "contributions": {
+        "messages": {
+            "scene:ready": {
+                "methods": ["initData"]
+            },
+            "hello-world:ready": {
+                "public": true,
+                "description": "hello-world ready notification."
+            }
+        }
+    }
+}
+```
 
-Cannot contain special characters other than **:**. The format is `packageName: actionName`.
+At the appropriate time, the following code is called within the "hello-world" extension to broadcast to everyone.
 
-The `packageName` is added to prevent naming conflicts. In your own extension, you need to directly indicate which broadcast (action) of which extension is monitored when monitoring.
+```typescript
+Editor.Message.broadcast('hello-world:ready');
+```
 
-In this way, you can more intuitively understand the message processing flow of the extension in `package.json`.
+> **Note**: Broadcast messages can have no `methods`, which means they don't listen. As shown in the definition above, it means that "hello-world" does not need to listen for its own initialization completion message.
 
-## Editor and extended open message list
+#### Naming Convention for Broadcast Messages
 
-The functions in the editor and the list of messages open to the outside world can be viewed through the **Developer -> Message List** panel. For detailed definition rules, please refer to the [contributions.messages](./contributions-messages.md) documentation.
+The format is `packageName:actionName`, and the following naming is legal.
+- scene:ready
+- scene:query-node
+- hello-world:ready
+- hello-world:data-loaded
 
-## Send a message
+Adding `packageName` prevents naming conflicts and makes it more intuitive to see which extension is listening to which broadcast message (action) when defining messages in `package.json`.
 
-- `Editor.Message.send(pkgName, message, ...args)`
+## View the List of Messages
 
-  The `send` method only sends a message, and does not wait for the return. If you do not need to return data and do not care whether the execution is complete, please use this method.
+The list of messages that are available to the editor and extensions can be viewed in the **Developer -> Message Manager** panel. For detailed definition rules, please refer to the documentation [Custom Messages](./contributions-messages.md).
 
-- `await Editor.Message.request(pkgName, message, ...args)`
+## Sending Messages in Code
 
-  The `request` method returns a promise object, this promise will receive the data returned after the message is processed.
+The `send` method only sends the message and does not wait for a return. Use this method if you don't need to return data and don't care if execution completes.
 
-- `Editor.Message.broadcast(`${pkgName}:${actionName}`, ...args)`
+```typescript
+Editor.Message.send(pkgName, message, . .args);
+```
 
-  The `broadcast` method only sends, and sends it to all extensions that monitor the corresponding message.
+The ``request`` method returns a promise object that receives the data returned after the message has been processed.
+
+```typescript
+await Editor.Message.request(pkgName, message, . . args);
+```
+
+The ``broadcast`` method only sends, and sends to all function extensions that listen for the corresponding message.
+
+```typescript
+Editor.Message.broadcast(`${pkgName}:${actionName}`, . .args);
+```

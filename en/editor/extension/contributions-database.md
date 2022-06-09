@@ -1,15 +1,16 @@
-# Extending the Database (DB)
+# Custom Asset Database
 
-There will be a lot of resources in the project, and the resources will come with a lot of data, which is managed by the resource database.
-Extensions can inject resources into the resource database to provide resources like scripts, images, etc.
-This article will demonstrate how to inject resources into the resource manager via `contributions` to `asset-db`.
+All asset files in the project are managed through the asset database, where the `assets` directory in the project stores the assets of the current project, and the `editor/assets` in the engine repository stores the built-in assets of the engine (e.g., common images, scripts, etc.).
 
-## Registration
+When we use the assets in the extension, we need to register the asset folder in the extension to the asset database, and publish the assets with the extension when it is released.
 
-Register the Database as follows:
+Through this article we will learn how to register a asset folder and use the assets in scripts.
+
+## Registration Database Configuration
+
+Asset registration needs to be configured in `contributions` using the `asset-db` field, as follows.
 
 ```json5
-/// package.json
 {
     "name": "test-package",
     "contributions": {
@@ -23,25 +24,15 @@ Register the Database as follows:
 }
 ```
 
-```typescript
-interface AssetDBConfig {
-    mount:{
-        //Directory of resources, relative to extension
-        path: string；
-        //Whether the resource is read-only,read and write by default
-        readonly?: boolean;
-    }
-}
-```
+In the above example, we have registered the `assets` folder in the root directory of the extension `test-package` to the asset database.
 
-## Writing script resources in extensions
+## Script Asset
 
-We can define the script in the `test-package\assets\` resource folder that we just registered, and we'll start by creating a script `foo.ts` that
+Create a script `foo.ts` in the `test-package/assets/` directory, with the following content：
 
 ```typescript
 /// foo.ts
 import { _decorator, Component, Node } from 'cc';
-export const value = 123;
 const { ccclass, property } = _decorator;
  
 @ccclass('Foo')
@@ -52,14 +43,44 @@ export class Foo extends Component {
 }
 ```
 
-> **Note**: In order to use the cc definitions, we need to copy the definition file of `{project directory}\temp\declarations` to the extension directory.
+In order to use the `cc` definitions, we need to copy the definition files from `{project directory}\temp\declarations` to the extension root directory.
 
-## Importing extension injected script resources
+Since `foo.ts` is only used as a asset and is not part of the extension source code, we need to exclude it by adding `exclude` configuration to `tsconfig.json`, otherwise we will get a compilation error.
 
-Earlier we created a new extension `test-package` that injects the resources under the `test-package\assets` path into the resource database.
+```json5
+{
+    "compilerOptions": { 
+        ... 
+    },
+    "exclude": ["./assets"]
+}
+```
 
-In the project's script `bar.ts` we can import the `foo.ts` script in the following way.
+> **Note**: The script assets in the extension can be written and tested in the Cocos Creator project and then copied to the extension's `assets` directory.
+
+## Other Assets
+
+Assets such as images, text, fonts, etc. can be placed directly in the `assets` directory.
+
+## Using Assets in Extensions
+
+Refresh the extension and you will see a new `test-package` assets package in the **Assets Manager** panel of the Cocos Creator editor, as shown below:s
+
+![extension-database](./image/extension-database.png)
+
+## Drag-and-drop Assets
+
+To reference an asset within a package as a drag-and-drop component, use it in the same way as the assets in `assets` and `internal`.
+
+## Import Script
+
+You can simply reference a script file from the AssetDatabase as follows:
 
 ```typescript
 /// bar.ts
-import { value, Foo } from 'db://test-package/foo';
+import { Foo } from 'db://test-package/foo';
+```
+
+You don't need to pay attention to whether a class comes from an extension package, the TypeScript development environment's auto-completion feature will prompt the **import** directory, no need to worry.
+
+> **Note**: The class name in the extension package should be kept globally unique, otherwise it will cause conflicts, try to add a suitable prefix in the actual development (e.g. `test-pacakge` can be shortened to `TP`, and all classes in the package are unified with the `TP` prefix to become `TPFoo`).
