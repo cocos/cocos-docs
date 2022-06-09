@@ -14,4 +14,4 @@ Click the **Add Component** button at the bottom of the **Inspector** panel and 
 | **Distance** | The distance from the camera is calculated for normal display. Adjust the best position according to the illumination effect of the model under the camera, and use this position as the dividing line to calculate the proportion in the viewport. |
 | **SyncEvents** | Map data events. The first parameter of the callback is the local coordinates after mapping, and the second is the distance ratio from the camera. |
 
-For specific usage, please refer to the **rocker** scene in the [UI display example](https://github.com/cocos-creator/demo-ui/tree/v3.0/assets/scene).
+For specific usage, please refer to the **rocker** scene in the [UI display example](https://github.com/cocos/cocos-example-ui/tree/v3.0/assets/scene).

@@ -113,7 +113,7 @@ To change HTML templates, change the content in [zh/_layouts](zh/_layouts) and [
 
 This is a dynamically updated user document, and your reading and feedback is the driving force behind our progress.
 
-If you encounters any typo or content problem please [report issue](https://github.com/cocos-creator/creator-docs/issues/new) in this repo. Pull requests are welcome!
+If you encounters any typo or content problem please [report issue](https://github.com/cocos/cocos-docs/issues/new) in this repo. Pull requests are welcome!
 
 ### Style Guide for Chinese documents
 

@@ -72,4 +72,4 @@ Creator 提供了一些项目模板，包括了各种不同类型的游戏基本
 
 ![learn](index/learn.png)
 
-开发者也可以通过点击左下角各网站的图标访问 Cocos 官方获取更多教程等信息，目前包括微信公众号、[微博](https://weibo.com/cocos2dx)、[Twitter](https://twitter.com/cocos2dx)、[哔哩哔哩](https://space.bilibili.com/491120849)、[YouTube](https://www.youtube.com/channel/UCAsPLdpiAQbFuYqiZvi0P5A) 和 [GitHub](https://github.com/cocos-creator/engine)。
+开发者也可以通过点击左下角各网站的图标访问 Cocos 官方获取更多教程等信息，目前包括微信公众号、[微博](https://weibo.com/cocos2dx)、[Twitter](https://twitter.com/cocos2dx)、[哔哩哔哩](https://space.bilibili.com/491120849)、[YouTube](https://www.youtube.com/channel/UCAsPLdpiAQbFuYqiZvi0P5A) 和 [GitHub](https://github.com/cocos/cocos-engine)。

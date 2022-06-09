@@ -42,7 +42,7 @@
 
 2. **BATCHER2D_MEM_INCREMENT** 的单位为 **KB**，与可容纳的顶点数量之间的转换关系如下：
 
-    引擎内置标准的顶点格式为 [vfmtPosUvColor](https://github.com/cocos-creator/engine/blob/v3.4.1/cocos/2d/renderer/vertex-format.ts#L43)，在引擎中的定义为：
+    引擎内置标准的顶点格式为 [vfmtPosUvColor](https://github.com/cocos/cocos-engine/blob/v3.4.1/cocos/2d/renderer/vertex-format.ts#L43)，在引擎中的定义为：
 
     ```ts
     export const vfmtPosUvColor = [
