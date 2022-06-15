@@ -1,4 +1,4 @@
-# Custom Asset Database
+# Extending the Database (DB)
 
 All asset files in the project are managed through the asset database, where the `assets` directory in the project stores the assets of the current project, and the `editor/assets` in the engine repository stores the built-in assets of the engine (e.g., common images, scripts, etc.).
 
@@ -26,7 +26,7 @@ Asset registration needs to be configured in `contributions` using the `asset-db
 
 In the above example, we have registered the `assets` folder in the root directory of the extension `test-package` to the asset database.
 
-## Script Asset
+## Writing Script Resources in Extensions
 
 Create a script `foo.ts` in the `test-package/assets/` directory, with the following content：
 

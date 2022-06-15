@@ -10,7 +10,7 @@ The quickest way to create a panel in Cocos Creator is through the **Extension t
 
 After clicking the **Create** button, you can find the extensions/first-panel extension in the project root directory.
 
-### Compile, install
+### Compile, Install
 
 In the command line tool, locate the extensions/first-panel directory and execute the following statement:
 
@@ -43,11 +43,11 @@ After clicking the **Send message to Default Panel** button shown in the red box
 >
 > ![enable-first-panel](./image/enable-first-panel.png)
 
-## Panel explanation
+## Panel Explanation
 
 In the following, we'll explain the panel directory structure, definition and communication mechanism one by one.
 
-### Panel directory structure
+### Panel Directory Structure
 
 In the project directory, find `./extensions/first-panel` folder, which is the directory where the entire extension can be viewed.
 
@@ -61,7 +61,7 @@ As shown above, there are more `static` and `panels` directories than hello-worl
 
 `index.ts`, `style`, `template` Please refer to the documentation [Write a Custom Panel](./panel-boot.md)
 
-### Description file package.json
+### Description File package.json
 
 Before we understand the panel, let's look at the panel-related definitions in `package.json`, as follows:
 

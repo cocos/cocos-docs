@@ -6,7 +6,7 @@ When writing an extension, it is possible to query whether the existing function
 
 If there are functions that provide the ability of receiving `contributions` externally, use these functions when writing extensions.
 
-## Contributions Data definition
+## Contributions Data Definition
 
 The `contributions` function, uniformly defined in the `contributions` field in `package.json`, is as follows.
 

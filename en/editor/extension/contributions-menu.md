@@ -4,7 +4,7 @@ There is a main menu bar at the top of the editor, and it is easy to add your ow
 
 ## Registering menus
 
-When an extension plugin needs to add a menu, just fill in the `contributions.menu` object. For example, if we add a menu item to the "Extensions" menu, we can modify `package.json` with the following code example:
+When an extension needs to add a menu, just fill in the `contributions.menu` object. For example, if we add a menu item to the "Extensions" menu, we can modify `package.json` with the following code example:
 
 ```json5
 {

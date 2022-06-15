@@ -88,7 +88,7 @@ export function update(this: Selector<typeof $> & typeof methods, dump: any) {
 export function ready(this: Selector<typeof $> & typeof methods) {}
 ```
 
-After compiling and refreshing the plugin, we can see that the rendering of the `CustomLabelComponent` component has been taken over.
+After compiling and refreshing the extension, we can see that the rendering of the `CustomLabelComponent` component has been taken over.
 
 > **Note**: Each `ui-prop` corresponds to one property, to display multiple properties you need to define multiple `ui-props`.
 
@@ -168,7 +168,7 @@ Add the `contributions.section.asset` field to `package.json` and define a custo
 
 You can get the type definition of the file by looking at the `importer` field in the `*.meta` corresponding to the file.
 
-Next, create a new `src/contributions/inspector/asset-effect.ts` script file in the plugin directory and write the following code:
+Next, create a new `src/contributions/inspector/asset-effect.ts` script file in the extension directory and write the following code:
 
 ```typescript
 'use strict';

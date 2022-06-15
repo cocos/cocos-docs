@@ -49,7 +49,7 @@ To apply the extension package to all Cocos Creator projects, the **Global** pat
 
 > **Note**: `Editor.App.path` can be used to print the global path.
 
-## Dependency installation and compilation build
+## Dependency Installation and Compilation Build
 
 Once created, open the directory where the extension package is located and execute the following command:
 

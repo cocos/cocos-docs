@@ -1,6 +1,6 @@
 # Getting Started Example - First Data Interaction
 
-In the previous two documents [Getting Started Example - Menu](./first.md) and [Getting Started Example - Menu](./first-panel.md), we introduced:
+In the previous two documents [Getting Started Example - Menu](./first.md) and [Getting Started Example - Panel](./first-panel.md), we introduced:
 - How to create extensions
 - How to define menus in extensions
 - how to define messages in an extension

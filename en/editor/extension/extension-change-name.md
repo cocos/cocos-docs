@@ -1,6 +1,6 @@
 # Change the Name of a Extension
 
-## Change the display name
+## Change the Display Name
 
 If you want to rename the extension, just change the `name` field in the `package.json` file. The code example is as follows:
 
@@ -13,7 +13,7 @@ Change the `name` field to "hello-world" as above and refresh the extension in t
 
 ![extension](first/extension-hello-world.png)
 
-## Change the extension folder name
+## Change the Extension Folder Name
 
 If you want to change the folder name along with it, you need to restart Cocos Creator after the folder change in order to make the extension with the modified folder name take effect again.
 
