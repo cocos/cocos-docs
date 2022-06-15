@@ -1,4 +1,6 @@
-# Panel and extension communication
+# Panel and Extension Communication
+
+> **NOTE**: After v3.5, we updated the plugin documentation, so this documentation is deprecated, please move to [Message System](./messages.md) or [Customized Messages](./contributions-messages.md) for more information. If you see this document online, please post an issue on [github](https://github.com/cocos/cocos-docs/issues/new) and let the official staff know how to handle it.
 
 Some useful tools or simple functions can be written directly on the panel, but the panel is not a reliable data storage location. The window may be closed at any time, and the panel will also be closed.
 

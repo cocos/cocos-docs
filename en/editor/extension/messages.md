@@ -128,13 +128,13 @@ The `send` method only sends the message and does not wait for a return. Use thi
 Editor.Message.send(pkgName, message, . .args);
 ```
 
-The ``request`` method returns a promise object that receives the data returned after the message has been processed.
+The `request` method returns a promise object that receives the data returned after the message has been processed.
 
 ```typescript
 await Editor.Message.request(pkgName, message, . . args);
 ```
 
-The ``broadcast`` method only sends, and sends to all function extensions that listen for the corresponding message.
+The `broadcast` method only sends, and sends to all function extensions that listen for the corresponding message.
 
 ```typescript
 Editor.Message.broadcast(`${pkgName}:${actionName}`, . .args);

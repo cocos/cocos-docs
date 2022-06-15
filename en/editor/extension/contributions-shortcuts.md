@@ -42,7 +42,7 @@ When the corresponding shortcut key is pressed, the `undo` message is sent.
 
 ## Parameter descriptions
 
-Let's take a look at the details of each parameter of `contributions.shortcuts`.
+Below we will see the details of each parameter of `contributions.shortcuts`.
 
 ### message
 

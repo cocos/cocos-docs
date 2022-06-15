@@ -46,13 +46,13 @@ The name of the extension, this name should correspond to the extension folder.
 
 Type {string} Optional
 
-The title of the extension, when `title` is configured, `title` will be used when the extension needs to be displayed, supports [multi-language (i18n)](./i18n.md) configuration.
+The title of the extension, when `title` is configured, `title` will be used when the extension needs to be displayed, supports [Multilingual System (i18n)](./i18n.md) configuration.
 
 ## description
 
 Type {string} Optional
 
-The description of the extension, a brief overview of the extension's functionality. Supports [multilanguage (i18n)](./i18n.md) for multilingual syntax.
+The description of the extension, a brief overview of the extension's functionality. Supports [Multilingual System (i18n)](./i18n.md) for multilingual syntax.
 
 ## author
 
@@ -76,13 +76,13 @@ A relative path to a js file that defines the function entry file. When the exte
 
 Type {[name: string]: PanelInfo} Optional
 
-The panel information defined within the extension. You can use `Editor.Panel.open('hello-world.list');` to open the defined panel. For details, please refer to [Panel System](./panel.md).
+The panel information defined within the extension. You can use `Editor.Panel.open('hello-world.list');` to open the defined panel. For details, please refer to [Extension Panel](./panel.md).
 
 ## contributions
 
 type {[name: string]: any} optional
 
-`contributions` provides the ability to interact with the editor's feature system, see the documentation [Enhancements to existing features](./contributions.md).
+`contributions` provides the ability to interact with the editor's feature system, see the documentation [Extend existing functionality](./contributions.md).
 
 ## scripts
 

@@ -1,6 +1,6 @@
-# Custom Property Inspector Panel
+# Custom Inspector Panel
 
-Developers with custom property inspector needs are advised to first refer to the documentation [Defining Properties via Modifiers](.../.../scripting/decorator.md), and if that document meets the requirements, it is recommended that the methods in that document be used first.
+Developers with custom inspector needs are advised to first refer to the documentation [Decorator](../../scripting/decorator.md), and if that document meets the requirements, it is recommended that the methods in that document be used first.
 
 The **Inspector** panel, the module in Cocos Creator that displays the currently selected state, provides some basic extension capabilities.
 
@@ -62,7 +62,7 @@ Create a new extension and register the following `contributions.inspector` info
 }
 ```
 
-### Automatic rendering
+### Automatic Rendering
 
 Write a `src/contributions/inspector/comp-label.ts` file with the following contents:
 
@@ -92,7 +92,7 @@ After compiling and refreshing the plugin, we can see that the rendering of the 
 
 > **Note**: Each `ui-prop` corresponds to one property, to display multiple properties you need to define multiple `ui-props`.
 
-### Manual rendering
+### Manual Rendering
 
 In the above auto-rendering example, we used a special `ui-prop` of type `dump` for rendering data submission, which allows us to quickly take over the rendering of the component, but if we face some extreme cases but it is difficult to handle some details, we can switch to manual rendering mode, the code is as follows:
 

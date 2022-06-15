@@ -140,7 +140,7 @@ The above message defines a log message, which is handled by the log method in t
 "contributions": {
         "messages": {
             "log": {
-                "methods": ["default.log"]
+                "methods": ["default.log"] 
             }
         }
     }
@@ -162,7 +162,7 @@ module.exports = Editor.Panel.define({
 });
 ```
 
-In most cases, panel layouts cannot be this simple. If you continue to write complex HTML layouts and css styles here, the code will become unmaintainable. You can refer to the project created in the document [Getting Started Example - Panels](./first-panel.md), we can separate the `html` and `css` code into separate files and put them in the `static` folder.
+In most cases, panel layouts cannot be this simple. If you continue to write complex HTML layouts and css styles here, the code will become unmaintainable. You can refer to the project created in the document [Getting Started Example - Panel](./first-panel.md), we can separate the `html` and `css` code into separate files and put them in the `static` folder.
 
 The resulting panel template code is shown below:
 

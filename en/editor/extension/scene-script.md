@@ -1,4 +1,4 @@
-# Calling the Engine API
+# Calling the Engine API and Project Script
 
 In the extension you can define a special **scene script** file, which will be in the same runtime as the scripts in the `assets\` directory of the project, with the same runtime environment.
 

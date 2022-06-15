@@ -1,4 +1,4 @@
-# Write a Custom Panel
+# Creating a Custom Panel
 
 We have already written the panel definition in [package.json](./panel.md), it's time to implement the panel's logical functionality.
 
@@ -137,7 +137,7 @@ export const template = readFileSync(join(__dirname, '../static/default.html'), 
 
 When the `template` is defined and the panel is opened, the content of the template will be automatically rendered to the interface.
 
-In addition, the editor also provides some custom elements, which can be used in the [UI components](./editor/extension/ui.md).
+In addition, the editor also provides some custom elements, which can be used in the [UI components](./ui.md).
 
 ## style
 

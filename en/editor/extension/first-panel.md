@@ -25,7 +25,7 @@ After the command is executed, go back to the **Extension Manager**, find the fi
 
 ### View Panel
 
-After enabling and refreshing the plugin, you can find the menu items in the **Panel** menu as shown in the following figure.
+After enabling and refreshing the extension, you can find the menu items in the **Panel** menu as shown in the following figure.
 
 ![extension-first-panel-menu](./first/extension-first-panel-menu.png)
 
@@ -39,17 +39,17 @@ This example also defines another menu item for communication in the **Developer
 
 After clicking the **Send message to Default Panel** button shown in the red box in the above image, you can see that the content displayed on the panel will change.
 
-> **Note**: If this menu is not displayed, please open the **Extension Manager** panel and make sure the plugin is enabled.
+> **Note**: If this menu is not displayed, please open the **Extension Manager** panel and make sure the extension is enabled.
 >
 > ![enable-first-panel](./image/enable-first-panel.png)
 
 ## Panel explanation
 
-Next, we explain the panel directory structure, definition and communication mechanism one by one.
+In the following, we'll explain the panel directory structure, definition and communication mechanism one by one.
 
 ### Panel directory structure
 
-In the project directory, find `./extensions/first-panel` folder, which is the directory where the entire plugin can be viewed.
+In the project directory, find `./extensions/first-panel` folder, which is the directory where the entire extension can be viewed.
 
 ![extension-first-panel-folder](./first/extension-first-panel-folder.png)
 
@@ -59,7 +59,7 @@ As shown above, there are more `static` and `panels` directories than hello-worl
 
 `panels` - used to store panel-related source code, each panel has an `index.ts` entry source file.
 
-`index.ts`, `style`, `template` Please refer to the documentation [Writing Panels](./panel-boot.md)
+`index.ts`, `style`, `template` Please refer to the documentation [Write a Custom Panel](./panel-boot.md)
 
 ### Description file package.json
 
@@ -139,10 +139,10 @@ Before we understand the panel, let's look at the panel-related definitions in `
         - width: Number - the default width of the panel
         - height: Number - the default height of the panel
 
-## Read more
+## Additional Reading
 
-`panel` For a detailed explanation of panels, please refer to the documentation [Panel System](./panel.md).
+`panel` For a detailed explanation of panels, please refer to the documentation [Extension Panel](./panel.md).
 
-`i18n` for multi-language configuration, please refer to the documentation [Multi-language system (i18n)](./i18n.md).
+`i18n` for multi-language configuration, please refer to the documentation [Multilingual System (i18n)](./i18n.md).
 
-`messages` For the complete message definition mechanism, please refer to the documentation [custom messages](./contributions-messages.md).
+`messages` For the complete message definition mechanism, please refer to the documentation [Customized Messages](./contributions-messages.md).

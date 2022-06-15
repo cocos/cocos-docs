@@ -15,7 +15,7 @@ The Preferences panel is divided into left and right sides.
 - The left side shows the names of the feature extensions that provide configuration items.
 - On the right side is the operation panel rendered according to the configuration.
 
-Changes on the panel are immediately modified to the corresponding configuration items. For more information about the **Preferences** panel, please refer to the document [Preferences](.../.../editor/preferences/index.md).
+Changes on the panel are immediately modified to the corresponding configuration items. For more information about the **Preferences** panel, please refer to the document [Preferences](../../editor/preferences/index.md).
 
 ## Customization panel
 

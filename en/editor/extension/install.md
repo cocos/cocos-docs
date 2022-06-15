@@ -22,11 +22,11 @@ If you only wish to apply the extension to the specified project, you can choose
 Extensions can be obtained in three ways.
 - Other developers packaged and shared, see [Packaged Extensions](#Package%20extensions) below.
 
-- Download from **Dashboard -> Mall**.
+- Download from **Dashboard -> Store**.
 
   ![dashboard-store](./image/dashboard-store.png)
 
-- Downloaded from the [Cocos Store-Resource Store](http://store.cocos.com) page.
+- Downloaded from the [Cocos Store](http://store.cocos.com) page.
 
 After getting the extension zip file, click **Extension -> Extension Manager** in the top menu bar of the editor.
 
@@ -58,7 +58,7 @@ Find the corresponding extension in the **Extension Manager** and click the **Re
 
 ## Package extensions
 
-After writing an extension, if you want to share it with its users, you need to package the extension as a zip archive.
+After writing an extension, if you want to share it with other users, you need to package the extension as a zip archive.
 
 Let's take the `first-panel` extension as an example, its directory structure is as follows.
 
@@ -79,4 +79,4 @@ Name the zip package `first-panel.zip` (same name as the extensions folder is re
 
 > **Note**: You have to do the file selection operation in the directory of the extension, otherwise it may lead to incorrect directory structure.
 
-If you want to upload the extension to the [Cocos Store](https://store.cocos.com), please refer to the document [Uploading extensions to the Cocos Store](./store/upload-store.md).
+If you want to upload the extension to the [Cocos Store](https://store.cocos.com), please refer to the document [Submitting Resources to Cocos Store](./store/upload-store.md).

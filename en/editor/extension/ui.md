@@ -47,4 +47,4 @@ When extending the editor panel, it can be configured using json. In theory, all
     - `value` value
     - `label` display label
 
-For usage examples, please refer to the documentation [Custom Preferences Panel](./contributions-preferences.md) and [custom project settings panel](./contributions-project.md).
+For usage examples, please refer to the documentation [Extending the Preferences Panel](./contributions-preferences.md) and [Extending Project Settings Panel](./contributions-project.md).

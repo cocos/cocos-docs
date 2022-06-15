@@ -27,7 +27,7 @@ After the extension is successfully created, click **Extensions-> Extension Mana
 
 ![extension](first/extension.png)
 
-For more information about extension management, please refer to the documentation [Extension Manager - Extension List](./extension-manager.md).
+For more information about extension management, please refer to the documentation [Extension Manager - Extension List](./extension-manager.md#Extensions%20list).
 
 ## Extended Directory
 
@@ -75,7 +75,7 @@ Open the `package.json` file and you will see the following:
 
 ```
 
-The meaning of each field is as follows.
+The description of each field is as follows.
 - `package_version`: Number - the value of the version number.
 - `version`: String - The version number string, it is recommended to use [semver](http://semver.org/) format to manage your package version.
 - `name`: String - defines the name of the package, the package name is globally unique. Please refer to [option description] for naming rules (. /create-extension.md).
@@ -123,12 +123,12 @@ Replace `package.json` with the following:
 }
 ```
 
-The meaning of the new fields is as follows.
+The description of the new fields is as follows.
 - `contributions`: Object (optional) - configuration related to the extension of the editor's existing functionality
-    - `menu`: [], register the menu and bind the message. For details, please refer to [Customize Main Menu](./contributions-menu.md).
-    - `messages`:[] - Register editor messages, which can be bound to one or more methods defined within the extension. See [custom messages] for more definition data (./contributions-messages.md).
+    - `menu`: [], register the menu and bind the message. For details, please refer to [Customize the Main Menu](./contributions-menu.md).
+    - `messages`:[] - Register editor messages, which can be bound to one or more methods defined within the extension. See [Customized Messages](./contributions-messages.md) for more definition data.
 
-For more definitions of the `package.json` format, please refer to [Extension Package Definitions](./define.md).
+For more definitions of the `package.json` format, please refer to [Definition of Extension](./define.md).
 
 ## Installing Dependencies and Compiling
 
@@ -141,7 +141,7 @@ npm install
 npm run build
 ```
 
-For more information on building extensions, see the documentation [Extension templates and building](./create-extension.md).
+For more information on building extensions, see the documentation [Extension Templates and Compile Builds](./create-extension.md).
 
 ## Run Extensions
 
@@ -179,7 +179,7 @@ export const load = function() { };
 export const unload = function() { };
 ```
 
-The methods defined in `export const methods` will be used as interfaces for operations that will be called across extensions via the [message system](./messages.md) to be called across extensions or to communicate with panels.
+The methods defined in `export const methods` will be used as interfaces for operations that will be called across extensions via the [Message System](./messages.md) to be called across extensions or to communicate with panels.
 
 The entry program is the main process of the extension and will be loaded during the startup of Cocos Creator.
 

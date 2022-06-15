@@ -1,4 +1,4 @@
-# Extension Manager Panel Description
+# Extension Manager Panel
 
 The **Extension Manager** is used to manage extensions in the editor. Click **Extension -> Extension Manager** in the top menu bar of Cocos Creator to open:
 
@@ -8,7 +8,7 @@ The **Extension Manager** is used to manage extensions in the editor. Click **Ex
 
 The relevant functions at the top of the Extension Manager are described as follows:
 
-**1**: Extension types, there are 4 types of extensions **Internal**, **Project**, **Global** and **Develop**, please refer to [**Extension Types**](#%E6%89%A9%E5%B1%95%E7% B1%BB%E5%9E%8B) section for details.
+**1**: Extension types, there are 4 types of extensions **Internal**, **Project**, **Global** and **Develop**, please refer to [**Extension Types**](#Extension%20Types) section for details.
 
 **2**: Scan Extension button to scan for extensions under the extensions directory (`extensions`), uninstall non-existent extensions, and install extensions that have not been imported. This button is not available under the **Internal** and **Develop** subpages.
 

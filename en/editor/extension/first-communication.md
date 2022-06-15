@@ -1,19 +1,19 @@
-# Getting Started Example - Inter-Extension Communication
+# Getting Started Example - First Data Interaction
 
-In the previous two documents [Getting Started - Menus](./first.md) and [Getting Started - Panels](./first-panel.md), we introduced.
+In the previous two documents [Getting Started Example - Menu](./first.md) and [Getting Started Example - Menu](./first-panel.md), we introduced:
 - How to create extensions
 - How to define menus in extensions
 - how to define messages in an extension
 - How to define a panel in an extension
 
-This article demonstrates how two extensions can communicate with each other and will cover three topics.
+This article demonstrates how two extensions can communicate with each other and will cover three topics:
 - How to open a panel of another extension
 - How to send a message to another extension
 - How to send and listen to broadcast messages
 
-## Open another extension's panel
+## Open Another Extension's Panel
 
-Sometimes we need to open another extension in an extension we wrote, so next we'll try to modify the extension example in **Starting Example-Menu** so that it opens **Starting Example-Panel**.
+Sometimes we need to open another extension in an extension we wrote, so next we'll try to modify the extension example in **Getting Started Example - Menu** so that it opens the panel defined in **Getting Started Example - Panel**.
 
 The modified `package.json` looks like this:
 
@@ -58,7 +58,7 @@ We modified `contributions.menu`, added `open other` menu item, and put all the 
 
 In `contributions.messages`, we add an `open-other` message and let the `openOther` function in `main.ts` handle this message.
 
-The extension in **Start Example-Panel** is `first-panel`, so we use `Editor.Panel.open('extension')` to open its default panel, as follows:
+The extension in **Getting Started Example - Panel** is `first-panel`, so we use `Editor.Panel.open('extension')` to open its default panel, as follows:
 
 ```typescript
 openOther(){
@@ -154,4 +154,4 @@ hello-world knows first-panel is open
 
 This means that the ``hello-world`` extension has received a broadcast message from the ``first-panel`` extension.
 
-For more message-related details, please refer to the documentation [messaging system](./messages.md).
+For more message-related details, please refer to the documentation [Message System](./messages.md).

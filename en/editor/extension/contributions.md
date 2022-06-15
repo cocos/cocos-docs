@@ -1,4 +1,4 @@
-# Extend existing functionality
+# Extend Existing Functionality
 
 **Cocos Creator** supports contributions between extensions.
 
@@ -38,7 +38,7 @@ The `contributions` function, uniformly defined in the `contributions` field in 
 
 - `profile` - defines the configuration needed for the extension, see the documentation [Configuration System](./profile.md).
 
-- `scene` - Write scripts in the extension that need to interact with the engine and project scripts, see the documentation [Calling the Engine API](./scene-script.md).
+- `scene` - Write scripts in the extension that need to interact with the engine and project scripts, see the documentation [Calling the Engine API and Project Script](./scene-script.md).
 
 - `inspector` - custom **Inspector** panel, see the documentation [Custom Property Inspector Panel](./inspector.md).
 
