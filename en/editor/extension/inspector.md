@@ -169,7 +169,7 @@ module.exports = Editor.Panel.define({
 });
 ```
 
-This allows us to add a button at the end of the effect resource page within the inspector.
+This allows us to add a button at the end of the effect inspector.
 
 Also note here that data registered by multiple plugins is co-existing. If an Asset already has other plugins registered or has a custom renderer built in, then any custom renderers registered again will be appended to it. If an Asset does not have a built-in custom renderer and uses the default rendering, then when the plug-in registers the renderer, it will completely take over the rendered content.
 
