@@ -1,58 +1,94 @@
-# Physics Material
+# Physical Materials
 
-In __Cocos Creator__, the physics material is a __asset__, which records the surface information of the object. This is used to calculate the friction and elastic force of the colliding object.
+A physics material is an asset that records information about the surface of an object that is used to calculate the frictional and spring forces on colliding objects, etc.
 
-## Properties of Materials
+## Properties
 
-The properties of __Physics Materials__ are shown below:
+Physical material properties are shown in the following figure:
 
-![physics material](img/physic-material.jpg)
+![physics-mat-panel](img/physics-mat-panel.png)
 
-Properties | Description
----|---
-*friction* | Coefficient of friction
-*restitution* | Coefficient of restitution
+| Properties | Description |
+| :-- | :-- |
+| **Friction** | Friction factor |
+| **RollingFriction** | RollingFriction |
+| **SpinningFriction** | SpinFriction |
+| **Restitution** | Resilience |
 
-When in contact with other surfaces, these coefficients are used to calculate the corresponding friction and elastic forces.
+When in contact with other surfaces, these coefficients are used to calculate the corresponding friction and spring forces.
 
-## Creating Physics Materials
+## Create Physical Materials
 
-__Physics Materials__ can be created in two ways:
+### Create in Editor
 
-1. Create in editor
-2. Code instantiation
+Physical materials can be created by right-clicking anywhere in the **Inspector** panel or by clicking between the **+** button:
 
-The way to create with the editor is shown below:
+![create physical material](img/material-create-pmtl.png)
 
-![Create Physics materials](img/create-pmtl.jpg)
+### Creating by code
 
-Instantiated in the code:
-
-```ts
-let newPmtl = new PhysicMaterial();
-newPmtl.friction = 0.1;
-newPmtl.restitution = 0.1;
-```
-
-## Application of materials
-
-The physics material is set in units of collision bodies, and each `Collider` has a `material` property (when not set, `Collider` will refer to the default physics material in the physics system).
-The application to `Collider` is also divided into editor operation and code operation.
-
-To operate in the editor, just drag the asset into the `cc.PhysicsMaterial` property box, as shown in the following figure:
-
-![apply physics material](img/apply-pmtl.jpg)
-
-Operation in the code:
+Physical materials can also be instantiated by code: !
 
 ```ts
-const collider = this.node.getComponent(ColliderComponent);
-collider.material = newPmtl;
+import { PhysicsMaterial } from 'cc';
+
+let newPMtl = new PhysicsMaterial();
+newPMtl.friction = 0.1;
+newPMtl.rollingFriction = 0.1;
+newPMtl.spinningFriction = 0.1;
+newPMtl.restitution = 0.5;
 ```
 
-Because of the design of [Material Sharing](physics-collider.md##PhysicsMaterial), you can actually do this directly in the code (because an instance will be created when you get `material`)
+## Use Physics Material
+
+Currently, physics materials are set on a collider basis, and each **Collider** has a **Material** property (when not set, the **Collider** will refer to the default physics material in the physics system).
+
+Applying to **Collider** is also divided into two ways: editor operations and code operations.
+
+For in-editor operations, simply drag and drop the resource into the **cc.PhysicalicMaterial** property box, as shown below.
+
+![apply-physic-material](img/apply-pmtl.jpg)
+
+Operate in the code:
 
 ```ts
-collider.material.friction = 0.1;
-collider.material.restitution = 0.1;
+import { Collider } from 'cc';
+
+let collider = this.node.getComponent(Collider);
+if (collider) {
+    collider.material = newPMtl;
+    collider.material.rollingFriction = 0.1;
+}
 ```
+
+## Shared Materials
+
+In the physics system, physics materials have two states, shared materials and instanced materials.
+
+- Shared material: Different colliders that share the same material, and modifications to that material affect all colliders holding that material. By default, colliders are initialized with the engine's default physics material. This can be accessed through `sharedMaterial`, with the following code example.
+
+    ```ts
+    import { Collider } from 'cc';
+    let collider = this.node.getComponent(Collider);
+    if (collider) {        
+        let sharedMaterial = collider.sharedMaterial; 
+        // or
+        collider.sharedMaterial.friction = 0.5
+
+        collider.sharedMaterial = newPMtl;
+    }
+    ```
+
+- Instanced material: Only used by this collider, modifying this material will not affect other colliders.
+
+  If a collider's physical material is in a shared state, a new physical material will be generated when `getter` of `material` is called.
+
+  The following code demonstrates how calling `getter` on a collider changes the material to an instanced state when the physical material is in a shared state.
+
+    ```ts
+    import { Collider } from 'cc';
+    let collider = this.node.getComponent(Collider);
+    if (collider) {
+        const material = collider.material; 
+    }
+    ```

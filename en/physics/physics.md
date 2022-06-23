@@ -1,49 +1,46 @@
-# Physics 3D Introduction
+# 3D Physics System
 
-__Cocos Creator__ currently supports the lightweight collision detection system __builtin__ and the physics engine __cannon.js__ with physical simulation, and the __asm.js__/__wasm__ version __ammo.js__ of the powerful physics engine __bullet__, also we provides users with efficient and unified component-based workflow and convenient methods of use.
+## Introduction
 
-## Physics World And Elements
+![physics-system](img/physics-system.jpg)
 
-Elements in the physics world can be divided into **rigid body**. We can adding physics elements by adding a collider (__Collider__) or rigid body (__RigidBody__) component to the game object. The physics system will perform calculations on these elements to make their behaviors the same with the real world.
+The physics system is to assign real-world physical properties (gravity, thrust, etc.) to the game world and abstract it as a rigid-body model, so that game objects, under the action of forces, emulate real-world motion and the collision process between them. That is, on top of the classical Newtonian mechanics model, the motion, rotation and collision of game objects are calculated through API.
 
-> **Note**: the __rigid body__ here doesn't refer to the __RigidBody__ component. The __RigidBody__ component is used to control the properties related to the physical behavior of the rigid body.
+Cocos Creator supports the following physics engines.
 
-### Adding a Physical Element
+- **ammo.js**: default physics engine, asm.js/wasm version of [Bullet physics engine](https://pybullet.org/wordpress/). A physics engine with collision detection and physics simulation.
+- **builtin**: built-in physics engine, lightweight engine for collision detection only.
+- **cannon.js**: physics engine with collision detection and physics simulation.
+- **PhysX**: Game physics engine developed by [NVIDIA](https://developer.nvidia.com/physx-sdk). A physics engine with collision detection and physics simulation.
 
-Adding a physical element to the world can be divided int the following steps:
+Developers choose different physics engines according to their development needs for physics features or application scenarios, please refer to: [Physics Engines](physics-engine.md) for details.
 
-1. Create a new shape __Cube__;
-2. Click __Add Component__ on the __Inspector__ panel witch is on the right of editor;
-3. Select __BoxCollider__ under the __Physics__ menu, and adjust the parameters;
-4. add a __RigidBody__ component in order to make it have physical behavior.
+> **Note**: PhysX is not supported in earlyer versions. To use PhysX please make sure the engine is upgraded to the latest version.
 
-In this way we get a physical element that has **both a collider and a physical behavior**.
+## Physics Worlds and Elements
 
-### Perfecting The Physics World
+Each element in the physics world can be divided into a separate **rigid body**, which can be made available in Cocos Creator 3.x by adding a [Collider](physics-collider.md) or [RigidBody](physics-rigidbody.md) to the game object. physics elements to have physical properties. The physics system will perform physics calculations for these elements, such as calculating whether the objects collide and what forces are applied to the objects. When the calculations are complete, the physics system will update the physics world to the scene world, emulating the physical behavior in the real world.
 
-We can add a ground to the world. Following the steps 1,2,and 3, you can add another __Plane__ with **collider only**.
+Scene world and physical world.
 
-Then, adjust the view of the camera (select the camera and press the shortcut __Ctrl + Shift + F__ to align the camera view to screen).
+![Scene World vs. Physics World](img/physics-world.jpg)
 
-Finally, click the run button, you can see the changes of physical elements in the scene. The final scene is shown in the following figure:
+> **Note**: The "rigid body" here is not a rigid body component, but a rigid body within the physics world (an object that remains the same shape and size in motion and after being acted upon by forces, and the relative positions of the internal points remain the same), and the rigid body component is used to control the physical behavior of the rigid body.
 
-![physics world](img/physics.jpg)
+### Physical world flow
 
-### Composition Of Physical Elements
+After all components are `lateUpdate`, the engine will synchronize the nodes holding physical properties (rigid body component, collider component) to the physics world and drive the physics engine to simulate them, and then synchronize the results calculated by the physics engine to each node of the scene after the simulation is completed. The overall process is shown in the following figure.
 
-A physical element can be composed of the following ways:
+![phy](img/physics-pipeline.png)
 
-- A __RigidBody__ component
-- One or more __Collider__ components
-- One __RigidBody__ component plus one or more collider components
+## Add physics elements
 
-## More Detailed Modules
+![add-element](img/physics-element.png)
 
-Additional physics system will be introduced in more detail through the following modules:
+Adding a physics element to the game world can be done in the following steps.
 
-Module | Description
----|---
-[**Physics Options**](physics-item.md) | Introduces the optional options of low-level physics engine in **Cocos Creator**
-[**Physics System**](physics-system.md) | Introduces the physics system and a series of properties and interfaces of the physics system.
-[**Physics Component**](physics-component.md) | Introduces some physics components and a series of properties on the panel.
-[**Physics Usage**](physics-use.md) | Further introduces the use of physics, events, group masks, etc.
+1. Create a new node. Here create a new cube model **Cube**.
+2. Add a collider component, here add a [BoxCollider](physics-collider.md#%E7%9B%92%E7%A2%B0%E6%92%9E%E5%99%A8%E7%BB%84%E4%BB%B6-boxcollider). Click the **Add Component** button at the bottom of the **Inspector** panel, select **BoxCollider** in the **Physics** directory and adjust the parameters.
+3. To give it a physical behavior, then add a [RigidBody](physics-rigidbody.md) component.
+
+This gives us a physics element with **both collider and physics behavior**.

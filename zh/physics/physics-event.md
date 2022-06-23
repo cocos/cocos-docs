@@ -15,9 +15,9 @@
 
 | 事件             | 说明     |
 | :--------------- | :------- |
-| `onTriggerEnter` | 触发开始 |
-| `onTriggerStay`  | 触发保持 |
-| `onTriggerExit`  | 触发结束 |
+| `onTriggerEnter` | 触发开始时触发该事件 |
+| `onTriggerStay`  | 触发保持时会频发触发该事件 |
+| `onTriggerExit`  | 触发结束时触发该事件 |
 
 其中可产生触发事件的碰撞对为：
 

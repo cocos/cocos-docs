@@ -28,7 +28,7 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 
 ### cannon.js
 
-**cannon.js**（[GitHub](https://github.com/cocos-creator/cannon.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/cannon.js)）是一个开源的物理引擎，使用 JavaScript 开发并实现了比较全面的物理模拟功能。
+**cannon.js**（[GitHub](https://github.com/cocos-creator/cannon.js) | [Gitee](https://gitee.com/mirrors_cocos-creator/cannon.js)）是一个开源的物理引擎，使用 JavaScript 开发并实现了比较全面的物理模拟功能。**cannon.js** 模块大小约为 **141KB**。
 
 当选择的物理引擎为 **cannon.js** 时，需要在节点上添加 **刚体组件** 才能进行物理模拟。然后再根据需求添加 **碰撞组件**，该节点就会增加相应的碰撞体，用于检测是否与其它碰撞体产生碰撞。
 
@@ -39,8 +39,6 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 - 触发和碰撞事件
 - 物理材质
 - 射线检测
-
-[cannon.js](https://github.com/cocos-creator/cannon.js) 是一个开源的物理引擎，它使用 JavaScript 语言开发，并实现了比较全面的物理功能，建议在项目需要更多复杂的物理功能和较小的包体情况下使用。**cannon.js** 模块大小约为 **141KB**。
 
 ### PhysX
 

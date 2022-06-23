@@ -4,7 +4,7 @@
 
 ## Enable CCD
 
-CCD is disabled by default. To enable it, set the `useCCD` property of the RigidBody component of the object to `true`:
+CDD is disabled by default. To enable it, set the `useCCD` property of the RigidBody component of the object to `true`:
 
 ```ts
 const rigidBody = this.getComponent(RigidBody);
@@ -23,7 +23,7 @@ The ball moves from time T0 to time T1, missing the black square that should hav
 
 ## Support
 
-Due to differences in support among physics engines, and for performance reasons, Creator supports CCD in the following cases:
+Due to differences in support among physics engines, and for performance reasons, Creator supports CDD in the following cases:
 
 - Only dynamic rigidbodies are supported.
 - Only convex shapes are supported.

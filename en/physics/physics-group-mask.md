@@ -1,147 +1,123 @@
-# Groups And Masks
+# Group and Mask
 
-In __Cocos Creator__, some physics components (there are currently __rigid body components__ and __collider components__) provide interfaces for __Groups and Masks__.
+Group and masks are necessary for physical collision detection between objects to be possible. A group can be simply understood as the group a collision object is in, and a mask can be simply understood as the grouping objects that the collision object needs to collide with.
 
-## How does it work?
+## Collision Detection Principle
 
-Physics elements and nodes are currently in a one-to-one relationship. The group and mask belong to the physics elements. The physics components on a single node modify the group and mask of the physics elements corresponding to the nodes.
-
-As long as the following conditions are __true__, it will be detected
+In Cocos Creator, collision detection is done in binary by bit, by "matching" the group value to the mask value to determine whether the condition is satisfied or not. The calculation of whether collision detection is allowed between objects is as follows:
 
 ```ts
 (GroupA & MaskB) && (GroupB & MaskA)
 ```
 
-__For example__: two physical elements `A` and `B`.
+As you can see from this formula, group A needs to be in the mask list of group B and group B needs to be in the mask list of group A in order for collision detection to occur between the two objects. How to combine the binary operation with the formula for allowing collision detection is the following part to understand. But before that, you need to configure [Collision Matrix](physics-configs.md#collision-matrix) in **Project Settings -> Physics -> Collision Matrix**.
 
-The group value of `A` is `1` and the mask value is `3`
+![set-collider-config](img/set-collider-config.png)
 
-The group value of `B` is `2`, and the mask value is `2`
+According to the configuration above, Cocos Creator will parse the data into the following values (shown here only for the part of the explanation).
 
-The formula `(1 & 2) && (2 & 3)` is __false__, so here `A` will not be detected with `B`.
+- **DEFAULT**: **Index** value is `0`, the actual value of grouping is `1<<0=1`, the binary value is `0000 0001`; the actual value of mask value is `1<<0=1`, the binary value is `0000 0001`.
+- **SELF_PLANE**: **Index** value is `1`, the actual value of grouping is `1<<1=2`, the binary value is `0000 0010`; the actual value of mask value is `(1<<3)+(1<<4)=24`, the binary value is `0001 1000`.
+- **ENEMY_BULLET**: **Index** value is `4`, the actual value of the grouping is `1<<4=16`, the binary value is `0001 0000`; the actual value of the mask value is `1<<1=2`, the binary value is `0000 0010`.
 
-Here according to the mask value of `B` is `2`, we can know that the detectable group of `B` is `1`, and the group of `A` is `0`, so it is not detected.
+Based on the data it is possible to do a calculation of whether there is a collision between the groups:
 
-> **Note**: the expression depends on bit operation, the bit operation of JavaScript is limited to `32` bits, and the last bit is the sign bit. To avoid exceeding the operation range, it is recommended that the range of the group is `[0, 31 )`.
+- Does the group **SELF_PLANE** collide with the group **DEFAULT**.
 
-## Groups
+  ![cant-collider](img/cant-collider.png)
 
-### Setting a Group Value
-The following group value is `3`, and the binary value is `11`, which means it is in the `0`, `1` group (starting from `0`)
+  The final value based on the above calculation is `0`, so there is no collision between the two groups.
 
-```ts
-const group = (1 << 0) + (1 << 1);
-Collider.setGroup(group);
-```
+- Whether the group **SELF_PLANE** collides with the group **ENEMY_BULLET**.
 
-### Obtaining a Group Value
-Use `getGroup()`.
+  ! [can-collider](img/can-collider.png)
 
-```ts
-Collider.getGroup();
-```
+  The final value based on the above calculation is greater than `0`, so there will be a collision between the two groups.
 
-### Adding a Group
-Based on the above code, after the following code, the grouping value is `7`, and the binary value is `111`, so it means that it is in the `0`, `1`, and `2` groups.
+> **Note**: `<<` The left shift operator, which is a type of bitwise operator, shifts to the left by pushing in 0 from the right and shedding the leftmost bit.s
 
-```ts
-const group = 1 << 2;
-Collider.addGroup(group);
-```
+## Dynamically Set Group and Masks
 
-### Removing a Group
-Based on the above code, after the following code, the grouping value is `3`, so in the `0`, `1` group.
+### Define Groups
 
-```ts
-const group = 1 << 2;
-Collider.removeGroup(group);
-```
+Usually, in game development, you need to set collision-ready groups before the collision occurs and handle the related logic when the collision occurs. In Cocos Creator, all collision data is obtained as numeric values, which is not conducive to judgment during development. Therefore, it is possible to clearly know the meaning of each string of numbers by defining grouping objects or enumerations.
 
-> **Note**: it is recommended to fix in a group.
+In can use the left shift operator (<<) to set the group or mask, and the corresponding value of either grouping object or grouping enumeration should be the same as the value defined in the collision matrix, otherwise there may be data inconsistency, which leads to judgment failure.
 
-> **Note**: the receiving parameters of the above methods are all decimal numbers. For easy understanding, binary explanation is used here. Developers can also directly input decimal numbers for group operation after they are familiar**.
-
-## Masks
-
-### Setting a Mask Value
-The value of the following mask is `3`, the binary value is `11`, indicating that the detectable group is `0`, `1`.
-
-```ts
-const mask = (1 << 0) + (1 << 1);
-Collider.setMask(mask);
-```
-
-### Obtaining a Mask Value
-Use `getMask()`
-
-```ts
-console.log(Collider.getMask());
-```
-
-### Adding a Mask
-  On the basis of the above code, after the following code, a detectable group `3` was added.
-
-```ts
-const mask = 1 << 2;
-Collider.addMask(mask);
-```
-
-### Removing a Mask
-  The following code removes a detectable group `3`.
-
-```ts
-const mask = 1 << 2;
-Collider.removeMask(mask);
-```
-
-> **Note**: the addition and subtraction operation have higher priority than the shift operation.
-> **Note**: flexible use of group and mask can reduce the cost of additional detecting.
-
-## Examples
-
-Here is a simple example of usage:
-
-### Defining a Group
-
-**Method 1**: Defined in an __object__
+Way 1: Defined in an **object**
 
 ```ts
 export const PHY_GROUP = {
-    Group0: 1 << 0, // Group 0 is equivalent to giving it an alias of Group0.
-    Group1: 1 << 1
+    DEFAULT: 1 << 0,
+    SELF_PLANE: 1 << 1,
+    ENEMY_PLANE = 1 << 2,
+    SELF_BULLET = 1 << 3,
+    ENEMY_BULLET = 1 << 4,
+    BULLET_PROP = 1 << 5,
 };
 ```
 
-**Method 2**: Defined in an __enum__ (__TypeScript only__)
+Way 2: Defined in a **enum**
 
 ```ts
 enum PHY_GROUP {
-    Group0 = 1 << 0,
-    Group1 = 1 << 1
+    DEFAULT = 1 << 0,
+    SELF_PLANE = 1 << 1,
+    ENEMY_PLANE = 1 << 2,
+    SELF_BULLET = 1 << 3,
+    ENEMY_BULLET = 1 << 4,
+    BULLET_PROP = 1 << 5,
 };
+
+// If the enum needs to be displayed in the Inspector panel, you need to import the Enum function from the cc module and register the defined enum into the editor
+Enum(PHY_GROUP);
 ```
 
-In order to be able to set up groups on the panel, you need to register the defined groups to the editor `Enum(PHY_GROUP)` through the __Enum__ function exported by the __cc__ module.
+> **Note**: For historical reasons, the **Enum** function has special treatment for **-1**, so do not define properties with values of **-1** if you are not familiar with them.
 
-> **Note**: for historical reasons, the __Enum__ function has special treatment for `-1`. If you are not familiar with it, do not define a property with a value of `-1`.
+### Set/Get group
 
-### Using a Mask
+```ts
+// This case uses the enumeration defined in the "Define Groups" section above
+const rigid = this.getComponent(RigidBody);
+// Equivalent to rigid.setGroup(1 << 1) or rigid.setGroup(1)
+rigid.setGroup(PHY_GROUP.SELF_PLANE);
 
-The mask can be defined according to grouping, for example:
+rigid.getGroup();
+```
 
-- Define a mask(`const maskForGroup1 = PHY_GROUP.Group1;`) that only detects `Group1` 
-- Define a mask(`const maskForGroup01 = PHY_GROUP.Group0 + PHY_GROUP.Group1;`) that can detect `Group0` and `Group1` 
-- Define a mask(`const maskForNone = 0;`) that is not detected by all groups 
-- Define a mask(`const maskForAll = -1;`) for all groups to detect 
+### Add/Remove Groups
 
-### View Binary
+```ts
+// If the current group is not defined in the collision matrix, it can also be added dynamically
+const group = 1 << 7;
+const rigid = this.getComponent(RigidBody);
+rigid.addGroup(group);
+rigid.removeGroup(group);
+```
 
-By executing `(value >>> 0).toString(2)` in the running environment of JavaScript, you can see the binary string representation.
+### Set/Get Mask
+
+```ts
+const rigid = this.getComponent(RigidBody);
+const mask = (1 << 0) + (1 << 1); // Equivalent to 1 << 0 | 1 << 1
+rigid.setMask(mask);
+rigid.getMask();
+```
+
+> **Note**: Here you need to pay attention to the priority of the operator. For example, 3 + 1 << 2 and 3 + (1 << 2) do not compute equal values, and the operator + has a higher priority than <<.
+
+#### Using Masks
+
+Masks can be defined based on grouping, e.g.
+
+- Define a mask that detects only **DEFAULT** `const maskForGroup1 = PHY_GROUP.DEFAULT;`
+- Define a mask that detects **DEFAULT** and **SELF_PLANE** `const maskForGroup01 = PHY_GROUP.DEFAULT | PHY_GROUP.SELF_PLANE;`
+- Define a mask that is not detected by all groups `const maskForNone = 0;`
+- Define a mask that is detected by all groups `const maskForAll = 0xffffffff;`
+
+### View Group or Mask in Binary
+
+See the binary string representation by `(value >>> 0).toString(2)`.
 
 ![View binary](img/mask-all.jpg)
-
-## Collision Matrix
-
-The collision matrix is a further encapsulation of the packet mask configuration, which provides a more unified management and makes it easier to initialize the packet mask configuration without writing any code, and can be configured directly in the editor's project Settings.
-
-For details, please refer to the [collision matrix Settings](../editor/project/index.md#CollisionMatrix) documentation.

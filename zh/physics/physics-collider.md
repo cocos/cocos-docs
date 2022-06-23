@@ -73,7 +73,7 @@ let rigidbody = collider.attachedRigidBody;
 
 ![球碰撞器组件](img/collider-sphere.jpg)
 
-盒形碰撞体是一个基于长方体形状的碰撞体，可用来实现木箱、墙壁等物体的碰撞。
+球碰撞体是一个基于球形的碰撞体。
 
 | 属性 | 说明 |
 | :---|:--- |
