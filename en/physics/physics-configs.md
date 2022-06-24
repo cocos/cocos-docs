@@ -12,7 +12,7 @@ The **Project Settings -> Physical Configuration** allows you to configure the p
 
 | Properties | Description |
 | :--- | :--- |
-| **Gravity X** | The gravity vector, which sets the gravity value on the x component |
+| **Gravity X** | The gravity vector, which sets the gravity value on the x-component |
 | **Gravity Y** | A gravity vector that sets the gravity value on the y-component |
 | **Gravity Z** | A gravity vector that sets the gravity value on the z-component |
 | **AllowSleep** | Allow the system to sleep, default value `true` |
@@ -69,11 +69,11 @@ conf.gravity = new Vec3(10, 10, 0);
 PhysicsSystem.instance.resetConfiguration(conf);
 ```
 
-For more API content, please check the PhysicsSystem interface please refer to: [PhysicsSystem API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/physicssystem.html).
+For more API content, please check the PhysicsSystem interface please refer to: [PhysicsSystem API](__APIDOC__/en/#/docs/3.4/en/physics/classes/physicssystem.html).
 
 ## Collision Matrix
 
-The collision matrix is a further wrapper around the [groups and masks](physics-group-mask.md) function, which is used to initialize the groups and masks of physics elements.
+The collision matrix is a further wrapper around the [Group and Mask](physics-group-mask.md) function, which is used to initialize the groups and masks of physics elements.
 
 ![physics-collision](img/physics-collision.png)
 

@@ -49,7 +49,7 @@ A **ray** consists of a **starting point** and a **direction**. There are severa
 
 Cocos Creator provides a set of raycast detection functions based on the physics engine.
 
-The interface is currently provided by [**PhysicsSystem**](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/physicssystem.html) and has the following two classes.
+The interface is currently provided by [**PhysicsSystem**](__APIDOC__/en/#/docs/3.4/en/physics/classes/physicssystem.html) and has the following two classes.
 
 - `raycast` : Detects all colliders and records all detected results, obtained via `PhysicsSystem.instance.raycastResults`. The interface returns a boolean value indicating whether the detection was successful or not.
 - `raycastClosest`: detects all colliders and records the result of the detection with the shortest distance to the ray, obtained via `PhysicsSystem.instance.raycastClosestResult`. Also returns a boolean value indicating whether the detection was successful or not.
@@ -109,7 +109,7 @@ if(bResult){
 
 ### Return result description
 
-The result of the ray detection is stored by [PhysicsRayResult](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/physicsrayresult.html), mainly with the following information.
+The result of the ray detection is stored by [PhysicsRayResult](__APIDOC__/en/#/docs/3.4/en/physics/classes/physicsrayresult.html), mainly with the following information.
 
 - `collider`: the collider that hit
 - `distance`: the distance between the hit point and the start of the ray

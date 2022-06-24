@@ -10,7 +10,7 @@ Colliders can be used to define the shape of the object that needs to be physica
 
 ## Add Collider Component
 
-Here we will take the example of adding *BoxCollider** component.
+Here we will take the example of adding **BoxCollider** component.
 
 ### Add via Editor
 
@@ -18,7 +18,7 @@ Here we will take the example of adding *BoxCollider** component.
 
     ![add-cube](img/physics-add-cube.png)
 
-2. Select the new Cube cube node, click the **Add Component** button at the bottom of the **Inspector** panel on the right, and select **Physics -> BoxCollider** to add a collider component.
+2. Select the Cube created in **Hierachy** panel, click the **Add Component** button at the bottom of the **Inspector** panel on the right, and select **Physics -> BoxCollider** to add a collider component.
 
     ![add-boxcollider](img/physics-add-boxcollider.png)
 

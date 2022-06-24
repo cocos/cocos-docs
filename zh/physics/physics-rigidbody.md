@@ -10,12 +10,16 @@
 
 ![add-rigidbody-in-inspector](img/add-rigidbody-in-inspector.jpg)
 
-### 通过代码获取刚体组件
+### 程序化添加/获取
 
 ```ts
 import { RigidBody } from 'cc'
 
-let rigidBody = this.node.getComponent(RigidBody);
+// 添加刚体
+const rigidbody = this.node.addComponent(RigidBody);
+
+// 获取刚体
+const rigidBody = this.node.getComponent(RigidBody);
 ```
 
 ### 什么情况下需要添加刚体

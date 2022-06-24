@@ -2,7 +2,7 @@
 
 Rigid bodies are the basic objects that make up the physics world and allow game objects to move in a physically controlled manner. For example, a rigid body can make a game object do free fall under the influence of gravity, or it can make a game object simulate real-world physics phenomena under the action of forces and torques.
 
-## Adding Rigid Bodies 
+## Adding Rigid Body
 
 ### Adding via Editor
 
@@ -10,22 +10,24 @@ Click **Add Component -> Physics -> RigidBody** under **Inspector** panel to add
 
 ![add-rigidbody-in-inspector](img/add-rigidbody-in-inspector.jpg)
 
-### Get the rigid body component by code
+### Via Code
 
 ```ts
 import { RigidBody } from 'cc'
 
-let rigidBody = this.node.getComponent(RigidBody);
+const rigidbody = this.node.addComponent(RigidBody);
+
+const rigidBody = this.node.getComponent(RigidBody);
 ```
 
-### When to add rigid bodies
+### When to Add Rigid Bodies
 
 1. Configure collision grouping and make it effective.
 2. The object needs to have kinematic or kinetic behavior.
 
 >*Note**: The object needs to have full physical properties provided the object has both **rigid body** and **collision body**, and its center-of-mass position and collision body shape are adjusted.
 
-## Rigidbody properties
+## Rigidbody Properties
 
 ![rigidbody](img/rigid-body.jpg)
 
@@ -46,7 +48,7 @@ The following properties only take effect when **Type** is set to **DYNAMIC**.
 | **LinerFactor** | Linearity factor to scale the physics values (velocity and force) in each axis direction |
 | **AngularFactor** | Angular factor for scaling physical values in each axis direction (velocity and force) |
 
-Please refer to [RigidBody API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/rigidbody.html) for rigid body component interface.
+Please refer to [RigidBody API](__APIDOC__/en/#/docs/3.4/en/physics/classes/rigidbody.html) for rigid body component interface.
 
 ## RigidBody Types
 
@@ -70,7 +72,7 @@ The reasons for the above phenomena are.
 2. Static objects can indeed move, static means that in spacetime, every moment is static and will not consider the state of other moments.
 3. Unlike static objects, kinematic objects will estimate the state of motion (such as speed) according to the nearby moments, and because of the role of friction, therefore driving the yellow square.
 
-## Rigid body center of mass
+## Rigid Body Center of Mass
 
 By default, the center of mass of a rigid body coincides with the origin of the model.
 
@@ -107,7 +109,7 @@ For different types, there are different ways to make rigid bodies move.
 
 For dynamic rigid bodies(**DYNAMIC**), their velocity needs to be changed in several ways.
 
-#### by gravity
+#### By Gravity
 
 The rigid body component provides the **UseGravity** property, which needs to be set to `true` when using gravity.
 
@@ -131,7 +133,7 @@ The rigid body component provides the ``applyTorque`` interface through which to
 rigidBody.applyTorque(new math.Vec3(200, 0, 0));
 ```
 
-#### by applying an impulse
+#### By Impulse
 
 The rigid body component provides the `applyImpulse` interface to apply an impulse to a point on the rigid body, which will immediately change the linear velocity of the rigid body according to the conservation of momentum. If the impulse is applied to a point that is not the center of mass of the rigid body, then a torque is generated and affects the angular velocity of the rigid body.
 
@@ -139,7 +141,7 @@ The rigid body component provides the `applyImpulse` interface to apply an impul
 rigidBody.applyImpulse(new math.Vec3(5, 0, 0));
 ```
 
-#### by changing velocity
+#### By Changing Velocity
 
 The rigid body component provides the ``setLinearVelocity`` interface that can be used to change the linear velocity.
 
@@ -153,9 +155,9 @@ The rigid body component provides the ``setAngularVelocity`` interface, which ca
 rigidBody.setAngularVelocity(new math.Vec3(5, 0, 0));
 ```
 
-### Limit the motion of a rigid body
+### Limit the Motion
 
-#### by hibernating
+#### By Hibernating
 
 When hibernating a rigid body, it empties the rigid body of all its forces and velocities, bringing it to a stop.
 
@@ -175,7 +177,7 @@ if (rigidBody.isSleeping) {
 
 > **Note**: Executing parts of the interface, such as applying force or impulse, changing velocity, grouping and masking will attempt to wake up the rigid body.
 
-#### via damping
+#### Via Damping
 
 The rigid body component provides **linearDamping** linear damping and **angularDamping** rotational damping properties, which can be obtained or set via the ``linearDamping`` and ``angularDamping`` methods.
 

@@ -1,4 +1,4 @@
-# Physical Events
+# Physical Event
 
 ## Trigger and Collider
 

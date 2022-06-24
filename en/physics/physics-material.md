@@ -1,4 +1,4 @@
-# Physical Materials
+# Physical Material
 
 A physics material is an asset that records information about the surface of an object that is used to calculate the frictional and spring forces on colliding objects, etc.
 
@@ -17,7 +17,7 @@ Physical material properties are shown in the following figure:
 
 When in contact with other surfaces, these coefficients are used to calculate the corresponding friction and spring forces.
 
-## Create Physical Materials
+## Create Physical Material
 
 ### Create in Editor
 
@@ -25,7 +25,7 @@ Physical materials can be created by right-clicking anywhere in the **Inspector*
 
 ![create physical material](img/material-create-pmtl.png)
 
-### Creating by code
+### Creating by Code
 
 Physical materials can also be instantiated by code: !
 
@@ -72,7 +72,7 @@ In the physics system, physics materials have two states, shared materials and i
     let collider = this.node.getComponent(Collider);
     if (collider) {        
         let sharedMaterial = collider.sharedMaterial; 
-        // or
+        
         collider.sharedMaterial.friction = 0.5
 
         collider.sharedMaterial = newPMtl;

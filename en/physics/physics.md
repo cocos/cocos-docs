@@ -8,7 +8,7 @@ The physics system is to assign real-world physical properties (gravity, thrust,
 
 Cocos Creator supports the following physics engines.
 
-- **ammo.js**: default physics engine, asm.js/wasm version of [Bullet physics engine](https://pybullet.org/wordpress/). A physics engine with collision detection and physics simulation.
+- **ammo.js**: default physics engine, asm.js/wasm version of [Bullet](https://pybullet.org/wordpress/). A physics engine with collision detection and physics simulation.
 - **builtin**: built-in physics engine, lightweight engine for collision detection only.
 - **cannon.js**: physics engine with collision detection and physics simulation.
 - **PhysX**: Game physics engine developed by [NVIDIA](https://developer.nvidia.com/physx-sdk). A physics engine with collision detection and physics simulation.
@@ -17,30 +17,30 @@ Developers choose different physics engines according to their development needs
 
 > **Note**: PhysX is not supported in earlyer versions. To use PhysX please make sure the engine is upgraded to the latest version.
 
-## Physics Worlds and Elements
+## Physics Worlds
 
-Each element in the physics world can be divided into a separate **rigid body**, which can be made available in Cocos Creator 3.x by adding a [Collider](physics-collider.md) or [RigidBody](physics-rigidbody.md) to the game object. physics elements to have physical properties. The physics system will perform physics calculations for these elements, such as calculating whether the objects collide and what forces are applied to the objects. When the calculations are complete, the physics system will update the physics world to the scene world, emulating the physical behavior in the real world.
+Each element in the physics world can be understood as a separate **rigid body**, which can be made physical in Cocos Creator 3.x by adding a [Collider collider component](physics-collider.md) or [RigidBody rigid body component](physics-rigidbody.md) to the game object. Gives physics elements their physical properties. The physics system will perform physics calculations for these elements, such as calculating whether the objects collide and what forces are applied to the objects. When the calculations are complete, the physics system will update the physics world to the scene world, simulating the physical behavior that is restored in the real world.
 
-Scene world and physical world.
+Scene world and physical world:
 
 ![Scene World vs. Physics World](img/physics-world.jpg)
 
-> **Note**: The "rigid body" here is not a rigid body component, but a rigid body within the physics world (an object that remains the same shape and size in motion and after being acted upon by forces, and the relative positions of the internal points remain the same), and the rigid body component is used to control the physical behavior of the rigid body.
+> **Note**: "rigid body" in this context refers to an object in the physical world that remains unchanged in shape and size while in motion or after being acted upon by a force, and whose relative positions of the internal points remain unchanged.
 
-### Physical world flow
+### Physics Work Flow
 
-After all components are `lateUpdate`, the engine will synchronize the nodes holding physical properties (rigid body component, collider component) to the physics world and drive the physics engine to simulate them, and then synchronize the results calculated by the physics engine to each node of the scene after the simulation is completed. The overall process is shown in the following figure.
+After all components are `lateUpdate`, the engine will synchronize the nodes holding physical properties (rigid body component, collider component) to the physics world and drive the physics engine to simulate them, and then synchronize the results calculated by the physics engine to each node of the scene after the simulation is completed. The overall process is shown in the following figure:
 
 ![phy](img/physics-pipeline.png)
 
-## Add physics elements
+## Add Physics Elements
 
 ![add-element](img/physics-element.png)
 
-Adding a physics element to the game world can be done in the following steps.
+Adding a physics element to the game world can be done in the following steps:
 
 1. Create a new node. Here create a new cube model **Cube**.
-2. Add a collider component, here add a [BoxCollider](physics-collider.md#%E7%9B%92%E7%A2%B0%E6%92%9E%E5%99%A8%E7%BB%84%E4%BB%B6-boxcollider). Click the **Add Component** button at the bottom of the **Inspector** panel, select **BoxCollider** in the **Physics** directory and adjust the parameters.
+2. Add a collider component, here add a [BoxCollider](physics-collider.md#BoxCollider). Click the **Add Component** button at the bottom of the **Inspector** panel, select **BoxCollider** in the **Physics** directory and adjust the parameters.
 3. To give it a physical behavior, then add a [RigidBody](physics-rigidbody.md) component.
 
 This gives us a physics element with **both collider and physics behavior**.
