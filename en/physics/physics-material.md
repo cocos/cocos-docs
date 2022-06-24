@@ -2,21 +2,6 @@
 
 A physics material is an asset that records information about the surface of an object that is used to calculate the frictional and spring forces on colliding objects, etc.
 
-## Properties
-
-Physical material properties are shown in the following figure:
-
-![physics-mat-panel](img/physics-mat-panel.png)
-
-| Properties | Description |
-| :-- | :-- |
-| **Friction** | Friction factor |
-| **RollingFriction** | RollingFriction |
-| **SpinningFriction** | SpinFriction |
-| **Restitution** | Resilience |
-
-When in contact with other surfaces, these coefficients are used to calculate the corresponding friction and spring forces.
-
 ## Create Physical Material
 
 ### Create in Editor
@@ -38,6 +23,21 @@ newPMtl.rollingFriction = 0.1;
 newPMtl.spinningFriction = 0.1;
 newPMtl.restitution = 0.5;
 ```
+
+## Properties
+
+Physical material properties are shown in the following figure:
+
+![physics-mat-panel](img/physics-mat-panel.png)
+
+| Properties | Description |
+| :-- | :-- |
+| **Friction** | Friction factor |
+| **RollingFriction** | RollingFriction |
+| **SpinningFriction** | SpinFriction |
+| **Restitution** | Resilience |
+
+When in contact with other surfaces, these coefficients are used to calculate the corresponding friction and spring forces.
 
 ## Use Physics Material
 

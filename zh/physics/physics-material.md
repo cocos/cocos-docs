@@ -2,21 +2,6 @@
 
 物理材质是一种资源，它记录了物体的表面信息，这些信息用来计算碰撞物体受到的摩擦力和弹力等。
 
-## 属性
-
-物理材质属性如下图所示：
-
-![物理材质](img/physics-mat-panel.png)
-
-| 属性 | 属性说明 |
-| :-- | :-- |
-| Friction | 摩擦系数 |
-| RollingFriction | 滚动摩擦系数 |
-| SpinningFriction | 自旋摩擦系数 |
-| Restitution | 回弹系数 |
-
-当与其它表面接触时，这些系数用于计算相应的摩擦力和弹力。
-
 ## 创建物理材质
 
 ### 在编辑器内创建
@@ -38,6 +23,21 @@ newPMtl.rollingFriction = 0.1;
 newPMtl.spinningFriction = 0.1;
 newPMtl.restitution = 0.5;
 ```
+
+## 属性
+
+物理材质属性如下图所示：
+
+![物理材质](img/physics-mat-panel.png)
+
+| 属性 | 属性说明 |
+| :-- | :-- |
+| Friction | 摩擦系数 |
+| RollingFriction | 滚动摩擦系数 |
+| SpinningFriction | 自旋摩擦系数 |
+| Restitution | 回弹系数 |
+
+当与其它表面接触时，这些系数用于计算相应的摩擦力和弹力。
 
 ## 应用
 

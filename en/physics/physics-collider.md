@@ -1,4 +1,4 @@
-# Colliders
+# Collider
 
 Colliders can be used to define the shape of the object that needs to be physically collided with, and different geometries have different properties. Colliders are usually classified as follows
 1. [Basic Colliders](#Basic%20Colliders). The common ones include [Box](#BoxCollider), [Sphere](#SphereCollider), [Cylinder](#CylinderCollider), [Cone](#ConeCollider) and [Capsule](#CapsuleCollider).

@@ -53,9 +53,9 @@ private onTriggerStay (event: ITriggerEvent) {
 
 | 事件               | 说明     |
 | :----------------- | :------- |
-| `onCollisionEnter` | 碰撞开始 |
-| `onCollisionStay`  | 碰撞保持 |
-| `onCollisionExit`  | 碰撞结束 |
+| `onCollisionEnter` | 碰撞开始时触发 |
+| `onCollisionStay`  | 碰撞保持时不断的触发 |
+| `onCollisionExit`  | 碰撞结束时触发 |
 
 其中可产生碰撞事件的碰撞对为：
 
@@ -102,7 +102,7 @@ const rigidBody = this.getComponent(RigidBody);
 rigidBody.useCCD = true;
 ```
 
-可以参考 [连续碰撞检测](physics-ccd.md) 来查看更详细的描述。
+参考 [连续碰撞检测](physics-ccd.md) 以获取更详细的描述。
 
 ## 触发规则
 
