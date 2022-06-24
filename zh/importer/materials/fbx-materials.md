@@ -61,7 +61,7 @@ FBX 智能材质导入是模型导入器中辅助转换材质的一个功能，�
 |:---------------------|:-------------------------|
 | ![img.png](img.png) | ![img_1.png](img_1.png) |
 
-渲染说明：对于 Max Physical Material 材质，需要在 Max Viewport 中开启 High Quality 才可能获取相对准却的预览效果。为了获取最佳的配对效果，您可以配对 Max 和 Cocos Creator 的渲染环境。
+渲染说明：对于 Max Physical Material 材质，需要在 Max Viewport 中开启 High Quality 才可能获取相对准确的预览效果。为了获取最佳的配对效果，您可以配对 Max 和 Cocos Creator 的渲染环境。
 
 - 关于 Max Viewport 渲染更多设置内容，您可参考 [教程](https://www.youtube.com/watch?v=82hhg8Q1nus&list=PL9xXzsdQ6pbZGBnVSKMBO_BCYjzmFTj0R&index=2)
 - 关于 Cocos Creator 渲染环境配置详细内容，您可参考 [Cocos Creator 官方文档](https://docs.cocos.com/creator/manual/zh/module-map/graphics.html)
