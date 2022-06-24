@@ -1,124 +1,171 @@
-# 2D RigidBody
+# 2D Rigidbody
 
-__RigidBody__ is the basic object that composite the physics world.
+You can think of a rigid body as an object with properties that you cannot see (draw) or touch (collide).
 
-The built-in 2D physics system only has collision detection capabilities, the rigid body is not available to the built-in 2D physics system. This setting is available only for other 2D physics systems.
+Since the Builtin 2D physics system only has collision detection, rigid bodies do not work for the Builtin 2D physics system, and this setup only works for the Box 2D physics system.
 
-## RigidBody properties
+## Add Rigidbody
+
+Click the **Add Component** button in the **Inspector** panel and enter Rigidbody2D to add a 2D rigid body component.
+
+![add-rigid](image/add-rigid.png)
+
+## Properties
+
+![rigidbody-2d](image/rigidbody-2d.png)
+
+| Properties | Description |
+| :-- | :-- |
+| **Group** | The group of rigid bodies. The [Collision Matrix](../editor/project/physics-configs.md) you can set the possibility of collision between different groups |
+| **EnabledContactListener** | Whether to enable listening for [CollisionCallback](./physics-2d-contact-callback.md) |
+| **Bullet** | Is this rigid body a fast-moving rigid body and needs to be prohibited from passing through other fast-moving rigid bodies <br>Please refer to [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D) for more information Information |
+| **Type** | Rigid body types, please refer to **Rigid body types** below for details |
+| **AlllowSleep** | Whether to allow rigid body sleep <br> [physics-configuration](../editor/project/physics-configs.md) can be adjusted in the threshold for sleep |
+| **GravityScale** | Gravity Scaling <br> Only for rigid bodies of type **Dynamic** |
+| **LinearDamping** | Linear velocity damping factor |
+| **AngularDamping** | Angular velocity damping factor |
+| **LinearVelocity** | Linear velocity <br> Only for rigid bodies of type **Dynamic** and **Kinematic** |
+| **AngularVelocity** | Angular velocity <br> Only for rigid bodies of type **Dynamic** and **Kinematic** |
+| **FixedRotation** | Whether fixed rotation |
+| **AwakeOnLoad** | Wake up the rigid body as soon as the loading is completed |
+
+Rigidbody component interface please refer to [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D).
+
+## RigidBody Properties
 
 ### Mass
 
-The mass of a `RigidBody` is automatically calculated by the `density` and `size` of the [PhysicsCollider Component](collider-component.md). This property may be needed when calculating how much force the object should be subjected to.
+The mass of the rigid body is calculated automatically from the **density** and **size** of the [Collider](physics-2d-collider.md). If you need to calculate how much force the object should be subjected to, you may need to use this property.
 
 ```ts
-// Get the mass of the rigidbody
+// fetch the mass of rigidbody
 const mass = rigidbody.getMass();
 ```
 
 ### Velocity
 
 ```ts
-// Get the velocity of the move
+// Get linear velocity
 const velocity = rigidbody.linearVelocity;
-// Set the velocity of the move
+// Set linear velocity
 rigidbody.linearVelocity = velocity;
 ```
 
-Linear Damping is used to simulate the air friction and other damping effects, it will make the current velocity decrease over time.
+Moving velocity damping factor, the larger the value the slower the object moves, can be used to simulate the effect of air friction and so on.
 
 ```ts
-// Get the moving speed attenuation factor
+// get linear damping
 const damping = rigidbody.linearDamping;
-// Set the moving speed attenuation factor
+// set linear damping
 rigidbody.linearDamping = damping;
 ```
 
-To get the velocity of a point on a RigidBody, such as a box that rotates forward and touches the wall. It may be desirable to get the velocity of the box at the point of the collision. You can get it by  `getLinearVelocityFromWorldPoint`.
+If you want to get the velocity of a point on a rigid body, you can get it with `getLinearVelocityFromWorldPoint`. For example, if a box is spinning and flying forward and hits a wall, you may want to get the velocity of the box at the point where the collision occurred.
 
 ```ts
 const velocity = rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
 
-Or, pass in a `Vec2` object as the second argument to get the return value in order to use the cached object to store this value. This avoids creating too many objects to improve performance.
+Or pass a `Vec2` object as the second argument to receive the return value, so you can use your cached object to receive the value and avoid creating too many objects for efficiency.
 
-> __Note__: the `get` method of RigidBody provides an out parameter to receive the function return value.
+**The rigid get methods all provide out arguments to receive the function return value.**
 
 ```ts
-const velocity = v2();
+const velocity = new Vec2();
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint, velocity);
 ```
 
 ### Angular Velocity
 
 ```ts
-// Get the angular velocity
+// get angular velocity
 const velocity = rigidbody.angularVelocity;
-// Set the angular velocity
+// set angular velocity
 rigidbody.angularVelocity = velocity;
 ```
 
-Travel speed decay coefficient, the larger the value the slower the object moves, and can be used to simulate effects such as air friction.
+Angular velocity damping factor, same as the linear velocity damping factor.
 
 ```ts
-// Get the angular damping
+// get angular damping factor
 const damping = rigidbody.angularDamping;
-// Set the angular damping
+// set angular damping factor
 rigidbody.angularDamping = damping;
 ```
 
-### Rotation, position and scaling
+### Rotation, Displacement and Scaling
 
-Rotation, position and scaling are the most commonly used transform in game development, and almost every node has these properties set. In the physics system, the system will automatically synchronize these properties of the node to __Box2D__ corresponding properties.
+Rotation, displacement and scaling are the most common features used in game development, and almost every node has these properties set. In the physics system, the system automatically synchronizes these properties of the node with the corresponding properties in Box2D.
 
-> __Notes__:
-> 1. There is only rotation and position in __Box2D__ and there is no scaling, so if you set the scale properties of the node, all the colliders of the __RigidBody__ are reconstructed. One way to avoid this is to take the renderer node as a child node of the __RigidBody__ node, and to scale only the renderer node, to avoid scaling the __RigidBody__ nodes as much as possible.
-> 2. At the end of each update of the physics system (which is updated in postUpdate), all rigid body information is synchronized to the corresponding node. all __RigidBody__ information is synchronized to the corresponding node. In the performance considerations, the node information will be synchronized to the rigid body only if the developer sets the display properties of the node where the rigid body is located, and the rigid body will only monitor the node where it is located, i.e. if the rotation shift of the node's parent node is modified, the information will not be synchronized.
+> **Note**:
+> 1. There is only rotation and displacement in Box2D, not scaling, so if you set the scaling property of a node, it will reconstruct all the collision bodies that this rigid body depends on. An effective way to avoid this is to treat the rendered node as a child of the rigid body node and only scale this rendered node, avoiding direct scaling of the rigid body node as much as possible.
+> 2. At the end of each iteration of the physics system (the physics system is iterated in postUpdate), all rigid body information is synchronized to the corresponding node, and for performance reasons, the node information is only synchronized to the rigid body when the developer sets the display properties of the node where the rigid body is located, and the rigid body only monitors the node where it is located, i.e., if the That is, if the rotation of the node's parent node is modified, this information will not be synchronized.
 
-### Fixed rotation
+### Fix rotation
 
-When making a platform action game usually we do not want the player character to rotate due to physics forces. Since it will lead to the player character to lean and even fall in the process of moving around, then the `fixedRotation` of the rigid body can be set to true to fix the rotation.
+![fix ratation](image/fix-rotation.png)
+
+When doing platform jumping games, you usually don't want the rotation property of the main character to be added to the physics simulation, because it will cause the main character to fall over during the movement, so you can set `fixedRotation` of the rigid body to true to fix the rotation, the code example is as follows:
 
 ```ts
 rigidbody.fixedRotation = true;
 ```
 
-### Enable Contact Listener
+### EnableContactListener
 
-Only when the RigidBody's contact listener is enabled, it will send callback to component attach to the node when collision happens.
+![contact](image/enable-contact.png)
+
+Only when the collision listener of rigid body is enabled, the rigid body will call back to the corresponding component when a collision occurs. The code example is as follows:
 
 ```ts
-Rigidbody.enabledContactListener = true;
+rigidbody.enabledContactListener = true;
 ```
 
-## RigidBody type
+## Rigidbody Type
 
-There are three types of Box2d's native __RigidBody__: __Static__, __Dynamic__, __Kinematic__. We added a forth type in __Cocos Creator__'s physics system: __Animated__.
+![type](image/rigidbody-type.png)
 
-`Animated` is derived from the `Kinematic` type, the general __RigidBody__ type changes __rotate__ or __position__ by setting the properties directly, but `Animated` type will lerp the property values between current property and target property, and assign it to the corresponding property.
+Box2D originally had three rigid body types: **Static**, **Dynamic**, **Kinematic**. In Cocos Creator, one more type has been added: **Animated**.
 
-`Animated` type is invented mainly to prevent the weird behavior such as penetration when making movement animation on RigidBody node.
+Animated is derived from the Kinematic type. Generally, when modifying **Rotation** or **Position** properties of rigid body types, the properties are set directly, while Animated will calculate the required velocity based on the current rotation or displacement property and the target rotation or displacement property, and assign it to the corresponding movement or rotation velocity.
 
-- `RigidBodyType.Static`
+The main reason for adding the Animated type is to prevent strange phenomena that may occur when animating rigid bodies, such as penetration.
 
-  __Static RigidBody__, zero mass, zero velocity, that is not affected by gravity or force, but can set its position to move.
+| Type | Description |
+| :-- | :-- |
+| **Static** | Static rigid body, zero mass, zero velocity, that is, will not be affected by gravity or velocity, but can set his position to move. This type is usually used for making scenes |
+| **Dynamic** | Dynamic rigid body, with mass, can set velocity, and will be affected by gravity <br> the only rigid body type that can be modified by 'applyforce' and 'applytorque' methods |
+| **Kinematic** | Kinematic rigid body, zero mass, can set the velocity, will not be affected by gravity, but can set the velocity to move |
+| **Animated** | Animated rigid, already mentioned above, is a type derived from Kinematic, mainly used for rigid bodies in combination with animation editors |
 
-- `RigidBodyType.Dynamic`
+The type of rigid body can be obtained or modified by code, the code example is as follows:
 
-  __Dynamic RigidBody__, with mass, its velocity can be set, will be affected by gravity.
+```ts
+import { RigidBody2D, ERigidBody2DType } from 'cc';
 
-- `RigidBodyType.Kinematic`
+const rigibodyType = this.rigidbody2D.type
 
-  __Kinematic RigidBody__, zero mass, its velocity can be set, will not be affected by gravity, but can move by setting the velocity.
+this.rigidbody2D.type = ERigidBody2DType.Animated        
+```
 
-- `RigidBodyType.Animated`
+The type of the 2D rigid body is defined in the enumeration `ERigidBody2DType`, please note the distinction with the `ERigidBodyType` of the 3D physics.
 
-  __Animated RigidBody__, previously mentioned above, is derived from Kinematic type, mainly used for __RigidBody__ and animation in combination.
+### Collision Response
 
-## RigidBody API
+Collisions between different types of rigid bodies are not always possible, and the results are organized as follows:
 
-### Get or convert the rotation and position property
+| -- | Static | Dynamic| Kinematic | Animated |
+| :-- | :-- | :-- | :-- | :-- |
+| **Static**    |  | √ |  √ | √|
+| **Dynamic**   | √ | √ | √ | √ |
+| **Kinematic** | √| √ | √ | √ |
+| **Animated**  | √ | √ | √ | √ |
 
-Using these api to get the rotation and position in the world coordinate system will be faster than getting the relevant properties through the node, because the nodes also need to get the results through the matrix operation, and these api gives you the direct result.
+## Rigidbody Methods
+
+### Get or Convert Rotation and Position Properties
+
+Using these APIs to get the rotation and position in the world coordinate system will be faster than getting them through the nodes, because the nodes still need to be matrixed to get the result, while using the APIs is direct.
 
 #### Local coordinates and world coordinate transformation
 
@@ -208,3 +255,5 @@ Sometimes you need to get the velocity of a RigidBody at a certain point, you ca
 ```ts
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
+
+More rigid body methods can be found in [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D)

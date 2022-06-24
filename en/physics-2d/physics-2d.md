@@ -2,7 +2,7 @@
 
 __Cocos Creator__ supports the built-in lightweight builtin physics system and the powerful __Box2D__ physics system. For simpler physics calculations, we recommend that users use the built-in physics module, which avoids the runtime overhead of loading large __Box2D__ physics modules and building physics worlds. The __Box2D__ physics module provides a more complete interaction with the interface and pre-defined components such as rigid bodies and joints.
 
-Choose the physics module that suits development needs, and switch the physics module you use through the **Project -> Project Setting -> Feature Cropping** settings.
+Choose the physics module that suits development needs, and switch the physics module you use through the __Project -> Project Setting -> Feature Cropping__ settings.
 
 ![Module Setup](./image/module.png)
 
