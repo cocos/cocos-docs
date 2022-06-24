@@ -12,7 +12,7 @@
 
 | 属性 | 说明 |
 | :--- | :--- |
-| **useComponentTexture** | 是否使用压缩纹理，详情请参考 [压缩纹理](compress-texture.md)。 |
+| **useCompressTexture** | 是否使用压缩纹理，详情请参考 [压缩纹理](compress-texture.md)。 |
 | **Type** | 用于设置图像资源的类型，包括 **raw**、**texture**（默认）、**normal map**、**sprite-frame**、**texture cube**，具体说明可参考下文 **图像资源类型** 部分的内容。 |
 | **Flip Vertical** | 是否沿 X 轴垂直翻转导入的贴图。 |
 | **Bake Offline Mimmaps** | 是否烘焙离线 Mipmap |
