@@ -2,7 +2,7 @@
 
 The **Inspector** panel provides some basic extension capabilities as the module in Creator that displays the currently selected state.
 
-In **Property Inspector**, two levels of data are defined:
+In **Inspector** panel, two levels of data are defined:
 
 1. the main type of the selected object
 2. the sub-data types contained in the content when rendering the content of the main type
@@ -10,10 +10,10 @@ In **Property Inspector**, two levels of data are defined:
 When a node/asset is selected in the **Hierarchy Panel**/**Assets Panel**, Creator sends a broadcast message that the object is selected to the **Inspector**. When the **Inspector** panel receives the message, it checks the type of the selected object, e.g. if the selected object is a node, then the type is `node`.
 
 For both types, two types of renderers are allowed to be registered.
-1. the main type renderer
+1. The main type renderer
 2. When the main type renderer receives data to start rendering, it allows subtype renderers to be attached
 
-In the example, `node` is selected, and `node` carries multiple `component`s, so the primary type is `node` and the subtype is `component`.
+In the example, `node` is selected, and `node` carries multiple `component`, so the primary type is `node` and the subtype is `component`.
 
 After the **Inspector Panel** receives the broadcast message for the selected object, it first determines the type, and then the **Inspector Panel** takes the received data (the uuid of the object) and passes it to the `node` renderer, handing over the rendering privileges completely.
 
@@ -21,7 +21,7 @@ And in the `node` renderer, the rendering privileges for that region are handed 
 
 ## Custom Component Rendering
 
-The component renderer provided by default sometimes does not meet our needs, so we can register a piece of data in the extension's package.json like this.
+The component renderer provided by default sometimes does not meet our needs, so we can register a piece of data in the extension's package.json like this:
 
 ```json
 {
@@ -42,7 +42,7 @@ The component renderer provided by default sometimes does not meet our needs, so
 
 In the contributions data, provide a copy of the data to the **Inspector Panel** requesting the rendering of the cc.Label component in the node-type object in the section area.
 
-Then let's write a . /dist/contributions/inspector/comp-label.js file:
+Then let's write a . /dist/contributions/inspector/comp-label.js file as follows:
 
 ```typescript
 'use strict';
@@ -71,7 +71,7 @@ module.exports = Editor.Panel.define({
 });
 ```
 
-Editor.Panel.define is a new interface added in 3.3, mainly for merging some data.
+Editor.Panel.define is a new interface added in v3.3, mainly for merging some data.
 
 If you need to be compatible with the previous version, you can add a line:
 
@@ -169,7 +169,7 @@ module.exports = Editor.Panel.define({
 });
 ```
 
-This allows us to add a button at the end of the effect resource page within the inspector.
+This allows us to add a button at the end of the effect inspector.
 
 Also note here that data registered by multiple plugins is co-existing. If an Asset already has other plugins registered or has a custom renderer built in, then any custom renderers registered again will be appended to it. If an Asset does not have a built-in custom renderer and uses the default rendering, then when the plug-in registers the renderer, it will completely take over the rendered content.
 
