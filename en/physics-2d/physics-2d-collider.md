@@ -14,10 +14,10 @@ The different colliders have the following properties in common:
 
 | Properties | Description |
 |:-- | :-- |
-| **Editing** | Whether to edit the collider. Check this option to edit the position, style and size of the collider in the scene. For details, please refer to **Editing Collider** |
+| **Editing** | Whether to edit the collider. Check this option to edit the position, style and size of the collider in the scene. For details, please refer to **Editing Collider** below |
 | **Tag** | Tag. When a collision occurs, you can distinguish different colliders according to **Tag**. |
 | **Group** | Collider group. By [Collision Matrix](../editor/project/physics-configs.md), you can set the possibility of collision between different groups. |
-| **Sensor** | Specifies whether the collider is of sensor type. |
+| **Sensor** | Specify whether the collider is of sensor type, the collider of sensor type will generate a collision callback, but no physical collision effect will occur |
 | **Density** | The density of the collider, used to calculate the mass of the rigid body. |
 | **Friction** | The friction factor of the collider, the motion of the collider will be affected by the friction when it touches. |
 | **Restitution**| The elasticity coefficient of the collider, specifying whether the collider will be affected by the elasticity when it collides. |
