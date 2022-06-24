@@ -68,7 +68,7 @@ Click the **Upload** button in the bottom right of the **Build Task** panel to o
 
           ![create-api-key](./publish-huawei-agc/create-api-key.png)
 
-        - Fill the **Client ID** and **Key** of the API client into the corresponding input boxs in the **Upload** panel of the Creator.
+        - Fill the **Client ID** and **Key** of the API client into the corresponding input boxes in the **Upload** panel of Creator.
 
         - Click **Confirm** when you are done configuring.
 

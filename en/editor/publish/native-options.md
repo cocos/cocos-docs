@@ -36,9 +36,10 @@ If this option is checked, the **Make** step will be executed automatically afte
 
 #### Job System
 
-This option is currently used by the internal function module of the engine, users do not need to pay attention to this option for the time being, and selecting any of the options in the drop-down box will not have any impact on the project.
+This option is currently used by the internal function module of the engine to manage the project's job flow and requires no further user attention. Should such need emerges, please take note:
 
-However, there are version restrictions for selecting **TBB** or **TaskFlow** on the native platform, please see section **Version Support** below for details.
+1. TBB and TaskFlow performs verily depending on the execution environment and project specifications, thus should be selected accordingly.
+2. TBB / TaskFlow is supported by specific versions when used to deploy to native platforms. For more information, please see the **Version Support** section below.
 
 #### Encrypt JS
 
