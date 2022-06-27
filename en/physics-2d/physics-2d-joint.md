@@ -1,11 +1,11 @@
 # 2D Joint
 
-The physics system contains a series of joint components for linking two rigid bodies. Joint components can be used to simulate the interaction between real-world objects such as hinges, pistons, ropes, wheels, pulleys, motor vehicles, chains, etc. Learning how to use joint components can create a realistic and interesting scenario.
+The physics system contains a series of joint components for connecting two rigid bodies. Joint components can be used to simulate the interaction between real-world objects such as hinges, pistons, ropes, wheels, pulleys, motor vehicles, chains, etc. Learning how to use joint components can create a realistic and interesting scenario.
 
 > **Note**.
 > 1. Joint components are not available in the Builtin 2D physics module.
 > 2. Joint components are required with [rigid body](./physics-2d-rigid-body.md) to work correctly. As shown in the following figure.
-> ![with-body](image/joint-with-body.png)
+>    ![with-body](image/joint-with-body.png)
 
 ## Adding joints
 
@@ -19,16 +19,16 @@ Although each joint has different representations, they also share some common p
 
 | Properties | Description |
 | :-- | :-- |
-| **ConnectedBody** | The rigid body at the other end of the joint link |
-| **Anchor** | The anchor point of the rigid body linked to the local end of the joint.
-| **ConnectedAnchor** | Anchor point of the rigid body at the other end of the joint link
-| **CollideConnected** | Can the rigid bodies at the two ends of the joint collide with each other?
+| **ConnectedBody** | The rigid body at the other end of the joint connected |
+| **Anchor** | The anchor point of the rigid body connected to the local end of the joint |
+| **ConnectedAnchor** | Anchor point of the rigid body at the other end of the joint connected |
+| **CollideConnected** | Can the rigid bodies at the two ends of the joint collide with each other |
 
-Each joint needs to link two rigid bodies to perform its function. We consider the rigid body hanging under the same node as the joint as the joint's home end, and **ConnectedBody** as the rigid body on the other end. Usually, each rigid body picks a location around itself and sets it as an anchor point. Depending on the type of joint component, the anchor point determines the center of rotation of the object, or a coordinate point used to maintain a certain distance, etc.
+Each joint needs to connect two rigid bodies to perform its function. We consider the rigid body hanging under the same node as the joint as the joint's home end, and **ConnectedBody** as the rigid body on the other end. Usually, each rigid body picks a location around itself and sets it as an anchor point. Depending on the type of joint component, the anchor point determines the center of rotation of the object, or a coordinate point used to maintain a certain distance, etc.
 
 The **CollideConnected** property is used to determine whether the rigid bodies at the ends of the joints need to continue to follow the regular collision rules.
 
-If you are now going to make a ragdoll, you might want the thighs and lower legs to partially overlap and then link together at the knees, then you would set the **CollideConnected** property to false. If you are going to make a lift and want the lift platform and floor to collide, then you would set the **CollideConnected** property to true.
+If you are now going to make a ragdoll, you might want the thighs and lower legs to partially overlap and then connect together at the knees, then you would set the **CollideConnected** property to false. If you are going to make a lift and want the lift platform and floor to collide, then you would set the **CollideConnected** property to true.
 
 ## Adjusting anchor points
 

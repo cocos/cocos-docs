@@ -1,6 +1,6 @@
 # 2D 刚体
 
-刚体是组成物理世界的基本对象，你可以将刚体想象成一个你不能看到（绘制）也不能摸到（碰撞）的带有属性的物体。
+刚体是组成物理世界的基本对象，可以将刚体想象成一个你不能看到（绘制）也不能摸到（碰撞）的且不能变形的物体。
 
 由于 Builtin 2D 物理系统只带有碰撞检测的功能，所以刚体对于 Builtin 2D 物理系统是不生效的，本篇设置只对 Box 2D 物理系统产生作用。
 
@@ -17,7 +17,7 @@
 | 属性 | 说明 |
 | :-- | :-- |
 | **Group** | 刚体的分组。通过 [碰撞矩阵](../editor/project/physics-configs.md) 可设置不同分组间碰撞的可能性|
-| **EnabledContactListener** | 开启监听 [碰撞回调](./physics-2d-contact-callback.md) |
+| **EnabledContactListener** | 开启监听[碰撞回调](./physics-2d-contact-callback.md) |
 | **Bullet** | 这个刚体是否是一个快速移动的刚体，并且需要禁止穿过其他快速移动的刚体 <br>请参考 [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D) 获取更多信息 |
 | **Type** | 刚体类型，详情请参考下方 **刚体类型** |
 | **AlllowSleep** | 是否允许刚体休眠 <br> [物理配置](../editor/project/physics-configs.md) 中可调整休眠的临界值 |

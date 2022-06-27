@@ -1,6 +1,6 @@
 # 2D Rigidbody
 
-You can think of a rigid body as an object with properties that you cannot see (draw) or touch (collide).
+A rigid body is the basic object that makes up the physical world and can be imagined as an object that you cannot see (draw) or touch (collide) and that cannot be deformed.
 
 Since the Builtin 2D physics system only has collision detection, rigid bodies do not work for the Builtin 2D physics system, and this setup only works for the Box 2D physics system.
 
@@ -19,7 +19,7 @@ Click the **Add Component** button in the **Inspector** panel and enter Rigidbod
 | **Group** | The group of rigid bodies. The [Collision Matrix](../editor/project/physics-configs.md) you can set the possibility of collision between different groups |
 | **EnabledContactListener** | Whether to enable listening for [CollisionCallback](./physics-2d-contact-callback.md) |
 | **Bullet** | Is this rigid body a fast-moving rigid body and needs to be prohibited from passing through other fast-moving rigid bodies <br>Please refer to [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D) for more information Information |
-| **Type** | Rigid body types, please refer to **Rigid body types** below for details |
+| **Type** | Rigid body types, please refer to **Rigidbody Type** below for details |
 | **AlllowSleep** | Whether to allow rigid body sleep <br> [physics-configuration](../editor/project/physics-configs.md) can be adjusted in the threshold for sleep |
 | **GravityScale** | Gravity Scaling <br> Only for rigid bodies of type **Dynamic** |
 | **LinearDamping** | Linear velocity damping factor |
@@ -93,15 +93,15 @@ const damping = rigidbody.angularDamping;
 rigidbody.angularDamping = damping;
 ```
 
-### Rotation, Displacement and Scaling
+### Rotation, Translation and Scaling
 
-Rotation, displacement and scaling are the most common features used in game development, and almost every node has these properties set. In the physics system, the system automatically synchronizes these properties of the node with the corresponding properties in Box2D.
+Rotation, translation and scaling are the most common features used in game development, and almost every node has these properties set. In the physics system, the system automatically synchronizes these properties of the node with the corresponding properties in Box2D.
 
 > **Note**:
-> 1. There is only rotation and displacement in Box2D, not scaling, so if you set the scaling property of a node, it will reconstruct all the collision bodies that this rigid body depends on. An effective way to avoid this is to treat the rendered node as a child of the rigid body node and only scale this rendered node, avoiding direct scaling of the rigid body node as much as possible.
+> 1. There is only rotation and translation in Box2D, not scaling, so if you set the scaling property of a node, it will reconstruct all the collision bodies that this rigid body depends on. An effective way to avoid this is to treat the rendered node as a child of the rigid body node and only scale this rendered node, avoiding direct scaling of the rigid body node as much as possible.
 > 2. At the end of each iteration of the physics system (the physics system is iterated in postUpdate), all rigid body information is synchronized to the corresponding node, and for performance reasons, the node information is only synchronized to the rigid body when the developer sets the display properties of the node where the rigid body is located, and the rigid body only monitors the node where it is located, i.e., if the That is, if the rotation of the node's parent node is modified, this information will not be synchronized.
 
-### Fix rotation
+### Fix Rotation
 
 ![fix ratation](image/fix-rotation.png)
 
@@ -127,7 +127,7 @@ rigidbody.enabledContactListener = true;
 
 Box2D originally had three rigid body types: **Static**, **Dynamic**, **Kinematic**. In Cocos Creator, one more type has been added: **Animated**.
 
-Animated is derived from the Kinematic type. Generally, when modifying **Rotation** or **Position** properties of rigid body types, the properties are set directly, while Animated will calculate the required velocity based on the current rotation or displacement property and the target rotation or displacement property, and assign it to the corresponding movement or rotation velocity.
+Animated is derived from the Kinematic type. Generally, when modifying **Rotation** or **Position** properties of rigid body types, the properties are set directly, while Animated will calculate the required velocity based on the current rotation or translation property and the target rotation or translation property, and assign it to the corresponding movement or rotation velocity.
 
 The main reason for adding the Animated type is to prevent strange phenomena that may occur when animating rigid bodies, such as penetration.
 
@@ -167,7 +167,7 @@ Collisions between different types of rigid bodies are not always possible, and 
 
 Using these APIs to get the rotation and position in the world coordinate system will be faster than getting them through the nodes, because the nodes still need to be matrixed to get the result, while using the APIs is direct.
 
-#### Local coordinates and world coordinate transformation
+#### Local Coordinates and World Coordinate Transformation
 
 ```ts
 // world coordinates to local coordinates
@@ -200,7 +200,7 @@ localVector = v2();
 rigidbody.getLocalVector(worldVector, localVector);
 ```
 
-### Get the RigidBody mass center
+### Get the RigidBody Mass Center
 
 When force is applied to a RigidBody, the mass center of the RigidBody is generally chosen as the point of application of the force, which ensures that the force does not affect the rotation value.
 
@@ -220,7 +220,7 @@ worldCenter = v2();
 rigidbody.getWorldCenter(worldCenter);
 ```
 
-### Force and impulse
+### Force and Impulse
 
 There are two ways to move an object:
 

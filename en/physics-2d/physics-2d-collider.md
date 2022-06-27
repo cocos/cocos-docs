@@ -43,7 +43,7 @@ For all colliders, check **Editing** to edit them within the scene.
 
 ![editing](image/editing.png)
 
-Press the left mouse button and drag within the collider to adjust the offset of the collider, and on ! [gizmo](image/gizmo.png) and drag the left mouse button to adjust the shape and size of the collider.
+Press the left mouse button and drag within the collider to adjust the offset of the collider, and on ![gizmo](image/gizmo.png) and drag the left mouse button to adjust the shape and size of the collider.
 
 ![edit-box-collider](image/edit-box.gif)
 

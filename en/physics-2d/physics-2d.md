@@ -10,7 +10,7 @@ Choose the physics module that suits development needs, and switch the physics m
 
 - [2D Physics System](./physics-2d-system.md)
 - [2D Rigid Body](./physics-2d-rigid-body.md)
-- [2D Collision Components](./physics-2d-collider.md)
+- [2D Collider](./physics-2d-collider.md)
 - [2D Contact Callback](./physics-2d-contact-callback.md)
 - [2D Physics Joints](./physics-2d-joint.md)
 
