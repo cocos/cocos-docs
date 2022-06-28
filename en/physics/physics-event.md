@@ -93,7 +93,7 @@ private onCollision (event: ICollisionEvent) {
 
 ## Continuous Collision Detection
 
-Compared to the continuous real world, the physics engine simulation is actually discrete, which means that the physics engine takes 1/30th of a second or some other defined time to sample once. Therefore, for faster objects, the physics engine may not be able to detect the collision results correctly, to solve this phenomenon, you can turn on continuous physics detection (CCD) to solve.
+Compared to the continuous real world, the physics engine simulation is actually discrete, which means that the physics engine takes 1/30th of a second or some other defined time to sample once. Therefore, for faster objects, the physics engine may not be able to detect the collision results correctly, to solve this phenomenon, you can turn on continuous physics detection (CCD).
 
 Turn on continuous collision detection in the engine as follows：
 

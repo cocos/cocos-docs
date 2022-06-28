@@ -14,11 +14,11 @@ Hinge constraints constrain the motion of connected objects to a certain axis. T
 
 | Properties | Description |
 | :---|:--- |
-| **AttachedBody** | The rigid body to which the collider is bound |
+| **AttachedBody** | The rigid body to which the collider is attached |
 | **ConnectedBody** | Gets or sets the rigid body to which the joint is connected, null means it is linked to a static body at the world origin |
 | **EnableCollision** | Gets or sets whether collision is enabled between two bodies connected by a joint |
-| **PivotA** | The position of its own rigid body in local space with respect to the bound joint |
-| **PivotB** | The position of the connected rigid body in local space with respect to the bound joint |
+| **PivotA** | The position of its own rigid body in local space with respect to the attached joint |
+| **PivotB** | The position of the connected rigid body in local space with respect to the attached joint |
 | **Axis** | The direction of rotation of the joint in local space |
 
 ![physics-hinge](img/physics-hinge.gif)
@@ -33,10 +33,10 @@ A point-to-point constraint is a simple composite constraint that connects two o
 
 | properties | description |
 | :---|:--- |
-| **AttachedBody** | The rigid body to which the collider is bound |
+| **AttachedBody** | The rigid body to which the collider is attached |
 | **ConnectedBody** | Gets or sets the body to which the joint is connected |
 | **EnableCollision** | Gets or sets whether collision is enabled between two bodies connected by a joint |
-| **PivotA** | The position of its own rigid body in local space with respect to the bound joint |
+| **PivotA** | The position of its own rigid body in local space with respect to the attached joint |
 | **PivotB** | The position of the connected rigid body in local space with respect to the constraint joint |
 
 ![physics-p2p](img/physics-p2p.gif)

@@ -96,4 +96,4 @@ PhysicsSystem.instance.resetConfiguration(conf);
 
 ![set-group](img/set-group.png)
 
-> **注意**：分组不可以删除，但可以修改分组的名称。
+> **注意**：分组在 v3.5 之前的版本不可以删除，但可以修改分组的名称。

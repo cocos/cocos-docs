@@ -4,7 +4,7 @@ Raycast detection is a **intersection determination** of one ray and another sha
 
 ![illustration](img/raycast.jpg)
 
-## Constructed rays
+## Construct Rays
 
 A **ray** consists of a **starting point** and a **direction**. There are several more common ways to construct a ray, as follows:
 
@@ -17,7 +17,7 @@ A **ray** consists of a **starting point** and a **direction**. There are severa
     // the first three arguments are the starting point, the last three arguments are the direction
     const outRay = new geometry.Ray(0, -1, 0, 0, 0, 1, 0);
 
-    // or by static method create
+    // or by static method 'create'
     const outRay2 = geometry.Ray.create(0, -1, 0, 0, 0, 1, 0);
     ```
 
@@ -43,7 +43,7 @@ A **ray** consists of a **starting point** and a **direction**. There are severa
 
     > **Note**.
     > 1. First you need to get a reference to a camera component or camera instance.
-    > The order of the interface parameters exposed by the camera component and the camera instance are different.
+    > 2. The order of the interface parameters exposed by the camera component and the camera instance are different.
 
 ## Interface Introduction
 

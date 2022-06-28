@@ -195,6 +195,7 @@ let rigidbody = collider.attachedRigidBody;
 
 | 属性 | 说明 |
 | :---|:--- |
+| **Center** | 在本地坐标系中，形状的中心位置 |
 | **Terrain** | 获取或设置此碰撞体引用的网格资源 |
 
 地形碰撞器组件接口请参考 [TerrainCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/terraincollider.html)。

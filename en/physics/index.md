@@ -4,6 +4,6 @@ Cocos Creator's physics system provides an efficient componentized workflow and 
 
 ![image](img/physics.gif)
 
-Cocos Creator has a built-in [2D physics system](../physics-2d/physics-2d.md) and [3D physics](physics.md), developers can configure the 2D or 3D physics system as needed via the Creator main menu bar in **Projects -> Project Settings -> Feature crop**.
+Cocos Creator has a built-in [2D Physics](../physics-2d/physics-2d.md) and [3D physics](physics.md), developers can configure the 2D or 3D physics system as needed via the Creator main menu bar in **Projects -> Project Settings -> Feature Cropping**.
 
 ![physics system](img/physics-system.png)

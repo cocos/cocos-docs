@@ -77,16 +77,16 @@ The collision matrix is a further wrapper around the [Group and Mask](physics-gr
 
 ![physics-collision](img/physics-collision.png)
 
-By default the collision matrix has only one **DEFAULT** grouping, new groupings do not collide with other groups by default.
+By default the collision matrix has only one **DEFAULT** group, new groups do not collide with other groups by default.
 
 Click the **+** button to add a new group. The **Index** and **Name** of the new group cannot be left unfilled.
 
-- **Index** represents the collision group value, which supports up to 32 bits, i.e. the value range is `[0, 31)`. Grouping values cannot be repeated.
+- **Index** represents the collision group value, which supports up to 32 bits, i.e. the value range is `[0, 31)`. Group values cannot be repeated.
 - **Name** is the collision group name. The name set here is only for the convenience of the user to configure the collision group, it cannot be obtained by code, only the group value can be obtained by code.
 
 ![collider-matrix](img/collider-matrix.png)
 
-The figure shows the configuration of a collider grouping for a flying shooter game. As you can see from the figure, when a grouping is added, the panel appears with the names of the groupings both horizontally and vertically. Let's call the horizontal part **Grouping** and the vertical part **Mask**. Suppose I now make the following checkboxes:
+The figure shows the configuration of a collider group for a flying shooter game. As you can see from the figure, when a group is added, the panel appears with the names of the groups both horizontally and vertically. Let's call the horizontal part **Group** and the vertical part **Mask**. Suppose I now make the following checkboxes:
 
 ![set-collider-config](img/set-collider-config.png)
 

@@ -25,7 +25,7 @@ const rigidBody = this.node.getComponent(RigidBody);
 1. Configure collision grouping and make it effective.
 2. The object needs to have kinematic or kinetic behavior.
 
->*Note**: The object needs to have full physical properties provided the object has both **rigid body** and **collision body**, and its center-of-mass position and collision body shape are adjusted.
+> **Note**: The object needs to have full physical properties provided the object has both **rigid body** and **collision body**, and its center-of-mass position and collision body shape are adjusted.
 
 ## Rigidbody Properties
 
@@ -149,7 +149,7 @@ The rigid body component provides the ``setLinearVelocity`` interface that can b
 rigidBody.setLinearVelocity(new math.Vec3(5, 0, 0));
 ```
 
-The rigid body component provides the ``setAngularVelocity`` interface, which can be used to change the rotation velocity.
+The rigid body component provides the ``setAngularVelocity`` interface, which can be used to change the angular velocity.
 
 ```ts
 rigidBody.setAngularVelocity(new math.Vec3(5, 0, 0));
@@ -195,7 +195,7 @@ if (rigidBody) {
 
 #### Factors
 
-The rigid body component provides the **linearFactor** linear velocity factor and **angularFactor** rotational velocity factor properties, which can be obtained or set via the `linearFactor` and `angularFactor` methods.
+The rigid body component provides the **linearFactor** linear velocity factor and **angularFactor** angular velocity factor properties, which can be obtained or set via the `linearFactor` and `angularFactor` methods.
 
 The factors are of type ``Vec3`` and the values of the corresponding components are used to scale the velocity change in the corresponding axes. The default values are both **1**, which means the scaling is **1** times, i.e. no scaling.
 
