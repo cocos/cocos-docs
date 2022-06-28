@@ -73,15 +73,15 @@ module.exports = Editor.Panel.define({
 
 Editor.Panel.define is a new interface added in v3.3, mainly for merging some data.
 
-If you need to be compatible with the previous version, you can add a line:
+For compatibility with previous versions, the following code can be added:
 
 ```typescript
 Editor.Panel.define = Editor.Panel.define || function(panel: any) {return panel;}
 ```
 
-This allows us to add a button to the end of the Label component inside the inspector.
+This allows us to add a button to the end of the Label component inside the **inspector** panel.
 
-It is important to note here that data registered by multiple plugins are co-existing. If a Component already has other plugins registered or has a custom renderer built in, then any custom renderer registered again will be appended to it. If a Component does not have a built-in custom renderer and is using the default rendering, then when the plug-in registers the renderer, it will take over the rendering content completely.
+It is important to note here that data registered by multiple exntesions are co-existing. If a Component already has other exntesions registered or has a custom renderer built in, then any custom renderer registered again will be appended to it. If a Component does not have a built-in custom renderer and is using the default rendering, then when the exntesion registers the renderer, it will take over the rendering content completely.
 
 ## Custom Asset rendering
 
@@ -103,7 +103,7 @@ If the official inspector panel does not meet the needs, we can also extend the 
 }
 ```
 
-As with Component registration, in the contributions data, provide a copy of the data to the **Inspector Panel** requesting the rendering of the "effect" resource in the "asset" type in the "section" area.
+As with Component registration, in the contributions data, provide a copy of the data to the **Inspector Panel** requesting the rendering of the "effect" asset in the "asset" type in the "section" area.
 
 ```typescript
 'use strict';
@@ -171,8 +171,10 @@ module.exports = Editor.Panel.define({
 
 This allows us to add a button at the end of the effect inspector.
 
-Also note here that data registered by multiple plugins is co-existing. If an Asset already has other plugins registered or has a custom renderer built in, then any custom renderers registered again will be appended to it. If an Asset does not have a built-in custom renderer and uses the default rendering, then when the plug-in registers the renderer, it will completely take over the rendered content.
+Also note here that data registered by multiple exntesions is co-existing. If an Asset already has other exntesions registered or has a custom renderer built in, then any custom renderers registered again will be appended to it. If an Asset does not have a built-in custom renderer and uses the default rendering, then when the exntesion registers the renderer, it will completely take over the rendered content.
 
-## More ways to customize Inspector
+## Decorator
 
-[Decorator](../../scripting/decorator.md)
+Decorators make it easier and simpler to define **Inspector** panel.
+
+Please refer to [Decorator](../../scripting/decorator.md) for details.
