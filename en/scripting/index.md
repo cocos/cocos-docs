@@ -17,5 +17,4 @@ During the component scripting process, developers can declare properties to map
 ## More Reference
 
 - [Adding Logging within the Engine](./log.md)
-- [Deprecated API](./deprecated.md)
 - [Recommended Coding Standards](./reference/coding-standards.md)
