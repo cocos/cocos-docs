@@ -30,7 +30,7 @@
 
 3. Aiming - collision matrix (filter detection), raycast detection, static plane
 
-    Aiming is the step before shooting an arrow. The collimator is on the ray where the arrow is pointing, a static plane collision body is added in front of the cross, and then the position of the collimator can be obtained using raycast detection.
+    Aiming is the step before shooting an arrow. The collimator is on the ray where the arrow is pointing, a static plane collider is added in front of the cross, and then the position of the collimator can be obtained using raycast detection.
 
     ![arm](example-img/arm.jpg)
 
@@ -52,7 +52,7 @@
 
     The average apple comes with a concave surface, and dealing with a good concave class or a model with continuous smooth irregular surfaces are very tricky, this is because the current mature theory and techniques are built on top of the world of discrete, convex packages (differential approximation in calculus to represent the differential is the most typical example).
 
-    In real-time physics engines, such objects can only be supported up to the rigid body level of static or kinematic types, and there is nothing that can be done about dynamics. Unfortunately, however, real apple motion is strongly dependent on dynamics, and in this case the only way to participate in the simulation is to fill the apple with a mesh collision body in the form of a convex package (with convex checked) and a kinetic rigid body, using an approximation.
+    In real-time physics engines, such objects can only be supported up to the rigid body level of static or kinematic types, and there is nothing that can be done about dynamics. Unfortunately, however, real apple motion is strongly dependent on dynamics, and in this case the only way to participate in the simulation is to fill the apple with a mesh collider in the form of a convex package (with convex checked) and a kinetic rigid body, using an approximation.
 
     ![arm-apple](example-img/arm-apple.gif)
 

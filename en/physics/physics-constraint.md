@@ -31,7 +31,7 @@ A point-to-point constraint is a simple composite constraint that connects two o
 
 ![point-to-point constraint](img/pointtopoint-constraint.jpg)
 
-| properties | description |
+| Properties | Description |
 | :---|:--- |
 | **AttachedBody** | The rigid body to which the collider is attached |
 | **ConnectedBody** | Gets or sets the body to which the constraint is connected |

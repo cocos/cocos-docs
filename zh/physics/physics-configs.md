@@ -30,21 +30,7 @@
 
 ### 程序化配置
 
-| 属性 | 说明 |
-| :--- | :--- |
-| **enable** | 是否开启物理系统，默认为 `true` |
-| **gravity** | 物理世界的重力值，默认为 `(0, -10, 0)` |
-| **allowSleep** | 是否允许物理系统自动休眠，默认为 `true` |
-| **maxSubSteps** | 每帧模拟的最大子步数，默认为 `2` |
-| **fixedTimeStep** | 每次子步进消耗的时间，默认为 `1/60` |
-| **sleepThreshold** | 进入休眠的默认速度临界值 |
-| **autoSimulation** | 是否开启自动模拟，默认为 `true` |
-| **defaultMaterial** | 获取默认物理材质（只读） |
-| **raycastResults** | 获取 **raycast** 的检测结果（只读） |
-| **raycastClosestResult** | 获取 **raycastClosest** 的检测结果（只读） |
-| **collisionMatrix** | 获取碰撞矩阵，仅用于初始化 |
-
-可以通过 `PhysicsSystem.instance` 对物理系统进行配置。部分代码示例如下：
+程序化配置目前可以通过直接访问 `PhysicsSystem.instance` 对物理系统进行配置。部分代码示例如下：
 
 ```ts
 import { _decorator, Component, Node, Vec3, PhysicsSystem } from 'cc';

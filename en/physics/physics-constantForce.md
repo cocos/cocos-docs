@@ -4,7 +4,7 @@ The constant force component is a tool component that relies on the [Rigidbody](
 
 ![constant-force component](img/constant-force.jpg)
 
-| properties | description |
+| Properties | Description |
 | :---|:--- |
 | **Force** | The force applied to the rigid body in the world coordinate system |
 | **LocalForce** | the force applied to the rigid body in the local coordinate system |

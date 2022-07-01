@@ -12,7 +12,7 @@ Physical materials can be created by right-clicking anywhere in the **Inspector*
 
 ### Creating by Code
 
-Physical materials can also be instantiated by code: !
+Physical materials can also be instantiated by code:
 
 ```ts
 import { PhysicsMaterial } from 'cc';
@@ -32,10 +32,10 @@ Physical material properties are shown in the following figure:
 
 | Properties | Description |
 | :-- | :-- |
-| **Friction** | Friction factor |
-| **RollingFriction** | RollingFriction |
-| **SpinningFriction** | SpinFriction |
-| **Restitution** | Resilience |
+| **Friction** | The friction factor |
+| **RollingFriction** | The rolling friction factor |
+| **SpinningFriction** | The spinning friction factor |
+| **Restitution** | Resilience factor |
 
 When in contact with other surfaces, these coefficients are used to calculate the corresponding friction and spring forces.
 
@@ -45,7 +45,7 @@ Currently, physics materials are set on a collider basis, and each **Collider** 
 
 Applying to **Collider** is also divided into two ways: editor operations and code operations.
 
-For in-editor operations, simply drag and drop the resource into the **cc.PhysicalicMaterial** property box, as shown below.
+For in-editor operations, simply drag and drop the asset into the **cc.PhysicalicMaterial** property box, as shown below.
 
 ![apply-physic-material](img/apply-pmtl.jpg)
 

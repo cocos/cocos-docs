@@ -25,7 +25,7 @@ const rigidBody = this.node.getComponent(RigidBody);
 1. Configure collision grouping and make it effective.
 2. The object needs to have kinematic or kinetic behavior.
 
-> **Note**: The object needs to have full physical properties provided the object has both **rigid body** and **collision body**, and its center-of-mass position and collision body shape are adjusted.
+> **Note**: The object needs to have full physical properties provided the object has both **rigid body** and **collider**, and its center-of-mass position and collider shape are adjusted.
 
 ## Rigidbody Properties
 
@@ -56,14 +56,14 @@ The current rigid body types include **DYNAMIC**, **KINEMATIC** and **STATIC**.
 
 ![rigidbody-type](img/rigidybody-type.png)
 
-- **STATIC**: static rigid body. Can be a game object with a manually set rigid body type, or a game object with a collision body and no rigid body. If a node has only colliders and no rigid bodies added by default, then the node can be considered to be using **STATIC** by default. Static rigid bodies are used in most cases for game objects that always stay in one place and do not move easily, e.g. buildings. If the object needs to move continuously, it should be set to **KINEMATIC** type. Static rigid objects do not produce physical behavior when they collide with other objects and, therefore, do not move.
+- **STATIC**: static rigid body. Can be a game object with a manually set rigid body type, or a game object with a collider and no rigid body. If a node has only colliders and no rigid bodies added by default, then the node can be considered to be using **STATIC** by default. Static rigid bodies are used in most cases for game objects that always stay in one place and do not move easily, e.g. buildings. If the object needs to move continuously, it should be set to **KINEMATIC** type. Static rigid objects do not produce physical behavior when they collide with other objects and, therefore, do not move.
 - **DYNAMIC**: kinetic rigid body. Has colliding bodies and non-moving rigid bodies. Rigid body collisions are fully simulated by the physics engine and can be performed by **FORCE** on moving objects (need to guarantee mass greater than 0). For example: a snooker game where the mother ball rolls after hitting the ball and collides with other balls.
-- **KINEMATIC**: kinematic rigid body. Has a collision body and a kinematic rigid body that can be directly transformed by moving the transformation properties of the rigid object, but does not respond to forces and collisions like a kinematic rigid body, and is usually used to represent objects with platform motion like elevators. It is similar to static rigid bodies, with the difference that moving kinematic rigid bodies exert frictional forces on other objects and wake up other rigid bodies on contact.
+- **KINEMATIC**: kinematic rigid body. Has a collider and a kinematic rigid body that can be directly transformed by moving the transformation properties of the rigid object, but does not respond to forces and collisions like a kinematic rigid body, and is usually used to represent objects with platform motion like elevators. It is similar to static rigid bodies, with the difference that moving kinematic rigid bodies exert frictional forces on other objects and wake up other rigid bodies on contact.
 
 **Example**: A simple physics simulation to illustrate the performance that various types of rigid bodies have. The square below uses static rigid bodies in white, kinematic rigid bodies in blue, and kinetic rigid bodies in yellow. Both white and blue are manipulated transformation information, and it is obvious to see several manifestations.
-1. there is a penetration between white and blue.
-2. the white static object can also be in motion. 3.
-3. two yellow squares behave differently, the white above the stationary, blue above the will follow the movement.
+1. There is a penetration between white and blue.
+2. The white static object can also be in motion.
+3. Two yellow squares behave differently, the white above the stationary, blue above the will follow the movement.
 
 ![physics-type](img/physics-type.gif)
 
@@ -143,13 +143,13 @@ rigidBody.applyImpulse(new math.Vec3(5, 0, 0));
 
 #### By Changing Velocity
 
-The rigid body component provides the ``setLinearVelocity`` interface that can be used to change the linear velocity.
+The rigid body component provides the `setLinearVelocity` interface that can be used to change the linear velocity.
 
 ```ts
 rigidBody.setLinearVelocity(new math.Vec3(5, 0, 0));
 ```
 
-The rigid body component provides the ``setAngularVelocity`` interface, which can be used to change the angular velocity.
+Similarly, the rigid body component also provides the `setAngularVelocity` interface, which can be used to change the angular velocity.
 
 ```ts
 rigidBody.setAngularVelocity(new math.Vec3(5, 0, 0));
@@ -157,9 +157,9 @@ rigidBody.setAngularVelocity(new math.Vec3(5, 0, 0));
 
 ### Limit the Motion
 
-#### By Hibernating
+#### By Sleeping
 
-When hibernating a rigid body, it empties the rigid body of all its forces and velocities, bringing it to a stop.
+When Sleeping a rigid body, it empties the rigid body of all its forces and velocities, bringing it to a stop.
 
 ```ts
 if (rigidBody.isAwake) {
@@ -179,7 +179,7 @@ if (rigidBody.isSleeping) {
 
 #### Via Damping
 
-The rigid body component provides **linearDamping** linear damping and **angularDamping** rotational damping properties, which can be obtained or set via the ``linearDamping`` and ``angularDamping`` methods.
+The rigid body component provides **linearDamping** linear damping and **angularDamping** rotational damping properties, which can be obtained or set via the `linearDamping` and `angularDamping` methods.
 
 The range of damping parameters is recommended to be between **0** and **1**, **0** means no damping and **1** means full damping.
 

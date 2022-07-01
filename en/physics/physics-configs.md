@@ -12,11 +12,11 @@ The **Project Settings -> Physical Configuration** allows you to configure the p
 
 | Properties | Description |
 | :--- | :--- |
-| **Gravity X** | The gravity vector, which sets the gravity value on the x-component |
-| **Gravity Y** | A gravity vector that sets the gravity value on the y-component |
-| **Gravity Z** | A gravity vector that sets the gravity value on the z-component |
+| **Gravity X** | The gravity vector that sets the gravity value on the x-component |
+| **Gravity Y** | The gravity vector that sets the gravity value on the y-component |
+| **Gravity Z** | The gravity vector that sets the gravity value on the z-component |
 | **AllowSleep** | Allow the system to sleep, default value `true` |
-| **SleepThreshold** | The default speed threshold to enter sleep, default value `0.1`, minimum value `0` | **AutoSimulation** | **SleepThreshold** | The default speed threshold to enter sleep, default value `0.1`, minimum value `0` |
+| **SleepThreshold** | The default speed threshold to enter sleep, default value `0.1`, minimum value `0` | | 
 | **AutoSimulation** | Whether to enable auto simulation, default `true` |
 | **FixedTimeStep** | Fixed time per simulation step, default `1/60`, min `0` |
 | **MaxSubSteps** | The maximum number of sub-steps per step, default `1`, min `0` |
@@ -29,20 +29,6 @@ The **Project Settings -> Physical Configuration** allows you to configure the p
 > **Note**: Currently **2D** / **3D** physics share a common configuration.
 
 ### Programmatic configuration
-
-| Properties | Description |
-| :--- | :--- |
-| **enable** | Whether to enable the physics system, default is `true` |
-| **gravity** | The gravity value of the physical world, default is `(0, -10, 0)` |
-| **allowSleep** | Whether to allow the physics system to sleep automatically, default is `true` |
-| **maxSubSteps** | The maximum number of sub-steps per frame, default is `2` |
-| **fixedTimeStep** | The time consumed by each sub-step, default is `1/60` |
-| **sleepThreshold** | The default speed threshold for entering sleep.
-| **autoSimulation** | Whether to enable auto simulation, default is `true` |
-| **defaultMaterial** | Get the default physical material (read-only) |
-| **raycastResults** | Get the results of **raycast** detection (read-only) |
-| **raycastClosestResult** | Get the result of **raycastClosest** (read-only) |
-| **collisionMatrix** | Get the collision matrix, only for initialization |
 
 The physics system can be configured via `PhysicsSystem.instance`. Some code examples are as follows:
 
@@ -90,7 +76,7 @@ The figure shows the configuration of a collider group for a flying shooter game
 
 ![set-collider-config](img/set-collider-config.png)
 
-This configuration means that the group **ENEMY_PLANE** can collide with the groups **ENEMY_BULLET** and **SELF_BULLET**. Here the group **ENEMY_BULLET** and **SELF_BULLET** are the masks of the group **ENEMY_PLANE**. Similarly, for the group **ENEMY_BULLET** **ENEMY_PLANE** is also its mask.
+This configuration means that the group **ENEMY_PLANE** can collide with the groups **ENEMY_BULLET** and **SELF_BULLET**. Here the group **ENEMY_BULLET** and **SELF_BULLET** are the masks of the group **ENEMY_PLANE**. Similarly, for the group **ENEMY_BULLET**, **ENEMY_PLANE** is also its mask.
 
 Once the collision matrix is configured, you can add the **RigidBody** component to the object to be collided with and set the collision group `Group`.
 

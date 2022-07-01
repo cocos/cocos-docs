@@ -6,9 +6,9 @@ Click **Project -> Project Settings -> Feature Cropping** in the menu bar at the
 
 ## Introduction to the Physics Engines
 
-### Bullet （ammo.js）
+### Bullet(ammo.js)
 
-ammo.js ([GitHub](https://github.com/cocos-creator/ammo.js) is the [Bullet](https://github.com/bulletphysics/bullet3) version of asm.js/wasm for the physics engine, compiled by the [emscripten](https://github.com/emscripten-core/emscripten) tool.
+ammo.js ([GitHub](https://github.com/cocos-creator/ammo.js)) is the [Bullet](https://github.com/bulletphysics/bullet3) version of asm.js/wasm for the physics engine, compiled by the [emscripten](https://github.com/emscripten-core/emscripten) tool.
 
 The **ammo.js** module is large (~1.5MB), but it has good physics functionality and better performance, and we will be putting more work into it in the future.
 
@@ -30,7 +30,7 @@ When using **Builtin** for development, please note the following:
 
 **cannon.js** ([GitHub](https://github.com/cocos-creator/cannon.js)) is an open source physics engine, developed in JavaScript and implementing a relatively comprehensive physics simulation.The size of the **cannon.js** module is about **141KB**.
 
-When the selected physics engine is **cannon.js**, you need to add a **Rigidbody** component to the node to perform the physics simulation. Then add **Colllider** components as required, and the node will add the corresponding collision body for detecting collisions with other colliders.
+When the selected physics engine is **cannon.js**, you need to add a **Rigidbody** component to the node to perform the physics simulation. Then add **Colllider** components as required, and the node will add the corresponding collider for detecting collisions with other colliders.
 
 The current cannon.js support is as follows:
 
@@ -62,10 +62,10 @@ In addition, the ByteDance platform provides the underlying native physics featu
 | Center-of-mass | ✔ | ✔ | ✔ | ✔ |
 | Box, sphere | ✔ | ✔ | ✔ | ✔ | ✔
 | Capsule | ✔ | can be pieced together with base shapes | ✔ |✔ |
-| Convex | |✔ |✔
+| Convex | |✔ |✔ | ✔ | 
 | Static terrain, static planes | | ✔ | ✔ |✔
 | Static meshes | | very limited support | ✔ |✔ |
-| Cones, Cylinders | ✔ | ✔ |✔
+| Cones, Cylinders | ✔ | ✔ | ✔ | ✔ |
 | Monomorphic | | Limited support | ✔ |✔
 | Composite shapes | ✔ | ✔ | ✔ |✔
 | Raycast detection, mask filtering | ✔ | ✔ | ✔ | ✔
@@ -73,9 +73,9 @@ In addition, the ByteDance platform provides the underlying native physics featu
 | Trigger events | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Auto-sleep | | ✔ | ✔ |✔ |
 | Collision events, collision data | | ✔ | ✔ | ✔
-| Physical Materials | ✔ | ✔ | ✔
+| Physical Materials | ✔ | ✔ | ✔ | ✔ |
 | Static, kinematics | ✔ | ✔ | ✔ | ✔ |
-| Dynamics | ✔ | ✔ | ✔
+| Dynamics | ✔ | ✔ | ✔ | ✔ |
 | Point-to-point, hinge constraints (experimental) | | ✔ | ✔ | ✔
 | wasm | | | ✔ |✔ |
 
@@ -83,7 +83,7 @@ In addition, the ByteDance platform provides the underlying native physics featu
 
 If you don't need to use any physics-related components and interfaces, you can uncheck the physics system option to make the game a smaller package.
 
-> **Note**: If the physics system option is unchecked, the project will not be able to use physics-related components and interfaces, otherwise it will report an error when running.
+> **Note**: If the physics system option is unchecked, the project will not be able to use physics-related components and interfaces, otherwise it will report an error at runtime.
 
 ## Performance of physics engine
 

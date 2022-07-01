@@ -38,6 +38,8 @@ const rigidBody = this.node.getComponent(RigidBody);
 | **Group** | 刚体分组                                                                         |
 | **Type**  | 刚体类型。<br>**DYNAMIC**：动力学 <br>**STATIC**：静态 <br>**KINEMATIC**：运动学 |
 
+> **注意**：碰撞体间定义碰撞发生的可能性是通过刚体的 **Group** 属性，而非 **Node** 的 **Layer** 属性。
+
 以下属性仅在 **Type** 设为 **DYNAMIC** 时生效：
 
 | 属性               | 说明                                                 |

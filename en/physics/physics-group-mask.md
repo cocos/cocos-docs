@@ -22,15 +22,15 @@ According to the configuration above, Cocos Creator will parse the data into the
 
 Based on the data it is possible to do a calculation of whether there is a collision between the groups:
 
-- Does the group **SELF_PLANE** collide with the group **DEFAULT**.
+- Does the group **SELF_PLANE** collide with the group **DEFAULT**?
 
   ![cant-collider](img/cant-collider.png)
 
   The final value based on the above calculation is `0`, so there is no collision between the two groups.
 
-- Whether the group **SELF_PLANE** collides with the group **ENEMY_BULLET**.
+- Whether the group **SELF_PLANE** collides with the group **ENEMY_BULLET**?
 
-  ! [can-collider](img/can-collider.png)
+  ![can-collider](img/can-collider.png)
 
   The final value based on the above calculation is greater than `0`, so there will be a collision between the two groups.
 
@@ -83,7 +83,7 @@ const rigid = this.getComponent(RigidBody);
 // Equivalent to rigid.setGroup(1 << 1) or rigid.setGroup(1)
 rigid.setGroup(PHY_GROUP.SELF_PLANE);
 
-rigid.getGroup();
+const group = rigid.getGroup();
 ```
 
 ### Add/Remove Groups

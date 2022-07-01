@@ -83,7 +83,7 @@ const rigid = this.getComponent(RigidBody);
 // 等价于 rigid.setGroup(1 << 1) 或 rigid.setGroup(1)
 rigid.setGroup(PHY_GROUP.SELF_PLANE);
 
-rigid.getGroup();
+const group = rigid.getGroup();
 ```
 
 ### 添加/删除分组

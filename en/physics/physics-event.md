@@ -2,6 +2,8 @@
 
 ## Trigger and Collider
 
+![img](img/isTrigger.jpg)
+
 Collider property **IsTrigger** determines whether the component is a trigger or a collider. When **IsTrigger** is set to `true`, the component is a trigger. Triggers are only used for collision detection and triggering events, and are ignored by the physics engine. With `false` set by default, the component is a collider and can be combined with [Rigidbody](physics-rigidbody.md) to produce collision effects.
 
 The difference between the two is as follows.
@@ -93,7 +95,7 @@ private onCollision (event: ICollisionEvent) {
 
 ## Continuous Collision Detection
 
-Compared to the continuous real world, the physics engine simulation is actually discrete, which means that the physics engine takes 1/30th of a second or some other defined time to sample once. Therefore, for faster objects, the physics engine may not be able to detect the collision results correctly, to solve this phenomenon, you can turn on continuous physics detection (CCD).
+Compared to the continuous real world, the physics engine simulation is actually discrete, which means that the physics engine takes 1/60th of a second or some other defined time to sample once. Therefore, for faster objects, the physics engine may not be able to detect the collision results correctly, to solve this phenomenon, you can turn on continuous physics detection (CCD).
 
 Turn on continuous collision detection in the engine as follows：
 
@@ -106,7 +108,7 @@ See [Continuous Collision Detection](physics-ccd.md) for a more detailed descrip
 
 ## Event Trigger Rules
 
-The generation of collision events will vary depending on the type of rigid body, collision body or trigger, the results are organized here as shown below.
+The generation of collision events will vary depending on the type of rigid body, collider or trigger, the results are organized here as shown below.
 
 > **Note**: The rigid bodies marked here all carry collider and are configured to allow collisions within the collision matrix.
 
