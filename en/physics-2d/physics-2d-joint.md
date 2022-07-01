@@ -25,13 +25,13 @@ Although each joint has different representations, they also share some common p
 | **ConnectedAnchor** | Anchor point of the rigid body at the other end of the joint connected |
 | **CollideConnected** | Can the rigid bodies at the two ends of the joint collide with each other |
 
-Each joint needs to connect two rigid bodies to perform its function. We consider the rigid body hanging under the same node as the joint as the joint's home end, and **ConnectedBody** as the rigid body on the other end. Usually, each rigid body picks a location around itself and sets it as an anchor point. Depending on the type of joint component, the anchor point determines the center of rotation of the object, or a coordinate point used to maintain a certain distance, etc.
+Each joint needs to connect two rigid bodies to perform its function. We consider the rigid body hanging under the same node of the joint as the joint's home end, and **ConnectedBody** as the rigid body on the other end. Usually, each rigid body picks a location around itself and sets it as an anchor point. Depending on the type of joint component, the anchor point determines the center of rotation of the object, or a coordinate point used to maintain a certain distance, etc.
 
 The **CollideConnected** property is used to determine whether the rigid bodies at the ends of the joints need to continue to follow the regular collision rules.
 
 If you are now going to make a ragdoll, you might want the thighs and lower legs to partially overlap and then connect together at the knees, then you would set the **CollideConnected** property to false. If you are going to make a lift and want the lift platform and floor to collide, then you would set the **CollideConnected** property to true.
 
-## Adjusting anchor points
+## Adjusting Anchor Points
 
 Anchor points can be adjusted in the scene by clicking and dragging the ![gizmo-a](image/gizmo-a.png) to adjust the **Anchor** property, and by ![gizmo-b](image/gizmo-b.png) to adjust the **ConnectedAnchor**.
 

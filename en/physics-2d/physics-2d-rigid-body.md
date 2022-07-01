@@ -2,7 +2,7 @@
 
 A rigid body is the basic object that makes up the physical world and can be imagined as an object that you cannot see (draw) or touch (collide) and that cannot be deformed.
 
-Since the Builtin 2D physics system only has collision detection, rigid bodies do not work for the Builtin 2D physics system, and this setup only works for the Box 2D physics system.
+Since the Builtin 2D physics system only has collision detection, rigid bodies do not work for the Builtin 2D physics system, and this setup only works for the Box2D physics system.
 
 ## Add Rigidbody
 
@@ -51,7 +51,7 @@ const velocity = rigidbody.linearVelocity;
 rigidbody.linearVelocity = velocity;
 ```
 
-Moving velocity damping factor, the larger the value the slower the object moves, can be used to simulate the effect of air friction and so on.
+Linear velocity damping factor, the larger the value the slower the object moves, can be used to simulate the effect of air friction and so on.
 
 ```ts
 // get linear damping
@@ -95,7 +95,7 @@ rigidbody.angularDamping = damping;
 
 ### Rotation, Translation and Scaling
 
-Rotation, translation and scaling are the most common features used in game development, and almost every node has these properties set. In the physics system, the system automatically synchronizes these properties of the node with the corresponding properties in Box2D.
+The rotation, translation and scaling are the most commonly used functions in game development, and almost every node sets these properties. The physical system automatically synchronizes these properties of the node with the corresponding properties in Box2D.
 
 > **Note**:
 > 1. There is only rotation and translation in Box2D, not scaling, so if you set the scaling property of a node, it will reconstruct all the collision bodies that this rigid body depends on. An effective way to avoid this is to treat the rendered node as a child of the rigid body node and only scale this rendered node, avoiding direct scaling of the rigid body node as much as possible.
@@ -165,7 +165,7 @@ Collisions between different types of rigid bodies are not always possible, and 
 
 ### Get or Convert Rotation and Position Properties
 
-Using these APIs to get the rotation and position in the world coordinate system will be faster than getting them through the nodes, because the nodes still need to be matrixed to get the result, while using the APIs is direct.
+Using these APIs to get rotations and translations in the world coordinate system is faster than using the nodes, because the nodes also require a matrix operation to get the result, whereas using the APIs gives the result directly.
 
 #### Local Coordinates and World Coordinate Transformation
 
