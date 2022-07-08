@@ -7,7 +7,7 @@ In a plugin, you can declare a special script file called **scene script**, whic
 
 ## Registering the scene script
 
-First, add a `scene` field to the `contributions` property of `pacakge.json`, the value of which is the path to a script file, relative to the extension package directory. Example:
+First, add a `scene` field to the `contributions` property of `package.json`, the value of which is the path to a script file, relative to the extension package directory. Example:
 
 ```json
 {
