@@ -2,7 +2,7 @@
 
 ![tween-index.png](img/homeImgGame.png)
 
-Tween systems are widely used in game development, and one of their main purposes is for solving the problem of dynamic animations when offline animations cannot meet the demand.
+Tweens are widely used in game development as an alternative when premade animations are unavailable or unfitting for project needs.
 
 In Cocos Creator, tweens can be applied to properties such as transform, rotation, scaling and color, as well as adding additional mechanisms such as delaying, queuing and parallelism.
 
