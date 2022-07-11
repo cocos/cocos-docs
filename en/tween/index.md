@@ -8,12 +8,12 @@ In Cocos Creator, tweens can be applied to properties such as transform, rotatio
 
 ## Content
 
-This chapter contains the following.
+This chapter contains the following sections:
 
 - [Tween Interface](./tween-interface.md)
 - [Tween Function](./tween-function.md)
 - [Tween Examples](./tween-example.md)
 
-## Model example
+## Example
 
-For more details on how to use Tween, please refer to the example **Tween** [GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/tween).
+Please see [GitHub](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/tween) for sample code for using tweens.
