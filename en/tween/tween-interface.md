@@ -6,28 +6,28 @@
 
 | Interface         | Description                                     |
 | :---------------- | :------------------------------------------ |
-| **tag**           | Add a tag of type `number` to the current tween |
-| **to**            | Adds an interval action that performs **absolute value** calculations on properties |
-| **by**            | Adds an interval action that performs **relative value** calculations on properties |
-| **set**           | Add a transient action that **directly sets the target property** |
-| **delay**         | Add a **delay time** to a transient action |
-| **call**          | Add a **callback** transient
-| **target**        | Add a **directly set tween target** transient
-| **union**         | **package the contextual tween action into one** |
-| **then**          | **insert a tween into the tween queue** |
-| **repeat**        | **execute several times** (previously repeated several times, please adapt in time) |
-| **repeatForever** | **repeatForever** | **repeatForever** |
-| **sequence**      | **add a sequential execution of the tween** |
-| **parallel**      | **add a simultaneous tween** |
-| **start**         | **start tween** |
-| **stop**          | **stop tween** |
-| **clone**         | **clone tween** |
-| **show**          | **enable rendering on node chains, tween target needs to be Node** |
-| **hide**          | **disable rendering on the node chain, the tween target needs to be Node** |
+| **tag**           | Add a number tag to the current tween |
+| **to**            | Create motion by interpolating the property’s value to an **absolute value** |
+| **by**            | Create motion by interpolate the property’s value to a value **relative** to the current one |
+| **set**           | Create an instant motion by setting the property to a value |
+| **delay**         | Create an instant motion of pausing for a period of time |
+| **call**          | Create an instant motion by calling a function |
+| **target**        | Define the target node or component to which the tween is applied |
+| **union**         | Combine multiple motions as one tween |
+| **then**          | Insert a new motion to the current tween queue |
+| **repeat**        | Define the number of times for the motion to be executed (In previous versions, this is used to define the number of times the motion is repeated.) |
+| **repeatForever** | Set the motion to repeat for infinite times |
+| **sequence**      | Define a collection of motions to be executed in sequence |
+| **parallel**      | Define a collection of motions to be executed simultaneously |
+| **start**         | Start the tween |
+| **stop**          | Stop the tween |
+| **clone**         | Clone the tween |
+| **show**          | Enable the tween target to be rendered. Tween target is mandatory to be Node. |
+| **hide**          | Disable the tween target to be rendered. Tween target is mandatory to be Node. |
 
 ### Static Interface
 
-These methods are static methods of `Tween` and are called in the following example:
+Static methods in the Tween class are as follows:
 
 ```ts
 Tween.stopAll()
@@ -37,19 +37,19 @@ Tween.stopAllByTarget(this.node);
 
 | Interface | Description |
 | :--- | :--- |
-| **stopAll**         | Stop all tweening <br> This interface removes all registered tweens from the underlying <br> **Note**: This method affects all objects |
-| **stopAllByTag**    | Stop all tweens for the specified tag <br> This interface will remove all tweens specified by the **tag** method <br> You can specify whether to remove only tweens with a tag on that object by specifying a second parameter `target?: object` |
-| **stopAllByTarget** | Stop the tweens of all specified objects |
+| **stopAll**         | Stop all tween motions. <br>This method will remove all registered tweens at root level. <br> **Note**: this method will affect all tween targets. |
+| **stopAllByTag**    | Stop all tween motions by their number tags. <br>This method will remove all registered tweens by the designated tag at the root level. Users may use the method parameter `target?: object` to check if the tween is attached with the tag. |
+| **stopAllByTarget** | Stop all tween motions by their targets |
 
 ## Utility Function
 
 |Interface| Description |
 |:-- |:--|
-| **tween<T>** | This is a utility function to help instantiate the `Tween` class <br> **Note**: This method is not a member of the `Tween` class, and developers can also instantiate the tween by calling `new Tween<T>(target:T)` on their own. |
+| **tween<T>** | Utility function to help instantiate the `Tween` class. <br> **Note**: This function is not a member of the `Tween` class. Users may call `new Tween<T>(target:T)` to instantiate a new tween instance. |
 
 ### Example
 
-Here is an example of a `to` tween aniamtion to demonstrate the use of `tween()`:
+The following is an example of using `to` method to create tween motions:
 
 ```ts
 let tweenDuration : number = 1.0;                                   // Duration of the tween
@@ -61,17 +61,17 @@ tween(this.node.position).to( tweenDuration, new Vec3(0, 10, 0),    // Here take
 }).start();                                                         // Start the tween by calling 'start' function
 ```
 
-More examples can be found in [Tween Example](tween-example.md)
+For more examples, please see [Tween Example](tween-example.md).
 
-## Some Restrictions
+## Caveats
 
-In order to reduce the frequency of updating `Node.Transform` information, `Node` maintains an internal `dirty` state, which is only set to `dirty` if an interface that may change `Node.Transform` information is called.
+To avoid frequent updates to the transform data of nodes, `Node` class is constructed with an internal `dirty` state which only permits updating when modifications to the node’s transform data is called.
 
-However, the current interface has certain limitations, e.g. the `position` obtained via `this.node.position` is a generic `Vec3`.
+Due to pre-existing limitations, such as the position data returned by `this.node.position` being a public vector, certain coding conventions may not behave as expected.
 
-When the code `this.node.position.x = 1` is executed, only the `getter` of `position` is executed, not the `setter` of `position`. Since `dirty` is not updated, the `transform` information of the node used in rendering is not updated.
+For instance, when attempting to execute `this.node.position.x = 1`, the code only calls the `getter` for the position data and not the `setter` for the `dirty` state data to be updated, thus no transform data of the node will remain unchanged.
 
-Currently, we also do not support such calls, and instead encourage the use of `setPosition` or `setter` for `position`, as follows:
+We advise against coding in such a manner and encourage users to call the `setter` for the position data via method `setPosition` instead, such as:
 
 ```typescript
 let _pos = new Vec3(0, 1, 0);
