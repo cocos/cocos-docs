@@ -4,7 +4,7 @@
 
 Tween systems are widely used in game development, and one of their main purposes is for solving the problem of dynamic animations when offline animations cannot meet the demand.
 
-In Cocos Creator, tweening can be used for transforming position, rotation, scaling and color in addition to the usual animation information, but also supports delay, queueing, parallelism and other action behaviors.
+In Cocos Creator, tweens can be applied to properties such as transform, rotation, scaling and color, as well as adding additional mechanisms such as delaying, queuing and parallelism.
 
 ## Content
 
