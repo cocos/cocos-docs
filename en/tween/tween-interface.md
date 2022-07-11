@@ -27,7 +27,7 @@
 
 ### Static Interface
 
-Static methods in the Tween class are as follows:
+Static methods in the `Tween` class are as follows:
 
 ```ts
 Tween.stopAll()
