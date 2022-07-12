@@ -11,7 +11,7 @@
 当前项目名称(取自 package.json)
 
 ```typescript
-const projectName = Editor.Project.name;
+const projectName = Editor.Project.name; // "Hello World 3.4.0"
 ```
 
 ### path
@@ -21,7 +21,7 @@ const projectName = Editor.Project.name;
 当前项目路径
 
 ```typescript
-const projectPath = Editor.Project.path;
+const projectPath = Editor.Project.path;  // "E:\\workSpace\\Hello World 3.4.0"
 ```
 
 ### tmpDir
@@ -31,7 +31,7 @@ const projectPath = Editor.Project.path;
 当前项目临时文件夹
 
 ```typescript
-const projectTmpDir = Editor.Project.tmpDir;
+const projectTmpDir = Editor.Project.tmpDir;  // "E:\\workSpace\\Hello World 3.4.0\\temp"
 ```
 
 ### uuid
@@ -41,5 +41,5 @@ const projectTmpDir = Editor.Project.tmpDir;
 当前项目 uuid
 
 ```typescript
-const projectUUID = Editor.Project.uuid;
+const projectUUID = Editor.Project.uuid;  // "7aa7c089-8e53-4611-8689-98b69ab28e22"
 ```

@@ -1,6 +1,7 @@
 # Message
 
 Creaotr 消息系统，消息在 Creator 非常重要，几乎所有的操作和数据传递都是通过消息进行的
+具体插件支持调用的消息可以在菜单栏 `开发者->消息列表` 查看
 
 ## 函数
 
@@ -18,12 +19,8 @@ Creaotr 消息系统，消息在 Creator 非常重要，几乎所有的操作和
 | `message` | `string`          | 触发消息的名字  |
 | `...args` | `any[]`           | 消息需要的参数  |
 
-**返回结果**
-
-`void`
-
 ```typescript
-Editor.Message.send('assets', 'twinkle', uuid);
+Editor.Message.send('builder', 'open-devtools');
 ```
 
 ### request
@@ -45,7 +42,7 @@ Editor.Message.send('assets', 'twinkle', uuid);
 Promise<`any`>
 
 ```typescript
-const url = await Editor.Message.request('asset-db', 'generate-available-url', arg);
+const sceneDirty = await Editor.Message.request('scene', 'query-dirty');  // false
 ```
 
 ### broadcast
