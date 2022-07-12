@@ -1,5 +1,7 @@
 # 与面板通信
 
+> **注意**：在 v3.5 版本后，我们对插件文档进行了更新，因此该文档已废弃，请移步 [消息系统](./messages.md) 或 [自定义消息](./contributions-messages.md) 获取更多信息。如果您在线上看到此文档，请在 [github](https://github.com/cocos/cocos-docs/issues/new) 发起 issue，告知官方人员处理。
+
 一般情况下，我们的交互模型是 "扩展进程" 为主，"面板" 为数据展示。对位传统 web 的话，就是 "插件" 功能是服务端，"面板" 功能是客户电脑上的浏览器。
 
 这种情况下，一般不会有直接发送数据给面板的情况，有的大部分是一些状态的同步，使用 broadcast 广播即可。
@@ -36,6 +38,8 @@ messages.console 里的 methods 定义的方法名称是 default.console。表�
 
 然后定义面板的 panel.js 文件：
 
+Javascript
+
 ```javascript
 exports.template = '';
 exports.style = '';
@@ -49,6 +53,23 @@ exports.methods = {
 exports.ready = async function() {};
 
 exports.close = function() {};
+```
+
+Typescript
+
+```typescript
+export const template = '';
+export const style = '';
+
+export const methods = {
+    console(str: string) {
+        console.log(`console: ${str}`);
+    },
+};
+
+export async function ready() {};
+
+export function close() {};
 ```
 
 ## 发送消息

@@ -12,9 +12,12 @@
 
 | 属性 | 说明 |
 | :--- | :--- |
-| Type | 用于设置图像资源的类型，包括 **raw**、**texture**（默认）、**normal map**、**sprite-frame**、**texture cube**，具体说明可参考下文 **图像资源类型** 部分的内容。 |
-| Flip Vertical | 是否沿 X 轴垂直翻转导入的贴图。 |
-| useComponentTexture | 是否使用压缩纹理，详情请参考 [压缩纹理](compress-texture.md)。 |
+| **useComponentTexture** | 是否使用压缩纹理，详情请参考 [压缩纹理](compress-texture.md)。 |
+| **Type** | 用于设置图像资源的类型，包括 **raw**、**texture**（默认）、**normal map**、**sprite-frame**、**texture cube**，具体说明可参考下文 **图像资源类型** 部分的内容。 |
+| **Flip Vertical** | 是否沿 X 轴垂直翻转导入的贴图。 |
+| **Bake Offline Mimmaps** | 是否烘焙离线 Mipmap |
+| **Fix Alpha Transparency Artifacts** | 消除透明伪影 <br> 为全透明像素填充相邻像素的颜色，防止纹理过滤引起的黑边问题。当使用 Alpha 透明通道时，请启用此功能。<br> 仅对 **texture**、**raw**、**sprite-frame** 以及 **texture cube** 生效 |
+| **Is RGBE** | 是否是 RGBE 压缩格式，该选项仅在 **Type** 为 [立方体贴图](texture-cube.md) 时生效 |
 
 ## 图像资源的类型
 
@@ -30,7 +33,7 @@
 
   ![normal-map](texture/normal-map.png)
 
-- **sprite-frame**：精灵帧资源，用于 UI 制作上，详情可参考 [SpriteFrame](sprite-frame.md)。
+- **sprite-frame**：精灵帧资源，用于 2D/UI 制作上，详情可参考 [SpriteFrame](sprite-frame.md)。
 
 - **texture cube**：立方贴图类型，使用在全景图上，常用于制作天空盒。详情可参考 [立方体贴图](texture-cube.md)。
 

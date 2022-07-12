@@ -30,7 +30,14 @@
 
 ![image](../material-system/img/preview-model-select.png)
 
+**属性检查器** 会对当前材质的用户数据进行缓存，用户数据是指现在修改的或者之前修改的数据，当切换 `Effect` 或 `Technique` 时，缓存的数据会进行迁移，使用户数据得到维持。
+
 若修改了材质属性，面板右上角会出现 ![image](../material-system/img/save-material.png) 保存和 ![image](../material-system/img/revert-material.png) 重置按钮。重置会将材质属性回退到上一次保存时的设置，而一旦点击保存后便无法再重置。
+
+材质编辑过程中，支持撤销（undo）和重做（redo）的快捷键操作。
+在 **属性检查器** 面板获得焦点的情况下，
+- undo ：Ctrl/Cmd + Z
+- redo ：Ctrl/Cmd + Shift + Z
 
 ## 使用材质
 
@@ -42,11 +49,13 @@
 
 #### 导出模型资源中的材质
 
-通常 [模型资源](./model/mesh.md) 都是由第三方工具制作并导出，然后导入到 Creator 中使用的（支持 FBX 和 glTF 格式）。若模型资源文件中自带了材质资源，则导入后材质为 **只读** 状态，不可编辑。
+通常 [模型资源](./model/mesh.md) 都是由第三方工具制作并导出，然后导入到 Creator 中使用的（支持 FBX 和 glTF 格式）。这些模型可能带有材质资源，可在 **资源管理器** 内展开模型文件进行查看。
 
 ![fbx-mat](../material-system/img/readonly-material.png)
 
-若要编辑模型资源自带的材质，我们需要先将其提取到模型资源外。<br>在 **资源管理器** 中选中模型资源，然后在 **属性检查器** 的 **材质** 分页中勾选 **提取材质**，并设置 **材质提取目录**，最后点击右上角的绿色打钩按钮，即可将模型资源的材质提取到指定目录。详情请参考 [模型资源 - Material 模块](./model/mesh.md#material-%E6%A8%A1%E5%9D%97)。
+这些材质可以直接在模型文件内进行编辑，也可以提取后进行编辑。
+
+若要提取这些材质，在 **资源管理器** 中选中模型资源，然后在 **属性检查器** 的 **材质** 分页中勾选 **提取材质**，并设置 **材质提取目录**，最后点击右上角的绿色打钩按钮，即可将模型资源的材质提取到指定目录。详情请参考 [模型资源 - Material 模块](./model/mesh.md#material-%E6%A8%A1%E5%9D%97)。
 
 ![导出模型](../material-system/img/dump-material.png)
 

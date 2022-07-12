@@ -1,5 +1,7 @@
 # 面板与扩展的通信
 
+> **注意**：在 v3.5 版本后，我们对插件文档进行了更新，因此该文档已废弃，请移步 [消息系统](./messages.md) 或 [自定义消息](./contributions-messages.md) 获取更多信息。如果您在线上看到此文档，请在 [github](https://github.com/cocos/cocos-docs/issues/new) 发起 issue，告知官方人员处理。
+
 一些实用工具或者是简单的功能可以直接写在面板上，但是面板不是可靠的数据存储位置，窗口随时可能被关闭，面板也会被关闭。
 
 最常见的例子就是某个面板被拖拽停靠到主窗口里。这时候面板会先关闭，然后在主窗口内重新打开，而面板上使用的内存里的数据如果不进行存储和备份，则会随着重启而丢失。
@@ -37,6 +39,8 @@
 
 然后定义扩展的 main 文件 `browser.js`：
 
+Javascript
+
 ```javascript
 exports.methods = {
     saveData(path, data) {
@@ -54,7 +58,33 @@ exports.load = function() {};
 exports.unload = function() {};
 ```
 
+Typescript
+
+```typescript
+interface PackagelItem {
+    cache: {
+        [path: string]: any;
+    }
+}
+export const methods = {
+    saveData(this: PackagelItem, path: string, data: any) {
+        // 收到数据后缓存起来
+        this.cache[path] = data;
+    },
+    queryData(this: PackagelItem, path: string) {
+        const result = this.cache[path];
+        delete this.cache[path];
+        return result;
+    },
+};
+
+export function load() {};
+export function unloal() {};
+```
+
 然后定义面板的 main 文件：
+
+Javascript
 
 ```javascript
 const packageJSON = require('./package.json');
@@ -69,6 +99,24 @@ exports.close() {
     // 收到数据后上传到扩展进程
     Editor.Message.send(packageJSON.name, 'upload', 'tab', 1);
     Editor.Message.send(packageJSON.name, 'upload', 'subTab', 0);
+};
+```
+
+Typescript
+
+```typescript
+import { name } from './package.json';
+exports.ready = async () => {  
+    const tab = await Editor.Message.request(name, 'query', 'tab');
+    const subTab = await Editor.Message.request(name, 'query', 'subTab');
+    // 打印查询到的数据
+    console.log(tab, subTab):
+    // TODO 使用这两个数据初始化
+};
+exports.close() {
+    // 收到数据后上传到扩展进程
+    Editor.Message.send(name, 'upload', 'tab', 1);
+    Editor.Message.send(name, 'upload', 'subTab', 0);
 };
 ```
 

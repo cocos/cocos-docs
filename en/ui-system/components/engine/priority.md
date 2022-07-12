@@ -6,11 +6,11 @@
 
 - The nodes under Canvas can be found in **UI node ordering** below.
 
-- The nodes that are not under Canvas, the user can choose to enable depth detection and occlusion display of 3D objects through [custom materials](ui-material.md), which will render the occlusion according to the Z-axis coordinates of the object when enabled (see example [2d-rendering-in-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/2d-rendering-in-3d)).<br>If depth detection is disabled, the data will still be submitted in the order of the node tree, which means that nodes further down the node tree will be rendered later.
+- The nodes that are not under Canvas, the user can choose to enable depth detection and occlusion display of 3D objects through [custom materials](ui-material.md), which will render the occlusion according to the Z-axis coordinates of the object when enabled (see example [2d-rendering-in-3d](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/2d-rendering-in-3d)).
 
 ## UI node ordering
 
-UI nodes refer to the UI nodes under the Canvas node, these nodes do not have depth testing enabled, so the mixing of nodes is strictly sorted according to the node tree. The rendering order of the UI uses a **Breadth-First Sorting** scheme, and the node tree order is the final rendering data submission order. So the user can change the order of the nodes under their parents by setting the `siblingIndex` of the nodes and thus change the rendering order.
+UI nodes refer to the UI nodes under the Canvas node, the mixing of nodes is strictly sorted according to the node tree. The rendering order of the UI uses a **Breadth-First Sorting** scheme, and the node tree order is the final rendering data submission order. So the user can change the order of the nodes under their parents by setting the `siblingIndex` of the nodes and thus change the rendering order.
 
 For example:
 

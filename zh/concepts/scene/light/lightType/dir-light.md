@@ -14,7 +14,9 @@
 
 新建场景时，默认会自动创建一个 `Main Light` 平行光节点。
 
-平行光组件相关接口，请参考 [DirectionalLight API](__APIDOC__/zh/#/docs/3.4/zh/component-light/Class/DirectionalLight)。
+平行光组件相关接口，请参考 [DirectionalLight API](__APIDOC__/zh/class/DirectionalLight)。
+
+> **注意**：从 v3.5 开始，**平行光阴影** 从场景设置面板中独立出来，不在全局设置阴影属性。
 
 ## 平行光属性
 
@@ -27,3 +29,39 @@
 | ColorTemperature | 调节色温 |
 | StaticSettings | 设置静态灯光，详情请参考 [光照贴图](../lightmap.md) |
 | Illumination | 照度，单位 **勒克斯（lx）** |
+
+### 平行光阴影属性
+
+![image](dirlights/dir-light-shadow-prop.png)
+
+| 属性 | 说明 |
+| :------ | :-- |
+| ShadowEnabled | 是否开启平行光阴影 |
+| ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
+| ShadowBias | 设置阴影偏移值，防止 z-fiting |
+| ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
+| ShadowSaturation | 调节阴影饱和度，建议设置为 **1.0**。若需要减小方向光阴影的饱和程度，推荐通过增加环境光来实现，而不是调节该值 |
+| ShadowInvisibleOcclusionRange  | 设置 Camera 可见范围外的物体产生的阴影是否需要投射到可见范围内，若需要则调大该值即可  |
+| ShadowDistance            | 设置 Camera 可见范围内显示阴影效果的范围，阴影质量与该值的大小成反比    |
+
+#### FixedArea 模式
+
+FixedArea 模式用于设置是否手动控制 Camera 可见范围内显示阴影效果的范围：
+
+- 若不勾选该项（默认），则引擎会使用和 CSM（级联阴影算法）模式相同的裁切流程和相机计算，根据 Camera 的方向和位置来计算阴影产生的范围。
+- 若勾选该项，则根据手动设置的 `Near`、`Far`、`OrthoSize` 属性来控制阴影产生的范围。阴影会跟随方向光节点的位置，在方向光包围盒附近分布，而非跟随相机。
+
+![image](dirlights/dir-light-fixed-shadow-prop.png)
+
+| 属性 | 说明 |
+| :------ | :-- |
+| ShadowFixedArea | 是否开启固定区域的阴影 |
+| ShadowNear | 设置主光源相机的近裁剪面 |
+| ShadowFar | 设置主光源相机的远裁剪面 |
+| ShadowOrthoSize | 设置主光源相机的正交视口大小，阴影质量与该值的大小成反比 |
+
+#### PCF 软阴影
+
+百分比渐近过滤（PCF）是一个简单、常见的用于实现阴影边缘反走样的技术，通过对阴影边缘进行平滑处理来消除阴影贴图的锯齿现象。原理是在当前像素（也叫做片段）周围进行采样，然后计算样本跟片段相比更接近光源的比例，使用这个比例对散射光和镜面光成分进行缩放，然后再对片段着色，以达到模糊阴影边缘的效果。
+
+目前 Cocos Creator 支持 **硬采样**、**4 倍采样（SOFT 模式）**、**9 倍采样（SOFT_2X 模式）**，倍数越大，采样区域越大，阴影边缘也就越柔和。

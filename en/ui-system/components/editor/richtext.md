@@ -10,7 +10,7 @@ For more information about BBCode, please refer to the __BBCode format__ section
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __RichText__ from __UI -> Render__ to add the RichText component to the node.
 
-To use `RichText`, please refer to the [RichText API](__APIDOC__/en/#/docs/3.4/en/ui/Class/RichText) documentation and the [RichText](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/07.richtext) scene of the test-cases-3d project.
+To use `RichText`, please refer to the [RichText API](__APIDOC__/en/class/RichText) documentation and the [RichText](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/07.richtext) scene of the test-cases-3d project.
 
 ## RichText Properties
 
@@ -20,6 +20,7 @@ To use `RichText`, please refer to the [RichText API](__APIDOC__/en/#/docs/3.4/e
 | FontSize         | Font size, in points (__Note__: this field does not affect the font size set in BBCode.) |
 | HandleTouchEvent | Once checked, the __RichText__ will block all input events (mouse and touch) within the bounding box of the node, preventing the input from penetrating into the underlying node. |
 | Horizontal Align | Horizontal alignment   |
+| Vertical Align   | Vertical alignment   |
 | ImageAtlas       | The image atlas for the `img` tag. For each `src` value in the `img` tag, there should be a valid `spriteFrame` in the imageAtlas. |
 | Font Family      | Custom system font of RichText.                                                       |
 | Use System Font  | Whether to use the system default font.                                               |

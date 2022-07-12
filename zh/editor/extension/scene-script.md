@@ -1,67 +1,80 @@
-# 调用引擎 API 和项目脚本
+# 调用引擎 API
 
-在插件中可以声明一个特殊的脚本文件（场景脚本），该脚本和项目中的脚本（`assets\` 目录下的脚本）具有相同的环境，也就是说在这个脚本里可以调用引擎 API 和其他项目脚本，实现：
+在扩展中可以定义一个特殊的 **场景脚本** 文件，该脚本会和项目中 `assets\` 目录下的脚本处于同一运行进程，具有相同的运行环境。
 
-- 遍历场景中的节点，获取或改动数据
+在 **场景脚本** 里可以调用引擎 `API` 和其他项目脚本，通过这个特性我们可以实现：
 
-- 调用项目中的其他脚本完成工作
+- 查询、遍历场景中的节点，获取或修改节点数据
+
+- 调用节点上的引擎组件相关函数，完成工作
 
 ## 注册场景脚本
 
-首先在 `pacakge.json` 的 `contributions` 属性中添加 `scene` 字段，该字段的值是一个脚本文件的路径，相对于扩展包目录：
+在 `pacakge.json` 中定义 `contributions.scene` 字段，该字段的值是一个相对于扩展包根目录的脚本文件路径，如下所示：
 
 ```json
 {
-    "name": "engine",
     "contributions": {
         "scene": {
-            "script": "./scene.js"
+            "script": "./dist/scene.js"
         }
     }
 }
 ```
 
-## 编写场景脚本
+## 场景脚本模板
 
-定义 `scene.js` 的方法如下：
+在 `src` 目录下新建一个 `scene.ts`，编写如下代码：
 
-```javascript
-const { join } = require('path');
-// 加载 ‘cc’ 需要设置搜索路径
+```typescript
+export function load() {};
+export function unload() {};
+export const methods = { };
+```
+
+`load` - 模块加载的时候触发的函数
+
+`unload` - 模块卸载的时候触发的函数
+
+`methods` - 模块内定义的方法，可用于响应外部消息
+
+## 调用引擎 API
+
+接下来，我们通过对主摄像机进行旋转，来演示场景脚本如何调用引擎 API。
+
+为了调用引擎 API，我们需要在 `scene.ts` 开头加入引擎脚本的搜索路径，并编写相应的代码，最终代码如下所示：
+
+```typescript
+import { join } from 'path';
 module.paths.push(join(Editor.App.path, 'node_modules'));
 
-// 模块加载的时候触发的函数
-exports.load = function() {};
-// 模块卸载的时候触发的函数
-exports.unload = function() {};
+export function load() {};
 
-// 模块内定义的方法
-exports.methods = {
-    log() {
+export function unload() {};
+
+export const methods = {
+    rotateCamera() {
         const { director } = require('cc');
-        director.getScene();
-        return {};
+        let mainCamera = director.getScene().getChildByName("Main Camera");
+        if(mainCamera){
+            let euler = mainCamera.eulerAngles;
+            euler.y += 10;
+            mainCamera.setRotationFromEuler(euler);
+            return true;
+        }
+        return false;
     },
 };
 ```
 
-> **注意**：由于升级了脚本系统，原本使用和项目脚本相同的模块引用机制的 `cc.require` 方法被弃用。
+上面的代码中，我们定义了一个 `rotateCamera` 方法，此方法每执行一次，就会让主摄像机绕 `Y` 轴旋转 `10` 度。
 
-## 发送消息到 `scene.js`
-
-在扩展包程序的主进程和渲染进程中，都可以使用下方的接口向 `scene.js` 发送消息（假设扩展包名是 `foobar`）：
+在其他扩展脚本中，我们可以使用如下代码调用 `rotateCamera` 函数：
 
 ```typescript
-interface ExecuteSceneScriptMethodOptions {
-    // Name of extension
-    name: string;
-    method: string;
-    args: any[];
-}
-
 const options: ExecuteSceneScriptMethodOptions = {
-    name: 'foobar',
-    method: 'log',
+    name: packageJSON.name,
+    method: 'rotateCamera',
     args: []
 };
 
@@ -69,8 +82,9 @@ const options: ExecuteSceneScriptMethodOptions = {
 const result = await Editor.Message.request('scene', 'execute-scene-script', options);
 ```
 
-这样就可以在扩展包中获取到场景所有节点的名字，当然还可以用来对场景节点进行更多的查询和操作。
+`ExecuteSceneScriptMethodOptions` 的属性定义如下：
+- name - `scene.ts` 所在的扩展包名，如果是本扩展中可以使用 `packageJSON.name`
+- method：`scene.ts` 中定义的方法
+- args： 参数，可选
 
-> **注意**：返回的对象 `result` 则是 `log` 方法里 `return` 的对象。
-
-**由于通讯基于 Electron 的底层 IPC 实现，所以切记传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。建议只传输纯 JSON 对象。**
+由于扩展间通信实现是基于 Electron 的底层跨进程 IPC 机制，传输的数据均会被序列化为JSON。所以传输的数据不可以包含原生对象，否则可能导致进程崩溃或者内存暴涨。如上面代码中的 `options.args` 参数和场景脚本方法的返回值，建议只传输纯 `JSON` 对象。

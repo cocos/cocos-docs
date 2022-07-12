@@ -4,14 +4,16 @@
 
 In Cocos Creator, scripts are part of assets. A script created in the **Assets** panel is a NewComponent by default, which is called a component script. It can be created in two ways:
 
-- Select the folder in the **Assets** panel where the component script is to be placed, then right-click and select **TypeScript**.
-- Click the **+** button in the upper left corner of the **Assets** panel directly, and then select **TypeScript**.
+- Select the folder in the **Assets** panel where the component script is to be placed, then right-click and select **TypeScript** > **NewComponent**.
+- Click the **+** button in the upper left corner of the **Assets** panel directly, and then select **TypeScript** > **NewComponent**.
 
-![create-script](setup/create-script.png)
+![create script](setup/create-script.png)
 
 When creating a script, the script name cannot be empty and defaults to `NewComponent`. If the created component script is named as `say-hello`, and then a script file named `say-hello` is generated in the **Assets** panel:
 
-![ts](setup/ts.png)
+![say-hello-1](setup/say-hello-1.png)
+
+![say-hello-2](setup/say-hello-2.png)
 
 A simple component script may look like this example:
 
@@ -19,56 +21,49 @@ A simple component script may look like this example:
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables given by default, for some project management needs.
- * 
- * Name = SayHello
- * DateTime = Thu Jul 29 2021 15:19:02 GMT+0800 (China Standard Time)
- * Author = <%Author%>  // If not logged in, the entry is empty.
- * FileBasename = say-hello.ts
- * FileBasenameNoExtension = say-hello
- * URL = db://assets/say-hello.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
- 
-@ccclass('SayHello')
-export class SayHello extends Component {
-    // [1]
-    // dummy = '';
+@ccclass('say_hello')
+export class say_hello extends Component {
+    start() {
 
-    // [2]
-    // @property
-    // serializableDummy = 0;
-
-    start () {
-        // [3]
     }
 
-    // update (deltaTime: number) {
-    //     // [4]
-    // }
+    update(deltaTime: number) {
+        
+    }
 }
-
-/**
- * [1] Class member could be defined like this.
- * [2] Use `property` decorator if your want the member to be serializable.
- * [3] Your initialization goes here.
- * [4] Your update function goes here.
- *
- * Learn more about scripting: https://docs.cocos.com/creator/3.4/manual/en/scripting/
- * Learn more about CCClass: https://docs.cocos.com/creator/3.4/manual/en/scripting/decorator.html
- * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.4/manual/en/scripting/life-cycle-callbacks.html
- */
 ```
 
-When a script is created, its original filename is handled as its `className`, which is not allowed to be repeated in the project. Note that renaming a created script file does not automatically update the `className`, see the **Script Renaming** section below for details.
+> **Notes**:
+>
+> 1. The class name `ClassName` (such as 'say_hello' in the above example) of all scripts in the project is not allowed to be repeated. Even if the script files are in different directories, the same class name is not allowed in their respective codes.
+>
+> 2. The name of the script file is different from the class name of the script. After the initial file name is entered, the file name will be processed as the class name. For details of the processing logic, please refer to **Class Name Generation** below. After the script file is generated, the subsequent operation of the file **renames the script**, the new file name will not be generated and replaced by the class name in the code, and will no longer be affected.
+>
+> 3. We recommend that users use TypeScript to write scripts. Currently, only TypeScript files are supported in **Assets**. But if users want to use JavaScript to write scripts, they can create JavaScript files directly in the operating system's folder, or create JavaScript files in other code editing software.
 
-> **Note**: it is recommended that users use **TypeScript** to write scripts. If you wish to use **JavaScript** to write scripts, they can be created directly in the operating system file manager, or created in a code editor.
+## Class Name Generation
+
+After obtaining the initial file name data, the class name `ClassName` of the two rules will be generated and provided to the **Custom Script Template** in the form of variables.
+
+- Underscore format, variable name is `<%UnderscoreCaseClassName%>`. This format is to keep the class name as consistent as possible with the file name. The advantage of being consistent is that it facilitates global search and replacement of code.
+- CamelCase format, the variable name is `<%CamelCaseClassName%>`. This format is to maintain consistency with mainstream scripting standards, with capitalized camel case.
+
+## Add a Script to a Scene Node
+
+Adding a script to a scene node is actually adding a script component to that node. Select the scene node to which you wish to add a script in the **Hierarchy** panel, at which point the properties of that node will be displayed in the **Inspector** panel. Adding a script component includes the following two ways:
+
+- Drag and drop the script from **Assets** panel directly into the **Inspector** panel.
+
+- Click the **Add Component** button at the bottom of the **Inspector** panel and select **Custom script -> say_hello** to add the script component just created. It is also possible to add it by searching for **say_hello** in the **Add Component** search box.
+
+    ![add component](setup/add-component.png)
+    ![add component done](setup/add-component-done.png)
 
 ## Editing Scripts
 
-Choose a favorite text-editing tool (such as: **Vim**, **Sublime Text**, **Web Storm**, **VSCode**...) for script editing, please setup in the **Preferences -> External Program -> Default Script Editor** option of the editor menu bar.
+Choose a favorite text-editing tool (such as: **Vim**, **Sublime Text**, **Web Storm**, **VSCode**...) for script editing, please setup in the **Preferences** > **External Program -> Default Script Editor** option of the editor menu bar.
+
+![preference script editor](setup/preference-script-editor.png)
 
 By double-clicking the script asset, the script editor directly opens to allow for editing. When the script is edited and saved, then returned to the editor, Cocos Creator will automatically detect the changes to the script and compile it quickly.
 
@@ -77,75 +72,159 @@ Before writing code, please read the following documentations to learn more abou
 - [Coding Environment Setup](coding-setup.md)
 - [Operating Environment](basic.md)
 
-## Add a Script to a Scene Node
+After the script file is successfully created, rename the file or modify the class name in the code, the file name and class name will no longer affect each other.
 
-Adding a script to a scene node is actually adding a script component to that node. Select the scene node to which you wish to add a script in the **Hierarchy** panel, at which point the properties of that node will be displayed in the **Inspector** panel. Adding a script component includes the following two ways:
+- Take `say-hello` as an example, we renamed it to `hello` in **Asset**.
+Re-select it and check the **Inspector**, the code still displays `class say_hello`, which will not change.
+Re-select the node **Node** where the component was just added on the **Hierarchy**, check the **Inspector**, the component name still displays `say_hello`, and it will not change.
 
-1. Drag and drop the script from **Assets** panel directly into the **Inspector** panel.
+We continue to double-click the current `hello` asset, change the class name to **say**, save it and return to the editor:
 
-    ![add script component](setup/add-script-component.png)
-
-2. Click the **Add Component** button at the bottom of the **Inspector** panel and select **Custom script -> SayHello** to add the script component just created. It is also possible to add it by searching for **SayHello** in the **Add Component** search box.
-
-    ![add script component](setup/add-script-component2.png)
-
-## Script Renaming
-
-Note that the component name of a script component is the class name defined in the script, not the script file name. When a script is created, the script file generates the class name according to the following rules:
-
-- Use Upper Camel Case.
-- There are no numbers on the head.
-- Without special characters.
-- Use the symbols and spaces in the script file name as intervals, and capitalize the first letter after each interval. For example, the script file name is `say-hello`, and the class name is `SayHello`.
-
-If there are secondary changes to the script file name/script class name afterwards, the two are not automatically synchronized, and can be synchronized manually if needed.
-
-Using `say-hello.ts` above as an example, if it is renamed to `hello` in the **Assets** panel, notice that the script component name in the **Inspector** panel is still the original name, **SayHello**, only the script name has changed to `hello`:
-
-![change script name](setup/change-scriptname.png)
-
-Double click to open `say-hello.ts`, and change the class name to **Hello**:
-
-```TypeScript
+```ts
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('Hello')
-export class Hello extends Component {}
+@ccclass('say')
+export class say extends Component {
+    start() {
+
+    }
+
+    update(deltaTime: number) {
+        
+    }
+}
 ```
 
-After saving the script and returning to the editor, notice that the script component name in the **Inspector** panel has changed to **Hello**, but the script file name is still the original name, `say-hello`:
+The script file name `hello` will not change. The component name in the node **Node** becomes **say**.
 
-![change class name](setup/change-classname.png)
+> **Note**: don't forget to change the decorator `@ccclass('say_hello')` to @ccclass('say') .
 
-## Custom script template
+![modify script](setup/modify-script.png)
 
-Cocos Creator supports custom script templates in the project. The operation steps are as follows:
+## <a id="custom-script-template">Custom Script Template</a>
 
-1. Create a new `.creator/asset-template/typescript` directory in the project directory and add a text file containing the content of the custom script template in the `typescript` directory, which can be in any format or without format.
+Starting from Cocos Creator v3.3, there is support for managing different script templates in a project.
 
-    ![custom component file](setup/custom-file.png)
+- Create a new project, the new project will not automatically create the directory `.creator/asset-template/typescript` where the custom script templates are located.
+- The above directory can be created manually. You can also use the menu in the right-click menu of **Asset** to generate a directory after clicking.
 
-    The content of the custom script template can refer to the `resources\3d\engine\editor\assets\default_file_content\ts` file in the engine directory, which contains several predefined variables given by default for some of the project management needs.
+    ![custom script](setup/custom-script.png)
 
-    ```ts
-    /**
-    * Predefined variables
-    * Name = <%Name%>
-    * DateTime = <%DateTime%>
-    * Author = <%Author%>
-    * FileBasename = <%FileBasename%>
-    * FileBasenameNoExtension = <%FileBasenameNoExtension%>
-    * URL = <%URL%>
-    * ManualUrl = <%ManualUrl%>
-    *
-    */
-    ```
+The default `NewComponent` script template is still in the engine built-in resources directory `resources\3d\engine\editor\assets\default_file_content\ts`.
+The code of the file is below:
 
-2. Then, returning to the editor, notice that a secondary menu appears under **TypeScript** in the menu for creating assets in the **Assets** panel, containing the component script template (`NewComponent`) that comes with the editor, as well as the three custom script templates added in the previous step.
+```ts
+import { _decorator, Component, Node } from 'cc';
+const { ccclass, property } = _decorator;
 
-    ![add-custom-comp](setup/add-custom-comp.png)
+@ccclass('<%UnderscoreCaseClassName%>')
+export class <%UnderscoreCaseClassName%> extends Component {
+    start() {
 
-    When creating a custom script, the editor will read the text content in the custom script template and process it as an TypeScript script.
+    }
 
-    ![add-custom-comp](setup/add-custom-comp.gif)
+    update(deltaTime: number) {
+        
+    }
+}
+
+/**
+ * COMMENTS_GENERATE_IGNORE
+ * Use "COMMENTS_GENERATE_IGNORE" tag if you do not want later created scripts to contain these comments.
+ * 
+ * Predefined Variables
+ * You can use predefined variables below to setup your scripting preference. For example, whether to use camel case style.
+ * 
+ * <%UnderscoreCaseClassName%>, class name in underscore format, like 'new_component'
+ * <%CamelCaseClassName%>, class name in camel format, like 'NewComponent'
+ * <%Author%>, Who create this file
+ * <%DateTime%>, when create this file
+ * <%FileBasename%>, creating file name with extension
+ * <%FileBasenameNoExtension%>, creating file name without extension
+ * <%URL%>, url of this file in COCOS ASSET URL format
+ * <%ManualUrl%>, url of office help document, like 'https://docs.cocos.com/creator/manual/en/'
+ *
+ * 
+ * Example:
+ * 
+  @ccclass('<%UnderscoreCaseClassName%>')
+  export class <%UnderscoreCaseClassName%> extends Component {
+  
+    // class member could be defined like this.
+    dummy = '';
+
+    // Use 'property' decorator if your want the member to be serializable.
+    @property
+    serializableDummy = 0;
+
+    start () {
+        // Your initialization goes here.
+    }
+
+    update (deltaTime: number) {
+        // Your update function goes here.
+    }
+
+  }
+ *
+ * Learn more about scripting: <%ManualUrl%>scripting/
+ * Learn more about CCClass: <%ManualUrl%>scripting/decorator.html
+ * Learn more about life-cycle callbacks: <%ManualUrl%>scripting/life-cycle-callbacks.html
+ */
+
+```
+
+> **Nodes**:
+>
+> 1. A large number of comments in the script template will not be generated into the script file, because we use the keyword annotation `COMMENTS_GENERATE_IGNORE` in the comment. As long as this keyword is in a comment, the generated script file will ignore the comment Lose.
+>
+> 2. `Predefined Variables` We have prepared some pre-made variables, which can be used as auxiliary information when generating script files, such as author `<%Author%>`.
+>
+> 3. By right-clicking the menu, a shortcut link to the document URL will be automatically generated in the project custom script template directory. Double-click to call up the browser to open the specified webpage. `Custom Script Template Help Documentation`
+>
+> ![custom script help](setup/custom-script-help.png)
+
+### Make One Script Template
+
+We modify the code from copying the above built-in `NewComponent` template, the class name is in camel case format, prefixed with `Robot`, the file is saved as a file `CustomComponent` without extension name, and saved in the path of the project custom script template, that is `.creator/asset-template/typescript/CustomComponent`.
+
+![custom script file](setup/custom-script-file.png)
+
+The code of `CustomComponent` template is below:
+
+```ts
+import { _decorator, Component, Node } from 'cc';
+const { ccclass, property } = _decorator;
+
+/**
+ * 
+ * <%UnderscoreCaseClassName%>
+ * <%CamelCaseClassName%>
+ * <%Author%>
+ * <%DateTime%>
+ * <%FileBasename%>
+ * <%FileBasenameNoExtension%>
+ * <%URL%>
+ * <%ManualUrl%>
+ *
+ */
+
+@ccclass('Robot<%CamelCaseClassName%>')
+export class Robot<%CamelCaseClassName%> extends Component {
+    start() {
+
+    }
+
+    update(deltaTime: number) {
+        
+    }
+}
+
+```
+
+Then finally, let's create a new `wake up` script asset to see the effect as shown below:
+
+![custom script menu](setup/custom-script-menu.png)
+
+![custom script result](setup/custom-script-result.png)

@@ -87,7 +87,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 生成预览模板 | 该项用于自定义想要的预览效果，详情请参考 [自定义预览模板](../preview/browser.md)|
 | 构建发布（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>） | 打开 [构建发布](../publish/index.md) 面板，将游戏打包发布到目标平台上 |
 | 构建项目构建模板 |  该项用于定制项目的构建模板，详情请参考 [自定义构建模板](../publish/custom-project-build-template.md)|
-| 新建构建扩展包 | 该项用于扩展构建流程，详情请参考文档 [扩展构建流程](../publish/custom-build-plugin.md)|
+| 新建构建扩展包 | 该项用于自定义构建流程，详情请参考文档 [自定义构建流程](../publish/custom-build-plugin.md)|
 
 ## 面板
 
@@ -151,7 +151,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 选项 | 说明 |
 | :--- | :-- |
 | 使用手册 | 在默认浏览器打开 [用户手册文档](../../index.md) |
-| API 文档 | 在默认浏览器打开 [API 参考文档](__APIDOC__/zh/#/) |
+| API 文档 | 在默认浏览器打开 [API 参考文档](__APIDOC__/zh) |
 | 论坛 | 在默认浏览器打开 [Cocos Creator 论坛](https://forum.cocos.org/c/58)|
 | 更新日志 |  在默认浏览器打开 Cocos Creator 各版本的 [更新日志](https://www.cocos.com/creator)  |
 | 引擎仓库 |  在默认浏览器打开 [TypeScript 引擎仓库](https://github.com/cocos-creator/engine) |

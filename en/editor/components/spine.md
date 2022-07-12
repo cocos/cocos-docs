@@ -6,8 +6,8 @@ The Spine Skeleton components support the data format exported by the official S
 
 Select the node and choose **Add Component -> Spine -> Skeleton** on the **Inspector** panel to add the Skeleton component to the node.
 
-- For information on using the Spine Skeleton component, please refer to the [Spine Skeleton example case](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/spine) for details.
-- For Spine Skeleton component related scripting interfaces, please refer to the [Spine Skeleton API](__APIDOC__/en/#/docs/3.4/en/spine/Class/Skeleton) for details.
+- For information on using the Spine Skeleton component, please refer to the [Spine Skeleton example case](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine) for details.
+- For Spine Skeleton component related scripting interfaces, please refer to the [Spine Skeleton API](__APIDOC__/en/class/Skeleton) for details.
 
 ## Spine Properties
 
@@ -127,7 +127,7 @@ The vertex effect is only available when Spine's `Animation Cache Mode` is in th
 
 3. Next, attach the `SpineExample` script to the `Canvas` node, i.e. drag and drop the script into the node's **Inspector** panel. Drag the `Spine` node with the **Skeleton** component attached in the **Hierarchy** panel to the corresponding `Skeleton` property box of the script component, and save the scene.
 
-4. Click the **Preview** button at the top of the editor to see the effect of vertex jitter of the Spine animation. For example, please refer to the [SpineMesh](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/spine) example.
+4. Click the **Preview** button at the top of the editor to see the effect of vertex jitter of the Spine animation. For example, please refer to the [SpineMesh](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine) example.
 
 ## Spine Attachment
 
@@ -141,7 +141,7 @@ Spine Attachments can be implemented by using both editor and script. Here is an
 
 1. First, create a new `Canvas` node in the **Hierarchy** panel, and then create a new empty node and name it to `Spine` under the `Canvas` node. Select `Spine` and add the **Skeleton** component to the **Inspector** panel. Drag and drop the asset into the `SkeletonData` property box of the **Skeleton** component and set the Skeleton component properties.
 
-2. Second, right-click on the Spine node in the **Hierarchy** panel and select **Create -> 2D Objects -> Sprite** to add a child node for it and name it `star`. Drag the star asset to the `SpriteFrame` property of the Sprite component in the **Inspector** panel.
+2. Second, right-click on the Spine node in the **Hierarchy** panel and select **Create -> Empty Node** to add a child node for it and name it `targetNode`. **Create -> 2D Object -> Sprite** to add a sprite component named `star` under `targetNode`. Drag the star asset to the **SpriteFrame** property of the Sprite component in the **Inspector** panel.
 
     ![attach1](./spine/attach1.png)
 
@@ -149,11 +149,13 @@ Spine Attachments can be implemented by using both editor and script. Here is an
 
     ![attach2](./spine/attach2.png)
 
-4. Next, set the `Path` and `Target` properties of the `Sockets`. The `Path` drop-down box will list all the skeletons, select the target bone you want to attach, here take the dragon's tail as an example, drag the `star` node to the `Target` property box. Notice the star attached on the dragon's tail in the **Scene** panel.
+4. Next, set the **Path** and **Target** properties of the **Sockets**. The **Path** drop-down box will list all the skeletons, select the target bone you want to attach, here take the dragon's tail as an example, drag the `targetNode` node to the **Target** property box. Notice the star attached on the dragon's tail in the **Scene** panel.
+
+    > **Note**：Do not set the `star` node as **Target** node, because this will make UITransform of `star` invalid. Please create a new empty node as the **Target** node and set components which to be attached as children nodes of **Target ** node.
 
     ![attach3](./spine/attach3.png)
 
-5. Finally, save the scene and click the **Preview** button on top of the editor to see the star hanging on the dragon's tail and swaying along with it. Please refer to the [SpineAttach](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/spine) example for details.
+5. Finally, save the scene and click the **Preview** button on top of the editor to see the star hanging on the dragon's tail and swaying along with it. Please refer to the [SpineAttach](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine) example for details.
 
 ### Implementing via code
 
@@ -185,13 +187,11 @@ Spine Attachments can be implemented by using both editor and script. Here is an
 
     If the name of the target bone is unknown, set the `Sockets` property in the Skeleton component to **1** and then look for the name of the desired target bone in the `Path` drop-down box. When the search is complete, restore the `Sockets` property to 0.
 
-3. Next, attach the `SpineAttach` script to the `Canvas` node, i.e. drag and drop the script into the node's **Inspector** panel. Drag and drop the `Spine` node with the Skeleton component attached and the `star` node in the **Hierarchy** panel to the `Skeleton` property box and the `AttachNode` property box of the script component, respectively, and save the scene.
-
-    ![attach4](./spine/attach4.png)
+3. Next, attach the `SpineAttach` script to the `Canvas` node, i.e. drag and drop the script into the node's **Inspector** panel. Drag and drop the `Spine` node with the Skeleton component attached and the `targetNode` node in the **Hierarchy** panel to the **Skeleton** property box and the **AttachNode** property box of the script component, respectively, and save the scene.
 
 4. Click the **Preview** button at the top of the editor to see the star hanging from the dragon's tail and shaking along with the dragon's tail.
 
-    ![attach-ts](./spine/attach-ts.png)
+    ![attach-ts](./spine/attach-ts.gif)
 
 ## Spine Collision Detection
 
@@ -282,7 +282,7 @@ The Spine attachment function allows for the detection of a collision of a part 
     }
     ```
 
-6. Click the **Preview** button at the top of the editor to see the effect. For details, please refer to the [SpineCollider](https://github.com/cocos-creator/test-cases-3d/tree/v3.4/assets/cases/spine) example.
+6. Click the **Preview** button at the top of the editor to see the effect. For details, please refer to the [SpineCollider](https://github.com/cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine) example.
 
     > **Note**: the collision detection based on attachment has a delay of one frame due to the implementation mechanism of the attachment.
 

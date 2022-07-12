@@ -103,7 +103,7 @@ Specify the URL of the current component's help page. Once set, a help icon will
 const { ccclass, help } = _decorator;
 
 @ccclass('Example')
-@help('https://docs.cocos.com/creator/3.4/manual/en/scripting/decorator.html')
+@help('https://docs.cocos.com/creator/3.5/manual/en/scripting/decorator.html')
 export class Example extends Component {
 }
 ```

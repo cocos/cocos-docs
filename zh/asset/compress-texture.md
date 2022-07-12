@@ -34,7 +34,7 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 
 如果查找到了压缩纹理的配置，那么会按照找到的配置对图片进行纹理压缩。项目设置里压缩纹理配置是按照平台大类划分的，具体到实际平台的支持程度会有一些差异。构建将会根据 **实际构建平台** 以及当前 **图片纹理的透明通道** 情况来对配置的纹理格式做一定的剔除和优先级选择，关于这块规则可以参考下文的示例来理解。
 
-这些生成的图片不会都被加载到引擎中，引擎会根据 [macro.SUPPORT_TEXTURE_FORMATS](__APIDOC__/zh/#/docs/3.4/zh/core/ObjectLiteral/macro?id=support_texture_formats) 中的配置来选择加载合适格式的图片。`macro.SUPPORT_TEXTURE_FORMATS` 列举了当前平台支持的所有图片格式，引擎加载图片时会从生成的图片中找到在这个列表中 **优先级靠前**（即排列靠前）的格式来加载。
+这些生成的图片不会都被加载到引擎中，引擎会根据 [macro.SUPPORT_TEXTURE_FORMATS](__APIDOC__/zh/interface/Macro?id=SUPPORT_TEXTURE_FORMATS) 中的配置来选择加载合适格式的图片。`macro.SUPPORT_TEXTURE_FORMATS` 列举了当前平台支持的所有图片格式，引擎加载图片时会从生成的图片中找到在这个列表中 **优先级靠前**（即排列靠前）的格式来加载。
 
 开发者可以通过修改 `macro.SUPPORT_TEXTURE_FORMATS` 来自定义平台的图片资源支持情况以及加载顺序的优先级。
 
@@ -65,9 +65,9 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 | Cocos Play        | ETC1                 |
 | Xiaomi Quick Game | ETC1                 |
 | iOS               | ASTC / PVR / WEBP / ETC1 / ETC2  |
-| Android           | ASTC / ETC2 / ETC1 / WEBP |
+| Android / Huawei AGC | ASTC / ETC2 / ETC1 / WEBP |
 <!-- | Mac               | ASTC / PVR           | -->
 
 ## 自定义构建纹理压缩处理
 
-纹理压缩目前是在构建后生效，编辑器自带了一套处理工具。若需要自定义压缩工具，请参考 [扩展构建流程 —— 自定义纹理压缩](../editor/publish/custom-build-plugin.md#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86)。
+纹理压缩目前是在构建后生效，编辑器自带了一套处理工具。若需要自定义压缩工具，请参考 [自定义纹理压缩](../editor/publish/custom-build-plugin.md#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E5%A4%84%E7%90%86)。

@@ -30,6 +30,7 @@
 | `getCurrentTransition`   | 获取当前的状态过渡。       |
 | `getNextStateStatus`     | 获取下一个状态的信息。     |
 | `getNextClipStatuses`    | 获取下一个动画剪辑的状态。  |
+| `setLayerWeight`         | 设置某个 [动画图层级](animation-graph-layer.md) 的权重。|
 
 - **变量** 控制
 

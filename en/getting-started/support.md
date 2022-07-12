@@ -10,8 +10,8 @@ More engine dynamics, quality tutorials, and interviews can be viewed at [![twit
 
 - [Example collection](https://github.com/cocos-creator/example-3d): From the use of basic components to the display of rendering effects, this project includes multiple scenarios with different functions and multiple game demo projects for user reference.
 - [One Step, Two Steps](https://github.com/cocos-creator/tutorial-mind-your-step-3d): This is the [Quick Start](../getting-started/first-game/index.md) document Step-by-step explanation of the game.
-- [Examples of Physics](https://github.com/cocos-creator/example-3d/tree/v3.4/physics-3d): Includes some Physics test cases and examples, such as **Engulfing Black Hole**, **Simple Car**, **Falling ball**, etc. The test cases introduce some basic functions and usage methods, so that you can understand the physical functions in combination with the documentation.
-- [Simple Games](https://github.com/cocos-creator/example-3d/tree/v3.4/simple-games): Users can use this case study to complete some simple and famous games.
+- [Examples of Physics](https://github.com/cocos-creator/example-3d/tree/v3.5/physics-3d): Includes some Physics test cases and examples, such as **Engulfing Black Hole**, **Simple Car**, **Falling ball**, etc. The test cases introduce some basic functions and usage methods, so that you can understand the physical functions in combination with the documentation.
+- [Simple Games](https://github.com/cocos-creator/example-3d/tree/v3.5/simple-games): Users can use this case study to complete some simple and famous games.
 - [Module display collection](https://github.com/cocos-creator/test-cases-3d): The example project of each function of the engine, which basically covers most of the function modules of the engine. Users can refer to it when using the functions Development in this project.
 - [UI Show Demo](https://github.com/cocos-creator/demo-ui/): Demo of various UI components combined use Demo.
 - [Jump Ball 3D](https://github.com/cocos-creator/demo-ball): Users can make jump ball games through this project.

@@ -67,7 +67,7 @@
 
 - **ENABLE_TILEDMAP_CULLING**：是否开启 TiledMap 的自动裁减功能，默认开启。需要注意的是 TiledMap 如果设置了 `skew` 和 `rotation` 的话，建议手动关闭该项，否则会导致渲染出错。
 
-- **TOUCH_TIMEOUT**：用于甄别一个触点对象是否已经失效并且可以被移除的延时时长。开发者可通过修改这个值来获得想要的效果，默认值是 5000 毫秒。详情请参考 API 文档 [TOUCH_TIMEOUT](__APIDOC__/zh/#/docs/3.4/zh/core/ObjectLiteral/macro?id=touch_timeout)。
+- **TOUCH_TIMEOUT**：用于甄别一个触点对象是否已经失效并且可以被移除的延时时长。开发者可通过修改这个值来获得想要的效果，默认值是 5000 毫秒。详情请参考 API 文档 [TOUCH_TIMEOUT](__APIDOC__/zh/interface/Macro?id=TOUCH_TIMEOUT)。
 
 - **ENABLE_TRANSPARENT_CANVAS**：用于设置 Canvas 背景是否支持 Alpha 通道，默认不开启支持。
 
@@ -91,7 +91,7 @@
 
     - 若开启该项，在片元着色器代码中需要使用 `HIGHP_VALUE_STRUCT_DEFINE` 宏来定义结构体变量，使用 `HIGHP_VALUE_TO_STRUCT_DEFINED` 和 `HIGHP_VALUE_FROM_STRUCT_DEFINED` 在结构体变量和非结构体变量之间赋值。
 
-    - 关于上述宏调用的具体信息与代码，详情请参考 **packing.chunk**（[GitHub](https://github.com/cocos-creator/engine/blob/v3.4.1/editor/assets/chunks/packing.chunk#L40) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/v3.4.1/editor/assets/chunks/packing.chunk#L40)）。
+    - 关于上述宏调用的具体信息与代码，详情请参考 **packing.chunk**（[GitHub](https://github.com/cocos-creator/engine/blob/v3.5.0/editor/assets/chunks/packing.chunk#L40) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/v3.5.0/editor/assets/chunks/packing.chunk#L40)）。
 
 - **BATCHER2D_MEM_INCREMENT**（v3.4.1 新增）：该项会影响每个 MeshBuffer 可容纳的最大顶点数量，默认值为 144KB，数量与值之间的转换关系请参考 [MeshBuffer 合批说明](../../ui-system/components/engine/ui-batch.md#meshbuffer-%E5%90%88%E6%89%B9%E8%AF%B4%E6%98%8E)。
 
@@ -111,6 +111,8 @@
 
 与 Cocos Creator 2.x 不同，Cocos Creator 3.0 的压缩纹理是在 **项目设置** 中配置预设，然后在 **属性检查器** 中选择图片资源的预设方式。旧版本的项目在升级到 v3.0 后，编辑器会自动扫描项目中所有的压缩纹理配置情况，整理出几个预设，由于是自动扫描的，所以预设名称可能不匹配项目，可以自行在此处修改。
 
+### 纹理压缩预设
+
 ![compress-texture](./texture-compress/compress-texture.png)
 
 该分页主要用于添加压缩纹理预设配置，可添加多个，每个压缩纹理配置允许针对不同的平台制定配置细则。添加完成后，在 **层级管理器** 中选中图片资源，就可以在 **属性检查器** 中快速添加压缩纹理预设。同时也可以在该分页中直接修改预设来达到批量更新压缩纹理配置的使用需求。
@@ -124,7 +126,7 @@
 
 各平台对纹理压缩的支持情况，详情请参考 [压缩纹理](../../asset/compress-texture.md)。
 
-### 添加/删除纹理压缩预设
+#### 添加/删除纹理压缩预设
 
 在上方的输入框中输入压缩纹理预设名称，点击 Enter 键或者右侧的加号按钮即可添加一个预设。另外两个按钮是用于导入/导出压缩纹理预设，详情请参考下文介绍。
 
@@ -136,7 +138,7 @@
 
 > **注意**：面板中内置的 **default** 和 **transparent** 这两个预设不可修改/删除。
 
-### 添加/删除纹理压缩格式
+#### 添加/删除纹理压缩格式
 
 选择平台，然后点击 **Add Format** 按钮，选择需要的纹理格式，再配置好对应的质量等级即可，目前同类型的图片格式只能添加一次。
 
@@ -146,13 +148,13 @@
 
 ![delete-format](./texture-compress/delete-format.png)
 
-### 修改压缩纹理预设名称
+#### 修改压缩纹理预设名称
 
 压缩纹理预设的名称仅仅是作为 **显示** 使用，在添加压缩纹理预设时，就会随机生成 uuid 作为该预设的 ID，因而直接修改预设名称并不会影响图片资源处对预设的引用。
 
 ![edit](./texture-compress/edit.png)
 
-### 导出/导入压缩纹理预设
+#### 导出/导入压缩纹理预设
 
 压缩纹理配置页面允许导入/导出压缩纹理预设，以便更好地跨项目复用配置，也可以自行在外部编辑好压缩纹理预设再导入到编辑器。
 
@@ -242,6 +244,35 @@ interface ICompressPresetItem {
 }
 ```
 
-## 扩展项目设置面板
+### 自定义纹理压缩行为
 
-Creator 支持在 **项目设置** 右侧添加自定义功能页，详情请参考 [扩展项目设置](../../editor/extension/contributions-project.md)。
+自 v3.5.0 起，为了方便用户定制纹理压缩工具以及一些自定义参数、加密等等处理，支持了自定义纹理压缩方式的页面。界面交互与纹理压缩预设类似。
+
+![custom-compress](./texture-compress/custom-compress.png)
+
+#### 配置方式
+
+- **压缩格式**：指定当前压缩方式的处理格式类型，选择不同的格式质量选项会与之保持一致，同时如果自定义压缩方式处理失败会自动回退到编辑器原有格式的压缩方案；
+- **覆盖原格式**：勾选后，将会自动覆盖已有纹理压缩预设内的原始压缩格式，原始配置名旁会出现自定义压缩方式名称的标识，同一个格式只能被一个自定义压缩方式覆盖；
+
+    ![overwrite-format](./texture-compress/overwrite-format.png)
+
+- **压缩工具**:
+    - **程序**： 指定实际需要调用的压缩库地址；
+    - **命令行参数**：配置调用程序需要传递的参数，其中构建纹理压缩默认会传递的参数字段名可以通过参数输入框右侧的控件来快捷加入，目前默认会传递 `src, dest, quality` 字段。
+
+    ![custom-compress-options](./texture-compress/custom-compress-options.png)
+
+自定义压缩方式添加完成后，纹理压缩预设的 **添加压缩方式** 菜单中将会新增此配置，可以直接在预设里添加。
+
+![overwrite-format](./texture-compress/custom-format.png)
+
+#### 构建阶段效果
+
+配置为自定义纹理格式后，将会打印 `custom-compress` 字样，并附上对应的命令行参数信息等。
+
+![custom-compress-log](./texture-compress/custom-compress-log.png)
+
+## 自定义项目设置面板
+
+Creator 支持在 **项目设置** 右侧添加自定义功能页，详情请参考 [自定义项目设置面板](../../editor/extension/contributions-project.md)。

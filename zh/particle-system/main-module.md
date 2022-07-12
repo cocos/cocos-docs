@@ -33,7 +33,7 @@
 
 ![set-pro](main-module/set-pro.png)
 
-粒子系统组件接口请参考 [ParticleSystem API](__APIDOC__/zh/#/docs/3.4/zh/particle/Class/ParticleSystem)。
+粒子系统组件接口请参考 [ParticleSystem API](__APIDOC__/zh/class/ParticleSystem)。
 
 ## 粒子系统资源剔除
 
