@@ -98,7 +98,7 @@ const ipList = Editor.Network.queryIPList();  // ["127.0.0.1", "192.168.52.154"]
 Promise<`boolean`\>
 
 ```typescript
-const res = await Editor.Network.testConnectServer();  // true
+const res = await Editor.Network.testConnectServer();
 ```
 
 ### testHost
@@ -118,5 +118,5 @@ const res = await Editor.Network.testConnectServer();  // true
 Promise<`boolean`\>
 
 ```typescript
-const res = await Editor.Network.testHost('127.0.0.1');  // true
+const res = await Editor.Network.testHost('192.168.0.0');
 ```

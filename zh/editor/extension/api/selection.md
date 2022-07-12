@@ -98,7 +98,7 @@ Editor.Selection.unselect('asset', '7bf9df40-4bc9-4e25-8cb0-9a500f949102');
 `string[]`
 
 ```typescript
-const uuids = Editor.Selection.getSelected('asset');  // ["b0a4abb1-db32-49c3-9e09-a45b922a2024"]
+const uuids = Editor.Selection.getSelected('asset');
 ```
 
 ### getLastSelected
@@ -118,7 +118,7 @@ const uuids = Editor.Selection.getSelected('asset');  // ["b0a4abb1-db32-49c3-9e
 `string`
 
 ```typescript
-const elem = Editor.Selection.getLastSelected('asset');  // "b0a4abb1-db32-49c3-9e09-a45b922a2024"
+const elem = Editor.Selection.getLastSelected('asset');
 ```
 
 ### getLastSelectedType
@@ -132,5 +132,5 @@ const elem = Editor.Selection.getLastSelected('asset');  // "b0a4abb1-db32-49c3-
 `string`
 
 ```typescript
-const type = Editor.Selection.getLastSelectedType();  // "asset"
+const type = Editor.Selection.getLastSelectedType();
 ```
