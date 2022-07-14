@@ -17,6 +17,8 @@ The **Skybox** component properties are as follows:
 | **UseHDR** | If this option is checked, HDR (High Dynamic Range) will be turned on, if not checked, LDR (Low Dynamic Range) will be used. For details, please refer to the section **Switching HDR/LDR Mode** below. |
 | **Envmap** | Environment map, TextureCube type, see below for details on how to set it. <br>When this property is empty, the skybox uses and displays pixel texture by default. |
 | **DiffuseMap** | The convolution map for advanced diffuse lighting. It's automatically generated and managed by the engine, currently doesn't support manually editing. This option is only shown when **Env Lighting Type** is **DIFFUSEMAP_WITH_REFLECTION**. |
+| **Reflection Convolution** | Please refer to the following section **Reflection Convolution** for detail |
+| **SkyboxMaterial** | See the following section **Skybox Material** for detail |
 
 ## Setting the Environment Map of the Skybox
 
@@ -128,3 +130,21 @@ The **UseHDR** option in the Skybox component is used to toggle the HDR/LDR mode
 - HDR (High Dynamic Range): High dynamic range, with **photometric intensity of the lights** and **exposure parameters of the camera** to achieve a more realistic level of contrast between light and dark. If this mode is used, the intensity of all lights (including parallel light, point light, spot light, etc.) **will become photometric physical units** and ambient light cube map should use **HDR format images** to provide a high dynamic range data source.
 
 - LDR (Low Dynamic Range): Low dynamic range. If this mode is used, the **lights intensity becomes unitless** and no longer has any connection to photometry or camera exposure. This mode is suitable for scenarios where you want the original map color to be reflected without any color tinting. Ambient light cube map can be done using images in formats such as **PNG**.
+
+## Reflective Convolution
+
+Use GGX BRDF lighting model to generate a pre-filtered reflection result for the environment map, which will take into consideration the effect of roughness and store the final result in Mipmap in order of roughness (roughness from 0 to 1, with Mipmap level 0 for roughness 0).
+
+Since this algorithm takes into consideration the effect of roughness on the environment reflection (i.e., as roughness increases, the environment reflection becomes more blurred), it results in more realistic reflections for the PBR material.
+
+### Bake and remove reflection convolution
+
+Click the ![bake](skybox/bake.png) button in the **Inspector** panel to bake the reflection convolution results. After the bake is complete, you can also choose to click the ![remove](skybox/remove.png) to delete it.
+
+## Skybox Material
+
+![material](skybox/material.png)
+
+The default shader used for the skybox material is **Assets -> internal/pipeline/skybox.effect**, if you want to customize the material, you can refer to [New Material](.../.../asset/material.md) to create a new material and select [Custom Shader](.../.../.../shader/write-effect-overview.md).
+
+![cusom skybox material](skybox/custom-skybox-material.png)

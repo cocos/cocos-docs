@@ -6,7 +6,7 @@
 
 在 **层级管理器** 中选中场景根节点，然后在 **属性检查器** 的 **Skybox** 组件中勾选 **Enabled** 属性即可开启天空盒。
 
-![Enable SkyBox](skybox/enable-skybox.png)
+![Enable SkyBox](skybox/enable-skybox.jpg)
 
 Skybox 组件属性如下：
 
@@ -17,6 +17,8 @@ Skybox 组件属性如下：
 | **UseHDR** | 若勾选该项则开启 HDR（高动态范围），若不勾选该项，则使用 LDR（低动态范围）。详情请参考下文 **切换 HDR/LDR 模式** 部分的内容。 |
 | **Envmap** | 天空盒的环境贴图，[TextureCube](../../asset/texture-cube.md) 类型，具体设置方法可参考下文介绍。<br>当该属性为空时，天空盒默认使用和显示的是像素贴图 |
 | **DiffuseMap**      | 自动生成的用于高级漫反射的卷积图，不支持手动编辑。<br> 该选项只在 **Env Lighting Type** 为 **DIFFUSEMAP_WITH_REFLECTION** 时生效 |
+| **Reflection Convolution** | 反射卷积，详情请参考下方 **反射卷积** 部分 |
+| **SkyboxMaterial** | 天空盒的材质。 请参考下方 **天空盒材质** 部分 |
 
 ## 设置天空盒的环境贴图
 
@@ -134,3 +136,21 @@ Skybox 组件中的 **UseHDR** 选项用于切换 HDR/LDR 模式，当勾选时�
 - HDR（High Dynamic Range）：高动态范围，配合 **光源的光度学强度** 和 **相机的曝光参数** 可以实现更真实的明暗对比层次。若使用该模式，则所有的光源（包括平行光、点光源、聚光灯等）**强度会变成光度学物理单位**，环境光立方体贴图应使用 **HDR 格式的图片** 以提供高动态范围的数据源。
 
 - LDR（Low Dynamic Range）：低动态范围。若使用该模式，则 **光源强度会变成无单位**，不再与光度学和相机曝光有任何联系。此模式适用于希望无任何色染的体现原贴图颜色的情景，环境光立方体贴图可使用 **PNG 等格式的图片**。
+
+## 反射卷积
+
+使用 GGX BRDF 光照模型对环境贴图生成预卷积的反射结果，在生成时会考虑粗糙度的影响，并将最终的结果按照粗糙度顺序存储在 Mipmap 中（粗糙度从 0 到 1，粗糙度为 0 时， Mipmap 等级为 0）。
+
+由于该算法考虑了粗糙度对环境反射的影响（即随着粗糙度增加，环境反射更模糊），因此使 PBR 材质产生更加逼真的反射效果。
+
+### 生成和删除反射卷积
+
+在 **属性检查器** 内点击 ![bake](skybox/bake.png) 按钮则可以进行反射卷积贴图的烘焙工作。在生成完成之后，也可以选择点击 ![remove](skybox/remove.png) 按钮进行删除。
+
+## 天空盒材质
+
+![material](skybox/material.png)
+
+天空盒材质默认使用的着色器是 **资源管理器 -> internal/pipeline/skybox.effect**，如想自定义材质，可参考 [新建材质](../../asset/material.md) 创建新的材质并选择 [自定义着色器](../../shader/write-effect-overview.md)：
+
+![cusom skybox material](skybox/custom-skybox-material.png)
