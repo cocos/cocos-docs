@@ -2,7 +2,7 @@
 
 Non-Photorealistic Rendering (NPR), as opposed to Physical Based Rendering ([PBR](effect-builtin-pbr.md)), achieves a completely different art representation from the real world through feature-based rendering.
 
-Toon Shading is one of the common effects of non-realistic rendering
+Toon Shading is one of the common effects of non-realistic rendering.
 
 Usually cartoon rendering contains the following basic components:
 
