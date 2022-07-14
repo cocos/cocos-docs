@@ -63,6 +63,25 @@ Since v3.5.0, engine-native engine is merged into and TypeScript engine. But you
 
 The engine-native engine and TypeScript engine are merged. After cloning TypeScript engine, engine-native engine is in `cocos-engine/native`.
 
+As 3rd libraries is hold in another github repo. So should download the 3rd libraries separately. There are two ways to download it:
+- Clone the 3rd libraries github repo, use this way can sync it easily in future. We suggest using this way:
+
+    ```bash
+    cd cocos-engine/native
+    git clone https://github.com/cocos/cocos-engine-external external
+    git checkout -b branch_name tag
+    ```
+    
+    `tag` is the value of `checkout` which is defined in `cocos-engine/native/external-config.json`.
+    
+- Use script provided by engine to download the zip file of the 3rd libraries with the specific `tag`. If `tag` value is changed, then should download it again. The size of the zip file is hundreds of mega bytes.
+
+    ```bash
+    cd cocos-engine/native
+    npm install
+    gulp init
+    ```
+
 ### 2.2 Initialization
 
 Since engine-native is merged into engine. So it is the same as TypeScript engine initialization.

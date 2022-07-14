@@ -64,7 +64,24 @@ gulp build
 
 如果只需要基于当前的版本做一些调整，那么在 Cocos Creator 3.x 内置的 cocos-engine 引擎基础上修改就可以了。操作步骤和获取 TypeScript 引擎一致，点击 Creator 编辑器右上方的 **编辑器** 按钮，然后将内置的 `cocos-engine` 目录拷贝到本地其他路径。engine-native 就在 `cocos-engine/native` 目录下。
 
-如果想获得官方正在开发中的最新版本，需要从上文中指定的 GitHub 仓库下载或者克隆。和 TypeScript 引擎类似，engine-native 引擎在使用前也请确认当前所在分支。
+如果想获得官方正在开发中的最新版本，需要从上文中指定的 GitHub 仓库下载或者克隆。因为引擎依赖的第三方库是在另外一个 [github 仓库](https://github.com/cocos/cocos-engine-external) 管理，因此还需要下载这些第三发库。有两种方式下载第三方库：
+- 下载完整的仓库，并切换到对应的 tag。该方式方便持续同步第三方库，一般建议使用该方式。使用方式时：
+
+    ```bash
+    cd cocos-engine/native
+    git clone https://github.com/cocos/cocos-engine-external external
+    git checkout -b branch_name tag
+    ```
+    
+    `branch_name` 是新的分支名；`tag` 是第三方库对应的 `tag` 名字，可以从 `cocos-engine/native/external-config.json` 里的 `checkout` 字段获取该值。
+    
+- 使用引擎自带的脚本下载。该脚本只会下载某个 `tag` 对应的第三方库。后续只要使用的 `tag` 有变化，就需要重新下载。每次需要下载几百兆的内容。
+
+    ```bash
+    cd cocos-engine/native
+    npm install
+    gulp init
+    ```
 
 ### 2.2 初始化
 
