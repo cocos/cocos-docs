@@ -14,8 +14,8 @@ GLSL is a language for writing shaders tailored for graphics computing, and it i
 | Variable type | Description | Default values in Cocos Effect | Options in Cocos Effect |
 | :-- | :-- | :-- | :-- |
 | bool | boolean | false |  |
-| int/ivec2/ivec3/ivec4 | contains 1/2/3/4 integer vectors | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | 无 |
-| float/vec2/vec3/vec4 | Contains 1, 2, 3, 4 float vectors | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | 无 |
+| int/ivec2/ivec3/ivec4 | contains 1/2/3/4 integer vectors | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | |
+| float/vec2/vec3/vec4 | Contains 1, 2, 3, 4 float vectors | 0/[0, 0]/[0, 0, 0]/[0, 0, 0, 0] | |
 | sampler2D | a 2D texture | **default** | black、grey、white、normal、default |
 | samplerCube | a Cube texture | **default-cube** | black-cube、white-cube、default-cube |
 | mat[2..3] | Representing 2x2 and 3x3 matrices | unavailable |
