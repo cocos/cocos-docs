@@ -85,14 +85,14 @@ For the default value of Property, Cocos Effect makes the following provisions:
 
 | types        |  default values | optional items |
 | :---------- | :----- | :------ |
-| int         |  | 0                                        |
-| ivec2       |  | [0, 0]                                   |
-| ivec3       |  | [0, 0, 0]                                |
-| ivec4       |  | [0, 0, 0, 0]                             |
-| float       |  | 0                                        |
-| vec2        |  | [0, 0]                                   |
-| vec3        |  | [0, 0, 0]                                |
-| vec4        |  | [0, 0, 0, 0]                             |
+| int         |  0                                        |
+| ivec2       |  [0, 0]                                   |
+| ivec3       |  [0, 0, 0]                                |
+| ivec4       |  [0, 0, 0, 0]                             |
+| float       |  0                                        |
+| vec2        |  [0, 0]                                   |
+| vec3        |  [0, 0, 0]                                |
+| vec4        |  [0, 0, 0, 0]                             |
 | sampler2D   | **default**      | black, grey, white, normal, default  |
 | samplerCube | **default-cube** | black-cube, white-cube, default-cube |
 
