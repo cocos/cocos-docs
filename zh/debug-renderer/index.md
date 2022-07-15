@@ -8,14 +8,21 @@
 
 ## 使用方式
 
-由于每帧渲染完这些文字后会清空顶点缓存，所以需要在 ``update`` 等函数中，每帧往 ``geometry renderer`` 对象（位于 ``camera`` 中）添加几何体，除此之外不需要额外的操作，示例 `C++` 代码如下：
+1，确保在项目设置面板中，调试渲染器处于勾选状态
+![debug-renderer-setting](./debug-renderer-setting.png)
 
-```c++
-auto *renderer = cc::DebugRenderer::getInstance();
-renderer->addText("Show Debug Text...", screenPos);
+2，由于每帧渲染完这些文字后会清空顶点缓存，所以需要在 ``update`` 等函数中，每帧添加调试文本，示例 `TS` 代码如下：
+
+```TS
+import { native, Vec2 } from 'cc';
+import { NATIVE } from 'cc/env';
+
+if (NATIVE) {
+    native.DebugRenderer.getInstance().addText("Stanley", new Vec2(100, 100));
+}
 ```
 
-## 接口描述
+## C++接口描述
 
 ```cpp
 void addText(const ccstd::string &text, const Vec2 &screenPos, const DebugTextInfo &info = DebugTextInfo());
