@@ -22,7 +22,7 @@ if (NATIVE) {
 }
 ```
 
-## C++接口描述
+## C++ 接口描述
 
 ```cpp
 void addText(const ccstd::string &text, const Vec2 &screenPos, const DebugTextInfo &info = DebugTextInfo());
