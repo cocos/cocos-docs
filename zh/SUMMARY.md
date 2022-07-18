@@ -115,6 +115,7 @@
     - [发布到 Web 平台](publish/publish-web.md)
         - [发布到 Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [安装配置原生开发环境](publish/setup-native-development.md)
+        - [Mac 平台安装 Python 的小指南](publish/short-tutorial-to-install-python.md)
     - [打包发布原生平台](publish/publish-native.md)
     - [原生平台 JavaScript 调试](publish/debug-jsb.md)
     - [发布到 HUAWEI AppGallery Connect](publish/publish-huawei-agc.md)
