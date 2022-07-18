@@ -1,6 +1,6 @@
 # Physical System
 
-Cocos Creator's physics system provides an efficient componentized workflow and an easy way to use it. It currently supports rigid bodies, collision components, trigger and collision events, physics materials, ray detection, and more.
+Cocos Creator's physics system provides an efficient componentized workflow and an easy way to use it. It currently supports rigid bodies, collision components, trigger and collision events, physics materials, ray casting, and more.
 
 ![image](img/physics.gif)
 
