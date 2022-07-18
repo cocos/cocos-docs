@@ -49,4 +49,4 @@ echo 'conda activate python2.7' >> ~/.bash_profile # or .bashrc .zshrc depends o
 
 ## Install by using the installer in the cocos creator
 
-Cocos creator 2.4.10 has added the official macos 64 bits intaller of Python2.7.18, to be an optionnal method for those who has a bad internet connection. We won't install it automatically while it requires your autorization.
+Cocos Creator 2.4.10 has added the official macos 64 bits intaller of Python 2.7.18, to be an optionnal method for those who has a bad internet connection. We won't install it automatically while it requires your autorization.
