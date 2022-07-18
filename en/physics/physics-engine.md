@@ -1,6 +1,6 @@
 # Physics Engines
 
-Click **Project -> Project Settings -> Feature Cropping** in the menu bar at the top of the editor, and in **3D -> Physics System** you can choose the appropriate physics engine for your project to develop, or switch between them at any time during the development process. The physics engines currently supported by Creator include **Bullet (amo.js)**, **cannon.js**, **PhysX** and **Builtin**, and the default is **Bullet (amo.js)**.
+Click **Project -> Project Settings -> Feature Cropping** in the menu bar at the top of the editor, and in **3D -> Physics System** you can choose the appropriate physics engine for your project to develop, or switch between them at any time during the development process. The physics engines currently supported by Creator include **Bullet (ammo.js)**, **cannon.js**, **PhysX** and **Builtin**, and the default is **Bullet (amo.js)**.
 
 ![Physics engine options](img/physics-module.jpg)
 
@@ -14,7 +14,7 @@ The **ammo.js** module is large (~1.5MB), but it has good physics functionality 
 
 ### Builtin
 
-**Builtin** has a built-in physics engine **collision detection only**. Compared to other physics engines, it does not have complex physics simulation calculations, so if your project does not need this part of the physics simulation, it is recommended to use **Builtin** to make the game a smaller package.
+**Builtin** is a built-in physics engine providing **collision detection only**. Compared to other physics engines, it does not have complex physics simulation calculations, so if your project does not need this part of the physics simulation, it is recommended to use **Builtin** to make the game a smaller package.
 
 When using **Builtin** for development, please note the following:
 
@@ -89,7 +89,7 @@ If you don't need to use any physics-related components and interfaces, you can 
 
 The performance of **Bullet** and **PhysX** physics is compared for various trivia platforms and native platforms.
 
-- On both native and ByteDance mini game platforms, the most plus performance is obtained using **PhysX** physics.
+- On both native and ByteDance mini game platforms, the best performance is obtained using **PhysX** physics.
 - On all types of other mini game platforms, the best performance is obtained with **Bullet** physics.
 
 ## Differences in the effect of the physics engine
