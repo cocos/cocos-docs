@@ -17,9 +17,9 @@
 | **AttachedBody** | 当前关节所在节点下的刚体组件 |
 | **ConnectedBody** | 获取或设置关节连接的另一个刚体，为空值时表示链接到位于世界原点的静态刚体 |
 | **EnableCollision** | 获取或设置关节连接的两刚体之间是否开启碰撞 |
-| **PivotA** | 在本地空间中，自身刚体相对于约束关节的位置 |
-| **PivotB** | 在本地空间中，连接刚体相对于约束关节的位置 |
-| **Axis** | The axis that constrains joint rotation in local space |
+| **PivotA** | 在自身刚体的本地空间中，约束关节的相对位置 |
+| **PivotB** | 在连接刚体的本地空间中，约束关节的相对位置 |
+| **Axis** | 在本地空间中约束关节的旋转轴 |
 
 ![physics-hinge](img/physics-hinge.gif)
 
@@ -36,8 +36,8 @@
 | **AttachedBody** | 当前关节所在节点下的刚体组件 |
 | **ConnectedBody** | 获取或设置关节连接的刚体，为空值时表示链接到位于世界原点的静态刚体 |
 | **EnableCollision** | 获取或设置关节连接的两刚体之间是否开启碰撞 |
-| **PivotA** | 在本地空间中，自身刚体相对于约束关节的位置 |
-| **PivotB** | 在本地空间中，连接刚体相对于约束关节的位置 |
+| **PivotA** | 在自身刚体的本地空间中，约束关节的相对位置 |
+| **PivotB** | 在连接刚体的本地空间中，约束关节的相对位置 |
 
 ![physics-p2p](img/physics-p2p.gif)
 
