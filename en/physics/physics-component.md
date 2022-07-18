@@ -1,4 +1,4 @@
-# Physical Components
+# Physics Components
 
 Cocos Creator currently provides users with the following types of physics components.
 
