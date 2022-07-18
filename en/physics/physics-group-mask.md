@@ -1,6 +1,6 @@
 # Group and Mask
 
-Group and masks are necessary for physical collision detection between objects to be possible. A group can be simply understood as the group a collision object is in, and a mask can be simply understood as the grouping objects that the collision object needs to collide with.
+Group and masks are necessary for physical collision detection between objects. A group can be simply treated as the group a collision object is in, and a mask can be simply treated as the grouping objects that the collision object needs to collide with.
 
 ## Collision Detection Principle
 
@@ -75,7 +75,7 @@ Enum(PHY_GROUP);
 
 > **Note**: For historical reasons, the **Enum** function has special treatment for **-1**, so do not define properties with values of **-1** if you are not familiar with them.
 
-### Set/Get group
+### Set/Get Group
 
 ```ts
 // This case uses the enumeration defined in the "Define Groups" section above
