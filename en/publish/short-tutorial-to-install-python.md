@@ -1,6 +1,6 @@
-# A short tutorial to install python
+# A short tutorial to install python on MacOS
 
-> WARNING: After MacOS Monterey 12.4, Mac no longer supports python 2.7 as a part of default developement environment, but the old python 2.7 might still exist if you have install some modules and frequently use it. According to this uncertain behavior on developer's computer, we offer a short tutorial to help you install python 2.7 to make sure that you can work fine with cocos creator 2.4.x.
+> **Note**: After MacOS Monterey 12.4, Mac no longer supports python 2.7 as a part of default developement environment, but the old python 2.7 might still exist if you have install some modules and frequently use it. According to this uncertain behavior on developer's computer, we offer a short tutorial to help you install python 2.7 to make sure that you can work fine with Cocos Creator 2.4.x.
 
 ## Install with python.org
 
@@ -14,7 +14,7 @@ After installation, you may able to see all contents in `/Library/Frameworks/Pyt
 
 Developers can also install pythons by using `conda` or `pyenv`, good tools to switch python version.
 
-> WARNING: When you install python by using version control tools, it will set a default python environment, and if it's python3, the editor will throw an error. You may only need one version control tool to avoid environment conflits.
+> **Note**: When you install python by using version control tools, it will set a default python environment, and if it's python3, the editor will throw an error. You may only need one version control tool to avoid environment conflits.
 
 ### pyenv
 
@@ -27,7 +27,7 @@ brew install pyenv
 
 When the installation is finished, you can tap `pyenv` to get neccessary help.
 
-> WARNING: If `/opt/homebrew/bin` is not added into the environment variables, you may see `command not found` error, and you should add it into the `PATH` by yourself.
+> **Note**: If `/opt/homebrew/bin` is not added into the environment variables, you may see `command not found` error, and you should add it into the `PATH` by yourself.
 
 ```shell
 pyenv install 2.7.18 # Install 2.7.18, you can also install other version of python2.
