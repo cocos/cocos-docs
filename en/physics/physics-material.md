@@ -1,18 +1,18 @@
-# Physical Material
+# Physics Material
 
 A physics material is an asset that records information about the surface of an object that is used to calculate the frictional and spring forces on colliding objects, etc.
 
-## Create Physical Material
+## Create Physics Material
 
 ### Create in Editor
 
-Physical materials can be created by right-clicking anywhere in the **Inspector** panel or by clicking between the **+** button:
+Physics materials can be created by right-clicking anywhere in the **Inspector** panel or by clicking between the **+** button:
 
-![create physical material](img/material-create-pmtl.png)
+![create Physics material](img/material-create-pmtl.png)
 
 ### Creating by Code
 
-Physical materials can also be instantiated by code:
+Physics materials can also be instantiated by code:
 
 ```ts
 import { PhysicsMaterial } from 'cc';
@@ -26,7 +26,7 @@ newPMtl.restitution = 0.5;
 
 ## Properties
 
-Physical material properties are shown in the following figure:
+Physics material properties are shown in the following figure:
 
 ![physics-mat-panel](img/physics-mat-panel.png)
 
@@ -37,7 +37,7 @@ Physical material properties are shown in the following figure:
 | **SpinningFriction** | The spinning friction factor |
 | **Restitution** | Resilience factor |
 
-When in contact with other surfaces, these coefficients are used to calculate the corresponding friction and spring forces.
+When in contact with other surfaces, these coefficients are used to calculate the corresponding friction and force of restitution.
 
 ## Use Physics Material
 
@@ -81,9 +81,9 @@ In the physics system, physics materials have two states, shared materials and i
 
 - Instanced material: Only used by this collider, modifying this material will not affect other colliders.
 
-  If a collider's physical material is in a shared state, a new physical material will be generated when `getter` of `material` is called.
+  If a collider's physics material is in a shared state, a new physics material will be generated when `getter` of `material` is called.
 
-  The following code demonstrates how calling `getter` on a collider changes the material to an instanced state when the physical material is in a shared state.
+  The following code demonstrates how calling `getter` on a collider changes the material to an instanced state when the physics material is in a shared state.
 
     ```ts
     import { Collider } from 'cc';
