@@ -1,4 +1,4 @@
-# Physical Application Cases
+# Physics Examples
 
 ## Archery Case
 
