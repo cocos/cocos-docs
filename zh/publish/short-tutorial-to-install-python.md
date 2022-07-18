@@ -1,12 +1,12 @@
 # MacOS 安装 Python 指南
 
-> 注意：在 MacOS 更新了 12.4 系统之后，MacOS 将不再默认安装 Python2.7，但如果在这之前有安装过 Python2.7 模块的话，原有的 Python2.7 将被保留但是从用户的执行文件中移除。这导致了用户的环境各不相同难以统一。鉴于单独将 Python 作为编辑器内置的一部分，在 MacOS 端是一项冒险且不稳定的行为，故这里仅给出安装 Python2.7 的指导。
+> 注意：在更新了 12.4 系统之后，MacOS 将不再默认安装 Python 2.7，但如果在这之前有安装过 Python 2.7 模块的话，原有的 Python 2.7 将被保留但是从用户的执行文件中移除。这导致了用户的环境各不相同难以统一。鉴于单独将 Python 作为编辑器内置的一部分，在 MacOS 端是一项冒险且不稳定的行为，故这里仅给出安装 Python 2.7 的指导。
 
 ## 通过官网安装
 
 通过 [Python 官网](https://www.python.org/downloads/macos/)下载可以直接下载到适用于所有 MacOS 系统的 Python，最新版本的 Python2 为 2.7.18，也是最后支持的版本，其更新时间为 2020.4.20。
 
-通过下载 [macOS 64-bit installer](https://www.python.org/ftp/python/2.7.18/python-2.7.18-macosx10.9.pkg) 可以获取到适用于 MacOS x86_64 架构 Python2.7 安装包。该版本亦适用于所有 arm 架构的 MacOS，包括 M1，M2 系芯片开发者。
+通过下载 [macOS 64-bit installer](https://www.python.org/ftp/python/2.7.18/python-2.7.18-macosx10.9.pkg) 可以获取到适用于 MacOS x86_64 架构 Python 2.7 安装包。该版本亦适用于所有 arm 架构的 MacOS，包括 M1，M2 系芯片开发者。
 
 MacOS 版本的 Python 安装包无法指定安装路径，只需要跟着步骤安装即可。当安装结束后，相应的源文件将保存在 `/Library/Frameworks/Python.framework/Versions/2.7` 中。这是默认的安装路径。此外，对应的替身文件（快捷方式）将被创建于 `/usr/local/bin` 中，如果你的 `PATH` 环境变量中存在这个路径，在安装结束后，不需要重启编辑器就可以直接开始构建。
 
@@ -53,4 +53,4 @@ echo 'conda activate python2.7' >> ~/.bash_profile # or .bashrc .zshrc depends o
 
 ## 通过编辑器自带的安装包安装
 
-编辑器在 v2.4.10 版本中添加了从官网下载 Python2.7.18 版本的安装包，你可以通过打开它直接安装 Python2.7。由于安装 Python 需要权限，所以我们不会强制安装 Python2.7 到你的电脑。
+编辑器在 v2.4.10 版本中添加了从官网下载 Python 2.7.18 版本的安装包，你可以通过打开它直接安装 Python 2.7。由于安装 Python 需要权限，所以我们不会强制安装 Python 2.7 到你的电脑。
