@@ -96,7 +96,7 @@ The performance of **Bullet** and **PhysX** physics is compared for various triv
 
 Different physics engines have different internal designs and algorithms, so there will be some cases where the parameters are the same but the effects are different.
 
-1. the **damping** property on rigid body components
+1. the **Damping** property on rigid body components
 
     The difference is caused by the fact that PhysX physics uses a different damping algorithm model. However, this difference has been eliminated internally, and if you need to synchronize the damping values previously set in PhysX, you can refer to the following code for conversion.
 
