@@ -51,8 +51,8 @@ Cocos Creator provides a set of raycast detection functions based on the physics
 
 The interface is currently provided by [**PhysicsSystem**](__APIDOC__/en/#/docs/3.4/en/physics/classes/physicssystem.html) and has the following two classes.
 
-- `raycast` : Detects all colliders and records all detected results, obtained via `PhysicsSystem.instance.raycastResults`. The interface returns a boolean value indicating whether the detection was successful or not.
-- `raycastClosest`: detects all colliders and records the result of the detection with the shortest distance to the ray, obtained via `PhysicsSystem.instance.raycastClosestResult`. Also returns a boolean value indicating whether the detection was successful or not.
+- `raycast` : Detects all colliders and records all detected results, obtained via `PhysicsSystem.instance.raycastResults`. The interface returns a boolean value indicating whether if the ray intersects with any collider or not.
+- `raycastClosest`: detects all colliders and records the result of the detection with the shortest distance to the ray, obtained via `PhysicsSystem.instance.raycastClosestResult`. Also returns a boolean value same as `raycast` method.
 
 > **Note**.
 > 1. The detected object is a physical collider, and the corresponding collider component in the scene panel is a collider component, e.g. **BoxCollider**.
@@ -102,12 +102,12 @@ if(bResult){
 
 ### Parameter Description
 
-- `worldRay`: the ray under the world space
+- `worldRay`: the ray in the world space
 - `mask`: [mask](physics-group-mask.md) for filtering, you can pass in the group to be detected, default is 0xffffffff
 - `maxDistance`: the maximum detection distance, default is 10000000, do not pass `Infinity` or `Number.MAX_VALUE` at this time
 - `queryTrigger`: whether to detect the trigger
 
-### Return result description
+### Result Description
 
 The result of the ray detection is stored by [PhysicsRayResult](__APIDOC__/en/#/docs/3.4/en/physics/classes/physicsrayresult.html), mainly with the following information.
 
