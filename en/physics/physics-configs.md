@@ -6,7 +6,7 @@ The PhysicsSystem module is used to manage the entire physics system and is resp
 
 ### Through the Physical Configuration panel
 
-The **Project Settings -> Physical Configuration** allows you to configure the physical system in relation to it.
+The **Project Settings -> Physical Configuration** allows you to configure the related physics system.
 
 ![Physics](./img/physics-config-index.png)
 
@@ -47,7 +47,7 @@ export class Example extends Component {
 
 > **Note**: The physics system is a singleton class, get an instance of the physics system via `PhysicsSystem.instance`.
 
-The physical configuration can also be reset through the `PhysicsSystem.resetConfiguration` interface, with the following code example:
+The physics configuration can also be reset through the `PhysicsSystem.resetConfiguration` interface, with the following code example:
 
 ```ts
 let conf = game.config.physics
@@ -72,7 +72,7 @@ Click the **+** button to add a new group. The **Index** and **Name** of the new
 
 ![collider-matrix](img/collider-matrix.png)
 
-The figure shows the configuration of a collider group for a flying shooter game. As you can see from the figure, when a group is added, the panel appears with the names of the groups both horizontally and vertically. Let's call the horizontal part **Group** and the vertical part **Mask**. Suppose I now make the following checkboxes:
+The figure shows the configuration of a collider group for a flying shooter game. As you can see from the figure, when a group is added, the panel appears with the names of the groups both horizontally and vertically. Let's call the horizontal part **Group** and the vertical part **Mask**. Suppose we now make the following checkboxes:
 
 ![set-collider-config](img/set-collider-config.png)
 
