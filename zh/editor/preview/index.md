@@ -8,7 +8,7 @@
 
 ![select-platform](index/select-platform.png)
 
-- 最左边的下拉菜单中可以选择预览的平台，目前支持使用 **浏览器** 和 **模拟器** 预览。
+- 最左边的下拉菜单中可以选择预览的平台，目前支持使用 **编辑器内**、**浏览器** 和 **模拟器** 预览。
 - ![play](index/play.png)：预览按钮，点击可运行预览
 - 在 **预览** 按钮右侧可以选择预览的场景，下拉框中会列出项目中所有的场景，默认使用 **当前场景**。
 
@@ -17,6 +17,46 @@
 - ![play](index/refresh.png)：刷新按钮，点击该按钮可刷新所有已打开的预览页面。如果想要在执行保存场景操作后自动刷新预览页面，在编辑器主菜单中选择 **Cocos Creator -> 偏好设置 -> 预览**，然后勾选 **保存场景自动刷新预览** 即可。
 
 > **注意**：必须双击打开场景才能预览游戏内容，在没有打开任何场景，或者新建了一个空场景的情况下预览是看不到任何内容的。
+
+### 编辑器内预览
+
+如要在编辑内预览，需在下拉菜单中选择 **Preview in editor**（下图标识 1），在点击 **播放**（下图标识 2）按钮进行预览：
+
+![bar](index/edit-bar.png)
+
+点击 ![pause](index/pause.png) 可以暂停当前预览，暂停后也可通过点击 ![step](index/step.png) 来逐帧步进。
+
+当不在需要继续预览时，可点击 ![stop](index/stop.png) 按钮停止。
+
+编辑器内运行时的界面如下图所示：
+
+![editor preview](index/editor-preview-props.png)
+
+上方的菜单栏介绍如下：
+
+- ![state](index/state.png) 点击选择是否在视图内显示下列的统计信息：
+
+    ![info](index/state-info.png)
+
+- ![FPS](index/FPS.png) 预览时的最大帧率，也可以输入自定义帧率：
+
+  ![max](index/max-fps.png)
+
+- ![resolution](index/resolution.png) 预览时的分辨率，通过下拉菜单可以选择不同的分辨率：
+
+    ![dropdown](index/resolution-dropdown.png)
+
+    如当前引擎内置的分辨率无法满足，也可以将下拉框拉到最下方选择 **Editr**：
+
+    ![edit](index/edit.png)
+
+    或者通过菜单 **Cocos Creator -> Preferences -> Device Manager** 添加自定义的分辨率：
+
+    ![device manager](index/device-manager.png)
+
+- ![rotate](index/rotate-view.png) 横屏和竖屏进行旋转
+- ![scale](index/scale-game-view.png) 缩放视图
+- ![fit](index/fit.png) 使游戏视图适配当前的视图
 
 ### 浏览器
 
