@@ -50,7 +50,3 @@ echo 'conda activate python2.7' >> ~/.bash_profile # or .bashrc .zshrc depends o
 ```
 
 与 pyenv 相同，你需要重启编辑器来激活环境。
-
-## 通过编辑器自带的安装包安装
-
-编辑器在 v2.4.10 版本中添加了从官网下载 Python 2.7.18 版本的安装包，你可以通过打开它直接安装 Python 2.7。由于安装 Python 需要权限，所以我们不会强制安装 Python 2.7 到你的电脑。
