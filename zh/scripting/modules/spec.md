@@ -6,7 +6,7 @@
 
 Cocos Creator 引擎提供的所有功能都以 ESM 模块的形式存在，见 [引擎模块](./index.md)。
 
-项目资源目录下以 `.ts` 作为后缀的文件。例如 `assets/scripts/foo.ts`。
+项目资源目录中（一般地，任何资产数据库中）以 `.ts` 作为后缀的文件都视为 ESM 模块。例如 `assets/scripts/foo.ts`。
 
 对于任何其它模块格式，Cocos Creator 选择与 Node.js 类似的规则来 [鉴别](https://nodejs.org/api/packages.html#packages_determining_module_system)。具体地，以下文件将被视为 ESM 格式：
 
@@ -53,7 +53,19 @@ Cocos Creator 支持三种模块说明符：
 
 绝对说明符直接指定了目标模块的 URL。
 
-Cocos Creator 目前仅支持文件协议的 URL。但由于文件 URL 中指定的文件路径是绝对路径，因此很少使用。
+#### 资产数据库协议
+
+通过 `db://<db-name>/x/y/z.mjs` 这样的 URL 可以访问某个资产数据库中的模块。该 URL 的组成部分如下：
+
+- URL 协议头 `db:` 是固定的。
+
+- URL 主机（host）为 `//<db-name>`。其中`<db-name>` 是资产数据库的标识符，一般情况下，它即是挂载了该资产数据库的插件的标识符。当 `<db-name>` 为 `assets` 时，指代项目资产数据库；为 `internal` 时，指代 Cocos Creator 内置资产数据库。
+
+- URL 路径名是指定了模块相对于资产数据库根目录的路径。
+
+#### 文件协议
+
+Cocos Creator 支持文件协议的 URL，例如 `file:///C:/x/y/z.mjs`。但由于文件 URL 中指定的文件路径是绝对路径，因此很少使用。
 
 > 值得注意的是，在 Node.js 中，一种访问 Node.js 内置模块的方法是通过 `node:` 协议的 URL，例如：`node:fs`。Cocos Creator 会将所有对 Node.js 内置模块的访问请求解析为 `node:` URL 请求，例如 `import fs from 'fs'` 中的 `'fs'` 将解析为 `node:fs`。但 Cocos Creator 并不支持 Node.js 内置模块，也就是说并不支持 `node:` 协议。因此会产生加载错误。当使用 npm 中的模块时，可能会遇到该错误。
 
