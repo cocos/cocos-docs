@@ -1,5 +1,7 @@
 # 简化使用 JavaScript 调用 Objective-C 方法（实验性功能）
 
+> 注意：在3.6之后，jsb模块将会逐步废弃，接口将会迁移到cc命名空间下的native模块。
+
 ## 背景
 
 在 v3.4.0 之前，通过原生语言的反射机制在 [JavaScript 调用 Objective-C](./oc-reflection.md) 的方法中，我们不仅需要严格声明包名和函数签名，还需要严格校对参数数量以确保正常运行，步骤较为复杂。
@@ -78,13 +80,14 @@ JsbBridge* m = [JsbBridge sharedInstance];
 并且在 JavaScript 层脚本中对按钮的点击事件执行打开操作：
 
 ```ts
+import { native } from 'cc'
 public static onclick(){
     // 'usrName' and 'defaultAdUrl' are both string
-    jsb.bridge.sendToNative(usrName, defaultAdUrl);
+    native.bridge.sendToNative(usrName, defaultAdUrl);
 } 
 ```
 
-这样就可以通过 `Jsb.Bridge` 这个通道将需要的信息发送到 `ObjC` 层进行操作了。
+这样就可以通过 `native.Bridge` 这个通道将需要的信息发送到 `ObjC` 层进行操作了。
 
 ### Objective-C 触发 JavaScript 的回调
 
@@ -101,7 +104,7 @@ public void playAnimation(animationName: string, isLoop: boolean){
 然后在 `onNative` 中记录该方法：
 
 ```ts
-jsb.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
+native.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
     if(isLoop && isLoop == "true") {
         this.playAnimation(animationName, true);
         return;

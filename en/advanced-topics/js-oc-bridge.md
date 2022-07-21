@@ -1,5 +1,8 @@
 # A Simpler Way to Call Objective-C Methods with JavaScript (Experimental)
 
+> WARNING: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+
+
 ## Background
 
 Prior to v3.4.0, the reflection mechanism in [Using JavaScript to Call Objective-C](./oc-reflection.md) static methods, not only needed to strictly declare package names and function signatures, but also needed to strictly check the number of parameters to ensure proper operation, which was a complicated step.
@@ -78,13 +81,14 @@ JsbBridge* m = [JsbBridge sharedInstance];
 Perform the open action on the button's click event in the `JavaScript` layer script:
 
 ```ts
+import { native } from 'cc'
 public static onclick(){
     // 'usrName' and 'defaultAdUrl' are both string
-    jsb.bridge.sendToNative(usrName, defaultAdUrl);
+    native.bridge.sendToNative(usrName, defaultAdUrl);
 } 
 ```
 
-This will send the required information to the `ObjC` layer through the `Jsb.Bridge` channel to perform the action of opening the ad.
+This will send the required information to the `ObjC` layer through the `native.Bridge` channel to perform the action of opening the ad.
 
 ### Using Objective-C to trigger JavaScript Callbacks
 
@@ -101,7 +105,7 @@ public void playAnimation(animationName: string, isLoop: boolean){
 Next, document the method in `onNative`:
 
 ```ts
-jsb.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
+native.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
     if(isLoop && isLoop == "true") {
         this.playAnimation(animationName, true);
         return;

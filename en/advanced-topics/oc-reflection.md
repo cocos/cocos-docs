@@ -1,12 +1,15 @@
 # How to call Objective-C functions using JavaScript on iOS/Mac
 
+> WARNING: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+
 With native iOS or Mac applications packaged with Cocos Creator, JavaScript calling Objective-C functions directly through the native language's reflection mechanism can be achieved with the following sample code:
 
 ```js
-var ojb = jsb.reflection.callStaticMethod(className, methodName, arg1, arg2, .....);
+import { native } from 'cc'
+var ojb = native.reflection.callStaticMethod(className, methodName, arg1, arg2, .....);
 ```
 
-Use `jsb.reflection.callStaticMethod` to call Native Objective-C method by sending `className`, `methodName` and `parameters`.
+Use `native.reflection.callStaticMethod` to call Native Objective-C method by sending `className`, `methodName` and `parameters`.
 
 > **Note**: pay attention to Apple Developer Program License Agreement (section 3.3.2) when using reflection features. The usage of `respondsToSelector:` and `performSelector:` might cause problem in App Store review process, review this related discussion in [React-Native's issue tracker](https://github.com/facebook/react-native/issues/12778).
 
@@ -41,10 +44,10 @@ Use `jsb.reflection.callStaticMethod` to call Native Objective-C method by sendi
 
 ## Usage
 
-- In JavaScript code, for invoking the native method `callNativeUIWithTitle:andContent:` of `NativeOcClass`, use the `jsb.reflection.callStaticMethod` API. Example:
+- In JavaScript code, for invoking the native method `callNativeUIWithTitle:andContent:` of `NativeOcClass`, use the `native.reflection.callStaticMethod` API. Example:
 
   ```js
-  var ret = jsb.reflection.callStaticMethod("NativeOcClass",
+  var ret = native.reflection.callStaticMethod("NativeOcClass",
                                            "callNativeUIWithTitle:andContent:",
                                            "cocos2d-js",
                                            "Yes! you call a Native UI from Reflection");

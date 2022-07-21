@@ -1,9 +1,12 @@
 # 如何在 Android 平台上使用 JavaScript 直接调用 Java 方法
 
+> 注意：在3.6之后，jsb模块将会逐步废弃，接口将会迁移到cc命名空间下的native模块。
+
 使用 Creator 打包的安卓原生应用中，我们可以通过反射机制直接在 JavaScript 中调用 Java 的静态方法。它的使用方法很简单：
 
 ```js
-var o = jsb.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
+import { native } from 'cc'; 
+var o = native.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
 ```
 
 在 `callStaticMethod` 方法中，我们通过传入 Java 的类名、方法名和方法签名，参数就可以直接调用 Java 的静态方法，并且可以获得 Java 方法的返回值。下面介绍的类名和方法签名可能会有一点奇怪，但是 Java 的规范就是如此的。
@@ -67,14 +70,14 @@ public class Test {
 
 ```js
 // 调用 hello 方法
-jsb.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
+native.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
 
 // 调用第一个 sum 方法
-var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
+var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
 log(result); // 10
 
 // 调用第二个 sum 方法
-var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
+var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
 log(result); // 5
 ```
 
@@ -117,7 +120,7 @@ public class AppActivity extends CocosActivity {
 然后在 JavaScript 中调用：
 
 ```js
-jsb.reflection.callStaticMethod("com/cocos/game/AppActivity", "showAlertDialog", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
+native.reflection.callStaticMethod("com/cocos/game/AppActivity", "showAlertDialog", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
 ```
 
 这样调用之后你就可以看到一个 Android 原生的 Alert 对话框了。

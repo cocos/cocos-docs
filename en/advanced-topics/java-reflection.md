@@ -1,9 +1,12 @@
 # How to Call Java methods using JavaScript on Android
 
+> WARNING: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+
 With the Cocos Creator Android build, developers can call Java static methods directly in JavaScript. Doing so is very simple:
 
 ```js
-var result = jsb.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
+import { native } from 'cc'
+var result = native.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
 ```
 
 In `callStaticMethod` method, pass the Java class name, method name, method signature with parameters, and get the return value from Java. The Java class name and method signature may be a little strange without having experience with JNI, but that is the Java specification.
@@ -66,14 +69,14 @@ Here is an example of invoking the static methods of `Test` class:
 
 ```js
 //call hello method
-jsb.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
+native.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
 
 //call the first sum method
-var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
+var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
 log(result); // 10
 
 //call the second sum method
-var result = jsb.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
+var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
 log(result); // 5
 ```
 
@@ -116,7 +119,7 @@ public class AppActivity extends CocosActivity {
 Next, call `showAlertDialog` in JavaScript:
 
 ```js
-jsb.reflection.callStaticMethod("com/cocos/game/AppActivity", "showAlertDialog", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
+native.reflection.callStaticMethod("com/cocos/game/AppActivity", "showAlertDialog", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
 ```
 
 An Android native AlertDialog should show now.

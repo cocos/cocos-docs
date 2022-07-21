@@ -1,12 +1,14 @@
 # 如何在 iOS 平台上使用 Javascript 直接调用 Objective-C 方法
 
+> 注意：在3.6之后，jsb模块将会逐步废弃，接口将会迁移到cc命名空间下的native模块。
+
 使用 Cocos Creator 打包的 iOS 或者 Mac 原生应用中，我们也提供了 JavaScript 通过原生语言的反射机制直接调用 Objective-C 函数的方法，示例代码如下：
 
 ```js
-var result = jsb.reflection.callStaticMethod(className, methodName, arg1, arg2, .....);
+var result = native.reflection.callStaticMethod(className, methodName, arg1, arg2, .....);
 ```
 
-在 `jsb.reflection.callStaticMethod` 方法中，我们通过传入 Objective-C 的类名、方法名、参数就可以直接调用 Objective-C 的静态方法，并且可以获得 Objective-C 方法的返回值。注意仅仅支持调用可访问类的静态方法。
+在 `native.reflection.callStaticMethod` 方法中，我们通过传入 Objective-C 的类名、方法名、参数就可以直接调用 Objective-C 的静态方法，并且可以获得 Objective-C 方法的返回值。注意仅仅支持调用可访问类的静态方法。
 
 **警告**：苹果 App Store 在 2017 年 3 月对部分应用发出了警告，原因是使用了一些有风险的方法，其中 `respondsToSelector:` 和 `performSelector:` 是反射机制使用的核心 API，在使用时请谨慎关注苹果官方对此的态度发展，相关讨论：[JSPatch](https://github.com/bang590/JSPatch/issues/746)、[React-Native](https://github.com/facebook/react-native/issues/12778)、[Weex](https://github.com/alibaba/weex/issues/2875)。
 
@@ -41,7 +43,7 @@ import <Foundation/Foundation.h>
 下面的示例代码将调用上面 `NativeOcClass` 的方法，在 JavaScript 层我们只需要这样调用：
 
 ```js
-var ret = jsb.reflection.callStaticMethod("NativeOcClass",
+var ret = native.reflection.callStaticMethod("NativeOcClass",
                                           "callNativeUIWithTitle:andContent:",
                                           "cocos2d-js",
                                           "Yes! you call a Native UI from Reflection");

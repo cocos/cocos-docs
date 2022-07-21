@@ -1,5 +1,7 @@
 # A Simpler Way to Call Java Methods with JavaScript (Experimental)
 
+> WARNING: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+
 ## Background
 
 Prior to v3.4.0, the reflection mechanism in [Using JavaScript to Call Java](./java-reflection.md) static methods, not only needed to strictly declare package names and function signatures, but also needed to strictly check the number of parameters to ensure proper operation, which was a complicated step.
@@ -97,11 +99,11 @@ Perform the open action on the button's click event in `JavaScript`:
 ```ts
 public static onclick(){
     // 'usrName' and 'defaultAdUrl' are both string
-    jsb.bridge.sendToNative(usrName, defaultAdUrl);
+    native.bridge.sendToNative(usrName, defaultAdUrl);
 } 
 ```
 
-This will send the required information to the `Java` layer through the `Jsb.Bridge` channel.
+This will send the required information to the `Java` layer through the `native.Bridge` channel.
 
 ### Using JAVA to Trigger JavaScript Methods
 
@@ -118,7 +120,8 @@ public void playAnimation(animationName: string, isLoop: boolean){
 Second, document the method in `onNative`:
 
 ```ts
-jsb.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
+import { native } from 'cc'
+native.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
     if(isLoop && isLoop == "true") {
         this.playAnimation(animationName, true);
         return;
