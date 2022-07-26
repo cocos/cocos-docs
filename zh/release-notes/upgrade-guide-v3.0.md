@@ -563,6 +563,14 @@ let xAxis = this.node.position.x;
 this.node.setPosition(200);
 ```
 
+### `Readonly` 属性说明
+
+直接通过 `Readonly` 属性调用接口修改值的方式，并不会保存到 `Readonly` 属性中。包括但不限于以下所列的属性：`position` `rotation` `scale` `worldPosition` `worldRotation` `worldScale` `eulerAngles` `worldMatrix`。例如：
+```typescript
+this.node.worldPosition.add(xxx);
+```
+此处 `add` 的结果并不会保存到worldPosition上。
+
 ## TypeScript 参考教程
 
 - [Cocos Creator 3.0 TypeScript 问题答疑及经验分享](https://forum.cocos.org/t/topic/106995)

@@ -546,6 +546,14 @@ let xAxis = this.node.position.x;
 this.node.setPosition(200);
 ```
 
+### `Readonly` Property description
+
+The way to modify the value by calling the interface directly through the `Readonly` attribute will not be saved to the `Readonly` attribute. Including but not limited to the attributes listed below: `position` `rotation` `scale` `worldPosition` `worldRotation` `worldScale` `eulerAngles` `worldMatrix`. Such as
+```typescript
+this.node.worldPosition.add(xxx);
+```
+The result of `add` here is not saved to worldPosition. 
+
 ## TypeScript Reference Tutorials
 
 - [Tutorial: v3.0 TypeScript question answering and experience sharing](https://discuss.cocos2d-x.org/t/tutorial-3-0-typescript-question-answering-and-experience-sharing/52932)
