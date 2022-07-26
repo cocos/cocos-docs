@@ -203,6 +203,8 @@ export class PlayerController extends Component {
 
 ![camera setting](./images/camera-setting.png)
 
+当场景编辑完成后，可以使用菜单 **文件** -> **保存场景** 或者使用快捷键（<kbd>Ctrl/Cmd</kbd> + <kbd>S</kbd>）来对场景进行保存，如在浏览器上运行时，保存场景后，浏览器上的预览页面会自动刷新。
+
 然后点击工具栏中心位置的 Play 按钮：
 
 ![play button](./images/play.png)

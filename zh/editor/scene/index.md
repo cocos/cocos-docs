@@ -8,17 +8,15 @@
 
 场景顶部为菜单栏，在切换 3D 和 2D 视图后会略有不同，请参考下文。
 
-- 3D 视图
+- 3D：
 
     ![bar](images/bar.png)
 
-- 2D 视图
+- 2D：
 
     ![bar](images/bar2d.png)
 
-### 3D/2D 切换
-
-在 3D 视图时，
+### 3D 菜单
 
 ### 变换工具
 
@@ -35,6 +33,10 @@
 ### 灯光
 
 ### 分辨率选择
+
+### 视图相机
+
+### Gizmo 设置
 
 ###
 
@@ -151,3 +153,22 @@
 - [摄像机 Gizmo](./camera-gizmo.md)
 - [碰撞器 Gizmo](./collider-gizmo.md)
 - [粒子系统 Gizmo](./particle-system-gizmo.md)
+
+## 吸附操作
+
+在 3D 场景中，可以通过吸附来进行场景编辑，目前引擎支持两种吸附模式 **顶点吸附** 和 **表面吸附**。
+
+在 **层级管理器** 中选中任意模型后，按下相应的快捷键后，模型下方会出现白色 Gizmo，拖动 Gizmo 既可完成吸附功能。
+
+快捷键定义如下：
+
+- **顶点吸附**：<kbd>v</kbd>
+- ***表面吸附**：<kbd>Ctrl</kbd> + <kbd>Shift</kbd>
+
+![snaping-surface](images/snaping-surface.gif)
+
+## 场景框选操作
+
+在场景内按下鼠标左键并拖动鼠标，会同时复选当前框选范围内的所有节点，通过变化操作，可以方便的整体对所框选的节点进行操作。
+
+![multiple-select](images/multiple-select.gif)

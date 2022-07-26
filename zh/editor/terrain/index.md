@@ -74,6 +74,7 @@
 | Brush Mode | 画刷类型，包括 **Bulge**、**Sunken**、**Smooth**、**Flatten**、**Set Height** |
 | Brush Height | 画刷高度，只有画刷模式为**Set Height**时生效 |
 | Brush | 自定义画刷样式，通过选取样式图片生成自定义画刷，使用R通道来作为画刷蒙版 |
+| Brush Rotation | 画刷的旋转值 |
 
 | 画刷模式 | 说明 |
 | :--- | :--- |
