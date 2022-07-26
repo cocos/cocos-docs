@@ -1,6 +1,6 @@
 # v3.5 已构建工程升级指南
 
-在 v3.5 中，Mac 和 Windows 平台的 `AppDelegate` 已移入引擎内部实现，可以通过重载 `AppDelegate` 的方式来兼容之前版本的用法；`game.cpp` 也进行了调整，已有工程需要重新构建进行升级。
+从 v3.5 开始，Mac 和 Windows 平台的 `AppDelegate` 已移入引擎内部实现，可以通过重载 `AppDelegate` 的方式来兼容之前版本的用法；`game.cpp` 也进行了调整，已有工程需要重新构建进行升级。
 
 ## 工程升级
 
