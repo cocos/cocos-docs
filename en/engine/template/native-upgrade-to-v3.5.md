@@ -76,74 +76,82 @@ int main(int argc, const char * argv[]) {
 - Customized games `CustomGame`, Need to register to engine  `CC_REGISTER_APPLICATION(CustomGame)` for loading
 - `game` Inherited from `cc::BaseGame`, and `cc::BaseGame` inherits from `CocosApplication`,so that partial implementations can be rewritten to add custom logic.
 
-####  The modification of ***native file*** can refer to the following precautions
-- Replace the header file path: #include "cocos/platform/Application.h" —> #include "application/ApplicationManager.h"
-  - Change of usage: cc::Application::getInstance()->getScheduler() -> CC_CURRENT_ENGINE()->getScheduler()
-  - If the code uses custom jsb: `native_ptr_to_seval` changed to `nativevalue_to_se`; delete `NonRefNativePtrCreatedByCtorMap` related code
-  
-#### The modification of ***Android Java Files*** can refer to the following precautions.
+### The modification of Native FIles
 
-  - game/AppActivity.java
-  - game/InstantActivity.java
-    - ~~onCreate delete the following code~~
+- Replace the header file path: #include "cocos/platform/Application.h" —> #include "application/ApplicationManager.h"
+- Change of usage: cc::Application::getInstance()->getScheduler() -> CC_CURRENT_ENGINE()->getScheduler()
+- If the code uses custom jsb: `native_ptr_to_seval` changed to `nativevalue_to_se`
+- Delete `NonRefNativePtrCreatedByCtorMap` related code
+
+### Android
+
+#### JAVA
+
+- Delete `onCreate` in the following files: game/AppActivity.java, game/InstantActivity.java
+
     ```java
-          // Workaround in https://stackoverflow.com/questions/16283079/re-launch-of-activity-on-home-button-but-only-the-first-time/16447508
-          if (!isTaskRoot()) {
-              // Android launched another instance of the root activity into an existing task
-              //  so just quietly finish and go away, dropping the user back into the activity
-              //  at the top of the stack (ie: the last state of this task)
-              // Don't need to finish it again since it's finished in super.onCreate .
-              return;
-          }
+    // Workaround in https://stackoverflow.com/questions/16283079/re-launch-of-activity-on-home-button-but-only-the-first-time/16447508
+    if (!isTaskRoot()) {
+        // Android launched another instance of the root activity into an existing task
+        //  so just quietly finish and go away, dropping the user back into the activity
+        //  at the top of the stack (ie: the last state of this task)
+        // Don't need to finish it again since it's finished in super.onCreate .
+        return;
+    }
     ```
 
-  - app/AndroidManifest.xml
-    - delete code: ~~android:taskAffinity=""~~
-    - add code: android:exported="true"
+- app/AndroidManifest.xml
+    - delete code in the `application` tag: `android:taskAffinity=""`
+    - add code in the `application` tag: `android:exported="true"`
 
-  - app/build.gradle
+- app/build.gradle
     - modify code:
+
     ```html
-        "${RES_PATH}/assets" -> "${RES_PATH}/data"
-    ``` 
+    "${RES_PATH}/assets" -> "${RES_PATH}/data"
+    ```
 
-#### The modification of the ***CMakeLists.txt*** file can refer to the following precautions
+#### CMakeLists.txt
 
-   - android/CMakeLists.txt
-     - LIB_NAME changed to CC_LIB_NAME
-     - PROJ_SOURCES changed to CC_PROJ_SOURCES
-     - add code: set(CC_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR})
-     - add code: set(CC_COMMON_SOURCES)
-     - add code: set(CC_ALL_SOURCES)
-     - delete code:
-      ```cmake
-            ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
-            ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
+- android/CMakeLists.txt
+    - LIB_NAME changed to CC_LIB_NAME
+    - PROJ_SOURCES changed to CC_PROJ_SOURCES
+    - add code: set(CC_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR})
+    - add code: set(CC_COMMON_SOURCES)
+    - add code: set(CC_ALL_SOURCES)
+    - delete code:
 
-            add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
-            target_link_libraries(${LIB_NAME}
-              "-Wl,--whole-archive" cocos2d_jni "-Wl,--no-whole-archive"
-              cocos2d
-            )
-            target_include_directories(${LIB_NAME} PRIVATE
-              ${CMAKE_CURRENT_LIST_DIR}/../common/Classes
-            )
-      ``` 
-     - add code:
-      ```cmake
-          cc_android_before_target(${CC_LIB_NAME})
-          add_library(${CC_LIB_NAME} SHARED ${CC_ALL_SOURCES})
-          # Add user dependent library AAA here. target_link_libraries(${CC_LIB_NAME} AAA)
-          # Add user defined file xxx/include here. target_include_directories(${CC_LIB_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/xxx/include)
-          cc_android_after_target(${CC_LIB_NAME})
-      ``` 
+        ```cmake
+        ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
+        ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
 
-   - common/CMakeLists.txt
-     - cocos2d-x-lite/ changed to engine/native/
-     - Add code at the end of the file
-      ```cmake
+        add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
+        target_link_libraries(${LIB_NAME}
+            "-Wl,--whole-archive" cocos2d_jni "-Wl,--no-whole-archive"
+            cocos2d
+        )
+        target_include_directories(${LIB_NAME} PRIVATE
+            ${CMAKE_CURRENT_LIST_DIR}/../common/Classes
+        )
+        ```
+
+    - add code:
+
+        ```cmake
+        cc_android_before_target(${CC_LIB_NAME})
+        add_library(${CC_LIB_NAME} SHARED ${CC_ALL_SOURCES})
+        # Add user dependent library AAA here. target_link_libraries(${CC_LIB_NAME} AAA)
+        # Add user defined file xxx/include here. target_include_directories(${CC_LIB_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/xxx/include)
+        cc_android_after_target(${CC_LIB_NAME})
+        ```
+
+- common/CMakeLists.txt
+    - cocos2d-x-lite/ changed to engine/native/
+    - Add code at the end of the file
+
+        ```cmake
         list(APPEND CC_COMMON_SOURCES
             ${CMAKE_CURRENT_LIST_DIR}/Classes/Game.h
             ${CMAKE_CURRENT_LIST_DIR}/Classes/Game.cpp
         )
-      ``` 
+        ```
