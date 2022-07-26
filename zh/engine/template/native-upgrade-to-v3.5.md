@@ -6,11 +6,11 @@
 
 检查工程目录下 native/engine 目录是否存在。如果存在，需要删除文件夹，删除前需要做好备份（这个目录如果存在，重新构建时不会自动更新）；不存在，则直接构建即可。
 
-### 自定义代码迁移方法
+## 自定义代码迁移方法
 
 之前在 AppDelegate 添加的代码，可以通过下文定制平台和 AppDelegate 进行升级；自定义的 game.cpp 可以通过接口更替即可升级。
 
-#### 平台与 AppDelegate 的定制方法
+### 平台与 AppDelegate 的定制方法
 
 以 **Mac** 为例：
 
@@ -66,7 +66,7 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
-#### game.cpp 迁移方法
+### game.cpp 迁移方法
 
 - 设置js加密秘钥：jsb_set_xxtea_key  -> 设置 `_xxteaKey` 成员变量; 或 调用 `setXXTeaKey`
 - 设置调试： jsb_enable_debugger     -> 设置 `_debuggerInfo` 结构, 或 调用 `setDebugIpAndPort`
@@ -76,74 +76,81 @@ int main(int argc, const char * argv[]) {
 - 自定义的游戏 `CustomGame`，需要注册到引擎 `CC_REGISTER_APPLICATION(CustomGame)` 进行加载；
 - `game` 继承于 `cc::BaseGame`, 而 `cc::BaseGame` 继承于 `CocosApplication`，因此可以重写部分实现，增加自定义逻辑；
 
-####  Native 文件的修改可参考以下注意事项
-- 替换引用的头文件 #include "cocos/platform/Application.h" —> #include "application/ApplicationManager.h"
-  - 使用方式变更：cc::Application::getInstance()->getScheduler() -> CC_CURRENT_ENGINE()->getScheduler()
-  - 有自定义 jsb 接口的情况：'native_ptr_to_seval' 替换为 'nativevalue_to_se';  NonRefNativePtrCreatedByCtorMap 有使用到的话直接删除相关代码
-  
-#### Android Java 文件的修改可参考以下注意事项
+## Native 文件修改
 
-- game/AppActivity.java
-  - game/InstantActivity.java
-    - ~~onCreate 删除如下代码~~
+- 替换引用的头文件：`#include "cocos/platform/Application.h"` —> `#include "application/ApplicationManager.h"`
+- 使用方式变更：`cc::Application::getInstance()->getScheduler()` -> `CC_CURRENT_ENGINE()->getScheduler()`
+- 有自定义 jsb 接口的情况：`native_ptr_to_seval` 替换为 `nativevalue_to_se`
+- 有使用 `NonRefNativePtrCreatedByCtorMap` 的话直接删除相关代码
+
+## Android 升级指南
+
+### JAVA 修改
+
+- **game/AppActivity.java** 以及 **game/InstantActivity.java** 的 `onCreate` 方法中删除如下代码：
+
     ```java
-          // Workaround in https://stackoverflow.com/questions/16283079/re-launch-of-activity-on-home-button-but-only-the-first-time/16447508
-          if (!isTaskRoot()) {
-              // Android launched another instance of the root activity into an existing task
-              //  so just quietly finish and go away, dropping the user back into the activity
-              //  at the top of the stack (ie: the last state of this task)
-              // Don't need to finish it again since it's finished in super.onCreate .
-              return;
-          }
+    // Workaround in https://stackoverflow.com/questions/16283079/re-launch-of-activity-on-home-button-but-only-the-first-time/16447508
+    if (!isTaskRoot()) {
+        // Android launched another instance of the root activity into an existing task
+        //  so just quietly finish and go away, dropping the user back into the activity
+        //  at the top of the stack (ie: the last state of this task)
+        // Don't need to finish it again since it's finished in super.onCreate .
+        return;
+    }
     ```
 
-  - app/AndroidManifest.xml
-    - 删除代码 ~~android:taskAffinity=""~~
-    - 增加代码 android:exported="true"
+- **app/AndroidManifest.xml** 执行下列操作：
+    - 删除 `application` 标签中的下列代码：`android:taskAffinity=""`
+    - 在 `application` 标签中增加下列代码：`android:exported="true"`
 
-  - app/build.gradle
-    - 修改代码 
+- **app/build.gradle** 修改下列代码：
+
     ```html
-        "${RES_PATH}/assets" -> "${RES_PATH}/data"
-    ``` 
+    "${RES_PATH}/assets" -> "${RES_PATH}/data"
+    ```
 
-#### CMakeLists.txt 文件的修改可参考以下注意事项
+#### CMakeLists.txt 修改
 
-   - android/CMakeLists.txt
-     - LIB_NAME 变更为 CC_LIB_NAME
-     - PROJ_SOURCES 变更为 CC_PROJ_SOURCES
-     - 增加 set(CC_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR})
-     - 增加 set(CC_COMMON_SOURCES)
-     - 增加 set(CC_ALL_SOURCES)
-     - 删除代码:
-      ```cmake
-            ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
-            ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
+- **android/CMakeLists.txt**
+    - LIB_NAME 变更为 CC_LIB_NAME
+    - PROJ_SOURCES 变更为 CC_PROJ_SOURCES
+    - 增加 set(CC_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR})
+    - 增加 set(CC_COMMON_SOURCES)
+    - 增加 set(CC_ALL_SOURCES)
+    - 删除下列代码：
 
-            add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
-            target_link_libraries(${LIB_NAME}
-              "-Wl,--whole-archive" cocos2d_jni "-Wl,--no-whole-archive"
-              cocos2d
-            )
-            target_include_directories(${LIB_NAME} PRIVATE
-              ${CMAKE_CURRENT_LIST_DIR}/../common/Classes
-            )
-      ``` 
-     - 增加代码:
-      ```cmake
-          cc_android_before_target(${CC_LIB_NAME})
-          add_library(${CC_LIB_NAME} SHARED ${CC_ALL_SOURCES})
-          # 此处添加用户依赖库 AAA target_link_libraries(${CC_LIB_NAME} AAA)
-          # 此处添加用户自定义文件 xxx/include target_include_directories(${CC_LIB_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/xxx/include)
-          cc_android_after_target(${CC_LIB_NAME})
-      ``` 
+        ```cmake
+        ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
+        ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
 
-   - common/CMakeLists.txt
-     - cocos2d-x-lite/ 修改为 engine/native/
-     - 文件末尾增加代码
-      ```cmake
+        add_library(${LIB_NAME} SHARED ${PROJ_SOURCES})
+        target_link_libraries(${LIB_NAME}
+            "-Wl,--whole-archive" cocos2d_jni "-Wl,--no-whole-archive"
+            cocos2d
+        )
+        target_include_directories(${LIB_NAME} PRIVATE
+            ${CMAKE_CURRENT_LIST_DIR}/../common/Classes
+        )
+        ```
+
+    - 增加代码:
+
+        ```cmake
+        cc_android_before_target(${CC_LIB_NAME})
+        add_library(${CC_LIB_NAME} SHARED ${CC_ALL_SOURCES})
+        # 此处添加用户依赖库 AAA target_link_libraries(${CC_LIB_NAME} AAA)
+        # 此处添加用户自定义文件 xxx/include target_include_directories(${CC_LIB_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/xxx/include)
+        cc_android_after_target(${CC_LIB_NAME})
+        ```
+
+- **common/CMakeLists.txt**
+    - cocos2d-x-lite/ 修改为 engine/native/
+    - 文件末尾增加代码：
+
+        ```cmake
         list(APPEND CC_COMMON_SOURCES
             ${CMAKE_CURRENT_LIST_DIR}/Classes/Game.h
             ${CMAKE_CURRENT_LIST_DIR}/Classes/Game.cpp
         )
-      ``` 
+        ```
