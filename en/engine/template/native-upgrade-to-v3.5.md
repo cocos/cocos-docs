@@ -81,7 +81,6 @@ int main(int argc, const char * argv[]) {
 - Replace the header file path: #include "cocos/platform/Application.h" —> #include "application/ApplicationManager.h"
 - Change of usage: cc::Application::getInstance()->getScheduler() -> CC_CURRENT_ENGINE()->getScheduler()
 - If the code uses custom jsb: `native_ptr_to_seval` changed to `nativevalue_to_se`
-- Delete `NonRefNativePtrCreatedByCtorMap` related code
 
 ### Android
 
