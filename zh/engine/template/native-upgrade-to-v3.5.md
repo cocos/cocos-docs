@@ -81,7 +81,6 @@ int main(int argc, const char * argv[]) {
 - 替换引用的头文件：`#include "cocos/platform/Application.h"` —> `#include "application/ApplicationManager.h"`
 - 使用方式变更：`cc::Application::getInstance()->getScheduler()` -> `CC_CURRENT_ENGINE()->getScheduler()`
 - 有自定义 jsb 接口的情况：`native_ptr_to_seval` 替换为 `nativevalue_to_se`
-- 有使用 `NonRefNativePtrCreatedByCtorMap` 的话直接删除相关代码
 
 ## Android 升级指南
 
