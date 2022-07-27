@@ -269,6 +269,27 @@ After the custom texture format is configured, the word `custom-compress` and th
 
 ![custom-compress-log](./texture-compress/custom-compress-log.png)
 
+## Slpash Setting
+
+The splash setting allows developers to use the engine's built-in logo or display a custom logo when publishing a game.
+
+![splash](./index/splash.png)
+
+- **LOGO Image**: Preview view
+- **LOGO Path**: The address used for LOGO storage, developers can click on the **Magnifying Glass** button to select different image resources, you can also drag and drop image resources to the **LOGO Image** property to apply image resources, click on the drop down box on the left to select different path protocols:
+
+    ![protocol](index/path-protocol.png)
+
+    - **file://**: Addressing the file by absolute path
+    - **project://**: Locate image resources by relative addresses addressed in the project
+
+        To avoid invalidating absolute addresses across devices, we recommend that projects use the **project://** protocol to set LOGO.
+
+- **TotalTime**: Total time to display splash screen. Unit: milliseconds
+- **DisplayRatio**: The ratio of the LOGO to the screen, using the screen height for landscape and the screen width for portrait
+- **Display Cocos Watermark**: Whether to display the engine's watermark
+- **ClearColor**: Background color during splash screen
+
 ## Extending the Project Settings Panel
 
 Creator supports adding custom feature pages on the right side of **Project Settings**, please refer to the [Extending the Project Settings Panel](../../editor/extension/contributions-project.md) documentation.
