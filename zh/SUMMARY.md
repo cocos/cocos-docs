@@ -244,6 +244,7 @@
     - [程序化控制动画](animation/animation-component.md)
         - [动画状态](animation/animation-state.md)
     - [变形动画](animation/morph.md)
+    - [动画嵌套系统](animation/embeded-player.md)
     - [Marionette 动画系统](animation/marionette/index.md)
         - [动画图资源](animation/marionette/animation-graph.md)
         - [动画控制器组件参考](animation/marionette/animation-controller.md)
