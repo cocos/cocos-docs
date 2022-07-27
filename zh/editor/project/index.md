@@ -281,7 +281,9 @@ interface ICompressPresetItem {
 
 ## 插屏设置
 
-插屏设置允许开发者在发布游戏时，使用引擎内置的 LOGO 或显示自定义的 LOGO。
+插屏设置是在游戏开始时，显示引擎的 LOGO 或开发者自定义的 LOGO 的功能。
+
+插屏只会在发布后显示，预览时不会显示。
 
 ![splash](./index/splash.png)
 
