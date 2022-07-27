@@ -16,29 +16,46 @@
 
     ![bar](images/bar2d.png)
 
-### 3D 菜单
+### 视图切换
+
+- ![3d](bar_img/3d.png) 表明当前是 3D 模式，3D 模式下，视图的相机为透视类型。此时点击 ![camera](bar_img/camera.png) 按钮可以对相机进行设置。详情请参考下方 **视图相机** 部分。点击后可以进入 2D 模式。
+- ![2d](bar_img/2d.png) 表明当前为 2D 模式，此时的视图相机为正交类型。2D 模式常用于 2D 游戏或 UI 的开发。再次点击后会回到 3D 模式。
 
 ### 变换工具
 
 ![transform](images/transform-bar.png)
 
-变换菜单从左到右依次为： **切换 3D/2D**、**位移**、**旋转**、**缩放**、**矩形变换** 以及 **吸附** 和 **网格对齐**。
-
-![config](images/debug-config-bar.png)
-
-### 参考线对齐功能
+- ![3d](bar_img/translate.png) 切换当前变换为 **位移** 变换，快捷键为 <bkd>W</kbd>
+- ![3d](bar_img/rotation.png) 切换当前变换为 **旋转** 变换，快捷键为 <bkd>E</kbd>
+- ![3d](bar_img/scale.png) 切换当前变换为 **缩放** 变换，快捷键为 <bkd>R</kbd>
+- ![3d](bar_img/rect.png) 切换当前变换为 **矩形** 变换，快捷键为 <bkd>T</kbd>
+- ![3d](bar_img/increase-snap-config.png) **增量吸附工具**，点击该按钮后会出现 **增量吸附配置**，详情请参考下方 **增量吸附配置** 部分
+- ![3d](bar_img/anchor-or-center.png) **切换变换的 Gizmo** 是来源于对象的 **锚点** 还是 **中心**
+- ![3d](bar_img/world-or-local.png) 切换变换是来自节点的 **本地** 坐标系或 **世界** 坐标系
 
 ### 着色模型选择
 
-### 灯光
+![shaded](bar_img/shaded.png) 主要用于对场景的着色方式进行配置。点击后会显示着色配置窗口。
+
+![shaded-config](images/shaded-config.png)
+
+支持正常渲染（Shaded）和 **渲染调试** 两种模式
+
+在默认情况下，采用 Basic Shading 模式。如需对场景进行调试，可以将鼠标滑到 **渲染调试** 菜单（目前只支持 [Surface shader](../../shader/surface-shader.md)）选择不同的调试模式。
+
+![images](images/shaded-debug1.png)![images](images/shaded-debug2.png)![images](images/shaded-debug3.png)
+
+### 灯
+
+![light](bar_img/light.png) **灯** 按钮可以用于启用或禁用场景内的光源组件，当启用时，将使用 **层级管理器** 内的光源组件进行渲染，关闭后将会使用与视图相机平行的引擎内置平行光进行渲染。
 
 ### 分辨率选择
+
+![resolution](bar_img/desig-resolution.png) 分辨率选择菜单可以通过下拉获取到当前系统内置，以及用户自定义的分辨率。
 
 ### 视图相机
 
 ### Gizmo 设置
-
-###
 
 ## 视图介绍
 
@@ -164,7 +181,7 @@
 快捷键定义如下：
 
 - **顶点吸附**：<kbd>v</kbd>
-- ***表面吸附**：<kbd>Ctrl</kbd> + <kbd>Shift</kbd>
+- **表面吸附**：<kbd>Ctrl</kbd> + <kbd>Shift</kbd>
 
 ![snaping-surface](images/snaping-surface.gif)
 

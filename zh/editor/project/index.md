@@ -59,6 +59,12 @@
 
 - **导出条件**：为条件化导出模块指定解析条件，详情可参考 [条件性导出](../../scripting/modules/spec.md#%E6%9D%A1%E4%BB%B6%E6%80%A7%E5%AF%BC%E5%87%BA)。
 
+## 模型
+
+![model](./index/model.png)
+
+- [智能材质转换](../../importer/materials/fbx-materials.md)：启用后，引擎会根据导出模型在原有 DCC 软件内的材质，将其导出为引擎支持的材质。
+
 ## Macro Config（引擎宏配置）
 
 **引擎宏设置** 提供了修改宏配置的快捷方式，配置的宏将会在预览、构建时生效，同时也会跟随自定义引擎的配置更新当前宏配置的默认值。
@@ -272,6 +278,24 @@ interface ICompressPresetItem {
 配置为自定义纹理格式后，将会打印 `custom-compress` 字样，并附上对应的命令行参数信息等。
 
 ![custom-compress-log](./texture-compress/custom-compress-log.png)
+
+### 插屏设置
+
+![splash](./index/splash.png)
+
+- **LOGO图**：LOGO 预览界面
+- **LOGO 资源地址**：用于 LOGO 存放的地址，开发者可以点击 **放大镜** 图片选择不同的图片 
+    点击左侧的下拉框可以选择不同的路径协议：
+
+    ![protocol](index/path-protocol.png)
+
+    - **file://**：通过绝对路径寻址对应的文件
+    - **project://**：
+
+- **最小显示时间**：最小显示闪屏的时间，单位：毫秒
+- **LOGO 显示比例**：
+- **是否显示 Cocos 水印**：
+- **背景颜色**：闪屏时的背景颜色
 
 ## 自定义项目设置面板
 
