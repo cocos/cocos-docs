@@ -1,8 +1,3 @@
-
-### [3.4~3.4.x Upgrade Guide](./3.4-upgrade-to-3.6-guide.md)
-
-### [3.5~3.5.x Upgrade Guide](./3.5-upgrade-to-3.6-guide.md)
-
 ### Development Considerations
 
 - `Readonly` Property description
@@ -12,4 +7,3 @@
         this.node.worldPosition.add(xxx);
         ```
         On some platforms, the result of `add` here is not saved to worldPosition. 
-    
