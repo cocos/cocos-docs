@@ -1,8 +1,3 @@
-
-### [3.4~3.4.x 升级指南](./3.4-upgrade-to-3.6-guide.md)
-
-### [3.5~3.5.x 升级指南](./3.5-upgrade-to-3.6-guide.md)
-
 ### 开发注意事项
 
 - `Readonly` 属性说明
@@ -12,4 +7,3 @@
         this.node.worldPosition.add(xxx);
         ```
         在某些平台，此处 `add` 的结果不保存到worldPosition上。
-    
