@@ -78,6 +78,7 @@
         - [装饰器使用](scripting/decorator.md)
         - [属性参数参考](scripting/reference/attributes.md)
         - [生命周期回调](scripting/life-cycle-callbacks.md)
+        - [开发注意事项](scripting/readonly.md)
     - [脚本使用](scripting/usage.md)
         - [访问节点和其他组件](scripting/access-node-component.md)
         - [常用节点和组件接口](scripting/basic-node-api.md)
