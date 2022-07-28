@@ -29,7 +29,7 @@
 
 ![menu](embeded/track-data-menu.png)
 
-未选中任何数据时，可以选择 **创建**、**粘贴** 和 **清楚数据**。
+未选中任何数据时，可以选择 **创建**、**粘贴** 和 **清除数据**。
 
 ![unselect](embeded/unselect.png)
 
