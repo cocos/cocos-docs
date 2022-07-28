@@ -18,9 +18,12 @@
 
 开启XR的扩展后，在内置资源文件夹中会新增XR预制体、材质、模型等资源，可供用户直接使用。具体位置如下图所示。
 - 预制体资源
+
   ![](prefab/default_prefabs_xr.png)
 - 材质资源
+
   ![](prefab/default_material_xr.png)
 - 模型资源
+
   ![](prefab/default_model_xr.png)
 
