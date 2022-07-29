@@ -104,7 +104,7 @@ const rigidBody = this.getComponent(RigidBody);
 rigidBody.useCCD = true;
 ```
 
-See [Continuous Collision Detection](physics-ccd.md) for a more detailed description.
+Refer to [Continuous Collision Detection](physics-ccd.md) for a more detailed description.
 
 ## Event Trigger Rules
 
