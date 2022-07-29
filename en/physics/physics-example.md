@@ -62,7 +62,7 @@
 
     The above mistakes can be easily made by:
 
-    1. kinetic rigid bodies added to a mesh collider with `convex` unchecked are penetrating with other objects or not reacting at all, this is a typical misuse, only those with `convex` checked will support kinetic rigid bodies.
+    1. Dynamic rigid bodies added to a mesh collider with `convex` unchecked are penetrating with other objects or not reacting at all, this is a typical misuse, only those with `convex` checked will support dynamic rigid bodies.
 
     2. Turning on `convex` for a model with a very large number of vertices will increase the number of faces of the convex packet, which has a great impact on the performance, and it is not necessary to have a convex packet with a large number of faces.
 
