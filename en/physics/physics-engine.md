@@ -73,7 +73,7 @@ In addition, the ByteDance platform provides the underlying native physics featu
 | Trigger events | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Auto-sleep | | ✔ | ✔ |✔ |
 | Collision events, collision data | | ✔ | ✔ | ✔
-| Physical Materials | ✔ | ✔ | ✔ | ✔ |
+| Physics Materials | ✔ | ✔ | ✔ | ✔ |
 | Static, kinematics | ✔ | ✔ | ✔ | ✔ |
 | Dynamics | ✔ | ✔ | ✔ | ✔ |
 | Point-to-point, hinge constraints (experimental) | | ✔ | ✔ | ✔

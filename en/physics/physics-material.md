@@ -1,6 +1,6 @@
 # Physics Material
 
-A physics material is an asset that records information about the surface of an object that is used to calculate the frictional and spring forces on colliding objects, etc.
+A physics material is an asset that records information about the surface of an object that is used to calculate the frictional and force of restitution on colliding objects, etc.
 
 ## Create Physics Material
 
