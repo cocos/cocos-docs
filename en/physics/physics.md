@@ -21,11 +21,11 @@ Developers choose different physics engines according to their development needs
 
 Each element in the physics world can be understood as a separate **rigid body**, which can be made physical in Cocos Creator 3.x by adding a [Collider](physics-collider.md) or [RigidBody](physics-rigidbody.md) to the game object. Gives physics elements their physical properties. The physics system will perform physics calculations for these elements, such as calculating whether the objects collide and what forces are applied to the objects. When the calculations are complete, the physics system will update the physics world to the scene world, simulating the physical behavior that is restored in the real world.
 
-Scene world and physical world:
+Scene world and physics world:
 
 ![Scene World vs. Physics World](img/physics-world.jpg)
 
-> **Note**: "rigid body" in this context refers to an object in the physical world that remains unchanged in shape and size while in motion or after being acted upon by a force, and whose relative positions of the internal points remain unchanged.
+> **Note**: "rigid body" in this context refers to an object in the physics world that remains unchanged in shape and size while in motion or after being acted upon by a force, and whose relative positions of the internal points remain unchanged.
 
 ### Physics Work Flow
 
