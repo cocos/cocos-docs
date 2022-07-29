@@ -8,7 +8,7 @@ Collider property **IsTrigger** determines whether the component is a trigger or
 
 The difference between the two is as follows.
 
-- Triggers will not do finer detection with other triggers or colliders.
+- Triggers do not do more detailed detection with other triggers or colliders.
 - Colliders will do finer detection with colliders and will generate collision data such as collision points, normals, etc.
 
 ## Trigger events
