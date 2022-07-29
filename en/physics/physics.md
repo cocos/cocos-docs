@@ -25,7 +25,7 @@ Scene world and physics world:
 
 ![Scene World vs. Physics World](img/physics-world.jpg)
 
-> **Note**: "rigid body" in this context refers to an object in the physics world that remains unchanged in shape and size while in motion or after being acted upon by a force, and whose relative positions of the internal points remain unchanged.
+> **Note**: The "rigid body"  here refers to an object in the physics world that remains unchanged in shape and size and whose relative positions of internal points remain unchanged while in motion or after being acted upon by a force.
 
 ### Physics Work Flow
 
