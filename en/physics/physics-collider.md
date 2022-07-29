@@ -213,7 +213,7 @@ However, there are some properties of colliders that cause scaling to be handled
 
 These properties restrict transformations such as tangent, non-uniform scaling, etc. Take the sphere as an example.
 
-Assuming that the scaling information of the bound node is **(1,2,1)** (non-uniform scaling), since the model and the collider describe different structures, the sphere model uses multiple base elements (such as triangular surfaces) to represent, and after scaling will be shaped into a pebble-like shape; while the sphere collider is described according to the radius size, scaling will take the dimension with the largest value to scale the radius (this is in order to collider The sphere collider is described by the radius size, and scaling will take the largest dimension to scale the radius (so that the collider can encircle the model as much as possible), **but it is still a sphere** after scaling, so it cannot precisely encircle the pebble-like size of the sphere model.
+Assuming that the scaling information of the bound node is **(1,2,1)** (non-uniform scaling), since the model and the collider describe different structures, the sphere model uses multiple base elements (such as triangular surfaces) to describe, and after scaling will be shaped into a pebble-like shape; while the sphere collider is described according to the radius size, scaling will take the dimension with the largest value to scale the radius (this is to encircle the model as much as possible with the collider), **but it is still a sphere** after scaling, so it cannot precisely encircle the pebble-like size of the sphere model.
 
 ![non-uniformly scaled sphere](img/collider-non-uniform-scale.jpg)
 
