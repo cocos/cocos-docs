@@ -6,15 +6,23 @@
 
 ![add-layer](animation-graph-panel/add-layer.png)
 
-在动画图中点击 **层级（Layers）** 按钮，点击 ![add layer](animation-graph-panel/btn-add-layer.png) 按钮可以创建新的层级。
+在动画图中点击 **层级（Layers）** 按钮，点击 ![add layer](animation-graph-panel/btn-add-layer.png) 按钮，在弹出的输入框内输入层级的名字即可创建层级。
 
-## 层级菜单
+## 删除层级
 
-![Layers](animation-graph-panel/layers.png)
+点击层级右侧的 **×** 可以删除层级：
 
-点击层级右侧的齿轮图标用于显示层级菜单。 点击 **重命名（Rename）** 按钮可对动画图层进行重命名，点击 **删除层级（Remove Layer）** 可以删除当前层级。动画图最少需要一个层级。
+![remove](animation-graph-panel/remove-layer.png)
+
+在层级名字处点击鼠标左键可对层级进行重命名：
+
+![rename](animation-graph-panel/rename-layer.png)
 
 ## 层级属性
+
+在动画图层级中选中任意层级后，在 **属性查看器** 内可以查看层级属性。
+
+![inspector](animation-graph-panel/layer-inspector.png)
 
 | 属性 | 说明 |
 | :-- | :-- |
@@ -24,6 +32,12 @@
 ### 动画遮罩
 
 从 **资源管理器** 拖拽动画遮罩到动画图窗口的 **遮罩（Mask）** 属性或者在层级中选中 **遮罩（Mask）** 属性都可以将遮罩赋予该层级。
+
+操作步骤可参考下图：
+
+- 选中任意层级
+- 在 **属性检查器** 内点击下拉菜单
+- 选中提前创建好的 **遮罩** 资源
 
 ![select](animation-mask/select.png)
 
@@ -68,10 +82,10 @@
 
 从 **空状态** 状态引出的过渡，就相当于前面层级的动画效果逐渐过渡到目标动画。此过渡上可以指定过渡条件、过渡周期。但过渡周期仅可指定为绝对的时长（以秒为单位）。
 
+![layer](animation-layer/empty-state.png)
+
 引出到 **空状态** 状态的过渡，就相当于源头动画的动画效果在不断衰减，直到过渡完成，相当于当前层级被禁用。
 
 如在下图的示例中，当 **Empty** 仅在触发器 **trigger** 被触发后才会过渡到 **RunShoot** 状态，而在 **Empty** 状态下，该层级不会影响到前面层级的动画效果。
-
-![layer](animation-layer/empty-state.png)
 
 ![duration](animation-layer/transit-empty-state.png)
