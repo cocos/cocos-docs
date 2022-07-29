@@ -111,6 +111,6 @@ Different physics engines have different internal designs and algorithms, so the
 
 3. Physics Materials
 
-    PhysX physics materials support static friction factor, dynamic friction factor, and elasticity factor, with the exception of the dynamic friction factor, which is missing from the physics material resources in Creator. This coefficient is currently the same as the static friction coefficient, and this part of the difference is not available for conversion at this time.
+    PhysX physics materials support static friction factor, dynamic friction factor, and elasticity factor. Compared to physics materials in Creator, it lacks dynamic friction coefficient. This coefficient is currently the same as the static friction coefficient, and this part of the difference is not available for conversion at this time.
 
 In addition to the points mentioned above, there are also other algorithmic differences, such as numerical integration methods, LCP solution algorithms, solution accuracy, etc., so there will always be different effects, but these are less easily perceived in actual project development.
