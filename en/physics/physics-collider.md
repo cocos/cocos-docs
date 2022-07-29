@@ -36,9 +36,9 @@ const boxCollider = this.node.addComponent(BoxCollider);
 | :---|:--- |
 | **Attached** | The [Rigidbody](physics-rigidbody.md) to which the collider is attached |
 | **Material** | The [Physics Material](physics-material.md) used by the collider, or the engine's default physics material if not set |
-| **IsTrigger** | If or not [Trigger](physics-event.md), the trigger will not generate physics feedback |
+| **IsTrigger** | Whether or not it is a [Trigger](physics-event.md), the trigger will not generate physics feedback |
 
-Please note the following points for rigid body acquisition.
+Please note the following points for getting rigid body.
 
 - This attribute returns `null` if the node itself does not have a `RigidBody` component.
 - The real attribute corresponding to Attached is called `attachedRigidBody`, which is a read-only attribute and cannot be modified.
