@@ -1,92 +1,117 @@
 # Raycast Detection
 
-__Raycast detection__ is a very important function and is often used to judge various situations. The essence is to make a **intersection judgment** between a ray and another shape, as shown in the figure below.
+Raycast detection is a **intersection determination** of one ray and another shape, as shown in the figure below.
 
-![raycast](img/raycast.jpg)
+![illustration](img/raycast.jpg)
 
-## Constructing a Ray
+## Construct Rays
 
-The `ray` is under the `geometry` namespace of the `cc` module, so in order to access to `ray`, we need to import `geometry`:
+A **ray** consists of a **starting point** and a **direction**. There are several more common ways to construct a ray, as follows:
 
-```ts
-import { geometry } from 'cc';
-```
-
-![import geometry](img/import-geometry.jpg)
-
-The `ray` is composed of **start point** and **direction**. There are the following common methods to construct a ray:
-
-1. Via **start point** + **direction**, such as `ray` constructor or static interface `create`:
+1. via the constructor of **start** + **direction**, **ray** or the static interface `create`.
 
     ```ts
     import { geometry } from 'cc';
-    const { ray } = geometry;
-    // Construct a ray starting from (0, -1, 0) and pointing to the Y axis
-    // The first three parameters are the starting point, the last three parameters are the direction
-    const outRay = new ray(0, -1, 0, 0, 1, 0);
 
-    // Or through the static method create
-    const outRay2 = ray.create(0, -1, 0, 0, 1, 0);
+    // Construct a ray starting from (0, -1, 0) and pointing to the Y-axis
+    // the first three arguments are the starting point, the last three arguments are the direction
+    const outRay = new geometry.Ray(0, -1, 0, 0, 0, 1, 0);
+
+    // or by static method 'create'
+    const outRay2 = geometry.Ray.create(0, -1, 0, 0, 0, 1, 0);
     ```
 
-2. Via **start point** + **another point on the ray**, for example the static interface `fromPoints` in the `ray`:
+2. via the static interface `fromPoints` of **start point** + **another point on ray**, **ray**:
 
     ```ts
-    import { geometry, Vec3 } from 'cc';
-    // Construct a ray starting from the origin and pointing to the Z axis
-    const outRay = new geometry.ray();
-    geometry.ray.fromPoints(outRay, Vec3.ZERO, Vec3.UNIT_Z);
+    import { geometry, math } from "cc";
+    // Construct a ray that points to the Z-axis from the origin
+    const outRay = new geometry.Ray();
+    geometry.Ray.fromPoints(outRay, math.Vec3.ZERO, math.Vec3.UNIT_Z);
     ```
 
-3. Use the camera to construct a ray emitted from the origin of the camera to a point on the screen (or the near plane of the camera):
+3. Use the camera to construct a ray emitted from the camera origin to a point on the screen.
 
     ```ts
-    import { geometry, Camera } from 'cc';
-    const { ray } = geometry;
-    // It is assumed here that there is already a reference to cameraCom
-    const cameraCom: Camera;
-    const cameraCom: Camera;
-    // Get a ray emitted by the screen coordinates (0, 0)
-    const outRay = new ray();
-    cameraCom.screenPointToRay(0, 0, outRay);
+    import { geometry, Camera } from "cc";
+    // Take the example of a script mounted under Camera
+    const camera = this.node.getComponent(Camera);
+    // Get a ray emitted from the screen at (0, 0)
+    const outRay = new geometry;
+    camera?.screenPointToRay(0, 0, outRay);
     ```
 
-    > **Notes**:
-    > 1. You need to get a reference to a camera component or camera instance.
-    > 2. The order of the interface parameters exposed by both the camera component and the camera instance is not the same.
+    > **Note**.
+    > 1. First you need to get a reference to a camera component or camera instance.
+    > 2. The order of the interface parameters exposed by the camera component and the camera instance are different.
 
 ## Interface Introduction
 
-__Cocos Creator__ provides a set of ray detection functions. However, it should be noted that the detected object is a physics collider, and the corresponding collider component on the inspector panel, such as `BoxCollider`.
+Cocos Creator provides a set of raycast detection functions based on the physics engine.
 
-Currently, the interface is provided by PhysicsSystem, which has the following two categories:
+The interface is currently provided by [**PhysicsSystem**](__APIDOC__/en/#/docs/3.4/en/physics/classes/physicssystem.html) and has the following two classes.
 
-- `raycastAll`: Detect all colliders and return a Boolean value to indicate whether the detection was successful.
-- `raycastClosest`: Detect all colliders and return Boolean value as well.
+- `raycast` : Detects all colliders and records all detected results, obtained via `PhysicsSystem.instance.raycastResults`. The interface returns a boolean value indicating whether if the ray intersects with any collider or not.
+- `raycastClosest`: detects all colliders and records the result of the detection with the shortest distance to the ray, obtained via `PhysicsSystem.instance.raycastClosestResult`. Also returns a boolean value same as `raycast` method.
 
-Parameter description:
+> **Note**.
+> 1. The detected object is a physical collider, and the corresponding collider component in the scene panel is a collider component, e.g. **BoxCollider**.
+> 2. The object returned by the detection result is read-only and reused, and the corresponding result is updated after each call to the detection interface.
 
-- `worldRay`: Rays in world space
-- `mask`: Mask for filtering, you can pass in the packets to be detected
-- `maxDistance`: Maximum detection distance, please do not pass Infinity or Number.MAX_VALUE
-- `queryTrigger`: Whether to detect triggers
+Common examples of raycast detection of nearest objects based on camera position and screen coordinates.
 
-## Getting Results
+```ts
+let ray = new geometry.Ray();
+this.camera.screenPointToRay(eventMouse.getLocationX(), eventMouse.getLocationY(), ray);
+// The following parameters are optional
+const mask = 0xffffffff;
+const maxDistance = 10000000;
+const queryTrigger = true;
 
-To get the detection results of the above interfaces, you need to use the following methods separately:
+if (PhysicsSystem.instance.raycastClosest(ray, mask, maxDistance, queryTrigger)) {
+    const raycastClosestResult = PhysicsSystem.instance.raycastClosestResult;
+    const hitPoint = raycastClosestResult.hitPoint
+    const hitNormal = raycastClosestResult.hitNormal;
+    const collider = raycastClosestResult.collider;
+    const distance = raycastClosestResult;            
+}
+```
 
-- Gets the detection result of `raycastAll`: `PhysicsSystem.instance.raycastResults`
-- Gets the detection result of `raycastClosest`: `PhysicsSystem.instance.raycastClosestResult`
+The following code demonstrates how multiple objects can be detected:
 
-> **Note**: the returned object is read-only and reused, and the corresponding result will be updated after each call to the detection interface.
+```ts
+const worldRay = new geometry.Ray(0, -1, 0, 0, 1, 0);
+// The following parameters are optional
+const mask = 0xffffffff;
+const maxDistance = 10000000;
+const queryTrigger = true;
 
-## Information Stored By Results
+const bResult = PhysicsSystem.instance.raycast(worldRay, mask, maxDistance, queryTrigger);
+if(bResult){
+    const results = PhysicsSystem.instance.raycastResults;
 
-The information is stored by `PhysicsRayResult`, which mainly has the following information:
+    for (let i = 0; i < results.length; i++) {
+        const result = results[i];
+        const collider = result.collider;
+        const distance = result.distance;
+        const hitPoint = result.hitPoint;
+        const hitNormal = result.hitNormal;
+    }
+}
+```
 
-- `collider`: Collider that is hit
-- `distance`: The distance between the hit point and the starting point of the ray
-- `hitPoint`: Hit point (in world coordinate system)
-- `hitNormal`: The normal of the hit point's face (in the world coordinate system)
+### Parameter Description
 
-Related test cases can be found in the [GitHub repo](https://github.com/cocos-creator/example-3d/blob/v3.4/physics-3d/assets/cases/scenes/csae-physics-raycast.scene).
+- `worldRay`: the ray in the world space
+- `mask`: [mask](physics-group-mask.md) for filtering, you can pass in the group to be detected, default is 0xffffffff
+- `maxDistance`: the maximum detection distance, default is 10000000, do not pass `Infinity` or `Number.MAX_VALUE` at this time
+- `queryTrigger`: whether to detect the trigger
+
+### Result Description
+
+The result of the ray detection is stored by [PhysicsRayResult](__APIDOC__/en/#/docs/3.4/en/physics/classes/physicsrayresult.html), mainly with the following information.
+
+- `collider`: the collider that hit
+- `distance`: the distance between the hit point and the start of the ray
+- `hitPoint`: the hit point (in the world coordinate)
+- `hitNormal`: the normal of the face where the hit point is located (in the world coordinate)
