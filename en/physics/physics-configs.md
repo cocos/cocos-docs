@@ -12,9 +12,9 @@ The **Project Settings -> Physical Configuration** allows you to configure the r
 
 | Properties | Description |
 | :--- | :--- |
-| **Gravity X** | The gravity vector that sets the gravity value on the x-component |
-| **Gravity Y** | The gravity vector that sets the gravity value on the y-component |
-| **Gravity Z** | The gravity vector that sets the gravity value on the z-component |
+| **Gravity X** | x-component of gravity |
+| **Gravity Y** | y-component of gravity |
+| **Gravity Z** | z-component of gravity |
 | **AllowSleep** | Allow the system to sleep, default value `true` |
 | **SleepThreshold** | The default speed threshold to enter sleep, default value `0.1`, minimum value `0` | | 
 | **AutoSimulation** | Whether to enable auto simulation, default `true` |
