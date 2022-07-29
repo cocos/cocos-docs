@@ -1,63 +1,122 @@
-# 2D Physics Collision Components
+# 2D Collider
 
-## Physics Collision Component Properties
+## Create Collider
 
-- __sensor__ - specifies whether the collider is a sensor type. A sensor type collider will produce collision callbacks, but no physics collision effects will occur.
-- __density__ - density of colliding bodies. Mass calculation for rigid bodies.
-- __friction__ - friction of colliding bodies. The movement of colliding bodies is influenced by friction when they touch.
-- __restitution__ - restitution of colliding bodies. Indicates whether the colliding body is affected by the elasticity of the collision.
+The engine currently supports three different colliders: **BoxCollider2D**, **CircleCollider2D** and **PolygonCollider2D**. Click the **Add Component** button on the **Inspector** panel and enter the name of the collider to add it.
 
-### Box2D Physics Collision Component Interior Details
+![colliders](image/collider-types.png)
 
-The __Box2D__ physics collision component is composed of the __Box2D__ `b2Fixture` internally. Due to some limitations within __Box2D__, a polygon physics collision component may be composed of multiple `b2Fixtures` objects.
+## Properties
 
-A few examples:
+The different colliders have the following properties in common:
 
-1. When the vertices of a polygonal physics collision component form a concave shape, the physics system automatically divides these vertices into convex edges.
-2. When the polygon physics collision component has more vertices than `b2.maxPolygonVertices` (typically 8), the physics system automatically splits these vertices into multiple polygons.
+![inspector](image/collider-inspector.png)
 
-Normally these details are of no concern, but when using ray detection and the detection type is `ERaycast2DType.All`, a collision body may detect multiple collision points because multiple `b2Fixtures` are detected.
+| Properties | Description |
+|:-- | :-- |
+| **Editing** | Whether to edit the collider. Check this option to edit the position, style and size of the collider in the scene. For details, please refer to **Editing Collider** below |
+| **Tag** | Tag. When a collision occurs, you can distinguish different colliders according to **Tag**. |
+| **Group** | Collider group. By [Collision Matrix](../editor/project/physics-configs.md), you can set the possibility of collision between different groups. |
+| **Sensor** | Specify whether the collider is of sensor type, the collider of sensor type will generate a collision callback, but no physical collision effect will occur |
+| **Density** | The density of the collider, used to calculate the mass of the rigid body. |
+| **Friction** | The friction factor of the collider, the motion of the collider will be affected by the friction when it touches. |
+| **Restitution**| The elasticity coefficient of the collider, specifying whether the collider will be affected by the elasticity when it collides. |
+| **Offset** | The offset of the collider with respect to the center of the node. |
 
-## Edit Collider Component
+## BoxCollider
 
-Click the **editing** checkbox of a collider component to edit collider shape freely.
+The Box Collider component is a common collider used to simulate a rectangle-like collider. It can be added by clicking **Add Component -> BoxCollider2D** on the **Inspector** panel of the 2D node.
+
+![box-collider-2d](image/box-colllider-2d.png)
+
+### Properties
+
+| Properties | Description |
+| :-- | :-- |
+| **Size** | The size of the box collider component |
+
+Please refer to [BoxCollider2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/BoxCollider2D) for details.
+
+### Editing Collider
+
+For all colliders, check **Editing** to edit them within the scene.
 
 ![editing](image/editing.png)
 
-### Polygon Collider
+Press the left mouse button and drag within the collider to adjust the offset of the collider, and on ![gizmo](image/gizmo.png) and drag the left mouse button to adjust the shape and size of the collider.
 
-For editing **Polygon Collider** all green points of the collider can be moved freely by dragging. All changes to the points can be seen in **Points** property of Polygon Collider.
+![edit-box-collider](image/edit-box.gif)
 
-![edit-polygon-collider](image/edit-polygon-collider.png)
+Holding down the <kbd>Alt</kbd> button while dragging will keep the **rectangle center position** unchanged during the dragging process.
 
-Moving the mouse over the line between two points, the mouse pointer changes to **Add** style. Then clicking the mouse to add a new point to the Polygon Collider.
+![alt](image/edit-box-alt.gif)
 
-The polygon collision component also has a **Regenerate Points** function. This function automatically generates the vertices of the contour based on the pixels of the **Sprite** component's texture on the node to which the component is attached.
+Entering on the **Inspector** panel also refines the size and offset of the collider.
 
-**Threshold** specifies the minimum distance between the vertices of the generated map contour, the larger the value the fewer points are generated, and can be adjusted as desired.
+![input](image/edit-input.gif)
 
-![regenerate-points](image/regenerate-points.png)
+## CircleCollider2D
 
-### Circle Collider
+Click **Add Component** on the **Inspector** panel and enter CircleCollider2D to add a circle collider.
 
-Enable editing for a **Circle Collider** will show the circle editing area like below:
+![circle-collider](image/circle-collider.png)
 
-![edit-circle-collider](image/edit-circle-collider.png)
+### Properties
 
-Left mouse button dragging the displayed dots modifies the radius of **circular collision components**. Dragging an area inside a circle can drag a circular area.
+| Properties | Description |
+| :-- | :-- |
+| **Radius** | radius of the circle |
 
-### Box Collider
+Please refer to [CircleCollider2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/CircleCollider2D) for details.
 
-Enable editing for a **Box Collider** will show the box editing area like below:
+### Editing Collider
 
-![edit-box-collider](image/edit-box-collider.png)
+When holding down the <kbd>Alt</kbd> button to drag, the **circle center position** will be maintained during the dragging process.
 
-When the mouse is hovering over the **points of the box collider**, clicking the left mouse button and drag to modify the length and width of the box collider component.
+![edit-circle-collider](image/edit-circle.gif)
 
-When the mouse is hovering over the **rectangular collision area**, clicking and dragging will modify the offset of the **rectangular collision component**.
+## PolygonCollider2D
 
-While holding down **Alt**, the **rectangular center point position** will remain unchanged during dragging.
+The Polygon Collider component allows you to edit more detailed physics shapes for more accurate physics simulation of objects.
 
-### Modifying the Collision Component Offset
+Click **Add Component** on the **Inspector** panel and enter PolygonCollider2D to add a polygon collider.
 
-In the editing mode of all kinds of Colliders you can drag the center of the collider to move it off the center of the node. The **Offset** property of the collider will change as well.
+![polygon](image/polygon-collider.png)
+
+### Properties
+
+| Properties | Description |
+| :-- | :-- |
+| **Threshold** | Specifies the minimum distance between the vertices of the generated map outline, the larger the value, the fewer points will be generated, adjustable according to requirements |
+| **Points** | The vertices of the polygon can be edited within the scene by checking **Editing**, and can also be adjusted by entering values on the **Inspector** panel |
+
+Please refer to [PolygonCollider2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/PolygonCollider2D) for details.
+
+### Edit Collider
+
+In the case of Sprite components, the engine generates outlines based on the Sprite.
+
+![default](image/polygon-default.png)
+
+By dragging the mouse ![gizmo](image/gizmo.png) you can adjust the position of the outline points.
+
+![edit](image/edit-polygon.gif)
+
+By adjusting the **Threshold** and clicking the ![points](image/btn-regenerate-points.png) button, you can adjust the shape of the outline and the number of points.
+
+![threshold-1](image/threshold-1.png)
+
+When you mouse over a line segment of a polygon, the line segment will be highlighted and the mouse will change to add style, then click the left mouse button to insert a new point in the line segment.
+
+![add-point](image/polygon-add-point.gif)
+
+## Details
+
+Box2D physics colliders are internally composed of Box2D b2Fixture. Due to some limitations inside Box2D, a polygon physics collider may be composed of more than one b2Fixture.
+
+These cases are as follows:
+
+1. when the shape of the vertices of a polygon physics collider is a concave polygon, the physics system automatically splits these vertices into multiple convex polygon.
+2. When the polygon physics collider has more vertices than `b2.maxPolygonVertices` (typically 8), the physics system automatically splits these vertices into multiple convex polygon.
+
+Normally these details are of no concern, but when ray detection is used and the detection type is `ERaycast2DType.All`, a collider may detect multiple collision points because multiple b2Fixtures are detected.

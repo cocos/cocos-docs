@@ -6,6 +6,7 @@ Besides the engine tells us when a collision happens, we also need a way to get 
 
 > __Notes:__
 > 1. First, set `Enable contact listener` in the [Rigidbody](physics-2d-rigid-body.md) component properties. The corresponding callback will be generated.
+>    ![enable contact listenr](image/enable-contact.png)
 > 2. The information in the argument of callback function is fetched from the cache of the physics engine, so the information is only accessible in the current callback. Do not store the reference to those parameters in your script, but rather copy the data to local variables for later use.
 > 3. If creating a physics object (rigidbody, joint or collider) in the callback function, the corresponding __Box2D__ objects will not be created immediately along these objects. The creation of physics object will be done after a physics time step completes.
 
