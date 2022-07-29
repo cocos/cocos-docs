@@ -4,7 +4,7 @@ Cocos Creator currently provides users with the following types of physics compo
 
 - [Collider Component](physics-collider.md)
 
-    The collider component is used to define the shape of the collision body. The shape can be viewed in the editor environment and is not visible at runtime. The shape can be set as desired, and does not need to be identical to the object mesh.
+    The collider component is used to define the shape of the collider. The shape can be viewed in the editor environment and is not visible at runtime. The shape can be set as desired, and does not need to be identical to the object mesh.
 
 - [Rigidbody Component](physics-rigidbody.md)
 
