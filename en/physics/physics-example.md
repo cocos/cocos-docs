@@ -52,7 +52,7 @@
 
     The average apple comes with a concave surface, and dealing with a good concave class or a model with continuous smooth irregular surfaces are very tricky, this is because the current mature theory and techniques are built on top of the world of discrete, convex packages (differential approximation in calculus to represent the differential is the most typical example).
 
-    In real-time physics engines, such objects can only be supported up to the rigid body level of static or kinematic types, and there is nothing that can be done about dynamics. Unfortunately, however, real apple motion is strongly dependent on dynamics, and in this case the only way to participate in the simulation is to fill the apple with a mesh collider in the form of a convex package (with convex checked) and a kinetic rigid body, using an approximation.
+    In real-time physics engines, such objects can only be supported up to the rigid body level of static or kinematic types, and there is nothing that can be done about dynamics. Unfortunately, however, real apple motion is strongly dependent on dynamics, and in this case the only way to participate in the simulation is to fill the apple with a mesh collider in the form of a convex package (with convex checked) and a dynamic rigid body, using an approximation.
 
     ![arm-apple](example-img/arm-apple.gif)
 
