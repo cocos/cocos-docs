@@ -5,7 +5,7 @@ digraph G {
 
     subgraph cluster_framework {
         style=invis
-        ast [label="Asset"]
+        ast [label="aaaaa"]
         cmp [label="Component"]
         lib [label="ProgramLib | { shader instances | <temp> shader templates }"]
     }

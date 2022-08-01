@@ -52,7 +52,7 @@ PBR 的优势在于：
 用户可以在材质属性面板的 **Roughness** 属性中直接设置粗糙度。或者为 PBR 材质指定一张 sRGB 颜色空间的 RGBA 贴图，通过贴图的 **绿通道** 表达粗糙度，操作步骤如下：
 
 1. 在 **资源管理器** 中选中 PBR 材质资源，然后在 **属性检查器** 中勾选 **USE PBR MAP** 属性，将 RGBA 贴图拖拽到出现的 **PbrMap** 属性框中；
-2. 然后勾选 **USE METALLIC ROUGHNESS MAP**，将 RGBA 贴图再次拖拽到出现的 **MetallicRoughnessMap** 属性框中。
+2. 或勾选 **USE METALLIC ROUGHNESS MAP**，将 RGBA 贴图拖拽到出现的 **MetallicRoughnessMap** 属性框中。
 
 ![matallic 贴图](img/mateallic.png)
 
