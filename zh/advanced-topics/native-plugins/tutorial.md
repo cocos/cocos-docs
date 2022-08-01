@@ -1,37 +1,39 @@
-# Cocos Native Plugin Quick Tutorial
+# 原生插件创建范例
 
 
-The sample project for this document is available from [GitHub Repo](https://github.com/PatriceJiang/ccplugin_tutorial).
-
-
-
-##  Create a native plugin
+本文的范例工程可从 [GitHub Repo](https://github.com/PatriceJiang/ccplugin_tutorial) 获取.
 
 
 
+##  创建原生插件
 
-### Basic Setup
 
-**Create a cocos project with Cocos Creator 3.6+**
 
-Start the CocosCreator application, and run `Create an empty project` in the chosen folder.
+
+### 插件开发工程配置
+
+**使用 Cocos Creator 3.6+ 创建一个工程**
+
+启动 CocosCreator, 在指定目录执行 `创建空工程`.
 
 ![create ](doc/images/1_create_empty_project.PNG)
 
 
-**Create and save an empty scene**
+**创建并保存一个空的工程**
 
 ![save scene](doc/images/1_2_save_emtpy_scene.PNG)
 
 
 
-**A native build is needed to be created first to generate the `native/` directory.**
+**通过导出原生工程构建, 生成 `native/` 目录.**
 
-Create a build task for any native platform, for example Windows
+这里在 Windows 上新建构建任务.
 
 ![build windows](doc/images/1_3_create_windows_build.PNG)
 
-Run *Build*, `native/` folder should be created after that.
+执行 *构建*, 同时生成 `native/` 目录.
+
+查看目录的内容
 
 ```console
 $ tree native/ -L 2
@@ -42,20 +44,20 @@ native/
 
 ```
 
-**Create a folder for the plugin**
+**在 `native/` 中创建插件存放的目录**
 
 ```console
 $ mkdir -p native/plugins/hello_cocos
 ```
-### Add support for Windows
+### 添加原生插件对 Windows 的支持
 
-Prepare the folder for Windows
+添加 Windows 平台相关的子目录
 
 ```console
 $ mkdir -p native/plugins/hello_cocos/windows/
 ```
 
-**Copy precompiled `hello_cocos` library and header files into the plugin directory**
+**把预先编译好的依赖库 `hello_cocos.lib` 和头文件 拷贝到对应的目录**
 
 ```console
 $ tree native/plugins/
@@ -70,7 +72,7 @@ native/plugins/
 
 ```
 
-**Add files `hello_cocos_glue.cpp`, `CMakeLists.txt` and `hello_cocos_glue-config.cmake`**
+**添加文件 `hello_cocos_glue.cpp`, `CMakeLists.txt` 和 `hello_cocos_glue-config.cmake`**
 
 ```console
  $ mkdir native/plugins/hello_cocos/src
@@ -79,7 +81,7 @@ native/plugins/
  $ touch native/plugins/hello_cocos/windows/hello_cocos_glue-config.cmake
 ```
 
-Now the plugin directory should look like this:
+当前插件目录的内容:
 
 ```console
 $ tree native/plugins/hello_cocos/
@@ -96,7 +98,7 @@ native/plugins/hello_cocos/
         └── hello_cocosd.lib
 ```
 
-**Edit `hello_cocos_glue-config.cmake` with following content**
+**编辑 `hello_cocos_glue-config.cmake` 写入以下内容**
 
 ```cmake
 set(_hello_cocos_GLUE_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -110,9 +112,9 @@ set_target_properties(hello_cocos PROPERTIES
 include(${_hello_cocos_GLUE_DIR}/../src/CMakeLists.txt)
 ```
 
-Declare an existing library `hello_cocos` add import it.
+在 CMake 中声明 `hello_cocos.lib` 并导入.
 
-**Edit `native/plugins/hello_cocos/src/CMakeLists.txt` with following content**
+**编辑 `native/plugins/hello_cocos/src/CMakeLists.txt`**
 
 ```cmake
 set(_hello_cocos_GLUE_SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -130,7 +132,7 @@ target_include_directories(hello_cocos_glue PRIVATE
 ```
 
 
-**Create `cc_plugin.json` in `native/plugins/hello_cocos/`**
+**在目录 `native/plugins/hello_cocos/`中创建配置文件 `cc_plugin.json`**
 
 ```json
 {
@@ -147,23 +149,22 @@ target_include_directories(hello_cocos_glue PRIVATE
 }
 
 ```
+现在原生插件所需的文件已经创建, 但还不能编译. 文件 `hello_cocos_glue.cpp` 需要注册插件的初始化函数. 
 
-Now the plugin is created and enabled in this project. But it won't compile, since there is no code in `hello_cocos_glue.cpp`
+再次执行 *构建* 触发 Visual Studio 工程的更新. 
 
-Let's *Build* again in the build panel to refresh the Visual Studio project.
+**使用 Visual Studio 打开目录 `build/windows/proj/` 中的 sln 文件**
 
-**Open the Visual Studio project under `build/windows/proj/`**
-
-Two additional targets are generated
+自动生成一个 `plugin_registry` 目标, 用于初始化所有启用的插件. 
 
 ![Solution Explorer](./doc/images/2_1_vs_project.PNG)
 
-If you run the target directly, you will fail with the following link error:
+直接运行目标会导致类似的报错:
 
 ![link error](./doc/images/2_1_link_error.PNG)
 
 
-**Edit `hello_cocos_glue.cpp`**
+**编辑 `hello_cocos_glue.cpp`**
 
 ```c++
 #include "hello_cocos.h"
@@ -202,37 +203,38 @@ CC_PLUGIN_ENTRY(hello_cocos_glue, add_demo_class);
 
 ```
 
-Start the project in debug mode, a new window should launch.
+运行目标工程.
 
 ![empty window](./doc/images/2_3_empty_window.PNG)
 
-Until now, we are not sure if the plugin is enabled or not.
+为了验证我们的原生插件是否已经加载, 我们需要连接 devtools.
 
-In the output window, we can the debug URL of the devtools
+从 `Output` 面板, 获取调试连接. 
 
 ![debug url](./doc/images/2_3_debug_url.PNG)
 
-Open the URL with chrome and type following code in Console
+打开 Chrome, 输入链接地址. 在 Console 中键入下面的代码
+
 ```javascript
 new Demo("World").hello("Cocos")
 ```
 
 ![devtools](./doc/images/2_5_devtool.PNG)
 
-The class `hello_cocos` and its methods are exported successfully!
+根据输出可以确认, 我们的接口已经成功通过原生插件导出.
 
-###  Add support for Android
+###  添加原生插件对 Android 的支持
 
-**Add a build task for Android**
+**添加 Android 的构建任务**
 
-**create a folder for android**
+**创建 Android 相关的原生插件目录**
 ```console
 $  mkdir native/plugins/hello_cocos/android
 ```
+**将预先编译好的依赖库和头文件 拷贝到对应的目录, 创建`hello_cocos_glue-config.cmake`**
 
-**Copy precompiled libraries and headers and create `hello_cocos_glue-config.cmake`**
 
-The folder should look like this:
+Android 目录的状态:
 
 ```console
 $ tree native/plugins/hello_cocos/android/
@@ -247,7 +249,7 @@ native/plugins/hello_cocos/android/
 
 ```
 
-**Edit `hello_cocos_glue-config.cmake`**
+**编辑 `hello_cocos_glue-config.cmake`**
 
 ```cmake
 set(_hello_cocos_GLUE_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -261,9 +263,9 @@ set_target_properties(hello_cocos PROPERTIES
 include(${_hello_cocos_GLUE_DIR}/../src/CMakeLists.txt)
 ```
 
-**Update `cc_plugin.json`**
+**更新 `cc_plugin.json`**
 
-Add `android` to `platforms` field
+添加 `android` to `platforms` 字段
 ```json
 {
     "name":"hello-cocos-demo",
@@ -281,23 +283,23 @@ Add `android` to `platforms` field
 ```
 
 
-**Create an android build task**
+**新增 Android 的构建任务**
 
 ![Android build](./doc/images/3_1_android_build.PNG)
 
-Run *Build* and debug with Android Studio.
+构建后可使用 Android Studio 打开工程, 并使用 devtool 调试验证.
 
 
-###  Add support for iOS
+###  添加原生插件对 iOS 的支持
 
-**Add a build task for iOS**
+**添加 iOS 的构建任务**
 
-Prepare a folder for iOS
+**创建 iOS 相关的原生插件目录**
 ```
  $ mkdir -p native/plugins/hello_cocos/ios/lib
 ```
 
-Copy precompiled libraries and edit `native/plugins/hello_cocos/ios/hello_cocos_glue-config.cmake`
+**将预先编译好的依赖库和头文件 拷贝到对应的目录, 创建`hello_cocos_glue-config.cmake`**
 
 ```cmake
 set(_hello_cocos_GLUE_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -313,17 +315,17 @@ include(${_hello_cocos_GLUE_DIR}/../src/CMakeLists.txt)
 
 
 
-###  Add support for Mac
+###  添加原生插件对 MacOS 的支持
 
+**添加 MacOS 的构建任务**
 
-**Add a build task for MacOS**
-
-Prepare a folder for MacOS
+**创建 MacOS 相关的原生插件目录**
 ```console
  $ mkdir -p native/plugins/hello_cocos/mac/lib
 ```
 
-Copy precompiled libraries and edit `native/plugins/hello_cocos/ios/hello_cocos_glue-config.cmake`
+**将预先编译好的依赖库和头文件 拷贝到对应的目录, 创建`hello_cocos_glue-config.cmake`**
+
 
 ```cmake
 set(_hello_cocos_GLUE_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -337,9 +339,9 @@ set_target_properties(hello_cocos PROPERTIES
 include(${_hello_cocos_GLUE_DIR}/../src/CMakeLists.txt)
 ```
 
-**Update `cc_plugin.json` again**
+**更新 `cc_plugin.json`**
 
-Add `iOS` & `mac` to `platforms` field
+添加 `iOS` 和 `mac` 到 `platforms` 字段
 ```json
 {
     "name":"hello-cocos-demo",
@@ -357,9 +359,9 @@ Add `iOS` & `mac` to `platforms` field
 ```
 
 
-Now a plugin supporting Android, Windows, MacOS & iOS is done.
+至此, 一个支持 Android, Windows, MacOS & iOS 的原生插件就开发完成了.
 
-The final content of the plugins is:
+原生插件目录的最终内容如下:
 ```console
 $ tree native/plugins/hello_cocos/
 native/plugins/hello_cocos
@@ -392,11 +394,10 @@ native/plugins/hello_cocos
         └── hello_cocosd.lib
 ```
 
-It's ready to ship.
+下一步就是发布了.
 
-##  Distribute with Editor Extension
+##  使用编辑器扩展机制发布
 
-Follow the steps in [the documentation](https://docs.cocos.com/creator/manual/en/editor/extension/readme.html) to create an Editor Extension, you need to copy the directory `native/plugins/hello_cocos` into the extension package when [packaging](https://docs.cocos.com/creator/manual/en/editor/extension/store/upload-store.html#packaging-the-extension), then submit. 
+根据 [文档](https://docs.cocos.com/creator/manual/en/editor/extension/readme.html) 创建编辑器扩展, 在 [打包](https://docs.cocos.com/creator/manual/en/editor/extension/store/upload-store.html#packaging-the-extension) 前把目录 `native/plugins/hello_cocos` 一并打包到扩展中, 再发布. 开发者在下载扩展后, 原生插件就会启用. 
 
-About upgrade: The editor extension system does not support update detection at the moment. Plugin users need to check in Cocos Store or Dashboard and manually upgrade to the latest version. 
-Of course, developers can still implement their version management based on the existing extension system. 
+关于升级: 目前编辑器扩展系统不支持升级检测, 用户需要到 Cocos 商城手动更新.
