@@ -10,13 +10,13 @@
 
 ## 删除层级
 
-点击层级右侧的 **×** 可以删除层级：
+鼠标悬停在层级上后，可以点击层级右侧的 **×** 进行删除，此操作仅在有多个层级时生效。
 
 ![remove](animation-graph-panel/remove-layer.png)
 
 ## 重命名层级
 
-在层级名字处点击鼠标左键可对层级进行重命名：
+在层级名字处双击鼠标左键可对层级进行重命名：
 
 ![rename](animation-graph-panel/rename-layer.png)
 
@@ -88,6 +88,6 @@
 
 引出到 **空状态** 状态的过渡，就相当于源头动画的动画效果在不断衰减，直到过渡完成，相当于当前层级被禁用。
 
-如在下图的示例中，当 **Empty** 仅在触发器 **trigger** 被触发后才会过渡到 **RunShoot** 状态，而在 **Empty** 状态下，该层级不会影响到前面层级的动画效果。
+如在下图的示例中，当 **Empty** 仅在触发器 **Trigger** 被触发后才会过渡到 **RunShoot** 状态，而在 **Empty** 状态下，该层级不会影响到前面层级的动画效果。
 
 ![duration](animation-layer/transit-empty-state.png)
