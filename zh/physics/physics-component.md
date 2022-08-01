@@ -1,28 +1,22 @@
 # 物理组件
 
-Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组件，以及工具类的恒力组件。
+Cocos Creator 目前为用户提供的物理组件分为以下几种：
 
-> **注意**：更多功能组件将会在后续版本持续发布，请留意版本更新公告。
+- [碰撞组件](physics-collider.md)
 
-## 碰撞器组件
+    碰撞组件用于定义碰撞体形状。可在编辑器环境下查看其形状，运行时不可见。其形状可以根据需求设置，无需和对象网格完全相同。
 
-碰撞器组件用于表示刚体的碰撞体形状，不同的几何形状拥有不同的属性。
+- [刚体组件](physics-rigidbody.md)
 
-> **注意**：
-> 1. 以下属性名称的首字母在实际代码中都为小写。
-> 2. 目前在 __builtin__ 中只支持盒、球、胶囊体。
+    刚体是组成物理世界的基本对象，它可以使游戏对象的运动方式受物理控制。
 
-### 盒碰撞器组件 BoxCollider
+- [恒力组件](physics-constantForce.md)
 
-![盒碰撞器组件](img/collider-box.jpg)
+    恒力组件是一个工具组件，依赖于刚体，会在每帧对一个刚体施加给定的力和扭矩。
 
-属性 | 解释
-:---|:---
-**material** | 碰撞器引用的 [物理材质](physics-material.md)（为空时引用物理系统的默认物理材质）
-**isTrigger** | 是否为触发器，触发器不会产生物理反馈
-**center**  |  本地坐标系下形状的原点
-**size**  |  盒的大小，即长、宽、高
+- [约束组件](physics-constraint.md)
 
+<<<<<<< HEAD
 盒碰撞器组件接口请参考 [BoxCollider API](__APIDOC__/zh/class/physics.BoxCollider)。
 
 ### 球碰撞器组件 SphereCollider
@@ -147,3 +141,6 @@ Cocos Creator 目前为用户提供了多种碰撞器组件和通用的刚体组
 **localTorque** |   在本地坐标系中对刚体施加的扭矩
 
 恒力组件接口请参考 [ConstantForce API](__APIDOC__/zh/class/physics.ConstantForce)。
+=======
+    约束组件依赖于刚体组件，可将某个对象的位置、方向或比例约束到其他对象。
+>>>>>>> v3.4-release
