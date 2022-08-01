@@ -14,6 +14,8 @@
 
 ![remove](animation-graph-panel/remove-layer.png)
 
+## 重命名层级
+
 在层级名字处点击鼠标左键可对层级进行重命名：
 
 ![rename](animation-graph-panel/rename-layer.png)
@@ -33,11 +35,11 @@
 
 从 **资源管理器** 拖拽动画遮罩到动画图窗口的 **遮罩（Mask）** 属性或者在层级中选中 **遮罩（Mask）** 属性都可以将遮罩赋予该层级。
 
-操作步骤可参考下图：
+操作步骤可参考下图，按照 1，2，3 步骤：
 
 - 选中任意层级
 - 在 **属性检查器** 内点击下拉菜单
-- 选中提前创建好的 **遮罩** 资源
+- 选中提前创建好的 **遮罩** 资源或从 **资源管理器** 拖拽到此处
 
 ![select](animation-mask/select.png)
 

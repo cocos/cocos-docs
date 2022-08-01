@@ -16,7 +16,7 @@
 
 ![add-transition](state-transition/add-transition.gif)
 
-两个状态之间允许存在多个同向/反向过渡，有几个同向/反向过渡便会在箭头上标相应的数字，配置项也都会展示在 **属性** 分页中。<br>
+两个状态之间允许存在多个同向/反向过渡，有几个同向/反向过渡便会在箭头上标相应的数字，配置项也都会展示在 **属性查看器** 中。<br>
 当状态上存在多条同时满足的过渡时，将优先使用排在过渡列表上方的过渡。但 Creator 并不建议依赖这种优先级排序，最好尽可能地使用下文中介绍的 **过滤条件** 来过滤过渡。
 
 ![add-transition](state-transition/add-more-transitions.png)
@@ -104,3 +104,40 @@
 当发生状态机悬停时，会直接中断更新，直到后续能过渡至状态，此时的表现为动画被暂停。
 
 > **注意**：我们不建议依赖这种行为，并且后续可能会对这种行为做出调整。
+
+## 预览
+
+选中任意转移后，在 **属性检查器** 内可以对当前转移进行预览。
+
+![preview](state-transition/preview-overview.png)
+
+预览时，用户可以通过下列按钮进行操作：
+
+![bar](state-transition/preview-bar.png)
+
+其属性与描述如下：
+
+- ![start](preview-bar/start.png) 跳转至第一帧
+- ![play](preview-bar/prev.png) 预览前一帧
+- ![play](preview-bar/play.png)/![pause](preview-bar/pause.png) 开始/暂停播放
+- ![stop](preview-bar/stop.png) 停止播放
+- ![end](preview-bar/next.png) 跳转至后一帧
+- ![end](preview-bar/end.png) 跳转至最后一帧
+- ![time](preview-bar/time.png) 显示当前的时间
+
+也可以通过进度条进行快速预览和调整转移的时长：
+
+![progress](state-transition/progress.png)
+
+- 在 ① 号处点击或拖拽拉杆可快速预览转移
+- 在 ② 号通过鼠标拖拽边缘可以调整 **周期**
+
+  ![duration](state-transition/duration.png)
+
+- 在 ③ 号处通过鼠标左键拖拽可以调整转移的 **终点起始时间**
+
+  ![dst-start-time](state-transition/dest-start-time.png)
+
+点击播放后，既可在预览视图进行预览：
+
+![preview-view](state-transition/preview-view.png)
