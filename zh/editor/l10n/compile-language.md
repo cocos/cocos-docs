@@ -92,8 +92,45 @@
 
 ![export](compile/export.png)
 
+以下是一些辅助翻译工具，开发者可根据需求自行选择：
+
+- Manipulating PO Files
+- PO 格式编辑器 [https://poedit.net/](https://poedit.net/)
+- PO 格式工具箱 [https://github.com/translate/translate](https://github.com/translate/translate)
+- 离线 translation memory 工具 [OmegaT - The Free Translation Memory Tool - OmegaT 3](https://omegat.org/)
+
 ### 删除
 
 ![del](compile/delete.png)
 
 删除当前语言已翻译的进度，确认后结果不会被保存，请谨慎操作。
+
+### 非文本资源
+
+当项目中存在画在图片上的文字、不同语种配音的视频和音频时，也可能有多语言的需求。此时翻译界面会提供 **导入** 按钮，此处以图片为示例，展示如何配置多语言：
+
+![image](compile/import-image.png)
+
+> **注意**：导入时，只可导入项目内的文件。
+
+当 **收集和统计** 完成后，被检测出的资源将会以路径作为键值的形式存在。
+
+![assets](compile/asset.png)
+
+通过点击 **导入** 按钮，导入目标语言所需的图片即可：
+
+![dest image](compile/import-other-lang-jpg.png)
+
+### 导入文件
+
+通过 **导入文件** 按钮可以将外部数据文件进行导入，支持 PO、CSV 以及 XLSX 格式。
+
+对于 CSV 和 XLSX 的格式要求如下图：
+
+![xlsx](compile/xlsx.png)
+
+文件需采用 UTF-8 编码格式。
+
+![csv](compile/import-csv.png)
+
+导入后，如需手动翻译，其流程和上述文档一致。
