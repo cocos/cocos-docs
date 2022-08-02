@@ -8,7 +8,7 @@ Creator 目前支持有道/谷歌翻译作为译文服务商，开发者可以�
 
     ![select](translation-service/select.png)
 
-- **AppKey**/**AppSecret**：选择不同的服务商后，开发者需要输入 AppKey 和 AppSecret 才可以继续后续的操作。通常这些信息需要在译文服务商的网站上获取。对于不熟悉的开发者，我们也提供了简易的注册指南，请参考下文。
+- **AppKey**/**AppSecret**：选择不同的服务商后，开发者需要输入 AppKey 和 AppSecret 才可以继续后续的操作。通常这些信息需要在译文服务商的网站上获取。
 
     ![key](translation-service/youdao.png)
 
