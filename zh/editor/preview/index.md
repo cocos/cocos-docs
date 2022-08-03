@@ -18,46 +18,6 @@
 
 > **注意**：必须双击打开场景才能预览游戏内容，在没有打开任何场景，或者新建了一个空场景的情况下预览是看不到任何内容的。
 
-### 编辑器内预览
-
-如要在编辑内预览，需在下拉菜单中选择 **Preview in editor**（下图标识 1），在点击 **播放**（下图标识 2）按钮进行预览：
-
-![bar](index/edit-bar.png)
-
-点击 ![pause](index/pause.png) 可以暂停当前预览，暂停后也可通过点击 ![step](index/step.png) 来逐帧步进。
-
-当不在需要继续预览时，可点击 ![stop](index/stop.png) 按钮停止。
-
-编辑器内运行时的界面如下图所示：
-
-![editor preview](index/editor-preview-props.png)
-
-上方的菜单栏介绍如下：
-
-- ![state](index/state.png) 点击选择是否在视图内显示下列的统计信息：
-
-    ![info](index/state-info.png)
-
-- ![FPS](index/FPS.png) 预览时的最大帧率，也可以输入自定义帧率：
-
-  ![max](index/max-fps.png)
-
-- ![resolution](index/resolution.png) 预览时的分辨率，通过下拉菜单可以选择不同的分辨率：
-
-    ![dropdown](index/resolution-dropdown.png)
-
-    如当前引擎内置的分辨率无法满足，也可以将下拉框拉到最下方选择 **Editr**：
-
-    ![edit](index/edit.png)
-
-    或者通过菜单 **Cocos Creator -> Preferences -> Device Manager** 添加自定义的分辨率：
-
-    ![device manager](index/device-manager.png)
-
-- ![rotate](index/rotate-view.png) 横屏和竖屏进行旋转
-- ![scale](index/scale-game-view.png) 缩放视图
-- ![fit](index/fit.png) 使游戏视图适配当前的视图
-
 ### 浏览器
 
 选择使用 **浏览器** 预览后，点击旁边的 **预览** 按钮，会在默认桌面浏览器中直接运行游戏的网页版本。推荐使用谷歌浏览器（Chrome）作为开发过程中预览调试用的浏览器，因为谷歌浏览器（Chrome）的开发者工具是最为全面强大的。
@@ -104,6 +64,44 @@ Cocos Creator 开发过程中测试的桌面浏览器包括：**Chrome**、**Fir
 
 ![custom](index/custom.png)
 -->
+
+### 编辑器预览
+
+![editor preview](index/editor-preview-props.png)
+
+如要在编辑内预览，需在下拉菜单中选择 **编辑器预览**（下图标识 1），再点击 **运行预览**（下图标识 2）按钮进行预览：
+
+![bar](index/edit-bar.png)
+
+点击 ![pause](index/pause.png) 可以暂停当前预览，暂停后也可通过点击 ![step](index/step.png) 进行单步运行。
+
+当不在需要继续预览时，可点击 ![stop](index/stop.png) 按钮停止。
+
+选择编辑器预览时，也可以通过预览窗口上方的菜单配置预览的输出：
+
+- ![state](index/state.png) 点击选择是否在视图内显示下列的统计信息：
+
+    ![info](index/state-info.png)
+
+- ![FPS](index/FPS.png) 预览时的最大帧率，也可以输入自定义帧率：
+
+  ![max](index/max-fps.png)
+
+- ![resolution](index/resolution.png) 预览时的分辨率，通过下拉菜单可以选择不同的分辨率，如当前引擎内置的分辨率无法满足，也可以将下拉框拉到最下方选择 **管理**：
+
+    ![edit](index/edit.png)
+
+    也可在顶部菜单栏的 **偏好设置** 的 [设备管理器](../preferences/index.md#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E5%99%A8) 中添加/修改/删除分辨率：
+
+    ![device manager](index/device-manager.png)
+
+- ![rotate](index/rotate-view.png) 切换横屏/竖屏预览
+- ![scale](index/scale-game-view.png) 缩放视图
+- ![fit](index/fit.png) 使游戏视图适配当前的视图
+
+预览时也可以在 **属性检查器** 内修改组件的属性进行调试，但是需要注意的是，运行时输入的数据并不会被保存。如果希望保存调整后的组件，可以点击右侧的 **组件菜单** 并在下拉列表内选择 **复制组件**，然后在退出预览的情况下选择 **粘贴组件的值**。
+
+![copy](index/copy-component.png)
 
 ### 模拟器
 
