@@ -7,6 +7,7 @@
 #### Android 
   - Remove the file: ~~jni/main.cpp~~
   - Remove code `${CMAKE_CURRENT_LIST_DIR}/jni/main.cpp` from `android/CMakeLists.txt`
+  - In order to reduce the package size, the default value of CMAKE_C_FLAGS_RELEASE and CMAKE_CXX_FLAGS_RELEASE compiler parameter `visibility` has been changed from default to hidden. For this change, if the interface is not found in the release version of `jni`, please check if the interface has the declaration `JNIEXPORT` added.
   
 #### The modification of Native Code
   - Delete `NonRefNativePtrCreatedByCtorMap` related code
