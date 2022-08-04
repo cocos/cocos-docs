@@ -1,4 +1,4 @@
-# 程序化使用
+# 示例
 
 ## 导入
 
@@ -52,7 +52,7 @@ console.log(l10n.currentLanguage)
 
 返回当前语言的 [BCP47 Language Tag](https://www.techonthenet.com/js/language_tags.php)。
 
-### 获取所有支持的语言
+### 获取所有可用语言
 
 代码示例如下：
 
@@ -71,5 +71,3 @@ console.log(l10n.languages)
 console.log(l10n.direction('ar'))
 // 'rtl'
 ```
-
-更多 API 可以参考 [L10N API]()。

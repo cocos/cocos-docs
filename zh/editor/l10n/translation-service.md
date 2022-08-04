@@ -6,9 +6,14 @@
 
 ![service](translation-service/overview.png)
 
-- **译文服务商**：该下拉菜单运行开发者选择不同的译文服务商，如选择 **None** 则无法使用自动翻译功能。
+- **译文服务商**：该下拉菜单允许开发者选择不同的译文服务商，如选择 **None** 则无法使用自动翻译功能，手动翻译功能不受影响。
 
     ![select](translation-service/select.png)
+
+    目前支持的服务商的地址如下：
+
+    - [有道智云平台](https://ai.youdao.com/gw.s#/)
+    - [Google Cloud](https://cloud.google.com)
 
 - **AppKey**/**AppSecret**：选择不同的服务商后，开发者需要输入 AppKey 和 AppSecret 才可以继续后续的操作。通常这些信息需要在译文服务商的网站上获取。
 
