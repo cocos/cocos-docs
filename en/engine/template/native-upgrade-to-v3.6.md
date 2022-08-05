@@ -13,7 +13,7 @@ Open the old version of the project with the new version of the engine, and then
 - Delete file: jni/main.cpp
 - android/CMakeLists.txt: delete `${CMAKE_CURRENT_LIST_DIR}/jni/main.cpp`
 
-## Compile changes
+### Compile changes
 
 To reduce the package size, the default value of `CMAKE_C_FLAGS_RELEASE` and `CMAKE_CXX_FLAGS_RELEASE` compiler parameter `visibility` has been changed from `default` to `hidden`. For this change, if the interface is not found in the release version of `jni`, please check if the interface has the declaration `JNIEXPORT` added. For example.
 
