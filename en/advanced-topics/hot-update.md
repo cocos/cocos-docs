@@ -16,7 +16,7 @@ Hot update in Cocos Creator comes mainly from the `AssetsManager` module in the 
 
 **Server and client both keep a full list of the game asset (manifest)**, during hot update process, by comparing server and client asset manifest, the client should know what to download to get the latest content. This can naturally support cross-version updates, such as when client version is A, remote version is C, then we can directly update the assets from A to C. We do not need to generate A to B and B to C update package. Therefore, when we push new asset version to server, we can save new version files discretely on server, and during update the client will download each file needed separately.
 
-Please be aware that **hot update system is for native games only**, since Web game would always request assets from web server. So `AssetsManager` class exists only in the jsb namespace, please check runtime environment before implement these API.
+Please be aware that **hot update system is for native games only**, since Web game would always request assets from web server. So `AssetsManager` class exists only in the native namespace, please check runtime environment before implement these API.
 
 ## Manifest file
 
@@ -87,9 +87,9 @@ In order to allow the game to detect remote versions, it is possible to simulate
 
 After downloading the sample project, use Cocos Creator to open the project directly. Open **Build** panel, build for native platform, choose Windows/Mac as the target to test.
 
-**Note:**
-- 1. Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
-- 2. Make sure to import editor plugin hot-update into the extensions folder (the demo project has imported the plugin)
+> **Note**:
+> 1. Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
+> 2. Make sure to import editor plugin hot-update into the extensions folder (the demo project has imported the plugin).
 
 The editor plugin automatically adds the search path logic and fix code to `main.js` every time we build a successful native version:
 
@@ -129,6 +129,7 @@ The editor plugin automatically adds the search path logic and fix code to `main
     }
 })();
 ```
+> **Note**: `fileUtils` is located in the traditional `jsb` namespace instead of `native`, and currently, the script compile system only supports importing `native` objects via `import` in TypeScript.
 
 This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage)) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
 
