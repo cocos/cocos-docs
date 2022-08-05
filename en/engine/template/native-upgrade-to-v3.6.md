@@ -1,6 +1,6 @@
 # v3.5 Built Project Upgrade Guide to v3.6
 
-This article details the considerations for upgrading Cocos Creator native builds from 3.5.0 ~ 3.5.x to 3.6. The changes are only for the native directory under the project project.
+This article details the considerations for upgrading Cocos Creator native builds from 3.5.0 ~ 3.5.x to 3.6. The changes are only for the native directory under the project.
 
 ## Build
 
