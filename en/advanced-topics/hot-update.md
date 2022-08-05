@@ -89,7 +89,7 @@ After downloading the sample project, use Cocos Creator to open the project dire
 
 > **Note**:
 > 1. Do not check MD5 Cache when building, otherwise it will cause the hot update to be invalid.
-> 2. Make sure to import editor plugin hot-update into the extensions folder (the demo project has imported the plugin)
+> 2. Make sure to import editor plugin hot-update into the extensions folder (the demo project has imported the plugin).
 
 The editor plugin automatically adds the search path logic and fix code to `main.js` every time we build a successful native version:
 
