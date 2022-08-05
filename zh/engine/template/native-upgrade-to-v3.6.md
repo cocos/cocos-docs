@@ -13,7 +13,7 @@
 - 删除文件：jni/main.cpp
 - android/CMakeLists.txt：删除 `${CMAKE_CURRENT_LIST_DIR}/jni/main.cpp`
 
-## 编译修改
+### 编译修改
 
 为减少包体大小，更改了 `CMAKE_C_FLAGS_RELEASE`、`CMAKE_CXX_FLAGS_RELEASE` 编译参数 `visibility` 的默认值：从 `default` 改成了 `hidden`。改完后 arm64-v8a 下的引擎动态库可以减少约 3.5M。针对这个修改，若 release 版本 `jni` 出现接口找不到，请先检查接口是否有添加 `JNIEXPORT` 的声明。例如：
 
