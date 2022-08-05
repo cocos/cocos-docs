@@ -35,7 +35,9 @@
 
 阴影属性需要在场景中开启阴影。开启方法请参考 [阴影 - 开启阴影](../shadow.md#%E5%BC%80%E5%90%AF%E9%98%B4%E5%BD%B1)。
 
-![image](./lightType/dirlights/spot-light-shadow-prop.png)
+开启后，聚光灯会展示如下动态阴影界面：
+
+![image](dirlights/spot-light-shadow-prop.png)
 
 | 属性 | 说明 |
 | :------ | :-- |
@@ -43,10 +45,6 @@
 | ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
 | ShadowBias | 设置阴影偏移值，防止 z-fiting |
 | ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
-
-开启后，聚光灯会展示如下动态阴影界面：
-
-![image](dirlights/spot-light-shadow-prop.png)
 
 ### PCF 软阴影
 
