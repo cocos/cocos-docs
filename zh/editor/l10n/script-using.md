@@ -71,3 +71,5 @@ console.log(l10n.languages)
 console.log(l10n.direction('ar'))
 // 'rtl'
 ```
+
+更多详细的 API 描述请参考 [Localization Editor Api](localization-editor-api.md)

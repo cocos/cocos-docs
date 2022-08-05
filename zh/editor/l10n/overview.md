@@ -52,6 +52,8 @@
 
 请参考 [示例](script-using.md) 以获取程序化使用 L10N 的示例。
 
+API 参考参考 [Localization Editor Api](localization-editor-api.md)。
+
 ## 发布
 
 根据上述的步骤完成翻译后，可以在发布界面进行一键发布：
