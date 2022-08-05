@@ -52,7 +52,7 @@
 
 请参考 [示例](script-using.md) 以获取程序化使用 L10N 的示例。
 
-API 参考参考 [Localization Editor Api](localization-editor-api.md)。
+API 参考请移步 [Localization Editor Api](localization-editor-api.md)。
 
 ## 发布
 
