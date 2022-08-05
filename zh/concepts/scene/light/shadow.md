@@ -14,7 +14,11 @@ Creator 3.0 目前支持 **Planar** 和 **ShadowMap** 两种阴影类型。
 
     ![enable-shadow](shadow/enable-shadow.png)
 
-2. 在 **层级管理器** 中选中需要显示阴影的 3D 节点，然后在 **属性检查器** 的 **MeshRenderer** 组件中将 **ShadowCastingMode** 属性设置为 **ON**。
+2. 在 **层级管理器** 中选中 **Light**，然后在 **属性检查器** 的 **Dynamic Shadow Settings** 组件中勾选 **Shadow Enabled** 属性。
+
+    ![enable-shadow](shadow/enable-light-shadow.png)
+
+3. 在 **层级管理器** 中选中需要显示阴影的 3D 节点，然后在 **属性检查器** 的 **MeshRenderer** 组件中将 **ShadowCastingMode** 属性设置为 **ON**。
 
     ![set-meshrenderer](shadow/set-meshrenderer.png)
 
@@ -76,57 +80,4 @@ ShadowMap 一般用于要求光影效果比较真实，且较为复杂的场景�
 | 聚光灯 | 支持 |
 | 球形光 | 不支持 |
 
-### 平行光阴影属性
-
-![image](./lightType/dirlights/dir-light-shadow-prop.png)
-
-| 属性 | 说明 |
-| :------ | :-- |
-| ShadowEnabled | 是否开启平行光阴影 |
-| ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
-| ShadowBias | 设置阴影偏移值，防止 z-fiting |
-| ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
-| ShadowSaturation | 调节阴影饱和度，建议设置为 **1.0**。若需要减小方向光阴影的饱和程度，推荐通过增加环境光来实现，而不是调节该值 |
-| ShadowInvisibleOcclusionRange | 设置 Camera 可见范围外的物体产生的阴影是否需要投射到可见范围内，若需要则调大该值即可  |
-| ShadowDistance | 设置 Camera 可见范围内显示阴影效果的范围，阴影质量与该值的大小成反比 |
-
-平行光的使用请参考 [平行光](./lightType/dir-light.md)。
-
-#### FixedArea 模式
-
-FixedArea 模式用于设置是否手动控制 Camera 可见范围内显示阴影效果的范围：
-
-- 若不勾选该项（默认），则引擎会使用和 CSM（级联阴影算法）模式相同的裁切流程和相机计算，根据 Camera 的方向和位置来计算阴影产生的范围。
-- 若勾选该项，则根据手动设置的 `Near`、`Far`、`OrthoSize` 属性来控制阴影产生的范围。阴影会跟随方向光节点的位置，在方向光包围盒附近分布，而非跟随相机。
-
-   ![image](./lightType/dirlights/dir-fixedarea.png)
-
-| 属性 | 说明 |
-| :------ | :-- |
-| ShadowFixedArea | 是否开启固定区域的阴影 |
-| ShadowNear | 设置主光源相机的近裁剪面 |
-| ShadowFar | 设置主光源相机的远裁剪面 |
-| ShadowOrthoSize | 设置主光源相机的正交视口大小，阴影质量与该值的大小成反比 |
-
-### 聚光灯阴影属性
-
-![image](./lightType/dirlights/spot-light-shadow-prop.png)
-
-| 属性 | 说明 |
-| :------ | :-- |
-| ShadowEnabled | 是否开启平行光阴影 |
-| ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
-| ShadowBias | 设置阴影偏移值，防止 z-fiting |
-| ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
-
-聚光灯的使用请参考 [聚光灯](./lightType/spot-light.md)。
-
-### PCF 软阴影
-
-百分比渐近过滤（PCF）是一个简单、常见的用于实现阴影边缘反走样的技术，通过对阴影边缘进行平滑处理来消除阴影贴图的锯齿现象。原理是在当前像素（也叫做片段）周围进行采样，然后计算样本跟片段相比更接近光源的比例，使用这个比例对散射光和镜面光成分进行缩放，然后再对片段着色，以达到模糊阴影边缘的效果。
-
-目前 Cocos Creator 支持 **硬采样**、**4 倍采样（SOFT 模式）**、**9 倍采样（SOFT_2X 模式）**，倍数越大，采样区域越大，阴影边缘也就越柔和。
-
-## 支持动态合批提高性能
-
-对于材质中已经开启 instancing 的模型，平面阴影也会自动同步使用 instancing 绘制，详情请参考 [动态合批](../../../engine/renderable/model-component.md#%E5%85%B3%E4%BA%8E%E5%8A%A8%E6%80%81%E5%90%88%E6%89%B9)。
+灯光的使用请参考 [光源](./lightType/index.md)。
