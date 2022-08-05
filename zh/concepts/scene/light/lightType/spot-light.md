@@ -33,6 +33,8 @@
 
 ### 聚光灯阴影属性
 
+阴影属性需要在场景中开启阴影。开启方法请参考 [阴影 - 开启阴影](../shadow.md#%E5%BC%80%E5%90%AF%E9%98%B4%E5%BD%B1)。
+
 ![image](./lightType/dirlights/spot-light-shadow-prop.png)
 
 | 属性 | 说明 |
