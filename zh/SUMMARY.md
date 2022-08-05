@@ -320,7 +320,7 @@
     - [管线与任务](asset/pipeline-task.md)
     - [资源管理注意事项 - meta 文件](asset/meta.md)
 
-- [多语言系统（Localization Editor）](editor/l10n/overview.md)
+- [本地化](editor/l10n/overview.md)
     - [译文服务商](editor/l10n/translation-service.md)
     - [收集并统计](editor/l10n/collect-and-count.md)
     - [语言编译](editor/l10n/compile-language.md)

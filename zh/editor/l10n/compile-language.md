@@ -18,7 +18,7 @@
 
 ![provider](compile/lang-provider.png)
 
-用于在自动翻译时选择译文服务商的输入/输出的语言类型：
+上图用于在自动翻译时选择译文服务商的输入/输出的语言类型：
 
 - 对于本地开发语言，选择的是输入语言类型。
 
@@ -50,7 +50,7 @@
 
 ![new key](compile/new-key.png)
 
-可在 **补全** 界面中找到对应的键值，在 原文（Original） 一栏中输入该键对应的值，然后点击 **保存** 按钮即可将原文保存，如果 Label 本身有值，这里将被自动填充。
+可在 **补全** 界面中找到对应的键值，在 原文（Original） 一栏中输入该键对应的值，然后点击 **保存** 按钮即可将原文保存，如果 Label 的 String 属性有值，这里将被自动填充。
 
 ![unfilled](compile/unfilled.png)
 
@@ -92,11 +92,11 @@
 
 ### 预览
 
-点击预览可快速预览当前场景持有 [L10nLabel](l10n-label.md) 组件的节点在该语言下的展示情况:
+点击预览可快速预览当前场景持有 [L10nLabel](l10n-label.md) 组件的节点/图片资源等在该语言下的展示情况:
 
 ![preview](compile/preview-overview.png)
 
-预览前：
+预览翻译前：
 
 ![pev](compile/original-preview.png)
 

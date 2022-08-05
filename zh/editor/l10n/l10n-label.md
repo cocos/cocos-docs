@@ -29,7 +29,7 @@ L10nLabel 是可以根据内容进行定制化翻译的组件。配合文本组�
 
 通常来说，不同语言的变体数量和当地语言有关，开发者可以向母语者进行咨询。
 
-例如：英语有单数/复数的区别，因此在配置时变体有两种 `one` 和 `other`。而某些语言如阿拉伯语有 5 种变体而俄语有 3 种变体。引擎通过适配国际规则来生成变体的数量，如果希望了解这些规则，可以参考下列地址：
+例如：英语有单数/复数的区别，因此在配置时变体有两种 `one` 和 `other`。某些语言如阿拉伯语有 5 种变体而俄语有 3 种变体。引擎通过适配国际规则来生成变体的数量，如果希望了解这些规则，可以参考下列地址：
 
 - ECMAScript Internationalization API：[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules)
 - Unicode CLDR Project：[https://cldr.unicode.org/](https://cldr.unicode.org/)
