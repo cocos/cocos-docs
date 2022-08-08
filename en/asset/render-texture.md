@@ -1,6 +1,6 @@
 # Render Texture
 
-A __render texture__ is a texture on the __GPU__. Usually, we set it to the camera's __target texture__, so that the content illuminated by the camera is drawn to the texture via the `frambuffer` off the screen. Typically can be used to create car mirrors, implement dynamic shadows, etc.
+A render texture is a texture on the GPU. Usually, we set it to the camera's **target texture**, so that the content illuminated by the camera is drawn to the texture via an off-screen `frambuffer`. This can typically be used to create car mirrors, dynamic shadows, etc.
 
 ## Creating a RenderTexture
 
@@ -89,7 +89,7 @@ There are two ways to use RenderTexture programmatically:
 
 - __Method 2__: Draw the contents illuminated by the 3D camera to the 3D model.
 
-   ```typescript
+    ```typescript
     import { _decorator, Component, MeshRenderer, RenderTexture, Camera, Material } from 'cc';
     const { ccclass, property, requireComponent } = _decorator;
 
@@ -108,7 +108,7 @@ There are two ways to use RenderTexture programmatically:
             const cameraComp = this.getComponent(Camera);
             cameraComp.targetTexture = renderTex;
             const pass = this.model.material.passes[0];
-            // Set the 'SAMPLE_FROM_RT' macro to 'true' so that RenderTexture can be displayed correctly on each platform
+            // The purpose of setting the 'SAMPLE_FROM_RT' Macro to 'true' is to enable the RenderTexture to display correctly on all platforms
             const defines = { SAMPLE_FROM_RT: true, ...pass.defines };
             const renderMat = new Material();
             renderMat.initialize({
@@ -125,4 +125,4 @@ There are two ways to use RenderTexture programmatically:
 
     ![use albedo](render-texture/use-albedo.png)
 
-For more information about the usage, please refer to the example [RenderTexture](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/rendertexture).
+For more information about the usage, please refer to the example **RenderTexture** ([GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/rendertexture)).
