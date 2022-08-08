@@ -1,6 +1,6 @@
 # Render Texture
 
-A render texture is a texture on the GPU. Usually we set it to the camera's **target texture**, so that the content illuminated by the camera is drawn to the texture via an off-screen `frambuffer`. This can typically be used to create car mirrors, dynamic shadows, etc.
+A render texture is a texture on the GPU. Usually, we set it to the camera's **target texture**, so that the content illuminated by the camera is drawn to the texture via an off-screen `frambuffer`. This can typically be used to create car mirrors, dynamic shadows, etc.
 
 ## Creating a RenderTexture
 
