@@ -5,12 +5,11 @@ In the extension you can define a special **scene script** file, which will be i
 In the **Scene Script** you can call the engine `API` and other project scripts, and with this feature we can
 
 - Query and traverse the nodes in the scene to get or modify node data
-
 - Call functions related to the engine components on the node to finish the job
 
 ## Register Scene Script
 
-Define the `contributions.scene` field in `pacakge.json`, the value of which is a script file path relative to the root of the extension package, as follows:
+First, add a `scene` field to the `contributions` property of `package.json`, the value of which is the path to a script file, relative to the extension package directory. Example:
 
 ```json
 {

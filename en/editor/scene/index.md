@@ -13,6 +13,7 @@ The **Scene** panel includes two views, **3D** and **2D**. The 3D view is used f
 In the 3D view, you can move and position the view of the **Scene** panel by the following actions:
 - Left mouse button + Alt: rotates the view centered on its center point.
 - Middle mouse button: pans the view.
+- Spacebar + mouse/touchpad drag: pans the view.
 - Mouse wheel: zoom the view centered on the view center point.
 - Right mouse button + WASD: camera roaming.
 - **F** Shortcut: focus the camera on the currently selected node.

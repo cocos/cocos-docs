@@ -12,7 +12,7 @@ The properties are described as follows:
 
 | Property | Description |
 | :--- | :--- |
-| __useComponentTexture__ | Whether to use compressed texture. <br> For more information, please refer to [Texture Compression](compress-texture.md) |
+| __useCompressTexture__ | Whether to use compressed texture. <br> For more information, please refer to [Texture Compression](compress-texture.md) |
 | __Type__ | Used to set the type of image resources, including __raw__, __texture__(default), __normal map__, __sprite-frame__, __texture cube__. For more information, please refer to the following section: __Types of image assets__ |
 | __Flip Vertical__ | Whether to flip the imported image vertically along the X axis |
 | __Bake Offline Mimmaps__ | Whether to bake offline mipmaps |

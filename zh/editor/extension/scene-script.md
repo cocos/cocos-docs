@@ -10,7 +10,7 @@
 
 ## 注册场景脚本
 
-在 `pacakge.json` 中定义 `contributions.scene` 字段，该字段的值是一个相对于扩展包根目录的脚本文件路径，如下所示：
+在 `package.json` 中定义 `contributions.scene` 字段，该字段的值是一个相对于扩展包根目录的脚本文件路径，如下所示：
 
 ```json
 {

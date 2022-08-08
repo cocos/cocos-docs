@@ -6,13 +6,13 @@
 
 ```typescript
 // 加载 Prefab
-resources.load("test assets/prefab", Prefab, (err, prefab) => {
+resources.load("test_assets/prefab", Prefab, (err, prefab) => {
     const newNode = instantiate(prefab);
     this.node.addChild(newNode);
 });
 
 // 加载 AnimationClip
-resources.load("test assets/anim", AnimationClip, (err, clip) => {
+resources.load("test_assets/anim", AnimationClip, (err, clip) => {s
     this.node.getComponent(Animation).addClip(clip, "anim");
 });
 ```
@@ -29,18 +29,18 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
 
 ### 加载 SpriteFrame 或 Texture2D
 
-图片设置为 sprite-frame 或 texture 或其他图片类型后，将会在 **资源管理器** 中生成一个对应类型的资源。但如果直接加载 `test assets/image`，得到的类型将会是 `ImageAsset`。你必须指定路径到具体的子资源，才能加载到图片生成的 `SpriteFrame`：
+图片设置为 sprite-frame 或 texture 或其他图片类型后，将会在 **资源管理器** 中生成一个对应类型的资源。但如果直接加载 `test_assets/image`，得到的类型将会是 `ImageAsset`。你必须指定路径到具体的子资源，才能加载到图片生成的 `SpriteFrame`：
 
 ```typescript
 // 加载 SpriteFrame，image 是 ImageAsset，spriteFrame 是 image/spriteFrame，texture 是 image/texture
-resources.load("test assets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
+resources.load("test_assets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```
 
 ```typescript
 // 加载 texture
-resources.load("test assets/image/texture", Texture2D, (err: any, texture: Texture2D) => {
+resources.load("test_assets/image/texture", Texture2D, (err: any, texture: Texture2D) => {
     const spriteFrame = new SpriteFrame();
     spriteFrame.texture = texture;
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
@@ -56,7 +56,7 @@ resources.load("test assets/image/texture", Texture2D, (err: any, texture: Textu
 ```typescript
 // 加载 SpriteAtlas（图集），并且获取其中的一个 SpriteFrame
 // 注意 atlas 资源文件（plist）通常会和一个同名的图片文件（png）放在一个目录下, 所以需要在第二个参数指定资源类型
-resources.load("test assets/sheep", SpriteAtlas, (err, atlas) => {
+resources.load("test_assets/sheep", SpriteAtlas, (err, atlas) => {
     const frame = atlas.getSpriteFrame('sheep_down_0');
     sprite.spriteFrame = frame;
 });
@@ -92,13 +92,13 @@ resources.load("Monster/Armature", Skeleton, (err, skeleton) => {
 `resources.loadDir` 可以加载相同路径下的多个资源：
 
 ```typescript
-// 加载 test assets 目录下所有资源
-resources.loadDir("test assets", function (err, assets) {
+// 加载 test_assets 目录下所有资源
+resources.loadDir("test_assets", function (err, assets) {
     // ...
 });
 
-// 加载 test assets 目录下所有 SpriteFrame，并且获取它们的路径
-resources.loadDir("test assets", SpriteFrame, function (err, assets) {
+// 加载 test_assets 目录下所有 SpriteFrame，并且获取它们的路径
+resources.loadDir("test_assets", SpriteFrame, function (err, assets) {
     // ...
 });
 ```
@@ -110,10 +110,10 @@ resources.loadDir("test assets", SpriteFrame, function (err, assets) {
 `resources` 提供了 `preload` 和 `preloadDir` 用于预加载资源。
 
 ```typescript
-resources.preload('test assets/image/spriteFrame', SpriteFrame);
+resources.preload('test_assets/image/spriteFrame', SpriteFrame);
 
 // wait for while
-resources.load('test assets/image/spriteFrame', SpriteFrame, (err, spriteFrame) => {
+resources.load('test_assets/image/spriteFrame', SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```
