@@ -300,6 +300,7 @@
         - [Extending the Project Settings Panel](editor/extension/contributions-project.md)
         - [Extending the Preferences Panel](editor/extension/contributions-preferences.md)
         - [Extend the Build Process](editor/publish/custom-build-plugin.md)
+        - [Extending Inspector Panel](editor/extension/inspector.md)
     - [Basic](editor/extension/basic.md)
         - [Extension Description](editor/extension/define.md)
         - [Extension](editor/extension/package.md)
