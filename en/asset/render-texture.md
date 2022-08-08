@@ -39,7 +39,7 @@ RenderTexture can be used as a general texture. Take Sprite as an example, it ca
 
 Setting the RenderTexture to a texture map consists of the following two steps:
 
-1. process uv in effect. Determine if `SAMPLE_FROM_RT` and call the `CC_HANDLE_RT_SAMPLE_FLIP` function.
+1. Process uv in effect. Determine if `SAMPLE_FROM_RT` and call the `CC_HANDLE_RT_SAMPLE_FLIP` function.
 
    ```
     #if USE_TEXTURE
@@ -125,4 +125,4 @@ There are two ways to use RenderTexture in code:
 
     ![use albedo](render-texture/use-albedo.png)
 
-For more information about the usage, please refer to the example **RenderTexture**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/rendertexture)）。
+For more information about the usage, please refer to the example **RenderTexture**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/rendertexture).
