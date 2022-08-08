@@ -12,7 +12,7 @@
 
 即可创建一个默认名为 **Animation Mask** 的动画遮罩资源：
 
-![animation-mask-asset](animation-graph/animation-graph-asset.png)
+![animation-mask-asset](animation-mask/default-mask.png)
 
 ## 编辑遮罩
 

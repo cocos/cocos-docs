@@ -4,42 +4,42 @@ A render texture is a texture on the GPU. Usually, we set it to the camera's **t
 
 ## Creating a RenderTexture
 
-Click the **+** button in the top left of the **Assets** panel and select **Render Texture** to create a RenderTexture:
+Click the __+__ button in the top left of the __Assets__ panel and select __RenderTexture__ to create a Render Texture:
 
 ![add-render-texture](render-texture/add-render-texture.png)
 
-The properties associated with the RenderTexture can then be set in the **Inspector** panel.
+The properties associated with the render texture asset can then be set in the __Inspector__ panel.
 
 ![render-texture-property](render-texture/render-texture-property.png)
 
 | Property | Description |
 | :--- | :--- |
-| **Width**  | Set the width of the render texture.  |
-| **Height** | Set the height of the render texture. |
-| **Anisotropy** | Anisotropy value. |
-| **Min Filter** | Narrowing filtering algorithm.     |
-| **Mag Filter** | Amplification filtering algorithm. |
-| **Mip Filter** | Multi-level texture filtering algorithm. |
-| **Wrap Mode S** | S(U) direction texture addressing mode. |
-| **Wrap Mode T** | T(V) direction texture addressing mode. |
+| __Width__  | Set the width of the render texture.  |
+| __Height__ | Set the height of the render texture. |
+| __Anisotropy__ | Anisotropy value. |
+| __Min Filter__ | Narrowing filtering algorithm.     |
+| __Mag Filter__ | Amplification filtering algorithm. |
+| __Mip Filter__ | Multi-level texture filtering algorithm. |
+| __Wrap Mode S__ | S(U) direction texture addressing mode. |
+| __Wrap Mode T__ | T(V) direction texture addressing mode. |
 
-## Using RenderTexture in the editor
+## Use RenderTexture in editor
 
-In the camera component, assigning a RenderTexture to the **TargetTexture** property of the camera will draw the result of the camera illumination to the RenderTexture.
+In the camera component, assigning RenderTexture to the camera's __TargetTexture__ property will draw the result of the camera's illumination onto the RenderTexture.
 
 ![camera](render-texture/camera.png)
 
-### Using RenderTexture in 2D / UI
+### Use RenderTexture in 2D / UI
 
-RenderTexture can be used as a general texture. Take Sprite as an example, it can be dragged from the **Assets** panel to the **SpriteFrame** property.
+RenderTexture can be used like a normal texture. Take __Sprite Component__ as an example, drag and drop from __Assets__ panel onto the __SpriteFrame__ property on Sprite's __Inspector__ panel.
 
 ![sprite rt](render-texture/sprite-rt.png)
 
-### Set RenderTexture as a texture map
+## Use RenderTexture in material
 
-Setting the RenderTexture to a texture map consists of the following two steps:
+To use RenderTexture in material includes the following two steps:
 
-1. Process uv in effect. Determine if `SAMPLE_FROM_RT` and call the `CC_HANDLE_RT_SAMPLE_FLIP` function.
+1. Handle uv in __effect__ asset. Determine `SAMPLE_FROM_RT`, and call the `CC_HANDLE_RT_SAMPLE_FLIP` function:
 
    ```
     #if USE_TEXTURE
@@ -50,15 +50,15 @@ Setting the RenderTexture to a texture map consists of the following two steps:
     #endif
     ```
 
-2. Select the corresponding material in **Assets** panel, then check `SAMPLE FROM RT` in **Inspector** panel.
+2. Select the corresponding material in the __Assets__ panel, then check `SAMPLE FROM RT` in the __Inspector__ panel:
 
     ![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
 
-## Using RenderTexture in code
+## RenderTexture program guide
 
-There are two ways to use RenderTexture in code:
+There are two ways to use RenderTexture programmatically:
 
-- **Method 1**: Draw the contents illuminated by the 3D camera to the sprite frame of the UI.
+- __Method 1__: Draw the contents illuminated by the 3D camera to the sprite frame of the UI.
 
     ```typescript
     import { _decorator, Component, RenderTexture, SpriteFrame, Sprite, Camera } from 'cc';
@@ -87,7 +87,7 @@ There are two ways to use RenderTexture in code:
     }
     ```
 
-- **Method 2**: Draw the contents illuminated by the 3D camera to the 3D model.
+- __Method 2__: Draw the contents illuminated by the 3D camera to the 3D model.
 
     ```typescript
     import { _decorator, Component, MeshRenderer, RenderTexture, Camera, Material } from 'cc';
@@ -121,7 +121,7 @@ There are two ways to use RenderTexture in code:
     }
     ```
 
-    To display the drawing results correctly, make sure that the shader has the `mainTexture` property and is enabled in the material. If the buitin-standard shader is being used, the **USE ALBEDO MAP** option should be checked:
+    Make sure that the shader has a `mainTexture` property and is enabled in the material if you want to display the drawing results correctly. For example, if using the `builtin-standard` shader, make sure the __USE ALBEDO MAP__ option is checked:
 
     ![use albedo](render-texture/use-albedo.png)
 
