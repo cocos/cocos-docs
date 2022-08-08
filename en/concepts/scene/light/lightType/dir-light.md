@@ -43,6 +43,22 @@ For the interface of the directional light component, please refer to [Direction
 | ShadowSaturation      | Set the shadow saturation. It is recommended to set as **1**. If it is necessary to reduce the saturation of the directional light shadows, it is recommended to do it by increasing the ambient light instead of adjusting this value.  |
 | ShadowInvisibleOcclusionRange | Set whether shadows from objects outside of the Camera's visible range are cast into the visible range, and if so, turns up the value. |
 | ShadowDistance  | Set the range of shadow effects displayed within the visible range of the Camera, with the shadow quality inversely proportional to the size of this value.    |
+| Enable CSM | Whether to enable Cascaded Shadow Map mode. |
+| FixedArea | Whether to manually control the display of shadow effects within the visible range of the Camera. |
+
+#### Enable CSM Mode
+
+The Cascaded Shadow Maps (CSM) method solves this problem by providing depth textures in chunks based on the distance from the object to the observer. It splits the camera's view cone into several parts, and then generates separate depth maps for each part of the split.
+
+A higher quality shadow map is used for near scenes, and a lower quality shadow map is used for far scenes, with one of the two shadow maps chosen for use where they transition. This ensures that the observer sees higher quality shadows in the near area and lower quality shadows in the far area, because the distant objects occupy only a small fraction of the screen, while the near objects occupy a large fraction of the screen.
+
+- CSM OFF：
+
+    ![image](../shadow/csm-off.png)
+
+- CSM ON：
+
+    ![image](../shadow/csm-on.png)
 
 #### FixedArea Mode
 

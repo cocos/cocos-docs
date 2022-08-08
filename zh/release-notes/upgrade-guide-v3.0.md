@@ -279,7 +279,11 @@ export class AudioController extends Component {
     // v3.0
     resources.load('background/spriteFrame', SpriteFrame, () => {});
     ```
+##### `JSB` 接口相关
 
+- `jsb.FileUtils`
+     - `getDataFromFile` 返回类型由 `Uint8Array` 变为 `ArrayBuffer`
+     
 ### 编辑器升级
 
 #### 构建发布面板
