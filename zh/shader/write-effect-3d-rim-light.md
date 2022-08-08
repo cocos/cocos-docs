@@ -124,7 +124,7 @@ CCProgram rimlight-fs %{
 如上图所示，如果要计算视线，需要通过 **摄像机位置** 减去 **物体的位置**。在着色器内，想要获取 **摄像机位置**，需要使用 [全局 Uniform](uniform.md) 中的 `cc_cameraPos`，该变量存放于 `cc-global` 着色器片段内。通过 [`include`](./effect-chunk-index.md) 关键字，可以方便的引入整个着色器片段。
 
 ```glsl
-#include <cc-global>  // 包含 Cocos Creator 内置全局变量  
+#include <builtin/uniforms/cc-global>  // 包含 Cocos Creator 内置全局变量  
 ```
 
 着色器代码：
@@ -132,9 +132,9 @@ CCProgram rimlight-fs %{
 ```glsl
 CCProgram rimlight-fs %{
   precision highp float;  
-  #include <cc-global>  // 包含 Cocos Creator 内置全局变量  
-  #include <output>
-  #include <cc-fog-fs>
+  #include <builtin/uniforms/cc-global>  // 包含 Cocos Creator 内置全局变量  
+  #include <legacy/output>
+  #include <legacy/fog-fs>
 
   ...
 }
@@ -177,9 +177,9 @@ in vec3 v_normal;
 ```glsl
 CCProgram rimlight-fs %{
   precision highp float;
-  #include <cc-global>
-  #include <output>
-  #include <cc-fog-fs>
+  #include <builtin/uniforms/cc-global>
+  #include <legacy/output>
+  #include <legacy/fog-fs>
 
   in vec2 v_uv;
   in vec3 v_normal;
@@ -383,7 +383,7 @@ CCEffect %{
   techniques:
   - name: opaque
     passes:
-    - vert: general-vs:vert # builtin header
+    - vert: legacy/main-functions/general-vs:vert # builtin header
       frag: rimlight-fs:frag
       properties: &props
         mainTexture:    { value: white } 
@@ -396,9 +396,9 @@ CCEffect %{
 
 CCProgram rimlight-fs %{
   precision highp float;
-  #include <cc-global>
-  #include <output>
-  #include <cc-fog-fs>
+  #include <builtin/uniforms/cc-global>
+  #include <legacy/output>
+  #include <legacy/fog-fs>
 
   in vec2 v_uv;
   in vec3 v_normal;
