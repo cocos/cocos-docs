@@ -50,7 +50,7 @@ RenderTexture 可以像普通贴图一样使用。以 Sprite 为例，从 **资�
     #endif
     ```
 
-2. 在 **层级管理器** 中选中对应的材质，然后在 **属性检查器** 中勾选 `SAMPLE FROM RT`
+2. 在 **资源管理器** 中选中对应的材质，然后在 **属性检查器** 中勾选 `SAMPLE FROM RT`
 
     ![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
 
