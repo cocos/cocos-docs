@@ -1,6 +1,6 @@
 # JsbBridgeWrapper 基于原生反射机制的事件处理 
 
-> 注意：在3.6之后，jsb模块将会逐步废弃，接口将会迁移到cc命名空间下的native模块。
+> **注意**：在 v3.6 之后，jsb 模块将会逐步废弃，接口将会迁移到 cc 命名空间下的 native 模块。
 
 JsbBridgeWrapper 是基于事件机制，用于 JS 层与原生层进行通信的接口。
 
