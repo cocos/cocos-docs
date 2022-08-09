@@ -371,6 +371,9 @@ Auto-binding relies on the [Bindings Generator tool](https://github.com/cocos-cr
 4. Part of the API implementation is not fully reflected in its API definition.
 5. The API is actively called by C++ at runtime.
 
+**NOTICE:**
+Since 3.6 the types of parameters and return values involved in auto-binding need to be bound as well, or the conversion methods `sevalue_to_native`/`nativevalue_to_se` need to be provided, otherwise they will be saved at compile time. Before 3.5, it was reported as a runtime error.
+
 ## Summary
 
 In summary, automatic binding of JSBs only requires the developer to write the relevant C++ implementation class, a configuration file, and then execute a single command to complete the entire binding process. If there is no special customization, it is still a lot more efficient than manual binding. The actual work can be done on a case-by-case basis by first using the auto-binding feature, and then manually modifying the generated binding file to achieve half the result with twice the effort.
