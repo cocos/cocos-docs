@@ -10,7 +10,7 @@
 
   ![Export Selected](../../../zh/asset/model/max/02-export-selected.png)
 
-3. Set **Save as type** to ***.fbx**, click the **save** button:
+3. Set **Save as type** to **.fbx**, click the **save** button:
 
   ![Name the file](../../../zh/asset/model/max/03-export-file-name.png)
   
