@@ -3,20 +3,23 @@
 > 本文转载自 [腾讯在线教育部技术博客](https://oedx.github.io/2019/07/03/cocos-creator-js-binding-auto/)<br>
 > 作者：张鑫（kevinxzhang）
 
-尽管 Creator 提供了 `jsb.reflection.callStaticMethod` 方式支持从 ts 端直接调用 Native 端（Android/iOS/Mac）的接口，但是经过大量实践发现此接口在大量频繁调用情况下性能很低下，尤其是在 Android 端，比如调用 Native 端实现的打印 log 的接口，而且会容易引起一些 native crash，例如 `local reference table overflow` 等问题。纵观 Cocos 原生代码的实现，基本所有的接口方法的实现都是基于 JSB 的方式来实现，所以此文主要讲解下 JSB 的自动绑定逻辑，帮助大家能快速实现 `callStaticMethod` 到 JSB 的改造过程。
+尽管 Creator 提供了 `native.reflection.callStaticMethod` 方式支持从 ts 端直接调用 Native 端（Android/iOS/Mac）的接口，但是经过大量实践发现此接口在大量频繁调用情况下性能很低下，尤其是在 Android 端，比如调用 Native 端实现的打印 log 的接口，而且会容易引起一些 native crash，例如 `local reference table overflow` 等问题。纵观 Cocos 原生代码的实现，基本所有的接口方法的实现都是基于 JSB 的方式来实现，所以此文主要讲解下 JSB 的自动绑定逻辑，帮助大家能快速实现 `callStaticMethod` 到 JSB 的改造过程。
 
 ## 背景
 
 对于用过 Cocos Creator（为了方便后文直接简称 CC）的人来说，`jsb.reflection.callStaticMethod` 这个方法肯定不陌生，其提供了我们从 ts 端调用 Native 端的能力，例如我们要调用 Native 实现的 log 打印和持久化的接口，就可以很方便的在 JavaScript 中按照如下的操作调用即可：
 
-```javascript
-if (sys.isNative && sys.os == sys.OS.IOS) {
+```typescript
+
+import {NATIVE} from 'cc/env';
+
+if (NATIVE && sys.os == sys.OS.IOS) {
     msg = this.buffer_string + '\n[cclog][' + clock + '][' + tag + ']' + msg;
-    jsb.reflection.callStaticMethod("ABCLogService", "log:module:level:", msg, 'cclog', level);
+    native.reflection.callStaticMethod("ABCLogService", "log:module:level:", msg, 'cclog', level);
     return;
-} else if (sys.isNative && sys.os == sys.OS.ANDROID) {
+} else if (NATIVE && sys.os == sys.OS.ANDROID) {
     msg = this.buffer_string + '\n[cclog][' + clock + '][' + tag + ']' + msg;
-    jsb.reflection.callStaticMethod("com/example/test/CommonUtils", "log", "(ILjava/lang/String;Ljava/lang/String;)V", level, 'cclog', msg);
+    native.reflection.callStaticMethod("com/example/test/CommonUtils", "log", "(ILjava/lang/String;Ljava/lang/String;)V", level, 'cclog', msg);
     return;
 }
 ```
@@ -46,10 +49,10 @@ JSB 绑定通常有 **手动绑定** 和 **自动绑定** 两种方式。手动�
     sudo pip3 install Cheetah3
     ```
 
-3. 安装 NDK，涉及到 c++ 肯定这个是必不可少的，建议安装 [Android NDK r16b](https://developer.android.com/ndk/downloads/older_releases?hl=zh-cn) 版本，然后在 `~/.bash_profile` 中设置 `PYTHON_ROOT` 和 `NDK_ROOT` 这两个环境变量，因为在后面执行的 python 文件里面就会直接用到这两个环境变量：
+3. 安装 NDK，涉及到 c++ 肯定这个是必不可少的，建议安装 [Android NDK r21e](https://developer.android.com/ndk/downloads/older_releases?hl=zh-cn) 版本，然后在 `~/.bash_profile` 中设置 `PYTHON_ROOT` 和 `NDK_ROOT` 这两个环境变量，因为在后面执行的 python 文件里面就会直接用到这两个环境变量：
 
     ```shell
-    export NDK_ROOT=/Users/kevin/android-ndk-r16b
+    export NDK_ROOT=/Users/kevin/android-ndk-r21e
     export PYTHON_BIN=python3
     ```
 

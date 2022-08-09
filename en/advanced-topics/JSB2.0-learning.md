@@ -77,7 +77,10 @@ After a developer has bound a JS function, remember to wrap the callback functio
 
 - **SE_BIND_PROP_GET**: Wrap a JS object property read callback function
 - **SE_BIND_PROP_SET**: Wrap a JS object property written callback function
+- **SE_BIND_FUNC_AS_PROP_GET**: Wrap a member function as a JS property getter callback function. 
+- **SE_BIND_FUNC_AS_PROP_SET**: Wrap a member function as a JS property setter callback function
 - **SE_BIND_FUNC**: Wrap a JS function that can be used for global functions, class member functions or class static functions
+- **SE_BIND_FUNC_FAST**: Wrap a parameter-less C++ function into a JS function in a faster way.
 - **SE_DECLARE_FUNC**: Declare a JS function, generally used in the header file
 - **SE_BIND_CTOR**: Wrap a JS constructor
 - **SE_BIND_SUB_CLS_CTOR**: Wrap the constructor of a JS subclass.
@@ -101,7 +104,7 @@ All types of the abstraction layer are under the `se` namespace, which is an abb
 
 #### se::Value
 
-`se::Value` can be understood as a JS variable reference in the CPP layer. There are six types of JS variables: `object`, `number`, `string`, `boolean`, `null`, `undefined`, so `se::Value` uses an `union` to include `object`, `number`, `string`, `boolean` these 4 kinds of `value types`, `non-value types` like `null` and `undefined` can be represented by `_type` directly.
+`se::Value` can be understood as a JS variable reference in the CPP layer. There are six types of JS variables: `object`, `number`, `bigint` `string`, `boolean`, `null`, `undefined`, so `se::Value` uses an `union` to include `object`, `number`, `string`, `boolean`, `int64_t` these 5 kinds of `value types`, `non-value types` like `null` and `undefined` can be represented by `_type` directly.
 
 ```c++
 namespace se {
@@ -113,7 +116,8 @@ namespace se {
             Number,
             Boolean,
             String,
-            Object
+            Object,
+            BigInt, // mostly used to store a 8 bytes pointer
         };
         ...
         ...
@@ -123,6 +127,7 @@ namespace se {
             double _number;
             std::string* _string;
             Object* _object;
+            int64_t _bigint;
         } _u;
         
         Type _type;
@@ -146,18 +151,7 @@ As we mentioned in the last section, `se::Object` is a weak reference to the JS 
 After creating a Sprite in the script layer via `var xhr = new XMLHttpRequest();`, we create a `se::Object` in the constructor callback and leave it in a global map (NativePtrToObjectMap), this map is used to query the `XMLHttpRequest*` to get the corresponding JS object `se::Object*`.
 
 ```c++
-static bool XMLHttpRequest_finalize(se::State& s)
-{
-    CCLOG("jsbindings: finalizing JS object %p (XMLHttpRequest)", s.nativeThisObject());
-    XMLHttpRequest* cobj = (XMLHttpRequest*)s.nativeThisObject();
-    if (cobj->getReferenceCount() == 1)
-        cobj->autorelease();
-    else
-        cobj->release();
-    return true;
-}
-SE_BIND_FINALIZE_FUNC(XMLHttpRequest_finalize)
-
+/// native/cocos/bindings/manual/jsb_xmlhttprequest.cpp
 static bool XMLHttpRequest_constructor(se::State& s)
 {
     XMLHttpRequest* cobj = JSB_ALLOC(XMLHttpRequest);
@@ -165,11 +159,20 @@ static bool XMLHttpRequest_constructor(se::State& s)
     return true;
 }
 SE_BIND_CTOR(XMLHttpRequest_constructor, __jsb_XMLHttpRequest_class, XMLHttpRequest_finalize)
+
+/// native/cocos/bindings/jswrapper/v8/Object.cpp
+void Object::setPrivateObject(PrivateObjectBase *data) {
+    // ... 
+    if (data != nullptr) {
+        _privateData = data->getRaw();
+        NativePtrToObjectMap::emplace(_privateData, this);
+    } else {
+        _privateData = nullptr;
+    }
+}
 ```
 
 Imagine if you force `se::Object` to be a strong reference to a JS object that leaves JS objects out of GC control and the finalize callback will never be fired because `se::Object` is always present in map which will cause memory leak.
-
-It is precisely because the `se::Object` holds a weak reference to a JS object so that controlling the life of the CPP object by JS object can be achieved. In the above code, when the JS object is released, it will trigger the finalize callback, developers only need to release the corresponding CPP object in `XMLHttpRequest_finalize`, the release of `se::Object` has been included in the `SE_BIND_FINALIZE_FUNC` macro by automatic processing, developers do not have to manage the release of `se::Object` in `JS Object Control CPP Object` mode, but in `CPP Object Control JS Object` mode, developers have the responsibility to manage the release of `se::Object`. I will give an example in the next section.
 
 **Reason 2: More flexible, supporting strong reference by calling the se::Object::root method manually**
 
@@ -219,6 +222,44 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry){
         }
     });
 ```
+
+**C++ Object lifecycle management**
+
+Prior to 3.6, the destructor callback `_finalize` would call `delete` or `release` to release the corresponding C++ object, depending on the object type and whether it existed in `se::NonRefNativePtrCreatedByCtorMap`.  Since 3.6, the `_finalize` callback has been deprecated and left empty for the time being for debugging purposes.  `se::Object` establishes a lifecycle association with C++ objects via `se::PrivateObjectBase` objects. The three subclasses of `se::PrivateObjectBase` correspond to different release policies.
+
+- `se::CCSharedPtrPrivateObject<T>`
+
+uses `cc::IntrusivePtr` to store pointers to C++ objects, requiring that the C++ class inherits from `cc::RefCounted`. Where `cc::IntrusivePtr` is a smart pointer type that automatically increments or decrements the reference count of `cc::RefCounted`. When the reference count is 0, destructions are triggered.
+
+- `se::SharedPrivateObject<T>`
+
+Use `std::shared_ptr` to store C++ object pointers, requiring that C++ classes **do not inherit** from `cc::RefCounted`. Due to the nature of `shared_ptr` itself, all strong references are required to be `shared_ptr`. Destructing C++ objects is triggered when all `shared_ptr`s are destroyed. 
+
+- `se::RawRefPrivateObject<T>`
+
+Uses a bare pointer, which defaults to a weak reference to a C++ object. It can be converted to a strong reference by calling `tryAllowDestroyInGC`. As a weak reference, GC does not trigger destructing the object. 
+
+**Associate native objects**.
+
+After 3.6 `se::Object::setPrivateData(void *)` is extended to:
+```c++
+template <typename T>
+inline void setPrivateData(T *data);
+``` 
+can automatically create `SharedPrivateObject` or `CCSharedPtrPrivateObject` based on type information, but does not support `RawRefPrivateObject`.
+
+We can use `setPrivateObject` to display the type of the specified `PrivateObject`:
+```c++
+// se::SharedPrivateObject<T>
+obj->setPrivateObject(se::shared_private_object(v));
+
+// se::CCSharedPtrPrivateObject<T>
+obj->setPrivateObject(se::ccshared_private_object(v));
+
+// se::RawRefPrivateObject<T>
+obj->setPrivateObject(se::rawref_private_object(v));
+```
+
 
 __Object Types__
 
@@ -639,9 +680,11 @@ static bool js_SomeClass_setCallback(se::State& s)
         {
             assert(jsFunc.isObject() && jsFunc.toObject()->isFunction());
 
+            se::Object *jsTargetObj = jsTarget.isObject() ? jsTarget.toObject() : nullptr;
+
             // If the current SomeClass is a class that can be created by "new", we use "se::Object::attachObject" to associate jsFunc with jsTarget to the current object.
             s.thisObject()->attachObject(jsFunc.toObject());
-            s.thisObject()->attachObject(jsTarget.toObject());
+            if(jsTargetObj) s.thisObject()->attachObject(jsTargetObj);
 
             // If the current SomeClass class is a singleton, or a class that always has only one instance, we can not associate it with "se::Object::attachObject".
             // Instead, you must use "se::Object::root", developers do not need to unroot since unroot operation will be triggered in the destruction of lambda which makes the "se::Value" jsFunc be destroyed, then "se::Object" destructor will do the unroot operation automatically.
@@ -651,7 +694,7 @@ static bool js_SomeClass_setCallback(se::State& s)
             // jsFunc.toObject()->root();
             // jsTarget.toObject()->root();
 
-            cobj->setCallback([jsFunc, jsTarget](int counter) {
+            cobj->setCallback([jsFunc, jsTargetObj](int counter) {
 
                 // Add the following two lines of code in CPP callback function before passing data to the JS.
                 se::ScriptEngine::getInstance()->clearException();
@@ -661,8 +704,7 @@ static bool js_SomeClass_setCallback(se::State& s)
                 se::ValueArray args;
                 args.push_back(se::Value(counter));
 
-                se::Object* target = jsTarget.isObject() ? jsTarget.toObject() : nullptr;
-                jsFunc.toObject()->call(args, target);
+                jsFunc.toObject()->call(args, jsTargetObj);
             });
         }
 
@@ -728,158 +770,28 @@ setCallback(nullptr)
 
 ### How to Use The Helper Functions in Cocos Creator Binding for Easier Native<->JS Type Conversions
 
-The helper functions for native<->JS type conversions are located in `cocos/bindings/manual/jsb_conversions.h/.cpp`, it includes:
+The helper functions for native<->JS type conversions are located in `cocos/bindings/manual/jsb_conversions.h`, it includes:
 
 #### Convert se::Value to C++ Type
 
+Support base types `int*t`/`uint*_t`/`float`/`double`/`const char*`/`bool`, `std::string`, bound types, their container types `std::vector`, `std::array`, `std::map`, `std:: unordered_map`, etc. 
+
 ```c++
-bool seval_to_int32(const se::Value &v, int32_t *ret);
-bool seval_to_uint32(const se::Value &v, uint32_t *ret);
-bool seval_to_int8(const se::Value &v, int8_t *ret);
-bool seval_to_uint8(const se::Value &v, uint8_t *ret);
-bool seval_to_int16(const se::Value &v, int16_t *ret);
-bool seval_to_uint16(const se::Value &v, uint16_t *ret);
-bool seval_to_boolean(const se::Value &v, bool *ret);
-bool seval_to_float(const se::Value &v, float *ret);
-bool seval_to_double(const se::Value &v, double *ret);
-bool seval_to_size(const se::Value &v, size_t *ret);
-bool seval_to_std_string(const se::Value &v, std::string *ret);
-bool seval_to_Vec2(const se::Value &v, cc::Vec2 *pt);
-bool seval_to_Vec3(const se::Value &v, cc::Vec3 *pt);
-bool seval_to_Vec4(const se::Value &v, cc::Vec4 *pt);
-bool seval_to_Mat4(const se::Value &v, cc::Mat4 *mat);
-bool seval_to_Size(const se::Value &v, cc::Size *size);
-bool seval_to_ccvalue(const se::Value &v, cc::Value *ret);
-bool seval_to_ccvaluemap(const se::Value &v, cc::ValueMap *ret);
-bool seval_to_ccvaluemapintkey(const se::Value &v, cc::ValueMapIntKey *ret);
-bool seval_to_ccvaluevector(const se::Value &v, cc::ValueVector *ret);
-bool sevals_variadic_to_ccvaluevector(const se::ValueArray &args, cc::ValueVector *ret);
-bool seval_to_std_vector_string(const se::Value &v, std::vector<std::string> *ret);
-bool seval_to_std_vector_int(const se::Value &v, std::vector<int> *ret);
-bool seval_to_std_vector_uint16(const se::Value &v, std::vector<uint16_t> *ret);
-bool seval_to_std_vector_float(const se::Value &v, std::vector<float> *ret);
-bool seval_to_std_vector_Vec2(const se::Value &v, std::vector<cc::Vec2> *ret);
-bool seval_to_Uint8Array(const se::Value &v, uint8_t *ret);
-bool seval_to_uintptr_t(const se::Value &v, uintptr_t *ret);
-
-bool seval_to_std_map_string_string(const se::Value &v, std::map<std::string, std::string> *ret);
-bool seval_to_Data(const se::Value &v, cc::Data *ret);
-bool seval_to_DownloaderHints(const se::Value &v, cc::network::DownloaderHints *ret);
+template<typename T>
+bool sevalue_to_native(const se::Value &from, T *to, se::Object *ctx);
 
 template<typename T>
-bool seval_to_native_ptr(const se::Value& v, T* ret);
-
-template <typename T>
-typename std::enable_if<std::is_class<T>::value && !std::is_same<T, std::string>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_integral<T>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_enum<T>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_floating_point<T>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_same<T, std::string>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_pointer<T>::value && std::is_class<typename std::remove_pointer<T>::type>::value, bool>::type
-seval_to_std_vector(const se::Value &v, std::vector<T> *ret);
-
-template <typename T>
-typename std::enable_if<!std::is_pointer<T>::value, bool>::type
-seval_to_std_vector(const se::Value &v, std::vector<T> *ret);
-
-template<typename T>
-bool seval_to_Map_string_key(const se::Value& v, cc::Map<std::string, T>* ret)
-
+bool sevalue_to_native(const se::Value &from, T *to);
 ```
 
 #### Convert C++ Type to se::Value
 
 ```c++
-bool int8_to_seval(int8_t v, se::Value *ret);
-bool uint8_to_seval(uint8_t v, se::Value *ret);
-bool int32_to_seval(int32_t v, se::Value *ret);
-bool uint32_to_seval(uint32_t v, se::Value *ret);
-bool int16_to_seval(uint16_t v, se::Value *ret);
-bool uint16_to_seval(uint16_t v, se::Value *ret);
-bool boolean_to_seval(bool v, se::Value *ret);
-bool float_to_seval(float v, se::Value *ret);
-bool double_to_seval(double v, se::Value *ret);
-bool long_to_seval(long v, se::Value *ret);
-bool ulong_to_seval(unsigned long v, se::Value *ret);
-bool longlong_to_seval(long long v, se::Value *ret);
-bool uintptr_t_to_seval(uintptr_t v, se::Value *ret);
-bool size_to_seval(size_t v, se::Value *ret);
-bool std_string_to_seval(const std::string &v, se::Value *ret); 
+template<typename T>
+bool nativevalue_to_se(const T &from, se::Value &to, se::Object *ctx);
 
-bool Vec2_to_seval(const cc::Vec2 &v, se::Value *ret);
-bool Vec3_to_seval(const cc::Vec3 &v, se::Value *ret);
-bool Vec4_to_seval(const cc::Vec4 &v, se::Value *ret);
-bool Mat4_to_seval(const cc::Mat4 &v, se::Value *ret);
-bool Size_to_seval(const cc::Size &v, se::Value *ret);
-bool Rect_to_seval(const cc::Rect &v, se::Value *ret);
-bool ccvalue_to_seval(const cc::Value &v, se::Value *ret);
-bool ccvaluemap_to_seval(const cc::ValueMap &v, se::Value *ret);
-bool ccvaluemapintkey_to_seval(const cc::ValueMapIntKey &v, se::Value *ret);
-bool ccvaluevector_to_seval(const cc::ValueVector &v, se::Value *ret);
-bool std_vector_string_to_seval(const std::vector<std::string> &v, se::Value *ret);
-bool std_vector_int_to_seval(const std::vector<int> &v, se::Value *ret);
-bool std_vector_uint16_to_seval(const std::vector<uint16_t> &v, se::Value *ret);
-bool std_vector_float_to_seval(const std::vector<float> &v, se::Value *ret);
-bool std_map_string_string_to_seval(const std::map<std::string, std::string> &v, se::Value *ret); 
-
-bool ManifestAsset_to_seval(const cc::extension::ManifestAsset &v, se::Value *ret); 
-bool Data_to_seval(const cc::Data &v, se::Value *ret);
-bool DownloadTask_to_seval(const cc::network::DownloadTask &v, se::Value *ret);
-
-template <typename T>
-typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T *v_c, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<!std::is_base_of<cc::Ref, T>::value && !std::is_pointer<T>::value, bool>::type
-native_ptr_to_seval(T &v_ref, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-bool native_ptr_to_rooted_seval(
-    typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, T>::type *v,
-    se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T *vp, se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T &v_ref, se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-bool native_ptr_to_rooted_seval(
-    typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, T>::type *v,
-    se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T *vp, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T *vp, se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-bool std_vector_to_seval(const std::vector<T> &v, se::Value *ret);
-
-template <typename T>
-bool seval_to_reference(const se::Value &v, T **ret);
+template<typename T>
+bool nativevalue_to_se(const T &from, se::Value &to);
 
 ```
 
@@ -890,32 +802,19 @@ The specific usage is directly known according to interface names. The first par
 
 ```c++
 se::Value v;
-bool ok = int32_to_seval(100, &v); // The second parameter is the output parameter, passing in the address of the output parameter
+bool ok = nativevalue_to_se(100, v); // The second parameter is the output parameter, passing in the address of the output parameter
 ```
 
 ```c++
 int32_t v;
-bool ok = seval_to_int32(args[0], &v); // The second parameter is the output parameter, passing in the address of the output parameter
+bool ok = sevalue_to_native(args[0], &v); // The second parameter is the output parameter, passing in the address of the output parameter
 ```
-
-#### (IMPORTANT) Understand The Difference Between native_ptr_to_seval and native_ptr_to_rooted_seval
-
-**Developers must understand the difference to make sure these conversion functions not being misused. In that case, JS memory leaks, which is really difficult to fix, could be avoided.**
-
-- `native_ptr_to_seval` is used in `JavaScript control C++ object life cycle` mode. This method can be called when `se::Value` needs to be obtained from a C++ object pointer at the binding code. Most subclasses in the Cocos Creator that inherit from `cc::Ref` take this approach to get `se::Value`. Please remember, when the binding object, which is controlled by the JavaScript object's life cycle, needs to be converted to `seval`, use this method, otherwise consider using `native_ptr_to_rooted_seval`.
-- `native_ptr_to_rooted_seval` is used in `C++ controlling JavaScript object lifecycle` mode. In general, this method is used for object bindings in third-party libraries. This method will try to find the cached `se::Object` according to the incoming C++ object pointer, if the cached `se::Object`is not exist, then it will create a rooted `se::Object` which isn't controlled by Garbage Collector and will always keep alive until `unroot` is called. Developers need to observe the release of the C++ object, and `unroot` `se::Object`. Please refer to the section introduces `spTrackEntry` binding (spTrackEntry_setDisposeCallback) described above.
 
 More on manual binding can be found in the [Using JSB Manual Binding](jsb-manual-binding.md) documentation.
 
 ## Automatic Binding
 
 ### Configure Module `.ini` Files
-
-The configuration method is the same as that in Creator v1.6. The main points to note are: In Creator v1.7 `script_control_cpp` field is deprecated because `script_control_cpp` field affects the entire module. If the module needs to bind the `cc::Ref` subclass and non-`cc::Ref` class, the original binding configuration in v1.6 can not meet the demand. The new field introduced in v1.7 is `classes_owned_by_cpp`, which indicates which classes need to be controlled by the CPP object's life cycle.
-
-An additional, there is a configuration field in v1.7 is `persistent_classes` to indicate which classes are always present during game play, such as: `FileUtils`.
-
-Other fields are the same as v1.6.
 
 For more specific, please refer to the engine directory `tools/tojs/cocos.ini` file.
 
@@ -993,38 +892,41 @@ base_classes_to_skip = Ref Clonable
 
 # Which classes are abstract classes which do not have a constructor in JS
 abstract_classes = SAXParser Device
-
-# Which classes are singleton or always keep alive until game exits
-persistent_classes = FileUtilsActionManager Scheduler
-
-# Which classes use `CPP object controls JS object's life cycle`, the unconfigured classes will use `JS controls CPP object's life cycle`.
-classes_owned_by_cpp = 
 ```
 
 ## Remote Debugging and Profile
 
-The remote debugging and profile are valid in debug mode, if you need to enable in release mode, you need to manually modify the macro in `cocos/bindings/jswrapper/config.h`.
+By default, remote debugging and Profile are enabled in debug mode. If you need to enable them in release mode, you need to manually modify the macro switches in the file `native/engine/common/CMakeLists.txt` generated after building the native platform.
 
-```c++
-#if defined(COCOS2D_DEBUG) && COCOS2D_DEBUG > 0
-#define SE_ENABLE_INSPECTOR 1
-#define SE_DEBUG 2
-#else
-#define SE_ENABLE_INSPECTOR 0
-#define SE_DEBUG 0
-#endif
+```cmake
+# ...
+if(NOT RES_DIR)
+    message(FATAL_ERROR "RES_DIR is not set!")
+endif()
+
+include(${RES_DIR}/proj/cfg.cmake)
+
+if(NOT COCOS_X_PATH)
+    message(FATAL_ERROR "COCOS_X_PATH is not set!")
+endif()
+# ...
+
 ```
 
 Change to:
 
-```c++
-#ifndef USE_V8_DEBUGGER
-    #if defined(CC_DEBUG) && CC_DEBUG > 0
-        #define USE_V8_DEBUGGER 1
-    #else
-        #define USE_V8_DEBUGGER 1  // Change to 1 to force enable remote debugging
-    #endif
-#endif
+```cmake
+if(NOT RES_DIR)
+    message(FATAL_ERROR "RES_DIR is not set!")
+endif()
+
+include(${RES_DIR}/proj/cfg.cmake)
+set(USE_V8_DEBUGGER_FORCE ON) ## 覆盖 USE_V8_DEBUGGER_FORCE 的值
+
+if(NOT COCOS_X_PATH)
+    message(FATAL_ERROR "COCOS_X_PATH is not set!")
+endif()
+# ...
 ```
 
 ### Remote Debugging V8 in Chrome
@@ -1096,39 +998,9 @@ Use `se::Object::dettachObject` to disassociate object's life cycle.
 `objA->attachObject(objB);` is similar as `objA.__ nativeRefs[index] = objB` in JS. Only when `objA` is garbage collected, `objB` will be possible garbage collected.<br>
 `objA->dettachObject(objB);` is similar as `delete objA.__nativeRefs[index];` in JS. After invoking dettachObject, objB's life cycle will not be controlled by objA.
 
-### What's The Difference of Object Life Management between The Subclass of `cc::Ref` and non-`cc::Ref` class?
+### Please DO NOT Assign A Subclass of cc::RefCounted on The Stack
 
-The binding of `cc::Ref` subclass in the current engine adopts JS object controls the life cycle of CPP object. The advantage of doing so is to solve the `retain`/`release` problem that has been criticized in the JS layer.
-
-Non-`cc::Ref` class takes the way of CPP object controls the life of a JS object. This method requires that after CPP object is destroyed, it needs to notify the binding layer to call the `clearPrivateData`, `unroot`, and `decRef` methods corresponding to `se::Object`. JS code must be careful operation of the object, when there may be illegal object logic, use `sys.isObjectValid` to determine whether the CPP object is released.
-
-### NOTE of Binding The Finalize Function for cc::Ref Subclass
-
-Calling any JS engine's API in a finalize callback can lead to a crash. Because the current engine is in garbage collection process, which can not be interrupted to deal with other operations.
-
-Finalize callback is to tell the CPP layer to release the memory of the corresponding CPP object, we should not call any JS engine API in the CPP object's destructor either.
-
-#### But if that must be called, how should we deal with?
-
-In Cocos Creator binding, if the native object's reference count is 1, we do not use the `release`, but using `autorelease` to delay CPP object's destructor to be executed at the end of frame. For instance:
-
-```c++
-static bool XMLHttpRequest_finalize(se::State& s)
-{
-    CCLOG("jsbindings: finalizing JS object %p (XMLHttpRequest)", s.nativeThisObject());
-    XMLHttpRequest* cobj = (XMLHttpRequest*)s.nativeThisObject();
-    if (cobj->getReferenceCount() == 1)
-        cobj->autorelease();
-    else
-        cobj->release();
-    return true;
-}
-SE_BIND_FINALIZE_FUNC(XMLHttpRequest_finalize)
-```
-
-### Please DO NOT Assign A Subclass of cc::Ref on The Stack
-
-Subclasses of `cc::Ref` must be allocated on the heap, via `new`, and then released by `release`. In JS object's finalize callback function, we should use `autorelease` or `release` to release. If it is allocated on the stack, the reference count is likely to be 0, and then calling `release` in finalize callback will result `delete` is invoked, which causing the program to crash. So in order to prevent this behavior from happening, developers can identify destructors as `protected` or `private` in the binding classes that inherit from `cc::Ref`, ensuring that this problem can be found during compilation.
+Subclasses of `cc::RefCounted` must be allocated on the heap, via `new`, and then released by `release`. In JS object's finalize callback function, we should use `release` to release. If it is allocated on the stack, the reference count is likely to be 0, and then calling `release` in finalize callback will result `delete` is invoked, which causing the program to crash. So in order to prevent this behavior from happening, developers can identify destructors as `protected` or `private` in the binding classes that inherit from `cc::RefCounted`, ensuring that this problem can be found during compilation.
 
 Example:
 

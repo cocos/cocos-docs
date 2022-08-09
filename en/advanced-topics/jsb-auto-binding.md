@@ -3,20 +3,22 @@
 > This article is republished from [Tencent Online Education Department Technical Blog](https://oedx.github.io/2019/07/03/cocos-creator-js-binding-auto/)<br>
 > Author: kevinxzhang
 
-Creator provides `jsb.reflection.callStaticMethod` method to support the interface of calling Native side (Android/iOS/Mac) directly from TypeScript side, but after much practice, we found that the performance of this interface is very low under a lot of frequent calls, especially on Android side, such as calling the interface implemented on Native side for printing logs. And it is easy to cause some native crashes, such as `local reference table overflow` and other problems. Throughout the implementation of Cocos native code, basically all interface methods are implemented based on the JSB approach, so this article mainly explains the JSB auto-binding logic to help you quickly implement the `callStaticMethod` to JSB transformation process.
+Creator provides `native.reflection.callStaticMethod` method to support the interface of calling Native side (Android/iOS/Mac) directly from TypeScript side, but after much practice, we found that the performance of this interface is very low under a lot of frequent calls, especially on Android side, such as calling the interface implemented on Native side for printing logs. And it is easy to cause some native crashes, such as `local reference table overflow` and other problems. Throughout the implementation of Cocos native code, basically all interface methods are implemented based on the JSB approach, so this article mainly explains the JSB auto-binding logic to help you quickly implement the `callStaticMethod` to JSB transformation process.
 
 ## Background
 
-For those who have used Cocos Creator (or CC for convenience), `jsb.reflection.callStaticMethod` is certainly no stranger to providing the ability to call the Native side from the TypeScript side. For example, if we want to call the Native implementation of the log printing and persistence interface, we can easily do so in JavaScript as follows:
+For those who have used Cocos Creator (or CC for convenience), `native.reflection.callStaticMethod` is certainly no stranger to providing the ability to call the Native side from the TypeScript side. For example, if we want to call the Native implementation of the log printing and persistence interface, we can easily do so in JavaScript as follows:
 
 ```javascript
-if (sys.isNative && sys.os == sys.OS.IOS) {
+import {NATIVE} from 'cc/env';
+
+if (NATIVE && sys.os == sys.OS.IOS) {
     msg = this.buffer_string + '\n[cclog][' + clock + '][' + tag + ']' + msg;
-    jsb.reflection.callStaticMethod("ABCLogService", "log:module:level:", msg, 'cclog', level);
+    native.reflection.callStaticMethod("ABCLogService", "log:module:level:", msg, 'cclog', level);
     return;
-} else if (sys.isNative && sys.os == sys.OS.ANDROID) {
+} else if (NATIVE && sys.os == sys.OS.ANDROID) {
     msg = this.buffer_string + '\n[cclog][' + clock + '][' + tag + ']' + msg;
-    jsb.reflection.callStaticMethod("com/example/test/CommonUtils", "log", "(ILjava/lang/String;Ljava/lang/String;)V", level, 'cclog', msg);
+    native.reflection.callStaticMethod("com/example/test/CommonUtils", "log", "(ILjava/lang/String;Ljava/lang/String;)V", level, 'cclog', msg);
     return;
 }
 ```
@@ -46,10 +48,10 @@ Auto-binding, to put it simply, is a matter of executing a python script to auto
     sudo pip3 install Cheetah3
     ```
 
-3. Install the NDK, which is definitely essential when it comes to C++. It is recommended to install the [Android NDK r16b](https://github.com/android/ndk/wiki/Unsupported-Downloads#r16b) version, set the `PYTH_profile` in `~/.bash_ profile`, then set `PYTHON_ROOT` and `NDK_ROOT` in `~/.bash_profile`, because these two environment variables will be used directly in the python file that will be executed later.
+3. Install the NDK, which is definitely essential when it comes to C++. It is recommended to install the [Android NDK r21e](https://github.com/android/ndk/wiki/Unsupported-Downloads#r16b) version, set the `PYTH_profile` in `~/.bash_ profile`, then set `PYTHON_ROOT` and `NDK_ROOT` in `~/.bash_profile`, because these two environment variables will be used directly in the python file that will be executed later.
 
     ```shell
-    export NDK_ROOT=/Users/kevin/android-ndk-r16b
+    export NDK_ROOT=/Users/kevin/android-ndk-r21e
     export PYTHON_BIN=python3
     ```
 

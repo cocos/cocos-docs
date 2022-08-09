@@ -77,7 +77,10 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 
 - **SE_BIND_PROP_GET**：包装一个 JS 对象属性读取的回调函数
 - **SE_BIND_PROP_SET**：包装一个 JS 对象属性写入的回调函数
+- **SE_BIND_FUNC_AS_PROP_GET**: 普通函数转化为读取属性的回调 
+- **SE_BIND_FUNC_AS_PROP_SET**: 普通函数转化为写入属性的回调 
 - **SE_BIND_FUNC**：包装一个 JS 函数，可用于全局函数、类成员函数、类静态函数
+- **SE_BIND_FUNC_FAST**: 包装无参的 JS 函数, 相比 `SE_BIND_FUNC` 更高效
 - **SE_DECLARE_FUNC**：声明一个 JS 函数，一般在 `.h` 头文件中使用
 - **SE_BIND_CTOR**：包装一个 JS 构造函数
 - **SE_BIND_SUB_CLS_CTOR**：包装一个 JS 子类的构造函数，此子类可以继承
@@ -100,7 +103,7 @@ CPP 抽象层所有的类型都在 `se` 命名空间下，其为 ScriptEngine �
 
 #### se::Value
 
-`se::Value` 可以被理解为 JS 变量在 CPP 层的引用。JS 变量有 `object`、`number`、`string`、`boolean`、`null` 和 `undefined` 六种类型。因此 `se::Value` 使用 `union` 包含 `object`、`number`、`string`、`boolean` 4 种 **有值类型**。**无值类型** 包含 `null` 和 `undefined`，可由 `_type` 直接表示。
+`se::Value` 可以被理解为 JS 变量在 CPP 层的引用。JS 变量有 `object`、`number`、 `bigint`, `string`、`boolean`、`null` 和 `undefined` 六种类型。因此 `se::Value` 使用 `union` 包含 `object`、`number`、`string`、`boolean` 5 种 **有值类型**。**无值类型** 包含 `null` 和 `undefined`，可由 `_type` 直接表示。
 
 ```c++
 namespace se {
@@ -112,7 +115,8 @@ namespace se {
             Number,
             Boolean,
             String,
-            Object
+            Object,
+            BigInt, // 多用于存储指针类型
         };
         ...
         ...
@@ -122,6 +126,7 @@ namespace se {
             double _number;
             std::string* _string;
             Object* _object;
+            int64_t _bigint;
         } _u;
         
         Type _type;
@@ -145,30 +150,30 @@ namespace se {
 当在脚本层中通过 `var xhr = new XMLHttpRequest();` 创建了一个 XMLHttpRequest 后，在构造回调函数绑定中我们会创建一个 `se::Object` 并保留在一个全局的 `map (NativePtrToObjectMap)` 中，此 map 用于查询 `XMLHttpRequest*` 指针获取对应的 JS 对象 `se::Object*`。
 
 ```c++
-static bool XMLHttpRequest_finalize(se::State& s)
-{
-    CCLOG("jsbindings: finalizing JS object %p (XMLHttpRequest)", s.nativeThisObject());
-    XMLHttpRequest* cobj = (XMLHttpRequest*)s.nativeThisObject();
-    if (cobj->getReferenceCount() == 1)
-        cobj->autorelease();
-    else
-        cobj->release();
-    return true;
-}
-SE_BIND_FINALIZE_FUNC(XMLHttpRequest_finalize)
-
+/// native/cocos/bindings/manual/jsb_xmlhttprequest.cpp
 static bool XMLHttpRequest_constructor(se::State& s)
 {
     XMLHttpRequest* cobj = JSB_ALLOC(XMLHttpRequest);
     s.thisObject()->setPrivateData(cobj);
+    // ...
     return true;
 }
 SE_BIND_CTOR(XMLHttpRequest_constructor, __jsb_XMLHttpRequest_class, XMLHttpRequest_finalize)
+
+/// native/cocos/bindings/jswrapper/v8/Object.cpp
+void Object::setPrivateObject(PrivateObjectBase *data) {
+    // ... 
+    if (data != nullptr) {
+        _privateData = data->getRaw();
+        NativePtrToObjectMap::emplace(_privateData, this);
+    } else {
+        _privateData = nullptr;
+    }
+}
 ```
 
-设想如果强制要求 `se::Object` 为 JS 对象的强引用(strong reference)，即让 JS 对象不受 GC 控制，由于 `se::Object` 一直存在于 map 中，finalize 回调将永远无法被触发，从而导致内存泄露。
+设想如果强制要求 `se::Object` 为 JS 对象的强引用(strong reference)，即让 JS 对象不受 GC 控制，由于 `se::Object` 一直存在于 map 中，finalizer 回调将永远无法被触发，从而导致内存泄露。
 
-正是由于 `se::Object` 保存的是 JS 对象的弱引用，JS 对象控制 CPP 对象的生命周期才能够实现。以上代码中，当 JS 对象被释放后，会触发 finalize 回调，开发者只需要在 `XMLHttpRequest_finalize` 中释放对应的 c++ 对象即可，`se::Object` 的释放已经被包含在 `SE_BIND_FINALIZE_FUNC` 宏中自动处理，开发者无需管理在 **JS 对象控制 CPP 对象** 模式中 `se::Object` 的释放，但是在 **CPP 对象控制 JS 对象** 模式中，开发者需要管理对 `se::Object` 的释放，具体下一节中会举例说明。
 
 **原因二：更加灵活，手动调用 root 方法以支持强引用**
 
@@ -218,6 +223,45 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry) {
     }
 });
 ```
+
+**C++ 对象的生命周期管理**
+
+在 3.6 之前, 析构回调 `_finalize` 会根据对象类型和是否存在于`se::NonRefNativePtrCreatedByCtorMap` 来决定调用 `delete` 或者 `release` 以释放对应的 C++ 对象.  3.6 开始 `_finalize` 回调被弃用, 暂时为方便调试保留为空函数.  `se::Object` 通过 `se::PrivateObjectBase` 对象和 C++ 对象建立生命周期的关联. `se::PrivateObjectBase` 的三个子类对应了不同的释放策略.
+
+- `se::CCSharedPtrPrivateObject<T>`
+
+使用 `cc::IntrusivePtr` 存储 C++ 对象的指针, 要求 C++ 类继承 `cc::RefCounted`. 其中 `cc::IntrusivePtr` 为智能指针类型, 会自动增减 `cc::RefCounted` 的引用计数. 当引用计数为 0 时, 触发析构.
+
+- `se::SharedPrivateObject<T>`
+
+使用 `std::shared_ptr` 存储 C++ 对象指针, 要求 C++ 类**不继承** `cc::RefCounted`. 由于 `shared_ptr` 本身的特性, 要求所有强引用都 `shared_ptr`. 所有 `shared_ptr` 都销毁时触发 C++ 对象的析构. 
+
+- `se::RawRefPrivateObject<T>`
+
+使用裸指针, 默认为对 C++ 对象的弱引用. 可通过调用 `tryAllowDestroyInGC` 转为强引用. 作为弱引用时, GC 不触发对象的析构. 
+
+**关联原生对象**
+
+3.6 之后 `se::Object::setPrivateData(void *)` 扩展成了:
+```c++
+template <typename T>
+inline void setPrivateData(T *data);
+``` 
+能自动根据类型信息创建 `SharedPrivateObject` 或者 `CCSharedPtrPrivateObject`, 但是不支持 `RawRefPrivateObject`.
+
+我们可以使用 `setPrivateObject` 显示指定 `PrivateObject` 的类型:
+```c++
+// se::SharedPrivateObject<T>
+obj->setPrivateObject(se::shared_private_object(v));
+
+// se::CCSharedPtrPrivateObject<T>
+obj->setPrivateObject(se::ccshared_private_object(v));
+
+// se::RawRefPrivateObject<T>
+obj->setPrivateObject(se::rawref_private_object(v));
+```
+
+
 
 **对象类型**
 
@@ -637,9 +681,11 @@ static bool js_SomeClass_setCallback(se::State& s)
         {
             assert(jsFunc.isObject() && jsFunc.toObject()->isFunction());
 
+            se::Object *jsTargetObj = jsTarget.isObject() ? jsTarget.toObject() : nullptr;
+
             // 如果当前 SomeClass 是可以被 new 出来的类，我们 使用 se::Object::attachObject 把 jsFunc 和 jsTarget 关联到当前对象中
             s.thisObject()->attachObject(jsFunc.toObject());
-            s.thisObject()->attachObject(jsTarget.toObject());
+            if(jsTargetObj) .thisObject()->attachObject(jsTargetObj);
 
             // 如果当前 SomeClass 类是一个单例类，或者永远只有一个实例的类，我们不能用 se::Object::attachObject 去关联
             // 必须使用 se::Object::root，开发者无需关系 unroot，unroot 的操作会随着 lambda 的销毁触发 jsFunc 的析构，在 se::Object 的析构函数中进行 unroot 操作。
@@ -649,7 +695,7 @@ static bool js_SomeClass_setCallback(se::State& s)
             // jsFunc.toObject()->root();
             // jsTarget.toObject()->root();
 
-            cobj->setCallback([jsFunc, jsTarget](int counter){
+            cobj->setCallback([jsFunc, jsTargetObj](int counter){
 
                 // CPP 回调函数中要传递数据给 JS 或者调用 JS 函数，在回调函数开始需要添加如下两行代码。
                 se::ScriptEngine::getInstance()->clearException();
@@ -658,8 +704,7 @@ static bool js_SomeClass_setCallback(se::State& s)
                 se::ValueArray args;
                 args.push_back(se::Value(counter));
 
-                se::Object* target = jsTarget.isObject() ? jsTarget.toObject() : nullptr;
-                jsFunc.toObject()->call(args, target);
+                jsFunc.toObject()->call(args, jsTargetObj);
             });
         }
 
@@ -725,158 +770,28 @@ setCallback(nullptr)
 
 ### 如何使用 Cocos Creator bindings 这层的类型转换辅助函数？
 
-类型转换辅助函数位于 `cocos/bindings/manual/jsb_conversions.h/.cpp` 中，其包含以下内容。
+类型转换辅助函数位于 `cocos/bindings/manual/jsb_conversions.h` 中，其包含以下内容。
 
 #### se::Value 转换为 C++ 类型
 
+支持基础类型 `int*t`/`uint*_t`/`float`/`double`/`const char*`/`bool`,  `std::string`,绑定类型, 其容器类型 `std::vector`, `std::array`, `std::map`, `std::unordered_map` 等. 
+
+
 ```c++
-bool seval_to_int32(const se::Value &v, int32_t *ret);
-bool seval_to_uint32(const se::Value &v, uint32_t *ret);
-bool seval_to_int8(const se::Value &v, int8_t *ret);
-bool seval_to_uint8(const se::Value &v, uint8_t *ret);
-bool seval_to_int16(const se::Value &v, int16_t *ret);
-bool seval_to_uint16(const se::Value &v, uint16_t *ret);
-bool seval_to_boolean(const se::Value &v, bool *ret);
-bool seval_to_float(const se::Value &v, float *ret);
-bool seval_to_double(const se::Value &v, double *ret);
-bool seval_to_size(const se::Value &v, size_t *ret);
-bool seval_to_std_string(const se::Value &v, std::string *ret);
-bool seval_to_Vec2(const se::Value &v, cc::Vec2 *pt);
-bool seval_to_Vec3(const se::Value &v, cc::Vec3 *pt);
-bool seval_to_Vec4(const se::Value &v, cc::Vec4 *pt);
-bool seval_to_Mat4(const se::Value &v, cc::Mat4 *mat);
-bool seval_to_Size(const se::Value &v, cc::Size *size);
-bool seval_to_ccvalue(const se::Value &v, cc::Value *ret);
-bool seval_to_ccvaluemap(const se::Value &v, cc::ValueMap *ret);
-bool seval_to_ccvaluemapintkey(const se::Value &v, cc::ValueMapIntKey *ret);
-bool seval_to_ccvaluevector(const se::Value &v, cc::ValueVector *ret);
-bool sevals_variadic_to_ccvaluevector(const se::ValueArray &args, cc::ValueVector *ret);
-bool seval_to_std_vector_string(const se::Value &v, std::vector<std::string> *ret);
-bool seval_to_std_vector_int(const se::Value &v, std::vector<int> *ret);
-bool seval_to_std_vector_uint16(const se::Value &v, std::vector<uint16_t> *ret);
-bool seval_to_std_vector_float(const se::Value &v, std::vector<float> *ret);
-bool seval_to_std_vector_Vec2(const se::Value &v, std::vector<cc::Vec2> *ret);
-bool seval_to_Uint8Array(const se::Value &v, uint8_t *ret);
-bool seval_to_uintptr_t(const se::Value &v, uintptr_t *ret);
-
-bool seval_to_std_map_string_string(const se::Value &v, std::map<std::string, std::string> *ret);
-bool seval_to_Data(const se::Value &v, cc::Data *ret);
-bool seval_to_DownloaderHints(const se::Value &v, cc::network::DownloaderHints *ret);
+template<typename T>
+bool sevalue_to_native(const se::Value &from, T *to, se::Object *ctx);
 
 template<typename T>
-bool seval_to_native_ptr(const se::Value& v, T* ret);
-
-template <typename T>
-typename std::enable_if<std::is_class<T>::value && !std::is_same<T, std::string>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_integral<T>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_enum<T>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_floating_point<T>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_same<T, std::string>::value, T>::type
-seval_to_type(const se::Value &v, bool &ok);
-
-template <typename T>
-typename std::enable_if<std::is_pointer<T>::value && std::is_class<typename std::remove_pointer<T>::type>::value, bool>::type
-seval_to_std_vector(const se::Value &v, std::vector<T> *ret);
-
-template <typename T>
-typename std::enable_if<!std::is_pointer<T>::value, bool>::type
-seval_to_std_vector(const se::Value &v, std::vector<T> *ret);
-
-template<typename T>
-bool seval_to_Map_string_key(const se::Value& v, cc::Map<std::string, T>* ret)
+bool sevalue_to_native(const se::Value &from, T *to);
 ```
-
 #### C++ 类型转换为 se::Value
 
 ```c++
-bool int8_to_seval(int8_t v, se::Value *ret);
-bool uint8_to_seval(uint8_t v, se::Value *ret);
-bool int32_to_seval(int32_t v, se::Value *ret);
-bool uint32_to_seval(uint32_t v, se::Value *ret);
-bool int16_to_seval(uint16_t v, se::Value *ret);
-bool uint16_to_seval(uint16_t v, se::Value *ret);
-bool boolean_to_seval(bool v, se::Value *ret);
-bool float_to_seval(float v, se::Value *ret);
-bool double_to_seval(double v, se::Value *ret);
-bool long_to_seval(long v, se::Value *ret);
-bool ulong_to_seval(unsigned long v, se::Value *ret);
-bool longlong_to_seval(long long v, se::Value *ret);
-bool uintptr_t_to_seval(uintptr_t v, se::Value *ret);
-bool size_to_seval(size_t v, se::Value *ret);
-bool std_string_to_seval(const std::string &v, se::Value *ret); 
+template<typename T>
+bool nativevalue_to_se(const T &from, se::Value &to, se::Object *ctx);
 
-bool Vec2_to_seval(const cc::Vec2 &v, se::Value *ret);
-bool Vec3_to_seval(const cc::Vec3 &v, se::Value *ret);
-bool Vec4_to_seval(const cc::Vec4 &v, se::Value *ret);
-bool Mat4_to_seval(const cc::Mat4 &v, se::Value *ret);
-bool Size_to_seval(const cc::Size &v, se::Value *ret);
-bool Rect_to_seval(const cc::Rect &v, se::Value *ret);
-bool ccvalue_to_seval(const cc::Value &v, se::Value *ret);
-bool ccvaluemap_to_seval(const cc::ValueMap &v, se::Value *ret);
-bool ccvaluemapintkey_to_seval(const cc::ValueMapIntKey &v, se::Value *ret);
-bool ccvaluevector_to_seval(const cc::ValueVector &v, se::Value *ret);
-bool std_vector_string_to_seval(const std::vector<std::string> &v, se::Value *ret);
-bool std_vector_int_to_seval(const std::vector<int> &v, se::Value *ret);
-bool std_vector_uint16_to_seval(const std::vector<uint16_t> &v, se::Value *ret);
-bool std_vector_float_to_seval(const std::vector<float> &v, se::Value *ret);
-bool std_map_string_string_to_seval(const std::map<std::string, std::string> &v, se::Value *ret); 
-
-bool ManifestAsset_to_seval(const cc::extension::ManifestAsset &v, se::Value *ret); 
-bool Data_to_seval(const cc::Data &v, se::Value *ret);
-bool DownloadTask_to_seval(const cc::network::DownloadTask &v, se::Value *ret);
-
-template <typename T>
-typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T *v_c, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<!std::is_base_of<cc::Ref, T>::value && !std::is_pointer<T>::value, bool>::type
-native_ptr_to_seval(T &v_ref, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-bool native_ptr_to_rooted_seval(
-    typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, T>::type *v,
-    se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T *vp, se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T &v_ref, se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-bool native_ptr_to_rooted_seval(
-    typename std::enable_if<!std::is_base_of<cc::Ref, T>::value, T>::type *v,
-    se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T *vp, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-typename std::enable_if<std::is_base_of<cc::Ref, T>::value, bool>::type
-native_ptr_to_seval(T *vp, se::Class *cls, se::Value *ret, bool *isReturnCachedValue = nullptr);
-
-template <typename T>
-bool std_vector_to_seval(const std::vector<T> &v, se::Value *ret);
-
-template <typename T>
-bool seval_to_reference(const se::Value &v, T **ret);
-
+template<typename T>
+bool nativevalue_to_se(const T &from, se::Value &to);
 ```
 
 辅助转换函数不属于 `Script Engine Wrapper` 抽象层，属于 Cocos Creator 绑定层，封装这些函数是为了在绑定代码中更加方便的转换。每个转换函数都返回 `bool` 类型，表示转换是否成功，开发者如果调用这些接口，需要去判断这个返回值。
@@ -885,32 +800,19 @@ bool seval_to_reference(const se::Value &v, T **ret);
 
 ```c++
 se::Value v;
-bool ok = int32_to_seval(100, &v); // 第二个参数为输出参数，传入输出参数的地址
+bool ok = nativevalue_to_se(100, v); // 第二个参数为输出参数，传入输出参数的地址
 ```
 
 ```c++
 int32_t v;
-bool ok = seval_to_int32(args[0], &v); // 第二个参数为输出参数，传入输出参数的地址
+bool ok = sevalue_to_native(args[0], &v); // 第二个参数为输出参数，传入输出参数的地址
 ```
-
-#### (IMPORTANT)理解 native_ptr_to_seval 与 native_ptr_to_rooted_seval 的区别
-
-**开发者一定要理解清楚这二者的区别，才不会因为误用导致 JS 层内存泄露这种比较难查的 bug。**
-
-- `native_ptr_to_seval` 用于 `JS 控制 CPP 对象生命周期` 的模式。当在绑定层需要根据一个 CPP 对象指针获取一个 `se::Value` 的时候，可调用此方法。引擎内大部分继承于 `cc::Ref` 的子类都采取这种方式去获取 `se::Value`。记住一点，当你管理的绑定对象是由 JS 控制生命周期，需要转换为 seval 的时候，请用此方法，否则考虑用 `native_ptr_to_rooted_seval`。
-- `native_ptr_to_rooted_seval` 用于 `CPP 控制 JS 对象生命周期` 的模式。一般而言，第三方库中的对象绑定都会用到此方法。此方法会根据传入的 CPP 对象指针查找 cache 的 `se::Object`，如果不存在，则创建一个 rooted 的 `se::Object`，即这个创建出来的 JS 对象将不受 GC 控制，并永远在内存中。开发者需要监听 CPP 对象的释放，并在释放的时候去做 `se::Object` 的 unroot 操作，具体可参照前面章节中描述的 `spTrackEntry_setDisposeCallback` 中的内容。
 
 更多关于手动绑定的内容可参考 [使用 JSB 手动绑定](jsb-manual-binding.md)。
 
 ## 自动绑定
 
 ### 配置模块 ini 文件
-
-配置方法与 1.6 中的方法相同，主要注意的是：1.7 中废弃了 `script_control_cpp`，因为 `script_control_cpp` 字段会影响到整个模块，如果模块中需要绑定 `cc::Ref` 子类和非 `cc::Ref` 子类，原来的绑定配置则无法满足需求。1.7 中取而代之的新字段为 `classes_owned_by_cpp`，表示哪些类是需要由 CPP 来控制 JS 对象的生命周期。
-
-1.7 中另外加入的一个配置字段为 `persistent_classes`，用于表示哪些类是在游戏运行中一直存在的，比如：`FileUtils`。
-
-其他字段与 1.6 一致。
 
 具体可以参考引擎目录下的 `tools/tojs/cocos.ini` 等 `ini` 配置。
 
@@ -988,39 +890,43 @@ base_classes_to_skip = Ref Clonable
 # 配置哪些类是抽象类，抽象类没有构造函数，即在 js 层无法通过 var a = new SomeClass();的方式构造 JS 对象
 abstract_classes = SAXParser Device
 
-# 配置哪些类是始终以一个实例的方式存在的，游戏运行过程中不会被销毁
-persistent_classes = FileUtils
-
-# 配置哪些类是需要由 CPP 对象来控制 JS 对象生命周期的，未配置的类，默认采用 JS 控制 CPP 对象生命周期
-classes_owned_by_cpp = 
 ```
 
 更多关于自动绑定的内容可参考 [使用 JSB 自动绑定](jsb-auto-binding.md)。
 
 ## 远程调试与 Profile
 
-默认远程调试和 Profile 是在 debug 模式中生效的，如果需要在 release 模式下也启用，需要手动修改 `cocos/bindings/jswrapper/config.h` 中的宏开关。
+默认远程调试和 Profile 是在 debug 模式中生效的，如果需要在 release 模式下也启用，需要手动修改构建原生平台后生成的文件 `native/engine/common/CMakeLists.txt` 中的宏开关。
 
-```c++
-#ifndef USE_V8_DEBUGGER
-    #if defined(CC_DEBUG) && CC_DEBUG > 0
-        #define USE_V8_DEBUGGER 1
-    #else
-        #define USE_V8_DEBUGGER 0
-    #endif
-#endif
+```cmake
+# ...
+if(NOT RES_DIR)
+    message(FATAL_ERROR "RES_DIR is not set!")
+endif()
+
+include(${RES_DIR}/proj/cfg.cmake)
+
+if(NOT COCOS_X_PATH)
+    message(FATAL_ERROR "COCOS_X_PATH is not set!")
+endif()
+# ...
+
 ```
 
 改为：
 
-```c++
-#ifndef USE_V8_DEBUGGER
-    #if defined(CC_DEBUG) && CC_DEBUG > 0
-        #define USE_V8_DEBUGGER 1
-    #else
-        #define USE_V8_DEBUGGER 1  // 这里改为 1，强制启用调试
-    #endif
-#endif
+```cmake
+if(NOT RES_DIR)
+    message(FATAL_ERROR "RES_DIR is not set!")
+endif()
+
+include(${RES_DIR}/proj/cfg.cmake)
+set(USE_V8_DEBUGGER_FORCE ON) ## 覆盖 USE_V8_DEBUGGER_FORCE 的值
+
+if(NOT COCOS_X_PATH)
+    message(FATAL_ERROR "COCOS_X_PATH is not set!")
+endif()
+# ...
 ```
 
 ### Chrome 远程调试 V8
@@ -1093,37 +999,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 `objA->attachObject(objB);` 类似于 JS 中执行 `objA.__nativeRefs[index] = objB`，只有当 objA 被 GC 后，objB 才有可能被 GC。<br>
 `objA->dettachObject(objB);` 类似于 JS 中执行 `delete objA.__nativeRefs[index];`，这样 objB 的生命周期就不受 objA 控制了。
 
-### cc::Ref 子类与非 cc::Ref 子类 JS/CPP 对象生命周期管理有何不同？
+### 请不要在栈（Stack）上分配 cc::RefCounted 的子类对象
 
-目前引擎中 `cc::Ref` 子类的绑定采用 JS 对象控制 CPP 对象生命周期的方式，这样做的好处是，解决了一直以来被诟病的需要在 JS 层 retain，release 对象的烦恼。
-
-非 `cc::Ref` 子类采用 CPP 对象控制 JS 对象生命周期的方式。此方式要求，CPP 对象销毁后需要通知绑定层去调用对应 `se::Object` 的 clearPrivateData, unroot, decRef 的方法。JS 代码中一定要慎重操作对象，当有可能出现非法对象的逻辑中，使用 `sys.isObjectValid` 来判断 CPP 对象是否被释放了。
-
-### 绑定 cc::Ref 子类的析构函数需要注意的事项
-
-如果在 JS 对象的 finalize 回调中调用任何 JS 引擎的 API，可能导致崩溃。因为当前引擎正在进行垃圾回收的流程，无法被打断处理其他操作。finalize 回调中是告诉 CPP 层是否对应的 CPP 对象的内存，不能在 CPP 对象的析构中又去操作 JS 引擎 API。
-
-那如果必须调用，应该如何处理？
-
-Cocos Creator 的绑定中，如果引用计数为 1 了，我们不使用 release，而是使用 autorelease 延时 CPP 类的析构到帧结束去执行。
-
-```c++
-static bool XMLHttpRequest_finalize(se::State& s)
-{
-    CCLOG("jsbindings: finalizing JS object %p (XMLHttpRequest)", s.nativeThisObject());
-    XMLHttpRequest* cobj = (XMLHttpRequest*)s.nativeThisObject();
-    if (cobj->getReferenceCount() == 1)
-        cobj->autorelease();
-    else
-        cobj->release();
-    return true;
-}
-SE_BIND_FINALIZE_FUNC(XMLHttpRequest_finalize)
-```
-
-### 请不要在栈（Stack）上分配 cc::Ref 的子类对象
-
-Ref 的子类必须在堆（Heap）上分配，即通过 `new`，然后通过 `release` 来释放。当 JS 对象的 finalize 回调函数中统一使用 `autorelease` 或 `release` 来释放。如果是在栈上的对象，reference count 很有可能为 0，而这时调用 `release`，其内部会调用 `delete`，从而导致程序崩溃。所以为了防止这个行为的出现，开发者可以在继承于 `cc::Ref` 的绑定类中，标识析构函数为 `protected` 或者 `private`，保证在编译阶段就能发现这个问题。
+Ref 的子类必须在堆（Heap）上分配，即通过 `new`，然后通过 `release` 来释放。当 JS 对象的 finalize 回调函数中统一使用 `release` 来释放。如果是在栈上的对象，reference count 很有可能为 0，而这时调用 `release`，其内部会调用 `delete`，从而导致程序崩溃。所以为了防止这个行为的出现，开发者可以在继承于 `cc::RefCounted` 的绑定类中，标识析构函数为 `protected` 或者 `private`，保证在编译阶段就能发现这个问题。
 
 例如：
 

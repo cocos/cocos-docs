@@ -22,10 +22,12 @@ CocosJavascriptJavaBridge.evalString("window.sample.testEval('" + param + "',JSO
 
 每次调用下载都需要这样执行：
 
-```js
-if(sys.isNative && sys.os == sys.OS.IOS) {
+```ts
+import {NATIVE} from 'cc/env';
+
+if(NATVE && sys.os == sys.OS.IOS) {
     jsb.reflection.callStaticMethod('ABCFileDownloader', 'downloadFileWithUrl:cookie:savePath:', url, cookies, savePath);
-} else if(sys.isNative && sys.os == sys.OS.ANDROID) {
+} else if(NATVE && sys.os == sys.OS.ANDROID) {
     jsb.reflection.callStaticMethod("com/tencent/abcmouse/downloader/ABCFileDownloader", "downloadFileWithUrl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", url, cookies, savePath);
 }
 ```
@@ -128,13 +130,12 @@ SE_BIND_FUNC(foo) // 此处以回调函数的定义为例
 
 ### 类型转换辅助函数
 
-类型转换辅助函数位于 **cocos/bindings/manual/jsb_conversions.h/.cpp** 中，包含了多种 `se::Value` 与 C++ 类型相互转化的方法。
+类型转换辅助函数位于 **cocos/bindings/manual/jsb_conversions.h** 中，包含了 `se::Value` 与 C++ 类型相互转化的方法。主要是以下两个:
 
-- `bool std_string_to_seval(const std::string& v, se::Value* ret);`
-- `bool seval_to_std_string(const se::Value& v, std::string* ret);`
-- `bool boolean_to_seval(bool v, se::Value* ret);`
-- `bool seval_to_boolean(const se::Value& v, bool* ret);`
-... ...
+- `bool sevalue_to_native(const se::Value &from, T *to, se::Object * /*ctx*/)`, 从 `se::Value` 到 C++ 类型
+- `bool nativevalue_to_se(const T &from, se::Value& out, se::Object * /*ctx*/)`,  从 C++ 类型到 `se::Value`
+
+> 第三个参数多数情况可以直接传 `nullptr`, 目前只有 `function` 类型对 `ctx` 又依赖.
 
 ## 实践
 
@@ -286,7 +287,7 @@ static bool js_network_FileDownloader_getInstance(se::State& s)
     CC_UNUSED bool ok = true;
     if (argc == 0) {
         FileDownloader* result = FileDownloader::getInstance(); // C++ 单例
-        ok &= native_ptr_to_seval<FileDownloader>((FileDownloader*)result, &s.rval());
+        ok &= nativevalue_to_se(result, s.rval(), nullptr);
         SE_PRECONDITION2(ok, false, "js_network_FileDownloader_getInstance : Error processing arguments");
         return true;
     }
@@ -316,8 +317,8 @@ static bool js_network_FileDownloader_download(se::State &s) {
     if (argc == 3) {
         std::string url;
         std::string path;
-        ok &= seval_to_std_string(args[0], &url); // 转化为std::string url
-        ok &= seval_to_std_string(args[1], &path); // 转化为std::string path
+        ok &= sevalue_to_native(args[0], &url, nullptr); // 转化为std::string url
+        ok &= sevalue_to_native(args[1], &path, nullptr); // 转化为std::string path
         std::function<void(const std::string& msg,
                            const int code)> callback;
         do {
@@ -337,8 +338,8 @@ static bool js_network_FileDownloader_download(se::State &s) {
                     CC_UNUSED bool ok = true;
                     se::ValueArray args;
                     args.resize(2);
-                    ok &= std_string_to_seval(msg, &args[0]);
-                    ok &= int32_to_seval(code, &args[1]);
+                    ok &= nativevalue_to_se(msg, args[0], nullptr);
+                    ok &= nativevalue_to_se(code, args[1], nullptr);
                     se::Value rval;
                     se::Object* thisObj = jsThis.isObject() ? jsThis.toObject() : nullptr;
                     se::Object* funcObj = jsFunc.toObject();
@@ -377,7 +378,16 @@ network::FileDownloader::destroyInstance();
 ================================================
 
 以上就是全部的绑定流程，在分别编译到 Android/iOS 环境后，我们就能够通过 `jsb.fileDownloader.download()` 进行下载调用了。<br>
-（PS：一定切记在使用前进行 `JSB` 的宏判断，因为非 JSB 环境下是无法使用的）
+（PS：一定切记在使用前进行 `NATIVE` 的宏判断，因为非 JSB 环境下是无法使用的）
+
+```typescript
+import {NATIVE} from 'cc/env';
+...
+if(NATIVE) {
+ // JSB 相关逻辑
+}
+
+```
 
 ## 总结
 
