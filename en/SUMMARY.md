@@ -218,6 +218,7 @@
         - [Joint Texture Layout Settings](animation/joint-texture-layout.md)
     - [Controlling Animation with Scripts](animation/animation-component.md)
         - [Animation State](animation/animation-state.md)
+    - [Embedded Player](animation/embedded-player.md)
     - [Marionette Animation System](animation/marionette/index.md)
         - [Animation Graph Assets](animation/marionette/animation-graph.md)
         - [Animation Graph Panel](animation/marionette/animation-graph-panel.md)
