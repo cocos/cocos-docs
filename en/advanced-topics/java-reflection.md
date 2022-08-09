@@ -1,6 +1,6 @@
 # How to Call Java methods using JavaScript on Android
 
-> WARNING: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+> **Note**: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
 
 With the Cocos Creator Android build, developers can call Java static methods directly in JavaScript. Doing so is very simple:
 
