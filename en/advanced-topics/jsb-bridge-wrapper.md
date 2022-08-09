@@ -1,6 +1,6 @@
 # Event Mecanism based on JsbBridge
 
-> WARNING: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+> **Note**: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
 
 ## An eventify system based on JsbBridge
 
