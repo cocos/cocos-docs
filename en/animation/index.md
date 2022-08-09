@@ -20,6 +20,8 @@ Cocos Creator has a built-in universal animation system for implementing keyfram
 
     - [Animation State](animation-state.md): the state of animation clips is stored in an object called animation state, animation state can control the animation clips that need to be used on the object. Animation state provides more animation control interfaces, through which animation can be played, stopped, shifted, set to loop mode and other more detailed control.
 
+- [Embedded Player](embedded-player.md): embeded-player is used to embed other particle players or animation players in the animation clips.
+
 - [Marionette Animation System](./marionette/index.md): added in v3.4 and implements an automated and reusable skeletal animation process controlled by a state machine.
 
 According to different animation requirements, the operation steps and code implementation for specific animations are different, please refer to the official example [animation](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/animation), which mainly introduces some common editing operations and code examples for reference.
