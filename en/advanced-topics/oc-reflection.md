@@ -1,6 +1,6 @@
 # How to call Objective-C functions using JavaScript on iOS/Mac
 
-> WARNING: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+> **Note**: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
 
 With native iOS or Mac applications packaged with Cocos Creator, JavaScript calling Objective-C functions directly through the native language's reflection mechanism can be achieved with the following sample code:
 
