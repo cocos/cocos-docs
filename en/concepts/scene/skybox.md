@@ -17,7 +17,7 @@ The **Skybox** component properties are as follows:
 | **UseHDR** | If this option is checked, HDR (High Dynamic Range) will be turned on, if not checked, LDR (Low Dynamic Range) will be used. For details, please refer to the section **Switching HDR/LDR Mode** below. |
 | **Envmap** | Environment map, TextureCube type, see below for details on how to set it. <br>When this property is empty, the skybox uses and displays pixel texture by default. |
 | **Reflection Convolution** | Click the bake button will generates a low resolution environment map and perform convolution calculation on this map, convolution map will be used for environment reflection. |
-| **Reflection Map** | Automatically generated convolutional maps for environmental reflection，currently doesn't support manually editing. Rendering effects, please refer to the section **bake reflection convolution map** below.|
+| **Reflection Map** | Automatically generated convolutional maps for environmental reflection, currently doesn't support manually editing. Rendering effects, please refer to the section **bake reflection convolution map** below.|
 | **DiffuseMap** | The convolution map for advanced diffuse lighting. It's automatically generated and managed by the engine, currently doesn't support manually editing. This option is only shown when **Env Lighting Type** is **DIFFUSEMAP_WITH_REFLECTION**. |
 | **Skybox Material** |  Add custom material for the skybox |
 
