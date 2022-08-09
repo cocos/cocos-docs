@@ -1,6 +1,6 @@
 # 模型资源
 
-目前，Creator 支持 **FBX** 和 **glTF** 两种格式的模型文件。****
+目前，Creator 支持 **FBX** 和 **glTF** 两种格式的模型文件。
 
 - FBX（.fbx）：支持 FBX 2020 及更早的文件格式。
 - glTF（.gltf 、.glb）：支持 glTF 2.0 及更早的文件格式，详情可参考 [glTF 模型](./glTF.md)。
