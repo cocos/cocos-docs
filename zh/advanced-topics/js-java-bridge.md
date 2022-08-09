@@ -1,5 +1,7 @@
 # 简化使用 JavaScript 调用 Java 方法（实验性功能）
 
+> **注意**：在 v3.6 之后，jsb 模块将会逐步废弃，接口将会迁移到 cc 命名空间下的 native 模块。
+
 ## 背景
 
 在 v3.4.0 之前，通过反射机制在 [JavaScript 调用 JAVA](./java-reflection.md) 的静态方法中，我们不仅需要严格声明包名和函数签名，还需要严格校对参数数量以确保正常运行，步骤较为复杂。
@@ -95,13 +97,14 @@ JsbBridge.setCallback(new JsbBridge.ICallback() {
 并且在 `JavaScript` 中对按钮的点击事件执行打开操作：
 
 ```ts
+import { native } from 'cc'
 public static onclick(){
     // 'usrName' and 'defaultAdUrl' are both string
-    jsb.bridge.sendToNative(usrName, defaultAdUrl);
+    native.bridge.sendToNative(usrName, defaultAdUrl);
 } 
 ```
 
-这样就可以通过 `Jsb.Bridge` 这个通道将需要的信息发送到 `Java` 层执行打开广告的操作了。
+这样就可以通过 `native.Bridge` 这个通道将需要的信息发送到 `Java` 层执行打开广告的操作了。
 
 ### JAVA 触发 JavaScript 的方法
 
@@ -118,7 +121,7 @@ public void playAnimation(animationName: string, isLoop: boolean){
 然后在 `onNative` 中记录该方法：
 
 ```ts
-jsb.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
+native.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
     if(isLoop && isLoop == "true") {
         this.playAnimation(animationName, true);
         return;
