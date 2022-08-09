@@ -10,7 +10,7 @@
   
   ![导出按钮](max/02-export-selected.png)
 
-3. 将 **Save as type** 设置为 ***.fbx**， 点击 **save** 按钮
+3. 将 **Save as type** 设置为 **.fbx**， 点击 **save** 按钮
   
   ![导出路径名称设置](max/03-export-file-name.png)
  
