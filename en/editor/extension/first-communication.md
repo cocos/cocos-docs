@@ -1,139 +1,157 @@
-# First Data Interaction
+# Getting Started Example - First Data Interaction
 
-Creating extensions and how to define panels in extensions was covered in the previous two documents, **First Extension** and **First Panel**, the next step is to communicate between them. This document will help teach this concept.
+In the previous two documents [Getting Started Example - Menu](./first.md) and [Getting Started Example - Panel](./first-panel.md), we introduced:
+- How to create extensions
+- How to define menus in extensions
+- how to define messages in an extension
+- How to define a panel in an extension
 
-## Define the message inside the description file package.json
+This article demonstrates how two extensions can communicate with each other and will cover three topics:
+- How to open a panel of another extension
+- How to send a message to another extension
+- How to send and listen to broadcast messages
 
-First, add a message `"increasing"` to the browser in `contributions.messages`. Next, add a `"hello-world:increasing"` message to the default panel to handle/respond to.
+## Open Another Extension's Panel
 
-```json
+Sometimes we need to open another extension in an extension we wrote, so next we'll try to modify the extension example in **Getting Started Example - Menu** so that it opens the panel defined in **Getting Started Example - Panel**.
+
+The modified `package.json` looks like this:
+
+```JSON5
 {
-    "name": "hello-world",
+    "package_version": 2,
     "version": "1.0.0",
-    "main": "./browser.js",
-    "description": "a simple extension",
-    "panels": {
-        "default": {
-            "title": "simple panel",
-            "main": "./panels/default.js"
-        }
-    },
+    "name": "hello-world",
+    ...
     "contributions": {
         "menu": [
             {
-                "path": "Develop",
+                "path": "Develop/HelloWorld",
                 "label": "test",
                 "message": "log"
-            }, {
-                "path": "i18n:menu.panel/Custom",
-                "label": "Open Hello World",
-                "message": "open-panel"
+            },
+            {
+                "path": "Develop/HelloWorld",
+                "label": "open other",
+                "message": "open-other"
             }
         ],
         "messages": {
             "log": {
-                "methods": ["log"]
+                "methods": [
+                    "log"
+                ]
             },
-            "open-panel": {
-                "methods": ["openPanel"]
-            },
-            "increasing": {
-                "methods": ["increasing"]
-            },
-            "query-num": {
-                "methods": ["queryNum"]
-            },
-            "hello-world:increasing": {
-                "methods": ["default.increasing"]
+            "open-other": {
+                "methods": [
+                    "openOther"
+                ]
             }
         }
     }
 }
 ```
 
-`hello-world:increasing` means listening for an increasing message on hello-world. `default.increasing` means that the default panel's `increasing` method will handle it.
+We modified `contributions.menu`, added `open other` menu item, and put all the menus of this extension under Develop/HelloWorld. After refreshing the extension, you can find the menu items in the top menu bar as shown below.
 
-The meaning of the panel field can be found in the [Creating A Custom Panel](./panel-boot.md) documentation.
+![extension-menu-hw.png](./first/extension-menu-hw.png)
 
-### Add `increasing` in `browser.js`
+In `contributions.messages`, we add an `open-other` message and let the `openOther` function in `main.ts` handle this message.
 
-Next, add a new `increasing` method to `methods` in `browser.js`, which is responsible for recording a `num` and incrementing it, and broadcasting it each time it is triggered.
+The extension in **Getting Started Example - Panel** is `first-panel`, so we use `Editor.Panel.open('extension')` to open its default panel, as follows:
 
-```javascript
-'use strict';
-
-let num = 0;
-// Method defined within the extension
-exports.methods = {
-    log() {
-        console.log('Hello World');
-    },
-    openPanel() {
-        Editor.Panel.open('hello-world');
-    },
-    queryNum() {
-        return num;
-    },
-    increasing() {
-        num++;
-        Editor.Message.broadcast('hello-world:increasing', num);
-    },
-};
-
-// Executed when the extension is started
-exports.load = function() {};
-
-// Executed when the extension is closed
-exports.unload = function() {};
+```typescript
+openOther(){
+    Editor.Panel.open('first-panel');
+}
 ```
 
-### Adding `increasing` button and broadcast handling to the panel
+After executing the `npm run build` command at the root of `hello-world`, go to **Extension Manager** to refresh the `hello-world` extension.
 
-Next, add an **increasing** button to the interface, as well as an area to display `num` and receive broadcast messages for `num` changes.
+Click on the **Develop** -> **HelloWorld** -> **open other** menu item and you will see the example panel open.
 
-```javascript
-'use strict';
+## Communication with other extensions
 
-// The content of the panel
-exports.template = `
-<div>Hello</div>
-<div><ui-button>increasing</ui-button></div>
-<div><span>Num: </span><span class="num">-</span></div>
-`;
+### Directional communication
 
-// The style of the panel
-exports.style = 'div { color: yellow; }';
+In the above example, we open the `first-panel` panel in `hello-world` with `Editor.Panel.open('extension')`. But if we are trying to do something else, this solution won't work.
 
-// Shortcut selector
-exports.$ = {
-    elem: 'div',
-    button: 'ui-button',
-    num: '.num',
-};
+When an extension wants to call the function of another extension, this can be done by sending a message to one of the extensions with the following function:
 
-exports.methods = {
-    increasing(num) {
-        this.$.num.innerHTML = num;
-    },
-};
-
-// Hook function that fires when the panel is launched
-exports.ready = async function() {
-    this.$.elem.innerHTML = 'Hello World';
-
-    this.$.button.addEventListener('confirm', () => {
-        Editor.Message.send('hello-world', 'increasing');
-    });
-
-    this.$.num.innerHTML = await Editor.Message.request('hello-world', 'query-num');
-};
-
-// Hook function that fires after the panel is closed
-exports.close = function() {};
+```typescript
+Editor.Message.send(extensionName:string,messasge:string,...args:any[])
 ```
 
-## Refresh extensions
+The messages defined in `contributions.messages` of each extension are available to the public by default. In `first-panel` we find the `open-panel` message, which is used to open its own default panel. For simplicity, we replace the `openOther` function in `main.ts` in `hello-world` with the following:
 
-Once the above changes are done and saved, open Cocos Creator again, find and open **Extensions -> Extension Manager** in the top menu bar, and select the extension location (**Global** or **Project**) in the panel. Find the corresponding extension and click the **Refresh** button, Creator will reload the extension to make it effective.
+```typescript
+openOther(){
+    Editor.Message.send('first-panel','open-panel');
+}
+```
 
-Lastly, the new **Open Hello World** option will appear in the **Panel -> Custom** on the top menu bar, click it to open it.
+After recompiling the `hello-world` extension and refreshing it, click **Develop** -> **HelloWorld** -> **open other** menu item again, you can see the default panel of `first-panel` is opened.
+
+### Broadcast communication
+
+When an extension wants to notify all extensions across the system of the completion of an event, it can do so by broadcasting a message with the following function.
+
+```typescript
+Editor.Message.broadcast(message:string, ...args:any[])` 
+```
+
+Next, we define a broadcast message called `first-panel:open`, which is broadcast by the `first-panel` extension and listened to by the `hello-world` extension.
+
+In `hello-world`, we add a new message listener and specify the handler function, with the following modified `contributions.messages`:
+
+```json5
+{
+    "messages": {
+        "log": {
+            "methods": [
+                "log"
+            ]
+        },
+        "open-other": {
+            "methods": [
+                "openOther"
+            ]
+        },
+        "first-panel:open":{
+            "methods": [
+                "onFirstPanelOpen"
+            ]
+        }
+    }
+}
+```
+
+Then add the following handler function to `main.ts` of `hello-world`:
+
+```typescript
+onFirstPanelOpen(){
+    console.log("hello-world knows first-panel is open");
+}
+```
+
+The transformation as a listener is done, next we modify the broadcast side `first-panel`.
+
+Add the following broadcast message code to the ``src/panels/default/index.ts :ready`` function in the ``first-panel` project.
+
+```typescript
+Editor.Message.broadcast("first-panel:open");
+```
+
+The `ready` function will be called when the default panel of `first-panel` is opened, at which point the `first-panel:open` message will be broadcast.
+
+> **Note**: Broadcasters can also listen for their own broadcast messages in messages, but this is usually not necessary.
+
+Compile and refresh the two extensions separately, click again on the **Develop** -> **HelloWorld** -> **open other** menu item, and you will see the sample panel opened, in addition to the following print in the Cocos Creator console window.
+
+```
+hello-world knows first-panel is open
+```
+
+This means that the ``hello-world`` extension has received a broadcast message from the ``first-panel`` extension.
+
+For more message-related details, please refer to the documentation [Message System](./messages.md).

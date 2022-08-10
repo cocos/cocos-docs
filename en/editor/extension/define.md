@@ -1,73 +1,91 @@
-# Definition of extension
+# Definition of Extension
 
-The extension package needs to be pre-defined with some basic information that needs to be filled in and stored in the `package.json` file.
+The extension package needs to have all the features and some basic information predefined in the `package.json` file, as follows.
 
-```json
+```JSON5
 {
-    "name": "hello-world",
+    "package_version": 2,
     "version": "1.0.0",
-    "author": "Creator",
-    "description": "description",
-
-    "main": "./browser.js",
-
-    "panels": {
-        "default": {
-            ...
-        },
-        "list": {
-            ...
-        }
+    "name": "first-panel",
+    "tilte": "i18n:first-panel.title",
+    "description": "i18n:first-panel.description",
+    "author": "Cocos Creator",
+    "editor": ">=3.4.2",
+    "main": "./dist/main.js",
+    "dependencies": { ... },
+    "devDependencies": { ... },
+    "panels": { ... },
+    "contributions": {
     },
-
-    "contributions": {}
+    "scripts": {
+        "build": "tsc -b",
+        "watch": "tsc -w"
+    }
 }
 ```
 
-## name
+## package_version
 
-Type: `{string}` Required
+Type {number} Required
 
-The name of the extension, this name needs to correspond to the extension folder one-to-one.
+The version number of the extension, which is used to submit the version verification of the extension, as well as some upgrades of the extension itself, and data migration as a basis for comparison.
 
 ## version
 
-Type `{string}` Required
+Type {string} Required
 
-The version number of the extension is used to submit the version verification of the extension, as well as some upgrades of the extension itself, and the data migration is used as the basis for comparison.
+The version number of the extension, mainly used for display, if you want to make logical judgments, `package_version` is recommended.
 
-## editor
+## name
 
-Type `{string}` Optional
+Type {string} Required
 
-Describes the version of the editor that the extension supports using, conforming to the [Semver Specification](https://semver.org/).
+The name of the extension, this name should correspond to the extension folder.
 
-## author
+## title
 
-Type `{string}` Optional
+Type {string} Optional
 
-The name of the extension author will be displayed in the **Extension Manager**.
+The title of the extension, when `title` is configured, `title` will be used when the extension needs to be displayed, supports [Multilingual System (i18n)](./i18n.md) configuration.
 
 ## description
 
-Type `{string}` Optional
+Type {string} Optional
 
-The description of the extension, briefly summarize the function of the extension. Support `i18n:key` grammar.
+The description of the extension, a brief overview of the extension's functionality. Supports [Multilingual System (i18n)](./i18n.md) for multilingual syntax.
+
+## author
+
+type {string} optional
+
+The name of the author of the extension, which will be shown in the "Extension Manager".
+
+## editor
+
+type {string} Optional
+
+Description of the editor version supported by the extension, conforming to the [`semver` semantic version control specification](https://semver.org/).
 
 ## main
 
-Type `{string}` Optional
+type {string} Optional
 
-The relative path of a js file defines the function entry file. When the extension starts, the JavaScript file pointed to by the main field will be executed, and the corresponding method will be triggered or executed according to the process.
+A relative path to a js file that defines the function entry file. When the extension starts, the js file pointed to by the `main` field will be executed and the corresponding method will be triggered or executed according to the flow.
 
 ## panels
 
-Type `{[name: string]: PanelInfo}` Optional
+Type {[name: string]: PanelInfo} Optional
 
-Panel information defined in the extension. Use `Editor.Panel.open('hello-world.list');` to open the defined panel. For more information, please refer to the [Panel](./panel.md) documentation.
+The panel information defined within the extension. You can use `Editor.Panel.open('hello-world.list');` to open the defined panel. For details, please refer to [Extension Panel](./panel.md).
 
 ## contributions
 
-Type `{[name: string]: any}` Optional
+type {[name: string]: any} optional
 
-Extend existing functions, and customize some other function modules that are open to the outside world. For more information, please refer to the [Contributions](./contributions.md) documentation.
+`contributions` provides the ability to interact with the editor's feature system, see the documentation [Extend existing functionality](./contributions.md).
+
+## scripts
+
+type {[name: string]: any} required
+
+Extends the executable command line.

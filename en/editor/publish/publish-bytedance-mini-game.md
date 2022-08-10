@@ -55,7 +55,7 @@ Cocos Creator and the ByteDance platform have conducted in-depth collaboration, 
 
 ![compare performance](./publish-bytedance-mini-game/performance.png)
 
-The prerequisite for using native physics is to set **Physics System** to **PhysX** in **Project -> Project Settings -> Feature Crop** in the Creator main menu bar. Then open the **Build** panel with the **Platform** option set to **ByteDance Mini Game**, and see the native physics related configuration options as follows:
+The prerequisite for using native physics is to set **Physics System** to **PhysX** in **Project -> Project Settings -> Feature Cropping** in the Creator main menu bar. Then open the **Build** panel with the **Platform** option set to **ByteDance Mini Game**, and see the native physics related configuration options as follows:
 
 ![PhysX options](./publish-bytedance-mini-game/physx-options.png)
 
