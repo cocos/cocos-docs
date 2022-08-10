@@ -7,11 +7,11 @@
 
 #### 准备工作
 
-我们需要创建一个空的工程, 保存场景 并且 新建任一原生平台的构建任务. 示例使用的是 Windows 平台.
+我们需要创建一个空的工程, 保存场景, 并且新建任一原生平台的构建任务. 本示例使用的是 Windows 平台.
 
 #### 第一步: 添加绑定代码
 
-在 `native/engine/common/Classes` 目录, 新建文件 `HelloSEBind.cpp`. 写入以下内容:
+在 `native/engine/common/Classes` 目录, 新建文件 `HelloSEBind.cpp`, 写入以下内容:
 ```c++
 // HelloSEBind.cpp
 #include "bindings/sebind/sebind.h"
@@ -75,17 +75,18 @@ int Game::init() {
 
 ![devtool](./sebind/devtool-test.PNG)
 
+导出成功.
 
-相比之前的做法, 对 `se` 接口的使用大大减少.
+相比之前的做法, 对 `se` 接口的使用大大减少, 代码量也随之减少.
 
 
 ### 更复杂的绑定示例
 
-`sebind` 以类为单位绑定, 每一个 JS 绑定类型都需要构造对应的 `sebind::class_` 实例, 所有的类的绑定都是通过 `sebind::class_` 所提供的方法来完成.
+`sebind` 以类为单位进行接口绑定. 每一个 JS 类都需要构造对应的 `sebind::class_` 实例. 所有的类的绑定都是通过 `sebind::class_` 所提供的方法来完成的.
 
-我们通过将下面的类绑定, 来熟悉 sebind 的流程.
+下面, 我们通过导出示例代码的 `User` 类来熟悉 `sebind` 的绑定流程.
 
-> 下面的代码只用作说明 sebind 的用法, 内部接口设计和实现在实际开发中无参考价值.
+> 注意: 示例代码只用作说明 `sebind` 的用法, 内部接口设计和实现在实际开发中无参考价值.
 
 ```c++
 class User {
@@ -286,7 +287,7 @@ int gettime() { return time(nullptr); }
 
 需要注意, 父类的静态方法不会被子类继承. 
 
-### 更复杂的用法
+### 其他用法
 
 #### 手动类型转换
 
