@@ -385,3 +385,4 @@
     - [原生场景剔除](advanced-topics/native-scene-culling.md)
     - [原生性能剖析器](advanced-topics/profiler.md)
     - [WebSocket 服务器](advanced-topics/websocket-server.md)
+    - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
