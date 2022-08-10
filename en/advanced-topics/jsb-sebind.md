@@ -173,9 +173,9 @@ Relates a C++ class to a specified JS class name
 There are 4 constructor patterns declared here, with 0,1,2,3 parameters. Each template parameter corresponds to the constructor's parameter type. 
 When calling `new User(...)` will trigger the corresponding C++ constructor depending on the number of arguments
 
-> If you don't declare any `constructor`, `sebind:class_` will use the default unreferenced constructor. 
+> If you don't declare any `constructor`, `sebind:class_` will use the default parameterless constructor. 
 
-We can also define normal functions as constructors, for example:
+We can also define common functions as constructors, for example:
 
 ```c++
 User *createUser(int credit) {
@@ -202,7 +202,7 @@ You can also define `getter`/`setter` functions as properties. Here the `getter`
 
 > `getter`/`setter` can not be both `nullptr`.
 
-Normal functions, with `User*` as the first argument, can be used as member functions. For example:
+Common functions, with `User*` as the first argument, can be used as member functions. For example:
 
 ```c++
 std::string tokenLong_get(User *u) {
@@ -237,7 +237,7 @@ If a function is overloaded, we need to specify the specific type of the functio
         .function("toString", static_cast<std::string(User::*)(const std::string&) const>(&User::toString))  //JS: (new User).toString("1111")
 ```
 
-Similar to constructors, overloaded functions are matched based on the number of arguments, and the same number of arguments should be avoided. If you need to determine the type of parameters at runtime, you can refer to bind [`SE` functions](#Manual Type Conversion)
+Similar to constructors, overloaded functions are matched based on the number of arguments, and the same number of arguments should be avoided. If you need to determine the type of parameters at runtime, you can refer to bind [`SE` functions](#manual-type-conversion)
 
 
 #### Exporting static methods of a class
@@ -288,9 +288,9 @@ Mounts the `User` class to the `globalThis` object, completing the export. `User
 ```
 
 
-#### Inheritance
+#### Class Inheritance
 
-Constructor for `sebind::class_`, with the second argument being the `prototype` object of the parent class. Here the `SuperUser` class inherits from the `User` class. 
+Specify the parent class's prototype in the second parameter of the `sebind::class_` constructor. Here the `SuperUser` class inherits from the `User` class. 
 
 ```c++
   sebind::class_<User> superUser("SuperUser", userClass.prototype());
@@ -305,11 +305,11 @@ Constructor for `sebind::class_`, with the second argument being the `prototype`
 
 > Note that the static methods of the parent class are not inherited by the child class. 
 
-## Other uses
+## Other Uses
 
 ### Manual Type Conversion
 
-`sebind` supports binding traditional SE functions to perform the conversion manually. For example:
+`sebind` supports binding traditional `SE` functions to perform the conversion manually. For example:
 
 ```c++
 bool jsb_sum(se::State &state) {
@@ -343,6 +343,9 @@ All we need to do is specify the placeholder `sebind::ThisObject` in the argumen
       superUser.constructor<sebind::ThisObject, const std::string &>() // JS: new SuperUser("Jone")
 
 ``` 
+
+> Common functions are not supported here for now.
+
 When calling the corresponding constructor in JS, all `sebind::ThisObject` parameters should be ignored.  
 
 ![sebind::ThisObject](./sebind/thisobject_placeholder.PNG)
