@@ -166,8 +166,8 @@ int User::userCount = 0;
         .constructor<const std::string &, const std::string &>() // JS: new User("Jone", "343453")
         .constructor<const std::string &, const std::string &, int>() //JS:  new User("Jone", "343453", 5678)
 ```
-这里声明了 4 个构造模式, 分别为 0,1,2,3 个参数. 
-在 JS 中调用 `new User(...)` 会根据参数的数目触发对应的 C++ 构造函数
+这里声明了 4 个构造模式, 分别为 0,1,2,3 个参数. 每一个模板参数都对应于构造函数的参数类型. 
+在 JS 中调用 `new User(...)` 时, 会根据参数的数目触发对应的 C++ 构造函数
 
 > 如果不声明任何的 `constructor`, `sebind:class_` 会使用默认的无参构造函数. 
 
@@ -228,7 +228,7 @@ JS 中绑定类型的实例可以作为参数传递给 C++ 绑定函数. C++ 函
         .function("toString", static_cast<std::string(User::*)() const>(&User::toString))   ///JS: (new User).toString()
         .function("toString", static_cast<std::string(User::*)(const std::string&) const>(&User::toString))  //JS: (new User).toString("1111")
 ```
-和构造函数类似, 重载函数是根据参数的数目进行匹配的, 应该避免相同参数的情形. 如果需要运行是判断参数类型可以参考绑定[ SE 函数](#手动类型转换)
+和构造函数类似, 重载函数是根据参数的数目进行匹配的, 应该避免相同参数的情形. 如果需要运行时判断参数类型可以参考绑定[ SE 函数](#手动类型转换)
 
 #### 导出类静态方法
 
@@ -249,7 +249,7 @@ int  static_add(int a, int b) { return a + b; }
 ```c++
         .staticProperty("userCount", &User::getUserCount, &User::setUserCount)  //JS: User.userCount
 ```
-或者
+或普通函数
 ```c++
 int gettime() { return time(nullptr); }
 /// ...
@@ -268,16 +268,16 @@ int gettime() { return time(nullptr); }
 
 #### 导出到 JS 全局对象
 
-将 `User` 类挂载到 `globalThis`对象, JS 脚本中可在全局访问.
+将 `User` 类挂载到 `globalThis`对象, 完成导出. JS 脚本中可在全局访问.
 
 ```c++
         .install(globalThis);
 ```
 
 
-#### 继承类
+#### 继承
 
-`sebind::class_` 的构造函数, 第二个参数为父类的 `prototype` 对象.
+`sebind::class_` 的构造函数, 第二个参数为父类的 `prototype` 对象. 这里的 `SuperUser` 类继承了 `User` 类. 
 
 ```c++
   sebind::class_<User> superUser("SuperUser", userClass.prototype());
@@ -290,7 +290,7 @@ int gettime() { return time(nullptr); }
   }
 ```
 
-需要注意, 父类的静态方法不会被子类继承. 
+> 需要注意, 父类的静态方法不会被子类继承. 
 
 ## 其他用法
 
@@ -311,11 +311,11 @@ bool jsb_sum(se::State &state) {
     .staticFunction("sum", &jsb_sum) // JS: User.sum(1,2,3,4,5)
 ```
 
-这样就可以支持变长参数 和 灵活的参数转换.
+这样就可以支持变长参数 和 灵活的参数转换. 相比自动转换, 这个方式更灵活同时也要求开发者对 `SE API` 更熟悉.
 
 ### 获取 JS this 对象
 
-在 C++ 构造函数中获取对应的 JS this 对象是一个常见的需求, 极大地方便了从 C++ 到 JS 的访问流程.
+在 C++ 构造函数中获取对应的 JS `this` 对象是一个常见的需求, 也能简化了从 C++ 到 JS 的访问流程.
 
 我们只需要在 `constructor` 的参数类型中指定占位符 `sebind::ThisObject` 同时将对应构造函数的参数类型声明为 `se::Object *`.
 
