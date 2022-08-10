@@ -3,18 +3,18 @@
 在 `sebind` 之前, 不论是手动绑定还是自动绑定, 开发者需要比较多的步骤才能完成绑定, 而且需要对 JSB 有比较多了解. `sebind` 利用 C++ 的模板, 最大化地减少了中间代码.
 
 
-### 简单的示例
+## 简单的示例
 
 我们将在全局空间中定义一个对象 `simpleMath`, 并且添加一个 `lerp` 方法.
 ```js
 let v = simpleMath.lerp(a, b, t);
 ```
-这个 方法在 C++ 中实现.
-#### 准备工作
+这个方法在 C++ 中实现.
+### 准备工作
 
 我们需要创建一个空的工程, 保存场景, 并且新建任一原生平台的构建任务. 本示例使用的是 Windows 平台.
 
-#### 第一步: 添加绑定代码
+### 第一步: 添加绑定代码
 
 在 `native/engine/common/Classes` 目录, 新建文件 `HelloSEBind.cpp`, 写入以下内容:
 ```c++
@@ -48,7 +48,7 @@ list(APPEND CC_COMMON_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/Classes/HelloSEBind.cpp # new file
 )
 ```
-#### 第二步: 注册到 `ScriptEngine`
+### 第二步: 注册到 `ScriptEngine`
 
 编辑 `Game.cpp`, 位于 `native/engine/common/Classes` 目录
 
@@ -74,7 +74,7 @@ int Game::init() {
   //....
 ```
 
-#### 第三步: 验证
+### 第三步: 验证
 
 启动程序, 在 Debug 模式下通过 Chrome devtools 验证
 
@@ -85,7 +85,7 @@ int Game::init() {
 相比之前的做法, 对 `se` 接口的使用大大减少, 代码量也随之减少.
 
 
-### 更复杂的绑定示例
+## 更复杂的绑定示例
 
 `sebind` 以类为单位进行接口绑定. 每一个 JS 类都需要构造对应的 `sebind::class_` 实例. 所有的类的绑定都是通过 `sebind::class_` 所提供的方法来完成的.
 
@@ -152,14 +152,14 @@ int User::userCount = 0;
 } // namespace
 
 ```
-##### 实例化 `sebind::class_`
+#### 实例化 `sebind::class_`
 
 关联 C++ 类和指定 JS 类名
 ```c++
     // 定义绑定类和 JS 类名
   sebind::class_<User> userClass("User"); 
 ```
-##### 绑定构造函数
+#### 绑定构造函数
 ```c++
     userClass.constructor<>() // JS: new User
         .constructor<const std::string &>() // JS: new User("Jone")
@@ -182,7 +182,7 @@ User *createUser(int credit) {
 ```
 其返回值需要是一个 `User*` 类型. 这里相当于在 JS 中声明了 构造函数 `constructor(credit:number)`.
 
-##### 导出成员属性
+#### 导出成员属性
 
 把 C++ 公开的字段定义为 JS 中的属性
 ```c++
@@ -208,7 +208,7 @@ void tokenLong_set(User *u, const std::string &s) {
         .property("tokenPrefix", &tokenLong_get, &tokenLong_set) // JS: user.tokenPrefix
 ```
 
-##### 导出成员函数
+#### 导出成员函数
 
 导出成员函数
 ```c++
@@ -230,7 +230,7 @@ JS 中绑定类型的实例可以作为参数传递给 C++ 绑定函数. C++ 函
 ```
 和构造函数类似, 重载函数是根据参数的数目进行匹配的, 应该避免相同参数的情形. 如果需要运行是判断参数类型可以参考绑定[ SE 函数](#手动类型转换)
 
-##### 导出类静态方法
+#### 导出类静态方法
 
 导出类的静态函数
 ```c++
@@ -243,7 +243,7 @@ int  static_add(int a, int b) { return a + b; }
         .staticFunction("add", &static_add) //JS: User.add(1,2)
 ```
 
-##### 类静态属性
+#### 类静态属性
 
 将类静态函数导出为类的静态属性
 ```c++
@@ -256,7 +256,7 @@ int gettime() { return time(nullptr); }
         .staticProperty("time", &gettime, nullptr) //JS: User.time
 ```
 
-##### 注册析构回调
+#### 注册析构回调
 
 注册绑定对象被 GC 时的回调.
 
@@ -266,7 +266,7 @@ int gettime() { return time(nullptr); }
         })
 ```
 
-##### 导出到 JS 全局对象
+#### 导出到 JS 全局对象
 
 将 `User` 类挂载到 `globalThis`对象, JS 脚本中可在全局访问.
 
@@ -275,7 +275,7 @@ int gettime() { return time(nullptr); }
 ```
 
 
-##### 继承类
+#### 继承类
 
 `sebind::class_` 的构造函数, 第二个参数为父类的 `prototype` 对象.
 
@@ -292,9 +292,9 @@ int gettime() { return time(nullptr); }
 
 需要注意, 父类的静态方法不会被子类继承. 
 
-### 其他用法
+## 其他用法
 
-#### 手动类型转换
+### 手动类型转换
 
 `sebind` 支持绑定传统 SE 函数, 实现手动执行转换. 如:
 ```c++
@@ -313,7 +313,7 @@ bool jsb_sum(se::State &state) {
 
 这样就可以支持变长参数 和 灵活的参数转换.
 
-#### 获取 JS this 对象
+### 获取 JS this 对象
 
 在 C++ 构造函数中获取对应的 JS this 对象是一个常见的需求, 极大地方便了从 C++ 到 JS 的访问流程.
 
