@@ -18,5 +18,5 @@
 - [原生场景剔除](native-scene-culling.md)
 - [原生性能剖析器](profiler.md)
 - [WebSocket 服务器](websocket-server.md)
-- 原生插件
+- [原生插件](native-plugins/brief.md)
     - [原生插件创建范例](native-plugins/tutorial.md)
