@@ -1,4 +1,4 @@
-# Cocos Native plugins
+# Native Plugins
 
 Native Plugins are part of the editor plugins. By calling JSB interfaces (e.g. export with `sebind`) through native plugins, developers can extend the ability of JS scripts to call C++ interfaces, which can be very beneficial for solving script performance bottles and reusing existing codebases. As the engine is upgraded in the future, the native plugins will open up more features.
 
