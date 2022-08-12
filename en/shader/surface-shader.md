@@ -189,11 +189,11 @@ Functions relevant to fragment shaders are listed as follows. Most functions inv
 
 | Predefined macros | Corresponding function definitions | Corresponding material models | Function descriptions |
 | :--- |:--- |:--- |:--- |
-| CC_SURFACES_FRAGMENT_MODIFY_ BASECOLOR_AND_TRANSPARENCY | vec4 SurfacesFragmentModify BaseColorAndTransparency | Common         | Returns the modified base color (rgb channel) and transparency value (a channel) |
-| CC_SURFACES_FRAGMENT_ALPHA_CLIP_ONLY                    | vec4 SurfacesFragmentModify AlphaClipOnly            | Common         | It is not necessary to get the color to be used in the Pass that only deals with translucency. If rendering to shadows, etc., not overloading this function may result in shadows without trans-paste effect  |
-| CC_SURFACES_FRAGMENT_MODIFY_ WORLD_NORMAL               | vec3 SurfacesFragmentModify WorldNormal              | Common         | Return modified pixel normals (usually normal map)                       |
-| CC_SURFACES_FRAGMENT_MODIFY_ SHARED_DATA                | void SurfacesFragmentModify SharedData               | Common         | If some textures and calculations need to be used in more than one material node, they can be done in this function, which directly modifies the parameters within the Surface structure to reduce performance consumption, similar to the surf() function in the legacy shader |
-| CC_SURFACES_FRAGMENT_MODIFY_ WORLD_TANGENT_AND_BINORMAL | void SurfacesFragmentModify WorldTangentAndBinormal  | Standard PBR   | Modify the world tangent space vector within the Surface structure |
+| CC_SURFACES_FRAGMENT_MODIFY_ BASECOLOR_AND_TRANSPARENCY | vec4 SurfacesFragmentModify BaseColorAndTransparency | Common | Returns the modified base color (rgb channel) and transparency value (a channel) |
+| CC_SURFACES_FRAGMENT_ALPHA_CLIP_ONLY | vec4 SurfacesFragmentModify AlphaClipOnly | Common | It is not necessary to get the color to be used in the Pass that only deals with translucency. If rendering to shadows, etc., not overloading this function may result in shadows without trans-paste effect  |
+| CC_SURFACES_FRAGMENT_MODIFY_ WORLD_NORMAL               | vec3 SurfacesFragmentModify WorldNormal | Common | Return modified pixel normals (usually normal map) |
+| CC_SURFACES_FRAGMENT_MODIFY_ SHARED_DATA                | void SurfacesFragmentModify SharedData | Common | If some textures and calculations need to be used in more than one material node, they can be done in this function, which directly modifies the parameters within the Surface structure to reduce performance consumption, similar to the surf() function in the legacy shader |
+| CC_SURFACES_FRAGMENT_MODIFY_ WORLD_TANGENT_AND_BINORMAL | void SurfacesFragmentModify WorldTangentAndBinormal  | Standard PBR | Modify the world tangent space vector within the Surface structure |
 | CC_SURFACES_FRAGMENT_MODIFY_ EMISSIVE | vec3 SurfacesFragmentModify Emissive | Standard PBR | Returns the modified self-illumination color |
 | CC_SURFACES_FRAGMENT_MODIFY_ PBRPARAMS | vec4 SurfacesFragmentModify PBRParams | Standard PBR | Returns the modified PBR parameters (ao, roughness, metallic. specularIntensity) |
 | CC_SURFACES_FRAGMENT_MODIFY_ ANISOTROPY_PARAMS | vec4 SurfacesFragmentModify AnisotropyParams | Standard PBR | Returns modified anisotropy parameters (rotation, shape. unused, unused) |
@@ -386,7 +386,7 @@ The debuggable data includes four major categories.
 | Emissive | Display the emissive in the material | | |
 | Light Map | Display baked lightmap RGB colors | | Must bake scenes |
 | Shadows | Show shadows of direcional light, spot light, point light | | Shadows must be enabled in the scene's **Inspector** panel and light sources, and objects enabled to receive shadows |
-| Ambient Occlusion     | Show the color of AO map in the material and real-time AO | | |
+| Ambient Occlusion | Show the color of AO map in the material and real-time AO | | |
 
 #### IV. Misc Info
 
