@@ -416,6 +416,13 @@ private:
 
 int User::userCount = 0;
 
+class UserExt : public User {
+public:
+    using User::User;
+};
+
+/////////////////////////////////////////////////////
+
 User *createUser(int credit) { return new User("Lambda", "ctor", credit); }
 
 std::string tokenLong_get(User *u) { return "token[" + u->getToken() + "]"; }
@@ -437,6 +444,7 @@ bool jsb_sum(se::State &state) {
 
 int gettime() { return time(nullptr); }
 
+
 } // namespace
 
 JSB_REGISTER_OBJECT_TYPE(User);
@@ -454,15 +462,15 @@ bool jsb_register_simple_math(se::Object *globalThis) {
 
     userClass
         .constructor<>()
-        //.constructor<const char *>()
+        .constructor<const std::string &>()
         .constructor<const std::string &, const std::string &>()
         .constructor<const std::string &, const std::string &, int>()
-        .constructor(&createUser)
+        // .constructor(&createUser)
         .property("name", &User::name)
         .property("token", &User::getToken, &User::setToken)
         .property("tokenPrefix", &tokenLong_get, nullptr)
         .function("mergeName1", &User::mergeName1)
-        .function("mergeName2", &User::mergeName2)
+        // .function("mergeName2", &User::mergeName2)
         .function("mergeName3", &User::mergeName3)
         .function("toString",
                   static_cast<std::string (User::*)() const>(&User::toString))
@@ -472,18 +480,18 @@ bool jsb_register_simple_math(se::Object *globalThis) {
         .staticFunction("doubleUserCount", &User::doubleUserCount)
         .staticProperty("userCount", &User::getUserCount, &User::setUserCount)
         .staticProperty("time", &gettime, nullptr)
-        //.staticFunction("sum", &jsb_sum)
+        .staticFunction("sum", &jsb_sum)
         .finalizer([](User *usr) {
           std::cout << "release " << usr->name << std::endl;
         })
         .install(globalThis);
   }
 
-  sebind::class_<User> superUser("SuperUser", userClass.prototype());
+  sebind::class_<UserExt> superUser("SuperUser", userClass.prototype());
   {
     superUser.constructor<sebind::ThisObject, const std::string &>()
         .function(
-            "superName", +[](User *user) { return user->name + ".super"; })
+            "superName", +[](UserExt *user) { return user->name + ".super"; })
         .install(globalThis);
   }
 
