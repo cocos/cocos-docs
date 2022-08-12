@@ -8,11 +8,11 @@
 
 ![open-animation-graph-panel](animation-graph-panel/open-animation-graph-panel.png)
 
-即可打开动画图面板，可以看到动画图面板主要由左侧的 **层级**、**变量**、**属性** 分页，以及右侧的网格布局区域构成：
+即可打开动画图面板，可以看到动画图面板主要由网格布局区域，以及右侧的 **层级**、**变量** 分页构成：
 
 ![animation-graph-panel](animation-graph-panel/animation-graph-panel.png)
 
-当存在多个动画图资源时，也可以点击面板右上角的 **编辑其他动画图** 按钮切换其他需要编辑的动画图。
+<!-- 当存在多个动画图资源时，也可以点击面板右上角的 **编辑其他动画图** 按钮切换其他需要编辑的动画图。 -->
 
 ## 层级（Layers）
 
@@ -43,13 +43,14 @@
 ### 创建变量
 
 以下图为例，操作步骤为：
+- 在下拉框中选择变量的 **类型**。支持的变量类型包括 **浮点型**、**布尔类型**、**触发器类型** 和 **整型**，具体说明请查看下文 **变量类型** 部分的内容。
 - 在 **名称** 输入框中填写变量名
-- 在 **类型** 下拉框中选择变量类型。支持的变量类型包括 **浮点型**、**布尔类型**、**触发器类型** 和 **整型**，具体说明请查看下文 **变量类型** 部分的内容。
-- 最后点击下方的 **添加** 按钮即可创建变量，创建好的变量会依次显示在分页下方。
 
 ![add variables](animation-graph-panel/add-variables.png)
 
-每个创建好的变量右侧会有一个齿轮图标按钮，点击即可删除对应变量。设置完成后请不要忘记点击动画图面板右上角的 **保存** 按钮以保存设置。
+鼠标滑过变量时，每个创建好的变量右侧会有一个 **×** 图标按钮，点击即可删除对应变量。设置完成后请不要忘记点击动画图面板右上角的 **保存** 按钮以保存设置。
+
+![delete variables](animation-graph-panel/delete-variable.png)
 
 ### 变量类型
 
@@ -80,8 +81,8 @@
 
 开发者也可以在脚本中通过动画控制器组件获取和修改变量的值，详情请参考 [动画控制器组件参考](animation-controller.md)。
 
-## 属性（Inspector）
+<!-- ## 属性检查器（Inspector）
 
-该分页主要用于设置状态机中各类状态的属性和过渡条件，详情请参考 [动画状态机](animation-graph-basics.md)。
+主要用于设置状态机中各类状态的属性和过渡条件，详情请参考 [动画状态机](animation-graph-basics.md)。
 
-![Inspector](animation-graph-panel/inspector.png)
+![Inspector](animation-graph-panel/inspector.png) -->

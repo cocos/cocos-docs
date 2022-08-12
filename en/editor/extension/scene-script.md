@@ -1,65 +1,79 @@
-# Call the engine API and project script
+# Calling the Engine API and Project Script
 
-In a plugin, you can declare a special script file called **scene script**, which has the same environment as the scripts in the `assets` directory of the project. That is, in this script you can call the engine API and other project scripts to achieve special functionality, including:
+In the extension you can define a special **scene script** file, which will be in the same runtime as the scripts in the `assets\` directory of the project, with the same runtime environment.
 
-- Traverse the nodes in the scene to get or change the data.
-- Call the other scripts in the project to complete the job.
+In the **Scene Script** you can call the engine `API` and other project scripts, and with this feature we can
 
-## Registering the scene script
+- Query and traverse the nodes in the scene to get or modify node data
+- Call functions related to the engine components on the node to finish the job
+
+## Register Scene Script
 
 First, add a `scene` field to the `contributions` property of `package.json`, the value of which is the path to a script file, relative to the extension package directory. Example:
 
 ```json
 {
-    "name": "engine",
     "contributions": {
         "scene": {
-            "script": "./scene.js"
+            "script": "./dist/scene.js"
         }
     }
 }
 ```
 
-## Adding code to the scene script
+## Scene Script Template
 
-Define `scene.js` as follows:
+Create a new `scene.ts` in the `src` directory and write the following code.
 
-```javascript
-const { join } = require('path');
-// Loading 'cc' needs to set the search path.
+```typescript
+export function load() {};
+export function unload() {};
+export const methods = { };
+```
+
+`load` - the function that fires when the module is loaded
+
+`unload` - the function that fires when the module is unloaded
+
+`methods` - methods defined inside the module that can be used to respond to external messages
+
+## Calling the Engine API
+
+Next, we will demonstrate how the scene script calls the engine API by rotating the main camera.
+
+In order to call the engine API, we need to add the search path of the engine script at the beginning of `scene.ts` and write the corresponding code, which ends up looking like this
+
+```typescript
+import { join } from 'path';
 module.paths.push(join(Editor.App.path, 'node_modules'));
-// Function triggered when the module is loaded
-exports.load = function() {};
-// Function triggered when the module is unloaded
-exports.unload = function() {};
 
-// Methods defined within the module
-exports.methods = {
-    log() {
+export function load() {};
+
+export function unload() {};
+
+export const methods = {
+    rotateCamera() {
         const { director } = require('cc');
-        director.getScene();
-        return {};
+        let mainCamera = director.getScene().getChildByName("Main Camera");
+        if(mainCamera){
+            let euler = mainCamera.eulerAngles;
+            euler.y += 10;
+            mainCamera.setRotationFromEuler(euler);
+            return true;
+        }
+        return false;
     },
 };
 ```
 
-> **Note**: due to the upgrade of the scripting system, the `cc.require` method, which used the same module reference mechanism as the project script, has been deprecated.
+In the above code, we have defined a `rotateCamera` method that rotates the main camera `10` degrees around the `Y` axis every time it is executed.
 
-## Sending a message to the `scene.js`
-
-Next, the following interface can be used to send messages to `scene.js` in both the main process and the rendering process of the extension package application. For example, assuming the name of the extension is `foobar`:
+In other extension scripts, we can call the `rotateCamera` function with the following code.
 
 ```typescript
-interface ExecuteSceneScriptMethodOptions {
-    // Name of extension
-    name: string;
-    method: string;
-    args: any[];
-}
-
 const options: ExecuteSceneScriptMethodOptions = {
-    name: 'foobar',
-    method: 'log',
+    name: packageJSON.name,
+    method: 'rotateCamera',
     args: []
 };
 
@@ -67,8 +81,9 @@ const options: ExecuteSceneScriptMethodOptions = {
 const result = await Editor.Message.request('scene', 'execute-scene-script', options);
 ```
 
-This allows retreiving the names of all the nodes of the scene in the extended package, and of course can be used to perform more queries and operations on the scene nodes.
+The properties of `ExecuteSceneScriptMethodOptions` are defined as follows:
+- name - the package name of the extension where `scene.ts` is located, you can use `packageJSON.name` if it is in this extension
+- method: the method defined in `scene.ts`
+- args: arguments, optional
 
-> **Note**: the `result` of the returned object is the object of the `return` in the `log` method.
-
-**Because communication is based on the underlying IPC implementation of Electron, remember that the transmitted data cannot contain native objects, otherwise it can cause process crashes or memory explosion. It is recommended to only transfer pure JSON objects.**
+As the communication between extensions is based on Electron's underlying cross-process IPC mechanism, the transferred data will be serialized as JSON. so the transferred data must not contain native objects, otherwise it may lead to process crashes or memory spikes. It is recommended to transfer only pure `JSON` objects, such as the `options.args` parameter in the above code and the return value of the scenario script method.

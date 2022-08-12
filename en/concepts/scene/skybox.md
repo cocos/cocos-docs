@@ -16,9 +16,11 @@ The **Skybox** component properties are as follows:
 | **Env Lighting Type** | Environment lighting type. Please refer to the **Diffuse Illumination** section below for more information. |
 | **UseHDR** | If this option is checked, HDR (High Dynamic Range) will be turned on, if not checked, LDR (Low Dynamic Range) will be used. For details, please refer to the section **Switching HDR/LDR Mode** below. |
 | **Envmap** | Environment map, TextureCube type, see below for details on how to set it. <br>When this property is empty, the skybox uses and displays pixel texture by default. |
+| **Reflection Convolution** | Click the bake button will generates a low resolution environment map and perform convolution calculation on this map, convolution map will be used for environment reflection. |
+| **Reflection Map** | Automatically generated convolutional maps for environmental reflection, currently doesn't support manually editing. Rendering effects, please refer to the section **bake reflection convolution map** below.|
 | **DiffuseMap** | The convolution map for advanced diffuse lighting. It's automatically generated and managed by the engine, currently doesn't support manually editing. This option is only shown when **Env Lighting Type** is **DIFFUSEMAP_WITH_REFLECTION**. |
 | **Reflection Convolution** | Please refer to the **Reflection Convolution** section below for detail |
-| **SkyboxMaterial** | Please refer to the **Skybox Material** section below for detail |
+| **SkyboxMaterial** | Add custom material for the skybox. Please refer to the **Skybox Material** section below for detail |
 
 ## Setting the Environment Map of the Skybox
 
@@ -131,16 +133,6 @@ The **UseHDR** option in the Skybox component is used to toggle the HDR/LDR mode
 
 - LDR (Low Dynamic Range): Low dynamic range. If this mode is used, the **lights intensity becomes unitless** and no longer has any connection to photometry or camera exposure. This mode is suitable for scenarios where you want the original map color to be reflected without any color tinting. Ambient light cube map can be done using images in formats such as **PNG**.
 
-## Reflective Convolution
-
-Use GGX BRDF lighting model to generate a pre-filtered reflection result for the environment map, which will take into consideration the effect of roughness and store the final result in Mipmap in order of roughness (roughness from 0 to 1, with Mipmap level 0 for roughness 0).
-
-Since this algorithm takes into consideration the effect of roughness on the environment reflection (i.e., as roughness increases, the environment reflection becomes more blurred), it results in more realistic reflections for the PBR material.
-
-### Bake and remove reflection convolution
-
-Click the ![bake](skybox/bake.png) button in the **Inspector** panel to bake the reflection convolution results. After the bake is complete, you can also choose to click the ![remove](skybox/remove.png) to delete it.
-
 ## Skybox Material
 
 ![material](skybox/material.png)
@@ -148,3 +140,17 @@ Click the ![bake](skybox/bake.png) button in the **Inspector** panel to bake the
 The default shader used for the skybox material is **Assets -> internal/pipeline/skybox.effect**, if you want to customize the material, you can refer to [New Material](.../.../asset/material.md) to create a new material and select [Custom Shader](.../.../.../shader/write-effect-overview.md).
 
 ![cusom skybox material](skybox/custom-skybox-material.png)
+
+## Reflective Convolution
+
+Use GGX BRDF lighting model to generate a pre-filtered reflection result for the environment map, which will take into consideration the effect of roughness and store the final result in Mipmap in order of roughness (roughness from 0 to 1, with Mipmap level 0 for roughness 0).
+
+Since this algorithm takes into consideration the effect of roughness on the environment reflection (i.e., as roughness increases, the environment reflection becomes more blurred), it results in more realistic reflections for the PBR material.
+
+## Bake Reflection Convolution Map
+
+Click the ![bake](skybox/bake.png) button in the **Inspector** panel to bake the reflection convolution results. After the bake is complete, you can also choose to click the ![remove](skybox/remove.png) to delete it.
+
+The generated environment reflection convolution map will fill to the mipmaps for TextureCube, Sampling mipmap in the shader based on material roughness, thus providing a more realistic IBL effect, You can clearly see the comparison effect by the following GIF image.
+
+![Compare](skybox/convolution-map.gif)

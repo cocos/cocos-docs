@@ -1,15 +1,11 @@
 # Collider Gizmo
 
-For more information about the collider of __Cocos Creator__, you can read the [Physics Introduction](../../physics/physics.md) documentation.
+Information about colliders for Cocos Creator can be found at: [Colliders](../../physics/physics-collider.md)
 
-## Box Collider
-
-**Box Collider Gizmo** shows the length, width, height of the box. You can edit them by dragging the control quad.
+The collider gizmo is used to display the position and size of the collider in the editor. Select any node with a collider component in the **Hierarchy** panel to see its gizmo in the scene window:
 
 ![box collider gizmo](images/box-collider-gizmo.png)
 
-## Sphere Collider
+For all colliders, the collider can be resized by selecting and dragging these squares with the mouse. The following figure shows how to resize colliders, using the **box collider gizmo** as an example.
 
-**Sphere Collider Gizmo** shows the size of sphere, you can edit the radius of sphere by dragging the control quad.
-
-![sphere collider gizmo](images/sphere-collider-gizmo.png)
+![edit](images/edit-collider.gif)
