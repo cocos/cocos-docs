@@ -132,7 +132,7 @@ The **UseHDR** option in the Skybox component is used to toggle the HDR/LDR mode
 
 - LDR (Low Dynamic Range): Low dynamic range. If this mode is used, the **lights intensity becomes unitless** and no longer has any connection to photometry or camera exposure. This mode is suitable for scenarios where you want the original map color to be reflected without any color tinting. Ambient light cube map can be done using images in formats such as **PNG**.
 
-## bake reflection convolution map
+## Bake Reflection Convolution Map
 
 The generated environment reflection convolution map will fill to the mipmaps for TextureCube, Sampling mipmap in the shader based on material roughness, thus providing a more realistic IBL effect, You can clearly see the comparison effect by the following GIF image.
 
