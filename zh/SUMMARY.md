@@ -35,6 +35,7 @@
     - [资源管理模块升级指南](asset/asset-manager-upgrade-guide.md)
     - [v3.5 已构建工程升级指南](engine/template/native-upgrade-to-v3.5.md)
     - [v3.6 已构建工程升级指南](engine/template/native-upgrade-to-v3.6.md)
+    - [v3.6 构建模板与 settings.json 升级指南](release-notes/build-template-settings-upgrade-guide-v3.6.md)
 
 ## 工作流
 
