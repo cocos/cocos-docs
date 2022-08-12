@@ -363,9 +363,7 @@ export class Test extends Component {
 4. 部分 API 实现内容并没有完全体现在其 API 定义中。
 5. 在运行时由 C++ 主动调用的 API。
 
-**注意:**
-
-从 3.6 开始自动绑定所涉及的参数及返回值的类型也需要绑定, 或者提供转换方法 `sevalue_to_native`/`nativevalue_to_se`, 否则会在编译期保存. 在 3.5 之前为运行时报错.
+> **注意**：从 3.6 开始自动绑定所涉及的参数及返回值的类型也需要绑定，或者提供转换方法 `sevalue_to_native`/`nativevalue_to_se`，否则会在编译期保存。在 3.5 之前为运行时报错。
 
 ## 总结
 
