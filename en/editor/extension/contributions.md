@@ -1,4 +1,4 @@
-# Extend existing functionality
+# Extend Existing Functionality
 
 **Cocos Creator** supports contributions between extensions.
 
@@ -6,25 +6,48 @@ When writing an extension, it is possible to query whether the existing function
 
 If there are functions that provide the ability of receiving `contributions` externally, use these functions when writing extensions.
 
-## Contribution data definition
+## Contributions Data Definition
 
-In `package.json` the `contribution` field can be defined.
+The `contributions` function, uniformly defined in the `contributions` field in `package.json`, is as follows.
 
-```json
+```JSON5
 {
     "name": "hello-world",
-    "contributions": {}
+    "contributions": {
+        "builder":{ ... },
+        "assets":{ ... },
+        "profile": { ... },
+        "scene": { ... },
+        "menu": [ ... ],
+        "inspector":{ ... },
+        "messages": { ... },
+        "shortcuts": { ... },
+        "preferences": { ... },
+        "project": { ... }
+    },
 }
 ```
 
-`contributions` definition:
+## Field Descriptions
 
-```typescript
-interface contributions {
-    [name: string]: any;
-}
-```
+`contributions` provides the ability to interact with the editor's various functional systems, the main functions involved are as follows:
 
-The `name` is the name of the function or extension, and the `value` is of type `any`, which is defined by the author of the `name` function (extension).
+- `builder` - custom build process, please refer to the documentation [Extending Build Process](../publish/custom-build-plugin.md) for details.
 
-At this stage, only `contributions` to the internal functions of the editor is opened, in the future a more convenient way of using `contributions` between extensions will be provided.
+- `assets` - Enhanced Explorer panel, please refer to the documentation for more details [Extending the Assets Panel](../assets/extension.md).
+
+- `profile` - defines the configuration needed for the extension, see the documentation [Configuration System](./profile.md).
+
+- `scene` - Write scripts in the extension that need to interact with the engine and project scripts, see the documentation [Calling the Engine API and Project Script](./scene-script.md).
+
+- `inspector` - custom **Inspector** panel, see the documentation [Custom Property Inspector Panel](./inspector.md).
+
+- `menu` - defines the menu information that the extension needs to add, see the documentation [Customize the Main Menu](./contributions-menu.md).
+
+- `messages` - defines the list of messages that the extension needs to use, please refer to the documentation [Custom Messages](./contributions-messages.md).
+
+- `shortcuts` - defines the shortcuts required by the extension, see the documentation [Extending Shortcut](./contributions-shortcuts.md).
+
+- `preferences` - customize the preferences, see the documentation [Extending the Preferences Panel](./contributions-preferences.md).
+
+- `project` - Custom project settings, see the documentation [Extending Project Settings Panel](./contributions-project.md).

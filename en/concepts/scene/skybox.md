@@ -16,7 +16,10 @@ The **Skybox** component properties are as follows:
 | **Env Lighting Type** | Environment lighting type. Please refer to the **Diffuse Illumination** section below for more information. |
 | **UseHDR** | If this option is checked, HDR (High Dynamic Range) will be turned on, if not checked, LDR (Low Dynamic Range) will be used. For details, please refer to the section **Switching HDR/LDR Mode** below. |
 | **Envmap** | Environment map, TextureCube type, see below for details on how to set it. <br>When this property is empty, the skybox uses and displays pixel texture by default. |
+| **Reflection Convolution** | Click the bake button will generates a low resolution environment map and perform convolution calculation on this map, convolution map will be used for environment reflection. |
+| **Reflection Map** | Automatically generated convolutional maps for environmental reflection, currently doesn't support manually editing. Rendering effects, please refer to the section **bake reflection convolution map** below.|
 | **DiffuseMap** | The convolution map for advanced diffuse lighting. It's automatically generated and managed by the engine, currently doesn't support manually editing. This option is only shown when **Env Lighting Type** is **DIFFUSEMAP_WITH_REFLECTION**. |
+| **Skybox Material** |  Add custom material for the skybox |
 
 ## Setting the Environment Map of the Skybox
 
@@ -128,3 +131,9 @@ The **UseHDR** option in the Skybox component is used to toggle the HDR/LDR mode
 - HDR (High Dynamic Range): High dynamic range, with **photometric intensity of the lights** and **exposure parameters of the camera** to achieve a more realistic level of contrast between light and dark. If this mode is used, the intensity of all lights (including parallel light, point light, spot light, etc.) **will become photometric physical units** and ambient light cube map should use **HDR format images** to provide a high dynamic range data source.
 
 - LDR (Low Dynamic Range): Low dynamic range. If this mode is used, the **lights intensity becomes unitless** and no longer has any connection to photometry or camera exposure. This mode is suitable for scenarios where you want the original map color to be reflected without any color tinting. Ambient light cube map can be done using images in formats such as **PNG**.
+
+## Bake Reflection Convolution Map
+
+The generated environment reflection convolution map will fill to the mipmaps for TextureCube, Sampling mipmap in the shader based on material roughness, thus providing a more realistic IBL effect, You can clearly see the comparison effect by the following GIF image.
+
+![Compare](skybox/convolution-map.gif)

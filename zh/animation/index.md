@@ -20,6 +20,8 @@ Cocos Creator 内置了通用的动画系统用以实现基于关键帧的动画
 
     - [动画状态](animation-state.md)（Animation State）：动画剪辑的状态保存在称为动画状态的对象中，动画状态可以控制需要在对象上使用的动画剪辑。动画状态提供了更多动画控制接口，通过这些接口可以对动画进行播放、停止、变速、设置循环模式等更为细致的控制。
 
+- [嵌入播放器](embedded-player.md)：嵌入播放器用于在动画剪辑中嵌入其他粒子播放器或动画播放器。
+
 - [Marionette 动画系统](./marionette/index.md)：v3.4 新增，实现了由状态机控制的自动化且可复用的骨骼动画流程。
 
 具体的动画实现根据不同的动画需求，操作步骤以及代码实现都不同，可参考官方范例 **animation**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/animation) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/animation)），主要介绍一些常见的编辑操作方法以及代码范例，以供参考。

@@ -98,7 +98,7 @@ Manifest 文件可以通过 Cocos Creator 热更新范例中的 `version_generat
 function updateCb (event) {
     switch (event.getEventCode())
     {
-        case jsb.EventAssetsManager.UPDATE_PROGRESSION:
+        case native.EventAssetsManager.UPDATE_PROGRESSION:
             log("Byte progression : " + event.getPercent() / 100);
             log("File progression : " + event.getPercentByFile() / 100);
             log("Total files      : " + event.getTotalFiles());
@@ -197,18 +197,20 @@ assetsManager.downloadFailedAssets();
 而如何启用新的资源，就需要依赖 Cocos 引擎的搜索路径机制了。Cocos 中所有文件的读取都是通过 FileUtils，而 FileUtils 会按照搜索路径的优先级顺序查找文件。所以我们只要将热更新的缓存目录添加到搜索路径中并且前置，就会优先搜索到缓存目录中的资源。以下是示例代码：
 
 ```js
-if (jsb) {
+import {NATIVE} from 'cc/env';
+// ...
+if (NATIVE) {
     // 创建 AssetsManager
-    var assetsManager = new jsb.AssetsManager(manifestUrl, storagePath);
+    var assetsManager = new native.AssetsManager(manifestUrl, storagePath);
     // 初始化后的 AssetsManager 的 local manifest 就是缓存目录中的 manifest
     var hotUpdateSearchPaths = assetsManager.getLocalManifest().getSearchPaths();
     // 默认的搜索路径
-    var searchPaths = jsb.fileUtils.getSearchPaths();
+    var searchPaths = native.fileUtils.getSearchPaths();
 
     // hotUpdateSearchPaths 会前置在 searchPaths 数组的开头
     Array.prototype.unshift.apply(searchPaths, hotUpdateSearchPaths);
 
-    jsb.fileUtils.setSearchPaths(searchPaths);
+    native.fileUtils.setSearchPaths(searchPaths);
 }
 ```
 
@@ -238,7 +240,7 @@ if (jsb) {
     // game.currentVersion 为当前版本的版本号
     if (previousVersion < game.currentVersion) {
         // 热更新的储存路径，如果旧版本中有多个，可能需要记录在列表中，全部清理
-        jsb.fileUtils.removeDirectory(storagePath);
+        native.fileUtils.removeDirectory(storagePath);
     }
     ```
 

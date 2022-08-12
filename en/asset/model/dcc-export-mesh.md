@@ -1,6 +1,6 @@
 # Importing Models Exported from DCC Tools
 
-Currently, most __Digital Content Creation (DCC)__ tools (__3DS Max__, __Maya__, __Blender__) can export models in __FBX__ and __glTF__ formats. These formats, exported by these tools, can be well received in __Cocos Creator 3.0__.
+Currently, most __Digital Content Creation (DCC)__ tools ([__3DS Max__](max-export-fbx.md), [__Maya__](maya-export-fbx.md), __Blender__) can export models in __FBX__ and __glTF__ formats. These formats, exported by these tools, can be well received in __Cocos Creator 3.0__.
 
 ## Exporting FBX
 
