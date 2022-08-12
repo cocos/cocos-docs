@@ -157,6 +157,6 @@ Skybox 组件中的 **UseHDR** 选项用于切换 HDR/LDR 模式，当勾选时�
 
 在 **属性检查器** 内点击 ![bake](skybox/bake.png) 按钮则可以进行反射卷积贴图的烘焙工作。在生成完成之后，也可以选择点击 ![remove](skybox/remove.png) 按钮进行删除。
 
-生成的环境反射卷积图会填充到 TextureCube 的 mipmaps，在 Shader 中根据材质粗糙度采样对应层级的 mipmap，从而提供更加真实的IBL效果，通过下面的 GIF 图可以明显看到对比效果。
+生成的环境反射卷积图会填充到 TextureCube 的 mipmaps，在 Shader 中根据材质粗糙度采样对应层级的 mipmap，从而提供更加真实的 IBL 效果，通过下面的 GIF 图可以明显看到对比效果。
 
 ![Compare](skybox/convolution-map.gif)
