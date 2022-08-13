@@ -87,15 +87,13 @@ Done.
 
 Compared to the previous approachs, the use of the `SE` APIs is greatly reduced, and so is the amount of code.
 
-
 ## A more complex binding example
 
 `sebind` does interface binding on a class-by-class basis. Each JS class requires the construction of a corresponding `sebind::class_` instance. All class bindings are done through the methods provided by `sebind::class_`.
 
 In the following, we will familiarize ourselves with the `sebind` binding process by exporting the sample code for the `User` class.
 
-> Note: The sample code is only used to illustrate the usage of `sebind`, the internal interface design and implementation is not useful in practice.
-
+> **Note**: The sample code is only used to illustrate the usage of `sebind`, the internal interface design and implementation is not useful in practice.
 
 ```c++
 class User {
@@ -161,19 +159,22 @@ int User::userCount = 0;
 Relates a C++ class to a specified JS class name
 
 ```c++
-  sebind::class_<User> userClass("User"); 
+sebind::class_<User> userClass("User"); 
 ```
+
 #### Bind constructors
+
 ```c++
     userClass.constructor<>() // JS: new User
         .constructor<const std::string &>() // JS: new User("Jone")
         .constructor<const std::string &, const std::string &>() // JS: new User("Jone", "343453")
         .constructor<const std::string &, const std::string &, int>() //JS:  new User("Jone", "343453", 5678)
 ```
+
 There are 4 constructor patterns declared here, with 0,1,2,3 parameters. Each template parameter corresponds to the constructor's parameter type. 
 When calling `new User(...)` will trigger the corresponding C++ constructor depending on the number of arguments
 
-> If you don't declare any `constructor`, `sebind:class_` will use the default parameterless constructor. 
+> **Note**: If you don't declare any `constructor`, `sebind:class_` will use the default parameterless constructor. 
 
 We can also define common functions as constructors, for example:
 
@@ -181,26 +182,28 @@ We can also define common functions as constructors, for example:
 User *createUser(int credit) {
   return = new User("Lambda", "ctor", credit);
 }
-// ...
-        .constructor(&createUser) // JS: new User(234)
-```
-The return value needs to be a `User*` type. This is equivalent to declaring the constructor `constructor(credit:number)` in JS.
 
+// ...
+.constructor(&createUser) // JS: new User(234)
+```
+
+The return value needs to be a `User*` type. This is equivalent to declaring the constructor `constructor(credit:number)` in JS.
 
 #### Exporting member properties
 
 Export a C++ public field as a JS property
 
 ```c++
-        .property("name", &User::name)  // JS: user.name
+.property("name", &User::name)  // JS: user.name
 ```
+
 You can also define `getter`/`setter` functions as properties. Here the `getter` function needs to have a return value, and no parameters. The `setter` function takes one argument.
 
 ```c++
-        .property("token", &User::getToken, &User::setToken) // JS: user.token
+.property("token", &User::getToken, &User::setToken) // JS: user.token
 ```
 
-> `getter`/`setter` can not be both `nullptr`.
+> **Note**: `getter`/`setter` can not be both `nullptr`.
 
 Common functions, with `User*` as the first argument, can be used as member functions. For example:
 
@@ -212,7 +215,7 @@ void tokenLong_set(User *u, const std::string &s) {
   u->setToken("token[" + u->getToken() + "]");
 }
 //...
-        .property("tokenPrefix", &tokenLong_get, &tokenLong_set) // JS: user.tokenPrefix
+.property("tokenPrefix", &tokenLong_get, &tokenLong_set) // JS: user.tokenPrefix
 ```
 
 #### Export Member Functions
@@ -220,53 +223,51 @@ void tokenLong_set(User *u, const std::string &s) {
 Exporting C++ member functions to JS.
 
 ```c++
-        .function("mergeName1", &User::mergeName1) // JS: user1.mergeName1(user2)
-        .function("mergeName2", &User::mergeName2) // JS: user2.mergeName1(user2)
-        .function("mergeName3", &User::mergeName3) // JS: user3.mergeName1(user2)
+.function("mergeName1", &User::mergeName1) // JS: user1.mergeName1(user2)
+.function("mergeName2", &User::mergeName2) // JS: user2.mergeName1(user2)
+.function("mergeName3", &User::mergeName3) // JS: user3.mergeName1(user2)
 ```
+
 Instances of bound types in JS can be passed as arguments to C++ bound functions. C++ functions can take instances of bound objects by *reference*, *pointer* or *smart pointer*. Here, if `User` inherits `cc::RefCounted`, we can use `cc::IntrusivePtr<User>` to hold it. If we don't inherit `cc::RefCounted`, as is the case now, we can also hold it with `std::shared_ptr<User>`. After holding with `shared_ptr/IntrusivePtr`, the associated JS object is GC'd, and the object held at the C++ level will not be destroyed. 
 
-> **Note:**
-> The binding type needs to be registered with the macro `JSB_REGISTER_OBJECT_TYPE(User);` before calling the sebind APIs. Only then will the subsequent `jsb_conversions` method handle the type conversion correctly.
-
+> **Note**: The binding type needs to be registered with the macro `JSB_REGISTER_OBJECT_TYPE(User);` before calling the sebind APIs. Only then will the subsequent `jsb_conversions` method handle the type conversion correctly.
 
 If a function is overloaded, we need to specify the specific type of the function pointer with `static_cast`.
 
 ```c++
-        .function("toString", static_cast<std::string(User::*)() const>(&User::toString))   ///JS: (new User).toString()
-        .function("toString", static_cast<std::string(User::*)(const std::string&) const>(&User::toString))  //JS: (new User).toString("1111")
+.function("toString", static_cast<std::string(User::*)() const>(&User::toString))   ///JS: (new User).toString()
+.function("toString", static_cast<std::string(User::*)(const std::string&) const>(&User::toString))  //JS: (new User).toString("1111")
 ```
 
-Similar to constructors, overloaded functions are matched based on the number of arguments, and the same number of arguments should be avoided. If you need to determine the type of parameters at runtime, you can refer to bind [`SE` functions](#manual-type-conversion)
-
+Similar to constructors, overloaded functions are matched based on the number of arguments, and the same number of arguments should be avoided. If you need to determine the type of parameters at runtime, you can refer to bind [`SE` functions](#manual-type-conversion).
 
 #### Exporting static methods of a class
 
 Exporting static functions of a C++ class
 
 ```c++
-        .staticFunction("doubleUserCount", &User::doubleUserCount) //JS: User.doubleUserCount()
+.staticFunction("doubleUserCount", &User::doubleUserCount) // JS: User.doubleUserCount()
 ```
 It is also possible to export common functions as class static functions
 
 ```c++
 int  static_add(int a, int b) { return a + b; }
 ///...
-        .staticFunction("add", &static_add) //JS: User.add(1,2)
+.staticFunction("add", &static_add) //JS: User.add(1,2)
 ```
 
 #### Export Class Static Properties
 
-Export a C++ class static function as a static property of a JS class
+Export a C++ class static function as a static property of a JS class.
 
 ```c++
-        .staticProperty("userCount", &User::getUserCount, &User::setUserCount)  //JS: User.userCount
+.staticProperty("userCount", &User::getUserCount, &User::setUserCount)  //JS: User.userCount
 ```
 or common functions
 ```c++
 int gettime() { return time(nullptr); }
 /// ...
-        .staticProperty("time", &gettime, nullptr) //JS: User.time
+.staticProperty("time", &gettime, nullptr) //JS: User.time
 ```
 
 #### Registering A Destruct Callback
@@ -274,9 +275,9 @@ int gettime() { return time(nullptr); }
 Register a callback for when the bound object is GC'd.
 
 ```c++
-        .finalizer([](User *usr) {
-          std::cout << "release " << usr->name << std::endl;
-        })
+.finalizer([](User *usr) {
+  std::cout << "release " << usr->name << std::endl;
+})
 ```
 
 #### Export the class to JS global namespace
@@ -284,26 +285,25 @@ Register a callback for when the bound object is GC'd.
 Mounts the `User` class to the `globalThis` object, completing the export. `User` class can be accessed globally in the JS script.
 
 ```c++
-        .install(globalThis);
+.install(globalThis);
 ```
-
 
 #### Class Inheritance
 
 Specify the parent class's prototype in the second parameter of the `sebind::class_` constructor. Here the `SuperUser` class inherits from the `User` class. 
 
 ```c++
-  sebind::class_<User> superUser("SuperUser", userClass.prototype());
-  {
-    superUser.constructor<const std::string &>()
-        .function(
-            "superName", +[](User *user) { return user->name + ".super";
-            }) //JS:  (new SuperUser("Mok")).superName()
-        .install(globalThis);
-  }
+sebind::class_<User> superUser("SuperUser", userClass.prototype());
+{
+  superUser.constructor<const std::string &>()
+      .function(
+          "superName", +[](User *user) { return user->name + ".super";
+          }) // JS:  (new SuperUser("Mok")).superName()
+      .install(globalThis);
+}
 ```
 
-> Note that the static methods of the parent class are not inherited by the child class. 
+> **Note**: that the static methods of the parent class are not inherited by the child class. 
 
 ## Other Uses
 
@@ -322,7 +322,7 @@ bool jsb_sum(se::State &state) {
   return true;
 }
 /// 
-    .staticFunction("sum", &jsb_sum) // JS: User.sum(1,2,3,4,5)
+.staticFunction("sum", &jsb_sum) // JS: User.sum(1,2,3,4,5)
 ```
 
 This allows for variable-length parameters and flexible parameter conversions. It's more flexible than automatic conversions and requires developers to be more familiar with the `SE API`.
@@ -334,17 +334,16 @@ Requring the corresponding JS `this` object in a C++ constructor is a common req
 All we need to do is specify the placeholder `sebind::ThisObject` in the argument type of the `constructor` and declare the argument type of the corresponding constructor as `se::Object *`.
 
 ```c++
-  // constructor
-  User(se::Object *self, const std::string &name_) {
-    self->setProperty("fromNative", se::Value(true));
-    name = name_;
-  }
-  /// ...
-      superUser.constructor<sebind::ThisObject, const std::string &>() // JS: new SuperUser("Jone")
-
+// constructor
+User(se::Object *self, const std::string &name_) {
+  self->setProperty("fromNative", se::Value(true));
+  name = name_;
+}
+/// ...
+superUser.constructor<sebind::ThisObject, const std::string &>() // JS: new SuperUser("Jone")
 ``` 
 
-> Common functions are not supported here for now.
+> **Note**: Common functions are not supported here for now.
 
 When calling the corresponding constructor in JS, all `sebind::ThisObject` parameters should be ignored.  
 
