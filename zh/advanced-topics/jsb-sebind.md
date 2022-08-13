@@ -259,7 +259,7 @@ JS 中绑定类型的实例可以作为参数传递给 C++ 绑定函数。C++ �
 ```c++
 int  static_add(int a, int b) { return a + b; }
 ///...
-        .staticFunction("add", &static_add) //JS: User.add(1,2)
+  .staticFunction("add", &static_add) //JS: User.add(1,2)
 ```
 
 #### 类静态属性
