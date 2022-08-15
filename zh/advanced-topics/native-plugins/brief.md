@@ -12,6 +12,9 @@
 
 在构建原生工程的时候， 构建统会从工程的 `extensions` 和 `native` 目录中去递归查找这所有的 `cc_plugin.json` 文件，以定位原生插件。一旦在目录中找到 `cc_plugins.json`，就不会再查找子目录中的内容。
 
+## 安装依赖
+
+需要安装 [NodeJS](https://nodejs.org/en/download/) 8.0 以上的版本, 并导设置环境变量 `PATH`. 
 
 
 ## 目录结构实例

@@ -9,6 +9,11 @@ Native plugins can exist independently of editor extensions, and users can use n
 At the same time, native plugins complement the existing editor extension system, extending the game's runtime capabilities. Developers use the ability of editor extensions to manage native plugins, such as download/switch/version upgrade, etc.
 
 
+
+## Installing Dependencies
+
+You need to install [NodeJS](https://nodejs.org/en/download/) version 8.0 or higher, and set the environment variable `PATH`. 
+
 ## Example of the plugin's directory structure
 
 ```
