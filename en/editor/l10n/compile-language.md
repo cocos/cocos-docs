@@ -179,7 +179,7 @@ After importing, if you need to translate manually, the process is the same as t
 
 ### Conflict resolution
 
-If you import the same external file repeatedly, a conflict will occur, and you will need to resolve the conflict manually at this point: !
+If you import the same external file repeatedly, a conflict will occur, and you will need to resolve the conflict manually at this point:
 
 ![conflict](compile/conflict.png)
 
