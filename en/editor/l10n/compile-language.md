@@ -176,3 +176,12 @@ The file should be in UTF-8 encoding format.
 ![csv](compile/import-csv.png)
 
 After importing, if you need to translate manually, the process is the same as the above document.
+
+### Conflict resolution
+
+If you import the same external file repeatedly, a conflict will occur, and you will need to resolve the conflict manually at this point: !
+
+![conflict](compile/conflict.png)
+
+- **Skip**: skip the conflicting key value, no additional processing.
+- **Cover**: Overwrite the existing key value, the old data will be discarded.
