@@ -50,19 +50,7 @@ USE_INSTANCING = 1, USE_BATCHING = 1
 
 ## 程序化使用着色器
 
-使用引擎内置着色器时，不需要着色器的路径和扩展名便可直接访问，代码示例如下：
-
-```ts
-// 获取内置无光照着色器 ‘builtin-unlit.effect’
-const effect = EffectAsset.get('unlit');
-
-const mat = new Material();
-
-// 使用内置基于物理的光照着色器（PBR）‘builtin-standard.effect’ 初始化材质
-mat.initialize({ effectName: "standard" });
-```
-
-如果是开发者自定义的着色器，需要在 **属性检查器** 面板中着色器的 **Shaders** 属性里找到相应着色器，然后通过其唯一字符串名称来加载使用。
+当你需要在脚本中使用着色器时，需要在 **属性检查器** 面板中着色器的 **Shaders** 属性里找到相应着色器，然后通过其唯一字符串名称来加载使用。
 
 ![img](img/load-custom-effect.png)
 
@@ -74,4 +62,16 @@ resources.load("custom-effect", EffectAsset, ()=>{
     const material = new Material();
     material.initialize({ effectName: "../resources/custom-effect" });
 })        
+```
+
+**注意**：从 3.6 开始，当你在脚本中使用引擎内置着色器时，你也需要在 **属性检查器** 面板中着色器的 **Shaders** 属性里找到相应着色器，然后通过其唯一字符串名称来加载使用。以 Standard 着色器为例，代码示例如下：
+
+```ts
+// 获取内置 Standard 着色器 ‘builtin-standard.effect’
+const effect = EffectAsset.get('builtin-standard');
+
+const mat = new Material();
+
+// 使用内置基于物理的光照着色器（PBR）‘builtin-standard.effect’ 初始化材质
+mat.initialize({ effectName: "builtin-standard" });
 ```

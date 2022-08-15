@@ -50,19 +50,7 @@ The compiled vertex and fragment shaders can be toggled between display by selec
 
 ## Use shaders procedurally
 
-When using the engine's built-in shader, it can be accessed directly without the shader's path and extension. The code example is as follows:
-
-```ts
-// Get built-in unlit effect: ‘builtin-unlit.effect’
-const effect = EffectAsset.get('unlit');
-
-const mat = new Material();
-
-// Initialize material with built-in physically based lighting shader (PBR) 'builtin-standard.effect'
-mat.initialize({ effectName: "standard" });
-```
-
-If it is a custom shader, you need to find the corresponding shader name in the **Shaders** property of the effect in the **Inspector** panel, and then load and use it by its unique string name.
+When using a shader in script, you need to find the corresponding shader name in the **Shaders** property of the effect in the **Inspector** panel, and then load and use it by its unique string name.
 
 ![img](img/load-custom-effect.png)
 
@@ -74,4 +62,16 @@ resources.load("custom-effect", EffectAsset, ()=>{
     const material = new Material();
     material.initialize({ effectName: "../resources/custom-effect" });
 })        
+```
+
+**NOTE**: Since v3.6, if you want to using a engine builtin shader in script, you will also need to find the corresponding shader name in the **Shaders** property of the effect in the **Inspector** panel. Take the standard shader as an example, the code example is as follows:
+
+```ts
+// Get built-in standard effect: ‘builtin-standard.effect’
+const effect = EffectAsset.get('builtin-standard');
+
+const mat = new Material();
+
+// Initialize material with built-in physically based lighting shader (PBR) 'builtin-standard.effect'
+mat.initialize({ effectName: "builtin-standard" });
 ```
