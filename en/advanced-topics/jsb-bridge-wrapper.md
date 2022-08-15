@@ -1,12 +1,12 @@
 # Event Mecanism based on JsbBridge
 
+> **Note**: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+
 ## An eventify system based on JsbBridge
 
 `JsbBridgeWrapper` is an eventify system based on `JsbBridge`, which is more convenient and easier to use. Developers can trigger multiple events without manually implementing one. But it is not mthread safe. If you're working on a complex situation, it is still recommended to implement the eventify system by yourself.
 
 ### JsbBridgeWrapper interface introduction
-
-Same as jsbBridge, jsbBridgeWrapper is declared in [jsb.d.ts](https://github.com/cocos/cocos-engine/blob/v3.5.0/%40types/jsb.d.ts). Its usage is more intuitive and easy to understand.
 
 ```js
 /**
@@ -40,8 +40,9 @@ export namespace jsbBridgeWrapper {
 `OnNativeEventListener` is the type of callback to register here, yet you can also code with anonymous function, for example:
 
 ```js
+import { native } from 'cc'
 // When event ‘A’ is triggered, the function ‘this.A’ will be applied
-jsb.jsbBridgeWrapper.addNativeEventListener("A", (usr: string) => {
+native.jsbBridgeWrapper.addNativeEventListener("A", (usr: string) => {
     this.A(usr);
 });
 ```
@@ -131,7 +132,7 @@ As for Objective-C and Java, you will see `JsbBridgeWrapper` with a similar decl
 
 ### Register JS event, and using Objective-C/JAVA to trigger JavaScript event
 
-We can still do with the simple demand: Change the label content with native callback result. once the native event is triggered, it will return the specified text to JavaScript. Before that, we should add an event listener for `changeLabelContent`. 
+We can still do with the simple demand: Change the label content with native callback result. once the native event is triggered, it will return the specified text to JavaScript. Before that, we should add an event listener for `changeLabelContent`.
 
 #### Register JS event
 
@@ -140,7 +141,7 @@ public changeLabelContent(user: string): void {
     console.log("Hello " + user + " I'm K");
     this.labelForContent!.string = "Hello " + user + " ! I'm K";
 }
-jsb.jsbBridgeWrapper.addNativeEventListener("changeLabelContent", (usr: string) => {
+native.jsbBridgeWrapper.addNativeEventListener("changeLabelContent", (usr: string) => {
         this.changeLabelContent(usr);
 });
 ```
@@ -183,7 +184,7 @@ The final step, add a button to start our test. the code example is as follows:
 ```js
 // Button click event for SAY HELLO
 public sayHelloBtn() {
-    jsb.jsbBridgeWrapper.dispatchEventToNative("requestLabelContent");
+    native.jsbBridgeWrapper.dispatchEventToNative("requestLabelContent");
 }
 ```
 

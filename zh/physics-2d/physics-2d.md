@@ -6,7 +6,9 @@ Cocos Creator 支持内置的轻量 Builtin 物理系统和强大的 Box2D 物�
 
 ![feature cropping](./image/module.png)
 
-## 详细介绍
+## 内容
+
+本章主要包含以下内容：
 
 - [2D 物理系统](./physics-2d-system.md)
 - [2D 刚体组件](./physics-2d-rigid-body.md)

@@ -1,5 +1,7 @@
 # JsbBridgeWrapper 基于原生反射机制的事件处理 
 
+> **注意**：在 v3.6 之后，jsb 模块将会逐步废弃，接口将会迁移到 cc 命名空间下的 native 模块。
+
 JsbBridgeWrapper 是基于事件机制，用于 JS 层与原生层进行通信的接口。
 
 ## 建立于 JsbBridge 上的事件分发机制
@@ -7,8 +9,6 @@ JsbBridgeWrapper 是基于事件机制，用于 JS 层与原生层进行通信�
 `JsbBridgeWrapper` 是封装在 `JsbBridge` 之上的事件派发机制，相对于 `JsbBridge` 而言它更方便易用。开发者不需要手动去实现一套消息收发机制就可以进行多事件的触发。但它不具有多线程稳定性或者是 100% 安全。如果遇到复杂需求场景，仍然建议自己实现对应的事件派发。
 
 ## JsbBridgeWrapper 接口介绍
-
-如同之前的 jsb-bridge，它的接口被声明在 [jsb.d.ts](https://github.com/cocos/cocos-engine/blob/v3.5.0/%40types/jsb.d.ts) 文件中。
 
 ```js
 /**
@@ -42,8 +42,9 @@ export namespace jsbBridgeWrapper {
 `OnNativeEventListener` 是实际注册的 **回调（callback）** 类型，为了防止因为类型不匹配导致的低级错误，因此使用显示声明该类型。`addNativeEventListener` 中的第二个参数即为传入的 callback。当然也可以使用匿名函数代替。代码示例如下：
 
 ```js
+import { native } from 'cc'
 // 当事件 “A” 触发时， ‘this.A’ 方法会被调用
-jsb.jsbBridgeWrapper.addNativeEventListener("A", (usr: string) => {
+native.jsbBridgeWrapper.addNativeEventListener("A", (usr: string) => {
     this.A(usr);
 });
 ```
@@ -180,7 +181,7 @@ public changeLabelContent(user: string): void {
     console.log("Hello " + user + " I'm K");
     this.labelForContent!.string = "Hello " + user + " ! I'm K";
 }
-jsb.jsbBridgeWrapper.addNativeEventListener("changeLabelContent", (usr: string) => {
+native.jsbBridgeWrapper.addNativeEventListener("changeLabelContent", (usr: string) => {
         this.changeLabelContent(usr);
 });
 ```
@@ -223,7 +224,7 @@ jsb.jsbBridgeWrapper.addNativeEventListener("changeLabelContent", (usr: string) 
 ```js
 // 按钮点击事件 SAY HELLO
 public sayHelloBtn() {
-    jsb.jsbBridgeWrapper.dispatchEventToNative("requestLabelContent");
+    native.jsbBridgeWrapper.dispatchEventToNative("requestLabelContent");
 }
 ```
 

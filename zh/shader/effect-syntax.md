@@ -140,7 +140,7 @@ CCProgram shader-name %{
 - 如果只需要获取 **顶点位置信息**，可以使用 **general** 版本，那么顶点着色器函数开头的代码示例如下：
 
   ```glsl
-  #include <input>
+  #include <legacy/input>
   vec4 vert () {
     vec3 position;
     CCVertInput(position);
@@ -151,7 +151,7 @@ CCProgram shader-name %{
   如果还需要法线等信息，可使用 `standard` 版本，像下面这样写：
 
   ```glsl
-  #include <input-standard>
+  #include <legacy/input-standard>
   vec4 vert () {
     StandardVertInput In;
     CCVertInput(In);
@@ -190,7 +190,7 @@ CCGetWorldMatrixFull(matWorld, matWorldIT);
 Cocos Effect 提供了 `CCFragOutput` 工具函数用以简化片元着色器的输出，可用于直接返回片元着色器所需要的值，代码示例如下：
 
 ```glsl
-#include <output>
+#include <legacy/output>
 vec4 frag () {
   vec4 o = vec4(0.0);
   // ... 编写片元着实代码
@@ -245,8 +245,8 @@ struct StandardSurface {
 代码示例如下：
 
 ```glsl
-#include <shading-standard-base>
-#include <output-standard>
+#include <legacy/shading-standard-base>
+#include <legacy/output-standard>
 void surf (out StandardSurface s) {
   // fill in your data here
 }
@@ -263,7 +263,7 @@ vec4 frag () {
 
 ```glsl
 CCProgram shader-fs %{
-  #include <standard-surface-entry>
+  #include <legacy/standard-surface-entry>
 
   void surf (out StandardSurface s) {
     // fill in your data here

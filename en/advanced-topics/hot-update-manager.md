@@ -90,7 +90,7 @@ In the previous section of the flow chart, you can see the hot update manager ha
 function updateCb (event) {
     switch (event.getEventCode ())
     {
-        case jsb.EventAssetsManager.UPDATE_PROGRESSION:
+        case native.EventAssetsManager.UPDATE_PROGRESSION:
             log("Byte progression : " + event.getPercent() / 100);
             log("File progression : " + event.getPercentByFile() / 100);
             log("Total files      : " + event.getTotalFiles());
@@ -189,18 +189,20 @@ There are two reasons, the first is that the updated script requires a clean JS 
 Enabling new assets relies on the search path mechanism of the Cocos engine. All files in the Cocos are read by FileUtils, which finds files in the priority order of the search path. So we add the hot update cache directory to the search path and promote it so that the assets in the cache directory are searched first. Here is the code example:
 
 ```js
-if (jsb) {
+import {NATIVE} from 'cc/env';
+// ...
+if (NATIVE) {
     // Create AssetsManager
-    var assetsManager = new jsb.AssetsManager(manifestUrl, storagePath);
+    var assetsManager = new native.AssetsManager(manifestUrl, storagePath);
     // The local manifest in the initialized AssetsManager is the manifest in the cache directory
     var hotUpdateSearchPaths = assetsManager.getLocalManifest().getSearchPaths();
     // The search path by default
-    var searchPaths = jsb.fileUtils.getSearchPaths();
+    var searchPaths = native.fileUtils.getSearchPaths();
 
     // Insert hotUpdateSearchPaths to the beginning of searchPaths array
     Array.prototype.unshift.apply(searchPaths, hotUpdateSearchPaths);
 
-    jsb.fileUtils.setSearchPaths(searchPaths);
+    native.fileUtils.setSearchPaths(searchPaths);
 }
 ```
 
@@ -230,7 +232,7 @@ Hot update is a frequent requirement for game developers, and multiple hot updat
     // game.currentVersion is the current version's number.
     if (previousVersion < game.currentVersion) {
         // The hot update cache directory. If there are multiple versions, you may need to record in a list and clean all.
-        jsb.fileUtils.removeDirectory(storagePath);
+        native.fileUtils.removeDirectory(storagePath);
     }
     ```
 

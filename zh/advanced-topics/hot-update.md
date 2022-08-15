@@ -16,7 +16,7 @@ Cocos Creator 中的热更新主要源于 Cocos 引擎中的 AssetsManager 模�
 
 **服务端和本地均保存完整版本的游戏资源**，热更新过程中通过比较服务端和本地版本的差异来决定更新哪些内容。这样即可天然支持跨版本更新，比如本地版本为 A，远程版本是 C，则直接更新 A 和 C 之间的差异，并不需要生成 A 到 B 和 B 到 C 的更新包，依次更新。所以，在这种设计思路下，新版本的文件以离散的方式保存在服务端，更新时以文件为单位下载。
 
-除此之外，由于 WEB 版本可以通过服务器直接进行版本更新，**所以资源热更新只适用于原生发布版本**。AssetsManager 类也只在 jsb 命名空间下，在使用的时候需要注意判断运行环境。
+除此之外，由于 WEB 版本可以通过服务器直接进行版本更新，**所以资源热更新只适用于原生发布版本**。AssetsManager 类也只在 native 命名空间下，在使用的时候需要注意判断运行环境。
 
 ## Manifest 文件
 
@@ -49,7 +49,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ![](./hot-update/table.png)
 
-**注意**：项目中包含的 `remote-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remote-assets` 中的资源而导致脚本失效。
+> **注意**：项目中包含的 `remote-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remote-assets` 中的资源而导致脚本失效。
 
 ### 使用 Version Generator 来生成 Manifest 文件
 
@@ -86,9 +86,9 @@ Manifest 文件中包含以下几个重要信息：
 
 下载完成范例工程后，可以用 Cocos Creator 直接打开这个工程。打开 **构建发布** 面板，构建原生版本，建议使用 Windows / Mac 来测试。
 
-**注意**：
-- 构建时请不要勾选 MD5 Cache，否则会导致热更新无效。
-- 并且应该确保在工程目录的 extensions 文件夹里导入 hot-update 编辑器插件（范例工程里已经导入了该插件）
+> **注意**：
+> 1. 构建时请不要勾选 MD5 Cache，否则会导致热更新无效。
+> 2. 并且应该确保在工程目录的 extensions 文件夹里导入 hot-update 编辑器插件（范例工程里已经导入了该插件）
 
 该编辑器插件会在每次构建结束后，自动给 `main.js` 附加上搜索路径设置的逻辑和更新中断修复代码：
 
@@ -128,6 +128,8 @@ Manifest 文件中包含以下几个重要信息：
     }
 })();
 ```
+
+> **注意**: 这里的 `fileUtils` 位于传统的 `window.jsb` 中, 而非 `native`. 目前的脚本编译系统只支持在 TypeScript 中通过 `import` 导入 `native` 对象.
 
 这一步是必须要做的原因是，热更新的本质是用远程下载的文件取代原始游戏包中的文件。Cocos2d-x 的搜索路径恰好满足这个需求，它可以用来指定远程包的下载地址作为默认的搜索路径，这样游戏运行过程中就会使用下载好的远程版本。另外，这里搜索路径是在上一次更新的过程中使用 `localStorage`（它符合 WEB 标准的 [Local Storage API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)）固化保存在用户机器上，`HotUpdateSearchPaths` 这个键值是在 `HotUpdate.js` 中指定的，保存和读取过程使用的名字必须匹配。
 
