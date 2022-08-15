@@ -64,7 +64,7 @@ Once the translation has been completed according to the above steps, it can be 
 
 ## Sample
 
-我们在 ([GIT](github.com)) | ([GITEE](gitee.com)) 上也准备了范例，开发者可以根据需要下载。
+We have also prepared examples on ([GIT](github.com)) | ([GITEE](gitee.com)) that developers can download as needed.
 
 ## Q & A
 

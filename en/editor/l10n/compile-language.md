@@ -143,8 +143,6 @@ Import the images required for the target language by clicking on the **Import**
 > 1. When importing, you can only import the files in the project.
 > 2. Since auto-atlas will modify the uuid of the resource, it will cause the redirection failure, so the images that need to be translated cannot be checked for auto-atlas function.
 
-### 智能匹配
-
 ### Intelligent Matching
 
 The Intelligent Matching button will bring up a secondary confirmation menu, clicking on it will enable intelligent matching. Intelligent matching will be modified by the file name and match the corresponding language. Example.
