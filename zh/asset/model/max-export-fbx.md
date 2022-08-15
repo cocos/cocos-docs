@@ -3,23 +3,23 @@
 ## 导出步骤
 
 1. 在 3ds Max 选中要导出的模型
-  
+
   ![选择要导出的模型](max/01-select-mesh.png)
 
 2. 选中主菜单 **File -> Export -> Export Selected** 展开导出选项：
-  
+
   ![导出按钮](max/02-export-selected.png)
 
 3. 将 **Save as type** 设置为 **.fbx**， 点击 **save** 按钮
-  
+
   ![导出路径名称设置](max/03-export-file-name.png)
- 
- 4. 将 **Current Preset** 设置为 **Autodesk Media and Entertainment**：
-  
+
+4. 将 **Current Preset** 设置为 **Autodesk Media and Entertainment**：
+
   ![选项设置](max/04-export-preset-selection.png)
 
 5. 开启 **Embed Media**：
-  
+
   ![开启Embed Media](max/05-embed-media.png)
 
 6. 点击 **OK** 导出文件：

@@ -4,6 +4,18 @@
 
 The **Scene** panel is the central work area for content creation, used for selecting and placing scene images, characters, effects, UI, and other game elements. This workspace allows to select and modify the position, rotation, and scaling of nodes with the **Transform Gizmos**, and get a WYSIWYG scene preview.
 
+## Menu Bar Introduction
+
+The menu bar at the top of the scene panel is slightly different after switching between 3D and 2D views, see below.
+
+- 3D：
+
+    ![bar](images/bar.png)
+
+- 2D：
+
+    ![bar](images/bar2d.png)
+
 ## View Introduction
 
 The **Scene** panel includes two views, **3D** and **2D**. The 3D view is used for 3D scene editing, while the 2D view is mainly used for editing 2D elements such as UI nodes, etc. The scene view can be switched via the **3D/2D** button in the toolbar at the top left of the editor.

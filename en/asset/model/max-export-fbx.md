@@ -1,4 +1,4 @@
-# Export FBX file from Max
+# Export FBX file from 3ds Max
 
 ## Steps
 
