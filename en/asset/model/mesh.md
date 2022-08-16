@@ -68,6 +68,8 @@ When the model asset file (`.fbx` or `.gltf`) is selected in the __Assets__ pane
 
 ### Disable Mesh Split
 
+The policy for Disable mesh split in v3.6 is as follows：
+
 - By default, the model is not split and no changes are made to the imported model data (the previous model settings are also maintained)
 - If the number of bones does not exceed the actual runtime drive limit, pass it directly using uniform
 - If the number of bones exceeds the limit, use texture pass
