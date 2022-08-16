@@ -61,12 +61,14 @@ Mesh 文件中存储了模型的顶点、索引、纹理坐标等数据。在 **
 | 切线（Tangents） | 导入切线信息，包括 Optional、Exclude、Require、Recalculate 四种选项，选项功能可参考 **法线** 的说明，二者相差不大。 |
 | 形变法线（Morph normals） | 导入形变法线信息，包括：<br>可选（Optional）：只导入模型文件中包含的形变法线，适用于非常清楚自己模型数据的情况。<br>排除（Exclude）：不导入形变法线。 |
 | 跳过验证（Skip Validation）| 是否跳过对模型文件的标准检测。 |
-| 是否禁用 Mesh 拆分（Disable mesh split） | 为了解决实时骨骼动画系统下 uniform vector 数量限制问题，目前在资源导入期会根据骨骼数量做拆分，这会对其他系统也产生影响。如果确定不会使用实时计算模式（对应 SkeletalAnimation 组件的 useBakedAnimation 选项未勾选时），可以勾选此项以提升性能。但注意改变此选项会影响生成的 prefab 内容，需要对应更新场景中的引用。<br> 在 v3.6 的更新中我们优化了此选项的策略，请参考下文。 |
+| 是否禁用 Mesh 拆分（Disable mesh split） | 为了解决实时骨骼动画系统下 uniform vector 数量限制问题，目前在资源导入期会根据骨骼数量做拆分，这会对其他系统也产生影响。如果确定不会使用实时计算模式（对应 SkeletalAnimation 组件的 useBakedAnimation 选项未勾选时），可以勾选此项以提升性能。但注意改变此选项会影响生成的 prefab 内容，需要对应更新场景中的引用。<br> 详情请参考下文。 |
 | 允许数据访问（Allow Data Access）| 标识此模型中的所有网格数据是否可被读写，此接口只对静态网格资源生效。若不勾选，网格数据提交至 CPU 后会自动释放 |
 | 提升单一根节点（Promote Single Root Node ）| |
 | Mesh Optimizer | 用于拆分模型。一般单个模型的骨骼数量是有限的，如果骨骼数量过多，便可以通过该项将其拆分成多个模型。|
 
 ### 是否禁用 Mesh 拆分（Disable mesh split）
+
+在 v3.6 的更新中我们优化了此选项的策略：
 
 - 默认情况下不再拆分模型，不对导入的模型数据做修改（也维持以前的模型设置不变）
 - 如果骨骼数量未超过实际运行时驱动的限制，直接使用 uniform 传递
