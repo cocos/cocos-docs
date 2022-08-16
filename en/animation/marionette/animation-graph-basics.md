@@ -52,6 +52,9 @@ Select a state in the graph and the blue rectangle will be highlighted with yell
 - Name of the selected state is displayed on the top of the **Inspector** panel. Clicking the gear icon will yield options for the selected state to be renamed, deleted, or replaced by a state of a different type.
 
 - **Speed**: Playback speed for the animation attached to the selected state with a default value of 1. Lower value will result in slower animation.
+- **Speed Multiplier**: When enabled, a multiplication factor can be specified for the speed. The speed multiplier factor will base speed multiplication to control the speed of the animation state.
+
+    ![speed-multiplier](animation-graph-basics/speed-multiplier.png)
 
 - **Animation Clip Motion**: Specify the animation clip attached to the selected state. Users can drag and drop the animation clip asset from the Assets panel to the **Clip** property or select from its drop-down menu. Once specified, the animation clip will be attached to the selected state, and the selected state will be automatically renamed according to the attached animation clip.
 
@@ -161,9 +164,9 @@ The sub graph of a sub state machine is identical to a typical graph except for 
 
 To exit the Blend Motion state, users may right click on the grid and select **Return to Parent** or select a higher hierarchy in the **Position** bar on top of the grid window.
 
-Sub state machine nodes will display a preview of its content in its parent graph.
+<!-- Sub state machine nodes will display a preview of its content in its parent graph.
 
-![sub state](animation-graph-basics/sub-state.png)
+![sub state](animation-graph-basics/sub-state.png) -->
 
 ## Animation State Component
 

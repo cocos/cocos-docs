@@ -239,9 +239,12 @@
     - [Embedded Player](animation/embedded-player.md)
     - [Marionette Animation System](animation/marionette/index.md)
         - [Animation Graph Assets](animation/marionette/animation-graph.md)
+        - [Animation Controller Reference](animation/marionette/animation-controller.md)
         - [Animation Graph Panel](animation/marionette/animation-graph-panel.md)
+        - [Animation Graph Layer](animation/marionette/animation-graph-layer.md)
         - [Animation State Machine](animation/marionette/animation-graph-basics.md)
         - [State Transition](animation/marionette/state-transition.md)
+        - [Animation Mask](animation/marionette/animation-mask.md)
 
 - [Audio System](audio-system/overview.md)
     - [AudioSource Component Reference](audio-system/audiosource.md)
