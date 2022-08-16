@@ -157,7 +157,7 @@ Surface Shader 内部计算时会用到一些宏开关，需要根据 Effect 中
 >
 > 用这种方式的好处是所有的用户自定义动画与材质的代码只需要写一份，却可以在各种渲染用途中保持统一。
 
-Surface Shader 在内部提供了简单的默认函数，所以 **这些函数并不是必须定义的**，**如果你想重载某函数，需要预定义该函数对应的宏来完成**。这些函数命名以 `Surfaces + ShaderStage 名` 打头，后跟功能描述。可以在 [`editor/assets/chunks/surfaces/default-functions`](https://github.com/cocos/cocos-engine/tree/v3.5.1/editor/assets/chunks/surfaces/default-functions) 中查看不同材质模型中各 Surface 函数的具体定义与实现，如：
+Surface Shader 在内部提供了简单的默认函数，所以 **这些函数并不是必须定义的**，**如果你想重载某函数，需要预定义该函数对应的宏来完成**。这些函数命名以 `Surfaces + ShaderStage 名` 打头，后跟功能描述。可以在 [`editor/assets/chunks/surfaces/default-functions`](https://github.com/cocos/cocos-engine/tree/v3.6.0/editor/assets/chunks/surfaces/default-functions) 中查看不同材质模型中各 Surface 函数的具体定义与实现，如：
 
 ```glsl
 #define CC_SURFACES_VERTEX_MODIFY_WORLD_POS

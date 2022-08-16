@@ -8,7 +8,7 @@ Mask 用于规定子节点可渲染的范围，默认带有 Mask 组件的节点
 
 遮罩的组件接口请参考 [Mask API](__APIDOC__/zh/class/Mask)。
 
-关于使用可以参考范例 **Mask**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/08.mask) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/08.mask)）。
+关于使用可以参考范例 **Mask**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/08.mask) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/ui/08.mask)）。
 
 ## Mask 属性
 
