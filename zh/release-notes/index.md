@@ -10,3 +10,4 @@
 - [v3.5 已构建工程升级指南](../engine/template/native-upgrade-to-v3.5.md)
 - [v3.5 已构建工程升级 v3.6 指南](../engine/template/native-upgrade-to-v3.6.md)
 - [v3.6 构建模板与 settings.json 升级指南](../release-notes/build-template-settings-upgrade-guide-v3.6.md)
+- [Cocos Creator 3.6 材质升级指南](../material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
