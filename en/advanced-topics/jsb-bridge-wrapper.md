@@ -53,7 +53,7 @@ JsbBridgeWrapper has different implementations on different platforms.
 
 As for Objective-C and Java, you will see `JsbBridgeWrapper` with a similar declaration.
 
-- [Objective-C](https://github.com/cocos/cocos-engine/blob/v3.5.0/native/cocos/platform/apple/JsbBridgeWrapper.h):
+- [Objective-C](https://github.com/cocos/cocos-engine/blob/v3.6.0/native/cocos/platform/apple/JsbBridgeWrapper.h):
 
     ```objc
     // In Objective-C
