@@ -60,24 +60,6 @@ __TextureCube__ obtained from a __panorama__ in __Cocos Creator__:
 
 __TextureCube__ obtained by making a __CubeMap__ in __Cocos Creator__:
 
-![CubeMap](../concepts/scene/skybox/Cubemap_Inspector.png)
+![CubeMap](./texture/texture-cube.png)
 
-To learn more about the use of __TextureCube__ and __CubeMaps__, please refer to the [Skybox](../concepts/scene/skybox.md) documentation.
-
-## Set MipMap range during runtime
-
-The mipmap range of __Texture2D__ and __TextureCube__ can be set during runtime. After setting the limits, the program will only use the mipmaps in the given range. We can avoid the use of low-level mipmaps to save bandwidth, and avoid the use of high-level mipmaps to ensure render quality.
-
-The method is as follow:
-
-```Javascript
-texture2d.setMipRange(minLod, maxLod);
-// or
-textureCube.setMipRange(minLod, maxLod);
-```
-
-where `minLod` specifies the minimum limit, and `maxLod` specifies the maximum limit.
-
-> __Note__:
-> 1. The limit exceeding the origin `mipmapLevel` is invalid.
-> 2. This method doesn't work on WebGL 1 and GLES2.
+To learn more about the use of __TextureCube__ and __CubeMaps__, please refer to the [Texure Cube](./texture-cube.md)|[Skybox](../concepts/scene/skybox.md) documentation.

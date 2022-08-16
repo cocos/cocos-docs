@@ -35,6 +35,7 @@
     - [资源管理模块升级指南](asset/asset-manager-upgrade-guide.md)
     - [v3.5 已构建工程升级指南](engine/template/native-upgrade-to-v3.5.md)
     - [v3.6 已构建工程升级指南](engine/template/native-upgrade-to-v3.6.md)
+    - [v3.6 构建模板与 settings.json 升级指南](release-notes/build-template-settings-upgrade-guide-v3.6.md)
 
 ## 工作流
 
@@ -245,6 +246,7 @@
     - [程序化控制动画](animation/animation-component.md)
         - [动画状态](animation/animation-state.md)
     - [变形动画](animation/morph.md)
+    - [嵌入播放器](animation/embeded-player.md)
     - [Marionette 动画系统](animation/marionette/index.md)
         - [动画图资源](animation/marionette/animation-graph.md)
         - [动画控制器组件参考](animation/marionette/animation-controller.md)
@@ -266,19 +268,20 @@
         - [2D 碰撞体](physics-2d/physics-2d-collider.md)
         - [2D 碰撞回调](physics-2d/physics-2d-contact-callback.md)
         - [2D 物理关节](physics-2d/physics-2d-joint.md)
-    - [3D 物理](physics/physics.md)
-        - [物理选项](physics/physics-item.md)
-        - [物理系统](physics/physics-system.md)
+    - [3D 物理系统](physics/physics.md)
+        - [设置物理引擎](physics/physics-engine.md)
+        - [物理系统配置](physics/physics-configs.md)
+        - [分组和掩码](physics/physics-group-mask.md)
         - [物理组件](physics/physics-component.md)
-        - [使用物理](physics/physics-use.md)
-            - [使用碰撞器](physics/physics-collider.md)
-            - [物理配置](editor/project/physics-configs.md)
-            - [物理材质](physics/physics-material.md)
-            - [使用刚体](physics/physics-rigidbody.md)
-            - [物理事件](physics/physics-event.md)
-            - [分组和掩码](physics/physics-group-mask.md)
-            - [射线检测](physics/physics-raycast.md)
-            - [连续碰撞检测](physics/physics-ccd.md)
+            - [碰撞体](physics/physics-collider.md)
+            - [刚体](physics/physics-rigidbody.md)
+            - [常力组件](physics/physics-constantForce.md)
+            - [约束](physics/physics-constraint.md)
+        - [物理材质](physics/physics-material.md)
+        - [物理事件](physics/physics-event.md)
+        - [射线检测](physics/physics-raycast.md)
+        - [连续碰撞检测](physics/physics-ccd.md)
+        - [物理应用案例](physics/physics-example.md)
 
 - [粒子系统](particle-system/index.md)
     - [2D 粒子](particle-system/2d-particle/2d-particle.md)
@@ -319,6 +322,13 @@
     - [可选参数](asset/options.md)
     - [管线与任务](asset/pipeline-task.md)
     - [资源管理注意事项 - meta 文件](asset/meta.md)
+
+- [本地化](editor/l10n/overview.md)
+    - [译文服务商](editor/l10n/translation-service.md)
+    - [收集并统计](editor/l10n/collect-and-count.md)
+    - [语言编译](editor/l10n/compile-language.md)
+    - [L10nLabel 组件](editor/l10n/l10n-label.md)
+    - [示例](editor/l10n/script-using.md)
 
 ## 进阶教程
 
@@ -383,3 +393,4 @@
     - [原生场景剔除](advanced-topics/native-scene-culling.md)
     - [原生性能剖析器](advanced-topics/profiler.md)
     - [WebSocket 服务器](advanced-topics/websocket-server.md)
+    - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)

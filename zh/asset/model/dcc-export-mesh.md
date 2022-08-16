@@ -1,6 +1,6 @@
 # 导入从 DCC 工具导出的模型
 
-目前大多数数字内容制作（Digital Content Creation, DCC）工具（3ds Max、Maya、Blender）都能导出 **FBX** 和 **glTF** 这两种格式的模型文件，所以这些工具导出的内容都能在 Cocos Creator 中得到良好的展示。
+目前大多数数字内容制作（Digital Content Creation, DCC）工具（[3ds Max](max-export-fbx.md)、[Maya](maya-export-fbx.md)、Blender）都能导出 **FBX** 和 **glTF** 这两种格式的模型文件，所以这些工具导出的内容都能在 Cocos Creator 中得到良好的展示。
 
 ## 导出 FBX
 

@@ -6,6 +6,7 @@ This section focuses on extending the editor, including the following:
 - [The First Extension](./first.md)
 - [First Panel](./first-panel.md)
 - [First Data Interaction](./first-communication.md)
+- [Change the Name of a Extension](./extension-change-name.md)
 - [Install and Share](./install.md)
 - [Extended Panel](./panel.md)
 - [Contributions](./contributions.md)

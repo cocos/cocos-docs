@@ -1,10 +1,16 @@
-## Rotation Overtime Module
+# Rotation Overtime Module
 
-![rotation_module](particle-system/rotation_module.png)
+The rotate module is used to set the particles to rotate on the fly when running, and can be used to simulate random rotating effects like falling snowflakes.
 
-Property | Role
----|---
-**separateAxes** | Whether the three axes rotate separately.
-**X Y Z** | The curve of the rotation with time can be set to different rotations on the three coordinate axes, and different calculation modes can be used. X and Y are only valid when separateAxes is true.
+![rotation_module](module/rotate_overtime.gif)
 
-![rotate_overtime](particle-system/rotate_overtime.gif)
+## Properties
+
+![rotation_module](module/rotation_module.png)
+
+| Properties | Description |
+| :--- | :--- |
+| **SeparateAxes** | Whether to set the particle rotation of the three axes separately |
+| **X、Y、Z** | Sets the angular velocity of rotation around the X, Y, and Z axes. Where **X**, **Y** are only displayed when the **SeparateAxes** property is checked. |
+
+Click the ![menu button](main-module/menu-button.png) button to the right of the property input box, you can choose to edit the curves of the property, please refer to [curve editor](./editor/curve-editor.md) for details.

@@ -1,108 +1,109 @@
-# Extending the Project Settings Panel
-
-[Project Settings](../../editor/project/index.md) holds the configuration related to the running of the project. This part of the configuration allows access to versioning and sharing of configurations by multiple people.
-
-For example, the configuration of built modules, the configuration of layers within the project. If this configuration is not synchronized, it may cause inconsistent results on different machines.
-
-For editor-related configurations, please refer to the [Extending the Preferences Panel](./contributions-preferences.md) documentation.
+# Extending Project Settings Panel
 
 ## Panel Introduction
 
-The project settings are divided into two parts:
+**Project Settings** holds the configuration related to the project operation, which is stored in the `settings` folder under the project directory and needs to be included in the version management, so that multiple people can share the configuration, otherwise it may lead to inconsistent operation on different machines.
 
-- On the left side is the function tab inside the function module
-- The right side is the configuration modification screen
+The **Projects** -> **Projects Settings** menu can be found in the top menu bar, as shown below:
 
-The project settings allow a functional extension to register multiple tabs, and accordingly the tabs are marked with text indicating which functionality the tab belongs to.
+![project-settings-menu](./image/project-settings-menu.png)
 
-## Registration Method
+Click on it to open the settings panel, as shown in the following figure:s
 
-First define the configuration in `contributions.profile.project`. The data to be displayed can be defined in the project settings in `contributions.project`.
+![project-settings-panel](./image/project-settings-panel.png)
 
-> **Note**: the data configured in the project settings should be stored in the `project` location.
+On the left side of the project settings panel is the function module tab, and on the right side is the configuration modification interface for the corresponding function.
 
-## Registering Project Settings Data
+We can add custom configurations to the project by customizing the display data in this panel, and visualize and manage the project configuration with the help of the project settings panel.
 
-Define a simple extension:
+If you want to take effect for all projects, you need to customize the editor-related configuration, please refer to the document [Extending the Preferences Panel](./contributions-preferences.md).
 
-`package.json`
+The **Custom Item Settings** function allows a we to register multiple tabs, so there will be a small line on the left tab indicating which function the tab belongs to.
 
-```JSON
+## Data Configuration and Display
+
+Custom project settings need to rely on data configuration, you need to define the relevant data fields in `contributions.profile.project` first.
+
+> **Note**: The configuration data in the project settings should be stored in the `profile.project` field.
+
+Once the data fields are defined, you also need to define the data to be displayed and the UI components to be used to display it in the `contributions.project` field. This is shown below.
+
+```json5
+// package.json
 {
     "name": "project-test",
     "contributions": {
         "profile": {
             "project": {
                 "foo": {
-                    "default": 1,
+                    "default": 1
+                },
+                "foo1": {
+                    "default": 1
+                },
+                "foo2": {
+                    "default": false
+                },
+                "foo3": {
+                    "default": 0
                 }
             }
         },        
         "project": {
             "tab1": {
                 "label": "test",
-                "content": {
-                    "foo": {
-                        "ui": "ui-num-input"
+                "foo": {
+                    "ui": "ui-num-input"
+                },
+                "foo1": {
+                    "ui": "ui-slider",
+                    "attributes": {
+                        "min": 0,
+                        "max": 1,
+                        "step": 0.1
                     }
+                },
+                "foo2": {
+                    "ui": "ui-checkbox"
+                },
+                "foo3": {
+                    "ui": "ui-select",
+                    "items": [
+                        {
+                            "value": 0,
+                            "label": "ITEM 0"
+                        },
+                        {
+                            "value": 1,
+                            "label": "ITEM 1"
+                        },
+                        {
+                            "value": 2,
+                            "label": "ITEM 2"
+                        }
+                    ]
                 }
+            },
+            "tab1": {
+                "label": "test"
             }
         }        
     }
 }
 ```
 
-A new tab called **test** on the left side of the project settings now exists.
-The **Project -> Project Settings** menu from the main menu opens the **Project Settings**.
-Once selected, modify the foo configuration in the right panel.
+In the above example, 4 data items are defined in the `contributions.profile.project` field: `foo`, `foo1`, `foo2`, `foo3`.
 
-For details on how to define a profile, please review the [Profile](./profile.md) documentation.
+For more information on how to define `profile` related configuration, please refer to [Configuration System](./profile.md).
 
-```typescript
-interface Package
-{
-    'name': string;
-    'contributions': {
-        'profile': {
-            'project': {
-                [key:string]: ProfileItem;
-            };
-        };
-        "project": {
-            [key:string]: ProjectGroup;
-        }
-    }
-}
+There are 2 tabs defined in the `contributions.project` field: `test`, `tes2`.
 
-interface ProjectGroup {
-    /**
-     * Text of the left label in the project settings, i18n supported.
-     **/
-    label: string;
-    /**
-     * The project field corresponds to the configuration information injected into the project settings, which are defined as 'object' objects.
-     * The object's key is the unique identifier of the project setting, and its value is the basic information describing the project setting.
-     **/ 
-    content?: { [key: string]: UIInfo };
-    /**
-     * If the configuration is more complex and automatic rendering cannot meet the needs, you can fill in custom data.
-     * Customize the rendering panel in the project settings, which appears below the automatic rendering (if properties are defined).
-     **/ 
-    custom?: string;
-}
+In the `test` tab, each of the 4 data items is configured, see [UI Component Configuration](##UI%20Component%20Configuration) later for the specific configuration properties.
 
-/**
- * The information needed to render a configuration
- **/ 
-interface UIInfo {
-    // Which ui element to use for rendering, e.g.: "ui-num-input"
-    ui: string;
-    attributes: {
-        // The attribute data allowed to be passed on the ui element is different for each type of ui, see the ui-kit section for details
-        // Assuming the ui is "ui-num-input", here you can fill in "step": 1
-        [key:string]: any;
-    };
-}
-```
+After refreshing the extension in the Extension Manager list, open the **Project Settings Panel** again via the **Project -> Project Settings** menu to see the following screen.
 
-As additional reading, please review the [Panel Boot](./panel-boot.md) documentation for panel definitions.
+![project-settings-panel-custom](./image/project-settings-panel-custom.png)
+
+## UI Component Configuration
+
+This example shows the usage of 4 common UI components in customizing the project settings panel, in theory all UI components with `value` attribute can be used in customizing the project settings panel, please refer to the documentation [UI Components](./ui.md).

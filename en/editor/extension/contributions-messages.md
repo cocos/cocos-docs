@@ -1,21 +1,25 @@
-# Message
+# Customized Messages
 
-In the **Cocos Creator**, all interactions are done through [Message](./messages.md).
+In the Cocos Creator editor architecture, all interactions are implemented through message communication, and this article will explain how to customize a message.
 
-The message needs to be defined in `contributions` before it can be used.
+## View the Public Message List
 
-## View public messages
+Find **Developer** -> **Message Manager** in the top menu bar of the editor to open the message management panel, which shows the public messages of each system of the editor and their descriptions.
 
-In the top menu **Developer -> Message List**, the editor presets a **Message Manager** panel that displays public messages and descriptions of each function definition.
+![extension-message-mgr-menu](./image/extension-message-mgr-menu.png)
+
+![extension-message-mgr-panel](./image/extension-message-mgr-panel.png)
 
 ## Define a message
+
+Only messages defined in the `contributions.messages` field of the `package.json` file can be used. The messages are defined as follows.
 
 ```json
 {
     "name": "hello-world",
     "contributions": {
         "messages": {
-            "messageName": {
+            "test-messasge": {
                 "public": false,
                 "description": "",
                 "doc": "",
@@ -25,6 +29,8 @@ In the top menu **Developer -> Message List**, the editor presets a **Message Ma
     }
 }
 ```
+
+`test-messasge` is the name of the message, and we will explain the meaning of each property one by one.
 
 ### public
 
@@ -73,3 +79,5 @@ When developing an extension, you need to send some notifications to other exten
     }
 }
 ```
+
+For more information, please refer to the document [Message System](./messages.md).

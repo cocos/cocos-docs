@@ -1,5 +1,7 @@
 # Limit Velocity Overtime Module
 
+The speed limit module is used to set the speed of the particles to gradually slow down over the life cycle.
+
 ![limit_module](particle-system/limit_module.png)
 
 Property | Features
