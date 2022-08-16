@@ -1,12 +1,12 @@
-# 升级指南：Effect 从 v3.5.x 升级到 v3.6.0
+# Upgrade Guide: Effect from v3.5.x to v3.6.0
 
-## Chunks 迁移
+## Chunks migration
 
 3.6.0将之前版本 chunks 文件夹中的零散文件分门别类的存放到子文件夹中，书写 chunk 的 #include 时请参考下面的表格：
 
-### 1、公共函数库
+### 1、Public function libraries
 
-| 原文件               | 新路径                           |
+| Origin Path          | New Path                         |
 | -------------------- | -------------------------------- |
 | common               | common/common-define             |
 | texture-lod          | common/texture/texture-lod       |
@@ -18,9 +18,9 @@
 | transform            | common/math/transform            |
 | rect-area-light      | common/lighting/rect-area-light  |
 
-### 2、Uniform 定义
+### 2、Uniform define
 
-| 原文件           | 新路径                            |
+| Origin Path      | New Path                          |
 | ---------------- | --------------------------------- |
 | cc-global        | builtin/uniforms/cc-global        |
 | cc-local         | builtin/uniforms/cc-local         |
@@ -30,17 +30,17 @@
 | cc-shadow        | builtin/uniforms/cc-shadow        |
 | cc-world-bound   | builtin/uniforms/cc-world-bound   |
 
-### 3、通用 Shader 主函数（仅限 legacy shader）
+### 3、Common shader main-functions for legacy shader
 
-| 原文件     | 新路径                           |
-| ---------- | -------------------------------- |
-| outline-vs | legacy/main-functions/outline-vs |
-| outline-fs | legacy/main-functions/outline-fs |
-| general-vs | legacy/main-functions/general-vs |
+| Origin Path | New Path                         |
+| ----------- | -------------------------------- |
+| outline-vs  | legacy/main-functions/outline-vs |
+| outline-fs  | legacy/main-functions/outline-fs |
+| general-vs  | legacy/main-functions/general-vs |
 
-### 4、引擎功能模块及其他（仅限 legacy shader）
+### 4、Engine functionality and miscellaneous for legacy shader
 
-| 原文件                    | 新路径                           |
+| Origin Path               | New Path                         |
 | ------------------------- | -------------------------------- |
 | cc-fog-base               | legacy/fog-base                  |
 | cc-shadow-map-base        | legacy/shadow-map-base           |
@@ -68,9 +68,9 @@
 | shading-toon              | legacy/shading-toon              |
 | standard-surface-entry    | legacy/standard-surface-entry    |
 
-### 5、仅供内部使用
+### 5、For internal use only
 
-| 原文件            | 新路径                           |
+| Origin Path       | New Path                         |
 | ----------------- | -------------------------------- |
 | alpha-test        | builtin/internal/alpha-test      |
 | cc-sprite-common  | builtin/internal/sprite-common   |

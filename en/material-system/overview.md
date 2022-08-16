@@ -14,6 +14,7 @@ The material system mainly includes the following:
 - [Material System Class Diagram](material-structure.md)
 - [Cocos Creator 3.1 Material Upgrade Guide](Material-upgrade-documentation-for-v3.0-to-v3.1.md)
 - [Upgrade Guide: Effect from v3.4.x to v3.5.0](effect-upgrade-documentation-for-v3.4.2-to-v3.5.md)
+- [Upgrade Guide: Effect from v3.5.x to v3.6.0](effect-upgrade-documentation-for-v3.5-to-v3.6.md)
 
 ## Examples
 
