@@ -77,5 +77,11 @@ Creator 提供了几个简单的静态 3D 模型，其中包含了立方体、�
 如果存在大量相同的模型重复绘制，相互间只有相对可控的小差异，就可以使用 instancing 合批。<br>
 如果存在大量面数很低但顶点数据又各不相同的模型，可以考虑尝试合并 VB 合批。<br>
 
+## 预览网格
+
+鼠标悬停在 **Mesh** 属性中下拉的网格上时，可以在场景视图中对模型进行预览。
+
+![view model](mesh-renderer/view-model.gif)
+
 [^1]: 注意目前使用 uniform 上传合批后的世界变换矩阵，考虑到 WebGL 标准的 uniform 数量限制，目前一批最多绘制 10 个模型，所以对大量同材质的模型，开启合批后 drawcall 数量预期最多会减少 10 倍。
 [^2]: 关于合批与性能的话题业界一直有不少探讨，比如可以参考 [这里](https://www.nvidia.com/docs/IO/8228/BatchBatchBatch.pdf) 的 slide。

@@ -1,33 +1,36 @@
-# Configuration system
+# Configuration System
 
-When writing an extension, it may be necessary to save configurations and provide some configurations for users to customize settings. Therefore, a configuration management mechanism is provided in the editor.
+The Cocos Creator extension provides a configuration management mechanism for saving user settings and data in the extension.
 
-## Configuration Type
+## Configuration Types
 
-The configuration in the editor is divided into two types:
+There are two types of configuration types.
+1. editor configuration (editor)
+2. project configuration (project)
 
-1. Editor settings
-2. Project Settings
+### Editor Configuration
 
-### Editor settings
+The editor configuration is used to store some editor-related user settings and data, and is divided into three priority levels, from high to low, as follows.
 
-Store some editor-related function settings. This part is also the main configuration of the editor.
-
-The editor settings are divided into three levels, with priority from high to low:
-
-```sh
+```
 local -> global -> default
 ```
 
-### Project Settings
+If there is no corresponding configuration in `local`, the configuration in `global` will be used, and if no corresponding configuration in `global` is found, the default `default` configuration will be used.
 
-Store some project-related configurations, which are allowed and need to be shared between projects.
+### Project Configuration
 
-```sh
+The project configuration is used to store some project-related user settings and data, and is divided into two priority levels, from highest to lowest.
+
+```
 local -> default
 ```
 
-## Register Configuration
+Similar to the rules of **Editor Configuration**, when fetching configuration data, the configuration item in `local` will be used first, and if there is no corresponding configuration item in `local`, the default `default` configuration will be used.
+
+## Registering Configuration
+
+To use the configuration system, you need to define the `profile` information in the `contributions` field of the extension definition file `package.json`, as follows.
 
 ```json
 {
@@ -38,14 +41,14 @@ local -> default
                 "test.a": {
                     "default": 0,
                     "message": "editorTestAChanged",
-                    "label": "Test Editor Configuration"
+                    "label": "Test Editor configuration"
                 }
             },
             "project": {
                 "test.a": {
                     "default": 1,
                     "message": "projectTestAChanged",
-                    "label": "Test project configuration"
+                    "label": "Test Project Configuration"
                 }
             }
         }
@@ -53,59 +56,94 @@ local -> default
 }
 ```
 
+**contributions.profile** The related fields are interpreted as follows.
+- `editor`:{} - editor configuration
+- `project`:{} - project configuration
+- `test.a`:{} - key for the configuration of test.a
+- `default`:any - the default value of this configuration item, optional parameter
+- `message`:string - the message that will be triggered when this configuration item is modified, optional
+- `label`:string - where the configuration can be displayed, this description may be displayed. Supports i18n:key format, optional parameters
+
+The TypeScript interface associated with `profile` is defined as follows.
+
 ```typescript
 interface ProfileInfo {
-    editor: {[key: string ]: ProfileItem };
-    project: {[key: string ]: ProfileItem };
+    editor: { [ key: string ]: ProfileItem };
+    project: { [ key: string ]: ProfileItem };
 }
 
 interface ProfileItem {
-    // Configured default data
+    // Default data for configuration
     default: any;
-    // After configuration changes, this message will be automatically sent to notify
+    // This message is automatically sent for notification of configuration changes
     message: string;
-    // Simply describe the role of configuration information, support i18n:key syntax
+    // A simple description of the role of configuration information, supporting the i18n:key syntax
     label: string;
 }
 ```
 
-`contributions.profile` is divided into editor and project configurations. The definitions of these two configurations are object objects. The key of the object is the key of the configuration, and the value is the basic information describing the configuration.
+## Read and Modify Configuration
 
-### default
+### Importing Extension Definitions
 
-`Type {any} optional`
-
-The default value of the configuration. It can be of any type.
-
-### message
-
-`Type {string} optional`
-
-When the message is modified, the defined message will be triggered. Used to dynamically update some data when configuration changes.
-
-### label
-
-`Type {string} optional`
-
-Briefly describe this configuration. Where the configuration can be displayed, this description may be displayed. Support i18n:key format
-
-## Read configuration
-
-Read editor configuration
-
-```javascript
-const packageJSON = require('./package.json');
-// await Editor.Profile.getConfig(pkgName, key, protocol);
-await Editor.Profile.getConfig(packageJSON.name,'test.a'); // 0
-await Editor.Profile.getConfig(packageJSON.name,'test.a','local'); // undefined
-await Editor.Profile.getConfig(packageJSON.name,'test.a','global'); // undefined
+```typescript
+import packageJSON from '../package.json';
 ```
 
-Read project configuration
+If the last parameter of `Editor.Profile.getConfig` is empty, a [priority](#Editor%20Configuration) match will be performed.
 
-```javascript
-const packageJSON = require('./package.json');
-// await Editor.Profile.getConfig(pkgName, key, protocol);
-await Editor.Profile.getProject(packageJSON.name,'test.a'); // 1
-await Editor.Profile.getProject(packageJSON.name,'test.a','project'); // undefined
+If the fetch location (one of `local`, `global`, `default`) is specified, the corresponding value will be returned. As shown below, `local` and `global` are `undefined` because they are not set.
+
+```typescript
+await Editor.Profile.getConfig(packageJSON.name, 'test.a'); // 0
+await Editor.Profile.getConfig(packageJSON.name, 'test.a', 'local'); // undefined
+await Editor.Profile.getConfig(packageJSON.name, 'test.a', 'global'); // undefined
 ```
+
+### Modify the Editor Configuration
+
+Call `getConfig` after modifying the configuration with the following code to see the corresponding changes.
+
+```typescript
+await Editor.Profile.setConfig(packageJSON.name, 'test.a', 1);
+await Editor.Profile.setConfig(packageJSON.name, 'test.a', 'local', 2);
+await Editor.Profile.setConfig(packageJSON.name, 'test.a', 'global', 3);
+```
+
+### Read Project Configuration
+
+If the last parameter of `Editor.Profile.getProject` is empty, a [priority](#Project%20Configuration) match will be performed.
+
+If the fetch location (either `local`, `default`) is specified, the corresponding value will be returned. As shown below, the `local` is `undefined` because it is not set.
+
+```typescript
+await Editor.Profile.getProject(packageJSON.name, 'test.a'); // 1
+await Editor.Profile.getProject(packageJSON.name, 'test.a', 'local'); // undefined
+```
+
+### Modify the Project Configuration
+
+Call `getProject` after modifying the configuration with the following code to see the corresponding changes.
+
+```typescript
+await Editor.Profile.setProject(packageJSON.name, 'test.a', 1);
+await Editor.Profile.setProject(packageJSON.name, 'test.a', 'local', 2);
+```
+
+## Storage Paths
+
+### Editor Configuration Storage Path
+
+| Hierarchy | Path                                                       |
+| ------- | ------------------------------------------------------------ |
+| local   | `{projectPath}/profiles/v2/extensions/{extensionName}.json`  |
+| global(mac)  | `Users/{name}/.CocosCreator/profiles/v2/extensions/{extensionName}.json` |
+| global(window)  | `c/Users/{name}/.CocosCreator/profiles/v2/extensions/{extensionName}.json` |
+| default | `{extensionPath}/package.json`                              |
+
+### Project Configuration Storage Path
+
+| Hierarchy | Path                                                      |
+| ------- | ----------------------------------------------------------- |
+| local   | `{projectPath}/settings/v2/extensions/{extensionName}.json` |
+| default | `{extensionPath}/package.json`                             |

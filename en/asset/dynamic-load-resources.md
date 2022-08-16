@@ -6,13 +6,13 @@ Usually we will place the resources that need to be dynamically loaded in the pr
 
 ```typescript
 // load Prefab
-resources.load("test assets/prefab", Prefab, (err, prefab) => {
+resources.load("test_assets/prefab", Prefab, (err, prefab) => {
     const newNode = instantiate(prefab);
     director.getScene().addChild(newNode);
 });
 
 // load AnimationClip
-resources.load("test assets/anim", AnimationClip, (err, clip) => {
+resources.load("test_assets/anim", AnimationClip, (err, clip) => {
     this.node.getComponent(Animation).addClip(clip, "anim");
 });
 ```
@@ -31,18 +31,18 @@ resources.load("test assets/anim", AnimationClip, (err, clip) => {
 
 ### Loading a SpriteFrame or a Texture2D
 
-After the image is set to a spriteframe, texture or other image types, an asset of the corresponding type will be generated in the **Assets Panel**. But if `test assets/image` is loaded directly, and the type will be `ImageAsset`. You must specify the full path of sub asset, then the generated SpriteFrame can be loaded.
+After the image is set to a spriteframe, texture or other image types, an asset of the corresponding type will be generated in the **Assets Panel**. But if `test_assets/image` is loaded directly, and the type will be `ImageAsset`. You must specify the full path of sub asset, then the generated SpriteFrame can be loaded.
 
 ```typescript
 // load a SpriteFrame, image is ImageAsset, spriteFrame is image/spriteFrame, texture is image/texture
-resources.load("test assets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
+resources.load("test_assets/image/spriteFrame", SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```
 
 ```typescript
 // load a texture
-resources.load("test assets/image/texture", Texture2D ,(err: any, texture: Texture2D) => {
+resources.load("test_assets/image/texture", Texture2D ,(err: any, texture: Texture2D) => {
     const spriteFrame = new SpriteFrame();
     spriteFrame.texture = texture;
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
@@ -59,7 +59,7 @@ For an atlas imported from a third-party tool such as TexturePacker, if you want
 // load SpriteAtlas, and get one of them SpriteFrame
 // Note Atlas resource file (plist) usually of the same name and a picture file (PNG) placed in a directory,
 // So should need to in the second parameter specifies the resource type.
-resources.load("test assets/sheep", SpriteAtlas, (err, atlas) => {
+resources.load("test_assets/sheep", SpriteAtlas, (err, atlas) => {
     const frame = atlas.getSpriteFrame('sheep_down_0');
     this.node.getComponent(Sprite).spriteFrame = frame;
 });
@@ -95,13 +95,13 @@ resources.load("Monster/Armature", Skeleton, (err, skeleton) => {
 `resources.loadDir` can load multiple resources under the same path:
 
 ```ts
-// loading all resource in the test assets directory
-resources.loadDir("test assets", function (err, assets) {
+// loading all resource in the test_assets directory
+resources.loadDir("test_assets", function (err, assets) {
     // ...
 });
 
-// Load all SpriteFrames in the `test assets` directory and get their urls
-resources.loadDir("test assets", SpriteFrame, function (err, assets) {
+// Load all SpriteFrames in the `test_assets` directory and get their urls
+resources.loadDir("test_assets", SpriteFrame, function (err, assets) {
     // ...
 });
 ```
@@ -113,9 +113,9 @@ Starting with v2.4, in addition to scenes that can be preloaded, other resources
 `resources` provides `preload` and `preloadDir` for preloading resources.
 
 ```typescript
-resources.preload('test assets/image/spriteFrame', SpriteFrame);
+resources.preload('test_assets/image/spriteFrame', SpriteFrame);
  // wait for while
-resources.load('test assets/image/spriteFrame', SpriteFrame, (err, spriteFrame) => {
+resources.load('test_assets/image/spriteFrame', SpriteFrame, (err, spriteFrame) => {
     this.node.getComponent(Sprite).spriteFrame = spriteFrame;
 });
 ```

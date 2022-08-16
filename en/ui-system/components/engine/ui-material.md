@@ -14,12 +14,12 @@ The usage is no different from other built-in materials, just drag and drop the 
 4. The **Grayscale** property on the panel is disabled when a custom material for 2D rendering objects is used, and the user can choose to implement this feature in the material itself.
 5. If the BlendFactor is set in the code, when a custom material is used, the BlendFactor setting in the custom material will prevail.
 6. When a custom material is used, the depth detection information of the component will be based on the material. To achieve occlusion with 3D objects, please use custom materials and turn on depth detection. See the example [2d-rendering-in-3d](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/2D).
-7. For custom materials, getting the uploaded texture requires introducing the `cc-sprite-texture` header file in the shader, where `cc_spriteTexture` corresponds to the SpriteFrame image asset set in the 2D rendering component properties panel. For example, a fragment shader that simply uses the panel to set a SpriteFrame to sample textures should look like the following:
+7. For custom materials, getting the uploaded texture requires introducing the `sprite-texture` header file in the shader, where `cc_spriteTexture` corresponds to the SpriteFrame image asset set in the 2D rendering component properties panel. For example, a fragment shader that simply uses the panel to set a SpriteFrame to sample textures should look like the following:
 
     ```
     CCProgram sprite-fs %{
         precision highp float;
-        #include <cc-sprite-texture>
+        #include <builtin/internal/sprite-texture>
         in vec4 v_color;
 
         uniform ARGS{
@@ -57,7 +57,7 @@ The usage is no different from other built-in materials, just drag and drop the 
     let spriteComp = this.node.getComponent(Sprite);
     // The sharedMaterial method is a "shared material asset", and operations performed on the material will affect all rendering objects that use the material, this operation will not instantiate the asset and will not affect the batch
     let material = spriteComp.sharedMaterial;
-
+    
     // The material method gets the "example material used by the current renderable component", and operations on the Material Instance will only affect the current component, this operation will instantiate the asset, and once instantiated, this component cannot be combined with other components
     let materialInstance = spriteComp.material;
     ```

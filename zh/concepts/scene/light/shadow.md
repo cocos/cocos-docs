@@ -14,7 +14,11 @@ Creator 3.0 目前支持 **Planar** 和 **ShadowMap** 两种阴影类型。
 
     ![enable-shadow](shadow/enable-shadow.png)
 
-2. 在 **层级管理器** 中选中需要显示阴影的 3D 节点，然后在 **属性检查器** 的 **MeshRenderer** 组件中将 **ShadowCastingMode** 属性设置为 **ON**。
+2. 在 **层级管理器** 中选中 **Light**，然后在 **属性检查器** 的 **Dynamic Shadow Settings** 组件中勾选 **Shadow Enabled** 属性。
+
+    ![enable-shadow](shadow/enable-light-shadow.png)
+
+3. 在 **层级管理器** 中选中需要显示阴影的 3D 节点，然后在 **属性检查器** 的 **MeshRenderer** 组件中将 **ShadowCastingMode** 属性设置为 **ON**。
 
     ![set-meshrenderer](shadow/set-meshrenderer.png)
 
@@ -84,7 +88,7 @@ ShadowMap 一般用于要求光影效果比较真实，且较为复杂的场景�
 | :------ | :-- |
 | ShadowEnabled | 是否开启平行光阴影 |
 | ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
-| ShadowBias | 设置阴影偏移值，防止 z-fiting |
+| ShadowBias | 设置阴影偏移值，防止 Z-Fighting |
 | ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
 | ShadowSaturation | 调节阴影饱和度，建议设置为 **1.0**。若需要减小方向光阴影的饱和程度，推荐通过增加环境光来实现，而不是调节该值 |
 | ShadowInvisibleOcclusionRange | 设置 Camera 可见范围外的物体产生的阴影是否需要投射到可见范围内，若需要则调大该值即可  |

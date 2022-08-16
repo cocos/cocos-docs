@@ -14,7 +14,11 @@ To enable the shadow effect for an object, proceed as follows:
 
     ![enable-shadow](shadow/enable-shadow.png)
 
-2. Select the 3D node that needs to display shadows in the **Hierarchy** panel, and then set the **ShadowCastingMode** property to **ON** in the **MeshRenderer** component of the **Inspector** panel.
+2. Check **light** in the **Hierarchy** panel, and then check the **Shadow Enabled** property in the **Dynamic Shadow Settings** component of the **Inspector** panel.
+
+    ![enable-shadow](shadow/enable-light-shadow.png)
+
+3. Select the 3D node that needs to display shadows in the **Hierarchy** panel, and then set the **ShadowCastingMode** property to **ON** in the **MeshRenderer** component of the **Inspector** panel.
 
     ![set-meshRenderer](shadow/set-meshrenderer.png)
 

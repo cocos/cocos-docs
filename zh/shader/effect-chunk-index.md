@@ -22,7 +22,7 @@
 
 ```c
 // 引入引擎内置着色器片段
-#include <cc-global>
+#include <builtin/uniforms/cc-global>
 
 // 引入自定义着色器片段
 #include "../headers/my-shading-algorithm.chunk"

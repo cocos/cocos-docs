@@ -10,3 +10,4 @@
 - [上架扩展到商店](./store/upload-store.md)
 - [增强已有功能](./contributions.md)
 - [扩展系统详解](./basic.md)
+- [Editor 接口说明](./editor-api.md)
