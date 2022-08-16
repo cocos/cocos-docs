@@ -30,6 +30,6 @@ Then click the arrow icon button behind the **Graph** property box of the animat
 
 ![animation-graph-select](animation-graph/animation-graph-select.png)
 
-Or just drag and drop the animation graph asset from the **Assets** panel into the **Graph** property box of the Animation Controller component: !
+Or just drag and drop the animation graph asset from the **Assets** panel into the **Graph** property box of the Animation Controller component:
 
 ![animation-controller](animation-graph/animation-controller.png)

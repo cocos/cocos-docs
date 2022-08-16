@@ -161,9 +161,9 @@ The sub graph of a sub state machine is identical to a typical graph except for 
 
 To exit the Blend Motion state, users may right click on the grid and select **Return to Parent** or select a higher hierarchy in the **Position** bar on top of the grid window.
 
-Sub state machine nodes will display a preview of its content in its parent graph.
+<!-- Sub state machine nodes will display a preview of its content in its parent graph.
 
-![sub state](animation-graph-basics/sub-state.png)
+![sub state](animation-graph-basics/sub-state.png) -->
 
 ## Animation State Component
 

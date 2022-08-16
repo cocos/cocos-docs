@@ -13,9 +13,12 @@ To distinguish from the animation system from prior to v3.4 which is also access
 The Marionette system consists of four modules:
 
 - [Animation Graph Assets](animation-graph.md)
+- [Animation Controller Reference](animation-controller.md)
 - [Animation Graph Panel](animation-graph-panel.md)
+- [Animation Graph Layer](animation-graph-layer.md)
 - [Animation State Machine](animation-graph-basics.md)
 - [State Transition](state-transition.md)
+- [Animation Mask](animation-mask.md)
 
 ## Terminology
 

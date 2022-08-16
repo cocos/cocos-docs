@@ -104,3 +104,66 @@ This situation is called **state machine hover**.
 When a state machine hover occurs, it directly interrupts the update until a subsequent transition to the state can be made, at which point it is represented as the animation being paused.
 
 > **Note**: it is not recommended to rely on this behavior, and subsequent adjustments may be made to this behavior.
+
+## Preview
+
+Once any transition is selected, a preview of the current transition is available in the **Inspector** panel.
+
+![preview](state-transition/preview-overview.png)
+
+During the preview, the user can operate with the following buttons.
+
+![bar](state-transition/preview-bar.png)
+
+The properties and descriptions are as follows.
+
+- ![start](preview-bar/start.png) Skip to first frame
+- ![play](preview-bar/prev.png) Preview previous frame
+- ![play](preview-bar/play.png)/![pause](preview-bar/pause.png) 开始/Start/pause playback
+- ![stop](preview-bar/stop.png) Stop Play
+- ![end](preview-bar/next.png) Jump to the next frame
+- ![end](preview-bar/end.png) Jump to the last frame
+- ![time](preview-bar/time.png) Display the current time
+
+A quick preview and adjustment of the duration of the transition can also be done via the progress bar:
+
+![progress](state-transition/progress.png)
+
+- Click or drag the puller at ① to quickly preview the transfer
+- At ② you can adjust the **Duration** by dragging the edge with the mouse
+
+  ![duration](state-transition/duration.png)
+
+- You can adjust the **Destination Start Time** of the transfer by dragging the left mouse button at the ③ sign
+
+  ![dst-start-time](state-transition/dest-start-time.png)
+
+After clicking on Play button, you can preview both in Preview view.
+
+![preview-view](state-transition/preview-view.png)
+
+## Transition Interruptions
+
+Transition interruptions are experimental features. Editing of transition interrupts can be enabled by checking **Transition interrupts** in **Preferences** -> **Laboratory**.
+
+![interruptible-laboratory](state-transition/interruptible-laboratory.png)
+
+> **Note**: This option only controls the editing of the **Transition Interruption** field in the Animation Transition panel; it is not a switch for global functionality. If **Transition Interruption** is checked, the **Transition Interruption** field will take effect even if the option is subsequently disabled.
+
+Once enabled, check **Transition Interruption** in the Animation Transition Configuration panel to configure the transition as interruptible:
+
+![interruptible-inspector](state-transition/interruptible-inspector.png)
+
+When an animation transition is configured to be interruptible, that animation transition in progress can be interrupted by the following transitions (in the priority listed).
+
+- All transitions originating from an **any** state.
+
+- All transitions originating from the starting state of the current transition, but not the transition itself.
+
+- All transitions originating from the end state of the current transition.
+
+When a transition is interrupted, the current transition is saved and the transition begins toward the end point of the new transition. During this process, the two states of the interrupted transition are not updated. For example, the following clip demonstrates the effect of a **Standby to Jump** transition (with a transition period of 0.5 seconds) being interrupted by a **Standby to Kick** transition.
+
+![interruption-demo](state-transition/interruption-demo.gif)
+
+During the interruption, the standby animation and jump animation are no longer updated, while the kick animation continues to stay updated.

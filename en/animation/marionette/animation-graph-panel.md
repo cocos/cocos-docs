@@ -20,6 +20,8 @@ This tab is mainly used to create, view and edit layers of animation graphs, eac
 
 ![Layers](animation-graph-panel/layers.png)
 
+For more informations, please refer to  [Animation Graph Layer](animation-graph-layer.md)。
+
 ## Grid Layout Area
 
 This area mainly shows the state machine corresponding to the layer selected in the **Layers** tab, where the user can visually create, edit and arrange the states in the state machine, as well as set the transition between states. Right-click in the area to create as many states as needed:
