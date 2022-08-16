@@ -8,7 +8,7 @@
 
 ![select-platform](index/select-platform.png)
 
-- 最左边的下拉菜单中可以选择预览的平台，目前支持使用 **浏览器** 和 **模拟器** 预览。
+- 最左边的下拉菜单中可以选择预览的平台，目前支持使用 **编辑器内**、**浏览器** 和 **模拟器** 预览。
 - ![play](index/play.png)：预览按钮，点击可运行预览
 - 在 **预览** 按钮右侧可以选择预览的场景，下拉框中会列出项目中所有的场景，默认使用 **当前场景**。
 
@@ -64,6 +64,44 @@ Cocos Creator 开发过程中测试的桌面浏览器包括：**Chrome**、**Fir
 
 ![custom](index/custom.png)
 -->
+
+### 编辑器预览
+
+![editor preview](index/editor-preview-props.png)
+
+如要在编辑内预览，需在下拉菜单中选择 **编辑器预览**（下图标识 1），再点击 **运行预览**（下图标识 2）按钮进行预览：
+
+![bar](index/edit-bar.png)
+
+点击 ![pause](index/pause.png) 可以暂停当前预览，暂停后也可通过点击 ![step](index/step.png) 进行单步运行。
+
+当不在需要继续预览时，可点击 ![stop](index/stop.png) 按钮停止。
+
+选择编辑器预览时，也可以通过预览窗口上方的菜单配置预览的输出：
+
+- ![state](index/state.png) 点击选择是否在视图内显示下列的统计信息：
+
+    ![info](index/state-info.png)
+
+- ![FPS](index/FPS.png) 预览时的最大帧率，也可以输入自定义帧率：
+
+  ![max](index/max-fps.png)
+
+- ![resolution](index/resolution.png) 预览时的分辨率，通过下拉菜单可以选择不同的分辨率，如当前引擎内置的分辨率无法满足，也可以将下拉框拉到最下方选择 **管理**：
+
+    ![edit](index/edit.png)
+
+    也可在顶部菜单栏的 **偏好设置** 的 [设备管理器](../preferences/index.md#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E5%99%A8) 中添加/修改/删除分辨率：
+
+    ![device manager](index/device-manager.png)
+
+- ![rotate](index/rotate-view.png) 切换横屏/竖屏预览
+- ![scale](index/scale-game-view.png) 缩放视图
+- ![fit](index/fit.png) 使游戏视图适配当前的视图
+
+预览时也可以在 **属性检查器** 内修改组件的属性进行调试，但是需要注意的是，运行时输入的数据并不会被保存。如果希望保存调整后的组件，可以点击右侧的 **组件菜单** 并在下拉列表内选择 **复制组件**，然后在退出预览的情况下选择 **粘贴组件的值**。
+
+![copy](index/copy-component.png)
 
 ### 模拟器
 

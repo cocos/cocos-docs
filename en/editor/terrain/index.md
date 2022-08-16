@@ -76,6 +76,7 @@ Users may create the structure of the terrain object by sculpting bumps and rece
 | Brush Mode | Active mode of the brush, including **Bulge**, **Sunken**, **Smooth**, **Flatten**, **Set Height** |
 | Brush Height | Height of the brush, only availabe with **Set Height** mode |
 | Brush | Stencil of the brush, requires a texture map with alpha channel as stencil |
+| Brush Rotation | The brush rotation |
 
 | Brush mode | Description |
 | :--- | :--- |

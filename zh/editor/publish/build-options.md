@@ -84,6 +84,8 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 ![splash setting](build-options/splash-setting.png)
 
+插屏的详细设置可以参考 [项目设置 - 插屏设置](../project/index.md)。
+
 <!-- ### 压缩纹理
 
 若项目中的图片资源设置了 [压缩纹理](../../asset/compress-texture.md) 并勾选了该项，那么构建时便会根据压缩纹理设置生成对应的图像资源。如果不勾选该项，即便配置了压缩纹理也不会在构建时生效。

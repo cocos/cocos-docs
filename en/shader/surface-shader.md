@@ -92,7 +92,6 @@ These macros start with `CC_SURFACES_` and the following is the complete list of
 | CC_SURFACES_TRANSFER_LOCAL_POS                        | BOOL | Whether to access model space coordinates in FS |
 | CC_SURFACES_LIGHTING_ANISOTROPIC                      | BOOL | Whether to enable anisotropic materials |
 | CC_SURFACES_LIGHTING_ANISOTROPIC_ENVCONVOLUTION_COUNT | UINT | The number of anisotropic ambient light convolution samples, 0 means convolution calculation is off, only valid when anisotropy is on |
-| CC_SURFACES_LIGHTING_ANISOTROPIC_ENVCONVOLUTION_COUNT |
 | CC_SURFACES_USE_REFLECTION_DENOISE                    | BOOL | Whether to turn on ambient reflection denoising |
 | CC_SURFACES_USE_LEGACY_COMPATIBLE_LIGHTING | BOOL | Whether or not to enable legacy-compatible lighting mode, which makes the rendering effect identical to legacy/standard.effect and facilitates upgrades |
 

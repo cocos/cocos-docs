@@ -209,6 +209,8 @@ In-order to see the object at runtime, we need to adjust some parameters of the 
 
 ![camera setting](./images/camera-setting.png)
 
+When the scene is finished editing, you can use the menu **File** -> **Save Scene** or use the shortcut keys(<kbd>Ctrl/Cmd</kbd> + <kbd>S</kbd>) to save the scene. For example, when running on the browser, the preview page on the browser will be refreshed automatically after saving the scene.
+
 __Now__, click the __Play__ button. Once running, click the left and right mouse buttons on the opened web page, you can see the following screen:
 
 ![player move](./images/player-move.gif)

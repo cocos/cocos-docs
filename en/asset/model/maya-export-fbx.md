@@ -1,9 +1,9 @@
 # Export FBX file from Maya
 
-## Steps 
+## Steps
 
 1. Select the model:
-  
+
   ![Select the model](../../../zh/asset/model/maya/01-select-mesh.png)
 
 2. Go to **File -> Export Selection Option**:
@@ -11,15 +11,15 @@
   ![Export Selection Option](../../../zh/asset/model/maya/02-export-selection-option.png)
 
 3. Set **File type** to **FBX export**, click **export selection**:
-  
+
   ![Export File Type](../../../zh/asset/model/maya/03-export-type-selection.png)
 
 4. Set **Current Preset** to **Autodesk Media and Entertainment**:
-  
+
   ![Current Preset](../../../zh/asset/model/maya/04-export-preset-selection.png)
 
 5. Check on **Embed Media**:
-  
+
   ![Enable Embed Media](../../../zh/asset/model/maya/05-embed-media.png)
 
 6. Name the file to **simpleBox**, click **Export Selection**:
