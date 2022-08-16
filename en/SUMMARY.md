@@ -32,6 +32,7 @@
     - [Cocos Creator 3.5 Material Upgrade Guide](material-system/effect-upgrade-documentation-for-v3.4.2-to-v3.5.md)
     - [Cocos Creator 3.5 Native Built Project Upgrade Guide](engine/template/native-upgrade-to-v3.5.md)
     - [Cocos Creator 3.6 Native Built Project Upgrade Guide](engine/template/native-upgrade-to-v3.6.md)
+    - [Upgrade Guide: Effect from v3.5.x to v3.6.0](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
 
 ## Basic Workflow
 
