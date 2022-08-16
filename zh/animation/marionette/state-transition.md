@@ -145,8 +145,6 @@
 点击播放后，既可在预览视图进行预览：
 
 ![preview-view](state-transition/preview-view.png)
-<<<<<<< HEAD
-=======
 
 ## 过渡中断
 
@@ -173,4 +171,3 @@
 ![interruption-demo](state-transition/interruption-demo.gif)
 
 在中断过程中，待机动画和起跳动画不再更新，而踢腿动画继续保持更新。
->>>>>>> a9b1e21fbe7e3f2c62bd3bc059c6cc82e5fa40f1
