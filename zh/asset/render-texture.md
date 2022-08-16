@@ -120,7 +120,7 @@ RenderTexture 可以像普通贴图一样使用。以 Sprite 为例，从 **资�
         }
     }
     ```
-**方法三**：把 3D 相机映射的内容通过readPixels方法读取到ArrayBuffer中
+- **方法三**：把 3D 相机映射的内容通过readPixels方法读取到ArrayBuffer中
 
     ```typescript
     import { _decorator, Component, RenderTexture } from 'cc';
