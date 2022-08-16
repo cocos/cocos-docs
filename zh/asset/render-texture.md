@@ -58,7 +58,7 @@ RenderTexture 可以像普通贴图一样使用。以 Sprite 为例，从 **资�
 
 程序化使用 RenderTexture 有以下两种方法：
 
-- **方法一**：把 3D 相机照射的内容绘制到 UI 的精灵帧上
+- **方法一**：把 3D 相机映射的内容绘制到 UI 的精灵帧上
 
     ```typescript
     import { _decorator, Component, RenderTexture, SpriteFrame, Sprite, Camera } from 'cc';
@@ -87,7 +87,7 @@ RenderTexture 可以像普通贴图一样使用。以 Sprite 为例，从 **资�
     }
     ```
 
-- **方法二**：把 3D 相机照射的内容绘制到 3D 模型上
+- **方法二**：把 3D 相机映射的内容绘制到 3D 模型上
 
     ```typescript
     import { _decorator, Component, MeshRenderer, RenderTexture, Camera, Material } from 'cc';
@@ -117,6 +117,26 @@ RenderTexture 可以像普通贴图一样使用。以 Sprite 为例，从 **资�
             });
             this.model.setMaterial(renderMat, 0);
             renderMat.setProperty('mainTexture', renderTex, 0);
+        }
+    }
+    ```
+**方法三**：把 3D 相机映射的内容通过readPixels方法读取到ArrayBuffer中
+
+    ```typescript
+    import { _decorator, Component, RenderTexture } from 'cc';
+    const { ccclass, property } = _decorator;
+
+    @ccclass("RenderReadPixels")
+    export class RenderReadPixels extends Component {
+        @property(RenderTexture)
+        public renderTexture: RenderTexture;
+        start() {
+            const width = this.renderTexture.width;
+            const height = this.renderTexture.height;
+            const texPixels = new Uint8Array(width * height * 4);
+            this.renderTexture.readPixels(0, 0,
+                this.renderTexture.width, this.renderTexture.height,
+                texPixels);
         }
     }
     ```
