@@ -120,7 +120,26 @@ There are two ways to use RenderTexture programmatically:
         }
     }
     ```
+- __Method 3__：Read the content drawn by the 3D camera into the ArrayBuffer through the readPixels method
 
+    ```typescript
+    import { _decorator, Component, RenderTexture } from 'cc';
+    const { ccclass, property } = _decorator;
+
+    @ccclass("RenderReadPixels")
+    export class RenderReadPixels extends Component {
+        @property(RenderTexture)
+        public renderTexture: RenderTexture;
+        start() {
+            const width = this.renderTexture.width;
+            const height = this.renderTexture.height;
+            const texPixels = new Uint8Array(width * height * 4);
+            this.renderTexture.readPixels(0, 0,
+                this.renderTexture.width, this.renderTexture.height,
+                texPixels);
+        }
+    }
+    ```
     Make sure that the shader has a `mainTexture` property and is enabled in the material if you want to display the drawing results correctly. For example, if using the `builtin-standard` shader, make sure the __USE ALBEDO MAP__ option is checked:
 
     ![use albedo](render-texture/use-albedo.png)
