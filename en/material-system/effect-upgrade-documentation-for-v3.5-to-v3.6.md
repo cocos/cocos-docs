@@ -2,9 +2,9 @@
 
 ## Chunks migration
 
-3.6.0将之前版本 chunks 文件夹中的零散文件分门别类的存放到子文件夹中，书写 chunk 的 #include 时请参考下面的表格：
+v3.6.0 stores the chunk files from the chunks folder of the previous version into subfolders, please refer to the following table when writing #include for chunk.
 
-### 1、Public function libraries
+### 1. Public function libraries
 
 | Origin Path          | New Path                         |
 | -------------------- | -------------------------------- |
@@ -18,7 +18,7 @@
 | transform            | common/math/transform            |
 | rect-area-light      | common/lighting/rect-area-light  |
 
-### 2、Uniform define
+### 2. Uniform define
 
 | Origin Path      | New Path                          |
 | ---------------- | --------------------------------- |
@@ -30,7 +30,7 @@
 | cc-shadow        | builtin/uniforms/cc-shadow        |
 | cc-world-bound   | builtin/uniforms/cc-world-bound   |
 
-### 3、Common shader main-functions for legacy shader
+### 3. Common shader main-functions for legacy shader
 
 | Origin Path | New Path                         |
 | ----------- | -------------------------------- |
@@ -38,7 +38,7 @@
 | outline-fs  | legacy/main-functions/outline-fs |
 | general-vs  | legacy/main-functions/general-vs |
 
-### 4、Engine functionality and miscellaneous for legacy shader
+### 4. Engine functionality and miscellaneous for legacy shader
 
 | Origin Path               | New Path                         |
 | ------------------------- | -------------------------------- |
@@ -68,7 +68,7 @@
 | shading-toon              | legacy/shading-toon              |
 | standard-surface-entry    | legacy/standard-surface-entry    |
 
-### 5、For internal use only
+### 5. For internal use only
 
 | Origin Path       | New Path                         |
 | ----------------- | -------------------------------- |
