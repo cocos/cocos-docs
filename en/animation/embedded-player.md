@@ -48,8 +48,6 @@ Select the added Particle Player track on the left in the **Animation Track List
 - **Reconciled speed**: keep the embedded particle system playing at the same rate as the current animation clip
 - **Child Path**: the drop-down box allows to select the particle system on different sub-nodes.
 
-Translated with www.DeepL.com/Translator (free version)
-
     ![select child](embedded/inspector-select-child.png)
 
 ### Animation player tracks
