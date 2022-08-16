@@ -326,6 +326,13 @@
     - [管线与任务](asset/pipeline-task.md)
     - [资源管理注意事项 - meta 文件](asset/meta.md)
 
+- [本地化](editor/l10n/overview.md)
+    - [译文服务商](editor/l10n/translation-service.md)
+    - [收集并统计](editor/l10n/collect-and-count.md)
+    - [语言编译](editor/l10n/compile-language.md)
+    - [L10nLabel 组件](editor/l10n/l10n-label.md)
+    - [示例](editor/l10n/script-using.md)
+
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
