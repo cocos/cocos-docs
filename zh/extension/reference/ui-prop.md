@@ -171,7 +171,7 @@ enum|string，对应 option 的 `value` 值|如“0”，生成 ui-select（需�
 `type` 为 string 时，生成 ui-text-area。
 
 ```html
-<ui-prop name="Text (multiline)" type="string" value="Hello World This is Foobar!" multilineauto-height></ui-prop>
+<ui-prop name="Text (multiline)" type="string" value="Hello World This is Foobar!" multiline auto-height></ui-prop>
 ```
 
 ![img](ui-kit/ui-prop-multiline.png)
