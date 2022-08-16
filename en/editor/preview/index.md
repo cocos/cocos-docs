@@ -8,7 +8,7 @@ At any time during game development we can click the **Preview** button at the t
 
 ![select-platform](index/select-platform.png)
 
-- The left drop-down menu allows selecting the platform for previewing, currently **Browser** and **Simulator** are supported.
+- The left drop-down menu allows selecting the platform for previewing, currently **Browser**, **Preview in Editor** and **Simulator** are supported.
 - ![play](index/play.png): preview button, click it to run the preview
 - On the right side of the **Preview** button you can select the scene to preview, the dropdown box will list all the scenes in the project, by default **Current scene** is used.
 
@@ -64,6 +64,45 @@ After opening the **GameView**, you can see that the toolbar at the top of the e
 
 ![custom](index/custom.png)
 -->
+
+### Preview In Editor
+
+![editor preview](index/editor-preview-props.png)
+
+To preview within the editor, select **Preview in Editor** (mark 1 below) from the drop-down menu and then click on the **Run Preview** (mark 2 at the bottom) button to preview.
+
+![bar](index/edit-bar.png)
+
+Click ![pause](index/pause.png) to pause the current preview, and after pause you can also single step by clicking ![step](index/step.png) to run a single step.
+
+When you don't want to continue the preview, you can click ![stop](index/stop.png) button to stop.
+
+When selecting the editor preview, the preview output can also be configured via the menu at the top of the preview window.
+
+- ![state](index/state.png) Click to select whether to display the following state 
+ within the view.
+
+    ![info](index/state-info.png)
+
+- ![FPS](index/FPS.png) Maximum frame rate for previews, or you can enter a custom frame rate.
+
+  ![max](index/max-fps.png)
+
+- ![resolution](index/resolution.png) Resolution at preview, the drop-down menu allows you to select a different resolution, or if the current engine's built-in resolution cannot be met, you can pull the drop-down box to the bottom and select **Edit**.
+
+    ![edit](index/edit.png)
+
+   You can also add/modify/remove resolutions in [Device Manager](../preferences/index.md#Device%20Manager)  in **Preferences** in the top menu bar to add/modify/remove resolutions.
+
+    ![device manager](index/device-manager.png)
+
+- ![rotate](index/rotate-view.png) Toggle landscape/portrait preview
+- ![scale](index/scale-game-view.png) Zoom view
+- ![fit](index/fit.png) Adapting the game view to fit the current view
+
+The properties of the component can also be modified for debugging within the **Inspector** panel during preview, but note that the data entered at runtime is not saved. If you wish to save the adjusted component, you can click on the **Component Menu** on the right and select **Copy Component** in the drop-down list, then select **Paste Component Value** after the preview exited.
+
+![copy](index/copy-component.png)
 
 ### Simulator
 
