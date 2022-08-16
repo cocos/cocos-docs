@@ -6,7 +6,7 @@ __ProgressBar__ is usually used to show the progress of a certain operation in t
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/ProgressBar__ to add the __ProgressBar__ component to the node.
 
-To use `Progress`, please refer to the [Mask API](__APIDOC__/en/class/ProgressBar) documentation and the [Progress](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/11.progress) scene of the test-cases-3d project.
+To use `Progress`, please refer to the [Mask API](__APIDOC__/en/class/ProgressBar) documentation and the [Progress](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/11.progress) scene of the test-cases-3d project.
 
 ## ProgressBar Properties
 

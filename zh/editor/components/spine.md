@@ -6,7 +6,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
 在 **层级管理器** 中选中需要添加 ArmatureDisplay 组件的节点，然后点击 **属性检查器** 下方的 **添加组件 -> Spine -> Skeleton** 按钮，即可添加 Skeleton 组件到节点上。
 
-- Spine Skeleton 组件的使用方法可参考 **Spine**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/middleware/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine)）范例。
+- Spine Skeleton 组件的使用方法可参考 **Spine**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/middleware/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/spine)）范例。
 
 - Spine Skeleton 相关的脚本接口请参考 [Skeleton API](__APIDOC__/zh/class/Skeleton)。
 
@@ -127,7 +127,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
 3. 然后将 `SpineExample` 脚本挂载到 Canvas 节点上，即将脚本拖拽到节点的 **属性检查器** 中。再将 **层级管理器** 中挂载了 Skeleton 组件的 `Spine` 节点拖拽到脚本组件对应的 Skeleton 属性框中，并保存场景。
 
-4. 点击编辑器上方的预览按钮，即可看到 Spine 动画顶点抖动的效果。详情可参考 **SpineMesh**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/middleware/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine)）范例。
+4. 点击编辑器上方的预览按钮，即可看到 Spine 动画顶点抖动的效果。详情可参考 **SpineMesh**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/middleware/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/spine)）范例。
 
 ## Spine 挂点
 
@@ -153,7 +153,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
     ![attach3](./spine/attach3.png)
 
-5. 保存场景，点击编辑器上方的预览按钮，也可以看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。具体可参考官方 **SpineAttach**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/middleware/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine)）范例。
+5. 保存场景，点击编辑器上方的预览按钮，也可以看到星星挂在龙的尾巴上，并随着龙的尾巴一起晃动。具体可参考官方 **SpineAttach**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/middleware/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/spine)）范例。
 
 ### 通过脚本实现 Spine 挂点
 
@@ -280,7 +280,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
     }
     ```
 
-6. 点击编辑器上方的预览按钮，即可看到效果。具体可参考 **SpineCollider**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/middleware/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine)）范例。
+6. 点击编辑器上方的预览按钮，即可看到效果。具体可参考 **SpineCollider**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/middleware/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/spine)）范例。
 
     > **注意**：由于挂点的实现机制，会导致基于挂点的碰撞检测存在延迟一帧的问题。
 

@@ -10,11 +10,11 @@
                 "links": [
                     {
                         "name": "Manual",
-                        "link": "https://docs.cocos.com/creator/3.5/manual/en"
+                        "link": "https://docs.cocos.com/creator/3.6/manual/en"
                     },
                     {
                         "name": "API Ref",
-                        "link": "https://docs.cocos.com/creator/3.5/api/en/"
+                        "link": "https://docs.cocos.com/creator/3.6/api/en/"
                     }
                 ]
             },
@@ -34,8 +34,12 @@
         ],
         "version": [
             {
-                "name": "3.5",
+                "name": "3.6",
                 "links": [
+                    {
+                        "name": "3.6",
+                        "link": "https://docs.cocos.com/creator/3.6/manual/en"
+                    },
                     {
                         "name": "3.5",
                         "link": "https://docs.cocos.com/creator/3.5/manual/en"

@@ -14,7 +14,7 @@
 
 ## 骨骼贴图布局设置
 
-下面我们以范例工程 **show-cases** 中的 **instanced-skinning** 场景（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.5/show-cases/assets/scenes) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.5/show-cases/assets/scenes)）为例，来看一下骨骼贴图布局具体的设置流程以及实际效果。
+下面我们以范例工程 **show-cases** 中的 **instanced-skinning** 场景（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.6/show-cases/assets/scenes) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.6/show-cases/assets/scenes)）为例，来看一下骨骼贴图布局具体的设置流程以及实际效果。
 
 下图中展示了一个示例场景，有多个来自同一模型的实例，同时播放完全不同的动画。这些模型使用实时计算动画模式，并没有开启 instancing。可以看到，当前场景加上 UI，总 Drawcall 为 60，instance 计数为 0。这个状态将作为后面改动的基础，以对照使用。
 

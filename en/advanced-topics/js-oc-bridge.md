@@ -125,4 +125,4 @@ This will call the `JavaScript` playback operation.
 
 ## Sample project: simple multi-event calls
 
-Creator provides the [native-script-bridge](https://github.com/cocos-creator/example-3d/tree/v3.5/native-script-bridge) example, which developers can download for reference use as needed.
+Creator provides the [native-script-bridge](https://github.com/cocos-creator/example-3d/tree/v3.6/native-script-bridge) example, which developers can download for reference use as needed.

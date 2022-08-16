@@ -8,7 +8,7 @@ ProgressBar（进度条）经常被用于在游戏中显示某个操作的进度
 
 进度条的脚本接口请参考 [ProgressBar API](__APIDOC__/zh/class/ProgressBar)。
 
-关于使用可以参考范例 **Progress**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/11.progress) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/11.progress)）。
+关于使用可以参考范例 **Progress**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/11.progress) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/ui/11.progress)）。
 
 ## ProgressBar 属性
 

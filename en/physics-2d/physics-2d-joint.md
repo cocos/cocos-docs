@@ -14,7 +14,7 @@ Click the **Add Component** button on the **Inspector** panel and enter the comp
 
 ![add-joint](image/add-joint.png)
 
-For information on using each Joint component, please refer to the [Joints example case](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/middleware/dragonbones) for details.
+For information on using each Joint component, please refer to the [Joints example case](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/middleware/dragonbones) for details.
 
 ## Common Properties of Joints
 

@@ -62,7 +62,7 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](__APIDOC__/zh/class/Video
 
 详情可参考 [VideoPlayer 事件](__APIDOC__/zh/class/VideoPlayer?id=videoPlayerEvent)。
 
-使用方式可参考范例 **VideoPlayer**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/21.video-player) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/21.video-player)）。
+使用方式可参考范例 **VideoPlayer**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/21.video-player) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/ui/21.video-player)）。
 
 ## 详细说明
 
@@ -151,7 +151,7 @@ export class VideoPlayerCtrl extends Component {
 > 2. 各个浏览器具体效果无法保证一致，跟浏览器是否支持与限制有关。
 > 3. 开启 **stayOnBottom** 后，将无法正常监听 `VideoPlayerEvent` 中的 `clicked` 事件。
 
-详情可参考范例 **VideoPlayer**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/21.video-player) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/21.video-player)）。
+详情可参考范例 **VideoPlayer**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/21.video-player) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/ui/21.video-player)）。
 
 最终效果如下图所示：
 

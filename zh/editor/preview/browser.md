@@ -20,7 +20,7 @@ project-folder
 
 ## 使用示例
 
-以下示例可以在 [GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/preview-template) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/preview-template) 查找到。
+以下示例可以在 [GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/preview-template) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/preview-template) 查找到。
 
 1. 点击编辑器主菜单中的 **项目 -> 生成预览模板**，**控制台** 便会输出“预览模板生成成功”的提示，并显示预览模板的生成路径。
 
