@@ -76,19 +76,11 @@ int main(int argc, const char * argv[]) {
 - Customized games `CustomGame`, Need to register to engine  `CC_REGISTER_APPLICATION(CustomGame)` for loading
 - `game` Inherited from `cc::BaseGame`, and `cc::BaseGame` inherits from `CocosApplication`,so that partial implementations can be rewritten to add custom logic.
 
-<<<<<<< HEAD:en/engine/template/native-upgrade-to-v3.5.md
-### The modification of Native FIles
-=======
 ### The modification of Native Files
->>>>>>> cd09cc572d20da16a8109f0a5fadd874be3012af:en/engine/template/mac-and-windows-upgrade-to-v3.5.md
 
 - Replace the header file path: #include "cocos/platform/Application.h" —> #include "application/ApplicationManager.h"
 - Change of usage: cc::Application::getInstance()->getScheduler() -> CC_CURRENT_ENGINE()->getScheduler()
 - If the code uses custom jsb: `native_ptr_to_seval` changed to `nativevalue_to_se`
-<<<<<<< HEAD:en/engine/template/native-upgrade-to-v3.5.md
-- Delete `NonRefNativePtrCreatedByCtorMap` related code
-=======
->>>>>>> cd09cc572d20da16a8109f0a5fadd874be3012af:en/engine/template/mac-and-windows-upgrade-to-v3.5.md
 
 ### Android
 
