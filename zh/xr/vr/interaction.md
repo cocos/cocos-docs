@@ -3,14 +3,12 @@
 ## 组件介绍
 | 组件名称           | 属性名称                 | 属性说明                                                                                                                                                            |
 |---------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| cc.RayInteractor    | InteractionWithUINode     | 暂未实现                                                                                                                                                        |
-|                     | ForceGrab                 | 远距离抓起；开启时被抓对象吸附到Attach Transform、关闭后抓取挂载在交互点的位置                                                                                  |
+| cc.RayInteractor | ForceGrab                 | 远距离抓起；开启时被抓对象吸附到Attach Transform、关闭后抓取挂载在交互点的位置                                                                                  |
 |                     | AttachTransform           | 用此AttachTransform的位置作为抓取的物体最终落到的位置，如果为空就用当前Interactor的位置                                                                         |
 |                     | RayOriginTransform        | 可以改变发出Ray的起始位置，为空就默认是当前Interactor的位置                                                                                                     |
 |                     | LineType                  | 改变射线检测和射线样式；StraightLine是直线；Projectile Line是抛物线；Bezier Line是贝塞尔曲线(目前只支持直线)                                                    |
 |                     | MaxRayDistance            | 射线交互可以触发的最远距离                                                                                                                                      |
 |                     | RaycastMask               | 只能和此Layer类型的交互物发生交互                                                                                                                               |
-|                     | HitDetectionType          | 暂未实现                                                                                                                                                        |
 |                     | SelectActionTrigger       | Select行为触发机制，详情见交互功能介绍                                                                                                                          |
 | cc.DirectInteractor | AttachTransform           | 用此AttachTransform的位置作为抓取的物体最终落到的位置，如果为空就用当前Interactor的位置                                                                         |
 |                     | SelectActionTrigger       | Select行为触发机制，详情见交互功能介绍                                                                                                                          |
@@ -19,7 +17,6 @@
 |                     | GrabTrigger               | 两种方式用于触发抓取：当Select的行为触发时/当Activate行为触发时                                                                                                 |
 |                     | RayReticle                | 当交互器与此交互物发生交互碰撞计算时，在碰撞点会显示此属性所引用的对象                                                                                          |
 |                     | HideController            | 开启时，此物体被抓取后会隐藏XR Controller所引用的Model                                                                                                          |
-|                     | SelectMode                | 暂未实现                                                                                                                                                        |
 |                     | ThrowOnDetach             | 开启后，允许模拟抛物的动作。                                                                                                                                    |
 |                     | ThrowSimulationMode       | 选择为InheritRigidbody时，物体抛出时继承刚体的速度；选择为CurveComputation时，出现下列两项ThrowSmoothingDuration、ThrowSmoothingCurve，允许自定义抛出速度的计算 |
 |                     | ThrowSmoothingDuration    | 速度计算的采样时间段。使用此值作为采样区间，用于计算物体被抛出前的速度的加权平均值，作为物体抛出时的初速度                                                      |
