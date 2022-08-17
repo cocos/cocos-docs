@@ -134,11 +134,11 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 **光栅化通道**：
 
-<img src="./image/cp-raster-queue.png" width=760></img>
+<img src="./image/cp-add-raster-view.png" width=760></img>
 
 **计算通道**：
 
-<img src="./image/cp-compute-queue.png" width=760></img>
+<img src="./image/cp-add-compute-view.png" width=760></img>
 
 ## 渲染队列（RenderQueue）
 
