@@ -423,7 +423,7 @@ Cocos Creator 3.x enables Strict Mode for TypeScript, which will review the code
 
 To avoid using strict mode, check __Enable loose mode__ in __Project -> Project Settings -> Scripting__ in the top menu bar of Creator. As a reminder, turning off strict mode is not encouraged as strict null checking can reduce some low-level errors in the code runtime.
 
-For writing specifications in strict mode, please refer to the [Taxi Game 3D](https://github.com/cocos-creator/tutorial-taxi-game) as a test case.
+For writing specifications in strict mode, please refer to the [Taxi Game 3D](https://github.com/cocos/cocos-tutorial-taxi-game) as a test case.
 
 ### `Action` actions are all disabled
 

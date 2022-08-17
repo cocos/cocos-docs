@@ -27,7 +27,7 @@ Cocos Creator 3.1 的内置渲染管线包括 **builtin-forward**（前向渲染
 
 延迟渲染管线依赖 GPU 的 **Multiple Render Targets** 特性用于绘制 **GBuffer**，目前大部分移动平台应该都支持。WebGL1.0 环境下可以使用 **WEBGL_draw_buffers** 扩展支持，不过部分 WebGL1.0 平台可能不支持该扩展，那么就不能使用延迟管线。
 
-另外延迟渲染管线对于 **无光照的材质** 无法正常进行绘制，比如引擎内置的 `builtin-unlit` 材质。对于自定义的 Standard 材质，需要参照引擎内置的 **builtin-standard.effect**（[GitHub](https://github.com/cocos-creator/engine/blob/v3.1-release/editor/assets/effects/builtin-standard.effect) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/v3.1-release/editor/assets/effects/builtin-standard.effect)）为延迟渲染管线增加对应的 deferred pass 声明，如下图所示：
+另外延迟渲染管线对于 **无光照的材质** 无法正常进行绘制，比如引擎内置的 `builtin-unlit` 材质。对于自定义的 Standard 材质，需要参照引擎内置的 **builtin-standard.effect**（[GitHub](https://github.com/cocos/cocos-engine/blob/v3.1-release/editor/assets/effects/builtin-standard.effect) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/v3.1-release/editor/assets/effects/builtin-standard.effect)）为延迟渲染管线增加对应的 deferred pass 声明，如下图所示：
 
 <img src="./image/effect.png" width=760 height=647></img>
 
