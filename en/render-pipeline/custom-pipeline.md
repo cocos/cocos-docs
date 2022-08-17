@@ -4,7 +4,7 @@ A new **Custom Render Pipeline** has been added in Cocos Creator 3.6.
 
 The interface and naming are not yet stable and are not recommended for use in formal projects. Currently, only the web side is supported.
 
-The interface to the **custom rendering pipeline** is located in `cocos/core/pipeline/custom/pipeline.ts`
+The interface of the **custom rendering pipeline** is located in `cocos/core/pipeline/custom/pipeline.ts`
 
 ## Overview
 
