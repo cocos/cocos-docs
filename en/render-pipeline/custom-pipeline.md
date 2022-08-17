@@ -200,7 +200,7 @@ We can dynamically set some properties of Queue, Pass.
 
 For example, viewport, clearRenderTarget, etc.
 
-## Rendering Data Settings(In Development)
+## Rendering Data Settings(under development)
 
 When writing rendering algorithms, we often need to set up some data for the Shader to use.
 
