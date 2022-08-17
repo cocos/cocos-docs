@@ -134,11 +134,11 @@ If the resource is marked with a clear color, then the resource content is clear
 
 **Raster**：
 
-<img src="./image/cp-raster-queue.png" width=760></img>
+<img src="./image/cp-add-raster-view.png" width=760></img>
 
 **Compute**：
 
-<img src="./image/cp-compute-queue.png" width=760></img>
+<img src="./image/cp-add-compute-view.png" width=760></img>
 
 ## RenderQueue
 
