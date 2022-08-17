@@ -1,4 +1,4 @@
-# 自定义渲染管线
+# 自定义渲染管线（Deprecated）
 
 要创建一个自定义的渲染管线，首先要在 **资源管理器** 面板中新建一个 RenderPipeline 资源，再创建一个 RenderPipeline 脚本，然后在 Pipeline 资源中选择对应的 RenderPipeline 脚本，即可编辑对应的属性。
 
