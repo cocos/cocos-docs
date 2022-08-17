@@ -38,11 +38,7 @@
                 "links": [
                     {
                         "name": "3.6",
-<<<<<<< HEAD
-                        "link": "https://docs.cocos.com/creator/3.5/manual/en"
-=======
                         "link": "https://docs.cocos.com/creator/3.6/manual/en"
->>>>>>> v2.2-release
                     },
                     {
                         "name": "3.5",
