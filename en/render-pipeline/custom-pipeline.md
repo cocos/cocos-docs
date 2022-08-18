@@ -2,23 +2,23 @@
 
 A new **Custom Render Pipeline** has been added in Cocos Creator 3.6.
 
-The interface and naming are not yet stable and are not recommended for use in formal projects. Currently, only the web side is supported.
+The interface and naming are not yet stable and are not recommended for use in formal projects. Currently, only the web platform is supported.
 
-The interface to the **custom rendering pipeline** is located in `cocos/core/pipeline/custom/pipeline.ts`
+The interface of the **custom rendering pipeline** is located in `cocos/core/pipeline/custom/pipeline.ts`
 
 ## Overview
 
 The **CustomPipeline** allows users to customize the **RenderPass**, set the input/output **RenderView**, and the **RenderContent** to be drawn for each **RenderPass**.
 
-**Render content** can be a **Scene**, a screen **Rectangle**, or a **Dispatch** of a computational task, depending on the type of **Render channel**.
+**Render content** can be a **Scene**, a screen **Quad**, or a **Dispatch** of a computational task, depending on the type of **RenderPass**.
 
 The order in which **rendered content** is drawn can be adjusted by a **RenderQueue** (RenderQueue).
 
-The [**RenderChannel**, **RenderQueue**, **RenderContent**] of **CustomRenderPipeline** constitute a forest of.
+The [**RenderPass**, **RenderQueue**, **RenderContent**] of **CustomRenderPipeline** constitute a forest of.
 
 <img src="./image/cp-render-graph-1.png" width=640></img>
 
-**Custom Rendering Pipeline** of [**Render Channel**, **Render View**] constitutes a directed acyclic graph (DAG).
+**Custom Rendering Pipeline** of [**Render Pass**, **Render View**] constitutes a directed acyclic graph (DAG).
 
 <img src="./image/cp-render-graph-2.png" width=640></img>
 
@@ -50,11 +50,11 @@ Feature not yet open. Requires GPU Tile-based rendering capability.
 
 #### 3. PresentPass
 
-Render the screen to the screen.
+Present the content to the screen.
 
 ### Compute
 
-The calculation type uses the general-purpose computing power of the GPU, as well as ray-tracing capabilities (executable in GraphicsEngine, ComputeEngine).
+The compute type uses the general-purpose computing power of the GPU, as well as ray-tracing capabilities (executable in GraphicsEngine, ComputeEngine).
 
 #### 1. ComputePass
 
@@ -84,9 +84,9 @@ Responsible for copying the resource source to the target, which requires the re
 
 Responsible for moving the resource source to the target, requiring the resource to be in the same format.
 
-Move here is a semantic concept (move semantics): move the source variable to the target variable, nullifying the source variable. If the resource cannot be moved for some reason (e.g. the resource source is being read), this is done as a copy.
+Move here is a semantic concept (move semantics): move the source variable to the target variable, expiring the source variable. If the resource cannot be moved for some reason (e.g. the resource source is being read), this is done as a copy.
 
-Move semantics are used for pipeline optimization for the purpose of bandwidth reduction. If you are not sure how to use **Move Pass** properly, you can use **Copy Pass** instead, which will not affect the screen performance and is easier to debug.
+Move semantics are used for pipeline optimization for the purpose of bandwidth reduction. If you are not sure how to use **Move Pass** properly, you can use **Copy Pass** instead, which will not affect the rendering result and is easier to debug.
 
 ## RenderView
 
@@ -100,7 +100,7 @@ There are two types of RenderView: **RasterView**, **ComputeView**.
 
 - slotName is the name of the shader pixel component. (e.g. color, normal, etc.)
 
-- accessType is the binding type, which can be Read, ReadWrite, Write, Read as input, Write as output, ReadWrite as both input and output, [Note] DepthStencil When doing DepthTest, although the result is not written to the view, but as output, the binding type is still Write. some platforms open ARM_shader_framebuffer_fetch_depth_stencil extension, DepthStencil binding type is ReadWrite. The DepthStencil binding type cannot be Read.
+- accessType is the binding type, which can be Read, ReadWrite, Write, Read as input, Write as output, ReadWrite as both input and output, [Note] DepthStencil When doing DepthTest, although the result is not written to the view, but as output, the binding type is still Write. some platforms open ARM_shader_framebuffer_fetch_depth_stencil extension, DepthStencil binding type is ReadWrite.-> When ARM_shader_framebuffer_fetch_depth_stencil extension is enabled in a shader, the corresponding DepthStencil binding type should be set to ReadWrite
 
 - attachmentType is the type, can be RenderTarget or DepthStencil.
 
@@ -128,17 +128,17 @@ There are two types of RenderView: **RasterView**, **ComputeView**.
 
 - clearValueType is the type of the resource's clear color, Float or Int.
 
-If the resource is marked with a clear color, then the resource content is cleared with clearColor before executing **ComputePass**. Raster type channels (Raster) do not clear **ComputeView** content.
+If the resource is marked with a clear color, then the resource content is cleared with clearColor before executing **ComputePass**. Raster type passes(Raster) do not clear **ComputeView** content.
 
 ## Rendering view settings
 
 **Raster**：
 
-<img src="./image/cp-raster-queue.png" width=760></img>
+<img src="./image/cp-add-raster-view.png" width=760></img>
 
 **Compute**：
 
-<img src="./image/cp-compute-queue.png" width=760></img>
+<img src="./image/cp-add-compute-view.png" width=760></img>
 
 ## RenderQueue
 
@@ -148,7 +148,7 @@ There are two types of **render queues**: **rasterization queue**, **computation
 
 ### RasterQueue
 
-**Rasterization queue** performs rasterization tasks, typically drawing **scenes**, drawing full-screen quads, etc. **Rasterization queue** is internally drawn in chaotic order.
+**Rasterization queue** performs rasterization tasks, typically drawing **scenes**, drawing full-screen quads, etc. **Rasterization queue** is internally drawn in unspecified order.
 
 <img src="./image/cp-add-raster-queue.png" width=760></img>
 
@@ -166,7 +166,7 @@ There are two types of **render queues**: **rasterization queue**, **computation
 
 <img src="./image/cp-compute-queue.png" width=760></img>
 
-**Compute channel** No queue hint.
+**Compute Pass** No queue hint.
 
 ## RenderContent
 
@@ -214,7 +214,7 @@ This data can be read-only or always in read/write state.
 
 For resources with read/write state changes, we recommend tracking with **RenderView**.
 
-Each **RenderChannel**, **RenderQueue** has its own separate storage.
+Each **RenderPass**, **RenderQueue** has its own separate storage.
 
 Each node has a different data update/upload frequency. The update frequency of user filled constants, Shader Descriptor (Descriptor) needs to match the update frequency of the node.
 
