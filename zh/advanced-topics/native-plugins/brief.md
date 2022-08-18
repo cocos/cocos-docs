@@ -12,7 +12,7 @@
 
 每个插件的根目录下都有一个插件的描述文件 `cc_plugin.json`，这是一个标准的 JSON 文件。
 
-在构建原生工程的时候，构建统会从工程的 `extensions` 和 `native` 目录中去递归查找这所有的 `cc_plugin.json` 文件，以定位原生插件。一旦在目录中找到 `cc_plugins.json`，就不会再查找子目录中的内容。
+在构建原生工程的时候，构建系统会从工程的 `extensions` 和 `native` 目录中去递归查找这所有的 `cc_plugin.json` 文件，以定位原生插件。一旦在目录中找到 `cc_plugins.json`，就不会再查找子目录中的内容。
 
 ## 安装依赖
 
