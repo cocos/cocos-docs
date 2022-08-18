@@ -334,6 +334,19 @@
     - [L10nLabel 组件](editor/l10n/l10n-label.md)
     - [示例](editor/l10n/script-using.md)
 
+- [XR](xr/index.md)
+    - [VR](xr/vr/index.md)
+        - [扩展安装](xr/vr/extension.md)
+            - [XR 升级包](xr/vr/update-engine.md)
+        - [预制](xr/vr/prefab.md)
+        - [组件](xr/vr/component.md)
+            - [设备映射](xr/vr/device-mapping.md)
+            - [交互组件](xr/vr/interaction.md)
+            - [事件系统](xr/vr/events.md)
+            - [虚拟移动组件](xr/vr/locomotion.md)
+            - [XR UI](xr/vr/xrui.md)
+        - [构建与发布](xr/vr/build.md)
+
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
