@@ -32,6 +32,33 @@
 ## 代码修改
 
 - 有自定义 jsb 接口的工程：须删除与 `NonRefNativePtrCreatedByCtorMap` 相关的代码
+- JSB 手动绑定的代码需要置空 `_finalize` 函数, 可参考[说明](../../advanced-topics/JSB2.0-learning.md#c++_对象的生命周期管理).
+
+比如:
+```c++
+static bool js_cc_gfx_Size_finalize(se::State& s) // NOLINT(readability-identifier-naming)
+{
+    auto iter = se::NonRefNativePtrCreatedByCtorMap::find(SE_THIS_OBJECT<cc::gfx::Size>(s));
+    if (iter != se::NonRefNativePtrCreatedByCtorMap::end())
+    {
+        se::NonRefNativePtrCreatedByCtorMap::erase(iter);
+        auto* cobj = SE_THIS_OBJECT<cc::gfx::Size>(s);
+        JSB_FREE(cobj);
+    }
+    return true;
+}
+SE_BIND_FINALIZE_FUNC(js_cc_gfx_Size_finalize)
+```
+改为
+```c++
+static bool js_cc_gfx_Size_finalize(se::State& s) // NOLINT(readability-identifier-naming)
+{
+    return true;
+}
+SE_BIND_FINALIZE_FUNC(js_cc_gfx_Size_finalize)
+```
+
+
 
 ## 脚本编写注意事项
 
