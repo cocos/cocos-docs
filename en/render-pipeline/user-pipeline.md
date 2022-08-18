@@ -1,4 +1,4 @@
-# Custom Render Pipelines
+# Custom Render Pipelines(Deprecated)
 
 To create a custom render pipeline, first create a new RenderPipeline asset in the **Assets** panel, then create a RenderPipeline script, and then select the corresponding RenderPipeline script in the Pipeline asset to edit the corresponding properties.
 
