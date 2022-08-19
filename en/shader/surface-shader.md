@@ -325,7 +325,7 @@ By selecting the corresponding debug mode in the upper-right corner of the scene
 
 To facilitate pixel-by-pixel comparison, we use full-screen debugging instead of picture-in-picture display, which allows us to quickly switch between different data in the same screen to locate rendering errors, and to use the color picker to explore the pixel-specific values.
 
-In addition, Surface Shader has a built-in **Irrational Number Visualization** feature, so once some pixels appear to have abnormal <font color=#ff0033> Red(255, 0, 51) </font> and <font color=#00ff33> Green(0, 255, 51) </font> alternately blink, then the rendering calculation of these pixels appears irrational, please use the single debug mode to check the model tangent or other related data.
+In addition, Surface Shader has a built-in **Irrational Number Visualization** feature, so once some pixels appear to have abnormal <font color=#ff0033>Red(255, 0, 51)</font> and <font color=#00ff33>Green(0, 255, 51)</font> alternately blink, then the rendering calculation of these pixels appears irrational, please use the single debug mode to check the model tangent or other related data.
 
 The rendering debugging functions are subdivided into the following three categories. <br>
 
