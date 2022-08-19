@@ -317,13 +317,15 @@ Pass shadow-caster-fs:
 
 ## Debug View
 
-<font color=#ff0000>**The built-in rendering debugging feature is only available for materials using the Surface Shader framework**</font>. By selecting the corresponding debug mode in the upper-right corner of the scene preview window in the editor, you can view the model, materials, lighting and other computational data on the same screen, and quickly locate the problem when the rendering effect is abnormal.
+> **Note**: The built-in rendering debugging feature is only available for materials using the Surface Shader framework**.
+
+By selecting the corresponding debug mode in the upper-right corner of the scene preview window in the editor, you can view the model, materials, lighting and other computational data on the same screen, and quickly locate the problem when the rendering effect is abnormal.
 
 ![debug-view](img/debug-view.jpg)
 
 To facilitate pixel-by-pixel comparison, we use full-screen debugging instead of picture-in-picture display, which allows us to quickly switch between different data in the same screen to locate rendering errors, and to use the color picker to explore the pixel-specific values.
 
-In addition, Surface Shader has a built-in **Irrational Number Visualization** feature, so once some pixels appear to have abnormal <font color=#ff0033> **Red(255, 0, 51)**</font> and <font color=#00ff33> **Green(0, 255, 51)** </font> alternately blink, then the rendering calculation of these pixels appears irrational, please use the single debug mode to check the model tangent or other related data.
+In addition, Surface Shader has a built-in **Irrational Number Visualization** feature, so once some pixels appear to have abnormal <font color=#ff0033>Red(255, 0, 51)</font> and <font color=#00ff33>Green(0, 255, 51)</font> alternately blink, then the rendering calculation of these pixels appears irrational, please use the single debug mode to check the model tangent or other related data.
 
 The rendering debugging functions are subdivided into the following three categories. <br>
 
