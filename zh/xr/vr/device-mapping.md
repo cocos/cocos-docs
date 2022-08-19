@@ -16,6 +16,8 @@
 
 ## HMDCtrl
 
+HMD（Head Mounted Display）头戴显示设备控制器。该组件抽象了头戴设备的渲染相关的参数。
+
 ![hmdctrl](component/hdmctrl.png)
 
 | 属性 | 说明 |
@@ -37,6 +39,8 @@
 
 ## TargetEye
 
+渲染目镜组件
+
 ![target-eye](component/target-eye.png)
 
 | 属性 | 说明 |
@@ -44,6 +48,8 @@
 | **Target Eye** | 指定渲染的目镜。Both 为左右眼都显示，left 为左眼，right 为右眼。|
 
 ## XRController
+
+XRController 用于模拟手柄的组件。
 
 ![xrcontroller](component/xrcontroller.png)
 
