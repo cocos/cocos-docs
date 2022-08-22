@@ -16,4 +16,6 @@
 - [CMake 使用简介](cmake-learning.md)
 - [原生引擎内存泄漏检测系统](memory-leak-detector.md)
 - [原生场景剔除](native-scene-culling.md)
-- [WebSocket 服务器](websocket-server.md)
+- WebSocket
+  - [WebSocket 客户端](websocket.md)
+  - [WebSocket 服务器](websocket-server.md)

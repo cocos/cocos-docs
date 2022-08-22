@@ -7,13 +7,15 @@
     "commander": "^2.12.2",
     "del": "^3.0.0",
     "globby": "^7.1.1",
-    "gulp": "^3.9.1",
+    "gulp-cli": "^2.3.0",
     "gulp-sequence": "^0.4.6",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "graceful-fs": "^4.2.10"
   },
   "devDependencies": {
     "@aduh95/viz.js": "^3.2.1",
-    "fs-extra": "^9.0.1"
+    "fs-extra": "^9.0.1",
+    "gulp": "github:gulpjs/gulp"
   },
   "scripts": {
     "build": "gulp restore-ignore && gulp prebuild && gitbook build && gulp postbuild",
