@@ -36,7 +36,7 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 [2
 
     ![ray](xrui/add-raychecker.png)
 
-    在 **属性检查器** 中出现 **RaycastChecker** 组件和 **BoxCollider** 组件，且 **BoxCollider** 组件的 **size** 属性的 **xy** 值与节点的 **UITransfrom** 的 **wh** 值一致，如下图：（此处可以将 **BoxCollider** 替换为其他所需碰撞盒，能够贴合 UI 组件即可）。
+    在 **属性检查器** 中出现 **RaycastChecker** 组件和 **BoxCollider** 组件，且 **BoxCollider** 组件的 **Size** 属性的 **xy** 值与节点的 **UITransfrom** 的 **Content Size** 值一致，如下图：（此处可以将 **BoxCollider** 替换为其他所需 3D 碰撞体，能够贴合 UI 组件即可）。
 
     ![side](xrui/box-collider-size.png)
 
@@ -46,7 +46,7 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 [2
 
 到此为止，存量 UI 到 XR UI 的转化就完成了。
 
-## XR Keyborad（虚拟键盘）
+## 虚拟键盘（XR Keyborad）
 
 添加一个 EditBox 的 XR UI，同时给 EditBox 添加一个子节点，命名为 KeyboardRoot （命名随意），同时调整 KeyboardRoot 的位置信息（根据需求进行调整即可，可将 XR Keyboard 临时放在节点下进行调整）。
 
