@@ -85,10 +85,3 @@
 ![interactable-event](events/interactable-event.png)
 
 该组件的事件使用方式和 **InteractorEvents** 组件的 **Interactor Events** 属性类似，也可以通过在右侧输入框修改整数值的方式修改事件的数组的长度，并配置响应的回调。
-
-<!-- | 组件名称              | 事件组           | 事件触发功能                                                         |
-| :-------------------- | :--------------- | :------------------------------------------------------------------- |
-| cc.InteractorEvents   | AudioEvents      | 开启后可以绑定事件触发时播放的音频![](events/audio-event.png)        |
-|                       | HapticEvents     | 开启后可以绑定事件触发时控制器的震动反馈![](events/haptic-event.png) |
-|                       | InteractorEvents | 开启后可以绑定任意回调函数![](events/interactor-event.png)           |
-| cc.InteractableEvents |                  | 开启后可以绑定任意回调函数![](events/interactable-event.png)         | -->
