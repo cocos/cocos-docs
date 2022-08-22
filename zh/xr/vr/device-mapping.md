@@ -6,6 +6,8 @@
 
 ## TrackingOrigin
 
+追踪原点代理组件。
+
 ![tracking-origin.png](component/tracking-origin.png)
 
 | 属性 | 说明 |
@@ -30,6 +32,8 @@ HMD（Head Mounted Display）头戴显示设备控制器。该组件抽象了头
 
 ## PoseTracker
 
+位姿追踪组件。
+
 ![pose-tracker](component/pose-tracker.png)
 
 | 属性 | 说明 |
@@ -39,7 +43,7 @@ HMD（Head Mounted Display）头戴显示设备控制器。该组件抽象了头
 
 ## TargetEye
 
-渲染目镜组件
+指定接受渲染相机的组件。
 
 ![target-eye](component/target-eye.png)
 
@@ -49,7 +53,7 @@ HMD（Head Mounted Display）头戴显示设备控制器。该组件抽象了头
 
 ## XRController
 
-XRController 用于模拟手柄的组件。
+控制器抽象组件。
 
 ![xrcontroller](component/xrcontroller.png)
 

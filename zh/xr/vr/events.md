@@ -29,8 +29,8 @@
 
 交互组件分为：
 
-- **InteractorEvents**：
-- **InteractableEvents**：
+- **InteractorEvents**：交互器事件组件。
+- **InteractableEvents**：可交互对象事件组件。
 
 其属性描述如下：
 
@@ -80,15 +80,11 @@
     - **方法**：回调方法
     - **CustomEventData**：自定义事件的数据，这些数据会被当做回调方法的参数，传入到上述的回调方法中。
 
-    代码示例如下：
-
-    ```ts
-
-    ```
-
 ## InteractableEvents
 
 ![interactable-event](events/interactable-event.png)
+
+该组件的事件使用方式和 **InteractorEvents** 组件的 **Interactor Events** 属性类似，也可以通过在右侧输入框修改整数值的方式修改事件的数组的长度，并配置响应的回调。
 
 <!-- | 组件名称              | 事件组           | 事件触发功能                                                         |
 | :-------------------- | :--------------- | :------------------------------------------------------------------- |

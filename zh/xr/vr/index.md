@@ -6,8 +6,8 @@
 
 本章主要包含以下内容：
 
-- [扩展](extension.md)
-- [XR升级包](update-engine.md)
-- [预制](prefab.md)
-- [组件](component.md)
-- [构建](build.md)
+- [安装 XR 插件](extension.md)
+- [XR 升级包安装和更新](update-engine.md)
+- [内置预制体](prefab.md)
+- [XR 组件](component.md)
+- [构建与发布](build.md)
