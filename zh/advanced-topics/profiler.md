@@ -46,6 +46,9 @@
 
 ## 使用方式
 
+- 在编辑器的主菜单：项目-项目设置-功能裁剪里勾选`调试文字渲染器`,此选项默认关闭，需要打开才能显示调试信息：
+  ![enable profiler](native-profiler/enable-profiler.png)
+
 - 在 `native/cocos/base/Config.h` 中把 `CC_USE_PROFILER` 宏定义改为 `1`，等性能及内存优化完成后，再改回 `0`，此时性能剖析器完全关闭，不会对代码造成任何副作用：
 
     ```c++
