@@ -16,7 +16,7 @@
 
 ## 安装依赖
 
-在少数未安装编辑器的环境下,需要安装 [NodeJS](https://nodejs.org/en/download/) 8.0 以上的版本, 以支持插件配置解析. 开发者可以将 NodeJS 并导设置环境变量 `PATH`, 也可以在 `CMakeLists.txt` 中通过设置 `NODE_EXECUTABLE` 指定。
+在少数未安装编辑器的环境下，需要安装 [NodeJS](https://nodejs.org/en/download/) 8.0 以上的版本，以支持插件配置解析。开发者可以将 NodeJS 并导设置环境变量 `PATH`，也可以在 `CMakeLists.txt` 中通过设置 `NODE_EXECUTABLE` 指定。
 
 ![update NODE_EXECUTABLE]()
 
