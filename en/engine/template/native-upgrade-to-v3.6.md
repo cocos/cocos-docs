@@ -33,33 +33,32 @@ To reduce the package size, the default value of `CMAKE_C_FLAGS_RELEASE` and `CM
 
 - Projects with custom jsb interfaces: code related to `NonRefNativePtrCreatedByCtorMap` must be removed
 
-- Manually written JSB `_finalize` functions should be set to empty, please refer the [note](../../advanced-topics/JSB2.0-learning.md#c++-object-lifecycle-management).
+- Manually written JSB `_finalize` functions should be set to empty, please refer the [Tutorial: JSB 2.0](../../advanced-topics/JSB2.0-learning.md#c++-object-lifecycle-management).
 
-For example:
-```c++
-static bool js_cc_gfx_Size_finalize(se::State& s) // NOLINT(readability-identifier-naming)
-{
-    auto iter = se::NonRefNativePtrCreatedByCtorMap::find(SE_THIS_OBJECT<cc::gfx::Size>(s));
-    if (iter != se::NonRefNativePtrCreatedByCtorMap::end())
+    For example:
+    
+    ```c++
+    static bool js_cc_gfx_Size_finalize(se::State& s) // NOLINT(readability-identifier-naming)
     {
-        se::NonRefNativePtrCreatedByCtorMap::erase(iter);
-        auto* cobj = SE_THIS_OBJECT<cc::gfx::Size>(s);
-        JSB_FREE(cobj);
+        auto iter = se::NonRefNativePtrCreatedByCtorMap::find(SE_THIS_OBJECT<cc::gfx::Size>(s));
+        if (iter != se::NonRefNativePtrCreatedByCtorMap::end())
+        {
+            se::NonRefNativePtrCreatedByCtorMap::erase(iter);
+            auto* cobj = SE_THIS_OBJECT<cc::gfx::Size>(s);
+            JSB_FREE(cobj);
+        }
+        return true;
     }
-    return true;
-}
-SE_BIND_FINALIZE_FUNC(js_cc_gfx_Size_finalize)
-```
-Remove all operations.
-```c++
-static bool js_cc_gfx_Size_finalize(se::State& s) // NOLINT(readability-identifier-naming)
-{
-    return true;
-}
-SE_BIND_FINALIZE_FUNC(js_cc_gfx_Size_finalize)
-```
-
-
+    SE_BIND_FINALIZE_FUNC(js_cc_gfx_Size_finalize)
+    ```
+    Remove all operations.
+    ```c++
+    static bool js_cc_gfx_Size_finalize(se::State& s) // NOLINT(readability-identifier-naming)
+    {
+        return true;
+    }
+    SE_BIND_FINALIZE_FUNC(js_cc_gfx_Size_finalize)
+    ```
 
 ## Scripting Considerations
 
