@@ -4,22 +4,22 @@ Developers can launch a WebSocket Server during the game and provide an **RPC in
 
 ## How To Enable
 
-The **WebSocket Server** is disabled by default. To enable it, add to the configuration `set(USE_WEBSOCKET_SERVER ON)` to the `cfg.cmake` file under the release package directory `build/[platform]/proj` (e.g.: `build/android/proj` by default for Android platform) generated after building the native platform.
+The **WebSocket Server** is disabled by default. To enable it, need to check the editor's main menu **Project -> Project Settings -> Feature Cropping** , and enable the **WebSocket Server** configuration setting.
 
 ## How to use WebSocket
 
 Refer to the example code below:
 
-```js
+```ts
 // In the native platform's Release mode or in Web / WeChat Mini Games and other platforms, WebSocketServer may not be defined.
-if (typeof WebSocketServer == "undefined") {
+if (typeof WebSocketServer === "undefined") {
     console.error("WebSocketServer is not enabled!");
     return;
 }
 
 let s = new WebSocketServer();
 s.onconnection = function (conn) {
-    conn.ondata = function (data) {
+    conn.onmessage = function (data) {
         conn.send(data, (err) => {});
     }
     conn.onclose = function () {
@@ -74,7 +74,7 @@ class WebSocketServerConnection {
     /**
      * Close the connection
      */
-    close(cb?: WsCallback): void;
+    close(code?: number, reason?: string): void;
     /**
      * Send the data
      */
@@ -82,7 +82,7 @@ class WebSocketServerConnection {
 
     set ontext(cb: (data: string) => void);
     set onbinary(cb: (data: ArrayBuffer) => void);
-    set ondata(cb: (data: string|ArrayBuffer) => void);
+    set onmessage(cb: (data: string|ArrayBuffer) => void);
     set onconnect(cb: () => void;);
     set onclose(cb: WsCallback);
     set onerror(cb: WsCallback);
@@ -94,6 +94,8 @@ interface WsCallback {
     (err?: string): void;
 } 
 ```
+
+> **Note**: After v3.7.0, `ondata` callback has been deprecated, please use `onmessage` to instead. 
 
 ## Reference links
 

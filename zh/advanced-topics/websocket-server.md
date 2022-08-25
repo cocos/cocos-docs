@@ -4,22 +4,22 @@
 
 ## 如何启用
 
-**WebSocket 服务器** 默认是剔除的。若要启用，需要在构建原生平台后生成的发布包目录 `build/[platform]/proj`（例如 Android 平台默认为 `build/android/proj`）下的 `cfg.cmake` 文件中添加配置 `set(USE_WEBSOCKET_SERVER ON)`。
+**WebSocket 服务器** 默认是剔除的。若要启用，需要在编辑器顶部菜单栏中 **项目设置 -> 功能裁剪** 中勾选**WebSocket Server** 配置。
 
 ## 如何调用 WebSocket 服务器接口
 
 可参考下方实例代码：
 
-```js
+```ts
 // 在原生平台的 Release 模式下或者在 Web /微信小游戏等平台中，WebSocketServer 可能没有定义
-if (typeof WebSocketServer == "undefined") {
+if (typeof WebSocketServer === "undefined") {
     console.error("WebSocketServer is not enabled!");
     return;
 }
 
 let s = new WebSocketServer();
 s.onconnection = function (conn) {
-    conn.ondata = function (data) {
+    conn.onmessage = function (data) {
         conn.send(data, (err) => {});
     }
     conn.onclose = function () {
@@ -74,7 +74,7 @@ class WebSocketServerConnection {
     /**
      * 关闭连接
      */
-    close(cb?: WsCallback): void;
+    close(code?: number, reason?: string): void;
     /**
      * 发送数据
      */
@@ -82,7 +82,7 @@ class WebSocketServerConnection {
 
     set ontext(cb: (data: string) => void);
     set onbinary(cb: (data: ArrayBuffer) => void);
-    set ondata(cb: (data: string|ArrayBuffer) => void);
+    set onmessage(cb: (data: string|ArrayBuffer) => void);
     set onconnect(cb: () => void;);
     set onclose(cb: WsCallback);
     set onerror(cb: WsCallback);
@@ -94,6 +94,7 @@ interface WsCallback {
     (err?: string): void;
 } 
 ```
+> **注意**: `ondata` 回调已经在 v3.7.0 版本废弃, 请使用 `onmessage` 代替.
 
 ## 参考链接
 
