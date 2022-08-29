@@ -307,6 +307,68 @@ sebind::class_<User> superUser("SuperUser", userClass.prototype());
 
 ## Other Uses
 
+### Calling JS functions in C++
+
+Since 3.6.1, with `sebind::bindFunction` you can bind `se::Value` to `std::function` in C++, without having to deal with parameter conversions. Similarly, you can use `sebind::callFunction` to call JS functions directly.
+
+For example:
+```c++
+demo.staticFunction(
+          "add",
+          +[](const se::Value &func, int a, int b) {
+            // bind js function as a std::function<int(int,int)>
+            auto addFunc = sebind::bindFunction<int(int, int)>(func);
+            // ..
+            // invoke std::function
+            auto result = addFunc(a, b);
+
+            // call JS function with automatic arguments assembling
+            auto result2 = sebind::callFunction<int, int, int>(func, a, b);
+            auto result3 = sebind::callFunction<int, int, int>(func, 6, 8);
+
+            // argument type computing
+            auto result4 = sebind::callFunction<int>(func, a, b);
+            auto result5 = sebind::callFunction<int>(func, 6, 8);
+
+            std::cout << "result 1 " << result << std::endl;
+            std::cout << "result 2 " << result2 << std::endl;
+          });
+```
+
+### Binding abstract classes
+
+`sebind::class_` requires a constructor to be provided, but the constructor for the abstract class is not available. Resolve this conflict by providing an empty constructor to enable registration of the abstract type.
+
+For example:
+
+```c++
+
+class AbstractClass {
+public:
+  virtual bool tick() = 0;
+};
+
+class SubClass : public AbstractClass {
+public:
+  bool tick() override { return true; }
+};
+
+AbstractClass *fakeConstructor() {
+  assert(false); // Abstract class cannot be instantiated
+  return nullptr;
+}
+
+//..
+sebind::class_<AbstractClass> base("AbstractBase");
+
+base.constructor<>(&fakeConstructor) // add constructor
+    .function("tick", &AbstractClass::tick)
+    .install(globalThis);
+
+sebind::class_<SubClass> sub("SubClass", base.prototype());
+sub.install(globalThis);
+```
+
 ### Manual Type Conversion
 
 `sebind` supports binding traditional `SE` functions to perform the conversion manually. For example:

@@ -316,6 +316,68 @@ sebind::class_<User> superUser("SuperUser", userClass.prototype());
 
 ## 其他用法
 
+### C++ 调用 JS 函数
+
+从 3.6.1 起，通过 `sebind::bindFunction` 可以将 `se::Value` 对象，绑定为 C++ 中的 `std::function`， 不需要处理参数的转换。 类似地，可以使用 `sebind::callFunction` 直接调用 JS 函数。
+
+示例如下：
+```c++
+demo.staticFunction(
+          "add",
+          +[](const se::Value &func, int a, int b) {
+            // bind js function as a std::function<int(int,int)>
+            auto addFunc = sebind::bindFunction<int(int, int)>(func);
+            // ..
+            // invoke std::function
+            auto result = addFunc(a, b);
+
+            // call JS function with automatic arguments assembling
+            auto result2 = sebind::callFunction<int, int, int>(func, a, b);
+            auto result3 = sebind::callFunction<int, int, int>(func, 6, 8);
+
+            // argument type computing
+            auto result4 = sebind::callFunction<int>(func, a, b);
+            auto result5 = sebind::callFunction<int>(func, 6, 8);
+
+            std::cout << "result 1 " << result << std::endl;
+            std::cout << "result 2 " << result2 << std::endl;
+          });
+```
+
+### 绑定抽象类
+
+`sebind::class_` 要求提供构造函数，但抽象类的构造函数不可用。通过提供空的构造函数解决此冲突，实现抽象类型的注册。
+
+示例如下：
+
+```c++
+
+class AbstractClass {
+public:
+  virtual bool tick() = 0;
+};
+
+class SubClass : public AbstractClass {
+public:
+  bool tick() override { return true; }
+};
+
+AbstractClass *fakeConstructor() {
+  assert(false); // Abstract class cannot be instantiated
+  return nullptr;
+}
+
+//..
+sebind::class_<AbstractClass> base("AbstractBase");
+
+base.constructor<>(&fakeConstructor) // add constructor
+    .function("tick", &AbstractClass::tick)
+    .install(globalThis);
+
+sebind::class_<SubClass> sub("SubClass", base.prototype());
+sub.install(globalThis);
+```
+
 ### 手动类型转换
 
 `sebind` 支持绑定传统 SE 函数，实现手动执行转换，代码示例如下：
