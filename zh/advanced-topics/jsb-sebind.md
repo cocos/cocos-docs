@@ -355,10 +355,7 @@ JS 中调用对应构造函数的时候，需要忽略 `sebind::ThisObject` 参�
 
 ![sebind::ThisObject](./sebind/thisobject_placeholder.PNG)
 
-<details>
-<summary>
-完整代码: HelloSEBind.cpp
-</summary>
+HelloSEBind.cpp 完整代码如下：
 
 ```c++
 
@@ -506,8 +503,6 @@ bool jsb_register_simple_math(se::Object *globalThis) {
   return true;
 }
 ```
-
-</details>
 
 
 
