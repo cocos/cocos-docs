@@ -1,7 +1,9 @@
 # Upgrade Guide: Particle from v3.5.x to v3.6.0
 
 ## CPU Particle
-The particle shader particle-vs-legacy.chunk should be modified to support instance particles added in v3.6.0  
+
+The particle shader particle-vs-legacy.chunk should be modified to support instance particles added in v3.6.0.
+
 layout before  
 ````
 in vec3 a_position; // center position
@@ -20,7 +22,9 @@ in vec4 a_color;
   in vec4 a_color1;     // mesh color
 #endif
 ````
+
 layout now  
+
 ````
 in vec3 a_texCoord1;  // size
 in vec3 a_texCoord2;  // rotation
@@ -48,8 +52,11 @@ in vec3 a_texCoord;  // xy:vertex index,z:frame index
 Other shader code should be modified refer to particle-vs-legacy.chunk of v3.6.0  
 
 ## GPU Particle
-GPU particle shader particle-vs-gpu.chunk should be modified  
+
+GPU particle shader particle-vs-gpu.chunk should be modified.
+
 layout before
+
 ````
 in vec4 a_position_starttime; // center position,particle start time
 in vec4 a_size_uv;  // xyz:size, w:uv_0
@@ -65,7 +72,9 @@ in float a_rndSeed;
   in vec4 a_color1;     // mesh color
 #endif
 ````
+
 layout after
+
 ````
 in vec4 a_position_starttime; // center position,particle start time
 in vec4 a_color;
@@ -90,4 +99,4 @@ in float a_rndSeed;
 #endif
 ````
 
-Other shader code should be modified refer to particle-vs-gpu.chunk of v3.6.0
+Other shader code should be modified refer to particle-vs-gpu.chunk of v3.6.0.
