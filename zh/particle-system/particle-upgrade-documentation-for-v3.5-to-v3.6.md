@@ -1,8 +1,11 @@
 # 升级指南：粒子 从 v3.5.x 升级到 v3.6.0
 
 ## CPU 粒子
-3.6.0 粒子系统新增了 instance 支持，粒子 shader particle-vs-legacy.chunk 需要做如下修改  
-原来的 layout
+
+v3.6.0 粒子系统新增了 instance 支持，粒子 shader particle-vs-legacy.chunk 需要做如下修改：
+
+原来的 layout：
+
 ````
 in vec3 a_position; // center position
 in vec3 a_texCoord;  // xy:vertex index,z:frame index
@@ -20,7 +23,9 @@ in vec4 a_color;
   in vec4 a_color1;     // mesh color
 #endif
 ````
-现在的 layout
+
+现在的 layout：
+
 ````
 in vec3 a_texCoord1;  // size
 in vec3 a_texCoord2;  // rotation
@@ -45,11 +50,14 @@ in vec3 a_texCoord;  // xy:vertex index,z:frame index
 #endif
 ````
 
-其它 shader 代码需要参考3.6.0的 particle-vs-legacy.chunk 进行修改  
+其它 shader 代码需要参考 v3.6.0 的 particle-vs-legacy.chunk 进行修改。
 
 ## GPU 粒子
-gpu 粒子 shader particle-vs-gpu.chunk 需要做如下修改  
-原来的 layout
+
+GPU 粒子 shader particle-vs-gpu.chunk 需要做如下修改：
+
+原来的 layout：
+
 ````
 in vec4 a_position_starttime; // center position,particle start time
 in vec4 a_size_uv;  // xyz:size, w:uv_0
@@ -65,7 +73,9 @@ in float a_rndSeed;
   in vec4 a_color1;     // mesh color
 #endif
 ````
+
 现在的 layout
+
 ````
 in vec4 a_position_starttime; // center position,particle start time
 in vec4 a_color;
@@ -90,4 +100,4 @@ in float a_rndSeed;
 #endif
 ````
 
-其它 shader 代码需要参考3.6.0的 particle-vs-gpu.chunk 进行修改  
+其它 shader 代码需要参考 v3.6.0 的 particle-vs-gpu.chunk 进行修改。
