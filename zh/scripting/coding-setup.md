@@ -134,7 +134,7 @@ VS Code 有着优秀的调试能力，我们可以直接在源码工程中调试
 
     ![debugger for chrome](coding-setup/debugger-for-chrome.png)
 
-    - JavaScript Debugger：由于 Debug for Chrome 已废弃，开发者也可在 VS Code 的插件栏内搜索 **JavaScript Debugger** 以启用新的调试插件
+    - JavaScript Debugger：开发者也可在 VS Code 的 **扩展** 内搜索 **JavaScript Debugger** 以启用新的调试插件
 
     ![javascript debugger](coding-setup/javascript-debugger.png)
 
