@@ -126,11 +126,17 @@ VS Code 有着优秀的调试能力，我们可以直接在源码工程中调试
 
 - [Chrome（谷歌浏览器）](https://www.google.com/chrome/)
 
-- VS Code 插件：Debugger for Chrome
+- VS Code 插件：
 
-  点击 VS Code 左侧导航栏的 **扩展** 按钮打开扩展面板，在搜索框中输入 **Debugger for Chrome** 并点击安装。安装之后可能需要重启 VS Code 才能生效。
+    - Debugger for Chrome（已弃用）
 
-  ![debugger for chrome](coding-setup/debugger-for-chrome.png)
+    点击 VS Code 左侧导航栏的 **扩展** 按钮打开扩展面板，在搜索框中输入 **Debugger for Chrome** 并点击安装。安装之后可能需要重启 VS Code 才能生效。
+
+    ![debugger for chrome](coding-setup/debugger-for-chrome.png)
+
+    - JavaScript Debug：由于 Debug for Chrome 已废弃，开发者可在 VS Code 的插件栏内搜索 **JavaScript Debugger**
+
+    ![javascript debugger](coding-setup/javascript-debugger.png)
 
 接下来在 Cocos Creator 顶部菜单栏中点击 **开发者 -> VS Code 工作流 -> 添加 Chrome Debug 配置**，这个菜单命令会在项目文件夹下添加一个 `.vscode/launch.json` 文件作为调试器的配置：
 
