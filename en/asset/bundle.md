@@ -92,6 +92,7 @@ The four built-in Asset Bundle folders are prioritized as follows:
 | `main`        | 7  |
 | `resources`   | 8  |
 | `start-scene` | 20 |
+| `internal` | 21 |
 
 When the four built-in Asset Bundles contain the same resources, the resources are stored in the higher priority Asset Bundle. It is recommended that other custom Asset Bundle priorities are not higher than the built-in Asset Bundle, so that the resources in the built-in Asset Bundle can be shared whenever possible.
 
