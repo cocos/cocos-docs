@@ -10,7 +10,7 @@ At the same time, native plugins complement the existing editor extension system
 
 ## Installing Dependencies
 
-You need to install [NodeJS](https://nodejs.org/en/download/) version 8.0 or higher, and set the environment variable `PATH`. 
+In a few environments without Cocos Creator installed, [NodeJS](https://nodejs.org/en/download/) version 8.0 or higher is required to support plugin configuration parsing. You can set the environment variable `PATH`, or specify it by setting the `NODE_EXECUTABLE` variable in `CMakeLists.txt`.
 
 ## Example of the plugin's directory structure
 

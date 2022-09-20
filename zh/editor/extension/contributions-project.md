@@ -39,53 +39,63 @@
                     "default": 1
                 },
                 "foo1": {
-                    "default": 1
+                    "default": 0.4
                 },
                 "foo2": {
                     "default": false
                 },
                 "foo3": {
                     "default": 0
+                },
+                "foo4": {
+                    "default": "label"
                 }
             }
         },        
         "project": {
             "tab1": {
                 "label": "test",
-                "foo": {
-                    "ui": "ui-num-input"
-                },
-                "foo1": {
-                    "ui": "ui-slider",
-                    "attributes": {
-                        "min": 0,
-                        "max": 1,
-                        "step": 0.1
-                    }
-                },
-                "foo2": {
-                    "ui": "ui-checkbox"
-                },
-                "foo3": {
-                    "ui": "ui-select",
-                    "items": [
-                        {
-                            "value": 0,
-                            "label": "ITEM 0"
-                        },
-                        {
-                            "value": 1,
-                            "label": "ITEM 1"
-                        },
-                        {
-                            "value": 2,
-                            "label": "ITEM 2"
+                "content": {
+                    "foo": {
+                        "ui": "ui-num-input"
+                    },
+                    "foo1": {
+                        "ui": "ui-slider",
+                        "attributes": {
+                            "min": 0,
+                            "max": 1,
+                            "step": 0.1
                         }
-                    ]
+                    },
+                    "foo2": {
+                        "ui": "ui-checkbox"
+                    },
+                    "foo3": {
+                        "ui": "ui-select",
+                        "items": [
+                            {
+                                "value": 0,
+                                "label": "ITEM 0"
+                            },
+                            {
+                                "value": 1,
+                                "label": "ITEM 1"
+                            },
+                            {
+                                "value": 2,
+                                "label": "ITEM 2"
+                            }
+                        ]
+                    }
                 }
             },
-            "tab1": {
-                "label": "test"
+            "tab2": {
+                "label": "test2",
+                "content": {
+                    "foo4": {
+                        "ui": "ui-input"
+                    }
+                }
             }
         }        
     }
