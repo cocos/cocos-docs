@@ -21,6 +21,6 @@ Cocos CreatorXR 的安装方式和普通的扩展一致，将对应的插件安�
 | xr-pico          | 开启支持 XR 内容发布至 [Pico Neo3 设备](https://www.pico-interactive.com/cn/neo3/) 的功能。可选 |
 | xr-rokid         | 开启支持 XR 内容发布至 [Rokid Air 设备](https://air.rokid.com/) 的功能。可选 |
 | xr-monado        | 开启支持 XR 内容发布至移动端 [Monado 平台](https://monado.dev/) 的功能。可选 |
-| xr-huaweivr | 开启支持 XR 内容发布至HuaweiVR Glass的功能。可选 |
+| xr-huaweivr | 开启支持 XR 内容发布至 HuaweiVR Glass的功能。可选 |
 
 开启支持发布对应平台功能的扩展之后，在构建界面的发布平台下拉选项中出现设备选项，具体操作详见 [构建与发布](build.md)。
