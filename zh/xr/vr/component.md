@@ -2,7 +2,7 @@
 
 Cocos CreatorXR 通过组件的组合封装为实体赋能，实体根据其不同特性又被不同的功能系统所管理。所以编辑器中所有XR相关的功能底层都是由封装好的特殊 XR 组件驱动的。
 
-Cocos CreatorXR的功能组件主要由 5 部分构成：
+Cocos CreatorXR 的功能组件主要由 5 部分构成：
 
 - [设备映射](device-mapping.md)
 - [交互组件](interaction.md)
