@@ -24,7 +24,7 @@ For more information about loading scenes in the Asset Bundle, you can refer to 
 The engine will only run one scene at the same time. When switching scenes, all nodes and other instances in the scene will be destroyed by default. Developer's may need to use a component to control the loading of all scenes, or to transfer parameter data between scenes, mark the node where the component is located as a __Persistent Node__ so that it will not be automatically destroyed when the scene is switched, and will remain in memory. Example:
 
 ```ts
-game.addPersistRootNode(myNode);
+director.addPersistRootNode(myNode);
 ```
 
 The above interface will turn `myNode` into a persistent node, so that the components attached to it can continue to function between scenes. This method can be used to store player information, or various things needed for the initialization of the next scene data.
@@ -34,7 +34,7 @@ The above interface will turn `myNode` into a persistent node, so that the compo
 Cancelling the persistece of a node is easy. Example:
 
 ```ts
-game.removePersistRootNode(myNode);
+director.removePersistRootNode(myNode);
 ```
 
 > **Note**: the above API does not immediately destroy the specified node, but restores the node to a node that can be destroyed when the scene is switched.
