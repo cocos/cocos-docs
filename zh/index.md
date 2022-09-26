@@ -43,6 +43,6 @@
 
 ![paoku](tutorial/img/3d-parkour-title.jpg)
 
-[零基础 3D 跑酷游戏](https://space.bilibili.com/649675584/channel/collectiondetail?sid=701630)
+[零基础 3D 跑酷游戏视频教程](https://space.bilibili.com/649675584/channel/collectiondetail?sid=701630)
 
 更多视频教程可前往 [哔哩哔哩 — Cocos 官方](https://space.bilibili.com/491120849/dynamic)。
