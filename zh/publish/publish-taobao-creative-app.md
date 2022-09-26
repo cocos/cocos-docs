@@ -2,9 +2,9 @@
 
 Cocos Creator 从 v2.4.11 开始支持将游戏发布到 **淘宝小程序创意互动**。
 
-关于淘宝小程序创意互动接入的细节，可参考 [淘宝小程序创意互动接入指南](https://miniapp.open.taobao.com/doc.htm?docId=119111&docType=1&tag=info)
-
 ## 准备工作
+
+- 参考 [淘宝小程序创意互动接入指南](https://miniapp.open.taobao.com/doc.htm?docId=119114&docType=1&tag=dev)，在淘宝开放平台完成开发者入驻流程和应用创建。
 
 - 桌面端下载 [淘宝开发者工具](https://developer.taobao.com/?spm=a219a.15212435.0.0.11ef669aIQNlnI) 并安装。
 
