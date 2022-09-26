@@ -25,9 +25,6 @@ The Animation Component controls the playback of the specified animation via the
 ```ts
 // Play the animation state 'idle'
 animationComponent.play('idle');
-
-// Specify that the 'idle' animation will be played from 1s onwards
-animationComponent.play('idle', 1);
 ```
 
 If no specific animation is specified and `defaultClip` is set when using `play` to play an animation, the `defaultClip` animation will be played. If the `playOnLoad` of the Animation Component is also set to `true`, the Animation Component will automatically play the contents of `defaultClip` on the first run.

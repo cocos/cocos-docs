@@ -25,9 +25,6 @@ function (node: Node) {
 ```ts
 // 播放动画状态 'idle'
 animationComponent.play('idle');
-
-// 指定从 1s 开始播放 'idle' 动画
-animationComponent.play('idle', 1);
 ```
 
 使用 `play` 播放动画时若未指定具体动画，并且设置了 `defaultClip`，则会播放 defaultClip 动画。若动画组件的 `playOnLoad` 也设置为 `true`，则动画组件将在第一次运行时自动播放 `defaultClip` 的内容。
