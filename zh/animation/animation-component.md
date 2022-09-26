@@ -123,11 +123,51 @@ class MyScript extends Component {
 
 除了 **动画编辑器** 中的帧事件提供了回调，动画系统还提供了动画事件回调方式。目前支持的回调事件包括：
 
-- `play`：开始播放时触发
-- `stop`：停止播放时触发
-- `pause`：暂停播放时触发
-- `resume`：恢复播放时触发
-- `lastframe`：假如动画循环次数大于 1，当动画播放到最后一帧时触发。
-- `finished`：动画播放完成时触发
+- `PLAY`：开始播放时触发
+- `STOP`：停止播放时触发
+- `PAUSE`：暂停播放时触发
+- `RESUME`：恢复播放时触发
+- `LASTFRAME`：假如动画循环次数大于 1，当动画播放到最后一帧时触发。
+- `FINISHED`：动画播放完成时触发
+
+其定义枚举 `Animation.EventType` 内，以骨骼动画组件为例，代码示例如下：
+
+```ts
+import { _decorator, Component, Node, SkeletalAnimation, Animation, SkeletalAnimationState } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('SkeletonAnimationEvent')
+export class SkeletonAnimationEvent extends Component {
+    start() {
+
+        let skeletalAnimation = this.node.getComponent(SkeletalAnimation);
+        skeletalAnimation.on(Animation.EventType.FINISHED, this.onAnimationFinished, this);
+    }
+
+    onAnimationFinished(type:Animation.EventType, state:SkeletalAnimationState){
+
+    }
+}
+```
+
+非骨骼动画，代码示例如下：
+
+```ts
+import { _decorator, Component, Node, Animation, AnimationState } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('AnimationEvent')
+export class AnimationEvent extends Component {
+    
+    start() {
+        let animation = this.node.getComponent(Animation);
+        animation.on(Animation.EventType.FINISHED, this.onAnimationEvent, this)
+    }
+
+    onAnimationEvent(type: Animation.EventType, state: AnimationState) {
+
+    }
+}
+```
 
 更多内容请参考 [Animation.EventType](__APIDOC__/zh/namespace/Animation?id=EventType)。
