@@ -1,14 +1,14 @@
-# 发布到淘宝创意互动小游戏
+# 发布到淘宝小程序创意互动
 
-Cocos Creator 从 v2.4.11 开始支持将游戏发布到 **淘宝创意互动小游戏**。
+Cocos Creator 从 v2.4.11 开始支持将游戏发布到 **淘宝小程序创意互动**。
 
-## 环境配置
+关于淘宝小程序创意互动接入的细节，可参考 [淘宝小程序创意互动接入指南](https://miniapp.open.taobao.com/doc.htm?docId=119111&docType=1&tag=info)
+
+## 准备工作
 
 - 桌面端下载 [淘宝开发者工具](https://developer.taobao.com/?spm=a219a.15212435.0.0.11ef669aIQNlnI) 并安装。
 
 - 下载 [淘宝](https://market.m.taobao.com/app/fdilab/download-page/main/index.html)，并安装到手机设备上。
-
-- 淘宝客户端在 Android 上支持的最低版本为 10.16.0，在 iOS 为 10.15.20
 
 ## 发布流程
 
@@ -40,35 +40,37 @@ Cocos Creator 从 v2.4.11 开始支持将游戏发布到 **淘宝创意互动小
 
 ### 运行预览
 
-- 构建完成后点击 **发布路径** 后面的 **打开** 按钮，可以看到在发布包 build 目录下生成了淘宝创意互动小游戏工程文件夹 **taobao**，其中已经包含了淘宝创意互动小游戏环境的配置文件：`app.json` 和 `mini.project.json`。
+- 构建完成后点击 **发布路径** 后面的 **打开** 按钮，可以看到在发布包 build 目录下生成了淘宝小程序创意互动工程文件夹 **taobao**，其中已经包含了淘宝小程序创意互动环境的配置文件：`app.json` 和 `mini.project.json`。
 
   ![](./publish-taobao-creative-app/build.png)
 
-- 使用 **淘宝创意互动开发者工具** 打开构建生成的 **taobao** 文件夹，即可打开淘宝创意互动小游戏项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119188&docType=1&tag=dev)。
+- 使用 **淘宝开发者工具** 打开构建生成的 **taobao** 文件夹，即可打开淘宝小程序创意互动项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119188&docType=1&tag=dev)。
 
   ![](./publish-taobao-creative-app/preview.png)
 
-## 淘宝创意互动小游戏环境的资源管理
+## 淘宝小程序创意互动环境的资源管理
 
-淘宝创意互动小游戏与微信小游戏类似，都存在着包体限制，超过 2MB 的额外资源，必须通过网络请求下载。在包体优化方面，建议剔除掉没使用到的引擎模块。
+淘宝小程序创意互动与微信小游戏类似，都存在着包体限制，超过 2MB 的额外资源，必须通过网络请求下载。在包体优化方面，建议剔除掉没使用到的引擎模块。
 
 Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本管理。具体的实现逻辑和操作步骤都与微信小游戏类似，请参考 [微信小游戏资源管理](./publish-wechatgame.md#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86)。
 
-## 淘宝创意互动小游戏的限制
+## 淘宝小程序创意互动的限制
 
-淘宝创意互动小游戏暂时不支持以下功能模块：
+淘宝小程序创意互动暂时不支持以下功能模块：
 
 - VideoPlayer
 - WebView
 - 自定义字体
 - 暂不支持资源分包（替代方案是资源包放 CDN）
+- 暂只支持竖屏的应用
 
 
 ## 参考链接
 
-- [淘宝开发者入驻文档](https://miniapp.open.taobao.com/docV3.htm?docId=119114&docType=1&tag=dev)
-- [淘宝创意互动小游戏介绍](https://miniapp.open.taobao.com/doc.htm?docId=119177&docType=1&tag=dev)
-- [淘宝创意互动小游戏 API 文档](https://miniapp.open.taobao.com/doc.htm?docId=119062&docType=1&tag=dev)
-- [淘宝创意互动开发者工具下载](https://developer.taobao.com/?spm=a219a.15212435.0.0.7892669alqxNjY)
-- [淘宝创意互动开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119189&docType=1&tag=dev)
-- [淘宝创意互动小游戏真机调试](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=dev)
+- [淘宝开放平台开发指南](https://miniapp.open.taobao.com/docV3.htm?docId=119114&docType=1&tag=dev)
+- [淘宝开发者入驻文档](https://miniapp.open.taobao.com/doc.htm?spm=a219a.15212435.0.0.4f44669ay8X5vm&docId=119111&docType=1&)
+- [淘宝小程序创意互动介绍](https://miniapp.open.taobao.com/doc.htm?docId=119177&docType=1&tag=dev)
+- [淘宝小程序创意互动 API 文档](https://miniapp.open.taobao.com/doc.htm?docId=119062&docType=1&tag=dev)
+- [淘宝开发者工具下载](https://developer.taobao.com/?spm=a219a.15212435.0.0.7892669alqxNjY)
+- [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119189&docType=1&tag=dev)
+- [淘宝开发者工具真机调试](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=dev)
