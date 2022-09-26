@@ -126,11 +126,53 @@ class MyScript extends Component {
 
 In addition to the callbacks provided by the frame events in the **Animation** panel, the animation system also provides a way to call back animation events. The currently supported callback events include:
 
-- `play`: triggered when playback starts
-- `stop`: triggered when playback is stopped
-- `pause`: triggered when playback is paused
-- `resume`: triggered when playback is resumed
-- `lastframe`: if the animation loop is greater than 1, triggered when the animation reaches the last frame.
-- `finished`: trigger when the animation is finished.
+- `PLAY`: triggered when playback starts
+- `STOP`: triggered when playback is stopped
+- `PAUSE`: triggered when playback is paused
+- `RESUME`: triggered when playback is resumed
+- `LASTFRAME`: if the animation loop is greater than 1, triggered when the animation reaches the last frame.
+- `FINISHED`: trigger when the animation is finished.
+
+These events are defined in `Animation.EventType` and the code examples is as follows.
+
+SkeletalAnimation:
+
+```ts
+import { _decorator, Component, Node, SkeletalAnimation, Animation, SkeletalAnimationState } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('SkeletonAnimationEvent')
+export class SkeletonAnimationEvent extends Component {
+    start() {
+
+        let skeletalAnimation = this.node.getComponent(SkeletalAnimation);
+        skeletalAnimation.on(Animation.EventType.FINISHED, this.onAnimationFinished, this);
+    }
+
+    onAnimationFinished(type:Animation.EventType, state:SkeletalAnimationState){
+
+    }
+}
+```
+
+Animation:
+
+```ts
+import { _decorator, Component, Node, Animation, AnimationState } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('AnimationEvent')
+export class AnimationEvent extends Component {
+    
+    start() {
+        let animation = this.node.getComponent(Animation);
+        animation.on(Animation.EventType.FINISHED, this.onAnimationEvent, this)
+    }
+
+    onAnimationEvent(type: Animation.EventType, state: AnimationState) {
+
+    }
+}
+```
 
 For more details, please refer to the [Animation.EventType](__APIDOC__/en/namespace/Animation?id=EventType) API.
