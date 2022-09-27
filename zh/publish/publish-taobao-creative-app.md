@@ -14,7 +14,7 @@ Cocos Creator 从 v2.4.11 开始支持将游戏发布到 **淘宝小程序创意
 
 使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 选择 **淘宝小程序创意互动**，然后点击 **构建**。
 
-![](./publish-taobao-creative-app/build_option.png)
+![build_option](./publish-taobao-creative-app/build_option.png)
 
 ### 参数项配置
 
