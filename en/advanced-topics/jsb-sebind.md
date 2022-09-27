@@ -314,25 +314,25 @@ Since 3.6.1, with `sebind::bindFunction` you can bind `se::Value` to `std::funct
 For example:
 ```c++
 demo.staticFunction(
-          "add",
-          +[](const se::Value &func, int a, int b) {
-            // bind js function as a std::function<int(int,int)>
-            auto addFunc = sebind::bindFunction<int(int, int)>(func);
-            // ..
-            // invoke std::function
-            auto result = addFunc(a, b);
+  "add",
+  +[](const se::Value &func, int a, int b) {
+    // bind js function as a std::function<int(int,int)>
+    auto addFunc = sebind::bindFunction<int(int, int)>(func);
+    // ..
+    // invoke std::function
+    auto result = addFunc(a, b);
 
-            // call JS function with automatic arguments assembling
-            auto result2 = sebind::callFunction<int, int, int>(func, a, b);
-            auto result3 = sebind::callFunction<int, int, int>(func, 6, 8);
+    // call JS function with automatic arguments assembling
+    auto result2 = sebind::callFunction<int, int, int>(func, a, b);
+    auto result3 = sebind::callFunction<int, int, int>(func, 6, 8);
 
-            // argument type computing
-            auto result4 = sebind::callFunction<int>(func, a, b);
-            auto result5 = sebind::callFunction<int>(func, 6, 8);
+    // argument type computing
+    auto result4 = sebind::callFunction<int>(func, a, b);
+    auto result5 = sebind::callFunction<int>(func, 6, 8);
 
-            std::cout << "result 1 " << result << std::endl;
-            std::cout << "result 2 " << result2 << std::endl;
-          });
+    std::cout << "result 1 " << result << std::endl;
+    std::cout << "result 2 " << result2 << std::endl;
+  });
 ```
 
 ### Binding abstract classes
