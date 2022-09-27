@@ -6,7 +6,7 @@
 
 在 xr-plugin 的资源库中找到 XR Simulator，将其拖拽至场景中。
 
-<img src="preview/xr simulator.png" style="zoom:50%;" />
+<img src="preview/xr-simulator.png" style="zoom:50%;" />
 
 在编辑器的预览选项中选择浏览器预览，并点击运行。
 

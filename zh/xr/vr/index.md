@@ -4,9 +4,9 @@
 
 ## 内容
 
-- [**XR项目创建**](template.md)
-- [**扩展**](extension.md)
-- [**预制**](prefab.md)
-- [**组件**](component.md)
-- **[预览](preview.md)**
-- [**构建**](build.md)
+- [XR 项目创建](template.md)
+- [扩展安装](extension.md)
+- [内置资源与预制体](prefab.md)
+- [XR 组件](component.md)
+- [预览](preview.md)
+- [构建与发布](build.md)
