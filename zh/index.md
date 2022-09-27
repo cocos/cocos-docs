@@ -41,7 +41,7 @@
 
 [快上车视频教程](https://space.bilibili.com/491120849/channel/detail?cid=116585)
 
-![paoku](tutorial/img/3d-parkour-title.jpg)
+<img src="./tutorial/img/3d-parkour-title.jpg" width=50% height=50%></img>
 
 [零基础 3D 跑酷游戏视频教程](https://space.bilibili.com/649675584/channel/collectiondetail?sid=701630)
 
