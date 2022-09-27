@@ -42,11 +42,11 @@ Cocos Creator 从 v2.4.11 开始支持将游戏发布到 **淘宝小程序创意
 
 - 构建完成后点击 **发布路径** 后面的 **打开** 按钮，可以看到在发布包 build 目录下生成了淘宝小程序创意互动工程文件夹 **taobao**，其中已经包含了淘宝小程序创意互动环境的配置文件：`app.json` 和 `mini.project.json`。
 
-  ![](./publish-taobao-creative-app/build.png)
+  ![build](./publish-taobao-creative-app/build.png)
 
 - 使用 **淘宝开发者工具** 打开构建生成的 **taobao** 文件夹，即可打开淘宝小程序创意互动项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119188&docType=1&tag=dev)。
 
-  ![](./publish-taobao-creative-app/preview.png)
+  ![preview](./publish-taobao-creative-app/preview.png)
 
 ## 淘宝小程序创意互动环境的资源管理
 
@@ -63,7 +63,6 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 - 自定义字体
 - 暂不支持资源分包（替代方案是资源包放 CDN）
 - 暂只支持竖屏的应用
-
 
 ## 参考链接
 
