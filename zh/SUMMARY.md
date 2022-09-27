@@ -121,6 +121,7 @@
     - [发布到 HUAWEI AppGallery Connect](publish/publish-huawei-agc.md)
     - [发布到 Google Play Instant](publish/publish-android-instant.md)
     - [发布到支付宝小游戏](publish/publish-alipay-mini-games.md)
+    - [发布到淘宝小程序创意互动](publish/publish-taobao-creative-app.md)
     - [发布到字节跳动小游戏](publish/publish-bytedance.md)
         - [字节跳动小游戏开放数据域](publish/publish-bytedance-sub-domain.md)
     - [发布到 Cocos Play](publish/publish-cocosplay.md)

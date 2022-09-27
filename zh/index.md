@@ -6,6 +6,7 @@
 
 ## 特别推荐
 
+- 从 v2.4.11 开始，Cocos Creator 支持发布到 [淘宝小程序创意互动](publish/publish-taobao-creative-app.md)。
 - 从 v2.4.2 开始，Cocos Creator 支持发布到 [字节跳动小游戏](publish/publish-bytedance.md)。
 - 从 v2.4.1 开始，Cocos Creator 支持发布到 [HUAWEI AppGallery Connect](publish/publish-huawei-agc.md)。
 - 从 v2.4.0 开始，Cocos Creator 重写了资源管理模块，兼容了大部分原有的 API。除个别项目使用了无法兼容的特殊用法的 API 必须手动升级外，大部分项目都可以照常运行。建议开发者都升级到最新的资源管理模块。详情请查阅 [v2.4 资源管理模块升级指南](release-notes/asset-manager-upgrade-guide.md) 和 [v2.4 资源分包升级指南](release-notes/subpackage-upgrade-guide.md)。
