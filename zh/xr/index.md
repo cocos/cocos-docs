@@ -4,6 +4,5 @@ Cocos CreatorXR 是基于 Cocos Creator 和 Cocos Engine 打造的一款 XR 内�
 
 因为不同领域的设备技术实现原理和内容展现形式的不同，Cocos CreatorXR 的功能模块据此分成了两大类：
 
-- [VR ](vr/index.md)
+- [VR](vr/index.md)
 - **AR （开发中）**
-

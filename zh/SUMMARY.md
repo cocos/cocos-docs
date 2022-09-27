@@ -337,15 +337,11 @@
 
 - [XR](xr/index.md)
     - [VR](xr/vr/index.md)
+        - [XR 项目创建](xr/vr/template.md)
         - [扩展安装](xr/vr/extension.md)
-            - [XR 升级包安装和更新](xr/vr/update-engine.md)
-        - [内置预制体](xr/vr/prefab.md)
+        - [内置资源与预制体](xr/vr/prefab.md)
         - [XR 组件](xr/vr/component.md)
-            - [设备映射](xr/vr/device-mapping.md)
-            - [交互组件](xr/vr/interaction.md)
-            - [事件系统](xr/vr/events.md)
-            - [虚拟移动组件](xr/vr/locomotion.md)
-            - [XR UI](xr/vr/xrui.md)
+        - [预览](xr/vr/preview.md)
         - [构建与发布](xr/vr/build.md)
 
 ## 进阶教程
