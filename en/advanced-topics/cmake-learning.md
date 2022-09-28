@@ -83,6 +83,8 @@ option(USE_SPINE                "Enable Spine"                      ON)
 
 The release package directory generated after the build (e.g.: `build/android`) has a `proj/cfg.cmake` file to store some configuration for the current project. Since `CMakeLists.txt` introduces the `cfg.cmake` file, when the configuration in the `cfg.cmake` file is modified, it will be synchronized to `CMakeLists.txt`; if the configuration is the same, it will be overwritten directly, and the one in the `cfg.cmake` file will prevail.
 
+Starting from 3.6.2, developers can override the options written in `cfg.cmake` in `native/engine/common/localCfg.cmake`, and the file `localCfg.cmake` will be ignored from the GIT.
+
 ```CMake
 CMakeLists.txt
 
