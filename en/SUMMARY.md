@@ -133,6 +133,8 @@
 - [Graphics Rendering](module-map/graphics.md)
     - [Render Pipeline](render-pipeline/overview.md)
         - [Built-in Render Pipeline](render-pipeline/builtin-pipeline.md)
+    - [Graphics Backend](graphics-backend/overview.md)
+        - [WebGPU](graphics-backend/WebGPU.md)
     - [Camera](editor/components/camera-component.md)
     - [Lighting](concepts/scene/light.md)
         - [Physically Based Lighting](concepts/scene/light/pbr-lighting.md)
