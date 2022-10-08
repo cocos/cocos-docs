@@ -26,7 +26,7 @@ airplane](https://github.com/cocos/cocos-tutorial-airplane)
 3.  下载最新的IDE（版本\>=3.0.0.993）:[DevEco
     Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download_beta_openharmony)
 
-4.  系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)，[使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
+4.  系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)烧录工具与[使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
 
 5.  开发套件：[HH-SCDAYU200](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200)
 
@@ -58,10 +58,9 @@ airplane](https://github.com/cocos/cocos-tutorial-airplane)
 
 ![](./publish-openharmony/document_image_rId24.png)
 
-7.  如果连上设备，默认就是\'发现一个MASKROM设备\'，但是只有loader设备才能烧写系统（必须安装USB驱动之后，才会显示设备），如下图：![](./publish-openharmony/document_image_rId25.png)
+7.  如果连上设备，默认就是\'发现一个MASKROM设备\'（必须安装USB驱动之后且连接设备后才会显示），如下图：![](./publish-openharmony/document_image_rId25.png)
 
-8.  按着recover（一直按着），然后按一下下reset按钮（按一次，松开），过一会放开recover，就会发现变成
-    发现一个loader设备，如下图: ![](./publish-openharmony/document_image_rId26.png)
+8.  按着recover（一直按着），然后按一下下reset按钮（按一次，松开），过一会放开recover，就会在RKDevTool工具里提示\'发现一个loader设备\'，如下图: ![](./publish-openharmony/document_image_rId26.png)
 
 9.  显示'发现一个LOADER设备'才能烧写系统，如下图：
 
@@ -71,11 +70,11 @@ airplane](https://github.com/cocos/cocos-tutorial-airplane)
 
 ![](./publish-openharmony/document_image_rId29.png)
 
-11. 在软件中，把打勾的部分，选择解压的系统对应的文件，如下图
+11. 在RKDevTool软件中，把打勾的部分，选择解压的系统对应的文件，如下图
 
 ![](./publish-openharmony/document_image_rId30.png)
 
-12. 点击执行，等待日志显示'下载完成'即可。执行成功后，设备会自动进行重启，出现软件OpenHarmony界面欢迎页面，然后进入到桌面，即表示烧录成功。
+12. 点击执行，等待日志显示'下载完成'即可。执行成功后，设备会自动进行重启，出现软件OpenHarmony界面欢迎页面，然后进入到桌面，即表示烧录成功，如下图：
 
 ![](./publish-openharmony/document_image_rId31.png)
 
