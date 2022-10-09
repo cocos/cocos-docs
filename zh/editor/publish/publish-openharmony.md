@@ -1,216 +1,218 @@
-# **发布到 OpenHarmony**
+# 发布到 OpenHarmony
 
 ## 前言
+
 我们在 Cocos Creator 3.6.1 的基础上成功适配了 OpenHarmony 在 7 月 30 日发布的 3.2 beta2 分支，并以《鹰击长空》项目为案例，成功运行在开发板上，并且能够相对流畅的操作。目前 OpenHarmony 平台的适配仍在持续进行中，因此需要单独下载社区版来试用，后续会进入到 Cocos Creator 的正式版本中。
 
-鹰击长空：[GitHub - cocos/cocos-tutorial-airplane: video tutorial
-airplane](https://github.com/cocos/cocos-tutorial-airplane)
+鹰击长空：[GitHub - cocos/cocos-tutorial-airplane: video tutorial airplane](https://github.com/cocos/cocos-tutorial-airplane)
 
 游戏视频：
 
 <video src="./publish-openharmony/video.mp4"></video>
 
+如无法观看视频，请点击 [下载地址](./publish-openharmony/video.mp4) 下载后观看。
+
 ## 准备工作 
 
-1.  下载 Cocos Creator 3.6.1-OH 传送门：[Cocos Creator 3.6.1-OH](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
+1. 下载 Cocos Creator 3.6.1-OH 传送门：[Cocos Creator 3.6.1-OH](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
 
-2.  下载 OpenHarmany系统 传送门：[OpenHarmony系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)
+2. 下载 OpenHarmany系统 传送门：[OpenHarmony系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)
 
-3.  下载最新的IDE（版本\>=3.0.0.993）：[DevEco
-    Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download_beta_openharmony)
+3. 下载最新的IDE（版本\>=3.0.0.993）：[DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download_beta_openharmony)
 
-4.  系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)烧录工具与[使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
+4. 系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows) 烧录工具与 [使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
 
-5.  开发套件：[HH-SCDAYU200](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200)
+5. 开发套件：[HH-SCDAYU200](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200)
 
 ## 发布步骤
 
 ### 系统烧录
 
-1.  下载[windows平台工具](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)，解压后，如下图：
+1. 下载 [windows平台工具](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)，解压后，如下图：
 
 ![](./publish-openharmony/document_image_rId19.png)
 
-2.  解压DriverAssitant_v5.1.1，解压后，如下图：
+2. 解压DriverAssitant_v5.1.1，解压后，如下图：
 
 ![](./publish-openharmony/document_image_rId20.png)
 
-3.  双击DriverInstall.exe安装USB驱动，如下图
+3. 双击 DriverInstall.exe 安装 USB 驱动，如下图
 
 ![](./publish-openharmony/document_image_rId21.png)
 
-4.  点击驱动安装，如下图：
+4. 点击驱动安装，如下图：
 
 ![](./publish-openharmony/document_image_rId22.png)
 
-5.  连接设备，设备连接图，如下图：
+5. 连接设备，设备连接图，如下图：
 
 ![](./publish-openharmony/document_image_rId23.png)
 
-6.  切换根目录，双击RKDevTool.exe，双击运行，如下图：
+6. 切换根目录，双击 RKDevTool.exe，双击运行，如下图：
 
 ![](./publish-openharmony/document_image_rId24.png)
 
-7.  如果连上设备，默认就是\'发现一个MASKROM设备\'（必须安装USB驱动之后且连接设备后才会显示），如下图：![](./publish-openharmony/document_image_rId25.png)
+7. 如果连上设备，默认就是\'发现一个MASKROM设备\'（必须安装 USB 驱动之后且连接设备后才会显示），如下图：
 
-8.  按着recover（一直按着），然后按一下下reset按钮（按一次，松开），过一会放开recover，就会在RKDevTool工具里提示\'发现一个loader设备\'，如下图: ![](./publish-openharmony/document_image_rId26.png)
+![](./publish-openharmony/document_image_rId25.png)
 
-9.  显示'发现一个LOADER设备'才能烧写系统，如下图：
+8. 按着 recover（一直按着），然后按一下 reset 按钮（按一次，松开），过一会放开 recover，就会在 RKDevTool 工具里提示\'发现一个loader设备\'，如下图: ![](./publish-openharmony/document_image_rId26.png)
+
+9. 显示'发现一个LOADER设备'才能烧写系统，如下图：
 
 ![](./publish-openharmony/document_image_rId27.png)
 
-10. 出现这个状态之后，解压下载的[OpenHarmony系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)，如下图：
+10. 出现这个状态之后，解压下载的 [OpenHarmony系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)，如下图：
 
 ![](./publish-openharmony/document_image_rId29.png)
 
-11. 在RKDevTool软件中，把打勾的部分，选择解压的系统对应的文件，如下图
+11. 在 RKDevTool软件中，把打勾的部分，选择解压的系统对应的文件，如下图
 
 ![](./publish-openharmony/document_image_rId30.png)
 
-12. 点击执行，等待日志显示'下载完成'即可。执行成功后，设备会自动进行重启，出现软件OpenHarmony界面欢迎页面，然后进入到桌面，即表示烧录成功，如下图：
+12. 点击执行，等待日志显示'下载完成'即可。执行成功后，设备会自动进行重启，出现软件 OpenHarmony 界面欢迎页面，然后进入到桌面，即表示烧录成功，如下图：
 
 ![](./publish-openharmony/document_image_rId31.png)
 
-### 安装DevEco Studio：
+### 安装 DevEco Studio：
 
-1.  下载最新的IDE，下载对应平台的IDE，点击右边的下载按钮，如下图：
+1. 下载最新的 IDE，下载对应平台的 IDE，点击右边的下载按钮，如下图：
 
 ![](./publish-openharmony/document_image_rId32.png)
-2.  解压目录，双击deveco-studio-3.0.0.993.exe进行安装，点击next，如下图：
+
+2. 解压目录，双击 deveco-studio-3.0.0.993.exe 进行安装，点击 next，如下图：
 
 ![](./publish-openharmony/document_image_rId33.png)
 
-3.  选择安装路径，点next，如下图：
+3. 选择安装路径，点 next，如下图：
 
 ![](./publish-openharmony/document_image_rId34.png)
 
-4.  根据需求配置，点击next，如下图:
+4. 根据需求配置，点击 next，如下图:
 
 ![](./publish-openharmony/document_image_rId35.png)
 
-5.  点击安装，如下图：
+5. 点击安装，如下图：
 
 ![](./publish-openharmony/document_image_rId36.png)
 
-6.  等待安装，如下图：
+6. 等待安装，如下图：
 
 ![](./publish-openharmony/document_image_rId37.png)
 
-7.  安装完成，如下图：
+7. 安装完成，如下图：
 
 ![](./publish-openharmony/document_image_rId38.png)
 
-8.  启动DevEco Studio，如下图:
+8. 启动DevEco Studio，如下图:
 
 ![](./publish-openharmony/document_image_rId39.png)
 
-9.  首次会提示设置源，默认应该就可以，如下图:
+9. 首次会提示设置源，默认应该就可以，如下图:
 
 ![](./publish-openharmony/document_image_rId40.png)
 
-10. 首次安装需要安装nodejs，如果之前安装有nodejs，选择本地的nodejs即可，但是有版本要求，nodejs的版本必须大于V14.19.1和小于15.0.0。npm的版本要求大于6.14.16和小于7.0.0。如下图：
+10. 首次安装需要安装 nodejs，如果之前安装有 Node.js，选择本地的 Node.js 即可，但是有版本要求，Node.js 的版本必须大于 v14.19.1和小于 v15.0.0。npm 的版本要求大于 6.14.16 和小于 7.0.0。如下图：
 
 ![](./publish-openharmony/document_image_rId41.png)
 
-11. 这里选择下载新的nodejs为例，如下图:
+11. 这里选择下载新的 Node.js 为例，如下图:
 
 ![](./publish-openharmony/document_image_rId42.png)
 
-12. 等待下载完成，然后点击Finish按钮，如下图：
+12. 等待下载完成，然后点击 Finish 按钮，如下图：
 
 ![](./publish-openharmony/document_image_rId43.png)
 
-13. 接下来会提示安装SDK，点击下一步，注意是OpenHarmonySDK，如下图
+13. 接下来会提示安装 SDK，点击下一步，注意是 OpenHarmonySDK，如下图
 
 ![](./publish-openharmony/document_image_rId44.png)
 
-14. 确认版本信息，点击next，如下图：
+14. 确认版本信息，点击 next，如下图：
 
 ![](./publish-openharmony/document_image_rId45.png)
 
-15. 选择Accept，之后，选择Next，如下图：
+15. 选择 Accept 之后，选择 Next，如下图：
 
 ![](./publish-openharmony/document_image_rId46.png)
 
-16. 等待下载完成，之后点击Finish即可，如下图：
+16. 等待下载完成，之后点击 Finish 即可，如下图：
 
 ![](./publish-openharmony/document_image_rId47.png)
 
 ### Cocos Creator 3.6.1-OH 构建 OpenHarmony 工程
 
-1.  设置OpenHarmony SDK的路径，如下图：
+1.  设置 OpenHarmony SDK 的路径，如下图：
 
 ![](./publish-openharmony/document_image_rId48.png)
 
-可以使用DevEco查看SDK的路径
+可以使用 DevEco 查看 SDK 的路径
 
-1.  打开DevEco
+1.  打开 DevEco
 
 2.  点击标题栏里的，File-\>Settings\...，如下图：
 
 ![](./publish-openharmony/document_image_rId49.png)
 
-3.  查看OpenHarmony SDK的配置，如下图：
+3.  查看 OpenHarmony SDK 的配置，如下图：
 
 ![](./publish-openharmony/document_image_rId50.png)
 
-注意：API Version
-9的版本要为已安装的状态，如果未安装，需要手动安装，如上图所示。
+> **注意**：API Version 9 的版本要为已安装的状态，如果未安装，需要手动安装，如上图所示。
 
-2.  打开creator，打开存在的项目，如下图：
+2. 打开 Cocos Creator，打开存在的项目，如下图：
 
 > ![](./publish-openharmony/document_image_rId51.png)
 
-3.  选择工程的目录，以下以[cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.6)为例，如下图：
+3. 选择工程的目录，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.6) 为例，如下图：
 
 ![](./publish-openharmony/document_image_rId53.png)
 
-4.  登录开发者账号，如下图：
+4. 登录开发者账号，如下图：
 
 ![](./publish-openharmony/document_image_rId54.png)
 
-5.  根据创建游戏，增加游戏逻辑等
+5. 根据创建游戏，增加游戏逻辑等
 
-6.  制作完成之后，选择构建，选择标题栏中的project-\>Build，也可以使用Ctrl+Shift+B的快捷键，如下图：
+6. 制作完成之后，选择构建，选择标题栏中的 Project-\>Build，也可以使用 Ctrl+Shift+B 的快捷键，如下图：
 
 ![](./publish-openharmony/document_image_rId55.png)
 
-7.  点击新建任务，如下图：
+7. 点击新建任务，如下图：
 
 ![](./publish-openharmony/document_image_rId56.png)
-8.  选择Openharmony
+
+8. 选择 Openharmony
 
 ![](./publish-openharmony/document_image_rId57.png)
 
-9.  配置工程名称、配置开始场景与包含的其他场景，勾选调试模式（其他参数需要保持默认配置），点击build，如下图：
+9. 配置工程名称、配置开始场景与包含的其他场景，勾选调试模式（其他参数需要保持默认配置），点击 build，如下图：
 
 ![](./publish-openharmony/document_image_rId58.png)
 
-11、点击make（目前会提示失败，但是会生成无签名的hap包），之后点击run（需要设备，由于没有签名，目前run会失败）即可（由于目前make和run都会失败，因此可以不操作）。
+11、点击 make（目前会提示失败，但是会生成无签名的 hap 包），之后点击 run（需要设备，由于没有签名，目前 run 会失败）即可（由于目前 make 和 run 都会失败，因此可以不操作）。
 
 ![](./publish-openharmony/document_image_rId59.png)
 
-### 烧录Hap包到RK板
+### 烧录 Hap 包到 RK 板
 
-1、构建工程成功后，如下状态即可，make与run可以不需要点击，如下图：
+1. 构建工程成功后，如下状态即可，make 与 run 可以不需要点击，如下图：
 
 ![](./publish-openharmony/document_image_rId60.png)
 
-2、 使用[DevEco
-Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download)，打开工程，如下图：
+2. 使用[DevEcoStudio](https://developer.harmonyos.com/cn/develop/deveco-studio#download)，打开工程，如下图：
 
 ![](./publish-openharmony/document_image_rId62.png)
 
-3、
-找到工程目录（native/engine/openharmony）并点击打开，如下图（下图是以[cocos-test-projects](https://github.com/cocos/cocos-test-projects)为例）：
+3. 找到工程目录（native/engine/openharmony）并点击打开，如下图（下图是以[cocos-test-projects](https://github.com/cocos/cocos-test-projects)为例）：
 
 ![](./publish-openharmony/document_image_rId64.png)
 
-4、配置签名，如下图：
+4. 配置签名，如下图：
 
 ![](./publish-openharmony/document_image_rId65.png)
 
-5、插入设备，点击运行，如下图：
+5. 插入设备，点击运行，如下图：
 
 ![](./publish-openharmony/document_image_rId66.png)
 
@@ -218,11 +220,9 @@ Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download)，打
 
 ## 几个注意事项：
 
-目前适配的是 OpenHarmony 32 位系统，且系统暂不支持
-JIT，因此性能会比较受限。引擎会继续适配 64 位系统，并继续优化性能。
+目前适配的是 OpenHarmony 32 位系统，且系统暂不支持 JIT，因此性能会比较受限。引擎会继续适配 64 位系统，并继续优化性能。
 
-另外，因为 OpenHarmony
-还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。这些已知问题是：
+另外，因为 OpenHarmony 还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。这些已知问题是：
 
 1. 未适配功能
 
@@ -230,9 +230,9 @@ JIT，因此性能会比较受限。引擎会继续适配 64 位系统，并继�
 
     - webview
 
-    - editbox输入法
+    - editbox 输入法
 
-    - network网络相关的模块
+    - network 网络相关的模块
 
     - 重力传感器模块
 
@@ -240,38 +240,41 @@ JIT，因此性能会比较受限。引擎会继续适配 64 位系统，并继�
 
 
 2.  已知效果问题
-    - restart还有问题；
 
-    - 音频播放带有杂音，播放速度比较慢；（单通道和OpenSELS的问题）
+    - restart 还有问题；
+
+    - 音频播放带有杂音，播放速度比较慢；（单通道和 OpenSELS 的问题）
 
     - 部分测试例，背景会显示桌面
 
+    - 用到 top level await 的代码，例如 L10N 暂时无法适配；
 
-    - 用到 top level await 的代码，例如 L10n 暂时无法适配；
-
-    - 手动关闭L10N
-        >> 由于OpenHarmony的bata3.2的分支目前支持async有问题，导致l10n的组件使用不了，需要手动关闭。
+    - 手动关闭 L10N
+        >> 由于 OpenHarmony 的 bata3.2 的分支目前支持 async 有问题，导致 L10N 的组件使用不了，需要手动关闭。
         >>
-        >>（1）打工具栏，Pannel-\>localization Editor选项，如下图：
+        >>（1）打工具栏，Pannel-\>localization Editor 选项，如下图：
         >>
         >>![](./publish-openharmony/document_image_rId67.png)
         >>
-        >>（2）点击右上角三个点的按钮，选择关闭l10n，如下图：
+        >>（2）点击右上角三个点的按钮，选择关闭 L10N，如下图：
         >>
         >> ![](./publish-openharmony/document_image_rId68.png)
         >>
-        >> 如果是已关闭状态，则不需要关闭。关闭状态 如下图：
+        >> 如果是已关闭状态，则不需要关闭。关闭状态如下图：
         >>
         >> ![](./publish-openharmony/document_image_rId69.png)
         >>
-        >>（3）如果测试的是cocos-test-project工程，选择Assets-\>cases-\>localization-deitor-\>点击鼠标右键-\>选择删除。
-        >>![](./publish-openharmony/document_image_rId70.png)
+        >>（3）如果测试的是 cocos-test-project 工程，选择 Assets-\>cases-\>localization-deitor-\>点击鼠标右键-\>选择删除。
+        >>
+        >> ![](./publish-openharmony/document_image_rId70.png)
         >>
 
-    - 如果修改build工程的参数，重新build之后，需要在IDE里，清楚缓存之后在编译，否则有可能会出现不生效的情况。这是DevEco Studio本身的问题，目前正在解决。操作如下图：
+    - 如果修改 build 工程的参数，重新 build 之后，需要在 IDE 里，清楚缓存之后在编译，否则有可能会出现不生效的情况。这是 DevEco Studio 本身的问题，目前正在解决。操作如下图：
         >>
         >> ![](./publish-openharmony/document_image_rId71.png)
-        >> 如果修改工程里的js文件等，也同样需要clean project的操作。否则也可能会不生效。
+        >>
+        >> 如果修改工程里的 js 文件等，也同样需要 clean project 的操作。否则也可能会不生效。
 
-    - 编译失败时，可以退出部分应用，重新build试试；
+    - 编译失败时，可以退出部分应用，重新 build 试试；
+        >>
         >> ![](./publish-openharmony/document_image_rId72.png)
