@@ -146,11 +146,9 @@
 
 ![](./publish-openharmony/document_image_rId48.png)
 
-可以使用 DevEco 查看 SDK 的路径
+可以使用 DevEco 查看 SDK 的路径。
 
-1. 打开 DevEco
-
-2. 点击标题栏里的，File-\>Settings\...，如下图：
+2. 打开 DevEco，点击标题栏里的，File-\>Settings\...，如下图：
 
 ![](./publish-openharmony/document_image_rId49.png)
 
