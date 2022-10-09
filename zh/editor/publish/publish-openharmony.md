@@ -1,13 +1,7 @@
 # **Cocos3.6.1-OH 适配OpenHarmany教程**
 
 ## 前言
-
-在OpenHarmony开源之初，Cocos
-就将与OpenHarmony的深度合作作为了重要发展战略之一。在2022年4月份，Cocos官方基于
-Cocos2d-html5 3.16
-案例游戏《鹰击长空》适配OpenHarmony架构、在RK3568板卡上流畅游戏的工作流。在后续的持续技术适配当中，Cocos
-团队更是以最新的Creator 3D 引擎适配为目标， 在最新的Creator
-3.6.1版本上保障了《鹰击长空》持续集成。
+目前在OpenHarmony在7月30日发布的3.2 beta2分支上成功适配了Cocos Creator 3.6.1版本，并以《鹰击长空》项目为案例，成功运行在开发板，并且能够相对流程的操作。
 
 鹰击长空：[GitHub - cocos/cocos-tutorial-airplane: video tutorial
 airplane](https://github.com/cocos/cocos-tutorial-airplane)
