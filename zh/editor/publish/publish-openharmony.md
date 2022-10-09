@@ -1,7 +1,7 @@
-# **Cocos3.6.1-OH 适配OpenHarmany教程**
+# **发布到 OpenHarmony**
 
 ## 前言
-目前在OpenHarmony在7月30日发布的3.2 beta2分支上成功适配了Cocos Creator 3.6.1版本，并以《鹰击长空》项目为案例，成功运行在开发板，并且能够相对流程的操作。
+我们在 Cocos Creator 3.6.1 的基础上成功适配了 OpenHarmony 在 7 月 30 日发布的 3.2 beta2 分支，并以《鹰击长空》项目为案例，成功运行在开发板上，并且能够相对流畅的操作。目前 OpenHarmony 平台的适配仍在持续进行中，因此需要单独下载社区版来试用，后续会进入到 Cocos Creator 的正式版本中。
 
 鹰击长空：[GitHub - cocos/cocos-tutorial-airplane: video tutorial
 airplane](https://github.com/cocos/cocos-tutorial-airplane)
@@ -12,12 +12,11 @@ airplane](https://github.com/cocos/cocos-tutorial-airplane)
 
 ## 准备工作 
 
-1.  下载 Cocos3.6.1-OH 传送门: Cocos Creator 3.6.1
+1.  下载 Cocos Creator 3.6.1-OH 传送门：[Cocos Creator 3.6.1-OH](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
 
-2.  下载 OpenHarmany 传送门
-    ：[OpenHarmonyOS](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)
+2.  下载 OpenHarmany系统 传送门：[OpenHarmony系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)
 
-3.  下载最新的IDE（版本\>=3.0.0.993）:[DevEco
+3.  下载最新的IDE（版本\>=3.0.0.993）：[DevEco
     Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download_beta_openharmony)
 
 4.  系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)烧录工具与[使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
@@ -137,7 +136,7 @@ airplane](https://github.com/cocos/cocos-tutorial-airplane)
 
 ![](./publish-openharmony/document_image_rId47.png)
 
-### Cocos Creator 3.6.1 构建 OpenHarmony 工程
+### Cocos Creator 3.6.1-OH 构建 OpenHarmony 工程
 
 1.  设置OpenHarmony SDK的路径，如下图：
 
@@ -225,61 +224,54 @@ JIT，因此性能会比较受限。引擎会继续适配 64 位系统，并继�
 另外，因为 OpenHarmony
 还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。这些已知问题是：
 
-1、未适配功能
+1. 未适配功能
 
-1.  videoplay
+    - videoplay
 
-2.  webview
+    - webview
 
-3.  editbox输入法
+    - editbox输入法
 
-4.  network网络相关的模块
+    - network网络相关的模块
 
-5.  重力传感器模块
+    - 重力传感器模块
 
-6.  横屏、竖屏适配接口
-
-
-2、  已知效果问题
-1.  restart还有问题；
-
-2.  音频播放带有杂音，播放速度比较慢；（单通道和OpenSELS的问题）
-
-3.  部分测试例，背景会显示桌面
-
-4.  
+    - 横屏、竖屏适配接口
 
 
-3、  用到 top level await 的代码，例如 L10n 暂时无法适配；
+2.  已知效果问题
+    - restart还有问题；
 
-4、  手动关闭L10N
+    - 音频播放带有杂音，播放速度比较慢；（单通道和OpenSELS的问题）
 
-由于OpenHarmony的bata3.2的分支目前支持async有问题，导致l10n的组件使用不了，需要手动关闭。
+    - 部分测试例，背景会显示桌面
 
-（1）打工具栏，Pannel-\>localization Editor选项，如下图：
 
-![](./publish-openharmony/document_image_rId67.png)
+    - 用到 top level await 的代码，例如 L10n 暂时无法适配；
 
-（2）点击右上角三个点的按钮，选择关闭l10n，如下图：
+    - 手动关闭L10N
+        >> 由于OpenHarmony的bata3.2的分支目前支持async有问题，导致l10n的组件使用不了，需要手动关闭。
+        >>
+        >>（1）打工具栏，Pannel-\>localization Editor选项，如下图：
+        >>
+        >>![](./publish-openharmony/document_image_rId67.png)
+        >>
+        >>（2）点击右上角三个点的按钮，选择关闭l10n，如下图：
+        >>
+        >> ![](./publish-openharmony/document_image_rId68.png)
+        >>
+        >> 如果是已关闭状态，则不需要关闭。关闭状态 如下图：
+        >>
+        >> ![](./publish-openharmony/document_image_rId69.png)
+        >>
+        >>（3）如果测试的是cocos-test-project工程，选择Assets-\>cases-\>localization-deitor-\>点击鼠标右键-\>选择删除。
+        >>![](./publish-openharmony/document_image_rId70.png)
+        >>
 
-> ![](./publish-openharmony/document_image_rId68.png)
+    - 如果修改build工程的参数，重新build之后，需要在IDE里，清楚缓存之后在编译，否则有可能会出现不生效的情况。这是DevEco Studio本身的问题，目前正在解决。操作如下图：
+        >>
+        >> ![](./publish-openharmony/document_image_rId71.png)
+        >> 如果修改工程里的js文件等，也同样需要clean project的操作。否则也可能会不生效。
 
-如果是已关闭状态，则不需要关闭。关闭状态 如下图：
-
-> ![](./publish-openharmony/document_image_rId69.png)
-
-（3）如果测试的是cocos-test-project工程，选择Assets-\>cases-\>localization-deitor-\>点击鼠标右键-\>选择删除。
-
-![](./publish-openharmony/document_image_rId70.png)
-
-5.  如果修改build工程的参数，重新build之后，需要在IDE里，清楚缓存之后在编译，否则有可能会出现不生效的情况。DevEco
-    Studio的问题，目前正在解决。操作如下图：
-
-![](./publish-openharmony/document_image_rId71.png)
-
-如果修改工程里的js文件等，也同样需要clean
-project的操作。否则也可能会不生效。
-
-6.  编译失败时，可以退出部分应用，重新build试试；
-
-![](./publish-openharmony/document_image_rId72.png)
+    - 编译失败时，可以退出部分应用，重新build试试；
+        >> ![](./publish-openharmony/document_image_rId72.png)
