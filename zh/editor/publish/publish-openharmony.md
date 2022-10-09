@@ -32,7 +32,7 @@
 
 ![](./publish-openharmony/document_image_rId19.png)
 
-2. 解压DriverAssitant_v5.1.1，解压后，如下图：
+2. 解压 DriverAssitant_v5.1.1，解压后，如下图：
 
 ![](./publish-openharmony/document_image_rId20.png)
 
@@ -112,7 +112,7 @@
 
 ![](./publish-openharmony/document_image_rId40.png)
 
-10. 首次安装需要安装 nodejs，如果之前安装有 Node.js，选择本地的 Node.js 即可，但是有版本要求，Node.js 的版本必须大于 v14.19.1和小于 v15.0.0。npm 的版本要求大于 6.14.16 和小于 7.0.0。如下图：
+10. 首次安装需要安装 Node.js，如果之前安装有 Node.js，选择本地的 Node.js 即可，但是有版本要求，Node.js 的版本必须大于 v14.19.1和小于 v15.0.0。npm 的版本要求大于 6.14.16 和小于 7.0.0。如下图：
 
 ![](./publish-openharmony/document_image_rId41.png)
 
@@ -142,19 +142,19 @@
 
 ### Cocos Creator 3.6.1-OH 构建 OpenHarmony 工程
 
-1.  设置 OpenHarmony SDK 的路径，如下图：
+1. 设置 OpenHarmony SDK 的路径，如下图：
 
 ![](./publish-openharmony/document_image_rId48.png)
 
 可以使用 DevEco 查看 SDK 的路径
 
-1.  打开 DevEco
+1. 打开 DevEco
 
-2.  点击标题栏里的，File-\>Settings\...，如下图：
+2. 点击标题栏里的，File-\>Settings\...，如下图：
 
 ![](./publish-openharmony/document_image_rId49.png)
 
-3.  查看 OpenHarmony SDK 的配置，如下图：
+3. 查看 OpenHarmony SDK 的配置，如下图：
 
 ![](./publish-openharmony/document_image_rId50.png)
 
