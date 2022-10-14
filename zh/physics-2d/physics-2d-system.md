@@ -156,3 +156,7 @@ for (const i = 0; i < results.length; i++) {
 可以通过下面这张图更好的理解射线检测的结果。
 
 ![raycasting-output](image/raycasting-output.png)
+
+#### 射线检测时分组与掩码
+
+2D 物理系统的分组和掩码和 3D 物理系统一直，开发者可以在 **项目设置** -> **物理** 分页中找到碰撞矩阵进行修改。更多信息可以参考 [分组和掩码](../physics/physics-group-mask.md)。
