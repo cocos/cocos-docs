@@ -55,11 +55,19 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 
 上图所示就是 Web Mobile 平台的预览，可以看到游戏视图占满了整个浏览器窗口，而 Web Desktop 的游戏视图则是固定分辨率的，不会撑满屏幕。
 
+### 开启 WebGPU
+
+Cocos Creator自3.6.2起开始支持WebGPU, 构建Web-Desktop的时候勾选`WEBGPU`即可.
+构建`WebGPU`之后，先定位到构建好的资源文件所在文件夹，可以点击构建面板上的文件夹按钮直达，需要一个http-server或者nginx服务器来访问，比如说`localhost:8080`。
+在此之前请先检查浏览器的兼容性，下章**浏览器兼容性**会有详细介绍。
+
 ### 浏览器兼容性
 
 Cocos Creator 开发过程中测试的桌面浏览器包括：**Chrome**、**Firefox（火狐）** 和 **QQ 浏览器**，其他浏览器只要内核版本够高也可以正常使用，对部分浏览器来说请勿开启 IE 兼容模式。
 
 移动设备上测试的浏览器包括：**Safari（iOS）**、**Chrome（Android）**、**QQ 浏览器（Android）** 和 **UC 浏览器（Android）**。
+
+对于开启了`WebGPU`的WebDesktop，现在只支持指定版本的chromium浏览器。[这里](https://vikyd.github.io/download-chromium-history-version/#/)有历史版本的chromium。chromium 105的最后一个版本是支持比较好的。下载浏览器之前不要忘记选择正确的平台。打开chromium，地址栏输入`chrome://flags`，搜索webgpu，开启`WebGPU Developer Features`并重启chromium，这样准备工作就完成了。
 
 ## Retina 设置
 
