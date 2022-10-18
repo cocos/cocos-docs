@@ -139,8 +139,6 @@
 - [图形渲染](module-map/graphics.md)
     - [渲染管线](render-pipeline/overview.md)
         - [内置管线](render-pipeline/builtin-pipeline.md)
-    - [渲染后端](graphics-backend/overview.md)
-        - [WebGPU](graphics-backend/WebGPU.md)
     - [相机](editor/components/camera-component.md)
     - [光照](concepts/scene/light.md)
         - [基于物理的光照](concepts/scene/light/pbr-lighting.md)

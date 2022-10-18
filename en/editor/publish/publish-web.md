@@ -18,6 +18,7 @@ For the general build options of each platform, please refer to the [General Bui
 | Build options | Description | Field name (for command line publishing) |
 | :--- | :--- | :--- |
 | Resource Server Address | The server address used to download remote resources. For details, please refer to the content of the **Resource Server Address** section below. | `remoteServerAddress` |
+| WEBGPU | Whether use WebGPU as rendering backend | `WEBGPU` |
 | Preview resolution | Game view resolution, the default is **(1280, 960)** | `resolution` |
 | Polyfills | Build supports polyfills of some new features of scripts. Corresponding processing will be done when scripts are packaged. Developers can choose the polyfills to use according to actual needs. For the time being, only **Async Functions** are supported, and more functions will be opened in the future. | `polyfills` |
 
