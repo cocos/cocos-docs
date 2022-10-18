@@ -59,7 +59,7 @@ The picture above is the preview of the Web Mobile platform. Notice that the gam
 ### With WebGPU
 
 Cocos Creator support WebGPU as rendering backend for building Web-Desktop since 3.6.2, just enable `WebGPU` when building Web-Desktop.
-Things goes little different with `WebGPU` option enabled. When building done, locate the resource folder by click the folder icon in the building panel. You can either start an http-server or nginx server to make it accessible for browsers via `localhost:8080`(for instance).
+Things are little different with `WebGPU` option enabled. When building done, locate the resource folder by click the folder icon in the building panel. You can either start an http-server or nginx server to make it accessible for browsers via `localhost:8080`(for instance).
 Remember to check the compability with your browsers with WebGPU, see chapter **Browser Compatibility** below for details.
 
 ### Browser Compatibility
