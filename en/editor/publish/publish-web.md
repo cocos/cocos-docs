@@ -56,11 +56,11 @@ Next, click the **Run** button to open the built game version in the browser for
 
 The picture above is the preview of the Web Mobile platform. Notice that the game view occupies the entire browser window, while the game view of Web Desktop has a fixed resolution and will not fill the screen.
 
-### With WebGPU
+### WebGPU Support (Experimental)
 
-Cocos Creator support WebGPU as rendering backend for building Web-Desktop since 3.6.2, just enable `WebGPU` when building Web-Desktop.
-Things are little different with `WebGPU` option enabled. When building done, locate the resource folder by click the folder icon in the building panel. You can either start an http-server or nginx server to make it accessible for browsers via `localhost:8080`(for instance).
-Remember to check the compability with your browsers with WebGPU, see chapter **Browser Compatibility** below for details.
+[WebGPU](https://www.w3.org/TR/webgpu/) is the next generation GPU API for the web. Cocos Creator supports WebGPU as rendering backend for building Web-Desktop since 3.6.2, just enable `WebGPU` option in the build panel when building Web-Desktop.
+The build process will be a little bit different with `WebGPU` option enabled. Normal builtin server won't work for `WebGPU` package. When building done, you need to locate the package folder by clicking the folder icon in the build panel. Then you can either start an http-server or nginx server to make an accessible address for the supported browsers.
+As WebGPU standard is still a working draft, it's not widely supported on all browsers yet. So please remember to check the compatibility of WebGPU on your browser, see chapter **Browser Compatibility** below for details.
 
 ### Browser Compatibility
 
@@ -68,9 +68,9 @@ The desktop browsers tested during the development of Cocos Creator include: **C
 
 Browsers tested on mobile devices include: **Safari (iOS)**, **Chrome (Android)**, **QQ Browser (Android)** and **UC Browser (Android)**.
 
-For WebDesktop with `WEBGPU` option enabled, only specific version of chromium is supported for now.
-Chromium history version is available [here](https://vikyd.github.io/download-chromium-history-version/#/), the latest version of 105 is well supported. You may have a check on the target platform before downloading.
-Runing chromium, type `chrome://flags`, search webgpu, enable `WebGPU Developer Features` and relaunch chromium, then everything is prepared for your journey.
+When you build Web-Desktop platform with `WEBGPU` option enabled, only certain versions of chromium is supported currently.
+Chromium history version is available [here](https://vikyd.github.io/download-chromium-history-version/#/), any version greater than 105 should be well supported by Cocos Creator's WebGPU build.
+After chromium is opened, visit `chrome://flags` in the address bar, then enable `WebGPU Developer Features` and reopen chromium, then everything is set for you to try your project rendered with WebGPU.
 
 ## Retina Settings
 

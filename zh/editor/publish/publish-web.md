@@ -58,7 +58,7 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 ### 开启 WebGPU
 
 Cocos Creator自3.6.2起开始支持WebGPU, 构建Web-Desktop的时候勾选`WEBGPU`即可.
-构建`WebGPU`之后，先定位到构建好的资源文件所在文件夹，可以点击构建面板上的文件夹按钮直达，需要一个http-server或者nginx服务器来访问，比如说`localhost:8080`。
+构建`WebGPU`之后，先定位到构建好的资源文件所在文件夹，可以点击构建面板上的文件夹按钮直达，需要一个http-server或者nginx服务器来访问。
 在此之前请先检查浏览器的兼容性，下章**浏览器兼容性**会有详细介绍。
 
 ### 浏览器兼容性
