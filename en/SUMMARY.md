@@ -112,7 +112,7 @@
     - [Publish to Mini Game Platforms](editor/publish/publish-mini-game.md)
         - [Publish to HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [Publish to Alipay Mini Game](editor/publish/publish-alipay-mini-game.md)
-        - [Publish to ByteDance Mini Game](editor/publish/publish-bytedance-mini-game.md)        
+        - [Publish to ByteDance Mini Game](editor/publish/publish-bytedance-mini-game.md)
         - [Publish to Huawei Quick Game](editor/publish/publish-huawei-quick-game.md)
         - [Publish to OPPO Mini Game](editor/publish/publish-oppo-mini-game.md)
         - [Publish to vivo Mini Game](editor/publish/publish-vivo-mini-game.md)
