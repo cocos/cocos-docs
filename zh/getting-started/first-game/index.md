@@ -246,7 +246,7 @@ export class PlayerController extends Component {
     public BodyAnim: Animation | null = null;
     ```
 
-    需要注意的是，这里需要在该文件的 `import` 段添加 `Animation` 的导入，代码示例如下：
+    需要注意的是，如果发现 `Aniamtion` 无法拖动或不显示，请检查该文件的 `import` 段是否已添加 `Animation` 的导入，代码示例如下：
 
     ```ts
     import { Animation } from "cc";
