@@ -181,7 +181,6 @@ PBR 的优势在于：
 
 | 宏定义 | 说明 |
 | :---- | :--- |
-| USE_BATCHING | 是否启用动态 Mesh 合批 |
 | USE_INSTANCING | 是否启用几何体实例化 |
 | HAS_SECOND_UV | 是否存在第二套 UV |
 | ALBEDO_UV | 指定采样固有色贴图使用的 UV，默认使用第一套 |

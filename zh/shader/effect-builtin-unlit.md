@@ -29,7 +29,6 @@
 
 | 定义| 说明 |
 | :--- | :---- |
-| USE_BATCHING | 是否启用动态 Mesh 合批 |
 | USE_INSTANCING | 是否启用几何体实例化 |
 | USE_VERTEX_COLOR | 是否叠加顶点颜色和 Alpha 值 |
 | USE_TEXTURE      | 是否使用主纹理（mainTexture） |
