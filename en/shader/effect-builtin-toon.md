@@ -104,16 +104,15 @@ The parameters of the surface shader (`ToonSurface`) are calculated by the shade
 
 | macro                          | description                      |
 | :---------------------------- | :------------------------ |
-| USE_BATCHING |  Whether to enable dynamic VB merge batching  |
 | USE_INSTANCING | Whether to enable dynamic gpu instancing |
 | USE_OUTLINE_PASS              | Whether to enable strokes Pass |
 | USE_NORMAL_MAP | Whether to use normal mapping |
-| USE_BASE_COLOR_MAP | Whether to use base color maps
-| USE_1ST_SHADE_MAP | Whether to use the map as a first-order color scale
-| USE_2ND_SHADE_MAP | Whether to use a texture as a second-order color map
-| USE_EMISSIVE_MAP | Whether to use self-emitting maps
-| USE_ALPHA_TEST | Whether to perform alpha tests
-| USE_SPECULAR_MAP | Whether to use the highlight map
+| USE_BASE_COLOR_MAP | Whether to use base color maps|
+| USE_1ST_SHADE_MAP | Whether to use the map as a first-order color scale|
+| USE_2ND_SHADE_MAP | Whether to use a texture as a second-order color map|
+| USE_EMISSIVE_MAP | Whether to use self-emitting maps|
+| USE_ALPHA_TEST | Whether to perform alpha tests|
+| USE_SPECULAR_MAP | Whether to use the highlight map|
 | BASE_COLOR_MAP_AS_SHADE_MAP_1 | Use baseColorMap as first-order shading |
 | BASE_COLOR_MAP_AS_SHADE_MAP_2 | Use baseColorMap as second-order shading |
 | SHADE_MAP_1_AS_SHADE_MAP_2 | Whether second-order coloring is overlaid with first-order coloring |
