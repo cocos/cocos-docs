@@ -83,6 +83,8 @@ option(USE_SPINE                "Enable Spine"                      ON)
 
 构建后生成的发布包目录（例如 `build/android`）下有一个 `proj/cfg.cmake` 文件，用于存放当前项目的一些配置。因为 `CMakeLists.txt` 中有对 `cfg.cmake` 文件进行引入，所以当 `cfg.cmake` 文件中的配置做了修改，便会同步到 `CMakeLists.txt` 中；若是相同的配置，则直接覆盖，以 `cfg.cmake` 文件中的为准。
 
+从 3.6.2 开始，开发者可以在 `native/engine/common/localCfg.cmake` 中覆盖 `cfg.cmake` 中设置的选项, 而且 `localCfg.cmake` 会从 GIT 中忽略。
+
 ```CMake
 CMakeLists.txt
 
