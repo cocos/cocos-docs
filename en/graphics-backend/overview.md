@@ -2,7 +2,7 @@
 
 Graphics backend is the native graphics API implementation of interface of GFX. Cocos creator supports:
 
-- C++
+- Native
     - GLES2
     - GLES3
     - Vulkan
@@ -10,6 +10,6 @@ Graphics backend is the native graphics API implementation of interface of GFX. 
     - NVN
     - WebGPU on WASM
 
-- Typescript
+- Web/MiniGames
     - WebGL
     - WebGL2.0
