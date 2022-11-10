@@ -16,6 +16,7 @@ Cocos Creator 支持导入多种格式的图片（具体见下表），但是在
 | PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备 |
 | ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备 |
 | ETC2 | 只支持生成资源，引擎部分需要参考 PR [#1685](https://github.com/cocos/engine-native/pull/1685) 自己实现。 | 只支持生成资源，引擎部分需要参考 PR [#1685](https://github.com/cocos/engine-native/pull/1685) 自己实现。 | - | - |
+| ASTC | 部分支持  | 部分支持 | 不支持（iOS 版微信小游戏 v8.0.3 以上支持） | 部分支持 |
 
 默认情况下 Cocos Creator 在构建的时候输出的是原始图片，如果在构建时需要对某一张图片进行压缩，可以在 **资源管理器** 中选中这张图片，然后在 **属性管理器** 中对图片的纹理格式进行编辑。
 
