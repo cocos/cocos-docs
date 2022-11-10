@@ -109,6 +109,7 @@
     - [Publish to Web](publish/publish-web.md)
         - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [Setup Native Development](publish/setup-native-development.md)
+        - [A short tutorial to install python on MacOS](publish/short-tutorial-to-install-python.md)
     - [Publish to native](publish/publish-native.md)
     - [Debugging JavaScript on Native Platforms](publish/debug-jsb.md)
     - [Publish to HUAWEI AppGallery Connect](publish/publish-huawei-agc.md)
