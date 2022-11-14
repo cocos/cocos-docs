@@ -43,7 +43,7 @@
 | :------ | :-- |
 | ShadowEnabled | 是否开启平行光阴影 |
 | ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
-| ShadowBias | 设置阴影偏移值，防止 z-fiting |
+| ShadowBias | 设置阴影偏移值，防止 z-fighting |
 | ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
 
 ### PCF 软阴影

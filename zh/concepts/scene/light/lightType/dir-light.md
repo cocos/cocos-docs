@@ -48,7 +48,7 @@
 | :------ | :-- |
 | ShadowEnabled | 是否开启平行光阴影 |
 | ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
-| ShadowBias | 设置阴影偏移值，防止 z-fiting |
+| ShadowBias | 设置阴影偏移值，防止 z-fighting |
 | ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
 | ShadowSaturation | 调节阴影饱和度，建议设置为 **1.0**。若需要减小方向光阴影的饱和程度，推荐通过增加环境光来实现，而不是调节该值 |
 | ShadowInvisibleOcclusionRange | 设置 Camera 可见范围外的物体产生的阴影是否需要投射到可见范围内，若需要则调大该值即可  |
