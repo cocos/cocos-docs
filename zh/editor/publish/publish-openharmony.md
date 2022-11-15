@@ -149,10 +149,10 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 ### OpenHarmonySDK 更换
 由于SDK随着IDE的升级不断的升级，可能会导致部分兼容性的问题，为了能让工程正常运行，建议是替换IDE内置的SDK。操作方法如下：
 1. 更新NDK
-- 解压SDK，如下图：
+- 找到下载的OpenHarmony SDK，解压后，打开ohos-sdk/windows，如下图：
 ![](./publish-openharmony/document_image_rId11.png)
 
-- 找到OHOS_SDK\\native目录（可以在IDE里查看目录），点开IDE(DevEco)-> 工具栏File->Setting即可, 如下图：
+- 找到OpenHarmony的SDK\\native目录（可以在IDE里查看目录），点开IDE(DevEco)-> 工具栏File->Setting即可, 如下图：
 
 ![](./publish-openharmony/document_image_rId14.png)
 
@@ -175,26 +175,26 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 ![](./publish-openharmony/document_image_rId18.png)
 
-- 解压SDK，找到ohos-sdk\\windows里的ets-windows-3.2.5.6-Beta2：
+- 解压文件ets-windows-3.2.5.6-Beta2.zip至OHOS-SDK/ets目录：
 
-![](./publish-openharmony/document_image_rId19.png)
+![](./publish-openharmony/document_image_rId8.png)
 
 - 解压至OHOS_SDK/ets目录，如下图：
 
-![](./publish-openharmony/document_image_rId20.png)
+![](./publish-openharmony/document_image_rId7.png)
 
 - 把ets目录改成3.2.5.5，如下图：
 
-![](./publish-openharmony/document_image_rId21.png)
+![](./publish-openharmony/document_image_rId6.png)
 
-- 修改OHOS_SDK\\native\\3.2.5.5\\oh-uni-package.json(解压后的ETS)，修改版本号为3.2.5.5。这一步修改是为了避免提示ETS升级，如下图：
+- 修改OHOS_SDK\\ets\\3.2.5.5\\oh-uni-package.json(解压后的ETS)，修改版本号为3.2.5.5。这一步修改是为了避免提示ETS升级，如下图：
 
-![](./publish-openharmony/document_image_rId10.png)
+![](./publish-openharmony/document_image_rId5.png)
 
 - 打开命令行进入目录OHOS_SDK\\ets\\3.2.5.5\\build-tools\\ets-loader，并执行npm
 install，如下图（注意目录要匹配）：
 
-![](./publish-openharmony/document_image_rId23.png)
+![](./publish-openharmony/document_image_rId10.png)
 
 注意：如果npm install报错，检查下是否配置了华为的源，配置方法如下：
 
@@ -203,7 +203,7 @@ npm config set registry https://repo.huaweicloud.com/repository/npm/
 - 在deveco里，clear project之后，重新build，即可。clear
 project操作，如下图：
 
-![](./publish-openharmony/document_image_rId24.png)
+![](./publish-openharmony/document_image_rId4.png)
 
 3. 其他
 js-windows-3.2.5.6-Beta2.zip
