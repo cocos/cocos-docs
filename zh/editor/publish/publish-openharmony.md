@@ -210,9 +210,10 @@ js-windows-3.2.5.6-Beta2.zip
 previewer-windows-3.2.5.6-Beta2.zip
 toolchains-windows-3.2.5.6-Beta2.zip
 这三个文件参考上诉步骤替换，总结步骤入下：
-1、备份源目录文件；
-2、解压，重命名对应版本文件；
-3、修改对应目录的oh-uni-package.json文件;
+- 备份源目录文件；
+- 解压，重命名对应版本文件；
+- 修改对应目录的oh-uni-package.json文件;
+
 目录对应关系，如下图：
 ![](./publish-openharmony/document_image_rId9.png)
 
