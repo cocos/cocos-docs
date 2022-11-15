@@ -16,13 +16,19 @@
 
 1. 下载 Cocos Creator 3.6.1-OH 传送门：[Cocos Creator 3.6.1-OH](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
 
-2. 下载 OpenHarmany系统 传送门：[OpenHarmony系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)
+2.  下载 OpenHarmany系统 传送门：
+```
+http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz
+```
+3.  下载 OpenHarmony SDK系统 传送门：
+```
+http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/20220926_181435/version-Master_Version-OpenHarmony_3.2.5.6-20220926_181435-ohos-sdk-full.tar.gz
+```
+4. 下载最新的IDE（版本\>=3.0.0.993）：[DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download_beta_openharmony)
 
-3. 下载最新的IDE（版本\>=3.0.0.993）：[DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download_beta_openharmony)
+5. 系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows) 烧录工具与 [使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
 
-4. 系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows) 烧录工具与 [使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
-
-5. 开发套件：[HH-SCDAYU200](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200)
+6. 开发套件：[HH-SCDAYU200](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200)
 
 ## 发布步骤
 
@@ -139,6 +145,76 @@
 16. 等待下载完成，之后点击 Finish 即可，如下图：
 
 ![](./publish-openharmony/document_image_rId47.png)
+
+### OpenHarmonySDK 更换
+由于SDK随着IDE的升级不断的升级，可能会导致部分兼容性的问题，为了能让工程正常运行，建议是替换IDE内置的SDK。操作方法如下：
+1. 更新NDK
+- 解压SDK，如下图：
+![](./publish-openharmony/document_image_rId11.png)
+
+- 找到OHOS_SDK\\native目录（可以在IDE里查看目录），点开IDE(DevEco)-> 工具栏File->Setting即可, 如下图：
+
+![](./publish-openharmony/document_image_rId14.png)
+
+- 备份原来的SDK目录, 3.2.5.5_IDE是备份目录，如下图：
+
+![](./publish-openharmony/document_image_rId15.png)
+
+- 解压SDK，找到ohos-sdk\\windows里的native-windows-3.2.5.6-Beta2.zip，解压至OHOS_SDK/native目录，重命名native文件夹（默认解压之后是native文件夹）为3.2.5.5的目录里，如下图：
+
+![](./publish-openharmony/document_image_rId16.png)
+
+- 修改OHOS_SDK\\native\\3.2.5.5\\oh-uni-package.json(解压后的NDK)，修改版本号为3.2.5.5，这一步修改是为了避免提示NDK升级，如下图：
+
+![](./publish-openharmony/document_image_rId17.png)
+
+2. 更换ets
+
+- 备份原来的ets文件，把目录下的3.2.5.5(注意不同的IDE下载的版本不一样，例如DEVECO
+993里可能是3.2.8.3，如果不是3.2.5.5则可以不需要备份，可以共存)改成3.2.5.5_backup，如下图：
+
+![](./publish-openharmony/document_image_rId18.png)
+
+- 解压SDK，找到ohos-sdk\\windows里的ets-windows-3.2.5.6-Beta2：
+
+![](./publish-openharmony/document_image_rId19.png)
+
+- 解压至OHOS_SDK/ets目录，如下图：
+
+![](./publish-openharmony/document_image_rId20.png)
+
+- 把ets目录改成3.2.5.5，如下图：
+
+![](./publish-openharmony/document_image_rId21.png)
+
+- 修改OHOS_SDK\\native\\3.2.5.5\\oh-uni-package.json(解压后的ETS)，修改版本号为3.2.5.5。这一步修改是为了避免提示ETS升级，如下图：
+
+![](./publish-openharmony/document_image_rId10.png)
+
+- 打开命令行进入目录OHOS_SDK\\ets\\3.2.5.5\\build-tools\\ets-loader，并执行npm
+install，如下图（注意目录要匹配）：
+
+![](./publish-openharmony/document_image_rId23.png)
+
+注意：如果npm install报错，检查下是否配置了华为的源，配置方法如下：
+
+npm config set registry https://repo.huaweicloud.com/repository/npm/
+
+- 在deveco里，clear project之后，重新build，即可。clear
+project操作，如下图：
+
+![](./publish-openharmony/document_image_rId24.png)
+
+3. 其他
+js-windows-3.2.5.6-Beta2.zip
+previewer-windows-3.2.5.6-Beta2.zip
+toolchains-windows-3.2.5.6-Beta2.zip
+这三个文件参考上诉步骤替换，总结步骤入下：
+1、备份源目录文件；
+2、解压，重命名对应版本文件；
+3、修改对应目录的oh-uni-package.json文件;
+目录对应关系，如下图：
+![](./publish-openharmony/document_image_rId9.png)
 
 ### Cocos Creator 3.6.1-OH 构建 OpenHarmony 工程
 
