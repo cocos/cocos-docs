@@ -10,41 +10,30 @@
 
 ## 发布流程
 
-使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板，**发布平台** 选择 **淘宝小程序创意互动**，然后点击 **构建**。
+1. 使用 Cocos Creator 打开需要发布的项目工程，从 **菜单栏 -> 项目** 中打开 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择 **淘宝小程序创意互动**。
 
-![build_option](./publish-taobao-creative-app/build_option.png)
+    ![build](./publish-taobao-creative-app/build.png)
 
-### 参数项配置
+    通用构建选项的设置请参考 [通用构建选项](build-options.md)，淘宝小程序创意互动特有的构建选项如下，具体说明请参考下文 **构建选项** 部分的内容。
 
-相关参数配置具体的填写规则如下：
+    ![taobao-options](./publish-taobao-creative-app/build-options.png)
 
-- **主包压缩类型**
+2. **构建发布** 面板的构建选项设置完成后，点击 **构建**。<br>
+    构建完成后点击 **构建任务** 左下角的文件夹图标按钮打开项目发布包，可以看到在默认发布路径 `build` 目录下生成了 `taobao-creative-app`（以具体的构建任务名为准）文件夹，其中已经包含了淘宝小程序创意互动环境的配置文件 `app.json` 和 `mini.project.json`。
 
-  设置主包的压缩类型，具体内容可参考文档 [Asset Bundle — 压缩类型](../asset-manager/bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B)。
+    ![package](./publish-taobao-creative-app/package.png)
 
-- **配置主包为远程包**
+3. 使用 **淘宝开发者工具** 打开构建生成的 `taobao-creative-app` 文件夹，即可打开淘宝小程序创意互动项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119189&docType=1&tag=dev)。
 
-  该项为可选项，需要与 **资源服务器地址** 选项配合使用。<br>
-  勾选后，主包会配置为远程包，并且与其相关依赖资源一起被构建到发布包目录 remote 下的内置 Asset Bundle — [main](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中。开发者需要将整个 remote 文件夹上传到远程服务器。
+    ![tool](./publish-taobao-creative-app/tool.png)
 
-- **初始场景分包**
+### 构建选项
 
-  该项为可选项。<br>
-  勾选后，首场景及其相关的依赖资源会被构建到发布包目录 assets 下的内置 Asset Bundle — [start-scene](../asset-manager/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。具体内容可参考文档 [初始场景的资源加载](publish-wechatgame.md#%E5%88%9D%E5%A7%8B%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6)。
-
-- **资源服务器地址**
-
-  该项为选填项，用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 remote 文件夹上传到所填写的资源服务器地址上。
-
-### 运行预览
-
-- 构建完成后点击 **发布路径** 后面的 **打开** 按钮，可以看到在发布包 build 目录下生成了淘宝小程序创意互动工程文件夹 **taobao-creative-app**，其中已经包含了淘宝小程序创意互动环境的配置文件：`app.json` 和 `mini.project.json`。
-
-  ![build](./publish-taobao-creative-app/build.png)
-
-- 使用 **淘宝开发者工具** 打开构建生成的 **taobao-creative-app** 文件夹，即可打开淘宝小程序创意互动项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119188&docType=1&tag=dev)。
-
-  ![preview](./publish-taobao-creative-app/preview.png)
+| 构建选项 | 说明 | 字段名（用于命令行发布） |
+| :-- | :-- | :-- |
+| 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
+| 设备方向 | 可选值包括 `landscape` 和 `portrait`。| `deviceOrientation` |
+| 全局变量 | 淘宝平台访问全局变量时，global 对象不能缺省，请在这里标记项目里依赖的全局变量，以便游戏运行时能正常使用全局变量。填写形式如：foo, bar。| `globalVariable` |
 
 ## 淘宝小程序创意互动环境的资源管理
 
