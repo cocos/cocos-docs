@@ -49,11 +49,11 @@ Facebook Instant Games 跟微信小游戏相比，本质上的区别在于 Faceb
 
 点击应用面板左侧的 **小游戏 -> 网页托管** 选项卡，单击 **上传版本**，将 `fb-instant-games` 目录下的 `.zip` 文件上传到 Facebook 托管服务中。
 
-![](./publish-fb-instant-games/upload.png)
+![upload](./publish-fb-instant-games/upload.png)
 
 当版本状态更改为 “待命” 时，单击 “★” 按钮将构建版本推送到 “生产” 环境。
 
-![](./publish-fb-instant-games/push.png)
+![push](./publish-fb-instant-games/push.png)
 
 ### 三、测试游戏
 
@@ -87,13 +87,13 @@ Facebook Instant Games 跟微信小游戏相比，本质上的区别在于 Faceb
 
 然后可以看到游戏成功运行：
 
-![](./publish-fb-instant-games/game.png)
+![game](./publish-fb-instant-games/game.png)
 
 ### 四、在 Facebook 中分享你的游戏
 
 点击应用面板中的 **小游戏** 选项卡，选择 **详情**，在 **详情** 页面中拉到最下方可看到如下图所示部分，选择 **分享游戏**，即可将小游戏直接分享到 Facebook 动态消息中。
 
-![](./publish-fb-instant-games/share.png)
+![share](./publish-fb-instant-games/share.png)
 
 详细的内容，可参考 [测试、发布和分享小游戏](https://developers.facebook.com/docs/games/instant-games/test-publish-share?locale=zh_CN)。
 
@@ -106,7 +106,7 @@ Facebook Instant Games 跟微信小游戏相比，本质上的区别在于 Faceb
 
 开发者可以根据自身需求在 Creator 项目文件夹下创建 [build-templates/fb-instant-games](custom-project-build-template.md) 目录，然后将发布后的这几个文件复制到该目录中，即可对它们进行定制：
 
-![](./publish-fb-instant-games/file.png)
+![file](./publish-fb-instant-games/file.png)
 
 - `fbapp-config.json`：这是整个包的配置，可前往 [官方介绍](https://developers.facebook.com/docs/games/instant-games/bundle-config)
 - `index.html`：这里可以修改引入的 Facebook Instant Games SDK 版本
