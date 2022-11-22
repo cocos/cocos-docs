@@ -119,6 +119,5 @@ Creator 已集成 Facebook 提供的 Instant Games SDK，并且在游戏加载�
 
 ## 参考链接
 
-- Cocos Creator 提供的 **Instant Games 工程模板**（[GitHub](https://github.com/cocos-creator/demo-instant-games) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-instant-games)），包含了 Instant Games SDK 使用示例。
 - [Facebook 后台](https://developers.facebook.com/)
 - [Facebook Instant Games 文档](https://developers.facebook.com/docs/games/instant-games?locale=zh_CN)
