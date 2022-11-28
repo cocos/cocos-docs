@@ -16,9 +16,17 @@
 
 1. 下载 Cocos Creator 3.6.1-OH 传送门：[Cocos Creator 3.6.1-OH](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
 
-2. 下载 [OpenHarmany系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)
+2. 下载 OpenHarmany系统，下载地址：
 
-3. 下载 [OpenHarmony SDK系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/20220926_181435/version-Master_Version-OpenHarmony_3.2.5.6-20220926_181435-ohos-sdk-full.tar.gz)
+```
+http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz
+```
+
+3. 下载 OpenHarmony SDK系统，下载地址：
+
+```
+http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/20220926_181435/version-Master_Version-OpenHarmony_3.2.5.6-20220926_181435-ohos-sdk-full.tar.gz
+```
 
 4. 下载最新的IDE（版本\>=3.0.0.993）：[DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download_beta_openharmony)
 
