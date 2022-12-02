@@ -140,7 +140,7 @@ For more details, please refer to:
 - If you only need to get **vertex position**, you can use the **general** version, then the code example at the beginning of the vertex shader function is as follows:
 
   ```glsl
-  #include <input>
+  #include <legacy/input>
   vec4 vert () {
     vec3 position;
     CCVertInput(position);
@@ -151,7 +151,7 @@ For more details, please refer to:
   If you also need information such as normals, you can use the `standard` version, written like the following:
 
   ```glsl
-  #include <input-standard>
+  #include <legacy/input-standard>
   vec4 vert () {
     StandardVertInput In;
     CCVertInput(In);
@@ -190,7 +190,7 @@ For more information about Cocos Effect's built-in uniform, please refer to [Bui
 Cocos Effect provides the `CCFragOutput` utility function to simplify the output of fragment shaders, which can be used to return the values needed by the fragment shader directly, with the following code example.
 
 ```glsl
-#include <output>
+#include <legacy/output>
 vec4 frag () {
   vec4 o = vec4(0.0);
   // ... Writing fragment shader code 
@@ -245,8 +245,8 @@ struct StandardSurface {
 Code examples are as follows:
 
 ```glsl
-#include <shading-standard-base>
-#include <output-standard>
+#include <legacy/shading-standard-base>
+#include <legacy/output-standard>
 void surf (out StandardSurface s) {
   // fill in your data here
 }
@@ -263,7 +263,7 @@ See also `bultin-standard.effect`, which uses the `surf` function in combination
 
 ```glsl
 CCProgram shader-fs %{
-  #include <standard-surface-entry>
+  #include <legacy/standard-surface-entry>
 
   void surf (out StandardSurface s) {
     // fill in your data here
@@ -373,7 +373,7 @@ Second, WebGL2's UBO only supports the std140 layout, which adheres to a more pr
     vec2 v2; // offset 8, length 8 (aligned to 8 bytes) [IMPLICIT PADDING!]
     float f1_2; // offset 16, length 4 (aligned to 4 bytes)
   }; // total of 32 bytes
-
+  
   uniform CorrectUBOOrder {
     float f1_1; // offset 0, length 4 (aligned to 4 bytes)
     float f1_2; // offset 4, length 4 (aligned to 4 bytes)

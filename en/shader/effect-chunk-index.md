@@ -22,7 +22,7 @@ Through the include mechanism, other chunks can be included in any Shader code (
 
 ```c
 // Introduced in-engine chunk
-#include <cc-global>
+#include <builtin/uniforms/cc-global>
 
 // Introduce custom chunk
 #include "../headers/my-shading-algorithm.chunk"
