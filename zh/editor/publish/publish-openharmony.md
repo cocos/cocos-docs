@@ -150,7 +150,6 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 ![](./publish-openharmony/document_image_rId47.png)
 
-<<<<<<< HEAD
 ### OpenHarmonySDK 更换
 
 由于 SDK 随着 ID E的升级不断的升级，可能会导致部分兼容性的问题，为了能让工程正常运行，建议是替换 IDE 内置的 SDK。操作方法如下：
@@ -222,8 +221,6 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
     ![](./publish-openharmony/document_image_rId9.png)
 
-=======
->>>>>>> v3.6
 ### Cocos Creator 3.6.1-OH 构建 OpenHarmony 工程
 
 1. 设置 OpenHarmony SDK 的路径，如下图：
@@ -300,11 +297,7 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 执行成功之后，就能看到效果了。
 
-<<<<<<< HEAD
 ## 几个注意事项
-=======
-## 几个注意事项：
->>>>>>> v3.6
 
 目前适配的是 OpenHarmony 32 位系统，且系统暂不支持 JIT，因此性能会比较受限。引擎会继续适配 64 位系统，并继续优化性能。
 
@@ -324,12 +317,7 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
     - 横屏、竖屏适配接口
 
-<<<<<<< HEAD
 2. 已知效果问题
-=======
-
-2.  已知效果问题
->>>>>>> v3.6
 
     - restart 还有问题；
 
