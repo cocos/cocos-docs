@@ -32,7 +32,6 @@
 | 构建选项 | 说明 | 字段名（用于命令行发布） |
 | :-- | :-- | :-- |
 | 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
-| 设备方向 | 可选值包括 `landscape` 和 `portrait`。| `deviceOrientation` |
 | 全局变量 | 淘宝平台访问全局变量时，global 对象不能缺省，请在这里标记项目里依赖的全局变量，以便游戏运行时能正常使用全局变量。填写形式如：foo, bar。| `globalVariable` |
 
 ## 淘宝小程序创意互动环境的资源管理
