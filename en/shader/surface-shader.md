@@ -92,7 +92,10 @@ These macros start with `CC_SURFACES_` and the following is the complete list of
 | CC_SURFACES_TRANSFER_LOCAL_POS                        | BOOL | Whether to access model space coordinates in FS |
 | CC_SURFACES_LIGHTING_ANISOTROPIC                      | BOOL | Whether to enable anisotropic materials |
 | CC_SURFACES_LIGHTING_ANISOTROPIC_ENVCONVOLUTION_COUNT | UINT | The number of anisotropic ambient light convolution samples, 0 means convolution calculation is off, only valid when anisotropy is on |
-| CC_SURFACES_USE_REFLECTION_DENOISE                    | BOOL | Whether to turn on ambient reflection denoising |
+| CC_SURFACES_LIGHTING_USE_FRESNEL                      | BOOL | Whether to use fresnel calculations from ior |
+| CC_SURFACES_LIGHTING_TRANSMITTENCE                    | BOOL | Whether to enable transmitted diffusion from back (like leaves) |
+| CC_SURFACES_LIGHTING_TRANSMIT_SPECULAR                | BOOL | Whether to enable transmitted specular from back (like refractions) |
+| CC_SURFACES_USE_REFLECTION_DENOISE                    | BOOL | Whether to turn on ambient reflection denoising, only available with legacy compatible lighting mode |
 | CC_SURFACES_USE_LEGACY_COMPATIBLE_LIGHTING | BOOL | Whether or not to enable legacy-compatible lighting mode, which makes the rendering effect identical to legacy/standard.effect and facilitates upgrades |
 
 > **NOTE**: These macros can be left undefined and are automatically defined internally to the default value of 0; they can also be defined directly to 0 or some other value, indicating that they are forced off or on in this Effect and user adjustment is disabled.
@@ -153,7 +156,7 @@ Surface functions can be declared in `CCProgram` code blocks or their separate .
 
 > **Note**: For consistency’s sake, all vertex shader code should be encased in one block while all fragment shader code in another. Vertex shader and fragment shader should not use more than one code blocks each. Also, vertex shader and fragment shader should not share the same code block.
 
-Surface Shader provides simple default functions internally, so **these functions are not mandatory**, **if you want to overload a function, you need to predefine the macro corresponding to that function to do so**. These functions are named with `Surfaces + ShaderStage name` followed by the function description. They can be found in [editor/assets/chunks/surfaces/default-functions](https://github.com/cocos/cocos-engine/tree/v3.5.1/editor/assets/chunks/surfaces/default-functions) to see the specific definition and implementation of each Surface function in different material models, e.g.
+Surface Shader provides simple default functions internally, so **these functions are not mandatory**, **if you want to overload a function, you need to predefine the macro corresponding to that function to do so**. These functions are named with `Surfaces + ShaderStage name` followed by the function description. They can be found in [editor/assets/chunks/surfaces/default-functions](https://github.com/cocos/cocos-engine/tree/v3.7.0/editor/assets/chunks/surfaces/default-functions) to see the specific definition and implementation of each Surface function in different material models, e.g.
 
 ```glsl
 #define CC_SURFACES_VERTEX_MODIFY_WORLD_POS
@@ -177,10 +180,12 @@ Functions relevant to vertex shaders are listed as follows. All functions takes 
 | Predefined macros | Corresponding function definitions | Corresponding material models | Function descriptions |
 | :--- | :-- | :-- | :-- |
 | CC_SURFACES_VERTEX_MODIFY_LOCAL_POS | vec3 SurfacesVertexModifyLocalPos | Common | Returns the modified model space coordinates
+| CC_SURFACES_VERTEX_MODIFY_LOCAL_NORMAL | vec3 SurfacesVertexModifyLocalNormal | Common | Returns the modified model space normal
 | CC_SURFACES_VERTEX_MODIFY_WORLD_POS | vec3 SurfacesVertexModifyWorldPos | Common | Returns the modified world space coordinates (world space animation)
 | CC_SURFACES_VERTEX_MODIFY_CLIP_POS | vec4 SurfacesVertexModifyClipPos | Common | Returns the modified clipping (NDC) space coordinates (usually used to modify depth)
 | CC_SURFACES_VERTEX_MODIFY_UV | void SurfacesVertexModifyUV | Common | Modifies UV0 and UV1 within the structure (using tiling, etc.)
 | CC_SURFACES_VERTEX_MODIFY_WORLD_NORMAL | vec3 SurfacesVertexModifyWorldNormal | Common | Returns the modified world space normals (world space animation)
+| CC_SURFACES_VERTEX_MODIFY_ SHARED_DATA | void SurfacesVertexModify SharedData | Common | If some If some textures and calculations need to be used in more than one material node, they can be done in this function, which directly modifies the parameters within the SurfaceStandardVertexIntermediate structure to reduce performance consumption |
 
 #### 3. FS Corresponding Functions List
 
@@ -191,7 +196,7 @@ Functions relevant to fragment shaders are listed as follows. Most functions inv
 | CC_SURFACES_FRAGMENT_MODIFY_ BASECOLOR_AND_TRANSPARENCY | vec4 SurfacesFragmentModify BaseColorAndTransparency | Common | Returns the modified base color (rgb channel) and transparency value (a channel) |
 | CC_SURFACES_FRAGMENT_ALPHA_CLIP_ONLY | vec4 SurfacesFragmentModify AlphaClipOnly | Common | It is not necessary to get the color to be used in the Pass that only deals with translucency. If rendering to shadows, etc., not overloading this function may result in shadows without trans-paste effect  |
 | CC_SURFACES_FRAGMENT_MODIFY_ WORLD_NORMAL               | vec3 SurfacesFragmentModify WorldNormal | Common | Return modified pixel normals (usually normal map) |
-| CC_SURFACES_FRAGMENT_MODIFY_ SHARED_DATA                | void SurfacesFragmentModify SharedData | Common | If some textures and calculations need to be used in more than one material node, they can be done in this function, which directly modifies the parameters within the Surface structure to reduce performance consumption, similar to the surf() function in the legacy shader |
+| CC_SURFACES_FRAGMENT_MODIFY_ SHARED_DATA                | void SurfacesFragmentModify SharedData | Common | If some textures and calculations need to be used in more than one material node, they can be done in this function, which directly modifies the parameters within the Surface structure to reduce performance consumption, similar to the surf() function in the legacy shader. **Need include necessary headers before function defination** |
 | CC_SURFACES_FRAGMENT_MODIFY_ WORLD_TANGENT_AND_BINORMAL | void SurfacesFragmentModify WorldTangentAndBinormal  | Standard PBR | Modify the world tangent space vector within the Surface structure |
 | CC_SURFACES_FRAGMENT_MODIFY_ EMISSIVE | vec3 SurfacesFragmentModify Emissive | Standard PBR | Returns the modified self-illumination color |
 | CC_SURFACES_FRAGMENT_MODIFY_ PBRPARAMS | vec4 SurfacesFragmentModify PBRParams | Standard PBR | Returns the modified PBR parameters (ao, roughness, metallic. specularIntensity) |
@@ -200,6 +205,7 @@ Functions relevant to fragment shaders are listed as follows. Most functions inv
 | CC_SURFACES_FRAGMENT_MODIFY_ TOON_STEP_AND_FEATHER | vec4 SurfacesFragmentModify ToonStepAndFeather | Toon | Returns the modified parameters |
 | CC_SURFACES_FRAGMENT_MODIFY_ TOON_SHADOW_COVER | vec4 SurfacesFragmentModify ToonShadowCover | Toon | Returns the modified parameters |
 | CC_SURFACES_FRAGMENT_MODIFY_ TOON_SPECULAR | vec4 SurfacesFragmentModify ToonSpecular | Toon | Returns the modified parameters |
+| CC_SURFACES_LIGHTING_MODIFY_FINAL_RESULT | void SurfacesLightingModifyFinalResult | Common | Customize lighting models by modifying the previous lighting results, such as add rim lights. **Need include necessary headers before function defination** |
 
 #### 4. VS Input Value Acquisition
 
