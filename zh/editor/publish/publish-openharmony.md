@@ -84,11 +84,7 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 ![](./publish-openharmony/document_image_rId31.png)
 
-<<<<<<< HEAD
 ### 安装 DevEco Studio
-=======
-### 安装 DevEco Studio：
->>>>>>> v3.6
 
 1. 下载最新的 IDE，下载对应平台的 IDE，点击右边的下载按钮，如下图：
 
