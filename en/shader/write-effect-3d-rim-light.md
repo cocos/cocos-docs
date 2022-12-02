@@ -124,7 +124,7 @@ In lighting calculations, it is usually necessary to calculate the angle between
 As shown above, to calculate the line of sight, you need to subtract the **position of the object** from the **camera position**. Within the shader, to get the **camera position**, you need to use `cc_cameraPos` in [Built-in Shader Uniforms](uniform.md), which is stored inside the `cc-global` shader fragment. This uniform is stored in the `cc-global` shader fragment via [`include`](./effect-chunk-index.md) keyword, the entire shader fragment can be easily introduced.
 
 ```glsl
-#include <cc-global>  // Include Cocos Creator built-in global uniforms
+#include <builtin/uniforms/cc-global>  // Include Cocos Creator built-in global uniforms
 ```
 
 Now the fragment shader is as follows:
@@ -132,9 +132,9 @@ Now the fragment shader is as follows:
 ```glsl
 CCProgram rimlight-fs %{
   precision highp float;  
-  #include <cc-global>  // Include Cocos Creator built-in global uniforms
-  #include <output>
-  #include <cc-fog-fs>
+  #include <builtin/uniforms/cc-global>  // Include Cocos Creator built-in global uniforms
+  #include <legacy/output>
+  #include <legacy/cc-fog-fs>
 
   ...
 }
@@ -179,9 +179,9 @@ The fragment shader code at this point is as follows:
 ```glsl
 CCProgram rimlight-fs %{
   precision highp float;
-  #include <cc-global>
-  #include <output>
-  #include <cc-fog-fs>
+  #include <builtin/uniforms/cc-global>
+  #include <legacy/output>
+  #include <legacy/cc-fog-fs>
 
   in vec2 v_uv;
   in vec3 v_normal;
@@ -398,9 +398,9 @@ CCEffect %{
 
 CCProgram rimlight-fs %{
   precision highp float;
-  #include <cc-global>
-  #include <output>
-  #include <cc-fog-fs>
+  #include <builtin/uniforms/cc-global>
+  #include <legacy/output>
+  #include <legacy/cc-fog-fs>
 
   in vec2 v_uv;
   in vec3 v_normal;
