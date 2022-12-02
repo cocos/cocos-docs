@@ -12,13 +12,21 @@
 
 如无法观看视频，请点击 [下载地址](./publish-openharmony/video.mp4) 下载后观看。
 
-## 准备工作 
+## 准备工作
 
 1. 下载 Cocos Creator 3.6.1-OH 传送门：[Cocos Creator 3.6.1-OH](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
 
-2.  下载 [OpenHarmany系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)
+2. 下载 OpenHarmany系统，下载地址：
 
-3.  下载 [OpenHarmony SDK系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz) 
+```
+http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz
+```
+
+3. 下载 OpenHarmony SDK系统，下载地址：
+
+```
+http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/20220926_181435/version-Master_Version-OpenHarmony_3.2.5.6-20220926_181435-ohos-sdk-full.tar.gz
+```
 
 4. 下载最新的IDE（版本\>=3.0.0.993）：[DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download_beta_openharmony)
 
@@ -76,7 +84,7 @@
 
 ![](./publish-openharmony/document_image_rId31.png)
 
-### 安装 DevEco Studio：
+### 安装 DevEco Studio
 
 1. 下载最新的 IDE，下载对应平台的 IDE，点击右边的下载按钮，如下图：
 
@@ -149,7 +157,7 @@
 1. 更新 NDK
 
     - 找到下载的 OpenHarmony SDK，解压后，打开 ohos-sdk/windows，如下图：
-    
+
     ![](./publish-openharmony/document_image_rId11.png)
 
     - 找到 OpenHarmony 的 SDK\\nativ e目录（可以在 IDE 里查看目录），点开 **IDE(DevEco)-> 工具栏 File->Setting** 即可, 如下图：
@@ -195,7 +203,7 @@
 
     ![](./publish-openharmony/document_image_rId10.png)
 
-    > **注意**：如果 `npm install` 报错，检查下是否配置了华为的源，配置方法如下： 
+    > **注意**：如果 `npm install` 报错，检查下是否配置了华为的源，配置方法如下：
     >
     > ` npm config set registry https://repo.huaweicloud.com/repository/npm/ `
 
@@ -210,7 +218,7 @@
     - 修改对应目录的oh-uni-package.json文件;
 
     目录对应关系，如下图：
-    
+
     ![](./publish-openharmony/document_image_rId9.png)
 
 ### Cocos Creator 3.6.1-OH 构建 OpenHarmony 工程
@@ -289,7 +297,7 @@
 
 执行成功之后，就能看到效果了。
 
-## 几个注意事项：
+## 几个注意事项
 
 目前适配的是 OpenHarmony 32 位系统，且系统暂不支持 JIT，因此性能会比较受限。引擎会继续适配 64 位系统，并继续优化性能。
 
@@ -309,8 +317,7 @@
 
     - 横屏、竖屏适配接口
 
-
-2.  已知效果问题
+2. 已知效果问题
 
     - restart 还有问题；
 
