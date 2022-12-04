@@ -14,7 +14,7 @@
 
 ## 准备工作
 
-1. 下载 Cocos Creator 3.6.1-OH：[Cocos Creator 3.6.1-OH 下载地址](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
+1. 下载 Cocos Creator 3.6.1-OH 传送门：[Cocos Creator 3.6.1-OH](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
 
 2. 下载 OpenHarmany系统，下载地址：
 
