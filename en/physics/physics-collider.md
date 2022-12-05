@@ -8,6 +8,8 @@ Colliders can be used to define the shape of the object that needs to be physica
 5. [PlaneCollider](#PlaneCollider). Can represent an infinite plane or half-space. This shape can only be used for static, non-moving objects.
 6. [TerrainCollider](#TerrainCollider). A special support for concave terrain.
 
+> **NOTE**: In some (e.g. Bullet) physics backends, very high scaled sizes should be avoided due to floating point inaccuracy, here it is recommended to be below 1000. e.g. a certain box collider with a Y value of 40 and a Z value of 0.01 for its **Size** property, at this point they have a Y, Z ratio of more than 1000, at which case there may be inaccurate floating point calculations.
+
 ## Add Collider Component
 
 Here we will take the example of adding **BoxCollider** component.

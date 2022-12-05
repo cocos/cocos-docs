@@ -22,7 +22,7 @@ Although each joint has different representations, they also share some common p
 
 | Properties | Description |
 | :-- | :-- |
-| **ConnectedBody** | The rigid body at the other end of the joint connected |
+| **ConnectedBody** | The rigid body at the other end of the joint connected <br> **Note**: In v3.7, if this property is not set, it will take the origin [0, 0] piont by default to be consistent with the implementation of the constraint in **3D Physics** |
 | **Anchor** | The anchor point of the rigid body connected to the local end of the joint |
 | **ConnectedAnchor** | Anchor point of the rigid body at the other end of the joint connected |
 | **CollideConnected** | Can the rigid bodies at the two ends of the joint collide with each other |
