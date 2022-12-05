@@ -116,7 +116,7 @@ Box2D physics colliders are internally composed of Box2D b2Fixture. Due to some 
 
 These cases are as follows:
 
-1. when the shape of the vertices of a polygon physics collider is a concave polygon, the physics system automatically splits these vertices into multiple convex polygon.
+1. when the shape of the vertices of a polygon physics collider is a concave polygon, the physics system automatically splits these vertices into multiple convex polygon. However, it should be noted that the algorithm cannot handle the problem of self-intersection of concave polygons.
 2. When the polygon physics collider has more vertices than `b2.maxPolygonVertices` (typically 8), the physics system automatically splits these vertices into multiple convex polygon.
 
 Normally these details are of no concern, but when ray detection is used and the detection type is `ERaycast2DType.All`, a collider may detect multiple collision points because multiple b2Fixtures are detected.
