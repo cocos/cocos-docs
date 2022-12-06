@@ -46,6 +46,7 @@
     - [坐标系和节点变换](concepts/scene/coord.md)
     - [节点层级和渲染顺序](concepts/scene/node-tree.md)
     - [使用场景编辑器搭建场景](concepts/scene/scene-editing.md)
+    - [多层次细节](editor/rendering/lod.md)
 
 - [资源系统](asset/index.md)
     - [资源工作流](asset/asset-workflow.md)
@@ -334,8 +335,6 @@
     - [语言编译](editor/l10n/compile-language.md)
     - [L10nLabel 组件](editor/l10n/l10n-label.md)
     - [示例](editor/l10n/script-using.md)
-
-- [多层次细节](editor/rendering/lod.md)
 
 ## 进阶教程
 
