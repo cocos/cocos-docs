@@ -335,6 +335,8 @@
     - [L10nLabel 组件](editor/l10n/l10n-label.md)
     - [示例](editor/l10n/script-using.md)
 
+- [多层次细节](editor/rendering/lod.md)
+
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
