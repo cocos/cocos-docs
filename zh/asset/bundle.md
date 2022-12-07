@@ -355,4 +355,4 @@ assetManager.removeBundle(bundle);
   **A**：Asset Bundle 不支持嵌套。<br><br>
 
 - **Q**: 为什么在 Asset Bundle 内放置图集可能会引起包体变大？
-  **A**：Asset Bundle 和最早之前的 resources 文件的放置规则是类似的，**当图集放置在其中时，则默认图集本身代表的资源 SpriteAtlas、图集大图 Image、图集文件夹内的小图 Image 资源、Texture 资源等等都可能被脚本加载，按照既定规则会将 Bundle 内包含的所有资源都打包出来**。因而不建议直接将图集放在 Bundle 内，而是通过 Bundle 内资源对其的引用来自然的打包到最终的 Asset Bundle 内。目前在图集资源上有开放了一些剔除的配置，实在需要放置在 Bundle 文件夹内的，可以根据需要进行配置。
+  **A**：Asset Bundle 和最早之前的 resources 文件的放置规则是类似的，**当图集放置在其中时，则默认图集本身代表的资源 SpriteAtlas、图集大图 Image、图集文件夹内的小图 Image 资源等等都可能被脚本加载，按照既定规则会将 Bundle 内包含的所有资源都打包出来**。因而不建议直接将图集放在 Bundle 内，而是通过 Bundle 内资源对其的引用来自然的打包到最终的 Asset Bundle 内。目前在图集资源上有开放了一些剔除的配置，实在需要放置在 Bundle 文件夹内的，可以根据需要进行配置。
