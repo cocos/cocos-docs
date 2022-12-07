@@ -17,6 +17,7 @@ In addition to the custom Asset Bundle, there are three built-in Asset Bundles i
 | `main`        | Store all scenes checked in the **Included Scenes** selection box of the **Build** panel and their dependent resources  | By configuring the **Main Bundle Compression Type** and **Main Bundle Is Remote** options of the **Build** panel. |
 | `resources`   | Store all resources in the `resources` directory and their dependent resources  | By configuring the `assets -> resources` folder in the **Assets** panel. |
 | `start-scene` | If you check the **Start Scene Asset Bundle** option in the **Build** panel, the first scene will be built into the `start-scene` folder. | Cannot be configured. |
+| `internal`    | Some default resources built into the engine module | Cannot be configured. |
 
 After the build, the built-in Asset Bundle will be generated in different locations depending on the configuration, see the [Configure the Asset Bundle](bundle.md#configuration) documentation for the configuration methods and generation rules.
 
@@ -63,9 +64,10 @@ After the configuration, click the **green tick button** at the top right of the
 
 > **Notes**:
 >
-> 1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in Creator, including **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.
+> 1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in Creator, including **internal**, **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.
 > 2. The [mini game subpackage](../editor/publish/subpackage.md) can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
 > 3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.
+> 4. The folder configuration set to Bundle is used as a collection of options for the Asset Bundle and we do not recommend that you place all assets in it very directly. Similar to the previous version of resources, the Bundle configuration folder should preferably hold entry assets such as Scene, Prefab, or assets that need to be dynamically loaded within the script, and the final build phase will export all referenced assets based on dependencies to eventually populate the entire Asset Bundle.In this way, unnecessary resource exports can be minimized.
 
 ## Priority
 
@@ -92,6 +94,7 @@ The four built-in Asset Bundle folders are prioritized as follows:
 | `main`        | 7  |
 | `resources`   | 8  |
 | `start-scene` | 20 |
+| `internal`    | 21 |
 
 When the four built-in Asset Bundles contain the same resources, the resources are stored in the higher priority Asset Bundle. It is recommended that other custom Asset Bundle priorities are not higher than the built-in Asset Bundle, so that the resources in the built-in Asset Bundle can be shared whenever possible.
 
@@ -353,3 +356,6 @@ assetManager.removeBundle(bundle);
 
 - **Q**: Does the Asset Bundle support nesting? For example, if there is a folder B in folder A, can both A and B be set as Asset Bundle?<br>
   **A**: Asset Bundle does not support nesting, please avoid using it as such.
+
+- **Q**: Why might placing an atlas inside an Asset Bundle cause the package to grow larger?
+  **A**：**When an atlas is placed in Bundle, by default the SpriteAtlas itself, the image of the atlas, the small image  in the atlas folder, etc., may be loaded by the script, and all the resources contained in the Bundle will be packaged according to the established rules**. Therefore, it is not recommended to put the atlas directly in the Bundle, but to package it naturally into the final Asset Bundle by reference to the resources in the Bundle. There are currently some culling configurations open on the atlas resources, so if you really need to place them in the Bundle folder, you can do so as needed.
