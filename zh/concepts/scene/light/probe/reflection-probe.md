@@ -2,7 +2,7 @@
 
 自 v3.7 开始，Cocos Creator 支持反射探针。
 
-反射探针是将场景内的间接反射光烘焙在存储介质上，用以提高场景内光照品质的组件。
+反射探针是将选择范围内的反射光，使用烘焙或实时的方式应用到当前场景上，以提高场景光照可信度的组件。
 
 在 **层级管理器** 或顶部菜单上选择 **光源** -> **反射探针** 即可在场景内创建反射探针。
 
@@ -15,47 +15,42 @@
 | 属性 | 说明 |
 | :-- | :-- |
 | **Size** | 反射探针的范围，在场景内可以通过操作 Gizmo 来调整反射探针的大小 |
-| **Probe Type** | 反射探针的类型 <br> 可选项：**CUBE**/**PLANNAR** <br> ![probe-type](reflection-probe/probe-type.png)|
-| **Resolution** | 反射探针烘焙贴图的分辨率 <br> 可选项： **Low_256x256**/**Medium_512x512**/**Hight_768x768** <br> 该选项仅在 **Probe Type** 为 **CUBE** 时生效 <br> ![resolution](reflection-probe/resolution.png)|
+| **Probe Type** | 反射探针的类型 <br> 可选项：<br> **CUBE**：支持烘焙的反射探针 <br> **PLANNAR**：支持实时反射的反射探针 <br> ![probe-type](reflection-probe/probe-type.png)|
+| **Resolution** | 反射探针烘焙后的立方体贴图每个面的分辨率 <br> 可选项： **Low_256x256**/**Medium_512x512**/**Hight_768x768** <br> 该选项仅在 **Probe Type** 为 **CUBE** 时生效 <br> ![resolution](reflection-probe/resolution.png)|
 | **Background Color** | 背景颜色，仅在 **Probe Type** 为 **PLANNAR** 时生效 |
-| **Clear Flag** | 清理标记，可选项为： **SKYBOX**/**SOLID_COLOR** <br> ![clear-flag](reflection-probe/clear-flag.png)|
-| **Visibility** | 可见性，用于决定哪些层级可以被烘焙到贴图上，通过下拉菜单选择 <br> ![visibility](reflection-probe/visibility.png)|
-| **Source Camera** | 用于烘焙反射的相机 <br> 该属性仅在 **Probe Type** 为 **PLANNAR** 时生效 |
+| **Clear Flag** | 相机的缓冲清除标志位，指定帧缓冲的哪部分要每帧清除。包含：<br> SOLID_COLOR：清空颜色、深度与模板缓冲；<br> SKYBOX：启用天空盒，只清空深度  <br> ![clear-flag](reflection-probe/clear-flag.png)|
+| **Visibility** | 可见性掩码，声明在当前反射探针中可见的节点层级集合 <br> 通过下拉菜单选择 <br> ![visibility](reflection-probe/visibility.png)|
+| **Source Camera** | 指定实时反射的相机 <br> 该属性仅在 **Probe Type** 为 **PLANNAR** 时生效 |
 | **Bake** | 烘焙按钮，点击后即可以对反射探针进行烘焙 |
 
-### 类型
+### 探针类型
 
 ![probe-type](reflection-probe/probe-type.png)
 
 Cocos Creator 的反射探针有两种类型，分别为：
 
-- **CUBE**:
+- **CUBE**：将区域内的反射信息烘焙到一张 CUBE Map 上。
 
     ![cube](reflection-probe/cube.png)
 
-    在反射探针选择为 **CUBE** 时，开发者可以通过下方的 **RESOLUTION** 下拉菜单选择最终烘焙是贴图的大小。
+    在反射探针选择为 **CUBE** 时，开发者可以通过下方的 **RESOLUTION** 下拉菜单选择最终烘焙贴图的大小。
 
-- **PLANNAR**:
+- **PLANNAR**：实时反射探针。
+
+    常用模拟水面、镜子、大理石或者湿润的地面等。
 
     ![plannar](reflection-probe/plannar.png)
 
-    当反射探针的类型修改为 **PLANNAR** 时，可以通过 **Clear Flag** 来修改 **Source Camera** 在烘焙时的清理标记，同时开发者需要配置 **Source Camera** 属性以决定使用哪个相机进行烘焙。
+    当反射探针的类型修改为 **PLANNAR** 时，开发者需要配置 **Source Camera** 属性以决定使用哪个相机作为反射探针的相机。
 
 通过 **场景编辑器** 内的 Gizmo，可以调整 **Size** 属性，以此来修改反射探针的范围。
 
-### 分辨率
+![edit](reflection-probe/edit-area-box.gif)
 
-![resolution](reflection-probe/resolution.png)
 
-### 清除标记
+## 美术工作流示例
 
-![clear-flag](reflection-probe/clear-flag.png)
-
-### 可见性
-
-![visibility](reflection-probe/visibility.png)
-
-## 美术工作流
+### 烘焙反射探针工作流
 
 - 在场景内创建 **反射探针** 节点
 
@@ -84,4 +79,33 @@ Cocos Creator 的反射探针有两种类型，分别为：
 
     烘焙完成后，**资源管理器** 内会创建以 **reflectionProbe_** 开头为命名的贴图。开发者可查看这些贴图是否满足预期。
 
-更多示例请参考 [探针示例](light-probe-sample.md)。
+更多示例请参考 [基于图像的光照示例](sample.md)。
+
+### 实时反射探针工作流示例
+
+- 搭建如图示的场景：
+
+    ![scene](reflection-probe/plannar-scene.png)
+
+- 创建一个相机，其参数和主相机相同，以上述场景中的 Plane 节点作为镜面，与主相机呈镜面对称状态。
+
+    ![reflection-camera](reflection-probe/reflection-camera.png)
+
+    镜面对称的两个相机：
+
+    ![camera](reflection-probe/plannar-camera-config.png)
+
+- 场景中创建 **反射探针** 节点:
+
+    - 修改 **探针类型** 为 **PLANNAR**
+    - 配置 **Source Camera** 属性为上述步骤中创建的 **Reflection Camera** 节点
+
+    ![inspector](reflection-probe/plannar-probe-property.png)
+
+- 修改场景中 **Plane** 节点的 **MeshRenderer** 属性的 **Reflection Probe** 为 **PLANNAR_REFLECTION**：
+
+    ![inspector](reflection-probe/plane-reflection-probe-property.png)
+
+- 此时可以观察到场景内，该平面的反射变化：
+
+    ![plannar-reflection-result](reflection-probe/plannar-reflection-result.png)

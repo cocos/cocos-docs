@@ -154,7 +154,7 @@
                 - [光照探针面板](concepts/scene/light/probe/light-probe-panel.md)
             - [反射探针](concepts/scene/light/probe/reflection-probe.md)
                 - [反射探针面板](concepts/scene/light/probe/reflection-probe-panel.md)
-            - [探针使用示例](concepts/scene/light/probe/light-probe-sample.md)
+            - [基于图像的光照示例](concepts/scene/light/probe/sample.md)
             - [光照贴图](concepts/scene/light/lightmap.md)
     - [网格](module-map/mesh/index.md)
         - [MeshRenderer](engine/renderable/model-component.md)

@@ -37,13 +37,11 @@
 
     ![enable lightbake](./lightmap/light-bakeable.png)
 
-    - **EditorOnly**：是否只在编辑器中生效
-
-    - **Bakeable**：是否烘焙静态光照
+    - **EditorOnly**：是否只在编辑器中生效    
 
     - **CastShadow**：是否投射静态阴影
 
-2. 在 **层级管理器** 中选中要生成光照贴图的模型节点（带有 [MeshRenderer 组件](./../../../engine/renderable/model-component.md)），然后在 **属性检查器** 中设置 **LightmapSettings**，勾选 `Bakeable` 属性。
+2. 在 **层级管理器** 中选中要生成光照贴图的模型节点（带有 [MeshRenderer 组件](./../../../engine/renderable/model-component.md)），然后在 **属性检查器** 中设置 **Light Map Settings**，勾选 `Bakeable` 属性。
 
     ![model lighting map settings](./lightmap/meshrenderer-bakeable.png)
 
@@ -55,13 +53,7 @@
 
     - **LightmapSize**：模型光照贴图尺寸
 
-    > **注意**：要生成光照贴图的模型有以下两点要求：
-    >
-    > 1. 美术人员在制作模型资源时，除了模型本身的 UV，还需要另外包含一套 UV，用于光照贴图。
-    >
-    > 2. 模型的 Materials 需要开启 **USE LIGHTMAP** 渲染选项，例如：
-    >
-    >    ![materials use lightmap](./lightmap/materials.png)
+    > **注意**：要生成光照贴图的模型有以下要求：美术人员在制作模型资源时，除了模型本身的 UV，还需要另外包含一套 UV，用于光照贴图。
 
 3. 光照贴图UV
 	不同与纹理的UV, 光照贴图UV不能重叠

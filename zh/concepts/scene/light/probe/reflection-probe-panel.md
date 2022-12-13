@@ -20,4 +20,4 @@
 
 ## 美术工作流
 
-美术工作流请参考 [反射探针](reflection-probe.md) 或 [探针示例](light-probe-sample.md)。
+美术工作流请参考 [反射探针](reflection-probe.md) 或 [基于图像的光照示例](sample.md)。
