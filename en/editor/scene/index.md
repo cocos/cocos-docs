@@ -268,8 +268,8 @@ Click the ![scene reference](images/scene-reference.png) button in the top right
 | Delete | Deletes the UI reference image in the currently selected box. |
 | Position X | The selected UI reference image is displayed in the X-axis position of the scene. |
 | Position Y | The selected UI reference image is displayed on the Y-axis of the scene |
-| Scale X | Scale X of the UI reference image |
-| Scale Y | Scale Y of the UI reference image |
+| Scale X | Scale on X-axis of the selected UI reference image |
+| Scale Y | Scale on Y-axis of the selected UI reference image |
 | Opacity | The transparency of the selected UI reference image in the scene |
 
 ### Grid Configuration
