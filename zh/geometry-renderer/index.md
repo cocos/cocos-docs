@@ -49,13 +49,35 @@
 
 ### 使用方式
 
-由于每帧渲染完这些几何体后会清空顶点缓存，所以需要在 update 等函数中，每帧往 geometry renderer 对象（位于 camera 中）添加几何体，除此之外不需要额外的操作，示例 TS 代码如下：
+由于每帧渲染完这些几何体后会清空顶点缓存，所以需要在 update 等函数中，每帧往 geometry renderer 对象（位于 camera 中）添加几何体，除此之外不需要额外的操作。
+
+在使用此功能时需要在 **项目设置** -> **功能剪裁** 内启用 **几何渲染器**：
+
+![enable geometry renderer](enable-geometry-renderer.png)
+
+代码示例如下：
 
 ```ts
-// start
-this.mainCamera.initGeometryRenderer();
+import { _decorator, Component, Camera, Color } from 'cc';
+const { ccclass, property, executeInEditMode} = _decorator;
 
-// update
-let renderer = this.mainCamera.geometryRenderer;
-renderer.addBoundingBox(box, color, wireframe, depthTest, unlit, useTransform, transform);
+@ccclass('Geometry')
+@executeInEditMode(true)
+export class Geometry extends Component {
+
+    @property(Camera)
+    mainCamera:Camera = null;
+
+    start() {        
+        this.mainCamera?.camera.initGeometryRenderer();
+    }
+
+    update(deltaTime: number) {
+        this.mainCamera?.camera?.geometryRenderer?.addCircle(this.node.worldPosition, 1, Color.GREEN, 20);
+    }
+}
 ```
+
+运行结果如下：
+
+![result](result.png)
