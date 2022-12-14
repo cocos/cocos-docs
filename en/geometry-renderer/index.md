@@ -10,7 +10,7 @@ The features of Geometry Renderer is as follows:
 
 ![geometry-renderer-features](./geometry-renderer-features.png)
 
-where.
+Where.
 - solid: whether to support solid mode, if not, then display wireframe mode
 - depth test: whether to support depth test, if support then the blocked part of the translucent display, not blocked part of the opaque display, if not support then all opaque display
 - lighting: whether to support simple lighting, if not, use no light mode
