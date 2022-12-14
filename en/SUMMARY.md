@@ -174,6 +174,7 @@
         - [Line](particle-system/line-component.md)
     - [Skybox](concepts/scene/skybox.md)
     - [Global Fog](concepts/scene/fog.md)
+    - [Geometry Renderer](geometry-renderer/index.md)
 
 - [2D Objects](2d-object/index.md)
     - [2D Render](2d-object/2d-render/index.md)
