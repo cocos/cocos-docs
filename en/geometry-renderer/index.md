@@ -56,6 +56,8 @@ To use this feature you need to enable **Geometry Renderer** in **Project Settin
 
 ![enable geometry renderer](enable-geometry-renderer.png)
 
+> **Note**: Please make sure your project is 3D based.
+
 The code example is as follows:
 
 ```ts

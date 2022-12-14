@@ -55,6 +55,8 @@
 
 ![enable geometry renderer](enable-geometry-renderer.png)
 
+> **注意**：请确保您的工程是基于 3D 的。
+
 代码示例如下：
 
 ```ts
