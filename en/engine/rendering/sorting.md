@@ -25,7 +25,7 @@ Click the **Add Component** button inside the **Inspector** panel and select **S
 
     ![default](sorting/default-sort.png)
 
-- The cube and sphere materials require the option of using the translucent render queue:.
+- The cube and sphere materials require the option of using the translucent render queue.
 
     ![technique](sorting/tech.png)
 
@@ -59,7 +59,7 @@ At this point, the cube is prioritized over the sphere within the rendering queu
 
 ![result](sorting/sorting-order1-result.png)
 
-## 脚本示例
+## Code Example
 
 The following code demonstrates how to modify the Sorting Order and Sorting Layer at runtime.
 
@@ -84,4 +84,4 @@ export class SortingSample extends Component {
 
 ## API
 
-The API for rendering sorting components can be found in [Sorting](__APIDOC__/zh/class/Sorting) and [SortingLayers](__APIDOC__/zh/class/SortingLayers) 。
+The API for sorting components can be found in [Sorting](__APIDOC__/zh/class/Sorting) and [SortingLayers](__APIDOC__/zh/class/SortingLayers) 。
