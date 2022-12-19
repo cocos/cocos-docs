@@ -4,8 +4,6 @@ If two animation diagrams have the same animation logic but different correspond
 
 An animated diagram variant is a resource that is created by right-clicking on a new animated diagram variant resource within **Resource Manager**.
 
-Translated with www.DeepL.com/Translator (free version)
-
 ![create](animation-variant/create-asset.png)
 
 The created variant is shown in the following figure.
