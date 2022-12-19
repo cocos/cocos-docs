@@ -28,6 +28,20 @@ For more information about the operations of single-select, multi-select, copy, 
 
 To create nodes dynamically in a script, refer to the [Create and Destroy Nodes](../../scripting/create-destroy.md) documentation.
 
+## Node Properties
+
+![property](node-tree/node-property.png)
+
+- **Mobility**：Mobility of nodes. Different mobility can lead to different properties and performance of nodes in terms of illumination
+
+    ![mobility](node-tree/mobility.png)
+
+    - Static：Static node, will bake direct light, after baking at runtime will not participate in the calculation
+    - Stationary：Stationary node, baking indirect light only, direct light is calculated at runtime
+    - Movable：Movable nodes, only Movable objects can use light probes
+
+- **Layer**：Sets the visibility capability of the node. Please refer to the following **Setting the visibility of nodes** for details.
+
 ## Components
 
 What are components and how do they relate nodes?

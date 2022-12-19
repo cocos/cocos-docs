@@ -27,6 +27,22 @@ Cocos Creator 3.0 的工作流程是以组件式开发为核心的，组件式�
 
 若要在脚本中动态创建节点，可参考文档 [创建和销毁节点](../../scripting/create-destroy.md)。
 
+## 属性
+
+![property](node-tree/node-property.png)
+
+节点除了记录其位置、旋转、缩放外还拥有 Mobility 以及 Layer 属性。
+
+- **Mobility**：节点的可移动性。不同的可移动性会导致节点在光照上有不同的特性和表现
+
+    ![mobility](node-tree/mobility.png)
+
+    - Static：静态节点，会烘焙直接光，烘焙完在运行时就不参与计算
+    - Stationary：固定节点，只烘焙间接光，直接光在运行时计算
+    - Movable：可移动节点，只有 Movable 的物体可以使用光照探针
+
+- **Layer**：设定节点的可见性能力。请参考下方 **设置节点的 Layer 属性** 文档。
+
 ## 组件
 
 我们刚刚创建了节点，现在我们来看看什么是组件，以及组件和节点的关系。<br>

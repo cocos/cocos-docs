@@ -64,7 +64,7 @@ When the model asset file (`.fbx` or `.gltf`) is selected in the __Assets__ pane
 | Disable mesh split | Currently there is a joint-counting-based mesh splitting process during the import pipeline to workaround the max uniform vector limit problem for real-time calculated skeletal animation system on many platforms. This process has a preference impact on other runtime system too. So if it can be pre-determined that the real-time calculated skeletal animations (when `useBakedAnimation` option of the __SkeletalAnimation__ component is unchecked) will not be used, this option can be checked to improve preference. But note that toggling this would update the corresponding prefab, so all the references in the scene should be updated as well to accompany that. <br> Please refer to the following for details. |
 | Allow Data Access| Identifies whether all mesh data in this model can be read or written. If unchecked, the grid data will be automatically released after it is committed to the CPU |
 | Promote Single Root Node| If enabled and there is only one root node at the top of the model scene, then that node will be the root node of the Prefab, otherwise all root nodes of the scene will be the children of the Prefab |
-| Mesh Optimizer | Used to split the model. Generally, the number of bones in a single model is limited, so if there are too many bones, you can split them into multiple models with this option. |
+| Mesh Optimizer | Used to optimize the model. See below for details |
 
 ### Disable Mesh Split
 
@@ -73,6 +73,20 @@ The policy for Disable mesh split in v3.6 is as follows：
 - By default, the model is not split and no changes are made to the imported model data (the previous model settings are also maintained)
 - If the number of bones does not exceed the actual runtime drive limit, pass it directly using uniform
 - If the number of bones exceeds the limit, use texture pass
+
+### Mesh Optimizer
+
+![optimizer](mesh/mesh-optimizer.png)
+
+| Properties | Description |
+| :-- | :-- |
+| __Algorithm__ | Optimization algorithm <br> __simplify__：[Github - Fast-Quadric-Mesh-Simplification](https://github.com/sp4cerat/Fast-Quadric-Mesh-Simplification)<br>__gltfpack(deprecated)__：Deprecated, the implementation of this feature is based on  [Github - zeux/meshoptimizer](https://github.com/zeux/meshoptimizer)。<br> There is a known issue that the UV layout may be lost after faceting <br> Developers should pay attention to the warnings in the __Inspector__ panel to decide whether to use this option <br> For more information, please refer to the following figure |
+| __Ratio__ | LOD Compress ratio |
+| __Smart Link__ | To prevent broken surface |
+| __Agressiveness__ | Error Distance |
+| __Max Iteration Count__ | Max iteration count |
+
+![warn](mesh/mesh-optimizer-warn.png)
 
 ### Animation Module
 

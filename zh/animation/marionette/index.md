@@ -19,6 +19,7 @@ Marionette 动画系统主要内容包括：
 - [动画状态机](animation-graph-basics.md)
 - [状态过渡](state-transition.md)
 - [动画遮罩资源](animation-mask.md)
+- [动画图变体](animation-variant.md)
 
 ## 名词解释
 

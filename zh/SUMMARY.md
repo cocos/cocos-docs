@@ -178,6 +178,7 @@
             - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
             - [2D 着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)
         - [表面着色器（Surface Shader）](shader/surface-shader.md)
+    - [渲染排序](engine/rendering/sorting.md)
 
     - [特效组件](module-map/effects/index.md)
         - [广告牌](particle-system/billboard-component.md)
@@ -260,6 +261,7 @@
         - [动画状态机](animation/marionette/animation-graph-basics.md)
         - [状态过渡](animation/marionette/state-transition.md)
         - [动画遮罩资源](animation/marionette/animation-mask.md)
+        - [动画图变体](animation/marionette/animation-variant.md)
 
 - [音频系统](audio-system/overview.md)
     - [AudioSource 组件参考](audio-system/audiosource.md)

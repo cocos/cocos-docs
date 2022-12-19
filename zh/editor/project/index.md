@@ -37,6 +37,25 @@
 
 <!-- native 引擎设置的修改主要影响的是构建原生项目时使用 cocos2dx 引擎模板，修改后可以实时生效。 -->
 
+## 排序图层
+
+![sorting-layer](index/sorting-layer.png)
+
+定义半透明物体渲染时的排序能力。
+
+- 点击右侧的删除按钮可以删掉对应的图层。
+- 除 `default` 图层不可编辑外，其他图层都可以手动编辑名称。
+- 点击加号可以添加不同的图层。
+- 使用鼠标拖拽排序图层左侧的灰色条纹状按钮可以手动对图层进行排序。
+
+    ![drag](index/drag-to-sort.gif)
+
+添加完成后，在任意拥有 MeshRenderer 或者 SpriteRenderer 组件的节点上可以添加 [Sorting](../../engine/rendering/sorting.md) 组件。并通过 [Sorting](../../engine/rendering/sorting.md) 组件来控制这些节点的手动排序。
+
+![sorting](index/sorting.png)
+
+> **注意**：只能用于持有 **网格渲染器（MeshRenderer）** 以及 **精灵渲染器（SpriteRenderer）** 组件的节点。
+
 ## 物理
 
 ![physics](./index/physics.png)
@@ -64,6 +83,12 @@
 ![model](./index/model.png)
 
 - [智能材质转换](../../importer/materials/fbx-materials.md)：启用后，引擎会根据导出模型在原有 DCC 软件内的材质，将其导出为引擎支持的材质。
+
+## 骨骼贴图布局设置
+
+![joint texture layout](./index/joint-texture-layout.png)
+
+配置项目内的骨骼贴图布局。请参考 [骨骼贴图布局设置](../../animation/joint-texture-layout.md)。
 
 ## Macro Config（引擎宏配置）
 
@@ -287,20 +312,11 @@ interface ICompressPresetItem {
 
 ![splash](./index/splash.png)
 
-- **LOGO 图**：预览界面
-- **LOGO 资源地址**：用于 LOGO 存放的地址，开发者可以点击 **放大镜** 图片选择不同的图片资源，也可以图片资源拖拽到 **LOGO 图** 属性上以应用图片资源，点击左侧的下拉框可以选择不同的路径协议：
-
-    ![protocol](index/path-protocol.png)
-
-    - **file://**：通过绝对路径寻址对应的文件
-    - **project://**：通过项目内的相对地址进行寻址查找对应的图片资源
-
-        为了避免在跨设备导致绝对地址失效，我们更推荐项目使用 **project://** 的协议设置 LOGO。
-
-- **最小显示时间**：最小显示闪屏的时间。单位：毫秒
-- **LOGO 显示比例**：LOGO 占屏幕的占比，横屏时使用屏幕高度，竖屏时使用屏幕宽度
-- **是否显示 Cocos 水印**：是否显示引擎的水印
-- **背景颜色**：闪屏时的背景颜色
+- **TotalTime**：闪屏的总时长
+- **Auto Fit Resolution**：是否自动匹配分辨率
+- **DisplayRatio**：显示比例
+- **Display Cocos Watermark** 是否显示 Cocos 水印
+- **Preview**：显示闪屏的预览，可以通过点击从而选择新的闪屏。
 
 ## 自定义项目设置面板
 

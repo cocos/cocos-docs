@@ -247,6 +247,7 @@
         - [Animation State Machine](animation/marionette/animation-graph-basics.md)
         - [State Transition](animation/marionette/state-transition.md)
         - [Animation Mask](animation/marionette/animation-mask.md)
+        - [Animation Graph Variants](animation/marionette/animation-variant.md)
 
 - [Audio System](audio-system/overview.md)
     - [AudioSource Component Reference](audio-system/audiosource.md)

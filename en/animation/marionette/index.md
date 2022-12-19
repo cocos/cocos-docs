@@ -19,6 +19,7 @@ The Marionette system consists of four modules:
 - [Animation State Machine](animation-graph-basics.md)
 - [State Transition](state-transition.md)
 - [Animation Mask](animation-mask.md)
+- [Animation Graph Variants](animation-variant.md)
 
 ## Terminology
 
