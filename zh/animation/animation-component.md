@@ -112,7 +112,6 @@ class MyScript extends Component {
                 func: 'onTriggered', // 事件触发时调用的函数名称
                 params: [ 0 ], // 向 `func` 传递的参数
             });
-            defaultClip.updateEventDatas();
         }
     }
 
