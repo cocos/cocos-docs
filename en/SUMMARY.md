@@ -43,6 +43,7 @@
     - [Coordinate Systems and Transformations](concepts/scene/coord.md)
     - [Node Hierarchy and Rendering Order](concepts/scene/node-tree.md)
     - [Build a Scene Image Using the Scene Panel](concepts/scene/scene-editing.md)
+    - [Level of Details](editor/rendering/lod.md)
 
 - [Asset System](asset/index.md)
     - [Asset Workflow](asset/asset-workflow.md)
