@@ -20,7 +20,7 @@ LOD Group 组件的属性描述如下：
 
 | 属性 | 说明 |
 | :-- | :-- |
-| **Recalculate Bounds** | 重新计算包围盒 <br> 点击该按钮后，整个组的模型包围盒会重新计算 <br> 该按钮会调用 `recalculateBounds` 接口对包围盒进行重新计算 |
+| **Recalculate Bounds** | 重新计算包围盒 <br> 点击该按钮后，整个组的模型包围盒会重新计算 <br> 该按钮会调用 `recalculateBounds` 接口对包围盒进行重新计算，同时会修改 **Object Size** 属性 |
 | **Object Size** | 物理包围盒大小 <br> 计算物体的包围盒并取 X、Y、Z 中值最大的轴 <br> 点击右侧的 **Reset Object Size** 按钮会将此属性重设为 1 |
 | **LOD(0 ~ 3)** | 多层次配置，点击左侧的 **>** 符号可以展开进行配置，展开后的内容请参考下图。<br> LOD0 表示最丰富的显示细节 <br> LOD2 显示低模 <br> 当物体在屏幕中的屏占比小于 LOD2 的 **Screen Ratio** 值时，物体将被剔除 |
 
