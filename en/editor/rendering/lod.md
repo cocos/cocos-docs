@@ -2,7 +2,7 @@
 
 Level Of Details (LOD) is a common optimization method used in large-scene development, where the core of LOD is to reduce the display details of distant or unimportant objects to improve rendering efficiency.
 
-The common practice of LOD is to use low-mode for some objects that are far away from the screen or unimportant instead.
+The common practice of LOD is to use low-poly for some objects that are far away from the screen or unimportant instead.
 
 To enable LOD in the engine, select the **Add Component** button in the **Inspector** panel and select the **LOD Group** component.
 
@@ -20,9 +20,9 @@ The properties of the LOD Group component are described as follows.
 
 | Properties | Description |
 | :-- | :-- |
-| **Recalculate Bounds** | Recalculate Bounds <br> When this button is clicked, the model bounds for the entire group are recalculated <br> This button calls the `recalculateBounds` interface to recalculate the bounds |
+| **Recalculate Bounds** | Recalculate Bounds <br> When this button is clicked, the model bounds for the entire group are recalculated <br> This button calls the `recalculateBounds` interface to recalculate the bounds, which will also effects the **Object Size** property |
 | **Object Size** | Bounding box size <br> Calculate the bounding box of the object and take the axis with the largest value in X, Y, Z <br> Clicking the **Reset Object Size** button on the right will reset this property to 1
-| **LOD(0 ~ 3)** | LOD. Click the **>** symbol on the left side to expand for configuration, please refer to the figure below for the expanded content.<br> LOD0 indicates the richest display detail <br> LOD2 shows low-mode <br> When the object's screen ratio is less than the **Screen Ratio** value of LOD2, the object will be culled |
+| **LOD(0 ~ 3)** | LOD. Click the **>** symbol on the left side to expand for configuration, please refer to the figure below for the expanded content.<br> LOD0 indicates the richest display detail <br> LOD2 shows low-poly <br> When the object's screen ratio is less than the **Screen Ratio** value of LOD2, the object will be culled |
 
 Click on any **> LOD(0 ~ 3)** on the **Inspector** panel to expand it and the following image will be displayed.
 
@@ -61,7 +61,7 @@ Once you have configured the LOD, you can preview the different levels with the 
 
 ![preview](lod/preview.gif)
 
-As the mouse scrolling changes, the scene camera will gradually pull away, and the level of the LOD will change, if the screen ratio of the current object is lower than the configured screen ratio of LOD2, the scene management system will cull it (Culled). The screen will show the current LOD Group's hierarchy status LOD(0~3) or Culled.
+As the mouse scrolling changes, the scene camera will gradually pull away, and the level of the LOD will change, if the screen ratio of the current object is lower than the configured screen ratio of LOD2, the scene management system will cull it. The screen will show the current LOD Group's hierarchy status LOD(0~3) or Culled.
 
 ## Use of scripts
 
