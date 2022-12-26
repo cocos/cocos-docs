@@ -18,6 +18,7 @@
 | **Bake Offline Mimmaps** | 是否烘焙离线 Mipmap |
 | **Fix Alpha Transparency Artifacts** | 消除透明伪影 <br> 为全透明像素填充相邻像素的颜色，防止纹理过滤引起的黑边问题。当使用 Alpha 透明通道时，请启用此功能。<br> 仅对 **texture**、**raw**、**sprite-frame** 以及 **texture cube** 生效 |
 | **Is RGBE** | 是否是 RGBE 压缩格式，该选项仅在 **Type** 为 [立方体贴图](texture-cube.md) 时生效 |
+| **Flip Green Channel** | 翻转绿通道 <br> 在 Cocos Creator 内使用的法线贴图是 OpenGL 的，如果导入的是基于 DirectX 的法线贴图，如果出现的凹陷的错误，那么勾选此选项可以修复该错误 |
 
 ## 图像资源的类型
 
