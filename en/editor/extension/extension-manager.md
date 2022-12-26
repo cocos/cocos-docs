@@ -1,6 +1,6 @@
 # Extension Manager Panel
 
-The **Extension Manager** is used to manage extensions within the editor. Click **Extension -> Extension Manager** in the top menu bar of Cocos Creator to open.
+The **Extension Manager** is used to manage extensions within the editor. Click **Extension -> Extension Manager** in the main menu bar of Cocos Creator to open.
 
 ![extension-manager-menu](./image/extension-manager-menu.png)
 
