@@ -17,7 +17,7 @@ This option is mainly used to create, open, and save a project or scene, as well
 | New Scene (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>N</kbd>) | Closes the current scene and create a new scene, the newly created scene needs to be saved manually before it will be added to the project directory. |
 | Save Scene (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>) | Save the scene you are currently editing. If the scene is created using **File -> New Scene**, a dialog box will pop up when you save it for the first time, you need to choose the location to save the scene file and fill in the file name, then click **Save** to save it. Scene files have `.scene` as extension. |
 | Save As (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> +<kbd>Shift</kbd>+ <kbd>S</kbd>) | Generates a copy of the current scene file and save it in the project. |
-| Layout | Sets the editor interface layout, only the default layout is supported for now. |
+| Layout | Sets the editor interface layout. Custom layout can be saved and re-uesed |
 | Preferences | Opens [Preferences](../preferences/index.md) panel to customize the editor.
 | Shortcuts | Opens the Shortcuts panel to view the default shortcuts used by each panel or function module of the editor, support customization. |
 | Import Cocos Creator 2.x Project | V2.x asset import tool, supporting the perfect import of old project assets, as well as the assisted migration of code. Please refer to [v3.0 Upgrade Guide](../../release-notes/upgrade-guide-v3.0.md) for details. |
