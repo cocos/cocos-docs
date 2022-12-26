@@ -133,11 +133,11 @@ The **Feature Cropping** tab is mainly for modules used in the engine when relea
 
 ## Texture Compression
 
+![compress-texture](./texture-compress/compress-texture.png)
+
 The preset configuration of texture compression is moved to **Project Settings**, and developers can select how the image asset is preset in the **Inspector** panel. The editor will automatically scan all the texture compression configurations in the project and sort out a few presets. Since it is automatically scanned, the preset names may not match the project and can be modified here by developers.
 
 ### Compress Presets
-
-![compress-texture](./texture-compress/compress-presets.png)
 
 This panel is mainly used to add presets for texture compression. Each texture compression configuration allows to tailor the configuration for different platforms. Once added, developers can quickly add a texture compression preset in the **Inspector** panel by selecting the image asset in the **Hierarchy** panel. It is also possible to modify the preset directly in this panel to achieve the need to update the compression texture configuration in bulk.
 
@@ -149,6 +149,13 @@ The following platforms are currently supported for configuring texture compress
 4. Android
 
 Please refer to the [Texture Compression](../../asset/compress-texture.md) documentation for details of texture compression on each platform.
+
+### Properties
+
+- **Mipmaps for compressed textures**: Pre-generated Mipmap for compressed mapping, options: **Allow Pre-generation (default)**; **Disabled** Disabled
+    - If the project is upgraded from a version before v3.7, this option is disabled by default
+    - Generate multiple images when turned on, it will affect the package size, please choose according to your needs
+    - If the user is using texture with generate mip maps checked, and needs to generate mipmaps with texture compression checked and some formats that need to be compressed by third-party tools such as pvr etc, you need to turn this option on in the project settings. Once enabled, the build will generate compressed mipmaps of the corresponding format for use at runtime
 
 #### Adding/Removing Texture Compression Presets
 
