@@ -114,3 +114,10 @@ To view all the log information, there are the following operations:
 - **Open the build logging file**
 
     The error message generated during each build process will be recorded and stored in the `temp/builder/log` folder under the project directory. Click the ![log-file](./build-panel/log-file.png) button at the bottom right of the build task to view it. When feedback on build related issues, directly paste the file to locate the problem.
+
+### Build Queue and Interrupt Build
+
+![interrupt](build-panel/interrupt-build.gif)
+
+You can still add a new build task during the build process, and the new build task will be added to the build queue.
+During the build process, you can click the X button on the right side of the build task to interrupt the current build task.
