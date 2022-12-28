@@ -317,6 +317,13 @@
     - [Pipeline and Task](asset/pipeline-task.md)
     - [Resource Management Considerations --- meta files](asset/meta.md)
 
+- [Localization](editor/l10n/overview.md)
+    - [Translation Service Provider](editor/l10n/translation-service.md)
+    - [Collect and Count](editor/l10n/collect-and-count.md)
+    - [Compile Language](editor/l10n/compile-language.md)
+    - [L10nLabel](editor/l10n/l10n-label.md)
+    - [Sample](editor/l10n/script-using.md)
+
 ## Advanced Tutorials
 
 - [Editor Extension](editor/extension/readme.md)
