@@ -72,7 +72,7 @@
 
 ## Swig 接口定义文件
 
-- 在引擎的 `engine/native/tools/swig-config` 目录下有一个 [swig-interface-template.i](swig-interface-template.i) 模版文件。你可以拷贝其到自己的工程目录下并重命名。此模版文件中包含一些注释用于展示如何在 .i 文件中配置你的模块。你也可以参考在 `engine/native/tools/swig-config` 目录下引擎内部的 .i 文件，例如：参考 `scene.i` 或者 `assets.i` 来快速上手。
+- 在引擎的 `engine/native/tools/swig-config` 目录下有一个  [swig-interface-template.i](https://github.com/cocos/cocos-engine/blob/1f928364f4cad22681e7830c53dc7da71a87d11f/native/tools/swig-config/swig-interface-template.i)  模版文件。你可以拷贝其到自己的工程目录下并重命名。此模版文件中包含一些注释用于展示如何在 .i 文件中配置你的模块。你也可以参考在 `engine/native/tools/swig-config` 目录下引擎内部的 .i 文件，例如：参考 `scene.i` 或者 `assets.i` 来快速上手。
 - 如果你使用 `Visual Studio Code`, 你可以安装  `Hong-She Liang`  开发的 `SWIG Language` 扩展，其可用于 .i 文件的语法高亮。 
 - 关于编写 .i 文件的更多详细信息，建议参考下面 [教程](#Tutorial) 章节。
 

@@ -45,7 +45,7 @@
 
 - Add a new module interface file to `native/tools/swig-config` directory, e.g. `new-engine-module.i`
 
-- Copy the content in [swig-interface-template.i](../swig-interface-template.i) to new-engine-module.i
+- Copy the content in [swig-interface-template.i](https://github.com/cocos/cocos-engine/blob/1f928364f4cad22681e7830c53dc7da71a87d11f/native/tools/swig-config/swig-interface-template.i)  to new-engine-module.i
 
 - Add necessary configuration, you refer to the existed  `.i` files in `native/tools/swig-config` directory or refer to [the following section](#How to Bind a New Module in Developer's Project)
   

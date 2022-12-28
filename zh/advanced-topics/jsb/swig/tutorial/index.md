@@ -1,3 +1,38 @@
+**Table of Contents**
+
+- [在 Cocos Creator 中的 Swig 工作流教程](#%E5%9C%A8-cocos-creator-%E4%B8%AD%E7%9A%84-swig-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%95%99%E7%A8%8B)
+  * [如何为引擎内的新模块添加绑定](#%E5%A6%82%E4%BD%95%E4%B8%BA%E5%BC%95%E6%93%8E%E5%86%85%E7%9A%84%E6%96%B0%E6%A8%A1%E5%9D%97%E6%B7%BB%E5%8A%A0%E7%BB%91%E5%AE%9A)
+    + [添加一个新模块的接口文件](#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%96%B0%E6%A8%A1%E5%9D%97%E7%9A%84%E6%8E%A5%E5%8F%A3%E6%96%87%E4%BB%B6)
+    + [修改 swig-config.js 文件](#%E4%BF%AE%E6%94%B9-swig-configjs-%E6%96%87%E4%BB%B6)
+    + [生成绑定代码](#%E7%94%9F%E6%88%90%E7%BB%91%E5%AE%9A%E4%BB%A3%E7%A0%81)
+    + [修改 `engine/native/cocos/CMakeLists.txt`](#%E4%BF%AE%E6%94%B9-enginenativecocoscmakeliststxt)
+    + [为脚本引擎注册新的模块](#%E4%B8%BA%E8%84%9A%E6%9C%AC%E5%BC%95%E6%93%8E%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84%E6%A8%A1%E5%9D%97)
+  * [如何为开发者的项目绑定一个新模块](#%E5%A6%82%E4%BD%95%E4%B8%BA%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%BB%91%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%96%B0%E6%A8%A1%E5%9D%97)
+    + [绑定一个简单的类](#%E7%BB%91%E5%AE%9A%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%B1%BB)
+      - [创建一个简单类](#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%B1%BB)
+      - [编写一个 Swig 接口文件](#%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA-swig-%E6%8E%A5%E5%8F%A3%E6%96%87%E4%BB%B6)
+      - [编写一个 Swig 配置文件（swig-config.js）](#%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA-swig-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6swig-configjs)
+      - [为项目生成自动绑定文件](#%E4%B8%BA%E9%A1%B9%E7%9B%AE%E7%94%9F%E6%88%90%E8%87%AA%E5%8A%A8%E7%BB%91%E5%AE%9A%E6%96%87%E4%BB%B6)
+      - [修改项目的 CMakeLists.txt 文件](#%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE%E7%9A%84-cmakeliststxt-%E6%96%87%E4%BB%B6)
+      - [打开项目工程](#%E6%89%93%E5%BC%80%E9%A1%B9%E7%9B%AE%E5%B7%A5%E7%A8%8B)
+      - [为脚本引擎注册新的模块](#%E4%B8%BA%E8%84%9A%E6%9C%AC%E5%BC%95%E6%93%8E%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84%E6%A8%A1%E5%9D%97-1)
+      - [测试绑定](#%E6%B5%8B%E8%AF%95%E7%BB%91%E5%AE%9A)
+      - [此章节总结](#%E6%AD%A4%E7%AB%A0%E8%8A%82%E6%80%BB%E7%BB%93)
+    + [导入头文件依赖](#%E5%AF%BC%E5%85%A5%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BE%9D%E8%B5%96)
+    + [忽略某些类、方法或属性](#%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E7%B1%BB%E6%96%B9%E6%B3%95%E6%88%96%E5%B1%9E%E6%80%A7)
+      - [忽略某些类](#%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E7%B1%BB)
+      - [忽略某些方法和属性](#%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7)
+    + [重命名类、方法或属性](#%E9%87%8D%E5%91%BD%E5%90%8D%E7%B1%BB%E6%96%B9%E6%B3%95%E6%88%96%E5%B1%9E%E6%80%A7)
+    + [定义一个 attribute](#%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-attribute)
+      - [用法](#%E7%94%A8%E6%B3%95)
+      - [示例](#%E7%A4%BA%E4%BE%8B)
+      - [%attribute_writeonly 指令](#%25attribute_writeonly--%E6%8C%87%E4%BB%A4)
+      - [关于引用类型](#%E5%85%B3%E4%BA%8E%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B)
+      - [%arg() 指令](#%25arg-%E6%8C%87%E4%BB%A4)
+      - [不要添加 `const`](#%E4%B8%8D%E8%A6%81%E6%B7%BB%E5%8A%A0-const)
+    + [配置 C++ 模块宏（用于 C++ 模块裁剪）](#%E9%85%8D%E7%BD%AE-c-%E6%A8%A1%E5%9D%97%E5%AE%8F%E7%94%A8%E4%BA%8E-c-%E6%A8%A1%E5%9D%97%E8%A3%81%E5%89%AA)
+    + [多个 Swig 模块的配置](#%E5%A4%9A%E4%B8%AA-swig-%E6%A8%A1%E5%9D%97%E7%9A%84%E9%85%8D%E7%BD%AE)
+
 # 在 Cocos Creator 中的 Swig 工作流教程
 
 ## 如何为引擎内的新模块添加绑定
@@ -116,7 +151,7 @@ private:
 #include "bindings/jswrapper/SeApi.h"
 #include "bindings/manual/jsb_conversions.h"
 
-#include "MyObject.h" // 添加这行
+#include "MyObject.h" // 添加这行，%include 指令表示让 swig 解析此文件，并且为此文件中的类生成绑定代码。
 %}
 
 // %{ ... %} 代码块中的内容最终会被原封不动地插入到生成的源文件(.cpp)开头的地方
@@ -343,7 +378,7 @@ private:
 .../Classes/MyObject.h:7: Warning 401: Nothing known about base class 'MyRef'. Ignored.
 ```
 
-要解决此问题也容易，我们只需要使用 `%import` 指令让 Swig 知道 MyRef 类的存在即可。
+要解决此警告也容易，我们只需要使用 `%import` 指令让 Swig 知道 MyRef 类的存在即可。
 
 ```c++
 // ......
@@ -581,7 +616,7 @@ export class MyComponent extends Component {
 
 `%attribute` 指令用于把 C++ 的 getter 和 setter 函数绑定为一个 JS 属性。
 
-**注意：如果 C++ 属性是公有的，那么理论上无需在配置 attribute 了，Swig 会自动绑定类的公有属性。**
+**注意：如果 C++ 属性是公有的，那么理论上无需再配置 attribute 了，Swig 会自动绑定类的公有属性。**
 
 #### 用法
 
@@ -717,7 +752,7 @@ Object.defineProperty(MyNewClass.prototype, 'width', {
 %attribute_writeonly(cc::ICanvasRenderingContext2D, ccstd::string&, fillStyle, setFillStyle);
 ```
 
-如果 `&` 没有被添加, 当绑定函数被调用的时候，一个临时的 `ccstd::string` 实例将被创建。这种临时对象的创建与销毁是不划算的且是可以完全避免的。
+如果 `&` 没有被添加，当绑定函数被调用的时候，一个临时的 `ccstd::string` 实例将被创建。这种临时对象的创建与销毁是不划算的且是可以完全避免的。
 
 #### %arg() 指令
 
@@ -745,7 +780,7 @@ class MyNewClass {
 Error: Macro '%attribute_custom' expects 7 arguments
 ```
 
-这是因为 `swig` 看到 `std::map<std::string, std::string>&` 的时候并不知道如何处理逗号 (`,`) ，因此它将其分割为两部分，即：
+这是因为 `swig` 看到 `std::map<std::string, std::string>&` 的时候并不知道如何处理逗号 (`,`) ，它将其分割为两部分，即：
 
 1. std::map<std::string
 2. std::string>&
