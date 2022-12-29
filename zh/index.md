@@ -1,12 +1,24 @@
-# Cocos Creator 3.6 用户手册
+# Cocos Creator 3.7 用户手册
 
-欢迎使用 Cocos Creator 3.6 用户手册！本手册包括详尽的使用说明、面向不同职能用户的工作流程和 step by step 的新手教程。能够帮您快速掌握使用 Cocos Creator 开发跨平台游戏的方法。
+欢迎使用 Cocos Creator 3.7！
 
-**注意：请在右上角根据您使用的 Cocos Creator 版本选择相应的手册版本。**
+Cocos Creator 既是一款高效、轻量、免费开源的跨平台 2D&3D 图形引擎，也是一个实时 2D&3D 数字内容创作平台。拥有**高性能**、**低功耗**、**流式加载**、**跨平台**等诸多优点，您可以用它来创作**游戏**、**车机**、**XR**、**元宇宙**等领域的项目。
 
-## 总导读
 
-- [Cocos Creator 新手入门](getting-started/index.md)
+本手册包括详尽的使用说明、面向不同职能用户的工作流程和新手教程，可以帮您快速掌握如何使用 Cocos Creator 以及其相关服务。
+
+您可以将此文档从头读到尾，也可以在有需要的时候用来查阅。
+
+如果您是第一次使用 Cocos Creator，可以从 [新手上路](getting-started/index.md) 和 [示例与教程](./cases-and-tutorials/index.md) 开始。
+
+## v3.7 新增功能
+
+- 此版本中增加了**光照探针**、**环境反射探针**、**LOD**、**全新的扩展管理面板** 等全新特性。
+- 完整的更新列表请前往 [发布说明](https://www.cocos.com/creator-download)
+- 采用 Cocos Creator 旧版本的项目升级请参考 [升级指南](./release-notes/index.md)
+
+## 用户手册主要模块
+
 - [场景制作](concepts/scene/index.md)
 - [资源系统](asset/index.md)
 - [脚本指南及事件系统](scripting/index.md)
@@ -21,24 +33,12 @@
 - [缓动系统](tween/index.md)
 - [地形系统](editor/terrain/index.md)
 - [资源管理](asset/asset-manager.md)
+- [本地化](editor/l10n/overview.md)
 - [扩展编辑器](editor/extension/readme.md)
 - [进阶主题](advanced-topics/index.md)
 
-## 演示和范例项目
+## 更多内容
 
-- **展示范例集合**（[GitHub](https://github.com/cocos-creator/example-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d)）：从基本组件的使用到渲染效果的展示，这个项目里包括了多个侧重功能不同的场景及多个游戏 Demo 供用户参考
-- **一步两步**（[GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-mind-your-step-3d)）：也就是 [快速上手](getting-started/first-game/index.md) 文档里分步讲解制作的游戏
-- **物理测试范例**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.6/physics-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.6/physics-3d)）：包含了一些物理测试例和案例工程，如吞噬黑洞、简化小车、坠落小球等，介绍了一些基础的功能和使用方法，方便用户结合文档了解物理功能。
-- **Simple-Games**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.6/simple-games) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.6/simple-games)）：简单小游戏集合演示 Demo，用户可通过此案例学习完成一些简单并且常见的小游戏。
-- **模块展示集合**（[GitHub](https://github.com/cocos/cocos-test-projects) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d)）：引擎各个功能的范例项目，基本涵盖了引擎的大部分功能模块，用户在使用功能时可参考此项目中的用法进行开发。
-- **UI 展示 Demo**（[GitHub](https://github.com/cocos/cocos-example-ui/) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-ui/)）：各类 UI 组件组合使用的演示 Demo。
-- **弹弹乐 3D**（[GitHub](https://github.com/cocos/cocos-example-ball) | [Gitee](https://gitee.com/mirrors_cocos-creator/demo-ball)）：用户可通过此项目制作弹弹球游戏。
-- **快上车 3D**（[GitHub](https://github.com/cocos/cocos-tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）：基于物理的游戏制作 demo，用户可通过此项目制作快上车游戏。
-
-> **注意**：这些项目会不定期跟随版本进行更新。它们在 GitHub 上的默认分支是 master，对应的一般是最新的 Cocos Creator 版本。如果仍在使用旧版本的 Cocos Creator，这些项目有可能会打不开，可尝试切换到和旧版本相同命名的分支。
-
-## 视频教程
-
-[快上车视频教程](https://space.bilibili.com/491120849/channel/detail?cid=116585)
-
-更多视频教程可前往 [哔哩哔哩 — Cocos 官方](https://space.bilibili.com/491120849/dynamic)。
+- [Cocos 官方论坛](https://forum.cocos.org/) 可以提问、查找问题答案、与其他开发者交流
+- [案例与教程](./cases-and-tutorials/index.md) 可以获得教程和官方示例项目 
+- [Cocos Store](https://store.cocos.com) 可以获得更多素材、学习案例以及源码
