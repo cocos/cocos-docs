@@ -9,6 +9,7 @@
 - [The Tutorial for JSB 2.0](JSB2.0-learning.md)
     - [JSB Auto Binding](jsb-auto-binding.md)
     - [sebind](jsb-sebind.md)
+    - [Swig](jsb-swig.md)
 - [JavaScript to Java Reflection](js-java-bridge.md)
 - [JavaScript to Objective-C Reflection](js-oc-bridge.md)
 - [CMake Usage Introduction](cmake-learning.md)
