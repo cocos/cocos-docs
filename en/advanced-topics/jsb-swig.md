@@ -4,9 +4,9 @@ From Cocos Creator 3.7.0, we switch the approach of generating JS binding code f
 
 ## Generate JS Binding Code for Engine
 
-- Make sure you have installed NodeJS ( `>= v8.9.4` )
+- Make sure you have installed NodeJS (`>= v8.9.4`)
 
-- Open Terminal ( macOS / Linux) or Command Line Tool ( Windows ), navigate to `engine/native/tools/swig-config`
+- Open Terminal (macOS/Linux) or Command Line Tool (Windows), navigate to `engine/native/tools/swig-config`
 
 - Run `node genbindings.js`
 
@@ -22,9 +22,9 @@ From Cocos Creator 3.7.0, we switch the approach of generating JS binding code f
 
 ## Generate JS Bindings Code for Developer's Project
 
-- Make sure you have installed NodeJS ( `>= v8.9.4` )
+- Make sure you have installed NodeJS (`>= v8.9.4`)
 
-- Open Terminal ( macOS / Linux) or Command Line Tool ( Windows )
+- Open Terminal (macOS/Linux) or Command Line Tool (Windows)
 
 - Create a directory for generated code, e.g. `/Users/abc/my-project/native/engine/common/Classes/bindings/auto`
 
@@ -72,7 +72,7 @@ From Cocos Creator 3.7.0, we switch the approach of generating JS binding code f
 
 ## Swig Interface File
 
-- There is a  [swig-interface-template.i](https://github.com/cocos/cocos-engine/blob/1f928364f4cad22681e7830c53dc7da71a87d11f/native/tools/swig-config/swig-interface-template.i)  in `engine/native/tools/swig-config` directory, just copy and rename it to some place in your project. There some comments demonstrate how to configure your module in `.i` file.  You could also reference engine internal `.i` files in `engine/native/tools/swig-config`, for instance, `scene.i` or `assets.i` for a quick start.
+- There is a [swig-interface-template.i](https://github.com/cocos/cocos-engine/blob/1f928364f4cad22681e7830c53dc7da71a87d11f/native/tools/swig-config/swig-interface-template.i) in `engine/native/tools/swig-config` directory, just copy and rename it to some place in your project. There some comments demonstrate how to configure your module in `.i` file.  You could also reference engine internal `.i` files in `engine/native/tools/swig-config`, for instance, `scene.i` or `assets.i` for a quick start.
 - If you're using `Visual Studio Code`, you could install `SWIG Language` extension which was developed by `Hong-She Liang` for highlight syntax support.
 - For more details of writing `.i` file, please visit [tutorial](#Tutorial) section.
 
