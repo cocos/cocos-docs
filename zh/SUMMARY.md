@@ -390,6 +390,8 @@
     - [JSB 2.0 使用指南](advanced-topics/JSB2.0-learning.md)
         - [JSB 手动绑定](advanced-topics/jsb-manual-binding.md)
         - [JSB 自动绑定](advanced-topics/jsb-auto-binding.md)
+        - [Swig](advanced-topics/jsb-swig.md)
+            - [Swig 示例](advanced-topics/jsb/swig/tutorial/index.md)
     - [Java 原生反射机制](advanced-topics/js-java-bridge.md)
     - [Objective-C 原生反射机制](advanced-topics/js-oc-bridge.md)
     - [JsbBridgeWrapper 基于原生反射机制的事件处理](advanced-topics/jsb-bridge-wrapper.md)

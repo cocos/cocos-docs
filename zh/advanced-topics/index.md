@@ -13,6 +13,7 @@
     - [JSB 自动绑定](jsb-auto-binding.md)
     - [sebind](jsb-sebind.md)
     - [Swig](jsb-swig.md)
+        - [Swig 示例](jsb/swig/tutorial/index.md)
 - [Java 原生反射机制](js-java-bridge.md)
 - [Objective-C 原生反射机制](js-oc-bridge.md)
 - [CMake 使用简介](cmake-learning.md)

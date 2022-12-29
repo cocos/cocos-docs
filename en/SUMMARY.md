@@ -352,6 +352,8 @@
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [Web Preview Customization Workflow](editor/preview/browser.md)
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
+        - [Swig](advanced-topics/jsb-swig.md)
+        - [Swig Tutorial](advanced-topics/jsb/swig/tutorial/index.md)
     - [JavaScript to Java Reflection](advanced-topics/js-java-bridge.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/js-oc-bridge.md)
     - [Event Mecanism based on JsbBridge](advanced-topics/jsb-bridge-wrapper.md)
