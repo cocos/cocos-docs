@@ -1,38 +1,3 @@
-**Table of Contents**
-
-- [在 Cocos Creator 中的 Swig 工作流教程](#%E5%9C%A8-cocos-creator-%E4%B8%AD%E7%9A%84-swig-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%95%99%E7%A8%8B)
-  * [如何为引擎内的新模块添加绑定](#%E5%A6%82%E4%BD%95%E4%B8%BA%E5%BC%95%E6%93%8E%E5%86%85%E7%9A%84%E6%96%B0%E6%A8%A1%E5%9D%97%E6%B7%BB%E5%8A%A0%E7%BB%91%E5%AE%9A)
-    + [添加一个新模块的接口文件](#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%96%B0%E6%A8%A1%E5%9D%97%E7%9A%84%E6%8E%A5%E5%8F%A3%E6%96%87%E4%BB%B6)
-    + [修改 swig-config.js 文件](#%E4%BF%AE%E6%94%B9-swig-configjs-%E6%96%87%E4%BB%B6)
-    + [生成绑定代码](#%E7%94%9F%E6%88%90%E7%BB%91%E5%AE%9A%E4%BB%A3%E7%A0%81)
-    + [修改 `engine/native/cocos/CMakeLists.txt`](#%E4%BF%AE%E6%94%B9-enginenativecocoscmakeliststxt)
-    + [为脚本引擎注册新的模块](#%E4%B8%BA%E8%84%9A%E6%9C%AC%E5%BC%95%E6%93%8E%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84%E6%A8%A1%E5%9D%97)
-  * [如何为开发者的项目绑定一个新模块](#%E5%A6%82%E4%BD%95%E4%B8%BA%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%BB%91%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%96%B0%E6%A8%A1%E5%9D%97)
-    + [绑定一个简单的类](#%E7%BB%91%E5%AE%9A%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%B1%BB)
-      - [创建一个简单类](#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%B1%BB)
-      - [编写一个 Swig 接口文件](#%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA-swig-%E6%8E%A5%E5%8F%A3%E6%96%87%E4%BB%B6)
-      - [编写一个 Swig 配置文件（swig-config.js）](#%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA-swig-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6swig-configjs)
-      - [为项目生成自动绑定文件](#%E4%B8%BA%E9%A1%B9%E7%9B%AE%E7%94%9F%E6%88%90%E8%87%AA%E5%8A%A8%E7%BB%91%E5%AE%9A%E6%96%87%E4%BB%B6)
-      - [修改项目的 CMakeLists.txt 文件](#%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE%E7%9A%84-cmakeliststxt-%E6%96%87%E4%BB%B6)
-      - [打开项目工程](#%E6%89%93%E5%BC%80%E9%A1%B9%E7%9B%AE%E5%B7%A5%E7%A8%8B)
-      - [为脚本引擎注册新的模块](#%E4%B8%BA%E8%84%9A%E6%9C%AC%E5%BC%95%E6%93%8E%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84%E6%A8%A1%E5%9D%97-1)
-      - [测试绑定](#%E6%B5%8B%E8%AF%95%E7%BB%91%E5%AE%9A)
-      - [此章节总结](#%E6%AD%A4%E7%AB%A0%E8%8A%82%E6%80%BB%E7%BB%93)
-    + [导入头文件依赖](#%E5%AF%BC%E5%85%A5%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BE%9D%E8%B5%96)
-    + [忽略某些类、方法或属性](#%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E7%B1%BB%E6%96%B9%E6%B3%95%E6%88%96%E5%B1%9E%E6%80%A7)
-      - [忽略某些类](#%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E7%B1%BB)
-      - [忽略某些方法和属性](#%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7)
-    + [重命名类、方法或属性](#%E9%87%8D%E5%91%BD%E5%90%8D%E7%B1%BB%E6%96%B9%E6%B3%95%E6%88%96%E5%B1%9E%E6%80%A7)
-    + [定义一个 attribute](#%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA-attribute)
-      - [用法](#%E7%94%A8%E6%B3%95)
-      - [示例](#%E7%A4%BA%E4%BE%8B)
-      - [%attribute_writeonly 指令](#%25attribute_writeonly--%E6%8C%87%E4%BB%A4)
-      - [关于引用类型](#%E5%85%B3%E4%BA%8E%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B)
-      - [%arg() 指令](#%25arg-%E6%8C%87%E4%BB%A4)
-      - [不要添加 `const`](#%E4%B8%8D%E8%A6%81%E6%B7%BB%E5%8A%A0-const)
-    + [配置 C++ 模块宏（用于 C++ 模块裁剪）](#%E9%85%8D%E7%BD%AE-c-%E6%A8%A1%E5%9D%97%E5%AE%8F%E7%94%A8%E4%BA%8E-c-%E6%A8%A1%E5%9D%97%E8%A3%81%E5%89%AA)
-    + [多个 Swig 模块的配置](#%E5%A4%9A%E4%B8%AA-swig-%E6%A8%A1%E5%9D%97%E7%9A%84%E9%85%8D%E7%BD%AE)
-
 # 在 Cocos Creator 中的 Swig 工作流教程
 
 ## 如何为引擎内的新模块添加绑定
@@ -43,8 +8,7 @@
 
 - 拷贝 [swig-interface-template.i](https://github.com/cocos/cocos-engine/blob/1f928364f4cad22681e7830c53dc7da71a87d11f/native/tools/swig-config/swig-interface-template.i) 文件中的内容到 new-engine-module.i
 
-- 添加必要的配置，可以参考 `native/tools/swig-config`  目录下现有的 .i 文件配置，或者参考[下面的章节内容](#如何为开发者的项目绑定一个新模块)。
-  
+- 添加必要的配置，可以参考 `native/tools/swig-config`  目录下现有的 .i 文件配置，或者参考[下面的章节内容](#如何为开发者的项目绑定一个新模块)。  
 
 ### 修改 swig-config.js 文件
 
@@ -232,7 +196,6 @@ $ node < 引擎根目录 >/native/tools/swig-config/genbindings.js
   cc_mac_after_target(${EXECUTABLE_NAME})
   ```
 
-
 #### 打开项目工程
 
 macOS: `/Users/james/NewProject/build/mac/proj/NewProject.xcodeproj ` 
@@ -241,7 +204,7 @@ Windows: `< 一个存放项目的目录 >/NewProject/build/win64/proj/NewProject
 
 #### 为脚本引擎注册新的模块
 
-修改 `Game.cpp` :
+修改 `Game.cpp`
 
 ```c++
 #include "Game.h"
@@ -318,9 +281,9 @@ int Game::init() {
   17:31:44 [DEBUG]: D/ JS: ==> myObj.publicFloatProperty: 1.2300000190734863
   ```
 
-#### 此章节总结
+#### 本节总结
 
-在此章节中，我们学会了如何使用 Swig 工具绑定一个简单的 C++ 类，并把它的公有方法与属性导出到 JS 中。从下一章节开始，我们将更多地关注如何使用 Swig 的一些特性来满足各式各样的 JS 绑定需求，例如：
+在此节中，我们学会了如何使用 Swig 工具绑定一个简单的 C++ 类，并把它的公有方法与属性导出到 JS 中。从下一节开始，我们将更多地关注如何使用 Swig 的一些特性来满足各式各样的 JS 绑定需求，例如：
 
 - 如何使用 %import 指令导入头文件依赖？
 - 如何忽略绑定某些特殊的类、方法或属性？
@@ -393,15 +356,15 @@ private:
 
 尽管 Swig 不再报错了，但是生成的代码却无法编译通过，会出现如下报错：
 
-![](MyRefCompileError.jpg)
+![MyRefCompileError](MyRefCompileError.jpg)
 
-我们将在下一章节中使用  `%ignore` 指令来修复此问题。
+我们将在下一节中使用  `%ignore` 指令来修复此问题。
 
 ### 忽略某些类、方法或属性
 
 #### 忽略某些类
 
-在上一章节中，我们在 js_register_my_ns_MyObject 函数中碰到了一个编译错误。这是因为 MyRef 类型并不应该被绑定，我们可以用 `%ignore` 指令来忽略它。
+在上一节中，我们在 `js_register_my_ns_MyObject` 函数中碰到了一个编译错误。这是因为 `MyRef` 类型并不应该被绑定，我们可以用 `%ignore` 指令来忽略它。
 
 ```c++
 // my-module.i
@@ -425,7 +388,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 
 #### 忽略某些方法和属性
 
-我们为 MyObject 类添加一个名为 `methodToBeIgnored` 的方法，再添加一个名为 `propertyToBeIgnored` 的属性。
+我们为 `MyObject` 类添加一个名为 `methodToBeIgnored` 的方法，再添加一个名为 `propertyToBeIgnored` 的属性。
 
 ```c++
 // MyObject.h
@@ -491,7 +454,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 
 ### 重命名类、方法或属性
 
-Swig 定义了一个名为 `%rename` 指令用于重命名类、方法或者属性。我们继续使用 MyObject 类来展示。
+Swig 定义了一个名为 `%rename` 指令用于重命名类、方法或者属性。我们继续使用 `MyObject` 类来展示。
 
 ```c++
 // MyObject.h
@@ -516,7 +479,7 @@ private:
 } // namespace my_ns {
 ```
 
-重新生成绑定，我们发现 methodToBeRenamed 与 propertyToBeRenamed 的绑定代码已经被生成：
+重新生成绑定，我们发现 `methodToBeRenamed` 与 `propertyToBeRenamed` 的绑定代码已经被生成：
 
 ```c++
 // jsb_my_module_auto.cpp
@@ -614,25 +577,25 @@ export class MyComponent extends Component {
 
 ### 定义一个 attribute
 
-`%attribute` 指令用于把 C++ 的 getter 和 setter 函数绑定为一个 JS 属性。
+`%attribute` 指令用于把 C++ 的 `getter` 和 `setter` 函数绑定为一个 JS 属性。
 
-**注意：如果 C++ 属性是公有的，那么理论上无需再配置 attribute 了，Swig 会自动绑定类的公有属性。**
+> **注意**：如果 C++ 属性是公有的，那么理论上无需再配置 attribute 了，Swig 会自动绑定类的公有属性。
 
 #### 用法
 
-1. 定义一个没有 setter 函数的 JS 属性，即只读的 JS 属性。
+1. 定义一个没有 `setter` 函数的 JS 属性，即只读的 JS 属性。
 
    ```c++
    %attribute(your_namespace::your_class_name, cpp_member_variable_type, js_property_name, cpp_getter_function_name)
    ```
 
-2. 定义一个有 getter 和 setter 函数的 JS 属性，即可读可写的 JS 属性。
+2. 定义一个有 `getter` 和 `setter` 函数的 JS 属性，即可读可写的 JS 属性。
 
    ```c++
    %attribute(your_namespace::your_class_name, cpp_member_variable_type, js_property_name, cpp_getter_function_name, cpp_setter_function_name)
    ```
 
-3. 定义一个没有 getter 的 JS 属性，即可写不可读的 JS 属性。
+3. 定义一个没有 `getter` 的 JS 属性，即可写不可读的 JS 属性。
 
    ```c++
    %attribute_writeonly(your_namespace::your_class_name, cpp_member_variable_type, js_property_name, cpp_setter_function_name)
@@ -640,7 +603,7 @@ export class MyComponent extends Component {
 
 #### 示例
 
-为了方便演示，我们为 MyObject 添加两个新方法，setType 和 getType 。
+为了方便演示，我们为 `MyObject` 添加两个新方法：`setType` 和 `getType`。
 
 ```c++
 // MyObject.h
@@ -717,9 +680,9 @@ export class MyComponent extends Component {
 18:09:53 [DEBUG]: D/ JS: ==> new: myObj.type: 888 // Cool, C++ getType is invoked, 888 is return from C++
 ```
 
-#### %attribute_writeonly  指令
+#### %attribute_writeonly 指令
 
-`%attribute_writeonly` 指令是我们为 swig `Cocos` 后端添加的一个扩展指令，它用于 C++ 只有 setter 函数没有 getter 函数的情况。
+`%attribute_writeonly` 指令是我们为 swig `Cocos` 后端添加的一个扩展指令，它用于 C++ 只有 `setter` 函数没有 `getter` 函数的情况。
 
 例如在 `native/tools/swig-config/cocos.i` 中有如下定义：
 
@@ -787,7 +750,7 @@ Error: Macro '%attribute_custom' expects 7 arguments
 
 因此， %attribute 指令这行将被解析为 6 个参数，而不是正确的 5 个参数。
 
-为了避免这种情况出现，我们需要使用 `%arg` 指令来告诉 `swig`  `std::map<std::string, std::string>&` 是一个整体。
+为了避免这种情况出现，我们需要使用 `%arg` 指令来告诉 `swig` `std::map<std::string, std::string>&` 是一个整体。
 
 ```c++
 %attribute(MyNewClass, %arg(std::map<std::string, std::string>&), config, getConfig, setConfig);
@@ -797,7 +760,7 @@ Error: Macro '%attribute_custom' expects 7 arguments
 
 #### 不要添加 `const` 
 
-在上一示例中，我们在 %attribute 指令中使用 `%arg(std::map<std::string, std::string>&)` 。你可能会考虑在 `std::map` 前面添加一个 `const` 前缀，比如： `%arg(const std::map<std::string, std::string>&)`。如果你这样做了，你将添加一个**只读的**、只绑定 `MyNewClass::getConfig `的  `config` 属性。这明显不是我们所期望的。如果我们需要属性是只读的，只需要不配置 setter 函数即可。
+在上一示例中，我们在 %attribute 指令中使用 `%arg(std::map<std::string, std::string>&)`。你可能会考虑在 `std::map` 前面添加一个 `const` 前缀，比如：`%arg(const std::map<std::string, std::string>&)`。如果你这样做了，你将添加一个 **只读的**、只绑定 `MyNewClass::getConfig ` 的 `config` 属性。这明显不是我们所期望的。如果我们需要属性是只读的，只需要不配置 `setter` 函数即可。
 
 ```c++
 // 不配置 setConfig 意味着属性是只读的
@@ -979,7 +942,7 @@ bool register_all_my_module(se::Object* obj) {
 18:32:20 [DEBUG]: ==> MyFeatureObject::foo // 调用 C++ foo 方法 
 ```
 
-当我们不需要  MyFeatureObject 类的时候，把宏设置为 0 即可。
+当我们不需要 `MyFeatureObject` 类的时候，把宏设置为 0 即可，代码示例如下：
 
 ```c++
 // MyObject.h
@@ -1119,7 +1082,7 @@ int Game::init() {
 
 ![](another-module-compile-error.jpg)
 
-因为 MyObject 类依赖了 MyAnotherObject 类，而 MyAnotherObject 类是被定义在另外一个模块中的。我们需要修改 `my-module.i` 并添加 `#include "bindings/auto/jsb_another_module_auto.h"`.
+因为 MyObject 类依赖了 MyAnotherObject 类，而 MyAnotherObject 类是被定义在另外一个模块中的。我们需要修改 `my-module.i` 并添加 `#include "bindings/auto/jsb_another_module_auto.h"`。
 
 ```c++
 // my-module.i
