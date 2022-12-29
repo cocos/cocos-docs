@@ -1,42 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [The Tutorial of Swig Workflow in Cocos Creator](#the-tutorial-of-swig-workflow-in-cocos-creator)
-  * [How to Bind a New Module in Engine](#how-to-bind-a-new-module-in-engine)
-    + [Add a new module interface file](#add-a-new-module-interface-file)
-    + [Modify swig-config.js](#modify-swig-configjs)
-    + [Generate bindings](#generate-bindings)
-    + [Modify `engine/native/cocos/CMakeLists.txt`](#modify-enginenativecocoscmakeliststxt)
-    + [Register the new module to Script Engine](#register-the-new-module-to-script-engine)
-  * [How to Bind a New Module in Developer's Project](#how-to-bind-a-new-module-in-developers-project)
-    + [Bind a simple class](#bind-a-simple-class)
-      - [Create a simple class](#create-a-simple-class)
-      - [Write an interface file](#write-an-interface-file)
-      - [Write a swig config file](#write-a-swig-config-file)
-      - [Generate bindings for project](#generate-bindings-for-project)
-      - [Modify project's CMakeLists.txt](#modify-projects-cmakeliststxt)
-      - [Open project](#open-project)
-      - [Register the new module to Script Engine](#register-the-new-module-to-script-engine-1)
-      - [Test binding](#test-binding)
-      - [Section Conclusion](#section-conclusion)
-    + [Import depended header files](#import-depended-header-files)
-    + [Ignore classes, methods, properties](#ignore-classes-methods-properties)
-      - [Ignore classes](#ignore-classes)
-      - [Ignore methods and properties](#ignore-methods-and-properties)
-    + [Rename classes, methods, properties](#rename-classes-methods-properties)
-    + [Define an attribute](#define-an-attribute)
-      - [Usage](#usage)
-      - [Demo](#demo)
-      - [%attribute_writeonly directive](#%25attribute_writeonly--directive)
-      - [Reference type](#reference-type)
-      - [%arg() directive](#%25arg-directive)
-      - [Don't add `const`](#dont-add-const)
-    + [Configure C++ modules in .i file](#configure-c-modules-in-i-file)
-    + [Multiple swig modules configuration](#multiple-swig-modules-configuration)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # The Tutorial of Swig Workflow in Cocos Creator
 
 ## How to Bind a New Module in Engine
@@ -47,8 +8,7 @@
 
 - Copy the content in [swig-interface-template.i](https://github.com/cocos/cocos-engine/blob/1f928364f4cad22681e7830c53dc7da71a87d11f/native/tools/swig-config/swig-interface-template.i)  to new-engine-module.i
 
-- Add necessary configuration, you refer to the existed  `.i` files in `native/tools/swig-config` directory or refer to [the following section](#How to Bind a New Module in Developer's Project)
-  
+- Add necessary configuration, you refer to the existed  `.i` files in `native/tools/swig-config` directory or refer to [the following section](#How to Bind a New Module in Developer's Project)  
 
 ### Modify swig-config.js
 
@@ -376,7 +336,7 @@ private:
 } // namespace my_ns {
 ```
 
-When Swig parses MyObject.h,  it will not know what `MyRef` is,  it will output a warning in console.
+When Swig parses MyObject.h, it will not know what `MyRef` is, it will output a warning in console.
 
 ```bash
 .../Classes/MyObject.h:7: Warning 401: Nothing known about base class 'MyRef'. Ignored.
@@ -397,7 +357,7 @@ It's simple to fix this issue, we need to let Swig know that MyRef exists by usi
 
 Although Swig doesn't report the error now, the binding code will not be compiled, the error is:
 
-![](MyRefCompileError.jpg)
+![MyRefCompileError](MyRefCompileError.jpg)
 
 We fix this in the next section by `%ignore` directive.
 
@@ -467,7 +427,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 }
 ```
 
-Modify `my-module.i`to skip binding them.
+Modify `my-module.i` to skip binding them.
 
 ```c++
 // my-module.i
@@ -548,7 +508,7 @@ If we want to rename `propertyToBeRenamed` to `coolProperty` and rename `methodT
 %include "MyObject.h"
 ```
 
-If we want to rename `MyObject` class to `MyCoolObject`, I guess you have already known how to do.  Yes, add this line:
+If we want to rename `MyObject` class to `MyCoolObject`, I guess you have already known how to do. Yes, add this line:
 
 ```c++
 %rename(MyCoolObject) my_ns::MyObject;
@@ -569,7 +529,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 }
 ```
 
-Test it, update `my-module.d.ts` and `MyComponent.ts`
+Test it, update `my-module.d.ts` and `MyComponent.ts`. The code example is as follows:
 
 ```c++
 // my-module.d.ts
@@ -622,19 +582,19 @@ Build and run project, get log:
 
 #### Usage
 
-1. Define an attribute (JS property) without setter
+1. Define an attribute (JS property) without `setter`
 
    ```c++
    %attribute(your_namespace::your_class_name, cpp_member_variable_type, js_property_name, cpp_getter_function_name)
    ```
 
-2. Define an attribute (JS property) with getter and setter
+2. Define an attribute (JS property) with `getter` and `setter`
 
    ```c++
    %attribute(your_namespace::your_class_name, cpp_member_variable_type, js_property_name, cpp_getter_function_name, cpp_setter_function_name)
    ```
 
-3. Define an attribute (JS property) without getter
+3. Define an attribute (JS property) without `getter`
 
    ```c++
    %attribute_writeonly(your_namespace::your_class_name, cpp_member_variable_type, js_property_name, cpp_setter_function_name)
@@ -748,7 +708,7 @@ Object.defineProperty(MyNewClass.prototype, 'width', {
 
 #### Reference type
 
-If C++ `get` function returns a reference data type or `set` function accesses a reference data type , don't forget to add `&` suffix in %attribute or %attribute_writeonly directives. The following `ccstd::string&` is an example.
+If C++ `get` function returns a reference data type or `set` function accesses a reference data type, don't forget to add `&` suffix in %attribute or %attribute_writeonly directives. The following `ccstd::string&` is an example.
 
 ```c++
 %attribute_writeonly(cc::ICanvasRenderingContext2D, ccstd::string&, fillStyle, setFillStyle);
@@ -789,13 +749,13 @@ This is because `swig` doesn't know how to deal with comma (`,`) in `std::map<st
 
 Therefore, this line of %attribute directive will be parsed with 6 arguments instead of 5.
 
-To avoid making `swig` confused, we need to use `%arg` directive to tell `swig` that `std::map<std::string, std::string>&` is a whole thing.
+To avoid making `swig` confused, we need to use `%arg` directive to tell `swig` that `std::map<std::string, std::string>&` is a complete declaration.
 
 ```c++
 %attribute(MyNewClass, %arg(std::map<std::string, std::string>&), config, getConfig, setConfig);
 ```
 
-Re-run `node genbindings.js`, the error should have gone.
+Re-run `node genbindings.js`, the error will no longer be reported.
 
 #### Don't add `const` 
 
@@ -921,7 +881,7 @@ export class MyComponent extends Component {
 }
 ```
 
-Generate bindings, look at the binding code
+After generate bindings, the binding code is as follows:
 
 ```c++
 #if USE_MY_FEATURE // NOTE THAT, all binding code of MyFeatureObject is wrapped by USE_MY_FEATURE macro
@@ -975,14 +935,14 @@ bool register_all_my_module(se::Object* obj) {
 }
 ```
 
-Build and run the project, get output as following:
+Build and run the project, the output is as follows:
 
 ```
 18:32:20 [DEBUG]: D/ JS: ==> featureObj: [object Object] // featureObj is valid if USE_MY_FEATURE macro is enabled
 18:32:20 [DEBUG]: ==> MyFeatureObject::foo // Invoke C++ foo method 
 ```
 
-When we don't need MyFeatureObject, set the macro to 0.
+When we don't need `MyFeatureObject`, assign the macro to 0, the code is as follows:
 
 ```c++
 // MyObject.h
@@ -995,7 +955,7 @@ When we don't need MyFeatureObject, set the macro to 0.
 #endif
 ```
 
-Build and run the project
+Build and run the project, the following output can be seen.
 
 ```
 18:54:00 [DEBUG]: D/ JS: ==> featureObj: undefined // getFeatureObject returns undefined if USE_MY_FEATURE is disabled.
@@ -1016,7 +976,7 @@ struct MyAnotherObject {
 } // namespace my_another_ns {
 ```
 
-Update MyObject.h
+Update `MyObject.h`:
 
 ```c++
 // MyObject.h
@@ -1100,7 +1060,7 @@ list(APPEND CC_COMMON_SOURCES
 
 Generate bindings again.
 
-Update Game.cpp
+Update `Game.cpp`:
 
 ```c++
 #include "Game.h"
@@ -1118,9 +1078,9 @@ int Game::init() {
 }
 ```
 
-Build and compile, but get an error
+Build and compile, but the following errors will be reported:
 
-![](another-module-compile-error.jpg)
+![another-module-compile-error](another-module-compile-error.jpg)
 
 Since MyObject class depends on MyAnotherObject which is defined on another module. We need to update `my-module.i` and add `#include "bindings/auto/jsb_another_module_auto.h"`.
 
@@ -1146,7 +1106,7 @@ Since MyObject class depends on MyAnotherObject which is defined on another modu
 // ......
 ```
 
-Compile project. It should compile ok now. 
+Compile project. It should compile success now. 
 
 Next, we update .d.ts
 
@@ -1198,7 +1158,7 @@ export class MyComponent extends Component {
 }
 ```
 
-Build and run project, should get output:
+Build and run project, the following output should be seen. 
 
 ```
 15:05:36 [DEBUG]: ==> helloWithAnotherObject, a: 135.246002, b: 999
