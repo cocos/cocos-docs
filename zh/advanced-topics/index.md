@@ -4,6 +4,7 @@
 - 热更新
     - [热更新范例教程](hot-update.md)
     - [热更新管理器](hot-update-manager.md)
+- [i18n 游戏多语言支持](i18n.md)
 - [动态合图](dynamic-atlas.md)
 - [引擎定制工作流程](engine-customization.md)
 - [网页预览定制工作流程](../editor/preview/browser.md)
@@ -15,4 +16,6 @@
 - [CMake 使用简介](cmake-learning.md)
 - [原生引擎内存泄漏检测系统](memory-leak-detector.md)
 - [原生场景剔除](native-scene-culling.md)
-- [WebSocket 服务器](websocket-server.md)
+- WebSocket
+  - [WebSocket 客户端](websocket.md)
+  - [WebSocket 服务器](websocket-server.md)

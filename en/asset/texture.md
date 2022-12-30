@@ -39,7 +39,7 @@ The following describes the properties of the panel:
 | __Wrap Mode S__ | S (U) direction texture addressing mode |
 | __Wrap Mode T__ | T (V) direction texture addressing mode |
 
-> __Note__: since the default **Wrap Mode** may result in black edges when rendering transparent edges of an image, Creator will change the __Wrap Mode S__ and __Wrap Mode T__ properties of the texture resource to __clamp-to-edge__ automatically when setting the image resource type to __sprite-frame__, which can be modified by the developer if there is a special need.
+> __Note__: since the default __Wrap Mode__ may result in black edges when rendering transparent edges of an image, Creator will change the __Wrap Mode S__ and __Wrap Mode T__ properties of the texture resource to __clamp-to-edge__ automatically when setting the image resource type to __sprite-frame__, which can be modified by the developer if there is a special need.
 
 ### Using Texture2D
 
@@ -60,6 +60,6 @@ __TextureCube__ obtained from a __panorama__ in __Cocos Creator__:
 
 __TextureCube__ obtained by making a __CubeMap__ in __Cocos Creator__:
 
-![CubeMap](../concepts/scene/skybox/Cubemap_Inspector.png)
+![CubeMap](./texture/texture-cube.png)
 
-To learn more about the use of __TextureCube__ and __CubeMaps__, please refer to the [Skybox](../concepts/scene/skybox.md) documentation.
+To learn more about the use of __TextureCube__ and __CubeMaps__, please refer to the [Texure Cube](./texture-cube.md)|[Skybox](../concepts/scene/skybox.md) documentation.

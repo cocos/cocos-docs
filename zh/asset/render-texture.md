@@ -23,84 +23,19 @@
 | **Wrap Mode S** | S（U）方向纹理寻址模式 |
 | **Wrap Mode T** | T（V）方向纹理寻址模式 |
 
-## 使用 RenderTexture
+## 在编辑器使用
 
-使用 RenderTexture 有以下两种方法：
+在相机组件中，给相机的 **TargetTexture** 属性赋予 RenderTexture 可以将相机照射的结果绘制到 RenderTexture 上。
 
-- **方法一**：把 3D 相机照射的内容绘制到 UI 的精灵帧上
+![camera](render-texture/camera.png)
 
-    ```typescript
-    export class CaptureToWeb extends Component {
-        @property(Sprite)
-        sprite: Sprite = null;
-        @property(Camera)
-        camera: Camera = null;
+### 在 2D / UI 中使用
 
-        protected _renderTex: RenderTexture = null;
+RenderTexture 可以像普通贴图一样使用。以 Sprite 为例，从 **资源管理器** 拖拽到 **SpriteFrame** 属性即可。
 
-        start () {
-            const spriteframe = this.sprite.spriteFrame;
-            const sp = new SpriteFrame();
-            sp.reset({
-                originalSize: spriteframe.getOriginalSize(),
-                rect: spriteframe.getRect(),
-                offset: spriteframe.getOffset(),
-                isRotate: spriteframe.isRotated(),
-                borderTop: spriteframe.insetTop,
-                borderLeft: spriteframe.insetLeft,
-                borderBottom: spriteframe.insetBottom,
-                borderRight: spriteframe.insetRight,
-            });
+![sprite rt](render-texture/sprite-rt.png)
 
-            const renderTex = this._renderTex = new RenderTexture();
-            renderTex.reset({
-                width: 256,
-                height: 256,
-                colorFormat: RenderTexture.PixelFormat.RGBA8888,
-                depthStencilFormat: RenderTexture.DepthStencilFormat.DEPTH_24_STENCIL_8
-            });
-            this.camera.targetTexture = renderTex;
-            sp.texture = renderTex;
-            this.sprite.spriteFrame = sp;
-            // 需要手动调用该函数，使 RenderTexture 能在各平台正确显示
-            this.sprite.updateMaterial();
-        }
-    }
-    ```
-
-- **方法二**：把 3D 相机照射的内容绘制到 3D 模型上
-
-    ```typescript
-    export class RenderCameraToModel extends Component {
-        @property(MeshRenderer)
-        model: MeshRenderer = null;
-
-        start () {
-            // Your initialization goes here.
-            const renderTex = new RenderTexture();
-            renderTex.reset({
-                width: 256,
-                height: 256,
-                colorFormat: RenderTexture.PixelFormat.RGBA8888,
-                depthStencilFormat: RenderTexture.DepthStencilFormat.DEPTH_24_STENCIL_8,
-            });
-            const cameraComp = this.getComponent(Camera);
-            cameraComp.targetTexture = renderTex;
-            const pass = this.model.material.passes[0];
-            // 设置 'SAMPLE_FROM_RT' 宏为 'true' 的目的是为了使 RenderTexture 在各个平台能正确显示
-            const defines = { SAMPLE_FROM_RT: true, ...pass.defines };
-            const renderMat = new Material();
-            renderMat.initialize({
-                effectAsset: this.model.material.effectAsset,
-                defines,
-            });
-            this.model.setMaterial(renderMat, 0);
-            renderMat.setProperty('mainTexture', renderTex, 0);
-        }
-    }
-    ```
-
-## 设置 RenderTexture 为材质贴图
+### 设置 RenderTexture 为材质贴图
 
 将 RenderTexture 设置为材质贴图包括以下两个步骤：
 
@@ -118,5 +53,76 @@
 2. 在 **层级管理器** 中选中对应的材质，然后在 **属性检查器** 中勾选 `SAMPLE FROM RT`
 
     ![SAMPLE_FROM_RT](render-texture/SampleFormRT.png)
+
+## 程序化使用
+
+程序化使用 RenderTexture 有以下两种方法：
+
+- **方法一**：把 3D 相机照射的内容绘制到 UI 的精灵帧上
+
+    ```typescript
+    import { _decorator, Component, RenderTexture, SpriteFrame, Sprite, Camera } from 'cc';
+    const { ccclass, property } = _decorator;
+
+    @ccclass('CaptureToWeb')
+    export class CaptureToWeb extends Component {
+        @property(Sprite)
+        sprite: Sprite = null;
+        @property(Camera)
+        camera: Camera = null;
+
+        protected _renderTex: RenderTexture = null;
+
+        start() {
+            const sp = new SpriteFrame();
+            const renderTex = this._renderTex = new RenderTexture();
+            renderTex.reset({
+                width: 256,
+                height: 256,
+            });
+            this.camera.targetTexture = renderTex;
+            sp.texture = renderTex;
+            this.sprite.spriteFrame = sp;
+        }
+    }
+    ```
+
+- **方法二**：把 3D 相机照射的内容绘制到 3D 模型上
+
+    ```typescript
+    import { _decorator, Component, MeshRenderer, RenderTexture, Camera, Material } from 'cc';
+    const { ccclass, property, requireComponent } = _decorator;
+
+    @ccclass("RenderCameraToModel")
+    @requireComponent(Camera)
+    export class RenderCameraToModel extends Component {
+        @property(MeshRenderer)
+        model: MeshRenderer = null;
+
+        start() {            
+            const renderTex = new RenderTexture();
+            renderTex.reset({
+                width: 256,
+                height: 256,
+            });
+            const cameraComp = this.getComponent(Camera);
+            cameraComp.targetTexture = renderTex;
+            const pass = this.model.material.passes[0];
+            // 设置 'SAMPLE_FROM_RT' 宏为 'true' 的目的是为了使 RenderTexture 在各个平台能正确显示
+            const defines = { SAMPLE_FROM_RT: true, ...pass.defines };
+            const renderMat = new Material();
+            renderMat.initialize({
+                effectAsset: this.model.material.effectAsset,
+                defines,
+            });
+            this.model.setMaterial(renderMat, 0);
+            renderMat.setProperty('mainTexture', renderTex, 0);
+        }
+    }
+    ```
+
+    如果要正确的显示绘制结果，请确保着色器拥有 `mainTexture` 属性并已在材质中启用。如果使用是 builtin-standard 着色器，请确保 **USE ALBEDO MAP** 选项被勾选：
+
+    ![use albedo](render-texture/use-albedo.png)
 
 更多使用方法可参考范例 **RenderTexture**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.4/assets/cases/rendertexture) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/rendertexture)）。

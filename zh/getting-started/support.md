@@ -46,7 +46,7 @@
 ### 2D 骨骼动画工具
 
 - [Spine](http://esotericsoftware.com)
-- [Spriter](http://brashmonkey.com/spriter.htm)
+- [Spriter](http://brashmonkey.com/)
 - [DragonBones](http://dragonbones.github.io/)
 
 ### 粒子特效制作工具
