@@ -109,7 +109,7 @@ Import the prepared FBX or glTF file into the engine's **Asset Manager** at
 
 ![import-asset](lod/import-asset.png)
 
-In this case, the resource import system automatically recognizes these nodes and enables LOD Groups for automatic matching.
+In this case, the asset import system automatically recognizes these nodes and enables LOD Groups for automatic matching.
 
 ![auto-match](lod/auto-match.png)
 
