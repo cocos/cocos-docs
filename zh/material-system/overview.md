@@ -18,4 +18,8 @@ Cocos Creator 通过 **材质** 来描述物体外观，例如一个小球是玻
 
 ## 范例
 
+<<<<<<< HEAD
 Creator 提供了材质相关的 **material** 范例（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/material) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/material)），用户可根据需要参考使用。
+=======
+Creator 提供了材质相关的 **material** 范例（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.4/assets/cases/material) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/material)），用户可根据需要参考使用。
+>>>>>>> v3.4-release

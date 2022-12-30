@@ -138,4 +138,8 @@ JsbBridge.sendToScript("SkeletonAnim001", "true");
 
 ## 示例工程：简单的多事件调用
 
+<<<<<<< HEAD
 Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.5/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.5/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。
+=======
+Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos/cocos-example-projects/tree/v3.4/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.4/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。
+>>>>>>> v3.4-release

@@ -14,7 +14,7 @@ A **Joint Texture Layout Settings** panel was added to the editor menu bar **Pan
 
 ## Joint texture layout settings
 
-Use the **instanced-skinning** scenario from the example project [show-cases](https://github.com/cocos-creator/example-3d/tree/v3.5/show-cases/assets/scenes) as an example to see how the joint texture layout is set up and how it works. The following figure shows a sample scene.
+Use the **instanced-skinning** scenario from the example project [show-cases](https://github.com/cocos/cocos-example-projects/tree/v3.5/show-cases/assets/scenes) as an example to see how the joint texture layout is set up and how it works. The following figure shows a sample scene.
 
 The following figure shows a sample scenario with multiple instances from the same model, playing completely different animations at the same time. Notice the current scene, plus the UI, has a total Drawcall of 60 and an instance count of 0. This state will be used as the basis for later changes to compare.
 
