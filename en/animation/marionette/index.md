@@ -36,4 +36,4 @@ States and state transitions are displayed graphically in the Animation Graph pa
 
 ## Example Reference
 
-Creator provides the [Ms.Amoy](https://github.com/cocos-creator/MarionetteDemo) demo project, which demonstrates the use of the Marionette animation system, can be downloaded and used as needed.
+Creator provides the [Ms.Amoy](https://github.com/cocos-creator/example-marionette) demo project, which demonstrates the use of the Marionette animation system, can be downloaded and used as needed.
