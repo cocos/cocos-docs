@@ -27,6 +27,7 @@ Select the node and choose **Add Component -> Spine -> Skeleton** on the **Inspe
 | Debug Mesh            | Whether to show debug information of mesh.
 | Use Tint              | Whether to turn on the tinting effect, off by default.
 | Sockets               | Used to attach certain external nodes to the specified skeleton joints. The value of the property indicates the number of attachment points. For details, please refer to the description below.
+| Enable Batch          | Whether to enable Spine batching |
 
 > **Notes**:
 > 1. The `Anchor` and `Size` properties on the Node component in the **Inspector** panel are invalid when using the Skeleton component.

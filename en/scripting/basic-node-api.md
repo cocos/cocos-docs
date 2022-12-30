@@ -69,7 +69,7 @@ These two methods are equivalent.
 
 `this.node.children` will return an array of all child nodes of the node.
 
-`this.node.childrenCount` will return the number of children of the node.
+`this.node.children.length` will return the number of children of the node.
 
 > **Note**: the above two APIs will only return the direct child nodes of the node, not the child nodes of the child node.
 

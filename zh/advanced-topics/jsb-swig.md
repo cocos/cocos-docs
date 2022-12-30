@@ -11,7 +11,7 @@
 - 执行 `node genbindings.js`
 
 - 如果运行成功，可见如下日志输出
-  
+
   ```
   ======================================================================
       Congratulations, JS binding code was generated successfully!
@@ -24,14 +24,14 @@
 
 - 确保你已经安装了 NodeJS，版本号大于或等于 v8.9.4
 
-- 打开终端 ( macOS / Linux) 或者命令提示符 ( Windows ), 
+- 打开终端 ( macOS / Linux) 或者命令提示符 ( Windows ),
 
 - 创建一个用于存放自动绑定胶水代码的目录，例如： `/Users/abc/my-project/native/engine/common/Classes/bindings/auto`
 
 - 写一个 JS 配置文件
-  
-  - 创建一个 JS 配置文件, 路径例如： `/Users/abc/my-project/tools/swig-config/swig-config.js` ，内容为：
-    
+
+    - 创建一个 JS 配置文件, 路径例如： `/Users/abc/my-project/tools/swig-config/swig-config.js` ，内容为：
+
     ```js
     'use strict';
     const path = require('path');
@@ -56,14 +56,14 @@
         configList // 必填参数
     };
     ```
-  
-  - 执行如下命令
-    
+
+    - 执行如下命令
+
     ```bash
     # 如果当前终端或者命令提示符所在的目录不是在 '/Users/abc/my-project/tools/swig-config'
     $ node < 引擎的根目录 >/native/tools/swig-config/genbindings.js -c /Users/abc/my-project/tools/swig-config/swig-config.js
     ```
-    
+
     ```bash
     # 如果你已经在 '/Users/abc/my-project/tools/swig-config' 目录, 你执行命令的时候可以不需要带上 -c 参数，例如：
     $ cd /Users/abc/my-project/tools/swig-config
@@ -73,7 +73,7 @@
 ## Swig 接口定义文件
 
 - 在引擎的 `engine/native/tools/swig-config` 目录下有一个  [swig-interface-template.i](https://github.com/cocos/cocos-engine/blob/1f928364f4cad22681e7830c53dc7da71a87d11f/native/tools/swig-config/swig-interface-template.i)  模版文件。你可以拷贝其到自己的工程目录下并重命名。此模版文件中包含一些注释用于展示如何在 .i 文件中配置你的模块。你也可以参考在 `engine/native/tools/swig-config` 目录下引擎内部的 .i 文件，例如：参考 `scene.i` 或者 `assets.i` 来快速上手。
-- 如果你使用 `Visual Studio Code`, 你可以安装  `Hong-She Liang`  开发的 `SWIG Language` 扩展，其可用于 .i 文件的语法高亮。 
+- 如果你使用 `Visual Studio Code`, 你可以安装  `Hong-She Liang`  开发的 `SWIG Language` 扩展，其可用于 .i 文件的语法高亮。
 - 关于编写 .i 文件的更多详细信息，建议参考下面 [教程](#Tutorial) 章节。
 
 ## 教程

@@ -11,7 +11,7 @@ From Cocos Creator 3.7.0, we switch the approach of generating JS binding code f
 - Run `node genbindings.js`
 
 - If succeed, you'll see the text:
-  
+
   ```
   ======================================================================
       Congratulations, JS binding code was generated successfully!
@@ -29,9 +29,9 @@ From Cocos Creator 3.7.0, we switch the approach of generating JS binding code f
 - Create a directory for generated code, e.g. `/Users/abc/my-project/native/engine/common/Classes/bindings/auto`
 
 - Write a JS configuration file
-  
-  - Create the JS configruation file, e.g.  `/Users/abc/my-project/tools/swig-config/swig-config.js` with the following content
-    
+
+    - Create the JS configruation file, e.g.  `/Users/abc/my-project/tools/swig-config/swig-config.js` with the following content
+
     ```js
     'use strict';
     const path = require('path');
@@ -56,14 +56,14 @@ From Cocos Creator 3.7.0, we switch the approach of generating JS binding code f
         configList // required
     };
     ```
-  
-  - Run the following command
-    
+
+    - Run the following command
+
     ```bash
     # If current workspace is not in '/Users/abc/my-project/tools/swig-config'
     $ node < Engine Root Path >/native/tools/swig-config/genbindings.js -c /Users/abc/my-project/tools/swig-config/swig-config.js
     ```
-    
+
     ```bash
     # If you have already navigate to '/Users/abc/my-project/tools/swig-config' directory, you could run the command without -c argument like:
     $ cd /Users/abc/my-project/tools/swig-config
@@ -78,4 +78,4 @@ From Cocos Creator 3.7.0, we switch the approach of generating JS binding code f
 
 ## Tutorial
 
-Visit [The Tutorial of Swig Workflow in Cocos Creator](jsb/swig/tutorial/index.md), which includes binding a new module in engine or user's project step by step.    
+Visit [The Tutorial of Swig Workflow in Cocos Creator](jsb/swig/tutorial/index.md), which includes binding a new module in engine or user's project step by step.

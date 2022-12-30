@@ -22,14 +22,14 @@ Asset Bundle 提供的 `loadScene` 只会加载指定 bundle 中的场景，并�
 
 引擎同时只会运行一个场景，当切换场景时，默认会将场景内所有节点和其他实例销毁。如果我们需要用一个组件控制所有场景的加载，或在场景之间传递参数数据，就需要将该组件所在节点标记为「常驻节点」，使它在场景切换时不被自动销毁，常驻内存。我们使用以下接口：
 
-`game.addPersistRootNode(myNode);`
+`director.addPersistRootNode(myNode);`
 
 上面的接口会将 `myNode` 变为常驻节点，这样挂在上面的组件都可以在场景之间持续作用，我们可以用这样的方法来储存玩家信息，或下一个场景初始化时需要的各种数据。
 需要注意的是，目标节点必须为位于层级的根节点，否则设置无效。
 
 如果要取消一个节点的常驻属性：
 
-`game.removePersistRootNode(myNode);`
+`director.removePersistRootNode(myNode);`
 
 需要注意的是上面的 API 并不会立即销毁指定节点，只是将节点还原为可在场景切换时销毁的节点。
 

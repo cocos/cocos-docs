@@ -8,7 +8,7 @@
 
 - 拷贝 [swig-interface-template.i](https://github.com/cocos/cocos-engine/blob/1f928364f4cad22681e7830c53dc7da71a87d11f/native/tools/swig-config/swig-interface-template.i) 文件中的内容到 new-engine-module.i
 
-- 添加必要的配置，可以参考 `native/tools/swig-config`  目录下现有的 .i 文件配置，或者参考[下面的章节内容](#如何为开发者的项目绑定一个新模块)。  
+- 添加必要的配置，可以参考 `native/tools/swig-config`  目录下现有的 .i 文件配置，或者参考[下面的章节内容](#如何为开发者的项目绑定一个新模块)。
 
 ### 修改 swig-config.js 文件
 
@@ -157,8 +157,8 @@ module.exports = {
 #### 为项目生成自动绑定文件
 
 ```bash
-$ cd /Users/james/NewProject/tools/swig-config
-$ node < 引擎根目录 >/native/tools/swig-config/genbindings.js
+cd /Users/james/NewProject/tools/swig-config
+node < 引擎根目录 >/native/tools/swig-config/genbindings.js
 ```
 
 如果成功，包含自动绑定代码的 `jsb_my_module_auto.cpp/.h` 两个文件将被创建到 `/Users/james/NewProject/native/engine/bindings/auto` 目录下。
@@ -198,7 +198,7 @@ $ node < 引擎根目录 >/native/tools/swig-config/genbindings.js
 
 #### 打开项目工程
 
-macOS: `/Users/james/NewProject/build/mac/proj/NewProject.xcodeproj ` 
+macOS: `/Users/james/NewProject/build/mac/proj/NewProject.xcodeproj`
 
 Windows: `< 一个存放项目的目录 >/NewProject/build/win64/proj/NewProject.sln`
 
@@ -703,7 +703,7 @@ Object.defineProperty(MyNewClass.prototype, 'width', {
   set(v) {
     this._width = v;
   },
-	// No get() for property
+ // No get() for property
 });
 ```
 
@@ -724,10 +724,10 @@ Object.defineProperty(MyNewClass.prototype, 'width', {
 ```c++
 class MyNewClass {
   public:
-		const std::map<std::string, std::string>& getConfig() const { return _config; }
-  	void setConfig(const std::map<std::string, std::string> &config) { _config = config; }
+  const std::map<std::string, std::string>& getConfig() const { return _config; }
+   void setConfig(const std::map<std::string, std::string> &config) { _config = config; }
   private:
-  	std::map<std::string, std::string> _config;
+   std::map<std::string, std::string> _config;
 };
 ```
 
@@ -758,9 +758,9 @@ Error: Macro '%attribute_custom' expects 7 arguments
 
 重新执行 `node genbindings.js`，之前的错误即消失了。
 
-#### 不要添加 `const` 
+#### 不要添加 `const`
 
-在上一示例中，我们在 %attribute 指令中使用 `%arg(std::map<std::string, std::string>&)`。你可能会考虑在 `std::map` 前面添加一个 `const` 前缀，比如：`%arg(const std::map<std::string, std::string>&)`。如果你这样做了，你将添加一个 **只读的**、只绑定 `MyNewClass::getConfig ` 的 `config` 属性。这明显不是我们所期望的。如果我们需要属性是只读的，只需要不配置 `setter` 函数即可。
+在上一示例中，我们在 %attribute 指令中使用 `%arg(std::map<std::string, std::string>&)`。你可能会考虑在 `std::map` 前面添加一个 `const` 前缀，比如：`%arg(const std::map<std::string, std::string>&)`。如果你这样做了，你将添加一个 **只读的**、只绑定 `MyNewClass::getConfig` 的 `config` 属性。这明显不是我们所期望的。如果我们需要属性是只读的，只需要不配置 `setter` 函数即可。
 
 ```c++
 // 不配置 setConfig 意味着属性是只读的

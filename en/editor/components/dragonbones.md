@@ -25,6 +25,7 @@ In the **Hierarchy** panel, select the node where you want to add the ArmatureDi
 | PremultipliedAlpha    | Whether the image is enabled for texture pre-multiplied, default is True.<br>This item needs to be turned off when the transparent area of the image appears color blocked. <br>Enabled when the translucent areas of the image become black.
 | DebugBones            | Whether to show debug information for bone
 | Sockets               | Used to attach certain external nodes to the specified skeleton joints. The value of the property indicates the number of attachment points. For details, please refer to the description below.
+| Enable Batch          | Whether to enable batching |
 
 > **Notes**:
 > 1. The **Anchor** and **Size** properties on the Node component in the **Inspector** panel are disabled when using the ArmatureDisplay component.
