@@ -360,4 +360,6 @@
     - [CMake 使用简介](advanced-topics/cmake-learning.md)
     - [原生引擎内存泄漏检测系统](advanced-topics/memory-leak-detector.md)
     - [原生场景剔除](advanced-topics/native-scene-culling.md)
-    - [WebSocket 服务器](advanced-topics/websocket-server.md)
+    - WebSocket
+        - [WebSocket 服务器](advanced-topics/websocket-server.md)
+        - [WebSocket 客户端](advanced-topics/websocket.md)
