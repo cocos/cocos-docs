@@ -125,7 +125,7 @@ Click on the fifth **Transform snapping configuration** button in the toolbar in
 | :-- | :-- |
 | ![position snap](bar_img/moveing.png)| This button is used to set whether to enable the automatic snapping when using the **Move Transform Tool**. X, Y, and Z are used to set the move steps on the X, Y, and Z axes respectively, and the default X, Y, and Z values are the same for X, or you can click the ![position snap](img/position-snap1.png) button to set the step size for each axis separately.  |
 | ![rotation snap](bar_img/rotating.png)| This button is used to set whether to enable automatic snapping when using the **Rotation Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
-| ![scale snap](bar_img/scaling.png)| This button is used to set whether to enable automatic snapping when using the **Scale Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
+| ![scale snap](bar_img/scaling.png)| This button is used to set whether to enable automatic snapping when using the **Scale Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. <br> Please note that the scale snap is a factor, not an absolute value.|
 
 ![snap rotating](images/enable-snaping-rotating.gif)
 
