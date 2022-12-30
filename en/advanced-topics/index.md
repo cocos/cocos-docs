@@ -16,7 +16,6 @@
 - [CMake Usage Introduction](cmake-learning.md)
 - [Native engine memory leak detection system](memory-leak-detector.md)
 - [Native Scene Culling](native-scene-culling.md)
-- [WebSocket Server](websocket-server.md)
 - [Native Plugins](native-plugins/brief.md)
     - [Native Plugins Quick tutorial](native-plugins/tutorial.md)
 - WebSocket
