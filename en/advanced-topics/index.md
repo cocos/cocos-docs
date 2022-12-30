@@ -13,5 +13,5 @@
 - [Native engine memory leak detection system](memory-leak-detector.md)
 - [Native Scene Culling](native-scene-culling.md)
 - WebSocket
-    - [WebSocket Client](websocket.md)
     - [WebSocket Server](websocket-server.md)
+    - [WebSocket Client](websocket.md)
