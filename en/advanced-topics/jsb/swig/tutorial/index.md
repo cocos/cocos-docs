@@ -881,7 +881,7 @@ export class MyComponent extends Component {
 }
 ```
 
-After generate bindings, the binding code is as follows:
+After generating bindings, the binding code is as follows:
 
 ```c++
 #if USE_MY_FEATURE // NOTE THAT, all binding code of MyFeatureObject is wrapped by USE_MY_FEATURE macro

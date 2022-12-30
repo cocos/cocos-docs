@@ -12,7 +12,7 @@
 - **弹弹乐 3D**（[GitHub](https://github.com/cocos/cocos-example-ball) | [Gitee](https://gitee.com/cocos/demo-ball) | [Cocos Store](https://store.cocos.com/app/detail/2802)）：用户可通过此项目制作弹弹球游戏。
 - **快上车 3D**（[GitHub](https://github.com/cocos/cocos-tutorial-taxi-game) | [Gitee](https://gitee.com/cocos/tutorial-taxi-game) | [Cocos Store](https://store.cocos.com/app/detail/2796)）：基于物理的游戏制作 demo，用户可通过此项目制作快上车游戏。
 
->所有 GitHub 上的演示和范例项目都会跟随版本进行更新，主分支对应最新的 Cocos Creator 版本，下载的时候请注意。
+> 所有 GitHub 上的演示和范例项目都会跟随版本进行更新，主分支对应最新的 Cocos Creator 版本，下载的时候请注意。
 
 ## 教程
 
@@ -38,9 +38,8 @@
 
 - [【CocosCreator 3.x 自定义渲染材质方案分享】第一期](https://forum.cocos.org/t/topic/131501)
 - [【CocosCreator 3.x 自定义渲染材质方案分享】第二期](https://forum.cocos.org/t/topic/137605)
-- [【CocosCreator 3.x 自定义渲染材质方案分享】第三期](https://forum.cocos.org/t/topic/140525)  
+- [【CocosCreator 3.x 自定义渲染材质方案分享】第三期](https://forum.cocos.org/t/topic/140525)
 - [Cocos Creator 3.x 学习资料整理](https://forum.cocos.org/t/topic/122399)
-  
 
 ## 更多
 
