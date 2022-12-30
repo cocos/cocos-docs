@@ -31,10 +31,13 @@
     - [Cocos Creator 3.1 Material Upgrade Guide](material-system/Material-upgrade-documentation-for-v3.0-to-v3.1.md)
     - [Cocos Creator 3.5 Material Upgrade Guide](material-system/effect-upgrade-documentation-for-v3.4.2-to-v3.5.md)
     - [Cocos Creator 3.5 Native Built Project Upgrade Guide](engine/template/native-upgrade-to-v3.5.md)
+<<<<<<< HEAD
     - [Cocos Creator 3.6 Native Built Project Upgrade Guide](engine/template/native-upgrade-to-v3.6.md)
     - [Cocos Creator 3.6.0 Build Template and settings.json Upgrade Guide](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Upgrade Guide: Effect from v3.5.x to v3.6.0](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
     - [Upgrade Guide: Particle from v3.5.x to v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
+=======
+>>>>>>> v3.5-release
 
 ## Basic Workflow
 
@@ -366,6 +369,8 @@
     - [Event Mecanism based on JsbBridge](advanced-topics/jsb-bridge-wrapper.md)
     - [CMake Usage Introduction](advanced-topics/cmake-learning.md)
     - [Native engine memory leak detection system](advanced-topics/memory-leak-detector.md)
-    - [Native Scene Culling](advanced-topics/native-scene-culling.md)
-    - [WebSocket Server](advanced-topics/websocket-server.md)
+    - [Native Scene Culling](advanced-topics/native-scene-culling.md)    
     - [Cocos Native Plugin Quick Tutorial](advanced-topics/native-plugins/tutorial.md)
+    - WebSocket
+        - [WebSocket Server](advanced-topics/websocket-server.md)
+        - [WebSocket Client](advanced-topics/websocket.md)
