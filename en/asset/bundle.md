@@ -133,7 +133,7 @@ After building, the Asset Bundle folder will be packaged into the **assets** fol
 
 Each folder contained within these three folders **assets**, **remote** and **subpackages** is an Asset Bundle.
 
-**For example**, if the **cases/01_graphics** folder in the [example-case](https://github.com/cocos-creator/example-3d) is configured as an Asset Bundle on the Web Mobile platform, then after the project is built, a **01_graphics** folder is generated in the **assets** folder in the release package directory, and the **01_graphics** folder is an Asset Bundle.
+**For example**, if the **cases/01_graphics** folder in the [example-case](https://github.com/cocos/cocos-example-projects) is configured as an Asset Bundle on the Web Mobile platform, then after the project is built, a **01_graphics** folder is generated in the **assets** folder in the release package directory, and the **01_graphics** folder is an Asset Bundle.
 
 ![asset-bundle](./subpackage/asset-bundle.png)
 
