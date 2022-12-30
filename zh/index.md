@@ -26,7 +26,7 @@
 
 ## 演示和范例项目
 
-- **展示范例集合**（[GitHub](https://github.com/cocos-creator/example-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d)）：从基本组件的使用到渲染效果的展示，这个项目里包括了多个侧重功能不同的场景及多个游戏 Demo 供用户参考
+- **展示范例集合**（[GitHub](https://github.com/cocos/cocos-example-projects) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d)）：从基本组件的使用到渲染效果的展示，这个项目里包括了多个侧重功能不同的场景及多个游戏 Demo 供用户参考
 - **功能示例** （[Github](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets) | [Gitee](https://gitee.com/cocos/cocos-test-projects?_from=gitee_search)）:包含大部分引擎功能以及组件的使用。
 - **一步两步**（[GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-mind-your-step-3d)）：也就是 [快速上手](getting-started/first-game/index.md) 文档里分步讲解制作的游戏
 - **物理测试范例**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.6/physics-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.6/physics-3d)）：包含了一些物理测试例和案例工程，如吞噬黑洞、简化小车、坠落小球等，介绍了一些基础的功能和使用方法，方便用户结合文档了解物理功能。
