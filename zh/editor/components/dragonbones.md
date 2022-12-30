@@ -25,6 +25,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 | PremultipliedAlpha    | 图片是否启用贴图预乘，默认为 True。<br>当图片的透明区域出现色块时需要关闭该项。<br>当图片的半透明区域颜色变黑时需要启用该项
 | DebugBones            | 是否显示 bone 的 debug 信息
 | Sockets               | 用于将某些外部节点挂到指定的骨骼关节上，属性的值表示挂点的数量。详情请参考下文介绍。
+| Enable Batch          | 是否开启合批
 
 > **注意**：
 > 1. 当使用 ArmatureDisplay 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。

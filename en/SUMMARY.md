@@ -34,6 +34,7 @@
     - [Cocos Creator 3.6 Native Built Project Upgrade Guide](engine/template/native-upgrade-to-v3.6.md)
     - [Cocos Creator 3.6.0 Build Template and settings.json Upgrade Guide](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Upgrade Guide: Effect from v3.5.x to v3.6.0](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
+    - [Upgrade Guide: Particle from v3.5.x to v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
 
 ## Basic Workflow
 
@@ -112,7 +113,6 @@
         - [Publish to HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [Publish to Alipay Mini Game](editor/publish/publish-alipay-mini-game.md)
         - [Publish to ByteDance Mini Game](editor/publish/publish-bytedance-mini-game.md)
-        - [Publish to Cocos Play](editor/publish/publish-cocos-play.md)
         - [Publish to Huawei Quick Game](editor/publish/publish-huawei-quick-game.md)
         - [Publish to OPPO Mini Game](editor/publish/publish-oppo-mini-game.md)
         - [Publish to vivo Mini Game](editor/publish/publish-vivo-mini-game.md)
@@ -123,6 +123,7 @@
             - [Access to the WeChat PC Mini Game](editor/publish/publish-pc-wechatgame.md)
         - [Access to Open Data Context](editor/publish/build-open-data-context.md)
         - [Mini Game Subpackage](editor/publish/subpackage.md)
+        - [Publish to Cocos Play](editor/publish/publish-cocos-play.md)
     - [Publish from the Command Line](editor/publish/publish-in-command-line.md)
     - [Build Process with FAQ](editor/publish/build-guide.md)
     - [Custom Project Build Process](editor/publish/custom-project-build-template.md)
@@ -173,6 +174,7 @@
         - [Line](particle-system/line-component.md)
     - [Skybox](concepts/scene/skybox.md)
     - [Global Fog](concepts/scene/fog.md)
+    - [Geometry Renderer](geometry-renderer/index.md)
 
 - [2D Objects](2d-object/index.md)
     - [2D Render](2d-object/2d-render/index.md)
@@ -315,6 +317,13 @@
     - [Pipeline and Task](asset/pipeline-task.md)
     - [Resource Management Considerations --- meta files](asset/meta.md)
 
+- [Localization](editor/l10n/overview.md)
+    - [Translation Service Provider](editor/l10n/translation-service.md)
+    - [Collect and Count](editor/l10n/collect-and-count.md)
+    - [Compile Language](editor/l10n/compile-language.md)
+    - [L10nLabel](editor/l10n/l10n-label.md)
+    - [Sample](editor/l10n/script-using.md)
+
 ## Advanced Tutorials
 
 - [Editor Extension](editor/extension/readme.md)
@@ -352,6 +361,8 @@
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [Web Preview Customization Workflow](editor/preview/browser.md)
     - [The Tutorial for JSB 2.0](advanced-topics/JSB2.0-learning.md)
+        - [Swig](advanced-topics/jsb-swig.md)
+        - [Swig Tutorial](advanced-topics/jsb/swig/tutorial/index.md)
     - [JavaScript to Java Reflection](advanced-topics/js-java-bridge.md)
     - [JavaScript to Objective-C Reflection](advanced-topics/js-oc-bridge.md)
     - [Event Mecanism based on JsbBridge](advanced-topics/jsb-bridge-wrapper.md)
@@ -360,3 +371,4 @@
     - [Native Scene Culling](advanced-topics/native-scene-culling.md)
     - [WebSocket Server](advanced-topics/websocket-server.md)
     - [Cocos Native Plugin Quick Tutorial](advanced-topics/native-plugins/tutorial.md)
+    - [User Data Storage](advanced-topics/data-storage.md)

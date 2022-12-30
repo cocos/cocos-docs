@@ -153,7 +153,7 @@ export class AudioDemo extends Component {
 
 ## Web 平台的播放限制
 
-目前 Web 平台的音频播放需要遵守最新的 [Audio Play Police](https://www.chromium.org/audio-video/autoplay)，即使 **AudioSource** 组件设置了 `playOnAwake`，也需要在触摸事件中手动播放音频，如下所示：
+目前 Web 平台的音频播放需要遵守最新的 [Audio Play Policy](https://www.chromium.org/audio-video/autoplay)，即使 **AudioSource** 组件设置了 `playOnAwake`，也需要在触摸事件中手动播放音频，如下所示：
 
 ```typescript
 // AudioController.ts

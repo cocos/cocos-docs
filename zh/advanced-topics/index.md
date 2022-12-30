@@ -12,6 +12,8 @@
     - [JSB 手动绑定](jsb-manual-binding.md)
     - [JSB 自动绑定](jsb-auto-binding.md)
     - [sebind](jsb-sebind.md)
+    - [Swig](jsb-swig.md)
+        - [Swig 示例](jsb/swig/tutorial/index.md)
 - [Java 原生反射机制](js-java-bridge.md)
 - [Objective-C 原生反射机制](js-oc-bridge.md)
 - [CMake 使用简介](cmake-learning.md)
@@ -21,3 +23,6 @@
 - [WebSocket 服务器](websocket-server.md)
 - [原生插件](native-plugins/brief.md)
     - [原生插件创建范例](native-plugins/tutorial.md)
+- WebSocket
+    - [WebSocket 客户端](websocket.md)
+    - [WebSocket 服务器](websocket-server.md)

@@ -200,7 +200,7 @@ Here it is still important to state that if anyone gets an error when importing,
     "build-proto:pbts": "pbts --main --out ./Proto.js/proto.d.ts ./Proto.js/*.js && node ./Tools/wrap-pbts-result.js"
     ```
 
-Eventually, it will be ready to run directly. For the full project content, please refer to: [npm-case](https://github.com/cocos-creator/example-3d/tree/master/npm-case).
+Eventually, it will be ready to run directly. For the full project content, please refer to: [npm-case](https://github.com/cocos/cocos-example-projects/tree/master/npm-case).
 
 > **Note**: the packaged JavaScript file can be placed in the `assets` directory of the project or elsewhere in the project. The js file in the `assets` directory no longer needs to be checked for export as a plugin, please be aware of that.
 

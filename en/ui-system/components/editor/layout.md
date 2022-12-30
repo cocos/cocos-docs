@@ -31,7 +31,7 @@ To use `Layout`, please refer to the [Layout API](__APIDOC__/en/class/Layout) do
 
 ## Detailed Explanation
 
-After adding the `Layout` component, the default layout type is __NONE__, you can toggle the container alignment type by modifying `Type` in **Inspector**. The types are **HORIZONTAL**, **VERTICAL** and **GRID** layouts. Also, `ResizeMode` is supported for all layout types except **NONE**.
+After adding the `Layout` component, the default layout type is __NONE__, you can toggle the container alignment type by modifying `Type` in __Inspector__. The types are __HORIZONTAL__, __VERTICAL__ and __GRID__ layouts. Also, `ResizeMode` is supported for all layout types except __NONE__.
 
 - The modes of `Resize Mode`:
 

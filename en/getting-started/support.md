@@ -14,10 +14,6 @@ Apart from the information provided in this guide, you can also obtain informati
 - [Submit PR for Cocos Engine on GitHub](../submit-pr/submit-pr.md)
 - [Submit Issues for Cocos Engine on Github](https://github.com/cocos/cocos-engine/issues/new/choose)
 
-## Cocos Store
-
-- [Cocos Store](http://store.cocos.com/)：Various art assets, extensions, source codes, learning demos and practical solutions.
-
 ## Third-party tools you may need
 
 ### Code IDE

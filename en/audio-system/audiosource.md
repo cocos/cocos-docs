@@ -153,7 +153,7 @@ export class AudioDemo extends Component {
 
 ## Web platform playback restrictions
 
-Audio playback on the Web platform currently requires compliance with the latest [Audio Play Police](https://www.chromium.org/audio-video/autoplay), and even if the **AudioSource** component has `playOnAwake` set, the audio needs to be played manually in the touch event, as follows:
+Audio playback on the Web platform currently requires compliance with the latest [Audio Play Policy](https://www.chromium.org/audio-video/autoplay), and even if the **AudioSource** component has `playOnAwake` set, the audio needs to be played manually in the touch event, as follows:
 
 ```typescript
 // AudioController.ts

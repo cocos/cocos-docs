@@ -46,7 +46,9 @@ After batching, the original transform of `MeshRenderer` cannot be changed, but 
 
 ## Dynamic Batching
 
-The engine currently provides two sets of dynamic batching systems, **instancing batching** and **VB-merging batching**. The two methods cannot coexist, and the priority of instancing is greater than that of dynamic merging VB. To enable batching, simply check the `USE_INSTANCING` or `USE_BATCHING` switch in the material used in the model.
+The engine currently provides **instancing batching** .
+
+To turn on batching, simply check the corresponding `USE_INSTANCING` switch in the material used by the model.
 
 > **Note**: the current batching process introduces several limitations:
 >
@@ -64,19 +66,18 @@ In addition, inside each group, the instanced attributes supports custom additio
 
 ### VB-merging Batching
 
-__VB-merging batching__ is suitable for drawing a large number of non-skinned dynamic models with low number of faces and different vertex data. When enabled, drawing will be grouped according to the material, and then the vertex and world transformation information will be merged in each frame of each group, and then completed in batches[^1].
+VB-merging batching will do some operations such as merging vertices per frame introduce a portion of CPU overhead, which is particularly expensive in JavaScript. Abuse without rigorous testing can cause performance degradation, **This feature has been removed in 3.6.2, so please use Instancing or static batching as a preference instead.**
 
-Operations such as merging vertices per frame introduce a portion of CPU overhead, which is particularly expensive in JavaScript. In addition, it is necessary to remind that the number of __draw calls__ is not as low as possible. Although, it is important to note, minimizing the number of draw calls to the extreme doesn't necessarily lead to the best (or even good) performance[^2]. Optimal performance is often the result of CPU and GPU load balancing, so when using batch functions, be sure to do more tests to identify performance bottlenecks and do targeted optimization.
+In addition, it is necessary to remind that <font color=#ff0000>the number of draw calls is not is not the only performance metric[^2]</font>. Optimal performance is often the result of CPU and GPU load balancing, so when using batch functions, be sure to do more tests to identify performance bottlenecks and do targeted optimization.
 
 ## Batch Best Practices
 
-Generally speaking, the priority of the batch system is: **static batching** -> **instancing batching** -> **VB-merging batching**.
+Generally speaking, the priority of the batch system is: **static batching** -> **instancing batching**.
 
 The material must be insured that it is consistent, under this premise:
 
 - If you are certain that certain models will remain completely static during the game cycle, use **static batching**.
 - If there are a large number of the same model repeated drawing, there is only a relatively controllable small difference between each other, use **instancing batching**.
-- If there are a large number of models with very low number of triangles but different vertex data, consider trying **VB-merging batching**.
 
 ## Preview Model
 
