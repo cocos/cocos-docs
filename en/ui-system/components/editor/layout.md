@@ -6,7 +6,7 @@ __Layout__ is a component for UI container nodes. This component provide to the 
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI -> Layout__ to add the __Layout__ component to the node.
 
-To use `Layout`, please refer to the [Layout API](__APIDOC__/en/class/Layout) documentation and the [05.layout example](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/05.layout) of the **test-cases-3d** project.
+To use `Layout`, please refer to the [Layout API](__APIDOC__/en/class/Layout) documentation and the [05.layout example](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/05.layout) of the __test-cases-3d__ project.
 
 ## Layout Properties
 
@@ -31,7 +31,7 @@ To use `Layout`, please refer to the [Layout API](__APIDOC__/en/class/Layout) do
 
 ## Detailed Explanation
 
-After adding the `Layout` component, the default layout type is __NONE__, you can toggle the container alignment type by modifying `Type` in **Inspector**. The types are **HORIZONTAL**, **VERTICAL** and **GRID** layouts. Also, `ResizeMode` is supported for all layout types except **NONE**.
+After adding the `Layout` component, the default layout type is __NONE__, you can toggle the container alignment type by modifying `Type` in __Inspector__. The types are __HORIZONTAL__, __VERTICAL__ and __GRID__ layouts. Also, `ResizeMode` is supported for all layout types except __NONE__.
 
 - The modes of `Resize Mode`:
 
