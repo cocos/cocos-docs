@@ -34,13 +34,10 @@
     - [资源分包升级指南](asset/subpackage-upgrade-guide.md)
     - [资源管理模块升级指南](asset/asset-manager-upgrade-guide.md)
     - [v3.5 已构建工程升级指南](engine/template/native-upgrade-to-v3.5.md)
-<<<<<<< HEAD
     - [v3.6 已构建工程升级指南](engine/template/native-upgrade-to-v3.6.md)
     - [v3.6 构建模板与 settings.json 升级指南](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Cocos Creator 3.6 材质升级指南](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
     - [升级指南：粒子从 v3.5.x 升级到 v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
-=======
->>>>>>> v3.5-release
 
 ## 工作流
 
