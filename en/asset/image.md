@@ -1,6 +1,6 @@
 # Images
 
-__Image__ assets are generally created using image processing software (such as __Photoshop__, __Paint__ on Windows, etc) and output into file formats that __Cocos Creator__ can use, currently including `.jpg`, `.png`, `.bmp`, `.tga`, `.hdr`.
+__Image__ assets are generally created using image processing software (such as __Photoshop__, __Paint__ on Windows, etc) and output into file formats that __Cocos Creator__ can use, currently including __JPG__、__PNG__、__BMP__、__TGA__、__HDR__、__WEBBP__、__PSD__、__PSD__、__TIFF__.
 
 ## Importing image assets
 

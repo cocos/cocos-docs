@@ -1,6 +1,6 @@
 # Summary
 
-[Cocos Creator 3.6 用户手册](index.md)
+[Cocos Creator 3.7 用户手册](index.md)
 
 ## 基础使用
 
@@ -22,8 +22,8 @@
     - [工具栏](editor/toolbar/index.md)
     - [编辑器布局](editor/editor-layout/index.md)
     - [预览调试](editor/preview/index.md)
+- [示例与教程](cases-and-tutorials/index.md)
 - [获取帮助和支持](getting-started/support.md)
-- [注意事项](getting-started/attention/index.md)
 - [快速上手：制作第一个游戏](getting-started/first-game/index.md)
 - [升级指南](release-notes/index.md)
     - [v3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
@@ -37,6 +37,7 @@
     - [v3.6 已构建工程升级指南](engine/template/native-upgrade-to-v3.6.md)
     - [v3.6 构建模板与 settings.json 升级指南](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Cocos Creator 3.6 材质升级指南](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
+    - [升级指南：粒子从 v3.5.x 升级到 v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
 
 ## 工作流
 
@@ -46,6 +47,7 @@
     - [坐标系和节点变换](concepts/scene/coord.md)
     - [节点层级和渲染顺序](concepts/scene/node-tree.md)
     - [使用场景编辑器搭建场景](concepts/scene/scene-editing.md)
+    - [多层次细节](editor/rendering/lod.md)
 
 - [资源系统](asset/index.md)
     - [资源工作流](asset/asset-workflow.md)
@@ -119,7 +121,6 @@
         - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [发布到支付宝小游戏](editor/publish/publish-alipay-mini-game.md)
         - [发布到字节跳动小游戏](editor/publish/publish-bytedance-mini-game.md)
-        - [发布到 Cocos Play](editor/publish/publish-cocos-play.md)
         - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
         - [发布到 vivo 小游戏](editor/publish/publish-vivo-mini-game.md)
@@ -130,6 +131,7 @@
             - [接入微信 PC 小游戏](editor/publish/publish-pc-wechatgame.md)
         - [开放数据域](editor/publish/build-open-data-context.md)
         - [小游戏分包](editor/publish/subpackage.md)
+        - [发布到 Cocos Play](editor/publish/publish-cocos-play.md)
     - [命令行发布项目](editor/publish/publish-in-command-line.md)
     - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [定制项目的构建模版](editor/publish/custom-project-build-template.md)
@@ -185,6 +187,7 @@
         - [线段组件](particle-system/line-component.md)
     - [天空盒](concepts/scene/skybox.md)
     - [全局雾](concepts/scene/fog.md)
+    - [几何渲染器](geometry-renderer/index.md)
 
 - [2D 对象](2d-object/index.md)
     - [2D 渲染](2d-object/2d-render/index.md)
@@ -252,7 +255,7 @@
     - [程序化控制动画](animation/animation-component.md)
         - [动画状态](animation/animation-state.md)
     - [变形动画](animation/morph.md)
-    - [嵌入播放器](animation/embeded-player.md)
+    - [嵌入播放器](animation/embedded-player.md)
     - [Marionette 动画系统](animation/marionette/index.md)
         - [动画图资源](animation/marionette/animation-graph.md)
         - [动画控制器组件参考](animation/marionette/animation-controller.md)
@@ -337,6 +340,15 @@
     - [L10nLabel 组件](editor/l10n/l10n-label.md)
     - [示例](editor/l10n/script-using.md)
 
+- [XR](xr/index.md)
+    - [VR](xr/vr/index.md)
+        - [XR 项目创建](xr/vr/template.md)
+        - [扩展安装](xr/vr/extension.md)
+        - [内置资源与预制体](xr/vr/prefab.md)
+        - [XR 组件](xr/vr/component.md)
+        - [预览](xr/vr/preview.md)
+        - [构建与发布](xr/vr/build.md)
+
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
@@ -392,6 +404,8 @@
     - [JSB 2.0 使用指南](advanced-topics/JSB2.0-learning.md)
         - [JSB 手动绑定](advanced-topics/jsb-manual-binding.md)
         - [JSB 自动绑定](advanced-topics/jsb-auto-binding.md)
+        - [Swig](advanced-topics/jsb-swig.md)
+            - [Swig 示例](advanced-topics/jsb/swig/tutorial/index.md)
     - [Java 原生反射机制](advanced-topics/js-java-bridge.md)
     - [Objective-C 原生反射机制](advanced-topics/js-oc-bridge.md)
     - [JsbBridgeWrapper 基于原生反射机制的事件处理](advanced-topics/jsb-bridge-wrapper.md)
@@ -399,5 +413,9 @@
     - [原生引擎内存泄漏检测系统](advanced-topics/memory-leak-detector.md)
     - [原生场景剔除](advanced-topics/native-scene-culling.md)
     - [原生性能剖析器](advanced-topics/profiler.md)
-    - [WebSocket 服务器](advanced-topics/websocket-server.md)
     - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
+    - [存储和读取用户数据](advanced-topics/data-storage.md)
+    - [HTTP 请求](advanced-topics/http.md)
+    - WebSocket
+        - [WebSocket 服务器](advanced-topics/websocket-server.md)
+        - [WebSocket 客户端](advanced-topics/websocket.md)

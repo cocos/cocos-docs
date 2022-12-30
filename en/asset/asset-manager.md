@@ -36,7 +36,6 @@ The relevant APIs are listed below:
 | **Scene**        | Asset Bundle   | loadScene  | N/A          | preloadScene | N/A | getSceneInfo    |
 | **Single Asset** | `resources` | load       | release      | preload      | get | getInfoWithPath |
 | **Directory**    | `resources` | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
-| **Script**       | Asset Manager  | loadScript | N/A          | N/A          | N/A | N/A             |
 | **Remote Asset** | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A | N/A             |
 
 References documentations:

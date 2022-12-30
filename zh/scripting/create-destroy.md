@@ -38,7 +38,7 @@ export class test extends Component {
         let scene = director.getScene();
         let node = instantiate(this.target);
 
-        node.parent = scene;
+        scene.addChild(node);
         node.setPosition(0, 0,-10);
     }
 }
@@ -62,7 +62,7 @@ export class test extends Component {
         let scene = director.getScene();
         let node = instantiate(this.target);
 
-        node.parent = scene;
+        scene.addChild(node);
         node.setPosition(0,0,0);
     }
 }

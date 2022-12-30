@@ -1,6 +1,9 @@
 # Publish to Baidu Mini Games
 
-> **Note**: some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
+> **Note**:
+> 1. As of November 30, 2022, the publishing and building of Baidu mini-games will no longer be supported as the relevant contract has expired.
+>
+> 2. some platforms only have Chinese documentation available when visiting the platform's website. It may be necessary to use Google Translate in-order to review the documentation.
 
 **Cocos Creator** officially supports the release of games to the **Baidu Mini Games**.
 

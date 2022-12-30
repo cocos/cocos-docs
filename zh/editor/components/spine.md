@@ -27,7 +27,8 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 | DebugBones           | 是否显示骨骼的 Debug 信息
 | DebugMesh            | 是否显示 Mesh 的 Debug 信息
 | UseTint              | 是否开启染色效果，默认关闭。
-| Sockets              | 用于将某些外部节点挂到指定的骨骼关节上，属性的值表示挂点的数量。详情请参考下文介绍。
+| Sockets              | 用于将某些外部节点挂到指定的骨骼关节上，属性的值表示挂点的数量。详情请参考下文介绍。|
+| Enable Bacth         | 是否开启 Spine 合批 |
 
 > **注意**：
 > 1. 当使用 Spine Skeleton 组件时，**属性检查器** 中 Node 组件上的 **Anchor** 与 **Size** 属性是无效的。

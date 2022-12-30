@@ -38,4 +38,4 @@ A state machine as displayed in the Animation Graph panel is demonstrated in the
 
 ## Example Project
 
-To learn more and experiment with the Marionette system, users may access the example project [*Ms. Amoy*](https://github.com/cocos-creator/example-marionette) with the link provided.
+Creator provides the [Ms.Amoy](https://github.com/cocos-creator/example-marionette) demo project, which demonstrates the use of the Marionette animation system, can be downloaded and used as needed.
