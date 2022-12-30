@@ -104,7 +104,6 @@ Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为�
 
 | 宏名                          | 说明                      |
 | :---------------------------- | :------------------------ |
-| USE_BATCHING | 是否启用动态 VB 合并式合批 |
 | USE_INSTANCING | 是否启用动态 instancing |
 | USE_OUTLINE_PASS              | 是否启用描边 Pass         |
 | USE_NORMAL_MAP                | 是否使用法线贴图          |

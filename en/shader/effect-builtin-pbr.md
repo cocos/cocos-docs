@@ -181,7 +181,6 @@ Open `builtin-standard.effect` in the `internal -> effects` directory in the **I
 
 | Macro | Description |
 | :---- | :--- |
-| USE_BATCHING | Whether to enable dynamic mesh batching |
 | USE_INSTANCING | Whether to enable GPU Geomerty Instancing |
 | HAS_SECOND_UV | Whether there is a secondary UV  |
 | ALBEDO_UV | Specify the UVs used for the albedo color map, the first set is used by default |
@@ -192,8 +191,8 @@ Open `builtin-standard.effect` in the `internal -> effects` directory in the **I
 | USE_ALBEDO_MAP | Whether to use albedo color reflection mapping |
 | USE_NORMAL_MAP | Whether to use normal map |
 | USE_PBR_MAP | Whether or not to use PBR parameter triple mapping (**by glTF standard, RGB channels must correspond to ambient light masking, roughness and metallicity respectively**) |
-| USE_METALLIC_ROUGHNESS_MAP | Whether to use metallic roughness mapping (**by glTF standard, GB channel must correspond to roughness and metallicity respectively**)
-| USE_OCCLUSION_MAP | Whether to use ambient light masking (**by glTF standard, only R channel will be used**)
+| USE_METALLIC_ROUGHNESS_MAP | Whether to use metallic roughness mapping (**by glTF standard, GB channel must correspond to roughness and metallicity respectively**)|
+| USE_OCCLUSION_MAP | Whether to use ambient light masking (**by glTF standard, only R channel will be used**)|
 | USE_EMISSIVE_MAP | Whether to use self-luminous mapping |
 
 For more information about the PBR principle, please refer to [PBR Theory](https://learnopengl.com/PBR/Theory)。

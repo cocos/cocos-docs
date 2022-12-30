@@ -17,7 +17,7 @@ export class GameRoot extends Component {
         assert(audioSource);
         this._audioSource = audioSource;
         // Declare the resident root node, which will not be destroyed in a scene switch. The target node must be the root node, otherwise it is invalid.
-        game.addPersistRootNode(this.node);
+        director.addPersistRootNode(this.node);
 
         // Wrap the node in the manager.
         audioManager.instance.init(this._audioSource);

@@ -19,3 +19,6 @@
 - [WebSocket Server](websocket-server.md)
 - [Native Plugins](native-plugins/brief.md)
     - [Native Plugins Quick tutorial](native-plugins/tutorial.md)
+- WebSocket
+    - [WebSocket Client](websocket.md)
+    - [WebSocket Server](websocket-server.md)

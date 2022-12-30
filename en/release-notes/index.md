@@ -10,3 +10,4 @@
 - [v3.5 Built Project Upgrade Guide to v3.6](../engine/template/native-upgrade-to-v3.6.md)
 - [Cocos Creator 3.6.0 Build Template and settings.json Upgrade Guide](build-template-settings-upgrade-guide-v3.6.md)
 - [Upgrade Guide: Effect from v3.5.x to v3.6.0](../material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
+- [Upgrade Guide: Particle from v3.5.x to v3.6.0](../particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
