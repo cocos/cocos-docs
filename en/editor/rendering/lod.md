@@ -87,7 +87,7 @@ export class LOD extends Component {
 }
 ```
 
-更多 API 可参考 [LOD Group API]()
+API reference could be found at [LOD Group API](__APIDOC__/en/class/LODGroup)
 
 ## Art Workflow
 

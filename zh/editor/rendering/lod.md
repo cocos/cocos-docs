@@ -87,7 +87,7 @@ export class LOD extends Component {
 }
 ```
 
-更多 API 可参考 [LOD Group API]()
+更多 API 可参考 [LOD Group API](__APIDOC__/zh/class/LODGroup)
 
 ## 美术工作流
 
