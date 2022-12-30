@@ -407,5 +407,7 @@
     - [原生引擎内存泄漏检测系统](advanced-topics/memory-leak-detector.md)
     - [原生场景剔除](advanced-topics/native-scene-culling.md)
     - [原生性能剖析器](advanced-topics/profiler.md)
-    - [WebSocket 服务器](advanced-topics/websocket-server.md)
     - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
+    - WebSocket
+        - [WebSocket 服务器](advanced-topics/websocket-server.md)
+        - [WebSocket 客户端](advanced-topics/websocket.md)
