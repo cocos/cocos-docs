@@ -10,11 +10,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 富文本的脚本接口请参考 [RichText API](__APIDOC__/zh/class/RichText)。
 
-<<<<<<< HEAD
 关于使用可以参考范例 **RichText**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/ui/07.richtext) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/ui/07.richtext)）。
-=======
-关于使用可以参考范例 **RichText**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.4/assets/cases/ui/07.richtext) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/07.richtext)）。
->>>>>>> v3.4-release
 
 ## RichText 属性
 
