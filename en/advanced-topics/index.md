@@ -11,6 +11,7 @@
     - [sebind](jsb-sebind.md)
     - [Swig](jsb-swig.md)
         - [Swig Tutorial](jsb/swig/tutorial/index.md)
+    - [The differences between Pure JS and JS-Binding objects](jsb-web-difference.md)
 - [JavaScript to Java Reflection](js-java-bridge.md)
 - [JavaScript to Objective-C Reflection](js-oc-bridge.md)
 - [CMake Usage Introduction](cmake-learning.md)
