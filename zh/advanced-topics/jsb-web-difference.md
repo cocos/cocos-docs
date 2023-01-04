@@ -76,7 +76,7 @@ function foo() {
     if (myObj.hasOwnProperty('a')) {
       doSomething(myObj['a']);
     } else if (NATIVE) {
-      myObj.__proto__.hasOwnProperty('a') {
+      if (myObj.__proto__.hasOwnProperty('a')) {
         doSomething(myObj['a']);
       }
     }
