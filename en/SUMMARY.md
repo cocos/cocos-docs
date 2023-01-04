@@ -45,7 +45,7 @@
     - [Node Hierarchy and Rendering Order](concepts/scene/node-tree.md)
     - [Build a Scene Image Using the Scene Panel](concepts/scene/scene-editing.md)
 
-- [Asset System](asset/index.md)
+- [Assets](asset/index.md)
     - [Asset Workflow](asset/asset-workflow.md)
     - [Images](asset/image.md)
         - [Textures](asset/texture.md)
@@ -130,7 +130,7 @@
 
 ## Function Modules
 
-- [Graphics Rendering](module-map/graphics.md)
+- [Graphics](module-map/graphics.md)
     - [Render Pipeline](render-pipeline/overview.md)
         - [Built-in Render Pipeline](render-pipeline/builtin-pipeline.md)
     - [Camera](editor/components/camera-component.md)
@@ -146,7 +146,16 @@
         - [Lightmapping](concepts/scene/light/lightmap.md)
     - [Meshes](module-map/mesh/index.md)
         - [MeshRenderer](engine/renderable/model-component.md)
+        - [SkinnedMeshRenderer](module-map/mesh/skinnedMeshRenderer.md)
+        - [SkinnedMeshBatchRenderer](module-map/mesh/skinnedMeshBatchRenderer.md)
+        - [Importing Models Exported from DCC Tools](asset/model/dcc-export-mesh.md)
+        - [Export FBX file from 3ds Max](asset/model/max-export-fbx.md)
+        - [Export FBX file from Maya](asset/model/maya-export-fbx.md)
+        - [glTF](asset/model/glTF.md)
+        - [Programmatically Create Meshes](asset/model/scripting-mesh.md)
     - [Textures](module-map/texture/index.md)
+        - [Textures](asset/texture.md)
+        - [Texture Cube](asset/texture-cube.md)
         - [Texture Compression](asset/compress-texture.md)
         - [RenderTexture](asset/render-texture.md)
     - [Material System Overview](material-system/overview.md)
@@ -252,7 +261,7 @@
 
 - [Audio System](audio-system/overview.md)
     - [AudioSource Component Reference](audio-system/audiosource.md)
-    - [AudioSource Playback Example](audio-system/audioExample.md)
+    - [AudioMgr Example](audio-system/audioExample.md)
     - [Compatibility Notes](audio-system/audioLimit.md)
 
 - [Physics System](physics/index.md)

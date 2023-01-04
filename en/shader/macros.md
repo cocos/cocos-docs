@@ -22,7 +22,6 @@ The declaration rules for macro definitions are as follows:
 
 - All macro definitions default to `false`, so when defining a simple macro definition (such as a macro for a boolean switch), its default value cannot be specified, but can be modified through the **Inspector** panel or code. If there is a mutually exclusive relationship between certain macros in the design (cannot be true at the same time), it can be handled by using the macro declared by tag. For details, please refer to the **Macro Tags** section below.
 - All custom macros that appear in Shader will be explicitly defined at runtime (the default value is 0), so **except for GLSL language built-in macros (extensions at the beginning of `GL_`, etc.)**, please do not use `#ifdef` or `#if defined` is used for judgment, otherwise the execution result will always be true;
-- The macro definition combination will be hashed at runtime. The current computing mechanism can support up to **32** Boolean switches, please do not exceed this limit.
 - Macro definitions can be used not only in `CCProgram` to control the code logic within the macro definition, but also in `CCEffect` to associate the display state of editable properties with the macro definition.
 
 As shown below, `mainTexture` will only be displayed on the **Inspector** panel when the `USE_TEXTURE` preprocessor macro is turned on:

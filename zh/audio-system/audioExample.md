@@ -1,92 +1,122 @@
-# 音频播放示例
+# 音频播放管理器示例
 
-由于 Cocos Creator 3.x 移除了 v2.x `cc.audioEngine` 系列的 API，统一使用 AudioSource 控制音频播放，因此我们需要在项目中将 [AudioSource 组件](./audiosource.md) 声明为常驻根节点，并封装一个管理器使用。可参考以下代码：
+由于 Cocos Creator 3.x 移除了 v2.x `cc.audioEngine` 系列的 API，统一使用 AudioSource 控制音频播放。
+
+但在实际项目开发中，我们仍然需要一个方便随时调用的音频播放管理器，可参考或直接使用以下代码：
 
 ```typescript
-import { assert, AudioSource, Component, game } from 'cc';
-const { ccclass, property } = _decorator;
+//AudioMgr.ts
+import { Node, AudioSource, AudioClip, resources, director } from 'cc';
+/**
+ * @en
+ * this is a sington class for audio play, can be easily called from anywhere in you project.
+ * @zh
+ * 这是一个用于播放音频的单件类，可以很方便地在项目的任何地方调用。
+ */ 
+export class AudioMgr {
+    private static _inst: AudioMgr;
+    public static get inst(): AudioMgr {
+        if (this._inst == null) {
+            this._inst = new AudioMgr();
+        }
+        return this._inst;
+    }
 
-@ccclass('GameRoot')
-export class GameRoot extends Component {
-    
-    @property(AudioSource) 
-    _audioSource: AudioSource = null!;
+    private _audioSource: AudioSource;
+    constructor() {
+        //@en create a node as audioMgr
+        //@zh 创建一个节点作为 audioMgr
+        let audioMgr = new Node();
+        audioMgr.name = '__audioMgr__';
 
-    onLoad () {
-        const audioSource = this.node.getComponent(AudioSource)!;
-        assert(audioSource);
-        this._audioSource = audioSource;
-        // 声明常驻根节点，该节点不会在场景切换中被销毁。目标节点必须是根节点，否则无效。
-        director.addPersistRootNode(this.node);
+        //@en add to the scene.
+        //@zh 添加节点到场景
+        director.getScene().addChild(audioMgr);
 
-        // 将节点封装到管理器中
-        audioManager.instance.init(this._audioSource);
+        //@en make it as a persistent node, so it won't be destroied when scene change.
+        //@zh 标记为常驻节点，这样场景切换的时候就不会被销毁了
+        director.addPersistRootNode(audioMgr);
+
+        //@en add AudioSource componrnt to play audios.
+        //@zh 添加 AudioSource 组件，用于播放音频。
+        this._audioSource = audioMgr.addComponent(AudioSource);
+    }
+
+    public get audioSource() {
+        return this._audioSource;
+    }
+
+    /**
+     * @en
+     * play short audio, such as strikes,explosions
+     * @zh
+     * 播放短音频,比如 打击音效，爆炸音效等
+     * @param sound clip or url for the audio
+     * @param volume 
+     */
+    playOneShot(sound: AudioClip | string, volume: number = 1.0) {
+        if (sound instanceof AudioClip) {
+            this._audioSource.playOneShot(sound, volume);
+        }
+        else {
+            resources.load(sound, (err, clip: AudioClip) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    this._audioSource.playOneShot(clip, volume);
+                }
+            });
+        }
+    }
+
+    /**
+     * @en
+     * play long audio, such as the bg music
+     * @zh
+     * 播放长音频，比如 背景音乐
+     * @param sound clip or url for the sound
+     * @param volume 
+     */
+    play(sound: AudioClip | string, volume: number = 1.0) {
+        if (sound instanceof AudioClip) {
+            this._audioSource.clip = sound;
+            this._audioSource.play();
+            this.audioSource.volume = volume;
+        }
+        else {
+            resources.load(sound, (err, clip: AudioClip) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    this._audioSource.clip = clip;
+                    this._audioSource.play();
+                    this.audioSource.volume = volume;
+                }
+            });
+        }
+    }
+
+    /**
+     * stop the audio play
+     */
+    stop() {
+        this._audioSource.stop();
+    }
+
+    /**
+     * pause the audio play
+     */
+    pause() {
+        this._audioSource.pause();
+    }
+
+    /**
+     * resume the audio play
+     */
+    resume(){
+        this._audioSource.play();
     }
 }
 ```
-
-音频管理的具体实现，可参考以下代码：
-
-```typescript
-import { AudioClip, AudioSource, assert, warn, clamp01, resources } from "cc";
-export class audioManager {
-
-    private static _instance: audioManager;
-    private static _audioSource?: AudioSource;
-
-    static get instance () {
-        if (this._instance) {
-            return this._instance;
-        }
-
-        this._instance = new audioManager();
-        return this._instance;
-    }
-
-    /**管理器初始化*/
-    init (audioSource: AudioSource) {
-        audioManager._audioSource = audioSource;
-    }
-
-      /**
-     * 播放音乐
-     * @param {Boolean} loop 是否循环播放
-     */
-    playMusic (loop: boolean) {
-        const audioSource = audioManager._audioSource!;
-        assert(audioSource, 'AudioManager not inited!');
-
-        audioSource.loop = loop;
-        if (!audioSource.playing) {
-            audioSource.play();
-        }
-    }
-
-     /**
-     * 播放音效
-     * @param {String} name 音效名称
-     * @param {Number} volumeScale 播放音量倍数
-     */
-    playSound (name: string, volumeScale: number = 1 ) {
-        const audioSource = audioManager._audioSource!;
-        assert(audioSource, 'AudioManager not inited!');
-            
-        // 注意：第二个参数 “volumeScale” 是指播放音量的倍数，最终播放的音量为 “audioSource.volume * volumeScale”
-        audioSource.playOneShot(audioClip, volumeScale);
-
-    }
-    // 设置音乐音量
-    setMusicVolume (flag: number) {
-        const audioSource = audioManager._audioSource!;
-        assert(audioSource, 'AudioManager not inited!');
-
-        flag = clamp01(flag);
-        audioSource.volume = flag;
-    }
-
-}
-```
-
-以上代码片段只是举例了 AudioSource 组件播放的一种使用方式，并不完整。Creator 在范例项目 **快上车**（[GitHub](https://github.com/cocos/cocos-tutorial-taxi-game) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-taxi-game)）中提供了完整的封装好的音频播放管理器的使用示例。开发者可打开 Dashboard 的 **项目** 页面，点击右下角的 **新建** 按钮，进入新建项目页面，即可看到 **Example Taxi Game** 范例，根据需要填写项目名称和项目位置后即可创建并打开：
-
-![audioEdit](audio/audioEdit.png)

@@ -273,11 +273,11 @@ CCProgram shader-fs %{
 }%
 ```
 
-## Custom GPU Geomerty Instancing Properties
+## Customize GPU Instancing Properties
 
-The **GPU Geomerty Instancing** feature allows the GPU to batch draw rendered objects with the same model and the same material. If we want to modify the display of an object individually without breaking this feature, we need to customize the geometry instancing property.
+The **GPU Instancing** feature allows the GPU to batch draw rendered objects with the same mesh and the same material. If we want to modify the display of an object individually without breaking this feature, we need to customize the instancing property.
 
-The declaration, definition, and use of variables related to instantiated properties depend on the `USE_INSTANCING` preprocessing macro definition, otherwise a compilation error will occur when the `USE_INSTANCING` switch is toggled. Code examples are as follows:
+The declaration, definition, and use of variables related to instancing properties depend on the `USE_INSTANCING` preprocessing macro definition, otherwise a compilation error will occur when the `USE_INSTANCING` switch is toggled. Code examples are as follows:
 
 ```glsl
 #if USE_INSTANCING // when instancing is enabled
@@ -298,9 +298,9 @@ const comp = node.getComponent(MeshRenderer);
 comp.setInstancedAttribute('a_instanced_color', [100, 150, 200, 255]); // should match the specified format
 ```
 
-> **Note**: If a material is changed on the **MeshRenderer** component, all instantiated property values will be reset and need to be reset.
+> **Note**: If a material is changed on the **MeshRenderer** component, all instancing property values will be reset and need to be reset.
 
-## WebGL 1.0 Backward Compatibility Support
+## WebGL 1.0 Fallback Compatibility Support
 
 Since WebGL 1.0 only supports the GLSL 100 standard syntax, the GLSL 300 ES to GLSL 100 backward-compatible code (fallback shader) is provided in the Cocos Effect compilation, and developers basically don't need to care about this layer of change.
 
