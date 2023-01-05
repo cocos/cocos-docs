@@ -73,7 +73,7 @@ if (PhysicsSystem.instance.raycastClosest(ray, mask, maxDistance, queryTrigger))
     const hitPoint = raycastClosestResult.hitPoint
     const hitNormal = raycastClosestResult.hitNormal;
     const collider = raycastClosestResult.collider;
-    const distance = raycastClosestResult;            
+    const distance = raycastClosestResult.distance;            
 }
 ```
 

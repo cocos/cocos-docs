@@ -156,3 +156,7 @@ The results of ray detection contain a lot of useful information, you can utiliz
 The following figure helps to better understand the result of ray detection.
 
 ![raycasting-output](image/raycasting-output.png)
+
+#### Group and mask for ray detection
+
+The groups and masks for 2D physics system are the same as for 3D physics system, and can be modified by finding the collision matrix in the __Project Settings__ -> __Physics__ tab. More information can be found in [Grouping and Masks](../physics/physics-group-mask.md).

@@ -25,11 +25,10 @@
     在项目目录的 `native/engine/android/CMakeLists.txt` 文件中添加一行代码 `set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")`，如下所示：
 
     ```
-    set(PROJ_SOURCES
-        ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
-        ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/jni/main.cpp
-    )
+    set(CC_PROJ_SOURCES)
+    set(CC_COMMON_SOURCES)
+    set(CC_ALL_SOURCES)
+    
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")
     ```
 

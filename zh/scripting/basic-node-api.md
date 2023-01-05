@@ -56,7 +56,7 @@ parentNode.addChild(this.node);
 ### 索引节点的子节点
 
 - `this.node.children`：返回节点的所有子节点数组。
-- `this.node.childrenCount`：返回节点的子节点数量。
+- `this.node.children.length`：返回节点的子节点数量。
 
 **注意**：以上两个 API 都只会返回节点的直接子节点，不会返回子节点的子节点。
 

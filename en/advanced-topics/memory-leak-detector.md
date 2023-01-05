@@ -25,11 +25,10 @@ Compared with other memory leak detection tools, the built-in memory leak detect
     Add a line of code `set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")` to the `native/engine/android/CMakeLists.txt` file in the project directory, as follows:
 
     ```
-    set(PROJ_SOURCES
-        ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.h
-        ${CMAKE_CURRENT_LIST_DIR}/../common/Classes/Game.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/jni/main.cpp
-    )
+    set(CC_PROJ_SOURCES)
+    set(CC_COMMON_SOURCES)
+    set(CC_ALL_SOURCES)
+    
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finstrument-functions")
     ```
 
