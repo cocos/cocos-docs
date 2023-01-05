@@ -22,6 +22,6 @@ The SkinnedMeshBatchRenderer component is used to combine the rendering of all m
 | **Size** | The size of the current sub-model, in the range `[0, 1]`. For example, the data in the figure represents 1/2 of the entire set. |
 | **CopyFrom** | The target properties (except `offset` and `size`) can be copied automatically by dragging in **SkinningModelComponent** for easy operation. |
 
-Please refer to [BatchedSkinnedMeshRenderer](../../animation/skeletal-animation.md) for more details on the content of the combined batch.
+Please refer to [BatchedSkinnedMeshRenderer](../../animation/skeletal-animation.md) for more details.
 
 For API reference, please refer to [SkinnedMeshBatchRenderer API](__APIDOC__/en/class/SkinnedMeshBatchRenderer).
