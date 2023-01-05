@@ -95,7 +95,30 @@ Once the data fields are defined, you also need to define the data to be display
                     "foo4": {
                         "ui": "ui-input"
                     }
+                },
+                "foo2": {
+                    "ui": "ui-checkbox"
+                },
+                "foo3": {
+                    "ui": "ui-select",
+                    "items": [
+                        {
+                            "value": 0,
+                            "label": "ITEM 0"
+                        },
+                        {
+                            "value": 1,
+                            "label": "ITEM 1"
+                        },
+                        {
+                            "value": 2,
+                            "label": "ITEM 2"
+                        }
+                    ]
                 }
+            },
+            "tab1": {
+                "label": "test"
             }
         }        
     }

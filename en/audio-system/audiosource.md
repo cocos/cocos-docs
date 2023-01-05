@@ -153,27 +153,4 @@ export class AudioDemo extends Component {
 
 ## Web platform playback restrictions
 
-Audio playback on the Web platform currently requires compliance with the latest [Audio Play Police](https://www.chromium.org/audio-video/autoplay), and even if the **AudioSource** component has `playOnAwake` set, the audio needs to be played manually in the touch event, as follows:
-
-```typescript
-// AudioController.ts
-
-import { _decorator, Component, Node, AudioSource, find } from 'cc';
-const { ccclass, property } = _decorator;
-
-@ccclass("AudioController")
-export class AudioController extends Component {      
-
-    @property(AudioSource)
-    public audioSource: AudioSource = null!
-
-    start () {
-        let btnNode = find('BUTTON_NODE_NAME');
-        btnNode!.on(Node.EventType.TOUCH_START, this.playAudio, this);
-    }
-    
-    playAudio () {
-        this.audioSource.play();
-    }
-}
-```
+Audio playback on the Web platform currently requires compliance with the latest [Audio Play Policy](https://www.chromium.org/audio-video/autoplay), and even if the **AudioSource** component has `playOnAwake` set, It also needs to be played after the first user click event occurs.

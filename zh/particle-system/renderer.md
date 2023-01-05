@@ -23,3 +23,9 @@
 
 - GPU 渲染器（ParticleSystemRendererGPU）目前是在 CPU 端生成粒子，只提交初始参数的 VB、IB 数据，但模块相关的计算则是通过预采样数据的形式，在初始化时提交一次数据。后续的模块系统则是在 GPU 端对数据进行提取模拟运算，减少 CPU 端的计算压力。<br>
 可通过勾选 **UseGPU** 属性选择使用 GPU 渲染器。目前暂不支持 [拖尾模块](./trail-module.md) 和 [限速模块](./limit-velocity-module.md)。
+
+## 自定义材质说明
+
+> **注意**：如果需要对粒子系统使用自定义材质，则该自定义材质的名称有以下限制：
+> 1. 如果要在 CPU 粒子上使用该自定义材质，则材质名称需包含 `particle-cpu`, 如 `custom-particle-cpu`
+> 2. 如果要在 GPU 粒子上使用该自定义材质，则材质名称需包含 `particle-gpu`, 如 `my-particle-gpu`

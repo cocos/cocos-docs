@@ -1,71 +1,71 @@
 # Sample
 
-## 导入
+## Import
 
-导入示例：
+The code example is as follows:
 
 ```ts
 import l10n from 'db://localization-editor/core/L10nManager'
 ```
 
-- 描述：l10n以api的方式提供了在代码中翻译文本的能力
+- Description: l10n provides the ability to translate text in code as an api
 
-## 动态切换语言
+## Switch Language at Runtime
 
-代码示例如下：
+The code example is as follows：
 
 ```ts
 l10n.changeLanguage('zh-Hans-CN')
 ```
 
-参数类型请参考 查看 [BCP47 Language Tag](https://www.techonthenet.com/js/language_tags.php) 以获得更多信息。
+For more information, please refer to [BCP47 Language Tag](https://www.techonthenet.com/js/language_tags.php).
 
-> **注意**: 在调用此方法后，会自动重启游戏，请务必做好数据持久化工作。
+> **Note**: After calling this method, the game will be restarted automatically, so please make sure to do the data persistence.
 
-- 接口定义： `t(key: L10nKey, options?: StandardOption): L10nValue`
+- Interface definination： `t(key: L10nKey, options?: StandardOption): L10nValue`
 
-## 根据键获取 L10N 的值
+## Get the value of L10N according to the key
 
 ```ts
 console.log(l10n.t('this_is_apple'))
-// 这是一个苹果
+// This is an apple
 ```
 
-此处可以获取到以 `this_is_apple` 为键的当前语言的值。
+Here you can get the value of the current language with `this_is_apple` as the key.
 
-## 查询某个键是否存在
+## Query
 
-代码示例如下：
+The code example is as follows:
 
 ```ts
 console.log(l10n.exists('test_key'))
 ```
 
-### 获取当前的语言
+### Get the current language
 
-代码示例如下：
+The code example is as follows:
 
 ```ts
 console.log(l10n.currentLanguage)
 // 'zh-Hans-CN'
 ```
 
-返回当前语言的 [BCP47 Language Tag](https://www.techonthenet.com/js/language_tags.php)。
+Returns the current language's [BCP47 Language Tag](https://www.techonthenet.com/js/language_tags.php)。
 
-### 获取所有可用语言
+### Get all available languages
 
-代码示例如下：
+The code example is as follows:
 
 ```ts
 console.log(l10n.languages)
 // ['zh-Hans-CN', 'en-US']
 ```
 
-返回当前可用的语言的 [BCP47 Language Tag](https://www.techonthenet.com/js/language_tags.php) 数组。
+Returns all available language's [BCP47 Language Tag](https://www.techonthenet.com/js/language_tags.php) as an array.
 
-## 获取语言的方向
+## Get directions to the language
 
-绝大多数语言都遵循从左到右的阅读习惯，但某些语言却例外比如阿拉伯语，此方法可以得知所传入语言的 `TextInfoDirection`
+Most languages follow a left-to-right reading convention, with the exception of some languages such as Arabic, where this method learns the `TextInfoDirection` of the incoming language
 
 ```ts
 console.log(l10n.direction('ar'))

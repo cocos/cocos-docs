@@ -114,7 +114,7 @@ The incremental snap tool mainly consists of **Increment Snap Configuration** an
 
 The transform snapping feature can be used to manipulate nodes in a set step size when using the move/rotate/scale transform tools in the scene editor. The transform snapping feature can be triggered in the following two ways:
 
-1. Press and hold the <kdb>Ctrl</kdb> key while using transform tools to trigger the transform snapping feature.
+1. Press and hold the <kbd>Ctrl/Command</kbd> key while using transform tools to trigger the transform snapping feature.
 2. In the transform snapping configuration panel, use the button to enable the automatic snapping feature of corresponding transform tools. See below for details.
 
 Click on the fifth **Transform snapping configuration** button in the toolbar in the upper left corner of the editor's main window, the transform snapping configuration panel will pop up, which can be used to set the step size of corresponding transform tools, and enable the auto snapping feature:
@@ -125,7 +125,7 @@ Click on the fifth **Transform snapping configuration** button in the toolbar in
 | :-- | :-- |
 | ![position snap](bar_img/moveing.png)| This button is used to set whether to enable the automatic snapping when using the **Move Transform Tool**. X, Y, and Z are used to set the move steps on the X, Y, and Z axes respectively, and the default X, Y, and Z values are the same for X, or you can click the ![position snap](img/position-snap1.png) button to set the step size for each axis separately.  |
 | ![rotation snap](bar_img/rotating.png)| This button is used to set whether to enable automatic snapping when using the **Rotation Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
-| ![scale snap](bar_img/scaling.png)| This button is used to set whether to enable automatic snapping when using the **Scale Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. |
+| ![scale snap](bar_img/scaling.png)| This button is used to set whether to enable automatic snapping when using the **Scale Transform Tool**. The box on the right side is used to set the rotation step, the default is 1. <br> Please note that the scale snap is a factor not an absolute value |
 
 ![snap rotating](images/enable-snaping-rotating.gif)
 

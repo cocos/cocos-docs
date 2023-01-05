@@ -29,7 +29,6 @@ To use PBR lighting, see: [Physically Based Rendering](effect-builtin-pbr.md)
 
 | macro | description |
 | :--- | :---- |
-| USE_BATCHING | Whether to enable dynamic Mesh batching |
 | USE_INSTANCING | Whether to enable GPU geometry instancing |
 | USE_VERTEX_COLOR | Whether to overlay vertex colors and alpha values |
 | USE_TEXTURE      | Whether to use the main texture (`mainTexture)` |
