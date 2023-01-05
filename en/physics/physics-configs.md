@@ -4,6 +4,8 @@ The PhysicsSystem module is used to manage the entire physics system and is resp
 
 ## Physics Configuration
 
+There exists two ways to configure the physics system, one is to configure it in the editor, and the other is to configure it in the code.
+
 ### Through the Physical Configuration panel
 
 The **Project Settings -> Physical Configuration** allows you to configure the related physics system.

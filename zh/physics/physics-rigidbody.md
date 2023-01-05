@@ -129,11 +129,9 @@ import { math } from 'cc'
 rigidBody.applyForce(new math.Vec3(200, 0, 0));
 ```
 
-#### 通过扭矩
+#### 通过施加扭矩
 
-力与冲量也可以只对旋转轴产生影响，使刚体发生转动，这样的力叫做扭矩。
-
-刚体组件提供了 `applyTorque` 接口，通过此接口可以施加扭矩到刚体上，因为只影响旋转，所以不需要指定作用点。
+刚体组件提供了 `applyTorque` 接口，可用于改变刚体的角速度。
 
 ```ts
 rigidBody.applyTorque(new math.Vec3(200, 0, 0));
@@ -141,7 +139,7 @@ rigidBody.applyTorque(new math.Vec3(200, 0, 0));
 
 #### 通过施加冲量
 
-刚体组件提供了 `applyImpulse` 接口，施加冲量到刚体上的一个点，根据动量守恒，将立即改变刚体的线性速度。 如果冲量施加到的点不是刚体的质心，那么将产生一个扭矩并影响刚体的角速度。
+刚体组件提供了 `applyImpulse` 接口，施加冲量到刚体上的一个点，根据动量定理，将立即改变刚体的线性速度。 如果冲量施加到的点在力方向上的延长线不过刚体的质心，那么将产生一个非零扭矩并影响刚体的角速度。
 
 ```ts
 rigidBody.applyImpulse(new math.Vec3(5, 0, 0));
@@ -217,4 +215,4 @@ if (rigidBody) {
 
 > **注意**：
 > 1. 将因子某分量值设置为 **0**，可以固定某个轴向的移动或旋转。
-> 2. 在使用 [**cannon.js**](physics-engine.md#cannon.js) 或 [**ammo.js**](physics-engine.md#ammo.js) 物理引擎情况下，因子作用的物理量不同，使用 **cannon.js** 时作用于速度，使用 **ammo.js** 时作用于力。
+> 2. 在使用 [**cannon.js**](physics-engine.md#cannon.js) 或 [**Bullet (ammo.js)**](physics-engine.md#ammo.js) 物理引擎情况下，因子作用的物理量不同，使用 **cannon.js** 时作用于速度，使用 **Bullet (ammo.js)** 时作用于力。
