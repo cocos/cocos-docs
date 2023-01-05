@@ -11,7 +11,7 @@ The **Light Baking Panel** will bake the [light-probe](light-probe.md) already l
 | Properties | Description |
 | :-- | :-- |
 | **GIScale** | GI([Global Illumination](https://en.wikipedia.org/wiki/Global_illumination))scale factor |
-| **GISample** | GI sample factor |
+| **GISample** | GI sample count of each light probe |
 | **Bounces** | Number of light bounces, in the range [1, 4] <br> The meaning of bounce is the process of the current light source hitting an object and bouncing back to the probe. <br> If the number of light bounces exceeds this property, it will not be recorded in the baking result |
 | **Reduceing Ringing** | In some cases, the light from the light probe may penetrate from bright to dark areas thus forming a ring. Modifying this property may improve the situation, but may result in unrealistic lighting |
 | **Show Probe** | Whether to show light probes <br> The node with the **LightProbeGroup** component needs to be selected in the **Hierarchy** <br> ![probe](light-probe-panel/probe.png) |
