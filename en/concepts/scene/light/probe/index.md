@@ -24,7 +24,7 @@ The light-probe is part of the global illumination. The probe is placed inside t
 
 The [reflection-probe](reflection-probe.md) currently supports both real-time and baked cases. In the real-time case, developers can configure the reflection-probe to render the reflection effect of objects in real time. The baked case allows the
 
-by combining [skybox](../../skybox.md), [lightmapping](../lightmap.md), [lightprobe](./light-probe.md) and [reflection-probe.md](reflection-probe.md) to get more realistic and reliable lighting effects with performance.
+By combining [Skybox](../../skybox.md), [Lightmapping](../lightmap.md), [Light Probe](./light-probe.md) and [Reflection Probe](reflection-probe.md) to get more realistic and reliable lighting effects with performance.
 
 ## Contents
 
