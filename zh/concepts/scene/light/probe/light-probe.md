@@ -26,13 +26,13 @@ Cocos Creator 支持最大 4 次反弹，详情可参考 [光照探针面板](li
 
 | 属性 | 说明|
 | :-- | :-- |
-| **Generating Method** | 生成方式，目前仅自持内置 |
+| **Generating Method** | 生成方式，目前仅支持内置 |
 | **Generating Min Pos** | 生成时的包围盒的最小值 |
 | **Generating Max Pos** | 生成时的包围盒的最大值 |
 | **Number Of Probes X** | X 轴上探针的数量 |
 | **Number Of Probes Y** | Y 轴上探针的数量 |
 | **Number Of Probes Z** | Z 轴上探针的数量 |
-| **Edit Area Box**  | 编辑器生成的包围盒 <br> 点击此按钮后在场景内会进入探针包围盒的编辑模式，请参考下方编辑文档获取更详细的信息 <br> 编辑的过程会影响到上述的 **Generating Min Pos** 以及 **Generating Max Pos** 的值 |
+| **Edit Area Box**  | 编辑生成的包围盒 <br> 点击此按钮后在场景内会进入探针包围盒的编辑模式，请参考下方编辑文档获取更详细的信息 <br> 编辑的过程会影响到上述的 **Generating Min Pos** 以及 **Generating Max Pos** 的值 |
 | **Generate Probes** | 生成光照探针 <br> 点击按钮后，会重新生成所有的探针，旧的探针会被删除 <br> 此时生成的探针是均匀的，如果需要手动调整，请点击下放 **Enter Probe Edit Mode** 按钮 |
 | **Enter Probe Edit Mode** | 进入编辑探针模式 <br> 点击此按钮后在场景编辑器内可以通过 **鼠标左键** 选择不同的探针，并通过 **变换工具** 修改探针的位置 |
 
@@ -90,7 +90,7 @@ Cocos Creator 支持最大 4 次反弹，详情可参考 [光照探针面板](li
 
 ![result](light-probe/result.png)
 
-更多示例可参考 [基于图像的光照示例](sample.md)。
+更多示例可参考 [基于图像的光照示例](example.md)。
 
 ## 理论参考
 

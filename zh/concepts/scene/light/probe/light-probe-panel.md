@@ -33,4 +33,4 @@
 
 开发者也可通过 **Show Probe**、**Show Wireframe** 以及 **Show Convex** 选项在场景内查看探针是否符合预期的结果。
 
-可参考 [探针示例](sample.md) 以查看美术工作流。
+可参考 [探针示例](example.md) 以查看美术工作流。

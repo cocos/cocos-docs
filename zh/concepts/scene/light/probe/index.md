@@ -24,7 +24,7 @@
 
  [反射探针](reflection-probe.md) 目前支持实时和烘焙两种情况，实时情况下开发者可以通过配置反射探针，实时渲染物体的反射效果。烘焙的情况下，可以将
 
-通过结合 [天空盒](../../skybox.md)、[光照贴图](../lightmap.md)、[光照探针](./index.md) 以及 [反射探针](reflection-probe.md) 以获得更加真实可信同时兼顾性能的光照效果。
+通过结合 [天空盒](../../skybox.md)、[光照贴图](../lightmap.md)、[光照探针](./light-probe.md) 以及 [反射探针](reflection-probe.md) 以获得更加真实可信同时兼顾性能的光照效果。
 
 ## 内容
 
@@ -34,6 +34,6 @@
     - [光照探针面板](light-probe-panel.md)
 - [反射探针](reflection-probe.md)
     - [反射探针面板](reflection-probe-panel.md)
-- [基于图像的光照示例](sample.md)
 - [天空盒](../../skybox.md)
 - [光照贴图](../lightmap.md)
+- [基于图像的光照示例](example.md)
