@@ -57,7 +57,7 @@ In addition, the ByteDance platform provides the underlying native physics featu
 
 ### Different physical back-end collision shape support
 
-| Features | builtin | cannon.js | ammo.js | PhysX
+| Features | builtin | cannon.js | Bullet | PhysX
 |:--------|:--------|:----------|:--------|:----|
 | Center-of-mass | ✔ | ✔ | ✔ | ✔ |
 | Box, sphere | ✔ | ✔ | ✔ | ✔ | ✔
