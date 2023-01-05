@@ -272,7 +272,7 @@
 
 - [音频系统](audio-system/overview.md)
     - [AudioSource 组件参考](audio-system/audiosource.md)
-    - [全局 AudioMgr 示例](audio-system/audioExample.md)
+    - [全局音频管理器示例](audio-system/audioExample.md)
     - [兼容性说明](audio-system/audioLimit.md)
 
 - [物理系统](physics/index.md)
