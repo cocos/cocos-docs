@@ -44,6 +44,7 @@ A point-to-point constraint is a simple composite constraint that connects two o
 For point-to-point constraint interface, please refer to [PointToPointConstraint API](__APIDOC__/en/class/physics.PointToPointConstraint).
 
 ## FixedConstraint
+
 A fixed constraint is the simplest constraint, it locks the relative position and rotation of two rigid bodies. The connected objects are not allowed to move relatively to each other.
 
 ![FixedConstraint](img/fixed-constraint.png)
@@ -57,4 +58,5 @@ A fixed constraint is the simplest constraint, it locks the relative position an
 | **BreakTorque**     | Gets or sets the maximum torque that can be applied to the constraint before it breaks |
 
 ![physics-fixed](img/fixed-constraint.gif)
+
 For point-to-point constraint interface, please refer to [FixedConstraint API](__APIDOC__/en/class/physics.FixedConstraint).
