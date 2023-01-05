@@ -47,7 +47,6 @@ Cocos Creator 的反射探针有两种类型，分别为：
 
 ![edit](reflection-probe/edit-area-box.gif)
 
-
 ## 美术工作流示例
 
 ### 烘焙反射探针工作流
