@@ -275,7 +275,7 @@ CCProgram shader-fs %{
 
 ## 自定义几何体实例化属性
 
-通过 **几何体实例化** 特性（GPU Geomerty Instancing）可使 GPU 批量绘制模型相同且材质相同的渲染对象。如果我们想在不打破这一特性的情况下单独修改某个对象的显示效果，就需要通过自定义几何体实例化属性。
+通过 **几何体实例化** 特性（GPU Instancing）可使 GPU 批量绘制模型相同且材质相同的渲染对象。如果我们想在不打破这一特性的情况下单独修改某个对象的显示效果，就需要通过自定义几何体实例化属性。
 
 实例化属性相关的变量声明、定义、使用，都需要依赖 `USE_INSTANCING` 预处理宏定义，否则在切换 `USE_INSTANCING` 开关时会发生编译错误。代码示例如下：
 
@@ -295,8 +295,9 @@ CCProgram shader-fs %{
 
 ```ts
 const comp = node.getComponent(MeshRenderer);
-comp.setInstancedAttribute('a_instanced_color', [100, 150, 200, 255]); // should match the specified format
+comp.setInstancedAttribute('a_instanced_color', [100, 150, 200, 255]); // 需要和Effect文件中声明的变量类型一致
 ```
+
 
 > **注意**：如果在 **MeshRenderer** 组件上更换了材质，那么所有的实例化属性值都会被重置，需要重新设置。
 

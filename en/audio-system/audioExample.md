@@ -1,92 +1,122 @@
-# Audio Playback Examples
+# Exapmle of AudioMgr
 
-Since Cocos Creator 3.x removes the v2.x `cc.audioEngine` series API and uses AudioSource to control audio playback, it is necessary to declare the [AudioSource component](./audiosource.md) as the resident root node and wrap a manager to use it. You can refer to the following code:
+Since Cocos Creator 3.x removed the v2.x `cc.audioEngine` related API, only AudioSource can be used to control audio playback.
+
+However, in actual project development, we still need an audio playback manager that can be conveniently called anytime and anywhere, which can refer to or directly use the following code.
 
 ```typescript
-import { assert, AudioSource, Component, game } from 'cc';
-const { ccclass, property } = _decorator;
+//AudioMgr.ts
+import { Node, AudioSource, AudioClip, resources, director } from 'cc';
+/**
+ * @en
+ * this is a sington class for audio play, can be easily called from anywhere in you project.
+ * @zh
+ * 这是一个用于播放音频的单件类，可以很方便地在项目的任何地方调用。
+ */ 
+export class AudioMgr {
+    private static _inst: AudioMgr;
+    public static get inst(): AudioMgr {
+        if (this._inst == null) {
+            this._inst = new AudioMgr();
+        }
+        return this._inst;
+    }
 
-@ccclass('GameRoot')
-export class GameRoot extends Component {
-    
-    @property(AudioSource) 
-    _audioSource: AudioSource = null!
+    private _audioSource: AudioSource;
+    constructor() {
+        //@en create a node as audioMgr
+        //@zh 创建一个节点作为 audioMgr
+        let audioMgr = new Node();
+        audioMgr.name = '__audioMgr__';
 
-    onLoad () {
-        const audioSource = this.node.getComponent(AudioSource)! ;
-        assert(audioSource);
-        this._audioSource = audioSource;
-        // Declare the resident root node, which will not be destroyed in a scene switch. The target node must be the root node, otherwise it is invalid.
-        director.addPersistRootNode(this.node);
+        //@en add to the scene.
+        //@zh 添加节点到场景
+        director.getScene().addChild(audioMgr);
 
-        // Wrap the node in the manager.
-        audioManager.instance.init(this._audioSource);
+        //@en make it as a persistent node, so it won't be destroied when scene change.
+        //@zh 标记为常驻节点，这样场景切换的时候就不会被销毁了
+        director.addPersistRootNode(audioMgr);
+
+        //@en add AudioSource componrnt to play audios.
+        //@zh 添加 AudioSource 组件，用于播放音频。
+        this._audioSource = audioMgr.addComponent(AudioSource);
+    }
+
+    public get audioSource() {
+        return this._audioSource;
+    }
+
+    /**
+     * @en
+     * play short audio, such as strikes,explosions
+     * @zh
+     * 播放短音频,比如 打击音效，爆炸音效等
+     * @param sound clip or url for the audio
+     * @param volume 
+     */
+    playOneShot(sound: AudioClip | string, volume: number = 1.0) {
+        if (sound instanceof AudioClip) {
+            this._audioSource.playOneShot(sound, volume);
+        }
+        else {
+            resources.load(sound, (err, clip: AudioClip) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    this._audioSource.playOneShot(clip, volume);
+                }
+            });
+        }
+    }
+
+    /**
+     * @en
+     * play long audio, such as the bg music
+     * @zh
+     * 播放长音频，比如 背景音乐
+     * @param sound clip or url for the sound
+     * @param volume 
+     */
+    play(sound: AudioClip | string, volume: number = 1.0) {
+        if (sound instanceof AudioClip) {
+            this._audioSource.clip = sound;
+            this._audioSource.play();
+            this.audioSource.volume = volume;
+        }
+        else {
+            resources.load(sound, (err, clip: AudioClip) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    this._audioSource.clip = clip;
+                    this._audioSource.play();
+                    this.audioSource.volume = volume;
+                }
+            });
+        }
+    }
+
+    /**
+     * stop the audio play
+     */
+    stop() {
+        this._audioSource.stop();
+    }
+
+    /**
+     * pause the audio play
+     */
+    pause() {
+        this._audioSource.pause();
+    }
+
+    /**
+     * resume the audio play
+     */
+    resume(){
+        this._audioSource.play();
     }
 }
 ```
-
-The specific implementation of the audio manager can be found in the following code:
-
-```typescript
-import { AudioClip, AudioSource, assert, warn, clamp01, resources } from "cc";
-export class audioManager {
-
-    private static _instance: audioManager;
-    private static _audioSource?: AudioSource;
-
-    static get instance () {
-        if (this._instance) {
-            return this._instance;
-        }
-
-        this._instance = new audioManager();
-        return this._instance;
-    }
-
-    /**Manager initialization*/
-    init (audioSource: AudioSource) {
-        audioManager._audioSource = audioSource;
-    }
-
-      /**
-     * Play music
-     * @param {Boolean} loop Whether to loop
-     */
-    playMusic (loop: boolean) {
-        const audioSource = audioManager._audioSource!
-        assert(audioSource, 'AudioManager not inited!');
-
-        audioSource.loop = loop;
-        if (!audioSource.playing) {
-            audioSource.playing();
-        }
-    }
-
-     /**
-     * Play a sound effect
-     * @param {String} name The name of the sound effect
-     * @param {Number} volumeScale Playback volume multiplier
-     */
-    playSound (name: string, volumeScale: number = 1 ) {
-        const audioSource = audioManager._audioSource!
-        assert(audioSource, 'AudioManager not inited!');
-            
-        // Note that the second parameter "volumeScale" is a multiple of the playback volume, the final playback volume is "audioSource.volume * volumeScale"
-        audioSource.playOneShot(audioClip, volumeScale);
-
-    }
-    // Set the music volume
-    setMusicVolume (flag: number) {
-        const audioSource = audioManager._audioSource!
-        assert(audioSource, 'AudioManager not inited!');
-
-        flag = clamp01(flag);
-        audioSource.volume = flag;
-    }
-
-}
-```
-
-The above code snippet is just an example of one way to use the AudioSource component for playback, and is not complete. Cocos Creator provides a complete example of how to use the wrapped audio playback manager in the [tutorial-taxi-game](https://github.com/cocos/cocos-tutorial-taxi-game) project. Developers can open the **Project** page in Dashboard, click the **New** button in the bottom right corner to enter the New Project page, and find the **Example Taxi Game**, fill in the project name and project location as needed to create and open.
-
-![audioEdit](audio/audioEdit.png)
