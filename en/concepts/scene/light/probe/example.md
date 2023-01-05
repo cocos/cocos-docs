@@ -14,7 +14,7 @@ Since both Light Probe and Reflection Probe are for physically based lighting mo
 
 Please prepare the material file in advance using the following shaders; or import the model exported from the DCC tool via [Importing Models Exported from DCC Tools](../../../../asset/model/dcc-export-mesh.md). Importing to **Resource Manager** will automatically recognize the materials in the model and convert its shaders to PBR shaders supported by the engine.
 
-![effects](sample/effects.png) ![effects](sample/surface-standard-effect.png)
+![effects](example/effects.png) ![effects](example/surface-standard-effect.png)
 
 - builtin-standard: built-in standard PBR shader
 - dcc/imported-metallic-roughness: shader for models exported based on the metallic-roughness workflow
@@ -40,45 +40,45 @@ The [light-probe panel](light-probe-panel.md), and [lightmap](../lightmap.md) ca
 
 As an example of a manually built scene.
 
-![scene](sample/scene.png)
+![scene](example/scene.png)
 
 - Add [light-probe](light-probe.md)
 
-    ![light-probe](sample/light-probe.png)
+    ![light-probe](example/light-probe.png)
 
 - Add [reflection probes](relfection-probe.md)
 
-   ![reflection-probe](sample/reflection-probe.png)
+   ![reflection-probe](example/reflection-probe.png)
 
 - Adjusting the properties of a node
     - For the nodes that need to use the baked results, adjust their properties as follows:
 
-        ![mobility](sample/mobility.png)
+        ![mobility](example/mobility.png)
 
-        ![setting](sample/probe-setting.png)
+        ![setting](example/probe-setting.png)
 
     - For the node to be baked
         - Ensure that the **Mobility** property within its **Inspector** is **Static**.
 
-        ![static](sample/static.png)
+        ![static](example/static.png)
 
         - Check the **Bake To Light Probe** and **Bake To Reflection Probe** properties of its **MeshRenderer** property and select **Reflection Probe** wisely
 
-        ![relfection-probe](sample/bake-option.png)
+        ![relfection-probe](example/bake-option.png)
 
 - Open the **Reflection Probe** and **Light Probe** panels.
 
     - Click the **Bake** button on the above panel and wait for the baking process to finish.
 
-        ![baking-panels](sample/baking-panels.png)
+        ![baking-panels](example/baking-panels.png)
 
 - Optionally, you can bake [lightmap] via the **Light Baking** panel (../lightmap.md):
 
-    ![lightmap manel](sample/lightmap-panel.png)
+    ![lightmap manel](example/lightmap-panel.png)
 
 - Within **Hierarchy** **Scene Node**, find [Skybox](../../skybox.md) on its **Inspector** component and adjust the corresponding properties to get better results
 
-  ![skybox](sample/skybox.png)
+  ![skybox](example/skybox.png)
 
     - Adjust **Env Lighting Type** to **AUTOGEN_HEMISPHERE_DIFFUSE_WITH_REFLECTION**
     - Click the **Bake** button on the **Skybox** component to bake the reflection convolution map.
@@ -87,4 +87,4 @@ As an example of a manually built scene.
 
 - Check the baking result:
 
-    ![result](sample/baking-result.png)
+    ![result](example/baking-result.png)
