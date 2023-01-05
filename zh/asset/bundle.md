@@ -337,19 +337,20 @@ assetManager.removeBundle(bundle);
     而 Asset Bundle 不受这些限制，Asset Bundle 可以放在本地、远程服务器，甚至就放在微信小游戏的分包中。<br><br>
 
 - **Q**：Asset Bundle 是否支持大厅加子游戏的模式？
-  **A**：支持，子游戏的场景可以放在 Asset Bundle 中，在需要时加载，子游戏甚至可以在其它项目中预先以 Asset Bundle 的形式构建出来，然后在主项目中加载使用。<br><br>
+  **A**：支持，子游戏的场景可以放在 Asset Bundle 中，在需要时加载。<br><br>
 
 - **Q**：Asset Bundle 可以减少 `settings.json` 的大小吗？
   **A**：当然可以。实际上从 v2.4 开始，打包后的项目完全是基于 Asset Bundle 的，`settings.json` 不再存储跟资源相关的任何配置信息，所有的配置信息都会存储在每个 Asset Bundle 的 `config.json` 中。每一个 `config.json` 只存储各自 Asset Bundle 中的资源信息，也就减小了首包的包体。可以简单地理解为所有的 `config.json` 加起来等于之前的 `settings.json`。<br><br>
 
 - **Q**：Asset Bundle 支持跨项目复用吗
-  **A**：当然支持，不过需要满足以下条件：
+  **A**：目前版本支持，但我们**不建议跨项目复用**，随着引擎的更新迭代，这可能会产生各类兼容性问题。在目前跨项目复用需要满足以下条件：
     1. 引擎版本相同。
     2. Asset Bundle 中引用到的所有脚本都要放在 Asset bundle 下。
-    3. Asset Bundle 没有其他外部依赖 bundle，如果有的话，必须加载。<br><br>
+    3. Asset Bundle 没有其他外部依赖 bundle，如果有的话，必须加载。
+    4. Asset Bundle 之间尽可能不复用脚本<br><br>
 
 - **Q**：Asset Bundle 支持分离首场景吗
-  **A**：目前仅支持小游戏平台。你可以在 **构建发布** 面板中勾选 **初始场景分包**，则首场景会被放到内置 Asset Bundle 的 `start-scene` 中，从而实现分离首场景。<br><br>
+  **A**：目前仅在部分平台支持。你可以在 **构建发布** 面板中勾选 **初始场景分包**，则首场景会被放到内置 Asset Bundle 的 `start-scene` 中，从而实现分离首场景。<br><br>
 
 - **Q**：Asset Bundle 支持嵌套设置吗？比如 A 文件夹中有 B 文件夹，A 和 B 都可以设置为 Asset Bundle？
   **A**：Asset Bundle 不支持嵌套。<br><br>
