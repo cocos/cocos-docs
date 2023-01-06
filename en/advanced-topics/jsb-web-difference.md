@@ -1,5 +1,7 @@
 # The differences between Pure JS and JS-Binding objects
 
+Cocos Creator Engine uses `V8` to export CPP classes to Javascript, we call it `JS-Binding`. There're some differences between Pure JS and JS-Binding objects. If your application needs to run on all platforms, especially on native platforms, it's better not to use some APIs that behave differently between `Web` and `Native` platforms. If you have to use them, you need to write some platform specified code like `if (NATIVE) {...} else {...}` .
+
 ## Properties
 
 The properties of pure JS objects are assigned to instance, but they're assigned to `prototype` for JS-Binding objects.
