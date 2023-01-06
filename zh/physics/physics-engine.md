@@ -57,7 +57,7 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 
 ### 不同物理后端碰撞形状支持情况
 
-| 功能特性 | builtin | cannon.js | ammo.js | PhysX
+| 功能特性 | builtin | cannon.js | Bullet | PhysX
 |:--------|:--------|:----------|:--------|:----|
 | 质心     | ✔       | ✔         | ✔       |✔ |
 | 盒、球 | ✔ | ✔ | ✔ |✔ |

@@ -4,11 +4,11 @@
 
 ![physics-system](img/physics-system.jpg)
 
-The physics system is to assign real-world physical properties (gravity, thrust, etc.) to the game world and abstract it as a rigid-body model, so that game objects, under the action of forces, emulate real-world motion and the collision process between them. That is, on top of the classical Newtonian mechanics model, the motion, rotation and collision of game objects are calculated through API.
+The physics system is a crucial component of game engine, as it imbues the game world with the physical properties of the real world such as mass, gravity, and friction. This allows the game world to behave in a more realistic manner. The physics engine is responsible for simulating the motion and collision feedback of objects in the game world based on their physical properties. It is worth noting that the physics system is a complex system that interacts with not only game logic, but also the rendering system, animation system, and audio system. Typically, the game physics system only covers the basics of Newtonian mechanics, such as collision detection and rigid body motion. Other physical phenomena, such as fluid dynamics or soft body physics, require alternative approaches. Users can use the API provided by the physics engine to manipulate the physics system and achieve various physical effects in the game.
 
 Cocos Creator supports the following physics engines.
 
-- **ammo.js**: default physics engine, asm.js/wasm version of [Bullet](https://pybullet.org/wordpress/). A physics engine with collision detection and physics simulation.
+- **Bullet**: default physics engine, asm.js/wasm version of [Bullet](https://pybullet.org/wordpress/). A physics engine with collision detection and physics simulation.
 - **builtin**: built-in physics engine, lightweight engine for collision detection only.
 - **cannon.js**: physics engine with collision detection and physics simulation.
 - **PhysX**: Game physics engine developed by [NVIDIA](https://developer.nvidia.com/physx-sdk). A physics engine with collision detection and physics simulation.

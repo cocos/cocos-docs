@@ -125,11 +125,9 @@ import { math } from 'cc'
 rigidBody.applyForce(new math.Vec3(200, 0, 0));
 ```
 
-#### By Torque
+#### By Applying Torque
 
-Forces and impulses can also affect only the axis of rotation, causing the rigid body to rotate, such forces are called torques.
-
-The rigid body component provides the ``applyTorque`` interface through which torques can be applied to the rigid body without specifying a point of action, since they only affect the axis of rotation.
+The rigid body component provides the ``applyTorque`` interface, through which torques can be applied to the rigid body to change its rotation state.
 
 ```ts
 rigidBody.applyTorque(new math.Vec3(200, 0, 0));
@@ -137,7 +135,7 @@ rigidBody.applyTorque(new math.Vec3(200, 0, 0));
 
 #### By Impulse
 
-The rigid body component provides the `applyImpulse` interface to apply an impulse to a point on the rigid body, which will immediately change the linear velocity of the rigid body according to the conservation of momentum. If the impulse is applied to a point that is not the center of mass of the rigid body, then a torque is generated and affects the angular velocity of the rigid body.
+The rigid body component provides an 'applyImpulse' interface that applies an impulse to a point on the rigid body. According to the momentum theorem, this will immediately change the linear velocity of the rigid body. If the point at which the impulse is applied is not on the line extended through the center of mass in the direction of the force, then a non-zero torque will be produced and will affect the angular velocity of the rigid body.
 
 ```ts
 rigidBody.applyImpulse(new math.Vec3(5, 0, 0));
@@ -213,4 +211,4 @@ if (rigidBody) {
 
 > **Note**:
 > 1. Setting the value of a component of the factor to **0** fixes the movement or rotation of an axis.
-> 2. In the case of [**cannon.js**](physics-engine.md#cannon.js) or [**ammo.js**](physics-engine.md#ammo.js) physics engines, the factor acts on different physical quantities, using **cannon.js** for velocity, and **ammo.js** for force.
+> 2. In the case of [**cannon.js**](physics-engine.md#cannon.js) or [**Bullet (ammo.js)**](physics-engine.md#ammo.js) physics engines, the factor acts on different physical quantities, using **cannon.js** for velocity, and **Bullet (ammo.js)** for force.
