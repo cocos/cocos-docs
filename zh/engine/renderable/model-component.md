@@ -11,10 +11,47 @@ MeshRenderer（网格渲染器）组件用于显示一个静态的 3D 模型。�
 | 属性 | 功能 |
 | :--- | :--- |
 | **Materials** | 网格资源允许使用多个材质资源，所有材质资源都存在 `materials` 数组中。<br>如果网格资源中有多个子网格，那么 Mesh Renderer 会从 `materials` 数组中获取对应的材质来渲染此子网格。 |
-| **LightmapSettings** | 用于烘焙 Lightmap，详情请参考 [光照贴图](../../concepts/scene/light/lightmap.md)。 |
-| **ShadowCastingMode** | 指定当前模型是否会投射阴影，需要先在场景中 [开启阴影](../../concepts/scene/light/shadow.md#%E5%BC%80%E5%90%AF%E9%98%B4%E5%BD%B1)。 |
-| **ReceiveShadow** | 指定当前模型是否会接收并显示其它物体产生的阴影效果，需要先在场景中 [开启阴影](../../concepts/scene/light/shadow.md#%E5%BC%80%E5%90%AF%E9%98%B4%E5%BD%B1)。该属性仅在阴影类型为 **ShadowMap** 时生效。 |
-| **Mesh** | 指定渲染所用的网格资源，详情请参考下文 **网格资源** 部分的内容。 |
+| **Dynamic Shadow Settings** | 动态阴影配置，详情请参考下方 **动态阴影配置** 文档 |
+| **Bake Settings** | 烘焙配置，详情请参考下方 **烘焙配置** 文档 |
+| **Mesh** | 指定渲染所用的网格资源，详情请参考下文 **网格资源** 部分的内容 |
+
+### 动态阴影配置
+
+| 属性 | 说明 |
+| :-- | :-- |
+| **Shadow Bias** | 阴影偏移
+| **Shadow Normal Bias** | 阴影法线偏移
+| **Shadow Casting Mode** |  指定当前模型是否会投射阴影，需要先在场景中 [开启阴影](../../concepts/scene/light/shadow.md#%E5%BC%80%E5%90%AF%E9%98%B4%E5%BD%B1)。|
+| **Receive Shadow** | 指定当前模型是否会接收并显示其它物体产生的阴影效果，需要先在场景中 [开启阴影](../../concepts/scene/light/shadow.md#%E5%BC%80%E5%90%AF%E9%98%B4%E5%BD%B1)。该属性仅在阴影类型为 **ShadowMap** 时生效。|
+
+### 烘焙配置
+
+烘焙设置指的是网格如何使用或写入离线光照信息。
+
+该配置包含：[光照贴图](../../concepts/scene/light/lightmap.md)、[光照探针](probe/light-probe.md) 和 [反射探针](../../concepts/scene/light/probe/reflection-probe.md)。
+
+#### 光照贴图
+
+| 属性 | 说明 |
+| :-- | :-- |
+| **Bakeable** | 是否会被烘焙到光照贴图内 |
+| **Cast Shadow** | 是否投射阴影 |
+| **Receive Shadow** | 是否接收阴影 |
+| **Lightmap Size** | 光照贴图的大小 |
+
+#### 光照探针
+
+| 属性 | 说明 |
+| :-- | :-- |
+| **Use Light Probe** | 配置是否使用光照探针 |
+| **Bake To Light Probe** | 配置是否烘焙光照探针 |
+
+#### 反射探针
+
+| 属性 | 说明 |
+| :-- | :-- |
+| **Reflection Probe** | [反射探针](../../concepts/scene/light/probe/reflection-probe.md) 的类型 <br> 支持 **PLANNAR_REFLECTION** 和 **CUBE_REFLECTION** <br> **PLANNAR_REFLECTION**：配置为动态反射探针 <br> **CUBE_REFLECTION**：配置为使用烘焙后的反射探针 |
+| **Bake To Reflection Probe** | 配置是否烘焙至反射探针生成的贴图内 |
 
 网格渲染器组件相关接口请参考 [MeshRenderer API](__APIDOC__/zh/class/MeshRenderer)。
 
