@@ -1062,6 +1062,17 @@ endif()
 # ...
 ```
 
+再修改 `native/engine/common/Classes/Game.cpp`
+```c++
+#if CC_DEBUG
+  _debuggerInfo.enabled = true;
+#else
+  _debuggerInfo.enabled = false;
+#endif
+  // 覆盖配置
+  _debuggerInfo.enabled = true;
+```
+
 ### Chrome 远程调试 V8
 
 #### Windows/Mac
