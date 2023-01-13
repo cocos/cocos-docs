@@ -1,4 +1,4 @@
-# Marionette System
+# Marionette Animation System
 
 Cocos Creator 3.5 introduces a new **Marionette** animation system that controls the skeletal animation of objects via state machines, enabling an automated, and reusable animation process.
 
