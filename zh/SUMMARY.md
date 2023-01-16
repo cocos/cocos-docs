@@ -120,6 +120,7 @@
     - [发布到小游戏平台](editor/publish/publish-mini-game.md)
         - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [发布到支付宝小游戏](editor/publish/publish-alipay-mini-game.md)
+        - [发布到淘宝小程序创意互动](editor/publish/publish-taobao-creative-app.md)
         - [发布到字节跳动小游戏](editor/publish/publish-bytedance-mini-game.md)
         - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
