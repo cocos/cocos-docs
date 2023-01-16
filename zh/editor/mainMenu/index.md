@@ -1,23 +1,8 @@
 # 主菜单
 
-Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**编辑**、**节点**、**项目**、**面板**、**扩展**、**开发者** 和 **帮助** 9 个菜单项，集成了 Cocos Creator 大部分的功能点。
+Cocos Creator 顶部的主菜单栏中包括 **文件**、**编辑**、**节点**、**项目**、**面板**、**扩展**、**开发者** 和 **帮助** 8 个菜单项，集成了 Cocos Creator 大部分的功能点。
 
 ![menu](./img/menu.png)
-
-## 关于 Cocos Creator
-
-该项主要包括软件信息、设置、窗口控制等功能：
-
-![cocos](./img/cocos.png)
-
-| 选项 | 说明 |
-| :--- | :-- |
-| 关于 Cocos Creator | 显示 Cocos Creator 相关版本号以及版权信息 |
-| 布局 | 设置编辑器界面布局，暂时只支持默认布局 |
-| 偏好设置 | 打开 [偏好设置](../preferences/index.md) 面板，对编辑器进行个性化设置 |
-| 快捷键 | 打开快捷键设置面板，查看编辑器各面板或功能模块默认使用的快捷键，支持自定义 |
-| 关闭窗口（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd>）| 关闭当前窗口|
-| 退出 | 关闭当前编辑器，并自动打开 Dashboard |
 
 ## 文件
 
@@ -32,7 +17,12 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 新建场景（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>N</kbd>） | 关闭当前场景并创建一个新场景，新创建的场景需要手动保存才会添加到项目目录下 |
 | 保存场景（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>S</kbd>） | 保存当前正在编辑的场景，如果是使用 **文件 -> 新建场景** 创建的场景，在第一次保存时会弹出对话框，需要选择场景文件保存的位置并填写文件名，然后点击 **保存** 即可。场景文件以 `.scene` 作为扩展名 |
 | 另存为（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> +<kbd>Shift</kbd>+ <kbd>S</kbd>） | 生成当前场景文件的副本，并保存在项目中|
+| 偏好设置 | 打开 [偏好设置](../preferences/index.md) 面板，对编辑器进行个性化设置 |
+| 布局 | 设置编辑器界面布局，通过二级菜单可以保存当前局部至 **自定义布局** |
+| 快捷键 | 打开快捷键设置面板，查看编辑器各面板或功能模块默认使用的快捷键，支持自定义 |
 | 导入 Cocos Creator 2.x 项目 | v2.x 资源导入工具，支持旧项目资源完美导入，以及代码的辅助迁移。详情请参考 [v3.0 升级指南](../../release-notes/upgrade-guide-v3.0.md) |
+| 关闭窗口（<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>W</kbd>）| 关闭当前窗口|
+| 退出 | 关闭当前编辑器，并自动打开 Dashboard |
 
 ## 编辑
 
@@ -67,7 +57,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 3D 对象 | Creator 提供了一些比较基础的静态模型控件以便使用，目前包括 **立方体**、**圆柱体**、**球体**、**胶囊**、**圆锥体**、**圆环体**、**平面** 和 **四方形**。若需要创建其他类型的模型，可参考 [MeshRenderer 组件](../../engine/renderable/model-component.md)|
 | 2D 对象 | 在场景中创建 Creator 预设好的包含基础渲染组件的 2D 节点，目前包括 **Graphics**（绘图）、**Label**（文本）、**Mask**（遮罩）、**ParticleSystem2D**（粒子）、**Sprite**（精灵）、**SpriteSplash**（单色）和 **TiledMap**（地图），详细情况可参考 [2D 渲染组件介绍](../../ui-system/components/editor/render-component.md)|
 | UI 组件 | 在场景中创建 Creator 预设好的包含基础 UI 组件的节点，目前包括 **Button**（按钮）、**Widget**（对齐挂件）、**Layout**（布局）、**ScrollView**（滚动视图）、**EditBox**（输入框）等节点在内的常用 UI 控件。更多 UI 组件介绍，可以查看 [UI 基础组件](../../ui-system/components/editor/base-component.md)|
-| 光线 |  在场景中创建 Creator 预设好的包含基础光源组件的节点，目前包括 **平行光**、**球面光** 和 **聚光**，详情请参考 [光照](../../concepts/scene/light.md)|
+| 光线 |  在场景中创建 Creator 预设好的包含基础光源组件的节点，目前包括 **平行光**、**球面光**、**聚光** 以及 **光照探针** 和 **反射探针**，详情请参考 [光照](../../concepts/scene/light.md)|
 | 特效 | 在场景中创建 Creator 预设好的包含 [粒子系统](../../particle-system/overview.md) 组件的节点。更多特效组件可在 **属性检查器** 面板点击 **添加组件 -> 特效** 进行添加。|
 | 摄像机 | 在场景中创建 Creator 预设好的包含 Camera 组件的节点。具体的使用方式，详情请参考 [Camera 组件](../components/camera-component.md)|
 | 地形 | 在场景中创建 Creator 预设好的包含地形组件的节点。具体的使用方式，详情请参考 [地形系统](../terrain/index.md)|
@@ -106,6 +96,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 动画 |  可以打开 [动画编辑器](../../animation/index.md) 面板或者 [Joint Texture Layout（骨骼贴图布局）](../../animation/joint-texture-layout.md) 面板，用于对帧动画或者骨骼动画进行编辑、查看等功能 |动画编辑器为 <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>6</kbd>
 | 节点预制库 | 打开节点预制库面板。该面板是一个非常简单直接的可视化控件仓库，开发者可以将这里列出的控件拖拽到 **场景编辑器** 或 **层级管理器** 中，快速完成预设控件的创建|<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>7</kbd>
 | 服务 | 打开 [服务](https://service.cocos.com/document/zh) 面板，该面板提供了一些优质的官方以及第三方服务，方便开发者获得更多引擎之外的扩展能力，让游戏开发工作变得更加简单 |<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>8</kbd>
+| 扩展示例 | 可以打开一个默认的扩展示例 |
 | Cocos 小秘书 | 打开 [Cocos 小秘书](https://www.cocos.com/assistant) 面板，该面板与 Cocos Creator 编辑器紧密结合，⽆缝嵌⼊开发环境，⽆论开发者遇到任何问题，随时可以向官方技术人员发起交流。目前仅支持 Creator 中文版 |
 
 ## 扩展
@@ -153,5 +144,7 @@ Cocos Creator 顶部的主菜单栏中包括 **Cocos Creator**、**文件**、**
 | 使用手册 | 在默认浏览器打开 [用户手册文档](../../index.md) |
 | API 文档 | 在默认浏览器打开 [API 参考文档](__APIDOC__/zh) |
 | 论坛 | 在默认浏览器打开 [Cocos Creator 论坛](https://forum.cocos.org/c/58)|
+| 软件许可| 可以查看 Cocos Creator 的软件许可信息 |
 | 更新日志 |  在默认浏览器打开 Cocos Creator 各版本的 [更新日志](https://www.cocos.com/creator)  |
 | 引擎仓库 |  在默认浏览器打开 [TypeScript 引擎仓库](https://github.com/cocos/cocos-engine) |
+| 关于 Cocos Creator | 显示 Cocos Creator 相关版本号以及版权信息 |

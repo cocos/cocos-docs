@@ -37,6 +37,25 @@ The render pipeline is used to control the rendering process of the scene, curre
 
 <!-- The native engine settings changes mainly affect the use of cocos2dx engine templates when building native projects, and the changes can take effect in real time. -->
 
+## Sorting Layers
+
+![sorting-layer](index/sorting-layer.png)
+
+Used to define the sorting capability when rendering translucent objects.
+
+- Click the **Delete** button on the right to delete the corresponding layer.
+- All layers can be edited manually, except for the `default` layer, which cannot be edited.
+- Click the Add Button to add a different layer.
+- The layers can be sorted manually by dragging the gray striped button to the left of the sorting layers using the mouse.
+
+    ![drag](index/drag-to-sort.gif)
+
+Once added, [Sorting](../../engine/rendering/sorting.md) can be added to any node that has a MeshRenderer or SpriteRenderer component. And with [Sorting](../../engine/rendering/sorting.md) component to control the manual sorting of these nodes.
+
+![sorting](index/sorting.png)
+
+> **Note**: Can only be used for nodes that hold **MeshRenderer** and **SpriteRenderer** components.
+
 ## Physics
 
 ![physics](./index/physics.png)
@@ -58,6 +77,12 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 - **Browser list used for preview**: sets the browser list config file for TypeScript/JavaScript compilation at preview time.
 
 - **Exports Conditions**: specify the parsing conditions for conditionalized export modules, see [Conditional exports](../../scripting/modules/spec.md) for details.
+
+## Joint Texture Layout
+
+![joint texture layout](./index/joint-texture-layout.png)
+
+Configure the joint texture layout within the project. Please refer to [Joint Texture Layout Settings](../../animation/joint-texture-layout.md)。
 
 ## Macro Config
 
@@ -108,11 +133,11 @@ The **Feature Cropping** tab is mainly for modules used in the engine when relea
 
 ## Texture Compression
 
+![compress-texture](./texture-compress/compress-texture.png)
+
 The preset configuration of texture compression is moved to **Project Settings**, and developers can select how the image asset is preset in the **Inspector** panel. The editor will automatically scan all the texture compression configurations in the project and sort out a few presets. Since it is automatically scanned, the preset names may not match the project and can be modified here by developers.
 
 ### Compress Presets
-
-![compress-texture](./texture-compress/compress-presets.png)
 
 This panel is mainly used to add presets for texture compression. Each texture compression configuration allows to tailor the configuration for different platforms. Once added, developers can quickly add a texture compression preset in the **Inspector** panel by selecting the image asset in the **Hierarchy** panel. It is also possible to modify the preset directly in this panel to achieve the need to update the compression texture configuration in bulk.
 
@@ -124,6 +149,13 @@ The following platforms are currently supported for configuring texture compress
 4. Android
 
 Please refer to the [Texture Compression](../../asset/compress-texture.md) documentation for details of texture compression on each platform.
+
+### Properties
+
+- **Mipmaps for compressed textures**: Pre-generated Mipmap for compressed mapping, options: **Allow Pre-generation (default)**; **Disabled** Disabled
+    - If the project is upgraded from a version before v3.7, this option is disabled by default
+    - Generate multiple images when turned on, it will affect the package size, please choose according to your needs
+    - If the user is using texture with generate mip maps checked, and needs to generate mipmaps with texture compression checked and some formats that need to be compressed by third-party tools such as pvr etc, you need to turn this option on in the project settings. Once enabled, the build will generate compressed mipmaps of the corresponding format for use at runtime
 
 #### Adding/Removing Texture Compression Presets
 
@@ -269,26 +301,19 @@ After the custom texture format is configured, the word `custom-compress` and th
 
 ![custom-compress-log](./texture-compress/custom-compress-log.png)
 
-## Slpash Setting
+## Splash Setting
 
-The splash setting allows developers to use the engine's built-in logo or display a custom logo when publishing a game.
+The splash screen setting is a feature that displays the engine logo or a developer-defined logo at the start of the game.
+
+The splash screen will only be shown after the release, not during the preview.
 
 ![splash](./index/splash.png)
 
-- **LOGO Image**: Preview view
-- **LOGO Path**: The address used for LOGO storage, developers can click on the **Magnifying Glass** button to select different image resources, you can also drag and drop image resources to the **LOGO Image** property to apply image resources, click on the drop down box on the left to select different path protocols:
-
-    ![protocol](index/path-protocol.png)
-
-    - **file://**: Addressing the file by absolute path
-    - **project://**: Locate image resources by relative addresses addressed in the project
-
-        To avoid invalidating absolute addresses across devices, we recommend that projects use the **project://** protocol to set LOGO.
-
-- **TotalTime**: Total time to display splash screen. Unit: milliseconds
-- **DisplayRatio**: The ratio of the LOGO to the screen, using the screen height for landscape and the screen width for portrait
-- **Display Cocos Watermark**: Whether to display the engine's watermark
-- **ClearColor**: Background color during splash screen
+- **TotalTime**：Total duration of splash screen
+- **Auto Fit Resolution**：Whether to automatically match the resolution
+- **DisplayRatio**：Display ratio of the splash image
+- **Display Cocos Watermark**: Wether to display cocos watermark
+- **Preview**：Click to select a different image for splash screen。
 
 ## Extending the Project Settings Panel
 

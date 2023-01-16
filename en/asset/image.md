@@ -18,6 +18,7 @@ The properties are described as follows:
 | __Bake Offline Mimmaps__ | Whether to bake offline mipmaps |
 | __Fix Alpha Transparency Artifacts__ | Fix alpha transparency artifacts <br> Fill transparent pixels with color of nearest solid pixel. These filled pixels would fix the dark halos at transparent borders of textures. Please turn on this option when you use the Alpha transparency channel in textures.<br> Only when  __texture__, __raw__, __sprite-frame__ or __texture cube__ take effect |
 | __Is RGBE__ | Whether it is RGBE compression format. <br> This option only works if the __Type__ property is [TextureCube](texture.md#TextureCube) |
+| __Flip Green Channel__ |  Flip Green Channel <br> The normal map used in Cocos Creator is OpenGL, if you are importing a DirectX based normal map, then check this option to fix the error if the depression occurs. |
 
 ## Types of image assets
 
