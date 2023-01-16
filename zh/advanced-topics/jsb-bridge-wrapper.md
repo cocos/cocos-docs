@@ -88,7 +88,7 @@ native.jsbBridgeWrapper.addNativeEventListener("A", (usr: string) => {
 
 `JsbBridgeWrapper` 在不同平台有不同的实现，开发者可以通过下列方式进行查看：
 
-- 在 Objective-C 端，可查看 [JsbBridgeWrapper.h](https://github.com/cocos/cocos-engine/blob/v3.6.0/native/cocos/platform/apple/JsbBridgeWrapper.h) ：
+- 在 Objective-C 端，可查看 [JsbBridgeWrapper.h](https://github.com/cocos/cocos-engine/blob/v3.7.0/native/cocos/platform/apple/JsbBridgeWrapper.h) ：
 
     ```objc
     //In Objective-C
@@ -127,7 +127,7 @@ native.jsbBridgeWrapper.addNativeEventListener("A", (usr: string) => {
 
     ```
     
-- 安卓可查看 [JsbBridgeWrapper.java](https://github.com/cocos/cocos-engine/blob/v3.6.0/native/cocos/platform/android/java/src/com/cocos/lib/JsbBridgeWrapper.java)：
+- 安卓可查看 [JsbBridgeWrapper.java](https://github.com/cocos/cocos-engine/blob/v3.7.0/native/cocos/platform/android/java/src/com/cocos/lib/JsbBridgeWrapper.java)：
 
     ```JAVA
     // In JAVA
@@ -164,7 +164,7 @@ native.jsbBridgeWrapper.addNativeEventListener("A", (usr: string) => {
     }
     ```
 
-- Huawei HarmonyOS 也可以通过 [JsbBridgeWrapper.java](https://github.com/cocos/cocos-engine/blob/v3.6.0/native/cocos/platform/ohos/libcocos/src/main/java/com/cocos/lib/JsbBridgeWrapper.java) 查看其实现方式。
+- Huawei HarmonyOS 也可以通过 [JsbBridgeWrapper.java](https://github.com/cocos/cocos-engine/blob/v3.7.0/native/cocos/platform/ohos/libcocos/src/main/java/com/cocos/lib/JsbBridgeWrapper.java) 查看其实现方式。
 
 ## 使用 JsbBridgeWrapper
 

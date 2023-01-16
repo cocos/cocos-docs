@@ -1063,6 +1063,18 @@ endif()
 # ...
 ```
 
+And edit file `native/engine/common/Classes/Game.cpp`
+
+```c++
+#if CC_DEBUG
+  _debuggerInfo.enabled = true;
+#else
+  _debuggerInfo.enabled = false;
+#endif
+  // Override the value above
+  _debuggerInfo.enabled = true;
+```
+
 ### Remote Debugging V8 in Chrome
 
 #### Windows/Mac

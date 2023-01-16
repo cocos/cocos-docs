@@ -144,4 +144,4 @@ There are two ways to use RenderTexture programmatically:
 
     ![use albedo](render-texture/use-albedo.png)
 
-For more information about the usage, please refer to the example **RenderTexture** ([GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/rendertexture)).
+For more information about the usage, please refer to the example **RenderTexture** ([GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/rendertexture)).
