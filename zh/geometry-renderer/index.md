@@ -18,7 +18,7 @@
 
 ## 接口描述
 
-几何渲染器位于 [geometry-render.ts](https://github.com/cocos/cocos-engine/blob/v3.6.0/cocos/core/pipeline/geometry-renderer.ts) 和原生 [GeometryRenderer.h](https://github.com/cocos/cocos-engine/blob/v3.6.0/native/cocos/renderer/pipeline/GeometryRenderer.h) 内，开发者可根据需求查看。其支持的几何体描述如下：
+几何渲染器位于 [geometry-render.ts](https://github.com/cocos/cocos-engine/blob/v3.7.0/cocos/core/pipeline/geometry-renderer.ts) 和原生 [GeometryRenderer.h](https://github.com/cocos/cocos-engine/blob/v3.7.0/native/cocos/renderer/pipeline/GeometryRenderer.h) 内，开发者可根据需求查看。其支持的几何体描述如下：
 
 ### 支持的几何体类型
 

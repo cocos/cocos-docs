@@ -18,4 +18,4 @@ The material system mainly includes the following:
 
 ## Examples
 
-Creator provides **material** examples related to materials [GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/material), users can refer to it as needed.
+Creator provides **material** examples related to materials [GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/material), users can refer to it as needed.

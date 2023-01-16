@@ -125,4 +125,4 @@ JsbBridge* m = [JsbBridge sharedInstance];
 
 ## 示例工程：简单的多事件调用
 
-Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.6/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.6/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。
+Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.7/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.7/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。

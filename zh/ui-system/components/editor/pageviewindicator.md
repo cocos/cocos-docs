@@ -8,7 +8,7 @@ PageViewIndicator 用于显示 PageView 当前的页面数量和标记当前所�
 
 PageViewIndicator 的脚本接口请参考 [PageViewIndicator API](__APIDOC__/zh/class/PageViewIndicator)。
 
-关于使用可以参考范例 **PageView**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/15.pageview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/ui/15.pageview)）。
+关于使用可以参考范例 **PageView**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/15.pageview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.7/assets/cases/ui/15.pageview)）。
 
 ## PageViewIndicator 属性
 

@@ -60,7 +60,7 @@
 
 - 如果想要添加 `ObjectStats` 的统计信息， 比如统计每帧渲染模型的个数（需在每帧调用的函数如update中）：
 
-  下述宏都定义在 [native/cocos/profiler/Profiler.h](https://github.com/cocos/cocos-engine/blob/v3.6.0/native/cocos/profiler/Profiler.h) 内。开发者可根据需求使用。
+  下述宏都定义在 [native/cocos/profiler/Profiler.h](https://github.com/cocos/cocos-engine/blob/v3.7.0/native/cocos/profiler/Profiler.h) 内。开发者可根据需求使用。
 
   ```c++
   void RenderScene::update(uint32_t stamp) {

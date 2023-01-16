@@ -44,6 +44,6 @@ meshRenderer.setWeight(weight, subMeshIndex, shapIndex);
 
 ## 程序化使用范例
 
-使用方式可参考范例 **Morph**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/animation/morph) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.6/assets/cases/animation/morph)）。
+使用方式可参考范例 **Morph**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/animation/morph) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.7/assets/cases/animation/morph)）。
 
 [^1]: 模型来自 [https://sketchfab.com/](https://sketchfab.com/3d-models/head-expressions-86e58ee1bda5406480e30c796e1a2df4)

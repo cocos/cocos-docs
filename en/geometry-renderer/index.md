@@ -18,8 +18,8 @@ Where.
 
 ## API
 
-- Typescript: [geometry-render.ts](https://github.com/cocos/cocos-engine/blob/v3.6.0/cocos/core/pipeline/geometry-renderer.ts).
-- Native: [GeometryRenderer.h](https://github.com/cocos/cocos-engine/blob/v3.6.0/native/cocos/renderer/pipeline/GeometryRenderer.h).
+- Typescript: [geometry-render.ts](https://github.com/cocos/cocos-engine/blob/v3.7.0/cocos/core/pipeline/geometry-renderer.ts).
+- Native: [GeometryRenderer.h](https://github.com/cocos/cocos-engine/blob/v3.7.0/native/cocos/renderer/pipeline/GeometryRenderer.h).
 
 ### Supported Geometry Types
 

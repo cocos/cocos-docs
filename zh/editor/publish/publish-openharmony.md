@@ -243,7 +243,7 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 > ![](./publish-openharmony/document_image_rId51.png)
 
-3. 选择工程的目录，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.6) 为例，如下图：
+3. 选择工程的目录，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.7) 为例，如下图：
 
 ![](./publish-openharmony/document_image_rId53.png)
 
