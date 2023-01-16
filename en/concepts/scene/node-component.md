@@ -36,8 +36,8 @@ To create nodes dynamically in a script, refer to the [Create and Destroy Nodes]
 
     ![mobility](node-tree/mobility.png)
 
-    For nodes containing light source components, Mobility behaves slightly differently, as described separately below.
-    - For nodes holding light source components
+    For nodes containing light components, Mobility behaves slightly differently, as described separately below.
+    - For nodes holding light components
         - Static: bakes direct and indirect light, and does not participate in the calculation at runtime after baking
         - Stationary: only indirect light is baked, and only direct light is calculated at runtime
         - Movable: does not bake, only calculates direct light at runtime
