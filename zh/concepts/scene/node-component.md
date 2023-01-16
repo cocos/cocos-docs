@@ -37,9 +37,15 @@ Cocos Creator 3.0 的工作流程是以组件式开发为核心的，组件式�
 
     ![mobility](node-tree/mobility.png)
 
-    - Static：静态节点，会烘焙直接光，烘焙完在运行时就不参与计算
-    - Stationary：固定节点，只烘焙间接光，直接光在运行时计算
-    - Movable：可移动节点，只有 Movable 的物体可以使用光照探针
+    对于含有光源组件的节点，Mobility 的表现略有不同，分别说明如下：
+    - 对于持有光源组件的节点
+        - Static 静态光源：会烘焙直接光与间接光，烘焙完运行时不参与计算
+        - Stationary 固定光源：只烘焙间接光，只在运行时计算直接光
+        - Movable 可移动光源：不参与烘焙，只在运行时计算直接光
+    - 对于持有 MeshRenderer 的节点
+        - Static & Stationary 静态物体：可使用光照贴图
+        - Movable 动态物体：可使用光照探针
+    通常来说在拥有 MeshRenderer 组件的节点上可以添加灯光组件，但并不建议，可以考虑分开多个节点来实现这样的需求。
 
 - **Layer**：设定节点的可见性能力。请参考下方 **设置节点的 Layer 属性** 文档。
 
