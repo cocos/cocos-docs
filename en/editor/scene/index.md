@@ -266,9 +266,11 @@ Click the ![scene reference](images/scene-reference.png) button in the top right
 | :-- | :-- |
 | Add | Add a UI reference image, multiple reference images can be added. |
 | Delete | Deletes the UI reference image in the currently selected box. |
-| X | The selected UI reference image is displayed in the X-axis position of the scene. |
-| Y | The selected UI reference image is displayed on the Y-axis of the scene |
-| Transparency | The transparency of the selected UI reference image in the scene |
+| Position X | The selected UI reference image is displayed in the X-axis position of the scene. |
+| Position Y | The selected UI reference image is displayed on the Y-axis of the scene |
+| Scale X | Scale on X-axis of the selected UI reference image |
+| Scale Y | Scale on Y-axis of the selected UI reference image |
+| Opacity | The transparency of the selected UI reference image in the scene |
 
 ### Grid Configuration
 
