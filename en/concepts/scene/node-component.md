@@ -36,9 +36,17 @@ To create nodes dynamically in a script, refer to the [Create and Destroy Nodes]
 
     ![mobility](node-tree/mobility.png)
 
-    - Static：Static node, will bake direct light, after baking at runtime will not participate in the calculation
-    - Stationary：Stationary node, baking indirect light only, direct light is calculated at runtime
-    - Movable：Movable nodes, only Movable objects can use light probes
+    For nodes containing light components, Mobility behaves slightly differently, as described separately below.
+    - For nodes holding light components
+        - Static: bakes direct and indirect light, and does not participate in the calculation at runtime after baking
+        - Stationary: only indirect light is baked, and only direct light is calculated at runtime
+        - Movable: does not bake, only calculates direct light at runtime
+    - For nodes with MeshRenderer component
+        - Static & Stationary Static objects: can use light mapping
+        - Movable dynamic objects: can use light probes
+    In general it is possible to add a light component to a node that holds a MeshRenderer component, but it is not recommended, consider separating multiple nodes to achieve such a requirement.
+
+Translated with www.DeepL.com/Translator (free version)
 
 - **Layer**：Sets the visibility capability of the node. Please refer to the following **Setting the visibility of nodes** for details.
 
