@@ -8,7 +8,7 @@ After hitting an object in a scene, light may bounce back to another object, and
 
 The following figure demonstrates how light bounces once in the scene and is captured by the light probe.
 
-![basic](light-probe/../sample/basic.png)
+![basic](light-probe/../example/basic.png)
 
 After the light hits the surface of object A, it is reflected to object B. Through the light probe, the reflection of this light from object B is captured on the map, and then the light is reconstructed at runtime to get the indirect reflected light information of static objects in the scene.
 
