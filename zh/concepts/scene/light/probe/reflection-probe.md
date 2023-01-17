@@ -86,18 +86,10 @@ Cocos Creator 的反射探针有两种类型，分别为：
 
     ![scene](reflection-probe/plannar-scene.png)
 
-- 创建一个相机，其参数和主相机相同，以上述场景中的 Plane 节点作为镜面，与主相机呈镜面对称状态。
-
-    ![reflection-camera](reflection-probe/reflection-camera.png)
-
-    镜面对称的两个相机：
-
-    ![camera](reflection-probe/plannar-camera-config.png)
-
 - 场景中创建 **反射探针** 节点:
 
     - 修改 **探针类型** 为 **PLANNAR**
-    - 配置 **Source Camera** 属性为上述步骤中创建的 **Reflection Camera** 节点
+    - 配置 **Source Camera** 属性为上述步骤中创建的 **Main Camera** 节点
 
     ![inspector](reflection-probe/plannar-probe-property.png)
 
