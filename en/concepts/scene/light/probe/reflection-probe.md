@@ -86,18 +86,10 @@ For more examples, please refer to [IBL Example](example.md).
 
     ![scene](reflection-probe/plannar-scene.png)
 
-- Create a camera with the same parameters as the main camera, and use the Plane node in the scene above as the mirror, in mirror symmetry with the main camera.
-
-    ![reflection-camera](reflection-probe/reflection-camera.png)
-
-    Two cameras with mirror symmetry.
-
-    ![camera](reflection-probe/plannar-camera-config.png)
-
 - Create **Reflection Probe** nodes in the scene:
 
     - Modify **Probe Type** to **PLANNAR**
-    - Configure the **Source Camera** property to be the **Reflection Camera** node created in the above step
+    - Configure the **Source Camera** property to be the **Main Camera** node created in the above step
 
     ![inspector](reflection-probe/plannar-probe-property.png)
 
