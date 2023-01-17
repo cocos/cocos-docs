@@ -6,7 +6,7 @@ __Layout__ is a component for UI container nodes. This component provide to the 
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI -> Layout__ to add the __Layout__ component to the node.
 
-To use `Layout`, please refer to the [Layout API](__APIDOC__/en/class/Layout) documentation and the [05.layout example](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/05.layout) of the **test-cases-3d** project.
+To use `Layout`, please refer to the [Layout API](__APIDOC__/en/class/Layout) documentation and the [05.layout example](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/05.layout) of the **test-cases-3d** project.
 
 ## Layout Properties
 

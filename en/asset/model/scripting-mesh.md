@@ -19,4 +19,4 @@ API please refer to [MeshUtils](__APIDOC__/zh/class/utils.MeshUtils).
 
 ![dynamic mesh](./mesh/dynamic-mesh.gif)
 
-See [Github](https://github.com/cocos/cocos-test-projects/tree/v3.6) for an example of a dynamic mesh.
+See [Github](https://github.com/cocos/cocos-test-projects/tree/v3.7) for an example of a dynamic mesh.

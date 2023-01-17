@@ -8,7 +8,7 @@
 
 下图演示了光线在场景反弹一次并被光照探针捕获的情景。
 
-![basic](light-probe/../sample/basic.png)
+![basic](light-probe/../example/basic.png)
 
 光线照射到 A 物体表面后，反射至 B 物体，通过光照探针，将 B 物体对此光线的反射情况捕获到贴图上，之后在运行时对光线进行重建，以此来获得场景内静态物体的间接反射光信息。
 

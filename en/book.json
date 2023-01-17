@@ -34,8 +34,12 @@
         ],
         "version": [
             {
-                "name": "3.6",
+                "name": "3.7",
                 "links": [
+                    {
+                        "name": "3.7",
+                        "link": "https://docs.cocos.com/creator/3.7/manual/en"
+                    },
                     {
                         "name": "3.6",
                         "link": "https://docs.cocos.com/creator/3.6/manual/en"

@@ -5,8 +5,8 @@
 - **展示范例集合**（[GitHub](https://github.com/cocos/cocos-example-projects) | [Gitee](https://gitee.com/cocos/example-projects)）：包括含了引擎基础组件、渲染效果、网络、资源加载等功能示例。
 - **实用解决方案**（[GitHub](https://github.com/cocos/cocos-awesome-tech-solutions))：官方技术支持团队分享的一系列实用的技术解决方案。
 - **一步两步**（[GitHub](https://github.com/cocos/tutorial-mind-your-step-3d) | [Gitee](https://gitee.com/cocos/tutorial-mind-your-step-3d)）：也就是 [快速上手](../getting-started/first-game/index.md) 文档里分步讲解制作的游戏。
-- **物理范例集合**（[GitHub](https://github.com/cocos/example-3d/tree/v3.6/physics-3d) | [Gitee](https://gitee.com/cocos/example-3d/tree/v3.6/physics-3d)）：包含了一些物理测试例和案例工程，如吞噬黑洞、简化小车、坠落小球等，介绍了一些基础的功能和使用方法，方便用户结合文档了解物理功能。
-- **简单小游戏集合**（[GitHub](https://github.com/cocos/example-3d/tree/v3.6/simple-games) | [Gitee](https://gitee.com/cocos/example-3d/tree/v3.6/simple-games)）：简单小游戏集合演示 Demo，用户可通过这些案例学习制作一些简单、经典的小游戏。
+- **物理范例集合**（[GitHub](https://github.com/cocos/example-3d/tree/v3.7/physics-3d) | [Gitee](https://gitee.com/cocos/example-3d/tree/v3.7/physics-3d)）：包含了一些物理测试例和案例工程，如吞噬黑洞、简化小车、坠落小球等，介绍了一些基础的功能和使用方法，方便用户结合文档了解物理功能。
+- **简单小游戏集合**（[GitHub](https://github.com/cocos/example-3d/tree/v3.7/simple-games) | [Gitee](https://gitee.com/cocos/example-3d/tree/v3.7/simple-games)）：简单小游戏集合演示 Demo，用户可通过这些案例学习制作一些简单、经典的小游戏。
 - **模块展示集合**（[GitHub](https://github.com/cocos/cocos-test-projects) | [Gitee](https://gitee.com/cocos/test-cases-3d)）：引擎各个功能的范例项目，基本涵盖了引擎的大部分功能模块，用户在使用功能时可参考此项目中的用法进行开发。
 - **UI 展示 Demo**（[GitHub](https://github.com/cocos/cocos-example-ui/) | [Gitee](https://gitee.com/cocos/demo-ui/) | [Cocos Store](https://store.cocos.com/app/detail/2799)）：各类 UI 组件组合使用的演示 Demo。
 - **弹弹乐 3D**（[GitHub](https://github.com/cocos/cocos-example-ball) | [Gitee](https://gitee.com/cocos/demo-ball) | [Cocos Store](https://store.cocos.com/app/detail/2802)）：用户可通过此项目制作弹弹球游戏。
