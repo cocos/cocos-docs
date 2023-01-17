@@ -106,6 +106,7 @@
     - [About the Build Panel](editor/publish/build-panel.md)
     - [General Build Options](editor/publish/build-options.md)
     - [Publish to Web Platforms](editor/publish/publish-web.md)
+        - [Publish to Facebook Instant Games](editor/publish/publish-fb-instant-games.md)
     - [Publish to Native Platforms](editor/publish/native-options.md)
         - [Publish for the Huawei HarmonyOS](editor/publish/publish-huawei-ohos.md)
         - [Setup Native Development](editor/publish/setup-native-development.md)
