@@ -94,6 +94,7 @@ interface WsCallback {
     (err?: string): void;
 } 
 ```
+
 > **注意**: `ondata` 回调已经在 v3.7.0 版本废弃, 请使用 `onmessage` 代替.
 
 ## 参考链接

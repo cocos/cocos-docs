@@ -430,6 +430,6 @@
     - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
     - [存储和读取用户数据](advanced-topics/data-storage.md)
     - [HTTP 请求](advanced-topics/http.md)
-    - WebSocket
+    - [WebSocket](advanced-topics/websocket-introduction.md)
         - [WebSocket 服务器](advanced-topics/websocket-server.md)
         - [WebSocket 客户端](advanced-topics/websocket.md)
