@@ -70,7 +70,7 @@ export class test extends Component {
 }
 ```
 
-需要主要的是，在使用上述的代码时，需将持有该代码的脚本挂在某个节点上，并在 [属性检查器](../editor/inspector/index.md) 内配置好 `target` 的值。
+需要注意的是，在使用上述的代码时，需将持有该代码的脚本挂在某个节点上，并在 [属性检查器](../editor/inspector/index.md) 内配置好 `target` 的值。
 
 ## 销毁节点
 
