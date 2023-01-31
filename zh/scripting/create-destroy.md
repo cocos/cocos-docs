@@ -2,7 +2,7 @@
 
 ## 创建新节点
 
-除了通过场景编辑器创建节点外，我们也可以在脚本中动态创建节点。通过 `new Node()` 并将它加入到场景中，可以实现整个创建过程。
+除了通过场景编辑器创建节点外，我们也可以在脚本中动态创建节点。
 
 以下是一个简单的例子:
 
@@ -19,6 +19,8 @@ export class test extends Component {
     }
 }
 ```
+
+需要注意的是，在上述的示例中通过 `new Node` 创建出来的节点并不会主动添加到场景内，直至用户调用 `director.getScene().addChild(node)` 来添加到场景内或者通过 `node.parent = {a valid node}` 来作为某个节点的子节点。
 
 ## 克隆已有节点
 
@@ -67,6 +69,8 @@ export class test extends Component {
     }
 }
 ```
+
+需要注意的是，在使用上述的代码时，需将持有该代码的脚本挂在某个节点上，并在 [属性检查器](../editor/inspector/index.md) 内配置好 `target` 的值。
 
 ## 销毁节点
 
