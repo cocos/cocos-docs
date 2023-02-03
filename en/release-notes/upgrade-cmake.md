@@ -3,6 +3,7 @@
 Versions prior to v3.6 do not support specifying a cmake path, and can be upgraded by overwriting the editor's built-in cmake directory.
 
 ### Windows platform
+
 1. Go to https://cmake.org/download/ to download the required cmake version, and extract it
 
 ![unzip cmake for windows](./unzip-cmake-win.PNG)
@@ -14,7 +15,6 @@ Versions prior to v3.6 do not support specifying a cmake path, and can be upgrad
 3. Overwrite the editor's built-in cmake with the downloaded cmake content, leaving the directory structure unchanged.
 
 4. Restart the editor and it will take effect.
-
 
 ### Mac platform
 
