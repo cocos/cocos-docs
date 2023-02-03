@@ -364,6 +364,8 @@ export async function compressTextures(tasks: ICompressTasks[]) {
 }
 ```
 
+> 通常来说，我们建议用户优先使用 **项目设置** -> [自定义纹理压缩](../project/index.md?h=%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%B9%E7%90%86#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E8%A1%8C%E4%B8%BA) 来配置项目内的纹理压缩。在上述功能无法满足需求的情况下，再使用扩展进行纹理压缩处理。
+
 ## 调试构建扩展
 
 构建扩展参与到自定义构建流程时，相关代码会运行在以下三种进程：
