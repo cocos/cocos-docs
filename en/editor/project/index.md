@@ -14,6 +14,11 @@ The **Project Data** tab is mainly used to set the default Canvas, render pipeli
 
 The default Canvas settings include **Design Resolution** and **Fit Screen Width/Height**, which specify the default design resolution values in Canvas when a new scene or Canvas component is created, as well as `Fit Height` and `Fit Width`. For more details, please refer to the [Multi-Resolution Adaptation Solution](../../ui-system/components/engine/multi-resolution.md) documentation.
 
+### High Quality
+
+When using Cocos Dashboard to create projects with the default template 3D HQ, shadows and lighting settings are turned on by default to achieve higher quality rendering, eliminating the need to manually turn on multiple shadows and lighting settings for scenes, objects, lights, etc.
+This high quality mode is the toggle switch for the template function. It mainly affects the lighting effect of 3D projects, and has no effect on the game quality.
+
 ### Render Pipeline
 
 The render pipeline is used to control the rendering process of the scene, currently supports **builtin-forward** (Forward Render Pipeline) and **builtin-deferred** (Deferred Render Pipeline), developers can also customize the render pipeline. Please refer to the [Render Pipeline Overview](../../render-pipeline/overview.md) documentations for details.

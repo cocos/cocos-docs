@@ -14,6 +14,11 @@
 
 默认 Canvas 设置包括 **设计分辨率** 和 **适配屏幕宽度/高度**，用于规定在新建场景或 Canvas 组件时，Canvas 中默认的设计分辨率数值，以及 `Fit Height` 和 `Fit Width`。详情请参考 [多分辨率适配方案](../../ui-system/components/engine/multi-resolution.md)。
 
+### 高画质模式
+
+在使用 Cocos Dashboard 通过默认的模板 3D HQ 创建工程时，默认开启阴影与光照等相关设置以达到更高质量的渲染效果，省去了手动开启场景、物体、灯光等多重阴影和光照的设置过程。
+这个高画质模式就是模板功能的切换开关。
+
 ### 渲染管线
 
 渲染管线用于控制场景的渲染流程，目前内置的渲染管线包括 **builtin-forward** (前向渲染管线) 和 **builtin-deferred** (延迟渲染管线)，详情请参考 [内置渲染管线](../../render-pipeline/builtin-pipeline.md)。
