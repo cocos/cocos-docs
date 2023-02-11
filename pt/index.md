@@ -1,38 +1,46 @@
-# Cocos Creator 3.6 manual do usuário
+# Manual do Usuário do Cocos Creator 3.7
 
-Bem vindo ao manual do usuário do __Cocos Creator 3.6__! Esse manual inclui instruções detalhadas, fluxo de trabalho para usuários, e tutorial com passo a passo para iniciantes. Esse manual pode ajudá-lo a aprender rapidamente como desenvolver jogos multiplataforma com __Cocos Creator__.
+Bem-vindo ao uso do Cocos Creator 3.7!
 
-**Atençãp: Por favor, selecione o manual correspondente no canto direito superior, de acordo com a versão do   __Cocos Creator__ que você está usando.**
+O Cocos Creator é tanto um motor de gráficos cross-platform 2D&3D eficiente, leve, gratuito e de código aberto quanto uma plataforma de criação de conteúdo digital interativo 2D&3D em tempo real. Com muitas vantagens, como **Alto Desempenho**, **Baixo Consumo de Energia**, **Carregamento em Streaming** e **Publicação Cross-Platform**, você pode usá-lo para criar projetos em campos como **Jogos**, **Carros**, **XR**, **MetaVerse**, etc.
 
-## Guia Geral
+Este manual contém instruções detalhadas, fluxos de trabalho para diferentes posições e tutoriais para iniciantes.
+Ajuda você a aprender a usar o Cocos Creator e seus serviços associados.
 
-- [Uso básico do Cocos Creator](getting-started/index.md)
+Você pode lê-lo do começo ao fim ou usá-lo como referência.
+
+Se você estiver usando o Cocos Creator pela primeira vez, dê uma olhada em [Getting Started](getting-started/index.md) e veja [Examples & Tutorials](./cases-and-tutorials/index.md).
+
+## Novidades na v3.7
+
+- Novos recursos, como **Light Probe**, **Reflection Probe**, **LOD** e **Novo Gerenciador de Extensões**, foram adicionados nesta versão.
+- Veja [Release Notes](https://www.cocos.com/creator-download) para mais detalhes.
+- Atualização de projetos de versões antigas do Cocos Creator: [Guia de Atualização](./release-notes/index.md)
+
+## Seções do Manual do Usuário
+
+- [Uso Básico do Cocos Creator](getting-started/index.md)
 - [Criação de Cena](concepts/scene/index.md)
-- [Sistemas de Asset](asset/index.md)
-- [Guia de script e sistema de eventos](scripting/index.md)
-- [Publicação de jogo Multi-plataforma](editor/publish/index.md)
+- [Sistema de Assets](asset/index.md)
+- [Guia de Scripting e Sistema de Eventos](scripting/index.md)
+- [Publicação Cross-Platform](editor/publish/index.md)
 - [Renderização de Gráficos](module-map/graphics.md)
-- [Renderização de 2d](2d-object/2d-render/index.md)
+- [Renderização 2D](2d-object/2d-render/index.md)
 - [Sistema UI](2d-object/ui-system/index.md)
 - [Sistema de Animação](animation/index.md)
-- [Sistema de áudio](audio-system/overview.md)
+- [Sistema de Áudio](audio-system/overview.md)
 - [Sistema de Física](physics/index.md)
 - [Sistema de Partículas](particle-system/index.md)
-- [Sistema de Interpolação](tween/index.md)
-- [Sistema de Terrenos](editor/terrain/index.md)
-- [Gerenciamento de Assets](asset/asset-manager.md)
-- [Extensão de Editor](editor/extension/readme.md)
+- [Sistema Tween](tween/index.md)
+- [Sistema Terreno](editor/terrain/index.md)
+- [Gerenciador de Assets](asset/asset-manager.md)
+- [Localização](editor/l10n/overview.md)
+- [Extensão do Editor](editor/extension/readme.md)
 - [Tópicos Avançados](advanced-topics/index.md)
 
-## Projetos de Demonstrações e Exemplos
+## Mais
 
-- [Coleção de Exemplos](https://github.com/cocos-creator/example-3d): Do uso de componentes básicos à exibição de efeitos de renderização, esse projeto inclui múltiplos cenários com diferentes funções e múltiplas demonstrações de projetos de jogos para referências do usuário.
-- [Primeiro passo, Segundo passo](https://github.com/cocos-creator/tutorial-mind-your-step-3d): Este é o documento de [Quick Start](getting-started/first-game/index.md) de explicação do passo-a-passo do jogo. 
-- [Exemplos de Física](https://github.com/cocos-creator/example-3d/tree/v3.6/physics-3d): Inclui alguns testes de casos de  física e exemlos, como **Engulfing Black Hole**, **Simple Car**, **Falling ball**, etc. O caso-teste introduz algumas funções básicas de uso e métodos, so that understand the physical functions in combination with the documentation.
-- [Simple Games](https://github.com/cocos-creator/example-3d/tree/v3.6/simple-games): Users can use this case study to complete some simple and famous games.
-- [Module display collection](https://github.com/cocos/cocos-test-projects): The example project of each function of the engine, which basically covers most of the function modules of the engine. Users can refer to it when using the functions Development in this project.
-- [UI Show Demo](https://github.com/cocos/cocos-example-ui/): Demo of various UI components combined use Demo.
-- [Jump Ball 3D](https://github.com/cocos/cocos-example-ball): Users can make jump ball games through this project.
-- [Taxi Game 3D](https://github.com/cocos/cocos-tutorial-taxi-game): Physics-based game demo, users can make taxi games through this project.
+- [Fórum do Cocos](https://discuss.cocos2d-x.org/): pergunte, encontre respostas e comunique-se com outros desenvolvedores.
+- [Exemplos & Tutoriais](./cases-and-tutorials/index.md): recursos de aprendizado do Cocos Creator
+- [Loja da Cocos](https://store.cocos.com): acesse para obter mais recursos de arte, demonstrações de aprendizado e códigos-fonte
 
-> **Note**: the above items will be updated from time to time. Their default branch on GitHub is `master`, which generally corresponds to the latest __Cocos Creator__ version. If you are still using an older version of __Cocos Creator__, these projects may not open, try to switch to the same named branch as the old version.
