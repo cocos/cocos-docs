@@ -36,7 +36,7 @@ gulp.task('publish', function (done) {
 });
 
 const FORBID_IGNORE_ARRAY = ['index.md', 'SUMMARY.md'];
-const allPagesPattern = ['zh/**/*.md', 'en/**/*.md', '!zh/*.md', '!en/*.md'];
+const allPagesPattern = ['zh/**/*.md', 'en/**/*.md', 'pt/**/*.md', '!zh/*.md', '!en/*.md', '!pt/*.md'];
 const START_TAG = '\n\n## CC_HIDE_IN_SUMMARY_START';
 const END_TAG = '## CC_HIDE_IN_SUMMARY_END\n';
 const START_TAG_IGNORE = '\n\nCC_IGNORE_START';
@@ -69,7 +69,7 @@ function changeAPIUrl () {
     var bookJson = JSON.parse(Fs.readFileSync('./zh/book.json', 'utf-8'));
     var version = bookJson.variables.version[0].name;
     var APIDocPrefix = `https://docs.cocos.com/creator/${version}/api`;
-    var allPagesPattern = ['zh/*/**/*.md', 'en/*/**/*.md'];
+    var allPagesPattern = ['zh/*/**/*.md', 'en/*/**/*.md', 'pt/*/**/*.md'];
     var allPages = Globby.sync(allPagesPattern, { absolute: true });
     allPages.forEach(element => {
         var content = Fs.readFileSync(element, 'utf8');
@@ -97,6 +97,7 @@ gulp.task('prebuild', ['restore-summary'], function () {
     changeAPIUrl();
     fillSummary('zh/SUMMARY.md');
     fillSummary('en/SUMMARY.md');
+    fillSummary('pt/SUMMARY.md');
 });
 
 gulp.task('preview', ['restore-summary', 'restore-ignore'], function (done) {
@@ -113,6 +114,7 @@ gulp.task('preview', ['restore-summary', 'restore-ignore'], function (done) {
         changeAPIUrl();
         fillSummary('zh/SUMMARY.md');
         fillSummary('en/SUMMARY.md');
+        fillSummary('pt/SUMMARY.md');
         openServer(done);
     }
 });
@@ -163,6 +165,7 @@ function quickPreview (includeFiles, done) {
 gulp.task('restore-summary', function () {
     restoreSummary('zh/SUMMARY.md');
     restoreSummary('en/SUMMARY.md');
+    restoreSummary('pt/SUMMARY.md');
 });
 
 gulp.task('restore-ignore', function () {
@@ -189,6 +192,7 @@ function pruneLeftBar (dir) {
 gulp.task('prune-left-bar', function () {
     pruneLeftBar('_book/zh');
     pruneLeftBar('_book/en');
+    pruneLeftBar('_book/pt');
 });
 
 gulp.task('postbuild', ['restore-summary', 'prune-left-bar']);
