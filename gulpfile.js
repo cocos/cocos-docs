@@ -92,15 +92,29 @@ function fillSummary (path) {
     Fs.writeFileSync(path, content, 'utf8');
 }
 
+// restore SUMMARY.md to keep repo clean
+gulp.task('restore-summary', function (done) {
+    restoreSummary('zh/SUMMARY.md');
+    restoreSummary('en/SUMMARY.md');
+    restoreSummary('pt/SUMMARY.md');
+    done();
+});
+
+gulp.task('restore-ignore', function (done) {
+    restoreIgnore('.bookignore');
+    done();
+});
+
 // add unlisted pages into SUMMARY.md to allow gitbook to build them
-gulp.task('prebuild', ['restore-summary'], function () {
+gulp.task('prebuild', gulp.series('restore-summary', function (done) {
     changeAPIUrl();
     fillSummary('zh/SUMMARY.md');
     fillSummary('en/SUMMARY.md');
     fillSummary('pt/SUMMARY.md');
-});
+    done();
+}));
 
-gulp.task('preview', ['restore-summary', 'restore-ignore'], function (done) {
+gulp.task('preview', gulp.series('restore-summary', 'restore-ignore', function (done) {
     var includeFiles = program.only;
     if (includeFiles) {
         quickPreview(includeFiles, (error) => {
@@ -117,7 +131,7 @@ gulp.task('preview', ['restore-summary', 'restore-ignore'], function (done) {
         fillSummary('pt/SUMMARY.md');
         openServer(done);
     }
-});
+}));
 
 function restoreSummary (path) {
     var re = new RegExp(START_TAG + '(?:\\n|.)*' + END_TAG);
@@ -161,17 +175,6 @@ function quickPreview (includeFiles, done) {
     });
 }
 
-// restore SUMMARY.md to keep repo clean
-gulp.task('restore-summary', function () {
-    restoreSummary('zh/SUMMARY.md');
-    restoreSummary('en/SUMMARY.md');
-    restoreSummary('pt/SUMMARY.md');
-});
-
-gulp.task('restore-ignore', function () {
-    restoreIgnore('.bookignore');
-});
-
 function pruneLeftBar (dir) {
     var allPagesPattern = Path.join(dir, '**/*.html');
     var allPages = Globby.sync(allPagesPattern);
@@ -189,10 +192,14 @@ function pruneLeftBar (dir) {
 }
 
 // remove added pages from generated index.html
-gulp.task('prune-left-bar', function () {
+gulp.task('prune-left-bar', function (done) {
     pruneLeftBar('_book/zh');
     pruneLeftBar('_book/en');
     pruneLeftBar('_book/pt');
+    done();
 });
 
-gulp.task('postbuild', ['restore-summary', 'prune-left-bar']);
+gulp.task('postbuild', gulp.series('restore-summary', 'prune-left-bar', function (done) {
+    done();
+}));
+
