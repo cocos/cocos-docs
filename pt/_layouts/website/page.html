@@ -3,8 +3,8 @@
     <nav role="navigation" class="autoshow">
         <ul class="summary">
         <li><a href="https://cocos.com" class="btn" target="_blank"><img src="https://forum.cocos.org/images/logo.png" height="30" /></a></li>
-        <li><a href="#" class="btn" onclick="toggleLanguage()">English</a></li>
-        <li><a href="#" class="btn" onclick="toggleLanguage()">Português</a></li>
+        <li><a href="#" class="btn" onclick="switchLanguage('zh')">中文</a></li>
+        <li><a href="#" class="btn" onclick="switchLanguage('en')">English</a></li>
         {% for item in book.version %}
         {% if item.links %}
         <li class="version-link">
@@ -39,7 +39,7 @@
 {% endblock %}
 {% block javascript %}
     {{ super() }}
-    <script type="text/javascript">
+    <script type="text/javascript">    
         function switchLanguage(language = 'en') {
             let path = location.href;
 
