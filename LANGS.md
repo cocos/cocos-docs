@@ -1,2 +1,3 @@
 - [English](/en)
+- [Português](/pt)
 - [中文](/zh)

@@ -1,0 +1,47 @@
+{
+    "structure": {
+        "summary": "SUMMARY.md",
+        "readme": "index.md"
+    },
+    "variables": {
+        "products": [
+            {
+                "name": "Cocos Creator",
+                "links": [
+                    {
+                        "name": "Manual",
+                        "link": "https://docs.cocos.com/creator/3.7/manual/en"
+                    },
+                    {
+                        "name": "API Ref",
+                        "link": "https://docs.cocos.com/creator/3.7/api/en/"
+                    }
+                ]
+            },
+            {
+                "name": "Cocos2d-x",
+                "links": [
+                    {
+                        "name": "Manual",
+                        "link": "https://docs.cocos.com/cocos2d-x/manual/en"
+                    },
+                    {
+                        "name": "API Ref",
+                        "link": "http://docs.cocos2d-x.org/api-ref/index.html"
+                    }
+                ]
+            }
+        ],
+        "version": [
+            {
+                "name": "3.7",
+                "links": [
+                    {
+                        "name": "3.7",
+                        "link": "https://docs.cocos.com/creator/3.7/manual/pt"
+                    }                    
+                ]
+            }
+        ]
+    }
+}
