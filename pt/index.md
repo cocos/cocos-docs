@@ -1,6 +1,6 @@
 # Manual do Usuário do Cocos Creator 3.7
 
-Bem-vindo ao uso do Cocos Creator 3.7!
+Bem-vindo ao Manual do Usuário do Cocos Creator 3.7!
 
 O Cocos Creator é tanto um motor de gráficos cross-platform 2D&3D eficiente, leve, gratuito e de código aberto quanto uma plataforma de criação de conteúdo digital interativo 2D&3D em tempo real. Com muitas vantagens, como **Alto Desempenho**, **Baixo Consumo de Energia**, **Carregamento em Streaming** e **Publicação Cross-Platform**, você pode usá-lo para criar projetos em campos como **Jogos**, **Carros**, **XR**, **MetaVerse**, etc.
 
