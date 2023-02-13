@@ -60,7 +60,7 @@ Cocos Creator 3.6中添加了新的 **自定义渲染管线**。
 
 <img src="./image/cp-compute-pass.png" width=760></img>
 
-- layoutName为Effect的Stage名字。
+- layoutName为Effect的Pass名字。
 
 - name为调试（debug）时显示的名字。为空时，系统会赋予默认名字。
 
@@ -104,13 +104,13 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 - attachmentType为类型，可以是RenderTarget或者DepthStencil。
 
-- loadOp是光栅化读取选项，可以是读取（Load）、清除（Clear）、舍弃（Discard）。
+- loadOp 是光栅化读取选项，可以是读取（Load）、清除（Clear）、舍弃（Discard）。
 
-- storeOp是光栅化存储选项，可以是写入（Store）、舍弃（Discard）。
+- storeOp 是光栅化存储选项，可以是写入（Store）、舍弃（Discard）。
 
-- clearFlags是清除标志位，如果类型是RenderTarget，标志位必须是Color。如果类型是DepthStencil，为Depth、Stencil、Depth | Stencil三者其一。
+- clearFlags 是清除标志位，如果类型是 RenderTarget，标志位必须是Color。如果类型是 DepthStencil，为 Depth、Stencil、Depth | Stencil三者其一。
 
-- clearColor为清除颜色，如果类型是RenderTarget，为RGBA（Float4）。如果类型为DepthStencil，为RG，此时R存储Depth（Float）。G存储Stencil（Uint8）。
+- clearColor 为清除颜色，如果类型是 RenderTarget，为 RGBA（Float4）。如果类型为 DepthStencil，为 RG，此时 R 通道存储 Depth（Float）。G 通道存储 Stencil（Uint8）。
 
 ### 计算视图（ComputeView）
 
@@ -118,17 +118,17 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 <img src="./image/cp-compute-view.png" width=520></img>
 
-- name为Shader描述符（Descriptor）的名字。
+- name 为 Shader 描述符（Descriptor）的名字。
 
-- accessType为读写类型。可以是Read、ReadWrite、Write。
+- accessType 为读写类型。可以是 Read、ReadWrite、Write。
 
-- clearFlags为资源的清除类型，一般为None或者Color。
+- clearFlags 为资源的清除类型，一般为 None 或者 Color。
 
-- clearColor为资源的清除颜色，为Float4或者Int4。取决于clearValueType。
+- clearColor 为资源的清除颜色，为 Float4 或者 Int4。取决于 clearValueType。
 
-- clearValueType为资源清除颜色的类型，为Float或者Int。
+- clearValueType 为资源清除颜色的类型，为 Float 或者 Int。
 
-如果资源标注了清除颜色，那么在执行**计算通道**（ComputePass）前，会以clearColor清除资源内容。光栅类型的通道（Raster）不清除**计算视图**内容。
+如果资源标注了清除颜色，那么在执行 **计算通道**（ComputePass）前，会以 clearColor 清除资源内容。光栅类型的通道（Raster）不清除 **计算视图** 内容。
 
 ## 渲染视图设置
 
@@ -142,21 +142,21 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 ## 渲染队列（RenderQueue）
 
-**渲染队列**是**渲染通道**（Render Pass）的子节点，有严格的（渲染）先后顺序。只有一个**渲染队列**的内容完全绘制后，才会绘制下一个**渲染队列**的内容。
+**渲染队列** 是 **渲染通道**（Render Pass）的子节点，有严格的（渲染）先后顺序。只有一个 **渲染队列** 的内容完全绘制后，才会绘制下一个 **渲染队列** 的内容。
 
-**渲染队列**有两种类型：**光栅化队列**、**计算队列**。分别在**光栅化通道**、**计算通道**添加。
+**渲染队列** 有两种类型：**光栅化队列**、**计算队列**。分别在 **光栅化通道**、**计算通道** 添加。
 
 ### 光栅化队列（RasterQueue）
 
-**光栅化队列**执行光栅化任务，一般为绘制**场景**、绘制全屏四边形等。**光栅化队列**内部为乱序绘制。
+**光栅化队列** 执行光栅化任务，一般为绘制 **场景**、绘制全屏四边形等。**光栅化队列** 内部为乱序绘制。
 
 <img src="./image/cp-add-raster-queue.png" width=760></img>
 
 <img src="./image/cp-raster-queue.png" width=760></img>
 
-- hint为队列提示，有None、Opaque、Cutout、Transparent四种选项。hint不会影响执行，只用于性能检测。比如在移动平台上，我们往往希望先绘制Opaque队列（关闭AlphaTest），再绘制Cutout队列（开启AlphaTest）。如果在Opaque队列的绘制内容中，不小心混入了开启AlphaTest的物件，会降低图形性能。因此我们会通过队列提示，检查用户的提交是否符合预期。
+- hint 为队列提示，有 None、Opaque、Cutout、Transparent 四种选项。hint 不会影响执行，只用于性能检测。比如在移动平台上，我们往往希望先绘制 Opaque 队列（关闭 AlphaTest），再绘制 Cutout 队列（开启AlphaTest）。如果在 Opaque 队列的绘制内容中，不小心混入了开启 AlphaTest 的物件，会降低图形性能。因此我们会通过队列提示，检查用户的提交是否符合预期。
 
-- name为调试（debug）时显示的名字。为空时，系统会赋予默认名字。
+- name 为调试（debug）时显示的名字。为空时，系统会赋予默认名字。
 
 ### 计算队列（ComputeQueue）
 
@@ -200,7 +200,7 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 比如viewport、clearRenderTarget等。
 
-## 渲染数据设置（开发中）
+## 渲染数据设置
 
 在编写渲染算法时，我们往往需要设置一些数据供Shader使用。
 
@@ -212,31 +212,168 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 这些数据可以是只读的、或者始终处于可读写状态。
 
-对于有读/写状态变化的资源，我们建议用**渲染视图**（RenderView）进行跟踪。
+对于有读/写状态变化的资源，我们建议用 **渲染视图**（RenderView）进行跟踪。
 
-每个**渲染通道**、**渲染队列**有各自独立的存储。
+每个 **渲染通道**、**渲染队列** 有各自独立的存储。
 
 每个节点有不同的数据更新/上传频率。用户填写的常量、Shader描述符（Descriptor）的更新频率需要与节点的更新频率一致。
 
-- **渲染通道**：每**渲染通道**上传一次（PerPass）。
+- **渲染通道**：每 **渲染通道** 上传一次（PerPass）。
 
-- **渲染队列**：每**渲染阶段**上传一次（PerPhase）。
+- **渲染队列**：每 **渲染阶段** 上传一次（PerPhase）。
 
 <img src="./image/cp-data-structure.png" width=760></img>
 
 ## 功能开启
 
-勾选**自定义渲染管线**。
+勾选 **自定义渲染管线**。
 
 <img src="./image/cp-feature-enable.png" width=760></img>
 
-通过填写**自定义管线**的名字，选择注册好的**自定义渲染管线**。
-- 目前仅支持'Forward', 'Deferred'两种。
+通过填写 **自定义管线** 的名字，选择注册好的 **自定义渲染管线**。
+- 目前支持 **Custom**, **Forward**, **Deferred** 三种 (其中 Custom 是基于 Forward 基础上添加的 Bloom 后效示例)。
 
 <img src="./image/cp-pipeline-selection.png" width=760></img>
 
-## 编写自定义渲染管线（开发中）
+## 编写自定义渲染管线
 
-实现PipelineBuilder接口，注册到系统中。
+新建 TypeScript 文件，定义名为 TestCustomPipeline 类, 让该类实现 `rendering.PipelineBuilder` 接口，通过 `rendering.setCustomPipeline` 方法把该 pipeline 注册到系统中，如下代码所示。
 
-<img src="./image/cp-pipeline-edit.png" width=520></img>
+``` javascript
+import { _decorator, rendering, renderer, game, Game } from 'cc';
+import { AntiAliasing, buildForwardPass, buildBloomPasses,
+    buildFxaaPass, buildPostprocessPass, buildUIPass, isUICamera, decideProfilerCamera } from './PassUtils';
+
+export class TestCustomPipeline implements rendering.PipelineBuilder {
+    setup(cameras: renderer.scene.Camera[], pipeline: rendering.Pipeline): void {
+        decideProfilerCamera(cameras);
+        for (let i = 0; i < cameras.length; i++) {
+            const camera = cameras[i];
+            if (camera.scene === null) {
+                continue;
+            }
+            const isGameView = camera.cameraUsage === renderer.scene.CameraUsage.GAME
+                || camera.cameraUsage === renderer.scene.CameraUsage.GAME_VIEW;
+            if (!isGameView) {
+                // forward pass
+                buildForwardPass(camera, pipeline, isGameView);
+                continue;
+            }
+            // TODO: The actual project is not so simple to determine whether the ui camera, here is just as a demo demonstration.
+            if (!isUICamera(camera)) {
+                // forward pass
+                const forwardInfo = buildForwardPass(camera, pipeline, isGameView);
+                // fxaa pass
+                const fxaaInfo = buildFxaaPass(camera, pipeline, forwardInfo.rtName);
+                // bloom passes
+                const bloomInfo = buildBloomPasses(camera, pipeline, fxaaInfo.rtName);
+                // Present Pass
+                buildPostprocessPass(camera, pipeline, bloomInfo.rtName, AntiAliasing.NONE);
+                continue;
+            }
+            // render ui
+            buildUIPass(camera, pipeline);
+    }
+}
+}
+
+game.on(Game.EVENT_RENDERER_INITED, () => {
+    rendering.setCustomPipeline('Test', new TestCustomPipeline);
+});
+
+```
+
+可以看到上述代码引用了 PassUtils 脚本文件,该文件通过简单封装常用 `RenderPass` 的相关逻辑，方便用户直接使用（PassUtils可以在这 [下载](./code/PassUtils.ts)）。
+
+PassUtils有不少函数，我们抽取`buildPostprocessPass`的部分逻辑来介绍：
+
+```javascript
+function buildPostprocessPass (camera,
+    ppl,
+    inputTex: string,
+    antiAliasing: AntiAliasing = AntiAliasing.NONE) {
+    // ...
+    const postprocessPassRTName = `postprocessPassRTName${cameraID}`;
+    const postprocessPassDS = `postprocessPassDS${cameraID}`;
+    if (!ppl.containsResource(postprocessPassRTName)) {
+        // 注册color texture资源，因为当前pass是要上屏，所以传递camera.window作为上屏信息。如果是离屏的则需要调用ppl.addRenderTarget函数即可
+        ppl.addRenderTexture(postprocessPassRTName, Format.BGRA8, width, height, camera.window);
+        // 注册depthStencil texture资源
+        ppl.addDepthStencil(postprocessPassDS, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
+    }
+    // 下面两行会更新color texture与depthStencil texture的注册信息(主要为尺寸大小)，同样如果离屏的则调用ppl.updateRenderTarget函数
+    ppl.updateRenderWindow(postprocessPassRTName, camera.window);
+    ppl.updateDepthStencil(postprocessPassDS, width, height);
+    // 注册一个RasterPass，它的layoutName为post-process
+    const postprocessPass = ppl.addRasterPass(width, height, 'post-process');
+    postprocessPass.name = `CameraPostprocessPass${cameraID}`;
+    // 设置当前rasterPass的viewport
+    postprocessPass.setViewport(new Viewport(area.x, area.y, area.width, area.height));
+    // 判断系统中是否有输入纹理的同名信息，并把该输入纹理注入到outputResultMap的sampler中
+    if (ppl.containsResource(inputTex)) {
+        const computeView = new ComputeView();
+        computeView.name = 'outputResultMap';
+        postprocessPass.addComputeView(inputTex, computeView);
+    }
+    // 设置postprocessPass的clear color信息
+    const postClearColor = new Color(0, 0, 0, camera.clearColor.w);
+    if (camera.clearFlag & ClearFlagBit.COLOR) {
+        postClearColor.x = camera.clearColor.x;
+        postClearColor.y = camera.clearColor.y;
+        postClearColor.z = camera.clearColor.z;
+    }
+    // 注册color texture相关的pass view
+    const postprocessPassView = new RasterView('_',
+        AccessType.WRITE, AttachmentType.RENDER_TARGET,
+        getLoadOpOfClearFlag(camera.clearFlag, AttachmentType.RENDER_TARGET),
+        StoreOp.STORE,
+        camera.clearFlag,
+        postClearColor);
+    // 注册depth stencil texture相关的pass view
+    const postprocessPassDSView = new RasterView('_',
+        AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
+        getLoadOpOfClearFlag(camera.clearFlag, AttachmentType.DEPTH_STENCIL),
+        StoreOp.STORE,
+        camera.clearFlag,
+        new Color(camera.clearDepth, camera.clearStencil, 0, 0));
+    // 把color texture资源与相关的pass view产生关联(即renderpass的color texture输出口)
+    postprocessPass.addRasterView(postprocessPassRTName, postprocessPassView);
+    // 把depth stencil texture资源与相关的pass view产生关联
+    postprocessPass.addRasterView(postprocessPassDS, postprocessPassDSView);
+    // 添加具体的渲染队列，拿到postprocess material去画一个与屏幕等尺寸的四边形
+    postprocessPass.addQueue(QueueHint.NONE).addFullscreenQuad(
+        postInfo.postMaterial, 0, SceneFlags.NONE,
+    );
+    // ...
+    if (profilerCamera === camera) {
+        // 开启profiler渲染
+        postprocessPass.showStatistics = true;
+    }
+    // 把color texture与depth stencil texture的资源返回，可以用于后续其它render pass的数据源
+    return { rtName: postprocessPassRTName, dsName: postprocessPassDS };
+}
+```
+
+首先我们需要知道`RasterPass`如何配置`layoutName`(即上述代码中的post-process字符串)。打开`post-process.effect`文件后，可以看到内部定义的`pass`名称就是`post-process`，所以effect文件中的pass name就是作为RasterPass的`layoutName`。如果effect没有定义pass name，那么`RasterPass`的`layoutName`就得赋值为`default` (forward/gbuffer相关的RasterPass都是通过default配置)。所以要配置自己的后处理方案，就需要为自己编写的effect文件正确配置pass name。
+
+<img src="./image/postprocessPass.png" width=760></img>
+
+另外我们还需要把上一个pass的输出纹理作为当前pass的输入信息，上面说到需要通过`ComputeView`实现，而这里`ComputeView`的name设置为了`outputResultMap`,那么该怎么正确配置这个名称？继续对`post-process.effect`文件分析，可以看到下面的代码，`ComputeView`的name与`post-process-fs`的片元着色器的纹理输入名称一致。
+
+<img src="./image/postprocessOutput.png" width=760></img>
+
+同时我们需要通过下述代码行对outputResultMap名称进行声明，表明该输入纹理的使用频率为Pass level。
+
+```
+#pragma rate outputResultMap pass
+```
+
+定义完 `TestCustomPipeline` 后需要通过其它逻辑代码(如：组件等)引入该文件，以便激活 `Game.EVENT_RENDERER_INITED` 事件监听，之后改变 `项目设置` → `宏配置` → `CUSTOM_PIPELINE_NAME` 为 `Test`:
+
+<img src="./image/testCustomPipeline.png" width=760></img>
+
+运行后的效果如下所示,它包含了 fxaa 与 bloom 的后效：
+
+<img src="./image/customPipelineBloom.png" width=760></img>
+
+这就是定义一个 `RenderPass` 的大致流程，PassUtils还定义了其它Pass可以提供用户参考，包括`BloomPasses`，`FxaaPass`等。这些 `RenderPass` 提供了调节参数可对输出效果进行调整（如Bloom的曝光强度，迭代次数等），用户可以自己尝试。
