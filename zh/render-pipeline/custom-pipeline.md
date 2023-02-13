@@ -285,7 +285,7 @@ game.on(Game.EVENT_RENDERER_INITED, () => {
 ```
 可以看到上述代码引用了PassUtils脚本文件,该文件通过简单封装常用`RenderPass`的相关逻辑，方便用户直接使用(PassUtils可以在这[下载](https://docs.cocos.com/creator/manual/zh/render-pipeline/code/PassUtils.ts))。
 
-PassUtils有不少函数，我们抽取`buildPostprocessPass`的部分逻辑来介绍，希望能把整个使用过程说清楚：
+PassUtils有不少函数，我们抽取`buildPostprocessPass`的部分逻辑来介绍：
 
 ```javascript
 function buildPostprocessPass (camera,
