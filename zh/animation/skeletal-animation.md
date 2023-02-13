@@ -148,7 +148,7 @@ Creator 内置了两种常见标准蒙皮算法，它们性能相近，只对最
 2. 在 **资源管理器** 中新建一个 **TypeScript** 脚本并命名为 `SkeletalAttach`，编写组件脚本。脚本代码如下：
 
     ```ts
-    import { _decorator, Component, Node, SkeletalAnimation } from 'cc';
+    import { _decorator, Component, Node, SkeletalAnimation, Socket } from 'cc';
     const { ccclass, property } = _decorator;
 
     @ccclass('SkeletalAttach')
@@ -156,6 +156,8 @@ Creator 内置了两种常见标准蒙皮算法，它们性能相近，只对最
 
         @property(Node)
         cubeNode: Node | undefined;
+        
+        private _sockets: Array<Socket> = [];
 
         start () {
             let target = new Node();
@@ -170,7 +172,8 @@ Creator 内置了两种常见标准蒙皮算法，它们性能相近，只对最
                 let path = "root/_rootJoint/b_Root_00/b_Hip_01/b_Tail01_012/b_Tail02_013/b_Tail03_014";
                 // 基于路径和目标节点创建一个 ‘Socket’
                 let socket = new SkeletalAnimation.Socket(path, target);
-                skeletalAnimation.sockets.push(socket);
+                this._sockets.push(socket);
+                skeletalAnimation.sockets = this._sockets;
             }       
         }
 
