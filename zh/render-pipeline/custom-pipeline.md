@@ -160,17 +160,17 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 ### 计算队列（ComputeQueue）
 
-**计算队列**只包含**分发**（Dispatch），顺序执行。
+**计算队列** 只包含 **分发**（Dispatch），顺序执行。
 
 <img src="./image/cp-add-compute-queue.png" width=520></img>
 
 <img src="./image/cp-compute-queue.png" width=760></img>
 
-**计算通道**没有队列提示。
+**计算通道** 没有队列提示。
 
 ## 渲染内容（RenderContent）
 
-**渲染内容**通过**渲染队列**排序、由多种元素组成。
+**渲染内容** 通过 **渲染队列** 排序、由多种元素组成。
 
 ### 场景（Scene）
 
@@ -178,9 +178,9 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 <img src="./image/cp-scene.png" width=760></img>
 
-可通过camera添加，也可以直接添加。可以附加一定的光照信息。
+可通过 camera 添加，也可以直接添加。可以附加一定的光照信息。
 
-- sceneFlags一定程度控制**场景**的渲染。比如渲染哪些对象（Opaque、Cutout、Transparent）、是否只渲染阴影投射对象（ShadowCaster）、是否只渲染UI、光照方式（None、Default、Volumetirc、Clustered、PlanarShadow）、是否渲染GeometryRenderer、是否渲染Profiler等。
+- sceneFlags一定程度控制 **场景** 的渲染。比如渲染哪些对象（Opaque、Cutout、Transparent）、是否只渲染阴影投射对象（ShadowCaster）、是否只渲染 UI、光照方式（None、Default、Volumetirc、Clustered、PlanarShadow）、是否渲染 GeometryRenderer、是否渲染 Profiler 等。
 
 ### 矩形（Quad）
 
@@ -204,7 +204,7 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 在编写渲染算法时，我们往往需要设置一些数据供Shader使用。
 
-**渲染流程图**（RenderGraph）在**渲染通道**（RenderPass）、**渲染队列**（RenderQueue）提供了设置数据的接口。
+**渲染流程图**（RenderGraph）在 **渲染通道**（RenderPass）、**渲染队列**（RenderQueue）提供了设置数据的接口。
 
 <img src="./image/cp-setter.png" width=760></img>
 
@@ -285,7 +285,7 @@ game.on(Game.EVENT_RENDERER_INITED, () => {
 
 可以看到上述代码引用了 PassUtils 脚本文件,该文件通过简单封装常用 `RenderPass` 的相关逻辑，方便用户直接使用（PassUtils可以在这 [下载](./code/PassUtils.ts)）。
 
-PassUtils有不少函数，我们抽取`buildPostprocessPass`的部分逻辑来介绍：
+PassUtils有不少函数，我们抽取 `buildPostprocessPass` 的部分逻辑来介绍：
 
 ```javascript
 function buildPostprocessPass (camera,
@@ -354,17 +354,17 @@ function buildPostprocessPass (camera,
 }
 ```
 
-首先我们需要知道`RasterPass`如何配置`layoutName`(即上述代码中的post-process字符串)。打开`post-process.effect`文件后，可以看到内部定义的`pass`名称就是`post-process`，所以effect文件中的pass name就是作为RasterPass的`layoutName`。如果effect没有定义pass name，那么`RasterPass`的`layoutName`就得赋值为`default` (forward/gbuffer相关的RasterPass都是通过default配置)。所以要配置自己的后处理方案，就需要为自己编写的effect文件正确配置pass name。
+首先我们需要知道 `RasterPass` 如何配置 `layoutName` （即上述代码中的post-process字符串）。打开 `post-process.effect` 文件后，可以看到内部定义的 `pass` 名称就是`post-process`，所以 effect 文件中的 pass name 就是作为 RasterPass 的 `layoutName`。如果 effect 没有定义 pass name，那么 `RasterPass` 的 `layoutName` 就得赋值为 `default` （forward/gbuffer 相关的 RasterPass 都是通过 default 配置）。所以要配置自己的后处理方案，就需要为自己编写的 effect 文件正确配置 pass name。
 
 <img src="./image/postprocessPass.png" width=760></img>
 
-另外我们还需要把上一个pass的输出纹理作为当前pass的输入信息，上面说到需要通过`ComputeView`实现，而这里`ComputeView`的name设置为了`outputResultMap`,那么该怎么正确配置这个名称？继续对`post-process.effect`文件分析，可以看到下面的代码，`ComputeView`的name与`post-process-fs`的片元着色器的纹理输入名称一致。
+另外我们还需要把上一个 pass 的输出纹理作为当前 pass 的输入信息，上面说到需要通过 `ComputeView` 实现，而这里 `ComputeView` 的 name 设置为了 `outputResultMap`，那么该怎么正确配置这个名称？继续对 `post-process.effect` 文件分析，可以看到下面的代码，`ComputeView` 的 name 与 `post-process-fs` 的片元着色器的纹理输入名称一致。
 
 <img src="./image/postprocessOutput.png" width=760></img>
 
-同时我们需要通过下述代码行对outputResultMap名称进行声明，表明该输入纹理的使用频率为Pass level。
+同时我们需要通过下述代码行对 outputResultMap 名称进行声明，表明该输入纹理的使用频率为 Pass level。
 
-```
+```glsl
 #pragma rate outputResultMap pass
 ```
 
@@ -376,4 +376,4 @@ function buildPostprocessPass (camera,
 
 <img src="./image/customPipelineBloom.png" width=760></img>
 
-这就是定义一个 `RenderPass` 的大致流程，PassUtils还定义了其它Pass可以提供用户参考，包括`BloomPasses`，`FxaaPass`等。这些 `RenderPass` 提供了调节参数可对输出效果进行调整（如Bloom的曝光强度，迭代次数等），用户可以自己尝试。
+这就是定义一个 `RenderPass` 的大致流程，PassUtils 还定义了其它 Pass 可以提供用户参考，包括 `BloomPasses`，`FxaaPass` 等。这些 `RenderPass` 提供了调节参数可对输出效果进行调整（如Bloom的曝光强度，迭代次数等），用户可以自己尝试。
