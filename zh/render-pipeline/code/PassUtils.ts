@@ -149,7 +149,7 @@ export function getRenderArea (camera, width: number, height: number, light = nu
 }
 
 class FxaaData {
-    declare fxaaMaterial: Material;
+    fxaaMaterial: Material;
     private _updateFxaaPass () {
         if (!this.fxaaMaterial) return;
 
@@ -235,7 +235,7 @@ export const BLOOM_DOWNSAMPLEPASS_INDEX = 1;
 export const BLOOM_UPSAMPLEPASS_INDEX = BLOOM_DOWNSAMPLEPASS_INDEX + MAX_BLOOM_FILTER_PASS_NUM;
 export const BLOOM_COMBINEPASS_INDEX = BLOOM_UPSAMPLEPASS_INDEX + MAX_BLOOM_FILTER_PASS_NUM;
 class BloomData {
-    declare bloomMaterial: Material;
+    bloomMaterial: Material;
     threshold = 0.1;
     iterations = 2;
     intensity = 0.8;
@@ -443,7 +443,7 @@ export function buildBloomPasses (camera,
 }
 
 class PostInfo {
-    declare postMaterial: Material;
+    postMaterial: Material;
     antiAliasing: AntiAliasing = AntiAliasing.NONE;
     private _init () {
         this.postMaterial = new Material();
@@ -834,7 +834,7 @@ export function buildGBufferPass (camera,
 }
 
 class LightingInfo {
-    declare deferredLightingMaterial: Material;
+    deferredLightingMaterial: Material;
     private _init () {
         this.deferredLightingMaterial = new Material();
         this.deferredLightingMaterial.name = 'builtin-deferred-material';
