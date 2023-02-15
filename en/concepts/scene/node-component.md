@@ -46,8 +46,6 @@ To create nodes dynamically in a script, refer to the [Create and Destroy Nodes]
         - Movable dynamic objects: can use light probes
     In general it is possible to add a light component to a node that holds a MeshRenderer component, but it is not recommended, consider separating multiple nodes to achieve such a requirement.
 
-Translated with www.DeepL.com/Translator (free version)
-
 - **Layer**：Sets the visibility capability of the node. Please refer to the following **Setting the visibility of nodes** for details.
 
 ## Components
