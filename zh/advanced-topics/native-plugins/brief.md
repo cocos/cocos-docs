@@ -57,12 +57,12 @@
     "platforms":string[];       // 可选：支持的平台列表，不填默认支持所有原生平台。包括 windows, android, mac, ios
     "disabled":true;         // 可选：禁用插件
     "disable-by-platforms":string[];    //可选：指定平台禁用插件
-    "modules": {                        // 必填：插件包含的库, 
+    "modules": [{                        // 必填：插件包含的库, 
         "target":string;                // 必填：对应 `find_package` 名称，需和 `CC_PLUGIN_ENTRY` 的首参数保持一致
         "depends": string|string[];     // 可选：依赖其他 module 名称 
         "platforms":string[];           // 可选：重新限定支持的原生平台
-    }[
-    ]
+    }]
+    
 }
 ```
 

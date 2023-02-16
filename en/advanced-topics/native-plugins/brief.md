@@ -50,12 +50,11 @@ If there are cross-platform source files or CMake configurations in the plugin, 
     "platforms":string[];       // optional: list of supported platforms, all native platforms are supported by default if not filled. Including windows, android, mac, ios
     "disabled":true;            // optional: Disable plugins on all platforms
     "disable-by-platforms":string[];    // optional: Disable plugins for the specified platform
-    "modules": {        // mandatory: the libraries included in the plugin, 
+    "modules": [{        // mandatory: the libraries included in the plugin, 
         "target":string;                // mandatory: the name of the corresponding `find_package`, consistent with the first parameter of `CC_PLUGIN_ENTRY`
         "depends": string|string[];     // optional: depends on other module names 
         "platforms":string[];           // optional: re-qualify the supported native platforms
-    }[
-    ]
+    }]
 }
 ```
 
