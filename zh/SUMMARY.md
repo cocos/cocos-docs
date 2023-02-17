@@ -299,7 +299,7 @@
         - [物理组件](physics/physics-component.md)
             - [碰撞体](physics/physics-collider.md)
             - [刚体](physics/physics-rigidbody.md)
-            - [常力组件](physics/physics-constantForce.md)
+            - [恒力组件](physics/physics-constantForce.md)
             - [约束](physics/physics-constraint.md)
         - [物理材质](physics/physics-material.md)
         - [物理事件](physics/physics-event.md)
