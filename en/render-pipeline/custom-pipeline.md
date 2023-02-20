@@ -297,7 +297,7 @@ function buildPostprocessPass (camera,
     const postprocessPassRTName = `postprocessPassRTName${cameraID}`;
     const postprocessPassDS = `postprocessPassDS${cameraID}`;
     if (!ppl.containsResource(postprocessPassRTName)) {        
-        // Register a color texture resource, because current pass is to be , so pass camera.windows as an on-screen information. If is off-screen, you can use 'ppl.addRenderTarget' instead.
+        // Register a color texture resource, because current pass is to be on-screen, so pass camera.windows as an on-screen information. If is off-screen, you can use 'ppl.addRenderTarget' instead.
         ppl.addRenderTexture(postprocessPassRTName, Format.BGRA8, width, height, camera.window);        
         // Register a depthStencil texture resource
         ppl.addDepthStencil(postprocessPassDS, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
