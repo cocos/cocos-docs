@@ -240,7 +240,7 @@ Currently only 'Forward', 'Deferred' are supported.
 
 Create a new TypeScript file, define a class named TestCustomPipeline, have it implement the `rendering.PipelineBuilder` interface, and register the pipeline to the system via the `rendering.setCustomPipeline` method, as shown in the following code.
 
-``` javascript
+```typescript
 import { _decorator, rendering, renderer, game, Game } from 'cc';
 import { AntiAliasing, buildForwardPass, buildBloomPasses,
     buildFxaaPass, buildPostprocessPass, buildUIPass, isUICamera, decideProfilerCamera } from './PassUtils';
@@ -288,7 +288,7 @@ You can see that the above code references the PassUtils script file, which faci
 
 PassUtils has quite a few functions, and we take some of the logic of `buildPostprocessPass` to introduce.
 
-```javascript
+```typescript
 function buildPostprocessPass (camera,
     ppl,
     inputTex: string,
