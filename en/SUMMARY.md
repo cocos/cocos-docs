@@ -134,6 +134,7 @@
 - [Graphics](module-map/graphics.md)
     - [Render Pipeline](render-pipeline/overview.md)
         - [Built-in Render Pipeline](render-pipeline/builtin-pipeline.md)
+        - [Custom rendering of pipelines (experimental)](render-pipeline/custom-pipeline.md)
     - [Camera](editor/components/camera-component.md)
     - [Lighting](concepts/scene/light.md)
         - [Physically Based Lighting](concepts/scene/light/pbr-lighting.md)
