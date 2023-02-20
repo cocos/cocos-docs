@@ -369,7 +369,7 @@ We also need to declare the outputResultMap name with the following line of code
 #pragma rate outputResultMap pass
 ```
 
-After defining `TestCustomPipeline`, you need to introduce this file through other logical code (e.g. components, etc.) in order to activate the `Game.EVENT_RENDERER_INITED` event listener, and then change `Project Settings` → `Macro Configuration` → `CUSTOM_PIPELINE_NAME` to `Test` :
+After defining `TestCustomPipeline`, you need to introduce this file through other logical code (e.g. components, etc.) in order to activate the `Game.EVENT_RENDERER_INITED` event listener, and then change **Project Settings** -> **Macro Configurations** -> **CUSTOM_PIPELINE_NAME** to `Test` :
 
 <img src="./image/testCustomPipeline.png" width=760></img>
 
