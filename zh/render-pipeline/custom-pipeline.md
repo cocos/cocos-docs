@@ -237,9 +237,9 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 ## 编写自定义渲染管线
 
-新建 TypeScript 文件，定义名为 TestCustomPipeline 类, 让该类实现 `rendering.PipelineBuilder` 接口，通过 `rendering.setCustomPipeline` 方法把该 pipeline 注册到系统中，如下代码所示。
+新建 TypeScript 文件，定义名为 `TestCustomPipeline` 类，让该类实现 `rendering.PipelineBuilder` 接口，通过 `rendering.setCustomPipeline` 方法把该 pipeline 注册到系统中，如下代码所示。
 
-``` javascript
+``` typescript
 import { _decorator, rendering, renderer, game, Game } from 'cc';
 import { AntiAliasing, buildForwardPass, buildBloomPasses,
     buildFxaaPass, buildPostprocessPass, buildUIPass, isUICamera, decideProfilerCamera } from './PassUtils';
@@ -287,7 +287,7 @@ game.on(Game.EVENT_RENDERER_INITED, () => {
 
 PassUtils有不少函数，我们抽取 `buildPostprocessPass` 的部分逻辑来介绍：
 
-```javascript
+```typescript
 function buildPostprocessPass (camera,
     ppl,
     inputTex: string,
@@ -296,65 +296,65 @@ function buildPostprocessPass (camera,
     const postprocessPassRTName = `postprocessPassRTName${cameraID}`;
     const postprocessPassDS = `postprocessPassDS${cameraID}`;
     if (!ppl.containsResource(postprocessPassRTName)) {
-        // 注册color texture资源，因为当前pass是要上屏，所以传递camera.window作为上屏信息。如果是离屏的则需要调用ppl.addRenderTarget函数即可
+        // 注册 color texture 资源，因为当前 pass 是要上屏，所以传递 camera.window 作为上屏信息。如果是离屏的则需要调用 ppl.addRenderTarget 函数即可
         ppl.addRenderTexture(postprocessPassRTName, Format.BGRA8, width, height, camera.window);
-        // 注册depthStencil texture资源
+        // 注册 depthStencil texture 资源
         ppl.addDepthStencil(postprocessPassDS, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
     }
-    // 下面两行会更新color texture与depthStencil texture的注册信息(主要为尺寸大小)，同样如果离屏的则调用ppl.updateRenderTarget函数
+    // 下面两行会更新 color texture 与 depthStencil texture 的注册信息(主要为尺寸大小)，同样如果离屏的则调用 'ppl.updateRenderTarget' 函数
     ppl.updateRenderWindow(postprocessPassRTName, camera.window);
     ppl.updateDepthStencil(postprocessPassDS, width, height);
-    // 注册一个RasterPass，它的layoutName为post-process
+    // 注册一个 RasterPass，它的 layoutName 为 post-process
     const postprocessPass = ppl.addRasterPass(width, height, 'post-process');
     postprocessPass.name = `CameraPostprocessPass${cameraID}`;
-    // 设置当前rasterPass的viewport
+    // 设置当前 rasterPass 的 viewport
     postprocessPass.setViewport(new Viewport(area.x, area.y, area.width, area.height));
-    // 判断系统中是否有输入纹理的同名信息，并把该输入纹理注入到outputResultMap的sampler中
+    // 判断系统中是否有输入纹理的同名信息，并把该输入纹理注入到 outputResultMap的sampler 中
     if (ppl.containsResource(inputTex)) {
         const computeView = new ComputeView();
         computeView.name = 'outputResultMap';
         postprocessPass.addComputeView(inputTex, computeView);
     }
-    // 设置postprocessPass的clear color信息
+    // 设置 postprocessPass 的 clear color 信息
     const postClearColor = new Color(0, 0, 0, camera.clearColor.w);
     if (camera.clearFlag & ClearFlagBit.COLOR) {
         postClearColor.x = camera.clearColor.x;
         postClearColor.y = camera.clearColor.y;
         postClearColor.z = camera.clearColor.z;
     }
-    // 注册color texture相关的pass view
+    // 注册 color texture 相关的 pass view
     const postprocessPassView = new RasterView('_',
         AccessType.WRITE, AttachmentType.RENDER_TARGET,
         getLoadOpOfClearFlag(camera.clearFlag, AttachmentType.RENDER_TARGET),
         StoreOp.STORE,
         camera.clearFlag,
         postClearColor);
-    // 注册depth stencil texture相关的pass view
+    // 注册 depth stencil texture 相关的 pass view
     const postprocessPassDSView = new RasterView('_',
         AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
         getLoadOpOfClearFlag(camera.clearFlag, AttachmentType.DEPTH_STENCIL),
         StoreOp.STORE,
         camera.clearFlag,
         new Color(camera.clearDepth, camera.clearStencil, 0, 0));
-    // 把color texture资源与相关的pass view产生关联(即renderpass的color texture输出口)
+    // 把 color texture 资源与相关的pass view产生关联(即 renderpass 的 color texture 输出口)
     postprocessPass.addRasterView(postprocessPassRTName, postprocessPassView);
-    // 把depth stencil texture资源与相关的pass view产生关联
+    // 把 depth stencil texture 资源与相关的 pass view 产生关联
     postprocessPass.addRasterView(postprocessPassDS, postprocessPassDSView);
-    // 添加具体的渲染队列，拿到postprocess material去画一个与屏幕等尺寸的四边形
+    // 添加具体的渲染队列，拿到 postprocess material 去画一个与屏幕等尺寸的四边形
     postprocessPass.addQueue(QueueHint.NONE).addFullscreenQuad(
         postInfo.postMaterial, 0, SceneFlags.NONE,
     );
     // ...
     if (profilerCamera === camera) {
-        // 开启profiler渲染
+        // 开启 profiler 渲染
         postprocessPass.showStatistics = true;
     }
-    // 把color texture与depth stencil texture的资源返回，可以用于后续其它render pass的数据源
+    // 把 color texture 与 depth stencil texture 的资源返回，可以用于后续其它 render pass 的数据源
     return { rtName: postprocessPassRTName, dsName: postprocessPassDS };
 }
 ```
 
-首先我们需要知道 `RasterPass` 如何配置 `layoutName` （即上述代码中的post-process字符串）。打开 `post-process.effect` 文件后，可以看到内部定义的 `pass` 名称就是`post-process`，所以 effect 文件中的 pass name 就是作为 RasterPass 的 `layoutName`。如果 effect 没有定义 pass name，那么 `RasterPass` 的 `layoutName` 就得赋值为 `default` （forward/gbuffer 相关的 RasterPass 都是通过 default 配置）。所以要配置自己的后处理方案，就需要为自己编写的 effect 文件正确配置 pass name。
+首先我们需要知道 `RasterPass` 如何配置 `layoutName` （即上述代码中的 post-process 字符串）。打开 `post-process.effect` 文件后，可以看到内部定义的 `pass` 名称就是 `post-process` ，所以 effect 文件中的 pass name 就是作为 RasterPass 的 `layoutName`。如果 effect 没有定义 pass name，那么 `RasterPass` 的 `layoutName` 就得赋值为 `default` （forward/gbuffer 相关的 RasterPass 都是通过 default 配置）。所以要配置自己的后处理方案，就需要为自己编写的 effect 文件正确配置 pass name。
 
 <img src="./image/postprocessPass.png" width=760></img>
 
@@ -362,13 +362,13 @@ function buildPostprocessPass (camera,
 
 <img src="./image/postprocessOutput.png" width=760></img>
 
-同时我们需要通过下述代码行对 outputResultMap 名称进行声明，表明该输入纹理的使用频率为 Pass level。
+同时我们需要通过下述代码行对 `outputResultMap` 名称进行声明，表明该输入纹理的使用频率为 Pass level。
 
 ```glsl
 #pragma rate outputResultMap pass
 ```
 
-定义完 `TestCustomPipeline` 后需要通过其它逻辑代码(如：组件等)引入该文件，以便激活 `Game.EVENT_RENDERER_INITED` 事件监听，之后改变 `项目设置` → `宏配置` → `CUSTOM_PIPELINE_NAME` 为 `Test`:
+定义完 `TestCustomPipeline` 后需要通过其它逻辑代码（如：组件等）引入该文件，以便激活 `Game.EVENT_RENDERER_INITED` 事件监听，之后改变 **项目设置** -> **宏配置** -> **CUSTOM_PIPELINE_NAME** 为 `Test`:
 
 <img src="./image/testCustomPipeline.png" width=760></img>
 
@@ -376,4 +376,4 @@ function buildPostprocessPass (camera,
 
 <img src="./image/customPipelineBloom.png" width=760></img>
 
-这就是定义一个 `RenderPass` 的大致流程，PassUtils 还定义了其它 Pass 可以提供用户参考，包括 `BloomPasses`，`FxaaPass` 等。这些 `RenderPass` 提供了调节参数可对输出效果进行调整（如Bloom的曝光强度，迭代次数等），用户可以自己尝试。
+这就是定义一个 `RenderPass` 的流程，PassUtils 还定义了其它 Pass 可以提供用户参考，包括 `BloomPasses`，`FxaaPass` 等。这些 `RenderPass` 提供了调节参数可对输出效果进行调整（如Bloom的曝光强度，迭代次数等），用户可查看相关的代码进行尝试。

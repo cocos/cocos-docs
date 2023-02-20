@@ -236,8 +236,145 @@ Currently only 'Forward', 'Deferred' are supported.
 
 <img src="./image/cp-pipeline-selection.png" width=760></img>
 
-## Write custom rendering pipelines (under development)
+## Write a Custom Render Pipeline
 
-Implement PipelineBuilder interface and register it to the system.
+Create a new TypeScript file, define a class named TestCustomPipeline, have it implement the `rendering.PipelineBuilder` interface, and register the pipeline to the system via the `rendering.setCustomPipeline` method, as shown in the following code.
 
-<img src="./image/cp-pipeline-edit.png" width=520></img>
+``` javascript
+import { _decorator, rendering, renderer, game, Game } from 'cc';
+import { AntiAliasing, buildForwardPass, buildBloomPasses,
+    buildFxaaPass, buildPostprocessPass, buildUIPass, isUICamera, decideProfilerCamera } from './PassUtils';
+
+export class TestCustomPipeline implements rendering.PipelineBuilder {
+    setup(cameras: renderer.scene.Camera[], pipeline: rendering.Pipeline): void {
+        decideProfilerCamera(cameras);
+        for (let i = 0; i < cameras.length; i++) {
+            const camera = cameras[i];
+            if (camera.scene === null) {
+                continue;
+            }
+            const isGameView = camera.cameraUsage === renderer.scene.CameraUsage.GAME
+                || camera.cameraUsage === renderer.scene.CameraUsage.GAME_VIEW;
+            if (!isGameView) {
+                // forward pass
+                buildForwardPass(camera, pipeline, isGameView);
+                continue;
+            }
+            // TODO: The actual project is not so simple to determine whether the ui camera, here is just as a demo demonstration.
+            if (!isUICamera(camera)) {
+                // forward pass
+                const forwardInfo = buildForwardPass(camera, pipeline, isGameView);
+                // fxaa pass
+                const fxaaInfo = buildFxaaPass(camera, pipeline, forwardInfo.rtName);
+                // bloom passes
+                const bloomInfo = buildBloomPasses(camera, pipeline, fxaaInfo.rtName);
+                // Present Pass
+                buildPostprocessPass(camera, pipeline, bloomInfo.rtName, AntiAliasing.NONE);
+                continue;
+            }
+            // render ui
+            buildUIPass(camera, pipeline);
+    }
+}
+}
+
+game.on(Game.EVENT_RENDERER_INITED, () => {
+    rendering.setCustomPipeline('Test', new TestCustomPipeline);
+});
+
+```
+
+You can see that the above code references the PassUtils script file, which facilitates direct use by users by simply encapsulating the logic associated with the commonly used `RenderPass` (PassUtils can be found here [download](./code/PassUtils.ts)).
+
+PassUtils has quite a few functions, and we take some of the logic of `buildPostprocessPass` to introduce.
+
+```javascript
+function buildPostprocessPass (camera,
+    ppl,
+    inputTex: string,
+    antiAliasing: AntiAliasing = AntiAliasing.NONE) {
+    // ...
+    const postprocessPassRTName = `postprocessPassRTName${cameraID}`;
+    const postprocessPassDS = `postprocessPassDS${cameraID}`;
+    if (!ppl.containsResource(postprocessPassRTName)) {        
+        // Register a color texture resource, because current pass is to be , so pass camera.windows as an on-screen information. If is off-screen, you can use 'ppl.addRenderTarget' instead.
+        ppl.addRenderTexture(postprocessPassRTName, Format.BGRA8, width, height, camera.window);        
+        // Register a depthStencil texture resource
+        ppl.addDepthStencil(postprocessPassDS, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
+    }    
+    // The follows codes will update the registered information of the color texture and depth stencil texture (mainly for the size), also if is off-screen, use 'ppl.updateRenderTarget' instead
+    ppl.updateRenderWindow(postprocessPassRTName, camera.window);
+    ppl.updateDepthStencil(postprocessPassDS, width, height);
+    // Register a RasterPass with a layoutName of post-process
+    const postprocessPass = ppl.addRasterPass(width, height, 'post-process');
+    postprocessPass.name = `CameraPostprocessPass${cameraID}`;    
+    // Set the viewport information of current rasterPass
+    postprocessPass.setViewport(new Viewport(area.x, area.y, area.width, area.height));
+    // Determine if there is information of the same name of the input texture in the system, and inject the input texture into the sampler of outputResultMap
+    if (ppl.containsResource(inputTex)) {
+        const computeView = new ComputeView();
+        computeView.name = 'outputResultMap';
+        postprocessPass.addComputeView(inputTex, computeView);
+    }    
+    // Config the clear color of the postprocessPass的clear
+    const postClearColor = new Color(0, 0, 0, camera.clearColor.w);
+    if (camera.clearFlag & ClearFlagBit.COLOR) {
+        postClearColor.x = camera.clearColor.x;
+        postClearColor.y = camera.clearColor.y;
+        postClearColor.z = camera.clearColor.z;
+    }
+    // Register for color texture related passes to view
+    const postprocessPassView = new RasterView('_',
+        AccessType.WRITE, AttachmentType.RENDER_TARGET,
+        getLoadOpOfClearFlag(camera.clearFlag, AttachmentType.RENDER_TARGET),
+        StoreOp.STORE,
+        camera.clearFlag,
+        postClearColor);    
+    // Register a PassView for depth stencil texture
+    const postprocessPassDSView = new RasterView('_',
+        AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
+        getLoadOpOfClearFlag(camera.clearFlag, AttachmentType.DEPTH_STENCIL),
+        StoreOp.STORE,
+        camera.clearFlag,
+        new Color(camera.clearDepth, camera.clearStencil, 0, 0));
+    // Associate the color texture resource with the associated pass view (i.e. the color texture output of the renderpass)
+    postprocessPass.addRasterView(postprocessPassRTName, postprocessPassView);
+    // Associate the depth stencil texture resource with the associated pass view
+    postprocessPass.addRasterView(postprocessPassDS, postprocessPassDSView);
+    // Add a specific render queue and get the postprocess material to draw a quadrilateral of equal size to the screen
+    postprocessPass.addQueue(QueueHint.NONE).addFullscreenQuad(
+        postInfo.postMaterial, 0, SceneFlags.NONE,
+    );
+    // ...
+    if (profilerCamera === camera) {
+        // Enable profiler
+        postprocessPass.showStatistics = true;
+    }
+    // Return the resources of color texture and depth stencil texture, which can be used as data source for other render passes
+    return { rtName: postprocessPassRTName, dsName: postprocessPassDS };
+}
+```
+
+First we need to know how `RasterPass` configures `layoutName` (i.e. the post-process string in the above code). After opening the `post-process.effect` file, we can see that the `pass` name defined internally is `post-process`, so the pass name in the effect file is used as the `layoutName` of RasterPass. If effect does not define pass name, then `layoutName` of `RasterPass` has to be assigned to `default` (forward/gbuffer related RasterPass are configured by default). So to configure your own post-processing scheme, you need to configure the pass name correctly for the effect file you write.
+
+<img src="./image/postprocessPass.png" width=760></img>
+
+We also need to use the output texture of the previous pass as the input information of the current pass, as mentioned above, we need to achieve this through `ComputeView`, and here the name of `ComputeView` is set to `outputResultMap`, so how to configure this name correctly? Continuing the analysis of the `post-process.effect` file, we can see the following code, the name of `ComputeView` is the same as the texture input name of the slice shader of `post-process-fs`.
+
+<img src="./image/postprocessOutput.png" width=760></img>
+
+We also need to declare the outputResultMap name with the following line of code, indicating that the input texture is used at Pass level.
+
+```glsl
+#pragma rate outputResultMap pass
+```
+
+After defining `TestCustomPipeline`, you need to introduce this file through other logical code (e.g. components, etc.) in order to activate the `Game.EVENT_RENDERER_INITED` event listener, and then change `Project Settings` → `Macro Configuration` → `CUSTOM_PIPELINE_NAME` to `Test` :
+
+<img src="./image/testCustomPipeline.png" width=760></img>
+
+The result after running is shown below, which contains the after-effects of fxaa and bloom.
+
+<img src="./image/customPipelineBloom.png" width=760></img>
+
+This is the general process of defining a `RenderPass`. PassUtils also defines other Passes that users can refer to, including `BloomPasses`, `FxaaPass` and so on. These `RenderPasses` provide parameters to adjust the output (e.g. Bloom exposure intensity, number of iterations, etc.), so users can try it out for themselves.
