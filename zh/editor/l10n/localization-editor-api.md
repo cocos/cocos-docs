@@ -254,7 +254,7 @@ l10n.on(L10nListenEvent.languageChanged, (...args: any[]) => {
 
 定义: `off(event: L10nListenEvent, callback: (...args: any[]) => void)`
 
-描述: 用于反注册[l10n](#l10n)的[L10nListenEvent](#L10nListenEvent)事件回调
+描述: 用于反注册[l10n](#l10n)的[L10nListenEvent](#l10nlistenevent)事件回调
 
 > ***请务必使on与off成对出现，确保正确的销毁无用数据***
 
