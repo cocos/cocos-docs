@@ -324,11 +324,11 @@ interface ICompressPresetItem {
 
 ![splash](./index/splash.png)
 
-- **TotalTime**：闪屏的总时长
-- **Auto Fit Resolution**：是否自动匹配分辨率
-- **DisplayRatio**：显示比例
-- **Display Cocos Watermark** 是否显示 Cocos 水印
-- **Preview**：显示闪屏的预览，可以通过点击从而选择新的闪屏。
+- **总时间**：闪屏的总时长（毫秒）
+- **图像大小乘数**：闪屏图像的放大乘数
+- **点击改变**：如果你想改变闪屏图像，将鼠标悬停在预览窗口，然后点击'+'按钮，然后选择一个新的图像路径。
+
+如果你想禁用闪屏，请参考 [构建选项介绍](../publish/build-options.md) 详情。
 
 ## 自定义项目设置面板
 
