@@ -368,7 +368,6 @@
         - [Extension Infrastructure](editor/extension/package.md)
         - [Definition of Extension](editor/extension/define.md)
         - [Message System](editor/extension/messages.md)
-        - [Multilingual System (i18n)](editor/extension/i18n.md)
         - [Configuration System](editor/extension/profile.md)
         - [Extension Panel](editor/extension/panel.md)
         - [UI Components](editor/extension/ui.md)
