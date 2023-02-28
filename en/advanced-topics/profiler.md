@@ -46,7 +46,7 @@ The performance profiler is a tool for performance analysis and statistics that 
 
 ## How to use
 
-- In the main menu of the editor: **Project** -> **Project Settings** -> **Functional cropping**, check **Debug Text Renderer**, this option is closed by default, you need to open it to display the debug information:
+- In the main menu of the editor: **Project** -> **Project Settings** -> **Feature cropping**, check **Debug Renderer**, this option is closed by default, you need to open it to display the debug information:
 
   ![enable profiler](native-profiler/enable-profiler.png)
 
