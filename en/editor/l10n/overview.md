@@ -62,10 +62,6 @@ Once the translation has been completed according to the above steps, it can be 
 - **Default language**: the language used when the project is started after the release
 - **Alternate language**: the alternate language to be used if there is a problem with the default language
 
-## Sample
-
-We have also prepared examples on ([GIT](github.com)) | ([GITEE](gitee.com)) that developers can download as needed.
-
 ## Q & A
 
 - Q: Is there a solution if I accidentally modify the data file and the data file becomes corrupted and I cannot open L10N?

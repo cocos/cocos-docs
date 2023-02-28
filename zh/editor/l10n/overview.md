@@ -34,7 +34,7 @@
 
 ![overview](translation-service/overview.png)
 
-引擎整合了多家译文服务商的翻译服务，开发者可以选择不同的译文服务商以提供更完善和多样化的服务。详情请参考 [译文服务商](tranlation-service.md)。
+引擎整合了多家译文服务商的翻译服务，开发者可以选择不同的译文服务商以提供更完善和多样化的服务。详情请参考 [译文服务商](translation-service.md)。
 
 ## 收集并统计
 
@@ -46,7 +46,7 @@
 
 ![overview](compile/overview.png)
 
-语言编译可以查看当前已配置和翻译的语言，并查看其进度或删除操作。同时也提供对某些非文本资源的手动处理。详情请参考 [语言编译](complie-language.md)
+语言编译可以查看当前已配置和翻译的语言，并查看其进度或删除操作。同时也提供对某些非文本资源的手动处理。详情请参考 [语言编译](compile-language.md)
 
 ## 程序化使用
 
@@ -63,10 +63,6 @@ API 参考请移步 [Localization Editor Api](localization-editor-api.md)。
 - 使用的语言：这里将包含所有在 **本地化编辑** 中设置的语言，开发者可根据版本不同按需选择
 - 默认语言：发布后，项目启动时所使用的语言
 - 备用语言：默认语言出现问题后使用的备用语言
-
-## 范例
-
-我们在 ([GIT](github.com)) | ([GITEE](gitee.com)) 上也准备了范例，开发者可以根据需要下载。
 
 ## Q & A
 
