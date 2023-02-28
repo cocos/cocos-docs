@@ -320,6 +320,11 @@ The splash screen will only be shown after the release, not during the preview.
 
 If you want to disable the splash screen, please refer to [Build Options](../publish/build-options.md) for details.
 
+> **Notes**.
+> 1. After selecting different build platforms in the build options, adjust the splash screen rules again to achieve the diversity of splash screen on different platforms
+> 2. the splash screen will only take effect after packaging, not when previewing
+> 3. some countries and regions are not open for full splash screen, we apologize for any inconvenience caused to you.
+
 ## Extending the Project Settings Panel
 
 Creator supports adding custom feature pages on the right side of **Project Settings**, please refer to the [Extending the Project Settings Panel](../../editor/extension/contributions-project.md) documentation.
