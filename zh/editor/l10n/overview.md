@@ -64,10 +64,6 @@ API 参考请移步 [Localization Editor Api](localization-editor-api.md)。
 - 默认语言：发布后，项目启动时所使用的语言
 - 备用语言：默认语言出现问题后使用的备用语言
 
-## 范例
-
-我们在 ([GIT](github.com)) | ([GITEE](gitee.com)) 上也准备了范例，开发者可以根据需要下载。
-
 ## Q & A
 
 - Q：若我不慎修改了数据文件导致数据文件损坏而无法打开 L10N 时，是否有解决办法？
