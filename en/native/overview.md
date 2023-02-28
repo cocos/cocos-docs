@@ -9,7 +9,7 @@ This chapter will cover some topics that may be encountered in native developmen
 - [Tutorial: JSB 2.0](../advanced-topics/JSB2.0-learning.md)
     - [JSB Manual Binding](../advanced-topics/jsb-manual-binding.md)
     - [Using JSB Auto Binding](../advanced-topics/jsb-auto-binding.md)
-- [Introduction to Swig](../advanced-topics/jsb-swig.md)
+    - [Introduction to Swig](../advanced-topics/jsb-swig.md)
     - [The Tutorial of Swig Workflow in Cocos Creator](../advanced-topics/jsb/swig/tutorial/index.md)
 - [A Simpler Way to Call Java Methods with JavaScript](../advanced-topics/js-java-bridge.md)
 - [A Simpler Way to Call Objective-C Methods with JavaScript](../advanced-topics/js-oc-bridge.md)
