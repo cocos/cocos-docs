@@ -316,7 +316,7 @@ The splash screen will only be shown after the release, not during the preview.
 
 - **TotalTime**：Total duration of splash screen(ms)
 - **Image Size Multiplier**: The size multiplier of the splash image
-- **Click To Change**: If you want to change the Splash Image, Hover the mouse on the preview window, then click the '+' button, then select a new image path.
+- **Preview**: If you want to change the Splash Image, Hover the mouse on the preview window, then click the '+' button, then select a new image path.
 
 If you want to disable the splash screen, please refer to [Build Options](../publish/build-options.md) for details.
 
