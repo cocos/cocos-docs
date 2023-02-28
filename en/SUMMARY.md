@@ -350,8 +350,7 @@
         - [The Tutorial of Swig Workflow in Cocos Creator](./advanced-topics/jsb/swig/tutorial/index.md)
     - [A Simpler Way to Call Java Methods with JavaScript](./advanced-topics/js-java-bridge.md)
     - [A Simpler Way to Call Objective-C Methods with JavaScript](./advanced-topics/js-oc-bridge.md)
-    - [Event Mecanism based on JsbBridge
-    ](./advanced-topics/jsb-bridge-wrapper.md)
+    - [Event Mecanism based on JsbBridge](./advanced-topics/jsb-bridge-wrapper.md)
     - [CMake Usage Introduction](./advanced-topics/cmake-learning.md)
     - [Native engine memory leak detection system](./advanced-topics/memory-leak-detector.md)
     - [Native Scene Culling](./advanced-topics/native-scene-culling.md)
