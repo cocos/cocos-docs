@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 From Cocos Creator 3.7.0, we switch the approach of generating JS binding code from [bindings-generator](https://github.com/cocos/cocos-engine/tree/d08a11244d2a31da1aac7af7d2aa8f1b6152e30c/native/tools/bindings-generator) to [Swig](https://www.swig.org). Swig has many benefits in generating glue code by parsing  its custom `interface` file (IDL) which is compatible with `C++`. For more about why we switch to Swig, you could refer to [this issue](https://github.com/cocos/cocos-engine/issues/10792) .
 
@@ -74,7 +74,7 @@ From Cocos Creator 3.7.0, we switch the approach of generating JS binding code f
 
 - There is a [swig-interface-template.i](https://github.com/cocos/cocos-engine/blob/1f928364f4cad22681e7830c53dc7da71a87d11f/native/tools/swig-config/swig-interface-template.i) in `engine/native/tools/swig-config` directory, just copy and rename it to some place in your project. There some comments demonstrate how to configure your module in `.i` file.  You could also reference engine internal `.i` files in `engine/native/tools/swig-config`, for instance, `scene.i` or `assets.i` for a quick start.
 - If you're using `Visual Studio Code`, you could install `SWIG Language` extension which was developed by `Hong-She Liang` for highlight syntax support.
-- For more details of writing `.i` file, please visit [tutorial](#Tutorial) section.
+- For more details of writing `.i` file, please visit [tutorial](#tutorial) section.
 
 ## Tutorial
 

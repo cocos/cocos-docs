@@ -28,11 +28,11 @@
       - 摄像机个数
 
   3. 内存使用统计 `MemoryStats` ，包括：
-      - DebugRenderer的顶点缓冲区大小
+      - DebugRenderer 的顶点缓冲区大小
       - 原生字体内存大小
       - 贴图占用的显存
       - Buffer占用的显存
-      - GeometryRenderer顶点缓冲区大小
+      - GeometryRenderer 顶点缓冲区大小
 
   4. 性能数据统计 `PerformanceStats` ，显示逻辑线程调用堆栈，包含每个剖析代码段的：
       - 每帧执行总时间

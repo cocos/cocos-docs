@@ -106,7 +106,7 @@
         - [外部模块使用案例](scripting/modules/example.md)
         - [模块规范](scripting/modules/spec.md)
         - [导入映射](scripting/modules/import-map.md)
-    - [插件脚本](scripting/external-scripts.md)
+    - [外部代码支持](scripting/external-scripts.md)
 
 - [跨平台发布](editor/publish/index.md)
     - [熟悉构建发布面板](editor/publish/build-panel.md)
@@ -364,6 +364,22 @@
         - [预览](xr/vr/preview.md)
         - [构建与发布](xr/vr/build.md)
 
+- [原生开发](native/overview.md)
+    - [JSB 2.0 使用指南](advanced-topics/JSB2.0-learning.md)
+        - [JSB 手动绑定](advanced-topics/jsb-manual-binding.md)
+        - [JSB 自动绑定](advanced-topics/jsb-auto-binding.md)
+        - [Swig](advanced-topics/jsb-swig.md)
+        - [Swig 示例](advanced-topics/jsb/swig/tutorial/index.md)
+    - [Java 原生反射机制](advanced-topics/js-java-bridge.md)
+    - [Objective-C 原生反射机制](advanced-topics/js-oc-bridge.md)
+    - [JsbBridgeWrapper 基于原生反射机制的事件处理](advanced-topics/jsb-bridge-wrapper.md)
+    - [CMake 使用简介](advanced-topics/cmake-learning.md)
+    - [原生引擎内存泄漏检测系统](advanced-topics/memory-leak-detector.md)
+    - [原生场景剔除](advanced-topics/native-scene-culling.md)
+    - [原生性能剖析器](advanced-topics/profiler.md)
+    - [原生插件](advanced-topics/native-plugins/brief.md)
+        - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
+
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
@@ -390,7 +406,6 @@
         - [基础结构](editor/extension/package.md)
         - [扩展包定义](editor/extension/define.md)
         - [消息系统](editor/extension/messages.md)
-        - [多语言系统（i18n）](editor/extension/i18n.md)
         - [配置系统](editor/extension/profile.md)
         - [面板系统](editor/extension/panel.md)
         - [UI 组件](editor/extension/ui.md)
