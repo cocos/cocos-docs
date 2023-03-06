@@ -34,6 +34,7 @@ This chapter will contain the following.
     - [Light Probe Panel](light-probe-panel.md)
 - [Reflection Probe](reflection-probe.md)
     - [Reflection Probe Panel](reflection-probe-panel.md)
+    - [Art workflow example](reflection-art-workflow.md)
 - [Skybox](../../skybox.md)
 - [lightmap](../lightmap.md)
 - [Image Based lighting Example](example.md)

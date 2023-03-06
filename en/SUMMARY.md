@@ -151,6 +151,7 @@
                 - [Light Probe Panel](concepts/scene/light/probe/light-probe-panel.md)
             - [Reflection Probe](concepts/scene/light/probe/reflection-probe.md)
                 - [Reflection Probe Panel](concepts/scene/light/probe/reflection-probe-panel.md)
+                - [Reflection Probe Art Workflow](concepts/scene/light/probe/reflection-art-workflow.md)
             - [IBL Example](concepts/scene/light/probe/example.md)
     - [Meshes](module-map/mesh/index.md)
         - [MeshRenderer](engine/renderable/model-component.md)
