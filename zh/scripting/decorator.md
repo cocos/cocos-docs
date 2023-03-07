@@ -10,6 +10,8 @@
 
 - 当 cc 类是组件类时，`Node` 可以通过组件类的 cc 类名查找该组件。
 
+> 注意，类名不应该以 `cc.`、`internal.` 作为前缀，这是 Cocos Creator 的保留类名前缀。
+
 ```ts
 @ccclass('Example')
 export class Example extends Component {
