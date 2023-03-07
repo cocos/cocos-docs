@@ -355,6 +355,7 @@
     - [L10nLabel 组件](editor/l10n/l10n-label.md)
     - [示例](editor/l10n/script-using.md)
     - [API](editor/l10n/localization-editor-api.md)
+    - [EXCEL 导入示例](editor/l10n/example-excel.md)
 
 - [XR](xr/index.md)
     - [VR](xr/vr/index.md)

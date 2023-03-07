@@ -68,3 +68,18 @@ API 参考请移步 [Localization Editor Api](localization-editor-api.md)。
 
 - Q：若我不慎修改了数据文件导致数据文件损坏而无法打开 L10N 时，是否有解决办法？
   A：可以通过在 "{项目地址}\localization-editor\translate-data" 搜索对应文件进行修改。
+
+## 示例
+
+大型项目的多语言解决方案通常会采用数据文件（PO、CSV、EXCEL 等）来解决，为此我们也准备一篇 [示例](example-excel.md) 供开发者参考。
+
+## 内容
+
+本章将包含以下内容：
+
+- [L10nLabel 组件](./l10n-label.md)
+- [收集并统计](./collect-and-count.md)
+- [语言编译](./compile-language.md)
+- [EXCEL 导入示例](./example-excel.md)
+- [脚本使用示例](./script-using.md)
+    - [L10N API 参考](./localization-editor-api.md)
