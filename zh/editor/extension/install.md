@@ -2,18 +2,11 @@
 
 ## 安装位置
 
-Cocos Creator 在启动项目的过程中会搜索并加载 **全局** 和 **项目** 两个路径下的扩展。
-
-### 全局
-
-如果需要将扩展应用到所有的 Cocos Creator 项目，可以选择将扩展包放在 **全局** 扩展包路径中：
-
-- **Windows**：`%USERPROFILE%\.CocosCreator\extensions`
-- **macOS**：`$HOME/.CocosCreator/extensions`
+Cocos Creator 在启动项目的过程中会搜索并加载 **项目** 路径下的扩展。
 
 ### 项目
 
-如果只希望将扩展应用到指定的项目，可以选择将扩展包放在 **项目** 扩展包路径中：
+扩展存放的地址为：
 
 - `${你的项目地址}/extensions`
 
@@ -36,7 +29,7 @@ Cocos Creator 在启动项目的过程中会搜索并加载 **全局** 和 **项
 
 ![extension-manager](image/extension-manager.png)
 
-在 **扩展管理器** 中选择 **项目**（上图所示 1） 选项卡，点击 **+** (上图所示 3) 按钮。
+在 **扩展管理器** 中选择 **项目**（上图所示 1） 选项卡，点击 ![import](image/btn-import.png) (上图所示 3) 按钮。
 
 在弹出的文件选择框中选择要导入的扩展压缩包，点击 **打开** 按钮即可导入。
 
@@ -45,6 +38,10 @@ Cocos Creator 在启动项目的过程中会搜索并加载 **全局** 和 **项
 最后在 **扩展管理器** 对应的 **项目** 选项卡中找到扩展，点击右边的 **启用** 按钮，刚刚导入的扩展就可以正常运行了。如下图所示：
 
 ![enable-extension](image/enable-extension.png)
+
+对于解压后的扩展，也可以通过点击 ![import](image/btn-import.png) 右侧的下拉按钮导入。
+
+![import](image/import-drop-menu.png)
 
 ## 卸载已安装的扩展
 
