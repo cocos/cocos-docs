@@ -1,5 +1,8 @@
 # 原生插件
 
+> 注意：对 3.6.2 的原生插件支持有问题，请升级到 3.6.3 或更高版本。
+
+
 原生插件是编辑器插件的一部分。开发者通过原生插件调用脚本绑定接口（如 sebind）可以扩展 JS 脚本调用 C++ 的接口的能力，对解决脚本的性能瓶颈和复用现有代码库都非常有利。
 
 ## 和现有插件系统的关系
@@ -56,12 +59,12 @@
     "platforms":string[];       // 可选：支持的平台列表，不填默认支持所有原生平台。包括 windows, android, mac, ios
     "disabled":true;         // 可选：禁用插件
     "disable-by-platforms":string[];    //可选：指定平台禁用插件
-    "modules": {                        // 必填：插件包含的库, 
+    "modules": [{                        // 必填：插件包含的库, 
         "target":string;                // 必填：对应 `find_package` 名称，需和 `CC_PLUGIN_ENTRY` 的首参数保持一致
         "depends": string|string[];     // 可选：依赖其他 module 名称 
         "platforms":string[];           // 可选：重新限定支持的原生平台
-    }[
-    ]
+    }]
+    
 }
 ```
 
