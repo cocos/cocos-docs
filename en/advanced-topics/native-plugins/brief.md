@@ -1,5 +1,7 @@
 # Native Plugins
 
+> Notice: Native plugin support for 3.6.2 is broken, please upgrade to 3.6.3 or later.
+
 Native Plugins are part of the editor plugins. By calling JSB interfaces (e.g. export with `sebind`) through native plugins, developers can extend the ability of JS scripts to call C++ interfaces, which can be very beneficial for solving script performance bottles and reusing existing codebases. As the engine is upgraded in the future, the native plugins will open up more features.
 
 ## Cooperation with existing *Editor Extensions*
@@ -50,12 +52,11 @@ If there are cross-platform source files or CMake configurations in the plugin, 
     "platforms":string[];       // optional: list of supported platforms, all native platforms are supported by default if not filled. Including windows, android, mac, ios
     "disabled":true;            // optional: Disable plugins on all platforms
     "disable-by-platforms":string[];    // optional: Disable plugins for the specified platform
-    "modules": {        // mandatory: the libraries included in the plugin, 
+    "modules": [{        // mandatory: the libraries included in the plugin, 
         "target":string;                // mandatory: the name of the corresponding `find_package`, consistent with the first parameter of `CC_PLUGIN_ENTRY`
         "depends": string|string[];     // optional: depends on other module names 
         "platforms":string[];           // optional: re-qualify the supported native platforms
-    }[
-    ]
+    }]
 }
 ```
 

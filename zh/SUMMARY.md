@@ -132,6 +132,7 @@
             - [接入微信 PC 小游戏](editor/publish/publish-pc-wechatgame.md)
         - [开放数据域](editor/publish/build-open-data-context.md)
         - [小游戏分包](editor/publish/subpackage.md)
+        - [发布到 Cocos Play](editor/publish/publish-cocos-play.md)
     - [命令行发布项目](editor/publish/publish-in-command-line.md)
     - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [定制项目的构建模版](editor/publish/custom-project-build-template.md)
@@ -381,6 +382,15 @@
     - [原生性能剖析器](advanced-topics/profiler.md)
     - [原生插件](advanced-topics/native-plugins/brief.md)
         - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
+
+- [XR](xr/index.md)
+    - [VR](xr/vr/index.md)
+        - [XR 项目创建](xr/vr/template.md)
+        - [扩展安装](xr/vr/extension.md)
+        - [内置资源与预制体](xr/vr/prefab.md)
+        - [XR 组件](xr/vr/component.md)
+        - [预览](xr/vr/preview.md)
+        - [构建与发布](xr/vr/build.md)
 
 ## 进阶教程
 
