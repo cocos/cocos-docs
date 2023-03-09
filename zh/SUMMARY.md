@@ -204,6 +204,7 @@
     - [天空盒](concepts/scene/skybox.md)
     - [全局雾](concepts/scene/fog.md)
     - [几何渲染器](geometry-renderer/index.md)
+    - [调试渲染器（Debug-Renderer）](debug-renderer/index.md)
 
 - [2D 对象](2d-object/index.md)
     - [2D 渲染](2d-object/2d-render/index.md)
