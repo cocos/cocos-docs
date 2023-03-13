@@ -30,7 +30,16 @@ Creator roughly categorizes built-in shaders into the following categories:
 
 ![built-in effect](img/builtin-effect.png)
 
-| Effect name                         | description                                           |
+| Material Effect name                | description                                           |
+| :--- | :--- |
+| builtin-standard.effect            | [PBR](effect-builtin-pbr.md) |
+| builtin-terrain.effect             | Default terrain effect |
+| builtin-toon.effect                | [Toon shading](effect-builtin-toon.md) |
+| builtin-unlit.effect               | [Unlit](effect-builtin-unlit.md) |
+
+
+
+| Other Effect name                | description                                           |
 | :--- | :--- |
 | builtin-billboard.effect | Billboard<br>Billboard is a rendering technique that makes objects always face the camera, suitable for rendering trees, healthing point bars, etc.|
 | builtin-camera-texture.effect      | camera texture |
@@ -44,8 +53,4 @@ Creator roughly categorizes built-in shaders into the following categories:
 | builtin-spine.effect               | Effect for spine skeleton animation|
 | builtin-sprite.effect              | Built-in standard sprite effect |
 | builtin-sprite-gpu.effect          | Engine reserved |
-| builtin-standard.effect            | [PBR](effect-builtin-pbr.md) |
-| builtin-terrain.effect             | Default terrain effect |
-| builtin-toon.effect                | [Toon shading](effect-builtin-toon.md) |
-| builtin-unlit.effect               | [Unlit](effect-builtin-unlit.md) |
 | builtin-wireframe.effect           | Wireframe effect |
