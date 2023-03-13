@@ -26,7 +26,7 @@ Surface Shader 仍然是基于 [Cocos Effect 的语法](effect-syntax.md)，以�
 | -------------------- | -------------------- | --- |
 | 渲染到场景（默认）   | render-to-scene      ||
 | 渲染到阴影贴图       | render-to-shadowmap  ||
-| 渲染到环境贴图       | render-to-reflectmap | 引擎预留 |
+| 渲染到环境贴图       | render-to-reflectmap | 可选 |
 | 渲染卡通描边         | misc/silhouette-edge ||
 | 渲染天空             | misc/sky             ||
 | 后期处理或通用计算 Pass | misc/quad            | 引擎预留 |
@@ -87,14 +87,16 @@ Surface Shader 内部计算时会用到一些宏开关，需要根据 Effect 中
 | :---------------------------------------------------- | ---- | ------------------------------------------------------------ |
 | CC_SURFACES_USE_VERTEX_COLOR                          | BOOL | 是否使用顶点色                                               |
 | CC_SURFACES_USE_SECOND_UV                             | BOOL | 是否使用2uv                                                  |
-| CC_SURFACES_USE_TWO_SIDED                             | BOOL | 是否使用双面法线                                             |
+| CC_SURFACES_USE_TWO_SIDED                             | BOOL | 是否使用双面法线，用于双面光照                               |
 | CC_SURFACES_USE_TANGENT_SPACE                         | BOOL | 是否使用切空间（使用法线图或各向异性时必须开启）             |
 | CC_SURFACES_TRANSFER_LOCAL_POS                        | BOOL | 是否在 FS 中访问模型空间坐标                                 |
 | CC_SURFACES_LIGHTING_ANISOTROPIC                      | BOOL | 是否开启各向异性材质                                         |
 | CC_SURFACES_LIGHTING_ANISOTROPIC_ENVCONVOLUTION_COUNT | UINT | 各向异性环境光卷积采样数，为 0 表示关闭卷积计算，仅当各向异性开启时有效 |
 | CC_SURFACES_LIGHTING_USE_FRESNEL                      | BOOL | 是否通过相对折射率 ior 计算菲涅耳系数                        |
-| CC_SURFACES_LIGHTING_TRANSMITTENCE                    | BOOL | 是否开启背面穿透漫射光（如叶片等）                           |
-| CC_SURFACES_LIGHTING_TRANSMIT_SPECULAR                | BOOL | 是否开启背面穿透高光（如折射光等）                           |
+| CC_SURFACES_LIGHTING_TRANSMIT_DIFFUSE                 | BOOL | 是否开启背面穿透漫射光（如头发、叶片、耳朵等）               |
+| CC_SURFACES_LIGHTING_TRANSMIT_SPECULAR                | BOOL | 是否开启背面穿透高光（如水面、玻璃折射等）                   |
+| CC_SURFACES_LIGHTING_TRT                              | BOOL | 是否开启透射后内部镜面反射出的光线（如头发材质等）           |
+| CC_SURFACES_LIGHTING_TT                               | BOOL | 是否开启透射后内部漫反射出的光线（用于头发材质）             |
 | CC_SURFACES_USE_REFLECTION_DENOISE                    | BOOL | 是否开启环境反射除噪，仅 legacy 兼容模式下生效               |
 | CC_SURFACES_USE_LEGACY_COMPATIBLE_LIGHTING            | BOOL | 是否开启 legacy 兼容光照模式，可使渲染效果和 legacy/standard.effect 完全一致，便于升级 |
 
@@ -177,21 +179,23 @@ vec3 SurfacesVertexModifyWorldPos(in SurfacesStandardVertexIntermediate In)
 
 > **注意**：用这种方式的好处是方便扩展多种不同的材质模型和代码版本升级，新版增加的函数可以用新的名称和参数，仍然可以调用旧版定义的函数获取计算结果，无需写重复代码，也不用担心升级后编译报错。
 
-#### 2、VS 对应的函数列表
+#### 2、VS 对应的常用函数列表
 
 VS 中的处理和材质模型关系相对比较小，所以这里都使用通用函数，函数参数均为 `SurfacesStandardVertexIntermediate` 结构体，存放的是 VS 输入输出的数据。用户无需再关心具体的顶点输入输出流程处理，只需要聚焦到某个数据是否需要及如何修改。
 
-| 预先定义宏                             | 对应的函数定义                       | 对应的材质模型 | 功能说明                                                     |
-| -------------------------------------- | ------------------------------------ | -------------- | ------------------------------------------------------------ |
-| CC_SURFACES_VERTEX_MODIFY_LOCAL_POS    | vec3 SurfacesVertexModifyLocalPos    | Common         | 返回修改后的模型空间坐标                                     |
-| CC_SURFACES_VERTEX_MODIFY_LOCAL_NORMAL | vec3 SurfacesVertexModifyLocalNormal | Common         | 返回修改后的模型空间法线                                     |
-| CC_SURFACES_VERTEX_MODIFY_WORLD_POS    | vec3 SurfacesVertexModifyWorldPos    | Common         | 返回修改后的世界空间坐标（世界空间动画）                     |
-| CC_SURFACES_VERTEX_MODIFY_CLIP_POS     | vec4 SurfacesVertexModifyClipPos     | Common         | 返回修改后的剪裁（NDC）空间坐标（通常用于修改深度）          |
-| CC_SURFACES_VERTEX_MODIFY_UV           | void SurfacesVertexModifyUV          | Common         | 修改结构体内的 UV0 和 UV1 （使用 tiling 等）                 |
-| CC_SURFACES_VERTEX_MODIFY_WORLD_NORMAL | vec3 SurfacesVertexModifyWorldNormal | Common         | 返回修改后的世界空间法线（世界空间动画）                     |
-| CC_SURFACES_VERTEX_MODIFY_ SHARED_DATA | void SurfacesVertexModify SharedData | Common         | 如果某些贴图和计算需要在多个材质节点中使用，可在此函数中进行，直接修改 SurfaceStandardVertexIntermediate 结构体内的参数，减少性能耗费 |
+| 预先定义宏                                  | 对应的函数定义                           | 对应的材质模型 | 功能说明                                                     |
+| ------------------------------------------- | ---------------------------------------- | -------------- | ------------------------------------------------------------ |
+| CC_SURFACES_VERTEX_MODIFY_LOCAL_POS         | vec3 SurfacesVertexModifyLocalPos        | Common         | 返回修改后的模型空间坐标                                     |
+| CC_SURFACES_VERTEX_MODIFY_LOCAL_NORMAL      | vec3 SurfacesVertexModifyLocalNormal     | Common         | 返回修改后的模型空间法线                                     |
+| CC_SURFACES_VERTEX_MODIFY_LOCAL_TANGENT     | vec4 SurfacesVertexModifyLocalTangent    | Common         | 返回修改后的模型空间切线和镜像法线标记                       |
+| CC_SURFACES_VERTEX_MODIFY_LOCAL_SHARED_DATA | void SurfacesVertexModifyLocalSharedData | Common         | 如果某些贴图和计算需要在多个材质节点中使用，可在此函数中进行，在世界变换前调用，直接修改 SurfaceStandardVertexIntermediate 结构体内的三个Local参数 |
+| CC_SURFACES_VERTEX_MODIFY_WORLD_POS         | vec3 SurfacesVertexModifyWorldPos        | Common         | 返回修改后的世界空间坐标（世界空间动画）                     |
+| CC_SURFACES_VERTEX_MODIFY_CLIP_POS          | vec4 SurfacesVertexModifyClipPos         | Common         | 返回修改后的剪裁（NDC）空间坐标（通常用于修改深度）          |
+| CC_SURFACES_VERTEX_MODIFY_UV                | void SurfacesVertexModifyUV              | Common         | 修改结构体内的 UV0 和 UV1 （使用 tiling 等）                 |
+| CC_SURFACES_VERTEX_MODIFY_WORLD_NORMAL      | vec3 SurfacesVertexModifyWorldNormal     | Common         | 返回修改后的世界空间法线（世界空间动画）                     |
+| CC_SURFACES_VERTEX_MODIFY_ SHARED_DATA      | void SurfacesVertexModify SharedData     | Common         | 如果某些贴图和计算需要在多个材质节点中使用，可在此函数中进行，直接修改 SurfaceStandardVertexIntermediate 结构体内的参数，减少性能耗费 |
 
-#### 3、FS 对应的函数列表
+#### 3、FS 对应的常用函数列表
 
 FS 中的函数大部分是只修改一项，在 Surface 函数中直接返回即可。有些函数可能会修改多项（如 UV 和切空间向量），此时会在参数列表中传入多个值用于修改。具体属于哪种情况请参考函数定义。
 
@@ -237,13 +241,14 @@ FS 的输入值目前作为宏来使用，大部分输入值在内部做了容�
 | --------------------- | ----- | ------------------------------ | ------------------        |
 | FSInput_worldPos      | vec3  | N/A                            | World Position 世界坐标 |
 | FSInput_worldNormal   | vec3  | N/A                            | World Normal 世界法线 |
-| FSInput_faceSideSign  | float | N/A                            | Two Side Sign 双面材质标记 |
+| FSInput_faceSideSign  | float | N/A                            | Two Side Sign 物理正反面标记，可用于双面材质 |
 | FSInput_texcoord      | vec2  | N/A                            | UV0                       |
 | FSInput_texcoord1     | vec2  | N/A                            | UV1                       |
 | FSInput_vertexColor   | vec4  | N/A                            | Vertex Color 顶点颜色 |
 | FSInput_worldTangent  | vec3  | N/A                            | World Tangent 世界切线 |
 | FSInput_mirrorNormal  | float | N/A                            | Mirror Normal Sign 镜像法线标记 |
 | FSInput_localPos      | vec4  | CC_SURFACES_TRANSFER_LOCAL_POS | Local Position 局部坐标 |
+| FSInput_clipPos       | vec4  | CC_SURFACES_TRANSFER_CLIP_POS  | Clip Position 投影/裁切空间坐标 |
 
 ### Shader Assembly
 
@@ -436,11 +441,96 @@ Pass shadow-caster-fs:
 | 色调映射       | 开启/禁用色调映射       | 如果场景色彩与原材质差异过大，可尝试关闭此选项查看是否正常，说明场景面板中不该勾选UseHDR | 色彩空间 |
 | 伽马矫正       | 开启/禁用伽马矫正       | 如果场景色彩异常浓艳与偏暗，可尝试关闭此选项查看是否正常，说明贴图资源可能被多次伽马矫正了 | 色彩空间 |
 
-## 进阶使用方法
+### 4、运行时使用渲染调试
 
-1. 自行添加 vs 输出与 fs 输入：VS新定义 varying 变量之后在某个 Surface 函数中计算并输出该值
-2. FS 新定义 varying 变量之后在某个 Surface 函数中获取并使用该值
-3. 甚至可以在不同的 Shader 主函数中混用 Surface Shader 和 Legacy Shader（但是要保证 varying 顶点数据在两个阶段一致）。
+使用引擎内置资源中的预设体  `tools/debug-view-runtime-control`，将它拖到场景 Canvas 节点下即可在运行时使用 UI 来进行渲染调试。
+
+## 定制化表面着色器
+
+虽然 Surface Shader 提供了大多数场景材质都能适配的光照模型，但其功能还是较为固定的。对于某些特殊的、风格化的材质，**用户需要使用完全定制化的光照甚至是色彩计算**，比如说需要轮廓光、额外的补光、非真实的环境照明等等。我们也为此种需求提供了如下解决方案：
+
+#### 1、自行添加 vs 输出与 fs 输入：
+
+VS 阶段新定义 varying 变量之后在某个 Surface 函数中计算并输出该值
+FS 阶段新定义 varying 变量之后在某个 Surface 函数中获取并使用该值
+
+甚至可以在不同阶段的 Shader 主函数中混用 Surface Shader 和 Legacy Shader（不推荐，使用时要保证 varying 顶点数据在两个阶段一致）。
+
+#### 2、使用 Surface 函数自定义材质信息和光照结果：
+
+在 Surface 函数中添加如下代码，其中 XXXXX 是当前的**材质模型名称**
+
+首先将自定义数据写入材质信息 surfaceData 中
+
+然后使用 surfaceData 和 lightingData 在内部计算好的光照结果基础上进行修改或直接重新计算（光照信息如法线、光方向、视线方向等都在 lightingData 中），结果写入 result 的各项成员即可。对于局部光源（点光、聚光灯等）而言，此函数会逐光源执行。
+
+```glsl
+#include <surfaces/data-structures/XXXXX>
+#define CC_SURFACES_FRAGMENT_MODIFY_SHARED_DATA
+void SurfacesFragmentModifySharedData(inout SurfacesMaterialData surfaceData)
+{
+    // set user-defined data to surfaceData
+}
+
+#include <lighting-models/includes/common>
+#define CC_SURFACES_LIGHTING_MODIFY_FINAL_RESULT
+void SurfacesLightingModifyFinalResult(inout LightingResult result, in LightingIntermediateData lightingData, in SurfacesMaterialData surfaceData, in LightingMiscData miscData)
+{
+    // use surfaceData and lightingData for customizing lighting result
+}
+```
+
+如果希望<font color=#ff0000>在重载函数内可以直接调用现成的内置光照模块函数</font>，可以将 lighting-models/includes/common 改为对应光照模型使用的头文件，如 lighting-models/includes/standard
+
+#### 3、使用自定义的 Surface 基础函数：
+
+有时候需要制作一些公用的 Surface 函数供不同的 Effect 使用以降低代码量和维护成本。在系统内部是以函数名称作为功能匹配的，所以：
+
+最简单的方法是生成一个着色器片段 .chunk 文件，定义一些名称不同但功能、参数和返回值都相同的函数，然后在 Effect 文件中先 include 此片段，然后在 Surface 函数中调用它，如：
+
+```glsl
+// user-defined-common-surface.chunk:
+void FragmentModifySharedData(inout SurfacesMaterialData surfaceData)
+{
+    // set user-defined data to surfaceData
+}
+
+// effect
+#include <user-defined-common-surface.chunk>
+#define CC_SURFACES_FRAGMENT_MODIFY_SHARED_DATA
+void SurfacesFragmentModifySharedData(inout SurfacesMaterialData surfaceData)
+{
+    FragmentModifySharedData(surfaceData);
+    // user-defined code
+    surfaceData.XXX = XXX;
+}
+```
+第二种方法是使用宏将同名的 Surface 函数包裹起来，写法类似 default-function 文件夹中定义的默认函数，这样可以起到重载的功效，即**需要定义的函数就重载，不需要改变的函数就不写**，Effect 会变得很简洁。
+
+但需要注意，**重载函数定义要放在前面**，即在 Effect 文件中先定义需要重载的 Surface 函数，再在后面 include 基函数的定义 chunk，如：
+
+```glsl
+// user-defined-common-surface.chunk:
+// base surface function
+#ifndef CC_SURFACES_FRAGMENT_MODIFY_SHARED_DATA
+#define CC_SURFACES_FRAGMENT_MODIFY_SHARED_DATA
+void SurfacesFragmentModifySharedData(inout SurfacesMaterialData surfaceData)
+{
+    .................
+}
+#endif
+
+// effect
+// this function needs overriding
+#define CC_SURFACES_FRAGMENT_MODIFY_SHARED_DATA
+void SurfacesFragmentModifySharedData(inout SurfacesMaterialData surfaceData)
+{
+    .............
+}
+// base functions should place after override functions
+#include <user-defined-common-surface.chunk>
+
+```
 
 ## 公共函数库
 
@@ -452,14 +542,14 @@ Surface 内部已经自动包含了常用的公共函数头文件，根据类型
 
 | 文件夹名 | 函数用途                                 |
 | -------- | ---------------------------------------- |
-| color    | 色彩相关功能（颜色空间、tonemapping 等）  |
+| color    | 色彩相关功能（颜色空间、tone-mapping 等） |
 | data     | 数据相关功能（压缩解压缩等）             |
 | debug    | Debug View 相关功能                       |
 | effect   | 场景特效相关功能（水、雾等）             |
-| lighting | 光照相关功能（brdf、bsdf、衰减、烘焙等） |
+| lighting | 光照相关功能（bxdf、反射、衰减、烘焙等） |
 | math     | 数学库（坐标变换、数值判定和运算等）     |
 | mesh     | 模型相关功能（材质转换、模型动画等）     |
-| shadow   | 阴影相关功能（pcf、hcs 等）               |
+| shadow   | 阴影相关功能（pcf、pcss 等）        |
 | texture  | 贴图相关功能（采样、mip 计算等）          |
 
 [^1]: 不支持自定义几何体实例化属性。

@@ -4,9 +4,12 @@ The engine provides a set of common built-in shaders, located in the `internal -
 
 Creator roughly categorizes built-in shaders into the following categories:
 
-- `editor`：In-editor tool shaders, such as gizmo. Users generally do not need to pay attention to these.
+- `internal`：Internal functionality shaders, such as In-editor gizmo, geometry renderer. Users generally do not need to pay attention to these.
 - `pipeline`：Pipeline effects shaders, including deferred lighting, post-effects, anti-aliasing, and more.
-- `util`：Holds some loose built-in shaders, such as sequence frame animations.
+- `util`：Holds some loose built-in shaders, such as dcc material importing and sequence frame animations. Users generally do not need to pay attention to these.
+- `for2d`：2D rendering shaders, such as spine and sprite.
+- `particles`：Particle effect shaders.
+- `advanced`：Advanced material with [surface shader](surface-shader.md), such as water, skin, hair, jade.
 - Others are built-in shaders, please refer to the description below for details.
 
 ## Built-in pipeline effect
