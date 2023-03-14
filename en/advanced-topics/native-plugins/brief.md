@@ -12,9 +12,7 @@ At the same time, native plugins complement the existing editor extension system
 
 ## Installing Dependencies
 
-In a few environments without Cocos Creator installed, [NodeJS](https://nodejs.org/en/download/) version 8.0 or higher is required to support plugin configuration parsing. You can set the environment variable `PATH`, or specify it by setting the `NODE_EXECUTABLE` variable in `CMakeLists.txt`.
-
-Or set the environment variable `NODE_EXECUTABLE` to the full path to node. Starting with 3.6.2, if CMake still does not locate NodeJS, you can set `NODE_EXECUTABLE` directly in `native/engine/common/localCfg.cmake`.
+To support plugin configuration parsing, a minimum of [NodeJS](https://nodejs.org/en/download/) version 8.0 is required. You can set the environment variable `PATH` or set `NODE_EXECUTABLE` to the full path to the node. In case CMake fails to locate NodeJS, you can directly set `NODE_EXECUTABLE` in CMakeLists.txt. This can now be done in `native/engine/common/localCfg.cmake`, starting from version 3.6.2, which is recommended.
 
 ## Example of the plugin's directory structure
 
