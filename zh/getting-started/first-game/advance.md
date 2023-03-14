@@ -116,6 +116,20 @@ jumpByStep(step: number) {
 }
 ```
 
+这里 `_jumpStep` 时间是 0.3 秒，如果动画播放的时长和 `_jumpStep` 不匹配可能会导致如下问题：
+
+- 动画还没播放完毕，出现动画过渡不平滑
+- 或者动画播放完毕但跳跃时间还没有到产生滑步现象
+
+一种处理方法使我们直接通过动画剪辑的时长和 `_jumpStep` 来计算重新计算动画的速度而不是使用常量：
+
+```ts
+var state = this.CocosAnim.getState('cocos_anim_jump');            
+state.speed = state.duration/this._jumpTime;
+```
+
+开发者可以自行尝试，或者手动修改 `_jumpStep` 和 `speed` 到合适的值。
+
 在 `PlayerController` 脚本的 `onOnceJumpEnd` 函数中让主角变为待机状态，播放待机动画。
 
 ```ts
