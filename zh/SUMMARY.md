@@ -25,6 +25,7 @@
 - [示例与教程](cases-and-tutorials/index.md)
 - [获取帮助和支持](getting-started/support.md)
 - [快速上手：制作第一个游戏](getting-started/first-game/index.md)
+    - [快速上手：制作第一个游戏（进阶篇）](getting-started/first-game/advance.md)
 - [升级指南](release-notes/index.md)
     - [v3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
     - [v3.0 材质升级指南](material-system/effect-2.x-to-3.0.md)

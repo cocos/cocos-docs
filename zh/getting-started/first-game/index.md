@@ -1,12 +1,20 @@
 # 快速上手：制作第一个游戏
 
-Cocos Creator 编辑器的强大之处就是可以让开发者快速的制作游戏原型。
+本节我们将向您介绍一些 Cocos Creator 的特定，并如何使用 Cocos Creator 制作一个虽然简单但是完整的跳跃游戏。
 
 下面我们将跟随教程制作一款名叫 **一步两步** 的魔性小游戏。这款游戏考验玩家的反应能力，根据路况选择是要跳一步还是跳两步，“一步两步，一步两步，一步一步似爪牙似魔鬼的步伐”。
 
 可以在 [这里](https://gameall3d.github.io/MindYourStep_Tutorial/index.html) 体验一下游戏的完成形态。
 
 ## 添加主角
+
+对于绝大多数游戏来说，都需要一个可以操控的角色。接下来我们将一步一步的制作游戏中的主角：胶囊体先生/女士。
+
+为了方便制作，我们在这里稍微回顾下编辑器内是如何创建节点的：
+
+![hierarchy.png](images/hierarchy.png)
+
+引擎左侧的名为 **层级管理器** 的窗口显示所有当前场景内的节点，并且您在里面点击鼠标右键后可以弹出创建新的节点的菜单。
 
 ### 创建主角节点
 
@@ -163,7 +171,7 @@ P_1 = P_0 + v*t
 
 在我们的游戏中，鼠标按下那一刻，如果跳跃步数为 1，角色会向前移动 1 个单位，而如果跳跃步数为 2，那么移动 2 个单位。因此我们可以计算出角色的目标位置（_targetPos）。
 
-```ts
+```
 目标位置(_targetPos) = 当前位置(_curPos) + 步长(step)
 ```
 
@@ -278,6 +286,12 @@ jumpByStep(step: number) {
 }
 ```
 
+- `Vec3.add` 这是什么？
+    - `Vec3` 是 Cocos Creator 提供用于记录和操作三维向量（Three-Dimensionval Vector）类
+    - `add` 是将两个向量加起来的方法，注意到我们这里并没有 `this` 是因为这个方法是一个 **静态方法**
+    - `Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));` 这段代码的意思就是将 **当前位置（`_curPos`）** 加上 `new Vec3(this._jumpStep, 0, 0)` 并得到一个新的向量，而这个向量的结果是存放在 **目标位置（`_targetPos`）** 里面。
+当然我们也可以采用简单的直接操作位置信息的 X 坐标的方式来移动角色，但是在制作 3D 游戏时，通常会有多个轴的移动，尽快熟悉 3 维向量的用法可以让我们更快的上手制作 3D 游戏。
+
 此时我们的代码看起来是这样的：
 
 ```ts
@@ -383,6 +397,8 @@ update (deltaTime: number) {
 }
 ```
 
+可以注意到 `_jumpTime` 这里我们给了一个 0.3 秒的常量，事实上这是不合理的。您能猜到他不合理的原因吗？
+
 最后我们针对不同分支，完善他们的逻辑：
 
 - 跳跃结束：结束跳跃过程，将角色强制位移到目标位置
@@ -415,7 +431,9 @@ update (deltaTime: number) {
 
 #### 完整的 PlayerController
 
-我们在脚本 `PlayerController` 中添加对鼠标事件的监听，让 Player 动起来：
+我们已经拥有了完整的 PlayerController 代码，此时只需要将其挂在某个节点上就可以使其生效了。
+
+如果还是觉得有些困难，可以尝试将下面的代码复制粘贴到你的项目内的 PlayerController.ts 文件内。
 
 ```ts
 import { _decorator, Component, Vec3, input, Input, EventMouse, Animation } from 'cc';
@@ -528,7 +546,7 @@ export class PlayerController extends Component {
 
 3. 我们还可以通过 **资源管理器** 来创建 Clip。创建一个名为 `twoStep` 的 Clip 并将它添加到 Body 的 `Animation` 上，这里为了录制方便调整了一下面板布局。
 
-    > **注意**：若发现无法拖动到 `Animation` 上，请检查 `import {...} from "cc" ` 语句中是否包含了 `Animation`。
+    > **注意**：若发现无法拖动到 `Animation` 上，请检查 `import {...} from "cc"` 语句中是否包含了 `Animation`。
 
     ![add animation from assets](./images/add-animation-from-assets.gif)
 
@@ -571,7 +589,19 @@ export class PlayerController extends Component {
 
 ### 游戏管理器（GameManager）
 
-一般游戏都会有一个管理器，主要负责整个游戏生命周期的管理，可以将跑道的动态创建代码放到这里。
+一般来说，场景内会有不同功能，不同类型的节点，这些节点存放在场景里面我们可以将其视为我们游戏最要的数据部分。而很多情况下我们需要动态的生成、访问、删除这些节点。虽然在 Cocos Creator 里面我们可以通过 `find` 方法来查找这些节点，但实际上由于 `find` 方法需要访问场景内的所有节点，查找的命中率很低，这会造成大量的性能浪费。因此在开发中，我们一般会做一些单独的脚本，使用他们来管理场景内的 **某一类** 节点，或 **某一些** 数据，我们可以称他们为 **管理器**。
+
+举个例子，我们有很多角色，我们游戏可能需要不断的创建新的角色，删除某些已经死亡的角色，查询某些角色的状态，那么我们可以创建一个名为 ActorManager 的类来作为角色管理器，使其支持这些功能。
+
+因此在一个游戏中，我们同样可以声明一个游戏管理器来管理和游戏相关的节点或者数据，我们将其称为 GameManager。
+
+这样我们可以将跑道的生成、删除等功能都放在 GameManager 里面，这样可以很方便的对数据进行集合。
+
+这种聚合的方式在游戏开发中非常常见，如果您遇见其他如 ConfigManager、NetworkManager 之类的脚本，请不要感到奇怪。
+
+当然更复杂的游戏会有很复杂的结构设计，这些复杂、庞大的设计理念可以更好的提升我们代码的健壮性、可维护性。
+
+那么我们接下来就去创建这样的管理器。
 
 ### 创建管理器
 
@@ -583,6 +613,8 @@ export class PlayerController extends Component {
 
 对于需要重复生成的节点，我们可以将它保存成 [Prefab（预制）资源](../../asset/prefab.md)，作为我们动态生成节点时使用的模板。
 
+> 预制体是引擎内置的一种资源，其主要的作用是为某些节点提供克隆的可能。想象一下如果游戏有 1000 个相同的敌人，那么制作 1000 个这样节点是非常耗时的，预制体可以帮助我们很好的解决这个问题，我们只需将这个角色的预制体克隆 10000 次就可以了
+
 将生成跑道的基本元素 **正方体（Cube）** 制作成 Prefab，之后可以把场景中的三个 Cube 都删除了。
 
 ![create cube prefab](./images/create-cube-prefab.gif)
@@ -591,7 +623,132 @@ export class PlayerController extends Component {
 
 Player 需要一个很长的跑道，理想的方法是能动态增加跑道的长度，这样可以永无止境地跑下去，这里为了方便先生成一个固定长度的跑道，跑道长度可以自己定义。另外，我们可以在跑道上生成一些坑，当 Player 跳到坑上就 GameOver 了。
 
-将 `GameManager` 脚本中的代码替换成以下代码：
+首先我们需要定义一些常量用于表示当前的坐标代表的究竟是坑还是石块。在 Typescript 里面可以通过枚举来定义。
+
+通过关键字 `enum` + 枚举的名称我们定义了如下的枚举，其中 `BT_NONE` 代表坑，而 `BT_STONE` 代表可行走的地面。
+
+```typescript
+enum BlockType{
+    BT_NONE,
+    BT_STONE,
+};
+```
+
+同样我们需要定义下游戏管理器使用那个或者那些预制体来创建地图。
+
+```ts
+// 赛道预制
+@property({type: Prefab})
+public cubePrfb: Prefab | null = null;
+```
+
+`@property({type: Prefab})` 可以让编辑器将 `cubePrfb` 在编辑器内识别为预制体，这样我们可通过编辑器来给这属性分配前面已经制作好的方块。
+
+> `@property` 这样的语法被称为 [装饰器](../../scripting/decorator.md)。Cocos Cretor 提供不同的装饰器，您可以用来修饰脚本以给编辑器添加多样化的内容。
+
+为了方便快速查找到当前所在的位置是方块还是坑，我们通过一个数组来描述整个赛道的情况：
+
+```ts
+_road: BlockType[] = [];
+```
+
+这样一个基础的 GameManager 就定义好了，他看起来应该是这样的：
+
+```ts
+import { _decorator, Component, Prefab } from 'cc';
+const { ccclass, property } = _decorator;
+
+// 赛道格子类型，坑（BT_NONE）或者实路（BT_STONE）
+enum BlockType {
+    BT_NONE,
+    BT_STONE,
+};
+
+@ccclass("GameManager")
+export class GameManager extends Component {
+
+    // 赛道预制
+    @property({type: Prefab})
+    public cubePrfb: Prefab | null = null;
+    // 赛道长度
+    @property
+    public roadLength = 50;
+    private _road: BlockType[] = [];
+
+    start () {
+        this.generateRoad();
+    }
+
+    generateRoad() {
+  
+    }
+}
+```
+
+接下来我们根据一些原则来生成整个赛道。这些原则包括：
+
+- 第一个赛道必须是石块以确保角色生成的时候不会掉下去
+- 后面的方块我们将随机生成方块或者坑，但是考虑到我们角色贫瘠的跳跃能力（最多只能跳 2 个单位）因此我们不能连续生成超过 2 个坑。因此我们在生成新的格子时，需要判断前一个格子是石块还是坑，如果是坑，那么这个格子必须是石块。
+- 最后我们根据当前的路况信息 `_road` 将方块实例化到场景内，完成地图的展示。
+
+因此地图生成方法 `generateRoad` 可以写成这样：
+
+```ts
+generateRoad() {
+    // 防止游戏重新开始时，赛道还是旧的赛道
+    // 因此，需要移除旧赛道，清除旧赛道数据
+    this.node.removeAllChildren();
+    this._road = [];
+    // 确保游戏运行时，人物一定站在实路上
+    this._road.push(BlockType.BT_STONE);
+
+    // 确定好每一格赛道类型
+    for (let i = 1; i < this.roadLength; i++) {
+        // 如果上一格赛道是坑，那么这一格一定不能为坑
+        if (this._road[i-1] === BlockType.BT_NONE) {
+            this._road.push(BlockType.BT_STONE);
+        } else {
+            this._road.push(Math.floor(Math.random() * 2));
+        }
+    }
+
+    // 根据赛道类型生成赛道
+    for (let j = 0; j < this._road.length; j++) {
+        let block: Node = this.spawnBlockByType(this._road[j]);
+        // 判断是否生成了道路，因为 spawnBlockByType 有可能返回坑（值为 null）
+        if (block) {
+            this.node.addChild(block);
+            block.setPosition(j, -1.5, 0);
+        }
+    }
+}
+```
+
+生成石块的方法 `spawnBlockByType` 看起来是这样的：
+
+```ts
+spawnBlockByType(type: BlockType) {
+    if (!this.cubePrfb) {
+        return null;
+    }
+
+    let block: Node | null = null;
+    // 赛道类型为实路才生成
+    switch(type) {
+        case BlockType.BT_STONE:
+            block = instantiate(this.cubePrfb);
+            break;
+    }
+
+    return block;
+}
+```
+
+可以注意到当格子的类型是石块时，我们将通过 `instantiate` 克隆一个新的预制体出来；而格子的类型不为石块时，我们什么也不做。
+
+> instantiate: 是 Cocos Creator 提供的克隆预制体的方法。当然它不仅能克隆预制体，你甚至可以用它克隆别的类型比如某个对象！
+
+完整的 `GameManager` 脚本中的代码如下：
 
 ```ts
 import { _decorator, Component, Prefab, instantiate, Node, CCInteger } from 'cc';
@@ -674,7 +831,11 @@ export class GameManager extends Component {
 ![assign cube prefab](./images/assign-cube-prefab.png)
 
 在 GameManager 的 **属性检查器** 面板中可以通过修改 roadLength 的值来改变跑道的长度。
-此时点击预览可以看到自动生成了跑道，不过因为 Camera 没有跟随 Player 移动，所以看不到后面的跑道，我们可以将场景中的 Camera 设置为 Player 的子节点。
+此时点击预览可以看到自动生成了跑道。
+
+## 跟随相机
+
+可以观察到 Camera 没有跟随 Player 移动，所以看不到后面的跑道，我们可以将场景中的 Camera 设置为 Player 的子节点。
 
 ![drag camera to player](./images/drag-camera-to-player.gif)
 
@@ -682,7 +843,11 @@ export class GameManager extends Component {
 
 ## 增加开始菜单
 
-开始菜单是游戏不可或缺的一部分，我们可以在这里加入游戏名称、游戏简介、制作人员等信息。
+用户界面（UI）是游戏中不可缺少的一部分，通过 UI，我们可以给玩家提供到某些关键上数据信息、状态等，这样玩家在游戏时可以思考自己的行为策略。我们可以在也这里加入游戏名称、游戏简介、制作人员等信息。
+
+UI 是游戏开发中的 2D 部分，您可以通过查阅 [2D/UI](../../2d-object/index.md) 相关的文档来了解。
+
+下面我们将以开始菜单为例子，简述 UI 的制作流程。
 
 1. 在 **层级管理器** 中添加一个 Button 节点并命名为 PlayButton。
 
@@ -691,6 +856,9 @@ export class GameManager extends Component {
     可以看到在 **层级管理器** 中生成了一个 Canvas 节点，一个 PlayButton 节点和一个 Label 节点。因为 UI 组件需要在带有 `Canvas` 的父节点下才能显示，所以编辑器在发现没有 Canvas 节点时会自动创建一个。
 
     然后将 Label 节点上 `cc.Label` 组件中的 **String** 属性从 Button 改为 Play。
+
+    > 您可能会注意到，在您所使用的 Cocos Creator 版本中在创建 UI 时会自动添加一个相机（Camera）节点。
+    > 这个节点是新版本的 Cocos Creator 的特性，这个相机将负责渲染整个 UI/2D 部分的内容。以此引擎可以通过更高效的渲染管线来处理这些 UI/2D 的内容。
 
 2. 在 Canvas 底下创建一个名为 StartMenu 的空节点，将 PlayButton 拖到它底下。我们可以通过点击工具栏上的 2D/3D 按钮切换到 2D 编辑视图下进行 UI 编辑操作，详细的描述请查阅 [场景编辑](../../editor/scene/index.md)。
 
@@ -718,13 +886,9 @@ export class GameManager extends Component {
 
 ## 增加游戏状态逻辑
 
-一般我们可以将游戏分为三个状态：
+对于大多数游戏来说，我们可以将其粗略的分解为 3 个不同的状态：初始化、游玩、结算。就和我们玩任意的棋子游戏一样，摆放棋子的过程我们称之为初始化；下棋的过程则为游玩过程；最后两名棋手下棋结束结算胜利/失败时的状态，我们称之为结算状态。
 
-- 初始化（Init）：显示游戏菜单，初始化一些资源。
-- 游戏进行中（Playing）：隐藏游戏菜单，玩家可以操作角色进行游戏。
-- 结束（End）：游戏结束，显示结束菜单。
-
-使用一个枚举（enum）类型来表示这几个状态。
+因此同理的我们可以定义如下的枚举来代表游戏状态。
 
 ```ts
 enum GameState{
@@ -733,6 +897,12 @@ enum GameState{
     GS_END,
 };
 ```
+
+- 初始化（Init）：显示游戏菜单，初始化一些资源。
+- 游戏进行中（Playing）：隐藏游戏菜单，玩家可以操作角色进行游戏。
+- 结束（End）：游戏结束，显示结束菜单。
+
+这样的作用是我们可以比较方便的通过读取 `GameState` 的枚举值就可以知道现在游戏处于什么状态；或者当状态切换时，我们的游戏需要处理些什么。
 
 为了在游戏开始时不让用户操作角色，而在游戏进行时让用户操作角色，我们需要动态地开启和关闭角色对鼠标消息的监听。在 `PlayerController` 脚本中做如下修改：
 
@@ -818,6 +988,10 @@ set curState (value: GameState) {
     }
 }
 ```
+
+可以观察到我们增加的 `init` 方法，他初始化了整个赛道，同时激活主界面并禁止玩家输入。之后在游戏状态切换到 `GS_INIT` 时，我们将会调用该方法。
+
+而首次出现的 `set curState` 这样的存取器可以让我们在设置游戏状态时更加的安全。
 
 ### 添加对 Play 按钮的事件监听
 
@@ -966,4 +1140,6 @@ onStartButtonClicked() {
     }
     ```
 
-到这里您已经基本上掌握了我们本章的绝大多部分内容，接下来我们可以通过提升美术资源的品质来完善游戏的内容，为此我们也准备了 [进阶篇](./advance.md) 供您选择。
+到这里您已经基本上掌握了我们本章的绝大多部分内容，接下来您可以通过提升美术资源的品质、更多游戏玩法来完善游戏的内容，为此我们也准备了 [进阶篇](./advance.md) 供您选择。当然如果您对引擎更多的特性感兴趣，也可以点击文档左侧的索引查看不同模块的内容。
+
+如果您有本章有任何建议或者意见，欢迎访问我们的 [论坛](https://forum.cocos.org/) 或者 [GIT](https://github.com/cocos/cocos-docs) 并向我们提交 issue。
