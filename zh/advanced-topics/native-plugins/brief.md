@@ -54,7 +54,7 @@
     "name": string;             // 必填：插件名称
     "version": string;          // 必填：插件版本
     "engine-version":string;    // 必填：对应引擎版本的区间
-    "author": string;           // 必填：插件从作者
+    "author": string;           // 必填：插件作者
     "description": string;      // 必填：插件描述
     "platforms":string[];       // 可选：支持的平台列表，不填默认支持所有原生平台。包括 windows, android, mac, ios
     "disabled":true;         // 可选：禁用插件
