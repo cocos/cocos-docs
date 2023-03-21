@@ -128,7 +128,7 @@ var state = this.CocosAnim.getState('cocos_anim_jump');
 state.speed = state.duration/this._jumpTime;
 ```
 
-开发者可以自行尝试，或者手动修改 `_jumpStep` 和 `speed` 到合适的值。
+开发者可以自行尝试，或者手动修改 `_jumpStep` 和 `speed` 到合适的值以控制游戏的节奏。
 
 在 `PlayerController` 脚本的 `onOnceJumpEnd` 函数中让主角变为待机状态，播放待机动画。
 

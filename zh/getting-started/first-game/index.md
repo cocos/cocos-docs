@@ -687,6 +687,7 @@ export class GameManager extends Component {
 
 - 第一个赛道必须是石块以确保角色生成的时候不会掉下去
 - 后面的方块我们将随机生成方块或者坑，但是考虑到我们角色贫瘠的跳跃能力（最多只能跳 2 个单位）因此我们不能连续生成超过 2 个坑。因此我们在生成新的格子时，需要判断前一个格子是石块还是坑，如果是坑，那么这个格子必须是石块。
+- 根据上面两个原则，我们生成一个记录路况的数组 `_road`，用于快速查询某个位置到底是坑还是石头
 - 最后我们根据当前的路况信息 `_road` 将方块实例化到场景内，完成地图的展示。
 
 因此地图生成方法 `generateRoad` 可以写成这样：
@@ -721,6 +722,11 @@ generateRoad() {
     }
 }
 ```
+
+> `Math.floor`： 这个方法是 Typescript 数学库的方法之一：我们知道 floor 是地板的意思，这表示取这个方法参数的 "地板"，也就是向下取整。
+> `Math.random`：同样 random 也是标准数学库的方法之一，用于随机一个 0 到 1 之间的小数，注意取值范围是 [0, 1)。
+> 所以 `Math.floor(Math.random() * 2)` 这段代码的意思很简单，就是从 [0, 2) 中随机取 1个数并向下取整，得到的结果是 0 或者 1，恰好和 枚举 `BlockType` 中声明的 `BT_NONE` 和 `BT_STONE`。
+> 顺便说一句，在 Typescript 的枚举中，如果你没有给枚举赋值，那么枚举的值会顺序的从 0 开始分配。
 
 生成石块的方法 `spawnBlockByType` 看起来是这样的：
 
@@ -1005,6 +1011,14 @@ onStartButtonClicked() {
 
 ![play button inspector](./images/play-button-inspector.png)
 
+这里可以注意到，Click Events 属性 [0] 分量内分为了三个栏位，分别是：
+
+1. 节点：这里我们拖拽 GameManager 这个节点，意味着按钮事件将被派发到 GameManager 这个节点上
+2. 组件：拖拽 GameManager 节点后，就可以通过下拉选择 GameManager 上的节点，这里选择同名的组件 `GameManager`
+3. 事件：通过下拉菜单，选择按钮的响应事件，这里要选择上述添加的 `onStartButtonClicked` 方法作为 **按钮按下的响应**
+
+> **注意**：上述的 3 个步骤相互依赖，且顺序必须为 1 -> 2 -> 3。
+
 现在预览场景就可以点击 Play 按钮开始游戏了。
 
 ## 添加游戏结束逻辑
@@ -1051,8 +1065,11 @@ onStartButtonClicked() {
     ```ts
     start () {
         this.curState = GameState.GS_INIT;
-        // ?. 可选链写法
-        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
+        // '?.' 是 Typescript 的可选链写法
+        // 相当于： 
+        // if(this.playerCtrl != null) this.playerCtrl.node.on('JumpEnd', this.onPlayerJumpEnd, this);        
+        // 可选链的写法更加的简洁
+        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);        
     }
 
     // ...
@@ -1138,6 +1155,8 @@ onStartButtonClicked() {
     }
     ```
 
+## 总结
+
 到这里您已经基本上掌握了我们本章的绝大多部分内容，接下来您可以通过提升美术资源的品质、更多游戏玩法来完善游戏的内容，为此我们也准备了 [进阶篇](./advance.md) 供您选择。当然如果您对引擎更多的特性感兴趣，也可以点击文档左侧的索引查看不同模块的内容。
 
-如果您有本章有任何建议或者意见，欢迎访问我们的 [论坛](https://forum.cocos.org/) 或者 [GIT](https://github.com/cocos/cocos-docs) 并向我们提交 issue。
+如果您有本章有任何建议或者意见，欢迎访问我们的 [论坛](https://forum.cocos.org/) 发起讨论或者访问 [GIT](https://github.com/cocos/cocos-docs) 并向我们提交 issue。
