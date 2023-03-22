@@ -111,7 +111,10 @@ export class PlayerController extends Component {
 
 在 2D 游戏里面，地图同样的也可以用图片来代替。实际上，在 2D 游戏里面绝大多数的可见物都可以用图像来描述。这也是 2D 游戏比 3D 游戏简单的地方，所以通常最开始学习时，我们可以考虑从 2D 部分开始。
 
-我们根据上述创建角色的步骤创建一个地图块，并将其命名为 Box，并使其大小和角色一致。
+我们根据上述创建角色 Body 的步骤创建一个地图块，并将其命名为 Box，并使其大小和角色一致。
+
+- 在 **层级管理器** 里面点击右键创建一个新的精灵（Sprite）节点并选择将 **Sprite Frame** 属性配置为 default_btn_normal
+- 修改其名字为 Box
 
 ![create-box.png](images/create-box.png)
 
@@ -119,7 +122,9 @@ export class PlayerController extends Component {
 
 预制体是引擎的一种特殊资源，他可以将节点作为一种资源持久化的保存在 **资源管理器** 里面，这样就可以复用到其他情景。
 
-制作预制体的方法也比较简单，我们只需找到刚刚制作的 Box 节点，拖拽他到 **资源管理器** 里面，并将场景内的 Box 节点删除。
+制作预制体的方法也比较简单，我们只需找到刚刚制作的 Box 节点，拖拽他到 **资源管理器** 里面。
+
+场景内的 Box 节点，运行游戏之前可以将它删除。
 
 ![create-box-prefab.gif](images/create-box-prefab.gif)
 
@@ -537,7 +542,7 @@ jumpByStep(step: number) {
 
 ![preview-anim.gif](images/preview-anim.gif)
 
-现在我们使用的是统一的 `_jumpTime = 0.3`，实际上两个动画的时长并不一致，因此可以看到如上图奇怪的动画效果，可以通过获取动画剪辑的时长来动态调整 `_jumpTime`。
+如果仔细观察的话，现在我们使用的是统一的 `_jumpTime = 0.3`，实际上两个动画的时长并不一致，因此可以看到如上图奇怪的动画效果，可以通过获取动画剪辑的时长来动态调整 `_jumpTime`。
 这里举个例子：
 
 ```ts
@@ -832,6 +837,22 @@ set curState (value: GameState) {
 init() {}
 ```
 
+同时在 `set curState` 的时候调用它：
+
+```ts
+set curState (value: GameState) {
+    switch(value) {
+        case GameState.GS_INIT:            
+            this.init();
+            break;
+        case GameState.GS_PLAYING:           
+            break;
+        case GameState.GS_END:
+            break;
+    }
+}
+```
+
 为了在游戏开始时不让用户操作角色，而在游戏进行时让用户操作角色，我们需要动态地开启和关闭角色对鼠标消息的监听。在 `PlayerController` 脚本中做如下修改：
 
 ```ts
@@ -1040,7 +1061,7 @@ onStartButtonClicked() {
 在 PlayerController 里面添加一个属性用于记录角色当前为多少步：
 
 ```ts
-private _curMoveIndex = 0;
+private _curMoveIndex: number = 0;
 ```
 
 在 `reset` 方法中重置这个属性：
@@ -1187,7 +1208,7 @@ update (deltaTime: number) {
 
 ## 更多功能
 
-接下来我们可以处理更多的游戏功能，比如将主角替换为序列关键帧或者通过龙骨/Spine 制作的动画，亦或者增加一些玩法和特效等等。
+接下来您可以处理更多的游戏功能，比如将主角替换为序列关键帧或者通过龙骨/Spine 制作的动画，亦或者增加一些玩法和特效等等。
 
 ## 总结
 
@@ -1223,7 +1244,7 @@ export class PlayerController extends Component {
     private _curPos: Vec3 = new Vec3();
     private _deltaPos: Vec3 = new Vec3(0, 0, 0);
     private _targetPos: Vec3 = new Vec3();   
-    private _curMoveIndex = 0;
+    private _curMoveIndex: number = 0;
     start () {
         //input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     }
