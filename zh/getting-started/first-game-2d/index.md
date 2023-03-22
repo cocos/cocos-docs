@@ -695,7 +695,7 @@ export class GameManager extends Component {
 
     > `Math.floor`： 这个方法是 Typescript 数学库的方法之一：我们知道 floor 是地板的意思，这表示取这个方法参数的 "地板"，也就是向下取整。
     > `Math.random`：同样 random 也是标准数学库的方法之一，用于随机一个 0 到 1 之间的小数，注意取值范围是 [0, 1)。
-    > 所以 `Math.floor(Math.random() * 2)` 这段代码的意思很简单，就是从 [0, 2) 中随机取 1个数并向下取整，得到的结果是 0 或者 1，恰好和 枚举 `BlockType` 中声明的 `BT_NONE` 和 `BT_STONE`。
+    > 所以 `Math.floor(Math.random() * 2)` 这段代码的意思很简单，就是从 [0, 2) 中随机取 1个数并向下取整，得到的结果是 0 或者 1，恰好和 枚举 `BlockType` 中声明的 `BT_NONE` 和 `BT_STONE` 对应。
     > 顺便说一句，在 Typescript 的枚举中，如果你没有给枚举赋值，那么枚举的值会顺序的从 0 开始分配。
 
 - 根据 `BlockType` 生成方块：
@@ -1188,11 +1188,17 @@ update (deltaTime: number) {
 
 为了解决这个问题我们可以做如下的处理：
 
-- 将 Canvas 下相关的节点已经 Box 的层级修改为 DEFAULT：
+- 将 Canvas 下相关的节点层级修改为 DEFAULT：
 
     ![layer-default.png](images/layer-default.png)
 
+- 将 Box 这个资源的层级修改为 DEFAULT：
+
     ![box-layer.png](images/box-layer.png)
+
+    双击该预制体就可以进入到预制体编辑器界面，修改后记得点击场景视图内的 **保存** 按钮保存预制体的变更。
+
+    ![save-prefab.png](images/save-prefab.png)
 
 - 修改 Canvas/Player 下的 Camera 的 **Visibility** 属性如下：
 
