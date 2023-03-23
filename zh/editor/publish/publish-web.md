@@ -67,7 +67,7 @@ Cocos Creator 开发过程中测试的桌面浏览器包括：**Chrome**、**Fir
 
 移动设备上测试的浏览器包括：**Safari（iOS）**、**Chrome（Android）**、**QQ 浏览器（Android）** 和 **UC 浏览器（Android）**。
 
-对于开启了`WebGPU`的WebDesktop，现在只支持指定版本的chromium浏览器。[这里](https://vikyd.github.io/download-chromium-history-version/#/)有历史版本的chromium。chromium 105的最后一个版本是支持比较好的。下载浏览器之前不要忘记选择正确的平台。打开chromium，地址栏输入`chrome://flags`，搜索webgpu，开启`WebGPU Developer Features`并重启chromium，这样准备工作就完成了。
+对于开启了 `WebGPU` 的 WebDesktop，现在只支持指定版本的 chromium 浏览器。[这里](https://vikyd.github.io/download-chromium-history-version/#/) 有历史版本的 chromium。chromium 105 的最后一个版本是支持比较好的。下载浏览器之前不要忘记选择正确的平台。打开 chromium，地址栏输入 `chrome://flags`，搜索 webgpu，开启 `WebGPU Developer Features` 并重启chromium，这样准备工作就完成了。
 
 ## Retina 设置
 
