@@ -125,6 +125,7 @@
             - [Access to the WeChat PC Mini Game](editor/publish/publish-pc-wechatgame.md)
         - [Access to Open Data Context](editor/publish/build-open-data-context.md)
         - [Mini Game Subpackage](editor/publish/subpackage.md)
+        - [Publish to Cocos Play](editor/publish/publish-cocos-play.md)
     - [Publish from the Command Line](editor/publish/publish-in-command-line.md)
     - [Build Process with FAQ](editor/publish/build-guide.md)
     - [Custom Project Build Process](editor/publish/custom-project-build-template.md)
