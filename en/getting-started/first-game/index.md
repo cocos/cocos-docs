@@ -248,12 +248,18 @@ After reading and understanding the capabilities of the __Animation Editor__ cha
 5. Reference the __Animation__ component in the` PlayerController` Component, as different animations need to be played according to the number of steps `Player` jumped.
 
     First, reference the __Animation__ component on the `Body` in the `PlayerController` component.
-   
+
     ```ts
     @property({type: Animation})
     public BodyAnim: Animation|null = null;
     ```
-   
+
+    Note that the import of 'Animation' needs to be added in the 'import' section of the file. The code example is as follows:
+
+    ```ts
+    import { Animation } from "cc";
+    ```
+
     Then in the **Inspector** panel, drag the `Animation` to the `Body` variable.
 
     ![drag to animComp](./images/drag-to-animComp.gif)

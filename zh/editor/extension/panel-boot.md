@@ -75,7 +75,7 @@ export async function ready(this: Selector<typeof $> & typeof methods) {
 也可以使用 Editor.Pabel.define 常见 panel 对象：
 
 ```typescript
-module.exprots = Editor.Panel.degine({
+module.exprots = Editor.Panel.define({
     methods: {
         update() {},
     },

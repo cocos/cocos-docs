@@ -1,5 +1,7 @@
 # Native Plugins
 
+> Notice: Native plugin support for 3.6.2 is broken, please upgrade to 3.6.3 or later.
+
 Native Plugins are part of the editor plugins. By calling JSB interfaces (e.g. export with `sebind`) through native plugins, developers can extend the ability of JS scripts to call C++ interfaces, which can be very beneficial for solving script performance bottles and reusing existing codebases. As the engine is upgraded in the future, the native plugins will open up more features.
 
 ## Cooperation with existing *Editor Extensions*
@@ -10,7 +12,7 @@ At the same time, native plugins complement the existing editor extension system
 
 ## Installing Dependencies
 
-In a few environments without Cocos Creator installed, [NodeJS](https://nodejs.org/en/download/) version 8.0 or higher is required to support plugin configuration parsing. You can set the environment variable `PATH`, or specify it by setting the `NODE_EXECUTABLE` variable in `CMakeLists.txt`.
+To support plugin configuration parsing, a minimum of [NodeJS](https://nodejs.org/en/download/) version 8.0 is required. You can set the environment variable `PATH` or set `NODE_EXECUTABLE` to the full path to the node. In case CMake fails to locate NodeJS, you can directly set `NODE_EXECUTABLE` in CMakeLists.txt. This can now be done in `native/engine/common/localCfg.cmake`, starting from version 3.6.2, which is recommended.
 
 ## Example of the plugin's directory structure
 
@@ -48,12 +50,11 @@ If there are cross-platform source files or CMake configurations in the plugin, 
     "platforms":string[];       // optional: list of supported platforms, all native platforms are supported by default if not filled. Including windows, android, mac, ios
     "disabled":true;            // optional: Disable plugins on all platforms
     "disable-by-platforms":string[];    // optional: Disable plugins for the specified platform
-    "modules": {        // mandatory: the libraries included in the plugin, 
+    "modules": [{        // mandatory: the libraries included in the plugin, 
         "target":string;                // mandatory: the name of the corresponding `find_package`, consistent with the first parameter of `CC_PLUGIN_ENTRY`
         "depends": string|string[];     // optional: depends on other module names 
         "platforms":string[];           // optional: re-qualify the supported native platforms
-    }[
-    ]
+    }]
 }
 ```
 

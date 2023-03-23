@@ -118,6 +118,7 @@
     - [发布到小游戏平台](editor/publish/publish-mini-game.md)
         - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [发布到支付宝小游戏](editor/publish/publish-alipay-mini-game.md)
+        - [发布到淘宝小程序创意互动](editor/publish/publish-taobao-creative-app.md)
         - [发布到字节跳动小游戏](editor/publish/publish-bytedance-mini-game.md)
         - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
@@ -184,6 +185,7 @@
         - [线段组件](particle-system/line-component.md)
     - [天空盒](concepts/scene/skybox.md)
     - [全局雾](concepts/scene/fog.md)
+    - [几何渲染器](geometry-renderer/index.md)
 
 - [2D 对象](2d-object/index.md)
     - [2D 渲染](2d-object/2d-render/index.md)
@@ -406,5 +408,7 @@
     - [原生引擎内存泄漏检测系统](advanced-topics/memory-leak-detector.md)
     - [原生场景剔除](advanced-topics/native-scene-culling.md)
     - [原生性能剖析器](advanced-topics/profiler.md)
-    - [WebSocket 服务器](advanced-topics/websocket-server.md)
     - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
+    - WebSocket
+        - [WebSocket 服务器](advanced-topics/websocket-server.md)
+        - [WebSocket 客户端](advanced-topics/websocket.md)

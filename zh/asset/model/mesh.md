@@ -64,7 +64,9 @@ Mesh 文件中存储了模型的顶点、索引、纹理坐标等数据。在 **
 | 是否禁用 Mesh 拆分（Disable mesh split） | 为了解决实时骨骼动画系统下 uniform vector 数量限制问题，目前在资源导入期会根据骨骼数量做拆分，这会对其他系统也产生影响。如果确定不会使用实时计算模式（对应 SkeletalAnimation 组件的 useBakedAnimation 选项未勾选时），可以勾选此项以提升性能。但注意改变此选项会影响生成的 prefab 内容，需要对应更新场景中的引用。<br> 详情请参考下文。 |
 | 允许数据访问（Allow Data Access）| 标识此模型中的所有网格数据是否可被读写，此接口只对静态网格资源生效。若不勾选，网格数据提交至 CPU 后会自动释放 |
 | 提升单一根节点（Promote Single Root Node ）| |
-| Mesh Optimizer | 用于拆分模型。一般单个模型的骨骼数量是有限的，如果骨骼数量过多，便可以通过该项将其拆分成多个模型。|
+| Mesh Optimizer | 网格优化，用于模型的减面、重新排布顶点、减少内存占用以及压缩 Vertex Buffer 等操作。<br> 该功能的实现是基于 [Github - zeux/meshoptimizer](https://github.com/zeux/meshoptimizer)。<br> 已知的问题为：可能会存在在减面后丢失 UV 排布的情况 <br> 开发者需关注 **属性检查器** 内的警告情况以决定是否使用该选项 <br> 详细信息请参考下图 |
+
+![warn](./mesh/mesh-optimizer-warn.png)
 
 ### 是否禁用 Mesh 拆分（Disable mesh split）
 

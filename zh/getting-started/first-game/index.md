@@ -229,9 +229,7 @@ export class PlayerController extends Component {
 
     **注意**：退出动画编辑模式前记得要保存动画，否则做的动画就白费了。
 
-3. 我们还可以通过 **资源管理器** 来创建 Clip。创建一个名为 `twoStep` 的 Clip 并将它添加到 Body 的 `Animation` 上，这里为了录制方便调整了一下面板布局。
-
-    > **注意**：若发现无法拖动到 `Animation` 上，请检查 `import {...} from "cc" ` 语句中是否包含了 `Animation`。
+3. 我们还可以通过 **资源管理器** 来创建 Clip。创建一个名为 `twoStep` 的 Clip 并将它添加到 Body 的 `Animation` 上，这里为了录制方便调整了一下面板布局。    
 
     ![add animation from assets](./images/add-animation-from-assets.gif)
 
@@ -246,6 +244,12 @@ export class PlayerController extends Component {
     ```ts
     @property({type: Animation})
     public BodyAnim: Animation | null = null;
+    ```
+
+    需要注意的是，如果发现 `Aniamtion` 无法拖动或不显示，请检查该文件的 `import` 段是否已添加 `Animation` 的导入，代码示例如下：
+
+    ```ts
+    import { Animation } from "cc";
     ```
 
     然后在 **属性检查器** 中将 Body 身上的 `Animation` 拖到这个变量上。

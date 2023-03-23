@@ -174,6 +174,7 @@
         - [Line](particle-system/line-component.md)
     - [Skybox](concepts/scene/skybox.md)
     - [Global Fog](concepts/scene/fog.md)
+    - [Geometry Renderer](geometry-renderer/index.md)
 
 - [2D Objects](2d-object/index.md)
     - [2D Render](2d-object/2d-render/index.md)
@@ -316,6 +317,13 @@
     - [Pipeline and Task](asset/pipeline-task.md)
     - [Resource Management Considerations --- meta files](asset/meta.md)
 
+- [Localization](editor/l10n/overview.md)
+    - [Translation Service Provider](editor/l10n/translation-service.md)
+    - [Collect and Count](editor/l10n/collect-and-count.md)
+    - [Compile Language](editor/l10n/compile-language.md)
+    - [L10nLabel](editor/l10n/l10n-label.md)
+    - [Sample](editor/l10n/script-using.md)
+
 ## Advanced Tutorials
 
 - [Editor Extension](editor/extension/readme.md)
@@ -359,5 +367,7 @@
     - [CMake Usage Introduction](advanced-topics/cmake-learning.md)
     - [Native engine memory leak detection system](advanced-topics/memory-leak-detector.md)
     - [Native Scene Culling](advanced-topics/native-scene-culling.md)
-    - [WebSocket Server](advanced-topics/websocket-server.md)
     - [Cocos Native Plugin Quick Tutorial](advanced-topics/native-plugins/tutorial.md)
+    - WebSocket
+        - [WebSocket Server](advanced-topics/websocket-server.md)
+        - [WebSocket Client](advanced-topics/websocket.md)

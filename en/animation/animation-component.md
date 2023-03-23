@@ -108,8 +108,7 @@ class MyScript extends Component {
                 frame: 0.5, // Triggers the event on the 0.5 second
                 func: 'onTriggered', // The name of the function to call when the event is triggered
                 params: [ 0 ], // Parameters passed to `func`
-            });
-            defaultClip.updateEventDatas();
+            });            
         }
     }
 

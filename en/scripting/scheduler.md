@@ -72,6 +72,6 @@ Here is a list of all of the timer functions in **Component**:
 
 The detailed description of these APIs can be found in the API documentation.
 
-In addition, if developers need to execute a function every frame, please add the `update` function directly to the Component. This function will be called every frame by default. This is described in [Lifecycle Document](life-cycle-callbacks.mdItisdescribedindetailin#update).
+In addition, if developers need to execute a function every frame, please add the `update` function directly to the Component. This function will be called every frame by default. This is described in [Lifecycle Document](life-cycle-callbacks.md#update).
 
 > **Note**: `Node` does not include timer related APIs
