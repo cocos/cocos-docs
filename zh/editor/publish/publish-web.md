@@ -57,9 +57,9 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 
 ### 开启 WebGPU
 
-Cocos Creator自3.6.2起开始支持WebGPU, 构建Web-Desktop的时候勾选`WEBGPU`即可.
-构建`WebGPU`之后，先定位到构建好的资源文件所在文件夹，可以点击构建面板上的文件夹按钮直达，需要一个http-server或者nginx服务器来访问。
-在此之前请先检查浏览器的兼容性，下章**浏览器兼容性**会有详细介绍。
+Cocos Creator 自 v3.6.2 起开始支持 WebGPU, 构建 Web-Desktop 的时候勾选 `WEBGPU` 即可。
+构建 `WebGPU` 之后，先定位到构建好的资源文件所在文件夹，可以点击构建面板上的文件夹按钮直达，需要一个 http-server 或者 nginx 服务器来访问。
+在此之前请先检查浏览器的兼容性，下章 **浏览器兼容性** 会有详细介绍。
 
 ### 浏览器兼容性
 
@@ -67,7 +67,7 @@ Cocos Creator 开发过程中测试的桌面浏览器包括：**Chrome**、**Fir
 
 移动设备上测试的浏览器包括：**Safari（iOS）**、**Chrome（Android）**、**QQ 浏览器（Android）** 和 **UC 浏览器（Android）**。
 
-对于开启了`WebGPU`的WebDesktop，现在只支持指定版本的chromium浏览器。[这里](https://vikyd.github.io/download-chromium-history-version/#/)有历史版本的chromium。chromium 105的最后一个版本是支持比较好的。下载浏览器之前不要忘记选择正确的平台。打开chromium，地址栏输入`chrome://flags`，搜索webgpu，开启`WebGPU Developer Features`并重启chromium，这样准备工作就完成了。
+对于开启了 `WebGPU` 的 WebDesktop，现在只支持指定版本的 chromium 浏览器。[这里](https://vikyd.github.io/download-chromium-history-version/#/) 有历史版本的 chromium。chromium 105 的最后一个版本是支持比较好的。下载浏览器之前不要忘记选择正确的平台。打开 chromium，地址栏输入 `chrome://flags`，搜索 webgpu，开启 `WebGPU Developer Features` 并重启chromium，这样准备工作就完成了。
 
 ## Retina 设置
 
