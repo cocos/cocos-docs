@@ -43,3 +43,5 @@
     - [自定义 Surface Shader](./surface-shader/customize-surface-shader.md)
     - [渲染调式功能](./surface-shader/rendering-debug-view.md)
 - [传统着色器 - Lagacy Shader](./legacy-shader/legacy-shader.md)
+    - [内置 Legacy Shader 导读](./legacy-shader/legacy-shader-builtins.md)
+    - [Legacy Shader 主要函数与结构体](./legacy-shader/legacy-shader-func-struct.md)
