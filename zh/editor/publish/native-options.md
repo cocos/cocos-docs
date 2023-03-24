@@ -128,6 +128,12 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 
 勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/)。
 
+#### 集成 Input SDK (Google Play Games)
+
+通过 Input SDK 玩家可以轻松找到在 Google Play Games 定义的鼠标或键盘键位说明，并可以在游戏过程中通过快捷键Shift + Tab 快速调出。
+
+集成 Input SDK 后需要开发者调用接口进行配置, 请参考 [快速示例](./gpg-input-sdk.md), 或者 [Input SDK 文档](https://developer.android.com/games/playgames/input-sdk)
+
 ### Windows 平台构建选项
 
 Windows 平台的构建选项包括 **渲染后端** 和 **生成平台**。
