@@ -79,7 +79,6 @@ float metallic = texture(pbrMap, uv).METALLIC_SOURCE;
 ```
 
 > **注意**：语法中的每个 tag 都只有一个参数，这个参数可以直接用 YAML 语法指定。
-
 > **注意**：在 v3.5 之前，Macro Tags 功能的语法是 `#pragma define`，但是从 v3.5 开始 effect 资源升级过程中会自动被替换为 `#pragma define-meta`，在书写新的 effect 资源或使用外部不带 meta 的 effect 资源时请注意语法的正确性。
 
 ### Functional Macros

@@ -1,4 +1,4 @@
-# Cocos Effect 内置 Uniform
+# Cocos Effect 内置全局 Uniform
 
 要在 Cocos Effect 中使用内置变量 Uniform，需要包含对应的着色器片段（Chunk）。
 
