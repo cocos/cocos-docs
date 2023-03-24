@@ -2,7 +2,7 @@
 
 Surface Shader 使用高效、统一的渲染流程，让用户以简洁的代码创建表面材质信息，指定用于组合的光照和着色模型。
 
-相比旧版（Legacy Shader）的优点是更易书写和维护，有更好的版本兼容性，也更不容易产生渲染错误。并且可以从统一流程中获取很多公共特性，如统一的全场景光照和 Debug View 调试功能等。
+相比传统着色器（Legacy Shader）的优点是更易书写和维护，有更好的版本兼容性，也更不容易产生渲染错误。并且可以从统一流程中获取很多公共特性，如统一的全场景光照和渲染调试功能等。
 
 在 Cocos Creator v3.7.2 中，Surface Shader 已作为默认的 builtin-standard，用户可以在创建菜单查看。原来的 builtin-standard 相关的着色流程，统一归类到了 internal/effects/legacy。
 

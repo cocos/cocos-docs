@@ -17,6 +17,8 @@ Surface Shader 代码通常由几个部分组成：
 - 函数（`Surface Functions`）：用于声明表面材质信息相关的 Surface 函数。
 - 组装器（`Shader Assembly`）：用于组装每个顶点着色器（Vertex Shader）和片元着色器（Fragment Shader）的代码模块。
 
+可前往 [Surface Shader 基本结构](./surface-shader-structure.md) 了解更多详情。
+
 ## CCEffect
 
 一个物体被渲染到屏幕上，需要以下信息：

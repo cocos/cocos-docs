@@ -51,10 +51,9 @@ PBR 的优势在于：
 
 用户可以在材质属性面板的 **Roughness** 属性中直接设置粗糙度。或者为 PBR 材质指定一张 sRGB 颜色空间的 RGBA 贴图，通过贴图的 **绿通道** 表达粗糙度，操作步骤如下：
 
-1. 在 **资源管理器** 中选中 PBR 材质资源，然后在 **属性检查器** 中勾选 **USE PBR MAP** 属性，将 RGBA 贴图拖拽到出现的 **PbrMap** 属性框中；
-2. 或勾选 **USE METALLIC ROUGHNESS MAP**，将 RGBA 贴图拖拽到出现的 **MetallicRoughnessMap** 属性框中。
+在 **资源管理器** 中选中 PBR 材质资源，然后在 **属性检查器** 中勾选 **USE PBR MAP** 属性，将 RGBA 贴图拖拽到出现的 **PbrMap** 属性框中；
 
-![matallic 贴图](img/mateallic.png)
+![matallic 贴图](img/use-pbr-map.png)
 
 ### 金属度（Metallic）
 
@@ -74,10 +73,9 @@ PBR 的优势在于：
 
 用户可以在材质属性面板的 **Metallic** 属性中直接设置金属度。或者为材质指定一张 sRGB 颜色空间的 RGBA 贴图，通过贴图的 **蓝通道** 表达金属度，操作步骤如下：
 
-1. 在 **资源管理器** 中选中 PBR 材质资源，然后在 **属性检查器** 中勾选 **USE PBR MAP** 属性，将 RGBA 贴图拖拽到出现的 **PbrMap** 属性框中；
-2. 然后勾选 **USE METALLIC ROUGHNESS MAP**，将 RGBA 贴图再次拖拽到出现的 **MetallicRoughnessMap** 属性框中。
+在 **资源管理器** 中选中 PBR 材质资源，然后在 **属性检查器** 中勾选 **USE PBR MAP** 属性，将 RGBA 贴图拖拽到出现的 **PbrMap** 属性框中；
 
-![粗糙度贴图](img/metallicRoughnessMap.png)
+![粗糙度贴图](img/use-pbr-map.png)
 
 ### 环境光遮蔽（Ambient Occlusion）
 
@@ -88,10 +86,10 @@ PBR 的优势在于：
 用户可以为 PBR 材质指定一张 sRGB 颜色空间的 RGBA 贴图，通过贴图的 **红通道** 表达环境光遮蔽关系，操作步骤如下：
 
 1. 在 **资源管理器** 中选中 PBR 材质资源，然后在 **属性检查器** 中勾选 **USE PBR MAP** 属性，将 RGBA 贴图拖拽到出现的 **PbrMap** 属性框中；
-2. 然后勾选 **USE METALLIC ROUGHNESS MAP**，将 RGBA 贴图拖拽到出现的 **MetallicRoughnessMap** 属性框中；
-3. 勾选 **USE OCCLUSION MAP**，将 RGBA 贴图拖拽到出现的 **OcclusionMap** 属性框中。、
 
-![环境光遮蔽](img/occluation.png)
+2. 勾选 **USE OCCLUSION MAP**，将 RGBA 贴图拖拽到出现的 **OcclusionMap** 属性框中。
+
+![环境光遮蔽](img/occlusion-map.png)
 
 ### 法线（Normal）
 
@@ -103,7 +101,7 @@ PBR 的优势在于：
 1. 分别制作一个顶点数量较高的高模和一个顶点数量较低的低模，将高模的顶点坐标数据烘培到一张使用低模的 UV 的贴图上
 2. 将一张图片资源的类型转换为法线贴图
 
-   ![法线贴图](img/normal-map.png)
+![法线贴图](img/normal-map.png)
 
 > **注意**：在从高模烘培法线时，请确保烘培器使用右手坐标系（Y 轴向上）和 MIKK 切线空间算法。
 
@@ -144,13 +142,32 @@ PBR 的优势在于：
 
 当切换到透明材质模式时，材质所有的功能与不透明模式没有差别。用户可以依照上述的工作流程进行材质制作。
 
-由于当 Alpha Blending 开启时，引擎的渲染管线对深度的控制发生了改变，因此在切换到透明材质模式时，**需要勾选材质属性面板 PipelineStates -> DepthStencilState 下的 `DepthWrite` 参数。**
-
-![depth-write](./img/depth-write.png)
-
 ### PBR 主要参数组装流程
 
 ![pbr 组装流程](../material-system/standard-material-graph.png)
+
+## PBR 宏定义
+
+| 宏定义 | 说明 |
+| :---- | :--- |
+| USE_INSTANCING | 是否启用几何体实例化 |
+| HAS_SECOND_UV | 是否存在第二套 UV |
+| USE_TWOSIDE  |   是否开启双面 |
+| IS_ANISOTROPY |   是否开启各向异性光照    |
+| USE_VERTEX_COLOR | 是否启用顶点颜色。如果启用，顶点色会与固有色颜色相乘 |
+| FIX_ANISOTROPIC_ROTATION_MAP  | 是否使用各向异性光照旋转图    |
+| USE_ALBEDO_MAP | 是否使用固有色射贴图 |
+| ALBEDO_UV | 指定采样固有色贴图使用的 UV，默认使用第一套 |
+| USE_NORMAL_MAP | 是否使用法线贴图 |
+| DEFAULT_UV | 默认 UV，默认使用第一套 |
+| USE_PBR_MAP | 是否使用 PBR 参数三合一贴图（**按 glTF 标准，RGB 通道必须分别对应环境光遮蔽、粗糙度和金属度**） |
+| USE_OCCLUSION_MAP | 是否使用环境光遮蔽贴图（**按 glTF 标准，只会使用 R 通道**） |
+| USE_EMISSIVE_MAP | 是否使用自发光贴图 |
+| EMISSIVE_UV | 指定采样自发光贴图使用的 UV，默认使用第一套 |
+| USE_ALPHA_TEST | 是否开启透明测试（镂空效果） |
+| ALPHA_TEST_CHANNEL | 指定透明测试的测试通道，默认为 A 通道 |
+
+更多 PBR 原理相关的内容，请参考 [PBR 理论](https://learnopengl-cn.github.io/07%20PBR/01%20Theory/#pbr)。
 
 ## PBR 参数
 
@@ -168,31 +185,14 @@ PBR 的优势在于：
 | normalMap | 法线贴图，用于增加表面细节 |
 | normalStrenth | 法线贴图强度，控制凹凸质感的强弱 |
 | pbrMap<br>**R**（AO）<br>**G**（Roughness）<br>**B**（Metallic） | PBR 材质参数贴图，采样结果会和常数项相乘<br>R 通道：环境光遮蔽<br>G 通道：粗糙度<br>B 通道：金属度 |
-| metallicRoughnessMap<br>**G**（Roughness）<br>**B**（Metallic） | 独立的粗糙度和金属度贴图，采样结果会和常数项相乘<br>G 通道：粗糙度<br>B 通道：金属度 |
 | occlusionMap | 独立的环境光遮蔽贴图<br>采样结果会和常数项相乘 |
 | occlusion | 环境光遮蔽系数 |
 | roughness | 粗糙度系数 |
 | metallic | 金属度系数 |
+| specularIntensity |   高光强度，该值相当于基准反射率 F0 的倍增，仅对非金属有效
 | emissive | 自发光颜色，独立于光照计算，由模型本身直接发散出的颜色 |
 | emissiveMap | 自发光贴图<br>如果有指定，这项会和自发光颜色相乘，因此需要把自发光颜色（默认是黑色）调高才会有效果 |
 | emissiveScale | 自发光强度<br>用于控制自发光颜色对于最终颜色的影响权重 |
 
-## PBR 宏定义
 
-| 宏定义 | 说明 |
-| :---- | :--- |
-| USE_INSTANCING | 是否启用几何体实例化 |
-| HAS_SECOND_UV | 是否存在第二套 UV |
-| ALBEDO_UV | 指定采样固有色贴图使用的 UV，默认使用第一套 |
-| EMISSIVE_UV | 指定采样自发光贴图使用的 UV，默认使用第一套 |
-| ALPHA_TEST_CHANNEL | 指定透明测试的测试通道，默认为 A 通道 |
-| USE_VERTEX_COLOR | 是否启用顶点颜色。如果启用，顶点色会与固有色颜色相乘 |
-| USE_ALPHA_TEST | 是否开启透明测试（镂空效果） |
-| USE_ALBEDO_MAP | 是否使用固有色射贴图 |
-| USE_NORMAL_MAP | 是否使用法线贴图 |
-| USE_PBR_MAP | 是否使用 PBR 参数三合一贴图（**按 glTF 标准，RGB 通道必须分别对应环境光遮蔽、粗糙度和金属度**） |
-| USE_METALLIC_ROUGHNESS_MAP | 是否使用金属粗糙二合一贴图（**按 glTF 标准，GB 通道必须分别对应粗糙和金属度**） |
-| USE_OCCLUSION_MAP | 是否使用环境光遮蔽贴图（**按 glTF 标准，只会使用 R 通道**） |
-| USE_EMISSIVE_MAP | 是否使用自发光贴图 |
-
-更多 PBR 原理相关的内容，请参考 [PBR 理论](https://learnopengl-cn.github.io/07%20PBR/01%20Theory/#pbr)。
+想了解更多关于内置 PBR 材质的实现细节，请前往 [内置 Surface Shader](./surface-shader/builtin-surface-shader.md)。

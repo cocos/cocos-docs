@@ -10,3 +10,5 @@
 | ------------ | ------------------------------------------------------------ |
 | standard     | PBR 光照，支持 GGX BRDF 分布的各向同性与各向异性光照，支持卷积环境光照 |
 | toon         | 简单的卡通光照，阶梯状的光照效果                             |
+
+与光照模型相关的内置 Shader 函数放在了 internal/chunks/lighting-models/includes 目录下，在 [Surface Shader 组装](./shader-assembly.md) 时，通过 include 引入对应文件，就能完成光照计算。

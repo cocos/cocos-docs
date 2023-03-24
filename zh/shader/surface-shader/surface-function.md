@@ -1,4 +1,4 @@
-# Surface Shader 内置函数
+# Surface Shader 可替换的内置函数
 
 Surface Shader 统一了着色流程，同时向用户提供了大量的自定义函数，大家可以根据自己的需求，利用宏机制，重写相关函数。
 

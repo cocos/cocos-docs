@@ -4,7 +4,9 @@
 
 有时候，**用户需要使用完全定制化的光照计算和色彩计算**，比如说：一些特殊的、风格化的材质，需要轮廓光、额外的补光、非真实的环境照明等等。
 
-针对这类情况，Surface Shader 也提供了自定义能力。
+针对这类极为特殊的情况，Surface Shader 也提供了自定义能力。
+
+但需要注意的是，由于干预了表面材质数据和光照计算过程，渲染效果可能会出现意料之外的效果。
 
 ## 1、自定义 VS 输出与 FS 输入
 
@@ -30,7 +32,7 @@ void SurfacesFragmentModifySharedData(inout SurfacesMaterialData surfaceData)
 }
 ```
 
-函数开头的 `#include` 用于决定使用的**材质模型名称**，根据不同的 include, `SurfacesMaterialData` 的内容会不同。
+函数开头的 `#include` 用于决定使用的**材质数据结构名称**，根据不同的 include 文件, 会采用不同的 `SurfacesMaterialData` 结构体。
 
 具体内容，可以查看 **internal/chunks/surfaces/data-structures/** 目录下的 **standard.chunk** 和 **toon.chunk**
 
@@ -77,4 +79,4 @@ PBR光照相关的内置函数都在这里，直接调用即可。
 
 ## 更多自定义
 
-如果上面的自定义机制还不能满足需求，建议参考 chunks/shading-entries 构建自己的 main 函数，以控制着色流程。
+如果上面的自定义机制还不能满足需求，建议参考 chunks/shading-entries 构建自己的 main 函数，以控制整个着色流程和计算细节。
