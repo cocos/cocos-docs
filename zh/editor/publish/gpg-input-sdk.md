@@ -2,12 +2,11 @@
 
 Input SDK提供了一个统一的界面，让玩家在 Google Play Games For PC 上方便地找到游戏的鼠标和键盘绑定，从而提升玩家的游戏体验。 
 
-
 ## 准备工作
 
-如果你要在一个全新的 Android 构建上使用 Input SDK, 只需要在构建面板上勾选 Input SDK 选项. 
+如果你要在一个全新的 Android 构建上使用 Input SDK，只需要在构建面板上勾选 Input SDK 选项。
 
-如果这个 Anrdoid 工程是之前构建的, 就需要手动在 文件 `native/engine/android/app/build.gradle` 中添加下面的代码
+如果这个 Anrdoid 工程是之前构建的，就需要手动在 文件 `native/engine/android/app/build.gradle` 中添加下面的代码：
 
 ```gradle
 dependencies {
@@ -16,10 +15,9 @@ dependencies {
 }
 ```
 
-
 ## 添加 InputMapProvider 实现
 
-新建类文件 `MyInputMapProvider.java`
+新建类文件 `MyInputMapProvider.java`。
 
 ```java
     public class MyInputMapProvider implements InputMappingProvider {
@@ -142,12 +140,11 @@ dependencies {
     }
    
 ```
+
 ## 测试效果
 
-在 Google Play Games 提供的 HPE 模拟器中运行, 通过 Shift + Tab 调出页面
+在 Google Play Games 提供的 HPE 模拟器中运行，通过 Shift + Tab 调出页面。
 
 ![key codes](./publish-native/gpg-input-sdk-keys.png)
 
-
-
-更多的细节请参考 [INput SDK 官方文档](https://developer.android.com/games/playgames/input-sdk-start)
+更多的细节请参考 [INput SDK 官方文档](https://developer.android.com/games/playgames/input-sdk-start)。
