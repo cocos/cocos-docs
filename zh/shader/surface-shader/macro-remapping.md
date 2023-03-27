@@ -2,7 +2,7 @@
 
 Surface Shader 内部计算时会用到一些宏开关，这些宏以 `CC_SURFACES_` 开头。
 
-为了不干扰材质面板，以 `CC_SURFACES_` 开头的宏不会出现在材质面板上。
+>注意：以 `CC_SURFACES_` 开头的宏不会出现在材质面板上。
 
 以下是完整的宏列表：
 
@@ -39,7 +39,7 @@ Surface Shader 内部计算时会用到一些宏开关，这些宏以 `CC_SURFAC
 #pragma define-meta USE_COMPATIBLE_LIGHTING
 ```
 
-默认情况下，以 `CC_SURFACES_` 开头的宏不会显示在材质面板上。 当我们想让某一个宏开关显示在材质面板上时，可以像下面这样操作：
+默认情况下，以 `CC_` 开头的宏不会显示在材质面板上。 当我们想让某一个宏开关显示在材质面板上时，可以像下面这样操作：
 
 1、使用 `#pragma define-meta` 定义一个面板宏，我们以 `HAS_SECOND_UV` 为例：
 
@@ -57,7 +57,7 @@ Surface Shader 内部计算时会用到一些宏开关，这些宏以 `CC_SURFAC
 
 ## 在 Surface 函数中使用过的宏
 
-如果有宏在 Shader 代码中被使用，且不是以 `CC_SURFACES_` 开头的，会自动显示在材质面板上。 比如：
+如果有宏在 Shader 代码中被使用，且不是以 `CC_` 开头的，会自动显示在材质面板上。 比如：
 
 ```glsl
 // ui displayed macros used in this effect file
@@ -83,3 +83,5 @@ Surface Shader 内部计算时会用到一些宏开关，这些宏以 `CC_SURFAC
 如果你的 Shader 中写了一些宏，但是不想出现在材质面板上，可以用 `CC_` 开头。
 
 为了和系统内部宏有区别，建议使用  `CC_USER_` 开头。
+
+更多宏定义相关内容，可以查看 [预处理宏定义](../macros.md)。

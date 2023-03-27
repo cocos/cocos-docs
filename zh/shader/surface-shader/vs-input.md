@@ -2,7 +2,7 @@
 
 ## 参数列表
 
-Vertex Shader 输入值都在 `SurfacesStandardVertexIntermediate` 结构体中，作为 Surface 函数参数传入。
+Vertex Shader 输入值都在 `SurfacesStandardVertexIntermediate` 结构体中，作为函数参数传入。
 
 | Vertex Shader 输入值 | 类型 | 使用时需要开启的宏          | 含义                                 |
 | ------------------- | ---- | ----------------------------- | ------------------------------------ |

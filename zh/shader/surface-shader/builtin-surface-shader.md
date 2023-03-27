@@ -2,7 +2,7 @@
 
 Cocos Creator 3.7.2 版本开始， builtin-standard.effect 使用 Surface Shader 架构实现。
 
-本文以 buitlin-standard.effect 作为典型案例，讲解 Surface Shader 结构与实现。
+本文以 buitlin-standard.effect 作为典型案例，讲解 Surface Shader 细节。
 
 你可以属性 Surface Shader 结构定义、语法细节以及渲染流程。
 
@@ -11,7 +11,7 @@ Cocos Creator 3.7.2 版本开始， builtin-standard.effect 使用 Surface Shade
 ## 基本结构
 
 Surface Shader 代码通常由几个部分组成：
-- 信息描述（CCEffect）：描述此 Shader 的技术、渲染过程组成部分，以及每个渲染过程使用的 Shader、渲染状态、属性等。
+- 信息描述（`CCEffect`）：描述此 Shader 的技术、渲染过程组成部分，以及每个渲染过程使用的 Shader、渲染状态、属性等。
 - 共享常量（`Shared UBOs`）：把 vs 和 fs 都需要用到的 uniforms 定义在一起，方便管理。
 - 宏映射（`Macro Remapping`）：处理一些宏定义，以及映射一些内部宏，使其可以显示到材质面板上。
 - 函数（`Surface Functions`）：用于声明表面材质信息相关的 Surface 函数。

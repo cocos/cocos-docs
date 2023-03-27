@@ -9,16 +9,16 @@
 #include <builtin/uniforms/cc-global>
 ```
 
-目前所有的内置变量，按所在着色器片段进行分组，列表如下。
+以下是常用内置变量，按所在着色器片段进行分组，列表如下：
 
-## `cc-local.chunk` 主要常量
+## `cc-local.chunk`
 
 | Name | Type | Info |
 | :-- | :-- | :-- |
 | `cc_matWorld` | mat4 | 模型空间转世界空间矩阵 |
 | `cc_matWorldIT` | mat4 | 模型空间转世界空间逆转置矩阵 |
 
-## `cc-global.chunk` 主要常量
+## `cc-global.chunk`
 
 | Name | Type | Info |
 | :-- | :-- | :-- |
@@ -64,4 +64,4 @@
 | `cc_matLightPlaneProj` | mat4 | 平面阴影的变换矩阵 |
 | `cc_shadowColor` | vec4 | 阴影颜色 |
 
-完整常量列表，请参考 **internal/builtin/uniforms** 目录。
+完整常量列表，请参考 **internal/builtin/uniforms/** 目录。

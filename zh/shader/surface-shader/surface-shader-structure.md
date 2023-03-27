@@ -12,7 +12,7 @@
 
 CCEffect 用于描述 Surface Shader 的 techniques, pass , 属性以及渲染状态等信息。材质会根据 CCEffect 中的描述生成默认值，以及在材质面板上显示。
 
-具体内容请参考 [Shader 语法](../effect-syntax.md)。
+具体内容请参考 [Cocos Shader 语法](../effect-syntax.md)。
 
 ## 2、共享常量声明
 

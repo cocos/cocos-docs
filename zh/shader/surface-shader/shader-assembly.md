@@ -162,4 +162,4 @@ CCProgram standard-fs %{
 #include <shading-entries/main-functions/render-to-shadowmap/fs>
 ```
 
-更多信息，可参考 [内置 Surface Shader 讲解](./builtin-surface-shader.md)。
+更多信息，可参考 [内置 Surface Shader 导读](./builtin-surface-shader.md)。

@@ -1,12 +1,12 @@
 # 内置 Legacy Shader 导读
 
 Legacy Shader 相关的源码，有两个目录：
-- internal/chunks/legacy
-- internal/effects/legacy
+- internal/chunks/legacy/
+- internal/effects/legacy/
 
 在 `chunks/legacy` 目录中，存放的是一些公共函数，如解码器、雾效、输入、输出、阴影、骨骼蒙皮等等。
 
-Legacy Shader 和 Surface Shader 都会调用 internal/chunks/builtin 和 internal/chunks/common 提供的函数。
+Legacy Shader 和 Surface Shader 都会调用 internal/chunks/builtin/ 和 internal/chunks/common/ 提供的函数。
 
 在 `effects/legacy` 目录中，提供了三个内置的 Legacy Shader：
 - standard： 标准材质

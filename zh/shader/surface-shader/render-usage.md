@@ -8,7 +8,7 @@
 
 不同的渲染用途，有不同的渲染流程和细节，因此需要特殊处理。
 
-Surface Shader 框架中，预定义了常见的不同用途的流程，在 **资源管理器 -> internal -> chunk -> shading-entries -> main-functions** 目录下可以找到。
+Surface Shader 框架中，预定义了常见的不同用途的流程，在 **资源管理器/internal/chunks/shading-entries/main-functions/** 目录下可以找到。
 
 以下是内置的渲染用途：
 

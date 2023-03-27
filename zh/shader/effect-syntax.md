@@ -15,7 +15,7 @@ Cocos Creator 中的着色器（Cocos Shader ，文件扩展名为 *.effect）�
 
 此处以内置着色器 `builtin-unlit.effect` 为例，说明 Cocos Shader 的语法框架。
 
-在 VS Code 中打开 Cocos Creator **资源管理器** 面板中 `internal -> effects` 目录下的 `builtin-unlit.effect` 文件，可以看到主要内容如下：
+在 VS Code 中打开 Cocos Creator **资源管理器** 面板中 `internal/effects/` 目录下的 `builtin-unlit.effect` 文件，可以看到主要内容如下：
 
 ```ts
 CCEffect %{

@@ -2,9 +2,9 @@
 
 ## 头文件
 
-Surface Shader 中，包含了多个[光照模型](./lighting-mode.md)，如 standard,toon 等。
+Surface Shader 中，包含了多个[光照模型](./lighting-mode.md)，如 standard，toon 等。
 
-同时，我们拥有不同的[渲染用途](./render-usage.md)，如 render-to-scene, render-to-shadowmap 等。
+同时，我们拥有不同的[渲染用途](./render-usage.md)，如 render-to-scene， render-to-shadowmap 等。
 
 不同的光照模型拥有不同的表面材质数据结构和光照计算函数，不同的渲染用途之间，流程上会有细微的差别。
 
