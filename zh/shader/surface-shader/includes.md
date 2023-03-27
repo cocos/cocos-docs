@@ -64,3 +64,5 @@ CCProgram fs %{
     #include<macro-remapping>
 }%
 ```
+
+> 注意：`include` 只能引用本文件内的 `CCProgram`。
