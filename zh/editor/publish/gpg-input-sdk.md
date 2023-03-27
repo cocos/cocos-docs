@@ -147,4 +147,4 @@ dependencies {
 
 ![key codes](./publish-native/gpg-input-sdk-keys.png)
 
-更多的细节请参考 [INput SDK 官方文档](https://developer.android.com/games/playgames/input-sdk-start)。
+更多的细节请参考 [Input SDK 官方文档](https://developer.android.com/games/playgames/input-sdk-start)。
