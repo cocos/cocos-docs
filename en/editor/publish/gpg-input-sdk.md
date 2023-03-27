@@ -15,7 +15,7 @@ dependencies {
 }
 ```
 
-## Create a the class named `MyInputMapProvider`.
+## Create a the class named `MyInputMapProvider`
 
 Create a new file `MyInputMapProvider.java` which contains the following code:
 
@@ -140,12 +140,11 @@ To register the `InputMapping`, modify `AppActivity.java` located in `native\eng
     }
    
 ```
+
 ## Test Result
 
 To bring up the page, use Shift + Tab while running on the HPE emulator provided by Google Play Games.
 
 ![key codes](./publish-native/gpg-input-sdk-keys.png)
-
-
 
 Refer to the [official documentation](https://developer.android.com/games/playgames/input-sdk-start) of the Input SDK for more details.
