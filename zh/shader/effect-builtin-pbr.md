@@ -30,7 +30,7 @@ PBR 的优势在于：
 
 在 PBR 流程中，固有色代表的是材质 **非金属** 部分的 **漫反射**（Diffuse）颜色，与材质 **金属** 部分的 **高光**（Specular）颜色的集合。
 
-> **注意**：在 Metal / Roughness 工作流中，所有金属的漫反射（Diffuse）颜色都是黑色，肉眼所见的颜色表现是由金属反射光线所产生的。而在非 Metal / Roughness 工作流中，金属的颜色是由高光（Specular）颜色决定。使用非 Metal / Roughness 工作流制作的颜色贴图，将不能在 Creator 默认的 PBR 材质中正确渲染金属的颜色信息。
+> **注意**：在 Metal / Roughness 工作流中，所有金属的漫反射（Diffuse）颜色都是黑色，肉眼所见的颜色表现是由金属反射光线所产生的。而在非 Metal / Roughness 工作流中，金属的颜色是由高光（Specular）颜色决定。使用非 Metal / Roughness 工作流制作的颜色贴图，将不能在 Cocos Creator 默认的 PBR 材质中正确渲染金属的颜色信息。
 
 用户可以在材质属性面板的 **Albedo** 属性中直接设置固有色颜色，也可以勾选 `USE ALBEDO MAP`，为材质指定一张 sRGB 颜色空间的 RGBA 贴图。
 

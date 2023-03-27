@@ -15,7 +15,7 @@
 
 ## 渲染过程
 
-Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为例，我们在材质资源中将 **Effect** 属性切换为 `builtin-toon.effect`，可以看到卡通渲染由两个渲染过程（Pass）组成：
+Cocos Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为例，我们在材质资源中将 **Effect** 属性切换为 `builtin-toon.effect`，可以看到卡通渲染由两个渲染过程（Pass）组成：
 
 ![渲染过程](img/toon-pass.png)
 

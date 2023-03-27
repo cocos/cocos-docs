@@ -4,7 +4,7 @@
 
 在现代显卡中，若要正确地绘制物体，需要书写基于顶点（Vertex）和片元（Fragment）的代码片段，这些代码片段称为 Shader。在基于 OpenGL 系列驱动的硬件设备上，Shader 支持一种名为 GLSL（OpenGL Shading Language）的着色器语言。
 
-为了适配工业化制作流，提升着色器片段的易用性，Creator 封装了基于 GLSL 的着色器 — [Cocos Shader](./effect-syntax.md)。
+为了适配工业化制作流，提升着色器片段的易用性，Cocos Creator 封装了基于 GLSL 的着色器 — [Cocos Shader](./effect-syntax.md)。
 
 本章主要介绍 Cocos Shader 的工作方式和使用方式。
 
