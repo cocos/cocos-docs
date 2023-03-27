@@ -117,6 +117,7 @@
         - [发布 HUAWEI HarmonyOS 应用](editor/publish/publish-huawei-ohos.md)
         - [安装配置原生环境](editor/publish/setup-native-development.md)
         - [原生平台 JavaScript 调试](editor/publish/debug-jsb.md)
+        - [集成 Input SDK](editor/publish/gpg-input-sdk.md)
     - [发布到小游戏平台](editor/publish/publish-mini-game.md)
         - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [发布到支付宝小游戏](editor/publish/publish-alipay-mini-game.md)

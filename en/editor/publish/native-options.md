@@ -127,6 +127,11 @@ To deploy the product on Google Play Instant, users can enable this property and
 
 Enable this property to build the release package in an Android App Bundles format. Please refer to Android’s [official documentation](https://developer.android.com/guide/app-bundle/) on the subject for more information.
 
+#### Input SDK
+Integrate the Input SDK for Google Play Games to allow players to easily find mouse or keyboard key bindings defined in games and use the Shift + Tab shortcut to quickly access them during gameplay.
+
+After integrating the Input SDK, developers need to call the appropriate API to configure it. Please refer to the [Quick Tutorial](./gpg-input-sdk.md) or the [Input SDK Documentation](https://developer.android.com/games/playgames/input-sdk) for more information.
+
 ### Build for Windows
 
 Build options for the Windows include **Render BackEnd** and **Target Platform**.

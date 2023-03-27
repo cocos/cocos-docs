@@ -111,6 +111,7 @@
         - [Publish for the Huawei HarmonyOS](editor/publish/publish-huawei-ohos.md)
         - [Setup Native Development](editor/publish/setup-native-development.md)
         - [Debugging JavaScript on Native Platforms](editor/publish/debug-jsb.md)
+        - [Integrating Input SDK](editor/publish/gpg-input-sdk.md)
     - [Publish to Mini Game Platforms](editor/publish/publish-mini-game.md)
         - [Publish to HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [Publish to Alipay Mini Game](editor/publish/publish-alipay-mini-game.md)
