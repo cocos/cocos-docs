@@ -564,6 +564,13 @@ onStartButtonClicked() {
     onOnceJumpEnd() {
         this.node.emit('JumpEnd', this._curMoveIndex);
     }
+    // ...
+    update() {
+        // ...
+            // end
+            // ...
+            this.onOnceJumpEnd();
+    }
     ```
 
 2. 在 `GameManager` 脚本中监听角色跳跃结束事件，并根据规则判断输赢，增加失败和结束判断，如果跳到空方块或是超过了最大长度值都结束：
