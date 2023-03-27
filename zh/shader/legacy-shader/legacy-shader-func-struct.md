@@ -75,11 +75,11 @@ mat4 matWorld, matWorldIT;
 CCGetWorldMatrixFull(matWorld, matWorldIT);
 ```
 
-更多关于 Cocos Effect 内置的 uniform 内容，请参考 [Cocos Effect 内置 Uniform](uniform.md)。
+更多细节，请参考 [Cocos Shader 内置全局 Uniform](uniform.md)。
 
 ## CCFragOutput
 
-Cocos Effect 提供了 `CCFragOutput` 工具函数用以简化片元着色器的输出，可用于直接返回片元着色器所需要的值，代码示例如下：
+Cocos Shader 提供了 `CCFragOutput` 工具函数用以简化片元着色器的输出，可用于直接返回片元着色器所需要的值，代码示例如下：
 
 ```glsl
 #include <legacy/output>

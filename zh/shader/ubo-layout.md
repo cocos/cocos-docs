@@ -1,6 +1,6 @@
 # UBO 内存布局策略
 
-Cocos Effect 规定，所有非 sampler 类型的 uniform 都应以 UBO（Uniform Buffer Object/Uniform Block）形式声明。
+Cocos Shader 规定，所有非 sampler 类型的 uniform 都应以 UBO（Uniform Buffer Object/Uniform Block）形式声明。
 
 以内置着色器 `builtin-standard.effect` 为例，其 uniform block 声明如下：
 
@@ -21,7 +21,7 @@ uniform Constants {
 2. 对数组类型成员，每个元素 size 不能小于 vec4；
 3. 不允许任何会引入 padding 的成员声明顺序。
 
-Cocos Effect 在编译时会对上述规则进行检查，以便在导入错误（implicit padding 相关）时及时提醒修改。
+Cocos Shader 在编译时会对上述规则进行检查，以便在导入错误（implicit padding 相关）时及时提醒修改。
 
 这可能听起来有些过分严格，但背后有非常务实的考量：<br>
 首先，UBO 是渲染管线内要做到高效数据复用的唯一基本单位，离散声明已不是一个选项；<br>
@@ -59,7 +59,7 @@ Cocos Effect 在编译时会对上述规则进行检查，以便在导入错误�
   }; // total of 16 bytes
   ```
 
-这意味着大量的空间浪费，且某些设备的驱动实现也并不完全符合此标准[^3]，因此目前 Cocos Effect 选择限制这部分功能的使用，以帮助排除一部分非常隐晦的运行时问题。
+这意味着大量的空间浪费，且某些设备的驱动实现也并不完全符合此标准[^3]，因此目前 Cocos Shader 选择限制这部分功能的使用，以帮助排除一部分非常隐晦的运行时问题。
 
 >**再次提醒：uniform 的类型与 inspector 的显示和运行时参数赋值时的程序接口可以不直接对应，通过 [property target](pass-parameter-list.md#Properties) 机制，可以独立编辑任意 uniform 的具体分量。**
 

@@ -1,12 +1,12 @@
-# 着色器（Cocos Effect）
+# 着色器（Cocos Shader）
 
 ![effect-show](img/effect-show.jpg)
 
 在现代显卡中，若要正确地绘制物体，需要书写基于顶点（Vertex）和片元（Fragment）的代码片段，这些代码片段称为 Shader。在基于 OpenGL 系列驱动的硬件设备上，Shader 支持一种名为 GLSL（OpenGL Shading Language）的着色器语言。
 
-为了适配工业化制作流，提升着色器片段的易用性，Creator 封装了基于 GLSL 的着色器 — [Cocos Effect](./effect-syntax.md)。
+为了适配工业化制作流，提升着色器片段的易用性，Creator 封装了基于 GLSL 的着色器 — [Cocos Shader](./effect-syntax.md)。
 
-本章主要介绍 Cocos Effect 的工作方式和使用方式。
+本章主要介绍 Cocos Shader 的工作方式和使用方式。
 
 ## 内容
 
@@ -25,7 +25,7 @@
     - [着色器片段（Chunk）](effect-chunk-index.md)
 - [内置全局 Uniform](uniform.md)
 - [表面着色器 - Surface Shader](surface-shader.md)
-    - [内置 Surface Shader](./surface-shader/builtin-surface-shader.md)
+    - [内置 Surface Shader 导读](./surface-shader/builtin-surface-shader.md)
     - [Surface Shader 基本结构](./surface-shader/surface-shader-structure.md)
     - [Surface Shader 执行流程](./surface-shader/shader-code-flow.md)
     - [include 机制](./surface-shader/includes.md)
@@ -42,6 +42,6 @@
     - [公共函数库](./surface-shader/common-functions.md)
     - [自定义 Surface Shader](./surface-shader/customize-surface-shader.md)
     - [渲染调式功能](./surface-shader/rendering-debug-view.md)
-- [传统着色器 - Lagacy Shader](./legacy-shader/legacy-shader.md)
+- [传统着色器 - Legacy Shader](./legacy-shader/legacy-shader.md)
     - [内置 Legacy Shader 导读](./legacy-shader/legacy-shader-builtins.md)
     - [Legacy Shader 主要函数与结构体](./legacy-shader/legacy-shader-func-struct.md)

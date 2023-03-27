@@ -1,6 +1,6 @@
 # 预处理宏定义
 
-为了更好地管理代码内容，Cocos Effect 提供了预处理宏机制，它有几个特性：
+为了更好地管理代码内容，Cocos Shader 提供了预处理宏机制，它有几个特性：
 1. 不同组合的宏会生成不同的代码
 2. 生成的代码无冗余、执行高效
 3. 使用过的宏定义会显示在材质面板上，方便调试
@@ -22,7 +22,7 @@
 
 ### 宏都会被定义
 
-Cocos Effect 在运行时会用默认值 0 来定义所有 Shader 中出现的自定义宏
+Cocos Shader 在运行时会用默认值 0 来定义所有 Shader 中出现的自定义宏
 
 ```ts
 #define USE_INSTANCING 0
@@ -122,6 +122,6 @@ CCProgram unlit-fs %{
   #pragma // empty pragma trick to get rid of trailing semicolons at effect compile time
 ```
 
-WebGL 1.0 不支持函数式宏定义 (Function-like Macros)，但是 Cocos Creator 在 Cocos Effect 编译时支持了函数式宏定义，在输出的 Shader 中就已经将此类宏定义展开，可以放心使用。
+WebGL 1.0 不支持函数式宏定义 (Function-like Macros)，但是 Cocos Shader 在编译时支持了函数式宏定义，在输出的 Shader 中就已经将此类宏定义展开，可以放心使用。
 
 更多关于宏定义的内容，请前往 [宏定义与重映射](./surface-shader/macro-remapping.md)。

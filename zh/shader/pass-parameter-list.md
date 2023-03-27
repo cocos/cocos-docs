@@ -81,7 +81,7 @@ Property 中可配置的参数如下表所示，任何可配置的字段如果�
 
 ### Property 默认值
 
-对于 Property 的默认值， Cocos Effect 做出了如下的规定：
+对于 Property 的默认值， Cocos Shader 做出了如下的规定：
 
 | 类型        |  默认值 | 可选项   |
 | :---------- | :----- | :------ |

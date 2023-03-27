@@ -187,7 +187,7 @@
             - [GLSL 语法简介](shader/glsl.md)
             - [预处理宏定义](shader/macros.md)
             - [着色器片段（Chunk）](shader/effect-chunk-index.md)
-                - [Cocos Effect 内置 Uniform](shader/uniform.md)
+                - [Cocos Shader 内置 Uniform](shader/uniform.md)
         - [内置着色器](shader/effect-builtin.md)
             - [基于物理的光照模型 PBR](shader/effect-builtin-pbr.md)
             - [卡通渲染](shader/effect-builtin-toon.md)

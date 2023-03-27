@@ -24,9 +24,9 @@
 
 ![accuracy_on](./fog/accuracy_on.png)
 
-### 版本升级 — Effect 迁移
+### 版本升级 — Cocos Shader（Effect）迁移
 
-当旧项目升级到 v3.4 时，**所有调用到 `CC_APPLY_FOG` 的 Effect 代码都需要修改，增加第二个参数 `worldPos`**。例如：
+当旧项目升级到 v3.4 时，**所有调用到 `CC_APPLY_FOG` 的 Shader 代码都需要修改，增加第二个参数 `worldPos`**。例如：
 
 - 原代码如下：
 

@@ -1,19 +1,19 @@
 # 着色器语法
 
-Cocos Creator 中的着色器（Cocos Effect）是一种基于 [YAML](yaml-101.md) 和 [GLSL](glsl.md) 的单源码嵌入式领域特定语言（single-source embedded domain-specific language），YAML 部分声明流程控制清单，GLSL 部分声明实际的 Shader 片段，这两部分内容相互补充，共同构成了一个完整的渲染流程描述。
+Cocos Creator 中的着色器（Cocos Shader ，文件扩展名为 *.effect），是一种基于 [YAML](yaml-101.md) 和 [GLSL](glsl.md) 的单源码嵌入式领域特定语言（single-source embedded domain-specific language），YAML 部分声明流程控制清单，GLSL 部分声明实际的 Shader 片段，这两部分内容相互补充，共同构成了一个完整的渲染流程描述。
 
-> **注意**：推荐使用 Visual Studio Code 编写 Cocos Effect，并在应用商店中安装 Cocos Effect 扩展，提供编写时的语法高亮提示。
+> **注意**：推荐使用 Visual Studio Code 编写 Cocos Shader，并在应用商店中安装 Cocos Effect 扩展，提供编写时的语法高亮提示。
 >
 > ![Cocos Effect](img/vs-ext.png)
 
 ## 语法框架概览
 
-**Cocos Effect** 通常由两个部分组成：
+**Cocos Shader** 通常由两个部分组成：
 
 - `CCEffect`：用于声明渲染技术（Technique）、渲染过程（Pass）、渲染状态、材质参数等属性。
 - `CCProgram`：用于声明顶点着色器（Vertex Shader）和片元着色器（Fragment Shader）代码片段。
 
-此处以内置着色器 `builtin-unlit.effect` 为例，说明 Cocos Effect 的语法框架。
+此处以内置着色器 `builtin-unlit.effect` 为例，说明 Cocos Shader 的语法框架。
 
 在 VS Code 中打开 Creator **资源管理器** 面板中 `internal -> effects` 目录下的 `builtin-unlit.effect` 文件，可以看到主要内容如下：
 
@@ -68,7 +68,7 @@ CCProgram unlit-fs %{
 
 ## CCEffect
 
-在 Cocos Effect 中由 `CCEffect` 包裹的部分是由 **YAML 语法** 声明的渲染流程相关的描述信息。对 YAML 不熟悉的开发者可以前住 [YAML 101](yaml-101.md) 了解详情。
+在 Cocos Shader 中由 `CCEffect` 包裹的部分是由 **YAML 语法** 声明的渲染流程相关的描述信息。对 YAML 不熟悉的开发者可以前住 [YAML 101](yaml-101.md) 了解详情。
 
 `CCEffect` 的整体结构如下：
 
@@ -127,7 +127,7 @@ CCEffect %{
 
 片段名可以是本文件中声明的 `CCProgram` 片段名，也可以是引擎提供的标准头文件。
 
-> **注意**：自定义着色器的代码中不应该使用 `main` 函数，Cocos Effect 在编译时会自动添加一个 `main` 函数并调用渲染过程的入口函数（例如 `vert` 或 `frag`），`main` 函数会将入口函数的返回值作为当前 Shader 的输出（例如 `gl_Position` 或 `gl_FragColor`）。
+> **注意**：自定义着色器的代码中不应该使用 `main` 函数，Cocos Shader 在编译时会自动添加一个 `main` 函数并调用渲染过程的入口函数（例如 `vert` 或 `frag`），`main` 函数会将入口函数的返回值作为当前 Shader 的输出（例如 `gl_Position` 或 `gl_FragColor`）。
 
 ## 渲染过程属性
 
@@ -155,7 +155,7 @@ CCEffect %{
 
 ## CCProgram
 
-在 Cocos Effect 中由 `CCProgram` 包裹的部分是由 **GLSL 语法** 声明的 Shader 片段。建议在编写 CCProgram 之前，先了解 [GLSL 基础语法](./glsl.md) 。
+在 Cocos Shader 中由 `CCProgram` 包裹的部分是由 **GLSL 语法** 声明的 Shader 片段。建议在编写 CCProgram 之前，先了解 [GLSL 基础语法](./glsl.md) 。
 
 它的结构如下：
 
@@ -174,7 +174,7 @@ CCProgram shader-name %{
 
 ## 预处理宏定义
 
-通过预处理宏，可在 Cocos Effect 编译时控制代码分支和组合，以实现高效便捷的 Shader 代码管理。
+通过预处理宏，可在 Cocos Shader 编译时控制代码分支和组合，以实现高效便捷的 Shader 代码管理。
 
 更多详细内容请参考：
 

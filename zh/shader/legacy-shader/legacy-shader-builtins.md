@@ -1,4 +1,4 @@
-# 内置 Legacy Shader
+# 内置 Legacy Shader 导读
 
 Legacy Shader 相关的源码，有两个目录：
 - internal/chunks/legacy
