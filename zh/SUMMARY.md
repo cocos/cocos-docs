@@ -207,7 +207,7 @@
             - [组装器](./surface-shader/shader-assembly.md)
             - [VS 输入](./surface-shader/vs-input.md)
             - [FS 输入](./surface-shader/fs-input.md)
-            - [公共函数库](./surface-shader/common-functions.md)
+            - [公共函数库](./common-functions.md)
             - [自定义 Surface Shader](./surface-shader/customize-surface-shader.md)
             - [渲染调式功能](./surface-shader/rendering-debug-view.md)
         - [传统着色器 - Legacy Shader](./legacy-shader/legacy-shader.md)
