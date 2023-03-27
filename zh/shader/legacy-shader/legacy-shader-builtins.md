@@ -4,11 +4,11 @@ Legacy Shader 相关的源码，有两个目录：
 - internal/chunks/legacy/
 - internal/effects/legacy/
 
-在 `chunks/legacy` 目录中，存放的是一些公共函数，如解码器、雾效、输入、输出、阴影、骨骼蒙皮等等。
+在 `chunks/legacy/` 目录中，存放的是一些公共函数，如解码器、雾效、输入、输出、阴影、骨骼蒙皮等等。
 
 Legacy Shader 和 Surface Shader 都会调用 internal/chunks/builtin/ 和 internal/chunks/common/ 提供的函数。
 
-在 `effects/legacy` 目录中，提供了三个内置的 Legacy Shader：
+在 `effects/legacy/` 目录中，提供了三个内置的 Legacy Shader：
 - standard： 标准材质
 - terrain：用于地形渲染
 - toon：用于卡通渲染
@@ -20,36 +20,11 @@ Legacy Shader 代码通常由几个部分组成：
 - 共享常量（`Shared UBOs`）：把 vs 和 fs 都需要用到的 uniforms 定义在一起，方便管理。
 - 主体函数（`Shader Body`）：用于实现具体的 Shader 主体。
 
-Legacy Shader 中的 CCEffect 和 共享常量部分与 Surface Shader 一致，可前往 [内置 Surface Shader](../surface-shader/builtin-surface-shader.md) 了解详情。
-
-## 前向渲染与延迟渲染
-
-Cocos Creator 引擎支持 前向渲染和延迟渲染。因此，在 Shader 架构上，也要为这两种渲染流程做兼容，并且让用户感知不到。
-
-内置的 Legacy Shader 都是 PBR 材质，它们在渲染时都遵守以下流程：
-
-### 前向渲染
-
-1. 调用 vs
-2. 调用 fs -> surf -> 光照计算
-
-### 延迟渲染
-
-#### Buffer 阶段
-
-1. 调用 vs
-2. 调用 fs -> surf -> GBuffer
-
-#### Lighting 阶段
-
-1. 从 Gbuffer 还原 StandardSurface 信息
-2. 光照计算
-
-可以看出，对于 PBR 材质来说，不管是前向渲染还是延迟渲染，用户能够控制的只有 vs 和 surf 函数。
-
-这就统一了架构，使用户写的 Shader 可以不用修改就运行在 前向渲染管线 和 延迟渲染管线中。
+Legacy Shader 中的 CCEffect 和 共享常量部分与 Surface Shader 一致，可前往 [内置 Surface Shader 导读](../surface-shader/builtin-surface-shader.md) 了解详情。
 
 ## 着色函数
+
+为了更好地理解渲染流程，请先查看 [前向渲染与延迟渲染 Shader 执行流程](./../forward-and-deferred.md)。
 
 ### standard(PBR)
 

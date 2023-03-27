@@ -25,6 +25,7 @@
     - [着色器片段（Chunk）](effect-chunk-index.md)
 - [内置全局 Uniform](uniform.md)
 - [公共函数库](./common-functions.md)
+- [前向渲染与延迟渲染 Shader 执行流程](./forward-and-deferred.md)
 - [表面着色器 - Surface Shader](surface-shader.md)
     - [内置 Surface Shader 导读](./surface-shader/builtin-surface-shader.md)
     - [Surface Shader 基本结构](./surface-shader/surface-shader-structure.md)
