@@ -106,6 +106,8 @@ export class PlayerController extends Component {
 ![add-player-controller.gif](images/add-player-controller.gif)
 
 > 您也可以点击 **Add Component** 按钮来添加不同的组件。
+> 由于 `Node` 这个类名在 TypeScript 内置库内也有同名的类，因此需要注意在导入时需要确保导入的是 `cc` 命名空间下的 `Node`，代码示例如下：
+> `import { _decorator, Component, Node } from 'cc'`
 
 ## 制作地图
 
@@ -306,8 +308,6 @@ update (deltaTime: number) {
 
 需要注意一点，在 2D 世界里面，如果位移一个单位，那么这个位置不会很明显，这是因为我们的 Cavans 设定为  960 x 640, 因此横向移动 1 个单位，他相当于移动 Canvas 的 1/960。
 
-> 这里和 3D 最大的不同是，3D 我们可以设置 1 个单位的尺寸通常为米或者厘米等等，但是在 2D 里，通常是通过和 Canvas 的尺寸对比得出的单位。
-
 因此我们要对移动的单位进行放大，这里可以在 PlayerController 上面添加一个用于记录放大比的常量：
 
 ```ts
@@ -409,7 +409,7 @@ export class PlayerController extends Component {
 
 ### 制作动画
 
-Cocos Creator 支持多种动画效果，比如常见的关键帧动画、Spine 以及龙骨等动画格式，3D 中也支持蒙皮、通过外部第三方工具制作并导入如 FBX、glTF 等格式的动画。
+Cocos Creator 支持多种动画效果，比如常见的关键帧动画、Spine 以及龙骨等动画格式。
 
 通常我们在制作 2D 动画时，有几种办法：
 
@@ -500,7 +500,7 @@ const { ccclass, property } = _decorator;
 
 ```
 
-> **注意**：TypeScript 的内置库和 Cocos Creator 都有名为 Animation 的类，请确保导入的是 cc 命名空间下的 Animation，也就是上述代码中的 ` .... Animation } from "cc" ` 部分。
+> **注意**：TypeScript 的内置库和 Cocos Creator 都有名为 Animation 的类，请确保上述代码中 `import { ... } from "cc" ` 包含 Animation。
 
 在 `jumpByStep` 方法内，添加如下的代码：
 
@@ -770,7 +770,7 @@ start() {
 
 对于大多数游戏来说，UI 都是比较重要的部分，通过 UI 的提示，可以让玩家知道某些游戏内的信息，让玩家选择不同的游戏策略。
 
-和 3D 不同（假如您已经看过 3D 入门篇的话），2D 游戏类型下，我们本身有一个名为 Canvas 的节点的，但是这个节点我们将只会拿它来作为角色、地图和游戏逻辑的父节点。因为 Cavans 的相机会移动，如果依然使用 Canvas 的相机，会导致 UI 无法渲染，所以我们必须创建一个新的 Canvas 来作为 UI 的容器。
+2D 游戏类型下，我们本身有一个名为 Canvas 的节点的，但是这个节点我们将只会拿它来作为角色、地图和游戏逻辑的父节点。因为 Cavans 的相机会移动，如果依然使用 Canvas 的相机，会导致 UI 无法渲染，所以我们必须创建一个新的 Canvas 来作为 UI 的容器。
 
 在 **层级管理器** 中点击右键选择创建一个新的 Canvas 并将其命名为 UICanvas：
 
@@ -1087,7 +1087,7 @@ jumpByStep(step: number) {
     this._jumpStep = step;
     this._curJumpTime = 0;
     this._curJumpSpeed = this._jumpStep * BLOCK_SIZE/ this._jumpTime;
-    this.node.getPosition(this._curPos);
+    this.`getPosition(this._curPos);
     Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep* BLOCK_SIZE, 0, 0));  
     
     if (this.BodyAnim) {
@@ -1184,7 +1184,7 @@ update (deltaTime: number) {
 
 ## 层级
 
-在 3D 版本中一般不用关心 2D 和 3D 是否会出现层级问题，但是在 2D 中我们需要小心的规划物体的层级以确保显示正确的内容。
+在 2D 中我们需要小心的规划物体的层级以确保显示正确的内容。
 
 此时如果我们启动游戏，则可以看到重叠的现象，这是因为 UICanvas 下的相机也绘制了 Canvas 下的内容：
 
@@ -1222,11 +1222,10 @@ update (deltaTime: number) {
 
 ## 总结
 
-至此，我们的游戏核心逻辑就全部完成了，最后我们稍微梳理下和 3D 不太一样的地方：
+至此，我们的游戏核心逻辑就全部完成了，最后我们稍微梳理下一些需要注意的地方：
 
 - 2D/UI 节点必须放在 Canvas 下面才会显示（实际上是 RenderRoot2D，因为 Canvas 继承自 RenderRoot2D）
 - 小心规划物体的层级，需要调整相机的 **Visiblity** 属性来让不同的 Canvas 分开渲染
-- 3D 和 2D 的距离单位不同
 
 到此为止，如果您还觉得有困难的话，或有任何意见和建议，欢迎您在 [论坛](https://forum.cocos.org/) 或 [GIT](https://github.com/cocos/cocos-docs) 联系我们。
 
