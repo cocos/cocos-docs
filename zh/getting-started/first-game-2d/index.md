@@ -8,7 +8,7 @@
 
 ### 下载编辑器
 
-访问我们的 [官网](https://www.cocos.com/creator-download) 下载最新的 Cocos Dashboard 即可以对引擎的版本、项目进行统一的管理，安装完成后打开 Dashboard。
+访问 [Cocos Creator 官网](https://www.cocos.com/creator-download) 下载最新的 Cocos Dashboard 即可以对引擎的版本、项目进行统一的管理，安装完成后打开 Dashboard。
 
 ![dashboard](images/projects.png)
 
