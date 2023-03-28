@@ -16,6 +16,7 @@
 而在 effect 和 chunk 文件中， 也有许多类似 `CCProgram xxx-vs %{}%`  和 `CCProgram xxx-fs %{}%` 的代码片段定义。
 
 比如：
+
 ```ts
 CCProgram standard-vs %{
     //...

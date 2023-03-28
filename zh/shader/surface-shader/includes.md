@@ -65,4 +65,4 @@ CCProgram fs %{
 }%
 ```
 
-> 注意：`include` 只能引用本文件内的 `CCProgram`。
+> 注意：使用 `include` 引用 `CCProgram` 定义的代码片段时，仅限本文件内。
