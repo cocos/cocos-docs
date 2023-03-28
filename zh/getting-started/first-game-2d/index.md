@@ -73,7 +73,7 @@ Cocos Creator 提供不同类型的模板和示例，您可以点击 **模板** 
 
 ## 创建第一个脚本
 
-通常游戏都是由不同的脚本驱动的，Cocos Creator 使用的是名为 Typescript 的语言，它是由微软开发，拥有简单易学的语法，强大的类型检测以及广泛的应用。 您可以在网页开发、应用开发以及游戏开发中遇到它的身影。
+通常游戏都是由不同的脚本驱动的，Cocos Creator 使用的是名为 TypeScript 的语言，它是由微软开发，拥有简单易学的语法，强大的类型检测以及广泛的应用。 您可以在网页开发、应用开发以及游戏开发中遇到它的身影。
 
 在 Cocos Creator 中创建脚本是非常简单的，您只需要在 **资源管理器** 窗口上点击右键，选择 **创建** 并点击 **脚本** 项即可。
 
@@ -496,7 +496,7 @@ const { ccclass, property } = _decorator;
 
 ```
 
-> **注意**：Typescript 的内置库和 Cocos Creator 都有名为 Animation 的类，请确保导入的是 cc 命名空间下的 Animation，也就是上述代码中的 ` .... Animation } from "cc" ` 部分。
+> **注意**：TypeScript 的内置库和 Cocos Creator 都有名为 Animation 的类，请确保导入的是 cc 命名空间下的 Animation，也就是上述代码中的 ` .... Animation } from "cc" ` 部分。
 
 在 `jumpByStep` 方法内，添加如下的代码：
 
@@ -561,7 +561,7 @@ twoStep 动画和上文代码类似，您可以自己尝试完成：
 
 这样我们就需要将生成的过程和结果保存起来，一般情况为了保存游戏的数据，我们需要创建一些类来辅助这类工作。这样的类我们称之为 **Manager** 管理器。
 
-在 **资源管理器** 的 **Scripts** 目录内，点击右键创建新的 Typescript 组件并将其命名为： **GameManager**。
+在 **资源管理器** 的 **Scripts** 目录内，点击右键创建新的 TypeScript 组件并将其命名为： **GameManager**。
 
 > 在 Cocos Creator 内创建组件时会同时确定组件内根据模板生成的内容。
 > 如果您在不熟悉的情况下输入了错误的名字，可以选择删除再重新创建一个新的文件。
@@ -613,7 +613,7 @@ enum BlockType{
 };
 ```
 
-在 Typescript 里面您可以将这个枚举放在类的上面，这样可以确保 GameManager 可以访问他，同时由于没有添加 export 关键字，这意味着这个枚举只有在 GameManager.ts 这个模块内才可以访问。
+在 TypeScript 里面您可以将这个枚举放在类的上面，这样可以确保 GameManager 可以访问他，同时由于没有添加 export 关键字，这意味着这个枚举只有在 GameManager.ts 这个模块内才可以访问。
 
 接下来我们需要生成并记录下地图的生成情况，可以声明如下的成员变量来存储它们，同时如果想要在编辑器里面配置初始化时道路的长度，可以声明一个变量 `roadLength` 来记录：
 
@@ -693,10 +693,10 @@ export class GameManager extends Component {
     }
     ```
 
-    > `Math.floor`： 这个方法是 Typescript 数学库的方法之一：我们知道 floor 是地板的意思，这表示取这个方法参数的 "地板"，也就是向下取整。
+    > `Math.floor`： 这个方法是 TypeScript 数学库的方法之一：我们知道 floor 是地板的意思，这表示取这个方法参数的 "地板"，也就是向下取整。
     > `Math.random`：同样 random 也是标准数学库的方法之一，用于随机一个 0 到 1 之间的小数，注意取值范围是 [0, 1)。
     > 所以 `Math.floor(Math.random() * 2)` 这段代码的意思很简单，就是从 [0, 2) 中随机取 1个数并向下取整，得到的结果是 0 或者 1，恰好和 枚举 `BlockType` 中声明的 `BT_NONE` 和 `BT_STONE` 对应。
-    > 顺便说一句，在 Typescript 的枚举中，如果你没有给枚举赋值，那么枚举的值会顺序的从 0 开始分配。
+    > 顺便说一句，在 TypeScript 的枚举中，如果你没有给枚举赋值，那么枚举的值会顺序的从 0 开始分配。
 
 - 根据 `BlockType` 生成方块：
 
@@ -829,7 +829,7 @@ set curState (value: GameState) {
 }
 ```
 
-> 读取器是 Typescript 的一种语法，用于保护某些属性，观察上述的代码可以看到 curState 并不会被直接设置，而是由我们在读取器内做了某些判断，这样可以保护 curState 的逻辑。
+> 读取器是 TypeScript 的一种语法，用于保护某些属性，观察上述的代码可以看到 curState 并不会被直接设置，而是由我们在读取器内做了某些判断，这样可以保护 curState 的逻辑。
 
 添加一个 `init` 方法用于表示进入到 GS_INIT 时游戏的处理：
 
