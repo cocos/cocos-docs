@@ -80,7 +80,7 @@
 - 整个小游戏的所有分包大小不超过 **16 M**
 - 单个分包/主包的大小不能超过 **4 M**
 
-具体可参考 [字节跳动小游戏分包加载官方文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
+具体可参考 [字节跳动小游戏分包加载官方文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/subpackages/introduction/)
 
 ## 小游戏环境的资源管理
 

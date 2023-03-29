@@ -83,7 +83,7 @@ Currently, the size of the ByteDance Mini Game subpackage has following restrict
 - The size of all subpackages of the entire mini game cannot exceed **16 M**
 - The size of a single subpackage/main package cannot exceed **4 M**
 
-For details, please refer to the [ByteDance Subpackage Loading Official Documentation [cn]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
+For details, please refer to the [ByteDance Subpackage Loading Official Documentation [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/subpackages/introduction/)
 
 ## Asset Management for ByteDance Mini Game Environment
 
