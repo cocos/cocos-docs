@@ -1087,7 +1087,7 @@ jumpByStep(step: number) {
     this._jumpStep = step;
     this._curJumpTime = 0;
     this._curJumpSpeed = this._jumpStep * BLOCK_SIZE/ this._jumpTime;
-    this.`getPosition(this._curPos);
+    this.getPosition(this._curPos);
     Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep* BLOCK_SIZE, 0, 0));  
     
     if (this.BodyAnim) {
