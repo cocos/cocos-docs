@@ -310,7 +310,7 @@ export class PlayerController extends Component {
     // 当前跳跃时间
     private _curJumpTime: number = 0;
     // 每次跳跃时长
-    private _jumpTime: number = 0.3;
+    private _jumpTime: number = 0.1;
     // 当前跳跃速度
     private _curJumpSpeed: number = 0;
     // 当前角色位置
@@ -456,7 +456,7 @@ export class PlayerController extends Component {
     // 当前跳跃时间
     private _curJumpTime: number = 0;
     // 每次跳跃时长
-    private _jumpTime: number = 0.3;
+    private _jumpTime: number = 0.1;
     // 当前跳跃速度
     private _curJumpSpeed: number = 0;
     // 当前角色位置
