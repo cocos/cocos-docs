@@ -6,7 +6,7 @@
 
 ## 准备工作
 
-1. 下载 [字节跳动开发者工具](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) 并安装。
+1. 下载 [字节跳动开发者工具](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) 并安装。
 
 2. 参考 [字节跳动小游戏接入指南](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction)，在 [字节跳动开发者平台](https://microapp.bytedance.com) 完成账号注册、登录以及申请小游戏。
 

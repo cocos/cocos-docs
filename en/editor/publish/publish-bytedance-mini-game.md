@@ -8,7 +8,7 @@ The game submission, review and release process of a mini-game needs to comply w
 
 ## Preparation
 
-1. Download the [ByteDance DevTools [cn]](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) and install it..
+1. Download the [ByteDance DevTools [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) and install it..
 
 2. Refer to the [ByteDance Mini Game Access Guide [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction) to register, login and apply for mini games on the [ByteDance Developer Platform [cn]](https://microapp.bytedance.com).
 
