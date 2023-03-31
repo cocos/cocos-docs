@@ -85,6 +85,19 @@ When the mouse is moved to this option, the **Edit Icon** button will appear. Cl
 
 ![splash setting](build-options/splash-setting.png)
 
+- **TotalTime**: the total time (milliseconds) to display the inset screen, minimum 500 milliseconds
+- **Image Size Multiplier**: the zoom ratio of the image, the minimum is 100%
+- **Preview**: If you want to change the splash screen image, hover your mouse over the preview window and click the '+' button, then select a new image path.
+
+If you want to disable the splash screen, please refer to [Introduction to Build Options](./publish/build-options.md) for details.
+
+> **Note**:
+> 1. After selecting different build platforms in the build options, adjusting the screen insertion rules again can achieve the diversity of screen insertion on different platforms
+> 2. the screen insertion will only take effect after the package, not during the preview.
+> 3. Some countries and regions are not open for full screen insertion, we apologize for any inconvenience caused to you.
+
+Translated with www.DeepL.com/Translator (free version)
+
 ### Erase module structure (experimental)
 
 If this option is checked, the script import speed is faster, but module features such as `import.meta`, `import()`, etc. cannot be used.
