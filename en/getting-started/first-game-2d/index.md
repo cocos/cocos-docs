@@ -540,82 +540,90 @@ Using Cocos Creator's built-in animation editor, it's easy to make it.
 
 Let's take a step-by-step approach to creating it.
 
-
-首先在角色的 Body 节点上，增加一个 Animation 的组件：
+First, let's add the Animation component to the Body node of the Player.
 
 ![add-animation.png](images/add-animation.png)
 
-在 **资源管理器** 内新建 Animation 的目录，并创建一个名为 oneStep 的动画剪辑。
+In the Assets Manager window, create a new folder named "Animation", Inside that folder, create a new AnimationClip named "oneStep".
 
 ![create-clip-onestep.gif](images/create-clip-onestep.gif)
 
-在 **层级管理器** 里面选中 Body 节点，并将 oneStep 拖拽到 **Clips** 属性上：
+In the Hierarchy, select the "Body" node and drag "oneStep" from Animation folder onto the "Clips" property in the Inspector panel.
 
 ![assign-clip.gif](images/assign-clip.gif)
 
-在编辑器下方控制台处切换到 **动画** 分页并点击下方的 **进入编辑模式** 按钮：
+In the editor console area, switch to the "Animation" tab and click the "Enter animation editing mode" button:
 
 ![enter-anim-editing-mode.png](images/enter-anim-editing-mode.png)
 
-在动画编辑器里面，可以添加不同的动画轨道。
+In the animation editor, we add a track for the node's position property.
 
 ![add-position-track.png](images/add-position-track.png)
 
-添加完成 postion 这个轨道以后，就可以添加不同的关键帧，添加方式也比较简单，我们可以在编辑模式下，只要在场景中或者属性检查器内修改物体的位置，此时如果动画轨道上没有关键帧，则会在轨道上添加一个新的关键帧。
+After adding the track, we can set the indicator of the current frame to a certain frame then change the position of the node, the current frame will set to be a keyframe automatically.
 
-这里我们将指向当前帧的指针拖拽到不同位置，并改变物体的位置，此时就会创建新的关键帧。
+> Both modify the value on the Inspector panel and dragging the node in the scene can change the position of a node.
 
 ![add-keyframes.gif](images/add-keyframes.gif)
 
-布局下列的关键帧：
+Finally, we have the following keyframes:
 
-- 0 帧：位置信息为：[0,40]
-- 10 帧: 位置信息为：[0,120]
-- 20 帧: 位置信息为：[0,40]
+- 0 frame：set position to x = 0, y = 40
+- 10 frame: set position to x = 0, y = 120
+- 20 frame: set position to x = 0, y = 40
 
-> 记得点击 **保存** 按钮对动画剪辑进行保存。
+> Don't forget to click the **Save** button to save it.
 
-可以通过点击 **播放** 按钮在场景中预览动画。
+You can click the **Play** button to preview the animation clip.
 
 ![preview-oneStep.gif](images/preview-oneStep.gif)
 
-参考 oneStep 动画的制作过程，制作 twoStep 动画。
+Follow the steps of making `oneStep` animation, make the another one: `twoStep`.
 
 ![create-twostep.gif](images/create-twostep.gif)
 
-### 播放动画
+After completing the animation creation, click **Close** button to exit the Animationn editing mode.
 
-在制作好动画之后，我们可以驱动 PlayerController 来播放动画，播放动画的代码很简单：
+### Play animations in code
 
-```ts
-animation.play('oneStep');
-```
+Next, let's add some code lines into PlayerController to play the animation we've just made.
 
-- animation 是 Body 动画的动画组件的 ‘引用’。
-- play 指的是播放动画的方法，他的参数是我们之前创建好的 oneStep 这个动画剪辑，在 Cocos Creator 中，如果要播放对应的动画，必须将该动画配置在 Animation 组件的 Clips 属性内
-
-在 PlayerController 中将如下的代码：
+Playing an animation using TypeScript in Cocos Creator is quite simple:
 
 ```ts
-@property(Animation)
-BodyAnim:Animation = null;
+animation.play(animName);
 ```
 
-添加的位置如下：
+- animation is the Animation component on Body node.
+- play is the method on Animation component to play animation
+- animName is the name of a animation file which you want to play
+
+> In Cocos Creator, we must ensure the animation which will be played is included in the clips of the node's Animation component,
+
+Add the following code at the begining of the PlayerController class:
 
 ```ts
 @ccclass("PlayerController")
 export class PlayerController extends Component {
-
     @property(Animation)
     BodyAnim:Animation = null;
-    ...
+    //...
 }
 ```
 
-这里我们给 BodyAnim 添加了一个名为 `@property` 的属性，这样的语法被称为 [装饰器](../../scripting/decorator.md)，这里的 `@property` 可以帮助编辑器，使其将 BodyAnim 在编辑器内视为 Animation 类型。
+> **Note**：The TypeScript and Cocos Creator both have a Animation class, please make sure the `Animation` is included in the code line `import { ... } from "cc" `. Otherwise, the code will use the `Animation` from TypeScript, unpredictable errors may occur.
 
-如果这里代码没有编译通过，请查看是否有 `const { ccclass, property } = _decorator;` 代码，这里的语句将会正确的将 `property` 方法导出，完整的导出如下：
+Here we added a property named `BodyAnim` and added `@property` above it. This syntax is called: [Decorator](../../scripting/decorator.md). The `@property` decorator allows the editor to be aware of the type of `BodyAnim` and display the exported properties of Animation component on the Inspector panel.
+
+To make sure there is a code line in your PlayerController file as below, or the code will fail to compile.
+
+```ts
+`const { ccclass, property } = _decorator;`
+```
+
+Here `_decorator` is a class contains all of the decorators can be used in Cocos Creator, it should be imported from namespace cc before using it.
+
+The related code lines are as following:
 
 ```ts
 import { _decorator, Component, Vec3, EventMouse, input, Input, Animation } from "cc";
@@ -623,9 +631,7 @@ const { ccclass, property } = _decorator;
 
 ```
 
-> **注意**：TypeScript 的内置库和 Cocos Creator 都有名为 Animation 的类，请确保上述代码中 `import { ... } from "cc" ` 包含 Animation。
-
-在 `jumpByStep` 方法内，添加如下的代码：
+In `jumpByStep` method, we add to the following code lines:
 
 ```ts
 if (this.BodyAnim) {
@@ -637,7 +643,7 @@ if (this.BodyAnim) {
 }
 ```
 
-此时的 `jumpByStep` 看起来是这样的：
+Now, the `jumpByStep` method is like this:
 
 ```ts
 jumpByStep(step: number) {
@@ -651,6 +657,7 @@ jumpByStep(step: number) {
     this.node.getPosition(this._curPos);
     Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep* BLOCK_SIZE, 0, 0));  
     
+    //the code can explain itself
     if (this.BodyAnim) {
         if (step === 1) {
             this.BodyAnim.play('oneStep');
@@ -661,53 +668,60 @@ jumpByStep(step: number) {
 }
 ```
 
-回到编辑器，此时可以通过拖拽的方式添加 BodyAnim 到 PlayerController 上：
+Back to the Cocos Creator, select **Player** node, drag the **Body** node on the `BodyAnim` property.
 
 ![assign-body-anim.gif](images/assign-body-anim.gif)
 
-点击运行游戏，点击鼠标都可以看到角色正常的跳起来：
+The engine will automatically get the Animation component on the Body node and assign it to `BodyAnim`. As a result, the `PlayerController`'s `BodyAnim` property references to the `Animation` component of **Body** node.
+
+Hit **Play** button at the top of Cocos Creator to preview, you can see the **Player** jumps while clicking the mouse buttons.
 
 ![preview-anim.gif](images/preview-anim.gif)
 
-如果仔细观察的话，现在我们使用的是统一的 `_jumpTime = 0.3`，实际上两个动画的时长并不一致，因此可以看到如上图奇怪的动画效果，可以通过获取动画剪辑的时长来动态调整 `_jumpTime`。
-这里举个例子：
+
+
+
+Becuase of using the unified 
+
+Here we use a unified jumpTime value, `jumpTime = 0.3`, But since the duration of the two animations are not the same, you can find it is a little weired when animations are played.
+
+To solve this, it's better to use the real duration of the animations as the value of `jumpTime`.
 
 ```ts
+//get the duration of oneStep
 const oneStep = 'oneStep';
 const state = this.BodyAnim.getState(oneStep);        
 this._jumpTime = state.duration;
-```
 
-twoStep 动画和上文代码类似，您可以自己尝试完成：
+//get the duration of twoStep
+const twoStep = 'twoStep';
+const state = this.BodyAnim.getState(twoStep);        
+this._jumpTime = state.duration;
+```
 
 ![jumptime-with-duration.gif](images/jumptime-with-duration.gif)
 
-## 游戏管理器（GameManager）
+## GameManager
 
-在游戏中，我们可以通过手动布置 Box 节点来生成地图，但是这样的话地图就是固定了，为了让每次开始游戏的地图有变化并为玩家提供一些惊喜，可以选择通过动态生成方块的方式来创建地图。
+In game development, we can manually place nodes using Box.prefab to build the map, but the map will be fixed. In order to make the map change everytime when the game starts and provide some surprises or the players, we can randomly build the map in code.
 
-这样我们就需要将生成的过程和结果保存起来，一般情况为了保存游戏的数据，我们需要创建一些类来辅助这类工作。这样的类我们称之为 **Manager** 管理器。
+Now, let's create a new TypeScript component called `GameManger`  in the Assets Manager window to archieve this.
 
-在 **资源管理器** 的 **Scripts** 目录内，点击右键创建新的 TypeScript 组件并将其命名为： **GameManager**。
+> **Note**：If you forget to rename the script or input the wrong name you don't want to use when creating a script component, The best way to fix it is to delete it and create a new one.
 
-> 在 Cocos Creator 内创建组件时会同时确定组件内根据模板生成的内容。
-> 如果您在不熟悉的情况下输入了错误的名字，可以选择删除再重新创建一个新的文件。
-> 如果只是修改文件名，不修改里面的内容，会导致类名与文件名不一致，而无法在 **属性检查器** 内找到对应的类。
+> **Note**：If you modify the name of a script, the content in the script file will not change accordingly.
 
-创建好 GameManager 之后，我们可以将其挂在在场景内任何一个节点上，但出于清晰的考虑我们一般会选择创建一个同名的节点，并将 GameManager 挂在在他上面：
+After creating the `GameManger` script component, let's create a new node named **GameManager**, then attach `GameManager` to it.
+
+> **Note** Generally, we can attach the `GameManager` scipt component to any node in the scene, but for keeping the project structure well-organized, we usually create a node with the same name and attach the `GameManager` to it. This rule applies to all XXXManager script components.
 
 ![create-game-manager.png](images/create-game-manager.png)
 
-首先我们需要让 GameManager 知道他应该用那个资源作为地图块来创建，因此我们可以在代码中添加 `boxPrefab` 来指向我们之前已经创建好的 Box 预制体。
+To build the map, we will use the `Box.prefab` to create the nodes. 
 
-```ts
-@property({type: Prefab})
-public boxPrefab: Prefab|null = null;
-```
+So, the first thing we need to do is to add a property to the `GameManager` class for referencing the `Box.prefab`.
 
-> @property 依旧是装饰器的用法，如果你不记得了，可以回到之前角色 **播放动画** 部分。
-
-将上述的代码添加下如下位置：
+Now, the content of the `GameManager` class is as follows:
 
 ```ts
 import { _decorator, Component, Prefab } from 'cc';
@@ -727,11 +741,18 @@ export class GameManager extends Component {
 }
 ```
 
-之后回到编辑器并将 Box 预制体拖拽到 GameManager 上：
+Go back to the Cocos Creator, select the **GameManager** node, drag `Box` prefab onto the `boxPefab` property of **GameManager** node.
 
 ![assign-box-prefab.gif](images/assign-box-prefab.gif)
 
-我们可以用一个数值类型的数组来存储当前的位置到底是方块还是坑，但实际上有更好的办法，我们声明如下的枚举，用 `BT_NONE` 来表示坑，而 `BT_STONE` 来表示方块，这样的表示会让我们的代码更加的易读。
+The map in this game, is made up of two types of blocks. the two types of blocks alternate to form the map.
+
+- None：an empty block, if the Player steps on a block of this type, the game is over.
+- Stone: the Player can stand on.
+
+To make the code more understandable, we often use `enum` to define the types of objects.
+
+We define an enum named `BlockType` which has two elements as below.
 
 ```ts
 enum BlockType{
@@ -740,9 +761,17 @@ enum BlockType{
 };
 ```
 
-在 TypeScript 里面您可以将这个枚举放在类的上面，这样可以确保 GameManager 可以访问他，同时由于没有添加 export 关键字，这意味着这个枚举只有在 GameManager.ts 这个模块内才可以访问。
+ > In TypeScript, if the first element of a enum hasn't been given a value, it will take 0 as default. Here, `BT_NONE = 0`, `BT_STONE = 1`.
 
-接下来我们需要生成并记录下地图的生成情况，可以声明如下的成员变量来存储它们，同时如果想要在编辑器里面配置初始化时道路的长度，可以声明一个变量 `roadLength` 来记录：
+In the following code, you can see how we use it.
+
+We put it above the definition of GameManager class, and without giving it an `export`. As a result, it only can be used in this single file.
+
+Next, it is needed to determine where to place a new block. We add a property named `roadLength` to record the length of the road made up of the blocks.
+
+To manage all the types of blocks we have created, we add the private property `_road` of type Array to store the generated block types.
+
+Now, the code of the `GameManager` is as follows:
 
 ```ts
 import { _decorator, CCInteger, Component, Prefab } from 'cc';
@@ -768,29 +797,27 @@ export class GameManager extends Component {
 }
 ```
 
-> 用数组来存储这些地图数据是很好的主意，因为数组可以进行快速的访问，我们可以通过索引很快查询到某个位置是方块还是坑。
+The flow of constructing the map is as follows:
 
-填充地图的流程是这样的：
+- Clear all data when the game starts
+- The type of the first block is always `BlockType.BT_STONE` to prevent the Player from falling off.
+- The type of a block after a block with type of `BlockType.BT_STONE` should always be `BlockType.BT_STONE`.
 
-- 每次生成时，需要将上次的结果清除
-- 第一个地块永远是方块，保证角色不会掉下去
-- 由于我们的角色可以选择跳 1 个方块或者 2 个方块，和某个戴红帽子穿背带裤家伙比起来太弱鸡了，因此坑最多不应该连续超过 2 个，也就意味着如果前面 1 个地块是坑，那么接下来的地块必须是方块
+Next, let's add the following method to `GameManger`.
 
-接下来为 `GameManager` 添加几个方法：
-
-- 生成地图的方法：
+- Method to generate the map：
 
     ```ts
    generateRoad() {
 
-        // 清理上次的结果
+        // clear all the nodes generated before
         this.node.removeAllChildren();
 
         this._road = [];
-        // startPos 开始位置必须是方块
+        // the first block should always be a stone
         this._road.push(BlockType.BT_STONE);
 
-        // 随机的方法生成地图
+        // generate blocks randomly
         for (let i = 1; i < this.roadLength; i++) {
             if (this._road[i-1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
@@ -820,12 +847,13 @@ export class GameManager extends Component {
     }
     ```
 
-    > `Math.floor`： 这个方法是 TypeScript 数学库的方法之一：我们知道 floor 是地板的意思，这表示取这个方法参数的 "地板"，也就是向下取整。
-    > `Math.random`：同样 random 也是标准数学库的方法之一，用于随机一个 0 到 1 之间的小数，注意取值范围是 [0, 1)。
-    > 所以 `Math.floor(Math.random() * 2)` 这段代码的意思很简单，就是从 [0, 2) 中随机取 1个数并向下取整，得到的结果是 0 或者 1，恰好和 枚举 `BlockType` 中声明的 `BT_NONE` 和 `BT_STONE` 对应。
-    > 顺便说一句，在 TypeScript 的枚举中，如果你没有给枚举赋值，那么枚举的值会顺序的从 0 开始分配。
+    >`Math.floor`： rounds down and returns the largest integer less than or equal to a given number. refer to [Math.floor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) for more detail.
 
-- 根据 `BlockType` 生成方块：
+    >`Math.random`：returns a floating-point in a range of [0.0,1.0), refer to [Math.random](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) for more detail.
+
+    Obviously, the code `Math.floor(Math.random() * 2)` will only produce two integer numbers, 0 or 1, which are exactly correspond to the value of  `BT_NONE` and `BT_STONE` declared in the `BlockType` enum.
+
+- Create new block by the given type：
 
     ```ts
     spawnBlockByType(type: BlockType) {
@@ -844,11 +872,13 @@ export class GameManager extends Component {
     }
     ```
 
-    通过 `BlockType` 来确定是否要真的创建这个方块，当然只在 `type` 为 `BT_STONE` 的时候我们通过 `instantiate` 方法来创建方块，其他情况下，返回一个空值。
+    If the given type is `BT_STONE`, we create a new block from `boxPrefab` using `instantiate` method.
 
-    > instantiate: 是 Cocos Creator 提供的克隆预制体的方法。当然它不仅能克隆预制体，你甚至可以用它克隆别的类型比如某个对象！
+    If the given type if `BT_NONE`, we just do nothing.
 
-- 根据所需的数量和前 1 个位置来生成方块：
+    > `instantiate`: is a built-in method provided by Cocos Creator, it is used for making a copy of an exist node and creating a new instance for a prefab.
+
+- Place blocks by the given data：
 
     ```ts
     spawnBlockByCount(lastPos: number, count: number) {
@@ -861,11 +891,24 @@ export class GameManager extends Component {
     }
     ```
 
-    `spawnBlockByCount` 会根据 `spawnBlockByType` 的结果来创建方块，当然如果连续某个方块不仅仅占据 1 个格子时，会根据他所占的格子数来调整他在 X 轴的缩放：`block?.setScale`。之后通过 `setPosition` 将其放在合适的位置上。
+    First, `spawnBlockByCount` uses the `spawnBlockByType` method to create a new block.
 
-    > 在 Cocos Creator 中，设置节点的位置需要使用 `setPosition` 方法或者 `set position` 这样的读取器。
+    Then, it scales the block by the given `count`.
 
-此时如果我们在 `GameManager` 的 `start` 内调用 `generateRoad` 来创建地图：
+    Last, set the position by the given `count`.
+
+    The `count` parameter here, indicates how many blocks we should have. we use scaling to avoid creating to much block nodes.
+
+    > In Cocos Creator, the position property is a getter and return a readonly value. If we want to change the position of a node, we must use the `setPosition` method or the `setter position`.
+
+    ```ts
+    this.node.position.x = 0; // it doesn't work
+    //...
+    this.node.setPosition(newPos); //it's ok
+    this.node.position = newPos; // it's ok
+    ```
+
+Let's call `generateRoad` in the `start` method of   `GameManager`:
 
 ```ts
 start() {
@@ -873,63 +916,100 @@ start() {
 }  
 ```
 
-运行游戏后可以观察到地图的生成的情况：
+You can see the generated map when running the game.
 
 ![gen-road.png](images/gen-road.png)
 
-## 相机和卷轴
+## Camera Follow
 
-2D 横版游戏中必须要处理卷轴问题，所谓的卷轴就是相机随着角色的运动而运动，导致看到的场景不太一样的情况。
+In a game which has a movable player, we often let the camera follow the player. As a result, you can see the screen scolling when player is moving.
 
-为了实现卷轴，我们需要允许 Camera 可以移动并不在强制和 Canvas 对齐，取消 Canvas 节点上 `cc.Canvas` 组件的 **Align Canvas With Screen** 属性：
+It's very simple to archieve it in Cocos Creator. Just make the following changes.
+
+1. Select the Canavs node, unchcek the **Align Canvas With Screen** property of cc.Canvas component on the Inspector panel.
+
+2. Drag the Camera node on the Player node, make it as a child node.
 
 ![setup-scroll.gif](./images/setup-scroll.gif)
 
-此时运行游戏就可以观察到相机的跟随情况：
+Now, run the game, you can see the camera is following the player.
 
 ![scroll.gif](images/scroll.gif)
 
-## 菜单制作
+## UI layout
 
-对于大多数游戏来说，UI 都是比较重要的部分，通过 UI 的提示，可以让玩家知道某些游戏内的信息，让玩家选择不同的游戏策略。
+UI ( User Interface ) is a very important part for most games. it displays information about the game and allows users to interact with the game systems.
 
-2D 游戏类型下，我们本身有一个名为 Canvas 的节点的，但是这个节点我们将只会拿它来作为角色、地图和游戏逻辑的父节点。因为 Cavans 的相机会移动，如果依然使用 Canvas 的相机，会导致 UI 无法渲染，所以我们必须创建一个新的 Canvas 来作为 UI 的容器。
+As we mentioned before, In Cocos Creator, all 2D elements should be put directly or indirectly under the Canvas node, or it will not be rendered.
 
-在 **层级管理器** 中点击右键选择创建一个新的 Canvas 并将其命名为 UICanvas：
+In Cocos Creator, UI is a special collection of 2D elements, they are text, buttons, toggles etc.
+
+As 2D elements,they also need to be put under the Canvas node.
+
+As we know, UI elements are always fixed on the screen, so we need a fixed camera to render them.
+
+In the privous section, the camera of the Canvas has been changed to follow our Player, it is no longer suitbale for UI rendering.
+
+Thus, we need to create a new Canvas for UI.
+
+### UICanvas
+
+In the Hierarchy, right lick the scene root and select "Create -> UI Component -> Canvas" in the pop-up menu.
 
 ![create-ui-canvas.png](images/create-ui-canvas.png)
 
+Name it as "UICanvas".
+
 ![ui-canvas.png](images/ui-canvas.png)
 
-在 UICanvas 上点击右键并创建一个空的节点命名为 'StartMenu'，并在 StartMenu 节点下创建一个按钮将其子节点 Label 的 **String** 属性修改为 Play。
+Create an empty node named **StartMenu** under the UICanvas.
+
+Then, create a button node under the **StartMenu** node, you can find there is a node named 'Label' under the button node. Select it and set the String property to 'Play'.
+
+Now, we have made a 'Play' button.
 
 ![create-start-menu.png](images/create-start-menu.png)
 
-之后可以添加一个背景框和一些文本提示用于提示用户游戏的操作是怎么样的：
+### Background & Text
 
-选中 StartMenu 点击右键创建一个 Sprite，将其名字修改为 Bg，从 **资源管理器** 的 internal 目录内，找到 default_panel 资源并赋予给 Bg 的 **Sprite Frame** 属性，调整 **Type** 为 **SLICED**，并调整好 Bg 的 UITransform 内的 Content Size 属性：
+Next, let's add a background and a text to tell users how to play this game.
+
+Create a Sprite node under the 'StartMenu' node and name it 'Bg'.
+
+Assign `internal/default_ui/default_panel` to the `Sprite Frame` property of 'Bg' node.
+
+Set the value of `Type` property to `SLICED`.
+
+Set the `Content Size` of `UITransform` to a certain value (e.g. 400,250) .
 
 ![create-bg.gif](images/create-bg.gif)
 
-在 StartMenu 下方创建一个名为 Title 的 Label，并修改其属性如下所示：
+Create a new Label node named 'Title' under the 'StartMenu' node, and set the properties as below:
+- position： 0,80
+- cc.Label Color: black
+- cc.Label String：Mind Your Step 2D
+- cc.Label Font Size：40
 
 ![create-title.png](images/create-title.png)
 
-继续创建一些 Label 用于描述游戏的玩法：
+Continue creating some `Label` nodes to describe the gameplay. Name them 'Tip'.
 
 ![create-tip.png](images/create-tip.png)
 
-同理添加一个 Label 用于代表角色走了几步，注意 Step 这个 Label 不要作为 StartMenu 的子节点：
+Create a `Label` node **under UICanvas**, name it 'Step', to show how many steps the player has taken.
 
 ![step.png](images/step.png)
 
-接下来我们就可以完善整个游戏逻辑。
+Now, we have completed the UI layout, let's write some code to finish the game logic.
 
-## 游戏状态
+## Game state
 
-我们游戏有三种状态，初始化、游戏中、游戏重置或者结算，和下棋类似，大部分游戏都可以粗略分解为这样的三个状态。
+There are 3 states in most games.
+- **INIT**: game is ready to start
+- **PLAYING**: game is playing
+- **END**: game is over, will restart or exit
 
-因此我们也可以定义这样的枚举来描述游戏状态。
+We can define these states using a enum type as below:
 
 ```ts
 enum GameState{
@@ -939,12 +1019,14 @@ enum GameState{
 };
 ```
 
-将上述的代码放在枚举 `BlockType` 附近。
+For better readable, let's put it after the `BlockType` enum.
 
-这里我们为 GameManager 添加一个 `curState` 的读取器提供给外界，使其可以用于控制游戏的状态：
+Let's add a `setCurState` method to `GameManger`, which will be used to control the state of game.
+
+The code is as follows.
 
 ```ts
-set curState (value: GameState) {
+setCurState (value: GameState) {
     switch(value) {
         case GameState.GS_INIT:            
             break;
@@ -956,18 +1038,18 @@ set curState (value: GameState) {
 }
 ```
 
-> 读取器是 TypeScript 的一种语法，用于保护某些属性，观察上述的代码可以看到 curState 并不会被直接设置，而是由我们在读取器内做了某些判断，这样可以保护 curState 的逻辑。
-
-添加一个 `init` 方法用于表示进入到 GS_INIT 时游戏的处理：
+Add a new method named `init` to initialize game data.
 
 ```ts
-init() {}
+init() {
+    //to do something
+}
 ```
 
-同时在 `set curState` 的时候调用它：
+Then, call it in `setCurState` when the game state is set to `GameState.GS_INIT`.
 
 ```ts
-set curState (value: GameState) {
+setCurState (value: GameState) {
     switch(value) {
         case GameState.GS_INIT:            
             this.init();
@@ -980,11 +1062,15 @@ set curState (value: GameState) {
 }
 ```
 
-为了在游戏开始时不让用户操作角色，而在游戏进行时让用户操作角色，我们需要动态地开启和关闭角色对鼠标消息的监听。在 `PlayerController` 脚本中做如下修改：
+As designed, the **Player** only can be controlled by users when the game is running.
+
+So, we make a small change to the input event listener in the `PlayerController`.
+
+The input event is no longer listened in the `start` method, instead, we create a new method named `setInputActive` to handle it. the `setInputActive` method will be called when needed.
 
 ```ts
 start () {
-    //input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+
 }
 
 setInputActive(active: boolean) {
@@ -996,7 +1082,7 @@ setInputActive(active: boolean) {
 }
 ```
 
-此时的 GameManager 看起来是这样的：
+Here, the code of `GameManager` is like this:
 
 ```ts
 import { _decorator, CCInteger, Component, instantiate, Node, Prefab } from 'cc';
@@ -1024,14 +1110,12 @@ export class GameManager extends Component {
     private _road: BlockType[] = [];
 
     start() {
-        this.curState = GameState.GS_INIT; // 第一初始化要在 start 里面调用
     }    
 
-    init() {       
-        this.generateRoad();        
+    init() {         
     }
 
-    set curState (value: GameState) {
+    setCurState (value: GameState) {
         switch(value) {
             case GameState.GS_INIT:
                 this.init();
@@ -1106,92 +1190,150 @@ export class GameManager extends Component {
 }
 ```
 
-接下来我们分析下在每个状态下所需要处理的事情：
+Next, let's add the logic code.
 
-- GS_INIT：状态下需要初始化地图、将角色放回到初始点、显示游戏的UI，因此在属性中下列属性：
+### Game Start
 
-    ```ts
-    @property({ type: Node })
-    public startMenu: Node | null = null; // 开始的 UI
-    @property({ type: PlayerController }) 
-    public playerCtrl: PlayerController | null = null; // 角色控制器
-    @property({type: Label}) 
-    public stepsLabel: Label|null = null; // 计步器
-    ```
+This is not a state, but we must start from here. When the game is launched, the `start` method of `GameManager` will be called.
 
-    在 `init` 方法中需要做如下的处理：
-
-    ```ts
-    init() {       
-        if (this.startMenu) {
-            this.startMenu.active = true;
-        }
-
-        this.generateRoad();
-
-        if (this.playerCtrl) {
-            this.playerCtrl.setInputActive(false);
-            this.playerCtrl.node.setPosition(Vec3.ZERO);
-            this.playerCtrl.reset();
-        }
-    }
-    ```
-
-    init 时我们先显示 StartMenu、创建地图以及重设角色的为和状态并禁用角色输入。
-
-- GS_PLAYING：在状态下隐藏 StartMenu、重设计步器的数值以及启用用户输入：
-
-    ```ts
-    if (this.startMenu) {
-        this.startMenu.active = false;
-    }
-
-    if (this.stepsLabel) {
-        this.stepsLabel.string = '0';   // 将步数重置为0
-    }
-
-    setTimeout(() => {      //直接设置active会直接开始监听鼠标事件，做了一下延迟处理
-        if (this.playerCtrl) {
-            this.playerCtrl.setInputActive(true);
-        }
-    }, 0.1);
-    ```
-
-- GS_END：暂时没有什么好添加的，当然您可以根据喜好添加一些结算用的逻辑让游戏看起来更完善
-
-回到编辑器，绑定好 GameManager 需要的属性：
-
-![bind-manager.png](images/bind-manager.png)
-
-### 绑定按钮事件
-
-在 GameManager 内添加如下的方法，用于响应 Play 按钮按下的事件：
+We call `setCurState` here to initialize the game.
 
 ```ts
-onStartButtonClicked() {
-    this.curState = GameState.GS_PLAYING;
+    start(){
+        this.setCurState(GameState.GS_INIT);
+    }
+```
+
+### GS_INIT
+
+In this game state, we should initialize the map, reset the position of the player, show game UI etc.
+
+So, we need to add the needed properties to `GameManager.
+
+```ts
+//references to the startMenu node.
+@property({ type: Node })
+public startMenu: Node | null = null;
+
+//references to player
+@property({ type: PlayerController }) 
+public playerCtrl: PlayerController | null = null;
+
+//references to UICanvas/Steps node.
+@property({type: Label}) 
+public stepsLabel: Label|null = null;
+```
+
+In the `init` method, we add code lines as below:
+
+```ts
+init() {
+    //show the start menu
+    if (this.startMenu) {
+        this.startMenu.active = true;
+    }
+
+    //generate the map
+    this.generateRoad();
+
+
+    if (this.playerCtrl) {
+
+        //disable input
+        this.playerCtrl.setInputActive(false);
+
+        //reset player data.
+        this.playerCtrl.node.setPosition(Vec3.ZERO);
+        this.playerCtrl.reset();
+    }
 }
 ```
 
-回到编辑器，找到开始按钮，并在 **Click Events** 属性后的输入框内输入 1，然后找到 GameManager 节点并拖拽到下方的 cc.Node 属性内，之后从第二栏的下拉中找到 GameManager 脚本，再从第三栏中选择 `onStartButtonClicked` 事件。
+### Handle Button Click Event
+
+Next, let's implement when users click the 'Play' button on the UI, the game starts playing.
+
+Add a new method named `onStartButtonClicked` to the `GameManager` class, which is used to handle the click event of 'Play' button on the 'startMenu` node.
+
+In `onStartButtonClicked`, we just call `setCurState` to set the game state to `GameState.GS_PLAYING`.
+
+```ts
+onStartButtonClicked() {
+    this.setCurState(GameState.GS_PLAYING);
+}
+```
+
+Go back to Cocos Creator, select the `UICanvas/StartMenu/Button` node.
+
+On the Inspector panel, type `1` to the input box after `Click Events` property.
+
+Then drag the `GameManager` node to the first slot, select `GameManager` for the second slot, choose `onStartButtonClicked` for the third slot.
 
 ![click-event.gif](images/click-event.gif)
 
-此时已可以正常的开始玩游戏：
+### GS_PLAYING
+
+After users clicking the 'Play' button, the game is going to this state. We need to:
+
+- Hide the StartMenu
+- Reset the number of steps
+- Enable user input
+
+The related code in `setCurState` method is as below:
+
+```ts
+setCurState(value: GameState) {
+    switch (value) {
+        //...
+        case GameState.GS_PLAYING:
+            if (this.startMenu) {
+                this.startMenu.active = false;
+            }
+
+            //reset steps counter to 0
+            if (this.stepsLabel) {
+                this.stepsLabel.string = '0';
+            }
+
+            //enable user input after 0.1 second.
+            setTimeout(() => {
+                if (this.playerCtrl) {
+                    this.playerCtrl.setInputActive(true);
+                }
+            }, 0.1);
+            break;
+        //...
+    }
+}
+```
+
+### GS_END
+
+We do nothing for now. you can add anything you want to make the game perfect.
+
+### Bind properties
+
+Go back go Cocos Creator, drag the corresponding node to each property for `GameManager`.
+
+![bind-manager.png](images/bind-manager.png)
+
+Look! We can play it now.
 
 ![start-game-without-result.gif](./images/start-game-without-result.gif)
 
-接下来就来处理掉到坑里后游戏失败的情况。
+## Game Over
 
-### 监听跳跃结束
+Next, let's handle the situation when the player step on the an empty block.
 
-在 PlayerController 里面添加一个属性用于记录角色当前为多少步：
+### Handle jump end
+
+Add a new property called `_curMoveIndex` to `PlayerController`, which is used to record how many steps the player has taken.
 
 ```ts
 private _curMoveIndex: number = 0;
 ```
 
-在 `reset` 方法中重置这个属性：
+Set it to 0 in the `reset` method.
 
 ```ts
 reset() {
@@ -1199,7 +1341,7 @@ reset() {
 }   
 ```
 
-在 `jumpByStep` 中将这个步数增加，每次的增量是输入的步数：
+In the `jumpByStep` method, increase it by `step`.
 
 ```ts
 jumpByStep(step: number) {
@@ -1225,7 +1367,7 @@ jumpByStep(step: number) {
 }
 ```
 
-在 PlayerController 中添加一个监听跳跃结束的方法：
+Add `onOnceJumpEnd` to `PlayerController` to emit an 'JumpEnd' event and pass in `_curMoveIndex` as a parameter.
 
 ```ts
 onOnceJumpEnd() {
@@ -1233,9 +1375,7 @@ onOnceJumpEnd() {
 }
 ```
 
-该方法派发了一个名为 `JumpEnd` 的事件，并将 `_curMoveIndex` 作为参数传递出去。
-
-并在 PlayerController 的 `update` 方法中调用：
+Call `onOnceJumpEnd` in the `update` of `PlayerController` when jump action is over.
 
 ```ts
 update (deltaTime: number) {
@@ -1257,9 +1397,9 @@ update (deltaTime: number) {
 }
 ```
 
-回到 GameManager 并增加以下的处理：
+Go back to `GameManager` and add the following code.
 
-- 增加一个 `onPlayerJumpEnd` 的方法
+- Add `onPlayerJumpEnd` method to handle jump end event.
 
     ```ts
     onPlayerJumpEnd(moveIndex: number) {
@@ -1267,35 +1407,36 @@ update (deltaTime: number) {
     }
     ```
 
-- 在 `start` 中监听 `` 的事件：
+- Listen 'JumpEnd' event in the `start` method.
 
     ```ts
     start() {
-        this.curState = GameState.GS_INIT;
+        this.setCurState(GameState.GS_INIT);
         this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
     }
     ```
 
-    可以看到这里我们使用的 `this.playerCtrl?.node` 也就是 PlayerController 的节点来接收事件，在 Cocos Creator 中，某个节点派发的事件，只能用这个节点的引用去监听。
+    > In Cocos Creator, a event dispatched through the `emit` of a node an only be listened by using its `on`.
 
-- 增加一个用于判定角色是否跳跃到坑或者跳完所有地块的方法：
+- Add `checkResult` to check the type of block the player steps on.
 
     ```ts
     checkResult(moveIndex: number) {
         if (moveIndex < this.roadLength) {
-            if (this._road[moveIndex] == BlockType.BT_NONE) {   //跳到了空方块上
-                this.curState = GameState.GS_INIT;
+            if (this._road[moveIndex] == BlockType.BT_NONE) {   //steps on empty block, reset to init.
+                this.setCurState(GameState.GS_INIT);
             }
-        } else {    // 跳过了最大长度
-            this.curState = GameState.GS_INIT;
+        } else {    //out of map, reset to init.
+            this.setCurState(GameState.GS_INIT);
         }
     }
     ```
 
-- 填充 `onPlayerJumpEnd` 如下：
+- Finish the `onPlayerJumpEnd` method.
 
     ```ts
     onPlayerJumpEnd(moveIndex: number) {
+        //update steps label.
         if (this.stepsLabel) {
             this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
         }
@@ -1303,58 +1444,67 @@ update (deltaTime: number) {
     }
     ```
 
-    上述的方法更新的计步器并检查角色是调到坑里面还是跳所有的方块，如果满足这两个条件，则重置整个游戏逻辑。
+## Layers & Visibility
 
-## 层级
-
-在 2D 中我们需要小心的规划物体的层级以确保显示正确的内容。
-
-此时如果我们启动游戏，则可以看到重叠的现象，这是因为 UICanvas 下的相机也绘制了 Canvas 下的内容：
+When playing the game, you may notice the overlapping graphics, this is because the both cameras ( Canvas/Camera, UICanvas/Camera) are rendering all objects.
 
 ![layer-error.png](images/layer-error.png)
 
-为了解决这个问题我们可以做如下的处理：
+In Cocos Creator, a node can only be put in one of the layers, a camera can choose which layers will be rendered by itself.
 
-- 将 Canvas 下相关的节点层级修改为 DEFAULT：
+To solve this problem, we need to allocate the role of the layers and the visibility of cameras.
+
+In this game, we have two types of objects.
+- Scene Object：player, blocks
+- UI Object: windows , buttons, labels
+
+So, we just need to put all of the scene objects to `DEFAULT` layer and put all of the UI objects to `UI_2D` layer.
+
+Then, we need to change a little about the visibility of cameras to let he `Canvas/Camera` only render the objects in `DEFAULT` layer, the `UICanvas/Camera` only render the objec in `UI_2D` layer, everthing will be ok.
+
+It's so clear, now, let's do it.
+
+## DEFAULT
+
+- Set the layer of Canvas **and all its children** to `DEFAULT`：
 
     ![layer-default.png](images/layer-default.png)
 
-- 将 Box 这个资源的层级修改为 DEFAULT：
+- Set the layer of `Box.prefab` to `DEFAULT`：
 
     ![box-layer.png](images/box-layer.png)
 
-    双击该预制体就可以进入到预制体编辑器界面，修改后记得点击场景视图内的 **保存** 按钮保存预制体的变更。
+    Double click left mouse button on the prefab file to enter the prefab editing mode, don't forget to hit the 'Save' button after finishing the modification.
 
     ![save-prefab.png](images/save-prefab.png)
 
-- 修改 Canvas/Player 下的 Camera 的 **Visibility** 属性如下：
+- Set the **Visibility** of `Canvas/Player/Camera` as follows：
 
     ![cavans-camera.png](images/cavans-camera.png)
 
-- 修改 UICavans 下的 Camera 如下：
+## UI_2D
+
+- Set the **Visibility** of  `UICavans/Camera` as follows：
 
     ![images/uicanvas-camera.png](images/uicanvas-camera.png)
 
-再次启动游戏则显示正常：
+    Since the default layer for 2D nodes is `UI_2D`, we don't need to set the layer for nodes under `UICanvas`.
+
+Play the game again, everything is ok now.
 
 ![after-layer-setting.gif](images/after-layer-setting.gif)
 
-## 更多功能
-
-接下来您可以处理更多的游戏功能，比如将主角替换为序列关键帧或者通过龙骨/Spine 制作的动画，亦或者增加一些玩法和特效等等。
-
 ## Summary
 
-至此，我们的游戏核心逻辑就全部完成了，最后我们稍微梳理下一些需要注意的地方：
+Here we come to the end of this tutorial, hope it has been helpful for you.
 
-- 2D/UI 节点必须放在 Canvas 下面才会显示（实际上是 RenderRoot2D，因为 Canvas 继承自 RenderRoot2D）
-- 小心规划物体的层级，需要调整相机的 **Visiblity** 属性来让不同的 Canvas 分开渲染
+In the future, you can add more gameplay and features based on this game,such as replacing the Player with an animation role, add a beautiful background image, add a rhythmic background music and sounds etc.
 
-到此为止，如果您还觉得有困难的话，或有任何意见和建议，欢迎您在 [论坛](https://forum.cocos.org/) 或 [GIT](https://github.com/cocos/cocos-docs) 联系我们。
+If you have any questions, please refer to [Get Help and Support](../support.md).
 
-## Full Code
+## Full Source Code
 
-PlayerController：
+PlayerController.ts:
 
 ```ts
 import { _decorator, Component, Vec3, EventMouse, input, Input, Animation } from "cc";
@@ -1484,7 +1634,7 @@ export class GameManager extends Component {
     public stepsLabel: Label|null = null;
 
     start() {
-        this.curState = GameState.GS_INIT;
+        this.setCurState(GameState.GS_INIT);
         this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
     }
 
@@ -1502,7 +1652,7 @@ export class GameManager extends Component {
         }
     }
 
-    set curState(value: GameState) {
+    setCurState(value: GameState) {
         switch (value) {
             case GameState.GS_INIT:
                 this.init();
@@ -1513,10 +1663,10 @@ export class GameManager extends Component {
                 }
 
                 if (this.stepsLabel) {
-                    this.stepsLabel.string = '0';   // 将步数重置为0
+                    this.stepsLabel.string = '0';
                 }
 
-                setTimeout(() => {      //直接设置active会直接开始监听鼠标事件，做了一下延迟处理
+                setTimeout(() => {
                     if (this.playerCtrl) {
                         this.playerCtrl.setInputActive(true);
                     }
@@ -1588,16 +1738,16 @@ export class GameManager extends Component {
     }
 
     onStartButtonClicked() {
-        this.curState = GameState.GS_PLAYING;
+        this.setCurState(GameState.GS_PLAYING);
     }
 
     checkResult(moveIndex: number) {
         if (moveIndex < this.roadLength) {
-            if (this._road[moveIndex] == BlockType.BT_NONE) {   //跳到了空方块上
-                this.curState = GameState.GS_INIT;
+            if (this._road[moveIndex] == BlockType.BT_NONE) {
+                this.setCurState(GameState.GS_INIT);
             }
-        } else {    // 跳过了最大长度
-            this.curState = GameState.GS_INIT;
+        } else { 
+            this.setCurState(GameState.GS_INIT);
         }
     }
 
