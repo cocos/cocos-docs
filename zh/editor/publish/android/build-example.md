@@ -71,7 +71,7 @@
 
                     ![download-ndk-by-as.png](images/download-ndk-by-as.png)
 
-                    如果无法刷新出所有 NDK 版本，请查看下文手动下载部分。
+                    勾选合适的版本进行下载，如果无法刷新出所有 NDK 版本，请查看下文手动下载部分。
 
             - 手动下载 NDK：
 
