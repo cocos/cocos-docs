@@ -25,7 +25,7 @@
             > 在 Windows 上需要配置对应的环境变量
             > **注意**：笔者采用的 [OpenJDK](https://openjdk.org/)
 
-    - 参考 [下载发布 Android 平台所需的 SDK 和 NDK](../setup-native-development.md#%E4%B8%8B%E8%BD%BD%E5%8F%91%E5%B8%83-android-%E5%B9%B3%E5%8F%B0%E6%89%80%E9%9C%80%E7%9A%84-sdk-%E5%92%8C-ndk)
+    - Android SDK
         - Android Studio 下载 Android SDK 示例
 
             - 通过下列菜单打开 Setting 面板
@@ -56,7 +56,7 @@
 
             ![sdk-location.png](images/sdk-location.png)
 
-    - 安装 NDK
+    - NDK
         - 根据 [安装配置原生开发环境 - 下载发布 Android 平台所需的 SDK 和 NDK](../setup-native-development.md) 推荐的版本区间下载 NDK
 
         - 您可以在 [历史版本](https://github.com/android/ndk/wiki/Unsupported-Downloads) 找到下载。
@@ -165,13 +165,7 @@
 
 ### 导入第三方库
 
-为了将应用发布到应用市场，通常需要对接某些第三方的 SDK。
-
-在对接第三方应用市场的 SDK 时，通常会需要使用第三方市场的库，一般来说是通过 JAR 库的形式提供的。
-
-此时需要开发者将这些对应的 JAR 库放在已导出的 Android studio 工程内，才可以引用并使用这些第三方库。
-
-> 如果希望可以对接多个平台，那么可以在项目内配置多个生成的任务，这样可以生成多个不同平台的工程。
+为了将应用发布到应用市场，通常需要对接某些第三方的 SDK，通常这些 SDK 会提供给您 JAR 或 AAR 格式，您可以参考 [在其他项目中使用您的库](https://developer.android.com/studio/projects/android-library?hl=zh-cn#psd-add-library-dependency) 将本地的库导入到工程内。
 
 ### 和 TypeScript 通信
 
@@ -179,9 +173,7 @@
 
 常见的 SDK 接入时，我们需要通过 SDK 的登陆接口进行登陆操作，获取到登陆结果后再将结果传入到 TypeScript 层以方便游戏进行处理。
 
-引擎提供 [简化使用 JavaScript 调用 Java 方法（实验性功能）](../../../advanced-topics/js-java-bridge.md) 可以较为快速的解决这类问题。
-
-此处我们以 [简化使用 JavaScript 调用 Java 方法（实验性功能）](../../../advanced-topics/js-java-bridge.md) 为例子，讲解如何使 Java 和 TypeScript 进行通信。通常来说，这个机制用于对接 SDK 中如注册、登陆等行为是比较方便的。
+引擎提供 [简化使用 JavaScript 调用 Java 方法](../../../advanced-topics/js-java-bridge.md) 可以较为快速的解决这类问题。通常来说，这个机制用于对接 SDK 中如注册、登陆等行为是比较方便的。
 
 - 在安卓工程中找到 `AppActivity.java` 并在 `onCreated` 方法中添加如下代码：
 
