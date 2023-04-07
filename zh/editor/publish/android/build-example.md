@@ -22,7 +22,8 @@
 
             ![terminal.png](images/terminal.png)
 
-            > 需要配置对应的环境变量，请参考 [如何设置或更改 JAVA 系统环境变量](https://www.java.com/zh_CN/download/help/path.xml)。
+            > 需要配置对应的环境变量，请参考 [如何设置或更改 JAVA 系统环境变量](https://www.java.com/zh_CN/download/help/path.xml)。 <br>
+            >
             > **注意**：笔者采用的 [OpenJDK](https://openjdk.org/)，功能上和 JDK 相同但开源协议不同。
 
     - 下载并安装 Android SDK
@@ -65,7 +66,7 @@
 
                 - 打开 Android Studio 的 **Setting** 窗口，找到 **Android SDK** 分页：
 
-                    > **注意**：需要勾选 **Show Package Details**:
+                    > **注意**：需要勾选 **Show Package Details**: <br>
                     > ![show-package-details.png](images/show-package-details.png)
 
                     ![download-ndk-by-as.png](images/download-ndk-by-as.png)
@@ -165,8 +166,8 @@
         待 Android Studio 将项目准备完成后，即可打包 APK，准备过程可能会耗时较久，如果长时间无响应，请检查网络，或者切换到其他镜像。此时如果您需要中断目前的后台任务，可参考下列关闭方法：
 
         > Android Studio 有后台任务时，可以点击窗口下方的后台任务栏：
-        > ![background-task.png](./images/background-task.png)
-        > 在弹出窗中点击右侧的×以结束后台任务：
+        > ![background-task.png](./images/background-task.png) <br>
+        > 在弹出窗中点击右侧的 × 以结束后台任务：
         > ![interrupt-sync.png](images/interrupt-sync.png)
 
         - 打开 **Build** 菜单选择 **Build Bundle(s) / APK(s)**：
@@ -276,7 +277,7 @@
 - Q：发布时的错误如何调试
     - A：点击日志按钮，进行查看
 
-    ![show-log.png](images/show-log.png)
+        ![show-log.png](images/show-log.png)
 
 - Q：提示缺少 LIB_EGL
     - A：更换 NDK 版本为文中所述的版本
