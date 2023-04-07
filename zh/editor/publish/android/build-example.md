@@ -115,6 +115,10 @@
 
         ![select-platform.png](images/select-platform.png)
 
+    - 选择至少一个场景作为应用载入的首场景，当仅有一个场景时会被默认添加：
+
+        ![start-scene.png](images/start-scene.png)
+
     - 参考 [Android 平台构建选项 - 渲染后端](../native-options.md#%E6%B8%B2%E6%9F%93%E5%90%8E%E7%AB%AF) 选择渲染后端
 
         ![render-backend.png](images/render-backend.png)
