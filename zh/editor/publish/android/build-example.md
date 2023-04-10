@@ -207,7 +207,19 @@
 
         ![debug-keystone.png](images/debug-keystone.png)
 
-        > 如果无秘钥，可以使用 JAVA 来生成对应的秘钥
+        如果无秘钥，可以使用 JAVA 来生成对应的秘钥；也可以通过 Android Studio 来生成：
+
+        - 选中 Generate Signed Bundle / APK：
+
+            ![gen-sign-apk.png](images/gen-sign-apk.png)
+
+        - 选中生成 APK：
+
+            ![gen-apk.png](images/gen-apk.png)
+
+        - 在引导的窗口中点击 Create new：
+
+            ![create-sign.png](images/create-sign.png)
 
 ## 进阶
 
