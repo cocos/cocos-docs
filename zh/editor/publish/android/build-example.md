@@ -59,6 +59,27 @@
 
             ![sdk-location.png](images/sdk-location.png)
 
+        - 无法下载 SDK 时可以选择其他镜像（可选）：
+
+            - 在 Android Studio 中配置 HTTP 代理：
+
+                - 自动配置代理：
+
+                   在 Setting 中找到 HTTP Proxy，勾选 Auto-detect proxy settings，填入下方描述的镜像源，以腾讯源为例：
+
+                    ![http-proxy.png](images/http-proxy.png)
+
+            - 可选的镜像源：
+
+                安卓 SDK 以及下文中提高的 Gradle 都会有一些镜像源用于帮助您解决无法从官网下载的问题，如果下方表格的镜像也无法解决，也可以从搜索引擎获取。
+
+                | 镜像源 | 地址 |
+                | :--- | :--- |
+                | 腾讯 | <https://mirrors.cloud.tencent.com/AndroidSDK/> |
+                | 阿里云 | <https://mirrors.aliyun.com/android.googlesource.com/> |
+
+                > 如果出现镜像不可用的情况，您可以视可用性更换不同的镜像源。
+
     - 下载并安装 NDK
         - 根据 [安装配置原生开发环境 - 下载发布 Android 平台所需的 SDK 和 NDK](../setup-native-development.md) 推荐的版本区间下载 NDK（推荐使用版本为 **r18~21**）
 
@@ -267,7 +288,7 @@
 
     > **注意**：
     > 1. 使用 **NATIVE** 宏来控制访问权限，只有原生的应用才可以访问这些方法
-    > 2. 待引擎初始化完成后再调用 **JsbBridge.sendToScript**
+    > 2. 待引擎初始化完成才可以调用 **JsbBridge.sendToScript** 向 JAVA 发送消息
     > 3. 该方法只能传输字符串，复杂数据可以编码为 JSON 格式后传输
 
 对于复杂的数据结构可以参考 [JSB Swig](../../../advanced-topics/jsb-swig.md) 或 [JSB](../../../advanced-topics/JSB2.0-learning.md)。
@@ -286,7 +307,7 @@
 - Q：提示缺少 LIB_EGL
     - A：更换 NDK 版本为文中所述的版本
 
-- Q：安卓包的文件是否命名的规范：
-    - A：由于安卓是基于 Linux 的，因此 Linux 的一些文件规范在安卓依然适用
-        - 1. 安卓是大小写敏感的，确保路径的大小写是正确的
-        - 2. 文件夹或文件名中不要含有空格、中文等字符
+- Q：文件命名
+    - A：由于安卓是基于 Linux 的，因此 Linux 的一些文件规范在安卓依然适用，如：
+        - 1. 安卓是大小写敏感的，确保路径的大小写是正确的，否则将无法正确加载
+        - 2. 文件夹或文件名中不要含有空格等字符
