@@ -118,7 +118,7 @@ export class PlayerController extends Component {
 - 在 **层级管理器** 里面点击右键创建一个新的精灵（Sprite）节点并选择将 **Sprite Frame** 属性配置为 default_btn_normal
 - 修改其名字为 Box
 
-![create-box.png](images/create-box.png)
+    ![create-box.png](images/create-box.png)
 
 ### 预制体
 
@@ -230,7 +230,7 @@ P_1 = P_0 + v*t
 update (deltaTime: number) {}
 ```
 
->  `update` 方法会被引擎以一定的时间间隔调用，比如帧率为 30 每秒时，则每秒会调用 `update` 30 次，这个方法的作用是为了能够通过特定的时间间隔来尽量模拟现实中时间连续的现象。
+> `update` 方法会被引擎以一定的时间间隔调用，比如帧率为 30 每秒时，则每秒会调用 `update` 30 次，这个方法的作用是为了能够通过特定的时间间隔来尽量模拟现实中时间连续的现象。
 
 这里我们整理下角色移动所需要的一些信息：
 
@@ -249,7 +249,7 @@ update (deltaTime: number) {}
 private _startJump: boolean = false;
 private _jumpStep: number = 0;
 private _curJumpTime: number = 0;
-private _jumpTime: number = 0.3;
+private _jumpTime: number = 0.1;
 private _curJumpSpeed: number = 0;
 private _curPos: Vec3 = new Vec3();
 private _deltaPos: Vec3 = new Vec3(0, 0, 0);
@@ -354,7 +354,7 @@ export class PlayerController extends Component {
     private _startJump: boolean = false;
     private _jumpStep: number = 0;
     private _curJumpTime: number = 0;
-    private _jumpTime: number = 0.3;
+    private _jumpTime: number = 0.1;
     private _curJumpSpeed: number = 0;
     private _curPos: Vec3 = new Vec3();
     private _deltaPos: Vec3 = new Vec3(0, 0, 0);
@@ -500,7 +500,7 @@ const { ccclass, property } = _decorator;
 
 ```
 
-> **注意**：TypeScript 的内置库和 Cocos Creator 都有名为 Animation 的类，请确保上述代码中 `import { ... } from "cc" ` 包含 Animation。
+> **注意**：TypeScript 的内置库和 Cocos Creator 都有名为 Animation 的类，请确保上述代码中 `import { ... } from "cc"` 包含 Animation。
 
 在 `jumpByStep` 方法内，添加如下的代码：
 
@@ -546,7 +546,7 @@ jumpByStep(step: number) {
 
 ![preview-anim.gif](images/preview-anim.gif)
 
-如果仔细观察的话，现在我们使用的是统一的 `_jumpTime = 0.3`，实际上两个动画的时长并不一致，因此可以看到如上图奇怪的动画效果，可以通过获取动画剪辑的时长来动态调整 `_jumpTime`。
+如果仔细观察的话，现在我们使用的是统一的 `_jumpTime = 0.1`，实际上两个动画的时长并不一致，因此可以看到如上图奇怪的动画效果，可以通过获取动画剪辑的时长来动态调整 `_jumpTime`。
 这里举个例子：
 
 ```ts
@@ -658,40 +658,27 @@ export class GameManager extends Component {
 - 生成地图的方法：
 
     ```ts
-   generateRoad() {
+    generateRoad() {
 
-        // 清理上次的结果
         this.node.removeAllChildren();
 
         this._road = [];
-        // startPos 开始位置必须是方块
+        // startPos
         this._road.push(BlockType.BT_STONE);
 
-        // 随机的方法生成地图
         for (let i = 1; i < this.roadLength; i++) {
-            if (this._road[i-1] === BlockType.BT_NONE) {
+            if (this._road[i - 1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
             } else {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
-
-        let linkedBlocks = 0;
+        
         for (let j = 0; j < this._road.length; j++) {
-            if(this._road[j]) {
-                ++linkedBlocks;
-            }
-            if(this._road[j] == 0) {
-                if(linkedBlocks > 0) {
-                    this.spawnBlockByCount(j - 1, linkedBlocks);
-                    linkedBlocks = 0;
-                }
-            }        
-            if(this._road.length == j + 1) {
-                if(linkedBlocks > 0) {
-                    this.spawnBlockByCount(j, linkedBlocks);
-                    linkedBlocks = 0;
-                }
+            let block: Node | null = this.spawnBlockByType(this._road[j]);
+            if (block) {
+                this.node.addChild(block);
+                block.setPosition(j * BLOCK_SIZE, 0, 0);
             }
         }
     }
@@ -701,6 +688,10 @@ export class GameManager extends Component {
     > `Math.random`：同样 random 也是标准数学库的方法之一，用于随机一个 0 到 1 之间的小数，注意取值范围是 [0, 1)。
     > 所以 `Math.floor(Math.random() * 2)` 这段代码的意思很简单，就是从 [0, 2) 中随机取 1个数并向下取整，得到的结果是 0 或者 1，恰好和 枚举 `BlockType` 中声明的 `BT_NONE` 和 `BT_STONE` 对应。
     > 顺便说一句，在 TypeScript 的枚举中，如果你没有给枚举赋值，那么枚举的值会顺序的从 0 开始分配。
+
+    通过 `spawnBlockByType` 来生成新的方块并将他通过 `setPosition` 方法放置到合适的位置：
+
+    > 在 Cocos Creator 中，设置节点的位置需要使用 `setPosition` 方法或者 `set position` 这样的读取器。
 
 - 根据 `BlockType` 生成方块：
 
@@ -723,9 +714,9 @@ export class GameManager extends Component {
 
     通过 `BlockType` 来确定是否要真的创建这个方块，当然只在 `type` 为 `BT_STONE` 的时候我们通过 `instantiate` 方法来创建方块，其他情况下，返回一个空值。
 
-    > instantiate: 是 Cocos Creator 提供的克隆预制体的方法。当然它不仅能克隆预制体，你甚至可以用它克隆别的类型比如某个对象！
+    > `instantiate`: 是 Cocos Creator 提供的克隆预制体的方法。当然它不仅能克隆预制体，你甚至可以用它克隆别的类型比如某个对象！
 
-- 根据所需的数量和前 1 个位置来生成方块：
+<!-- - 根据所需的数量和前 1 个位置来生成方块：
 
     ```ts
     spawnBlockByCount(lastPos: number, count: number) {
@@ -740,7 +731,7 @@ export class GameManager extends Component {
 
     `spawnBlockByCount` 会根据 `spawnBlockByType` 的结果来创建方块，当然如果连续某个方块不仅仅占据 1 个格子时，会根据他所占的格子数来调整他在 X 轴的缩放：`block?.setScale`。之后通过 `setPosition` 将其放在合适的位置上。
 
-    > 在 Cocos Creator 中，设置节点的位置需要使用 `setPosition` 方法或者 `set position` 这样的读取器。
+    > 在 Cocos Creator 中，设置节点的位置需要使用 `setPosition` 方法或者 `set position` 这样的读取器。 -->
 
 此时如果我们在 `GameManager` 的 `start` 内调用 `generateRoad` 来创建地图：
 
@@ -818,10 +809,10 @@ enum GameState{
 
 将上述的代码放在枚举 `BlockType` 附近。
 
-这里我们为 GameManager 添加一个 `curState` 的读取器提供给外界，使其可以用于控制游戏的状态：
+这里我们为 GameManager 添加一个 `setCurState` 的方法提供给外界，使其可以用于控制游戏的状态：
 
 ```ts
-set curState (value: GameState) {
+setCurState (value: GameState) {
     switch(value) {
         case GameState.GS_INIT:            
             break;
@@ -833,18 +824,16 @@ set curState (value: GameState) {
 }
 ```
 
-> 读取器是 TypeScript 的一种语法，用于保护某些属性，观察上述的代码可以看到 curState 并不会被直接设置，而是由我们在读取器内做了某些判断，这样可以保护 curState 的逻辑。
-
 添加一个 `init` 方法用于表示进入到 GS_INIT 时游戏的处理：
 
 ```ts
 init() {}
 ```
 
-同时在 `set curState` 的时候调用它：
+同时在 `setCurState` 的时候调用它：
 
 ```ts
-set curState (value: GameState) {
+setCurState (value: GameState) {
     switch(value) {
         case GameState.GS_INIT:            
             this.init();
@@ -901,14 +890,14 @@ export class GameManager extends Component {
     private _road: BlockType[] = [];
 
     start() {
-        this.curState = GameState.GS_INIT; // 第一初始化要在 start 里面调用
+        this.setCurState(GameState.GS_INIT); // 第一初始化要在 start 里面调用
     }    
 
     init() {       
         this.generateRoad();        
     }
 
-    set curState (value: GameState) {
+    setCurState (value: GameState) {
         switch(value) {
             case GameState.GS_INIT:
                 this.init();
@@ -930,40 +919,35 @@ export class GameManager extends Component {
         this._road.push(BlockType.BT_STONE);
 
         for (let i = 1; i < this.roadLength; i++) {
-            if (this._road[i-1] === BlockType.BT_NONE) {
+            if (this._road[i - 1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
             } else {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
-
-        let linkedBlocks = 0;
+        
         for (let j = 0; j < this._road.length; j++) {
-            if(this._road[j]) {
-                ++linkedBlocks;
-            }
-            if(this._road[j] == 0) {
-                if(linkedBlocks > 0) {
-                    this.spawnBlockByCount(j - 1, linkedBlocks);
-                    linkedBlocks = 0;
-                }
-            }        
-            if(this._road.length == j + 1) {
-                if(linkedBlocks > 0) {
-                    this.spawnBlockByCount(j, linkedBlocks);
-                    linkedBlocks = 0;
-                }
+            let block: Node | null = this.spawnBlockByType(this._road[j]);
+            if (block) {
+                this.node.addChild(block);
+                block.setPosition(j * BLOCK_SIZE, 0, 0);
             }
         }
     }
 
-    spawnBlockByCount(lastPos: number, count: number) {
-        let block: Node|null = this.spawnBlockByType(BlockType.BT_STONE);
-        if(block) {
-            this.node.addChild(block);
-            block?.setScale(count, 1, 1);
-            block?.setPosition((lastPos - (count - 1) * 0.5)*BLOCK_SIZE, 0, 0);
+    spawnBlockByType(type: BlockType) {
+        if (!this.boxPrefab) {
+            return null;
         }
+
+        let block: Node | null = null;
+        switch (type) {
+            case BlockType.BT_STONE:
+                block = instantiate(this.boxPrefab);
+                break;
+        }
+
+        return block;
     }
 
     spawnBlockByType(type: BlockType) {
@@ -1045,8 +1029,8 @@ export class GameManager extends Component {
 在 GameManager 内添加如下的方法，用于响应 Play 按钮按下的事件：
 
 ```ts
-onStartButtonClicked() {
-    this.curState = GameState.GS_PLAYING;
+onStartButtonClicked() {    
+    this.setCurState(GameState.GS_PLAYING);
 }
 ```
 
@@ -1147,8 +1131,8 @@ update (deltaTime: number) {
 - 在 `start` 中监听 `` 的事件：
 
     ```ts
-    start() {
-        this.curState = GameState.GS_INIT;
+    start() {        
+        this.setCurState(GameState.GS_INIT);
         this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
     }
     ```
@@ -1161,10 +1145,11 @@ update (deltaTime: number) {
     checkResult(moveIndex: number) {
         if (moveIndex < this.roadLength) {
             if (this._road[moveIndex] == BlockType.BT_NONE) {   //跳到了空方块上
-                this.curState = GameState.GS_INIT;
+                
+                this.setCurState(GameState.GS_INIT)
             }
-        } else {    // 跳过了最大长度
-            this.curState = GameState.GS_INIT;
+        } else {    // 跳过了最大长度            
+            this.setCurState(GameState.GS_INIT);
         }
     }
     ```
@@ -1224,10 +1209,12 @@ update (deltaTime: number) {
 
 至此，我们的游戏核心逻辑就全部完成了，最后我们稍微梳理下一些需要注意的地方：
 
-- 2D/UI 节点必须放在 Canvas 下面才会显示（实际上是 RenderRoot2D，因为 Canvas 继承自 RenderRoot2D）
+- 2D / UI 节点必须放在 Canvas 下面才会显示（实际上是 RenderRoot2D，因为 Canvas 继承自 RenderRoot2D）
 - 小心规划物体的层级，需要调整相机的 **Visiblity** 属性来让不同的 Canvas 分开渲染
 
 到此为止，如果您还觉得有困难的话，或有任何意见和建议，欢迎您在 [论坛](https://forum.cocos.org/) 或 [GIT](https://github.com/cocos/cocos-docs) 联系我们。
+
+如果您想让您的项目在移动端设备上运行，我们也准备了 [监听触摸事件](touch.md) 可以用于监听触摸事件。
 
 ## 完整代码
 
@@ -1248,7 +1235,7 @@ export class PlayerController extends Component {
     private _startJump: boolean = false;
     private _jumpStep: number = 0;
     private _curJumpTime: number = 0;
-    private _jumpTime: number = 0.3;
+    private _jumpTime: number = 0.1;
     private _curJumpSpeed: number = 0;
     private _curPos: Vec3 = new Vec3();
     private _deltaPos: Vec3 = new Vec3(0, 0, 0);
@@ -1286,6 +1273,11 @@ export class PlayerController extends Component {
         this._startJump = true;
         this._jumpStep = step;
         this._curJumpTime = 0;
+
+        const clipName = step == 1 ? 'oneStep' : 'twoStep';
+        const state = this.BodyAnim.getState(clipName);
+        this._jumpTime = state.duration;
+
         this._curJumpSpeed = this._jumpStep * BLOCK_SIZE/ this._jumpTime;
         this.node.getPosition(this._curPos);
         Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep* BLOCK_SIZE, 0, 0));  
@@ -1329,162 +1321,99 @@ export class PlayerController extends Component {
 GameManager.ts：
 
 ```ts
-import { _decorator, CCInteger, Component, instantiate, Label, Node, Prefab, Vec3 } from 'cc';
-import { BLOCK_SIZE, PlayerController } from './PlayerController';
+import { _decorator, Component, Vec3, EventMouse, input, Input, Animation } from "cc";
 const { ccclass, property } = _decorator;
 
-enum BlockType {
-    BT_NONE,
-    BT_STONE,
-};
+export const BLOCK_SIZE = 40;
 
-enum GameState {
-    GS_INIT,
-    GS_PLAYING,
-    GS_END,
-};
+@ccclass("PlayerController")
+export class PlayerController extends Component {
 
-@ccclass('GameManager')
-export class GameManager extends Component {
+    @property(Animation)
+    BodyAnim:Animation = null;
 
-    @property({ type: Prefab })
-    public boxPrefab: Prefab | null = null;
-    @property({ type: CCInteger })
-    public roadLength: number = 50;
-    private _road: BlockType[] = [];
-
-    @property({ type: Node })
-    public startMenu: Node | null = null;
-    @property({ type: PlayerController })
-    public playerCtrl: PlayerController | null = null;
-    @property({type: Label})
-    public stepsLabel: Label|null = null;
-
-    start() {
-        this.curState = GameState.GS_INIT;
-        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
+    private _startJump: boolean = false;
+    private _jumpStep: number = 0;
+    private _curJumpTime: number = 0;
+    private _jumpTime: number = 0.3;
+    private _curJumpSpeed: number = 0;
+    private _curPos: Vec3 = new Vec3();
+    private _deltaPos: Vec3 = new Vec3(0, 0, 0);
+    private _targetPos: Vec3 = new Vec3();   
+    private _curMoveIndex = 0;
+    start () {
+        //input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     }
 
-    init() {
-        if (this.startMenu) {
-            this.startMenu.active = true;
-        }
-
-        this.generateRoad();
-
-        if (this.playerCtrl) {
-            this.playerCtrl.setInputActive(false);
-            this.playerCtrl.node.setPosition(Vec3.ZERO);
-            this.playerCtrl.reset();
+    setInputActive(active: boolean) {
+        if (active) {
+            input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+        } else {
+            input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
         }
     }
 
-    set curState(value: GameState) {
-        switch (value) {
-            case GameState.GS_INIT:
-                this.init();
-                break;
-            case GameState.GS_PLAYING:
-                if (this.startMenu) {
-                    this.startMenu.active = false;
-                }
+    reset() {
+        this._curMoveIndex = 0;
+    }   
 
-                if (this.stepsLabel) {
-                    this.stepsLabel.string = '0';   // 将步数重置为0
-                }
-
-                setTimeout(() => {      //直接设置active会直接开始监听鼠标事件，做了一下延迟处理
-                    if (this.playerCtrl) {
-                        this.playerCtrl.setInputActive(true);
-                    }
-                }, 0.1);
-                break;
-            case GameState.GS_END:
-                break;
+    onMouseUp(event: EventMouse) {
+        if (event.getButton() === 0) {
+            this.jumpByStep(1);
+        } else if (event.getButton() === 2) {
+            this.jumpByStep(2);
         }
+
     }
 
-    generateRoad() {
+    jumpByStep(step: number) {
+        if (this._startJump) {
+            return;
+        }
+        this._startJump = true;
+        this._jumpStep = step;
+        this._curJumpTime = 0;
 
-        this.node.removeAllChildren();
+        const clipName = step == 1? 'oneStep' : 'twoStep';
+        const state =  this.BodyAnim.getState(clipName);        
+        this._jumpTime =state.duration;
 
-        this._road = [];
-        // startPos
-        this._road.push(BlockType.BT_STONE);
+        this._curJumpSpeed = this._jumpStep * BLOCK_SIZE/ this._jumpTime;
+        this.node.getPosition(this._curPos);
+        Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep* BLOCK_SIZE, 0, 0));  
+        
+        if (this.BodyAnim) {
+            if (step === 1) {
+                this.BodyAnim.play('oneStep');
+            } else if (step === 2) {
+                this.BodyAnim.play('twoStep');
+            }
+        }
 
-        for (let i = 1; i < this.roadLength; i++) {
-            if (this._road[i - 1] === BlockType.BT_NONE) {
-                this._road.push(BlockType.BT_STONE);
+        this._curMoveIndex += step;
+    }
+
+    
+    onOnceJumpEnd() {
+        this.node.emit('JumpEnd', this._curMoveIndex);
+    }
+   
+    update (deltaTime: number) {
+        if (this._startJump) {
+            this._curJumpTime += deltaTime;
+            if (this._curJumpTime > this._jumpTime) {
+                // end
+                this.node.setPosition(this._targetPos);
+                this._startJump = false;   
+                this.onOnceJumpEnd();           
             } else {
-                this._road.push(Math.floor(Math.random() * 2));
-            }
-        }
-
-        let linkedBlocks = 0;
-        for (let j = 0; j < this._road.length; j++) {
-            if (this._road[j]) {
-                ++linkedBlocks;
-            }
-            if (this._road[j] == 0) {
-                if (linkedBlocks > 0) {
-                    this.spawnBlockByCount(j - 1, linkedBlocks);
-                    linkedBlocks = 0;
-                }
-            }
-            if (this._road.length == j + 1) {
-                if (linkedBlocks > 0) {
-                    this.spawnBlockByCount(j, linkedBlocks);
-                    linkedBlocks = 0;
-                }
+                // tween
+                this.node.getPosition(this._curPos);
+                this._deltaPos.x = this._curJumpSpeed * deltaTime;
+                Vec3.add(this._curPos, this._curPos, this._deltaPos);
+                this.node.setPosition(this._curPos);
             }
         }
     }
-
-    spawnBlockByCount(lastPos: number, count: number) {
-        let block: Node | null = this.spawnBlockByType(BlockType.BT_STONE);
-        if (block) {
-            this.node.addChild(block);
-            block?.setScale(count, 1, 1);
-            block?.setPosition((lastPos - (count - 1) * 0.5) * BLOCK_SIZE, 0, 0);
-        }
-    }
-
-    spawnBlockByType(type: BlockType) {
-        if (!this.boxPrefab) {
-            return null;
-        }
-
-        let block: Node | null = null;
-        switch (type) {
-            case BlockType.BT_STONE:
-                block = instantiate(this.boxPrefab);
-                break;
-        }
-
-        return block;
-    }
-
-    onStartButtonClicked() {
-        this.curState = GameState.GS_PLAYING;
-    }
-
-    checkResult(moveIndex: number) {
-        if (moveIndex < this.roadLength) {
-            if (this._road[moveIndex] == BlockType.BT_NONE) {   //跳到了空方块上
-                this.curState = GameState.GS_INIT;
-            }
-        } else {    // 跳过了最大长度
-            this.curState = GameState.GS_INIT;
-        }
-    }
-
-    onPlayerJumpEnd(moveIndex: number) {
-        if (this.stepsLabel) {
-            this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
-        }
-        this.checkResult(moveIndex);
-    }
-
 }
-
 ```
