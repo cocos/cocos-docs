@@ -124,7 +124,7 @@
             - [WeChat Engine Plugin](editor/publish/wechatgame-plugin.md)
             - [Access to the WeChat PC Mini Game](editor/publish/publish-pc-wechatgame.md)
         - [Access to Open Data Context](editor/publish/build-open-data-context.md)
-        - [Mini Game Subpackage](editor/publish/subpackage.md)        
+        - [Mini Game Subpackage](editor/publish/subpackage.md)
     - [Publish from the Command Line](editor/publish/publish-in-command-line.md)
     - [Build Process with FAQ](editor/publish/build-guide.md)
     - [Custom Project Build Process](editor/publish/custom-project-build-template.md)
@@ -194,7 +194,6 @@
     - [Skybox](concepts/scene/skybox.md)
     - [Global Fog](concepts/scene/fog.md)
     - [Geometry Renderer](geometry-renderer/index.md)
-    
 
 - [2D Objects](2d-object/index.md)
     - [2D Render](2d-object/2d-render/index.md)
