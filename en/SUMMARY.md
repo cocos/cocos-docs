@@ -187,12 +187,14 @@
         - [Custom effect](shader/write-effect-overview.md)
             - [3D Effect：RimLight](shader/write-effect-3d-rim-light.md)
             - [2D Sprite effect：Gradient](shader/write-effect-2d-sprite-gradient.md)
+    - [Sorting](engine/rendering/sorting.md)
     - [Effects](module-map/effects/index.md)
         - [Billboard](particle-system/billboard-component.md)
         - [Line](particle-system/line-component.md)
     - [Skybox](concepts/scene/skybox.md)
     - [Global Fog](concepts/scene/fog.md)
     - [Geometry Renderer](geometry-renderer/index.md)
+    
 
 - [2D Objects](2d-object/index.md)
     - [2D Render](2d-object/2d-render/index.md)
