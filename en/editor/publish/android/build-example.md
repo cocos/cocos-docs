@@ -265,7 +265,6 @@ The engine provides [Simplify the use of JavaScript to call Java methods](../../
 
     To send messages to TypeScript, use `JsbBridge.sendToScript`.
 
-- To communicate with JAVA in Typescript, please add a new component with the code provided as follows and attach it to any node in your start scene
 - To establish communication between Typescript and JAVA, you can add a new component and attach it to any node in your start scene. Use the following provided code for the component.
 
     ```ts
