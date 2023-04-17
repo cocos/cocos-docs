@@ -6,9 +6,9 @@
 
 #### 属性
 
-构建通用属性可以参考：[构建选项介绍](https://docs.cocos.com/creator/manual/zh/editor/publish/build-panel.html)。
+构建通用属性可以参考：[构建选项介绍](../../editor/publish/build-panel.md)。
 
-目前支持的 VR 设备都采用了安卓系统，开发者需搭建对应的开发环境，详情可参考 [安装配置原生开发环境](https://docs.cocos.com/creator/manual/zh/editor/publish/setup-native-development.html)。
+目前支持的 VR 设备都采用了安卓系统，开发者需搭建对应的开发环境，详情可参考 [安装配置原生开发环境](../../editor/publish/setup-native-development.md)。
 
 #### 构建
 
