@@ -6,15 +6,15 @@
 
 在 xr-plugin 的资源库中找到 XR Simulator，将其拖拽至场景中。
 
-<img src="assets/xr_web_simulator_prefab.png" alt="xr_web_simulator_prefab" style="zoom:50%;" />
+<img src="preview/xr_web_simulator_prefab.png" alt="xr_web_simulator_prefab" style="zoom:50%;" />
 
 在编辑器的预览选项中选择浏览器预览，并点击运行。
 
-![preview_in_browser](assets/preview_in_browser.png)
+![preview_in_browser](preview/preview_in_browser.png)
 
 运行后即可在浏览器中进行模拟预览。
 
-![effect_of_preview_in_browser](assets/effect_of_preview_in_browser.png)
+![effect_of_preview_in_browser](preview/effect_of_preview_in_browser.png)
 
 键盘 WASD 来控制角色整体（HMD + 手柄）进行前左后右移动，QE 控制整体上升和下降。
 
