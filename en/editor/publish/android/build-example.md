@@ -8,7 +8,7 @@ Please prepare a Cocos Creator project with at least one scene.
 
 ## Publish Workflow
 
-### Configure the Android development Environment
+### Configure the Android Development Environment
 
 - Download Android Studio
 
@@ -22,16 +22,16 @@ Please prepare a Cocos Creator project with at least one scene.
 
             ![terminal.png](images/terminal.png)
 
-            > Please refer to [How do I set or change the PATH system variable?](https://www.java.com/en/download/help/path.html) to set up your own environment<br>
+            > Please refer to [How do I set or change the PATH system variable?](https://www.java.com/en/download/help/path.html) to set up your environment<br>
             >
-            > **Note**：The author utilizes [OpenJDK](https://openjdk.org/), which has similar features as the JDK but follow anther open-source protocol.
+            > **Note**：The author utilizes [OpenJDK](https://openjdk.org/), which has similar features as the JDK but follows another open-source protocol.
 
     - Download and install the Android SDK
-        - Here is an example how to download Android SDK through Android Studio
+        - Here is an example of how to download Android SDK through Android Studio
 
             - Start Android Studio
 
-            - Open Settings/Preferences panel from the main menu
+            - Open the Settings/Preferences panel from the main menu
 
                 ![as-setting.png](images/as-setting.png)
 
@@ -41,7 +41,7 @@ Please prepare a Cocos Creator project with at least one scene.
 
                 ![download-sdk.png](images/download-sdk.png)
 
-            - Select at lease one suitable SDK to download. You can choose the recommended version mentioned in [Downloading the SDK and NDK required to publish to the Android platform](../setup-native-development.md#Downloading%20the20SDK20and20NDK20required20to20publish20to20the%20Android%20platform).
+            - Select at least one suitable SDK to download. You can choose the recommended version mentioned in [Downloading the SDK and NDK required to publish to the Android platform](../setup-native-development.md#Downloading%20the20SDK20and20NDK20required20to20publish20to20the%20Android%20platform).
 
                 - As an example, we will be using Android 11.0 (R). Check the box next to the name and then click either the OK or Apply button to proceed
 
@@ -67,13 +67,13 @@ Please prepare a Cocos Creator project with at least one scene.
 
                 - Auto-detect proxy settings：
 
-                    In the Settings panel of Android Studio, navigate to the HTTP Proxy and select the **Auto-detect proxy settings** option, and then input the mirror links blow.
+                    In the Settings panel of Android Studio, navigate to the HTTP Proxy and select the **Auto-detect proxy settings** option, and then input the mirror links below.
 
                     ![http-proxy.png](images/http-proxy.png)
 
             - Optional mirrors：
 
-                Here are some alternative mirrors for the Android SDK and Gradle than can help developers resolve download issues when downloading failed from the official website. However, if  these mirrors dot not work, you may need to search for other mirrors.
+                Here are some alternative mirrors for the Android SDK and Gradle that can help developers resolve download issues when downloading failed from the official website. However, if these mirrors do not work, you may need to search for other mirrors.
 
                 | Mirror   | Address                                                |
                 | :------- | :----------------------------------------------------- |
@@ -122,7 +122,7 @@ The path should be like follows:
 
 ### Publish
 
-The next step is to create a new build task and publish an Android APK on **Build** panel in Cocos Creator.
+The next step is to create a new build task and publish an Android APK on the **Build** panel in Cocos Creator.
 
 - Create Build Task
 
@@ -162,11 +162,11 @@ The next step is to create a new build task and publish an Android APK on **Buil
 
 - Build
 
-    - To begin a build process, clicking on the **Build** button for the selected build task.
+    - To begin a build process, click on the **Build** button for the selected build task.
 
         ![build.png](images/build.png)
 
-    - Please wait util the build process finished
+    - Please wait until the build process finished
 
         ![building.png](images/building.png)
 
@@ -176,7 +176,7 @@ The next step is to create a new build task and publish an Android APK on **Buil
 
           ![open](images/open.png)
 
-        - Locate corresponding directory
+        - Locate the corresponding directory
 
           ![find-proj](images/find-proj.png)
 
@@ -192,7 +192,7 @@ The next step is to create a new build task and publish an Android APK on **Buil
 
         After the preparation has been completed by Android Studio, you can start building an Android APK. However, the sync process may take a long time to complete. If this happens, you can stop any ongoing background tasks by following the steps below:
 
-        > Click on the background task on status bar:
+        > Click on the background task on the status bar:
         > ![background-task.png](./images/background-task.png) <br>
         > Close all background tasks by clicking on the close button
         > ![interrupt-sync.png](images/interrupt-sync.png)
@@ -207,13 +207,13 @@ The next step is to create a new build task and publish an Android APK on **Buil
 
     - To build a release APK, you need to uncheck the **Use Debug Keystore** in your build task settings in Cocos Creator
 
-        > Usually, you need to create a new build task to publish release version.
+        > Usually, you need to create a new build task to publish the release version.
 
         ![debug-keystone.png](images/debug-keystone.png)
 
         In case there is no valid keystore, You can generate a new one using JAVA or Android Studio.
 
-        Here is an example to create a new keystone via Android Studio menu.
+        Here is an example to create a new keystone via the Android Studio menu.
 
         - Select Generate Signed Bundle / APK：
 
@@ -231,7 +231,7 @@ The next step is to create a new build task and publish an Android APK on **Buil
 
 ### Import Third-party Libraries
 
-Please refer to [Use your library in other projects](https://developer.android.com/studio/projects/android-library#psd-add-library-dependency) to add third-party libraries that required by the application marketplace if you intend to distribute your app to the market.
+Please refer to [Use your library in other projects](https://developer.android.com/studio/projects/android-library#psd-add-library-dependency) to add third-party libraries that are required by the application marketplace if you intend to distribute your app to the market.
 
 ### Communication between JAVA and TypeScript
 
@@ -303,7 +303,7 @@ The engine provides [Simplify the use of JavaScript to call Java methods](../../
     ![java-ts.png](images/java-ts.png)
 
     > **Note**:
-    > 1. Use the **NATIVE** macro to control access permissions. Only the native application can access there methods.
+    > 1. Use the **NATIVE** macro to control access permissions. Only the native application can access these methods.
     > 2. It's necessary to wait for the engine initialization to be completed before calling `JsbBridge.sendToScript` to send messages to JAVA.
     > 3. One can only transfer strings through this method, for complex data, it is recommended to encode them in JSON format before transmission.
 
@@ -315,15 +315,15 @@ Please refer to [Extending Build Process](../custom-build-plugin.md) to extend t
 
 ## Q&A
 
-- Q：How to debug publishing errors
-    - A：You can debug publishing errors by opening the log.txt file using the log button
+- Q： How to debug publishing errors
+    - A： You can debug publishing errors by opening the log.txt file using the log button
 
         ![show-log.png](images/show-log.png)
 
-- Q：Missing LIB_EGL
-    - A：Change you NDK to the version mentioned above.
+- Q： Missing LIB_EGL
+    - A： Change your NDK to the version mentioned above.
 
-- Q：Asset name mechanism
-    - A：Since Android is based on Linux, some file specifications of Linux still apply in Android, such as
-        - 1. Android is case-sensitive, make sure the path is case-sensitive, otherwise it will not load correctly
+- Q： Asset name mechanism
+    - A： Since Android is based on Linux, some file specifications of Linux still apply in Android, such as
+        - 1. Android is case-sensitive, make sure the path is case-sensitive, otherwise, it will not load correctly
         - 2. Do not include spaces in the folder or file name
