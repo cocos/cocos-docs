@@ -10,4 +10,4 @@ ARCore：
 
 AREngine：
 
-请参考华为官方：[业务介绍-AR Engine | 华为开发者联盟 (huawei.com)](https://developer.huawei.com/consumer/cn/doc/development/graphics-Guides/introduction-0000001050130900)。
+请参考华为官方：[业务介绍 AR Engine | 华为开发者联盟 (huawei.com)](https://developer.huawei.com/consumer/cn/doc/development/graphics-Guides/introduction-0000001050130900)。
