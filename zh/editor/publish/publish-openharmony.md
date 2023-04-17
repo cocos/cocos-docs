@@ -2,7 +2,7 @@
 
 ## 前言
 
-我们在 Cocos Creator 3.8 的基础上成功适配了 OpenHarmony 在 4 月 9 日发布的 [3.2 Release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md) 分支。
+我们在 Cocos Creator 3.8.0 的基础上成功适配了 在 4 月 9 日发布的 [OpenHarmony 3.2 Release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md) 分支。
 
 鹰击长空：[GitHub - cocos/cocos-tutorial-airplane: video tutorial airplane](https://github.com/cocos/cocos-tutorial-airplane)
 
@@ -14,9 +14,9 @@
 
 ## 准备工作
 
-1. 下载 Cocos Creator 3.8.0-alpha 传送门：[Cocos Creator 3.8.0-alpha](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
+1. Cocos Creator 3.8.0-alpha 下载传送门：[Cocos Creator 3.8.0-alpha](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
 
-2.  下载 OpenHarmany系统与SDK 传送门：
+2.  OpenHarmany系统与SDK 下载传送门：
 ```
 https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md#%E4%BB%8E%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9%E8%8E%B7%E5%8F%96
 ```
@@ -28,7 +28,7 @@ http://ci.openharmony.cn/dailys/dailybuilds
 ![](./publish-openharmony/document_image_rld_n0.png)
 
 
-1. 下载最新的IDE（版本\>=3.1 beta2）：[DevEco Studio](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md#%E9%85%8D%E5%A5%97%E5%85%B3%E7%B3%BB)
+1. 下载最新的IDE（版本\>=3.1 beta1）：[DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download)
 ![](./publish-openharmony/document_image_rId3.png)
 
 2. 系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows) 烧录工具与 [使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
