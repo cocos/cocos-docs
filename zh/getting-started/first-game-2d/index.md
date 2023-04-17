@@ -555,7 +555,7 @@ const state = this.BodyAnim.getState(oneStep);
 this._jumpTime = state.duration;
 ```
 
-twoStep 动画和上文代码类似，最终的 `` 方法如下所示：
+twoStep 动画和上文代码类似，最终的 `jumpByStep` 方法如下所示：
 
 ```ts
 jumpByStep(step: number) {
