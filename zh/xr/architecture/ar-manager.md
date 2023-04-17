@@ -40,7 +40,7 @@ Max Tracking Number 表示当前镜头内可同时追踪图片的最大数量，
 
 Unsupported Event 会在设备不支持图像追踪时触发，用户可以根据需求添加事件。
 
-## **网格化特性（实验性）**
+## 网格化特性（实验性）
 
 当您在场景中创建一个或多个 Meshing 节点，AR Manager 中的 Configuration 会新增 Meshing Feature 属性。由于 Meshing 功能处于实验性阶段且支持环境重构的设备硬件要求较高，暂不支持对此做特性做参数控制。
 
