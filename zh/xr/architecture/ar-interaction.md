@@ -4,15 +4,15 @@ AR 交互主要由 cc.ScreenTouchInteractor 组件驱动，该组件将触摸事
 
 ## 手势交互
 
-AR 手势交互器组件将屏幕触摸转换为手势。Cocos Creator 的输入系统将手势信号传递给交互物，然后交互物响应手势事件发生变换行为。交互物能发生交互行为的前提是必须绑定**cc.Selectable** 组件，关于此组件的属性描述详见交互组件 [Selectable](component.md#Selectable)。
+AR 手势交互器组件将屏幕触摸转换为手势。Cocos Creator 的输入系统将手势信号传递给交互物，然后交互物响应手势事件发生变换行为。交互物能发生交互行为的前提是必须绑定  **cc.Selectable** 组件，关于此组件的属性描述详见交互组件 [Selectable](component.md#Selectable)。
 
-想要使用屏幕手势交互器，在层级管理器中右键创建 **XR > Screen Touch Interactor** 。
+想要使用屏幕手势交互器，在层级管理器中右键创建 **XR -> Screen Touch Interactor** 。
 
 <img src="ar-interaction/screen-touch-interactor-node.png" alt="screen-touch-interactor-node" style="zoom:50%;" />
 
 随意创建一个 3D 物体（以 Cube 为例）。
 
-修改 Cube 的 Scale 属性为（0.1，0.1，0.1）既实际大小为 1000cm³ ，修改 Position 属性为（0，-0.1，-0.5）即位于空间远点处 50cm 远且靠下10cm的位置，并添加组件 **XR > Interaction > Selectable**。
+修改 Cube 的 Scale 属性为（0.1，0.1，0.1）既实际大小为 1000cm³ ，修改 Position 属性为（0，-0.1，-0.5）即位于空间远点处 50cm 远且靠下10cm的位置，并添加组件 **XR > Interaction -> Selectable**。
 
 ![create-3d-obj](ar-interaction/create-3d-obj.png)
 
@@ -52,7 +52,7 @@ AR 手势交互器组件将屏幕触摸转换为手势。Cocos Creator 的输入
 
 以上述场景中制作的 Selectable 对象为例，以下对其赋予被放置交互能力。
 
-选中场景中的 Cube 对象，为其添加组件 **XR > Interaction > Placeable**。
+选中场景中的 Cube 对象，为其添加组件 **XR -> Interaction -> Placeable**。
 
 ![add-placeable](ar-interaction/add-placeable.png)
 
