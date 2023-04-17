@@ -584,7 +584,7 @@ jumpByStep(step: number) {
 }
 ```
 
-> 这里使用到了三元表达式 `condition ? A:B` 相当于条件满足时 调用 A 反之调用 B
+> 这里使用到了三元表达式 `condition ? A:B` 相当于条件满足时调用 A 反之调用 B
 
 ![jumptime-with-duration.gif](images/jumptime-with-duration.gif)
 
