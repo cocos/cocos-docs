@@ -12,4 +12,4 @@ Cocos CreatorXR 支持用户使用以下几种方式快速创建 VR 项目。
 
 ![deploy-by-example](vr-proj-deploy/deploy-by-example.png)
 
-基于空项目或已有项目添加 XR 扩展：在 Dashboard 中的商场页面搜索 xr-plugin 下载安装并应用至项目或在 Cocos Creator 中的 扩展 -> 商城 中下载安装扩展至项目（不推荐安装到全局），扩展下载与安装请参考 [Cocos Creator扩展与安装教程 ](../../editor/extension/install)。
+基于空项目或已有项目添加 XR 扩展：在 Dashboard 中的商场页面搜索 xr-plugin 下载安装并应用至项目或在 Cocos Creator 中的 **扩展** -> **商城** 中下载安装扩展至项目（不推荐安装到全局），扩展下载与安装请参考 [Cocos Creator扩展与安装教程](../../../editor/extension/install)。
