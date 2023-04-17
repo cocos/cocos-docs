@@ -1,18 +1,16 @@
 # XR组件
 
-Cocos CreatorXR 通过组件的组合封装为实体赋能，实体根据其不同特性又被不同的功能系统所管理。所以编辑器中所有XR相关的功能底层都是由封装好的特殊 XR 组件驱动的。
+Cocos CreatorXR 通过组件的组合封装为实体赋能，实体根据其不同特性又被不同的功能系统所管理。所以编辑器中所有 XR 相关的功能底层都是由封装好的特殊 XR 组件驱动的。
 
 Cocos CreatorXR 的功能组件主要由 5 部分构成：
 
-- [**设备映射**](#设备映射组件)
-- [**交互组件**]()
-- [**交互限制组件**]()
-- [**虚拟移动组件**]()
-- [**XR UI**]()
+- [设备映射](#设备映射)
+- [交互组件](#交互组件)
+- [交互限制组件](#交互限制组件)
+- [虚拟移动组件](#虚拟移动组件)
+- [XR UI](#XR UI)
 
-开启了 xr-plugin 扩展之后，想要给场景中的对象添加 XR 相关的功能组件可以在 **属性检查器** 中点击 **添加组件 **按钮，在出现的组件列表中找到 **XR** 分类，选择 XR 分类下的想要添加的 XR 组件类别再找到类别下的对应组件即可。
-
-
+开启了 xr-plugin 扩展之后，想要给场景中的对象添加 XR 相关的功能组件可以在 **属性检查器** 中点击 **添加组件 **按钮，在出现的组件列表中找到 **XR** 分类，选择 XR 分类下的想要添加的 XR 组件类别再找到类别下的对应组件即可。z
 
 ## 设备映射组件
 
@@ -20,7 +18,7 @@ Cocos CreatorXR 的功能组件主要由 5 部分构成：
 
 主要包括以下组件：
 
-### **TrackingOrigin**
+### TrackingOrigin
 
 追踪原点代理组件。
 
@@ -29,12 +27,12 @@ Cocos CreatorXR 的功能组件主要由 5 部分构成：
 | 属性                 | 说明                                                         |
 | -------------------- | ------------------------------------------------------------ |
 | Offset Object        | 指定需要竖直偏移的对象，如果选择的对象还有子对象，则偏移的效果是选中对象及其所有子对象进行纵向偏移。 |
-| Tracking Origin Mode | 追踪的偏移方式。选择 Unbond 和 Device 时，下方出现 YOffsetValue，可手动输入数据；选择 Floor 时YoffsetValue 隐藏。如果选择为 Floor，且设备开启了安全边界，则以设备离地面高度作为当前视角高度（暂时只支持 quest2 ）；如果选择为Device，则偏移的高度为输入的高度。 |
-| YOffset Value        | 设备数值偏移量。手动输入偏移的值，米为单位，默认为1.36144m。如果为固定值，则OffsetObject选中的对象Transform属性的Y值为当前填入的值。 |
+| Tracking Origin Mode | 追踪的偏移方式。选择 Unbond 和 Device 时，下方出现 YOffsetValue，可手动输入数据；选择 Floor 时 YoffsetValue 隐藏。如果选择为 Floor，且设备开启了安全边界，则以设备离地面高度作为当前视角高度（暂时只支持 quest2）；如果选择为 Device，则偏移的高度为输入的高度。 |
+| YOffset Value        | 设备数值偏移量。手动输入偏移的值，米为单位，默认为 1.36144m。如果为固定值，则 OffsetObject 选中的对象 Transform 属性的 Y 值为当前填入的值。 |
 
-### **HMDCtrl**
+### HMDCtrl
 
-HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具备双目立体绘图能力的XR眼镜设备都属于HMD的大范畴，因此此组件定义了XR眼镜的图像渲染输出相关参数。
+HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具备双目立体绘图能力的 XR 眼镜设备都属于 HMD 的大范畴，因此此组件定义了 XR 眼镜的图像渲染输出相关参数。
 
 <img src="component/hmd.png" alt="hmd" style="zoom: 55%;" />
 
@@ -43,7 +41,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | Per Eye Camera | 开启单眼显示功能；勾选 PerEyeCamera 后下方出现 Sync With Main Camera 选项；XR HMD 下的两个子节点 LeftEye 和 RightEye 由隐藏变为显示 |
 | IPDOffset      | 调整瞳间距。下拉列表中选择 Manual 时下方出现 OffsetValue 输入框；在 PerEyeCamera 开启的情况下，调整 Manual 的参数可让 LeftEye 和 RightEye 的 TransForm 属性 X 值变化（变化的值为 ±IPDOffset/2） |
 
-### **PoseTracker**
+### PoseTracker
 
 位姿追踪组件。
 
@@ -54,7 +52,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | Tracking Source | 选择需要追踪的设备源                                         |
 | Tracking Type   | 追踪模式。选择 POSITION_AND_ROTATION 时追踪设备的平移 + 旋转；选择 POSITION 时只追踪平移的量；选择 ROTATION 时只追踪旋转的量。 |
 
-### **TargetEye**
+### TargetEye
 
 指定接受渲染相机的组件。
 
@@ -64,7 +62,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | ---------- | ------------------------------------------------------------ |
 | Target Eye | 指定渲染的目镜。Both 为左右眼都显示，left 为左眼，right 为右眼。 |
 
-### **XRController**
+### XRController
 
 控制器抽象组件。
 
@@ -79,7 +77,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | AxisToPressThreshold | 行为触发时的阈值                         |
 | Model                | 用于指定手柄的模型对象。                 |
 
-### **ARCameraMgr**
+### ARCameraMgr
 
 移动端手持设备摄像头AR属性
 
@@ -88,13 +86,11 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | Auto Focus               | 开启或关闭相机自动对焦功能。关闭时，使用固定对焦模式。自动对焦功能是否可用取决于设备相机。 |
 | Light Estimate（实验性） | 开启后，运行时估计环境光各项属性并实时调整场景光照，让虚拟物体具有与真实场景相同的光照效果（光照一致性）。 |
 
-
-
 ## 交互组件
 
 一次交互操作需要有两种对象协调完成：交互主体和被交互物，对应的交互组件由此也分为两类：Interactor（交互器）和 Interactable（可交互对象）。
 
-### **RayInteractor**
+### RayInteractor
 
 射线交互器组件。
 
@@ -120,9 +116,9 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | RaycastMask              | 只能和此 Layer 类型的交互物发生交互。                        |
 | SelectActionTrigger      | Select 行为触发机制，详情见交互功能介绍。                    |
 
-注：抛物线和贝塞尔曲线的功能需要扩展版本**>=v1.1.0**，编辑器版本**>=3.7.1**。
+> **注意**：抛物线和贝塞尔曲线的功能需要扩展版本 **>= v1.1.0**，编辑器版本 **>= 3.7.1**。
 
-### **DirectInteractor**
+### DirectInteractor
 
 直接交互器组件。
 
@@ -135,7 +131,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 
 ### XRGazeInteractor
 
-凝视交互器
+凝视交互器，如果没有手柄或者其他控制器的话，可以用 HMD 的中心点凝视交互物（UI），凝视一段时间后出发交互行为。
 
 <img src="component/xr_gaze_interactor.png" alt="xr_gaze_interactor" style="zoom: 67%;" />
 
@@ -147,7 +143,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | Gaze Timer Duration     | 凝视交互触发时间（单位秒）   |
 | Gaze Reticle Outer Ring | 凝视点外环UI                 |
 
-注：凝视交互器功能需要扩展版本**>=v1.1.0**，编辑器版本**>=3.7.1**。
+> **注意**：凝视交互器功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。
 
 ### **ScreenTouchInteractor**
 
@@ -175,9 +171,9 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | Calculation Mode    | 当将物体放置在AR表面时，用于计算命中点位置的方法。           |                                      |
 | Placement Prefab    | 引用挂载Placeable组件的预置体                                |                                      |
 
-注：屏幕手势交互器功能需要扩展版本**>=v1.1.0**，编辑器版本**>=3.7.1**。
+> **注意**：屏幕手势交互器功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。
 
-### **GrabInteractable**
+### GrabInteractable
 
 可抓取交互对象组件。
 
@@ -197,7 +193,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | ThrowVelocityScale        | 初速度的权重系数。权重越大，抛物瞬时速度所乘的系数也越大，在继承或者加权计算出的初速度基础上乘以一个系数 |
 | ThrowAngularVelocityScale | 初角速度的权重系数。权重越大，抛物瞬时角速度所乘的系数也越大，在继承或者加权计算出的初始角速度基础上乘以一个系数 |
 
-### **Teleportable**
+### Teleportable
 
 可传送对象组件。
 
@@ -211,7 +207,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | TeleportTrigger      | 触发传送行为的事件：OnSelectExited 表示 Select 行为结束的时刻（按钮抬起）执行传送；OnSelectEntered 表示Select触发的时刻（按钮按下） |
 | Teleporter           | 指定需要被传送的主体（一般为XR Agent），主体需挂载 Teleporter |
 
-### **Selectable**
+### Selectable
 
 挂载此组件的对象可以被选中，且可以在选中状态下发生位移、旋转或放缩行为。
 
@@ -223,9 +219,9 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | Selection Events       | 选择行为的回调，它将在特定事件发生时被触发。 |
 | Selected Visualization | 对象被选中时将激活的可视化效果。             |
 
-注：选择交互功能需要扩展版本**>=v1.1.0**，编辑器版本**>=3.7.1**。
+> **注意**：选择交互功能需要扩展版本**>=v1.1.0**，编辑器版本**>=3.7.1**。
 
-### **Placeable**
+### Placeable
 
 挂载此组件的对象可以使用某种方式放置于空间、AR Plane或AR Mesh上。
 
@@ -237,13 +233,13 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | Placement Offset         | 偏移由交互器放置的预制件的位置。             |
 | Placement Events         | 放置行为的回调，它将在特定事件发生时被触发。 |
 
-注：放置交互功能需要扩展版本**>=v1.1.0**，编辑器版本**>=3.7.1**。
+> **注意**：放置交互功能需要扩展版本**>=v1.1.0**，编辑器版本**>=3.7.1**。
 
-### **事件**
+### 事件
 
 在项目开发过程中用户会遇到很多依赖于 XR 组件的信号来触发的逻辑。为了方便用户专注于逻辑开发而不用关心两者之间的通知关系，Cocos CreatorXR 基于传统的事件系统在一部分常被事件依赖的交互组件中封装好了一部分事件信号，用户只需要在特定的信号上绑定一系列想要触发的对象和方法即可。
 
-#### **事件信号**
+#### 事件信号
 
 事件信号分为以下三种：
 
@@ -266,7 +262,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 
 这些事件信号，可以在下列组件中选择，用于处理特定情形下的输入状态。
 
-#### **交互事件组件**
+#### 交互事件组件
 
 交互组件分为：
 
@@ -324,13 +320,11 @@ Duration：持续的时长
 
 ![interactable_events](component/interactable_events.png)
 
-
-
 ## 交互限制组件
 
-对于挂载了Selectable组件的交互物，可以使用交互限制组件限制他的交互效果。
+对于挂载了 Selectable 组件的交互物，可以使用交互限制组件限制他的交互效果。
 
-### **MinMaxScaleConstrain**
+### MinMaxScaleConstrain
 
 <img src="component/min_max_scale_constrain.png" alt="min_max_scale_constrain" style="zoom:50%;" />
 
@@ -339,7 +333,7 @@ Duration：持续的时长
 | Min Scale | 可被缩小的最小尺寸比例。 |
 | Max Scale | 可被放大的最大尺寸比例。 |
 
-### **RotationAxisConstrain**
+### RotationAxisConstrain
 
 <img src="component/rotate_axis_constrain.png" alt="rotate_axis_constrain" style="zoom:50%;" />
 
@@ -348,13 +342,11 @@ Duration：持续的时长
 | Axis Flag       | 限制交互物只能按所选旋转轴进行旋转。屏幕交互器最多只能控制双轴(x,y)旋转。 |
 | Use Local Space | 是否按本地坐标轴进行旋转。默认关闭，以世界坐标轴做旋转。     |
 
-
-
 ## 虚拟移动组件
 
 在绝大多数的 VR 项目中，用户会用第一人称的角色视角在虚拟场景中进行移动。这种移动行为一般不会依赖于用户在真实空间的移动反馈，因为位姿的追踪会受到现实世界物理空间的限制。因此我们需要一种类似传统 3D 游戏中那种利用接受控制器输入信号的方式来驱动移动行为的组件，称之为虚拟移动组件（Locomotion Component）。
 
-### **LocomotionChecker**
+### LocomotionChecker
 
 运动检查器。
 
@@ -364,7 +356,7 @@ Duration：持续的时长
 | -------- | ------------------------------------------------------------ |
 | XR Agent | 指定需要进行运动的XR Agent（或其他对象）。添加该组件时，默认绑定遍历当前场景得到的第一个挂载了TrackingOrigin的节点，通常是XR Agent；用户也可以自行指定需要进行locomotion操作的对象 |
 
-### **Teleporter**
+### Teleporter
 
 传送驱动组件。
 
@@ -374,7 +366,7 @@ Duration：持续的时长
 | ------- | ------------------------------------------------------------ |
 | Checker | 添加该组件时，默认绑定遍历当前场景得到的第一个挂载Locomotion Checker组件的节点 用户也可以自己拖入需要指定的Locomotion Checker |
 
-### **SharpTurner**
+### SharpTurner
 
 瞬间转向驱动。
 
@@ -388,7 +380,7 @@ Duration：持续的时长
 | EnableTurnAround  | 开启后按下摇杆允许旋转180°（点击摇杆的按钮）                 |
 | ActivationTimeout | 执行连续的转弯时需要等待的时间                               |
 
-### **ContinuousTurner**
+### ContinuousTurner
 
 连续转弯驱动。
 
@@ -401,7 +393,7 @@ Duration：持续的时长
 | InputControl | 绑定接受输入的摇杆                                           |
 | TurnSpeed    | 转动的角速度                                                 |
 
-#### **ContinuousMover**
+#### ContinuousMover
 
 平移运动驱动。
 
@@ -409,13 +401,11 @@ Duration：持续的时长
 
 | 属性          | 说明                                                         |
 | ------------- | ------------------------------------------------------------ |
-| Checker       | 添加该组件时，默认绑定遍历当前场景得到的第一个挂载Locomotion Checker组件的节点 用户也可以自己拖入需要指定的Locomotion Checker |
-| InputDevice   | 绑定挂载了XRController的控制器对象                           |
+| Checker       | 添加该组件时，默认绑定遍历当前场景得到的第一个挂载 Locomotion Checker 组件的节点 用户也可以自己拖入需要指定的 Locomotion Checker |
+| InputDevice   | 绑定挂载了 XRController 的控制器对象                           |
 | InputControl  | 绑定接受输入的摇杆                                           |
 | MoveSpeed     | 移动速度                                                     |
 | ForwardSource | 选择一个物体，用该物体节点的朝向作为移动的正方向             |
-
-
 
 ## XR UI
 
@@ -423,7 +413,7 @@ Duration：持续的时长
 
 XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D 对象概述。
 
-### **新建 UI**
+### 新建 UI
 
 在 **层级管理器 -> 创建 -> XR -> XRUI** 可以添加 XRUI。
 
@@ -433,9 +423,9 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D
 
 ![xrui_comp](component/xrui_comp.png)
 
-注意：对于 3D 空间上的 UI，其根节点上需要 RenderRoot2D 组件 才可以正常渲染。
+注意：对于 3D 空间上的 UI，其根节点上需要 RenderRoot2D 组件才可以正常渲染。
 
-#### **存量 UI 转换**
+#### 存量 UI 转换
 
 如 UI 已制作完成，也参考下面的步骤将原本的 2D Canvas 下的 UI，转化为 XR 的 UI。
 
@@ -445,7 +435,7 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D
 
 ![add_renderroot](component/add_renderroot.png)
 
-将原有的2D UI控件分离出Canvas，移动至UIRoot层级下。修改 Button 位置和 Layer 属性。同时将 Button 及其子节点的 Layer 属性，都修改为和 Camera 的 Layer 属性一致（此处均为DEFAULT）。
+将原有的 2D UI 控件分离出 Canvas，移动至 UIRoot 层级下。修改 Button 位置和 Layer 属性。同时将 Button 及其子节点的 Layer 属性，都修改为和 Camera 的 Layer 属性一致（此处均为DEFAULT）。
 
 ![change_layer](component/change_layer.gif)
 
@@ -469,25 +459,25 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D
 
 ##### 方法二：
 
-**V1.1.0**版本新增一键转换为XR UI功能。
+**v1.1.0** 版本新增一键转换为 XR UI 功能。
 
-在场景下右键传统2DUI，菜单中会出现2DUI转为XRUI选项
+在场景下右键传统 2DUI，菜单中会出现 2DUI 转为 XRUI 选项
 
 ![convert_2d_to_3d](component/convert_2d_to_3d.png)
 
-转换成功后UI节点会自动添加以下三个组件，并可以调节其cc.Node中的空间属性。
+转换成功后UI节点会自动添加以下三个组件，并可以调节其 cc.Node 中的空间属性。
 
 ![auto_add_comp](component/auto_add_comp.png)
 
-注：已经为XRUI的UI不能出现转为XRUI
+> **注意**：已经为 XRUI 的 UI 不能出现转为 XRUI
 
-### **虚拟键盘（XR Keyborad）**
+### 虚拟键盘（XR Keyborad）
 
 添加一个 EditBox 的 XR UI，同时给 EditBox 添加一个子节点，命名为 KeyboardRoot （命名随意），同时调整 KeyboardRoot 的位置信息（根据需求进行调整即可，可将 XR Keyboard 临时放在节点下进行调整）。
 
 ![xr_keyboard_root](component/xr_keyboard_root.png)
 
-创建XR Keyboard对象：在资源管理器中点击 xr-plugin-> xr -> res -> default_prefab，选择 XR Keyboard拖拽至场景中。
+创建XR Keyboard对象：在资源管理器中点击 xr-plugin-> xr -> res -> default_prefab，选择 XR Keyboard 拖拽至场景中。
 
 ![xr_keyboard_prefab](component/xr_keyboard_prefab.png)
 
@@ -497,9 +487,9 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D
 
 ![bind_suspend](component/bind_suspend.png)
 
-### **射线材质**
+### 射线材质
 
-使用射线与 XR UI 进行交互时，需要给射线绑定材质 xr-default-line-material。位置在 资源管理器->xr-plugin -> xr -> res -> default_materials。
+使用射线与 XR UI 进行交互时，需要给射线绑定材质 xr-default-line-material。位置在 **资源管理器 -> xr-plugin -> xr -> res -> default_materials**。
 
 ![xr_line_material](component/xr_line_material.png)
 
