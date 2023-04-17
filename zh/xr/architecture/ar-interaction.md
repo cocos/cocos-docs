@@ -6,7 +6,7 @@ AR 交互主要由 cc.ScreenTouchInteractor 组件驱动，该组件将触摸事
 
 AR 手势交互器组件将屏幕触摸转换为手势。Cocos Creator 的输入系统将手势信号传递给交互物，然后交互物响应手势事件发生变换行为。交互物能发生交互行为的前提是必须绑定  **cc.Selectable** 组件，关于此组件的属性描述详见交互组件 [Selectable](component.md#Selectable)。
 
-想要使用屏幕手势交互器，在层级管理器中右键创建 **XR -> Screen Touch Interactor** 。
+想要使用 **屏幕手势交互器**，在层级管理器中右键创建 **XR -> Screen Touch Interactor** 。
 
 <img src="ar-interaction/screen-touch-interactor-node.png" alt="screen-touch-interactor-node" style="zoom:50%;" />
 
@@ -48,7 +48,7 @@ AR 手势交互器组件将屏幕触摸转换为手势。Cocos Creator 的输入
 
 ## 放置
 
-使用屏幕交互器时，会启用设备 AR Hit Test 能力，根据屏幕触碰位置坐标转换到摄像机使用 Ray Cast 与 AR Plane 发生碰撞计算，来获取碰撞点的位置，最终在平面的此坐标上放置虚拟对象。能够被放置的预置体对象必须要挂载**[cc.Placeable](component.md#Placeable)**组件。
+使用 **屏幕手势交互器** 时，会启用设备 AR Hit Test 能力，根据屏幕触碰位置坐标转换到摄像机使用 Ray Cast 与 AR Plane 发生碰撞计算，来获取碰撞点的位置，最终在平面的此坐标上放置虚拟对象。能够被放置的预置体对象必须要挂载**[cc.Placeable](component.md#Placeable)**组件。
 
 以上述场景中制作的 Selectable 对象为例，以下对其赋予被放置交互能力。
 
