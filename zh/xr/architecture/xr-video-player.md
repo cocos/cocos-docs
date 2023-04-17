@@ -8,7 +8,7 @@ XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示�
 
 其节点中包含的核心组件如下：
 
-### XR Video Player：
+### XR Video Player
 
 #### cc.XRVideoPlayer
 
@@ -29,7 +29,7 @@ XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示�
 | Content            | 关联带有 MeshRenderer 组件的 VideoContent 作为视频材质渲染对象。 |
 | Video Player Event | 视频播放回调函数，该回调函数会在特定情况被触发，比如播放中、暂停、停止和播放完毕。 |
 
-### XR Video Controller：
+### XR Video Controller
 
 #### cc.XRVideoController
 
@@ -49,7 +49,7 @@ XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示�
 | Player Back Rate Bar  | 倍速 UI。                                    |
 | Volume UI             | 音量调节 UI。                                |
 
-### Video Caption：
+### Video Caption
 
 #### cc.XRVideoCaption
 
