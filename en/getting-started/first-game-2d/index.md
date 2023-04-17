@@ -304,7 +304,7 @@ private _startJump: boolean = false;
 private _jumpStep: number = 0;
 
 //the time it takes for the player to jump once.
-private _jumpTime: number = 0.3;
+private _jumpTime: number = 0.1;
 
 //the time that the player's current jump action has taken, should be set to 0 each time the player jumps, when it‘s reaches the value of `_jumpTime`, the jump action is completed.
 private _curJumpTime: number = 0;
@@ -505,6 +505,7 @@ export class PlayerController extends Component {
         this._startJump = true;
         this._jumpStep = step;
         this._curJumpTime = 0;
+
         this._curJumpSpeed = this._jumpStep * BLOCK_SIZE/ this._jumpTime;
         this.node.getPosition(this._curPos);
         Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep* BLOCK_SIZE, 0, 0));    
@@ -683,19 +684,14 @@ Hit **Play** button at the top of Cocos Creator to preview, you can see the **Pl
 
 Becuase of using the unified 
 
-Here we use a unified jumpTime value, `jumpTime = 0.3`, But since the duration of the two animations are not the same, you can find it is a little weired when animations are played.
+Here we use a unified jumpTime value, `jumpTime = 0.1`, But since the duration of the two animations are not the same, you can find it is a little weired when animations are played.
 
 To solve this, it's better to use the real duration of the animations as the value of `jumpTime`.
 
 ```ts
-//get the duration of oneStep
-const oneStep = 'oneStep';
-const state = this.BodyAnim.getState(oneStep);        
-this._jumpTime = state.duration;
-
-//get the duration of twoStep
-const twoStep = 'twoStep';
-const state = this.BodyAnim.getState(twoStep);        
+// get jump time from animation duration.
+const clipName = step == 1? 'oneStep' : 'twoStep';
+const state =  this.BodyAnim.getState(clipName);        
 this._jumpTime = state.duration;
 ```
 
@@ -808,40 +804,27 @@ Next, let's add the following method to `GameManger`.
 - Method to generate the map：
 
     ```ts
-   generateRoad() {
+    generateRoad() {
 
-        // clear all the nodes generated before
         this.node.removeAllChildren();
 
         this._road = [];
-        // the first block should always be a stone
+        // startPos
         this._road.push(BlockType.BT_STONE);
 
-        // generate blocks randomly
         for (let i = 1; i < this.roadLength; i++) {
-            if (this._road[i-1] === BlockType.BT_NONE) {
+            if (this._road[i - 1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
             } else {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
-
-        let linkedBlocks = 0;
+        
         for (let j = 0; j < this._road.length; j++) {
-            if(this._road[j]) {
-                ++linkedBlocks;
-            }
-            if(this._road[j] == 0) {
-                if(linkedBlocks > 0) {
-                    this.spawnBlockByCount(j - 1, linkedBlocks);
-                    linkedBlocks = 0;
-                }
-            }        
-            if(this._road.length == j + 1) {
-                if(linkedBlocks > 0) {
-                    this.spawnBlockByCount(j, linkedBlocks);
-                    linkedBlocks = 0;
-                }
+            let block: Node | null = this.spawnBlockByType(this._road[j]);
+            if (block) {
+                this.node.addChild(block);
+                block.setPosition(j * BLOCK_SIZE, 0, 0);
             }
         }
     }
@@ -877,36 +860,6 @@ Next, let's add the following method to `GameManger`.
     If the given type if `BT_NONE`, we just do nothing.
 
     > `instantiate`: is a built-in method provided by Cocos Creator, it is used for making a copy of an exist node and creating a new instance for a prefab.
-
-- Place blocks by the given data：
-
-    ```ts
-    spawnBlockByCount(lastPos: number, count: number) {
-        let block: Node|null = this.spawnBlockByType(BlockType.BT_STONE);
-        if(block) {
-            this.node.addChild(block);
-            block?.setScale(count, 1, 1);
-            block?.setPosition((lastPos - (count - 1) * 0.5)*BLOCK_SIZE, -1.5, 0);
-        }
-    }
-    ```
-
-    First, `spawnBlockByCount` uses the `spawnBlockByType` method to create a new block.
-
-    Then, it scales the block by the given `count`.
-
-    Last, set the position by the given `count`.
-
-    The `count` parameter here, indicates how many blocks we should have. we use scaling to avoid creating to much block nodes.
-
-    > In Cocos Creator, the position property is a getter and return a readonly value. If we want to change the position of a node, we must use the `setPosition` method or the `setter position`.
-
-    ```ts
-    this.node.position.x = 0; // it doesn't work
-    //...
-    this.node.setPosition(newPos); //it's ok
-    this.node.position = newPos; // it's ok
-    ```
 
 Let's call `generateRoad` in the `start` method of   `GameManager`:
 
@@ -1137,39 +1090,19 @@ export class GameManager extends Component {
         this._road.push(BlockType.BT_STONE);
 
         for (let i = 1; i < this.roadLength; i++) {
-            if (this._road[i-1] === BlockType.BT_NONE) {
+            if (this._road[i - 1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
             } else {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
-
-        let linkedBlocks = 0;
+        
         for (let j = 0; j < this._road.length; j++) {
-            if(this._road[j]) {
-                ++linkedBlocks;
+            let block: Node | null = this.spawnBlockByType(this._road[j]);
+            if (block) {
+                this.node.addChild(block);
+                block.setPosition(j * BLOCK_SIZE, 0, 0);
             }
-            if(this._road[j] == 0) {
-                if(linkedBlocks > 0) {
-                    this.spawnBlockByCount(j - 1, linkedBlocks);
-                    linkedBlocks = 0;
-                }
-            }        
-            if(this._road.length == j + 1) {
-                if(linkedBlocks > 0) {
-                    this.spawnBlockByCount(j, linkedBlocks);
-                    linkedBlocks = 0;
-                }
-            }
-        }
-    }
-
-    spawnBlockByCount(lastPos: number, count: number) {
-        let block: Node|null = this.spawnBlockByType(BlockType.BT_STONE);
-        if(block) {
-            this.node.addChild(block);
-            block?.setScale(count, 1, 1);
-            block?.setPosition((lastPos - (count - 1) * 0.5)*BLOCK_SIZE, 0, 0);
         }
     }
 
@@ -1521,7 +1454,7 @@ export class PlayerController extends Component {
     private _startJump: boolean = false;
     private _jumpStep: number = 0;
     private _curJumpTime: number = 0;
-    private _jumpTime: number = 0.3;
+    private _jumpTime: number = 0.1;
     private _curJumpSpeed: number = 0;
     private _curPos: Vec3 = new Vec3();
     private _deltaPos: Vec3 = new Vec3(0, 0, 0);
@@ -1559,6 +1492,13 @@ export class PlayerController extends Component {
         this._startJump = true;
         this._jumpStep = step;
         this._curJumpTime = 0;
+
+        // get jump time from animation duration.
+        const clipName = step == 1? 'oneStep' : 'twoStep';
+        const state =  this.BodyAnim.getState(clipName);        
+        this._jumpTime = state.duration;
+
+
         this._curJumpSpeed = this._jumpStep * BLOCK_SIZE/ this._jumpTime;
         this.node.getPosition(this._curPos);
         Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep* BLOCK_SIZE, 0, 0));  
@@ -1692,33 +1632,13 @@ export class GameManager extends Component {
                 this._road.push(Math.floor(Math.random() * 2));
             }
         }
-
-        let linkedBlocks = 0;
+        
         for (let j = 0; j < this._road.length; j++) {
-            if (this._road[j]) {
-                ++linkedBlocks;
+            let block: Node | null = this.spawnBlockByType(this._road[j]);
+            if (block) {
+                this.node.addChild(block);
+                block.setPosition(j * BLOCK_SIZE, 0, 0);
             }
-            if (this._road[j] == 0) {
-                if (linkedBlocks > 0) {
-                    this.spawnBlockByCount(j - 1, linkedBlocks);
-                    linkedBlocks = 0;
-                }
-            }
-            if (this._road.length == j + 1) {
-                if (linkedBlocks > 0) {
-                    this.spawnBlockByCount(j, linkedBlocks);
-                    linkedBlocks = 0;
-                }
-            }
-        }
-    }
-
-    spawnBlockByCount(lastPos: number, count: number) {
-        let block: Node | null = this.spawnBlockByType(BlockType.BT_STONE);
-        if (block) {
-            this.node.addChild(block);
-            block?.setScale(count, 1, 1);
-            block?.setPosition((lastPos - (count - 1) * 0.5) * BLOCK_SIZE, 0, 0);
         }
     }
 
