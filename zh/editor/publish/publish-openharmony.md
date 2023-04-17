@@ -182,14 +182,11 @@ http://ci.openharmony.cn/dailys/dailybuilds
 install，如下图（注意目录要匹配）：
 
 ![](./publish-openharmony/document_image_rId10.png)
+> **注意**：如果 `npm install` 报错，检查下是否配置了华为的源，配置方法如下：
+> ` npm config set registry https://repo.huaweicloud.com/repository/npm/ `
 
-    - 修改 OHOS_SDK\\ets\\3.2.5.5\\oh-uni-package.json （解压后的ETS），修改版本号为 3.2.5.5。这一步修改是为了避免提示 ETS 升级，如下图：
-
-    ![](./publish-openharmony/document_image_rId5.png)
-
-    - 打开命令行进入目录 OHOS_SDK\\ets\\3.2.5.5\\build-tools\\ets-loader，并执行 `npm install`，如下图（注意目录要匹配）：
-
-    ![](./publish-openharmony/document_image_rId10.png)
+- 在 deveco 里，clear project 之后，重新 build 即可。clear project 操作如下图：
+![](./publish-openharmony/document_image_rId4.png)
 
 1. 其他
 js-windows-x64-3.2.11.9-Release.zip
