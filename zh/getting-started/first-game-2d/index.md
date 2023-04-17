@@ -555,7 +555,36 @@ const state = this.BodyAnim.getState(oneStep);
 this._jumpTime = state.duration;
 ```
 
-twoStep 动画和上文代码类似，您可以自己尝试完成：
+twoStep 动画和上文代码类似，最终的 `` 方法如下所示：
+
+```ts
+jumpByStep(step: number) {
+    if (this._startJump) {
+        return;
+    }
+    this._startJump = true;
+    this._jumpStep = step;
+    this._curJumpTime = 0;
+
+    const clipName = step == 1 ? 'oneStep' : 'twoStep';
+    const state = this.BodyAnim.getState(clipName);
+    this._jumpTime = state.duration;
+
+    this._curJumpSpeed = this._jumpStep * BLOCK_SIZE/ this._jumpTime;
+    this.node.getPosition(this._curPos);
+    Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep* BLOCK_SIZE, 0, 0));  
+    
+    if (this.BodyAnim) {
+        if (step === 1) {
+            this.BodyAnim.play('oneStep');
+        } else if (step === 2) {
+            this.BodyAnim.play('twoStep');
+        }
+    }
+}
+```
+
+> 这里使用到了三元表达式 `condition ? A:B` 相当于条件满足时 调用 A 反之调用 B
 
 ![jumptime-with-duration.gif](images/jumptime-with-duration.gif)
 
@@ -689,7 +718,7 @@ export class GameManager extends Component {
     > 所以 `Math.floor(Math.random() * 2)` 这段代码的意思很简单，就是从 [0, 2) 中随机取 1个数并向下取整，得到的结果是 0 或者 1，恰好和 枚举 `BlockType` 中声明的 `BT_NONE` 和 `BT_STONE` 对应。
     > 顺便说一句，在 TypeScript 的枚举中，如果你没有给枚举赋值，那么枚举的值会顺序的从 0 开始分配。
 
-    通过 `spawnBlockByType` 来生成新的方块并将他通过 `setPosition` 方法放置到合适的位置：
+    通过 `spawnBlockByType` 来生成新的方块并将他通过 `setPosition` 方法放置到合适的位置。
 
     > 在 Cocos Creator 中，设置节点的位置需要使用 `setPosition` 方法或者 `set position` 这样的读取器。
 
@@ -715,23 +744,6 @@ export class GameManager extends Component {
     通过 `BlockType` 来确定是否要真的创建这个方块，当然只在 `type` 为 `BT_STONE` 的时候我们通过 `instantiate` 方法来创建方块，其他情况下，返回一个空值。
 
     > `instantiate`: 是 Cocos Creator 提供的克隆预制体的方法。当然它不仅能克隆预制体，你甚至可以用它克隆别的类型比如某个对象！
-
-<!-- - 根据所需的数量和前 1 个位置来生成方块：
-
-    ```ts
-    spawnBlockByCount(lastPos: number, count: number) {
-        let block: Node|null = this.spawnBlockByType(BlockType.BT_STONE);
-        if(block) {
-            this.node.addChild(block);
-            block?.setScale(count, 1, 1);
-            block?.setPosition((lastPos - (count - 1) * 0.5)*BLOCK_SIZE, -1.5, 0);
-        }
-    }
-    ```
-
-    `spawnBlockByCount` 会根据 `spawnBlockByType` 的结果来创建方块，当然如果连续某个方块不仅仅占据 1 个格子时，会根据他所占的格子数来调整他在 X 轴的缩放：`block?.setScale`。之后通过 `setPosition` 将其放在合适的位置上。
-
-    > 在 Cocos Creator 中，设置节点的位置需要使用 `setPosition` 方法或者 `set position` 这样的读取器。 -->
 
 此时如果我们在 `GameManager` 的 `start` 内调用 `generateRoad` 来创建地图：
 
@@ -942,21 +954,6 @@ export class GameManager extends Component {
 
         let block: Node | null = null;
         switch (type) {
-            case BlockType.BT_STONE:
-                block = instantiate(this.boxPrefab);
-                break;
-        }
-
-        return block;
-    }
-
-    spawnBlockByType(type: BlockType) {
-        if (!this.boxPrefab) {
-            return null;
-        }
-
-        let block: Node|null = null;
-        switch(type) {
             case BlockType.BT_STONE:
                 block = instantiate(this.boxPrefab);
                 break;
@@ -1321,99 +1318,141 @@ export class PlayerController extends Component {
 GameManager.ts：
 
 ```ts
-import { _decorator, Component, Vec3, EventMouse, input, Input, Animation } from "cc";
+import { _decorator, CCInteger, Component, instantiate, Label, math, Node, Prefab, Vec3 } from 'cc';
+import { BLOCK_SIZE, PlayerController } from './PlayerController';
 const { ccclass, property } = _decorator;
 
-export const BLOCK_SIZE = 40;
+enum BlockType {
+    BT_NONE,
+    BT_STONE,
+};
 
-@ccclass("PlayerController")
-export class PlayerController extends Component {
+enum GameState {
+    GS_INIT,
+    GS_PLAYING,
+    GS_END,
+};
 
-    @property(Animation)
-    BodyAnim:Animation = null;
+@ccclass('GameManager')
+export class GameManager extends Component {
 
-    private _startJump: boolean = false;
-    private _jumpStep: number = 0;
-    private _curJumpTime: number = 0;
-    private _jumpTime: number = 0.3;
-    private _curJumpSpeed: number = 0;
-    private _curPos: Vec3 = new Vec3();
-    private _deltaPos: Vec3 = new Vec3(0, 0, 0);
-    private _targetPos: Vec3 = new Vec3();   
-    private _curMoveIndex = 0;
-    start () {
-        //input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+    @property({ type: Prefab })
+    public boxPrefab: Prefab | null = null;
+    @property({ type: CCInteger })
+    public roadLength: number = 50;
+    private _road: BlockType[] = [];
+
+    @property({ type: Node })
+    public startMenu: Node | null = null;
+    @property({ type: PlayerController })
+    public playerCtrl: PlayerController | null = null;
+    @property({ type: Label })
+    public stepsLabel: Label | null = null;
+
+    start() {
+        this.setCurState(GameState.GS_INIT);
+        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
     }
 
-    setInputActive(active: boolean) {
-        if (active) {
-            input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
-        } else {
-            input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+    init() {
+        if (this.startMenu) {
+            this.startMenu.active = true;
+        }
+
+        this.generateRoad();
+
+        if (this.playerCtrl) {
+            this.playerCtrl.setInputActive(false);
+            this.playerCtrl.node.setPosition(Vec3.ZERO);
+            this.playerCtrl.reset();
         }
     }
 
-    reset() {
-        this._curMoveIndex = 0;
-    }   
+    setCurState(value: GameState) {
+        switch (value) {
+            case GameState.GS_INIT:
+                this.init();
+                break;
+            case GameState.GS_PLAYING:
+                if (this.startMenu) {
+                    this.startMenu.active = false;
+                }
 
-    onMouseUp(event: EventMouse) {
-        if (event.getButton() === 0) {
-            this.jumpByStep(1);
-        } else if (event.getButton() === 2) {
-            this.jumpByStep(2);
+                if (this.stepsLabel) {
+                    this.stepsLabel.string = '0';   // 将步数重置为0
+                }
+
+                setTimeout(() => {      //直接设置active会直接开始监听鼠标事件，做了一下延迟处理
+                    if (this.playerCtrl) {
+                        this.playerCtrl.setInputActive(true);
+                    }
+                }, 0.1);
+                break;
+            case GameState.GS_END:
+                break;
         }
-
     }
 
-    jumpByStep(step: number) {
-        if (this._startJump) {
-            return;
-        }
-        this._startJump = true;
-        this._jumpStep = step;
-        this._curJumpTime = 0;
+    generateRoad() {
 
-        const clipName = step == 1? 'oneStep' : 'twoStep';
-        const state =  this.BodyAnim.getState(clipName);        
-        this._jumpTime =state.duration;
+        this.node.removeAllChildren();
 
-        this._curJumpSpeed = this._jumpStep * BLOCK_SIZE/ this._jumpTime;
-        this.node.getPosition(this._curPos);
-        Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep* BLOCK_SIZE, 0, 0));  
-        
-        if (this.BodyAnim) {
-            if (step === 1) {
-                this.BodyAnim.play('oneStep');
-            } else if (step === 2) {
-                this.BodyAnim.play('twoStep');
-            }
-        }
+        this._road = [];
+        // startPos
+        this._road.push(BlockType.BT_STONE);
 
-        this._curMoveIndex += step;
-    }
-
-    
-    onOnceJumpEnd() {
-        this.node.emit('JumpEnd', this._curMoveIndex);
-    }
-   
-    update (deltaTime: number) {
-        if (this._startJump) {
-            this._curJumpTime += deltaTime;
-            if (this._curJumpTime > this._jumpTime) {
-                // end
-                this.node.setPosition(this._targetPos);
-                this._startJump = false;   
-                this.onOnceJumpEnd();           
+        for (let i = 1; i < this.roadLength; i++) {
+            if (this._road[i - 1] === BlockType.BT_NONE) {
+                this._road.push(BlockType.BT_STONE);
             } else {
-                // tween
-                this.node.getPosition(this._curPos);
-                this._deltaPos.x = this._curJumpSpeed * deltaTime;
-                Vec3.add(this._curPos, this._curPos, this._deltaPos);
-                this.node.setPosition(this._curPos);
+                this._road.push(Math.floor(Math.random() * 2));
+            }
+        }
+        
+        for (let j = 0; j < this._road.length; j++) {
+            let block: Node | null = this.spawnBlockByType(this._road[j]);
+            if (block) {
+                this.node.addChild(block);
+                block.setPosition(j * BLOCK_SIZE, 0, 0);
             }
         }
     }
+
+    spawnBlockByType(type: BlockType) {
+        if (!this.boxPrefab) {
+            return null;
+        }
+
+        let block: Node | null = null;
+        switch (type) {
+            case BlockType.BT_STONE:
+                block = instantiate(this.boxPrefab);
+                break;
+        }
+
+        return block;
+    }
+
+    onStartButtonClicked() {
+        this.setCurState(GameState.GS_PLAYING);
+    }
+
+    checkResult(moveIndex: number) {
+        if (moveIndex < this.roadLength) {
+            if (this._road[moveIndex] == BlockType.BT_NONE) {   //跳到了空方块上
+                this.setCurState(GameState.GS_INIT);
+            }
+        } else {    // 跳过了最大长度            
+            this.setCurState(GameState.GS_INIT);
+        }
+    }
+
+    onPlayerJumpEnd(moveIndex: number) {
+        if (this.stepsLabel) {
+            this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
+        }
+        this.checkResult(moveIndex);
+    }
+
 }
 ```
