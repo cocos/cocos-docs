@@ -12,7 +12,7 @@
 
 ### 2、语法检查及错误跳转
 
-当前窗口打开一个 .effect 文件，然后在查看菜单--命令面板（Ctrl+Shift+P）....选择Cocos Effect: compile effect即可。
+当前窗口打开一个 .effect 文件，然后在查看菜单 -- 命令面板（Ctrl+Shift+P）....选择Cocos Effect: compile effect即可。
 
 在此项右侧有一个小的齿轮图标，点击可以添加快捷键绑定，完整操作流程见下图。
 
