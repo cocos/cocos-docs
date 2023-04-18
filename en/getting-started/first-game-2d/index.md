@@ -2,7 +2,7 @@
 
 Platform jumping games are a very common and popular game genre, ranging from simple games on the original NES console to large-scale games made with complex 3D technology on modern gaming platforms. You can always find platform jumping games.
 
-In this section, we will demonstrate how to use the 2D features provided by Cocos Creator to create a simple plaftorm jumping game.
+In this section, we will demonstrate how to use the 2D features provided by Cocos Creator to create a simple platform jumping game.
 
 ## Environment Setup
 
@@ -24,11 +24,11 @@ In the **Editor** tab, click on the Install button for the desired version to in
 
 In the **Project** tab, find the **Create** button, select **Empty(2D)**.
 
-![craete-2d-project](images/create-2d-empty.png)
+![create-2d-project](images/create-2d-empty.png)
 
 Next, just enter your project name in the highlighted field shown in the image above.
 
-For example, you could input: cocos-turtorial-mind-your-step-2d.
+For example, you could input: cocos-tutorial-mind-your-step-2d.
 
 Let's make a game that is similar to the one in [Quick Start: Making Your First 3D Game](../first-game/index.md).
 
@@ -38,7 +38,7 @@ Without further ado, let's get started.
 
 ## Create the Character
 
-In a 2D game, all visible objects are made of images, including the charactor.
+In a 2D game, all visible objects are made of images, including the character.
 
 To keep things simple, we'll be using the images that come bundled with Cocos Creator to create our game. These images can be found in `internal/default_ui/`.
 
@@ -46,13 +46,13 @@ In Cocos Creator, we use a `Sprite` node ( a node with Sprite component ) to sho
 
 To create a new node of type Sprite, right-click in the Hierarchy panel, select "Create", and then choose "2D -> Sprite" from the pop-up menu.
 
-Right-click in the Hierarchy and select "Create" from the pop-up menu, we can see differfent types of nodes. Here, we select "2D -> Sprite" to create a new `Sprite` node.
+Right-click in the Hierarchy and select "Create" from the pop-up menu, we can see different types of nodes. Here, we select "2D -> Sprite" to create a new `Sprite` node.
 
 ![create-sprite.png](images/create-sprite.png)
 
-Next, we find the `internal/default_ui/defualt_btn_normal` and assign it to the `Sprite Frame` property of the `Sprite` node we just created.
+Next, we find the `internal/default_ui/default_btn_normal` and assign it to the `Sprite Frame` property of the `Sprite` node we just created.
 
-![craete-sprite.gif](images/create-sprite.gif)
+![create-sprite.gif](images/create-sprite.gif)
 
 Next, create an `Empty` node and name it "Player":
 
@@ -68,9 +68,9 @@ We can adjust the parent-child relationship of nodes by dragging and dropping th
 ![create-body.gif](./images/create-body.gif)
 
 > **Note**：
-> - The heirarchy relationship determines the rendering order. if may cause the node to not be visible when the order is wrong.
-> - 2D/UI elements must be under a `Canvas` node in order to be visbile.
-> - The layer of 2D/UI elements must be set to `UI_2D` 
+> - The hierarchy relationship determines the rendering order. if may cause the node to not be visible when the order is wrong.
+> - 2D/UI elements must be under a `Canvas` node in order to be visible.
+> - The layer of 2D/UI elements must be set to `UI_2D`
 
 Next, Let's adjust the position's Y of the `Body` node to 40:
 
@@ -86,7 +86,7 @@ In the Inspector panel, find the `Color` property and expand it, then set the co
 
 Scripts, also known as code, are used to implement game logic, such as character movement, jumping, and other gameplay mechanics.
 
-Cocos Creator uses TypeScript as its scrpting programming language. It has simple and easy-to-learn syntax, a large user base, and widespread applications. You can encounter it in web development, app development, and game development etc.
+Cocos Creator uses TypeScript as its scripting programming language. It has simple and easy-to-learn syntax, a large user base, and widespread applications. You can encounter it in web development, app development, and game development etc.
 
 Creating a script component in Cocos Creator is very simple. All you need to do is right-click in the Assets Manager window, select "Create -> TypeScript -> NewComponent" option.
 
@@ -116,7 +116,7 @@ export class PlayerController extends Component {
 }
 ```
 
-**Note** Cocos Creator uses a Node + Component architechure, meaning that a component must be attached to a node in order to function. Scripts in Cocos Creator are also designed as components.
+**Note** Cocos Creator uses a Node + Component architecture, meaning that a component must be attached to a node in order to function. Scripts in Cocos Creator are also designed as components.
 
 So, let's drag the `PlayerController` script onto the  Inspector of Player node.
 
@@ -125,7 +125,6 @@ So, let's drag the `PlayerController` script onto the  Inspector of Player node.
 You should see that a `PlayerController` component has been added to the Player node.
 
 > **Note**: You can also click on the **Add Component** button to add different types of components.
-
 > 由于 `Node` 这个类名在 TypeScript 内置库内也有同名的类，因此需要注意在导入时需要确保导入的是 `cc` 命名空间下的 `Node`，代码示例如下：
 > `import { _decorator, Component, Node } from 'cc'`
 
@@ -133,14 +132,14 @@ You should see that a `PlayerController` component has been added to the Player 
 
 A map in a game is an area where your character can move around and interact within a game.
 
-As mentioned before, all visible objects in 2D games are made up of images. The map is no exeption.
+As mentioned before, all visible objects in 2D games are made up of images. The map is no exception.
 
 Just like the steps we used to created the `Body` node, we will now create an object called `Box` which will be used to construct the map.
 
 - Right-click in the Hierarchy
 - Create a `Sprite` node by selecting "Create -> 2D Objects -> Sprite" through the pop-up menu.
 - Name it as "Box"
-- Select the "Box" node, set its **Sprite Frame** property by using `internal/defualt_ui/default_btn_normal`
+- Select the "Box" node, set its **Sprite Frame** property by using `internal/default_ui/default_btn_normal`
 
 ![create-box.png](images/create-box.png)
 
@@ -162,9 +161,9 @@ The box node in the hierarchy can be deleted, because it won't be used when game
 
 ### Scene
 
-In the game engine, a scene is used to manage all game objects. It contains charaters, maps, gameplay, ui. you name it in a game.
+In the game engine, a scene is used to manage all game objects. It contains characters, maps, gameplay, ui. you name it in a game.
 
-A game can be divided into different scenes based on its funcionalities. Such as loading scene, start menu scene, gameplay scene etc.
+A game can be divided into different scenes based on its functionalities. Such as loading scene, start menu scene, gameplay scene etc.
 
 A game requires at least on scene to start.
 
@@ -176,7 +175,7 @@ First, let's create a folder named "Scene" to save our scenes in the Assets Mana
 
 ![scene-dir.png](images/scene-dir.png)
 
-Then, press the <kbd>Ctrl</kbd> + <kbd>S</kbd> shorcut key.
+Then, press the <kbd>Ctrl</kbd> + <kbd>S</kbd> shortcut key.
 
 Since it is the first time we are saving this scene, the scene saving window will pop up.
 
@@ -192,7 +191,7 @@ Now the scene is saved. We can see a scene resource file named "game" under the 
 
 ![scene.png](images/scene.png)
 
-> Don't forget to press <kbd>Ctrl</kbd> + <kbd>S</kbd> shorcut key to save your scene when there are changes to the scene. Avoid losing work progress due to unexpected events such as power outages.
+> Don't forget to press <kbd>Ctrl</kbd> + <kbd>S</kbd> shortcut key to save your scene when there are changes to the scene. Avoid losing work progress due to unexpected events such as power outages.
 
 ## Make the character move
 
@@ -278,9 +277,9 @@ In our game, the player moves horizontally to the right, so we need to use a sim
 P_1 = P_0 + v*t
 ```
 
-Where `P_1` is the final position, `P_0` is the orignal position, v is the speed of the object, and t is the unit time.
+Where `P_1` is the final position, `P_0` is the original position, v is the speed of the object, and t is the unit time.
 
-> Final Position = Orignal Position + Speed * deltaTime
+> Final Position = Original Position + Speed * deltaTime
 
 The `update` function in the PlayerController component will be automatically called by the game engine. And also pass in a `deltaTime` parameter.
 
@@ -290,7 +289,7 @@ update (deltaTime: number) {}
 
 The times that `update` will be called per second is determined by the frame rate (also known as FPS) when game running.
 
-For exapmle, if a game is runing at 30 FPS, the `deltaTime` will be  1.0 / 30.0 = 0.03333333... second.
+For example, if a game is running at 30 FPS, the `deltaTime` will be  1.0 / 30.0 = 0.03333333... second.
 
 In game development , we use `deltaTime` as the `t` in physics formula to ensure consistent movement results at any frame rate.
 
@@ -300,7 +299,7 @@ Here, let's add some properties needed for calculating player movement `PlayerCo
 //used to judge if the player is jumping.
 private _startJump: boolean = false;
 
-//the number of steps will the player jump, shoule be 1 or 2. determined by which mouse button is clicked.
+//the number of steps will the player jump, should be 1 or 2. determined by which mouse button is clicked.
 private _jumpStep: number = 0;
 
 //the time it takes for the player to jump once.
@@ -309,10 +308,10 @@ private _jumpTime: number = 0.1;
 //the time that the player's current jump action has taken, should be set to 0 each time the player jumps, when it‘s reaches the value of `_jumpTime`, the jump action is completed.
 private _curJumpTime: number = 0;
 
-//the player's current vertical speed, used to calculate the Y value of position when junmping.
+//the player's current vertical speed, used to calculate the Y value of position when jumping.
 private _curJumpSpeed: number = 0;
 
-//the current postion of player, used as the oringal position in the physics formula.
+//the current position of player, used as the original position in the physics formula.
 private _curPos: Vec3 = new Vec3();
 
 //movement calculated by deltaTime.
@@ -337,7 +336,7 @@ jumpByStep(step: number) {
     }
     //mark player is jumping.
     this._startJump = true;
-    //record the number of step the jumpping action will take.
+    //record the number of step the jumping action will take.
     this._jumpStep = step;
     //set to 0 when a new jumping action starts
     this._curJumpTime = 0;
@@ -350,9 +349,9 @@ jumpByStep(step: number) {
 }
 ```
 
-`Vec3` is the vector class in Cocos Creator, the name is short for `Vector3`, which has 3 components, x,y,z. all vector operations are placed in `Vec3` class. Such as `Vec3.add`, `Vec3.substrct` etc.
+`Vec3` is the vector class in Cocos Creator, the name is short for `Vector3`, which has 3 components, x,y,z. all vector operations are placed in `Vec3` class. Such as `Vec3.add`, `Vec3.subtract` etc.
 
-In Cocos Creator, 2D games also use `Vec3` as the property type for poistion, scale and rotation. Just ignore the irrelevant components, e.g. the z component in position.
+In Cocos Creator, 2D games also use `Vec3` as the property type for position, scale and rotation. Just ignore the irrelevant components, e.g. the z component in position.
 
 Next, let's calculate the movement of the player while jumping.
 
@@ -364,7 +363,7 @@ Let's add the following code to the `update` method in `PlayerController`.
 update (deltaTime: number) {
     //we only do something when the player is jumping.
     if (this._startJump) {
-        //acumulate the jumping time.
+        //accumulate the jumping time.
         this._curJumpTime += deltaTime;
         //check if it reaches the jump time.
         if (this._curJumpTime > this._jumpTime) {
@@ -374,7 +373,7 @@ update (deltaTime: number) {
             this._startJump = false;
         } else {
             //if it still needs to move.
-            // copy the postion of the node.
+            // copy the position of the node.
             this.node.getPosition(this._curPos);
             //calculate the offset x by using deltaTime and jumping speed.
             this._deltaPos.x = this._curJumpSpeed * deltaTime;
@@ -389,7 +388,7 @@ update (deltaTime: number) {
 
 Now, click the **Preview** button at the top of Cocos Creator.
 
-![preview-menu.png](images/preview-menu.png) 
+![preview-menu.png](images/preview-menu.png)
 
 The **Player** will move by clicking the mouse buttons.
 
@@ -428,7 +427,7 @@ As you can see, in TypeScript:
 - A constant can be defined outside of the class and exported separately.
 - Values declared as const cannot be modified and are often used for fixed configurations.
 
-Next, find the code line in `jumpByStep` mehod:
+Next, find the code line in `jumpByStep` method:
 
 ```ts
 this._curJumpSpeed = this._jumpStep / this._jumpTime;
@@ -534,7 +533,6 @@ export class PlayerController extends Component {
 
 For 2D game development, Cocos Creator supports various types of animation, including keyframe animation, Spine, DragonBones and Live2D.
 
-
 In this tutorial, the jump animation of the Player is very simple and it is enough to use keyframe animation.
 
 Using Cocos Creator's built-in animation editor, it's easy to make it.
@@ -583,7 +581,7 @@ Follow the steps of making `oneStep` animation, make the another one: `twoStep`.
 
 ![create-twostep.gif](images/create-twostep.gif)
 
-After completing the animation creation, click **Close** button to exit the Animationn editing mode.
+After completing the animation creation, click **Close** button to exit the Animation editing mode.
 
 ### Play animations in code
 
@@ -601,7 +599,7 @@ animation.play(animName);
 
 > In Cocos Creator, we must ensure the animation which will be played is included in the clips of the node's Animation component,
 
-Add the following code at the begining of the PlayerController class:
+Add the following code at the beginning of the PlayerController class:
 
 ```ts
 @ccclass("PlayerController")
@@ -679,12 +677,9 @@ Hit **Play** button at the top of Cocos Creator to preview, you can see the **Pl
 
 ![preview-anim.gif](images/preview-anim.gif)
 
+Because of using the unified.
 
-
-
-Becuase of using the unified 
-
-Here we use a unified jumpTime value, `jumpTime = 0.1`, But since the duration of the two animations are not the same, you can find it is a little weired when animations are played.
+Here we use a unified jumpTime value, `jumpTime = 0.1`, But since the duration of the two animations are not the same, you can find it is a little weird when animations are played.
 
 To solve this, it's better to use the real duration of the animations as the value of `jumpTime`.
 
@@ -699,21 +694,20 @@ this._jumpTime = state.duration;
 
 ## GameManager
 
-In game development, we can manually place nodes using Box.prefab to build the map, but the map will be fixed. In order to make the map change everytime when the game starts and provide some surprises or the players, we can randomly build the map in code.
+In game development, we can manually place nodes using Box.prefab to build the map, but the map will be fixed. In order to make the map change every time when the game starts and provide some surprises or the players, we can randomly build the map in code.
 
-Now, let's create a new TypeScript component called `GameManger`  in the Assets Manager window to archieve this.
+Now, let's create a new TypeScript component called `GameManger`  in the Assets Manager window to archive this.
 
 > **Note**：If you forget to rename the script or input the wrong name you don't want to use when creating a script component, The best way to fix it is to delete it and create a new one.
-
 > **Note**：If you modify the name of a script, the content in the script file will not change accordingly.
 
 After creating the `GameManger` script component, let's create a new node named **GameManager**, then attach `GameManager` to it.
 
-> **Note** Generally, we can attach the `GameManager` scipt component to any node in the scene, but for keeping the project structure well-organized, we usually create a node with the same name and attach the `GameManager` to it. This rule applies to all XXXManager script components.
+> **Note** Generally, we can attach the `GameManager` script component to any node in the scene, but for keeping the project structure well-organized, we usually create a node with the same name and attach the `GameManager` to it. This rule applies to all XXXManager script components.
 
 ![create-game-manager.png](images/create-game-manager.png)
 
-To build the map, we will use the `Box.prefab` to create the nodes. 
+To build the map, we will use the `Box.prefab` to create the nodes.
 
 So, the first thing we need to do is to add a property to the `GameManager` class for referencing the `Box.prefab`.
 
@@ -737,7 +731,7 @@ export class GameManager extends Component {
 }
 ```
 
-Go back to the Cocos Creator, select the **GameManager** node, drag `Box` prefab onto the `boxPefab` property of **GameManager** node.
+Go back to the Cocos Creator, select the **GameManager** node, drag `Box` prefab onto the `boxPrefab` property of **GameManager** node.
 
 ![assign-box-prefab.gif](images/assign-box-prefab.gif)
 
@@ -831,7 +825,6 @@ Next, let's add the following method to `GameManger`.
     ```
 
     >`Math.floor`： rounds down and returns the largest integer less than or equal to a given number. refer to [Math.floor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) for more detail.
-
     >`Math.random`：returns a floating-point in a range of [0.0,1.0), refer to [Math.random](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) for more detail.
 
     Obviously, the code `Math.floor(Math.random() * 2)` will only produce two integer numbers, 0 or 1, which are exactly correspond to the value of  `BT_NONE` and `BT_STONE` declared in the `BlockType` enum.
@@ -875,11 +868,11 @@ You can see the generated map when running the game.
 
 ## Camera Follow
 
-In a game which has a movable player, we often let the camera follow the player. As a result, you can see the screen scolling when player is moving.
+In a game which has a movable player, we often let the camera follow the player. As a result, you can see the screen scrolling when player is moving.
 
-It's very simple to archieve it in Cocos Creator. Just make the following changes.
+It's very simple to archive it in Cocos Creator. Just make the following changes.
 
-1. Select the Canavs node, unchcek the **Align Canvas With Screen** property of cc.Canvas component on the Inspector panel.
+1. Select the Canvas node, uncheck the **Align Canvas With Screen** property of cc.Canvas component on the Inspector panel.
 
 2. Drag the Camera node on the Player node, make it as a child node.
 
@@ -901,7 +894,7 @@ As 2D elements,they also need to be put under the Canvas node.
 
 As we know, UI elements are always fixed on the screen, so we need a fixed camera to render them.
 
-In the privous section, the camera of the Canvas has been changed to follow our Player, it is no longer suitbale for UI rendering.
+In the previous section, the camera of the Canvas has been changed to follow our Player, it is no longer suitable for UI rendering.
 
 Thus, we need to create a new Canvas for UI.
 
@@ -1393,7 +1386,7 @@ In this game, we have two types of objects.
 
 So, we just need to put all of the scene objects to `DEFAULT` layer and put all of the UI objects to `UI_2D` layer.
 
-Then, we need to change a little about the visibility of cameras to let he `Canvas/Camera` only render the objects in `DEFAULT` layer, the `UICanvas/Camera` only render the objec in `UI_2D` layer, everthing will be ok.
+Then, we need to change a little about the visibility of cameras to let he `Canvas/Camera` only render the objects in `DEFAULT` layer, the `UICanvas/Camera` only render the object in `UI_2D` layer, everything will be ok.
 
 It's so clear, now, let's do it.
 
@@ -1413,11 +1406,11 @@ It's so clear, now, let's do it.
 
 - Set the **Visibility** of `Canvas/Player/Camera` as follows：
 
-    ![cavans-camera.png](images/cavans-camera.png)
+    ![canvas-camera.png](images/cavans-camera.png)
 
 ## UI_2D
 
-- Set the **Visibility** of  `UICavans/Camera` as follows：
+- Set the **Visibility** of  `UICanvas/Camera` as follows：
 
     ![images/uicanvas-camera.png](images/uicanvas-camera.png)
 
