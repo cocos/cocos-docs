@@ -233,6 +233,10 @@
         - [传统着色器 - Legacy Shader](shader/legacy-shader/legacy-shader.md)
             - [内置 Legacy Shader 导读](shader/legacy-shader/legacy-shader-builtins.md)
             - [Legacy Shader 主要函数与结构体](shader/legacy-shader/legacy-shader-func-struct.md)
+        - [自定义着色器](./write-effect-overview.md)
+            - [2D 精灵着色器：Gradient](./write-effect-2d-sprite-gradient.md)
+            - [3D 着色器：RimLight](./write-effect-3d-rim-light.md)
+
     - [渲染排序](engine/rendering/sorting.md)
 
     - [特效组件](module-map/effects/index.md)
