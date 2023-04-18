@@ -139,7 +139,7 @@
         - [发布到微信小游戏](editor/publish/publish-wechatgame.md)
             - [启用微信小游戏引擎插件](editor/publish/wechatgame-plugin.md)
             - [接入微信 PC 小游戏](editor/publish/publish-pc-wechatgame.md)
-        - [发布到字节跳动小游戏](editor/publish/publish-bytedance-mini-game.md)        
+        - [发布到字节跳动小游戏](editor/publish/publish-bytedance-mini-game.md)
         - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
         - [发布到 vivo 小游戏](editor/publish/publish-vivo-mini-game.md)
@@ -233,6 +233,10 @@
         - [传统着色器 - Legacy Shader](shader/legacy-shader/legacy-shader.md)
             - [内置 Legacy Shader 导读](shader/legacy-shader/legacy-shader-builtins.md)
             - [Legacy Shader 主要函数与结构体](shader/legacy-shader/legacy-shader-func-struct.md)
+        - [自定义着色器](shader/write-effect-overview.md)
+            - [2D 精灵着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)
+            - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
+
     - [渲染排序](engine/rendering/sorting.md)
 
     - [特效组件](module-map/effects/index.md)
