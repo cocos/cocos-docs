@@ -42,11 +42,11 @@ In a 2D game, all visible objects are made of images, including the character.
 
 To keep things simple, we'll be using the images that come bundled with Cocos Creator to create our game. These images can be found in `internal/default_ui/`.
 
-In Cocos Creator, we use a `Sprite` node ( a node with Sprite component ) to show an image.
+In Cocos Creator, we use a `Sprite` node ( a node with a Sprite component ) to show an image.
 
 To create a new node of type Sprite, right-click in the Hierarchy panel, select "Create", and then choose "2D -> Sprite" from the pop-up menu.
 
-Right-click in the Hierarchy and select "Create" from the pop-up menu, we can see different types of nodes. Here, we select "2D -> Sprite" to create a new `Sprite` node.
+Right-click in the Hierarchy and select "Create" from the pop-up menu, and we can see different types of nodes. Here, we select "2D -> Sprite" to create a new `Sprite` node.
 
 ![create-sprite.png](images/create-sprite.png)
 
@@ -63,7 +63,7 @@ If you didn't name the node when you created it, there are two ways to change it
 - In the **Inspector** panel, find the name and rename it
 - In the **Hierarchy**, select the node then press `F2`
 
-We can adjust the parent-child relationship of nodes by dragging and dropping them in the Hierarchy. Here, drag the `Sprite` node onto the `Player` node to make it as a child, then rename the `Sprite` node to "Body".
+We can adjust the parent-child relationship of nodes by dragging and dropping them in the Hierarchy. Here, drag the `Sprite` node onto the `Player` node to make it a child, then rename the `Sprite` node to "Body".
 
 ![create-body.gif](./images/create-body.gif)
 
@@ -86,9 +86,9 @@ In the Inspector panel, find the `Color` property and expand it, then set the co
 
 Scripts, also known as code, are used to implement game logic, such as character movement, jumping, and other gameplay mechanics.
 
-Cocos Creator uses TypeScript as its scripting programming language. It has simple and easy-to-learn syntax, a large user base, and widespread applications. You can encounter it in web development, app development, and game development etc.
+Cocos Creator uses TypeScript as its scripting programming language. It has simple and easy-to-learn syntax, a large user base, and widespread applications. You can encounter it in web development, app development, game development, etc.
 
-Creating a script component in Cocos Creator is very simple. All you need to do is right-click in the Assets Manager window, select "Create -> TypeScript -> NewComponent" option.
+Creating a script component in Cocos Creator is very simple. All you need to do is right-click in the Assets Manager window, and select "Create -> TypeScript -> NewComponent" option.
 
 <img src='images/create-fist-script.png' width='64%' height='64%'></img>
 
@@ -125,7 +125,6 @@ So, let's drag the `PlayerController` script onto the  Inspector of Player node.
 You should see that a `PlayerController` component has been added to the Player node.
 
 > **Note**: You can also click on the **Add Component** button to add different types of components.
-> 由于 `Node` 这个类名在 TypeScript 内置库内也有同名的类，因此需要注意在导入时需要确保导入的是 `cc` 命名空间下的 `Node`，代码示例如下：
 > `import { _decorator, Component, Node } from 'cc'`
 
 ## Map
@@ -134,7 +133,7 @@ A map in a game is an area where your character can move around and interact wit
 
 As mentioned before, all visible objects in 2D games are made up of images. The map is no exception.
 
-Just like the steps we used to created the `Body` node, we will now create an object called `Box` which will be used to construct the map.
+Just like the steps we used to create the `Body` node, we will now create an object called `Box` which will be used to construct the map.
 
 - Right-click in the Hierarchy
 - Create a `Sprite` node by selecting "Create -> 2D Objects -> Sprite" through the pop-up menu.
@@ -145,15 +144,15 @@ Just like the steps we used to created the `Body` node, we will now create an ob
 
 ### Prefab
 
-A prefab is a special type of resource which can save the information of node as a file. so that it can be reused in other situations.
+A prefab is a special type of resource that can save the information of a node as a file. so that it can be reused in other situations.
 
-In Cocos Creator, creating a prefab is quite simle. We just need to drag the node into the Assets Manager window, a *.prefab file will be automatically generated.
+In Cocos Creator, creating a prefab is quite simple. We just need to drag the node into the Assets Manager window, a *.prefab file will be automatically generated.
 
-Now, let's create a folder named Prefab in the Assets Manager window , which will be used to organize all prefabs together.
+Now, let's create a folder named Prefab in the Assets Manager window, which will be used to organize all prefabs together.
 
 Then, find the Box node and drag it to the Prefab folder, a prefab file named "Box" will be generated.
 
-The box node in the hierarchy can be deleted, because it won't be used when game is running. Instead, we will create nodes in script using Box.prefab to build the game map during gameplay.
+The box node in the hierarchy can be deleted, because it won't be used when the game is running. Instead, we will create nodes in the script using Box.prefab to build the game map during gameplay.
 
 ![create-box-prefab.gif](images/create-box-prefab.gif)
 
@@ -161,13 +160,13 @@ The box node in the hierarchy can be deleted, because it won't be used when game
 
 ### Scene
 
-In the game engine, a scene is used to manage all game objects. It contains characters, maps, gameplay, ui. you name it in a game.
+In the game engine, a scene is used to manage all game objects. It contains characters, maps, gameplay, UI. you name it in a game.
 
-A game can be divided into different scenes based on its functionalities. Such as loading scene, start menu scene, gameplay scene etc.
+A game can be divided into different scenes based on its functionalities. Such as the loading-scene, start-menu-scene, gameplay-scene, etc.
 
-A game requires at least on scene to start.
+A game requires at least one scene to start.
 
-So, in Cocos Creator, an unsaved empty scene will be opened by default, just as the one we are currently editing.
+So, in Cocos Creator, an unsaved empty scene will be opened by default, just like the one we are currently editing.
 
 To ensure that we can find this scene the next time we open Cocos Creator, we need to save it.
 
@@ -177,7 +176,7 @@ First, let's create a folder named "Scene" to save our scenes in the Assets Mana
 
 Then, press the <kbd>Ctrl</kbd> + <kbd>S</kbd> shortcut key.
 
-Since it is the first time we are saving this scene, the scene saving window will pop up.
+Since it is the first time we are saving this scene, the scene-saving window will pop up.
 
 We choose the "Scene" folder that we just created as the location, and name it "game.scene". Click save.
 
@@ -187,7 +186,7 @@ Now the scene is saved. We can see a scene resource file named "game" under the 
 
 ![saved-scene.png](images/saved-scene.png)
 
-此时就可以观察到整个场景的状态，红色用于代表玩家而白色代表地面的地块。
+The scene now can be observed as below, the red block represents the player, and the white represents the ground.
 
 ![scene.png](images/scene.png)
 
@@ -208,7 +207,7 @@ The player should have the following behaviors：
 
 To achieve the above goals, we need to add some methods in the `PlayerController` component.
 
-- Listen for mouse click events
+- Listen for mouse-click events
 
     ```ts
     onMouseUp(event: EventMouse) {}
@@ -228,13 +227,13 @@ To achieve the above goals, we need to add some methods in the `PlayerController
 
 Next, let's complete these methods.
 
-#### Listen for mouse click events
+#### Listen for mouse-click events
 
-Cocos Creator supports various common control devices, such as mouse, keyboard, touchpad and gamepad. You can easily access the relevant content through `Input` class.
+Cocos Creator supports various common control devices, such as the mouse, keyboard, touchpad, and gamepad. You can easily access the relevant content through `Input` class.
 
 For ease of use, Cocos Creator provides a global instance object `input` for the `Input` class.
 
-> **Note** It's easy to confuse, `input` is the instance and `Input` is the class.
+> **Note** It's easy to confuse, `input` is the instance, and `Input` is the class.
 
 To make the `onMouseUp` method be called by the engine when the mouse is clicked, we need to add the following code to the `start` method.
 
@@ -260,7 +259,7 @@ onMouseUp(event: EventMouse) {
 }
 ```
 
-In the `EventMouse` class, there are three values has been defined:
+In the `EventMouse` class, there are three values have been defined:
 - public static BUTTON_LEFT = 0;
 - public static BUTTON_MIDDLE = 1;
 - public static BUTTON_RIGHT = 2;
@@ -287,11 +286,11 @@ The `update` function in the PlayerController component will be automatically ca
 update (deltaTime: number) {}
 ```
 
-The times that `update` will be called per second is determined by the frame rate (also known as FPS) when game running.
+The times that `update` will be called per second is determined by the frame rate (also known as FPS) when the game running.
 
 For example, if a game is running at 30 FPS, the `deltaTime` will be  1.0 / 30.0 = 0.03333333... second.
 
-In game development , we use `deltaTime` as the `t` in physics formula to ensure consistent movement results at any frame rate.
+In game development, we use `deltaTime` as the `t` in the physics formula to ensure consistent movement results at any frame rate.
 
 Here, let's add some properties needed for calculating player movement `PlayerController` component.
 
@@ -305,19 +304,19 @@ private _jumpStep: number = 0;
 //the time it takes for the player to jump once.
 private _jumpTime: number = 0.1;
 
-//the time that the player's current jump action has taken, should be set to 0 each time the player jumps, when it‘s reaches the value of `_jumpTime`, the jump action is completed.
+//the time that the player's current jump action has taken, should be set to 0 each time the player jumps, when it reaches the value of `_jumpTime`, the jump action is completed.
 private _curJumpTime: number = 0;
 
-//the player's current vertical speed, used to calculate the Y value of position when jumping.
+// The player's current vertical speed, used to calculate the Y value of position when jumping.
 private _curJumpSpeed: number = 0;
 
-//the current position of player, used as the original position in the physics formula.
+// The current position of the player, used as the original position in the physics formula.
 private _curPos: Vec3 = new Vec3();
 
 //movement calculated by deltaTime.
 private _deltaPos: Vec3 = new Vec3(0, 0, 0);
 
-// store the final position of player, when the player's jumping action ends, it will be used directly to avoid cumulative errors.
+// store the final position of the player, when the player's jumping action ends, it will be used directly to avoid cumulative errors.
 private _targetPos: Vec3 = new Vec3();   
 ```
 
@@ -331,27 +330,27 @@ In the `jumpByStep` method, we add the following code:
 ```ts
 jumpByStep(step: number) {
     if (this._startJump) {
-        //if player is jumping, do nothing.
+        //if the player is jumping, do nothing.
         return;
     }
     //mark player is jumping.
     this._startJump = true;
-    //record the number of step the jumping action will take.
+    //record the number of steps the jumping action will take.
     this._jumpStep = step;
     //set to 0 when a new jumping action starts
     this._curJumpTime = 0;
     //because the player will finish the jumping action in the fixed duration(_jumpTime), so it needs to calculate jump speed here.
     this._curJumpSpeed = this._jumpStep / this._jumpTime;
-    //copy the current position of node, will be used when calculating the movement.
+    //copy the current position of the node which will be used when calculating the movement.
     this.node.getPosition(this._curPos);
-    //calculate the final position of node, will be used when jumping action ends.
+    //calculate the final position of the node which will be used when the jumping action ends.
     Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 }
 ```
 
 `Vec3` is the vector class in Cocos Creator, the name is short for `Vector3`, which has 3 components, x,y,z. all vector operations are placed in `Vec3` class. Such as `Vec3.add`, `Vec3.subtract` etc.
 
-In Cocos Creator, 2D games also use `Vec3` as the property type for position, scale and rotation. Just ignore the irrelevant components, e.g. the z component in position.
+In Cocos Creator, 2D games also use `Vec3` as the property type for position, scale, and rotation. Just ignore the irrelevant components, e.g. the z component in position.
 
 Next, let's calculate the movement of the player while jumping.
 
@@ -367,7 +366,7 @@ update (deltaTime: number) {
         this._curJumpTime += deltaTime;
         //check if it reaches the jump time.
         if (this._curJumpTime > this._jumpTime) {
-            //jump end, set the player's position to target position. 
+            // When the jump ends, set the player's position to the target position. 
             this.node.setPosition(this._targetPos);
             //clear jump state
             this._startJump = false;
@@ -377,7 +376,7 @@ update (deltaTime: number) {
             this.node.getPosition(this._curPos);
             //calculate the offset x by using deltaTime and jumping speed.
             this._deltaPos.x = this._curJumpSpeed * deltaTime;
-            //calculate the final pos by adding deltaPos to original pos
+            //calculate the final pos by adding deltaPos to the original position
             Vec3.add(this._curPos, this._curPos, this._deltaPos);
             //update the position of the player.
             this.node.setPosition(this._curPos);
@@ -396,7 +395,7 @@ The **Player** will move by clicking the mouse buttons.
 
 As you can see, the player only moves a little each time you click the mouse button.
 
-This is because that we use `pixels/s` as the unit of speed for the Player.
+This is because we use `pixels/s` as the unit of speed for the Player.
 
 ```ts
 this._curJumpSpeed = this._jumpStep / this._jumpTime;
@@ -531,7 +530,7 @@ export class PlayerController extends Component {
 
 ### Player Animation
 
-For 2D game development, Cocos Creator supports various types of animation, including keyframe animation, Spine, DragonBones and Live2D.
+For 2D game development, Cocos Creator supports various types of animation, including keyframe animation, Spine, DragonBones, and Live2D.
 
 In this tutorial, the jump animation of the Player is very simple and it is enough to use keyframe animation.
 
@@ -547,7 +546,7 @@ In the Assets Manager window, create a new folder named "Animation", Inside that
 
 ![create-clip-onestep.gif](images/create-clip-onestep.gif)
 
-In the Hierarchy, select the "Body" node and drag "oneStep" from Animation folder onto the "Clips" property in the Inspector panel.
+In the Hierarchy, select the "Body" node and drag "oneStep" from the Animation folder onto the "Clips" property in the Inspector panel.
 
 ![assign-clip.gif](images/assign-clip.gif)
 
@@ -559,7 +558,7 @@ In the animation editor, we add a track for the node's position property.
 
 ![add-position-track.png](images/add-position-track.png)
 
-After adding the track, we can set the indicator of the current frame to a certain frame then change the position of the node, the current frame will set to be a keyframe automatically.
+After adding the track, we can set the indicator of the current frame to a certain frame and then change the position of the node, the current frame will be set to be a keyframe automatically.
 
 > Both modify the value on the Inspector panel and dragging the node in the scene can change the position of a node.
 
@@ -577,11 +576,11 @@ You can click the **Play** button to preview the animation clip.
 
 ![preview-oneStep.gif](images/preview-oneStep.gif)
 
-Follow the steps of making `oneStep` animation, make the another one: `twoStep`.
+Follow the steps of making `oneStep` animation, and make another one: `twoStep`.
 
 ![create-twostep.gif](images/create-twostep.gif)
 
-After completing the animation creation, click **Close** button to exit the Animation editing mode.
+After completing the animation creation, click the **Close** button to exit the Animation editing mode.
 
 ### Play animations in code
 
@@ -594,8 +593,8 @@ animation.play(animName);
 ```
 
 - animation is the Animation component on Body node.
-- play is the method on Animation component to play animation
-- animName is the name of a animation file which you want to play
+- play is the method of Animation component to play animation
+- animName is the name of an animation file that you want to play
 
 > In Cocos Creator, we must ensure the animation which will be played is included in the clips of the node's Animation component,
 
@@ -610,9 +609,9 @@ export class PlayerController extends Component {
 }
 ```
 
-> **Note**：The TypeScript and Cocos Creator both have a Animation class, please make sure the `Animation` is included in the code line `import { ... } from "cc" `. Otherwise, the code will use the `Animation` from TypeScript, unpredictable errors may occur.
+> **Note**：The TypeScript and Cocos Creator both have an Animation class, please make sure the `Animation` is included in the code line `import { ... } from "cc" `. Otherwise, the code will use the `Animation` from TypeScript, and unpredictable errors may occur.
 
-Here we added a property named `BodyAnim` and added `@property` above it. This syntax is called: [Decorator](../../scripting/decorator.md). The `@property` decorator allows the editor to be aware of the type of `BodyAnim` and display the exported properties of Animation component on the Inspector panel.
+Here we added a property named `BodyAnim` and added `@property` above it. This syntax is called: [Decorator](../../scripting/decorator.md). The `@property` decorator allows the editor to be aware of the type of `BodyAnim` and display the exported properties of the Animation component on the Inspector panel.
 
 To make sure there is a code line in your PlayerController file as below, or the code will fail to compile.
 
@@ -620,9 +619,9 @@ To make sure there is a code line in your PlayerController file as below, or the
 `const { ccclass, property } = _decorator;`
 ```
 
-Here `_decorator` is a class contains all of the decorators can be used in Cocos Creator, it should be imported from namespace cc before using it.
+Here `_decorator` is a class containing all of the decorators that can be used in Cocos Creator, it should be imported from namespace cc before using it.
 
-The related code lines are as following:
+The related code lines are as follows:
 
 ```ts
 import { _decorator, Component, Vec3, EventMouse, input, Input, Animation } from "cc";
@@ -667,11 +666,11 @@ jumpByStep(step: number) {
 }
 ```
 
-Back to the Cocos Creator, select **Player** node, drag the **Body** node on the `BodyAnim` property.
+Back to the Cocos Creator, select **Player** node, and then drag the **Body** node on the `BodyAnim` property.
 
 ![assign-body-anim.gif](images/assign-body-anim.gif)
 
-The engine will automatically get the Animation component on the Body node and assign it to `BodyAnim`. As a result, the `PlayerController`'s `BodyAnim` property references to the `Animation` component of **Body** node.
+The engine will automatically get the Animation component on the Body node and assign it to `BodyAnim`. As a result, the `PlayerController`'s `BodyAnim` property references the `Animation` component of **Body** node.
 
 Hit **Play** button at the top of Cocos Creator to preview, you can see the **Player** jumps while clicking the mouse buttons.
 
@@ -679,12 +678,12 @@ Hit **Play** button at the top of Cocos Creator to preview, you can see the **Pl
 
 Because of using the unified.
 
-Here we use a unified jumpTime value, `jumpTime = 0.1`, But since the duration of the two animations are not the same, you can find it is a little weird when animations are played.
+Here we use a unified jumpTime value, `jumpTime = 0.1`, But since the duration of the two animations is not the same, you can find it a little weird when animations are played.
 
 To solve this, it's better to use the real duration of the animations as the value of `jumpTime`.
 
 ```ts
-// get jump time from animation duration.
+// Get jump time from animation duration.
 const clipName = step == 1? 'oneStep' : 'twoStep';
 const state =  this.BodyAnim.getState(clipName);        
 this._jumpTime = state.duration;
@@ -694,7 +693,7 @@ this._jumpTime = state.duration;
 
 ## GameManager
 
-In game development, we can manually place nodes using Box.prefab to build the map, but the map will be fixed. In order to make the map change every time when the game starts and provide some surprises or the players, we can randomly build the map in code.
+In game development, we can manually place nodes using Box.prefab to build the map, but the map will be fixed. To make the map change whenever the game starts and provide some surprises for the players, we can randomly build the map in code.
 
 Now, let's create a new TypeScript component called `GameManger`  in the Assets Manager window to archive this.
 
@@ -731,14 +730,14 @@ export class GameManager extends Component {
 }
 ```
 
-Go back to the Cocos Creator, select the **GameManager** node, drag `Box` prefab onto the `boxPrefab` property of **GameManager** node.
+Go back to the Cocos Creator, select the **GameManager** node, and drag `Box` prefab onto the `boxPrefab` property of **GameManager** node.
 
 ![assign-box-prefab.gif](images/assign-box-prefab.gif)
 
-The map in this game, is made up of two types of blocks. the two types of blocks alternate to form the map.
+The map in this game is made up of two types of blocks. the two types of blocks alternate to form the map.
 
-- None：an empty block, if the Player steps on a block of this type, the game is over.
-- Stone: the Player can stand on.
+- None： an empty block, if the Player steps on a block of this type, the game is over.
+- Stone: The Player can stand on.
 
 To make the code more understandable, we often use `enum` to define the types of objects.
 
@@ -751,7 +750,7 @@ enum BlockType{
 };
 ```
 
- > In TypeScript, if the first element of a enum hasn't been given a value, it will take 0 as default. Here, `BT_NONE = 0`, `BT_STONE = 1`.
+ > In TypeScript, if the first element of an enum hasn't been given a value, it will take 0 as default. Here, `BT_NONE = 0`, `BT_STONE = 1`.
 
 In the following code, you can see how we use it.
 
@@ -791,7 +790,7 @@ The flow of constructing the map is as follows:
 
 - Clear all data when the game starts
 - The type of the first block is always `BlockType.BT_STONE` to prevent the Player from falling off.
-- The type of a block after a block with type of `BlockType.BT_STONE` should always be `BlockType.BT_STONE`.
+- The type of a block after a block with the type of `BlockType.BT_STONE` should always be `BlockType.BT_STONE`.
 
 Next, let's add the following method to `GameManger`.
 
@@ -829,7 +828,7 @@ Next, let's add the following method to `GameManger`.
 
     Obviously, the code `Math.floor(Math.random() * 2)` will only produce two integer numbers, 0 or 1, which are exactly correspond to the value of  `BT_NONE` and `BT_STONE` declared in the `BlockType` enum.
 
-- Create new block by the given type：
+- Create a new block by the given type：
 
     ```ts
     spawnBlockByType(type: BlockType) {
@@ -850,9 +849,9 @@ Next, let's add the following method to `GameManger`.
 
     If the given type is `BT_STONE`, we create a new block from `boxPrefab` using `instantiate` method.
 
-    If the given type if `BT_NONE`, we just do nothing.
+    If the given type is `BT_NONE`, we just do nothing.
 
-    > `instantiate`: is a built-in method provided by Cocos Creator, it is used for making a copy of an exist node and creating a new instance for a prefab.
+    > `instantiate`: is a built-in method provided by Cocos Creator, it is used for making a copy of an existing node and creating a new instance for a prefab.
 
 Let's call `generateRoad` in the `start` method of   `GameManager`:
 
@@ -868,29 +867,29 @@ You can see the generated map when running the game.
 
 ## Camera Follow
 
-In a game which has a movable player, we often let the camera follow the player. As a result, you can see the screen scrolling when player is moving.
+In a game that has a movable player, we often let the camera follow the player. As a result, you can see the screen scrolling when the player is moving.
 
 It's very simple to archive it in Cocos Creator. Just make the following changes.
 
-1. Select the Canvas node, uncheck the **Align Canvas With Screen** property of cc.Canvas component on the Inspector panel.
+1. Select the Canvas node, and uncheck the **Align Canvas With Screen** property of cc.Canvas component on the Inspector panel.
 
-2. Drag the Camera node on the Player node, make it as a child node.
+2. Drag the Camera node on the Player node, and make it a child node.
 
 ![setup-scroll.gif](./images/setup-scroll.gif)
 
-Now, run the game, you can see the camera is following the player.
+Now, run the game, and you can see the camera is following the player.
 
 ![scroll.gif](images/scroll.gif)
 
 ## UI layout
 
-UI ( User Interface ) is a very important part for most games. it displays information about the game and allows users to interact with the game systems.
+UI ( User Interface ) is a very important part of most games. it displays information about the game and allows users to interact with the game systems.
 
-As we mentioned before, In Cocos Creator, all 2D elements should be put directly or indirectly under the Canvas node, or it will not be rendered.
+As we mentioned before, In Cocos Creator, all 2D elements should be put directly or indirectly under the Canvas node, or they will not be rendered.
 
-In Cocos Creator, UI is a special collection of 2D elements, they are text, buttons, toggles etc.
+In Cocos Creator, UI is a special collection of 2D elements, they are text, buttons, toggles, etc.
 
-As 2D elements,they also need to be put under the Canvas node.
+As 2D elements, they also need to be put under the Canvas node.
 
 As we know, UI elements are always fixed on the screen, so we need a fixed camera to render them.
 
@@ -904,7 +903,7 @@ In the Hierarchy, right lick the scene root and select "Create -> UI Component -
 
 ![create-ui-canvas.png](images/create-ui-canvas.png)
 
-Name it as "UICanvas".
+Name it "UICanvas".
 
 ![ui-canvas.png](images/ui-canvas.png)
 
@@ -918,7 +917,7 @@ Now, we have made a 'Play' button.
 
 ### Background & Text
 
-Next, let's add a background and a text to tell users how to play this game.
+Next, let's add a background and text to tell users how to play this game.
 
 Create a Sprite node under the 'StartMenu' node and name it 'Bg'.
 
@@ -933,7 +932,7 @@ Set the `Content Size` of `UITransform` to a certain value (e.g. 400,250) .
 Create a new Label node named 'Title' under the 'StartMenu' node, and set the properties as below:
 - position： 0,80
 - cc.Label Color: black
-- cc.Label String：Mind Your Step 2D
+- cc.Label String： Mind Your Step 2D
 - cc.Label Font Size：40
 
 ![create-title.png](images/create-title.png)
@@ -942,7 +941,7 @@ Continue creating some `Label` nodes to describe the gameplay. Name them 'Tip'.
 
 ![create-tip.png](images/create-tip.png)
 
-Create a `Label` node **under UICanvas**, name it 'Step', to show how many steps the player has taken.
+Create a `Label` node **under UICanvas**, and name it 'Step', to show how many steps the player has taken.
 
 ![step.png](images/step.png)
 
@@ -955,7 +954,7 @@ There are 3 states in most games.
 - **PLAYING**: game is playing
 - **END**: game is over, will restart or exit
 
-We can define these states using a enum type as below:
+We can define these states using an enum type as below:
 
 ```ts
 enum GameState{
@@ -965,9 +964,9 @@ enum GameState{
 };
 ```
 
-For better readable, let's put it after the `BlockType` enum.
+For better readability, let's put it after the `BlockType` enum.
 
-Let's add a `setCurState` method to `GameManger`, which will be used to control the state of game.
+Let's add a `setCurState` method to `GameManger`, which will be used to control the state of the game.
 
 The code is as follows.
 
@@ -1012,7 +1011,7 @@ As designed, the **Player** only can be controlled by users when the game is run
 
 So, we make a small change to the input event listener in the `PlayerController`.
 
-The input event is no longer listened in the `start` method, instead, we create a new method named `setInputActive` to handle it. the `setInputActive` method will be called when needed.
+The input event is no longer listening in the `start` method, instead, we create a new method named `setInputActive` to handle it. the `setInputActive` method will be called when needed.
 
 ```ts
 start () {
@@ -1132,12 +1131,12 @@ We call `setCurState` here to initialize the game.
 
 ### GS_INIT
 
-In this game state, we should initialize the map, reset the position of the player, show game UI etc.
+In this game state, we should initialize the map, reset the position of the player, show the game UI, etc.
 
 So, we need to add the needed properties to `GameManager.
 
 ```ts
-//references to the startMenu node.
+// References to the startMenu node.
 @property({ type: Node })
 public startMenu: Node | null = null;
 
@@ -1189,17 +1188,17 @@ onStartButtonClicked() {
 }
 ```
 
-Go back to Cocos Creator, select the `UICanvas/StartMenu/Button` node.
+Go back to Cocos Creator,  and select the `UICanvas/StartMenu/Button` node.
 
-On the Inspector panel, type `1` to the input box after `Click Events` property.
+On the Inspector panel, type `1` into the input box after `Click Events` property.
 
-Then drag the `GameManager` node to the first slot, select `GameManager` for the second slot, choose `onStartButtonClicked` for the third slot.
+Then drag the `GameManager` node to the first slot, select `GameManager` for the second slot, and choose `onStartButtonClicked` for the third slot.
 
 ![click-event.gif](images/click-event.gif)
 
 ### GS_PLAYING
 
-After users clicking the 'Play' button, the game is going to this state. We need to:
+After users click the 'Play' button, the game is going to this state. We need to:
 
 - Hide the StartMenu
 - Reset the number of steps
@@ -1239,7 +1238,7 @@ We do nothing for now. you can add anything you want to make the game perfect.
 
 ### Bind properties
 
-Go back go Cocos Creator, drag the corresponding node to each property for `GameManager`.
+Go back to Cocos Creator, and drag the corresponding node to each property for `GameManager`.
 
 ![bind-manager.png](images/bind-manager.png)
 
@@ -1249,7 +1248,7 @@ Look! We can play it now.
 
 ## Game Over
 
-Next, let's handle the situation when the player step on the an empty block.
+Next, let's handle the situation when the player steps on an empty block.
 
 ### Handle jump end
 
@@ -1301,7 +1300,7 @@ onOnceJumpEnd() {
 }
 ```
 
-Call `onOnceJumpEnd` in the `update` of `PlayerController` when jump action is over.
+Call `onOnceJumpEnd` in the `update` of `PlayerController` when the jump action is over.
 
 ```ts
 update (deltaTime: number) {
@@ -1325,7 +1324,7 @@ update (deltaTime: number) {
 
 Go back to `GameManager` and add the following code.
 
-- Add `onPlayerJumpEnd` method to handle jump end event.
+- Add `onPlayerJumpEnd` method to handle the jump end event.
 
     ```ts
     onPlayerJumpEnd(moveIndex: number) {
@@ -1342,7 +1341,7 @@ Go back to `GameManager` and add the following code.
     }
     ```
 
-    > In Cocos Creator, a event dispatched through the `emit` of a node an only be listened by using its `on`.
+    > In Cocos Creator, an event dispatched through the `emit` of a node can only be listened to by using its `on`.
 
 - Add `checkResult` to check the type of block the player steps on.
 
@@ -1381,12 +1380,12 @@ In Cocos Creator, a node can only be put in one of the layers, a camera can choo
 To solve this problem, we need to allocate the role of the layers and the visibility of cameras.
 
 In this game, we have two types of objects.
-- Scene Object：player, blocks
-- UI Object: windows , buttons, labels
+- Scene Object： player, blocks
+- UI Object: windows, buttons, labels
 
 So, we just need to put all of the scene objects to `DEFAULT` layer and put all of the UI objects to `UI_2D` layer.
 
-Then, we need to change a little about the visibility of cameras to let he `Canvas/Camera` only render the objects in `DEFAULT` layer, the `UICanvas/Camera` only render the object in `UI_2D` layer, everything will be ok.
+Then, we need to change a little about the visibility of cameras to let the `Canvas/Camera` only render the objects in `DEFAULT` layer, the `UICanvas/Camera` only render the object in `UI_2D` layer, and everything will be ok.
 
 It's so clear, now, let's do it.
 
@@ -1400,7 +1399,7 @@ It's so clear, now, let's do it.
 
     ![box-layer.png](images/box-layer.png)
 
-    Double click left mouse button on the prefab file to enter the prefab editing mode, don't forget to hit the 'Save' button after finishing the modification.
+    Double-click the left mouse button on the prefab file to enter the prefab editing mode, don't forget to hit the 'Save' button after finishing the modification.
 
     ![save-prefab.png](images/save-prefab.png)
 
@@ -1422,9 +1421,9 @@ Play the game again, everything is ok now.
 
 ## Summary
 
-Here we come to the end of this tutorial, hope it has been helpful for you.
+Here we come to the end of this tutorial, hope it has been helpful to you.
 
-In the future, you can add more gameplay and features based on this game,such as replacing the Player with an animation role, add a beautiful background image, add a rhythmic background music and sounds etc.
+In the future, you can add more gameplay and features based on this game, such as replacing the Player with an animation role, adding a beautiful background image, adding rhythmic background music and sounds, etc.
 
 If you have any questions, please refer to [Get Help and Support](../support.md).
 
