@@ -1,6 +1,6 @@
 # Handle Touch Events
 
-If we want our game to run on mobile devices, we need to handle touch events instead of mouse clicked events, since the latter are only fired on PCs.
+If we want our game to run on mobile devices, we need to handle touch events instead of mouse-clicked events, since the latter are only fired on PCs.
 
 In Cocos Creator, we can handle touch events from the screen by listening to `Input.EventType.TOUCH_START` event.
 
@@ -59,7 +59,7 @@ In `PlayerController`, add the following code.
     }
     ```
 
-- Add method for handling touch events
+- Add the method for handling touch events
 
     ```ts
     onTouchStart(event: EventTouch) {
