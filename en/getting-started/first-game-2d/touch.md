@@ -82,7 +82,7 @@ Now, you can run the game on your phone by using the browser to scan the QR code
 
 ![qr-code.png](./touch/qr-code.png)
 
-The complete code of `Playercontroller` is shown below.
+The complete code of `PlayerController` is shown below.
 
 ```ts
 import { _decorator, Component, Vec3, EventMouse, input, Input, Animation, EventTouch, Node } from "cc";
