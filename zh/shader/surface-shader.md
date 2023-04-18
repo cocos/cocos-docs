@@ -24,4 +24,4 @@ Surface Shader 相关内容列表：
 - [VS 输入](./surface-shader/vs-input.md)
 - [FS 输入](./surface-shader/fs-input.md)
 - [自定义 Surface Shader](./surface-shader/customize-surface-shader.md)
-- [渲染调式功能](./surface-shader/rendering-debug-view.md)
+- [渲染调试功能](./surface-shader/rendering-debug-view.md)
