@@ -4,21 +4,11 @@ From Cocos Creator 3.7.0, we switch the approach of generating JS binding code f
 
 ## Generate JS Binding Code for Engine
 
-- Make sure you have installed NodeJS (`>= v8.9.4`)
+In 3.8 and later versions, developers no longer need to manually trigger the generation of binding code because CMake will automatically call the SWIG command during the build process to generate the binding code.
 
-- Open Terminal (macOS/Linux) or Command Line Tool (Windows), navigate to `engine/native/tools/swig-config`
+Please note that if the generation process fails, you should pay attention to the output logs in the console.
 
-- Run `node genbindings.js`
-
-- If succeed, you'll see the text:
-
-  ```
-  ======================================================================
-      Congratulations, JS binding code was generated successfully!
-  ======================================================================
-  ```
-
-- If failed, you need to check the output and figure out whether there're some errors in `.i` files.
+However, if you add or remove `.i` files for the engine, you need to regenerate the project to ensure that the updated references to the `.i` files are taken into account and that the updated binding code is generated.
 
 ## Generate JS Bindings Code for Developer's Project
 
