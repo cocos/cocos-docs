@@ -83,6 +83,7 @@ http://ci.openharmony.cn/dailys/dailybuilds
 ![](./publish-openharmony/document_image_rId29-2.png)
 
 13. 在 RKDevTool软件中，把打勾的部分，选择解压的系统对应的文件，如下图：
+![](./publish-openharmony/document_image_rId30-1.png)
 ![](./publish-openharmony/document_image_rId30.png)
 
 1.  点击执行，等待日志显示'下载完成'即可。执行成功后，设备会自动进行重启，出现软件 OpenHarmony 界面欢迎页面，然后进入到桌面，即表示烧录成功，如下图：
@@ -243,9 +244,10 @@ toolchains-windows-x64-3.2.11.9-Release.zip
 
 ![](./publish-openharmony/document_image_rId57.png)
 
-9. 配置工程名称、配置开始场景与包含的其他场景，勾选调试模式（其他参数需要保持默认配置），点击 build，如下图：
+1. 配置工程名称、配置开始场景与包含的其他场景，配置Debug/Release, 配置32位cocos应用或64位cocos应用（对应OpenHarmony32位系统与64位系统），点击 build，如下图：
 
 ![](./publish-openharmony/document_image_rId58.png)
+![](./publish-openharmony/document_image_rId58-1.png)
 
 11、点击 make（目前会提示失败，但是会生成无签名的 hap 包），之后点击 run（需要设备，由于没有签名，目前 run 会失败）即可（由于目前 make 和 run 都会失败，因此可以不操作）。
 
