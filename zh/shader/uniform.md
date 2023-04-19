@@ -1,8 +1,15 @@
-# Cocos Effect 内置 Uniform
+# Cocos Shader 内置全局 Uniform
 
-要在 Cocos Effect 中使用内置变量 Uniform，需要包含对应的着色器片段（Chunk）。
+要在 Cocos Shader 中使用内置变量 Uniform，需要包含对应的着色器片段（Chunk）即可，如下代码所示：
 
-目前所有的内置变量，按所在着色器片段进行分组，列表如下。
+```ts
+//local uniforms
+#include <builtin/uniforms/cc-local>
+//global uniforms
+#include <builtin/uniforms/cc-global>
+```
+
+以下是常用内置变量，按所在着色器片段进行分组，列表如下：
 
 ## `cc-local.chunk`
 
@@ -56,3 +63,5 @@
 | :-- | :-- | :-- |
 | `cc_matLightPlaneProj` | mat4 | 平面阴影的变换矩阵 |
 | `cc_shadowColor` | vec4 | 阴影颜色 |
+
+完整常量列表，请参考 **internal/builtin/uniforms/** 目录。
