@@ -40,7 +40,7 @@
 - [Quick Start: Making Your First 2D Game](getting-started/first-game-2d/index.md)
     - [Handle Touch Events](getting-started/first-game-2d/touch.md)
 - [Quick Start: Make Your First 3D Game](getting-started/first-game/index.md)
-    - [Quick Start: Make Your First 3D Game (Advanced)](getting-started/first-game/advance.md)
+    - [Advanced: Add Light, Shadow and Skeleton Animation](getting-started/first-game/advance.md)
 
 ## Basic Workflow
 

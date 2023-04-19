@@ -1,4 +1,4 @@
-# Quick Start: Make Your First 3D Game (Advanced)
+# Advanced: Add Light, Shadow and Skeleton Animation
 
 In this section, we will introduce to you how to use third-part assets such as animation, etc to complete the prototype we made in [Quick Start: Make Your First 3D Game](index.md)
 
