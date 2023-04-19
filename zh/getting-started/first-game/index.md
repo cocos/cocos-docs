@@ -1016,7 +1016,7 @@ onStartButtonClicked() {
 这里可以注意到，Click Events 属性 [0] 分量内分为了三个栏位，分别是：
 
 1. 节点：这里我们拖拽 GameManager 这个节点，意味着按钮事件将被派发到 GameManager 这个节点上
-2. 组件：拖拽 GameManager 节点后，就可以通过下拉选择 GameManager 上的节点，这里选择同名的组件 `GameManager`
+2. 组件：拖拽 GameManager 节点后，就可以通过下拉选择 GameManager 上的组件，这里选择同名的组件 `GameManager`
 3. 事件：通过下拉菜单，选择按钮的响应事件，这里要选择上述添加的 `onStartButtonClicked` 方法作为 **按钮按下的响应**
 
 > **注意**：上述的 3 个步骤相互依赖，且顺序必须为 1 -> 2 -> 3。

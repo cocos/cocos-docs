@@ -1,102 +1,52 @@
-# Quick start: making your first game.
+# Quick Start: Make Your First 3D Game
 
-The power of the __Cocos Creator__ editor is that it allows developers to quickly prototype games.
+In this section, we will introduce you to some of the 3D features in Cocos Creator, and how to use them to make a simple but complete platform jump game.
 
-Let's follow a guided tutorial to make a magical game named **Mind Your Step**. This game tests the player's reaction ability, and chooses whether to jump one step or two steps according to traffic conditions.
+The following tutorial shows a mini-game named "Mind Your Step". This game tests the user's reflexes, choosing whether to jump one step or two steps according to the road.
 
-You can try out the completed the game [here](https://gameall3d.github.io/MindYourStep_Tutorial/index.html).
+You can experience the finished form of the game at [here](https://gameall3d.github.io/MindYourStep_Tutorial/index.html).
 
-![cocos-play](images/cocos-play.gif)
+## Add Player
 
-## New Project
+A manipulable character is always needed for most games. Here we will make our main character in the game, Miss/Mr. Capsule.
 
-If you still don’t know how to download and run __Cocos Creator__, please review the [Installation and Starting](../install/index.md) documentation.
+For the sake of production, let's review a little here how nodes are created within the editor.
 
-To start a new project:
+![hierarchy.png](images/hierarchy.png)
 
-1. Start __Cocos Creator__ and then create a new project named **MindYourStep**. If you don’t know how to create a project, please read the [Hello World!](../helloworld/index.md) documentation.
+The**Hierarchy** panel will demonstrate all nodes in the scene, and you can create a new node right-clicking on the popup menu of the **Hierarchy** panel.
 
-2. After creating a new project, you should see the following editor interface:
+### Create Player Node
 
-    ![main window](./images/main-window.png)
-
-## Creating a game scene
-
-In __Cocos Creator__, **Scene** is the center for organizing game content during development and the container for presenting all game content to players. The game scene will generally include the following components:
-
-  - Scene objects
-  - Roles
-  - User interface elements
-  - Game logic, in the form of __scripts__, attached to __Scene__ __Nodes__ as __Components__
-
-When the player runs the game, the game scene will be loaded. After the game scene is loaded, scripts of the included components will be automatically run. Apart from __assets__, game scenes are the foundation of all content creation. Now, to create a new __Scene__:
-
-1. In the __Asset__ panel, click to select the __assets__ directory, click the __+__ button in the upper left corner, select the folder, and name it __Scenes__. Example:
-
-    ![create scene](./images/create-folder.png)
-
-2. Click the __Scenes__ directory first (the following pictures create some common folders in advance), click the right mouse button, and select __Scene Files__ from the pop-up menu. Example:
-
-    ![create scene](./images/create-scene.png)
-
-3. We created a __Scene__ file named __New Scene__. After the creation, the name of the scene file __New Scene__ will be in the edit state. Rename it from __New Scene__ to __Main__.
-
-4. Double-click __Main__ to open this __Scene__ in __Scene__ panel and __Hierarchy__ panel.
-
-## Adding a road
-
-Our main character needs to run from left to right on a road composed of cubes (blocks). Let's make the road by using a built-in cube.
-
-1. Right click on __Scene Node__ in the **Hierarchy** panel, then choose __Create -> 3D Object -> Cube__
-
-    ![create cube](./images/create-cube.gif)
-
-2. Clone the cube to make two more cube with the shortcut key __Ctrl+D__.
-
-3. Assign the __Cubes__ each a unique position:
-    - First one at position __(0, -1.5, 0)__.
-    - Second one at position __(1, -1.5, 0)__.
-    - Third one at position __(2, -1.5, 0)__.
-
-    The result is as follows:
-
-    ![create ground](./images/add-ground-base.png)
-
-## Add a main character
-
-### Create a main character node
-
-__First__, create an empty node named `Player`.
-
-__Second__, create a __Model Component__ named `Body` under the `Player` node. For convenience, let's use the built-in __Capsule__ model as the body of our main character.
+First, you need to create an empty Node named 'Player', and then create another Node named 'Body' to represent the character's model node. To make it simple, we use the built-in capsule model as our main character.
 
 ![create player node](./images/create-player.gif)
 
-The advantage of being divided into two nodes is that we can use the script to control the `Player` node to move the main character in the horizontal direction, and do some vertical animations on the `Body` node (such as falling after jumping in place), the two are superimposed to form a jumping animation.
+You may notice that our player is divided into two nodes, the advantage of the division is that when we move the Player node horizontally, this movement will not affect the vertical animation on the Body node(such as jump up and fall). The entire jump animation is combined with horizontal movement and vertical jump-fall animation.
 
-__Third__, set the `Player` node to the `(0, 0, 0)` position so that it can stand on the first square.
-
-The effect is as follows:
+Then place the Player node at (0, 0, 0), so that it can stand on the first block. The effect is as follows:
 
 ![create player](./images/create-player.png)
 
-### Writing a script for the main character
+### Scripting the Main Character
 
-It is necessary for the main character to be affected when the mouse moves. To do this a custom script needs to be written.
+To make a character move by mouse-events, one shall write some custom scripts. Don't worry even if you don't have any programming experience, we will provide all code and all you need to do is copy and paste all those codes to the right place. And of course, we will explain all the code provided to help you get started with Cocos Creator as soon as possible.
 
-#### Creating a script
+#### How to Create Script Components
 
-1. If you have not yet created a `Scripts` folder, right-click the **assets** folder in the __Assets__ panel, select **New -> Folder**, and rename the newly created folder to `Scripts`.
-2. Right-click the `Scripts` folder and select **New -> TypeScript** to create a new, blank __TypeScript__ script. For __TypeScript__ information, you can view the [TypeScript Official Website](https://www.typescriptlang.org/).
-3. Change the name of the newly created script to `PlayerController` and the double-click the script to open the code editor (in, for example, __VSCode__).
+1. If you haven't created the Scripts folder yet, first right-click on the **assets** folder in **Assets**, select the **Create -> Folder** menu to create a new fold, and rename it with 'Scripts';
+2. Right-click on the Scripts folder, and select **Create -> Typescript -> New Component** on the popup menu to create a new TypeScript component. More references can be found on [official TypeScript](https://www.typescriptlang.org/).
+3. Rename the created component to `PlayerController` and double-click on the script file to open any code editor(such as VSCode).
 
     ![create player script](./images/create-player-script.gif)
 
-    > **Note**: the name of the script in __Cocos Creator 3.0__ is the name of the component. This name is case sensitive! If the capitalization of the component name is incorrect, the component cannot be used correctly by the name!
+> **Note**: The script name in Cocos Creator is case-sensitive! If the capitalization is incorrect, you can't use the component based on its name.
+>
+> About renaming: If you enter the name of a component by mistake, you need to change the file name, class name, and decorator name to correct it. Therefore if you do not familiar with the whole operation, consider deleting the file and re-creating it.
 
-#### Writing script code
+#### Writing Script Code
 
-There are already some pre-set code blocks in the `PlayerController` script. Example:
+Within the opened `PlayerController` script there is already some pre-set blocks for code, as follows:
 
 ```ts
 import { _decorator, Component } from 'cc';
@@ -107,7 +57,7 @@ export class PlayerController extends Component {
     /* class member could be defined like this */
     // dummy = '';
 
-    /* use `property` decorator if your want the member to be serializable */
+    /* use the `property` decorator if you want the member to be serializable */
     // @property
     // serializableDummy = 0;
 
@@ -121,9 +71,368 @@ export class PlayerController extends Component {
 }
 ```
 
-This code is the structure needed to write a __component__. Scripts with this structure are **Components in Cocos Creator**. They can be attached to nodes in a __Scene__ and provide various functionality for controlling nodes. For detailed information review the [Script](../../scripting/index.md) documentation.
+The above code demonstrates the necessary structure of a component(script). Any class that inherits from a `cc.Component` is called a Component and can be attached to any node in a scene to control the behavior of the node, for more details please refer to [Scripting](../../scripting/index.md).
 
-Monitoring of mouse events needs to be added in the script to let the `Player` node move. Modify the code in `PlayerController` as follows:
+Next, let's refine the `PlayerController` code so that the character can actually move.
+
+#### Listening to the Input
+
+We need to listen to the computer input(mouse, keyboard, or joystick, etc.) to manipulate the character in games, and in Cocos Creator, you can do this by listening to the `input` events.
+
+```ts
+input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+```
+
+The above code demonstrates use how we are listening to the mouse-up event(`MOUSE_UP`) of the Input-System(`input`), and when the mouse-up event is emitted, the `onMouseUp` in this script will be invoked.
+
+Usually, we will put all the initial code in the `start` method of a Component to make sure the input events can listen correctly right after the initialization.
+
+> The invocation of the `start` method indicates that the component has been properly initialized and you can use it with confidence.
+
+So the following code could be seen.
+
+```ts
+import { _decorator, Component, input, Input, EventMouse } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass("PlayerController")
+export class PlayerController extends Component {
+
+    start () {
+        // Your initialization goes here.
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+    }
+
+    onMouseUp(event: EventMouse) {
+       
+
+    }
+}
+```
+
+#### Make Character Moves
+
+To make our Player move, we have to add some additional properties to the Player to describe it. Think of some questions in the high school physics class about cubes or balls. Yes, indeed, we change the position, speed, and other factors to achieve a movable character in game development.
+
+In the current game, we want to accomplish this behavior: the user presses the left/right mouse button -> determines that it is a displacement of one/two steps -> moves the character forward according to the input until it reaches the destination point.
+
+So we could add a property to the script like the following:
+
+```typescript
+// Whether to receive the jump command
+private _startJump: boolean = false;
+```
+
+With a boolean variable like `_startJump`, we can mark whether the current character is in the jump or not, to help us distinguish between different branching logic in the `update` method. Because obviously, we don't need to move the character when no input is received.
+
+> Q: Why do we handle it in the `update` method?
+>
+> A: The `update` method will be invoked by the engine in a specific time interval. If the FPS of our game is 60 (60 renders per second), then the `update` method will be called 60 times per second. We can simulate realistic continuous behaviors by using `update` as much as possible.
+
+So we can change the code as follows:
+
+```typescript
+import { _decorator, Component, input, Input, EventMouse } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass("PlayerController")
+export class PlayerController extends Component {
+
+    // Whether to receive the jump command
+    private _startJump: boolean = false;
+    // The jump step count
+    private _jumpStep: number = 0;
+
+    start () {
+        // Your initialization goes here.
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+    }
+
+    onMouseUp(event: EventMouse) {
+       
+
+    }
+
+    update(dt: number): void {
+        if( this._startJump){ // Handle branching logic of jump
+
+        }
+    }
+}
+```
+
+Good, here we have completed the main framework of our Player controller, so we just need to think about how to move the Player in the `update` method.
+
+In Newtonian mechanics, we have learned that if an object is to move with uniform velocity, then its position must be like the following:
+
+```math
+P_1 = P_0 + v*t
+```
+
+In the other words, we can add the current position of the object plus the velocity multiplied by the time, when we can get the new position.
+
+In our game, when the mouse button is pressed, the character will move directly 1 unit if the jump step is 1, and 2 units if the jump step is 2. So we can calculate the target position of the character (_targetPos) by using the following formula:
+
+```
+_targetPos = _curPos + step
+```
+
+It can be seen that the above formula contains three pieces of information: _targetPos、_curPos and step, so we record these properties in the script to use them in the `update` method.
+
+Add those properties in the `PlayerController` component like the following:
+
+```ts
+// The jump step
+private _jumpStep: number = 0;
+// Current position of the character
+private _curPos: Vec3 = new Vec3();
+// The target position of the character
+private _targetPos: Vec3 = new Vec3();
+```
+
+The code of `PlayerController` should look as follows:
+
+```ts
+import { _decorator, Component, input, Input, EventMouse, Vec3 } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass("PlayerController")
+export class PlayerController extends Component {
+
+    // Whether to receive the jump command
+    private _startJump: boolean = false;
+    // The jump step
+    private _jumpStep: number = 0;
+    // Current position of the character
+    private _curPos: Vec3 = new Vec3();
+    // The target position of the character
+    private _targetPos: Vec3 = new Vec3();
+    start () {
+        // Your initialization goes here.
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+    }
+
+    onMouseUp(event: EventMouse) {
+       
+
+    }
+
+    update(dt: number): void {
+        if( this._startJump){
+
+        }
+    }
+}
+```
+
+Our next mission is to accomplish how could we get that information by computerizing.
+
+First of all, we should check whether the user has clicked the right mouse button or the left mouse button.
+
+Those determinations can be made by getting the mouse button information in the `onMouseUp` method by using the `getButton` of `EventMouse`. In the `EventMouse` event, the `getButton` will return 0 if the left button is clicked, or 2 if the right button is clicked.
+
+So let's extend the `onMouseUp` method as follows:
+
+```ts
+onMouseUp(event: EventMouse) {
+    if (event.getButton() === 0) {
+        
+    }
+    else if (event.getButton() === 2) {
+        
+    }
+}
+```
+
+Add a new method `jumpByStep` to the `PlayerController` component to help us calculate the destination position and speed of the character. Since the input step maybe 1 or 2 steps, so we add a numeric parameter `step` to the `jumpByStep` method to achieve better reusability.
+
+> Reusability? Such a concept sounds complicated!
+> Don't stress, it's just some engineering jargon that we can ignore when we first learn it.
+> This is just to explain more clearly why we added a method called `jumpByStep`.
+
+So, the method looks like the follows:
+
+```ts
+jumpByStep(step: number) {
+    
+}
+```
+
+We use the `step` parameter to indicate the jump steps.
+
+In our game, jumping(raise and fall) must be a complete step and we don't accept any input unless the jumping process is finished, so we use `_startJump` to ignore the character's input while jumping.
+
+After that, we shall calculate how much is the character's velocity in the given time when it moves from its current position to the destination.
+
+The calculating process looks like the follows:
+
+1. Calculate current speed(_curJumpSpeed)
+2. Calculate target position(_targetPos)
+
+In order to exit the `if( this._startJump)` branch logic correctly, we have to remember the time to start the jump (_curJumpTime), because when this time has elapsed, we consider the whole jump process to be finished.
+
+Now the `jumpByStep` method looks like follows:
+
+```ts
+jumpByStep(step: number) {
+    if (this._startJump) {
+        return;
+    }
+    this._startJump = true; // Whether to start to jump
+    this._jumpStep = step; // Jump steps for this time
+    this._curJumpTime = 0; // Reset the jump time
+    this._curJumpSpeed = this._jumpStep / this._jumpTime; // Current jump step
+    this.node.getPosition(this._curPos); // use 'getPosition` to get the current position of the character
+    // target position = current position + steps
+    Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));  
+}
+```
+
+- Q: What is `Vec3.add`?
+    - `Vec3` is a 3D vector class in Cocos Creator, used to record and calculate 3D vectors.
+    - `add` is a method in `Vec3` to add two 3D vectors, we can notice that there is no `this`, because `add` is a **static method**.
+    - `Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));` This code block indicate that we use the target position(`_targetPos`) to store the add result of current position(`_curPos`) and a new vector(`new Vec3(this._jumpStep, 0, 0)`) which represent the jump step on x axis.
+
+Sure, we can simply move the character on the X-axis, but in reality, in 3D game development, objects may move along 3 different axes, and the more familiar you are with the usage of 3D vectors, the faster we can master the 3D engine.
+
+At this moment, our code may look as follow:
+
+```ts
+import { _decorator, Component, input, Input, EventMouse, Vec3 } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass("PlayerController")
+export class PlayerController extends Component {
+
+    // Whether received jump command
+    private _startJump: boolean = false;
+    // The jump step count
+    private _jumpStep: number = 0;
+    // Current jump time
+    private _curJumpTime: number = 0;
+    // Total jump time
+    private _jumpTime: number = 0.1;
+    // current jump speed
+    private _curJumpSpeed: number = 0;
+    // current position of the
+    private _curPos: Vec3 = new Vec3();
+    // The difference of the current frame movement position during each jump
+    private _deltaPos: Vec3 = new Vec3(0, 0, 0);
+    // Target position of the character
+    private _targetPos: Vec3 = new Vec3();
+    
+    start () {
+        // Your initialization goes here.
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+    }
+
+    onMouseUp(event: EventMouse) {
+        if (event.getButton() === 0) {
+         
+        }
+        else if (event.getButton() === 2 ) {
+         
+        }
+    }
+
+    jumpByStep(step: number) {
+        if (this._startJump) {
+            return;
+        }
+        this._startJump = true;
+        this._jumpStep = step;
+        this._curJumpTime = 0;
+        this._curJumpSpeed = this._jumpStep / this._jumpTime;
+        this.node.getPosition(this._curPos);
+        Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
+    }
+
+
+    update(dt: number): void {
+        if( this._startJump){
+
+        }
+    }
+}
+```
+
+Fascinating, now we have all the data required to calculate the character's manipulation, then we can move it in the `update` method.
+
+Remember the Newton problem we talked about above? It's time to really solve this problem.
+
+We need to first check if the entire jump duration (_curJumpTime) has exceeded our predefined time (_jumpTime).
+
+The test here is simple: we have set _curJumpTime to 0 at input time, so `update` only needs to:
+
+```
+Jump time = last jump time + frame interval
+```
+
+The `update` method happens to provide a parameter like `deltaTime` as the frame interval.
+
+So we just add `_curJumpTime` to `deltaTime` and that's it:
+
+```ts
+update (deltaTime: number) {
+    if (this._startJump) {
+        this._curJumpTime += deltaTime;        
+    }
+}
+```
+
+> You can see that we ues the '+=' operator, which is equivalent to `this._curJumpTime = this._curJumpTime + deltaTime`.
+
+When `_curJumpTime` is greater than our pre-defined `_jumpTime`, this means that the jump is over, so we need two branches to handle the end-of-jump and in-jump states, respectively:
+
+```ts
+update (deltaTime: number) {
+    if (this._startJump) {
+        this._curJumpTime += deltaTime; 
+        if (this._curJumpTime > this._jumpTime) { // Jump ends
+            
+            
+        } else { // Jumping
+                        
+        }
+    }
+}
+```
+
+Finally, we refine their logic for the different branches: t
+
+- End of jump: ends the jumping process, forcing the character to be displaced to the target position
+- During the jump: moves the character forward according to the velocity
+
+So our `update` method will look like this:
+
+```ts
+update (deltaTime: number) {
+    if (this._startJump) {
+        this._curJumpTime += deltaTime.
+        if (this._curJumpTime > this._jumpTime) { // end of jump
+            // end
+            this.node.setPosition(this._targetPos); // force move to target position
+            this._startJump = false; // mark the end of the jump
+        } else { // jump in progress
+            // tween
+            this.node.getPosition(this._curPos); // Get the current position 
+            this._deltaPos.x = this._curJumpSpeed * deltaTime; // calculate the length of this frame that should be displaced
+            Vec3.add(this._curPos, this._curPos, this._deltaPos); // add the current position to the length of the displacement
+            this.node.setPosition(this._curPos); // set the position after displacement
+        }
+    }
+}
+```
+
+Great! You have completed the core of this game - character control.
+
+If you still find this explanation a bit difficult, please let us know by clicking on [Get help and support](../support.md) and let us know.
+
+#### Complete PlayerController
+
+We already have the complete PlayerController code, so we just need to hook it up to a node to make it work.
+
+If you still find it difficult, try copying and pasting the following code into the PlayerController.ts file in your project.
 
 ```ts
 import { _decorator, Component, Vec3, input, Input, EventMouse, Animation } from 'cc';
@@ -134,20 +443,28 @@ export class PlayerController extends Component {
     /* class member could be defined like this */
     // dummy = '';
 
-    /* use `property` decorator if your want the member to be serializable */
+    /* use the `property` decorator if you want the member to be serializable */
     // @property
     // serializableDummy = 0;
 
     // for fake tween
-    private _startJump: boolean = false;
-    private _jumpStep: number = 0;
-    private _curJumpTime: number = 0;
-    private _jumpTime: number = 0.1;
-    private _curJumpSpeed: number = 0;
-    private _curPos: Vec3 = new Vec3();
-    private _deltaPos: Vec3 = new Vec3(0, 0, 0);
-    private _targetPos: Vec3 = new Vec3();
-    private _isMoving = false;
+    // 是否接收到跳跃指令
+    // Whether the jump command is received or not
+    private _startJump: boolean = false.
+    // Jump step length
+    private _jumpStep: number = 0.
+    // current jump time
+    private _curJumpTime: number = 0.
+    // length of each jump
+    private _jumpTime: number = 0.1.
+    // current jump speed
+    private _curJumpSpeed: number = 0.
+    // current character position
+    private _curPos: Vec3 = new Vec3().
+    // the difference in position of the current frame movement during each jump
+    private _deltaPos: Vec3 = new Vec3(0, 0, 0).
+    // target position of the character
+    private _targetPos: Vec3 = new Vec3().
 
     start () {
         // Your initialization goes here.
@@ -157,14 +474,15 @@ export class PlayerController extends Component {
     onMouseUp(event: EventMouse) {
         if (event.getButton() === 0) {
             this.jumpByStep(1);
-        } else if (event.getButton() === 2) {
+        }
+        else if (event.getButton() === 2) {
             this.jumpByStep(2);
         }
 
     }
 
     jumpByStep(step: number) {
-        if (this._isMoving) {
+        if (this._startJump) {
             return;
         }
         this._startJump = true;
@@ -173,12 +491,6 @@ export class PlayerController extends Component {
         this._curJumpSpeed = this._jumpStep / this._jumpTime;
         this.node.getPosition(this._curPos);
         Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
-
-        this._isMoving = true;
-    }
-
-    onOnceJumpEnd() {
-        this._isMoving = false;
     }
 
     update (deltaTime: number) {
@@ -188,7 +500,6 @@ export class PlayerController extends Component {
                 // end
                 this.node.setPosition(this._targetPos);
                 this._startJump = false;
-                this.onOnceJumpEnd();
             } else {
                 // tween
                 this.node.getPosition(this._curPos);
@@ -201,70 +512,62 @@ export class PlayerController extends Component {
 }
 ```
 
-__Next__, attach the `PlayerController` component to the `Player` node. Select the `Player` node in the **Hierarchy** panel, then click the **Add Component** button in the **Inspector** panel, select **Custom Script Component- > PlayerController** to the `Player` node to add the `PlayerController` component.
+Now we can add the `PlayerController` component to the character node `Player`. Select the `Player` node on the **Hierarchy** panel, then click the **Add Component** button on the **Inspector** panel, and choose **Custom Script -> PlayerController** to add it to the `Player` node.
 
 ![add player controller comp](./images/add-player-controller.png)
 
-In-order to see the object at runtime, we need to adjust some parameters of the __Camera__ in the scene, set the __position__ to __(0, 0, 13)__, and set the __ClearColor__ to __(50, 90, 255, 255)__:
+We have to adjust some parameters in case a object is visible at runtime, select the **Main Camera** node, and change its `Position` to (0, 0, 13), and `Color` to (50，90，255，255):
 
 ![camera setting](./images/camera-setting.png)
 
-When the scene is finished editing, you can use the menu **File** -> **Save Scene** or use the shortcut keys(<kbd>Ctrl/Cmd</kbd> + <kbd>S</kbd>) to save the scene. For example, when running on the browser, the preview page on the browser will be refreshed automatically after saving the scene.
+Then click the **Preview** button on the center of the top toolbar.
 
-__Now__, click the __Play__ button. Once running, click the left and right mouse buttons on the opened web page, you can see the following screen:
+![play button](./images/play.png)
+
+By clicking the left mouse button or right mouse button in the open browser, you may see the following screen:
 
 ![player move](./images/player-move.gif)
 
-For additional details please refer to the [Project Preview Debugging](../../editor/preview/index.md) documentation.
+For more preview functions, please refer to [Project Preview & Debugging](../../editor/preview/index.md).
 
-### Adding character animations
+## Add Character Animations
 
-The `Player` can be moved in a horizontal direction. This is a start, but not good enough. `Player` must become more life-like. This effect can be achieved by adding a vertical animation to the character.
+We could notice that the horizontal movement of the character is tedious from the result of the above execution. To make out character feel like jumping you could add a vertical animation. For more information about **Animation Editor**, please refer to [Animation System](../../animation/index.md).
 
-> **Note**: before proceeding, please read the [Animation Editor](../../animation/index.md) documentation.
-
-After reading and understanding the capabilities of the __Animation Editor__ character animations can be implemented!
-
-1. Locate the __Animation__ panel, at the bottom of the editor alongside the __Assets Preview__ and the __Console__ panels. Select the `Body` node in the __Scene__ and click to add an __Animation Component__ and then click again tp create a new __Animation Clip__. Give this new __Animation Clip__ a name of `oneStep`.
+1. Select the `Body` node in the scene, and then click the **Add Animation Clip** button in the **Animation Editor** at the bottom of the editor to create an animation clip and name it `onStep`.
 
     ![player move](./images/add-animation.gif)
 
-2. Enter __animation editing mode__ in-order to add the __position attribute__. Next, add three __key frames__ with position values ​​of __(0, 0, 0)__, __(0, 0.5, 0)__, __(0, 0, 0)__.
+2. Enter the animation edit mode, add a `position` property track to the created clip, and then add three keyframes, the position value of each should be (0, 0, 0), (0, 0.5, 0), (0, 0, 0);
 
     ![add keyframe](./images/add-keyframe.gif)
 
-    > **Note**: remember to save the animation before exiting the animation editing mode, otherwise the animation will be lost.
+    > **Note**: Alway remember to save animation clips when exiting animation mode, otherwise you work will be lost.
 
-3. __Animation Clips__ can also be created using the __Asset__ panel. Next, Create a __Clip__ named `twoStep` and add it to the __Animation__ component on `Body`.
+3. We can use **Assets Manager** to create clips. Right-click on the **Assets** panel to create a new animation clip named `twoStep`, and add it to the `Animation` property of the `Body` node. To make the recording process easier, we can adjust the layout of the editor.
+
+    > **Note**: Please note that when the animation clip can not be dragged to the `Animation` property, please check the import section `import {...} from "cc"` in `PlayerController` contains `Animation`.
 
     ![add animation from assets](./images/add-animation-from-assets.gif)
 
-    > **Note**: the panel layout was adjusted for recording convenience.
-
-4. Enter the __animation editing mode__, select and edit the `twoStep` clip. Similar to the second step, add three key frames at positions __(0, 0, 0)__, __(0, 1, 0)__, __(0, 0, 0)__.
+4. Enter the animation edit mode, select `twoStep` clip in the dropdown menu like step 2, then add three key-frames of the `Position` property which should be (0, 0, 0), (0, 1, 0), (0, 0, 0).
 
     ![edit second clip](./images/edit-second-clip.png)
 
-5. Reference the __Animation__ component in the` PlayerController` Component, as different animations need to be played according to the number of steps `Player` jumped.
+5. Import and reference the `Animation` component in the `PlayerController`, because we need to play different animation clips according to different steps.
 
-    First, reference the __Animation__ component on the `Body` in the `PlayerController` component.
+    First, reference `Animation` component of the `Body` node to `PlayerController`.
 
     ```ts
     @property({type: Animation})
-    public BodyAnim: Animation|null = null;
+    public BodyAnim: Animation | null = null;
     ```
 
-    Note that the import of 'Animation' needs to be added in the 'import' section of the file. The code example is as follows:
-
-    ```ts
-    import { Animation } from "cc";
-    ```
-
-    Then in the **Inspector** panel, drag the `Animation` to the `Body` variable.
+    Drag the `Body` node to the `Animation` property of the **Inspector** panel.
 
     ![drag to animComp](./images/drag-to-animComp.gif)
 
-    Add the animation playback code to the jump function `jumpByStep`:
+    Add the following code to the jump method `jumpByStep` to play animations.
 
     ```ts
     if (this.BodyAnim) {
@@ -276,37 +579,87 @@ After reading and understanding the capabilities of the __Animation Editor__ cha
     }
     ```
 
-    Click the __Play__ button. When playing, click the left and right mouse buttons, you can see the new jump effect in action:
+6. Click the **Preview** button to see the new jump effect in the open browse by clicking the left or right mouse button.
 
     ![preview with jump](./images/preview-with-jump.gif)
 
-## Upgrading the road
+## Runway upgrade
 
-In-order to make the gameplay longer and more enjoyable, we need a long stretch of road to let the `Player` run all the way to the right. Copying a bunch of cubes in the __Scene__ and editing the position of each cube to form the road is not a wise practice. We can, however, complete this by using a script to automatically create the road pieces.
+To make our game more interesting, we need a long runway for the Player to fleet on. Duplicating a lot of Cube nodes is obviously not a good idea, we can automatically create the runway by script.
 
-### A "Game Manager" can help
+### Game Manager
 
-Most games have a __manager__, which is mainly responsible for the management of the entire game life-cycle. You can put the code for the dynamic creation of the road in this same manager. Create a node named `GameManager` in the __Scene__. Next, create a TypesScript file named `GameManager` in `assets/Scripts` and add it to the `GameManager` node.
+Typically, a scene contains various functions and different types of nodes, All those nodes stored in the scene could be taken as the most important data of our game. Occasionally we need to dynamically create, visit, and delete those nodes. Although we can find a node by `find` method in Cocos Creator, actually the `find` method has to enumerate all nodes in the scenes which will cause a low accuracy. In commercial development, we use some single components to manage **some kind of** nodes or **some** nodes data which we call **Manager**.
 
-### Making a Prefab
+For example, in a game, we may have many characters, and we may have to create a new character, delete characters who are dead, or query the status of a character, in that case, we can create a class named `ActorManager` to manager all the characters and support the functions mentioned above.
 
-For a node that needs to be generated repeatedly, it can be saved as a **Prefab (prefabricated)** resource. This means it can be used as a template when we dynamically generate other nodes of this same type.
+In this game, we declare a new node component GameManager to manage all relevant nodes or data.
 
-> **Note**: before proceeding, please read the [Prefab Resources](../../asset/prefab.md) documentation.
+In this case, we put all functions, such as runway generation and deletion, in GameManager to make data collection more convenient.
 
-It is necessary to make the basic element `cube` of the road into a __Prefab__, after which all three cubes in the __Scene__ can be deleted.
+This style of cohesion is very common in game development, do not be surprised when you see some other components such as ConfigManager or NetworkManager.
+
+Of course, there are more complex structures in complex games. Those complex, tremendous conceptions of design can improve the stability and maintainability of our applications.
+
+So let's go ahead and create such a manager.
+
+### Create GamManager
+
+1. Right-click on the **Hierarchy** panel to create a new node named `GameManager`.
+2. Right-click in `assets/Scripts` folder on the **Assets** panel to create a TypeScript component named `GameManager`.
+3. Add the `GameManager` component to the GameManager node.
+
+### Create Prefabs
+
+For nodes that need to be duplicated, we can save them to a [Prefab](../../asset/prefab.md) asset as a template of dynamic assets.
+
+> Prefabs are a built-in asset type of the engine, the main purpose of which is to provide the possibility to instantiate some kind of node. Imagine if we had 1000 enemies in our game, creating them individually would take a lot of time, to solve this problem we could dynamically clone the prefabs 1000 times.
+
+Drag the elementary Cube node to the **Assets** panel to create a Prefab.
 
 ![create cube prefab](./images/create-cube-prefab.gif)
 
-### Adding the automatic road creation
+### Add Automatic Runway Creation Code
 
-A very long road is needed. The ideal method is to dynamically increase the length of the road, so that the `Player` can run forever. First, generate a fixed-length road with a length that is arbitrary. To do so, replace the code in the `GameManager` script with the following code:
+The player needs a long runway, and the ideal way is to dynamically increase the length of the runway so that it can run forever. Here for convenience, firstly we generate a fixed-length runway, the runway length can be defined by yourself. In addition, we can generate some pits on the runway and GameOver when the Player jumps to the pits.
+
+First, we need to define some constants to indicate whether the current coordinates represent a pit or a rock. In Typescript, this can be done with enumerations.
+
+By using the keyword `enum` + the name of the enumeration we define the following enumeration, where `BT_NONE` represents a pit and `BT_STONE` represents a walkable surface.
+
+```typescript
+enum BlockType{
+    BT_NONE,
+    BT_STONE, 
+};
+```
+
+Again, we need to define which prefabricated body or bodies the game manager will use to create the map.
 
 ```ts
-import { _decorator, Component, Prefab, instantiate, Node, CCInteger} from 'cc';
+// The runway prefab
+@property({type: Prefab})
+public cubePrfb: Prefab | null = null;
+```
+
+The editor will recognize `@property({type: Prefab})` as a prefab so that we can assign the Cube prefab to this property in the **Inspector** panel.
+
+> A syntax like `@property` is called a [Decorator](../../scripting/decorator.md). There is various type of decorators in Cocos Creator that can use it to customize various effect to decorate custom components.
+
+To make it easier to quickly find out whether the current location is a Cube or a pit, we describe the entire track using an array
+
+```ts
+_road: BlockType[] = [];
+```
+
+Thus a basic GameManager is defined, which should look like this:
+
+```ts
+import { _decorator, Component, Prefab } from 'cc';
 const { ccclass, property } = _decorator;
 
-enum BlockType{
+// Track grid type, pit (BT_NONE) or solid road (BT_STONE)
+enum BlockType {
     BT_NONE,
     BT_STONE,
 };
@@ -314,25 +667,131 @@ enum BlockType{
 @ccclass("GameManager")
 export class GameManager extends Component {
 
+    // The runway prefab
     @property({type: Prefab})
-    public cubePrfb: Prefab|null = null;
-    @property({type: CCInteger})
-    public roadLength: Number = 50;
-    private _road: number[] = [];
+    public cubePrfb: Prefab | null = null;
+    // Total road length
+    @property
+    public roadLength = 50;
+    private _road: BlockType[] = [];
 
     start () {
         this.generateRoad();
     }
 
     generateRoad() {
+  
+    }
+}
+```
 
+Then we generate the entire runway by the following principles.
+
+- The first location on the runway must be BT_STONE to make sure the player won't drop at the beginning of the game.
+- After the first position, we will generate a cube or a pit at random. Considering our character's poor jumping ability (up to 2 steps), we can't generate 2 or move pits continuously, so when we generate a new location, we should examine whether the previous location is a rock or a pit, and if it is a pit, we must put a rock in the current location.
+- Based on the above two principles, we save the generated block to the `_road` array to quickly query whether a location is a rock or a pit.
+- Finally, we instantiate the whole road into the scene based on the road information `_road` to accomplish the whole map.
+
+Thus the method `generateRoad` for generating the map is as follows:
+
+```ts
+generateRoad() {
+    // Prevent the track from being the old track when the game is restarted
+    // Therefore, the old track needs to be removed and the old track data cleared
+    this.node.removeAllChildren();
+    this._road = [];
+    // Make sure that the character is standing on the real road when the game is running
+    this._road.push(BlockType.BT_STONE);
+
+    // Determine the type of track for each frame
+    for (let i = 1; i < this.roadLength; i++) {
+        // If the previous track is a pit, then this one must not be a pit
+        if (this._road[i-1] === BlockType.BT_NONE) {
+            this._road.push(BlockType.BT_STONE);
+        } else {
+            this._road.push(Math.floor(Math.random() * 2));
+        }
+    }
+
+    // Generate tracks based on runway
+    for (let j = 0; j < this._road.length; j++) {
+        let block: Node = this.spawnBlockByType(this._road[j]);
+        // Determine if a road was generated, as spawnBlockByType may return a pit (with a value of null)
+        if (block) {
+            this.node.addChild(block);
+            block.setPosition(j, -1.5, 0);
+        }
+    }
+}
+```
+
+> `Math.floor`: This method is one of the methods of the Typescript math library: we know that floor means floor, and this means taking the "floor" of this method argument, i.e. rounding down.
+> `Math.random`: Again random is one of the methods of the standard math library, and is used to randomize a decimal number between 0 and 1, note that the range of values is [0, 1).
+> So `Math.floor(Math.random() * 2)` means simply that it takes a random number from [0, 2) and rounds down to 0 or 1, which corresponds to the `BT_NONE` and `BT_STONE` declared in the enumeration `BlockType`.
+> By the way, in Typescript enumerations, if you don't assign a value to the enumeration, then the enumeration values are assigned sequentially starting from 0.
+
+The method `spawnBlockByType` for generating a stone is as follows:
+
+```ts
+spawnBlockByType(type: BlockType) {
+    if (!this.cubePrfb) {
+        return null;
+    }
+
+    let block: Node | null = null;
+    // The runway is generated only for real roads
+    switch(type) {
+        case BlockType.BT_STONE:
+            block = instantiate(this.cubePrfb);
+            break;
+    }
+
+    return block;
+}
+```
+
+We can notice that when the block type is Stone, we will use the `instantiate` method to clone a new Prefab, on the other hand, if the block type is not Stone, we don't do anything.
+
+> `instantiate` is the method for cloning a Prefab in Cocos Creator. You can use it to clone not only Prefab but also clone other types of objects!
+
+The entire code of `GameManager` is as follows:
+
+```ts
+import { _decorator, Component, Prefab, instantiate, Node, CCInteger } from 'cc';
+const { ccclass, property } = _decorator;
+
+// The runway type, pit (BT_NONE) or solid road (BT_STONE)
+enum BlockType {
+    BT_NONE,
+    BT_STONE,
+};
+
+@ccclass("GameManager")
+export class GameManager extends Component {
+
+    // The stone prefab
+    @property({type: Prefab})
+    public cubePrfb: Prefab | null = null;
+    // Length of the runway
+    @property
+    public roadLength = 50;
+    private _road: BlockType[] = [];
+
+    start () {
+        this.generateRoad();
+    }
+
+    generateRoad() {
+        // Prevent the track from being the old track when the game is restarted
+        // Therefore, the old track needs to be removed and the old track data cleared
         this.node.removeAllChildren();
-
         this._road = [];
-        // startPos
+        // Make sure that the character is standing on the real road when the game is running
         this._road.push(BlockType.BT_STONE);
 
+        // Determine the type of track for each frame
         for (let i = 1; i < this.roadLength; i++) {
+            // If the previous track is a pit, then this one must not be a pit
             if (this._road[i-1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
             } else {
@@ -340,8 +799,10 @@ export class GameManager extends Component {
             }
         }
 
+        // Generate tracks based on runway
         for (let j = 0; j < this._road.length; j++) {
             let block: Node = this.spawnBlockByType(this._road[j]);
+            // Determine if a road was generated, as spawnBlockByType may return a pit (with a value of null)
             if (block) {
                 this.node.addChild(block);
                 block.setPosition(j, -1.5, 0);
@@ -354,7 +815,8 @@ export class GameManager extends Component {
             return null;
         }
 
-        let block: Node|null = null;
+        let block: Node | null = null;
+        // The runway is generated only for real roads
         switch(type) {
             case BlockType.BT_STONE:
                 block = instantiate(this.cubePrfb);
@@ -370,173 +832,203 @@ export class GameManager extends Component {
 }
 ```
 
-Assign the Cube prefab that made previously to the `CubePrfb` property in GameManager Inspector.
+Drag the pre-made Cube prefab on to **CubePrfb** property of the **Inspector** panel.
 
 ![assign cube prefab](./images/assign-cube-prefab.png)
 
-The length of the road can be changed by modifying the value of `roadLength` in the __Properties__ panel for the `GameManager`.
+You can change the **roadLength** property of the **Inspector** panel to control the length of the runway.
 
-When previewing, the road is now automatically generated, however, because the __Camera__ does not follow the `Player`, the road behind cannot be seen. Changing the __Camera__ in the __Scene__ to be a child node of the `Player` can help solve this.
+Now, click the **Preview** button to see the automatically created runway in the open browser.
+
+## Follow the Camera
+
+We can notice that the Camera does not follow the Player node, hence we can not see the runway behind it. We can avoid this situation by making the camera a child node of Player.
 
 ![drag camera to player](./images/drag-camera-to-player.gif)
 
-Now, the __Camera__ will follow the Player's movement.
+Thus the Camera will follow the Player's movement, now by clicking the **Preview** button, we can watch the whole runway.
 
-## Adding a start menu
+## Add a Start Menu
 
-The __start menu__ is an indispensable part of most any game. Add the game name, game introduction, production staff and other information here. Creating a simple start menu starts with some basic steps:
+The User Interface(UI) is an essential part of a game, developers can inform users of some key information such as data, status, etc so that the user can have their strategy. We could also add the game name, an introduction, the production staff, and other information.
 
-1. Add a button called `Play`
+Please refer to relevant documents such as [2D/UI](. /. /2d-object/index.md) to help understand the mechanics of the UI as a 2D part.
+
+Then we will describe a UI workflow taking the Start Menu as an example.
+
+1. Create a new Button node in the **Hierarchy** panel and rename it PlayButton
 
     ![create button](./images/create-button.gif)
 
-    This operation creates a `Canvas` node, a `PlayButton` node, and a `Label` node. Because the UI component needs to be displayed under the parent node with `Canvas`, the editor will automatically add one when it finds that there is not a node with this component in the current __Scene__. After creating the button, change the `String` property of `cc.Label` on the `Label` node from `Button` to `Play.`
+    It can be noticed that the engine automatically creates a Canvas node in the **Hierarchy** panel, a Player button node, and a Label node. That is because any node that contains a UI component only be seen when it is under the `Canvas` node, so the editor will create a Canvas in case there is none.
 
-2. Create an empty node named `StartMenu` under `Canvas` and drag `PlayButton` under it. We can switch to the 2D editing view for UI editing operations by clicking the 2D/3D button on the toolbar.
+    Change the **String** property of the `cc.Label` component in the Label Node from Button to Play.
 
-    > **Note**: 2D View is this toolbar button ![2d-view](./images/2d-view.png).
+    > You may notice that the version of Cocos Creator you are using automatically adds a new Camera node when creating a UI node
+    > This node is a new feature in Cocos Creator. The new Camera will be in charge of the UI/2D parts, therefore the engine's render pipeline can process the UI/2D content more efficiently.
 
-    > **Note**: before proceeding, please read the [Scene Editing](../../editor/scene/index.md) documentation.
+2. Create an empty node named StartMenu under the Canvas node, and drag the PlayerButton under it. We can switch to a 2D editing view for editing UI by clicking the 2D/3D button on the scene's toolbar. For more details on scene editing,  please refer to [Scene Panel](../../editor/scene/index.md)。
 
-3. Add a background frame by creating a `Sprite` node named `BG` under `StartMenu`. Adjust `BG`'s position to above the `PlayButton`, setting the __W(width)__ and __H(height)__ of `ContentSize` to __(200, 200)__, and setting its __SpriteFrame__ to `internal/default_ui/ default_sprite_splash`.
+    ![2d-view](./images/2d-view.png)
+
+3. Create a new Sprite node named `BG` under the `StartMenu` as a background image, and drag it above on the PlayButton.
 
     ![create bg sprite](./images/create-bg-sprite.gif)
 
+    Then set the `ContentSize` property of `cc.UITransform` component to (200, 200) on the **Inspector** panel, and drag the `internal/default_ui/default_sprite_splash` asset to its **SpriteFrame** property.
+
     ![change spriteFrame](./images/change-spriteFrame.png)
 
-4. Add a __Label__ called `Title` for the title of the start menu.
+4. Create a Label node named Title beneath the StartMenu node on the **Hierarchy** panel, and use it as the title of the start menu.
 
     ![add title label](./images/add-label-title.gif)
 
-5. Modify the text for `Title` and adjust it's *position*, *text size* and *color*.
+5. Adjust other properties of the Title node such as on `Position`, `Color`, `String`, `FontSize`, etc on the **Inspector** panel by the following image:
 
     ![modify title](./images/title-inspector.png)
 
-6. Adjust the position of the `PlayButton`. The layout of a simple __start menu__ is complete.
+6. Once the required Tips nodes are added and the PlayButton is adjusted, a simple start menu is complete.
 
     ![modify title](./images/start-menu.png)
 
-7. Add game state logic, generally it can be divided into three states:
-    - **Init**: display the game menu and initialize some resources.
-    - **Playing**: hide the game menu, players can operate the game.
-    - **End**: end the game and display the ending menu.
+## Add Game States
 
-    Use an enum type to represent these states.
+For most games, we can roughly break it down into 3 different states: initialize, play, and settle. Just like in any board game, the process of placing the pieces is called initialization; the process of playing is called playing; and the final state when the two players finish the game to settle the victory/failure is called the settlement state.
 
-    ```ts
-    enum BlockType{
-        BT_NONE,
-        BT_STONE,
-    };
+In the same way, we can define the game state by using an enumeration.
 
-    enum GameState{
-        GS_INIT,
-        GS_PLAYING,
-        GS_END,
-    };
-    ```
+```ts
+enum GameState{
+    GS_INIT,
+    GS_PLAYING,
+    GS_END,
+};
+```
 
-    Add a private variable that represents the current state to the `GameManager` script
+- GS_INIT(initialize): Show the game menu and initialize some resources.
+- GS_PLAYING(play): Hide the game menu, and the user can start to control the character.
+- GS_END(end): End the game and show the start menu.
 
-    ```ts
-    private _curState: GameState = GameState.GS_INIT;
-    ```
+The current game state can be easily informed by reading the `GameState` enumeration, and we can handle some logic when the state changes.
 
-    In-order not to let the user operate the character at the beginning, but to allow the user to operate the character while the game is in progress, we need to dynamically turn on and off the character's monitoring of mouse messages. This can be done with the following changes to `PlayerController`:
+In order to allow the user to control the character in the play state rather than the game initialize, we have to enable/disable listening to the mouse automatically. So modify the `PlayerController` script as follows:
 
-    ```ts
-    start () {
-        // Your initialization goes here.
-        //input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+
+```ts
+start () {
+    // Your initialization goes here.
+    // input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+}
+
+setInputActive(active: boolean) {
+    if (active) {
+        input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
+    } else {
+        input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
     }
+}
+```
 
-    setInputActive(active: boolean) {
-        if (active) {
-            input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
-        } else {
-            input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
-        }
+And reference the `PlayerController` script in the `GameManager` script.
+
+```ts
+@property({type: PlayerController})
+public playerCtrl: PlayerController | null = null;
+```
+
+Back to the editor after saving the scripts, and drag the Player node that attached a `PlayerController` script to the `playerCtrl` property of the GameManager Node on the **Inspector** panel.
+
+Meanwhile, we need to reference the StartMenu node in the `GameManager` script to dynamically enable/disable the start menu.
+
+```ts
+@property({type: Node})
+public startMenu: Node | null = null;
+```
+
+Return to the editor after saving all scripts and drag the StartMenu node to the `startMenu` property of the GameManager node on the **Inspector** panel.
+
+![add player to game manager](./images/game-manager-player.png)
+
+### Add State Change Code
+
+Add the switch state code to the GameManager script, and add the initialization code to the `start` method.
+
+```ts
+start () {
+    this.curState = GameState.GS_INIT;
+}
+
+init() {
+    // Active start menu
+    if (this.startMenu) {
+        this.startMenu.active = true;
     }
-    ```
-
-    Next, reference `PlayerController` in the `GameManager` script. Drag the `Player` variable in the __Inspector__ panel.
-
-    ```ts
-    @property({type: PlayerController})
-    public playerCtrl: PlayerController = null;
-    ```
-
-    In-order to dynamically open/close the open menu, the `StartMenu` needs to be referenced in the `GameManager`. Drag the `StartMenu` of the scene into this variable in the __Inspector__ panel.
-
-    ```ts
-    @property({type: Node})
-    public startMenu: Node = null;
-    ```
-
-    ![add player to game manager](./images/game-manager-player.png)
-
-    Modify the code in the `GameManager`:
-
-    ```ts
-    start () {
-        this.curState = GameState.GS_INIT;
+    // Generate the runway
+    this.generateRoad();
+    if(this.playerCtrl){
+        // Disable user input
+        this.playerCtrl.setInputActive(false);
+        // Reset the player's position
+        this.playerCtrl.node.setPosition(Vec3.ZERO);
     }
+}
 
-    init() {
-        if (this.startMenu) {
-            this.startMenu.active = true;
-        }
-
-        this.generateRoad();
-        if (this.playerCtrl) {
-            this.playerCtrl.setInputActive(false);
-            this.playerCtrl.node.setPosition(Vec3.ZERO);
-        }
-    }
-
-    set curState (value: GameState) {
-        switch(value) {
-            case GameState.GS_INIT:
-                this.init();
-                break;
-            case GameState.GS_PLAYING:
-                if (this.startMenu) {
-                    this.startMenu.active = false;
+set curState (value: GameState) {
+    switch(value) {
+        case GameState.GS_INIT:
+            this.init();
+            break;
+        case GameState.GS_PLAYING:
+            if (this.startMenu) {
+                this.startMenu.active = false;
+            }
+            // When active is set to true, it will start listening for mouse events directly, while mouse up events are not yet dispatched
+            // What will happen is that the character will start moving the moment the game starts
+            // Therefore, a delay is needed here
+            setTimeout(() => {
+                if (this.playerCtrl) {
+                    this.playerCtrl.setInputActive(true);
                 }
-                // Directly setting active will directly start monitoring
-                // mouse events, and do a little delay processing
-                setTimeout(() => {
-                    if (this.playerCtrl) {
-                        this.playerCtrl.setInputActive(true);
-                    }
-                }, 0.1);
-                break;
-            case GameState.GS_END:
-                break;
-        }
-        this._curState = value;
+            }, 0.1);
+            break;
+        case GameState.GS_END:
+            break;
     }
-    ```
+}
+```
 
-8. Add event monitoring to the `Play` button. In-order to start the game after clicking the `Play` button, the button needs to respond to click events. Add code that responds to the button click in the `GameManager` script, and click to enter the game's `Playing` state:
+Here we can see in the newly added `init` method, it initializes the runway, activates the start menu, and disable user input at the same time. In any case, we will invoke this method when the game state changes to `GS_INIT`.
 
-    ```ts
-    onStartButtonClicked() {
-        this.curState = GameState.GS_PLAYING;
-    }
-    ```
+And for the first time, accessors like `set curState` allow us to be more secure when setting the game state.
 
-    Next, add the response function of __Click Events__ in the __Inspector__ panel for the `Play` button.
+### Add an Event Listener to the Play Button
 
-    ![play button inspector](./images/play-button-inspector.png)
+In order to start the game immediately after clicking the Play button, we need to listen to its click event. Add the following response code in the `GameManager` script as a means to enter the Playing state after the user clicked the button.
 
-Now, preview the scene by clicking the `Play` button to start the game.
+```ts
+onStartButtonClicked() {
+    this.curState = GameState.GS_PLAYING;
+}
+```
 
-## Adding game end logic
+Then select the PlayButton node in the **Hierarchy** panel, add a response method to the `cc.Button` component in the **Inspector** panel, and drag the GameManager node into the `cc.Node` property.
 
-The game character is just running forward, with no purpose. Adding game rules to make the game play more challenging would make the game more playable and give it a purpose.
+![play button inspector](./images/play-button-inspector.png)
 
-1. The character needs to send a message at the end of each jump. This message should record how many steps the character jumped and its current position. This can be done in `PlayerController`.
+Here we can notice the element [0] of Click Events is divided into three parts, which are:
+1. Node: Here we drag and drop the GameManager node, which means that the button event will be dispatched to the GameManager node
+2. Component: after dragging the GameManager node, you can select the node on the GameManager through the drop-down, here select the component with the same name `GameManager`.
+3. Event: through the drop-down menu, select the response event of the button, here you have to select the `onStartButtonClicked` method added above as the response of **button clicked**
+
+> **Note**: The above three steps must be performed in strict order of 1->2->3.
+
+Now, by clicking the **Preview** button, we can start the game.
+
+## Add Game Over Logic
+
+Currently, the game character just runs forward dully, we need to add game rules to make it more challenging to run.
+
+1. The character needs to send a message at the end of each jump and send a message with its current position as a parameter, and record how many steps it has jumped in the `PlayerController` script:
 
     ```ts
     private _curMoveIndex = 0;
@@ -548,38 +1040,39 @@ The game character is just running forward, with no purpose. Adding game rules t
     }
     ```
 
-    Send a message at the end of each jump:
+    And at the end of each jump sends the message:
 
     ```ts
     onOnceJumpEnd() {
-        this._isMoving = false;
         this.node.emit('JumpEnd', this._curMoveIndex);
     }
     ```
 
-2. Monitor the character's jumping end event in `GameManager`, and judge the winning or losing of the game, according to the rules.
-
-    Increase the failure and ending logic to judge how the game is being played.If `Player` jumps to an empty square or exceeds the maximum length value, the game will end:
+2. Listen for end-of-character jump events in the `GameManager` script, and determine the winner according to the rules, adding a failure and end judgment, and ending if the jump reaches an empty block or exceeds the maximum length value:
 
     ```ts
     checkResult(moveIndex: number) {
-        if (moveIndex <= this.roadLength) {
-            // Jump to the empty square
+        if (moveIndex < this.roadLength) {
+            // Jumped on the pit
             if (this._road[moveIndex] == BlockType.BT_NONE) {
                 this.curState = GameState.GS_INIT;
             }
-        } else {    // skipped the maximum length
+        } else {    // Skipped maximum length
             this.curState = GameState.GS_INIT;
         }
     }
     ```
 
-    Monitor the character's jump message and call a function to decide:
+    Listens for role jump messages and calls the judgment function:
 
     ```ts
     start () {
         this.curState = GameState.GS_INIT;
-        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
+        // '?.' is Typescript's optional chain writing
+        // The equivalent of: 
+        // if(this.playerCtrl ! = null) this.playerCtrl.node.on('JumpEnd', this.onPlayerJumpEnd, this).        
+        // Optional chains are written in a more concise way
+        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);        
     }
 
     // ...
@@ -588,7 +1081,7 @@ The game character is just running forward, with no purpose. Adding game rules t
     }
     ```
 
-    If you preview playing the game now, there will be a logic error when restarting the game. This is because we did not reset the `_curMoveIndex` property value in `PlayerController` when the game restarts. To fix this, add a reset function in `PlayerController`.
+    If you preview the game at this point, you will find that there is an error of judgment when restarting the game, which is caused by not resetting the value of the `_curMoveIndex` property in `PlayerController.ts` when restarting. So we need to add a `reset` function to the `PlayerController` script:
 
     ```ts
     reset() {
@@ -596,8 +1089,8 @@ The game character is just running forward, with no purpose. Adding game rules t
     }
     ```
 
-    Call `reset()` in the `init` function of `GameManager` to reset the properties of `PlayerController`.
-  
+    Then call `reset` in the `init` function of the `GameManager` script to reset the `_curMoveIndex` property in the `PlayerController.ts`.
+
     ```ts
     init() {
         // ...
@@ -605,342 +1098,29 @@ The game character is just running forward, with no purpose. Adding game rules t
     }
     ```
 
-## Step counting display
+## Step Count Display
 
-We can display the current number of steps jumped in the interface. Perhaps watching the continuous growth of steps during the jump will be very fulfilling to the player.
+We can display the current number of steps on the interface so that it will be a great sense of accomplishment to watch the number of steps growing during the jump.
 
-1. Create a new label named `Steps` under __Canvas__, adjust the *position*, *font size* and *other properties*.
+1. Create a new Label node named Steps under Canvas and adjust the position, font size and other properties.
 
     ![steps label](./images/steps-label.png)
 
-2. Reference the `Steps` label in `GameManager`
+2. Reference this Label in the `GameManager` script:
 
     ```ts
     @property({type: Label})
-    public stepsLabel: Label|null = null;
+    public stepsLabel: Label | null = null;
     ```
 
-    ![steps label to game manager](./images/add-steps-to-game-manager.png)
+   After saving the script and returning to the editor, drag the Steps node into the GameManager's stepsLabel property box in the properties inspector at
 
-3. Update the current `Step` data to appear in new `Steps` Label. A game ending interface has yet to be created, for now, reset the number of steps to __0__ when restarting playing.
+   ![steps label to game manager](./images/add-steps-to-game-manager.png)
+
+3. Update the current step count data to the Steps node. Since we don't have an end screen now, we will jump back to the start screen when the game is over, so we need to see the last jump in the start screen, so we need to reset the step count to 0 when we enter the Playing state.
 
     ```ts
-    set curState (value: GameState) {
-        switch(value) {
-            case GameState.GS_INIT:
-                this.init();
-                break;
-            case GameState.GS_PLAYING:
-                if (this.startMenu) {
-                    this.startMenu.active = false;
-                }
-                if (this.stepsLabel) {
-                    //  reset the number of steps to 0
-                    this.stepsLabel.string = '0';
-                }
-                // set active directly to start listening for mouse events directly
-                setTimeout(() => {
-                    if (this.playerCtrl) {
-                        this.playerCtrl.setInputActive(true);
-                    }
-                }, 0.1);
-                break;
-            case GameState.GS_END:
-                break;
-        }
-        this._curState = value;
-    }
-    ```
-
-    Update the `Steps` Label in a function that responds to the character jumping. It should make sense that recording the number of `Steps` would take place after each and every jump for accuracy.
-
-    ```ts
-    onPlayerJumpEnd(moveIndex: number) {
-        this.stepsLabel.string = '' + moveIndex;
-        this.checkResult(moveIndex);
-    }
-    ```
-
-## Lights and shadows
-
-Where there is light, there will be a shadow. Light and shadows create a 3D world where light and dark intersect. Next, let's add a simple shadow to the character.
-
-### Turning on shadows
-
-1. In the **Hierarchy** panel, click the `Scene` node at the top, check `Enabled` in the `shadows` property, and modify the `Distance` and `Normal` parameters
-
-    ![planar shadows](./images/planarShadows.png)
-
-2. Click the `Body` node, under the `Player` node, and set `ShadowCastingMode` under `MeshRenderer` to `ON`.
-
-    ![model shadow](./images/model-shadow.png)
-
-A patch of shadow can be seen in the in the __Scene__ editor. However, this shadow cannot be seen when previewing because it is covered by the capsule body that is directly behind the model.
-
-![player shadow](./images/player-shadow-scene.png)
-
-### Adjusting the light
-
-When creating a new scene, a `DirectionalLight` will be added __by default__, and the shadow will be calculated from this parallel light. The direction of this parallel light can be adjusted in-order to display the shadow in another position.
-
-In the **Hierarchy** panel, click to select the `Main Light` node and adjust the `Rotation` parameter to __(-10, 17, 0)__.
-
-![main light](./images/main-light.png)
-
-Preview the game and you can see this effect:
-
-![player shadow preview](./images/player-shadow-preview.png)
-
-## Adding a character model
-
-Using the capsule body as the character is a bit shabby, we can change this to make a Cocos character.
-
-### Importing model resources
-
-Copy the `cocos` folder under the `assets` directory in [Project Engineering](https://github.com/cocos-creator/tutorial-mind-your-step-3d) to the `assets` directory of your own project.
-
-### Adding to the scene
-
-A prefab called `Cocos` has been included in the cocos file, drag it to the `Body` node under `Player` in the scene.
-
-![add cocos prefab](./images/add-cocos-prefab.png)
-
-Remove the `Capsule` model at the same time.
-
-![remove capsule](./images/remove-capsule.png)
-
-The model is a little dark and a spotlight can be added to highlight its shiny brain.
-
-![add cocos light](./images/cocos-add-light.png)
-
-### Adding a jumping animation
-
-When previewing the game, the character will initially have a standby animation, but a jumping animation needs to be used during a jump.
-
-First, add a variable in the `PlayerController` class that references the model animation:
-
-```ts
-@property({type: SkeletalAnimation})
-public CocosAnim: SkeletalAnimation|null = null;
-```
-
-Then, in the __Inspector__, drag the `Cocos` node into this variable.
-
-![assign cocos prefab](./images/assign-cocos-prefab.png)
-
-The jump animation needs to be used in the `jumpByStep` function.
-
-```ts
-jumpByStep(step: number) {
-    if (this._isMoving) {
-        return;
-    }
-    this._startJump = true;
-    this._jumpStep = step;
-    this._curJumpTime = 0;
-    this._curJumpSpeed = this._jumpStep / this._jumpTime;
-    this.node.getPosition(this._curPos);
-    Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
-
-    this._isMoving = true;
-
-    if (this.CocosAnim) {
-        // The jumping animation takes a long time, here is accelerated playback
-        this.CocosAnim.getState('cocos_anim_jump').speed = 3.5;
-        // Play jumping animation
-        this.CocosAnim.play('cocos_anim_jump');
-    }
-
-    if (this.BodyAnim) {
-        if (step === 1) {
-            //this.BodyAnim.play('oneStep');
-        } else if (step === 2) {
-            this.BodyAnim.play('twoStep');
-        }
-    }
-
-    this._curMoveIndex += step;
-}
-```
-
-In the `onOnceJumpEnd` function, change to the standby state and play the standby animation.
-
-```ts
-onOnceJumpEnd() {
-    this._isMoving = false;
-    if (this.CocosAnim) {
-        this.CocosAnim.play('cocos_anim_idle');
-    }
-    this.node.emit('JumpEnd', this._curMoveIndex);
-}
-```
-
-When previewing, the results are as follows:
-
-![cocos play](./images/cocos-play.gif)
-
-## Final Code
-
-The final code for `PlayerController.ts` should look like this:
-
-```ts
-import { _decorator, Component, Vec3, input, Input, EventMouse, Animation, SkeletalAnimation } from 'cc';
-const { ccclass, property } = _decorator;
-
-@ccclass("PlayerController")
-export class PlayerController extends Component {
-
-    @property({type: Animation})
-    public BodyAnim: Animation|null = null;
-    @property({type: SkeletalAnimation})
-    public CocosAnim: SkeletalAnimation|null = null;
-
-    // for fake tween
-    private _startJump: boolean = false;
-    private _jumpStep: number = 0;
-    private _curJumpTime: number = 0;
-    private _jumpTime: number = 0.3;
-    private _curJumpSpeed: number = 0;
-    private _curPos: Vec3 = new Vec3();
-    private _deltaPos: Vec3 = new Vec3(0, 0, 0);
-    private _targetPos: Vec3 = new Vec3();
-    private _isMoving = false;
-    private _curMoveIndex = 0;
-
-    start () {
-    }
-
-    reset() {
-        this._curMoveIndex = 0;
-    }
-
-    setInputActive(active: boolean) {
-        if (active) {
-            input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
-        } else {
-            input.off(Input.EventType.MOUSE_UP, this.onMouseUp, this);
-        }
-    }
-
-    onMouseUp(event: EventMouse) {
-        if (event.getButton() === 0) {
-            this.jumpByStep(1);
-        } else if (event.getButton() === 2) {
-            this.jumpByStep(2);
-        }
-
-    }
-
-    jumpByStep(step: number) {
-        if (this._isMoving) {
-            return;
-        }
-        this._startJump = true;
-        this._jumpStep = step;
-        this._curJumpTime = 0;
-        this._curJumpSpeed = this._jumpStep / this._jumpTime;
-        this.node.getPosition(this._curPos);
-        Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
-
-        this._isMoving = true;
-
-        if (this.CocosAnim) {
-            // The jumping animation takes a long time, here is accelerated playback
-            this.CocosAnim.getState('cocos_anim_jump').speed = 3.5;
-            // Play jumping animation
-            this.CocosAnim.play('cocos_anim_jump');
-        }
-        
-        if (this.BodyAnim) {
-            if (step === 1) {
-                //this.BodyAnim.play('oneStep');
-            } else if (step === 2) {
-                this.BodyAnim.play('twoStep');
-            }
-        }
-
-        this._curMoveIndex += step;
-    }
-
-    onOnceJumpEnd() {
-        this._isMoving = false;
-        this.CocosAnim.play('cocos_anim_idle');
-        this.node.emit('JumpEnd', this._curMoveIndex);
-    }
-
-    update (deltaTime: number) {
-        if (this._startJump) {
-            this._curJumpTime += deltaTime;
-            if (this._curJumpTime > this._jumpTime) {
-                // end
-                this.node.setPosition(this._targetPos);
-                this._startJump = false;
-                this.onOnceJumpEnd();
-            } else {
-                // tween
-                this.node.getPosition(this._curPos);
-                this._deltaPos.x = this._curJumpSpeed * deltaTime;
-                Vec3.add(this._curPos, this._curPos, this._deltaPos);
-                this.node.setPosition(this._curPos);
-            }
-        }
-    }
-}
-```
-
-The final code for `GameManager.ts` should look like this:
-
-```ts
-import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec3 } from 'cc';
-import { PlayerController } from "./PlayerController";
-const { ccclass, property } = _decorator;
-
-enum BlockType{
-    BT_NONE,
-    BT_STONE,
-};
-
-enum GameState{
-    GS_INIT,
-    GS_PLAYING,
-    GS_END,
-};
-
-@ccclass("GameManager")
-export class GameManager extends Component {
-
-    @property({type: Prefab})
-    public cubePrfb: Prefab|null = null;
-    @property({type: CCInteger})
-    public roadLength: Number = 50;
-    private _road: number[] = [];
-    @property({type: Node})
-    public startMenu: Node|null = null;
-    @property({type: PlayerController})
-    public playerCtrl: PlayerController|null = null;
-    private _curState: GameState = GameState.GS_INIT;
-    @property({type: Label})
-    public stepsLabel: Label|null = null;
-
-    start () {
-        this.curState = GameState.GS_INIT;
-        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
-    }
-
-    init() {
-        if (this.startMenu) {
-            this.startMenu.active = true;
-        }
-
-        this.generateRoad();
-
-        if (this.playerCtrl) {
-            this.playerCtrl.setInputActive(false);
-            this.playerCtrl.node.setPosition(Vec3.ZERO);
-            this.playerCtrl.reset();
-        }
-    }
-
+    // GameManager.ts
     set curState (value: GameState) {
         switch(value) {
             case GameState.GS_INIT:
@@ -952,11 +1132,9 @@ export class GameManager extends Component {
                 }
 
                 if (this.stepsLabel) {
-                    //  reset the number of steps to 0
-                    this.stepsLabel.string = '0';
+                    this.stepsLabel.string = '0';   // Reset the number of steps to 0
                 }
-                // set active directly to start listening for mouse events directly
-                setTimeout(() => {
+                setTimeout(() => {      // Directly set active will start listening to mouse events directly, here the delay is done
                     if (this.playerCtrl) {
                         this.playerCtrl.setInputActive(true);
                     }
@@ -965,92 +1143,23 @@ export class GameManager extends Component {
             case GameState.GS_END:
                 break;
         }
-        this._curState = value;
     }
+    ```
 
-    generateRoad() {
+    Then, in the function `onPlayerJumpEnd`, which response to the character jump, the number of steps is updated to the Label control
 
-        this.node.removeAllChildren();
-
-        this._road = [];
-        // startPos
-        this._road.push(BlockType.BT_STONE);
-
-        for (let i = 1; i < this.roadLength; i++) {
-            if (this._road[i-1] === BlockType.BT_NONE) {
-                this._road.push(BlockType.BT_STONE);
-            } else {
-                this._road.push(Math.floor(Math.random() * 2));
-            }
-        }
-
-        for (let j = 0; j < this._road.length; j++) {
-            let block: Node = this.spawnBlockByType(this._road[j]);
-            if (block) {
-                this.node.addChild(block);
-                block.setPosition(j, -1.5, 0);
-            }
-        }
-    }
-
-    spawnBlockByType(type: BlockType) {
-        if (!this.cubePrfb) {
-            return null;
-        }
-
-        let block: Node|null = null;
-        switch(type) {
-            case BlockType.BT_STONE:
-                block = instantiate(this.cubePrfb);
-                break;
-        }
-
-        return block;
-    }
-
-    onStartButtonClicked() {
-        this.curState = GameState.GS_PLAYING;
-    }
-
-    checkResult(moveIndex: number) {
-        if (moveIndex <= this.roadLength) {
-            if (this._road[moveIndex] == BlockType.BT_NONE) {
-                // ump to the empty square
-                this.curState = GameState.GS_INIT;
-            }
-        } else {
-            // skipped the maximum length
-            this.curState = GameState.GS_INIT;
-        }
-    }
-
+    ```ts
     onPlayerJumpEnd(moveIndex: number) {
         if (this.stepsLabel) {
-            this.stepsLabel.string = '' + moveIndex;
+            // Because in the last step there may be a jump with a large pace, but at this time, whether the jump is a large pace or a small pace should not increase the score more
+            this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
         }
         this.checkResult(moveIndex);
     }
+    ```
 
-    // update (deltaTime: number) {
-    //     // Your update function goes here.
-    // }
-}
-```
+## Conclusion
 
-## The end!
+Up to this point, you have basically mastered most of the contents of this chapter, next you can improve the game by improving the art and gameplay, for which we have also prepared an [advanced](. /advance.md) chapter as an option. If you are interested in other features of our engine, you can click on the summary on the left.
 
-__Congratulations on completing your first game made with Cocos Creator!__
-
-The complete project can be downloaded on our [GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d). The hope is this quick start tutorial will help you understand the Cocos Creator game development process, basic concepts and workflow.
-
-Next, you can continue to improve all aspects of the game. Here are some ideas for improvement:
-- Increase the difficulty of the game, when the character stays in place for 1 second it fails.
-- Change to infinite runway, dynamically delete the runway that has been run, and extend the runway behind.
-- Add game sound effects.
-- Add an end menu interface to the game, and count the number of jumping steps and time spent by the player.
-- Replace characters and runways with prettier assets.
-- Can add some pickable items to guide players to "make mistakes"
-- Add some particle special effects, such as trailing when the character moves, dust when landing
-- Add two operation buttons for touch screen devices instead of left and right mouse button operation
-
-Lastly, why not share this game with your friends? You can publish the completed game to a server of your choice using the [Publishing Workflow](../../editor/publish/index.md) documentation.
+If you have any feedback or suggestions, you can visit our [forum](https://forum.cocos.org/) or request a question on [GIT](https://github.com/cocos/cocos-docs).

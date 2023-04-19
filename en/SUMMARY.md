@@ -24,7 +24,6 @@
     - [Preview & Debugging](editor/preview/index.md)
 - [Examples & Tutorials](cases-and-tutorials/index.md)
 - [Support](getting-started/support.md)
-- [Quick Start: First Game](getting-started/first-game/index.md)
 - [Upgrade Guide](release-notes/index.md)
     - [Cocos Creator 3.0 Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
     - [Cocos Creator 3.0 Material Upgrade Guide](material-system/effect-2.x-to-3.0.md)
@@ -35,6 +34,13 @@
     - [Cocos Creator 3.6.0 Build Template and settings.json Upgrade Guide](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Upgrade Guide: Effect from v3.5.x to v3.6.0](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
     - [Upgrade Guide: Particle from v3.5.x to v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
+
+## Quick start
+
+- [Quick Start: Making Your First 2D Game](getting-started/first-game-2d/index.md)
+    - [Handle Touch Events](getting-started/first-game-2d/touch.md)
+- [Quick Start: Make Your First 3D Game](getting-started/first-game/index.md)
+    - [Quick Start: Make Your First 3D Game (Advanced)](getting-started/first-game/advance.md)
 
 ## Basic Workflow
 
