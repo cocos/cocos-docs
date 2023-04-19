@@ -383,7 +383,7 @@
 
 - [XR](xr/index.md)
     - [架构](xr/architecture/index.md)
-        - [内置资源与预制体](xr/architecture/prefab.md)
+        - [内置资源与预制体](xr/architecture/assets.md)
         - [XR 组件](xr/architecture/component.md)
         - [预览](xr/architecture/preview.md)
         - [XR 视频播放器](xr/architecture/xr-video-player.md)
