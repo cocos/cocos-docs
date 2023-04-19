@@ -2,7 +2,7 @@
 
 ## 前言
 
-我们在 Cocos Creator 3.8.0 的基础上成功适配了 在 4 月 9 日发布的 [OpenHarmony 3.2 Release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md) 分支。
+我们在 Cocos Creator v3.8.0-alpha 的基础上成功适配了 在 4 月 9 日发布的 [OpenHarmony 3.2 Release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md) 分支。
 
 鹰击长空：[GitHub - cocos/cocos-tutorial-airplane: video tutorial airplane](https://github.com/cocos/cocos-tutorial-airplane)
 
@@ -14,12 +14,11 @@
 
 ## 准备工作
 
-1. Cocos Creator 3.8.0-alpha 下载传送门：[Cocos Creator 3.8.0-alpha](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
+1. Cocos Creator v3.8.0-alpha 下载传送门：
+   - [Cocos Creator v3.8.0-alpha-Windows](https://download.cocos.org/CocosCreator/v3.8.0-alpha/CocosCreator-v3.8.0-win-041821.zip)
+   - [Cocos Creator v3.8.0-alpha-Mac](https://download.cocos.org/CocosCreator/v3.8.0-alpha/CocosCreator-v3.8.0-mac-041822.zip)
+2.  OpenHarmany系统与SDK 下载传送门：[OpenHarmony-3.2-release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md#%E4%BB%8E%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9%E8%8E%B7%E5%8F%96)
 
-2.  OpenHarmany系统与SDK 下载传送门：
-```
-https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md#%E4%BB%8E%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9%E8%8E%B7%E5%8F%96
-```
 ![](./publish-openharmony/document_image_rId2.png)
 OpenHarmony发布的系统是**32位**的，**64位**下载传送门：
 ```
@@ -286,7 +285,10 @@ toolchains-windows-x64-3.2.11.9-Release.zip
     - restart 目前还未有方案；
     - editbox显示时，会把这个游戏页面往上推
     - RK3568不支持陀螺仪，线性加速度 
-    - 部分测试例，背景会显示桌面，驱动问题，非系统和引擎问题。
+    - 部分测试例，背景会显示桌面，驱动问题，非系统和引擎问题
+    - [修复canvas中的fillRect接口](https://github.com/cocos/cocos-engine/pull/14770)
+    - [禁能webview、editbox组件编译报错](https://github.com/cocos/cocos-engine/pull/14847)
+    - [Mac版本编译报错问题修复](https://github.com/cocos/cocos-engine/pull/14847)
     - 编译失败时，可能是内存不足导致，退出部分应用，重新 build 试试；
         >>
         >> ![](./publish-openharmony/document_image_rId72.png)
