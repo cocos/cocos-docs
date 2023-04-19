@@ -199,6 +199,7 @@
         - [Custom effect](shader/write-effect-overview.md)
             - [3D Effect：RimLight](shader/write-effect-3d-rim-light.md)
             - [2D Sprite effect：Gradient](shader/write-effect-2d-sprite-gradient.md)
+    - [Sorting](engine/rendering/sorting.md)
     - [Effects](module-map/effects/index.md)
         - [Billboard](particle-system/billboard-component.md)
         - [Line](particle-system/line-component.md)
