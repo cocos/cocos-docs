@@ -26,18 +26,18 @@
 | Image Tracking          | 为应用赋能图像识别能力，在运行时使用设备 AR 能力识别出 2D 图像资源。 | ARImageTracking                                              |
 | Meshing                 | 为应用赋能环境重构能力，根据现实环境创建 3D 网格。           | ARMeshing                                                    |
 
-### 内置资源
+## 内置资源
 
 开启 XR 的扩展后，在内置资源数据库（xr-plugin）中会新增 XR 预制体、材质和模型等资源，可供用户直接使用。具体位置如下图所示。
 
-#### 预制体资源
+### 预制体资源
 
 ![prefabs](assets/prefabs.png)
 
-#### 材质资源
+### 材质资源
 
 ![material](assets/material.png)
 
-#### 模型资源
+### 模型资源
 
 ![model](assets/model.png)
