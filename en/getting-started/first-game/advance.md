@@ -1,69 +1,67 @@
-# 进阶篇 - 添加阴影、光照和动画
+# Advanced: Add Light, Shadow and Skeleton Animation
 
-在本节中我们将向您介绍如何完善 [快速上手：制作第一个游戏](index.md) 中制作的原型，如何使用第三方资源比如动画资源等等。
+In this section, we will show you how to use third-part assets such as animation, etc to complete the game prototype we have made in [Quick Start: Make Your First 3D Game](index.md)
 
-## 光照和阴影
+## Lighting and Shadows
 
-光影是描述游戏的重要渲染特性，通过光源和阴影，我们可以模拟更加真实的游戏世界，提供更好的沉浸感和代入感。
+Lighting and shadows are important rendering features that describe the game. With light sources and shadows, we can simulate a more realistic game world, providing better immersion and empathy.
 
-接下来我们为角色加上简单的影子。
+Next, we add a simple shadow to the character.
 
-### 开启阴影
+### Turn on shadows
 
-1. 在 **层级管理器** 中点击最顶部的 `Scene` 节点，然后在 **属性检查器** 勾选 `shadows` 中的 Enabled，并修改 **Distance** 和 **Normal** 属性：
+1. Click the top `Scene` node in the **Hierarchy** panel, then in the **Inspector** panel check Enabled in `shadows` and modify the **Distance** and **Normal** properties to:
 
     ![planar shadows](./images/planarShadows.png)
 
-2. 点击 Player 节点下的 Body 节点，将 `cc.MeshRenderer` 组件中的 **ShadowCastingMode** 设置为 **ON**。
+2. Click on the Body node under the Player node and set **ShadowCastingMode** to **ON** in the `cc.MeshRenderer` component.
 
     ![model shadow](./images/model-shadow.png)
 
-此时在 **场景编辑器** 中会看到一个阴影面片，预览会发现看不到这个阴影，这是因为它在模型的正后方，被胶囊体盖住了。
+At this point, you will see a shadow sheet in the **Scene Editor**. The preview will show that the shadow is not visible because it is directly behind the model, covered by the capsule.
 
 ![player shadow](./images/player-shadow-scene.png)
 
-### 调整光照
+### Adjusting lighting
 
-新建场景时默认会添加一个挂载了 `cc.DirectionalLight` 组件的 **Main Light** 节点，由这个平行光计算阴影。所以为了让阴影换个位置显示，我们可以调整这个平行光的方向。在 **层级管理器** 中点击选中 **Main Light** 节点，调整 `Rotation` 属性为（-10，17，0）。
+By default, a **Main Light** node with `cc.DirectionalLight` component is added when creating a new scene. So to make the shadows appear in a different position, we can adjust the direction of this light. Click in the **Hierarchy** panel to select the **Main Light** node and adjust the `Rotation` property to (-10, 17, 0).
 
 ![main light](./images/main-light.png)
 
-点击预览可以看到影子效果：
+The shadow effect can be seen by clicking on the preview at
 
 ![player shadow preview](./images/player-shadow-preview.png)
 
-## 添加主角模型
+## Adding a protagonist model
 
-做为一个官方教程，用胶囊体当主角显的有点寒碜，所以我们花（低）重（预）金（算）制作了一个 Cocos 主角。
+### Importing model resources
 
-### 导入模型资源
+Importing models, materials, animations and other resources from the original sources is not the focus of this basic tutorial, so we will directly use the resources that have been imported into the project. Put **project** ([GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d)  tutorial-mind-your-step-3d)) in the assets directory and copy the cocos folder to the assets directory of your own project.
 
-从原始资源导入模型、材质、动画等资源不是本篇基础教程的重点，所以这边直接使用已经导入工程的资源。将 **项目工程**（[GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-mind-your-step-3d)）中 assets 目录下的 cocos 文件夹拷贝到你自己工程的 assets 目录下。
+### Adding to the scene
 
-### 添加到场景中
-
-在 cocos 文件中已经包含了一个名为 Cocos 的 Prefab，将它拖拽到 **层级管理器** 中 Player 节点下的 Body 节点中，作为 Body 节点的子节点。
+A Prefab named Cocos is already included in the Cocos file. Drag it to the Body node under the Player node in the **Hierarchy** panel as a child node of the Body node.
 
 ![add cocos prefab](./images/add-cocos-prefab.png)
 
-同时在 **属性检查器** 中移除原先的胶囊体模型：
+Also, remove the original capsule model from the **Inspector** panel:
 
 ![remove capsule](./images/remove-capsule.png)
 
-此时会发现模型有些暗，可以在 Cocos 节点下加个聚光灯（Spotlight），以突出它锃光瓦亮的脑门。
+You can add a Spotlight under the Cocos node to highlight its shiny head.
 
 ![add cocos light](./images/cocos-add-light.png)
 
-### 添加跳跃动画
+### Add jump animation
 
-现在预览可以看到主角初始会有一个待机动画，但是跳跃时还是用这个待机动画会显得很不协调，所以我们可以在跳跃过程中将其换成跳跃的动画。在 `PlayerController.ts` 类中添加一个引用模型动画的变量：
+Now the preview shows that the main character will have a standby animation initially, but it will look very inconsistent to use this standby animation when jumping, so we can change it to a jump animation during jumping. Add a variable to the `PlayerController.ts` class that references the model animation:
 
 ```ts
 @property({type: SkeletalAnimation})
 public CocosAnim: SkeletalAnimation|null = null;
 ```
 
-同时，因为我们将主角从胶囊体换成了人物模型，可以弃用之前为胶囊体制作的动画，并注释相关代码：
+Also, since we have changed the protagonist from a capsule body to a character model, we can discard the animation previously created for the capsule body and comment on the relevant code as follows:
 
 ```ts
 // @property({type: Animation})
@@ -81,11 +79,11 @@ jumpByStep(step: number) {
 }
 ```
 
-然后在 **层级管理器** 中将 Cocos 节点拖拽到 Player 节点的 `CocosAnim` 属性框中：
+Then in the **Hierarchy** panel drag and drop the Cocos node into the `CocosAnim` property box of the Player node:
 
 ![assign cocos prefab](./images/assign-cocos-prefab.png)
 
-在 `PlayerController` 脚本的 `jumpByStep` 函数中播放跳跃动画：
+Play the jump animation in the `jumpByStep` function of the `PlayerController` script:
 
 ```ts
 jumpByStep(step: number) {
@@ -100,8 +98,8 @@ jumpByStep(step: number) {
     Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
     if (this.CocosAnim) {
-        this.CocosAnim.getState('cocos_anim_jump').speed = 3.5; // 跳跃动画时间比较长，这里加速播放
-        this.CocosAnim.play('cocos_anim_jump'); // 播放跳跃动画
+        this.CocosAnim.getState('cocos_anim_jump').speed = 3.5; // Jump animation time is relatively long, here to speed up the playback
+        this.CocosAnim.play('cocos_anim_jump'); // Play jump animation
     }
 
     // if (this.BodyAnim) {
@@ -116,21 +114,21 @@ jumpByStep(step: number) {
 }
 ```
 
-这里 `_jumpStep` 时间是 0.3 秒，如果动画播放的时长和 `_jumpStep` 不匹配可能会导致如下问题：
+Here `_jumpStep` time is 0.3 seconds, if the animation length and `_jumpStep` don't match, it may cause the following problem:
 
-- 动画还没播放完毕，出现动画过渡不平滑
-- 或者动画播放完毕但跳跃时间还没有到产生滑步现象
+- The animation transition is not smooth when the animation is not finished yet
+- or the animation is finished but the jump time is not yet up, resulting in slippage
 
-一种处理方法使我们直接通过动画剪辑的时长和 `_jumpStep` 来计算重新计算动画的速度而不是使用常量：
+One way to handle this is to recalculate the speed of the animation directly from the length of the animation clip and `_jumpStep` instead of using a constant: `_jumpStep`:
 
 ```ts
 var state = this.CocosAnim.getState('cocos_anim_jump');            
 state.speed = state.duration/this._jumpTime;
 ```
 
-开发者可以自行尝试，或者手动修改 `_jumpStep` 和 `speed` 到合适的值以控制游戏的节奏。
+Developers can try it themselves, or manually modify `_jumpStep` and `speed` to the right values to control the game's pace.
 
-在 `PlayerController` 脚本的 `onOnceJumpEnd` 函数中让主角变为待机状态，播放待机动画。
+In the `OnceJumpEnd` function of the `PlayerController` script, make the main character standby and play the standby animation.
 
 ```ts
 onOnceJumpEnd() {
@@ -141,13 +139,13 @@ onOnceJumpEnd() {
 }
 ```
 
-> **注意**：当跳跃完成时会触发 `onOnceJumpEnd`，详情请见 `PlayerController.ts` 中的 `update` 函数实现。
-
-预览效果如下：
+> **Note**: `onOnceJumpEnd` will be triggered when the jump is completed, see the `update` function in `PlayerController.ts` for details.
+> 
+The preview effect is as follows:
 
 ![cocos play](./images/cocos-play.gif)
 
-## 最终代码
+## Final Code
 
 **PlayerController.ts**
 
@@ -210,8 +208,8 @@ export class PlayerController extends Component {
         Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));
 
         if (this.CocosAnim) {
-            this.CocosAnim.getState('cocos_anim_jump').speed = 3.5; //跳跃动画时间比较长，这里加速播放
-            this.CocosAnim.play('cocos_anim_jump'); //播放跳跃动画
+            this.CocosAnim.getState('cocos_anim_jump').speed = 3.5; // Jump animation time is relatively long, here to speed up the playback
+            this.CocosAnim.play('cocos_anim_jump'); // Play jump animation
         }
 
         // if (this.BodyAnim) {
@@ -260,7 +258,7 @@ import { _decorator, Component, Prefab, instantiate, Node, Label, CCInteger, Vec
 import { PlayerController } from "./PlayerController";
 const { ccclass, property } = _decorator;
 
-// 赛道格子类型，坑（BT_NONE）或者实路（BT_STONE）
+// The runway type, pit (BT_NONE) or solid road (BT_STONE)
 enum BlockType{
     BT_NONE,
     BT_STONE,
@@ -275,20 +273,20 @@ enum GameState{
 @ccclass("GameManager")
 export class GameManager extends Component {
 
-    // 赛道预制
+    // The runway prefab
     @property({type: Prefab})
     public cubePrfb: Prefab | null = null;
-    // 赛道长度
+    // Length of the road
     @property({type: CCInteger})
     public roadLength: Number = 50;
     private _road: BlockType[] = [];
-    // 主界面根节点
+    // Node of the start menu
     @property({type: Node})
     public startMenu: Node | null = null;
-    // 关联 Player 节点身上 PlayerController 组件
+    // The reference of the PlayerController instance on the Player node
     @property({type: PlayerController})
     public playerCtrl: PlayerController | null = null;
-    // 关联步长文本组件
+    // Label to display the step
     @property({type: Label})
     public stepsLabel: Label | null = null!;
 
@@ -298,18 +296,18 @@ export class GameManager extends Component {
     }
 
     init() {
-        // 激活主界面
+        // Active the start menu
         if (this.startMenu) {
             this.startMenu.active = true;
         }
-        // 生成赛道
+        // Generate the runway
         this.generateRoad();
-        if(this.playerCtrl){
-            // 禁止接收用户操作人物移动指令
+        if(this.playerCtrl){            
+            // Disable user input
             this.playerCtrl.setInputActive(false);
-            // 重置人物位置
+            // Reset the player's position
             this.playerCtrl.node.setPosition(Vec3.ZERO);
-            // 重置已经移动的步长数据
+            // Reset the steps
             this.playerCtrl.reset();
         }
     }
@@ -325,10 +323,10 @@ export class GameManager extends Component {
                 }
 
                 if (this.stepsLabel) {
-                    this.stepsLabel.string = '0';   // 将步数重置为0
+                    this.stepsLabel.string = '0';   // Reset the number of steps to 0
                 }
-                // 会出现的现象就是，游戏开始的瞬间人物已经开始移动
-                // 因此，这里需要做延迟处理
+                // What happens is that the character already starts moving at the moment the game starts
+                // Therefore, a delay is needed here
                 setTimeout(() => { 
                     if (this.playerCtrl) {
                         this.playerCtrl.setInputActive(true);
@@ -340,17 +338,17 @@ export class GameManager extends Component {
         }
     }
 
-    generateRoad() {
-        // 防止游戏重新开始时，赛道还是旧的赛道
-        // 因此，需要移除旧赛道，清除旧赛道数据
+    generateRoad() {        
+        // Prevent the track from being the old track when the game is restarted
+        // Therefore, the old track needs to be removed and the old track data cleared
         this.node.removeAllChildren();
         this._road = [];
-        // 确保游戏运行时，人物一定站在实路上
+        // Make sure that the character is standing on the real road when the game is running
         this._road.push(BlockType.BT_STONE);
 
-        // 确定好每一格赛道类型
+        // Determine the type of track for each frame
         for (let i = 1; i < this.roadLength; i++) {
-            // 如果上一格赛道是坑，那么这一格一定不能为坑
+            // If the last track is a pit, then this frame must not be a pit
             if (this._road[i-1] === BlockType.BT_NONE) {
                 this._road.push(BlockType.BT_STONE);
             } else {
@@ -358,7 +356,7 @@ export class GameManager extends Component {
             }
         }
 
-        // 根据赛道类型生成赛道
+        // Generate tracks based on track type
         let linkedBlocks = 0;
         for (let j = 0; j < this._road.length; j++) {
             if(this._road[j]) {
@@ -403,27 +401,27 @@ export class GameManager extends Component {
     }
 
     onStartButtonClicked() {
-        // 点击主界面 play 按钮，开始游戏
+        // To start the game by clicking the Play button
         this.curState = GameState.GS_PLAYING;
     }
 
     checkResult(moveIndex: number) {
         if (moveIndex < this.roadLength) {
-            // 跳到了坑上
+            // Jumped on the pit
             if (this._road[moveIndex] == BlockType.BT_NONE) {
                 this.curState = GameState.GS_INIT;
             }
-        } else {    // 跳过了最大长度
+        } else {    // Jumped over the maximum length
             this.curState = GameState.GS_INIT;
         }
     }
 
     onPlayerJumpEnd(moveIndex: number) {
         if (this.stepsLabel) {
-            // 因为在最后一步可能出现步伐大的跳跃，但是此时无论跳跃是步伐大还是步伐小都不应该多增加分数
+            // Because in the last step there may be a jump with a large pace, but at this time, whether the jump is a large pace or a small pace should not increase the score more
             this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
         }
-        // 检查当前下落道路的类型，获取结果
+        // Check the type of the currently falling road and get the result
         this.checkResult(moveIndex);
     }
 
@@ -433,18 +431,18 @@ export class GameManager extends Component {
 }
 ```
 
-## 总结
+## Conclusion
 
-恭喜您完成了用 Cocos Creator 制作的第一个游戏！在 [GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-mind-your-step-3d) 可以下载完整的工程，希望这篇快速入门教程能帮助您了解 Cocos Creator 游戏开发流程中的基本概念和工作流程。如果您对编写和学习脚本编程不感兴趣，也可以直接从完成版的项目工程中把写好的脚本复制过来使用。
+Congratulations on completing your first game made with Cocos Creator! You can download the full project at [GitHub - Mind-Your-Step-3D](https://github.com/cocos-creator/tutorial-mind-your-step-3d). We hope this quick start tutorial will help you understand the basic concepts and workflow of the Cocos Creator game development process. If you are not interested in writing and learning to script, you can also copy the script directly from the finished project.
 
-接下来您还可以继续完善游戏的各方各面，以下是一些推荐的改进方向：
-- 为游戏增加难度，当角色在原地停留1秒就算失败
-- 改为无限跑道，动态的删除已经跑过的跑道，延长后面的跑道。
-- 增加游戏音效
-- 为游戏增加结束菜单界面，统计玩家跳跃步数和所花的时间
-- 用更漂亮的资源替换角色和跑道
-- 可以增加一些可拾取物品来引导玩家“犯错”
-- 添加一些粒子特效，例如角色运动时的拖尾、落地时的灰尘
-- 为触屏设备加入两个操作按钮来代替鼠标左右键操作
+Next, you can continue to improve all aspects of the game, here are some recommended improvements:
+- Add difficulty to the game, when the character stays in the same place for 1 second it is considered a failure
+- Change the runway to infinite, dynamically delete the runway that has been run and extend the runway behind.
+- Add game sound effects
+- Add an end menu for the game, count the number of jumps and the time spent by the player
+- Replace characters and runways with more beautiful resources
+- Add some pickup items to guide the player to "make mistakes"
+- Add some particle effects, such as trailing when the character is moving, dust when it hits the ground
+- Add two buttons for touchscreen devices instead of left and right mouse buttons
 
-此外如果希望将完成的游戏发布到服务器上分享给好友玩耍，可以阅读 [发布工作流](../../editor/publish/index.md) 一节的内容。
+In addition, if you want to publish your finished game to the server and share it with your friends, you can read the [Cross-Platform Game Publishing](../../editor/publish/index.md) section.

@@ -43,7 +43,7 @@
 - [快速上手：制作第一个 2D 游戏](getting-started/first-game-2d/index.md)
     - [监听触摸事件](getting-started/first-game-2d/touch.md)
 - [快速上手：制作第一个 3D 游戏](getting-started/first-game/index.md)
-    - [快速上手：制作第一个 3D 游戏（进阶篇）](getting-started/first-game/advance.md)
+    - [进阶篇 - 添加阴影、光照和骨骼动画](getting-started/first-game/advance.md)
 
 ## 工作流
 
