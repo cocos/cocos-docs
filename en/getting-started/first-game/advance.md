@@ -1,10 +1,10 @@
 # Advanced: Add Light, Shadow and Skeleton Animation
 
-In this section, we will introduce to you how to use third-part assets such as animation, etc to complete the prototype we made in [Quick Start: Make Your First 3D Game](index.md)
+In this section, we will show you how to use third-part assets such as animation, etc to complete the game prototype we have made in [Quick Start: Make Your First 3D Game](index.md)
 
 ## Lighting and Shadows
 
-Lighting and shadows are important rendering features that describe the game. With light sources and shadows, we can simulate a more realistic game world, providing better immersion and immersion.
+Lighting and shadows are important rendering features that describe the game. With light sources and shadows, we can simulate a more realistic game world, providing better immersion and empathy.
 
 Next, we add a simple shadow to the character.
 
@@ -24,7 +24,7 @@ At this point, you will see a shadow sheet in the **Scene Editor**. The preview 
 
 ### Adjusting lighting
 
-By default, a **Main Light** node with `cc.DirectionalLight` component is added when creating a new scene. So to make the shadows appear in a different position, we can adjust the direction of this parallel light. Click in the **Hierarchy** panel to select the **Main Light** node and adjust the `Rotation` property to (-10, 17, 0).
+By default, a **Main Light** node with `cc.DirectionalLight` component is added when creating a new scene. So to make the shadows appear in a different position, we can adjust the direction of this light. Click in the **Hierarchy** panel to select the **Main Light** node and adjust the `Rotation` property to (-10, 17, 0).
 
 ![main light](./images/main-light.png)
 
@@ -33,8 +33,6 @@ The shadow effect can be seen by clicking on the preview at
 ![player shadow preview](./images/player-shadow-preview.png)
 
 ## Adding a protagonist model
-
-As an official tutorial, it's a bit shabby to use a capsule as the main character, so we spent (low) money (pre) to make the main character.
 
 ### Importing model resources
 
@@ -435,7 +433,7 @@ export class GameManager extends Component {
 
 ## Conclusion
 
-Congratulations on completing your first game made with Cocos Creator! You can download the full project at [GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d) to download the complete project. We hope this quick start tutorial will help you understand the basic concepts and workflow of the Cocos Creator game development process. If you are not interested in writing and learning to script, you can also copy the script directly from the finished project.
+Congratulations on completing your first game made with Cocos Creator! You can download the full project at [GitHub - Mind-Your-Step-3D](https://github.com/cocos-creator/tutorial-mind-your-step-3d). We hope this quick start tutorial will help you understand the basic concepts and workflow of the Cocos Creator game development process. If you are not interested in writing and learning to script, you can also copy the script directly from the finished project.
 
 Next, you can continue to improve all aspects of the game, here are some recommended improvements:
 - Add difficulty to the game, when the character stays in the same place for 1 second it is considered a failure

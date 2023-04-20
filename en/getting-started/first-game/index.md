@@ -2,19 +2,19 @@
 
 In this section, we will introduce you to some of the 3D features in Cocos Creator, and how to use them to make a simple but complete platform jump game.
 
-The following tutorial shows a mini-game named "Mind Your Step". This game tests the user's reflexes, choosing whether to jump one step or two steps according to the road.
+The following tutorial shows a mini-game named "Mind Your Step". This game tests the user's reaction speed, choosing whether to jump one step or two steps according to the road.
 
 You can experience the finished form of the game at [here](https://gameall3d.github.io/MindYourStep_Tutorial/index.html).
 
 ## Add Player
 
-A manipulable character is always needed for most games. Here we will make our main character in the game, Miss/Mr. Capsule.
+A controllable character is always needed for most games. Here we will make our main character in the game, Miss/Mr. Capsule.
 
-For the sake of production, let's review a little here how nodes are created within the editor.
+For the sake of convenience in production, let's review a little here how nodes are created within the editor.
 
 ![hierarchy.png](images/hierarchy.png)
 
-The**Hierarchy** panel will demonstrate all nodes in the scene, and you can create a new node right-clicking on the popup menu of the **Hierarchy** panel.
+The **Hierarchy** panel will demonstrate all nodes in the scene, and you can create a new node right-clicking on the popup menu of the **Hierarchy** panel.
 
 ### Create Player Node
 
@@ -30,12 +30,12 @@ Then place the Player node at (0, 0, 0), so that it can stand on the first block
 
 ### Scripting the Main Character
 
-To make a character move by mouse-events, one shall write some custom scripts. Don't worry even if you don't have any programming experience, we will provide all code and all you need to do is copy and paste all those codes to the right place. And of course, we will explain all the code provided to help you get started with Cocos Creator as soon as possible.
+To make a character move by mouse-events, there is a need to write some custom scripts. Don't worry even if you don't have any programming experience, we will provide all code and all you need to do is copy and paste all those codes to the right place. And of course, we will explain all the code provided to help you get started with Cocos Creator as quick as possible.
 
 #### How to Create Script Components
 
-1. If you haven't created the Scripts folder yet, first right-click on the **assets** folder in **Assets**, select the **Create -> Folder** menu to create a new fold, and rename it with 'Scripts';
-2. Right-click on the Scripts folder, and select **Create -> Typescript -> New Component** on the popup menu to create a new TypeScript component. More references can be found on [official TypeScript](https://www.typescriptlang.org/).
+1. If you haven't created the Scripts folder yet, first right-click on the **assets** folder in **Assets**, select the **Create -> Folder** menu to create a new folder, and rename it with 'Scripts';
+2. Right-click on the Scripts folder, and select **Create -> TypeScript -> NewComponent** on the popup menu to create a new TypeScript component. More references can be found on [official TypeScript](https://www.typescriptlang.org/).
 3. Rename the created component to `PlayerController` and double-click on the script file to open any code editor(such as VSCode).
 
     ![create player script](./images/create-player-script.gif)
@@ -127,7 +127,7 @@ With a boolean variable like `_startJump`, we can mark whether the current chara
 
 > Q: Why do we handle it in the `update` method?
 >
-> A: The `update` method will be invoked by the engine in a specific time interval. If the FPS of our game is 60 (60 renders per second), then the `update` method will be called 60 times per second. We can simulate realistic continuous behaviors by using `update` as much as possible.
+> A: The `update` method will be invoked by the engine in a specific time interval. If the FPS of our game is 60 (60 render frames per second), then the `update` method will be called 60 times per second. We can simulate realistic continuous behaviors by using `update` as much as possible.
 
 So we can change the code as follows:
 
@@ -169,7 +169,7 @@ In Newtonian mechanics, we have learned that if an object is to move with unifor
 P_1 = P_0 + v*t
 ```
 
-In the other words, we can add the current position of the object plus the velocity multiplied by the time, when we can get the new position.
+In other words, we can add the current position of the object plus the velocity multiplied by the time, then we can get the new position.
 
 In our game, when the mouse button is pressed, the character will move directly 1 unit if the jump step is 1, and 2 units if the jump step is 2. So we can calculate the target position of the character (_targetPos) by using the following formula:
 
@@ -293,9 +293,9 @@ jumpByStep(step: number) {
     - `add` is a method in `Vec3` to add two 3D vectors, we can notice that there is no `this`, because `add` is a **static method**.
     - `Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep, 0, 0));` This code block indicate that we use the target position(`_targetPos`) to store the add result of current position(`_curPos`) and a new vector(`new Vec3(this._jumpStep, 0, 0)`) which represent the jump step on x axis.
 
-Sure, we can simply move the character on the X-axis, but in reality, in 3D game development, objects may move along 3 different axes, and the more familiar you are with the usage of 3D vectors, the faster we can master the 3D engine.
+Sure, we can simply move the character on the X-axis, but in fact, in 3D game development, objects may move along 3 different axes, and the more familiar you are with the usage of 3D vectors, the faster we can master the 3D engine.
 
-At this moment, our code may look as follow:
+At this moment, our code may look as follows:
 
 ```ts
 import { _decorator, Component, input, Input, EventMouse, Vec3 } from 'cc';
@@ -360,7 +360,7 @@ Fascinating, now we have all the data required to calculate the character's mani
 
 Remember the Newton problem we talked about above? It's time to really solve this problem.
 
-We need to first check if the entire jump duration (_curJumpTime) has exceeded our predefined time (_jumpTime).
+First up, we need to check the entire jump duration (_curJumpTime) has exceeded our predefined time (_jumpTime).
 
 The test here is simple: we have set _curJumpTime to 0 at input time, so `update` only needs to:
 
@@ -398,7 +398,7 @@ update (deltaTime: number) {
 }
 ```
 
-Finally, we refine their logic for the different branches: t
+Finally, we refine the logic for the different branches:
 
 - End of jump: ends the jumping process, forcing the character to be displaced to the target position
 - During the jump: moves the character forward according to the velocity
@@ -424,13 +424,13 @@ update (deltaTime: number) {
 }
 ```
 
-Great! You have completed the core of this game - character control.
+Great! You have completed the core code of this game - character control.
 
-If you still find this explanation a bit difficult, please let us know by clicking on [Get help and support](../support.md) and let us know.
+If you still find this explanation a bit difficult, please let us know by clicking on [Get help and support](../support.md).
 
 #### Complete PlayerController
 
-We already have the complete PlayerController code, so we just need to hook it up to a node to make it work.
+We already have the complete PlayerController code, so we just need to attach it to a node to make it work.
 
 If you still find it difficult, try copying and pasting the following code into the PlayerController.ts file in your project.
 
@@ -448,7 +448,6 @@ export class PlayerController extends Component {
     // serializableDummy = 0;
 
     // for fake tween
-    // 是否接收到跳跃指令
     // Whether the jump command is received or not
     private _startJump: boolean = false.
     // Jump step length
@@ -516,7 +515,7 @@ Now we can add the `PlayerController` component to the character node `Player`. 
 
 ![add player controller comp](./images/add-player-controller.png)
 
-We have to adjust some parameters in case a object is visible at runtime, select the **Main Camera** node, and change its `Position` to (0, 0, 13), and `Color` to (50，90，255，255):
+To display the content on screen properly during runtime, We need to adjust some parameters of the camera, select the **Main Camera** node, and change its `Position` to (0, 0, 13), and `Color` to (50，90，255，255):
 
 ![camera setting](./images/camera-setting.png)
 
@@ -534,15 +533,15 @@ For more preview functions, please refer to [Project Preview & Debugging](../../
 
 We could notice that the horizontal movement of the character is tedious from the result of the above execution. To make out character feel like jumping you could add a vertical animation. For more information about **Animation Editor**, please refer to [Animation System](../../animation/index.md).
 
-1. Select the `Body` node in the scene, and then click the **Add Animation Clip** button in the **Animation Editor** at the bottom of the editor to create an animation clip and name it `onStep`.
+1. Select the `Body` node in the **Hierarchy** panel, and then click the **Add Animation Clip** button in the **Animation Editor** at the bottom of the editor to create an animation clip and name it `onStep`.
 
     ![player move](./images/add-animation.gif)
 
-2. Enter the animation edit mode, add a `position` property track to the created clip, and then add three keyframes, the position value of each should be (0, 0, 0), (0, 0.5, 0), (0, 0, 0);
+2. Enter the animation editing mode, add a `position` property track to the created clip, and then add three keyframes, the position value of each should be (0, 0, 0), (0, 0.5, 0), (0, 0, 0);
 
     ![add keyframe](./images/add-keyframe.gif)
 
-    > **Note**: Alway remember to save animation clips when exiting animation mode, otherwise you work will be lost.
+    > **Note**: Alway remember to save animation clips when exiting animation editing mode, otherwise you work will be lost.
 
 3. We can use **Assets Manager** to create clips. Right-click on the **Assets** panel to create a new animation clip named `twoStep`, and add it to the `Animation` property of the `Body` node. To make the recording process easier, we can adjust the layout of the editor.
 
@@ -579,7 +578,7 @@ We could notice that the horizontal movement of the character is tedious from th
     }
     ```
 
-6. Click the **Preview** button to see the new jump effect in the open browse by clicking the left or right mouse button.
+6. Click the **Preview** button to see the new jump animation in the open browse by clicking the left or right mouse button.
 
     ![preview with jump](./images/preview-with-jump.gif)
 
@@ -591,9 +590,9 @@ To make our game more interesting, we need a long runway for the Player to fleet
 
 Typically, a scene contains various functions and different types of nodes, All those nodes stored in the scene could be taken as the most important data of our game. Occasionally we need to dynamically create, visit, and delete those nodes. Although we can find a node by `find` method in Cocos Creator, actually the `find` method has to enumerate all nodes in the scenes which will cause a low accuracy. In commercial development, we use some single components to manage **some kind of** nodes or **some** nodes data which we call **Manager**.
 
-For example, in a game, we may have many characters, and we may have to create a new character, delete characters who are dead, or query the status of a character, in that case, we can create a class named `ActorManager` to manager all the characters and support the functions mentioned above.
+For example, in a game, we may have many characters, and we may have to create a new character, delete characters who are dead, or query the status of a character, in that case, we can create a class named `ActorManager` to manage all the characters and support the functions mentioned above.
 
-In this game, we declare a new node component GameManager to manage all relevant nodes or data.
+In this game, we declare a new node component named GameManager to manage all relevant nodes or data.
 
 In this case, we put all functions, such as runway generation and deletion, in GameManager to make data collection more convenient.
 
@@ -634,7 +633,7 @@ enum BlockType{
 };
 ```
 
-Again, we need to define which prefabricated body or bodies the game manager will use to create the map.
+Again, we need to define which Prefab or bodies the game manager will use to create the map.
 
 ```ts
 // The runway prefab
@@ -642,7 +641,7 @@ Again, we need to define which prefabricated body or bodies the game manager wil
 public cubePrfb: Prefab | null = null;
 ```
 
-The editor will recognize `@property({type: Prefab})` as a prefab so that we can assign the Cube prefab to this property in the **Inspector** panel.
+The editor will recognize `@property({type: Prefab})` as a prefab so that we can assign the Cube.prefab to this property in the **Inspector** panel.
 
 > A syntax like `@property` is called a [Decorator](../../scripting/decorator.md). There is various type of decorators in Cocos Creator that can use it to customize various effect to decorate custom components.
 
@@ -832,7 +831,7 @@ export class GameManager extends Component {
 }
 ```
 
-Drag the pre-made Cube prefab on to **CubePrfb** property of the **Inspector** panel.
+Drag the pre-made Cube.prefab on to **CubePrfb** property of the **Inspector** panel.
 
 ![assign cube prefab](./images/assign-cube-prefab.png)
 
@@ -840,7 +839,7 @@ You can change the **roadLength** property of the **Inspector** panel to control
 
 Now, click the **Preview** button to see the automatically created runway in the open browser.
 
-## Follow the Camera
+## The Player-Centered Camera
 
 We can notice that the Camera does not follow the Player node, hence we can not see the runway behind it. We can avoid this situation by making the camera a child node of Player.
 
@@ -850,7 +849,7 @@ Thus the Camera will follow the Player's movement, now by clicking the **Preview
 
 ## Add a Start Menu
 
-The User Interface(UI) is an essential part of a game, developers can inform users of some key information such as data, status, etc so that the user can have their strategy. We could also add the game name, an introduction, the production staff, and other information.
+The User Interface(UI) is an essential part of a game, developers can inform users of some significant information such as data, status, etc so that the user can have their strategy. We could also add the game name, an introduction, the production staff, and other information.
 
 Please refer to relevant documents such as [2D/UI](. /. /2d-object/index.md) to help understand the mechanics of the UI as a 2D part.
 
@@ -862,20 +861,20 @@ Then we will describe a UI workflow taking the Start Menu as an example.
 
     It can be noticed that the engine automatically creates a Canvas node in the **Hierarchy** panel, a Player button node, and a Label node. That is because any node that contains a UI component only be seen when it is under the `Canvas` node, so the editor will create a Canvas in case there is none.
 
-    Change the **String** property of the `cc.Label` component in the Label Node from Button to Play.
+    Change the **String** property of the `cc.Label` component in the Label Node from "Button" to "Play".
 
-    > You may notice that the version of Cocos Creator you are using automatically adds a new Camera node when creating a UI node
-    > This node is a new feature in Cocos Creator. The new Camera will be in charge of the UI/2D parts, therefore the engine's render pipeline can process the UI/2D content more efficiently.
+    > You may notice that Cocos Creator automatically adds a new Camera node under the "Canvas" when you create a UI node.
+    > This is a new feature in Cocos Creator. The new Camera will be in charge of the UI/2D parts, therefore the engine's render pipeline can process the UI/2D content more efficiently.
 
-2. Create an empty node named StartMenu under the Canvas node, and drag the PlayerButton under it. We can switch to a 2D editing view for editing UI by clicking the 2D/3D button on the scene's toolbar. For more details on scene editing,  please refer to [Scene Panel](../../editor/scene/index.md)。
+2. Create an empty node named StartMenu under the Canvas node, and drag the PlayButton under it. We can switch to a 2D editing view for editing UI by clicking the 2D/3D button on the scene's toolbar. For more details on scene editing,  please refer to [Scene Panel](../../editor/scene/index.md)。
 
     ![2d-view](./images/2d-view.png)
 
-3. Create a new Sprite node named `BG` under the `StartMenu` as a background image, and drag it above on the PlayButton.
+3. Create a new Sprite node named `BG` under the `StartMenu` as a background image, and drag it on the PlayButton.
 
     ![create bg sprite](./images/create-bg-sprite.gif)
 
-    Then set the `ContentSize` property of `cc.UITransform` component to (200, 200) on the **Inspector** panel, and drag the `internal/default_ui/default_sprite_splash` asset to its **SpriteFrame** property.
+    Then set the `ContentSize` property of `cc.UITransform` component to (200, 200) in the **Inspector** panel, and drag the `internal/default_ui/default_sprite_splash` asset to its **SpriteFrame** property.
 
     ![change spriteFrame](./images/change-spriteFrame.png)
 
@@ -887,7 +886,7 @@ Then we will describe a UI workflow taking the Start Menu as an example.
 
     ![modify title](./images/title-inspector.png)
 
-6. Once the required Tips nodes are added and the PlayButton is adjusted, a simple start menu is complete.
+6. Once the required Tips nodes are added and the PlayButton is adjusted, a simple start menu is completed.
 
     ![modify title](./images/start-menu.png)
 
@@ -911,8 +910,7 @@ enum GameState{
 
 The current game state can be easily informed by reading the `GameState` enumeration, and we can handle some logic when the state changes.
 
-In order to allow the user to control the character in the play state rather than the game initialize, we have to enable/disable listening to the mouse automatically. So modify the `PlayerController` script as follows:
-
+In order to allow the user to control the character in the play state rather than the game initialize, we have to enable/disable listening to the mouse event automatically. So modify the `PlayerController` script as follows:
 
 ```ts
 start () {
@@ -936,7 +934,7 @@ And reference the `PlayerController` script in the `GameManager` script.
 public playerCtrl: PlayerController | null = null;
 ```
 
-Back to the editor after saving the scripts, and drag the Player node that attached a `PlayerController` script to the `playerCtrl` property of the GameManager Node on the **Inspector** panel.
+Back to Cocos Creator after saving the scripts, and drag the Player node that attached a `PlayerController` script to the `playerCtrl` property of the GameManager Node in the **Inspector** panel.
 
 Meanwhile, we need to reference the StartMenu node in the `GameManager` script to dynamically enable/disable the start menu.
 
@@ -1011,14 +1009,14 @@ onStartButtonClicked() {
 }
 ```
 
-Then select the PlayButton node in the **Hierarchy** panel, add a response method to the `cc.Button` component in the **Inspector** panel, and drag the GameManager node into the `cc.Node` property.
+Then select the PlayButton node in the **Hierarchy** panel, add a response method to the `cc.Button` component in the **Inspector** panel, and drag the GameManager node on the `cc.Node` property.
 
 ![play button inspector](./images/play-button-inspector.png)
 
 Here we can notice the element [0] of Click Events is divided into three parts, which are:
-1. Node: Here we drag and drop the GameManager node, which means that the button event will be dispatched to the GameManager node
+1. Node: Here we drag and drop the GameManager node, which means that the button event will be received by the GameManager node
 2. Component: after dragging the GameManager node, you can select the node on the GameManager through the drop-down, here select the component with the same name `GameManager`.
-3. Event: through the drop-down menu, select the response event of the button, here you have to select the `onStartButtonClicked` method added above as the response of **button clicked**
+3. Event Handler: through the drop-down menu, select the response event of the button, here you have to select the `onStartButtonClicked` method added above as the response of **button clicked**
 
 > **Note**: The above three steps must be performed in strict order of 1->2->3.
 
@@ -1100,7 +1098,7 @@ Currently, the game character just runs forward dully, we need to add game rules
 
 ## Step Count Display
 
-We can display the current number of steps on the interface so that it will be a great sense of accomplishment to watch the number of steps growing during the jump.
+We can display the current number of steps on the UI so that it will be a great sense of accomplishment to watch the number of steps increasing during the jump.
 
 1. Create a new Label node named Steps under Canvas and adjust the position, font size and other properties.
 
@@ -1113,11 +1111,11 @@ We can display the current number of steps on the interface so that it will be a
     public stepsLabel: Label | null = null;
     ```
 
-   After saving the script and returning to the editor, drag the Steps node into the GameManager's stepsLabel property box in the properties inspector at
+   After saving the script and going back to the editor, drag the Steps node into the GameManager's stepsLabel property box in the properties inspector at
 
    ![steps label to game manager](./images/add-steps-to-game-manager.png)
 
-3. Update the current step count data to the Steps node. Since we don't have an end screen now, we will jump back to the start screen when the game is over, so we need to see the last jump in the start screen, so we need to reset the step count to 0 when we enter the Playing state.
+3. Update the current step count data to the Steps node. Since we don't have a GameOver UI n now, we will jump back to the start menu when the game is over, so we need to see the last jump in the start screen, so we need to reset the step count to 0 when we enter the Playing state.
 
     ```ts
     // GameManager.ts
@@ -1160,6 +1158,6 @@ We can display the current number of steps on the interface so that it will be a
 
 ## Conclusion
 
-Up to this point, you have basically mastered most of the contents of this chapter, next you can improve the game by improving the art and gameplay, for which we have also prepared an [advanced](. /advance.md) chapter as an option. If you are interested in other features of our engine, you can click on the summary on the left.
+Up to this point, you have basically mastered most of the contents of this chapter, next you can improve the game by improving the art and gameplay, for which we have also prepared an [advanced](. /advance.md) chapter as an option. If you are interested in other features of Cocos Creator, you can click on the summary on the left.
 
 If you have any feedback or suggestions, you can visit our [forum](https://forum.cocos.org/) or request a question on [GIT](https://github.com/cocos/cocos-docs).
