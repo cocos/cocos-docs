@@ -62,4 +62,6 @@ Work on adapting the Taobao Mini Game is not completely finished yet, and it is 
 
 The above features are expected to be gradually supported in future updates, and we will continue to communicate closely with the engineers of Taobao Mini Game to continuously optimize the adaptation effect.
 
-## [Taobao Document Center](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121213&treeId=804)
+## References
+
+- [Taobao Document Center - CN](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121213&treeId=804)
