@@ -1,4 +1,4 @@
-# 简化使用 JavaScript 调用 Java 方法（实验性功能）
+# 简化使用 JavaScript 调用 Java 方法
 
 > **注意**：在 v3.6 之后，jsb 模块将会逐步废弃，接口将会迁移到 cc 命名空间下的 native 模块。
 

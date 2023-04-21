@@ -34,6 +34,7 @@
     - [光照探针面板](light-probe-panel.md)
 - [反射探针](reflection-probe.md)
     - [反射探针面板](reflection-probe-panel.md)
+    - [反射探针美术工作流](reflection-art-workflow.md)
 - [天空盒](../../skybox.md)
 - [光照贴图](../lightmap.md)
 - [基于图像的光照示例](example.md)

@@ -43,6 +43,8 @@
 - [Glyph Designer](https://71squared.com/glyphdesigner)
 - [Hiero](https://github.com/libgdx/libgdx/wiki/Hiero)
 - [BMFont (Windows)](http://www.angelcode.com/products/bmfont/)
+- [snowb-bmf](https://github.com/SilenceLeo/snowb-bmf)
+  （来自论坛用户 [哈库拉玛塔塔](https://forum.cocos.org/t/topic/147487/18) 分享）
 
 ### 2D 骨骼动画工具
 

@@ -17,6 +17,7 @@
 ## Tutorials
 
 ### Videos
+
 - [Cocos Creator 3.x for Beginners](https://www.youtube.com/watch?v=JSOXYPqZ1-8&list=PLbvpmJKjO3NA4dlW43GzhJUMaXyIp3xpc)
 - [Cocos Quick Look](https://www.youtube.com/watch?v=R4Mxm55x56Q&list=PLbvpmJKjO3NCgicfQ_N32Oo62LgPVs4kf)
 - [Introduction to Shaders with Cocos Creator](https://www.youtube.com/watch?v=tUQHK42UcHc&list=PLbvpmJKjO3ND91HTUSKWNzMboob-7J_wq)
@@ -31,4 +32,4 @@
 
 - [Cocos Forum](https://discuss.cocos2d-x.org/)：ask questions, find anwsers, communicate with other developers.
 - [Cocos Store](http://store.cocos.com/)：various art assets, extensions, source codes and learning demos.
-- [Youtube channel — Cocos](https://space.bilibili.com/491120849/dynamic)：news and tutorials
+- [Youtube channel — Cocos](https://www.youtube.com/@CocosEngine)：news and tutorials

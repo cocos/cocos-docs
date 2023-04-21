@@ -14,6 +14,11 @@
 
 默认 Canvas 设置包括 **设计分辨率** 和 **适配屏幕宽度/高度**，用于规定在新建场景或 Canvas 组件时，Canvas 中默认的设计分辨率数值，以及 `Fit Height` 和 `Fit Width`。详情请参考 [多分辨率适配方案](../../ui-system/components/engine/multi-resolution.md)。
 
+### 高画质模式
+
+在使用 Cocos Dashboard 通过默认的模板 3D HQ 创建工程时，默认开启阴影与光照等相关设置以达到更高质量的渲染效果，省去了手动开启场景、物体、灯光等多重阴影和光照的设置过程。
+这个高画质模式就是模板功能的切换开关。
+
 ### 渲染管线
 
 渲染管线用于控制场景的渲染流程，目前内置的渲染管线包括 **builtin-forward** (前向渲染管线) 和 **builtin-deferred** (延迟渲染管线)，详情请参考 [内置渲染管线](../../render-pipeline/builtin-pipeline.md)。
@@ -108,9 +113,9 @@
 
 - **ENABLE_WEBGL_ANTIALIAS**：是否开启 WebGL 的抗锯齿配置，默认开启。这个配置只影响 WebGL 后端，对应在创建 WebGL Context 时是否传入抗锯齿选项（仅适用于前向渲染管线）。
 
-- **ENABLE_ANTIALIAS_FXAA**：用于开启 FXAA 抗锯齿（仅适用于延迟渲染管线）。
+- **ENABLE_ANTIALIAS_FXAA**：用于开启 FXAA 抗锯齿（仅适用于经典延迟渲染管线，要自定义FXAA功能请参考[自定义渲染管线(实验性质)](../../render-pipeline/custom-pipeline.md)）。
 
-- **ENABLE_BLOOM**：用于开启 BLOOM 后处理特效。
+- **ENABLE_BLOOM**：用于开启 BLOOM 后处理特效（仅适用于经典延迟管线，要自定义Bloom功能请参考[自定义渲染管线(实验性质)](../../render-pipeline/custom-pipeline.md))。
 
 - **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](../../advanced-topics/dynamic-atlas.md)。该项默认不开启。
 
@@ -315,15 +320,18 @@ interface ICompressPresetItem {
 
 插屏设置是在游戏开始时，显示引擎的 LOGO 或开发者自定义的 LOGO 的功能。
 
-插屏只会在发布后显示，预览时不会显示。
-
 ![splash](./index/splash.png)
 
-- **TotalTime**：闪屏的总时长
-- **Auto Fit Resolution**：是否自动匹配分辨率
-- **DisplayRatio**：显示比例
-- **Display Cocos Watermark** 是否显示 Cocos 水印
-- **Preview**：显示闪屏的预览，可以通过点击从而选择新的闪屏。
+- **最小显示时间**：显示插屏的最小时间（毫秒），最低为 500 毫秒
+- **自定义图片显示比例**：图片的放大比例，最低为 100%
+- **插屏预览**：如果你想改变闪屏图像，将鼠标悬停在预览窗口，然后点击'+'按钮，然后选择一个新的图像路径。
+
+如果你想禁用闪屏，请参考 [构建选项介绍](../publish/build-options.md) 详情。
+
+> **注意**：
+> 1. 在构建选项中选择不同的构建平台后，再次调整插屏规则可以实现不同平台插屏的多样性
+> 2. 插屏只会在打包后生效，预览时不会生效
+> 3. 部分国家和地区未开放完整的插屏功能，若对您造成不便，我们深表歉意。
 
 ## 自定义项目设置面板
 

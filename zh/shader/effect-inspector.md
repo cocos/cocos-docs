@@ -1,12 +1,16 @@
-# 着色器资源
+# 着色器创建与使用
 
 ## 创建着色器
 
-在 **资源管理器** 面板中点击左上角的 **+** 号按钮并选择 **着色器（Effect）** 便可创建新的着色器资源。或者直接在面板中点击右键并选择 **创建 -> 着色器（Effect）** 即可。
+在 **资源管理器** 面板中点击左上角的 **+** 号按钮（或者在 Assets 目录下点击右键），在弹出菜单中选择 **着色器（Effect）** 或者 **表面着色器（Surface Shader）**， 便可创建新的着色器资源。
 
 ![1](img/create-effect.png)
 
-引擎会在 **资源管理器** 中创建一个默认名为 **effect** 的着色器资源：
+两种类型的着色器区别：
+- **着色器（Effect）**：简单的无光照着色器，来自 internal/effects/builtin-unit.effect
+- **表面着色器（Surface Shader）**：基于 PBR 的着色器，来自 internal/effects/builtin-standard.effect
+
+我们以 **表面着色器（Surface Shader）** 为例，引擎会在 **资源管理器** 中创建一个默认名为 **surface-effect** 的着色器资源：
 
 ![image](img/new-effect.png)
 
@@ -30,16 +34,6 @@
 
 ![image](./img/precompile.png)
 
-表示会在初始化时预编译 4 个组合的着色器：
-
-USE_INSTANCING = 0, USE_BATCHING = 0
-
-USE_INSTANCING = 0, USE_BATCHING = 1
-
-USE_INSTANCING = 1, USE_BATCHING = 0
-
-USE_INSTANCING = 1, USE_BATCHING = 1
-
 ## GLSL Output
 
 目前引擎提供 GLSL 300 ES 和 GLSL 100 的输出。
@@ -48,23 +42,11 @@ USE_INSTANCING = 1, USE_BATCHING = 1
 
 ![vs-fs-switc](img/change-vs-fs.png)
 
-## 程序化使用着色器
+## 代码访问内置着色器
 
-当你需要在脚本中使用着色器时，需要在 **属性检查器** 面板中着色器的 **Shaders** 属性里找到相应着色器，然后通过其唯一字符串名称来加载使用。
+在 internal/effects/ 目录下包含了引擎提供的内置着色器，这些着色器在程序启动后，会自动加载。
 
-![img](img/load-custom-effect.png)
-
-以上图中的自定义着色器为例，代码示例如下：
-
-```ts
-resources.load("custom-effect", EffectAsset, ()=>{
-    const effectAsset = EffectAsset.get("../resources/custom-effect");
-    const material = new Material();
-    material.initialize({ effectName: "../resources/custom-effect" });
-})        
-```
-
-> **注意**：从 3.6 开始，当你在脚本中使用引擎内置着色器时，你也需要在 **属性检查器** 面板中着色器的 **Shaders** 属性里找到相应着色器，然后通过其唯一字符串名称来加载使用。以 Standard 着色器为例，代码示例如下：
+以 builtin-standard 为例，可以参考下面的代码访问并使用：
 
 ```ts
 // 获取内置 Standard 着色器 ‘builtin-standard.effect’
@@ -75,3 +57,22 @@ const mat = new Material();
 // 使用内置基于物理的光照着色器（PBR）‘builtin-standard.effect’ 初始化材质
 mat.initialize({ effectName: "builtin-standard" });
 ```
+
+## 动态加载着色器
+
+位于 **resources** 目录下的 着色器文件，可以使用  **resources.load** 进行加载并使用。
+
+代码示例如下：
+
+```ts
+resources.load("custom-effect", EffectAsset, (err:Error, data:EffectAsset)=>{
+    //获取 effect
+    const effectAsset = EffectAsset.get("../resources/custom-effect");
+
+    //使用加载好的 effect 初始化材质
+    const material = new Material();
+    material.initialize({ effectName: "../resources/custom-effect" });
+})        
+```
+
+> **注意：** 动态加载的自定义着色器加载成功后，effectName 为 "../" + 文件路径。

@@ -29,7 +29,7 @@ The extensions created in the above 4 ways differ only in workload and technical
 | **Editor dependency version** | The Cocos Creator version required by the runtime of the created extension. |
 | **Show in the manager** | If this item is checked, **Extension Manager** will automatically open and show the created extensions when the extension creation is finished. <br>If this is unchecked, you can click **Extensions -> Extension Manager** in the menu bar at the top of the editor to view the extensions when they are created.|
 | **Show in folder** | If this item is checked, the extension will be automatically opened in the system file manager when the extension is created. |
-| **Extension's location** | The directory where the extension package was created, either **Project** or **Global**. |
+| **Extension's location** | The directory where the extension package was created. Since v3.7, extension can only be created with the **Project** option. |
 
 ## Extension's Location
 
@@ -38,16 +38,6 @@ The extensions created in the above 4 ways differ only in workload and technical
 Apply the extension package to the specified Cocos Creator project, **Project** with the path:
 
 `${your project address}/extensions`
-
-### Global
-
-To apply the extension package to all Cocos Creator projects, the **Global** path is:
-
-- **Windows**: `%USERPROFILE%\.CocosCreator\extensions`
-
-- **MacOS**: `$HOME/.CocosCreator/extensions`
-
-> **Note**: `Editor.App.path` can be used to print the global path.
 
 ## Dependency Installation and Compilation Build
 

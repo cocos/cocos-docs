@@ -4,7 +4,6 @@
 - [Publish to Alipay Mini Game](publish-alipay-mini-game.md)
 - [Publish to Taobao Mini Game](publish-taobao-mini-game.md)  
 - [Publish to ByteDance Mini Game](publish-bytedance-mini-game.md)
-- [Publish to Cocos Play](publish-cocos-play.md)
 - [Publish to Huawei Quick Game](publish-huawei-quick-game.md)
 - [Publish to OPPO Mini Game](publish-oppo-mini-game.md)
 - [Publish to vivo Mini Game](publish-vivo-mini-game.md)

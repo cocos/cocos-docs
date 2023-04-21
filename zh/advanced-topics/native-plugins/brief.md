@@ -1,5 +1,8 @@
 # 原生插件
 
+> 注意：对 3.6.2 的原生插件支持有问题，请升级到 3.6.3 或更高版本。
+
+
 原生插件是编辑器插件的一部分。开发者通过原生插件调用脚本绑定接口（如 sebind）可以扩展 JS 脚本调用 C++ 的接口的能力，对解决脚本的性能瓶颈和复用现有代码库都非常有利。
 
 ## 和现有插件系统的关系
@@ -16,8 +19,7 @@
 
 ## 安装依赖
 
-在少数未安装编辑器的环境下，需要安装 [NodeJS](https://nodejs.org/en/download/) 8.0 以上的版本，以支持插件配置解析。开发者可以将 NodeJS 并导设置环境变量 `PATH`，也可以在 `CMakeLists.txt` 中通过设置 `NODE_EXECUTABLE` 指定。
-
+在少数未安装编辑器的环境下，需要安装 [NodeJS](https://nodejs.org/en/download/) 8.0 以上的版本，以支持插件配置解析。开发者可以将 NodeJS 并设置环境变量 `PATH`，也可以在 `CMakeLists.txt` 中通过设置 `NODE_EXECUTABLE` 指定。
 
 也可以设置环境变量 `NODE_EXECUTABLE` 为 node 的完整路径。3.6.2 开始，如果 CMake 仍然定位不到 nodejs，可以在 `native/engine/common/localCfg.cmake` 中直接设置 `NODE_EXECUTABLE`。
 
@@ -52,17 +54,17 @@
     "name": string;             // 必填：插件名称
     "version": string;          // 必填：插件版本
     "engine-version":string;    // 必填：对应引擎版本的区间
-    "author": string;           // 必填：插件从作者
+    "author": string;           // 必填：插件作者
     "description": string;      // 必填：插件描述
     "platforms":string[];       // 可选：支持的平台列表，不填默认支持所有原生平台。包括 windows, android, mac, ios
     "disabled":true;         // 可选：禁用插件
     "disable-by-platforms":string[];    //可选：指定平台禁用插件
-    "modules": {                        // 必填：插件包含的库, 
+    "modules": [{                        // 必填：插件包含的库, 
         "target":string;                // 必填：对应 `find_package` 名称，需和 `CC_PLUGIN_ENTRY` 的首参数保持一致
         "depends": string|string[];     // 可选：依赖其他 module 名称 
         "platforms":string[];           // 可选：重新限定支持的原生平台
-    }[
-    ]
+    }]
+    
 }
 ```
 
