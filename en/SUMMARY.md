@@ -1,11 +1,16 @@
 # Summary
 
-## Beginners Guide
-
 [Cocos Creator User Manual 3.7](index.md)
 
+## Introduction
+
+- [About Cocos Creator](getting-started/introduction/index.md)
+- [Support](getting-started/support.md)
+
+## Understanding the Basics
+
 - [Getting Started](getting-started/index.md)
-    - [About Cocos Creator](getting-started/introduction/index.md)
+
     - [Installing and Launching](getting-started/install/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello World!](getting-started/helloworld/index.md)
@@ -22,8 +27,18 @@
     - [Tool Bar](editor/toolbar/index.md)
     - [Editor Layout](editor/editor-layout/index.md)
     - [Preview & Debugging](editor/preview/index.md)
+- [Glossary](glossary/index.md)
+
+## Tutorials
+
+- [Quick Start: Making Your First 2D Game](getting-started/first-game-2d/index.md)
+    - [Handle Touch Events](getting-started/first-game-2d/touch.md)
+- [Quick Start: Make Your First 3D Game](getting-started/first-game/index.md)
+    - [Advanced: Add Light, Shadow and Skeleton Animation](getting-started/first-game/advance.md)
 - [Examples & Tutorials](cases-and-tutorials/index.md)
-- [Support](getting-started/support.md)
+
+## Basic Workflow
+
 - [Upgrade Guide](release-notes/index.md)
     - [Cocos Creator 3.0 Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
     - [Cocos Creator 3.0 Material Upgrade Guide](material-system/effect-2.x-to-3.0.md)
@@ -34,15 +49,6 @@
     - [Cocos Creator 3.6.0 Build Template and settings.json Upgrade Guide](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Upgrade Guide: Effect from v3.5.x to v3.6.0](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
     - [Upgrade Guide: Particle from v3.5.x to v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
-
-## Quick start
-
-- [Quick Start: Making Your First 2D Game](getting-started/first-game-2d/index.md)
-    - [Handle Touch Events](getting-started/first-game-2d/touch.md)
-- [Quick Start: Make Your First 3D Game](getting-started/first-game/index.md)
-    - [Advanced: Add Light, Shadow and Skeleton Animation](getting-started/first-game/advance.md)
-
-## Basic Workflow
 
 - [Scene Creation](concepts/scene/index.md)
     - [Scene Assets](asset/scene.md)
