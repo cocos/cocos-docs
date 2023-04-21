@@ -48,7 +48,7 @@ The specific filling rules for related parameter configuration are as follows:
 
 ## Resource management for Taobao Mini Game environment
 
-Taobao Mini Game are similar to WeChat Mini Game in that there is a package size limit, and additional resources over **4MB** must be downloaded via network requests. <br>When the package size is too large, configure the **Resource Server Address** option in the **Build** panel to upload the resources to a remote server, please refer to the [Upload Resources to Remote Server](../../asset/cache-manager.md) documentation.
+Taobao Mini Game is similar to WeChat Mini Game in that there is a package size limit, and additional resources over **4MB** must be downloaded via network requests. <br>When the package size is too large, configure the **Resource Server Address** option in the **Build** panel to upload the resources to a remote server, please refer to the [Upload Resources to Remote Server](../../asset/cache-manager.md) documentation.
 
 It is recommended to save only the script files in the game package, and download all other resources from the remote server. Cocos Creator has already done the download, cache and version management of remote resources for you, please refer to the [Cache Manager](../../asset/cache-manager.md) documentation.
 
@@ -63,5 +63,3 @@ Work on adapting the Taobao Mini Game is not completely finished yet, and it is 
 The above features are expected to be gradually supported in future updates, and we will continue to communicate closely with the engineers of Taobao Mini Game to continuously optimize the adaptation effect.
 
 ## [Taobao Document Center](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121213&treeId=804)
-
-
