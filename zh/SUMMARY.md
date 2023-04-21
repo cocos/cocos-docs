@@ -135,6 +135,7 @@
     - [发布到小游戏平台](editor/publish/publish-mini-game.md)
         - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [发布到支付宝小游戏](editor/publish/publish-alipay-mini-game.md)        
+        - [发布到淘宝小游戏](editor/publish/publish-taobao-mini-game.md)
         - [发布到微信小游戏](editor/publish/publish-wechatgame.md)
             - [启用微信小游戏引擎插件](editor/publish/wechatgame-plugin.md)
             - [接入微信 PC 小游戏](editor/publish/publish-pc-wechatgame.md)

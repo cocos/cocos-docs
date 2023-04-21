@@ -129,7 +129,7 @@
     - [Publish to Mini Game Platforms](editor/publish/publish-mini-game.md)
         - [Publish to HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [Publish to Alipay Mini Game](editor/publish/publish-alipay-mini-game.md)
-        <!-- - [发布到淘宝小程序创意互动](editor/publish/publish-taobao-creative-app.md) -->
+        - [Publish to Taobao Mini Game](editor/publish/publish-taobao-mini-game.md)
         - [Publish to WeChat Mini Games](editor/publish/publish-wechatgame.md)
             - [WeChat Mini Games Engine Plugin Instructions](editor/publish/wechatgame-plugin.md)
             - [Access to WeChat PC Mini Games](editor/publish/publish-pc-wechatgame.md)
