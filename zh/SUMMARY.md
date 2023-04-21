@@ -6,8 +6,6 @@
 
 - [关于 Cocos Creator](getting-started/introduction/index.md)
 - [获取帮助和支持](getting-started/support.md)
-- [新内容](whats-new/inedx.md)
-    - [3.7 新增功能和迁移指南](...)
 
 ## 基础知识
 
@@ -141,7 +139,7 @@
         - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [发布到小游戏平台](editor/publish/publish-mini-game.md)
         - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
-        - [发布到支付宝小游戏](editor/publish/publish-alipay-mini-game.md)        
+        - [发布到支付宝小游戏](editor/publish/publish-alipay-mini-game.md)
         - [发布到淘宝小游戏](editor/publish/publish-taobao-mini-game.md)
         - [发布到微信小游戏](editor/publish/publish-wechatgame.md)
             - [启用微信小游戏引擎插件](editor/publish/wechatgame-plugin.md)
