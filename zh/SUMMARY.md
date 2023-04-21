@@ -2,10 +2,16 @@
 
 [Cocos Creator 3.7 用户手册](index.md)
 
-## 基础使用
+## 简介
+
+- [关于 Cocos Creator](getting-started/introduction/index.md)
+- [获取帮助和支持](getting-started/support.md)
+- [新内容](whats-new/inedx.md)
+    - [3.7 新增功能和迁移指南](...)
+
+## 基础知识
 
 - [新手上路](getting-started/index.md)
-    - [关于 Cocos Creator](getting-started/introduction/index.md)
     - [安装和启动](getting-started/install/index.md)
     - [使用 Dashboard](getting-started/dashboard/index.md)
     - [Hello World!](getting-started/helloworld/index.md)
@@ -22,8 +28,18 @@
     - [工具栏](editor/toolbar/index.md)
     - [编辑器布局](editor/editor-layout/index.md)
     - [预览调试](editor/preview/index.md)
+- [术语](glossary/index.md)
+
+## 示例和教程
+
+- [快速上手：制作第一个 2D 游戏](getting-started/first-game-2d/index.md)
+    - [监听触摸事件](getting-started/first-game-2d/touch.md)
+- [快速上手：制作第一个 3D 游戏](getting-started/first-game/index.md)
+    - [进阶篇 - 添加阴影、光照和骨骼动画](getting-started/first-game/advance.md)
 - [示例与教程](cases-and-tutorials/index.md)
-- [获取帮助和支持](getting-started/support.md)
+
+## 工作流
+
 - [升级指南](release-notes/index.md)
     - [v3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
     - [v3.0 材质升级指南](material-system/effect-2.x-to-3.0.md)
@@ -37,15 +53,6 @@
     - [v3.6 构建模板与 settings.json 升级指南](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Cocos Creator 3.6 材质升级指南](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
     - [升级指南：粒子从 v3.5.x 升级到 v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
-
-## 快速上手
-
-- [快速上手：制作第一个 2D 游戏](getting-started/first-game-2d/index.md)
-    - [监听触摸事件](getting-started/first-game-2d/touch.md)
-- [快速上手：制作第一个 3D 游戏](getting-started/first-game/index.md)
-    - [进阶篇 - 添加阴影、光照和骨骼动画](getting-started/first-game/advance.md)
-
-## 工作流
 
 - [场景制作](concepts/scene/index.md)
     - [场景资源](asset/scene.md)
