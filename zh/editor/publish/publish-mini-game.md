@@ -3,6 +3,7 @@
 - [发布到 HUAWEI AppGallery Connect](publish-huawei-agc.md)
 - [发布到支付宝小游戏](publish-alipay-mini-game.md)
 - [发布到淘宝小程序创意互动](publish-taobao-creative-app.md)
+- [发布到淘宝小游戏](publish-taobao-mini-game.md)
 - [发布到字节跳动小游戏](publish-bytedance-mini-game.md)
 - [发布到 Cocos Play](publish-cocos-play.md)
 - [发布到华为快游戏](publish-huawei-quick-game.md)
