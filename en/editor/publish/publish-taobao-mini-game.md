@@ -36,6 +36,10 @@ The specific filling rules for related parameter configuration are as follows:
 
   This is an optional item used to fill in the address where resources are stored on a remote server. After building, developers need to manually upload the remote folder under the release package directory to the filled-in resource server address.
 
+- **Separate Engine**
+  This option is optional.<br>
+  After checking, the initial package size of the game can be reduced. You can refer to the document [Usage Instructions](wechatgame-plugin.md#how-to-use) for instructions on how to use it. Please select Taobao Mini Game as the building platform.
+
 ### Running Preview
 
 - After the build is finished, click the folder icon button in the bottom left corner of **Build Task**, you can see that the project folder `taobao-mini-game` is created in the `build` directory of the project, which already contains the configuration file `game.json` for the Taobao Mini Game environment.
