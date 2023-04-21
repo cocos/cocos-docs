@@ -196,8 +196,8 @@ toolchains-windows-x64-3.2.11.9-Release.zip
 - 备份SDK目录（OHOS_SDK/9）里的文件；
 - 解压至OHOS_SDK/9至对应的文件；
 ***（注意‘9’是API版本，未来升级就对应升级之后的API版本）***
-
     目录对应关系，如下图：
+![](./publish-openharmony/document_image_rId9.png)
 
 ### Cocos Creator 3.8.0-alpha 构建 OpenHarmony 工程
 
