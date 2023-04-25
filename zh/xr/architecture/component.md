@@ -86,6 +86,14 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | Auto Focus               | 开启或关闭相机自动对焦功能。关闭时，使用固定对焦模式。自动对焦功能是否可用取决于设备相机。 |
 | Light Estimate（实验性） | 开启后，运行时估计环境光各项属性并实时调整场景光照，让虚拟物体具有与真实场景相同的光照效果（光照一致性）。 |
 
+注：v1.2.0以上的版本光照估计支持两种模式：Basic和HDR。
+
+若需要启用Basic模式，需要将场景中Skybox的Envmap属性设置为LDR。
+
+若需要启用HDR模式，需要将场景中Skybox的Envmap属性设置为HDR。
+
+*当前iOS平台仅支持Basic模式。
+
 ## 交互组件
 
 一次交互操作需要有两种对象协调完成：交互主体和被交互物，对应的交互组件由此也分为两类：Interactor（交互器）和 Interactable（可交互对象）。
@@ -151,27 +159,30 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 
 <img src="component/screen_touch_interactor.png" alt="screen_touch_interactor" style="zoom:50%;" />
 
-| 行为                | 属性                                                         | 说明                                 |
-| ------------------- | ------------------------------------------------------------ | ------------------------------------ |
-| Select Action       |                                                              | 选择行为相关配置                     |
-|                     | Gesture                                                      | 允许用户操作虚拟物体的可选收拾类型。 |
-| Double Tap Gap      | Gesture选择为DoubleTap时出现此项，当两次点击的时间间隔小于此值时，判定为双击 |                                      |
-| Hold Touch Duration | Gesture选择为HoldTouch时出现此项，当触碰屏幕时间大于此值时，判定为长按 |                                      |
-| Move Action         |                                                              | 移动行为相关配置                     |
-|                     | Gesture                                                      | 绑定移动行为的手势                   |
-| Rotate Action       |                                                              | 旋转行为相关配置                     |
-|                     | Gesture                                                      | 绑定旋转行为的手势                   |
-| Drag Degree         | Gesture选择为2FingersDrag时出现此项，双指拖动速率            |                                      |
-| Twist Degree        | Gesture选择为2FingersRotate时出现此项，双指旋转速率          |                                      |
-| Scale Action        |                                                              | 放缩行为相关配置                     |
-|                     | Gesture                                                      | 绑定放缩行为的手势                   |
-| Sensitivity         | 放缩的灵敏度                                                 |                                      |
-| Place Action        |                                                              | 放置行为相关配置                     |
-|                     | Gesture                                                      | 绑定放置行为的手势                   |
-| Calculation Mode    | 当将物体放置在AR表面时，用于计算命中点位置的方法。           |                                      |
-| Placement Prefab    | 引用挂载Placeable组件的预置体                                |                                      |
+| 行为          | 属性              | 说明                                                         |
+| ------------- | ----------------- | ------------------------------------------------------------ |
+| Select Action |                   | 选择行为相关配置，可控制是否启用。                           |
+|               | Gesture           | 允许用户操作虚拟物体的可选收拾类型。                         |
+|               | Double Tap Gap    | Gesture选择为DoubleTap时出现此项，当两次点击的时间间隔小于此值时，判定为双击。 |
+|               | HoldTouchDuration | Gesture选择为HoldTouch时出现此项，当触碰屏幕时间大于此值时，判定为长按 |
+| Move Action   |                   | 移动行为相关配置，必须开启Select Action，可控制是否启用。    |
+|               | Gesture           | 绑定移动行为的手势                                           |
+| RotateAction  |                   | 旋转行为相关配置，必须开启Select Action，可控制是否启用。    |
+|               | Gesture           | 绑定旋转行为的手势                                           |
+|               | Drag Degree       | Gesture选择为2FingersDrag时出现此项，双指拖动速率。          |
+|               | Twist Degree      | Gesture选择为2FingersRotate时出现此项，双指旋转速率。        |
+| Scale Action  |                   | 放缩行为相关配置，必须开启Select Action，可控制是否启用。    |
+|               | Gesture           | 绑定放缩行为的手势                                           |
+|               | Sensitivity       | 放缩的灵敏度                                                 |
+| Place Action  |                   | 放置行为相关配置，可控制是否启用。                           |
+|               | Gesture           | 绑定放置行为的手势                                           |
+|               | Calculation Mode  | 放置虚拟物体时，用于计算命中点位置的方法。有三种模式：<br />AR_HIT_DETECTION：使用AR Hit Test功能进行命中检测，将物体放置在命中点的位置。<br />SPATIAL_DISTANCE：基于屏幕交互器前方的固定距离来放置内容。<br />COLLISION_DETECTION：基于射线的碰撞检测返回碰撞结果，将物体放置在碰撞点的位置。 |
+|               | Distance          | Calculation Mode选择为SPATIAL DISTANCE时出现此项，设置交互物摆放位置与交互器的距离。 |
+|               | Avoid Occlusion   | Calculation Mode选择为SPATIAL DISTANCE时出现此项，设置交互物摆放时是否受距离内的遮挡物影响摆放结果。开启时忽略遮挡，将交互物放置在固定位置；关闭时，若距离内出现遮挡物则会将交互物放置在遮挡处。 |
+|               | Located Prefab    | Calculation Mode选择为SPATIAL DISTANCE时出现此项，用于定位虚拟物体的摆放位置。 |
+|               | Placement Prefab  | 引用挂载Placeable组件的预置体。                              |
 
-> **注意**：屏幕手势交互器功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。
+> **注意**：屏幕手势交互器功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。各手势行为开关控制功能需要扩展版本 **>=v1.2.0**。
 
 ### GrabInteractable
 

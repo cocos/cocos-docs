@@ -382,11 +382,16 @@
     - [EXCEL 导入示例](editor/l10n/example-excel.md)
 
 - [XR](xr/index.md)
+    - [版本历史](xr/version-history.md)
     - [架构](xr/architecture/index.md)
         - [内置资源与预制体](xr/architecture/assets.md)
         - [XR 组件](xr/architecture/component.md)
         - [预览](xr/architecture/preview.md)
         - [XR 视频播放器](xr/architecture/xr-video-player.md)
+        - [XR 网页浏览器](xr/architecture/xr-webview.md)
+        - [XR 空间音频](xr/architecture/xr-spatial-audio.md)
+        - [XR 合成层](xr/architecture/xr-composition-layer.md)
+        - [透视](xr/architecture/xr-pass-through.md)
         - [AR](xr/architecture/ar-introduce.md) 
           - [AR 相机](xr/architecture/ar-camera.md) 
           - [AR Manager](xr/architecture/ar-manager.md) 
@@ -397,7 +402,9 @@
         - [VR 项目构建与发布](xr/project-deploy/vr-proj-pub.md) 
         - [AR 项目创建](xr/project-deploy/ar-proj-deploy.md) 
         - [AR 项目构建与发布](xr/project-deploy/ar-proj-pub.md) 
-
+        - [WebXR 项目配置](xr/project-deploy/webxr-proj-deploy.md)
+        - [WebXR 项目构建与发布](xr/project-deploy/webxr-proj-pub.md)
+    
 - [原生开发](native/overview.md)
     - [JSB 2.0 使用指南](advanced-topics/JSB2.0-learning.md)
         - [JSB 手动绑定](advanced-topics/jsb-manual-binding.md)
