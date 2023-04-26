@@ -27,7 +27,7 @@ A: You can determine by `sys.isMobile` that the PC side returns `false` and the 
 > **Note**: the simulator on the WeChat DevTools simulates a environment on the mobile, so it returns `true`.
 
 Q: Does the WeChat PC Mini Game support Mac?<br>
-A: Yes. WeChat PC Mini Game already support Mac. The publishing process is the same as above
+A: Yes. WeChat PC Mini Game already support Mac. The publishing process is the same as above.
 
 ## Related Reference Links
 
