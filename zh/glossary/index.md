@@ -45,6 +45,9 @@
 | :--- | :--- |
 | Spine | 一款 2D 动画制作软件，其输出的动画文件可以被 Cocos Creator 识别 |
 | DragonBone | 一款 2D 动画制作软件，其输出的动画文件可以被 Cocos Creator 识别 |
+| Animation  | 动画，引擎内置的动画，无蒙皮功能，支持不同节点可以通过编辑器内的动画功能制作，[更多](../animation/index.md)
+| SkeletalAnimation | 骨骼动画，带有蒙皮功能的动画组件，[更多](../animation/skeletal-animation.md) |
+| Marionette | 支持用户自定义状态图的动画系统，和 SkeletalAnimation 配合可以实现丰富的功能，[更多](../animation/marionette/index.md) |
 
 ## 物理
 
@@ -53,7 +56,7 @@
 | 力 | 使物体可以线性移动的力 |
 | 扭矩 | 转矩，使物体旋转的力 |
 
-### 物理
+### 2D 物理
 
 | 术语 | 描述 |
 | :--- | :--- |
@@ -63,7 +66,7 @@
 | 关节 | Joint 2D 物理关节，用于描述物体之间的物理连接情况 |
 | 物理材质 | 用于调整两个物理碰撞体碰撞时的摩擦力、弹力处理情况 |
 
-### 物理
+### 3D 物理
 
 | 术语 | 描述 |
 | :--- | :--- |
@@ -82,9 +85,23 @@
 | Resources | 特殊目录，引擎会将该目录打包为特殊的 Bundle，通过 `Resources.load` 等方法加载|
 | Cocos Store | Cocos 的资源商店，开发者可以在上面出售和购买资产、源码或完整的商业游戏 |
 
+## 脚本与编程
+
+| 术语 | 描述 |
+| :--- | :--- |
+| 组件 | 继承自 `cc.Component` 的脚本，可以挂在在节点上 |
+| 事件 | Cocos Creator 基于 [Web 的事件冒泡及捕获标准](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%8F%8A%E6%8D%95%E8%8E%B7) 实现的事件系统，用于响应硬件输入或者节点间的通信，[更多](../engine/event/index.md)
+
 ## 原生开发
 
 | 术语 | 描述 |
 | :--- | :--- |
 | 原生| 指的是 Cocos Creator 提供的，得以不依赖浏览器，在各桌面原生平台或移动原生平台运行的能力 |
 | CMake | 一种组织 C ++ 代码的文件格式或者工具 |
+
+## 其他功能
+
+| 术语 | 描述 |
+| :--- | :--- |
+| XR | Extended Reality。适配 OpenXR 的 Cocos Creator 扩展程序，可以协助您之作增加现实功能，[更多](../xr/index.md) |
+| AR | Augmented reality，增强现实。将虚拟世界和现实联系起来的技术，您可以使用 Cocos Creator 实现自己的 AR 应用。[更多](../xr/index.md) |
