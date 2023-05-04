@@ -194,5 +194,4 @@ PBR 的优势在于：
 | emissiveMap | 自发光贴图<br>如果有指定，这项会和自发光颜色相乘，因此需要把自发光颜色（默认是黑色）调高才会有效果 |
 | emissiveScale | 自发光强度<br>用于控制自发光颜色对于最终颜色的影响权重 |
 
-
 想了解更多关于内置 PBR 材质的实现细节，请前往 [内置 Surface Shader](./surface-shader/builtin-surface-shader.md)。

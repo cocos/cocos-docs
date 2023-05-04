@@ -563,6 +563,12 @@ export class PlayerController extends Component {
     public BodyAnim: Animation | null = null;
     ```
 
+    需要注意的是，如果发现 `Aniamtion` 无法拖动或不显示，请检查该文件的 `import` 段是否已添加 `Animation` 的导入，代码示例如下：
+
+    ```ts
+    import { Animation } from "cc";
+    ```
+
     然后在 **属性检查器** 中将 Body 身上的 `Animation` 拖到这个变量上。
 
     ![drag to animComp](./images/drag-to-animComp.gif)
@@ -1044,6 +1050,13 @@ onStartButtonClicked() {
     ```ts
     onOnceJumpEnd() {
         this.node.emit('JumpEnd', this._curMoveIndex);
+    }
+    // ...
+    update() {
+        // ...
+            // end
+            // ...
+            this.onOnceJumpEnd();
     }
     ```
 

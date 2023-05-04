@@ -34,6 +34,16 @@
 
 ![image](./img/precompile.png)
 
+表示会在初始化时预编译 4 个组合的着色器：
+
+USE_INSTANCING = 0, USE_BATCHING = 0
+
+USE_INSTANCING = 0, USE_BATCHING = 1
+
+USE_INSTANCING = 1, USE_BATCHING = 0
+
+USE_INSTANCING = 1, USE_BATCHING = 1
+
 ## GLSL Output
 
 目前引擎提供 GLSL 300 ES 和 GLSL 100 的输出。
