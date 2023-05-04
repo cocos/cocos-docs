@@ -105,10 +105,6 @@ When the **Auto Atlas** is configured in the `resources` folder, both the large 
 
 This option is used to display all the services integrated by the current project in the [Service](https://service.cocos.com/document/en/) panel.
 
-### Cocos Analytics
-
-If this option is checked, it directly enables [Cocos Analytics](https://n-analytics.cocos.com/docs/) in the [Service](https://service.cocos.com/document/en/) panel.
-
 ## Related Build Options for Each Platform
 
 Due to the adjustment of the current build mechanism, the processing of different platforms is injected into the **Build** panel in the form of a plugin. After selecting the platform to build in the **Platform** option of the **Build** panel, notice the expanded options of the corresponding platform. The name of the expanded option is the platform plug-in name, in the editor main menu **Extensions -> Extension Manager -> Internal** to see various platform plug-ins.
