@@ -435,15 +435,6 @@
     - [原生插件](advanced-topics/native-plugins/brief.md)
         - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
 
-- [XR](xr/index.md)
-    - [VR](xr/vr/index.md)
-        - [XR 项目创建](xr/vr/template.md)
-        - [扩展安装](xr/vr/extension.md)
-        - [内置资源与预制体](xr/vr/prefab.md)
-        - [XR 组件](xr/vr/component.md)
-        - [预览](xr/vr/preview.md)
-        - [构建与发布](xr/vr/build.md)
-
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
