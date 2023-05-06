@@ -11,7 +11,7 @@
 | 术语 | 描述 |
 | :--- | :--- |
 | Editor | 通常指的是 Cocos Creator 的编辑器界面|
-| Gizmo | 在引擎场景界面显示的一些控制器，比如用于调整节点的位置、旋转、缩放或者光照等等。|
+| Gizmo | 场景编辑器内的一些控制器，比如用于调整节点的位置、旋转、缩放或者光照等等。|
 
 ## 图形
 
@@ -103,5 +103,5 @@
 
 | 术语 | 描述 |
 | :--- | :--- |
-| XR | Extended Reality。适配 OpenXR 的 Cocos Creator 扩展程序，可以协助您之作增加现实功能，[更多](../xr/index.md) |
+| XR | Extended Reality。适配 OpenXR 的 Cocos Creator 扩展程序，可以协助您制作增加现实功能，[更多](../xr/index.md) |
 | AR | Augmented reality，增强现实。将虚拟世界和现实联系起来的技术，您可以使用 Cocos Creator 实现自己的 AR 应用。[更多](../xr/index.md) |
