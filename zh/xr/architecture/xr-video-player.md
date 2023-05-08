@@ -1,6 +1,6 @@
 # XR 视频播放器
 
-XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示方式，结合设备自身的多轴向定位特性和双屏渲染画面，可以满足用户在3D场景中浏览全景视频或动态材质的需要。Cocos CreatorXR v1.1.0提供了通用化的 XR 视频播放器，针对 XR 设备优化了视频渲染管线并支持切换展示窗口、180度、360度多风格的视频。同时，播放器还提供了交互功能辅助您进行播放控制，您只需要添加或替换视频资源即可完成简易的视频播放功能的内容开发，简化创作步骤，降低开发门槛。
+XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示方式，结合设备自身的多轴向定位特性和双屏渲染画面，可以满足用户在 3D 场景中浏览全景视频或动态材质的需要。Cocos CreatorXR v1.1.0提供了通用化的 XR 视频播放器，针对 XR 设备优化了视频渲染管线并支持切换展示窗口、180 度、360 度多风格的视频。同时，播放器还提供了交互功能辅助您进行播放控制，您只需要添加或替换视频资源即可完成简易的视频播放功能的内容开发，简化创作步骤，降低开发门槛。
 
 创建视频播放器，请在层级管理器右键 **创建 -> XR -> XR Video Player**。
 
@@ -8,9 +8,9 @@ XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示�
 
 其节点中包含的核心组件如下：
 
-### XR Video Player
+## XR Video Player
 
-#### cc.XRVideoPlayer
+### cc.XRVideoPlayer
 
 用于调整视频的各项属性
 
@@ -29,9 +29,9 @@ XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示�
 | Content            | 关联带有 MeshRenderer 组件的 VideoContent 作为视频材质渲染对象。 |
 | Video Player Event | 视频播放回调函数，该回调函数会在特定情况被触发，比如播放中、暂停、停止和播放完毕。 |
 
-### XR Video Controller
+## XR Video Controller
 
-#### cc.XRVideoController
+### cc.XRVideoController
 
 用于关联UI和视频功能。
 
@@ -49,15 +49,15 @@ XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示�
 | Player Back Rate Bar  | 倍速 UI。                                    |
 | Volume UI             | 音量调节 UI。                                |
 
-### Video Caption
+## Video Caption
 
-#### cc.XRVideoCaption
+### cc.XRVideoCaption
 
 用于解析字幕文件，目前只支持解析 .srt 类型的字幕文件。
 
 | 属性                | 说明                                                         |
 | ------------------- | ------------------------------------------------------------ |
 | Caption Source Type | 字幕来源：REMOTE 表示 URL 里的文件并解析字幕，LOCAL 表示本地字幕文件。 |
-| Remote URL          | Source Type为 REMOTE 时出现此项，字幕文件的 URL                 |
-| Caption File        | Source Type为 LOCAL 时出现此项，本地字幕文件                   |
+| Remote URL          | Source Type 为 REMOTE 时出现此项，字幕文件的 URL                 |
+| Caption File        | Source Type 为 LOCAL 时出现此项，本地字幕文件                   |
 | Video Player        | 关联指定的 VideoPlayer，将字幕按时间同步于此视频。            |

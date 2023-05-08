@@ -83,4 +83,4 @@ import { Foo } from 'db://test-package/foo';
 
 You don't need to pay attention to whether a class comes from an extension package, the TypeScript development environment's auto-completion feature will prompt the **import** directory, no need to worry.
 
-> **Note**: The class name in the extension package should be kept globally unique, otherwise it will cause conflicts, try to add a suitable prefix in the actual development (e.g. `test-pacakge` can be shortened to `TP`, and all classes in the package are unified with the `TP` prefix to become `TPFoo`).
+> **Note**: The class name in the extension package should be kept globally unique, otherwise it will cause conflicts, try to add a suitable prefix in the actual development (e.g. `test-package` can be shortened to `TP`, and all classes in the package are unified with the `TP` prefix to become `TPFoo`).

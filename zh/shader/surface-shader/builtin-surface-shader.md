@@ -77,7 +77,7 @@ CCEffect %{
 
 ### 属性（properties）
 
-由于 `opaque` 和 `transparent` 在渲染效果上完全一致，Shader 代码也是用的同一样，所以涉及到的属性也就完全一玩笑。
+由于 `opaque` 和 `transparent` 在渲染效果上完全一致，Shader 代码也是用的同一样，所以涉及到的属性也就完全一样。
 
 所有渲染过程中用到的属性集中放在了 properties 字段里。关于属性的语法，可以查看 [Pass 可选配置参数](./../pass-parameter-list.md)
 

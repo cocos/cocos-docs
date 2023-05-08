@@ -1,6 +1,6 @@
 # 版本历史
 
-### V1.2.0
+## V1.2.0
 
 新增：
 
@@ -22,13 +22,13 @@
 - 华为VR Glass的手柄震动时间0无效问题。
 - 转换AR Camera报错问题修复。
 
-### v1.1.1
+## v1.1.1
 
 新增：
 
 - 适配 Cocos Creator 3.7.2。
 
-### v1.1.0
+## v1.1.0
 
 新增：
 
@@ -46,7 +46,7 @@
 - Huawei VR Glass（6Dof套装）对 6Dof 输入的完整支持；
 - Huawei VR Glass配套的 6Dof 手柄在触摸摇杆时也产生随机信号的处理问题；
 
-### v1.0.1
+## v1.0.1
 
 - 支持发布 XR 应用至 Rokid Air、HuaweiVR、Meta Quest/Quest2、Pico Neo3/Pico4、Monado 五类设备。
 - 提供设备映射、交互、虚拟移动、XR UI 模块化组件支持 XR 内容创作。

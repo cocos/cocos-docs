@@ -1,11 +1,16 @@
 # Summary
 
-## Beginners Guide
-
 [Cocos Creator User Manual 3.7](index.md)
 
+## Introduction
+
+- [About Cocos Creator](getting-started/introduction/index.md)
+- [Support](getting-started/support.md)
+
+## Understanding the Basics
+
 - [Getting Started](getting-started/index.md)
-    - [About Cocos Creator](getting-started/introduction/index.md)
+
     - [Installing and Launching](getting-started/install/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello World!](getting-started/helloworld/index.md)
@@ -22,9 +27,18 @@
     - [Tool Bar](editor/toolbar/index.md)
     - [Editor Layout](editor/editor-layout/index.md)
     - [Preview & Debugging](editor/preview/index.md)
+- [Glossary](glossary/index.md)
+
+## Tutorials
+
+- [Quick Start: Making Your First 2D Game](getting-started/first-game-2d/index.md)
+    - [Handle Touch Events](getting-started/first-game-2d/touch.md)
+- [Quick Start: Make Your First 3D Game](getting-started/first-game/index.md)
+    - [Advanced: Add Light, Shadow and Skeleton Animation](getting-started/first-game/advance.md)
 - [Examples & Tutorials](cases-and-tutorials/index.md)
-- [Support](getting-started/support.md)
-- [Quick Start: First Game](getting-started/first-game/index.md)
+
+## Basic Workflow
+
 - [Upgrade Guide](release-notes/index.md)
     - [Cocos Creator 3.0 Upgrade Guide](release-notes/upgrade-guide-v3.0.md)
     - [Cocos Creator 3.0 Material Upgrade Guide](material-system/effect-2.x-to-3.0.md)
@@ -35,8 +49,6 @@
     - [Cocos Creator 3.6.0 Build Template and settings.json Upgrade Guide](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Upgrade Guide: Effect from v3.5.x to v3.6.0](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
     - [Upgrade Guide: Particle from v3.5.x to v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
-
-## Basic Workflow
 
 - [Scene Creation](concepts/scene/index.md)
     - [Scene Assets](asset/scene.md)
@@ -103,31 +115,43 @@
     - [Plugin Scripts](scripting/external-scripts.md)
 
 - [Cross-platform Publishing](editor/publish/index.md)
-    - [About the Build Panel](editor/publish/build-panel.md)
-    - [General Build Options](editor/publish/build-options.md)
-    - [Publish to Web Platforms](editor/publish/publish-web.md)
-        - [Publish to Facebook Instant Games](editor/publish/publish-fb-instant-games.md)
-    - [Publish to Native Platforms](editor/publish/native-options.md)
-        - [Publish for the Huawei HarmonyOS](editor/publish/publish-huawei-ohos.md)
-        - [Setup Native Development](editor/publish/setup-native-development.md)
+    - [Publish Android Application](editor/publish/android/index.md)
+        - [Android Publish Example](editor/publish/android/build-example.md)
+        - [About the Build Panel](editor/publish/build-panel.md)
+        - [Build Options](editor/publish/build-options.md)
+        - [Installation and Configuration of Native Development Environment](editor/publish/setup-native-development.md)
         - [Debugging JavaScript on Native Platforms](editor/publish/debug-jsb.md)
+        - [Introduction to the Build Process and FAQ](editor/publish/build-guide.md)
+    - [Publish iOS Application](editor/publish/ios/index.md)
+        - [About the Build Panel](editor/publish/build-panel.md)
+        - [Build Options](editor/publish/build-options.md)
+        - [Installation and Configuration of Native Development Environment](editor/publish/setup-native-development.md)
+        - [Debugging JavaScript on Native Platforms](editor/publish/debug-jsb.md)
+        - [Introduction to the Build Process and FAQ](editor/publish/build-guide.md)
+    - [Publish for the Huawei HarmonyOS](editor/publish/publish-huawei-ohos.md)
+        - [Installation and Configuration of Native Development Environment](editor/publish/setup-native-development.md)
+        - [Debugging JavaScript on Native Platforms](editor/publish/debug-jsb.md)
+        - [Introduction to the Build Process and FAQ](editor/publish/build-guide.md)
     - [Publish to Mini Game Platforms](editor/publish/publish-mini-game.md)
         - [Publish to HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [Publish to Alipay Mini Game](editor/publish/publish-alipay-mini-game.md)
-        - [Publish to ByteDance Mini Game](editor/publish/publish-bytedance-mini-game.md)
-        - [Publish to Huawei Quick Game](editor/publish/publish-huawei-quick-game.md)
-        - [Publish to OPPO Mini Game](editor/publish/publish-oppo-mini-game.md)
-        - [Publish to vivo Mini Game](editor/publish/publish-vivo-mini-game.md)
-        - [Publish to Xiaomi Quick Game](editor/publish/publish-xiaomi-quick-game.md)
-        - [Publish to Baidu Mini Game](editor/publish/publish-baidu-mini-game.md)
-        - [Publish to WeChat Mini Game](editor/publish/publish-wechatgame.md)
-            - [WeChat Engine Plugin](editor/publish/wechatgame-plugin.md)
-            - [Access to the WeChat PC Mini Game](editor/publish/publish-pc-wechatgame.md)
+        - [Publish to Taobao Mini Game](editor/publish/publish-taobao-mini-game.md)
+        - [Publish to WeChat Mini Games](editor/publish/publish-wechatgame.md)
+            - [WeChat Mini Games Engine Plugin Instructions](editor/publish/wechatgame-plugin.md)
+            - [Access to WeChat PC Mini Games](editor/publish/publish-pc-wechatgame.md)
+        - [Publish to ByteDance Mini Games](editor/publish/publish-bytedance-mini-game.md)
+        - [Publish to Huawei Quick Games](editor/publish/publish-huawei-quick-game.md)
+        - [Publish to OPPO Mini Games](editor/publish/publish-oppo-mini-game.md)
+        - [Publish to vivo Mini Games](editor/publish/publish-vivo-mini-game.md)
+        - [Publish to Xiaomi Quick Games](editor/publish/publish-xiaomi-quick-game.md)
+        - [Publish to Baidu Mini Games](editor/publish/publish-baidu-mini-game.md)
         - [Access to Open Data Context](editor/publish/build-open-data-context.md)
-        - [Mini Game Subpackage](editor/publish/subpackage.md)        
+        - [Mini Game Subpackage](editor/publish/subpackage.md)
+        - [Introduction to the Build Process and FAQ](editor/publish/build-guide.md)
+    - [Publish to Facebook Instant Games](editor/publish/publish-fb-instant-games.md)
+    - [Publish to Web Platforms](editor/publish/publish-web.md)
     - [Publish from the Command Line](editor/publish/publish-in-command-line.md)
-    - [Build Process with FAQ](editor/publish/build-guide.md)
-    - [Custom Project Build Process](editor/publish/custom-project-build-template.md)
+    - [Custom Project Build Template](editor/publish/custom-project-build-template.md)
 
 ## Function Modules
 
@@ -187,6 +211,7 @@
         - [Custom effect](shader/write-effect-overview.md)
             - [3D Effect：RimLight](shader/write-effect-3d-rim-light.md)
             - [2D Sprite effect：Gradient](shader/write-effect-2d-sprite-gradient.md)
+    - [Sorting](engine/rendering/sorting.md)
     - [Effects](module-map/effects/index.md)
         - [Billboard](particle-system/billboard-component.md)
         - [Line](particle-system/line-component.md)

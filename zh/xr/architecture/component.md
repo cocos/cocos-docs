@@ -86,13 +86,13 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | Auto Focus               | 开启或关闭相机自动对焦功能。关闭时，使用固定对焦模式。自动对焦功能是否可用取决于设备相机。 |
 | Light Estimate（实验性） | 开启后，运行时估计环境光各项属性并实时调整场景光照，让虚拟物体具有与真实场景相同的光照效果（光照一致性）。 |
 
-注：v1.2.0以上的版本光照估计支持两种模式：Basic和HDR。
+> **注意**：v1.2.0以上的版本光照估计支持两种模式：Basic 和 HDR。
 
-若需要启用Basic模式，需要将场景中Skybox的Envmap属性设置为LDR。
+若需要启用 Basic 模式，需要将场景中 Skybox 的 Envmap 属性设置为LDR。
 
-若需要启用HDR模式，需要将场景中Skybox的Envmap属性设置为HDR。
+若需要启用 HDR 模式，需要将场景中 Skybox 的 Envmap 属性设置为HDR。
 
-*当前iOS平台仅支持Basic模式。
+> **注意**：当前 iOS 平台仅支持 Basic 模式。
 
 ## 交互组件
 
@@ -111,15 +111,15 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | RayOriginTransform       | 可以改变发出 Ray 的起始位置，为空就默认是当前 Interactor 的位置 |
 | LineType                 | 改变射线检测和射线样式；StraightLine 是直线；Projectile Line 是抛物线；Bezier Line 是贝塞尔曲线 |
 | MaxRayDistance           | 射线交互可以触发的最远距离                                   |
-| ReferenceNode            | LineType为ProjectileLine和BezierLine时出现此项。用曲线的参考系来定义地平面和向上向量。如果在启动时没有设置，它将尝试找到XR Agent，如果没有引用，它将默认使用全局的上向量和原点。 |
-| Velocity                 | LineType为ProjectileLine时出现此项。初始速度。增加这个值将使曲线延伸的更远。 |
-| Acceleration             | LineType为ProjectileLine时出现此项。重力加速度。             |
-| Additional Ground Height | LineType为ProjectileLine时出现此项。在地平面以下的额外高度，射线超过地平线会继续向下投射。增加这个值将使终点的位置高度下降。 |
-| Additional Flight Time   | LineType为ProjectileLine时出现此项。在落地后的额外飞行时间，射线超过地平线会继续向下投射。增加这个值将使投射的飞行时间延长。 |
-| End Point Distance       | LineType为BezierLine时出现此项。增加这个值的距离会使曲线的末端离起始点更远。 |
-| End Point Height         | LineType为BezierLine时出现此项。降低这个值将使曲线的末端相对于起点下降得更低。 |
-| Control Point Distance   | LineType为BezierLine时出现此项。增加这个值将使曲线的峰值离起点更远。 |
-| Control Point Height     | LineType为BezierLine时出现此项。增加这个值将使曲线的峰值相对于起点更高。 |
+| ReferenceNode            | LineType 为 ProjectileLine 和 BezierLine 时出现此项。用曲线的参考系来定义地平面和向上向量。如果在启动时没有设置，它将尝试找到 XR Agent，如果没有引用，它将默认使用全局的上向量和原点。 |
+| Velocity                 | LineType 为 ProjectileLine 时出现此项。初始速度。增加这个值将使曲线延伸的更远。 |
+| Acceleration             | LineType 为 ProjectileLine 时出现此项。重力加速度。             |
+| Additional Ground Height | LineType 为 ProjectileLine 时出现此项。在地平面以下的额外高度，射线超过地平线会继续向下投射。增加这个值将使终点的位置高度下降。 |
+| Additional Flight Time   | LineType 为 ProjectileLine 时出现此项。在落地后的额外飞行时间，射线超过地平线会继续向下投射。增加这个值将使投射的飞行时间延长。 |
+| End Point Distance       | LineType 为 BezierLine 时出现此项。增加这个值的距离会使曲线的末端离起始点更远。 |
+| End Point Height         | LineType 为BezierLine 时出现此项。降低这个值将使曲线的末端相对于起点下降得更低。 |
+| Control Point Distance   | LineType 为 BezierLine 时出现此项。增加这个值将使曲线的峰值离起点更远。 |
+| Control Point Height     | LineType 为 BezierLine 时出现此项。增加这个值将使曲线的峰值相对于起点更高。 |
 | Sample Frequency         | LineType为ProjectileLine和BezierLine时出现此项。用于近似曲线路径的采样点的数目。数目越多近似效果越好，但性能越低。 |
 | RaycastMask              | 只能和此 Layer 类型的交互物发生交互。                        |
 | SelectActionTrigger      | Select 行为触发机制，详情见交互功能介绍。                    |
@@ -163,29 +163,28 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | ------------- | ----------------- | ------------------------------------------------------------ |
 | Select Action |                   | 选择行为相关配置，可控制是否启用。                           |
 |               | Gesture           | 允许用户操作虚拟物体的可选收拾类型。                         |
-|               | Double Tap Gap    | Gesture选择为DoubleTap时出现此项，当两次点击的时间间隔小于此值时，判定为双击。 |
-|               | HoldTouchDuration | Gesture选择为HoldTouch时出现此项，当触碰屏幕时间大于此值时，判定为长按 |
-| Move Action   |                   | 移动行为相关配置，必须开启Select Action，可控制是否启用。    |
+|               | Double Tap Gap    | Gesture 选择为 DoubleTap 时出现此项，当两次点击的时间间隔小于此值时，判定为双击。 |
+|               | HoldTouchDuration | Gesture 选择为 HoldTouch 时出现此项，当触碰屏幕时间大于此值时，判定为长按 |
+| Move Action   |                   | 移动行为相关配置，必须开启 Select Action，可控制是否启用。    |
 |               | Gesture           | 绑定移动行为的手势                                           |
-| RotateAction  |                   | 旋转行为相关配置，必须开启Select Action，可控制是否启用。    |
+| RotateAction  |                   | 旋转行为相关配置，必须开启 Select Action，可控制是否启用。    |
 |               | Gesture           | 绑定旋转行为的手势                                           |
-|               | Drag Degree       | Gesture选择为2FingersDrag时出现此项，双指拖动速率。          |
-|               | Twist Degree      | Gesture选择为2FingersRotate时出现此项，双指旋转速率。        |
-| Scale Action  |                   | 放缩行为相关配置，必须开启Select Action，可控制是否启用。    |
+|               | Drag Degree       | Gesture选择为 2FingersDrag 时出现此项，双指拖动速率。          |
+|               | Twist Degree      | Gesture选择为 2FingersRotate 时出现此项，双指旋转速率。        |
+| Scale Action  |                   | 放缩行为相关配置，必须开启 Select Action，可控制是否启用。    |
 |               | Gesture           | 绑定放缩行为的手势                                           |
 |               | Sensitivity       | 放缩的灵敏度                                                 |
 | Place Action  |                   | 放置行为相关配置，可控制是否启用。                           |
 |               | Gesture           | 绑定放置行为的手势                                           |
-|               | Calculation Mode  | 放置虚拟物体时，用于计算命中点位置的方法。有三种模式：<br />AR_HIT_DETECTION：使用AR Hit Test功能进行命中检测，将物体放置在命中点的位置。<br />SPATIAL_DISTANCE：基于屏幕交互器前方的固定距离来放置内容。<br />COLLISION_DETECTION：基于射线的碰撞检测返回碰撞结果，将物体放置在碰撞点的位置。 |
-|               | Distance          | Calculation Mode选择为SPATIAL DISTANCE时出现此项，设置交互物摆放位置与交互器的距离。 |
-|               | Avoid Occlusion   | Calculation Mode选择为SPATIAL DISTANCE时出现此项，设置交互物摆放时是否受距离内的遮挡物影响摆放结果。开启时忽略遮挡，将交互物放置在固定位置；关闭时，若距离内出现遮挡物则会将交互物放置在遮挡处。 |
-|               | Located Prefab    | Calculation Mode选择为SPATIAL DISTANCE时出现此项，用于定位虚拟物体的摆放位置。 |
-|               | Placement Prefab  | 引用挂载Placeable组件的预置体。                              |
+|               | Calculation Mode  | 放置虚拟物体时，用于计算命中点位置的方法。有三种模式：<br />AR_HIT_DETECTION：使用 AR Hit Test 功能进行命中检测，将物体放置在命中点的位置。<br />SPATIAL_DISTANCE：基于屏幕交互器前方的固定距离来放置内容。<br />COLLISION_DETECTION：基于射线的碰撞检测返回碰撞结果，将物体放置在碰撞点的位置。 |
+|               | Distance          | Calculation Mode 选择为 SPATIAL DISTANCE 时出现此项，设置交互物摆放位置与交互器的距离。 |
+|               | Avoid Occlusion   | Calculation Mode 选择为 SPATIAL DISTANCE 时出现此项，设置交互物摆放时是否受距离内的遮挡物影响摆放结果。开启时忽略遮挡，将交互物放置在固定位置；关闭时，若距离内出现遮挡物则会将交互物放置在遮挡处。 |
+|               | Located Prefab    | Calculation Mode 选择为 SPATIAL DISTANCE 时出现此项，用于定位虚拟物体的摆放位置。 |
+|               | Placement Prefab  | 引用挂载 Placeable 组件的预置体。                              |
 
 > **注意**：
->
-> - 屏幕手势交互器功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。各手势行为开关控制功能需要扩展版本 **>=v1.2.0**。
-> - WebXR平台暂时不支持接受双指手势输入。
+> 1. 屏幕手势交互器功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。各手势行为开关控制功能需要扩展版本 **>=v1.2.0**。
+> 2. WebXR平台暂时不支持接受双指手势输入。
 
 ### GrabInteractable
 
@@ -218,7 +217,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | TeleportableType     | 传送点的类型。选择为 Area 时，传送到射线与传送区域交互点的位置；选择为 Anchor 时，不受射线与传送区域的交互点的限制，之间传送到区域的固定位置。 |
 | Teleport Anchor Node | TeleportableType 选择为 Anchor 时出现此项，用于标定传送的落点。此项为空时传送到传送区域的默认中心区域；此项引用了其他对象就传送到引用的对象的位置 |
 | RayReticle           | 当交互器与此交互物发生交互碰撞计算时，在碰撞点会显示此属性所引用的对象 |
-| TeleportTrigger      | 触发传送行为的事件：OnSelectExited 表示 Select 行为结束的时刻（按钮抬起）执行传送；OnSelectEntered 表示Select触发的时刻（按钮按下） |
+| TeleportTrigger      | 触发传送行为的事件：OnSelectExited 表示 Select 行为结束的时刻（按钮抬起）执行传送；OnSelectEntered 表示 Select 触发的时刻（按钮按下） |
 | Teleporter           | 指定需要被传送的主体（一般为XR Agent），主体需挂载 Teleporter |
 
 ### Selectable
@@ -293,7 +292,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 | HapticEvents     | 开启后可以绑定事件触发时控制器的震动反馈 |
 | InteractorEvents | 开启后可以绑定任意回调函数               |
 
-##### Audio Events：
+##### Audio Events
 
 Audio Events 可以根据 **事件信号** 选择不同类型的事件触发，触发后可以播放特定的音频。
 
@@ -303,7 +302,7 @@ Audio Events 可以根据 **事件信号** 选择不同类型的事件触发，�
 
 ![audio_clip](component/audio_clip.png)
 
-##### Haptic Events:
+##### Haptic Events
 
 > **注意**：此事件要求扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**
 
@@ -317,7 +316,7 @@ Haptic Intensity：震动的灵敏度 [0,1]
 
 Duration：持续的时长
 
-##### Interactor Events：
+##### Interactor Events
 
 ![interactor_events](component/interactor_events.png)
 
@@ -370,7 +369,7 @@ Duration：持续的时长
 
 | 属性     | 说明                                                         |
 | -------- | ------------------------------------------------------------ |
-| XR Agent | 指定需要进行运动的XR Agent（或其他对象）。添加该组件时，默认绑定遍历当前场景得到的第一个挂载了 TrackingOrigin 的节点，通常是 XR Agent；用户也可以自行指定需要进行 locomotion 操作的对象 |
+| XR Agent | 指定需要进行运动的 XR Agent（或其他对象）。添加该组件时，默认绑定遍历当前场景得到的第一个挂载了 TrackingOrigin 的节点，通常是 XR Agent；用户也可以自行指定需要进行 locomotion 操作的对象 |
 
 ### Teleporter
 
@@ -445,7 +444,7 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D
 
 如 UI 已制作完成，也参考下面的步骤将原本的 2D Canvas 下的 UI，转化为 XR 的 UI。
 
-##### 方法一：
+##### 方法一
 
 在 **层级管理器** 右键创建一个空节点（如命名为 UIRoot，下文均使用 UIRoot），为节点添加组件 **RenderRoot2D** 组件，同时节点会自动添加 **UITransform** 组件：
 
@@ -473,7 +472,7 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D
 
 到此为止，存量 UI 到 XR UI 的转化就完成了。
 
-##### 方法二：
+##### 方法二
 
 **v1.1.0** 版本新增一键转换为 XR UI 功能。
 
@@ -487,7 +486,7 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D
 
 > **注意**：已经为 XRUI 的 UI 不能出现转为 XRUI
 
-### 虚拟键盘（XR Keyborad）
+### 虚拟键盘（XR Keyboard）
 
 添加一个 EditBox 的 XR UI，同时给 EditBox 添加一个子节点，命名为 KeyboardRoot （命名随意），同时调整 KeyboardRoot 的位置信息（根据需求进行调整即可，可将 XR Keyboard 临时放在节点下进行调整）。
 
@@ -508,4 +507,3 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D
 使用射线与 XR UI 进行交互时，需要给射线绑定材质 xr-default-line-material。位置在 **资源管理器 -> xr-plugin -> xr -> res -> default_materials**。
 
 ![xr_line_material](component/xr_line_material.png)
-
