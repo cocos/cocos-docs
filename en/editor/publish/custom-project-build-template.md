@@ -45,6 +45,7 @@ Most files placed in the `build-templates/[platform]` directory will be copied d
 | :-------- | :---------- | :----------- |
 | **Huawei AGC** | huawei-agc | not supported yet |
 | **Alipay Mini Game** | alipay-mini-game | `game.json` |
+| **Taobao Mini Game** | taobao-mini-game | `game.json`、`mini.project.json` |
 | **ByteDance Mini Game** | bytedance-mini-game | `game.ejs`、`game.json`、`project.config.json` |
 | **OPPO Mini Game** | oppo-mini-game | `manifest.json` |
 | **Huawei Quick Game** | huawei-quick-game | not supported yet |

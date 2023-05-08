@@ -110,11 +110,7 @@ The default is 'false'. If this option is checked, the build skips the entire te
 
 This option is used to display all the services integrated in the [Service](https://service.cocos.com/document/en/) panel for the current project.
 
-### Cocos Analytics
-
-If this option is checked, the [Cocos Analytics](https://n-analytics.cocos.com/docs/en/) service in the [Service](https://service.cocos.com/document/en/) panel can be enabled directly.
-
-## Build options related to each platform
+## Related Build Options for Each Platform
 
 Due to the adjustment of the current build mechanism, the processing of different platforms is injected into the **Build** panel in the form of a plugin. After selecting the platform to build in the **Platform** option of the **Build** panel, notice the expanded options of the corresponding platform. The name of the expanded option is the platform plug-in name, in the editor main menu **Extensions -> Extension Manager -> Internal** to see various platform plug-ins.
 

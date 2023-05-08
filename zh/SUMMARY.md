@@ -2,10 +2,14 @@
 
 [Cocos Creator 3.7 用户手册](index.md)
 
-## 基础使用
+## 简介
+
+- [关于 Cocos Creator](getting-started/introduction/index.md)
+- [获取帮助和支持](getting-started/support.md)
+
+## 基础知识
 
 - [新手上路](getting-started/index.md)
-    - [关于 Cocos Creator](getting-started/introduction/index.md)
     - [安装和启动](getting-started/install/index.md)
     - [使用 Dashboard](getting-started/dashboard/index.md)
     - [Hello World!](getting-started/helloworld/index.md)
@@ -22,8 +26,18 @@
     - [工具栏](editor/toolbar/index.md)
     - [编辑器布局](editor/editor-layout/index.md)
     - [预览调试](editor/preview/index.md)
+- [术语](glossary/index.md)
+
+## 示例和教程
+
+- [快速上手：制作第一个 2D 游戏](getting-started/first-game-2d/index.md)
+    - [监听触摸事件](getting-started/first-game-2d/touch.md)
+- [快速上手：制作第一个 3D 游戏](getting-started/first-game/index.md)
+    - [进阶篇 - 添加阴影、光照和骨骼动画](getting-started/first-game/advance.md)
 - [示例与教程](cases-and-tutorials/index.md)
-- [获取帮助和支持](getting-started/support.md)
+
+## 工作流
+
 - [升级指南](release-notes/index.md)
     - [v3.0 升级指南](release-notes/upgrade-guide-v3.0.md)
     - [v3.0 材质升级指南](material-system/effect-2.x-to-3.0.md)
@@ -37,14 +51,6 @@
     - [v3.6 构建模板与 settings.json 升级指南](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Cocos Creator 3.6 材质升级指南](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
     - [升级指南：粒子从 v3.5.x 升级到 v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
-
-## 快速上手
-
-- [快速上手：制作第一个 2D 游戏](getting-started/first-game-2d/index.md)
-- [快速上手：制作第一个 3D 游戏](getting-started/first-game/index.md)
-    - [快速上手：制作第一个 3D 游戏（进阶篇）](getting-started/first-game/advance.md)
-
-## 工作流
 
 - [场景制作](concepts/scene/index.md)
     - [场景资源](asset/scene.md)
@@ -114,31 +120,42 @@
     - [外部代码支持](scripting/external-scripts.md)
 
 - [跨平台发布](editor/publish/index.md)
-    - [熟悉构建发布面板](editor/publish/build-panel.md)
-    - [通用构建选项介绍](editor/publish/build-options.md)
-    - [发布到 Web 平台](editor/publish/publish-web.md)
-        - [发布到 Facebook Instant Games 平台](editor/publish/publish-fb-instant-games.md)
-    - [发布到原生平台](editor/publish/native-options.md)
-        - [发布 HUAWEI HarmonyOS 应用](editor/publish/publish-huawei-ohos.md)
+    - [发布 Android 应用](editor/publish/android/index.md)
+        - [安卓构建示例](editor/publish/android/build-example.md)
+        - [构建发布面板](editor/publish/build-panel.md)
+        - [通用构建选项介绍](editor/publish/build-options.md)
         - [安装配置原生环境](editor/publish/setup-native-development.md)
         - [原生平台 JavaScript 调试](editor/publish/debug-jsb.md)
+        - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
+    - [发布 iOS 应用](editor/publish/ios/index.md)
+        - [构建发布面板](editor/publish/build-panel.md)
+        - [通用构建选项介绍](editor/publish/build-options.md)
+        - [安装配置原生环境](editor/publish/setup-native-development.md)
+        - [原生平台 JavaScript 调试](editor/publish/debug-jsb.md)
+        - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
+    - [发布 HUAWEI HarmonyOS 应用](editor/publish/publish-huawei-ohos.md)
+        - [安装配置原生环境](editor/publish/setup-native-development.md)
+        - [原生平台 JavaScript 调试](editor/publish/debug-jsb.md)
+        - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [发布到小游戏平台](editor/publish/publish-mini-game.md)
         - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [发布到支付宝小游戏](editor/publish/publish-alipay-mini-game.md)
-        - [发布到淘宝小程序创意互动](editor/publish/publish-taobao-creative-app.md)
+        - [发布到淘宝小游戏](editor/publish/publish-taobao-mini-game.md)
+        - [发布到微信小游戏](editor/publish/publish-wechatgame.md)
+            - [启用微信小游戏引擎插件](editor/publish/wechatgame-plugin.md)
+            - [接入微信 PC 小游戏](editor/publish/publish-pc-wechatgame.md)
         - [发布到字节跳动小游戏](editor/publish/publish-bytedance-mini-game.md)
         - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
         - [发布到 vivo 小游戏](editor/publish/publish-vivo-mini-game.md)
         - [发布到小米快游戏](editor/publish/publish-xiaomi-quick-game.md)
         - [发布到百度小游戏](editor/publish/publish-baidu-mini-game.md)
-        - [发布到微信小游戏](editor/publish/publish-wechatgame.md)
-            - [启用微信小游戏引擎插件](editor/publish/wechatgame-plugin.md)
-            - [接入微信 PC 小游戏](editor/publish/publish-pc-wechatgame.md)
         - [开放数据域](editor/publish/build-open-data-context.md)
         - [小游戏分包](editor/publish/subpackage.md)
+        - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
+    - [发布到 Facebook Instant Games 平台](editor/publish/publish-fb-instant-games.md)
+    - [发布到 Web 平台](editor/publish/publish-web.md)
     - [命令行发布项目](editor/publish/publish-in-command-line.md)
-    - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [定制项目的构建模版](editor/publish/custom-project-build-template.md)
 
 ## 功能模块
@@ -218,6 +235,10 @@
         - [传统着色器 - Legacy Shader](shader/legacy-shader/legacy-shader.md)
             - [内置 Legacy Shader 导读](shader/legacy-shader/legacy-shader-builtins.md)
             - [Legacy Shader 主要函数与结构体](shader/legacy-shader/legacy-shader-func-struct.md)
+        - [自定义着色器](shader/write-effect-overview.md)
+            - [2D 精灵着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)
+            - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
+
     - [渲染排序](engine/rendering/sorting.md)
 
     - [特效组件](module-map/effects/index.md)
@@ -392,19 +413,19 @@
         - [XR 空间音频](xr/architecture/xr-spatial-audio.md)
         - [XR 合成层](xr/architecture/xr-composition-layer.md)
         - [透视](xr/architecture/xr-pass-through.md)
-        - [AR](xr/architecture/ar-introduce.md) 
-          - [AR 相机](xr/architecture/ar-camera.md) 
-          - [AR Manager](xr/architecture/ar-manager.md) 
-          - [AR 自动化行为编辑](xr/architecture/ar-tracking-component.md) 
-          - [AR 交互](xr/architecture/ar-interaction.md) 
-    - [快速部署指南](xr/index.md) 
-        - [VR 项目创建](xr/project-deploy/vr-proj-deploy.md) 
-        - [VR 项目构建与发布](xr/project-deploy/vr-proj-pub.md) 
-        - [AR 项目创建](xr/project-deploy/ar-proj-deploy.md) 
-        - [AR 项目构建与发布](xr/project-deploy/ar-proj-pub.md) 
+        - [AR](xr/architecture/ar-introduce.md)
+            - [AR 相机](xr/architecture/ar-camera.md)
+            - [AR Manager](xr/architecture/ar-manager.md)
+            - [AR 自动化行为编辑](xr/architecture/ar-tracking-component.md)
+            - [AR 交互](xr/architecture/ar-interaction.md)
+    - [快速部署指南](xr/index.md)
+        - [VR 项目创建](xr/project-deploy/vr-proj-deploy.md)
+        - [VR 项目构建与发布](xr/project-deploy/vr-proj-pub.md)
+        - [AR 项目创建](xr/project-deploy/ar-proj-deploy.md)
+        - [AR 项目构建与发布](xr/project-deploy/ar-proj-pub.md)
         - [WebXR 项目配置](xr/project-deploy/webxr-proj-deploy.md)
         - [WebXR 项目构建与发布](xr/project-deploy/webxr-proj-pub.md)
-    
+
 - [原生开发](native/overview.md)
     - [JSB 2.0 使用指南](advanced-topics/JSB2.0-learning.md)
         - [JSB 手动绑定](advanced-topics/jsb-manual-binding.md)
