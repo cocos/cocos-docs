@@ -20,6 +20,8 @@ WebXR 所使用的用于提供Web资源的服务必须使用[安全上下文(sec
 
 而启动https的域名的服务一般需要配置.pem(证书文件)。
 
+由于当前版本暂时不支持启动内置https服务器，需要用户手动启动。
+
 将.pem存放至构建文件夹的根目录。
 
 ![](webxr-proj-pub/https-license.png)
