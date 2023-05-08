@@ -148,7 +148,7 @@ This tool is unique to the 2D view and is used for 2D/UI multi-node alignment an
 
 ![align](bar_img/align-bar.png)
 
-- Alignment: The first selected node is used as a base to align the remaining selected nodes, at least two nodes need to be selected for the alignment to take effect
+- Alignment: Align selected nodes, at least two nodes need to be selected for the alignment to take effect
 
     ![align](bar_img/align.png)
 
@@ -160,6 +160,8 @@ This tool is unique to the 2D view and is used for 2D/UI multi-node alignment an
     - Align Left
     - Align Horizontal Center
     - Align Right
+
+   The handling process of alignment is as follows: After selecting one or more nodes, the AABB for all selected nodes will be calculated via current **un-parent** nodes(This means if there is a parent-child relationship in the selected nodes, then only the parent node will be taken into consideration), and when clicking the Align Bottom button, all nodes will be put at the bottom of the AABB, and when clicking the Align Left button, all nodes will be put to the left side of the AABB.
 
 - Distribution: Used to evenly distribute multiple selected nodes, at least three nodes are required for this to take effect
 
