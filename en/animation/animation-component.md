@@ -105,9 +105,9 @@ class MyScript extends Component {
             const { defaultClip } = animation;                        
             defaultClip.events = [
                 {
-                    frame: 0.5, // 第 0.5 秒时触发事件
-                    func: 'onTriggered', // 事件触发时调用的函数名称
-                    params: [ 0 ], // 向 `func` 传递的参数
+                    frame: 0.5, // Triggers the event on the 0.5 second
+                    func: 'onTriggered', // The name of the function to call when the event is triggered
+                    params: [ 0 ], // Parameters passed to `func`
                 }
             ];                                         
 
