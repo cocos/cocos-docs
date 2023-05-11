@@ -119,3 +119,5 @@ The generation of collision events will vary depending on the type of rigid body
 | Dynamic | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Collider | ✔ | ✔ | ✔ | |
 | Trigger | ✔ | ✔ | ✔ | |
+
+> **Note**: The collision event between two triggers is not supported in the PhysX backend.
