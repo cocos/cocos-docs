@@ -21,6 +21,7 @@
 - 屏幕手势交互的效果优化。
 - 华为VR Glass的手柄震动时间0无效问题。
 - 转换AR Camera报错问题修复。
+- Android Target API 高版本兼容性问题。
 
 ## v1.1.1
 

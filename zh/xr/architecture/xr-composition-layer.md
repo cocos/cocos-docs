@@ -59,3 +59,4 @@
 ![overlay-effect](xr-composition-layer/overlay-effect.gif)
 
 注：使用合成层功能需要扩展版本 **>=1.2.0**，编辑器版本 **>=3.7.3**。
+
