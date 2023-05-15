@@ -14,9 +14,9 @@
 
 Material 资源可以看成是 EffectAsset 在场景中的资源实例，它本身的可配置参数有 effectAsset、technique、defines、states。
 
-#### Effect
+#### Cocos Shader
 
-一个 Effect 资源代表一种材质类型，是材质系统中最重要的核心资源，如果希望在引擎中实现自定义的着色效果，需要书写自定义 Effect。
+Cocos Shader 以 *.effect 作为后缀名，一个 Effect 文件表一种材质类型，是材质系统中最重要的核心资源，它决定了一个可渲染对象的最终效果。
 
 #### Technique
 
@@ -42,10 +42,10 @@ Cocos Creator 2.x 的 Material 实例面板如下：
 
 #### 材质面板的可配置项主要分为五种类型
 
-1. Effect 资源：下拉框会列出当前项目中所有的 Effect 资源，开发者可以选择当前材质使用的 Effect 资源。当切换了 Effect 后其他属性也会同步更新。
-2. Technique 渲染技术选择：下拉框会列出当前使用的 Effect 资源中所有的 Technique，Effect 资源中可能会存在多个 Technique，每个 Technique 适用于不同的情况，比如效果差一点但是性能更好的 Technique 更适合用于手机平台。
-3. Effect 中定义的宏选项：通过这些宏来控制某些代码是否可以被启用（对应逐个 Pass）。
-4. Effect 中定义的属性列表（根据宏定义动态开放），并且使用不同的输入框适应不同类型的属性。编辑器的可编辑属性一般是 shader 中的某个 uniform 的映射，从 v3.0 开始也可以指定某个分量的映射（在 Effect 中使用 target 参数）
+1. Effect 资源：即 Cocos Shader 文件，下拉框会列出当前项目中所有的 Cocos Shader（*.effect） 资源文件，开发者可以选择当前材质使用的 Cocos Shader。切换后其他属性也会同步更新。
+2. Technique 渲染技术选择：下拉框会列出当前使用的 Effect 资源中所有的 Technique，资源中可能会存在多个 Technique，每个 Technique 适用于不同的情况，比如效果差一点但是性能更好的 Technique 更适合用于手机平台。
+3. 宏选项：通过这些宏来控制某些代码是否可以被启用（对应逐个 Pass）。
+4. 属性列表（根据宏定义动态开放），并且使用不同的输入框适应不同类型的属性。编辑器的可编辑属性一般是 shader 中的某个 uniform 的映射，从 v3.0 开始也可以指定某个分量的映射（在 CCEffect 中使用 target 参数）
 5. 在 v3.0 还新增了 PipelineStates 选项，主要用于定义材质依赖的管线状态，比如 DepthStencilState、BlendState、CullMode 等。
 
 ### 1.3 编辑器体验
@@ -64,13 +64,15 @@ v3.0 在 **层级管理器** 中选中包含模型和材质的节点后，**属�
 
 ![effect](material-panel-v2x.png)
 
-## 2. Effect 资源
+## 2. Cocos Shader 资源
+
+Cocos Shader 文件后缀名为 *.effect。
 
 这个章节主要介绍资源在 v2.x 和 v3.0 的共性和差异。
 
-### 2.1 Effect 格式和内容
+### 2.1 Cocos Shader 格式和内容
 
-Effect 资源方面，v2.x 和 v3.0 都是采用 YAML1.2 标准的语法和解析器，两个版本之间的差别不大。Effect 资源定义了一种材质类型，通过按照 [语法格式](yaml-101.md) 编写，可以定义以下信息：
+在 v2.x 和 v3.0 中，Cocos Shader 的 effect 文件均采用 YAML1.2 标准的语法和解析器，两个版本之间的差别不大。按照 [语法格式](yaml-101.md) 编写，可以定义以下信息：
 
 - Technique 渲染技术列表
 - 每个 Technique 的 pass 列表
@@ -95,9 +97,9 @@ v2.x 和 v3.0 在预设值材质方面有比较大的区别。
 
 v3.0 默认的 standard 材质支持标准的 Physically Based Rendering (PBR) 流程，其中包含很多提升材质质量和真实感的贴图信息，比如漫反射贴图、法线贴图、金属度（metallic）、粗糙度（roughness）、环境光遮蔽（occlusion）等等。整套算法基于标准的 BRDF 光照模型，这些是 v2.x 所不具备的，整体画面表现上 v3.0 也比 v2.x 要高一个档次。
 
-### 2.3 Effect 书写细节差异
+### 2.3 Cocos Shader 文件格式差异
 
-尽管 Cocos Creator 的 Effect 语法规则在 v2.x 和 v3.0 基本是一致的，但很多内置的头文件、变量名以及函数名还是有区别的。
+尽管 Cocos Shader 的语法规则在 v2.x 和 v3.0 基本是一致的，但很多内置的头文件、变量名以及函数名还是有区别的。
 
 以获取主方向光源的方向为例，在 v3.0 里是 `cc_mainLitDir`，同时要包含头文件 `cc-global`。而在 v2.x 中想要获取光源方向要用到 `cc_lightDirection[i]` 这样一个数组，同时要包含头文件 `cc-lights`。具体的差异可参考下方第三点 **API 升级指南** 部分的介绍。
 
