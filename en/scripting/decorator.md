@@ -366,7 +366,6 @@ For additional information about the properties, please refer to the [Properties
 For some common types, the engine supports a default user interface that can be use via the developers' needs.
 
 - Color
-- 颜色界面：
 
     ![color](./decorator/color.png)
 
