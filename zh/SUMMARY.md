@@ -157,7 +157,7 @@
     - [发布到 Web 平台](editor/publish/publish-web.md)
     - [命令行发布项目](editor/publish/publish-in-command-line.md)
     - [定制项目的构建模版](editor/publish/custom-project-build-template.md)
-    - [发布到 Google Play Games]
+    - [发布到 Google Play Games](editor/publish/google-play-games/index.md)
         - [集成 Input SDK](editor/publish/gpg-input-sdk.md)
 
 ## 功能模块
