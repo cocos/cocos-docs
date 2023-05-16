@@ -308,6 +308,7 @@
         - [编辑动画剪辑](animation/edit-animation-clip.md)
             - [关键帧编辑视图](animation/animation-keyFrames.md)
             - [曲线编辑视图](animation/animation-curve.md)
+            - [曲线编辑器](animation/curve-editor.md)
         - [添加动画事件](animation/animation-event.md)
         - [程序化编辑动画剪辑](animation/use-animation-curve.md)
     - [骨骼动画](animation/skeletal-animation.md)

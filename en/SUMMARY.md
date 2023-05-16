@@ -279,6 +279,7 @@
         - [Editing Animation Easing Curve](animation/animation-curve.md)
         - [Adding Animation Events](animation/animation-event.md)
         - [Using Animation Curves](animation/use-animation-curve.md)
+        - [Curve Editor](animation/curve-editor.md)
     - [Skeletal Animation](animation/skeletal-animation.md)
         - [Joint Texture Layout Settings](animation/joint-texture-layout.md)
     - [Controlling Animation with Scripts](animation/animation-component.md)
