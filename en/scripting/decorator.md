@@ -361,6 +361,67 @@ Back to the editor, the sprite2 is now in front of label2 in the **Inspector** p
 
 For additional information about the properties, please refer to the [Properties](./reference/attributes.md) documentation.
 
+## Built-in Type User Interface
+
+For some common types, the engine supports a default user interface that can be use via the developers' needs.
+
+- Color
+- 颜色界面：
+
+    ![color](./decorator/color.png)
+
+    The code example is as follows:
+
+    ```ts
+    @property(Color)
+    color:Color
+    ```
+
+- Curve: Used to save the type of curve, sample, and sample data, and the result can be evaluated.
+
+    ![color](./decorator/curve.png)
+
+    The code example is as follows:
+
+    ```ts
+    @property(RealCurve)
+    realCurve:RealCurve = new RealCurve();
+    ```
+
+- CurveRange: Use constants, curves, two-curves, or two-constants to control the curve-range
+
+    ![color](./decorator/curve_range.png)
+
+    The code example is as follows:
+
+    ```ts
+    @property(CurveRange)
+    curveRang : CurveRange = new CurveRange();    
+    ```
+
+- Gradient: You can record the key values of the gradient and evaluate the gradient result
+
+    ![graduebt](./decorator/gradient.png)
+
+    The code example is as follows:
+
+    ```ts
+    @property(Gradient)
+    gradient = new Gradient();
+    ```
+
+- GradientRange: use color, gradient, two gradients, two colors or random color to evaluate the final color
+
+   ![graduebt](./decorator/gradient_range.png)
+
+   The code example is as follows:
+
+    ```ts
+    @property(GradientRange)
+    gradientRange:GradientRange = new GradientRange();      
+    ```
+
+
 ## Reference Link
 
 - [Property Attributes](./reference/attributes.md)
