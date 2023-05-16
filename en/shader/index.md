@@ -10,7 +10,7 @@ This chapter mainly introduces how Cocos Effect works and how to use it.
 
 ## Content
 
-This chapter mainly includes the following contents:
+This chapter mainly includes the following contents: 
 
 - [Effect asseet](effect-inspector.md)
 - [Effect syntax](effect-syntax.md)
