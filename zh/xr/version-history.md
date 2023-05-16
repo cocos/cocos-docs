@@ -4,23 +4,23 @@
 
 新增：
 
-- iOS支持基础模式光照估计，华为安卓平台支持基础和HDR模式光照估计。
-- 支持将XR应用构建发布至WebXR平台，会话支持inline、immersive-vr、immersive-ar三种模式。
+- iOS 支持基础模式光照估计，华为安卓平台支持基础和 HDR 模式光照估计。
+- 支持将 XR 应用构建发布至 WebXR 平台，会话支持 inline、immersive-vr、immersive-ar 三种模式。
 - 屏幕手势交互器新增行为控制功能，可自由选择控制交互物的手势行为。
 - 屏幕手势交互器组件放置功能新增放置位置的计算方式，可以基于屏幕交互器固定距离来放置内容。
-- 新增合成层（Composition Layer）功能，支持Overlay、Underlay两种渲染方式。
-- 新增透视（Pass Through）功能，支持OpenXR标准接口开启一体机视频透视功能，配合合成层可调整透视视频流的渲染方式（Overlay/Underlay）。
-- 新增XR Web Preview功能，支持在一体机端浏览web内容。
-- XR视频播放器支持解析播放3D视频资源。
+- 新增合成层（Composition Layer）功能，支持 Overlay、Underlay 两种渲染方式。
+- 新增透视（Pass Through）功能，支持 OpenXR 标准接口开启一体机视频透视功能，配合合成层可调整透视视频流的渲染方式（Overlay/Underlay）。
+- 新增 XR Web Preview 功能，支持在一体机端浏览 web 内容。
+- XR 视频播放器支持解析播放 3D 视频资源。
 - 支持空间音频，允许从各个方向渲染音频，模拟声音在物理世界中的表现，增加沉浸感。
-- 新增静态注视点渲染（FFR）调节，支持使用OpenXR标准接口开启FFR并调节渲染等级。
-- Snapdragon Spaces SDK支持更新到0.11.1，并新增 RGB Camera 、Meshing 特性的支持。
+- 新增静态注视点渲染（FFR）调节，支持使用 OpenXR 标准接口开启 FFR 并调节渲染等级。
+- Snapdragon Spaces SDK 支持更新到 0.11.1，并新增 RGB Camera 、Meshing 特性的支持。
 
 修复：
 
 - 屏幕手势交互的效果优化。
-- 华为VR Glass的手柄震动时间0无效问题。
-- 转换AR Camera报错问题修复。
+- 华为 VR Glass 的手柄震动时间 0 无效问题。
+- 转换 AR Camera 报错问题修复。
 - Android Target API 高版本兼容性问题。
 
 ## v1.1.1
