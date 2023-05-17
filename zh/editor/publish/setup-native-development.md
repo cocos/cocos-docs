@@ -1,6 +1,8 @@
 # 安装配置原生开发环境
 
-除了内置的 Web 版游戏发布功能外，Cocos Creator 使用基于 Cocos2d-x 引擎的 JSB 技术实现跨平台发布原生应用。在使用 Cocos Creator 打包发布到原生平台之前，我们需要先配置好 Cocos2d-x 相关的开发环境。
+除了内置的 Web 版游戏发布功能外，Cocos Creator 使用基于 Cocos2d-x 引擎的 JSB 技术实现跨平台发布原生应用。在使用 Cocos Creator 打包发布到原生平台之前。
+
+本文档提供了特定的开发环境要求，我们对这些指定环境的运行进行了验证和保证。然而，请注意，我们无法确保在除指定环境之外的其他环境下能够完全运行。如果您在非指定环境下遇到任何问题，请不要犹豫，欢迎您到我们的论坛或支持渠道进行反馈。我们的社区将竭诚帮助您解决问题，并收集相关反馈以改进我们的文档和工具。
 
 ## Android 平台相关依赖
 
@@ -10,7 +12,8 @@
 
 编译 Android 工程需要本地电脑上有完整的 Java SDK 工具，请到以下地址下载：
 
-[Java SE Development Kit 8 Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+[JDK Development Kit 17.0.7 downloads](https://www.oracle.com/java/technologies/downloads/#java17)
+
 
 下载时注意选择和本机匹配的操作系统和架构，下载完成后运行安装程序即可。
 
@@ -26,7 +29,7 @@ java -version
 
 ### 下载安装 Android Studio
 
-Cocos Creator 不支持 Eclipse 的 ANT 构建，需要使用 **Android Studio 4.1 及以上版本** 作为安卓平台的构建工具，并在 Android Studio 中下载所需的 SDK 和 NDK 包。首先请 [安装 Android Studio](https://developer.android.google.cn/studio#downloads)。
+Cocos Creator 需要使用 **Android Studio Flamingo | 2022.2.1** 作为安卓平台的构建工具，并在 Android Studio 中下载所需的 SDK 和 NDK 包。首先请 [安装 Android Studio](https://developer.android.com/studio)。
 
 ### 下载发布 Android 平台所需的 SDK 和 NDK
 
@@ -36,7 +39,7 @@ Cocos Creator 不支持 Eclipse 的 ANT 构建，需要使用 **Android Studio 4
 2. 在 SDK Tools 分页栏，首先勾选右下角的 **Show Package Details**，显示分版本的工具选择。
 3. 在 **Android SDK Build-Tools** 里，选择最新的 build tools 版本。
 4. 勾选 **Android SDK Platform-Tools** 和 **CMake**，如需安装 Android 支持库，请参考 [官方文档 — 支持库设置](https://developer.android.google.cn/topic/libraries/support-library/setup)。
-5. 勾选 **NDK**，推荐使用版本为 **r18~21**。
+5. 勾选 **NDK**，推荐使用版本为 **r21~23**。
 6. 记住窗口上方所示的 **Android SDK Location** 指示的目录，稍后我们需要在 Cocos Creator 编辑器中填写这个 SDK 所在位置。
 7. 点击 **OK**，根据提示完成安装。
 
@@ -46,16 +49,11 @@ Cocos Creator 不支持 Eclipse 的 ANT 构建，需要使用 **Android Studio 4
 
 请安装以下运行环境：
 
-- Windows 下需要安装 [Visual Studio 2017/2019 社区版](https://www.visualstudio.com/downloads/download-visual-studio-vs)。在安装 Visual Studio 时，请勾选 **使用 C++ 的桌面开发** 和 **使用 C++ 的游戏开发** 两个模块。
+- Windows 下需要安装 [Visual Studio 2019/2022 社区版](https://www.visualstudio.com/downloads/download-visual-studio-vs)。在安装 Visual Studio 时，请勾选 **使用 C++ 的桌面开发** 和 **使用 C++ 的游戏开发** 两个模块。
 
   > **注意**：在 **使用 C++ 的游戏开发** 模块中有一个 **Cocos** 选项，请勿勾选。
 
-- Mac 下需要安装 Xcode 和命令行工具，[下载页](https://developer.apple.com/xcode/download/)。
-
-  > **注意**：
-  >
-  > 1. 从 **v3.0.1** 开始，要求使用的 Xcode 版本为 **11.5** 及以上。
-  > 2. 从 **v3.1** 开始，要求使用的 macOS 版本为 **10.14** 及以上。
+- Mac 下需要安装 Xcode 14.3 和命令行工具，[下载页](https://developer.apple.com/xcode/download/)。
 
 ## 配置原生发布环境路径
 
@@ -81,8 +79,12 @@ Cocos Creator 不支持 Eclipse 的 ANT 构建，需要使用 **Android Studio 4
 
     检查 **构建发布** 面板中的包名，具体命名规范请参考相应原生平台中的 [构建选项说明](./native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)。
 
-2. Android 编译成功，但运行时提示 `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos2djs.so"...`
+2. Android 编译成功，但运行时提示 `dlopen failed: cannot locate symbol "xxxx" referenced by "libcocos.so"...`
 
     请检查 NDK 和 Android SDK 的架构和版本是否和测试用的 Android 系统相对应，另外可以尝试使用本文所用的 NDK 和 Android SDK 版本来测试。
+
+3. JDK 版本问题
+
+    升级 Android Studio 和 Gradle 的版本后，需要将 JDK 版本升级到 17 或其指定版本。这样可以确保你的开发环境与最新的 Android Studio 和 Gradle 版本兼容。
 
 最后，如果依然打包失败，请附上详细的复现步骤及报错信息通过 [论坛](https://forum.cocos.org/c/58) 反馈给我们。
