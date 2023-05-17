@@ -4,40 +4,61 @@
 
 自 v3.8 起，Cocos Creator 将提供发布到 GPG 的支持。这样将有助于您安卓版本游戏在 PC 平台发布以获取更多的增长。
 
-在开始之前，我们建议您先阅读 [GPG 官方网站](https://developer.android.com/games/playgames/overview?hl=zh-cn) 以便快速介入 GPG SDK。
+为了顺利在 GPG 上发布，我们建议您先阅读 [GPG 官方网站](https://developer.android.com/games/playgames/overview?hl=zh-cn) 以便快速介入 GPG SDK。
 
 ## 接入指南
+
+为了让您的应用可以顺利上架，请检查下列的步骤是否都已经设置。
 
 1. 为了让游戏可以在 Windows 上运行（包括 intel 和 AMD 芯片），您需要采用 x86 架构进行构建。在 Cocos Creator 构建时，选中 [APP ABI](../native-options.md#app-abi) 并勾选 x86：
 
     ![ap](./index/app-abi.png)
 
-2. GPG 采用的 OpenGL ES 版本是 3.0，请不要使用高于 3.0 版本。Cocos Creator 支持的最高版本的 OpenGL ES 是 3.0。
-3. Vulkan 的版本是 1.1，对于 Cocos Creator 来说，只在构建选项中需要勾选 Vulkan 即可。
-4. 需要去除相关的移动端平台的特性，例如 [不受支持的 Android 功能和权限](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features) 以及 [Google Play 游戏电脑版的 PC 兼容性和优化](https://developer.android.com/games/playgames/pc-compatibility#unsupported-features-2)。对于已发布的安卓项目，可以参考 [去除相关特性]() 去除。
+2. GPG 采用的 OpenGL ES 版本是 3.0，请不要使用高于 3.0 版本。Cocos Creator 支持的最高版本的 OpenGL ES 是 3.0。请参考下图。
+3. Vulkan 的版本不高于 1.1，对于 Cocos Creator 来说，只在构建选项中需要勾选 Vulkan 即可，请参考下图。
+
+    ![index/render-backend.png](index/render-backend.png)
+
+4. 需要去除相关的移动端平台的特性，根据 [功能测试要求](https://developer.android.com/games/playgames/pc-compatibility?hl=zh-cn#unsupported-features-1) 以及 [质量测试要求](https://developer.android.com/games/playgames/pc-compatibility?hl=zh-cn#unsupported-features-2) 的要求将里面相关权限删除。
 5. 删除安卓应用的权限对话框，[详情](https://developer.android.com/games/playgames/pc-compatibility#permissions-dialogs)。
 6. 删除不支持的 Google Play API，[详情](https://developer.android.com/games/playgames/pc-compatibility#unsupported-google-apis)。
-7. 启用分区存储，[详情](https://developer.android.com/games/playgames/pc-compatibility#scoped-storage)。
-8. 添加可缩放 UI，对于大屏幕，游戏需要支持将 UI 缩放至合适的比例，[详情](https://developer.android.com/games/playgames/graphics?hl=zh-cn#ui-scaling)。
-9. 支持所需纵横比，GPG 需要支持的宽高比为 21：9。为更好的游戏体验，游戏可以选择支持 16：9， 16：10，21：9 和 3：2。纵屏游戏只需支持 9：16，如无横屏模式，GPG 将以全屏模式渲染。
-10. 适配窗口变换，GPG 游戏渲染的分辨率将在游戏启动时、窗口大小重设时、全屏和窗口模型切换时改变游戏的渲染分辨率，[详情](https://developer.android.com/games/playgames/graphics#dynamic-display)
-11. 高分辨率资产和贴图处理，[详情](https://developer.android.com/games/playgames/graphics#large-screen-optimization)。
-12. [集成 Input SDK](../gpg-input-sdk.md)。
-13. 记入谷歌游戏服务，[详情](https://developer.android.com/games/pgs/start)。
+7. 当应用需要读写外部存储时，需要启用分区存储，[详情](https://developer.android.com/games/playgames/pc-compatibility#scoped-storage)。示例如下：
+
+    - 在工程目录中找到 AndroidManifest.xml:
+
+        ![external-storage/permission.png](external-storage/permission.png)
+
+    - 在添加权限：
+
+        ![external-storage/permission.png](external-storage/external-permissions.png)
+
+8. 缩放 UI
+
+    Cocos Creator 支持自适应 UI，对于绝大部分移动端游戏来说，分辨率是在应用启动时就确定了，因此不用考虑适配的问题，但是在 GPG 上，由于用户可以通过外界来调整窗口的大小，因此需要单独去适配分辨率。
+
+    我们建议您可以选择 **Widget** 组件用，并确保其 **Align Mode** 为 **On_WINDOW_RESIZE** 或 **ALWAYS**。
+
+    ![scale-ui/scale-ui.png](scale-ui/scale-ui.png)
+
+    - [GPG 界面缩放](https://developer.android.com/games/playgames/graphics?hl=zh-cn#ui-scaling)
+    - [多分辨率适配方案](../../../ui-system/components/engine/multi-resolution.md)
+    - [Widget 组件参考](../../../ui-system/components/editor/widget.md) 对子 UI 进行适配
+
+9. GPG 要求支持 16:9 的长宽比。为了获得理想的玩家体验，游戏还应支持 21：9、16：10 和 3：2。
+纵向模式的游戏只需要支持 9:16 的长宽比。如果你的游戏缺乏横向支持，Google Play Games会在全屏模式下渲染黑条。同样可以参考上述的 **Widget** 组件部分。
+10. 适配窗口变换，GPG 游戏渲染的分辨率将在游戏启动时、窗口大小重设时、全屏和窗口模型切换时改变游戏的渲染分辨率，[详情](https://developer.android.com/games/playgames/graphics#dynamic-display)。同样可以参考上述的 **Widget** 组件部分。
 
 ## 发布流程
 
-GPG 的发布流程和安卓的发布历程类似，您可以参考下列文档以获取发布支持。
+GPG 的发布流程和安卓的发布流程类似，您可以参考下列文档以获取发布支持。
 
+- [安装和运行](./build-and-run.md)
 - [安卓构建示例](../android/build-example.md)
 - [原生发布](../native-options.md)
 
 ## 内容
 
 - [集成 Input SDK](../gpg-input-sdk.md)
-- [安卓构建示例](../android/build-example.md)
-- [原生发布](../native-options.md)
-- [手把手接入教程](./sample.md)
 
 ## 相关链接
 
