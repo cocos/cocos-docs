@@ -15,14 +15,14 @@
     ![ap](./index/app-abi.png)
 
 2. GPG 采用的 OpenGL ES 版本是 3.0，请不要使用高于 3.0 版本。Cocos Creator 支持的最高版本的 OpenGL ES 是 3.0。请参考下图。
-3. Vulkan 的版本不高于 1.1，对于 Cocos Creator 来说，只在构建选项中需要勾选 Vulkan 即可，请参考下图。
+3. Vulkan 的版本不高于 1.1，对于 Cocos Creator 来说，要支持 Vulkan，在构建选项中需要勾选 Vulkan 即可，请参考下图。
 
     ![index/render-backend.png](index/render-backend.png)
 
-4. 需要去除相关的移动端平台的特性，根据 [功能测试要求](https://developer.android.com/games/playgames/pc-compatibility?hl=zh-cn#unsupported-features-1) 以及 [质量测试要求](https://developer.android.com/games/playgames/pc-compatibility?hl=zh-cn#unsupported-features-2) 的要求将里面相关权限删除。
+4. 需要去除相关的移动端平台的特性和权限，根据 [功能测试要求](https://developer.android.com/games/playgames/pc-compatibility?hl=zh-cn#unsupported-features-1) 以及 [质量测试要求](https://developer.android.com/games/playgames/pc-compatibility?hl=zh-cn#unsupported-features-2) 的要求将里面相关权限删除。目前 Cocos Creator 默认的构建工程并未涉及这些特性或权限。
 5. 删除安卓应用的权限对话框，[详情](https://developer.android.com/games/playgames/pc-compatibility#permissions-dialogs)。
 6. 删除不支持的 Google Play API，[详情](https://developer.android.com/games/playgames/pc-compatibility#unsupported-google-apis)。
-7. 当应用需要读写外部存储时，需要启用分区存储，[详情](https://developer.android.com/games/playgames/pc-compatibility#scoped-storage)。示例如下：
+7. 当应用需要读写外部存储时，需要启用分区存储，示例如下：
 
     - 在工程目录中找到 AndroidManifest.xml:
 
@@ -31,6 +31,8 @@
     - 在添加权限：
 
         ![external-storage/permission.png](external-storage/external-permissions.png)
+
+    - [详情](https://developer.android.com/games/playgames/pc-compatibility#scoped-storage)。
 
 8. 缩放 UI
 
