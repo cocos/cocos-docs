@@ -1,77 +1,78 @@
-# Effect Asset
+# Cocos Shader Creation and Usage
 
-## Effect creation
+## Creating a Shader
 
-To create a new effect asset, click the **+** button on the upper left corner of the **Assets** panel and select **Effect**. Or just right-click on the **Assets** panel and choose **Create -> Effect**.
+To create a shader, click on the **+** button in the top-left corner of the **Asset** window (or right-click in the Assets folder), and select **Effect** or **Surface Shader** from the pop-up menu. This will create a new shader file.
 
 ![1](img/create-effect.png)
 
-Engine will create an effect asset in the **Assets** named **effect** by default:
+There are two types of shaders available.
+- **Effect**: A simple shader without lighting. You can refer to internal/effects/builtin-unlit.effect for an example.
+- **Surface Shader**: A PBR-based shader. You can refer to internal/effects/builtin-standard.effect for an example.
+
+Let's take the Surface Shader as an example. The engine will create a shader file named **surface-effect** in the **Assets** Window.
 
 ![image](img/new-effect.png)
 
-In Effect **Inspector** you can see that the shader is mainly composed of the following parts:
+In the **Inspector** panel, you can see that the shader consists of the following main parts.
 
-| property | description|
+| Property |Description|
 | :-- | :-- |
-| Shaders | The current shader and the name of its rendering pass |
-| Precompile Combinations | Whether to enable preprocessing macro definition combination, please refer to the following description for details |
-| GLSL 300 ES/100 Output | GLSL output, please refer to the description below for details |
+|Shaders | The names of the current shader and its rendering processes.
+| Precompile Combinations | Whether to enable precompiled macro definition combinations. See the explanation below for more details.
+| GLSL 300 ES/100 Output | Shader output. See the explanation below for more details.
 
 ## Shaders
 
-If the current shader has multiple rendering passes, you can select a different rendering pass through the drop-down box to the right of Shaders. After selecting a render pass, the currently compiled shader code can be viewed through the GLSL Output window.
+If the current shader has multiple render passes, you can select different render pass through the dropdown menu on the right side of **Shaders**. After selecting a render pass, you can view the compiled shader code in the **GLSL Output** window.
 
-![effect pass](img/effect-pass.png)
+![render-pass](img/effect-pass.png)
 
 ## Precompile Combinations
 
-Under normal circumstances, the material will be compiled when the corresponding macro definition is used. When more macro definitions are used, the compilation maybe slow. Therefore, the precompiled macro definition combination can be configured in this option, which is used to compile the required macro definition combination in advance. For example, the configuration in the following figure:
+Normally, shaders are compiled when the corresponding macro definitions are used. However, if there are many macro definitions involved, it my cause stuttering. In such cases, you can use this option to precompile combinations of macro definitions. For example, in the following configuration.
 
 ![image](./img/precompile.png)
 
-This indicates that the following 4 combined shaders will be precompiled at initialization:
-
-USE_INSTANCING = 0, USE_BATCHING = 0
-
-USE_INSTANCING = 0, USE_BATCHING = 0
-
-USE_INSTANCING = 1, USE_BATCHING = 0
-
-USE_INSTANCING = 1, USE_BATCHING = 1
-
 ## GLSL Output
 
-Currently the engine provides GLSL 300 ES and GLSL 100 output.
+The engine currently provides GLSL 300 ES and GLSL 100 output options.
 
-The compiled vertex and fragment shaders can be toggled between display by selecting different tabs:
+By selecting different tabs, you can switch between displaying the compiled vertex shader and fragment shader.
 
-![vs-fs-switc](img/change-vs-fs.png)
+![vs-fs-switch](img/change-vs-fs.png)
 
-## Use shaders procedurally
+## Access Built-in Shaders in Code
 
-When using a shader in script, you need to find the corresponding shader name in the **Shaders** property of the effect in the **Inspector** panel, and then load and use it by its unique string name.
+The internal/effects/ folder contains built-in shaders provided by the engine, which are automatically loaded after game starts.
 
-![img](img/load-custom-effect.png)
-
-Take the custom shader in the above figure as an example, the code example is as follows:
+Taking the `builtin-standard` as an example, you can access and use it in code as follows.
 
 ```ts
-resources.load("custom-effect", EffectAsset, ()=>{
+// Get the built-in Standard shader ‘builtin-standard.effect’
+const effect = EffectAsset.get('builtin-standard');
+
+const mat = new Material();
+
+// Initialize the material using the built-in PBR sahder ‘builtin-standard.effect’
+mat.initialize({ effectName: "builtin-standard" });
+```
+
+## Dynamic Loading Shaders
+
+Shader files located in the **resources** folder can be loaded and used using the "resources.load" method.
+
+Here's an example of how to do it in code.
+
+```ts
+resources.load("custom-effect", EffectAsset, (err:Error, data:EffectAsset)=>{
+    //get effect
     const effectAsset = EffectAsset.get("../resources/custom-effect");
+
+    //use the loaded effect
     const material = new Material();
     material.initialize({ effectName: "../resources/custom-effect" });
 })        
 ```
 
-**NOTE**: Since v3.6, if you want to using a engine builtin shader in script, you will also need to find the corresponding shader name in the **Shaders** property of the effect in the **Inspector** panel. Take the standard shader as an example, the code example is as follows:
-
-```ts
-// Get built-in standard effect: ‘builtin-standard.effect’
-const effect = EffectAsset.get('builtin-standard');
-
-const mat = new Material();
-
-// Initialize material with built-in physically based lighting shader (PBR) 'builtin-standard.effect'
-mat.initialize({ effectName: "builtin-standard" });
-```
+> **Note:** After successfully loading a custom shader, the effectName should be "../" + the file path.

@@ -83,7 +83,7 @@ CCProgram standard-vs %{
     ...
 }%
 
-//Fragement Shader
+//Fragment Shader
 CCProgram standard-fs %{
     ...
     #include <surfaces/includes/common-fs>

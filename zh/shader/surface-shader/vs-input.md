@@ -1,4 +1,4 @@
-# Verex Shader 的输入值
+# Vertex Shader 的输入值
 
 ## 参数列表
 

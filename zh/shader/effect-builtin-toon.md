@@ -92,7 +92,7 @@ Cocos Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以�
 | shadowCover    | 阴影遮蔽因子 |
 | emissive       | 自发光颜色，独立于光照计算，由模型本身直接发散出的颜色  |
 | emissiveScale  | 自发光强度，用于控制自发光颜色对最终颜色的影响权重 |
-| normalStrenth  | 法线伸缩量<br>只有在启用 USE_NORMAL_MAP 后才可以调整并对法线的 xy 轴进行缩放|
+| normalStrength  | 法线伸缩量<br>只有在启用 USE_NORMAL_MAP 后才可以调整并对法线的 xy 轴进行缩放|
 | normalMap      | 法线贴图 <br>只有在启用 USE_NORMAL_MAP 后才可以调整 |
 | mainTexture    | 主纹理，定义物体的基础纹理 <br> 编辑器内显示为 **baseColorMap**，需启用 USE_BASE_COLOR_MAP 宏才可以调整 |
 | shadeMap1      | 一阶色阶纹理，若指定则会和设定的 ShadeColor1 相乘。该项仅在勾选 **USE 1ST SHADER MAP** 后显示 |

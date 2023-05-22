@@ -200,7 +200,7 @@
         - [Effect Syntax Guide](shader/effect-syntax.md)
             - [Optional Pass Parameters](shader/pass-parameter-list.md)
             - [YAML 101](shader/yaml-101.md)
-            - [Introduction to GLSL Syntax](shader/glsl.md)
+            - [Introduction to GLSL Basic](shader/glsl.md)
             - [Preprocessor Macro Definition](shader/macros.md)
             - [Effect Chunk](shader/effect-chunk-index.md)
                 - [Built-in Shader Uniforms](shader/uniform.md)
