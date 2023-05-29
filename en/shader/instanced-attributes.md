@@ -70,7 +70,7 @@ comp.setInstancedAttribute('a_instanced_color', [100, 150, 200, 255]);
 Here are a few points to keep in mind.
 1. `#pragma format(RGBA8)`  is use to specify the specific data format of the property. The parameter can be any enumeration name from the engine's `GFXFormat`[^1]. If not specified, it defaults to the RGBA32F type.
 
-2. All instanced attributes are input through the vertex attributes. If you want to use them in the fragment shader, you need to pass them to the fragment shader from vertex shader using the varying variables (`in`,`out`).
+2. All instanced attributes are input through the vertex attributes. If you want to use them in the fragment shader, you need to pass them to the fragment shader from vertex shader using the varying variables(`in`,`out`).
 
 3. Ensure that your code can execute correctly in all branches, regardless of whether the `USE_INSTANCING` is enabled.
 
