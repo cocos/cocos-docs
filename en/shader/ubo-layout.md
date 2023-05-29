@@ -4,8 +4,6 @@ Cocos Shader specifies that all non-sampler type uniforms should be declared in 
 
 Taking the `builtin-standard.effect` as an example, it's uniform block declaration is as follows.
 
-以内置着色器 `builtin-standard.effect` 为例，其 uniform block 声明如下：
-
 ```glsl
 uniform Constants {
     vec4 tilingOffset;
@@ -65,7 +63,7 @@ Second, UBOs in WebGL 2.0 only support the std140 layout, which follows a set of
 
 This results in a significant waste of space, and the graphics driver on certain devices may not fully comply with this standard[^3]. Therefore, Cocos Shader currently chooses a set of strict rules to help eliminate some very subtle runtime issues.
 
->**Note: Through the [Property Target](pass-parameter-list.md#Properties) mechanism, you can independently edit the specific components off any uniform. The types of uniforms do not need to directly correspond to the display in the Inspector panel or the code for assigning runtime parameters.**
+> **Note**: Through the [Property Target](pass-parameter-list.md#Properties) mechanism, you can independently edit the specific components off any uniform. The types of uniforms do not need to directly correspond to the display in the Inspector panel or the code for assigning runtime parameters.
 
 [^1]: [OpenGL 4.5, Section 7.6.2.2, page 137](http://www.opengl.org/registry/doc/glspec45.core.pdf#page=159)
 
