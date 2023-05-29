@@ -4,7 +4,7 @@ Surface Shader has unified the shading process and provides a loft custom functi
 
 ## 1. Principle
 
-The custom functions provided by Surface Shader have a default version internally and are called at the right time. You can refer to [Surface Shader Execution Flow 执行流程](./shader-code-flow.md).
+The custom functions provided by Surface Shader have a default version internally and are called at the right time. You can refer to [Surface Shader Execution Flow](./shader-code-flow.md).
 
 These functions are usually named in the way of `Surfaces+Shader+ShaderTypeName+Modify+Attribute`, such as.
 - SurfacesVertexModifyLocalPos
