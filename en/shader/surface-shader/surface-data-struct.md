@@ -6,7 +6,7 @@ In Surface Shader, according to the needs of different [Lighting Models](./light
 
 The surface material data structure defines a series of physical parameters used to calculate the final color of the object's surface, such as albedo, roughness, etc.
 
-> Note: The material data model must be used in conjunction with the lighting model.
+> **Note**: The material data model must be used in conjunction with the lighting model.
 
 ## Type of Surface Material Data
 
