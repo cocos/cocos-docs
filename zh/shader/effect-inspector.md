@@ -7,8 +7,8 @@
 ![1](img/create-effect.png)
 
 两种类型的着色器区别：
-- **着色器（Effect）**：简单的无光照着色器，来自 internal/effects/builtin-unit.effect
-- **表面着色器（Surface Shader）**：基于 PBR 的着色器，来自 internal/effects/builtin-standard.effect
+- **着色器（Effect）**：简单的无光照着色器，可参考 internal/effects/builtin-unlit.effect
+- **表面着色器（Surface Shader）**：基于 PBR 的着色器，可参考 internal/effects/builtin-standard.effect
 
 我们以 **表面着色器（Surface Shader）** 为例，引擎会在 **资源管理器** 中创建一个默认名为 **surface-effect** 的着色器资源：
 
@@ -40,7 +40,7 @@
 
 通过选择不同的标签页可切换显示编译后的顶点着色器和片元着色器：
 
-![vs-fs-switc](img/change-vs-fs.png)
+![vs-fs-switch](img/change-vs-fs.png)
 
 ## 代码访问内置着色器
 

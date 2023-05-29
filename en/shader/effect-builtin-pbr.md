@@ -54,7 +54,7 @@ You can set the roughness directly in the **Roughness** property of the Material
 1. select the PBR material resource in **Assets** panel, then check the **USE PBR MAP** property in the **Inspector** panel and drag the RGBA map to the **PbrMap** property box that appears.
 2. then check the **USE METALLIC ROUGHNESS MAP** and drag the RGBA map to the **MetallicRoughnessMap** property box that appears again.
 
-![matallic](img/mateallic.png)
+![metallic](img/use-pbr-map.png)
 
 ### Metallic
 
@@ -62,17 +62,17 @@ You can set the roughness directly in the **Roughness** property of the Material
 
 Metallic is used to express the metallic properties of a material and has a value range of [0, 1]. In use, it is usually set to 0 or 1.
 
-- When the metallicity is **0**, the material is non-metallic.
-- When the metallicity is **1**, the material is metal.
-- When the metallicity is a floating point number between **0 and 1**, it is usually used to indicate metals with non-metallic dirt on the surface.
+- When the metallic is **0**, the material is non-metallic.
+- When the metallic is **1**, the material is metal.
+- When the metallic is a floating point number between **0 and 1**, it is usually used to indicate metals with non-metallic dirt on the surface.
 
-> **Note**: When the metallicity is set to 1, the material is recognized as metal. This is because as the metallicity increases, the material undergoes the following changes, which in turn causes it to exhibit metallic characteristics.
+> **Note**: When the metallic is set to 1, the material is recognized as metal. This is because as the metallic increases, the material undergoes the following changes, which in turn causes it to exhibit metallic characteristics.
 >
-> - the inherent color is less bright and less saturated than when the metallicity is 0.
+> - the inherent color is less bright and less saturated than when the metallic is 0.
 > - the color of the highlights of the material mixes with the material's intrinsic color.
 > - the reflected light more closely resembles the intrinsic color.
 
-You can set the metallicity directly in the **Metallic** property of the material properties panel. Or assign an RGBA map in the sRGB color space to the material and express the metallicity through the **Blue Channel** of the map as follows.
+You can set the metallic directly in the **Metallic** property of the material properties panel. Or assign an RGBA map in the sRGB color space to the material and express the metallic through the **Blue Channel** of the map as follows.
 
 1. select the PBR material resource in the **Assets** panel, then check the **USE PBR MAP** property in the **Inspector** panel and drag the RGBA map into the **PbrMap** property box that appears.
 2. then check the **USE METALLIC ROUGHNESS MAP** and drag the RGBA map to the **MetallicRoughnessMap** property box that appears again.
@@ -91,7 +91,7 @@ You can assign an RGBA map in the sRGB color space to the PBR material to expres
 2. then check the **USE METALLIC ROUGHNESS MAP** and drag and drop the RGBA map into the **MetallicRoughnessMap** property box that appears.
 3. check the **USE OCCLUSION MAP** and drag the RGBA map to the **OcclusionMap** property box that appears.
 
-![occluation](img/occluation.png)
+![occlusion](img/occluation.png)
 
 ### Normal
 
@@ -166,13 +166,13 @@ Open `builtin-standard.effect` in the `internal -> effects` directory in the **I
 | albedoScale | Albedo intensity of the model, used to control the weight of the albedo color influence on the final color |
 | alphaThreshold | Alpha test threshold, pixels with alpha values below this value will be discarded |
 | normalMap | Normal mapping for adding surface detail |
-| normalStrenth | Normal mapping intensity to control the strength of bumpy texture |
-| pbrMap<br>**R**（AO）<br>**G**（Roughness）<br>**B**（Metallic） | PBR material parameter mapping, the sampling result will be multiplied with the constant term<br>R channel: Ambient light masking<br>G channel: Roughness<br>B channel: Metallicity |
-| metallicRoughnessMap<br>**G**（Roughness）<br>**B**（Metallic） | Independent roughness and metallicity mapping, the sampling result will be multiplied with the constant term<br>G channel: roughness<br>B channel: metallicity |
+| normalStrength | Normal mapping intensity to control the strength of bumpy texture |
+| pbrMap<br>**R**（AO）<br>**G**（Roughness）<br>**B**（Metallic） | PBR material parameter mapping, the sampling result will be multiplied with the constant term<br>R channel: Ambient light masking<br>G channel: Roughness<br>B channel: metallic |
+| metallicRoughnessMap<br>**G**（Roughness）<br>**B**（Metallic） | Independent roughness and metallic mapping, the sampling result will be multiplied with the constant term<br>G channel: roughness<br>B channel: metallic |
 | occlusionMap | Independent ambient light masking mapping<br>Sampling results are multiplied by a constant term |
 | occlusion | Ambient light occlusion factor |
 | roughness | Roughness coefficient |
-| metallic | Metallicity coefficient |
+| metallic | metallic coefficient |
 | emissive | Emissive colors, independent of light calculation, directly emitted by the model itself |
 | emissiveMap | Emissive mapping<br>This will multiply with the emissive color if specified, so you need to turn up the emissive color (default is black) to get the effect  |
 | emissiveScale | Emissive intensity<br>Used to control the weighting of the emissive color on the final color. |
@@ -181,7 +181,7 @@ Open `builtin-standard.effect` in the `internal -> effects` directory in the **I
 
 | Macro | Description |
 | :---- | :--- |
-| USE_INSTANCING | Whether to enable GPU Geomerty Instancing |
+| USE_INSTANCING | Whether to enable GPU Instancing |
 | HAS_SECOND_UV | Whether there is a secondary UV  |
 | ALBEDO_UV | Specify the UVs used for the albedo color map, the first set is used by default |
 | EMISSIVE_UV | Specify the UVs used for the sampled emissive mapping, the first set is used by default|
@@ -190,8 +190,8 @@ Open `builtin-standard.effect` in the `internal -> effects` directory in the **I
 | USE_ALPHA_TEST | Whether to enable alpha text |
 | USE_ALBEDO_MAP | Whether to use albedo color reflection mapping |
 | USE_NORMAL_MAP | Whether to use normal map |
-| USE_PBR_MAP | Whether or not to use PBR parameter triple mapping (**by glTF standard, RGB channels must correspond to ambient light masking, roughness and metallicity respectively**) |
-| USE_METALLIC_ROUGHNESS_MAP | Whether to use metallic roughness mapping (**by glTF standard, GB channel must correspond to roughness and metallicity respectively**)|
+| USE_PBR_MAP | Whether or not to use PBR parameter triple mapping (**by glTF standard, RGB channels must correspond to ambient light masking, roughness and metallic respectively**) |
+| USE_METALLIC_ROUGHNESS_MAP | Whether to use metallic roughness mapping (**by glTF standard, GB channel must correspond to roughness and metallic respectively**)|
 | USE_OCCLUSION_MAP | Whether to use ambient light masking (**by glTF standard, only R channel will be used**)|
 | USE_EMISSIVE_MAP | Whether to use self-luminous mapping |
 

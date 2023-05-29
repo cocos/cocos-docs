@@ -2,7 +2,7 @@
 
 Cocos Creator 3.7.2 版本开始， builtin-standard.effect 使用 Surface Shader 架构实现。
 
-本文以 buitlin-standard.effect 作为典型案例，讲解 Surface Shader 细节。
+本文以 builtin-standard.effect 作为典型案例，讲解 Surface Shader 细节。
 
 你可以属性 Surface Shader 结构定义、语法细节以及渲染流程。
 

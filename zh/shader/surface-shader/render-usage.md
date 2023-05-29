@@ -4,7 +4,7 @@
 
 但有时候，我们也有一些特殊需要，比如:
 - 渲染为阴影贴图（ShadowMap）
-- 渲染为环境反射图（Reflection Probe)
+- 渲染为环境反射图（Reflection Probe）
 
 不同的渲染用途，有不同的渲染流程和细节，因此需要特殊处理。
 
@@ -46,7 +46,7 @@ CCProgram shadow-caster-fs %{
     #include <shading-entries/main-functions/render-to-shadowmap/fs>
 }%
 
-CCProgram refelect-map-fs %{
+CCProgram reflect-map-fs %{
     ...
     #include <shading-entries/main-functions/render-to-shadowmap/fs>
 }%
