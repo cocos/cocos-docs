@@ -67,7 +67,7 @@ As we can see, the function has 4 parameters.
 
 In this function, you can use lighting and material data to perform the lighting calculations and store them in the result.
 
-For local lights( point light or spotlight), this function will be executed per light. That means if an object is affected by 6 lights, this function will be called 6 times.
+For local lights(point light or spotlight), this function will be executed per light. That means if an object is affected by 6 lights, this function will be called 6 times.
 
 If you want to <font color=#ff0000>directly call the built-in lighting module functions within the overloaded function.</font>, you can change lighting-models/includes/common to the header file used by the corresponding lighting model.
 
