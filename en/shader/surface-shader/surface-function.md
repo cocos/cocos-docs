@@ -52,7 +52,7 @@ The built-in functions for vs all have the `SurfacesStandardVertexIntermediate` 
 
 ## 3. Common Replaceable Functions for FS
 
-The replaceable functions for FS  are composed of PBR and Toon, which are located in the following two files.
+The replaceable functions for FS are composed of PBR and Toon, which are located in the following two files.
 - internal/chunks/surfaces/default-functions/standard-fs.chunk
 - internal/chunks/surfaces/default-functions/toon-vs.chunk
 
@@ -72,4 +72,4 @@ Most of the replaceable functions for FS don't have parameter. Shader writers ne
 | CC_SURFACES_FRAGMENT_MODIFY_ TOON_STEP_AND_FEATHER      | vec4 SurfacesFragmentModify ToonStepAndFeather       | Toon           | Used to modify step and feather                                             |
 | CC_SURFACES_FRAGMENT_MODIFY_ TOON_SHADOW_COVER          | vec4 SurfacesFragmentModify ToonShadowCover          | Toon           | Used to modify toon shadow cover                                             |
 | CC_SURFACES_FRAGMENT_MODIFY_ TOON_SPECULAR              | vec4 SurfacesFragmentModify ToonSpecular             | Toon           | Used to modify toon specular                                             |
-| CC_SURFACES_LIGHTING_MODIFY_FINAL_RESULT                | void SurfacesLightingModifyFinalResult               | Common         | Custom lighting model, can modify the previously calculated lighting result, such as adding outline light,Necessary header files need to be included before defining the function. |
+| CC_SURFACES_LIGHTING_MODIFY_FINAL_RESULT                | void SurfacesLightingModifyFinalResult               | Common         | Custom lighting model, can modify the previously calculated lighting result, such as adding outline light, necessary header files need to be included before defining the function. |
