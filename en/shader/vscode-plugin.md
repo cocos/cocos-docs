@@ -28,7 +28,7 @@ To the right of this option, there is a small gear icon that allows you to add a
 
 The extension will automatically search for the corresponding built-in shader files and provide completion suggestions based on the location of the opened `*.effect` or `*.chunk` file. However, this functionality is limited to shader files using Cocos Creator 3.7.3 or later.
 
-If you open a file from an external folder ( a folder not belongs to a Cocos Creator project) or and older version  of  Cocos Creator, the aforementioned features will not work. In such cases, you can download a newer version of Cocos Creator and specify the folder path for the new. This will enable support for all `*.effect` files.
+If you open a file from an external folder(a folder not belongs to a Cocos Creator project) or and older version  of  Cocos Creator, the aforementioned features will not work. In such cases, you can download a newer version of Cocos Creator and specify the folder path for the new. This will enable support for all `*.effect` files.
 
 Here are the steps to follow.
 
