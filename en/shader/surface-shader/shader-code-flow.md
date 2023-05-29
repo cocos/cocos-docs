@@ -197,4 +197,4 @@ In the deferred rendering Lighting stage, it is controlled by the engine's rende
 
 Similarly, the main functions for other render stage can be found in the `internal/chunks/shading-entries/` folder.
 
-> Note: The code that can be replaced is named using the `Surface###Modify###` format.
+> **Note**: The code that can be replaced is named using the `Surface###Modify###` format.
