@@ -1,6 +1,6 @@
 # Shader Syntax
 
-Shaders in Cocos Creator are called Cocos Shaders,and have the file extension `*.effect`. It consists of [YAML](yaml-101.md) and [GLSL](glsl.md). The YAML is used for the flow control instructions, while the GLSL is for the shader code. These two parts complement each other to form a complete Cocos Shader.
+Shaders in Cocos Creator are called Cocos Shaders, and have the file extension `*.effect`. It consists of [YAML](yaml-101.md) and [GLSL](glsl.md). The YAML is used for the flow control instructions, while the GLSL is for the shader code. These two parts complement each other to form a complete Cocos Shader.
 
 > **Note**: It is recommended to use Visual Studio Code to write Cocos Shader and install the Cocos Effect extension from the marketplace in Visual Studio Code to provide syntax highlighting and autocompletion.
 > ![Cocos Effect](img/vs-ext.png)
@@ -94,7 +94,7 @@ Taking `builtin-unlit.effect` as an example, it contains the following 4 techniq
 - add
 - alpha-blend
 
-The `opaque` technique is specifically used for rendering opaque objects, while the `transparent`, `transparent`, `add`, and `alpha-blend` are used for rendering transparent objects.
+The `opaque` technique is specifically used for rendering opaque objects, while the `transparent`, `transparent`, `add` and `alpha-blend` are used for rendering transparent objects.
 
 Each technique includes a name and one or more render passes.
 
@@ -105,7 +105,7 @@ The name is used to describe the purpose of the render technique, and the passes
 The characteristics of a render pass are as follows.
 
 1. A render technique can contain multiple render passes, and the passes are executed one by one in the defined order.
-2. A render pass must include a vertex shader and a fragment shader, while the rest are optional.For details, please refer to [Pass Optional Parameters](pass-parameter-list.md)。
+2. A render pass must include a vertex shader and a fragment shader, while the rest are optional. For details, please refer to [Pass Optional Parameters](pass-parameter-list.md)。
 3. The VS/FS shaders need to specify the **CCProgram** to use and specify the entry function of the shader. If the entry function is not specified, the default entry 'main' will be used.
 
 **The format is as follows**：
