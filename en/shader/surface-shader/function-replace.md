@@ -29,7 +29,7 @@ void myFunc(){
 }
 ```
 
-In the code above, `myFunc` has a complete calling process. If you want to modify the implementation of `ModifySomething`, you only need to define the `CC_USER_MODIFY_SOMETHING` macro before `#include example.chunk`, and implement your `ModifySomething` function.
+In the code above, `myFunc` has a complete calling process. If you want to modify the implementation of `ModifySomething`, you only need to define the `CC_USER_MODIFY_SOMETHING` macro before `#include <example.chunk>`, and implement your `ModifySomething` function.
 
 ```glsl
 #define CC_USER_MODIFY_SOMETHING
@@ -40,7 +40,7 @@ void ModifySomething(){
 #include <example.chunk>
 ```
 
-> Note, the definition of the replaced function should be placed before the `include`.
+> **Note**: the definition of the replaced function should be placed before the `include`.
 
 This mechanism is widely used in the Surface Shader system, such as the `SurfacesFragmentModifySharedData` function in `lighting-models/includes/common` mentioned earlier.
 
