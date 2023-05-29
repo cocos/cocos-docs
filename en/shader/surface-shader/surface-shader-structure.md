@@ -29,7 +29,7 @@ CCProgram shared-ubos %{
 }%
 ```
 
-> Note: It doesn't necessarily have to be called `shared-ubos` and `Constants`, as long as it's easy to be remembered.
+> **Note**: It doesn't necessarily have to be called `shared-ubos` and `Constants`, as long as it's easy to be remembered.
 
 ## 3. Macro Remapping
 
@@ -50,7 +50,7 @@ CCProgram macro-remapping %{
 
 For more details, please refer to [Macro Definition and Remapping](./macro-remapping.md).
 
-> Note: It doesn't necessarily have to be called `macro-remapping`, as long as it's easy to be remembered.
+> **Note**: It doesn't necessarily have to be called `macro-remapping`, as long as it's easy to be remembered.
 
 ## 4. Surface Functions
 
@@ -100,6 +100,6 @@ CCProgram shadow-caster-fs %{
 }%
 ```
 
-It's worth noting that the code segments of the above three parts ( Shared UBO, Marco Remapping and Surface Functions ) can have zero or multiple. Finally, the final shader is assembled as needed and referenced in the CCEffect.
+It's worth noting that the code segments of the above three parts(Shared UBO, Marco Remapping and Surface Functions) can have zero or multiple. Finally, the final shader is assembled as needed and referenced in the CCEffect.
 
 For more details, please refer to [Surface Shader Assembly](./shader-assembly.md)。
