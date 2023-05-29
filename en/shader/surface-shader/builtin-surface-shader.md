@@ -22,7 +22,7 @@ For more details, please visit [Surface Shader Structure](./surface-shader-struc
 ## CCEffect
 
 To render an object onto the screen, the following information is needed.
-- Model data( vertices, UV, normals, etc.)
+- Model data(vertices, UV, normals, etc.)
 - Lighting data
 - Rotation, translation, scale in world space.
 - Render passes
@@ -33,7 +33,7 @@ To render an object onto the screen, the following information is needed.
 
 Among them, model data, lighting information, and world space information are independent of the material, while texture, uniform, rendering state, shader code, and render process are part of the material information.
 
-CCEffect describes the above material-related information, and together with the engine rendering pipeline, completes the rendering process of a model.
+`CCEffect` describes the above material-related information, and together with the engine rendering pipeline, completes the rendering process of a model.
 
 ### technique
 
@@ -66,7 +66,7 @@ CCEffect %{
 
 ### Shader Entry(vert and frag)
 
-the `opaque` and `transparent` techniques are completely identical in terms of shader code, the only difference is in the render states.
+The `opaque` and `transparent` techniques are completely identical in terms of shader code, the only difference is in the render states.
 
 You can see that they use the same vert and frag entries.
 
@@ -85,7 +85,7 @@ All properties used in the render process are placed in the properties section. 
 
 In the properties section, you can see that the `properties` of `opaque` is defined as `properties: &props`, while the `properties` of `transparent` is defined as `properties: *props`。
 
-This is a reuse mechanism of sections in CCEffect.
+This is a reuse mechanism of sections in `CCEffect`.
 
 `properties: &props` means to name the current `properties` as `props`.
 
