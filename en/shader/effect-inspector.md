@@ -30,7 +30,7 @@ If the current shader has multiple render passes, you can select different rende
 
 ## Precompile Combinations
 
-Normally, shaders are compiled when the corresponding macro definitions are used. However, if there are many macro definitions involved, it my cause stuttering. In such cases, you can use this option to precompile combinations of macro definitions. For example, in the following configuration.
+Normally, shaders are compiled when the corresponding macro definitions are used. However, if there are many macro definitions involved, it may cause stuttering. In such cases, you can use this option to precompile combinations of macro definitions. For example, in the following configuration.
 
 ![image](./img/precompile.png)
 
