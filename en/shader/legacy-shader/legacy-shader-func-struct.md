@@ -46,8 +46,8 @@
   #include <legacy/input-standard>
   vec4 vert () {
     StandardVertInput In;
-    CCVertInput(In);
-    // ... 此时 ‘In.position’ 初始化完毕，并且可以在顶点着色器中使用
+    CCVertInput(In);    
+    // ... Now the ‘In.position’ is completely initialized, and can be used in the vertext shader
   }
   ```
 
@@ -63,7 +63,7 @@ struct StandardVertInput {
 };
 ```
 
-> **Note**: After including the header files, there is no need to declare these attributes anymore, such as `a_position`、`a_normal`、`a_tangent`, etc. For other vertex attributes, such as uv, etc., still need to be declared before used.
+> **Note**: After including the header files, there is no need to declare these attributes anymore, such as `a_position`, `a_normal`, `a_tangent`, etc. For other vertex attributes, such as uv, etc., still need to be declared before used.
 
 If you want to connect with the dynamic mesh batching and GPU Instancing features, you need to include the `cc-local-batch` and use the `CCGetWorldMatrix` function to get the world matrix. Here's an example.
 
@@ -104,9 +104,7 @@ vec4 CCFragOutput (vec4 color) {
 }
 ```
 
-**Note**：
-
-If you use the `CCFragOutput` function to output the final color of fragment shaders, the color must be converted to the `Linear` space before performing calculations. This is because the `CCFragOutput` assumes that the passed parameters are in the `Linear` space and will always call the `LinearToSRGB` function to transcode.
+> **Note**：If you use the `CCFragOutput` function to output the final color of fragment shaders, the color must be converted to the `Linear` space before performing calculations. This is because the `CCFragOutput` assumes that the passed parameters are in the `Linear` space and will always call the `LinearToSRGB` function to transcode.
 
 If you need to include standard PBR, you can use the `StandardSurface` structure together with the `CCStandardShadingBase` function to form a PBR shading process.
 
