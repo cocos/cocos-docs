@@ -28,7 +28,7 @@ CCProgram reflect-map-fs %{
 
 These CCProgram code snippets named xxx-vs and xxx-fs are the assemblers.
 
-In these code snippets, we use the #include keyword to import different header files as needed and assemble each shader in order.
+In these code snippets, we use the `#include` keyword to import different header files as needed and assemble each shader in order.
 
 ## Two Ways to include
 
@@ -128,7 +128,7 @@ The function of this part is to use the light model name to select the correspon
 
 This part is optional and is not necessary when rendering to ShadowMap.
 
-Select the surface material data structure corresponding toe the lighting model, as shown below.
+Select the surface material data structure corresponding to the lighting model, as shown below.
 
 ```glsl
 //Vertex Shader
