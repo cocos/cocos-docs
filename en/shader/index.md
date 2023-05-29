@@ -4,7 +4,7 @@
 
 In modern graphics engines, to correctly render objects, it's necessary to write Vertex and Fragment code snippets that run on the GPU. Those code snippets are known as shaders.
 
-On the devices driven by OpenGL, a shader programming language called GLSL ( OpenGL Shading Language ) is widely used.
+On the devices driven by OpenGL, a shader programming language called GLSL (OpenGL Shading Language ) is widely used.
 
 To adapt the industrial workflows and enhance the usability of shader fragments, Cocos Creator has encapsulated a shader framework based on GLSL — [Cocos Shader](./effect-syntax.md).
 
