@@ -82,7 +82,7 @@ The debuggable data includes four major categories.
 
 The debugging focus <font color=#ff8000>is on the overall rendering performance</font>, and each module can be blocked or turned on, with modules unrelated to each other, to see how different modules affect each other's rendering effects.
 
-single mode has higher priority than the composite mode, <font color=#ff0000>If you want to use the composite mode, you must check No single mode.</font>
+Single mode has higher priority than the composite mode, <font color=#ff0000>If you want to use the composite mode, you must check No single mode.</font>
 
 Including:
 
