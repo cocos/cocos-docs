@@ -18,4 +18,4 @@ Here's an example of the code.
 #endif
 ```
 
->Note: During compilation, the Cocos Shader compiler will analyze all constant macros and generate multiple versions of shaders.
+> **Note**: During compilation, the Cocos Shader compiler will analyze all constant macros and generate multiple versions of shaders.
