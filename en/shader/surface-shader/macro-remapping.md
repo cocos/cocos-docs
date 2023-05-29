@@ -2,7 +2,7 @@
 
 During internal calculations, Surface Shader will use some macro switches, which start with `CC_SURFACES_`.
 
->Note: Macros start with the `CC_SURFACES_` won't appear on the material inspector panel.
+> **Note**: Macros start with the `CC_SURFACES_` won't appear on the material inspector panel.
 
 The complete macro list is as follows.
 
