@@ -65,4 +65,4 @@ CCProgram fs %{
 }%
 ```
 
-> Node: When using `include` to reference code defined in `CCProgram`, it is limited to the same file only.
+> **Note**: When using `include` to reference code defined in `CCProgram`, it is limited to the same file only.
