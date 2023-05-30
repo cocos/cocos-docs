@@ -135,7 +135,7 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 - [发布到原生平台](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
 - [发布到小游戏平台](publish-mini-game.md)
 
-Creator 支持自定义构建扩展插件，处理方式与平台插件一致，详情可参考 [自定义构建流程](custom-build-plugin.md)。
+Cocos Creator 支持自定义构建扩展插件，处理方式与平台插件一致，详情可参考 [自定义构建流程](custom-build-plugin.md)。
 
 ## 其他参与构建的参数配置
 
