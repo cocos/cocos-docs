@@ -69,8 +69,7 @@ gulp build
 
     ```bash
     cd cocos-engine/native
-    git clone https://github.com/cocos/cocos-engine-external external
-    git checkout -b branch_name tag
+    git clone https://github.com/cocos/cocos-engine-external external --branch tag
     ```
     
     `branch_name` 是新的分支名；`tag` 是第三方库对应的 `tag` 名字，可以从 `cocos-engine/native/external-config.json` 里的 `checkout` 字段获取该值。
