@@ -16,10 +16,10 @@ Cocos Creator 从 v3.8 开始，支持扫略功能。
 
     - 参数说明：
 
-        - worldRay: geometry.Ray：世界空间下的一条射线
-        - halfExtent: IVec3Like 盒体的一半尺寸，三维矢量的 xyz 各代表盒在每个轴上的大小的一半
-        - orientation: IQuatLike： 盒体的方向
-        - mask: number, 掩码，默认为 0xffffffff，请参考 [分组和掩码](./physics-group-mask.md) 以及 [射线检测](./physics-raycast.md)
+        - worldRay：geometry.Ray：世界空间下的一条射线
+        - halfExtent：IVec3Like 盒体的一半尺寸，三维矢量的 xyz 各代表盒在每个轴上的大小的一半
+        - orientation：IQuatLike： 盒体的方向
+        - mask: number：掩码，默认为 0xffffffff，请参考 [分组和掩码](./physics-group-mask.md) 以及 [射线检测](./physics-raycast.md)
         - maxDistance: number 最大检测距离，默认为 10000000，目前请勿传入 Infinity 或 Number.MAX_VALUE
         - queryTrigger：boolean 默认为 true，是否检测触发器
 
@@ -28,22 +28,22 @@ Cocos Creator 从 v3.8 开始，支持扫略功能。
     - `sweepSphereClosest`：沿着给定的射线投射一个球形，并返回所有命中的碰撞体
 
     - 参数说明：
-        - worldRay: geometry.Ray：世界空间下的一条射线
-        - radius: number 球体的半径
-        - mask: number, 掩码，默认为 0xffffffff，请参考 [分组和掩码](./physics-group-mask.md) 以及 [射线检测](./physics-raycast.md)
-        - maxDistance: number 最大检测距离，默认为 10000000，目前请勿传入 Infinity 或 Number.MAX_VALUE
+        - worldRay：geometry.Ray：世界空间下的一条射线
+        - radius：number 球体的半径
+        - mask：number, 掩码，默认为 0xffffffff，请参考 [分组和掩码](./physics-group-mask.md) 以及 [射线检测](./physics-raycast.md)
+        - maxDistance：number 最大检测距离，默认为 10000000，目前请勿传入 Infinity 或 Number.MAX_VALUE
         - queryTrigger：boolean 默认为 true，是否检测触发器
 
 - 胶囊体
     - sweepCapsule：沿着给定的射线投射一个胶囊体，并返回所有命中的碰撞体
     - sweepCapsuleClosest：沿着给定的射线投射一个胶囊体，并返回最近命中的碰撞体
     - 参数说明：
-        - worldRay: geometry.Ray：世界空间下的一条射线
-        - radius: number：胶囊体的半径
-        - height: number：胶囊体末端两个半球圆心的距离
-        - orientation: IQuatLike： 胶囊体的朝向
-        - mask: number, 掩码，默认为 0xffffffff，请参考 [分组和掩码](./physics-group-mask.md) 以及 [射线检测](./physics-raycast.md)
-        - maxDistance: number 最大检测距离，默认为 10000000，目前请勿传入 Infinity 或 Number.MAX_VALUE
+        - worldRay：geometry.Ray：世界空间下的一条射线
+        - radius：number：胶囊体的半径
+        - height：number：胶囊体末端两个半球圆心的距离
+        - orientation：IQuatLike： 胶囊体的朝向
+        - mask：number, 掩码，默认为 0xffffffff，请参考 [分组和掩码](./physics-group-mask.md) 以及 [射线检测](./physics-raycast.md)
+        - maxDistance：number 最大检测距离，默认为 10000000，目前请勿传入 Infinity 或 Number.MAX_VALUE
         - queryTrigger：boolean 默认为 true，是否检测触发器
 
 详细说明请参考 [API](__APIDOC__/zh/class/PhysicsSystem)。
