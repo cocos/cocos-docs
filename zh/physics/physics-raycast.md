@@ -157,7 +157,7 @@ if (PhysicsSystem.instance.lineStripCastClosest(sampleArray, ...)) {
 
 检测的结果类型为 `PhysicsLineStripCastResult`，`PhysicsLineStripCastResult` 继承自 `PhysicsRayResult`，属性描述如下：
 
-- `id`：第一个线段发生相交
+- `id`：发生相交时线段的索引
 - `collider`：击中的碰撞器
 - `distance`：击中点与射线起点的距离
 - `hitPoint`：击中点（世界坐标系中）
