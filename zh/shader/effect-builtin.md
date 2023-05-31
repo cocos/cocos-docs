@@ -30,16 +30,17 @@ Cocos Creator 将内置着色器大致归类为以下几种：
 
 ![内置着色器](img/builtin-effect.png)
 
-| 内置材质着色器名称                   | 说明                                                                                 |
+| 内置材质着色器名称                   | 说明 |
 | :--- | :--- |
 | builtin-standard.effect | [基于物理的光照模型 PBR](effect-builtin-pbr.md) |
-| builtin-terrain.effectbuiltin-billboard.effect | 地形系统默认着色器公告板<br>公告板是一种使物体始终朝向摄像机的渲染方案，适用于树木，血条等渲染 |
-| builtin-toon.effectbuiltin-camera-texture.effect | [卡通渲染](effect-builtin-toon.md)相机纹理 |
-| builtin-unlit.effectbuiltin-clear-stencil.effect | [无光照](effect-builtin-unlit.md)清理模板缓存 |
+| builtin-terrain.effect | 地形系统默认着色器 |
+| builtin-billboard.effect | 公告板<br>公告板是一种使物体始终朝向摄像机的渲染方案，适用于树木，血条等渲染 |
+| builtin-toon.effect | [卡通渲染](effect-builtin-toon.md) |
+| builtin-camera-texture.effect | 相机纹理 |
+| builtin-unlit.effect | [无光照](effect-builtin-unlit.md) |
+| builtin-clear-stencil.effect | 清理模板缓存 |
 
-
-
-| 其他内置着色器名称                 | 说明                                                                                 |
+| 其他内置着色器名称                 | 说明 |
 | :--- | :--- |
 | builtin-graphics.effect            | [Graphics 组件](../ui-system/components/editor/graphics.md) 的着色器 |
 | builtin-occlusion-query.effect     | 遮挡查询 |

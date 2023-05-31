@@ -38,7 +38,7 @@ void SurfacesFragmentModifySharedData(inout SurfacesMaterialData surfaceData)
 
 当定义了 `CC_SURFACES_FRAGMENT_MODIFY_SHARED_DATA` 宏后，Shader编译器会选择你自己写的 `SurfacesFragmentModifySharedData` 来替换默认的函数。
 
-此函数会在 vs 阶段被调用，具体可以查看 **internal/chunks/shading-entries/main-functions/** 目录下的： **redner-to-scene/vs.chunk** 和 **render-to-shadowmap/vs.chunk** 文件。
+此函数会在 vs 阶段被调用，具体可以查看 **internal/chunks/shading-entries/main-functions/** 目录下的： **render-to-scene/vs.chunk** 和 **render-to-shadowmap/vs.chunk** 文件。
 
 在这个函数中，我们可以直接修改 surfaceData 里的属性，为光照阶段做准备。
 

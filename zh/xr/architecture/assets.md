@@ -14,7 +14,7 @@
 | Ray Interactor          | 用于进行远距离交互的射线交互器，包含对 XR 设备手柄控制器的 I/O 映射以及射线交互功能。 | PoseTracker<br />XRController<br />RayInteractor<br />Line   |
 | Direct Interactor       | 用于进行近距离直接交互的交互器，同时也包含了对 XR 设备手柄控制器的 I/O 映射以及交互功能 | PoseTracker<br />XRController<br />DirectInteractor          |
 | Gaze Pointer Interactor | 用于进行凝视点交互的交互器，跟随头动，按凝视时间来触发交互行为 | UITransform<br />RenderRoot2D<br />XRGazeInteractor          |
-| Screen Touch Interactor | 适用于手持移动端设备的屏幕手势交互起，将屏幕手势转化为交互行为同场景中的对象进行交互。 | ScreenTouchInteractor                                        |
+| ScreenTouchInteractor | 适用于手持移动端设备的屏幕手势交互起，将屏幕手势转化为交互行为同场景中的对象进行交互。 | ScreenTouchInteractor                                        |
 | Locomotion Checker      | 运动检查器，充当所有虚拟运动驱动访问 XR Agent 的仲裁者，可以保证固定时间内对唯一的运动状态的维持。 | LocomotionChecker                                            |
 | Teleportable            | 支持与交互器发生传送交互行为的交互物，可以传送 XR Agent 到此对象相关的一个位置。 | Teleportable<br />InteractableEvents                         |
 | Simple Interactable     | 简易的交互物对象，用户可以在此对象上自定义扩展任意的交互行为 | InteractableEvents                                           |
