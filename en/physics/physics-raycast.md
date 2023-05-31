@@ -126,7 +126,7 @@ Line stripe cast/sample points cast is supported in Cocos Creator since v3.7. Th
 
 These two methods which encapsulated the `raycast` method are convenient to use used when checking whether one or more colliders are hit by the line stripe provided by the `samplePointsWorldSpace` parameter.
 
-- lineStripCast: Collision detect all collider and record all the detected results, using
+- lineStripCast: Collision detect all collider and record all the detected results
 
     ```ts
     lineStripCast (samplePointsWorldSpace: Array<Vec3>, mask = 0xffffffff, maxDistance = 10000000, queryTrigger = true): boolean;
@@ -140,14 +140,14 @@ These two methods which encapsulated the `raycast` method are convenient to use 
 
 #### Parameters
 
-- samplePointsWorldSpace： Sample points/line stripe in world space
+- `samplePointsWorldSpace`： Sample points/line stripe in world space
 - `mask`: [mask](physics-group-mask.md) for filtering, you can pass in the group to be detected, the default is 0xffffffff
 - `maxDistance`: the maximum detection distance, default is 10000000, do not pass `Infinity` or `Number.MAX_VALUE` at this time
 - `queryTrigger`: whether to detect the trigger
 
 #### Return values
 
-It will return true when the line stripe intersects with other colliders.
+It will return true when the line stripe intersects with other colliders, but the result of detection is stored in `PhysicsSystem.Instance.lineStripCastClosestResult` and `PhysicsSystem.Instance.lineStripCastResults` which can be referred in the following contents.
 
 ### Example
 

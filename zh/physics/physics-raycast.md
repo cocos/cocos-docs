@@ -134,14 +134,15 @@ lineStripCastClosest (samplePointsWorldSpace: Array<Vec3>, mask = 0xffffffff, ma
 
 #### 参数说明
 
-- samplePointsWorldSpace：世界空间下的采样点/直线段
+- `samplePointsWorldSpace`：世界空间下的采样点/直线段
 - `mask`：用于过滤的 [掩码](physics-group-mask.md)，可以传入需要检测的分组，默认为 0xffffffff
 - `maxDistance`：最大检测距离，默认为 10000000，目前请勿传入 `Infinity` 或 `Number.MAX_VALUE`
 - `queryTrigger`：是否检测触发器
 
 #### 返回结果说明
 
-返回 true 时，表示曲线和碰撞体相交。
+返回 true 时，表示曲线和碰撞体相交。结果存储在 `PhysicsSystem.Instance.lineStripCastResults` 以及 
+`PhysicsSystem.Instance.lineStripCastResults`，请参考下文：
 
 ### 使用方法
 
