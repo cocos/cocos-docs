@@ -141,7 +141,7 @@ lineStripCastClosest (samplePointsWorldSpace: Array<Vec3>, mask = 0xffffffff, ma
 
 #### 返回结果说明
 
-返回 true 时，表示曲线和碰撞体相交。结果存储在 `PhysicsSystem.Instance.lineStripCastResults` 以及 
+返回 true 时，表示曲线和碰撞体相交。结果存储在 `PhysicsSystem.Instance.lineStripCastResults` 以及
 `PhysicsSystem.Instance.lineStripCastResults`，请参考下文：
 
 ### 使用方法
