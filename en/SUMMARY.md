@@ -294,6 +294,7 @@
         - [Physics Material](physics/physics-material.md)
         - [Physics Event](physics/physics-event.md)
         - [Raycast Detection](physics/physics-raycast.md)
+        - [Geometry Cast Detection](physics/physics-sweep.md)
         - [Continuous Collision Detection](physics/physics-ccd.md)
         - [Physics Application Cases](physics/physics-example.md)
 
