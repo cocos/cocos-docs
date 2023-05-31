@@ -6,7 +6,7 @@ The character controllers provide a simple way to add a character controller to 
 
 ## Add Character Controller
 
-There are two types of character controllers in Cocos Creator , box character controller, and capsule character controller, both of them are inherited from the base class `CharacterController`.
+There are two types of character controllers in Cocos Creator, box character controller, and capsule character controller, both of them are inherited from the base class `CharacterController`.
 
 It is recommended that character controllers are invalid only in the **Bullet** and **PhysX** backends. By clicking on the **Project** menu, open the **Project Setting** panel, and find **Physics System** in the **Feature Cropping** page, choose **Bullet** or **PhysX** in the drop-down menu.
 
@@ -19,7 +19,7 @@ The following properties are the common properties of the character controller w
 | Properties | Description |
 | :-- | :-- |
 | Group | Physics group，refer to [Collision Matrix](physics-configs.md#collision-matrix) for more details. |
-| Min Move Distance | The minimum movement distance of the character controller. If the move distance invoked by the method if smaller than this value, the character controller will not move. |
+| Min Move Distance | The minimum movement distance of the character controller. If the move distance invoked by the `move` method is smaller than this value, the character controller will not move. |
 | Center  | The center of the character controller in local space |
 | Step Offset | The maximum height the character controller can automatically climb. |
 | Slope Limit | The slope limit of the character controller in degrees. |
@@ -81,7 +81,7 @@ When a character controller node is moved via the `setPosition` method, it will 
 
 ## Determine if on the Ground
 
-Use the `onGround` method to determine whether if a character controller is standing on some colliders with the following code.
+Use the `onGround` method to determine whether a character controller is standing on some colliders with the following code.
 
 ```ts
 let characterController = this.node.getComponent(CharacterController);
@@ -103,7 +103,7 @@ The callback of the collision is declared as follows:
 onColliderHit (selfCCT, hitCollider, contact){}
 ```
 
-The description ot the callback is below.
+The description of the callback is below.
 
 - selfCCT: the character controller that the event belongs.
 - otherCollider: other colliders, for more [Collider](../physics-collider.md)
