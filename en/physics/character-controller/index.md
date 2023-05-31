@@ -2,11 +2,11 @@
 
 > Cocos Creator supports character controllers since v3.8.
 
-The character controllers provide a simple way to add a character controller to you game.
+The character controllers provide a simple way to add a character controller to your game.
 
 ## Add Character Controller
 
-There are to types of character controller in Cocos Creator , box character controller and capsule character controller, both of them are inherited from the base class `CharacterController`.
+There are two types of character controllers in Cocos Creator , box character controller, and capsule character controller, both of them are inherited from the base class `CharacterController`.
 
 It is recommended that character controllers are invalid only in the **Bullet** and **PhysX** backends. By clicking on the **Project** menu, open the **Project Setting** panel, and find **Physics System** in the **Feature Cropping** page, choose **Bullet** or **PhysX** in the drop-down menu.
 
@@ -14,7 +14,7 @@ It is recommended that character controllers are invalid only in the **Bullet** 
 
 ### Common Properties
 
-The following properties are the common properties of character controller which can be found in the **Inspector** panel of **Box Character Controller** and **Capsule Character Controller** component.
+The following properties are the common properties of the character controller which can be found in the **Inspector** panel of **Box Character Controller** and **Capsule Character Controller** component.
 
 | Properties | Description |
 | :-- | :-- |
@@ -22,12 +22,12 @@ The following properties are the common properties of character controller which
 | Min Move Distance | The minimum movement distance of the character controller. If the move distance invoked by the method if smaller than this value, the character controller will not move. |
 | Center  | The center of the character controller in local space |
 | Step Offset | The maximum height the character controller can automatically climb. |
-| Slope Limit | The slope limit of the character controller in degree. |
-| Contact Offset | the contact offset of the character controller, please see below for more details|
+| Slope Limit | The slope limit of the character controller in degrees. |
+| Contact Offset | The contact offset of the character controller, please see below for more details|
 
 ### Capsule Character Controller
 
-By clicking the **Add Component** button in the **Inspector** panel to add a **CapsuleCharacterController**.
+By clicking the **Add Component** button in the **Inspector** panel add a **CapsuleCharacterController**.
 
 ![add-capsule-charactercontroller.jpg](./index/add-capsule-charactercontroller.jpg)
 
@@ -53,8 +53,8 @@ By clicking the **Add Component** button in the **Inspector** panel to add a **B
 | Properties | Description |
 | :--- | :---- |
 | Half Height  | The half height of the box shape of the CharacterController in local space |
-| Half Side Extent | The half side extent of box shape of the CharacterController in local space |
-| Half Forward Extent | The half forward extent of the box on the CharacterController in local space |
+| Half Side Extent | The half-side extent of the box shape of the CharacterController in local space |
+| Half Forward Extent | The half-forward extent of the box on the CharacterController in local space |
 
 ## Manipulating the Character Controllers
 
@@ -68,20 +68,20 @@ characterController.move(movement);
 
 The `move` method which uses the algorithm of the `sweep` method as its internal takes into all the colliders on its path. On the one hand, it will judge the angle between the character controller and the collider, if it is smaller than the slope limit, the character controller will continue to walk along the surface of the collider, on the other hand, if the height difference between the character controller and the collider is smaller than the step offset, the character controller also automatically climbing the step. But if the two conditions above are not satisfied, the controller will stop.
 
-To reset the position of a character controller, use the `setPosition` method of the character controller instead of using `setPosition` of node, as follows.
+To reset the position of a character controller, use the `setPosition` method of the character controller instead of using `setPosition` of the node, as follows.
 
 ```
 let characterController = this.node.getComponent(CharacterController);
 characterController.setPosition(new Vec3(-3,5,6));
 ```
 
-When a character controller node is moved via the `setPosition` method, it will automatically set the position of the physics world simultaneously, however the `setPosition` or `setWorldPosition` method of the node may cause the scene and physics world position out of sync.
+When a character controller node is moved via the `setPosition` method, it will automatically set the position of the physics world simultaneously, however, the `setPosition` or `setWorldPosition` method of the node may cause the scene and physics world position out of sync.
 
-> That because when every frame when the synchronization of the position from render scene to physics world, the center offset must be taken into consideration.
+> That is because when every frame when the synchronization of the position from the render scene to the physics world, the center offset must be taken into consideration.
 
 ## Determine if on the Ground
 
-Use the `onGround` method to determine whether if a character controller is stand on some colliders with the following code.
+Use the `onGround` method to determine whether if a character controller is standing on some colliders with the following code.
 
 ```ts
 let characterController = this.node.getComponent(CharacterController);
@@ -111,9 +111,9 @@ The description ot the callback is below.
 
 ## Details
 
-Normally a character is not a fully simulated physics object when we try to simulate a character, which means it will not exhibit fully physics characteristics. This means that when the collision occurs, the force situation of the character controller is different from a dynamic rigidbody. Simulate the force, or the velocity in the collision callback to implement the fore effect.
+Normally a character is not a fully simulated physics object when we try to simulate a character, which means it will not exhibit full physics characteristics. This means that when the collision occurs, the force situation of the character controller is different from a dynamic rigid body. Simulate the force, or the velocity in the collision callback to implement the fore effect.
 
-To simulate the full physics effect, please use [Dynamic Rigibody](../physics-rigidbody.md). Note that if you attach a rigibody component to the node containing a character controller, this may cause unexpected error which normally we do not recommended.
+To simulate the full physics effect, please use [Dynamic Rigibody](../physics-rigidbody.md). Note that if you attach a rigid body component to the node containing a character controller, this may cause unexpected errors which normally we do not recommend.
 
 There is no physics effect between character controllers, and this feature will be added in the future version.
 
@@ -123,7 +123,7 @@ The **Contact Offset** property allows slight penetration between a character co
 
 It is usually a small, floating number above zero.
 
-If stuck frequently, you can adjust the **Contact Offset** to a large number to avoid precision problems with floating-point number.
+If stuck frequently, you can adjust the **Contact Offset** to a large number to avoid precision problems with floating-point numbers.
 
 ## Example
 
