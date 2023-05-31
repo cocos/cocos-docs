@@ -113,7 +113,7 @@ Collision 3<br>
 
 The callback parameters contain all the collision contact information, and each callback function provides three parameters:
 
-- __selfCollider__: refers to the collider on the node of the callback script.
+- __selfCollider__: refers to the collider on the node which the script attached
 - __otherCollider__: refers to the other collider.
 - __contact__: it's an interface of the class `IPhysics2DContact`. Contains the most important information about the collision. Some useful information in __contact__ object are location of the collision and the normal vector. __contact__ store location information according to rigidbody's local coordinate system. What we need however is information from world coordinate system. We can use `contact.getWorldManifold` to get these information. Note that the builtin physics module parameter is null.
 
