@@ -117,3 +117,5 @@ The result of the ray detection is stored by [PhysicsRayResult](__APIDOC__/en/cl
 - `hitNormal`: the normal of the face where the hit point is located (in the world coordinate)
 
 Related test cases can be found in the [GitHub repo](https://github.com/cocos-creator/example-3d/blob/v3.7/physics-3d/assets/cases/scenes/csae-physics-raycast.scene).
+
+If you want to cast other types of geometry, please refer to [Geometry Cast Detection](./physics-sweep.md).
