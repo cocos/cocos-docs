@@ -115,3 +115,5 @@ if(bResult){
 - `distance`：击中点与射线起点的距离
 - `hitPoint`：击中点（世界坐标系中）
 - `hitNormal`：击中点所处面的法线（世界坐标系中）
+
+如果要投射其他几何体，请参考 [扫略](./physics-sweep.md)。
