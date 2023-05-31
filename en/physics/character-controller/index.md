@@ -111,7 +111,7 @@ The description of the callback is below.
 
 ## Details
 
-Normally a character is not a fully simulated physics object when we try to simulate a character, which means it will not exhibit full physics characteristics. This means that when the collision occurs, the force situation of the character controller is different from a dynamic rigid body. Simulate the force, or the velocity in the collision callback to implement the fore effect.
+Normally a character is not a fully simulated physics object when we try to simulate a character, which means it will not exhibit full physics characteristics. This means that when the collision occurs, the force situation of the character controller is different from a dynamic rigid body. Changing the position, or simulating velocity in the collision callback to implement the fore effect.
 
 To simulate the full physics effect, please use [Dynamic Rigibody](../physics-rigidbody.md). Note that if you attach a rigid body component to the node containing a character controller, this may cause unexpected errors which normally we do not recommend.
 
