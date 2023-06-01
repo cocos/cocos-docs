@@ -14,37 +14,37 @@ The engine now supports **box**, **sphere**, and **capsule** to sweep through.
     - `sweepBox`: cast a box along the specified ray, and returns all colliders it hits as a result.
     - `sweepBoxClosest`: cast a box along the specified ray, and return the closest collider it hits as a result.
 
-    - parameters：
+    - parameters:
 
-        - worldRay: geometry.Ray： ray in world space
-        - halfExtent: IVec3Like, half size of the box.
-        - orientation: IQuatLike, the orientation of the box
-        - mask: number：mask，the default is 0xffffffff，for more, refer to [Group and Mask](./physics-group-mask.md) and [Raycast Detection](./physics-raycast.md)
-        - maxDistance: number Maximum detection distance, the default value is 10000000, please do not use Infinity or Number.MAX_VALUE
-        - queryTrigger： boolean, check the trigger colliders or not, the default value is true，
+        - `worldRay`: geometry.Ray: ray in world space
+        - `halfExtent`: IVec3Like, half size of the box.
+        - `orientation`: IQuatLike, the orientation of the box
+        - `mask`: number: mask，the default is 0xffffffff，for more, refer to [Group and Mask](./physics-group-mask.md) and [Raycast Detection](./physics-raycast.md)
+        - `maxDistance`: number Maximum detection distance, the default value is 10000000, please do not use Infinity or Number.MAX_VALUE
+        - `queryTrigger`: boolean, check the trigger colliders or not, the default value is true，
 
 - Sphere sweep
     - `sweepSphere`: cast a sphere along the specified ray, and returns all colliders it hits as a result.
     - `sweepSphereClosest`: cast a sphere along the specified ray, and return the closest collider it hits as a result.
 
-    - parameters：
-        - worldRay： geometry.Ray： Ray in world space
-        - radius： number, the sphere radius
-        - mask: number：mask，the default is 0xffffffff，for more, refer to [Group and Mask](./physics-group-mask.md) and [Raycast Detection](./physics-raycast.md)
-        - maxDistance: number Maximum detection distance, the default value is 10000000, please do not use Infinity or Number.MAX_VALUE
-        - queryTrigger： boolean, check the trigger colliders or not, the default value is true，
+    - parameters:
+        - `worldRay`: geometry.Ray: Ray in world space
+        - `radius`: number, the sphere radius
+        - `mask`: number:mask，the default is 0xffffffff，for more, refer to [Group and Mask](./physics-group-mask.md) and [Raycast Detection](./physics-raycast.md)
+        - `maxDistance`: number Maximum detection distance, the default value is 10000000, please do not use Infinity or Number.MAX_VALUE
+        - `queryTrigger`: boolean, check the trigger colliders or not, the default value is true，
 
 - Capsule sweep
-    - sweepCapsule: cast a sphere along the specified ray, and returns all colliders it hits as a result.
-    - sweepCapsuleClosest: cast a sphere along the specified ray, and return the closest collider it hits as a result.
-    - parameters：
-        - worldRay：geometry.Ray: Ray in world space
-        - radius：number: the radius of the capsule
-        - height：number： distance between the two hal-sphere centers of the capsule
-        - orientation：IQuatLike: orientation of the capsule
+    - `sweepCapsule`: cast a sphere along the specified ray, and returns all colliders it hits as a result.
+    - `sweepCapsuleClosest`: cast a sphere along the specified ray, and return the closest collider it hits as a result.
+    - parameters:
+        - `worldRay`:geometry.Ray: Ray in world space
+        - `radius`: number: the radius of the capsule
+        - `height`: number: distance between the two hal-sphere centers of the capsule
+        - `orientation`: IQuatLike: orientation of the capsule
         mask，the default is 0xffffffff，for more, refer to [Group and Mask](./physics-group-mask.md) and [Raycast Detection](./physics-raycast.md)
-        - maxDistance: number Maximum detection distance, the default value is 10000000, please do not use Infinity or Number.MAX_VALUE
-        - queryTrigger： boolean, check the trigger colliders or not, the default value is true，
+        - `maxDistance`: number Maximum detection distance, the default value is 10000000, please do not use Infinity or Number.MAX_VALUE
+        - queryTrigger: boolean, check the trigger colliders or not, the default value is true，
 
 Please refer to  [API](__APIDOC__/zh/class/PhysicsSystem) for more information.
 
@@ -70,10 +70,10 @@ All the sweep methods return true when they hit one or more colliders. For optim
     ```
 
 The detail of `PhysicsRayResult` is as follows:
-- hitPoint: vec3, the hit point in world space.
-- distance: number, the distance between the hit-point and the ray origin
-- collider: Collider, the collider hit by the ray.
-- hitNormal: vec3, the normal of the hit plane， in world space.
+- `hitPoint`: vec3, the hit point in world space.
+- `distance`: number, the distance between the hit-point and the ray origin
+- `collider`: Collider, the collider hit by the ray.
+- `hitNormal`: vec3, the normal of the hit plane， in world space.
 
 For more, please refer to [PhysicsRayResult](__APIDOC__/zh/class/PhysicsRayResult)。
 
