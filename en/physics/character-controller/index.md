@@ -131,4 +131,4 @@ The address of the character controller is [GIT](https://github.com/cocos/cocos-
 
 ## API
 
-For the API of the character controller, please refer to [Character Controller](__APIDOC__/api/en/classes/charactercontroller.html), [Box Character Controller](__APIDOC__/api/en/classes/boxcharactercontroller.html) and [Capsule Character Controller](__APIDOC__/api/en/classes/capsulecharactercontroller.html).
+For the API of the character controller, please refer to [Character Controller](__APIDOC__/api/en/classes/physics.CharacterController.html), [Box Character Controller](__APIDOC__/api/en/classes/physics.BoxCharacterController.html) and [Capsule Character Controller](__APIDOC__/api/en/classes/physics.CapsuleCharacterController.html).

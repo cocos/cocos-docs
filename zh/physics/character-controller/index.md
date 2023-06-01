@@ -131,4 +131,4 @@ onColliderHit (selfCCT, hitCollider, contact){}
 
 ## API
 
-角色控制器的 API 请参考 [角色控制器](__APIDOC__/api/en/classes/charactercontroller.html)、[盒角色控制器](__APIDOC__/api/en/classes/boxcharactercontroller.html) 以及 [胶囊体角色控制器](__APIDOC__/api/en/classes/capsulecharactercontroller.html)
+角色控制器的 API 请参考 [角色控制器](__APIDOC__/api/cn/classes/physics.CharacterController.html)、[盒角色控制器](__APIDOC__/api/cn/classes/physics.BoxCharacterController.html) 以及 [胶囊体角色控制器](__APIDOC__/api/cn/classes/physics.CapsuleCharacterController.html)
