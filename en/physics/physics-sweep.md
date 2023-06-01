@@ -1,6 +1,6 @@
 # Geometry Cast Detection
 
-Cocos Creator supports the sweep method since v3.8.
+Cocos Creator supports the sweep method since v3.7.
 
 Geometry cast detection, which will emit different geometry along a specified ray, is like using geometry to sweep an area, hence the name `sweep`. The sweep method will check the colliders in the region of the physics world that the geometry sweeps through and return a specific result.
 
