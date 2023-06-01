@@ -67,7 +67,8 @@ g.fill();
 ```ts
 const mask = this.getComponent(Mask);
 mask.type = Mask.Type.IMAGE_STENCIL;
-mask.spriteFrame = this.spriteFrame;
+const sprite = this.getComponent(Sprite);
+sprite.spriteFrame = this.stencilSprite;
 mask.alphaThreshold = 0.1;
 ```
 

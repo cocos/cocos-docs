@@ -58,7 +58,7 @@ g.stroke();
 g.fill();
 ```
 
-#### IMAGE_STENCIL
+#### SPRITE_STENCIL
 
 ![mask](mask/mask-image.png)
 
@@ -67,7 +67,8 @@ It can also be set by code at runtime. Example:
 ```ts
 const mask = this.getComponent(Mask);
 mask.type = Mask.Type.IMAGE_STENCIL;
-mask.spriteFrame = this.spriteFrame;
+const sprite = this.getComponent(Sprite);
+sprite.spriteFrame = this.stencilSprite;
 mask.alphaThreshold = 0.1;
 ```
 
