@@ -14,10 +14,11 @@ Mask 用于规定子节点可渲染的范围，默认带有 Mask 组件的节点
 
 | 属性  |   功能说明           |
 | :------------- | :---------- |
-| Type           | 遮罩类型。包括 **RECT**、**ELLIPSE**、**GRAPHICS_STENCIL**、**IMAGE_STENCIL** 四种类型。|
+| Type           | 遮罩类型。包括 **RECT**、**ELLIPSE**、**GRAPHICS_STENCIL**、**SPRITE_STENCIL** 四种类型。|
 | Segments       | 椭圆遮罩的曲线细分数，只在遮罩类型设为 **ELLIPSE** 时生效 |
-| Inverted       | 反向遮罩
-| SpriteFrame    | 图片遮罩所使用图片
+| Inverted       | 反向遮罩 |
+
+添加 Mask 组件后，会自动添加 [Graphics](./graphics.md) 组件，请不要删除该组件。在 Type 为 **SPRITE_STENCIL** 时，Mask 组件会添加 Sprite 组件，该 Sprite 组件会为模板提供形状，同理请勿删除。
 
 ### Type
 
@@ -44,9 +45,8 @@ mask.segments = 32;
 可以在运行时通过代码设置：
 
 ```ts
-const mask = this.getComponent(Mask);
-mask.type = Mask.Type.GRAPHICS_STENCIL;
-const g = mask.graphics;
+const g = this.mask.node.getComponent(Graphics);
+//const g = this.mask.graphics;
 g.lineWidth = 10;
 g.fillColor.fromHEX('#ff0000');
 g.moveTo(-40, 0);
