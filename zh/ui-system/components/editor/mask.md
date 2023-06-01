@@ -10,6 +10,8 @@ Mask 用于规定子节点可渲染的范围，默认带有 Mask 组件的节点
 
 关于使用可以参考范例 **Mask**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/08.mask) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.7/assets/cases/ui/08.mask)）。
 
+添加 Mask 组件后，会自动添加 [Graphics](./graphics.md) 组件，请不要删除该组件。在 Type 为 **SPRITE_STENCIL** 时，Mask 组件会添加 Sprite 组件，该 Sprite 组件会为模板提供形状，同理请勿删除。
+
 ## Mask 属性
 
 | 属性  |   功能说明           |
@@ -17,8 +19,6 @@ Mask 用于规定子节点可渲染的范围，默认带有 Mask 组件的节点
 | Type           | 遮罩类型。包括 **RECT**、**ELLIPSE**、**GRAPHICS_STENCIL**、**SPRITE_STENCIL** 四种类型。|
 | Segments       | 椭圆遮罩的曲线细分数，只在遮罩类型设为 **ELLIPSE** 时生效 |
 | Inverted       | 反向遮罩 |
-
-添加 Mask 组件后，会自动添加 [Graphics](./graphics.md) 组件，请不要删除该组件。在 Type 为 **SPRITE_STENCIL** 时，Mask 组件会添加 Sprite 组件，该 Sprite 组件会为模板提供形状，同理请勿删除。
 
 ### Type
 
