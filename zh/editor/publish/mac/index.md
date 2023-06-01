@@ -1,6 +1,6 @@
-# iOS 构建指引
+# macOS 构建指引
 
-Cocos Creator 支持发布到 Mac，但至少需要一台支持 macOS 的设备以及苹果开发者账号。
+Cocos Creator 支持发布到 macOS，但至少需要一台支持 macOS 的设备以及苹果开发者账号。
 
 ## 主要内容
 

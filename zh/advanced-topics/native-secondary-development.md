@@ -22,15 +22,14 @@
 
 - native/engine/android
 - native/engine/ios
-- native/engine/win32
 - native/engine/win64
 - native/engine/mac
+
+> win64 用于 windows, 目前已不再支持 win32, 仅支持 win64 应用程序发布。
 
 项目目录会引用原生平台目录下的文件，在IDE中改动对应的部分，平台目录下的文件也会做对就修改。
 
 **例外：** `native/engine/ios/info.plist` 与 `native/engine/mac/info.plist` 文件由于`CMake`的机制，使用的是复制方式。 如果在Xcode中有改动，需要手工同步到对应的 `native` 目录，以方便进行项目源码版本管理。
-
-> win32 和 win64 都用于 windows, 会根据配置生成对应的目录
 
 ### 项目目录
 

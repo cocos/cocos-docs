@@ -1,4 +1,4 @@
-# 简化使用 JavaScript 调用 Java 方法
+# 使用 JsbBridge 实现 JavaScript 与 Java 通信
 
 ## 背景
 

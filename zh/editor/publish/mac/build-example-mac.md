@@ -62,6 +62,23 @@ Cocos Creator 打包环境要求：
 
 ![run-mac](./images/run-mac.png)
 
+### 修改分辨率
+
+可以通过 `native/engine/common/classes/Game.cpp` 中的 `_windowInfo` 进行修改：
+
+默认分辨率为 800 x 600，我们以把分辨率改为 800 x 400 为例。
+
+```C++
+int Game::init() {
+  _windowInfo.title = GAME_NAME;
+  // configure window size
+  _windowInfo.width  = 800;
+  _windowInfo.height = 400;
+}
+```
+
+![run-mac-800to400](./images/run-mac-800to400.png)
+
 ## 进阶
 
 ### 脚本与原生通信

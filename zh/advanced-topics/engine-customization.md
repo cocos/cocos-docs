@@ -51,9 +51,11 @@ Cocos 是一个开源引擎，不同版本的引擎源码可以从 Cocos 引擎�
 
 ### 2. 安装编译依赖
 
+编译依赖项需要使用 `NodeJS`，请确保电脑安装了 `NodeJS v16.0` 以上版本，如未安装，请前往 [https://nodejs.org/](https://nodejs.org/) 下载安装。
+
+安装完成后，在自定义引擎根目录，执行以下命名。
+
 ```bash
-# 在命令行中进入引擎路径，例如：
-cd 自定义引擎根目录
 # 安装 gulp 构建工具
 npm install -g gulp
 # 安装依赖的模块
@@ -108,6 +110,48 @@ gulp build
 
 为了使原生部分的代码能够正常被编译，需要确保 `Native Module` 中的 `Use Custom` 被选中。
 
+### 获取 external
+
+Cocos 原生引擎的编译，需要依赖 cocos-engine/native/external 中的库。这些库有几百 MB 大小，所以源码包内默认是没有的，需要通过以下两种方式获取。
+
+**第一种方式：** 通过 git 命令行。
+
+```ts
+  cd cocos-engine/native
+  git clone https://github.com/cocos/cocos-engine-external external
+  cd external
+  git checkout -b branch_name tag 
+```
+
+- branch_name：是新的分支名
+- tag：是第三方库对应的 tag 名字，可以从 cocos-engine/native/external-config.json 里的 checkout 字段获取该值。
+
+> 以 3.7.3-1 为例：git checkout -b 3.7.3-1 3.7.3-1
+
+**第二种方式：** 使用引擎自带的脚本下载。
+
+该脚本只会下载某个 tag 对应的第三方库。
+
+```ts
+  cd cocos-engine/native
+  npm install
+  gulp init
+```
+
+> 只要使用的 tag 有变化，就需要重新下载。每次需要下载几百兆的内容。
+
+**第三种方式**：下载 ZIP 包
+
+![download-external-zip](engine-customization/download-external-zip.png)
+
+如果由于某些原因不能通过 NodeJS 和 git 命令下载源码，则可以直接在 [cocos-engine-external](https://github.com/cocos/cocos-engine-external) 仓库页面，按照以下步骤下载。
+1. 选择对应的分支，需要使用哪一个分支可以从 cocos-engine/native/external-config.json 中的 `checkout` 字段中查看。
+2. 点击右边的**源代码（Code）**按钮，弹出源码下载页面。
+3. 点击 **下载ZIP(Download ZIP)** 按钮，下载源码压缩包。
+4. 将压缩包解压，重命名为 `external`，并放到  `cocos-engine/native` 目录下。
+
+> 只要使用的 tag 有变化，就需要重新下载。每次需要下载几百兆的内容。
+
 ### 在 Cocos Creator 中编译
 
 引擎修改完成后，打开 **构建发布** 面板，点击**构建**和**编译**。
@@ -124,11 +168,9 @@ Cocos Creator 提供了基于原生引擎的模拟器预览功能：
 
 ![custom-native-simulator](engine-customization/custom-native-simulator.png)
 
-为了避免安装包过大，Cocos Creator 在发布时剔除了原生引擎模拟器相关工程。自定义引擎的改动，不会自动同步到这个模拟器，需要通过以下步骤重新编译生成：
+若勾选了自定义原生引擎，在运行模拟器时，Cocos Creator 会启动 `自定义引擎路径/native/simulator/` 路径下的模拟器应用程序。
 
-若只改动了 **TypeScript** 部分，点击编辑器顶部菜单栏中的 **开发者 -> 编译原生模拟器引擎** 即可。
-
-若改动了 **C++** 部分，则需要使用 `CMake` 进行编译。
+为了避免安装包过大，Cocos Creator 在发布时剔除了原生引擎模拟器相关工程，需要按以下步骤配置环境，重新编译生成，否则无法启动：
 
 ### CMake 安装与配置
 
@@ -149,4 +191,6 @@ npm install
 gulp gen-simulator
 ```
 
-执行完成后，会在 `自定义引擎路径/native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件，便可运行原生模拟器了。
+编译完成后，会在 `自定义引擎路径/native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件，便可运行原生模拟器了。
+
+模拟器编译成功后，若只改动了 **TypeScript** 部分，则只需要点击编辑器顶部菜单栏中的 **开发者 -> 编译原生模拟器引擎** 即可。
