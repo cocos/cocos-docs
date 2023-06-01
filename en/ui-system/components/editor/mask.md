@@ -19,7 +19,6 @@ To use `Mask`, please refer to the [Mask API](__APIDOC__/en/class/Mask) document
 | **Type**           | Mask type, including `RECT`, `ELLIPSE`, `GRAPHICS_STENCIL`, `SPRITE_STENCIL`. |
 | **Segments**       | The segments for ellipse mask, which takes effect only when the Mask type is set to `ELLIPSE`.   |
 | **Inverted**       | The Reverse mask. |
-| **SpriteFrame**       | Image used for the type is **SPRITE_STENCIL** |
 
 ### Type
 
