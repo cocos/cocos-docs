@@ -6,6 +6,8 @@ __Mask__ is used to specify the range which clip the render results of the child
 
 Select a node in the __Hierarchy__ panel, then click the __Add Component__ button at the bottom of the __Inspector__ panel and select __Mask__ from __UI -> Render__. Then you can add the Mask component to the node.
 
+After adding a Mask component, a [Graphics](./graphics.md) component will be automatically added on the same node. Please do not delete the graphics component. When the __Type__ property is __SPRITE_STENCIL__，the graphics component will be removed, and a new sprite component will be added. Please also do not delete the sprite component because it provides the shape information for the stencil.
+
 > __Note__: the Mask component cannot be added to a node with other renderer components such as __Sprite__, __Label__, etc.
 
 To use `Mask`, please refer to the [Mask API](__APIDOC__/en/class/Mask) documentation and the [Mask](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/08.mask) scene of the test-cases-3d project.
@@ -14,10 +16,9 @@ To use `Mask`, please refer to the [Mask API](__APIDOC__/en/class/Mask) document
 
 | Property | Function Explanation |
 | :-------------- | :----------- |
-| **Type**           | Mask type, including `RECT`, `ELLIPSE`, `GRAPHICS_STENCIL`, `IMAGE_STENCIL`. |
-| **Segments**       | The segments for ellipse mask, which takes effect only when the Mask type is set to `ELLIPSE`.   |
-| **Inverted**       | The Reverse mask. |
-| **SpriteFrame**       | Image used for the type is **IMAGE_STENCIL** |
+| __Type__           | Mask type, including `RECT`, `ELLIPSE`, `GRAPHICS_STENCIL`, `IMAGE_STENCIL`. |
+| __Segments__       | The segments for ellipse mask, which takes effect only when the Mask type is set to `ELLIPSE`.   |
+| __Inverted__       | The Reverse mask. |
 
 ### Type
 
@@ -44,9 +45,8 @@ mask.segments = 32;
 It can also be set by code at runtime. Example:
 
 ```ts
-const mask = this.getComponent(Mask);
-mask.type = Mask.Type.GRAPHICS_STENCIL;
-const g = mask.graphics;
+const g = this.mask.node.getComponent(Graphics);
+//const g = this.mask.graphics;
 g.lineWidth = 10;
 g.fillColor.fromHEX('#ff0000');
 g.moveTo(-40, 0);
