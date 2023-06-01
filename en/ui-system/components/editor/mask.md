@@ -14,10 +14,10 @@ To use `Mask`, please refer to the [Mask API](__APIDOC__/en/class/Mask) document
 
 | Property | Function Explanation |
 | :-------------- | :----------- |
-| **Type**           | Mask type, including `RECT`, `ELLIPSE`, `GRAPHICS_STENCIL`, `IMAGE_STENCIL`. |
+| **Type**           | Mask type, including `RECT`, `ELLIPSE`, `GRAPHICS_STENCIL`, `SPRITE_STENCIL`. |
 | **Segments**       | The segments for ellipse mask, which takes effect only when the Mask type is set to `ELLIPSE`.   |
 | **Inverted**       | The Reverse mask. |
-| **SpriteFrame**       | Image used for the type is **IMAGE_STENCIL** |
+| **SpriteFrame**       | Image used for the type is **SPRITE_STENCIL** |
 
 ### Type
 
@@ -66,7 +66,7 @@ It can also be set by code at runtime. Example:
 
 ```ts
 const mask = this.getComponent(Mask);
-mask.type = Mask.Type.IMAGE_STENCIL;
+mask.type = Mask.Type.SPRITE_STENCIL;
 const sprite = this.getComponent(Sprite);
 sprite.spriteFrame = this.stencilSprite;
 mask.alphaThreshold = 0.1;
@@ -75,4 +75,4 @@ mask.alphaThreshold = 0.1;
 > __Notes__:
 > 1. After adding the __Mask__ component to a node, all nodes in the sub tree of this node will be affected by __Mask__ during rendering.
 > 2. The `GRAPHICS_STENCIL` simply provides the __graphics__ component, which developers can use graphics property in the __mask__ component to draw custom graphics. But the node click events are still calculated based on the size of the node.
-> 3. The `IMAGE_STENCIL` type requires a picture resource by default. If it is not set, it is equivalent to no mask.
+> 3. The `SPRITE_STENCIL` type requires a picture resource by default. If it is not set, it is equivalent to no mask.
