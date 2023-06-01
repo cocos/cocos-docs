@@ -92,7 +92,7 @@ The parameters of the surface shader (`ToonSurface`) are calculated by the shade
 | shadowCover    | Shadow covering factor |
 | emissive       | Self-emitting colors, independent of lighting calculation, directly emitted by the model itself |
 | emissiveScale  | Self-emitting intensity, used to control the weight of the impact of self-emitting color on the final color |
-| normalStrenth  | Normal scaling<br>The xy axis of the normal can only be adjusted and scaled if **USE_NORMAL_MAP** is enabled |
+| normalStrength  | Normal scaling<br>The xy axis of the normal can only be adjusted and scaled if **USE_NORMAL_MAP** is enabled |
 | normalMap      | Normal mapping <br>can only be adjusted if **USE_NORMAL_MAP** is enabled |
 | mainTexture    | The main texture, which defines the base texture of the object.<br> Is displayed in the editor as **baseColorMap** and can only be adjusted if the **USE_BASE_COLOR_MAP** macro is enabled |
 | shadeMap1 | The first-order color texture, if specified, will be multiplied by the set ShadeColor1. This item is only shown when **USE 1ST SHADER MAP** is checked.

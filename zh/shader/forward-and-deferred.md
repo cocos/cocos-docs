@@ -18,7 +18,7 @@ Cocos Creator 引擎支持 前向渲染和延迟渲染。因此，在 Shader 架
 
 ### Lighting 阶段
 
-1. 从 Gbuffer 还原 StandardSurface 信息
+1. 从 GBuffer 还原 StandardSurface 信息
 2. 光照计算
 
 可以看出，对于 PBR 材质来说，不管是前向渲染还是延迟渲染，用户能够控制的只有 vs 和 surf 函数。

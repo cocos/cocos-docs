@@ -240,6 +240,10 @@
         - [自定义着色器](shader/write-effect-overview.md)
             - [2D 精灵着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)
             - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
+        - [自定义几何体实例化属性](shader/instanced-attributes.md)
+        - [UBO 内存布局策略](shader/ubo-layout.md)
+        - [WebGL 1.0 向下兼容支持](shader/webgl-100-fallback.md)
+        - [VSCode 着色器插件](shader/vscode-plugin.md)
 
     - [渲染排序](engine/rendering/sorting.md)
 
@@ -353,6 +357,7 @@
         - [物理材质](physics/physics-material.md)
         - [物理事件](physics/physics-event.md)
         - [射线检测](physics/physics-raycast.md)
+        - [几何投射检测](physics/physics-sweep.md)
         - [连续碰撞检测](physics/physics-ccd.md)
         - [物理应用案例](physics/physics-example.md)
 

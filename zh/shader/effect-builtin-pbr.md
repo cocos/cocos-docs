@@ -183,7 +183,7 @@ PBR 的优势在于：
 | albedoScale | 模型的固有色强度，用于控制固有色颜色对于最终颜色的影响权重 |
 | alphaThreshold | 半透明测试阈值，alpha 值低于此值的像素会被 discard 掉 |
 | normalMap | 法线贴图，用于增加表面细节 |
-| normalStrenth | 法线贴图强度，控制凹凸质感的强弱 |
+| normalStrength | 法线贴图强度，控制凹凸质感的强弱 |
 | pbrMap<br>**R**（AO）<br>**G**（Roughness）<br>**B**（Metallic） | PBR 材质参数贴图，采样结果会和常数项相乘<br>R 通道：环境光遮蔽<br>G 通道：粗糙度<br>B 通道：金属度 |
 | occlusionMap | 独立的环境光遮蔽贴图<br>采样结果会和常数项相乘 |
 | occlusion | 环境光遮蔽系数 |
