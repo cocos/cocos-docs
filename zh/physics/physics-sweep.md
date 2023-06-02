@@ -88,7 +88,7 @@ if (PhysicsSystem.instance.sweepSphereClosest(this._ray, this._sphereRadius * th
 }
 ```
 
-更多示例请参考 [GIT](https://github.com/cocos/cocos-example-projects/tree/master/physics-3d)。
+更多示例请参考 [GIT](https://github.com/cocos/cocos-example-projects/tree/v3.7/physics-3d)。
 
 下载示例后，打开 **case-physics-sweep** 场景，运行即可查看扫略的结果。
 
