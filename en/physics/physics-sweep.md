@@ -89,7 +89,7 @@ if (PhysicsSystem.instance.sweepSphereClosest(this._ray, this._sphereRadius * th
 
 When the result of the method is true, you can access the hit result.
 
-For more examples, please refer to [GIT](https://github.com/cocos/cocos-example-projects/tree/master/physics-3d)。
+For more examples, please refer to [GIT](https://github.com/cocos/cocos-example-projects/tree/v3.7/physics-3d)。
 
 The sweep result can be seen when running the **case-physics-sweep** scene after downloading the example project.
 
