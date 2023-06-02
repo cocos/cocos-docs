@@ -46,7 +46,7 @@ The engine now supports **box**, **sphere**, and **capsule** to sweep through.
         - `maxDistance`: number Maximum detection distance, the default value is 10000000, please do not use Infinity or Number.MAX_VALUE
         - queryTrigger: boolean, check the trigger colliders or not, the default value is true，
 
-Please refer to  [API](__APIDOC__/zh/class/PhysicsSystem) for more information.
+Please refer to  [API](__APIDOC__/zh/class/physics.PhysicsRayResult) for more information.
 
 ## Sweep result
 
