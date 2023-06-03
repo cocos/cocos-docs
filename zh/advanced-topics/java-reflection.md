@@ -35,21 +35,21 @@ public class Test {
 }
 ```
 
-### 类名
+### className
 
-类名需要包含包名信息，如果要调用上面的 Test 类中的静态方法，`className` 应该为 "com/cocos/game/Test"。
+`className` 需要包含包名信息，如果要调用上面的 Test 类中的静态方法，`className` 应该为 "com/cocos/game/Test"。
 
 >**注意：**这里必须是斜线 `/`，而不是在 Java 代码中的 `.`。
 
-### 方法名
+### methodName
 
-方法名很简单，就是方法本来的名字，例如要调用 `sum` 方法的话，methodName 传入的就是 "sum"。
+`methodName` 就是方法本来的名字，例如要调用 `sum` 方法的话，methodName 传入的就是 "sum"。
 
-### 方法签名
+### methodSignature
 
 由于 Java 支持函数重载功能，方法签名用于告诉反射系统对应的参数类型和返回值类型，以确定唯一的方法。
 
-它的格式为：**(参数类型)返回值类型**，括号内的符号表示参数类型，括号后面的符号表示返回值类型。
+它的格式为：**(参数类型)返回值类型**。
 
 目前 Cocos Creator 中支持的 Java 类型签名有以下 4 种：
 
@@ -70,9 +70,9 @@ public class Test {
 - `(IF)Z` 表示参数为一个 int 和一个 float，返回值为 boolean 的方法
 - `(ILjava/lang/String;F)Ljava/lang/String;` 表示参数类型为一个 int，一个 String 和一个 float，返回值类型为 String 的方法
 
-### 参数
+### parameters
 
-参数可以是 0 个或任意多个，直接传递 JavaScript 中的变量即可。支持 number、bool 和 string。
+传递的参数与签名匹配即可，支持 number、bool 和 string。
 
 ### 使用示例
 
@@ -97,7 +97,7 @@ log(result); // 5
 
 除了 JavaScript 调用 Java，引擎也提供了 Java 调用 JavaScript 的机制。
 
-引擎中包含 `CocosJavascriptJavaBridge` 类，这个类有一个 `evalString` 方法可以执行 JavaScript 代码。需要注意的是，由于 JavaScript 相关代码会在 GL 线程中执行，我们需要利用 `CocosHelper.runOnGameThread` 来确保线程是正确的。
+通过引擎提供的 `CocosJavascriptJavaBridge.evalString` 方法可以执行 JavaScript 代码。需要注意的是，由于 JavaScript 相关代码会在 GL 线程中执行，我们需要利用 `CocosHelper.runOnGameThread` 来确保线程是正确的。
 
 接下来，我们给刚才的 Alert 对话框增加一个按钮，并在它的响应函数中执行一段 JavaScript 代码。
 

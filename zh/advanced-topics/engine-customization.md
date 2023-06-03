@@ -20,13 +20,13 @@ Cocos 是一个开源引擎，不同版本的引擎源码可以从 Cocos 引擎�
 
 如果是要采用最新的分支，选择上图中间子图所示的 `develop` 分支即可。
 
-**注意:** 此分支由于是开发中的最新分支，并不确保稳定性。
+>**注意:** 此分支由于是开发中的最新分支，并不确保稳定性。
 
 ### 选择 Tag
 
-如果是要采用对应 Cocos Creator 版本的稳定分支，则按上图右侧子图所示，切换到 Tags 标签，并选择对应的版本号。 比如，你所用的 Cocos Creator 为 3.7.3 版本，那么你就选择 3.7.3 即可。
+如果要采用对应 Cocos Creator 版本的稳定分支，则按上图右侧子图所示，切换到 Tags 标签，并选择对应的版本号。 比如，你所用的 Cocos Creator 为 3.7.3 版本，那么你就选择 3.7.3 即可。
 
-**注意：** 不同的 Cocos Creator 版本，需要对应不同的引擎分支，请确保二者版本匹配。
+>**注意：** 不同的 Cocos Creator 版本，需要对应不同的引擎分支，请确保二者版本匹配。
 
 ### 3. Clone 或者 下载
 
@@ -34,11 +34,11 @@ Cocos 是一个开源引擎，不同版本的引擎源码可以从 Cocos 引擎�
 
 如上图所示，选择了对应的分支或者 Tag 后，就会切换到相应仓库（1）。
 
-点击右边的代码（2）按钮，会弹出代码下载面板。
+点击右边的**代码**（2）按钮，会弹出代码下载面板。
 
-你可以选择复制仓库链接（3），然后使用 git 工具 clone 到本地，也可以选择 `Download ZIP`（4） 下载源码的 zip 包到本地并解压即可。
+你可以**复制仓库链接**（3），然后使用 git 工具 clone 到本地，也可以选择 `Download ZIP`（4） 下载源码的 zip 包到本地并解压即可。
 
-记得给 Cocos 引擎的开源仓库加个星（5），谢谢！
+>记得在页面右上角给 Cocos 引擎的开源仓库加个星（5），谢谢！
 
 ## 配置环境
 
@@ -51,9 +51,9 @@ Cocos 是一个开源引擎，不同版本的引擎源码可以从 Cocos 引擎�
 
 ### 2. 安装编译依赖
 
-编译依赖项需要使用 `NodeJS`，请确保电脑安装了 `NodeJS v16.0` 以上版本，如未安装，请前往 [https://nodejs.org/](https://nodejs.org/) 下载安装。
+编译依赖项需要使用 `NodeJS`，请确保电脑安装了 `NodeJS v12.0` 以上版本，如未安装，请前往 [https://nodejs.org/](https://nodejs.org/) 下载安装。
 
-安装完成后，在自定义引擎根目录，执行以下命名。
+安装完成后，在自定义引擎根目录，执行以下命令。
 
 ```bash
 # 安装 gulp 构建工具
@@ -64,11 +64,9 @@ npm install
 gulp build
 ```
 
-> **注意**：生成 debug infos 需要 gulp 构建工具。
-
 ### 3. 修改引擎路径
 
-通过 **Cocos Creator -> 偏好设置** 的 **引擎管理器** 选项卡来设置需要定制的 TypeScript 引擎路径。需要注意的是 **修改引擎路径后需要重启编辑器**。
+通过 **Cocos Creator -> 偏好设置** 的 **引擎管理器** 选项卡来设置需要使用的引擎源码路径。需要注意的是 **修改引擎路径后需要重启编辑器**。
 
 ![custom ts engine](engine-customization/custom-engine.png)
 
@@ -78,7 +76,7 @@ gulp build
 
 #### 指定 原生（C++）引擎
 
-如果需要定制和原生平台相关的引擎功能， 则还需要勾选 `Native Module` 下的 `Use Custom`。 路径会自动识别自定义引擎路径下的 `native`，不可更改。
+如果需要定制和原生平台相关的引擎功能， 则还需要勾选 `Native Module` 下的 `Use Custom`。 会自动识别自定义引擎根目录下的 `native` 作为路径，不可更改。
 
 #### 配置存储路径
 
@@ -98,21 +96,21 @@ gulp build
 
 ## 修改 TypeScript 引擎
 
-如果您只需要为 Web 和 小游戏平台的游戏定制引擎功能，或只需要修改纯 TypeScript 层的引擎框架代码（如 UI 系统，动画系统等），那么只需要在修改完成之后在 Cocos Creator 编辑器的菜单栏中点击 **开发者 -> 编译引擎** 进行编译即可。
+如果您只需要为 Web 和 小游戏平台的游戏定制引擎功能，或只需要修改 TypeScript 层的引擎相关代码（如 UI 系统，动画系统等），那么只需要在修改完成之后在 Cocos Creator 编辑器的菜单栏中点击 **开发者 -> 编译引擎** 进行编译即可。
 
 ![build](engine-customization/build-ts-engine.png)
 
-该命令会在引擎目录下生成一个 `bin` 文件夹，并将引擎源码编译到 `bin` 目录下。
+该命令会在引擎目录下生成一个 `bin` 文件夹，并将引擎源码编译到这里。
 
 ## 修改原生(C++) 引擎
 
-如果需要定制和原生平台相关的引擎功能，除了修改 TypeScript 代码，可能还需要同步修改 C++ 内核的代码。
+如果需要定制和原生平台相关的引擎功能，除了修改 TypeScript 代码，可能还需要修改 C++ 代码。
 
 为了使原生部分的代码能够正常被编译，需要确保 `Native Module` 中的 `Use Custom` 被选中。
 
 ### 获取 external
 
-Cocos 原生引擎的编译，需要依赖 cocos-engine/native/external 中的库。这些库有几百 MB 大小，所以源码包内默认是没有的，需要通过以下两种方式获取。
+Cocos 原生引擎的编译，需要依赖 `cocos-engine/native/external` 中的库。这些库有几百 MB 大小，所以源码包内默认是没有的，可以通过以下三种方式获取。
 
 **第一种方式：** 通过 git 命令行。
 
@@ -126,7 +124,7 @@ Cocos 原生引擎的编译，需要依赖 cocos-engine/native/external 中的�
 - branch_name：是新的分支名
 - tag：是第三方库对应的 tag 名字，可以从 cocos-engine/native/external-config.json 里的 checkout 字段获取该值。
 
-> 以 3.7.3-1 为例：git checkout -b 3.7.3-1 3.7.3-1
+> 示例： 假如我们要使用 3.7.3-1 版本，则可以写成 `git checkout -b 3.7.3-1 3.7.3-1`
 
 **第二种方式：** 使用引擎自带的脚本下载。
 
@@ -142,25 +140,26 @@ Cocos 原生引擎的编译，需要依赖 cocos-engine/native/external 中的�
 
 **第三种方式**：下载 ZIP 包
 
+如果某些原因不能通过 NodeJS 和 git 命令下载 `external` 源码包，则可以直接在 [cocos-engine-external](https://github.com/cocos/cocos-engine-external) 仓库页面，按照以下步骤下载。
+
 ![download-external-zip](engine-customization/download-external-zip.png)
 
-如果由于某些原因不能通过 NodeJS 和 git 命令下载源码，则可以直接在 [cocos-engine-external](https://github.com/cocos/cocos-engine-external) 仓库页面，按照以下步骤下载。
 1. 选择对应的分支，需要使用哪一个分支可以从 cocos-engine/native/external-config.json 中的 `checkout` 字段中查看。
-2. 点击右边的**源代码（Code）**按钮，弹出源码下载页面。
-3. 点击 **下载ZIP(Download ZIP)** 按钮，下载源码压缩包。
-4. 将压缩包解压，重命名为 `external`，并放到  `cocos-engine/native` 目录下。
+2. 点击右边的 **源代码（Code）** 按钮，弹出源码下载页面。
+3. 点击 **下载ZIP（Download ZIP）** 按钮，下载源码压缩包。
+4. 解压，重命名为 `external`，并放到  `cocos-engine/native` 目录下。
 
-> 只要使用的 tag 有变化，就需要重新下载。每次需要下载几百兆的内容。
+> **注意：** external 与 cocos-engine 的版本号要一致，否则可能导致编译失败。
 
 ### 在 Cocos Creator 中编译
 
-引擎修改完成后，打开 **构建发布** 面板，点击**构建**和**编译**。
+引擎修改完成后，打开 **构建发布** 面板，点击**构建**，构建完成后，点击 **编译**。
 
 ### 在 IDE 中编译
 
 第一次配置完自定义引擎路径后，需要**在构建发布**面板点击**构建**按钮，才会同步相关配置到 IDE（如 Xcode, Android Studio, Visual Studio 等）中。
 
-此时的 IDE 中引用的 `Cocos Engine` 路径会更改为自定义引擎的路径。 修改完原生代码后，直接使用 IDE 的编译即可。
+此时的 IDE 中引用的 `Cocos Engine` 路径将会是自定义引擎的路径。修改完原生相关代码后，直接使用 IDE 的编译即可。
 
 ## 重新编译原生引擎模拟器
 
@@ -168,17 +167,25 @@ Cocos Creator 提供了基于原生引擎的模拟器预览功能：
 
 ![custom-native-simulator](engine-customization/custom-native-simulator.png)
 
+### 自定义 TypeScript 引擎
+
+若使用了自定义 TypeScript 引擎，则这个原生模拟器在启动时，会去加载自定义引擎路径下的`自定义引擎路径/native/simulator` 的 TS 引擎模块。
+
+首次启动时，需要点击编辑器顶部菜单栏中的 **开发者 -> 编译原生模拟器引擎**，否则会无法成功加载 TS 引擎模块。
+
+### 自定义原生引擎
+
 若勾选了自定义原生引擎，在运行模拟器时，Cocos Creator 会启动 `自定义引擎路径/native/simulator/` 路径下的模拟器应用程序。
 
 为了避免安装包过大，Cocos Creator 在发布时剔除了原生引擎模拟器相关工程，需要按以下步骤配置环境，重新编译生成，否则无法启动：
 
 ### CMake 安装与配置
 
-Cocos Creator 在构建、编译、发布 App 时，使用的是自带的 CMake，并配置好了路径，不需要再做相关配置。
+> Cocos Creator 在构建、编译、发布应用时，使用的是自带的 CMake，并配置好了路径，不需要再做相关配置。
 
-而原生模拟器的编译不属于构建流程，因此需要自己配置 CMake 编译环境。
+原生模拟器的编译不属于构建流程，因此需要自己配置 CMake 编译环境。
 
-由于不同的系统平台和系统版本有差异，请参考[CMake 官方文档](https://cmake.org/install/) 安装 CMake 并配置系统环境变量。
+由于不同的系统平台和系统版本有差异，请参考 [CMake 官方文档](https://cmake.org/install/) 安装 CMake 并配置系统环境变量。
 
 ### 编译
 
@@ -193,4 +200,4 @@ gulp gen-simulator
 
 编译完成后，会在 `自定义引擎路径/native/simulator` 路径下生成一个模拟器工程和模拟器可执行文件，便可运行原生模拟器了。
 
-模拟器编译成功后，若只改动了 **TypeScript** 部分，则只需要点击编辑器顶部菜单栏中的 **开发者 -> 编译原生模拟器引擎** 即可。
+模拟器编译成功后，若后续只改动了 **TypeScript** 部分，则只需要点击编辑器顶部菜单栏中的 **开发者 -> 编译原生模拟器引擎** 即可。

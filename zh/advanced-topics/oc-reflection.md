@@ -14,6 +14,8 @@ var result = native.reflection.callStaticMethod(className, methodName, arg1, arg
 
 **警告**：苹果 App Store 在 2017 年 3 月对部分应用发出了警告，原因是使用了一些有风险的方法，其中 `respondsToSelector:` 和 `performSelector:` 是反射机制使用的核心 API，在使用时请谨慎关注苹果官方对此的态度发展，相关讨论：[JSPatch](https://github.com/bang590/JSPatch/issues/746)、[React-Native](https://github.com/facebook/react-native/issues/12778)、[Weex](https://github.com/alibaba/weex/issues/2875)。
 
+为了降低提审不通过的风险，建议 [使用 JsbBridge 实现 JavaScript 与 Objective-C 通信](oc-reflection.md)。
+
 ### 类名与静态方法
 
 参数中的类名不需要路径，只需要传入 Objective-C 中的类名即可。比如你在工程目录下的任意文件中新建一个类 `NativeOcClass`，只要你将它引入工程即可。
@@ -98,7 +100,9 @@ var ret = native.reflection.callStaticMethod("NativeOcClass",
 - `bool`
 - `string`
 
-其余的类型暂时不支持
+其余的类型暂时不支持。
+
+如果对如何在项目中新增 `Objective-C` 文件不熟悉，可参考 [原生平台二次开发指南](native-secondary-development.md)。
 
 ## Objective-C 执行 JavaScript 代码
 
@@ -107,12 +111,12 @@ var ret = native.reflection.callStaticMethod("NativeOcClass",
 调用示例如下：
 
 ```c++
-Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
 ```
 
-> **注意**：除非确定当前线程是 **主线程**，否则都需要使用`performFunctionInCocosThread` 方法将函数分发到主线程中去执行。
+> **注意**：除非确定当前线程是 **主线程**，否则都需要使用 `performFunctionInCocosThread` 方法将函数分发到主线程中去执行。
 
 ### 调用全局函数
 
@@ -124,11 +128,21 @@ window.callByNative = function(){
 }
 ```
 
+> `window` 是 Cocos 引擎脚本环境中的全局对象，如果要让一个变量、函数、对象或者类全局可见，需要将它作为 `window` 的属性。 可以使用 `window.变量名` 或者  `变量名` 进行访问。
+
 然后像下面这样调用:
 
 ```c++
-Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString("window.callByNative()");
+});
+```
+
+或者：
+
+```c++
+CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
+    se::ScriptEngine::getInstance()->evalString("callByNative()");
 });
 ```
 
@@ -137,18 +151,20 @@ Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
 假如在 TypeScript 脚本中有一个对象具有如下静态函数：
 
 ```ts
-export class NativeCallback{
+export class NativeAPI{
   public static somethingDone(){
     //to do
   }
 }
+//将 NativeAPI 注册为全局类，否则无法在 OC 中被调用
+window.NativeAPI = NativeAPI;
 ```
 
 我们可以像这样调用：
 
 ```c++
-Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
-    se::ScriptEngine::getInstance()->evalString("NativeCallback.somethingDone()");
+CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
+    se::ScriptEngine::getInstance()->evalString("NativeAPI.somethingDone()");
 });
 ```
 
@@ -157,12 +173,12 @@ Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
 如果脚本代码中，有实现可以全局访问的单例对象
 
 ```ts
-export class NativeCallback{
-  private static _inst:NativeCallback;
+export class NativeAPIMgr{
+  private static _inst:NativeAPIMgr;
   
-  public static get inst():NativeCallback{
+  public static get inst():NativeAPIMgr{
     if(!this._inst){
-      this._inst = new NativeCallback();
+      this._inst = new NativeAPIMgr();
     }
     return this._inst;
   }
@@ -170,18 +186,17 @@ export class NativeCallback{
   public static somethingDone(){
     //to do
   }
-
-  public static somethingDone2(a:string, b:number){
-    //to do
-  }
 }
+
+//将 NativeAPIMgr 注册为全局类，否则无法在 OC 中被调用
+window.NativeAPIMgr = NativeAPIMgr;
 ```
 
 我们可以像下面这样调用：
 
 ```c++
-Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
-    se::ScriptEngine::getInstance()->evalString("NativeCallback.inst.somethingDone()");
+CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
+    se::ScriptEngine::getInstance()->evalString("NativeAPIMgr.inst.somethingDone()");
 });
 ```
 
@@ -200,11 +215,11 @@ window.callByNative = function(a:string, b:number, c:bool){
 可像这样调用：
 
 ```c++
-Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString("window.callByNative('test',1,true)");
 });
 ```
 
 ## 线程安全
 
-可以看到，上面的代码中，使用了 `Application::getInstance()->getScheduler()->performFunctionInCocosThread`。这是为了代码在执行时处于正确的线程，详情请参考：[线程安全](./thread-safety.md)。
+可以看到，上面的代码中，使用了 `CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread`。这是为了代码在执行时处于正确的线程，详情请参考：[线程安全](./thread-safety.md)。

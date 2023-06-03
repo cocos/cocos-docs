@@ -1,11 +1,11 @@
 # macOS 构建指引
 
-Cocos Creator 支持发布到 macOS，但至少需要一台支持 macOS 的设备以及苹果开发者账号。
+Cocos Creator 支持发布 macOS 桌面应用程序，但至少需要一台支持 macOS 的设备以及苹果开发者账号。
 
 ## 主要内容
 
-- [Mac 构建示例](./build-example-mac.md)
-- [Mac 构建选项介绍](build-options-mac.md)
+- [macOS 构建示例](./build-example-mac.md)
+- [macOS 构建选项介绍](build-options-mac.md)
 - [基于反射机制实现 JavaScript 与 iOS/macOS 系统原生通信](../../../advanced-topics/oc-reflection.md)
 - [使用 JsbBridge 实现 JavaScript 与 Objective-C 通信](../../../advanced-topics/js-oc-bridge.md)
 - [特性与系统版本](../../../advanced-topics/supported-versions.md)

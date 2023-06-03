@@ -59,7 +59,7 @@ typedef void (^ICallback)(NSString*, NSString*);
 
 其中 `sendToScript` 用于调用脚本层代码，而 `callByScript` 用于响应脚本层的调用。
 
-我们需要实现 `ICallback` 接口，并且使用 `setCallback` 注册，来响应 callByScript 的具体行为。
+我们需要实现 `ICallback` 接口，并且使用 `setCallback` 注册，来响应 `callByScript` 的具体行为。
 
 ## 基本使用
 
@@ -67,7 +67,9 @@ typedef void (^ICallback)(NSString*, NSString*);
 
 假设我们用 Objective-C 写了一个打开广告的接口，当玩家点击打开广告的按钮时，应该由 JavaScript 调用对应的 Objective-C 接口，触发打开广告的操作。
 
-我们需要先实现一个 ICallback 接口，用于响应操作，代码如下：
+我们需要先实现一个 ICallback 接口，用于响应操作，然后通过 `setCallback` 方法，注册到 `JsbBridge`。
+
+Objective-C 代码如下：
 
 ```ObjC
 #include "platform/apple/JsbBridge.h"
@@ -77,11 +79,7 @@ static ICallback cb = ^void (NSString* _arg0, MSString* _arg1){
         //open Ad
     }
 };
-```
 
-然后通过 `setCallback` 方法，注册到 `JsbBridge`：
-
-```ObjC
 JsbBridge* m = [JsbBridge sharedInstance];
 [m setCallback:cb];
 ```
@@ -115,9 +113,11 @@ native.bridge.onNative = (arg0:string, arg1: string):void=>{
 }
 ```
 
-然后，在`Objective-C` 中，用如下代码调用：
+然后，在 `Objective-C` 中，用如下代码调用：
 
 ```ObjC
+#include "platform/apple/JsbBridge.h"
+
 JsbBridge* m = [JsbBridge sharedInstance];
 [m sendToScript:@"ad_close" arg1:@"finished"];
 ```

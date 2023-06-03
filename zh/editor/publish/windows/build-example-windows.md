@@ -22,31 +22,33 @@ Windows 下需要安装 [Visual Studio 2017/2019 社区版](https://www.visualst
 
 ![project-build-menu](./images/project-build-menu.png)
 
-如上图所示，在 Cocos Creator 顶部菜单中选择 **项目(Project)** -> **构建(Build)**，可打开下面的构建面板。
+如上图所示，在 Cocos Creator 顶部菜单中选择 **项目(Project)** -> **构建发布(Build)**，可打开下面的构建面板。
 
 ![build-panel-windows](./images/build-panel-windows.png)
 
 #### 配置通用选项
 
-上图中，左边部分为 Cocos Creator 支持的所有平台都需要配置的公共参数，可以前往[通用发布配置](./../build-options.md)查看详情。
+上图中，左边部分为 Cocos Creator 支持的所有平台都需要配置的公共参数，可以前往 [通用发布配置](./../build-options.md) 查看详情。
 
 #### 配置 Windows 专有选项
 
-在面板上向下滑动，可以看到如右图所示的原生（Native）平台和 Windows 平台特有的配置，详情请查看[原生平台通用构建选项](./../native-options.md) 和 [Windows 发布选项](./build-options-windows.md)。
+平台（Platform）选择为 **Windows**，面板向下滑动，可以看到如右图所示的原生（Native）平台和 Windows 平台特有的配置，详情请查看 [原生平台通用构建选项](./../native-options.md) 和 [Windows 发布选项](./build-options-windows.md)。
 
 #### 执行构建
 
 配置完成后，点击 **构建（Build）** 按钮，即可生成 Visual Studio 的 `*.sln` 项目。
 
 构建成功后，可以点击如下所示的打开文件按钮，打开生成的项目路径。
+
 ![build-open-path-windows](./images/build-open-path-windows.png)
 
 如果未更改过生成路径，可在同目录下找到 build/windows/proj 目录，内容如下所示：
+
 ![project-folder-windows](./images/project-folder-windows.png)
 
 ### 在 Visual Studio 中编译运行
 
-双击 `build/windows/proj/项目名称.sln`，即可用相关 `Visual Studio` 打开项目。
+双击 `build/windows/proj/项目名称.sln`，即可用 `Visual Studio` 打开项目。
 
 ![vs-showcase-windows](./images/vs-showcase-windows.png)
 
@@ -79,9 +81,9 @@ int Game::init() {
 
 ### 脚本与原生通信
 
-有时候，我们会调用一些 Windows 的系统功能，或者，当我们集成了某个第三方的 SDK 库后，调要通过脚本代码调用，此时就需要用到脚本层与原生层的通信机制。
+有时候，项目需要调用一些 Windows 的系统功能，或者当集成了某个第三方的 SDK 库后，调要通过脚本代码调用其 API，此时就需要用到脚本层与原生层的通信机制。
 
-通信机制请参考：[JSB 使用指南](../../../advanced-topics/JSB2.0-learning.md)
+JS 脚本与 C++ 通信机制请参考：[JSB 使用指南](../../../advanced-topics/JSB2.0-learning.md)。
 
 ### 在原生环境调试代码
 

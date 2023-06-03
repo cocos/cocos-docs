@@ -1,6 +1,6 @@
 # macOS 构建示例
 
-本文将演示将 Cocos Creator 开发的项目发布为 Mac 应用程序，需要以下准备工作：
+本文将演示 Cocos Creator 项目发布为 macOS 应用程序的流程，需要以下准备工作：
 - 一台 安装了 XCode 的 MacOS 设备
 - 一个苹果开发者账号
 
@@ -16,7 +16,7 @@ Cocos Creator 打包环境要求：
 - Xcode 版本为 **11.5** 及以上。
 - macOS 版本为 **10.14** 及以上。
 
->**注意：** 默认情况下 AppStore 中对应的 Xcode 与系统匹配，如果要使用特定版本的 Xcode，可前往[Xcode 下载页](https://developer.apple.com/xcode/download/) 下载。
+>**注意：** 默认情况下 AppStore 中对应的 Xcode 与系统匹配，如果要使用特定版本的 Xcode，可前往 [Xcode 下载页](https://developer.apple.com/xcode/download/) 下载。
 
 ### 准备测试项目
 
@@ -32,11 +32,11 @@ Cocos Creator 打包环境要求：
 
 #### 配置通用选项
 
-上图中，左边部分为 Cocos Creator 支持的所有平台都需要配置的公共参数，可以前往[通用发布配置](./../build-options.md)查看详情。
+上图中，左边部分为 Cocos Creator 支持的所有平台都需要配置的公共参数，可以前往 [通用发布配置](./../build-options.md) 查看详情。
 
 #### 配置 macOS 专有选项
 
-在面板上向下滑动，可以看到如右图所示的原生（Native）平台和 macOS 平台特有的配置，详情请查看[原生平台通用构建选项](./../native-options.md) 和 [macOS 发布选项](./build-options-mac.md)。
+平台（Platform）选择为 **Mac**，面板向下滑动，可以看到如右图所示的原生（Native）平台和 macOS 平台特有的配置，详情请查看 [原生平台通用构建选项](./../native-options.md) 和 [macOS 发布选项](./build-options-mac.md)。
 
 #### 填写包名
 
@@ -44,12 +44,14 @@ Cocos Creator 打包环境要求：
 
 #### 执行构建
 
-配置完成后，点击 **构建（Build）** 按钮，即可生成 Xcode 项目。
+配置完成后，点击 **构建发布（Build）** 按钮，即可生成 Xcode 项目。
 
 构建成功后，可以点击如下所示的打开文件按钮，打开生成的项目路径。
+
 ![build-open-path-mac](./images/build-open-path-mac.png)
 
 如果未更改过生成路径，可在同目录下找到 build/mac/proj 目录，内容如下所示：
+
 ![xcode-folder-mac](./images/xcode-folder-mac.png)
 
 ### 在 Xcode 中编译运行
@@ -58,7 +60,7 @@ Cocos Creator 打包环境要求：
 
 ![xcode-showcase-mac](./images/xcode-showcase-mac.png)
 
-选择如图所示的 项目名称-desktop 作为编译目标，点击编译并运行按钮，即可启动项目。
+选择如图所示的 **项目名称-desktop** 作为编译目标，点击编译并运行按钮，即可启动项目。
 
 ![run-mac](./images/run-mac.png)
 
@@ -77,15 +79,18 @@ int Game::init() {
 }
 ```
 
+修改完成后，在 Xcode 中再次编译运行，效果如下图所示：
+
 ![run-mac-800to400](./images/run-mac-800to400.png)
 
 ## 进阶
 
 ### 脚本与原生通信
 
-有时候，我们会调用一些 macOS 的系统功能，或者，当我们集成了某个第三方的 macOS SDK 后，调要通过脚本代码调用，此时就需要用到脚本层与原生层的通信机制。
+有时候项目需要从脚本层调用一些 iOS 的系统功能，或者当集成了某个第三方的 iOS SDK 后，调要通过脚本代码调用其 API，此时就需要用到脚本层与原生层的通信机制。
 
-完整的通信机制请参考
+完整的通信机制请参考：
+
 - [基于反射机制实现 JavaScript 与 iOS/macOS 系统原生通信](../../../advanced-topics/oc-reflection.md)。
 - [使用 JsbBridge 实现 JavaScript 与 Objective-C 通信](./../../../advanced-topics/js-oc-bridge.md)
 

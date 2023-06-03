@@ -121,8 +121,8 @@
 
 - [跨平台发布](editor/publish/index.md)
     - [发布 Android 应用](editor/publish/android/index.md)
-        - [安卓构建示例](editor/publish/android/build-example.md)
-        - [安卓构建选项](editor/publish/android/build-options-android.md)
+        - [Android 构建示例](editor/publish/android/build-example.md)
+        - [Android 构建选项](editor/publish/android/build-options-android.md)
     - [发布 iOS 应用](editor/publish/ios/index.md)
         - [iOS 发布示例](editor/publish/ios/build-example-ios.md)
         - [iOS 构建选项](editor/publish/ios/build-options-ios.md)
@@ -134,11 +134,9 @@
         - [Windows 构建示例](editor/publish/windows/build-example-windows.md)
         - [Windows 构建选项](editor/publish/windows/build-options-windows.md)
     - [原生平台发布通用基础](editor/publish/publish-native-index.md)
-        - [通用构建选项介绍](editor/publish/build-options.md)
         - [原生平台通用构建选项](editor/publish/native-options.md)
         - [安装配置原生环境](editor/publish/setup-native-development.md)
         - [原生平台 JavaScript 调试](editor/publish/debug-jsb.md)
-        - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [发布到小游戏平台](editor/publish/publish-mini-game.md)
         - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [发布到支付宝小游戏](editor/publish/publish-alipay-mini-game.md)
@@ -154,11 +152,12 @@
         - [发布到百度小游戏](editor/publish/publish-baidu-mini-game.md)
         - [开放数据域](editor/publish/build-open-data-context.md)
         - [小游戏分包](editor/publish/subpackage.md)
-        - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
     - [发布到 Facebook Instant Games 平台](editor/publish/publish-fb-instant-games.md)
     - [发布到 Web 平台](editor/publish/publish-web.md)
+    - [通用构建选项介绍](editor/publish/build-options.md)
     - [命令行发布项目](editor/publish/publish-in-command-line.md)
     - [定制项目的构建模版](editor/publish/custom-project-build-template.md)
+    - [构建流程简介与常见错误处理](editor/publish/build-guide.md)
 
 ## 功能模块
 

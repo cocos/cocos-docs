@@ -10,7 +10,7 @@
 | TaskFlow 任务调度系统 | API Level 18（4.3）| 12.0 |
 | 延迟渲染管线 | API Level 21（5.0）| 10.0 |
 
-## C++ 与 系统版本
+## C++ 与系统版本
 
 | Cocos Creator | C++ | Android | iOS |
 | :-- | :--- | :-- | :-- |
@@ -21,7 +21,7 @@
 
 > **注意：** 启用 TaskFlow 任务调度系统，会自动开启 C++17 以支持编译，并且 TaskFlow 需要的特性需要 iOS 12+ 的支持。
 
-## 最高版本支持情况
+## 支持的最高系统版本
 
 - Android：API Level 31（13.x）
 - iOS：16.x

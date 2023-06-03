@@ -1,6 +1,11 @@
 # 原生平台发布通用基础
 
-Cocos Creator 目前支持以原生方式发布到 [iOS](./ios/index.md), [Android](./android/index.md), [macOS](./mac/index.md) 和 [Windows](./windows/index.md) 等平台。
+Cocos Creator 支持发布到多个平台的原生应用程序：
+- [发布 iOS 应用程序](./ios/index.md)
+- [发布 Android 应用程序](./android/index.md)
+- [发布 HUAWEI Harmony 应用程序](./publish-huawei-ohos.md)
+- [发布 macOS 桌面端应用](./mac/index.md)
+- [发布 Windows 桌面端应用](./windows/index.md)
 
 以下是发布到原生平台时可能涉及到的通用知识点：
 - [安装配置原生环境](setup-native-development.md)

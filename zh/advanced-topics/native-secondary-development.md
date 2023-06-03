@@ -1,6 +1,6 @@
 # 原生平台二次开发指南
 
-如果一些项目需要增加第三方SDK库，或者增删 C++，OC，JAVA 代码文件，以下内容可以帮你更好地理解。
+如果你需要为增加第三方 SDK 库，或者增删 C++，OC，JAVA 代码文件，以下内容可以帮你更好地理解。
 
 ## 原生项目目录
 
@@ -8,7 +8,7 @@
 
 ### 公共目录
 
-公共目录位置：native/engine/common
+公共目录位置：`native/engine/common`
 
 此目录用于存放共公内容，如引擎库配置，以及一些所有平台都会用上的第三方库。
 
@@ -27,10 +27,6 @@
 
 > win64 用于 windows, 目前已不再支持 win32, 仅支持 win64 应用程序发布。
 
-项目目录会引用原生平台目录下的文件，在IDE中改动对应的部分，平台目录下的文件也会做对就修改。
-
-**例外：** `native/engine/ios/info.plist` 与 `native/engine/mac/info.plist` 文件由于`CMake`的机制，使用的是复制方式。 如果在Xcode中有改动，需要手工同步到对应的 `native` 目录，以方便进行项目源码版本管理。
-
 ### 项目目录
 
 项目目录名字规则：`build/当前构建的平台名称`
@@ -44,7 +40,11 @@
 
 每一次构建时，引擎会将公共目录和原生平台目录，以及 Cocos Creator 项目中的资源、脚本等结合在一起，生成项目目录。
 
-所有的原生平台，都有以下文件：
+项目目录中的代码和相关配置引用原生平台目录下的文件，在 IDE 中改动对应的部分，平台目录下的文件也会做对就修改。
+
+**例外：** `native/engine/ios/info.plist` 与 `native/engine/mac/info.plist` 文件由于`CMake`的机制，使用的是复制方式。 如果要对 `info.plist` 进行修改，则需要注意。
+
+项目目录包含下内容：
 - `assets`：`data` 目录的软链，用于兼容各平台
 - `data`：Cocos Creator 项目中的资源和脚本生成的内容
 - `proj`：存放当前构建的原生平台工程，可用于对应平台的 IDE（如 Xcode，Android Studio 等） 执行编译、调试和发布。
@@ -58,15 +58,15 @@
 
 ### 修改引擎代码
 
-原生端的引擎，也包含了 C++ 和 TS 两个部分。可根据需要进行修改，请参考 [引擎定制工作流程](./engine-customization.md)。
-
-引擎相关的改动，不会影响到项目配置和结构。
+请参考 [引擎定制工作流程](./engine-customization.md)。
 
 ### 修改项目代码
 
-如果需要修改项目相关的代码，只需要在共公目录和平台目录下找到并做对应的修改即可。
+如果需要修改项目相关的代码，只需要找到对应文件进行修改即可，修改完即可编译，不需要额外配置。
 
 ### 增删项目代码文件
+
+增删代码文件，将会涉及到编译配置，而不同的语言和平台有所差异，下面将分类说明。
 
 #### 增删 C++ 文件
 
@@ -95,48 +95,54 @@ list(APPEND CC_PROJ_SOURCES
 )
 ```
 
-#### 增删 OC 和 Java 文件
+#### 增删 OC 文件
 
-如果增删的是 `OC` 和 `JAVA` 代码，则不需要做特殊处理。
+Cocos Creator 生成的 iOS/macOS 原生工程中，Objective-C 文件的管理方式，与 C++ 完全一致，参考上面的内容即可。
 
-### 引入第三方 C++ SDK
+#### 增删 Java 文件
 
-如果引入的库是由 C++ 编写而成，则根据情况将 SDK 放入 `native/engine/common/` 或者 `native/engine/平台名称/` 目录下，并修改对应目录下的 `CMakeList.txt`
+Java 语言本身是基于路径的包管理机制，增删 `JAVA` 文件不需要做特殊处理。
 
-如果引入的 C++ SDK 有动态库或者静态库需要链接，则除了配置文件列表，还要配置对应的库。
+### 引入第三方 C++/OC 库
 
-> 大部分 C++ SDK 也提供了自己的 `CMakeList.txt`，直接通过 `include` 的方式集成就行。
+如果引入的库是由 C++/OC 编写而成，则根据情况将 SDK 放入 `native/engine/common/` 或者 `native/engine/平台名称/` 目录下，并修改对应目录下的 `CMakeList.txt`。
 
-更多关于 CMake 的使用，详情可参考 [CMake 使用简介](../../advanced-topics/cmake-learning.md)。
+OC 库只能放在平台目录，不能放在 `native/engine/common/`，否则会导致在其他原生平台出现编译错误。
 
-### 引入 OC 库和 Jar 库
+大部分 C++ SDK 也提供了自己的 `CMakeList.txt`，直接通过 `include` 的方式集成就行。
 
-如果引入的库是 iOS，macOS 和 Android 平台特有的库，直接放到对应的 `native/engine/平台名称/` 目录，并配置引用。
-- iOS,macOS 平台，直接在Xcode 中引入，会自动修改对应的配置文件。
-- Android 平台，配置 `native/android/build.gradle` 即可。
+关于 CMake 的配置，可以参考项目中已有的 `CMakeList.txt` 进行修改。更多关于 CMake 的使用详情，可参考 [CMake 使用简介](../../advanced-topics/cmake-learning.md)。
+
+### 引入 Jar 库
+
+如果引入的库是 Android 平台特有的库，直接放到对应的 `native/engine/android/` 目录，配置 `native/android/build.gradle` 即可。
+
+## 脚本与原生通信
+
+新写的原生方法，或者新引入的原生 SDK，如果想要导出到脚本层使用，可以采用以下几种方案。
+
+### 使用 JsbBridge
+
+如果需要调用一些简单，非高频的函数，可以使用 `JsbBridge` 机制进行调用。
+
+- [使用 JsbBridge 实现 JavaScript 与 Java 通信](js-java-bridge.md)
+- [使用 JsbBridge 实现 JavaScript 与 Objective-C 通信](js-oc-bridge.md)
+
+### JSB 自动绑定
+
+对于需要高频调用，或者批量导出 API 到脚本层的接口，建议使用 [JSB 自动绑定](jsb-auto-binding.md) 机制实现脚本与原生交互。
+
+### 基于语言反射机制
+
+基于 Java 和 OC 语言反射机制的通信，也可以很方便实现脚本与原生的交互，但由于 iOS 的审核规则越来越严格，iOS 上使用反射机制有审核失败的风险。
+
+- [基于反射机制实现 JavaScript 与 Android 系统原生通信](java-reflection.md)
+- [基于反射机制实现 JavaScript 与 iOS/macOS 系统原生通信](oc-reflection.md)
 
 ## 源码版本管理
 
-如果你的团队使用源码版本管理软件进行多人协同工作，`native/` 目录需要全部加入到源码版本管理。
+如果你的团队使用源码版本管理软件进行多人协同工作，`native` 目录需要全部加入到源码版本管理。
 
 所有的项目定制化工作都应该尽量放到 `native` 目录，这样 `build` 目录就可以随时被删除，它不需要加入到源代码版本管理。
 
 对于一些特殊的项目需求，无法在 `native` 目录下完成，则需要改动 `build` 目录下的内容，此时应该根据需求将对应的文件夹加入管理。
-
-## 更多阅读
-
-新增的原生功能，如果想要导出到脚本层使用，请参考下面的文章：
-
-### 基于语言反射机制
-
-[基于反射机制实现 JavaScript 与 Android 系统原生通信](java-reflection.md)
-[基于反射机制实现 JavaScript 与 iOS/macOS 系统原生通信](oc-reflection.md)
-
-### 使用 JsbBridge
-
-[使用 JsbBridge 实现 JavaScript 与 Java 通信](js-java-bridge.md)
-[使用 JsbBridge 实现 JavaScript 与 Objective-C 通信](js-oc-bridge.md)
-
-### JSB 自动绑定
-
-对于需要高频调用，或者批量导出到脚本层的接口，建议使用 [JSB 自动绑定](jsb-auto-binding.md) 机制实现脚本与原生交互。

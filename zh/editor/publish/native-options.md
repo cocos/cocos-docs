@@ -2,7 +2,7 @@
 
 点击菜单栏的 **项目 -> 构建发布**，打开构建发布面板。
 
-目前可以选择的原生平台包括 Android、iOS、Mac、Windows 四个，其中发布到 iOS、Mac 和 Windows 的选项只能在相应的操作系统中才会出现。
+目前可以选择的原生平台包括 Android、iOS、HarmonyOS、Mac 和 Windows 四个。iOS、Mac 只在 macOS 电脑上才能选择，Windows 只在 Windows 电脑上才能选择。
 
 ![native platform](publish-native/native-platform.png)
 
@@ -31,7 +31,7 @@
 1. TBB 与 TaskFlow 会因项目情况和环境不同而产生表现差异，应根据实际项目情况做出选择。
 2. TBB 或 TaskFlow 在原生平台上的应用会有版本限制，具体请查看下文 **版本支持** 部分的内容。
 
-TaskFlow 依赖特定的 C++ 版本和操作系统版本，请往[特性与系统版本](./../../advanced-topics/supported-versions.md)查看详情。
+TaskFlow 依赖特定的 C++ 版本和操作系统版本，请往 [特性与系统版本](./../../advanced-topics/supported-versions.md) 查看详情。
 
 ### 自动执行下一步
 
@@ -39,7 +39,7 @@ TaskFlow 依赖特定的 C++ 版本和操作系统版本，请往[特性与系�
 
 构建面板右下方，有 **构建**，**生成**，**运行** 三个按钮，默认情况下，需要点击对应的按钮，才会执行相应的动作。
 
-可以点击两个按钮之间的 链接 按钮，按钮会变为箭头，意味着箭头指向的下一步会在上一步操作完成后自动执行。 再次点击箭头，可恢复为之前的状态。
+可以点击两个按钮之间的 **链接** 按钮，按钮会变为 **箭头**，意味着箭头指向的下一步会在上一步操作完成后自动执行。 再次点击箭头，可恢复为之前的状态。
 
 ## 其他构建选项
 
@@ -63,23 +63,11 @@ TaskFlow 依赖特定的 C++ 版本和操作系统版本，请往[特性与系�
 
 ### 原生工程目录结构
 
-构建成功后，我们会得到一个标准的 Cocos 引擎原生工程。 以 Windows 平台为例，导出的原生工程包 `windows` 的目录结构为：
+Cocos Creator 构建的原生工程，包含 原生公共目录，原生平台目录和原生项目目录，详情请参考 [原生平台二次开发指南](../../advanced-topics/native-secondary-development.md)。
 
-![native directory](publish-native/native-directory.png)
+## 编译和运行
 
-- `assets`：存放项目资源
-- `proj`：存放当前构建的原生平台工程，可用于对应平台的 IDE 执行编译任务，详情请参考下文介绍
-- `cocos.compile.config.json`：本次构建的编译选项配置
-
-因为原生平台（例如 Android、iOS、Windows、macOS）构建后生成的 C++ 代码部分是完全一致的，所以在我们将底层 C++ 代码单独提取出来放在项目目录下共享的 `native/engine/common` 文件夹中。在构建原生平台时，如果检测到已经存在该文件夹，这部分内容便不会再进行处理，加快构建速度。
-
-![native-common](publish-native/native-common.png)
-
-更多关于目录结构的说明，请参考 [构建目录差异 — 原生平台](../../release-notes/upgrade-guide-v3.0.md#%E5%8E%9F%E7%94%9F%E5%B9%B3%E5%8F%B0)
-
-## 生成和运行
-
-在 Cocos Creator 中，可以通过构建面板上的按钮，生成和运行项目，也可以通过各平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开项目，执行进一步的预览、调试和发布。
+在 Cocos Creator 中，可以通过构建面板上的按钮，编译和运行项目，也可以通过各平台对应的 IDE（如 Xcode、Android Studio、Visual Studio）打开项目，执行进一步的编译、运行、调试和发布。
 
 ### 通过编辑器
 
@@ -87,7 +75,7 @@ TaskFlow 依赖特定的 C++ 版本和操作系统版本，请往[特性与系�
 
 `make package YourProjectBuildPath success!`
 
-> **注意**：首次生成 Android 项目或者有版本升级时，需要通过 Android Studio 打开工程，检查是否有缺失的工具和错误，确认无误后方可使用构建面板按钮生成和运行。
+> **注意**：首次编译 Android 项目或者有版本升级时，需要通过 Android Studio 打开工程，检查是否有缺失的工具和错误，确认无误后方可使用构建面板按钮生成和运行。
 
 **生成** 过程完成后，继续点击旁边的 **运行** 按钮，可能还会继续进行一部分编译工作，请耐心等待或通过日志文件查看进展。各平台的运行结果为：
 

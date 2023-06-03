@@ -1,6 +1,6 @@
 # Windows 构建指引
 
-Cocos Creator 支持发布到 Windows，但至少需要一台支持 Windows 的设备。
+Cocos Creator 支持发布 Windows 桌面应用程序，但至少需要一台支持 Windows 的设备。
 
 ## 主要内容
 
