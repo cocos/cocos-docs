@@ -5,7 +5,7 @@
 - 不受光源影响的物体
 - 画面要求不高或性能要求高的场景
 
-在材质的 **Effect** 属性中将着色器切换为 Cocos Creator 内置的无光照着色器（builtin-unilit.effect）时，如下图：
+在材质的 **Effect** 属性中将着色器切换为 Cocos Creator 内置的无光照着色器（builtin-unlit.effect）时，如下图：
 
 ![unlit](img/unlit-shademode.png)
 

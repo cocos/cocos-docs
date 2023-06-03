@@ -42,7 +42,7 @@ CCEffect %{
 CCProgram unlit-vs %{
   precision highp float;
   #include <...>
-  #cinlude <....>
+  #include <....>
 
   vec4 vert(){
     vec4 position;
@@ -55,7 +55,7 @@ CCProgram unlit-vs %{
 CCProgram unlit-fs %{
   precision highp float;
   #include <...>
-  #cinlude <....>
+  #include <....>
 
   vec4 frag(){
     vec4 o = mainColor;
@@ -89,7 +89,7 @@ CCEffect %{
 
 一个 `CCEffect` 中支持定义多个渲染技术，但在实际渲染时，同一个材质实例只能应用其中一个技术。
 
-以 `builtin-unlit.effect` 为例，其中包含了三个技术：
+以 `builtin-unlit.effect` 为例，其中包含了 4 个技术：
 - opaque
 - transparent
 - add

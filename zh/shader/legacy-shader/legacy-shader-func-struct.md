@@ -149,7 +149,7 @@ vec4 frag () {
 }
 ```
 
-也可以参考 `bultin-standard.effect` 中，使用 `surf` 函数与 `CC_STANDARD_SURFACE_ENTRY()` 宏组合。
+也可以参考 `builtin-standard.effect` 中，使用 `surf` 函数与 `CC_STANDARD_SURFACE_ENTRY()` 宏组合。
 
 `CC_STANDARD_SURFACE_ENTRY()` 是一个 wrapper，会根据渲染状态，利用 `surf` 函数构建出一个可用于片元的 `main` 函数，代码示例如下：
 

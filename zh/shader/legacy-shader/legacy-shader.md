@@ -1,6 +1,6 @@
 # 传统着色器 Legacy Shader
 
-相对于传统着色器而言，表面着色器让流程更统一，暴露给用户的细节更少，因此从 3.7.2 开始，Suface Shader 作为默认的 builtin-standard 出现。
+相对于传统着色器而言，表面着色器让流程更统一，暴露给用户的细节更少，因此从 3.7.2 开始，Surface Shader 作为默认的 builtin-standard 出现。
 
 但传统着色器（Legacy Shader) 与 表面着色器（Surface Shader）各有优缺：
 

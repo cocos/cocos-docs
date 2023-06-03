@@ -74,7 +74,7 @@ CCProgram surface-fragment %{
 
 在这两个代码片段中，通过宏定义机制，替换内部函数。也可以增加自己的 vs 到 fs 的输入。
 
-详情请参考 [使用宏定义实现函数替换](./function-replace.md)， [Verex Shader 的输入值](./vs-input.md) 和 [Fragment Shader 的输入值](./fs-input.md)。
+详情请参考 [使用宏定义实现函数替换](./function-replace.md)， [Vertex Shader 的输入值](./vs-input.md) 和 [Fragment Shader 的输入值](./fs-input.md)。
 
 ## 5、Shader 组装器
 
