@@ -2,6 +2,8 @@
 
 ## 射线检测
 
+## 射线检测
+
 射线检测是对一条射线和另一个形状进行 **相交性判断**，如下图所示。
 
 ![图解](img/raycast.jpg)
@@ -174,3 +176,7 @@ if (PhysicsSystem.instance.lineStripCast(sampleArray, ... )) {
     }
 }
 ```
+
+如果要投射其他几何体，请参考 [几何投射检测](./physics-sweep.md)。
+
+
