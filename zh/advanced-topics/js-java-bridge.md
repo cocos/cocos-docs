@@ -81,15 +81,17 @@ public class JsbBridge {
 
 ```JAVA
 JsbBridge.setCallback(new JsbBridge.ICallback() {
-        @Override
-        public void onScript(String usrName, String url) {
-            // Check usr
-            // Open Ad
-            openAd(url);
+    @Override
+    public void onScript(String arg0, String arg1) {
+        //TO DO
+        if(arg0.equals("open_ad")){
+            //call openAd method.
         }
-    });
-    
+    }
+});
 ```
+
+> 实际项目中，上面的代码一般会在 `AppActivity.java` 的 `onCreated` 中直接或者间接被调用，以确保能够响应所有来自脚本层的调用。
 
 在 JavaScript 脚本中，我们就可以像下面一样调用：
 
@@ -119,6 +121,8 @@ native.bridge.onNative = (arg0:string, arg1: string):void=>{
     return;
 }
 ```
+
+> 实际项目中，可以将以面代码写在一个程序启动时就要加载的脚本脚本的 onload 函数中，以确保尽早监听来自原生层的事件。
 
 然后，在`Objective-C` 中，用如下代码调用：
 

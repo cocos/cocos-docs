@@ -79,19 +79,23 @@ public class Test {
 接下来我们看几个 Test 类中的静态方法的调用示例：
 
 ```js
-// 调用 hello 方法
-native.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
+if(sys.os == sys.OS.ANDROID && sys.isNative){
+    // 调用 hello 方法
+    native.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
 
-// 调用第一个 sum 方法
-var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
-log(result); // 10
+    // 调用第一个 sum 方法
+    var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
+    log(result); // 10
 
-// 调用第二个 sum 方法
-var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
-log(result); // 5
+    // 调用第二个 sum 方法
+    var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
+    log(result); // 5
+}
 ```
 
-可以在 **控制台** 中看到相应的输出结果。
+`sys.isNative`  用于判断是否为原生平台，`sys.os` 用于判断当前运行系统。由于各平台通信机制不同，建议先判断再处理。
+
+运行后，可以在 **控制台** 中看到相应的输出结果。
 
 ## Java 调用 JavaScript
 
@@ -125,6 +129,8 @@ window.callByNative = function(){
 }
 ```
 
+> `window` 是 Cocos 引擎脚本环境中的全局对象，如果要让一个变量、函数、对象或者类全局可见，需要将它作为 `window` 的属性。 可以使用 `window.变量名` 或者  `变量名` 进行访问。
+
 然后像下面这样调用:
 
 ```java
@@ -136,16 +142,29 @@ CocosHelper.runOnGameThread(new Runnable() {
 });
 ```
 
+或者：
+
+```js
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("callByNative()");
+    }
+});
+```
+
 ### 调用对象的静态函数
 
 假如在 TypeScript 脚本中有一个对象具有如下静态函数：
 
 ```ts
-export class NativeCallback{
-  public static somethingDone(){
+export class NativeAPI{
+  public static callByNative(){
     //to do
   }
 }
+//将 NativeAPI 注册为全局类，否则无法在 OC 中被调用
+window.NativeAPI = NativeAPI;
 ```
 
 我们可以像这样调用：
@@ -154,7 +173,7 @@ export class NativeCallback{
 CocosHelper.runOnGameThread(new Runnable() {
     @Override
     public void run() {
-        CocosJavascriptJavaBridge.evalString("NativeCallback.somethingDone()");
+        CocosJavascriptJavaBridge.evalString("NativeAPI.callByNative()");
     }
 });
 ```
@@ -164,24 +183,23 @@ CocosHelper.runOnGameThread(new Runnable() {
 如果脚本代码中，有实现可以全局访问的单例对象
 
 ```ts
-export class NativeCallback{
-  private static _inst:NativeCallback;
+export class NativeAPIMgr{
+  private static _inst:NativeAPIMgr;
   
-  public static get inst():NativeCallback{
+  public static get inst():NativeAPIMgr{
     if(!this._inst){
-      this._inst = new NativeCallback();
+      this._inst = new NativeAPIMgr();
     }
     return this._inst;
   }
 
-  public static somethingDone(){
-    //to do
-  }
-
-  public static somethingDone2(a:string, b:number){
+  public static callByNative(){
     //to do
   }
 }
+
+//将 NativeAPIMgr 注册为全局类，否则无法在 OC 中被调用
+window.NativeAPIMgr = NativeAPIMgr;
 ```
 
 我们可以像下面这样调用：
@@ -190,7 +208,7 @@ export class NativeCallback{
 CocosHelper.runOnGameThread(new Runnable() {
     @Override
     public void run() {
-        CocosJavascriptJavaBridge.evalString("NativeCallback.inst.somethingDone()");
+        CocosJavascriptJavaBridge.evalString("NativeAPIMgr.inst.callByNative()");
     }
 });
 ```
@@ -223,11 +241,11 @@ CocosHelper.runOnGameThread(new Runnable() {
 如果要在 C++ 中调用 `evalString`，我们可以参考下面的方式，确保 `evalString` 在 JavaScript 引擎所在的线程被执行：
 
 ```c++
-Application::getInstance()->getScheduler()->performFunctionInCocosThread([=]() {
+CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=]() {
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
 ```
 
 ## 线程安全
 
-可以看到，上面的代码中，使用了 `CocosHelper.runOnGameThread` 和 `Application::getInstance()->getScheduler()->performFunctionInCocosThread`。这是为了代码在执行时处于正确的线程，详情请参考：[线程安全](./thread-safety.md)。
+可以看到，上面的代码中，使用了 `CocosHelper.runOnGameThread` 和 `CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread`。这是为了代码在执行时处于正确的线程，详情请参考：[线程安全](./thread-safety.md)。

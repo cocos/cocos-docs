@@ -1,231 +1,138 @@
 # 安卓构建示例
 
-本节我们介绍如何通过 Android Studio 构建安卓工程。
+本文将演示 Cocos Creator 项目发布为 Android 应用程序的流程。
 
 请准备一个至少含有一个场景的 Cocos Creator 项目。
 
 ![project.png](images/project.png)
 
+## 发布环境搭建
+
+要想发布 Android 原生应用，需要安装 Android Studio 开发环境，以及特定版本的 JDK（或者 OpenSDK），Android SDK，NDK 等。详情请参考 [配置 Android 原生开发环境](build-setup-evn-android.md)。
+
 ## 发布流程
 
-### 配置安卓开发环境
+接下来，在 Cocos Creator 找到 **项目** 菜单，点击 **构建发布** 按钮，弹出 **构建发布** 面板。
 
-- 下载 Android Studio
+### 创建发布任务
 
-    开发者可以从 [Android Studio 官方网站](https://developer.android.com/studio) 下载对应的 IDE。
+1. 选择 **项目** -> **构建** 菜单，打开构建面板
 
-- 参考 [安装配置原生开发环境](../setup-native-development.md##android-%E5%B9%B3%E5%8F%B0%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96) 搭建开发环境
+    ![cc-build-menu.png](images/cc-build-menu.png)
 
-    - 下载并安装 JDK
-        - 参考 [安装配置原生开发环境 - 下载 Java SDK（JDK）](../setup-native-development.md#%E4%B8%8B%E8%BD%BD-java-sdk%EF%BC%88jdk%EF%BC%89)
-        - 在终端中输入 `java -version` 查看是否安装成功
+2. 点击面板上的 **新建构建任务** 选项：
 
-            ![terminal.png](images/terminal.png)
+    ![new-build-task.png](images/new-build-task.png)
 
-            > 需要配置对应的环境变量，请参考 [如何设置或更改 JAVA 系统环境变量](https://www.java.com/zh_CN/download/help/path.xml)。 <br>
-            >
-            > **注意**：笔者采用的 [OpenJDK](https://openjdk.org/)，功能上和 JDK 相同但开源协议不同。
+3. 选择构建平台为安卓：
 
-    - 下载并安装 Android SDK
-        - Android Studio 下载 Android SDK 示例
+    ![select-platform.png](images/select-platform.png)
 
-            - 启动 Android Studio
+4. 选择至少一个场景作为应用载入的首场景，当仅有一个场景时会被默认添加：
 
-            - 通过下列菜单打开 Setting 面板
+    ![start-scene.png](images/start-scene.png)
 
-                ![as-setting.png](images/as-setting.png)
+5. 参考 [Android 平台构建选项 - 渲染后端](../native-options.md#%E6%B8%B2%E6%9F%93%E5%90%8E%E7%AB%AF) 选择渲染后端
 
-            - 在 Setting 内找到 SDK 下载分页
+    ![render-backend.png](images/render-backend.png)
 
-                ![download-sdk.png](images/download-sdk.png)
+6. 填入包名
 
-            - 选中对应版本的 SDK 并加载，可以选择使用  [下载发布 Android 平台所需的 SDK 和 NDK](../setup-native-development.md#%E4%B8%8B%E8%BD%BD%E5%8F%91%E5%B8%83-android-%E5%B9%B3%E5%8F%B0%E6%89%80%E9%9C%80%E7%9A%84-sdk-%E5%92%8C-ndk) 中推荐的版本
+    ![game-package-name.png](images/game-package-name.png)
 
-                - 以 Android 11.0(R) 为示例，选中 Name 前的勾并点击上图中的 OK 或者 Apply 按钮。
+    > 名称规范请参考 [应用 ID 名称](../native-options.md#%E5%BA%94%E7%94%A8-id-%E5%90%8D%E7%A7%B0)
 
-                - 在弹出框中选择 OK
+7. 选择 Target API Level
 
-                    ![confirm-change.png](images/confirm-change.png)
+    ![target-api-level.png](images/target-api-level.png)
 
-                - 下载
+    > 如果没有下拉框，请检查上面的 **配置 SDK 和 NDK** 是否正确。
 
-                    ![component-installer.png](images/component-installer.png)
+其他选项请参考 [Android 平台构建选项](../native-options.md#android-%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9) 进行配置。
 
-        - 手动下载 Android SDK
+### 构建与发布
 
-            如果出现网络问题无法下载 SDK，可以通过手动的方式下载并放在 **Android SDK Location** 配置的目录内
+1. 构建：点击下方的 **构建** 按钮会创建一个新的构建任务并开始构建
 
-            > 您也可以点击后方的 **Edit** 按钮选择不同的路径
+    ![build.png](images/build.png)
 
-            ![sdk-location.png](images/sdk-location.png)
+2. 等待构建完成
 
-        - 无法下载 SDK 时可以选择其他镜像（可选）：
+    ![building.png](images/building.png)
 
-            - 在 Android Studio 中配置 HTTP 代理：
+3. 在点击下面的按钮打开生成好的 Android Studio 工程：
 
-                - 自动配置代理：
+    ![open](images/open.png)
 
-                   在 Setting 中找到 HTTP Proxy，勾选 Auto-detect proxy settings，填入下方描述的镜像源，以腾讯源为例：
+4. 找到工程对应的目录
 
-                    ![http-proxy.png](images/http-proxy.png)
+    ![find-proj](images/find-proj.png)
 
-            - 可选的镜像源：
+5. 打开 Android Studio 的菜单：
 
-                安卓 SDK 以及下文中提到的 Gradle 都会有一些镜像源用于帮助您解决无法从官网下载的问题，如果下方表格的镜像也无法解决，也可以从搜索引擎获取。
+    ![android studio open project menu](images/as-open-menu.png)
 
-                | 镜像源 | 地址 |
-                | :--- | :--- |
-                | 腾讯 | <https://mirrors.cloud.tencent.com/AndroidSDK/> |
-                | 阿里云 | <https://mirrors.aliyun.com/android.googlesource.com/> |
+6. 打开已经构建好的项目，`{项目路径}/build/android/proj`：
 
-                > 如果出现镜像不可用的情况，您可以视可用性更换不同的镜像源。
+    ![android studio open project](images/as-open-proj.png)
 
-    - 下载并安装 NDK
-        - 根据 [安装配置原生开发环境 - 下载发布 Android 平台所需的 SDK 和 NDK](../setup-native-development.md) 推荐的版本区间下载 NDK（推荐使用版本为 **r18~21**）
+7. 使用 Android Studio 构建 APK
 
-            - 通过 Android Studio 下载 NDK：
+    打开 Android Studio 后，会花一段时间进行准备工作，待 Android Studio 将项目准备完成后，即可打包 APK。准备过程可能会耗时较久，如果长时间无响应，请检查网络，或者切换到其他镜像。此时如果您需要中断目前的后台任务，可参考下列关闭方法：
 
-                - 打开 Android Studio 的 **Setting** 窗口，找到 **Android SDK** 分页：
+    > Android Studio 有后台任务时，可以点击窗口下方的后台任务栏：
+    > ![background-task.png](./images/background-task.png) <br>
+    > 在弹出窗中点击右侧的 × 以结束后台任务：
+    > ![interrupt-sync.png](images/interrupt-sync.png)
 
-                    > **注意**：需要勾选 **Show Package Details**: <br>
-                    > ![show-package-details.png](images/show-package-details.png)
+8. 打开 **Build** 菜单选择 **Build Bundle(s) / APK(s)**：
 
-                    ![download-ndk-by-as.png](images/download-ndk-by-as.png)
+    ![build-apk.png](images/build-apk.png)
 
-                    勾选合适的版本进行下载，如果无法刷新出所有 NDK 版本，请查看下文手动下载部分。
+9. 发布成功后可以在 proj/build 目录内找到 Debug 版本的 APK：
 
-            - 手动下载 NDK：
+    ![apk.png](images/apk.png)
 
-                - 您可以在 [历史版本](https://github.com/android/ndk/wiki/Unsupported-Downloads#r20b) 找到下载。
+## 秘钥生成与使用
 
-                    在上述地址中找到对应平台的 NDK 版本并下载，此处以 r20b 为例，选择您的操作系统所需的安装包，下载并解压到本地。
+正式版本的发布，不能使用调试密钥，需要自行创建密钥。
 
-                    ![download-ndk.png](images/download-ndk.png)
+### 创建密钥
 
-### 配置 SDK 和 NDK
+秘钥可以通过 Android Studio 来生成：
 
-回到 Cocos Creator 中，在 **文件** -> **偏好设置** 内找到 **程序管理器**，并配置好 Android NDK 和 Android SDK：
+1. 在 Android Studio 中点击 Build 菜单，选中 Generate Signed Bundle / APK：
 
-![program.png](images/program.png)
+    ![gen-sign-apk.png](images/gen-sign-apk.png)
 
-目录选择如下：
+2. 在弹出菜单的窗口中选择 APK，点击 Next 按钮：
 
-- NDK：
+    ![gen-apk.png](images/gen-apk.png)
 
-    ![ndk-dir.png](images/ndk-dir.png)
+3. 在引导的窗口中点击 Create new：
 
-- SDK：
+    ![create-sign.png](images/create-sign.png)
 
-    ![sdk-dir.png](images/sdk-dir.png)
+4. 在弹出的窗口中，填好相应信息即可：
 
-### 发布
+    ![android-keystore-panel.png](images/android-keystore-panel.png)
 
-接下来，在 Cocos Creator 找到 **项目** 菜单，创建发布任务并发布。
+    > 不同的项目，建议使用不同的密钥。可以将每个项目的密钥保存在项目根目录下。
 
-- 创建发布任务
+### 使用密钥
 
-    - 选择 **项目** -> **构建** 菜单，打开构建面板
+密钥创建成功后，会在选择的目录下生成一个密钥文件，我们可以在 Android 构建面板上，将密钥信息填好。 这样不管是调试版还是发布版，都使用的是自己创建的密钥。
 
-        ![cc-build-menu.png](images/cc-build-menu.png)
+如下图所示，取消 **使用调试秘钥**，并从下方的 **秘钥库路径** 中找到自定义的秘钥文件，填好相关信息即可。
 
-    - 点击面板上的 **新建构建任务** 选项：
+![debug-keystone.png](images/debug-keystone.png)
 
-        ![new-build-task.png](images/new-build-task.png)P
+### 注意事项
 
-    - 选择构建平台为安卓：
-
-        ![select-platform.png](images/select-platform.png)
-
-    - 选择至少一个场景作为应用载入的首场景，当仅有一个场景时会被默认添加：
-
-        ![start-scene.png](images/start-scene.png)
-
-    - 参考 [Android 平台构建选项 - 渲染后端](../native-options.md#%E6%B8%B2%E6%9F%93%E5%90%8E%E7%AB%AF) 选择渲染后端
-
-        ![render-backend.png](images/render-backend.png)
-
-    - 填入包名
-
-        ![game-package-name.png](images/game-package-name.png)
-
-        > 名称规范请参考 [应用 ID 名称](../native-options.md#%E5%BA%94%E7%94%A8-id-%E5%90%8D%E7%A7%B0)
-
-    - 选择 Target API Level
-
-        ![target-api-level.png](images/target-api-level.png)
-
-        > 如果没有下拉框，请检查上面的 **配置 SDK 和 NDK** 是否正确。
-
-    - 其他选项请参考 [Android 平台构建选项](../native-options.md#android-%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
-
-- 发布
-
-    - 构建：点击下方的 **构建** 按钮会创建一个新的构建任务并开始构建
-
-        ![build.png](images/build.png)
-
-    - 等待构建完成
-
-        ![building.png](images/building.png)
-
-    - 编译导出的工程
-
-        - 在点击下面的按钮打开生成好的 Android Studio 工程：
-
-          ![open](images/open.png)
-
-        - 找到工程对应的目录
-
-          ![find-proj](images/find-proj.png)
-
-        - 打开 Android Studio 的菜单：
-
-          ![android studio open project menu](images/as-open-menu.png)
-
-        - 打开已经构建好的项目，默认在 {项目路径}/build 里，工程名默认为 android：
-
-          ![android studio open project](images/as-open-proj.png)
-
-    - 使用 Android Studio 构建 APK
-
-        待 Android Studio 将项目准备完成后，即可打包 APK，准备过程可能会耗时较久，如果长时间无响应，请检查网络，或者切换到其他镜像。此时如果您需要中断目前的后台任务，可参考下列关闭方法：
-
-        > Android Studio 有后台任务时，可以点击窗口下方的后台任务栏：
-        > ![background-task.png](./images/background-task.png) <br>
-        > 在弹出窗中点击右侧的 × 以结束后台任务：
-        > ![interrupt-sync.png](images/interrupt-sync.png)
-
-        - 打开 **Build** 菜单选择 **Build Bundle(s) / APK(s)**：
-
-            ![build-apk.png](images/build-apk.png)
-
-        - 发布成功后可以在 proj/build 目录内找到 Debug 版本的 APK：
-
-            ![apk.png](images/apk.png)
-
-    - 正式版本需要避免使用调试秘钥：取消 **使用调试秘钥** 并从下方的 **秘钥库路径** 中找到自定义的秘钥。
-
-        ![debug-keystone.png](images/debug-keystone.png)
-
-        如果无秘钥，可以使用 JAVA 来生成对应的秘钥；也可以通过 Android Studio 来生成：
-
-        - 选中 Generate Signed Bundle / APK：
-
-            ![gen-sign-apk.png](images/gen-sign-apk.png)
-
-        - 选中生成 APK：
-
-            ![gen-apk.png](images/gen-apk.png)
-
-        - 在引导的窗口中点击 Create new：
-
-            ![create-sign.png](images/create-sign.png)
+1. 建议项目第一次发布时，就为项目创建一个专用的密钥。
+2. 一些 SDK 的服务接入需要 APK 密钥签名验证，使用默认的调试密钥可能导致服务调用失败。
 
 ## 进阶
-
-### 导入第三方库
-
-为了将应用发布到应用市场，通常需要对接某些第三方的 SDK，通常这些 SDK 会提供给您 JAR 或 AAR 格式，您可以参考 [在其他项目中使用您的库](https://developer.android.com/studio/projects/android-library?hl=zh-cn#psd-add-library-dependency) 将本地的库导入到工程内。
 
 ### JAVA 和 TypeScript 互相通信
 
@@ -233,77 +140,17 @@
 
 常见的 SDK 接入时，我们需要通过 SDK 的登陆接口进行登陆操作，获取到登陆结果后再将结果传入到 TypeScript 层以方便游戏进行处理。
 
-引擎提供 [简化使用 JavaScript 调用 Java 方法](../../../advanced-topics/js-java-bridge.md) 可以较为快速的解决这类问题。通常来说，这个机制用于对接 SDK 中如注册、登陆等行为是比较方便的。
+引擎提供了三种用于 TS 与 Android 原生通信的方法。
 
-- 在安卓工程中找到 `AppActivity.java` 并在 `onCreated` 方法中添加如下代码：
+- [使用 JsbBridge 实现 JavaScript 与 Java 通信](../../../advanced-topics/js-java-bridge.md) ：用于对接 SDK 中如注册、登陆、广告弹出等行为是非常方便的，可以较为快速的解决这类问题。
 
-    ```java
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // DO OTHER INITIALIZATION BELOW
-        SDKWrapper.shared().init(this);
+- [JSB 2.0 绑定教程](../../../advanced-topics/JSB2.0-learning.md)：需要高频调用，或者批量导出 API 时，推荐使用这个方法。
 
-        JsbBridge.setCallback(new JsbBridge.ICallback() {
-            @Override
-            public void onScript(String arg0, String arg1) {
-                Log.d("[AppActivity]", "onScript: " + arg0 + "," + arg1);
-                JsbBridge.sendToScript("sdklogin", "result json here");
-            }
-        });
-    }
+- [基于反射机制实现 JavaScript 与 Android 系统原生通信](../../../advanced-topics/java-reflection.md) ：在一些非高频调用时，非常有效。
 
-    ```
+### 导入第三方库
 
-    添加完成后，`JsbBridge.setCallback` 的回调 `onScript` 就可以接受到 TypeScript 内发送的信息。
-
-    `JsbBridge.sendToScript` 可以将信息发送到 TypeScript 层。
-
-- 在编辑器中创建一个脚本并添加如下代码：
-
-    ```ts
-    import { _decorator, Component, Label, native } from 'cc';
-    import { NATIVE } from 'cc/env';
-    const { ccclass, property } = _decorator;
-
-    @ccclass('DebugOnNative')
-    export class DebugOnNative extends Component {
-
-        @property(Label)
-        debugLabel: Label = null;
-
-        start() {
-            if (NATIVE) {
-                native.bridge.onNative = (arg0: string, arg1?: string | null) => {
-                    console.log('onNative', arg0, arg1);
-
-                    this.debugLabel.string = 'onNative' + arg0 + "," + arg1;
-                }
-            }       
-        }
-
-        onSendToNative() {
-            if (NATIVE) {
-                native.bridge.sendToNative("logInToGameSerivceResult", "isOK=true");
-            }
-        }
-    }
-    ```
-
-    `native.bridge.sendToNative` 方法允许 TypeScript 层向 Java 层发送信息，并在 JAVA 层内的 `JsbBridge.setCallback` 的回调 `onScript` 被接收到。
-
-    `native.bridge.onNative` 回调可以接受 JAVA 层通过 `JsbBridge.sendToScript` 发送的信息。
-
-    编译并启动游戏，触发 `onSendToNative` 方法后即可观察到日志情况：
-
-    ![java-ts.png](images/java-ts.png)
-
-    > **注意**：
-    > 1. 使用 **NATIVE** 宏来控制访问权限，只有原生的应用才可以访问这些方法
-    > 2. 待引擎初始化完成才可以调用 **JsbBridge.sendToScript** 向 JAVA 发送消息
-    > 3. 该方法只能传输字符串，复杂数据可以编码为 JSON 格式后传输
-
-对于复杂的数据结构可以参考 [JSB Swig](../../../advanced-topics/jsb-swig.md) 或 [JSB](../../../advanced-topics/JSB2.0-learning.md)。
+为了将应用发布到应用市场，通常需要对接某些第三方的 SDK，通常这些 SDK 会提供给您 JAR 或 AAR 格式，您可以参考 [在其他项目中使用您的库](https://developer.android.com/studio/projects/android-library?hl=zh-cn#psd-add-library-dependency) 将本地的库导入到工程内。
 
 ### 扩展发布机制
 
@@ -326,4 +173,4 @@
 
 ## 特性与系统版本
 
-不同的特性会依赖特定的系统版本，请往[特性与系统版本](./../../../advanced-topics/supported-versions.md)查看详情。
+不同的特性会依赖特定的系统版本，请往 [特性与系统版本](./../../../advanced-topics/supported-versions.md) 查看详情。

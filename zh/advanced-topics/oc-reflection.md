@@ -38,11 +38,15 @@ import <Foundation/Foundation.h>
 有参方法调用示例：
 
 ```js
-var ret = native.reflection.callStaticMethod("NativeOcClass",
-                                          "callNativeUIWithTitle:andContent:",
-                                          "cocos2d-js",
-                                          "Yes! you call a Native UI from Reflection");
+if(sys.isNative && (sys.os == sys.OS.IOS || sys.os == sys.OS.OSX)){
+    var ret = native.reflection.callStaticMethod("NativeOcClass",
+                                              "callNativeUIWithTitle:andContent:",
+                                              "cocos2d-js",
+                                              "Yes! you call a Native UI from Reflection");
+}
 ```
+
+`sys.isNative`  用于判断是否为原生平台，`sys.os` 用于判断当前运行系统。由于各平台通信机制不同，建议先判断再处理。
 
 >**注意**：此时的方法名是 `callNativeUIWithTitle:andContent:`，不要漏掉了冒号 **:** 。
 
@@ -152,7 +156,7 @@ CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
 
 ```ts
 export class NativeAPI{
-  public static somethingDone(){
+  public static callByNative(){
     //to do
   }
 }
@@ -164,7 +168,7 @@ window.NativeAPI = NativeAPI;
 
 ```c++
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
-    se::ScriptEngine::getInstance()->evalString("NativeAPI.somethingDone()");
+    se::ScriptEngine::getInstance()->evalString("NativeAPI.callByNative()");
 });
 ```
 
@@ -183,7 +187,7 @@ export class NativeAPIMgr{
     return this._inst;
   }
 
-  public static somethingDone(){
+  public static callByNative(){
     //to do
   }
 }
@@ -196,7 +200,7 @@ window.NativeAPIMgr = NativeAPIMgr;
 
 ```c++
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
-    se::ScriptEngine::getInstance()->evalString("NativeAPIMgr.inst.somethingDone()");
+    se::ScriptEngine::getInstance()->evalString("NativeAPIMgr.inst.callByNative()");
 });
 ```
 
