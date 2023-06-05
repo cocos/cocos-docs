@@ -97,7 +97,7 @@ dependencies {
 
 ```
 
-## 添加按键描述的
+## 添加按键的描述
 
 在 `res\values\strings.xml` 中定义用于国际化的文本，以供前面步骤中使用。
 
