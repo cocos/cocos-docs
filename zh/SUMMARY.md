@@ -123,6 +123,7 @@
     - [发布 Android 应用](editor/publish/android/index.md)
         - [Android 构建示例](editor/publish/android/build-example.md)
         - [Android 构建选项](editor/publish/android/build-options-android.md)
+        - [配置 Android 原生开发环境](editor/publish/android/build-setup-evn-android.md)
     - [发布 iOS 应用](editor/publish/ios/index.md)
         - [iOS 发布示例](editor/publish/ios/build-example-ios.md)
         - [iOS 构建选项](editor/publish/ios/build-options-ios.md)
