@@ -1,6 +1,6 @@
 # 射线和线段检测
 
-## 射线检测
+本文将说明如何通过射线和线段对物理世界内的碰撞体进行检测。
 
 ## 射线检测
 
@@ -178,5 +178,3 @@ if (PhysicsSystem.instance.lineStripCast(sampleArray, ... )) {
 ```
 
 如果要投射其他几何体，请参考 [几何投射检测](./physics-sweep.md)。
-
-

@@ -1,5 +1,9 @@
 # Raycast Detection
 
+In this document, we will discuss how to use raycast and line stripe cast to detect colliders in physics world.
+
+## Raycast Detection
+
 Raycast detection is a **intersection determination** of one ray and another shape, as shown in the figure below.
 
 ![illustration](img/raycast.jpg)
@@ -181,4 +185,3 @@ if (PhysicsSystem.instance.lineStripCast(sampleArray, ... )) {
 ```
 
 If you want to cast other types of geometry, please refer to [Geometry Cast Detection](./physics-sweep.md).
-
