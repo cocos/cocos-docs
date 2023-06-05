@@ -35,9 +35,9 @@ The version file can be part of the contents of the manifest file and do not con
 
 ## Implement hot update in the Cocos Creator project
 
-In this tutorial, we will provide a hot update workflow for Cocos Creator project. We have also opened `Downloader` JavaScript interface in cocos2d-x engine, so users are free to develop their own hot update solution.
+In this tutorial, we will provide a hot update workflow for Cocos Creator project. We have also offered `Downloader` JavaScript interface, so users are free to develop their own hot update solution.
 
-Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. Creator published directory structure and cocos2d-x JS project directory is exactly the same. For Cocos Creator, engine scripts will be packaged into the `src` directory, and other assets will be exported to the `assets` directory.
+Before starting to explain in detail, developers can take a look at the directory structure of published native version of any game in Cocos Creator. The engine scripts will be packaged into the `src` directory, and other assets will be exported to the `assets` directory.
 
 Based on this project structure, the hot update process in this tutorial is simple:
 
@@ -131,7 +131,7 @@ The editor plugin automatically adds the search path logic and fix code to `main
 ```
 > **Note**: `fileUtils` is located in the traditional `jsb` namespace instead of `native`, and currently, the script compile system only supports importing `native` objects via `import` in TypeScript.
 
-This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. Cocos2d-x search path just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage)) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
+This step must be done because the essence of the hot update is to replace the files in the original game package with a remotely downloaded file. The search path in Cocos engine just meet this demand, it can be used to specify the remote package download url as the default search path, so the game will run the process of downloading a good remote version. In addition, the search path is used in the last update process using `localStorage` (which conforms to the WEB standard [Local Storage API](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage)) to store on the user's machine. The `HotUpdateSearchPaths` key is specified in `HotUpdate.js`, and the name used for the save and read process must match.
 
 In addition, if encountering this warning during the opening of the project, ignore: `loader for [.manifest] not exists!`.
 
