@@ -132,6 +132,7 @@
         - [Installation and Configuration of Native Development Environment](editor/publish/setup-native-development.md)
         - [Debugging JavaScript on Native Platforms](editor/publish/debug-jsb.md)
         - [Introduction to the Build Process and FAQ](editor/publish/build-guide.md)
+        - [Integrating Input SDK](editor/publish/gpg-input-sdk.md)
     - [Publish to Mini Game Platforms](editor/publish/publish-mini-game.md)
         - [Publish to HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
         - [Publish to Alipay Mini Game](editor/publish/publish-alipay-mini-game.md)
