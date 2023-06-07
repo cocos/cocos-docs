@@ -7,7 +7,7 @@ In this chapter we will introduce how to publish Android APK with Cocos Creator
 - [Android Publish Example](build-example.md)
 - [About the Build Panel](../build-panel.md)
 - [Build Options](../build-options.md)
-- [Installation and Configuration of Native Development Environment](../setup-native-development.md)
+- [Setting up Native Development Environment](../setup-native-development.md)
 - [Debugging JavaScript on Native Platforms](../debug-jsb.md)
 - [Introduction to the Build Process and FAQ](../build-guide.md)
 - [JSB Swig](../../../advanced-topics/jsb-swig.md)

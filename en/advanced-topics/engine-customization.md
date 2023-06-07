@@ -4,11 +4,11 @@ Cocos Creator has two engine kernels: C++ kernel and TypeScript kernel. The C++ 
 
 ![engine-core](./engine-customization/engine-core-architecture.png)
 
-## Get the Engine Source Code
+## Getting the Engine Source Code
 
 ![download repo js](engine-customization/select-repo.png)
 
-### 1. Access the Cocos Engine Repository
+### 1. Accessing the Cocos Engine Repository
 
 Cocos is an open-source engine, and you can obtain different versions of the engine source code from the official Cocos Engine repository. The repository links are as follows:
 
@@ -16,13 +16,13 @@ Cocos is an open-source engine, and you can obtain different versions of the eng
 
 Open the repository homepage, and you will see the content shown in the left sub-figure of the above image. You can decide which version to use based on your requirements.
 
-### 2. Select a Branch
+### 2. Selecting a Branch
 
 If you want to use the latest branch, select the "develop" branch as shown in the middle sub-figure of the image.
 
 >**Note:** This branch is the latest in-developing branch and may not guarantee stability.
 
-### Select a Tag
+### Selecting a Tag
 
 If you want to use a tag (a stable branch) corresponding to a specific version of Cocos Creator, follow the steps shown in the right sub-figure of the image. Switch to the "Tags" tab and select the desired version. For example, if you are using Cocos Creator 3.7.3, select version 3.7.3.
 
@@ -40,7 +40,7 @@ You can either copy the repository link (3) and clone it to local using Git, or 
 
 >Don't forget to give a star to the Cocos Engine repository in the top right corner (5). Thank you!
 
-## Configure Development Environment
+## Configuring Development Environment
 
 ### 1. Placing the Engine Source Code in a Specified Directory
 
@@ -64,21 +64,21 @@ npm install
 gulp build
 ```
 
-### 3. Modify the Engine Path
+### 3. Modifying the Engine Path
 
 Use the **Cocos Creator -> Preferences -> Engine Manager** tab to set the path to the engine source code. Note that **you need to restart the editor after modifying the engine path**.
 
 ![custom ts engine](engine-customization/custom-engine.png)
 
-#### Specify the TypeScript Engine
+#### Specifying the TypeScript Engine
 
 By default, the `Use Built-in` option is selected, indicating that the built-in engine of Cocos Creator is being used. To use the custom engine, switch to the `Use Custom` tab and specify the path to the engine source code root directory.
 
-#### Specify the Native（C++）Engine
+#### Specifying the Native（C++）Engine
 
 If you need to customize the engine functionality related to native platforms, you also need to check the `Use Custom` option under `Native Module`. It will automatically recognize the `native` folder under the custom engine's root directory as the path, which cannot be changed.
 
-#### Modify the Storage Location
+#### Modifying the Storage Location
 
 ![custom-engine-store-path](engine-customization/custom-engine-store-path.png)
 
@@ -86,7 +86,7 @@ By default, modifications to the engine path are saved as global configurations,
 
 Hover your mouse over the "Cocos Engine" text, and a settings button will appear in front of the text. Click on the button to select a storage location.
 
-#### Relaunch Cocos Creator
+#### Relaunching Cocos Creator
 
 After modifying the engine path, you need to restart Cocos Creator editor for the changes to take effect. You can either close Cocos Creator and open it again or click on the Relaunch button on the panel.
 
@@ -94,7 +94,7 @@ After modifying the engine path, you need to restart Cocos Creator editor for th
 
 ![use-native-engine-for-editor](engine-customization/use-native-engine-for-editor.png)
 
-## Modify the TypeScript Engine
+## Modifying the TypeScript Engine
 
 If you only need to customize the engine functionality for web and mini-game platforms or modify the TypeScript modules of the engine (such as the UI system, animation system, etc.), you only need to compile the engine by clicking **Developer -> Compile the Engine** on the menu bar of Cocos Creator.
 
@@ -102,13 +102,13 @@ If you only need to customize the engine functionality for web and mini-game pla
 
 This command will generate a bin folder under the engine directory and compile the engine source code there.
 
-## Modify the Native (C++) Engine
+## Modifying the Native (C++) Engine
 
 If you need to customize the engine functionality related to native platforms, in addition to modifying the TypeScript code, you may also need to modify the C++ code.
 
 To ensure that the native code can be compiled properly, make sure that the `Use Custom` option in the `Native Module` is selected.
 
-### Download external
+### Downloading external
 
 The compilation of the Cocos native engine depends on the libraries in `cocos-engine/native/external/`. These libraries are several hundred megabytes in size and are not included by default in the source code package. You can obtain them in the following three ways:
 
@@ -151,11 +151,11 @@ If, for some reason, you cannot download the `external` source code package usin
 
 > **Note:** The version of `external` and `cocos-engine` must match, otherwise, it may result in compilation errors.
 
-### Compile in Cocos Creator
+### Compiling in Cocos Creator
 
 After modifying the engine, open the **Build** panel, click **Build**, and after the build is complete, click **Make** to Compile.
 
-### Compile in an IDE
+### Compiling in an IDE
 
 After configuring the custom engine path for the first time, you need to click the `Build` button in the **Build** panel to synchronize the relevant configuration to your IDE (such as Xcode, Android Studio, Visual Studio, etc.).
 
@@ -169,19 +169,19 @@ Cocos Creator provides a feature to preview in a simulator based on the native e
 
 ![custom-native-simulator](engine-customization/custom-native-simulator.png)
 
-### TypeScript Engine
+### Modified TypeScript Engine
 
 If you are using custom TypeScript engine, the native simulator will attempt to load the TS engine modules under `custom-engine-path/native/simulator/`.
 
 The first time you launch the simulator in this situation, you need to click **Developer-> Rebuild Native Simulator Engine** in the top menu bar, otherwise, the TS engine modules will not be loaded successfully.
 
-### Native(C++) Engine
+### Modified Native(C++) Engine
 
 If you have selected to use a custom native engine, Cocos Creator will launch the simulator located at `custom-engine-path/native/simulator/` when previewing in simulator.
 
 To avoid a large installation package, Cocos Creator excludes the native simulator project before publishing. Therefore, you need to follow these steps to configure the environment and rebuild it,otherwise, the simulator won't start.
 
-### Install and Configure CMake
+### Installing and Configuring CMake
 
 >Cocos Creator comes with its own CMake and has configured the paths, so you don't need to do additional configuration when building, compiling, and publishing your project.
 

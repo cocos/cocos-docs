@@ -72,3 +72,5 @@ CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     //TO DO
 });
 ```
+
+> **注意:** 这是 C++ 方法，如果想要在 Objective-C 代码中调用，需要 Objective-C 代码文件后缀为 *.mm。

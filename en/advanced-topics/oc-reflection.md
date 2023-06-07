@@ -1,6 +1,6 @@
-# Using Java Reflection to Implement JavaScript and iOS/macOS Communication
+# Using Objective-C Reflection to Implement JavaScript and iOS/macOS Communication
 
-## Call Objective-C from JavaScript
+## Calling Objective-C from JavaScript
 
 In Cocos Creator, there is a cross-language communication method based on language reflection, which allows JavaScript to directly call Objective-C functions. The method prototype is as follows:
 
@@ -106,9 +106,9 @@ Currently, the parameters and return values support the following types:
 
 Other types are not supported at the moment.
 
-If you're not familiar with how to add Objective-C files to your project, you can refer to the  [Native Platform Development Guide](native-secondary-development.md)。
+If you're not familiar with how to add Objective-C files to your project, you can refer to the  [Native Platform Secondary Development Guide](native-secondary-development.md)。
 
-## Call JavaScript in Objective-C
+## Calling JavaScript in Objective-C
 
 In a Cocos Creator native project, we can also execute JavaScript code in C++ or Objective-C using the `evalString` method.
 
@@ -150,7 +150,7 @@ CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
 });
 ```
 
-### Call Static Function of an Class
+### Calling Static Function of an Class
 
 Suppose there is an object in the TypeScript script with the following static function:
 
@@ -172,7 +172,7 @@ CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
 });
 ```
 
-### Call Singleton Function
+### Calling Singleton Function
 
 If the script code implements a singleton object that can be globally accessed:
 
@@ -204,7 +204,7 @@ CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
 });
 ```
 
-### Call with Parameters
+### Calling with Parameters
 
 The above mentioned ways of calling JS from Java all support parameter passing. However, the parameters only support the three basic types: `string`, `number`, and `boolean`.
 

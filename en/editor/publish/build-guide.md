@@ -1,4 +1,4 @@
-# Introduction to the Build Process and FAQ
+# Build Process and FAQ
 
 ## Introduction to the Build Infrastructure
 

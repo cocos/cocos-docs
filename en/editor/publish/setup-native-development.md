@@ -1,4 +1,4 @@
-# Installation and Configuration of Native Development Environment
+# Setting up Native Development Environment
 
 Projects created with **Cocos Creator** can be published to multiple native platforms. Before publishing, it is necessary to configure native development related environment first.
 

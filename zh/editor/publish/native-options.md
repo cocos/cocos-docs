@@ -61,7 +61,7 @@ TaskFlow 依赖特定的 C++ 版本和操作系统版本，请往 [特性与系�
 
 ![build progress](publish-native/build-progress-windows.png)
 
-### 原生工程目录结构
+## 原生工程目录结构
 
 Cocos Creator 构建的原生工程，包含 原生公共目录，原生平台目录和原生项目目录，详情请参考 [原生平台二次开发指南](../../advanced-topics/native-secondary-development.md)。
 
@@ -81,7 +81,7 @@ Cocos Creator 构建的原生工程，包含 原生公共目录，原生平台�
 
 - Mac/Windows 平台会直接在桌面运行预览
 - Android 平台必须通过 USB 连接真机，并且在真机上开启 USB 调试后才可以运行预览
-- iOS 平台会调用模拟器运行预览，但建议通过 Xcode 连接真机执行 **生成** 和 **运行**，可参考下文介绍。
+- iOS 平台会调用模拟器运行预览，但建议通过 Xcode 连接真机执行 **生成** 和 **运行**。
 
 ### 通过 IDE
 

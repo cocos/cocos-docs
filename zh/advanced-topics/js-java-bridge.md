@@ -67,15 +67,15 @@ public class JsbBridge {
 }
 ```
 
-其中 `sendToScript` 用于调用脚本层代码，而 `callByScript` 用于响应脚本层的调用。
+其中 `sendToScript` 用于调用脚本层代码，而 `onScript` 用于响应脚本层的调用。
 
-我们需要实现 `ICallback` 接口，并且使用 `setCallback` 注册，来响应 callByScript 的具体行为。
+我们需要实现 `ICallback` 接口，并且使用 `setCallback` 注册，来响应 `onScript` 的具体行为。
 
 ## 基本使用
 
 ### JavaScript 触发 Java 的方法
 
-假设我们用 Objective-C 写了一个打开广告的接口，当玩家点击打开广告的按钮时，应该由 JavaScript 调用对应的 JAVA 接口，触发打开广告的操作。
+假设我们用 Java 写了一个打开广告的接口，当玩家点击打开广告的按钮时，应该由 JavaScript 调用对应的接口，触发打开广告的操作。
 
 我们需要先实现一个 ICallback 接口，用于响应操作，并利用 `JsbBridge.setCallback` 注册，代码如下：
 
@@ -124,7 +124,7 @@ native.bridge.onNative = (arg0:string, arg1: string):void=>{
 
 > 实际项目中，可以将以面代码写在一个程序启动时就要加载的脚本脚本的 onload 函数中，以确保尽早监听来自原生层的事件。
 
-然后，在`Objective-C` 中，用如下代码调用：
+然后，在 `Java` 中，用如下代码调用：
 
 ```JAVA
 JsbBridge.sendToScript("ad_close", "finished");
@@ -155,4 +155,4 @@ JsbBridge 提供了 arg0 和 arg1 两个 string 类型的参数用于传递信�
 
 ## 示例工程：简单的多事件调用
 
-Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.7/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.7/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。
+Cocos Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.7/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.7/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。

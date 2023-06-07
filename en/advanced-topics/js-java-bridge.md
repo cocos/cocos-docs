@@ -1,22 +1,18 @@
-# A Simpler Way to Call Java Methods with JavaScript (Experimental)
-
-> **Note**: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+# Using JsbBridge for JavaScript and Java Communication
 
 ## Background
 
-Prior to v3.4.0, the reflection mechanism in [Using JavaScript to Call Java](./java-reflection.md) static methods, not only needed to strictly declare package names and function signatures, but also needed to strictly check the number of parameters to ensure proper operation, which was a complicated step.
+[Using Java Reflection to Implement JavaScript and Android Communication](./java-reflection.md), We not only need to strictly declare package names and function signatures but also need to carefully verify the number of parameters to ensure proper operation. The steps involved are quite complex.
 
-Additionally provided in v3.4.0 is another experimental method for simplifying calls from the scripting layer to the native layer. This is a kind of channel, or a bridge, named `JsbBridge` before introducing other scripting systems, meaning that it serves as a bridge to communicate between script and native APP via the `JSB` binding.
+Therefore, we provide an additional method to simplify the communication between the script and the native. This method acts as a channel or bridge, and we named it `JsbBridge`, which stands for a bridge between scripts and the native app through JSB binding.
 
-> **Note**: both ways are working fine, developers can choose to use them according to their actual needs. To use the previous way, please review the [Using JavaScript to Call Java](./java-reflection.md) documentation.
+> **Note**: Both methods can be used effectively, and developers can choose the one that suits their needs based on their specific requirements.
 
-## JavaScript Interface Introduction
+## JsbBridge Mechanism
 
-The only two interfaces at the scripting level are `sendToNative` and `onNative`, which are **transfer** and **receive native layer** parameters, respectively. The following points need to be noted when using them:
+### JavaScript API
 
-- This feature is still in the experimental stage, only `string` transfers are supported. To transfer objects containing multiple parameters, please consider converting them to the `JSON` format for transfer and parsing them at different levels.
-- `onNative` will only record one function at a time, and will override the original `onNative` method when the property is `set` again.
-- The `sendToScript` method is a one-way communication and does not care about the return of the lower level, nor does it tell `JavaScript` whether the operation succeeded or failed. The developer needs to handle the operation itself.
+In the script layer, there are only two interfaces: sendToNative and onNative, defined as follows:
 
 ```js
 // JavaScript
@@ -34,12 +30,17 @@ export namespace bridge{
 }
 ```
 
-## Java Interface Introduction
+As the names suggest, `sendToNative` is used to invoke code in the native layer, while `onNative` is used to respond to calls from the native layer.
 
-The corresponding `JAVA` interfaces are also dominated by two, including `sendToScript` and `onScript`:
+When using these interfaces, please note the following:
 
-- `sendToScript` corresponds to `sendToNative` and represents the parameters to be transferred to `JavaScript`.
-- `onScript` corresponds to `onNative`, which indicates the response behavior after receiving a script message. Wrap the behavior by creating an interface called `ICallback` and use `setCallback` to enable the interface function.
+- Since this feature is still in the experimental stage, it only supports the transmission of `string` data. If you need to transmit objects with multiple parameters, consider converting them to `Json` format for transmission and parse them before using.
+- `onNative` Only one function is recorded at a time for `onNative`, and setting the property again will override the previously set `onNative` method.
+- The `sendToScript` method is a one-way communication and does not have return value. It does not inform JavaScript of the success or failure of the operation. Developers need to handle the operation status themselves.
+
+### Java API
+
+In Java, there are also two corresponding interfaces: `sendToScript` and `ICallback.onScript`, defined as follows:
 
 ```JAVA
 // JAVA
@@ -53,11 +54,11 @@ public class JsbBridge {
          */
         void onScript(String arg0, String arg1);
     }
-    /* Add a callback which you would like to apply
+    /** Add a callback which you would like to apply
      * @param f ICallback, the method which will be actually applied. multiple calls will override
-     * multiple calls will override */
+     * */
     public static void setCallback(ICallback f);
-    /*
+    /**
      * Java dispatch Js event, use native c++ code
      * @param arg0 input values
      */
@@ -66,79 +67,93 @@ public class JsbBridge {
 }
 ```
 
+Among them, `sendToScript` is used to invoke code in the script layer, while `onScript` is used to respond to calls from the script layer.
+
+We need to implement the `ICallback` interface and use `setCallback` to register and respond to the specific behavior of `onScript`.
+
 ## Basic Usage
 
-### Using JavaScript to Trigger Java Methods
+### Calling Java from JavaScript
 
-Assuming the ad interface is set in the native layer, then when the player clicks the button to open the ad, it is logical to trigger `JAVA` to open the ad.
+Suppose we have implemented Java interface for opening an advertisement. When the player clicks the button to open the advertisement, it should be triggered by the corresponding Java interface through JavaScript.
 
-The code example of the interface to open the ad is as follows:
-
-```JAVA
-public void openAd(String adUrl){
-    // Code to open ad
-}
-```
-
-Register the event that opens the ad first:
+We need to first implement an `ICallback` interface to respond to the operation and register it using `JsbBridge.setCallback`. The code is as follows:
 
 ```JAVA
 JsbBridge.setCallback(new JsbBridge.ICallback() {
-        @Override
-        public void onScript(String usrName, String url) {
-            // Check usr
-            // Open Ad
-            openAd(url);
+    @Override
+    public void onScript(String arg0, String arg1) {
+        //TO DO
+        if(arg0.equals("open_ad")){
+            //call openAd method.
         }
-    });
-    
+    }
+});
 ```
 
-Perform the open action on the button's click event in `JavaScript`:
+> In actual projects, the above code is usually called directly or indirectly in the `onCreate` method of `AppActivity.java` to ensure that it can respond to all calls from the script layer.
 
-```ts
-public static onclick(){
-    // 'usrName' and 'defaultAdUrl' are both string
-    native.bridge.sendToNative(usrName, defaultAdUrl);
-} 
-```
-
-This will send the required information to the `Java` layer through the `native.Bridge` channel.
-
-### Using JAVA to Trigger JavaScript Methods
-
-Assuming that the animation playback operation is recorded in JavaScript. To play this animation in the Java layer, register an event to play the animation.
-
-First, define a function to play the animation:
-
-```ts
-public void playAnimation(animationName: string, isLoop: boolean){
-    // Code to play Animation
-}
-```
-
-Second, document the method in `onNative`:
+In the JavaScript script, we can call it as follows:
 
 ```ts
 import { native } from 'cc'
-native.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
-    if(isLoop && isLoop == "true") {
-        this.playAnimation(animationName, true);
-        return;
+public static onclick(){
+    native.bridge.sendToNative('open_ad', defaultAdUrl);
+} 
+```
+
+### Calling JavaScript from Java
+
+Suppose that after our advertisement finishes playing, we need to notify the JavaScript layer. We can do it as follows.
+
+First, in JavaScript, use `onNative` to respond to the event:
+
+```ts
+native.bridge.onNative = (arg0:string, arg1: string):void=>{
+    if(arg0 == 'ad_close'){
+        if(arg1 == "finished") {
+            //ad playback completed.
+        }
+        else{
+            //ad cancel.
+        }
     }
-    this.playAnimation(animationName, false);
     return;
 }
 ```
 
-Still using the Android project as an example, the `Java` code example is as follows:
+> In actual projects, you can place the above code in the `onload` function of a script component that needs to be loaded when the program starts to ensure early listening to events from the native layer.
+
+Then, in Java, call it as follows:
 
 ```JAVA
-JsbBridge.sendToScript("SkeletonAnim001", "true");
+JsbBridge.sendToScript("ad_close", "finished");
 ```
 
-This will call the `JavaScript` playback operation.
+Through the above operations, we can notify JavaScript about the playback result of the advertisement.
 
-## Sample project: simple multi-event calls
+## Best Practices
 
-Creator provides the [native-script-bridge](https://github.com/cocos/cocos-example-projects/tree/v3.7/native-script-bridge) example, which developers can download for reference use as needed.
+JsbBridge provides two string-type parameters, `arg0` and `arg1`, to pass information, which can be allocated according to different needs.
+
+### 1. Both arg0 and arg1 used as parameters
+
+If the communication requirements are relatively simple and do not require categorization, you can use `arg0` and `arg1` as parameters.
+
+### 2. arg0 used as command type, arg1 used as a parameter
+
+If the communication requirements are relatively complex, you can use arg0 as a command type to process different commands, and arg1 can be used as a parameter.
+
+### 3. arg0 used as a command type, arg1 used as a JSON string
+
+For particularly complex requirements where simple string-type parameters are not sufficient, you can convert the objects that need to be passed into a string using `JSON.stringify` and pass them through `arg1`. When using them, you can restore them to objects using `JSON.parse` for further processing.
+
+> Since it involves serialization and deserialization operations of JSON, this usage is not recommended for frequent calls.
+
+## Thread Safety
+
+Note that if the related code involves native UI, you need to consider thread safety issues. For more details, please refer to:[Thread Safety](./thread-safety.md)。
+
+## Sample: Multiple Event Calls
+
+Cocos Creator team provides **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.7/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.7/native-script-bridge)）example for reference, and developers can download it as needed.

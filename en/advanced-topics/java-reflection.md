@@ -1,6 +1,6 @@
 # Using Java Reflection to Implement JavaScript and Android Communication
 
-## Call Java Static Methods from JavaScript
+## Calling Java Static Methods from JavaScript
 
 In an Android native application created with Cocos Creator, we can directly call Java static methods from JavaScript using the Java reflection mechanism. The method is defined as follows.
 
@@ -97,7 +97,7 @@ The `sys.isNative` is used to check if it's running on a native platform, and th
 
 After running the code, you can see the corresponding output.
 
-## Call JavaScript from Java
+## Calling JavaScript from Java
 
 In addition to JavaScript calling Java, the engine also provides a mechanism for Java to call JavaScript.
 
@@ -108,7 +108,7 @@ Next, we will add a button to the Alert dialog and execute a piece of JavaScript
 ```java
 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     public void onClick(DialogInterface dialog, int which) {
-        // 一定要在 GL 线程中执行
+        // Must execute in GL thread
         CocosHelper.runOnGameThread(new Runnable() {
             @Override
             public void run() {
@@ -121,7 +121,7 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 
 Next, let's take a look at how to call JavaScript code in different situations.
 
-### Call Global Function
+### Calling Global Function
 
 We can add a new global function in the script using the following code:
 
@@ -155,7 +155,7 @@ CocosHelper.runOnGameThread(new Runnable() {
 });
 ```
 
-### Call Static Function of an Class
+### Calling Static Function of an Class
 
 Suppose there is an object in the TypeScript script with the following static function:
 
@@ -180,7 +180,7 @@ CocosHelper.runOnGameThread(new Runnable() {
 });
 ```
 
-### Call Singleton Function
+### Calling Singleton Function
 
 If the script code implements a singleton object that can be globally accessed:
 
@@ -215,7 +215,7 @@ CocosHelper.runOnGameThread(new Runnable() {
 });
 ```
 
-### Call with Parameters
+### Calling with Parameters
 
 The above mentioned ways of calling JS from Java all support parameter passing. However, the parameters only support the three basic types: `string`, `number`, and `boolean`.
 
@@ -238,7 +238,7 @@ CocosHelper.runOnGameThread(new Runnable() {
 });
 ```
 
-## Call JavaScript from C++
+## Calling JavaScript from C++
 
 If you want to call `evalString` in C++, you can refer to the following approach to ensure that `evalString` is executed in the GL thread of the engine:
 
