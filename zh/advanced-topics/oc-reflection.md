@@ -20,7 +20,7 @@ var result = native.reflection.callStaticMethod(className, methodName, arg1, arg
 
 参数中的类名不需要路径，只需要传入 Objective-C 中的类名即可。比如你在工程目录下的任意文件中新建一个类 `NativeOcClass`，只要你将它引入工程即可。
 
-再次强调一下，JavaScript 到 Objective-C 的反射仅支持 Objective-C 中类的静态方法。
+再次强调一下，仅支持 JavaScript 调用 Objective-C 中类的静态方法。
 
 ### 带参方法
 
@@ -150,9 +150,9 @@ CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
 });
 ```
 
-### 调用对象的静态函数
+### 调用类的静态函数
 
-假如在 TypeScript 脚本中有一个对象具有如下静态函数：
+假如在 TypeScript 脚本中有一个类具有如下静态函数：
 
 ```ts
 export class NativeAPI{
@@ -206,7 +206,7 @@ CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
 
 ### 参数传递
 
-以上几种OC调用JS的方式，均支持参数传递，但参数只支持 string, number 和 bool 三种基础类型。
+以上几种 OC 调用JS的方式，均支持参数传递，但参数只支持 string, number 和 bool 三种基础类型。
 
 我们以全局函数为例：
 

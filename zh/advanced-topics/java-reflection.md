@@ -153,9 +153,9 @@ CocosHelper.runOnGameThread(new Runnable() {
 });
 ```
 
-### 调用对象的静态函数
+### 调用类的静态函数
 
-假如在 TypeScript 脚本中有一个对象具有如下静态函数：
+假如在 TypeScript 脚本中有一个类具有如下静态函数：
 
 ```ts
 export class NativeAPI{
@@ -163,7 +163,7 @@ export class NativeAPI{
     //to do
   }
 }
-//将 NativeAPI 注册为全局类，否则无法在 OC 中被调用
+//将 NativeAPI 注册为全局类，否则无法在 Java 中被调用
 window.NativeAPI = NativeAPI;
 ```
 
@@ -198,7 +198,7 @@ export class NativeAPIMgr{
   }
 }
 
-//将 NativeAPIMgr 注册为全局类，否则无法在 OC 中被调用
+//将 NativeAPIMgr 注册为全局类，否则无法在 Java 中被调用
 window.NativeAPIMgr = NativeAPIMgr;
 ```
 
@@ -215,7 +215,7 @@ CocosHelper.runOnGameThread(new Runnable() {
 
 ### 参数传递
 
-以上几种OC调用JS的方式，均支持参数传递，但参数只支持 string, number 和 bool 三种基础类型。
+以上几种 Java 调用 JS 的方式，均支持参数传递，但参数只支持 string, number 和 bool 三种基础类型。
 
 我们以全局函数为例：
 

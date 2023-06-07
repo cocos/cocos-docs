@@ -1,160 +1,253 @@
-# How to Call Java methods using JavaScript on Android
+# Using Java Reflection to Implement JavaScript and Android Communication
 
-> **Note**: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+## Call Java Static Methods from JavaScript
 
-With the Cocos Creator Android build, developers can call Java static methods directly in JavaScript. Doing so is very simple:
+In an Android native application created with Cocos Creator, we can directly call Java static methods from JavaScript using the Java reflection mechanism. The method is defined as follows.
 
 ```js
-import { native } from 'cc'
-var result = native.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
+import { native } from 'cc'; 
+var o = native.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
 ```
 
-In `callStaticMethod` method, pass the Java class name, method name, method signature with parameters, and get the return value from Java. The Java class name and method signature may be a little strange without having experience with JNI, but that is the Java specification.
+- className: the name of the Java class.
+- methodName: the name of the static method.
+- methodSignature: the signature of the method, to indicate a unique method.
+- parameters: the list of parameters.
 
-## Class name
-
-The class name must contain Java package path. For example, if a class, `Test`, exists in the package `com.cocos.game`:
+Now, let's take the `Test` class under the `com.cocos.game` package as an example.
 
 ```java
 // package "com.cocos.game";
 
 public class Test {
     
-    public static void hello(String msg) {
-        System.out.println(msg);
+    public static void hello (String msg) {
+        System.out.println (msg);
     }
     
-    public static int sum(int a, int b) {
+    public static int sum (int a, int b) {
         return a + b;
     }
     
-    public static int sum(int a) {
+    public static int sum (int a) {
         return a + 2;
     }
 }
 ```
 
-The correct class name of `Test` is `com/cocos/game/Test`. Please note that using a slash `/` is required, **NOT** using a dot `.`.
+### className
 
-## Method name
+The `className` should include the package path. If we want to call a static method in the `Test` class mentioned above, the `className` should be "com/cocos/game/Test".
 
-The method name is very simple. For example, the method names of the above two sum methods are both `sum`.
+>**Note:** Here we use a `/` instead of a `.` in Java package name.
 
-## Method signature
+### methodName
 
-The method signature is a little complex. The simplest signature is `()V`, it represents a method which has no parameters and no return value. Examples:
+The `methodName` is simply the name of the method. For example, if we want to call the `sum` method, the `methodName` parameter should be "sum".
 
-- `(I)V` represents a method which has a int parameter and no return value.
-- `(I)I` represents a method which has a int parameter and a int return value.
-- `(IF)Z` represents a method which has a int parameter and a float parameter, and returns boolean.
+### methodSignature
 
-The symbols in brackets represent the type of parameters, and the symbol after bracket represent the type of return value. Because methods are allowed to be overloaded in Java, there can be multiple methods which have the same method name, but different parameters and return value. The method signature is used to help identifying these methods.
+Since Java supports method overloading, the method signature is used to specify the parameter types and return type, ensuring a unique method is invoked.
 
-Currently, Cocos Creator supports four Java types:
+The format of the method signature is: **(parameter types)return type**.
 
-| Java type | signature |
-| :-------- | :-------- |
-| **int**       | I         |
-| **float**     | F         |
-| **boolean**   | Z         |
-| **String**    | Ljava/lang/String; |
+Cocos Creator currently supports the following 4 Java type signatures:
 
-## Parameters
+| Java Type | Signature |
+| :------ | :----- |
+| int     | I   |
+| float   | F   |
+| boolean | Z   |
+| String  | Ljava/lang/String; |
 
-The number of parameters can be 0 or more than one. And when we use `callStaticMethod`, we can use number, boolean and string of JavaScript directly.
+>**Note**: the signature of `String` type is `Ljava/lang/String;`, don't miss the `;` in the end.
 
-## Usage
+Here are some examples:
 
-Here is an example of invoking the static methods of `Test` class:
+- `()V` represents a method with no parameters and no return value.
+- `(I)V` represents a method with one parameter of type int and no return value.
+- `(I)I` represents a method with one parameter of type int and a return value of type int.
+- `(IF)Z` represents a method with two parameters, one of type int and one of type float, and a return value of type boolean.
+- `(ILjava/lang/String;F)Ljava/lang/String;` represents a method with three parameters, one of type int, one of type String, and one of type float, and a return value of type String.
+
+### parameters
+
+The parameters passed should match the method signature. It supports number, boolean, and string types.
+
+### Examples
+
+Here are some examples of calling static methods in the Test class:
 
 ```js
-//call hello method
-native.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
+if(sys.os == sys.OS.ANDROID && sys.isNative){
+    // call hello
+    native.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
 
-//call the first sum method
-var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
-log(result); // 10
+    // call the first sum 
+    var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
+    log(result); // 10
 
-//call the second sum method
-var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
-log(result); // 5
-```
-
-Take a look on the Console, there should be correct output.
-
-## Attention
-
-A very important thing that must be paid attention to is **thread safety**! With a Cocos Creator Android app, the engine and JavaScript VM works in the `gl` thread, and Android update its UI in the `ui` thread. If a Java method is called which will update the app UI, it must run in `ui` thread.
-
-For example, calling a Java method which shows an Android AlertDialog:
-
-```c++
-//make some modification in AppActivity class
-public class AppActivity extends CocosActivity {
-    
-    private static AppActivity app = null;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        app = this;
-    }
-    
-    public static void showAlertDialog(final String title,final String message) {
-        
-        //we must use runOnUiThread here
-        app.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                AlertDialog alertDialog = new AlertDialog.Builder(app).create();
-                alertDialog.setTitle(title);
-                alertDialog.setMessage(message);
-                alertDialog.setIcon(R.drawable.icon);
-                alertDialog.show();
-            }
-        });
-    }
+    // call the second sum
+    var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
+    log(result); // 5
 }
 ```
 
-Next, call `showAlertDialog` in JavaScript:
+The `sys.isNative` is used to check if it's running on a native platform, and the `sys.os` is used to determine the current operating system. Since the communication mechanisms vary across different platforms, it is recommended to perform the check before call `native.reflection.callStaticMethod`.
 
-```js
-native.reflection.callStaticMethod("com/cocos/game/AppActivity", "showAlertDialog", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
-```
+After running the code, you can see the corresponding output.
 
-An Android native AlertDialog should show now.
+## Call JavaScript from Java
 
-## One more thing
+In addition to JavaScript calling Java, the engine also provides a mechanism for Java to call JavaScript.
 
-Now that it is possible to successfully called Java methods in JavaScript, is it possible to call JavaScript in Java? Of course!
+By using the `CocosJavascriptJavaBridge.evalString` method provided by the engine, you can execute JavaScript code. It's important to note that since JavaScript code in Cocos Engine is executed on the GL thread, we need to use `CocosHelper.runOnGameThread` to ensure that the thread is correct.
 
-The engine contains class `CocosJavascriptJavaBridge`, which has an `evalString` method that can execute JavaScript, and is located in the `resources\3d\engine\native\cocos\platform\android\java\src\com\cocos\lib\CocosJavascriptJavaBridge.java` file in the engine directory. Please note that this time JavaScript code should be run in the `gl` thread.
-
-Consider an example of adding an OK button for the AlertDialog, and using `evalString` in its `OnClickListener`:
+Next, we will add a button to the Alert dialog and execute a piece of JavaScript code in its response function.
 
 ```java
 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
     public void onClick(DialogInterface dialog, int which) {
-
-        // We must use runOnGLThread here
+        // 一定要在 GL 线程中执行
         CocosHelper.runOnGameThread(new Runnable() {
             @Override
             public void run() {
-                CocosJavascriptJavaBridge.evalString("cc.log(\"JavaScript Java bridge!\")");
+                CocosJavascriptJavaBridge.evalString("cc.log(\"Javascript Java bridge!\")");
             }
         });
     }
 });
 ```
 
-> **Note**: the engine does not promise security in multi-threaded currently, avoid JavaScript code being called in other threads during development to avoid various memory errors.
+Next, let's take a look at how to call JavaScript code in different situations.
 
-To call `evalString` in C++, please refer to the following method to ensure that `evalString` is executed in the thread where the JavaScript engine is:
+### Call Global Function
+
+We can add a new global function in the script using the following code:
+
+```js
+window.callByNative = function(){
+  //to do
+}
+```
+
+>`window` is the global object in the Cocos Engine script environment. If you want a variable, function, object, or class to be globally accessible, you need to add it as a property of `window`. You can access it using `window.variableName` or `variableName` directly.
+
+Then, you can call it like this:
+
+```java
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("window.callByNative()");
+    }
+});
+```
+
+Or:
+
+```js
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("callByNative()");
+    }
+});
+```
+
+### Call Static Function of an Class
+
+Suppose there is an object in the TypeScript script with the following static function:
+
+```ts
+export class NativeAPI{
+  public static callByNative(){
+    //to do
+  }
+}
+//Register NativeAPI as a global class, otherwise it cannot be called in Objective-C.
+window.NativeAPI = NativeAPI;
+```
+
+Then you can call it like this:
+
+```java
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("NativeAPI.callByNative()");
+    }
+});
+```
+
+### Call Singleton Function
+
+If the script code implements a singleton object that can be globally accessed:
+
+```ts
+export class NativeAPIMgr{
+  private static _inst:NativeAPIMgr;
+  
+  public static get inst():NativeAPIMgr{
+    if(!this._inst){
+      this._inst = new NativeAPIMgr();
+    }
+    return this._inst;
+  }
+
+  public static callByNative(){
+    //to do
+  }
+}
+
+//Register NativeAPIMgr as a global class, otherwise it cannot be called in Objective-C.
+window.NativeAPIMgr = NativeAPIMgr;
+```
+
+You can call it like this:
+
+```java
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("NativeAPIMgr.inst.callByNative()");
+    }
+});
+```
+
+### Call with Parameters
+
+The above mentioned ways of calling JS from Java all support parameter passing. However, the parameters only support the three basic types: `string`, `number`, and `boolean`.
+
+Taking the global function as an example:
+
+```js
+window.callByNative = function(a:string, b:number, c:bool){
+  //to do
+}
+```
+
+You can call it like this:
+
+```java
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("window.callByNative('test',1,true)");
+    }
+});
+```
+
+## Call JavaScript from C++
+
+If you want to call `evalString` in C++, you can refer to the following approach to ensure that `evalString` is executed in the GL thread of the engine:
 
 ```c++
-Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=]() {
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
 ```
 
-After clicking OK button, notice the output. `evalString` can run any JavaScript code, and can access JavaScript variables.
+## Thread Safety
+
+As you can see in the code above, `CocosHelper.runOnGameThread` and `CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread` are used. This is to ensure that the code is executed in the correct thread. For more details, please refer to the [Thread Safety](./thread-safety.md) documentation.
