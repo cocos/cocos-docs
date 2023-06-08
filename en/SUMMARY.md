@@ -455,6 +455,7 @@
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
     - [Hot Update Tutorial](advanced-topics/hot-update.md)
     - [AssetManager for Hot Update](advanced-topics/hot-update-manager.md)
+    - [HTTP Request](advanced-topics/http.md)
     - [WebSocket Introduction](advanced-topics/websocket-introduction.md)
         - [WebSocket Server](advanced-topics/websocket-server.md)
         - [WebSocket Client](advanced-topics/websocket.md)

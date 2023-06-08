@@ -12,7 +12,7 @@ Cocos Creator has two engine kernels: C++ kernel and TypeScript kernel. The C++ 
 
 Cocos is an open-source engine, and you can obtain different versions of the engine source code from the official Cocos Engine repository. The repository links are as follows:
 
-- Cocos Engine：[GitHub](https://github.com/cocos/cocos-engine/) | [GitEE](https://gitee.com/mirrors_cocos-creator/engine/)
+- cocos/cocos-engine：[GitHub](https://github.com/cocos/cocos-engine/)
 
 Open the repository homepage, and you will see the content shown in the left sub-figure of the above image. You can decide which version to use based on your requirements.
 
