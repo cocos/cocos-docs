@@ -1,4 +1,4 @@
-# Using Objective-C Reflection to Implement JavaScript and iOS/macOS Communication
+# JavaScript and iOS/macOS Communication with Reflection
 
 ## Calling Objective-C from JavaScript
 
@@ -14,7 +14,7 @@ In the `native.reflection.callStaticMethod method`, by passing the Objective-C c
 
 **Note**: In March 2017, Apple App Store issued warnings to some applications that used risky methods. Among them, `respondsToSelector` and `performSelector` are included, which are core APIs used in the reflection mechanism. Please pay attention to Apple's official stance on this issue. Related discussions can be found at: [JSPatch](https://github.com/bang590/JSPatch/issues/746)、[React-Native](https://github.com/facebook/react-native/issues/12778)、[Weex](https://github.com/alibaba/weex/issues/2875)。
 
-To reduce the risk of rejection during app review, it is recommended to [Use JsbBridge to Implement JavaScript and Objective-C Communication](oc-reflection.md)。
+To reduce the risk of rejection during app review, it is recommended to [JavaScript and Objective-C Communication using JsbBridge](./js-oc-bridge.md).
 
 ### Class Name and Static Methods
 

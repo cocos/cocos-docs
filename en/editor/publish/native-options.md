@@ -6,7 +6,7 @@ Cocos Creator currently supports deployment to native platforms including **Andr
 
 ![native platform](publish-native/native-platform.png)
 
-## Common Options for Publishing to Native Platforms
+## General Native Build Options
 
 ![Native Options](publish-native/native-options.png)
 

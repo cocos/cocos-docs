@@ -1,8 +1,8 @@
-# Using JsbBridge for JavaScript and Java Communication
+# JavaScript and Java Communication using JsbBridge
 
 ## Background
 
-[Using Java Reflection to Implement JavaScript and Android Communication](./java-reflection.md), We not only need to strictly declare package names and function signatures but also need to carefully verify the number of parameters to ensure proper operation. The steps involved are quite complex.
+In [JavaScript and Android Communication with Reflection](./java-reflection.md), We not only need to strictly declare package names and function signatures but also need to carefully verify the number of parameters to ensure proper operation. The steps involved are quite complex.
 
 Therefore, we provide an additional method to simplify the communication between the script and the native. This method acts as a channel or bridge, and we named it `JsbBridge`, which stands for a bridge between scripts and the native app through JSB binding.
 

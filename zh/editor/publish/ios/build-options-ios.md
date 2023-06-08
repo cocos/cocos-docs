@@ -22,11 +22,19 @@
 
 ### 屏幕方向
 
-//TODO
+屏幕方向目前包括 Portrait、Landscape Left、Landscape Right 三种。
+
+Portrait：屏幕直立，Home 键在下
+Landscape Left：屏幕横置，Home 键在屏幕左侧
+Landscape Right：屏幕横置，Home 键在屏幕右侧
 
 ### 目标系统
 
-//TODO
+默认启动的系统类型：
+- iPhone OS: 真机运行。
+- iOS Simulator: iOS 模拟运行。
+
+这个只是默认值 ，可以在 Xcode 中随时修改。
 
 ### 渲染后端
 

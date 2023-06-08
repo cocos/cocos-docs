@@ -1,4 +1,4 @@
-# 配置 Android 原生开发环境
+# Android 原生开发环境配置
 
 ## 下载 Android Studio
 
@@ -98,10 +98,10 @@
 
 目录选择如下：
 
-- NDK：
+**NDK：**
 
-    ![ndk-dir.png](images/ndk-dir.png)
+![ndk-dir.png](images/ndk-dir.png)
 
-- SDK：
+**SDK：**
 
-    ![sdk-dir.png](images/sdk-dir.png)
+![sdk-dir.png](images/sdk-dir.png)

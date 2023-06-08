@@ -28,7 +28,7 @@ Android 平台的构建选项如下：
 
 ## Target API Level
 
-设置编译 Android 平台时所需的 Target API Level。点击旁边的 **Set Android SDK** 按钮即可快速跳转到配置页，具体配置规则请参考 [配置原生发布环境路径](setup-native-development.md#%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%94%9F%E5%8F%91%E5%B8%83%E7%8E%AF%E5%A2%83%E8%B7%AF%E5%BE%84)。
+设置编译 Android 平台时所需的 Target API Level。点击旁边的 **Set Android SDK** 按钮即可快速跳转到配置页，具体配置规则请参考 [Android 原生发布环境配置](./build-setup-evn-android.md)。
 
 ## APP ABI
 

@@ -125,7 +125,7 @@
 
 如下图所示，取消 **使用调试秘钥**，并从下方的 **秘钥库路径** 中找到自定义的秘钥文件，填好相关信息即可。
 
-![debug-keystone.png](images/debug-keystone.png)
+![debug-keystore.png](images/debug-keystore.png)
 
 ### 注意事项
 

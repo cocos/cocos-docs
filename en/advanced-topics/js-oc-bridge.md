@@ -1,8 +1,8 @@
-# Using JsbBridge to Implement JavaScript and Objective-C Communication
+# JavaScript and Objective-C Communication using JsbBridge
 
 ## Background
 
-[Using Reflection to Implement JavaScript and Android Communication](./oc-reflection.md), We need to carefully verify the number of parameters to ensure proper operation. The steps involved are quite complex.
+[JavaScript and iOS/macOS Communication with Reflection](./oc-reflection.md), We need to carefully verify the number of parameters to ensure proper operation. The steps involved are quite complex.
 
 Therefore, we provide an additional method to simplify the communication between the script and the native. This method acts as a channel or bridge, and we named it `JsbBridge`, which stands for a bridge between scripts and the native app through JSB binding.
 

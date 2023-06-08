@@ -7,10 +7,10 @@ This chapter will cover some topics that you may involve in native app developme
 ## Content
 
 - [Native Platform Secondary Development Guide](../advanced-topics/native-secondary-development.md)
-- [Using Java Reflection to Implement JavaScript and Android Communication](../advanced-topics/java-reflection.md)
-- [Using Objective-C Reflection to Implement JavaScript and Android Communication](../advanced-topics/oc-reflection.md)
-- [Using JsbBridge for JavaScript and Java Communication](../advanced-topics/js-java-bridge.md)
-- [Using JsbBridge to Implement JavaScript and Objective-C Communication](../advanced-topics/js-oc-bridge.md)
+- [JavaScript and Android Communication with Reflection](../advanced-topics/java-reflection.md)
+- [JavaScript and iOS/macOS Communication with Reflection](../advanced-topics/oc-reflection.md)
+- [JavaScript and Java Communication using JsbBridge](../advanced-topics/js-java-bridge.md)
+- [JavaScript and Objective-C Communication using JsbBridge](../advanced-topics/js-oc-bridge.md)
 - [JsbBridgeWrapper - An Event Mechanism based on JsbBridge](../advanced-topics/jsb-bridge-wrapper.md)
 - [Tutorial: JSB 2.0](../advanced-topics/JSB2.0-learning.md)
     - [JSB Manual Binding](../advanced-topics/jsb-manual-binding.md)

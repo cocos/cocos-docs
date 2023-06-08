@@ -10,7 +10,7 @@ Cocos Creator supports publishing to native applications on multiple platforms:
 The following are some common knowledge points related to publishing to native platforms:
 - [About the Build Panel](build-panel.md)
 - [General Build Options](build-options.md)
-- [Common Options for Publishing to Native Platforms](native-options.md)
+- [General Native Build Options](native-options.md)
 - [Debugging JavaScript on Native Platforms](debug-jsb.md)
 - [Build Process and FAQ](build-guide.md)
 

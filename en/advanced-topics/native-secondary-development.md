@@ -1,4 +1,4 @@
-# Native Platform Development Guide
+# Native Platform Secondary Development Guide
 
 If you need to integrate third-party SDK libraries or modify, add or remove C++, Objective-C, or Java code files, the following information can help you do it faster.
 
@@ -127,8 +127,8 @@ For newly created native methods or newly integrated native SDKs that you want t
 
 If you need to call simple and infrequent functions, you can use the `JsbBridge` mechanism for communication.
 
-- [Using JsbBridge for JavaScript and Java Communication](js-java-bridge.md)
-- [Using JsbBridge for JavaScript and Objective-C Communication](js-oc-bridge.md)
+- [JavaScript and Java Communication using JsbBridge](js-java-bridge.md)
+- [JavaScript and Objective-C Communication using JsbBridge](js-oc-bridge.md)
 
 ### Using JSB Auto Binding
 
@@ -138,8 +138,8 @@ For frequent C++ function calls or batch C++ API exports to the script layer, it
 
 Communication based on the reflection mechanism in Java and Objective-C can also be used for convenient script-native interaction. However, due to stricter review rules on iOS, there is a risk of review failure when using reflection mechanisms on iOS.
 
-- [Using Java Reflection to Implement JavaScript and Android Communication](java-reflection.md)
-- [Using Java Reflection to Implement JavaScript and iOS/macOS Communication](oc-reflection.md)
+- [JavaScript and Android Communication with Reflection](java-reflection.md)
+- [JavaScript and iOS/macOS Communication with Reflection](oc-reflection.md)
 
 ## Source Code Version Control
 

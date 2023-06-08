@@ -1,4 +1,4 @@
-# Using Java Reflection to Implement JavaScript and Android Communication
+# JavaScript and Android Communication with Reflection
 
 ## Calling Java Static Methods from JavaScript
 
