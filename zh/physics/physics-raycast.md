@@ -177,4 +177,3 @@ if (PhysicsSystem.instance.lineStripCast(sampleArray, ... )) {
 }
 ```
 
-如果要投射其他几何体，请参考 [几何投射检测](./physics-sweep.md)。
