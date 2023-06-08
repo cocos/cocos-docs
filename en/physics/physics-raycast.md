@@ -183,5 +183,3 @@ if (PhysicsSystem.instance.lineStripCast(sampleArray, ... )) {
     }
 }
 ```
-
-If you want to cast other types of geometry, please refer to [Geometry Cast Detection](./physics-sweep.md).
