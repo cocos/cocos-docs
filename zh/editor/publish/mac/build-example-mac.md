@@ -8,7 +8,7 @@
 
 ### 注册开发者账号
 
-首先，需要拥有一个苹果开发者账号，如果没有，请先前往[注册页面](https://appleid.apple.com/account)进行注册。
+首先，需要拥有一个苹果开发者账号，如果没有，请先前往 [注册页面](https://appleid.apple.com/account) 进行注册。
 
 ### 确认 macOS 系统 和 Xcode 版本
 
@@ -16,7 +16,7 @@ Cocos Creator 打包环境要求：
 - Xcode 版本为 **11.5** 及以上。
 - macOS 版本为 **10.14** 及以上。
 
->**注意：** 默认情况下 AppStore 中对应的 Xcode 与系统匹配，如果要使用特定版本的 Xcode，可前往 [Xcode 下载页](https://developer.apple.com/xcode/download/) 下载。
+> **注意**：默认情况下 AppStore 中对应的 Xcode 与系统匹配，如果要使用特定版本的 Xcode，可前往 [Xcode 下载页](https://developer.apple.com/xcode/download/) 下载。
 
 ### 准备测试项目
 
@@ -102,4 +102,4 @@ Cocos Creator 提供了原生调试机制，可以很方便地在设备上调试
 
 ## 特性与系统版本
 
-不同的特性会依赖特定的系统版本，请往[特性与系统版本](./../../../advanced-topics/supported-versions.md)查看详情。
+不同的特性会依赖特定的系统版本，请往 [特性与系统版本](./../../../advanced-topics/supported-versions.md)查看详情。
