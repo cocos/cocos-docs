@@ -39,7 +39,7 @@ public class Test {
 
 The `className` should include the package path. If we want to call a static method in the `Test` class mentioned above, the `className` should be "com/cocos/game/Test".
 
->**Note:** Here we use a `/` instead of a `.` in Java package name.
+> **Note**: Here we use a `/` instead of a `.` in Java package name.
 
 ### methodName
 
@@ -60,7 +60,7 @@ Cocos Creator currently supports the following 4 Java type signatures:
 | boolean | Z   |
 | String  | Ljava/lang/String; |
 
->**Note**: the signature of `String` type is `Ljava/lang/String;`, don't miss the `;` in the end.
+> **Note**: the signature of `String` type is `Ljava/lang/String;`, don't miss the `;` in the end.
 
 Here are some examples:
 
