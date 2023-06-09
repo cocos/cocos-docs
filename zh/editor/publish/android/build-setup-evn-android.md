@@ -4,7 +4,7 @@
 
 开发者可以从 [Android Studio 官方网站](https://developer.android.com/studio) 下载对应的 IDE。
 
-参考 [安装配置原生开发环境](../setup-native-development.md##android-%E5%B9%B3%E5%8F%B0%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96) 搭建开发环境
+参考 [安装配置原生开发环境](../setup-native-development.md##android-%E5%B9%B3%E5%8F%B0%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96) 搭建开发环境。
 
 ## 下载并安装 JDK
 
@@ -32,7 +32,7 @@
 3. 在 Setting 内找到 SDK 下载分页
     ![download-sdk.png](images/download-sdk.png)
 
-4. 选中对应版本的 SDK 并加载，可以选择使用  [下载发布 Android 平台所需的 SDK 和 NDK](../setup-native-development.md#%E4%B8%8B%E8%BD%BD%E5%8F%91%E5%B8%83-android-%E5%B9%B3%E5%8F%B0%E6%89%80%E9%9C%80%E7%9A%84-sdk-%E5%92%8C-ndk) 中推荐的版本
+4. 选中对应版本的 SDK 并加载，可以选择使用 [下载发布 Android 平台所需的 SDK 和 NDK](../setup-native-development.md#%E4%B8%8B%E8%BD%BD%E5%8F%91%E5%B8%83-android-%E5%B9%B3%E5%8F%B0%E6%89%80%E9%9C%80%E7%9A%84-sdk-%E5%92%8C-ndk) 中推荐的版本
 
     - 以 Android 11.0(R) 为示例，选中 Name 前的勾并点击上图中的 OK 或者 Apply 按钮。
 
@@ -54,11 +54,11 @@
 
 在 Android Studio 中配置 HTTP 代理：
 
-**自动配置代理：** 在 Setting 中找到 HTTP Proxy，勾选 Auto-detect proxy settings，填入下方描述的镜像源，以腾讯源为例：
+**自动配置代理**：在 Setting 中找到 HTTP Proxy，勾选 Auto-detect proxy settings，填入下方描述的镜像源，以腾讯源为例：
 
 ![http-proxy.png](images/http-proxy.png)
 
-**可选的镜像源：** 安卓 SDK 以及下文中提到的 Gradle 都会有一些镜像源用于帮助您解决无法从官网下载的问题，如果下方表格的镜像也无法解决，也可以从搜索引擎获取。
+**可选的镜像源**：安卓 SDK 以及下文中提到的 Gradle 都会有一些镜像源用于帮助您解决无法从官网下载的问题，如果下方表格的镜像也无法解决，也可以从搜索引擎获取。
 
 | 镜像源 | 地址 |
 | :--- | :--- |
@@ -69,13 +69,14 @@
 
 ## 下载并安装 NDK
 
-根据 [安装配置原生开发环境 - 下载发布 Android 平台所需的 SDK 和 NDK](../setup-native-development.md) 推荐的版本区间下载 NDK（推荐使用版本为 **r18~21**）
+根据 [安装配置原生开发环境 - 下载发布 Android 平台所需的 SDK 和 NDK](../setup-native-development.md) 推荐的版本区间下载 NDK（推荐使用版本为 **r18~21**）。
 
 ### 通过 Android Studio 下载 NDK
 
 打开 Android Studio 的 **Setting** 窗口，找到 **Android SDK** 分页：
 
-**注意**：需要勾选 **Show Package Details**: <br>
+> **注意**：需要勾选 **Show Package Details**: <br>
+
 ![show-package-details.png](images/show-package-details.png)
 
 ![download-ndk-by-as.png](images/download-ndk-by-as.png)
