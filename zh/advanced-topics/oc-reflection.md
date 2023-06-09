@@ -10,11 +10,11 @@ var result = native.reflection.callStaticMethod(className, methodName, arg1, arg
 
 在 `native.reflection.callStaticMethod` 方法中，我们通过传入 Objective-C 的类名、方法名、参数就可以直接调用 Objective-C 的静态方法，并且可以获得 Objective-C 方法的返回值。
 
->**注意**：仅支持调用可访问类的静态方法。
+> **注意**：仅支持调用可访问类的静态方法。
 
-**警告**：苹果 App Store 在 2017 年 3 月对部分应用发出了警告，原因是使用了一些有风险的方法，其中 `respondsToSelector:` 和 `performSelector:` 是反射机制使用的核心 API，在使用时请谨慎关注苹果官方对此的态度发展，相关讨论：[JSPatch](https://github.com/bang590/JSPatch/issues/746)、[React-Native](https://github.com/facebook/react-native/issues/12778)、[Weex](https://github.com/alibaba/weex/issues/2875)。
+**警告**：苹果 App Store 在 2017 年 3 月对部分应用发出了警告，原因是使用了一些有风险的方法，其中 `respondsToSelector:` 和 `performSelector:` 是反射机制使用的核心 API，在使用时请谨慎关注苹果官方对此的态度发展，相关讨论：[JSPatch](https://github.com/bang590/JSPatch/issues/746)、[React-Native](https://github.com/facebook/react-native/issues/12778) 以及 [Weex](https://github.com/alibaba/weex/issues/2875)。
 
-为了降低提审不通过的风险，建议 [使用 JsbBridge 实现 JavaScript 与 Objective-C 通信](oc-reflection.md)。
+为了降低提审不通过的风险，建议参考 [使用 JsbBridge 实现 JavaScript 与 Objective-C 通信](js-oc-bridge.md)。
 
 ### 类名与静态方法
 
@@ -48,7 +48,7 @@ if(sys.isNative && (sys.os == sys.OS.IOS || sys.os == sys.OS.OSX)){
 
 `sys.isNative`  用于判断是否为原生平台，`sys.os` 用于判断当前运行系统。由于各平台通信机制不同，建议先判断再处理。
 
->**注意**：此时的方法名是 `callNativeUIWithTitle:andContent:`，不要漏掉了冒号 **:** 。
+> **注意**：此时的方法名是 `callNativeUIWithTitle:andContent:`，不要漏掉了冒号 **:** 。
 
 ### 无参方法
 
@@ -90,12 +90,12 @@ var ret = native.reflection.callStaticMethod("NativeOcClass",
 
 例如下面代码，传入两个浮点数，然后计算它们的合并返回，我们使用 NSNumber 作为参数类型，而不是 int 和 float。
 
-  ```objc
-  +(float) addTwoNumber:(NSNumber *)num1 and:(NSNumber *)num2{
-      float result = [num1 floatValue]+[num2 floatValue];
-      return result;
-  }
-  ```
+```objc
++(float) addTwoNumber:(NSNumber *)num1 and:(NSNumber *)num2{
+  float result = [num1 floatValue]+[num2 floatValue];
+  return result;
+}
+```
 
 目前参数和返回值支持以下类型：
 
@@ -132,7 +132,7 @@ window.callByNative = function(){
 }
 ```
 
-> `window` 是 Cocos 引擎脚本环境中的全局对象，如果要让一个变量、函数、对象或者类全局可见，需要将它作为 `window` 的属性。 可以使用 `window.变量名` 或者  `变量名` 进行访问。
+> `window` 是 Cocos 引擎脚本环境中的全局对象，如果要让一个变量、函数、对象或者类全局可见，需要将它作为 `window` 的属性。可以使用 `window.变量名` 或者 `变量名` 进行访问。
 
 然后像下面这样调用:
 
@@ -160,7 +160,7 @@ export class NativeAPI{
     //to do
   }
 }
-//将 NativeAPI 注册为全局类，否则无法在 OC 中被调用
+// 将 NativeAPI 注册为全局类，否则无法在 OC 中被调用
 window.NativeAPI = NativeAPI;
 ```
 
@@ -192,7 +192,7 @@ export class NativeAPIMgr{
   }
 }
 
-//将 NativeAPIMgr 注册为全局类，否则无法在 OC 中被调用
+// 将 NativeAPIMgr 注册为全局类，否则无法在 OC 中被调用
 window.NativeAPIMgr = NativeAPIMgr;
 ```
 
