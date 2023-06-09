@@ -74,7 +74,7 @@ Please refer to [Downloading the SDK and NDK required to publish to the Android 
 
 Navigate to the **Android SDK** page in Android Studio **Settings** panel.
 
-**Note**: check **Show Package Details**
+> **Note**: check **Show Package Details**
 > ![show-package-details.png](images/show-package-details.png)
 
 ![download-ndk-by-as.png](images/download-ndk-by-as.png)
@@ -97,10 +97,10 @@ Navigate to the **Preferences** panel in Cocos Creator by clicking the **File** 
 
 The path should be like follows:
 
-**NDK:**
+**NDK**:
 
 ![ndk-dir.png](images/ndk-dir.png)
 
-**SDK：**
+**SDK**:
 
 ![sdk-dir.png](images/sdk-dir.png)
