@@ -10,9 +10,10 @@ var result = native.reflection.callStaticMethod(className, methodName, arg1, arg
 
 In the `native.reflection.callStaticMethod method`, by passing the Objective-C class name, method name, and arguments, you can directly call the Objective-C static method and obtain the return value.
 
->**Note**: Only static methods of accessible classes can be called
-
-**Note**: In March 2017, Apple App Store issued warnings to some applications that used risky methods. Among them, `respondsToSelector` and `performSelector` are included, which are core APIs used in the reflection mechanism. Please pay attention to Apple's official stance on this issue. Related discussions can be found at: [JSPatch](https://github.com/bang590/JSPatch/issues/746)、[React-Native](https://github.com/facebook/react-native/issues/12778)、[Weex](https://github.com/alibaba/weex/issues/2875)。
+> **Note**: 
+> 1. Only static methods of accessible classes can be called
+>
+> 2. In March 2017, Apple App Store issued warnings to some applications that used risky methods. Among them, `respondsToSelector` and `performSelector` are included, which are core APIs used in the reflection mechanism. Please pay attention to Apple's official stance on this issue. Related discussions can be found at: [JSPatch](https://github.com/bang590/JSPatch/issues/746)、[React-Native](https://github.com/facebook/react-native/issues/12778)、[Weex](https://github.com/alibaba/weex/issues/2875)。
 
 To reduce the risk of rejection during app review, it is recommended to [JavaScript and Objective-C Communication using JsbBridge](./js-oc-bridge.md).
 
@@ -48,7 +49,7 @@ if(sys.isNative && (sys.os == sys.OS.IOS || sys.os == sys.OS.OSX)){
 
 The `sys.isNative` is used to check if it's running on a native platform, and the `sys.os` is used to determine the current operating system. Since the communication mechanisms vary across different platforms, it is recommended to perform the check before call `native.reflection.callStaticMethod`.
 
->**Note**: The method name should be `callNativeUIWithTitle:andContent:`, don't forget the **:** at the end.
+> **Note**: The method name should be `callNativeUIWithTitle:andContent:`, don't forget the **:** at the end.
 
 ### Method without Parameters
 
