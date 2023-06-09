@@ -101,7 +101,7 @@ Cocos Creator 构建的原生工程，包含 原生公共目录，原生平台�
 
 ![windows xcode](publish-native/windows-vs.png)
 
-如果要对生成的原生项目做修改，请参考[原生项目二次开发](../../advanced-topics/native-secondary-development.md)。
+如果要对生成的原生项目做修改，请参考 [原生项目二次开发](../../advanced-topics/native-secondary-development.md)。
 
 关于原生平台 IDE 的使用请搜索相关信息，这里就不再赘述了。若要了解如何在原生平台上调试，请参考 [原生平台 JavaScript 调试](debug-jsb.md)。
 
