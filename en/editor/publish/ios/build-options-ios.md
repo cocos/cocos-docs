@@ -16,7 +16,7 @@ If this option is selected, the Xcode project configuration will not be updated 
 
 This option is useful when using CocoaPods or when you want to persist modifications to the Xcode project. Without selecting this option, the modifications made by `pod install` will be overwritten with each build. With this option selected, you don't have to worry about the modifications being overwritten.
 
->**Note:** If this option is selected, subsequent changes to the configuration will not update the Xcode project.
+> **Note**: If this option is selected, subsequent changes to the configuration will not update the Xcode project.
 
 ## Orientation
 
