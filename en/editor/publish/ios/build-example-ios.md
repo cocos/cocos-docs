@@ -18,7 +18,7 @@ Publishing iOS apps via Cocos Creator environment requirements:
 - Xcode version **11.5** or above.
 - macOS version **10.14** or above.
 
->**Note:** By default, the corresponding Xcode version in the App Store matches the system. If you want to use a specific version of Xcode, you can download it from the [Xcode download page](https://developer.apple.com/xcode/download/).
+> **Note**: By default, the corresponding Xcode version in the App Store matches the system. If you want to use a specific version of Xcode, you can download it from the [Xcode download page](https://developer.apple.com/xcode/download/).
 
 ### Prepare a Test Project
 
