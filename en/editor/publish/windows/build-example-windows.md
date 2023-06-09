@@ -2,7 +2,6 @@
 
 This guide demonstrates how to publish a project created with Cocos Creator as a Windows application. Before proceeding, make sure you have the following prerequisites:
 
-本文将演示将 Cocos Creator 开发的项目发布为 Windows 应用程序，需要以下准备工作：
 - A Windows computer
 - C++ development environment
 
@@ -12,7 +11,7 @@ First, you need to install [Visual Studio 2017/2019 Community](https://www.visua
 
 During the installation of Visual Studio, make sure to select the modules `Desktop development with C++` and `Game development with C++`.
 
-> **Note:** Within the Game development with C++ module, there is an option for **Cocos**. Please do not select this option.
+> **Note**: Within the Game development with C++ module, there is an option for **Cocos**. Please **do not** select this option.
 
 ## Publishing Process
 
