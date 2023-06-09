@@ -1,7 +1,7 @@
 # iOS 构建示例
 
 本文将演示 Cocos Creator 项目发布为 iOS 应用程序的流程，需要以下准备工作：
-- 一台 安装了 XCode 的 MacOS 设备
+- 一台安装了 XCode 的 MacOS 设备
 - 一个苹果开发者账号
 
 ## 发布流程
@@ -16,23 +16,23 @@ Cocos Creator 打包环境要求：
 - Xcode 版本为 **11.5** 及以上。
 - macOS 版本为 **10.14** 及以上。
 
->**注意：** 默认情况下 AppStore 中对应的 Xcode 与系统匹配，如果要使用特定版本的 Xcode，可前往 [Xcode 下载页](https://developer.apple.com/xcode/download/) 下载。
+> **注意**：默认情况下 AppStore 中对应的 Xcode 与系统匹配，如果要使用特定版本的 Xcode，可前往 [Xcode 下载页](https://developer.apple.com/xcode/download/) 下载。
 
 ### 准备测试项目
 
-打开一个已有的项目，或者新建一个测试项目
+打开一个已有的项目，或者新建一个测试项目。
 
 ### 构建
 
 ![project-build-menu](./images/project-build-menu.png)
 
-如上图所示，在 Cocos Creator 顶部菜单中选择 **项目(Project)** -> **构建(Build)**，可打开下面的构建面板。
+如上图所示，在 Cocos Creator 顶部菜单中选择 **项目（Project）** -> **构建（Build）**，可打开下面的构建面板。
 
 ![ios-build-panel](./images/ios-build-panel.png)
 
 #### 配置通用选项
 
-上图中，左边蓝色部分为Cocos Creator 支持的所有平台都需要配置的公共参数，可以前往[通用发布配置](./../build-options.md)查看详情。
+上图中，左边蓝色部分为 Cocos Creator 支持的所有平台都需要配置的公共参数，可以前往 [通用发布配置](./../build-options.md) 查看详情。
 
 #### 配置 iOS 专有选项
 
