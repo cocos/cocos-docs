@@ -29,7 +29,7 @@ When multiple options are selected, the runtime will choose the rendering backen
 
 The Game Package Name usually follows the reverse order of the product's website URL, such as `com.mycompany.myproduct`.
 
-> **Note:** The package name can only contain numbers, letters, and underscores. Additionally, the last part of the package name must start with a letter and cannot start with an underscore or a number.
+> **Note**: The package name can only contain numbers, letters, and underscores. Additionally, the last part of the package name must start with a letter and cannot start with an underscore or a number.
 
 ## Target API Level
 
@@ -39,7 +39,7 @@ Set the Target API Level required for Android platform compilation. Clicking the
 
 Set the CPU types that your Android app needs to support. You can choose one or more options, including `armeabi-v7a`, `arm64-v8a`, `x86`, and `x86_64`.
 
-**Note:**
+**Note**:
 
 1. When you select one ABI and build it without cleaning, both ABIs' shared objects (so) will be packaged into the APK. This is the default behavior of Android Studio. If you import the project into Android Studio, after building one ABI, perform **Build -> Clean Project** before building another ABI. This way, only the latter ABI will be packaged into the APK
 
@@ -54,9 +54,9 @@ Android requires that all APKs be digitally signed with a certificate before the
 
 The screen orientation currently includes three options: **Portrait**, **Landscape Left**, and **Landscape Right**.
 
-- **Portrait:** The screen is in an upright position with the Home button at the bottom.
-- **Landscape Left:** The screen is in a landscape position with the Home button on the left side of the screen.
-- **Landscape Right:** The screen is in a landscape position with the Home button on the right side of the screen.
+- **Portrait**: The screen is in an upright position with the Home button at the bottom.
+- **Landscape Left**: The screen is in a landscape position with the Home button on the left side of the screen.
+- **Landscape Right**: The screen is in a landscape position with the Home button on the right side of the screen.
 
 ## Google Play Instant
 
