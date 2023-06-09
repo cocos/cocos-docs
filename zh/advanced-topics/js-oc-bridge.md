@@ -1,4 +1,4 @@
-# 使用 JsbBridge 实现 JavaScript 与 Objective-C 通信（实验性功能）
+# 使用 JsbBridge 实现 JavaScript 与 Objective-C 通信
 
 ## 背景
 
@@ -139,6 +139,7 @@ JsbBridge 提供了 arg0 和 arg1 两个 string 类型的参数用于传递信�
 ### 3. arg0 用于分类标记，arg1 作为 JSON 字符串
 
 对于特别复杂的需求， 单纯的 string 类型参数无法满足，此时可以将需要传递的对象通过 `JSON.stringfy` 转化为字符串，再通过 arg1 进行传递。 使用时，再利用 `JSON.parse` 还原为对象，做后续的处理。
+
 > 由于涉及到 JSON 的序列化和反序列化操作，这种使用方式不建议高频调用。
 
 ## 线程安全
