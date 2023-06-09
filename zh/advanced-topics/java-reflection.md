@@ -39,7 +39,7 @@ public class Test {
 
 `className` 需要包含包名信息，如果要调用上面的 Test 类中的静态方法，`className` 应该为 "com/cocos/game/Test"。
 
->**注意：**这里必须是斜线 `/`，而不是在 Java 代码中的 `.`。
+    > **注意**：这里必须是斜线 `/`，而不是在 Java 代码中的 `.`。
 
 ### methodName
 
@@ -49,7 +49,7 @@ public class Test {
 
 由于 Java 支持函数重载功能，方法签名用于告诉反射系统对应的参数类型和返回值类型，以确定唯一的方法。
 
-它的格式为：**(参数类型)返回值类型**。
+它的格式为：**（参数类型）返回值类型**。
 
 目前 Cocos Creator 中支持的 Java 类型签名有以下 4 种：
 
@@ -60,7 +60,7 @@ public class Test {
 | boolean | Z   |
 | String  | Ljava/lang/String; |
 
->**注意**：String 类型的签名为 `Ljava/lang/String;`，不要漏掉了最后的 `;`。
+> **注意**：String 类型的签名为 `Ljava/lang/String;`，不要漏掉了最后的 `;`。
 
 下面是一些案例
 
@@ -129,7 +129,7 @@ window.callByNative = function(){
 }
 ```
 
-> `window` 是 Cocos 引擎脚本环境中的全局对象，如果要让一个变量、函数、对象或者类全局可见，需要将它作为 `window` 的属性。 可以使用 `window.变量名` 或者  `变量名` 进行访问。
+> `window` 是 Cocos 引擎脚本环境中的全局对象，如果要让一个变量、函数、对象或者类全局可见，需要将它作为 `window` 的属性。可以使用 `window.变量名` 或者 `变量名` 进行访问。
 
 然后像下面这样调用:
 
