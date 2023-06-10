@@ -62,4 +62,4 @@ Used to parse subtitle files. Currently, only .srt subtitle files are supported.
 | Caption File        | Appears when Caption Source Type is LOCAL, for the local subtitle file. |
 | Video Player        | Associates a specified VideoPlayer to synchronize the subtitles with the video based on time. |
 
-**Note**: Vulkan does not currently support the video player functionality.
+> **Note**: Vulkan does not currently support the video player functionality.
