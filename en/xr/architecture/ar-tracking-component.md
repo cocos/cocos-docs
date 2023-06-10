@@ -6,7 +6,7 @@ Each automated behavior editing component for a specific feature has its own uni
 
 ## Plane Tracking
 
-Right-click in the Hierarchy and choose **Create -> XR -> Plane Tracking** to create a plane agent node that can describe a plane entity in the physical world.
+Right-click in the **Hierarchy** panel and choose **Create -> XR -> Plane Tracking** to create a plane agent node that can describe a plane entity in the physical world.
 
 <img src="ar-tracking-component/create-plane-tracking-node.png" alt="create-plane-tracking-node" style="zoom:50%;" />
 
