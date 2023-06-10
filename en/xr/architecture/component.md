@@ -122,7 +122,7 @@ RayInteractor is a component for ray-based interaction.
 | RaycastMask              | Only interacts with objects of this layer type.                        |
 | SelectActionTrigger      | Selects the action trigger mechanism for the Select behavior. See the interaction functionality section for details.                    |
 
-> **Note**: The functionality of projectile curves and Bezier curves requires the extended version >= v1.1.0 and Cocos Creator version >= 3.7.1.
+> **Note**: The functionality of projectile curves and Bezier curves requires the extended version >= v1.1.0 and the Cocos Creator version >= 3.7.1.
 
 ### DirectInteractor
 
