@@ -1,65 +1,65 @@
-# XR 视频播放器
+# XR Video Player
 
-XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示方式，结合设备自身的多轴向定位特性和双屏渲染画面，可以满足用户在 3D 场景中浏览全景视频或动态材质的需要。Cocos CreatorXR v1.1.0提供了通用化的 XR 视频播放器，针对 XR 设备优化了视频渲染管线并支持切换展示窗口、180 度、360 度多风格的视频。同时，播放器还提供了交互功能辅助您进行播放控制，您只需要添加或替换视频资源即可完成简易的视频播放功能的内容开发，简化创作步骤，降低开发门槛。
+XR headsets offer a variety of ways to display videos compared to traditional monitors. With their multi-axis positional tracking and dual-screen rendering capabilities, XR devices can fulfill the need for browsing panoramic videos or dynamic materials in a 3D environment. Cocos CreatorXR v1.1.0 provides a versatile XR Video Player that optimizes video rendering pipelines for XR devices and supports switching display windows, as well as various styles of videos such as 180-degree and 360-degree. Additionally, the player offers interactive features to assist with playback control. By simply adding or replacing video resources, you can easily develop video playback functionality, simplifying the creative process and lowering the barrier to entry.
 
-创建视频播放器，请在层级管理器右键 **创建 -> XR -> XR Video Player**。
+To create a video player, right-click in the Hierarchy and select **Create -> XR -> XR Video Player**.
 
 ![xr_video_player_node](xr-video-player/xr_video_player_node.png)
 
-其节点中包含的核心组件如下：
+The core components contained within the node are as follows:
 
 ## XR Video Player
 
 ### cc.XRVideoPlayer
 
-用于调整视频的各项属性
+Used to adjust various properties of the video.
 
-| 属性               | 说明                                                         |
+| Property               | Description                                                         |
 | ------------------ | ------------------------------------------------------------ |
-| Source Type        | 视频来源：REMOTE 表示远程视频 URL，LOCAL 表示本地视频地址       |
-| Remote URL         | Source Type 为 REMOTE 时出现此项，远程视频的 URL                 |
-| Clip               | Source Type 为 LOCAL 时出现此项，本地视频剪辑                   |
-| Play On Awake      | 视频加载后是否自动开始播放                                   |
-| Playback Rate      | 视频播放时的速率，范围：[0.0,2.5]                                    |
-| Volume             | 视频的音量 [0.0,1.0]                                       |
-| Mute               | 是否静音。静音时音量设置为0，取消静音时恢复原来的音量。      |
-| Loop               | 视频是否应在结束时再次播放                                   |
-| Keep Aspect Ratio  | 是否保持视频自身的宽高比（使用竖屏视频查看效果）             |
-| Shape              | 视频样式。                                                   |
-| Content            | 关联带有 MeshRenderer 组件的 VideoContent 作为视频材质渲染对象。 |
-| Video Player Event | 视频播放回调函数，该回调函数会在特定情况被触发，比如播放中、暂停、停止和播放完毕。 |
+| Source Type        | The source of the video: REMOTE for remote video URL, LOCAL for local video file path.       |
+| Remote URL         | Appears when Source Type is REMOTE, for the URL of the remote video.            |
+| Clip               | Appears when Source Type is LOCAL, for the local video clip.              |
+| Play On Awake      | Determines whether the video automatically starts playing after loading.                  |
+| Playback Rate      | The playback speed of the video, ranging from [0.0, 2.5].              |
+| Volume             | The volume of the video, ranging from [0.0, 1.0].            |
+| Mute               | Whether the video is muted. When muted, the volume is set to 0; when unmuted, it restores the original volume.    |
+| Loop               | Whether the video should replay when it reaches the end.              |
+| Keep Aspect Ratio  | Whether to maintain the original aspect ratio of the video (useful for viewing portrait videos).      |
+| Shape              | The style of the video.                                 |
+| Content            | Associates a VideoContent with a MeshRenderer component to render the video texture. |
+| Video Player Event | A callback function triggered under specific conditions during video playback, such as during play, pause, stop, or completion. |
 
 ## XR Video Controller
 
 ### cc.XRVideoController
 
-用于关联UI和视频功能。
+Used to associate UI elements with video functionality.
 
-| 属性                  | 说明                                        |
+| Property                  | Description                                        |
 | --------------------- | ------------------------------------------- |
-| Player                | 关联指定的 VideoPlayer，用于控制其播放功能。 |
-| HMD Control           | 绑定头戴显示器的控制器对象节点。            |
-| Left Hand Controller  | 绑定左手柄的控制器对象节点。                |
-| Right Hand Controller | 绑定右手柄的控制器对象节点。                |
-| Play Pause            | 播放/暂停 UI。                               |
-| Progress Bar          | 进度条 UI。                                  |
-| Fast Forward          | 快进按钮 UI。                                |
-| Rewind                | 快退按钮 UI。                                |
-| Video Shape UI        | 视频样式 UI。                                |
-| Player Back Rate Bar  | 倍速 UI。                                    |
-| Volume UI             | 音量调节 UI。                                |
+| Player                | The associated VideoPlayer used to control its playback functionality. |
+| HMD Control           | The controller object node bound to the HMD (head-mounted display).    |
+| Left Hand Controller  | The controller object node bound to the left hand controller.    |
+| Right Hand Controller | The controller object node bound to the right hand controller.     |
+| Play Pause            | UI element for play/pause control.       |
+| Progress Bar          | UI element for the progress bar.           |
+| Fast Forward          | UI element for the fast forward button.        |
+| Rewind                | UI element for the rewind button.     |
+| Video Shape UI        | UI element for video style selection.      |
+| Player Back Rate Bar  | UI element for the playback speed.      |
+| Volume UI             | UI element for volume adjustment.      |
 
 ## Video Caption
 
 ### cc.XRVideoCaption
 
-用于解析字幕文件，目前只支持解析 .srt 类型的字幕文件。
+Used to parse subtitle files. Currently, only .srt subtitle files are supported.
 
-| 属性                | 说明                                                         |
+| Property                | Description                                                         |
 | ------------------- | ------------------------------------------------------------ |
-| Caption Source Type | 字幕来源：REMOTE 表示 URL 里的文件并解析字幕，LOCAL 表示本地字幕文件。 |
-| Remote URL          | Source Type 为 REMOTE 时出现此项，字幕文件的 URL                 |
-| Caption File        | Source Type 为 LOCAL 时出现此项，本地字幕文件                   |
-| Video Player        | 关联指定的 VideoPlayer，将字幕按时间同步于此视频。            |
+| Caption Source Type | The source of the captions: REMOTE for a file specified by a URL to parse the captions, LOCAL for a local subtitle file. |
+| Remote URL          | Appears when Caption Source Type is REMOTE, for the URL of the remote subtitle file.     |
+| Caption File        | Appears when Caption Source Type is LOCAL, for the local subtitle file. |
+| Video Player        | Associates a specified VideoPlayer to synchronize the subtitles with the video based on time. |
 
-注：Vulkan目前不支持视频播放器。
+**Note**: Vulkan does not currently support the video player functionality.

@@ -1,73 +1,77 @@
-# AR 交互
+# AR Interaction
 
-AR 交互主要由 cc.ScreenTouchInteractor 组件驱动，该组件将触摸事件转换为点击、拖拽和捏合等手势，交互器将这些手势传递给可以交互的虚拟交互物，完成手势对应触发的行为。
+AR interaction is mainly driven by the `cc.ScreenTouchInteractor` component, which converts touch events into gestures such as tap, drag, and pinch. The interactor passes these gestures to interactive virtual objects, triggering corresponding behaviors.
 
-## 手势交互
+## Gesture Interaction
 
-AR 手势交互器组件将屏幕触摸转换为手势。Cocos Creator 的输入系统将手势信号传递给交互物，然后交互物响应手势事件发生变换行为。交互物能发生交互行为的前提是必须绑定  **cc.Selectable** 组件，关于此组件的属性描述详见交互组件 [Selectable](component.md#Selectable)。
+The AR gesture interactor component converts screen touches into gestures. Cocos Creator's input system passes gesture signals to interactive objects, which respond to gesture events by transforming their behaviors. To enable interactive behaviors, the interactive objects must be bound with the `cc.Selectable` component. For a detailed description of the properties of this component, see the [XR Component - Selectable](component.md#Selectable).
 
-想要使用 **屏幕手势交互器**，在层级管理器中右键创建 **XR -> Screen Touch Interactor** 。
+To use the **Screen Touch Interactor**, right-click in the Hierarchy and create **XR -> Screen Touch Interactor**.
 
 <img src="ar-interaction/screen-touch-interactor-node.png" alt="screen-touch-interactor-node" style="zoom:50%;" />
 
-随意创建一个 3D 物体（以 Cube 为例）。
+Create a 3D object of your choice (using a Cube as an example).
 
-修改 Cube 的 Scale 属性为（0.1，0.1，0.1）既实际大小为 1000cm³ ，修改 Position 属性为（0，-0.1，-0.5）即位于空间远点处 50cm 远且靠下10cm的位置，并添加组件 **XR > Interaction -> Selectable**。
+Modify the `scale` property of the Cube to (0.1, 0.1, 0.1), making it an actual size of 1000cm³. Modify the `position` property to (0, -0.1, -0.5), placing it 50cm away from the origin in space and 10cm below, and add the **XR > Interaction -> Selectable** component.
 
 ![create-3d-obj](ar-interaction/create-3d-obj.png)
 
 <img src="ar-interaction/add-selectable.png" alt="add-selectable" style="zoom:50%;" />
 
-下面创建选中效果，在资源文件夹中创建一个预置体，命名为 Selected Visualizer。
+Next, let's create a selection effect.
+
+In the `Assets` folder, create a prefab named "Selected Visualizer".
 
 ![create-selected-visualizer](ar-interaction/create-selected-visualizer.png)
 
-在预置体根节点下创建一个同样的 Cube 对象，Scale 大小设置为基于父节点的 1.2 倍。
+Under the root node of the prefab, create another Cube object with the same properties, but set the `scale` to 1.2 times based on the parent node.
 
 ![set-selected-prefab](ar-interaction/set-selected-prefab.png)
 
-创建一个新的材质，突出表现选中态的效果。
+Create a new material to highlight the selected state.
 
 ![set-selected-material](ar-interaction/set-selected-material.png)
 
-调整材质效果，建议 Effect 选择 builtin-unlit，Technique 选择 1-transparent。
+Adjust the material settings. It is recommended to select "builtin-unlit" for the `effect` and "1-transparent" for the `technique`.
 
 <img src="ar-interaction/adjust-material.png" alt="adjust-material" style="zoom:50%;" />
 
-材质创建完毕后，应用到预置体中 Cube 的 cc.MeshRenderer 中，即可完成选中效果的创建。
+After creating the material, apply it to the `cc.MeshRenderer` of the Cube in the prefab to complete the selection effect.
 
 ![refer-to-material](ar-interaction/refer-to-material.png)
 
-最后，将预置体应用到 cc.Selectable 的 Selected Visualization 属性中。
+Finally, apply the prefab to the `Selected Visualization` property of the `cc.Selectable` component.
 
 ![refer-to-selected-visualizer](ar-interaction/refer-to-selected-visualizer.png)
 
-运行时效果如下，可以结合手势来移动、旋转和放缩虚拟物体。
+During runtime, you can move, rotate, and scale the virtual object by combining gestures.
 
 ![select-effect](ar-interaction/select-effect.png)
 
-## 放置
+## Placement
 
-使用 **屏幕手势交互器** 时，会启用设备 AR Hit Test 能力，根据屏幕触碰位置坐标转换到摄像机使用 Ray Cast 与 AR Plane 发生碰撞计算，来获取碰撞点的位置，最终在平面的此坐标上放置虚拟对象。能够被放置的预置体对象必须要挂载**[cc.Placeable](component.md#Placeable)**组件。
+When using the **Screen Touch Interactor**, the AR hit test capability is enabled. It calculates the collision between the touch position on the screen, converted to the camera's coordinates, and the AR plane using Ray Cast. This way, it obtains the position of the collision point and places virtual objects in that position. The objects that can be placed must be equipped with the [`cc.Placeable` component](component.md#Placeable).
 
-以上述场景中制作的 Selectable 对象为例，以下对其赋予被放置交互能力。
+Using the previously created selectable object as an example, let's give it the ability to be placed.
 
-选中场景中的 Cube 对象，为其添加组件 **XR -> Interaction -> Placeable**。
+Select the Cube object in the scene and add the **XR -> Interaction -> Placeable** component to it.
 
 ![add-placeable](ar-interaction/add-placeable.png)
 
-将此场景节点拖入资源管理器生成一份预置体，并删除场景中的此 Cube 对象。
+Drag this scene node into the Assets panel to generate a prefab, then delete the Cube object in the scene.
 
 ![create-placement-prefab](ar-interaction/create-placement-prefab.png)
 
-将刚生成的Cube预置体引用到 **Screen Touch Interactor -> Place Action > Placement Prefab** 属性中，**Calculation Mode** 选择 **AR_HIT_DETECTION**。
+Drag this scene node into the Assets panel to generate a prefab, then delete the Cube object in the scene.
+
+Refer to the newly generated Cube prefab in the **Screen Touch Interactor -> Place Action > Placement Prefab** property. Set the `Calculation Mode` to `AR_HIT_DETECTION`.
 
 ![refer-to-placement-prefab](ar-interaction/refer-to-placement-prefab.png)
 
-放置对象的位置计算需要依赖于 AR Plane，所以还需创建一个 Plane Tracking 节点来请求设备激活 AR SDK 的平面识别能力。在编辑器的层级管理器中右键 **创建 > XR > Plane Tracking**，创建平面代理节点。
+The placement calculation relies on `AR planes`, so we need to create a `Plane Tracking` node to request the device to activate the plane detection capability of the AR SDK. Right-click in the Hierarchy panel and create **XR -> Plane Tracking** to create the plane agent node.
 
 ![create-plane-tracking](ar-interaction/create-plane-tracking.png)
 
-所有工作都完成后，即可打包发布，在运行时查看放置效果。
+Once all the work is done, you can build and publish the project to see the placement effect during runtime.
 
 ![interacion-effect](ar-interaction/interacion-effect.png)

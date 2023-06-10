@@ -1,3 +1,3 @@
-# AR 功能模块
+# AR Features
 
-开发者往往需要面向不同的平台发布 AR 应用，为了抹平平台差异化对开发者带来的困扰，Cocos CreatorXR 提供了统一的上层 AR 功能组件来支持增强现实应用的设计开发。开发者在使用 AR 组件时，无需关心不同 AR SDK 在功能上的差异而可以专注于逻辑开发。
+Developers often need to publish AR applications for different platforms. To mitigate the challenges posed by platform differences, Cocos CreatorXR provides a unified set of high-level AR components to support the design and development of augmented reality applications. When using AR components, developers do not need to worry about the functional differences of various AR SDKs and can focus on business-related development.

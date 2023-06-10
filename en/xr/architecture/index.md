@@ -1,5 +1,5 @@
-# 架构
+# Architecture
 
-插件架构是指插件的系统结构。作为 Cocos CreatorXR 的用户，您可以通过了解插件架构的组成元素、它们的职责以及它们如何相互组合联系，来快速完整的构建 XR 应用。
+The extension architecture refers to the system structure of the extension. As a user of Cocos CreatorXR, you can quickly and comprehensively build XR applications by understanding the components of the extension architecture, their responsibilities, and how they are combined and interconnected.
 
-![](index/xr-framework.png)
+![index/xr-framework.png](index/xr-framework.png)

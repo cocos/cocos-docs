@@ -1,44 +1,45 @@
-# WebXR 项目构建与发布
+# Building and Publishing WebXR Project
 
-完成 WebXR 应用的 [项目设置](webxr-proj-deploy.md) 并完成项目开发之后，即可打包 WebXR 应用。点击 **菜单栏 -> 项目 -> 构建发布**。
+After completing the [WebXR Project Setup](webxr-proj-deploy.md) and finishing the development, you can build and publish the WebXR application by clicking on **Menu Bar -> Project -> Build**.
 
-## 配置 WebXR 构建属性
+## Setting up WebXR Build Options
 
-构建平台选择 **Web 移动端**。
+Choose **Web-Mobile** as the target build platform.
 
 <img src="webxr-proj-pub/select-web-mobile.png" style="zoom:50%;" />
 
-开启构建面板最后一个属性 **WebXR**。
+Enable the `WebXR` option in the **Build** panel.
 
 <img src="webxr-proj-pub/enable-webxr.png" style="zoom:50%;" />
 
-点击构建即可。
+Click on **Build** to proceed.
 
-## 配置 https 环境
+## Configure HTTPS Environment
 
-WebXR 所使用的用于提供 Web 资源的服务必须使用 [安全上下文(secure context)](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts)。
+The server used to provide web resources for WebXR must be served in a [Secure Context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts).
 
-而启动 https 的域名的服务一般需要配置 .pem（证书文件）。
+To start an HTTPS server, a .pem (certificate file) needs to be configured for the domain hosting service.
 
-由于当前版本暂时不支持启动内置 https 服务器，需要用户手动启动。
+Since the current version does not support starting a built-in HTTPS server, users need to start it manually.
 
-将 .pem 存放至构建文件夹的根目录。
+Place the .pem file in the root directory of the build folder.
 
-![](webxr-proj-pub/https-license.png)
+![webxr-proj-pub/https-license.png](webxr-proj-pub/https-license.png)
 
-在命令终端的此目录下输入：**https-server -S** 。启动 https 服务即可。
+In the command terminal, navigate to this directory and enter the command: `https-server -S`. This will start the HTTPS server.
 
 <img src="webxr-proj-pub/start-https-server.png" style="zoom:50%;" />
 
-## 选择可用的设备和浏览器
+## Select Compatible Devices and Browsers
 
-支持 ARCore 的设备请参考 [ARCore官方文档](https://developers.google.com/ar/devices)。
+Refer to the  [ARCore official documentation](https://developers.google.com/ar/devices) for a list of devices that support ARCore.
 
-支持 WebXR 的浏览器请参考 [这里](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API#browser_compatibility)。
+Refer to [WEBXR browser_compatibility - mozilla.org]((https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API#browser_compatibility)
+) for a list of browsers that support WebXR.
 
-## 打开浏览器的webxr能力
+## Enable the WebXR Feature of the Browser
 
-使用 Chrome 浏览器访问 WebXR 应用前需要确认浏览器 webxr 的功能是否开启。
+Before accessing a WebXR application using the Chrome browser, it's necessary to ensure that the WebXR feature is enabled.
 
-访问 **[chrome://flags](chrome://flags)** ，将 **webxr incubations** 改为 **Enable**。
+Go to **[chrome://flags](chrome://flags)**  and set the `webxr incubations` to `Enable`.
 

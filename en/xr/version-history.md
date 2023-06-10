@@ -34,7 +34,7 @@ Added:
 
 - Added AR application development module, enabling publishing of AR applications to AREngine, ARCore, ARKit, and Qualcomm Spaces platforms. Provides automated behavior editing components for quick creation and experience of AR content, supporting features such as device tracking (AR Camera), plane tracking, image tracking, anchors, and Mesh.
 - Added non-buffered haptic feedback for controller vibration. Select the desired event types for vibration in `cc.InteractorEvent`'s `Haptic Event` and adjust the vibration parameters.
-- Added **one-click conversion** feature for XRUI, enabling the transformation of traditional 2D UI into XR UI with spatial properties.
+- Added a **one-click conversion** feature for XRUI, enabling the transformation of traditional 2D UI into XR UI with spatial properties.
 - Added gaze interactor for interaction based on the gaze center position of the head-mounted device.
 - Added XR video player, optimizing the video rendering pipeline for XR devices and supporting display window switching and multiple styles (180-degree, 360-degree) of videos. Meets the need for browsing panoramic videos or dynamic materials in 3D scenes.
 - Added wireless streaming option for XR content preview, allowing previewing of XR projects in a web browser and synchronizing all signals from XR devices. Provides a complete and fast experience of all XR project content without the need to package the application to the device.

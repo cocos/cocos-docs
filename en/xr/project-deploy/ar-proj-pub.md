@@ -1,36 +1,36 @@
-# AR 项目构建与发布
+# Building And Publishing AR Project
 
-完成 AR 应用的项目设置并完成项目开发之后，即可打包 AR 应用。点击 **菜单栏 -> 项目 -> 构建发布**。
+After completing the project development, you can build and publish the AR application by clicking on **Menu -> Project -> Build**.
 
 ## ARCore、AREngine
 
-针对于安卓和华为平台的手机发布 AR 应用，新建构建任务，平台选择 **安卓**。
+To publish an AR application for Android and Huawei platforms, create a new build task and select the `Android` platform.
 
 <img src="ar-proj-pub/select-android-platform.png" alt="select-android-platform" style="zoom:50%;" />
 
-填写应用 ID 并勾选 **Enable AR**，连接好移动端设备后点击 **构建** -> **生成** -> **运行** 即可一键发布 AR 应用。
+Enter the application ID and check **Enable AR**. Connect your mobile device and click **Build -> Make -> Run** to publish the AR application.
 
 <img src="ar-proj-pub/build-android-platform.png" alt="build-android-platform" style="zoom:50%;" />
 
-> **注意**：安卓平台 AR 应用的渲染后端不支持 VULKAN。
+> **Note**：The rendering backend for AR applications on the Android platform does not support VULKAN.
 
 ## ARKit
 
-iOS发布需要的各项配置属性请参考 [iOS 平台构建选项](../../editor/publish/native-options.md#iOS 平台构建选项)，需要在 Xcode 中配置好开发者账户。
+For iOS publishing, please refer to the [Build Options - iOS](../../editor/publish/ios/build-options-ios.md). Make sure to configure your developer account in Xcode.
 
-针对于 iOS 平台发布 AR 应用，新建构建任务，平台选择 **iOS**。
+To publish an AR application for the iOS platform, create a new build task and select the `iOS` platform.
 
 <img src="ar-proj-pub/select-ios-platform.png" alt="select-ios-platform" style="zoom:50%;" />
 
-应用 ID 名称第二节建议使用 Xcode 配置的同名开发者账户名，目标平台选择 **iPhone OS应用**，勾选 **Enable AR**。
+For the Application Bundle name, it is recommended to use the same name as the developer account configured in Xcode. Select iPhone OS Application as the target platform and check **Enable AR**.
 
-点击构建，生成 Xcode 工程。
+Click **Build** to generate the Xcode project.
 
 <img src="ar-proj-pub/build-ios-platform.png" alt="build-ios-platform" style="zoom:50%;" />
 
-> **注意**：目前 Cocos Creator 对 iOS 应用暂时只支持构建工程，编译和运行需要转移至 Xcode 中进行。
+**Note**: Currently, Cocos Creator only supports building the iOS project. Compilation and running need to be done in Xcode.
 
-构建完成后，找到生成的 xcodeproj 文件，使用 Xcode 打开，配置好签名和开发者团队连接好设备点击运行即可。
+After the build is complete, locate the generated `xcodeproj` file and open it with Xcode. Configure the signing and developer team, connect the device, and click Run to run the application.
 
 <img src="ar-proj-pub/open-ios-build-folder.png" alt="open-ios-build-folder" style="zoom:50%;" />
 
@@ -40,8 +40,8 @@ iOS发布需要的各项配置属性请参考 [iOS 平台构建选项](../../edi
 
 ## Spaces
 
-针对于高通 Spaces 平台的设备发布 AR 应用，新建构建任务，平台选择 **XR Spaces**。
+To publish an AR application for Qualcomm Spaces devices, create a new build task and select the `XR Spaces` platform.
 
 ![select-spaces-platform](ar-proj-pub/select-spaces-platform.png)
 
-填写好应用 ID，连接好 Spaces 设备（如果是分体式设备请连接移动端）后点击 **构建 -> 生成 ->运行** 即可一键发布 AR 应用。
+Enter the application ID, connect the Spaces device (or mobile device for standalone devices), and click **Build -> Make -> Run** to publish the AR application.

@@ -1,509 +1,510 @@
-# XR组件
+# XR Components
 
-Cocos CreatorXR 通过组件的组合封装为实体赋能，实体根据其不同特性又被不同的功能系统所管理。所以编辑器中所有 XR 相关的功能底层都是由封装好的特殊 XR 组件驱动的。
+Cocos CreatorXR empowers entities through the combination of components, and different functional systems manage entities based on their different characteristics. Therefore, all XR-related features in Cocos Creator are driven by encapsulated XR components.
 
-Cocos CreatorXR 的功能组件主要由 5 部分构成：
+The functional components in Cocos CreatorXR consist of five main parts:
 
-- [设备映射](#设备映射组件)
-- [交互组件](#交互组件)
-- [交互限制组件](#交互限制组件)
-- [虚拟移动组件](#虚拟移动组件)
+- [Device Mapping](#device-mapping-components)
+- [Interaction Component](#interaction-components)
+- [Interaction Constraint](#interaction-constraint-components)
+- [Virtual Movement](#virtual-movement-components)
 - [XR UI](#xr-ui)
 
-开启了 xr-plugin 扩展之后，想要给场景中的对象添加 XR 相关的功能组件可以在 **属性检查器** 中点击 **添加组件** 按钮，在出现的组件列表中找到 **XR** 分类，选择 XR 分类下的想要添加的 XR 组件类别再找到类别下的对应组件即可。
+After enabling the xr-plugin extension, you can add XR-related functional components to objects in the scene by clicking the **Add Component** button in the Inspector. In the component list that appears, navigate to the XR category and select the desired XR component, and then select the corresponding component under that category.
 
-## 设备映射组件
+## Device Mapping Components
 
-此类组件主要用以同步现实世界中物理设备和虚拟世界中的代理节点之间的 I/O 信息。确保在用户在 XR 设备的使用和虚拟世界中的反馈一致。
+This component is mainly used to synchronize input/output information between physical devices in the real world and agent nodes in the virtual world. It ensures consistency between user interactions on XR devices and feedback in the virtual world.
 
-主要包括以下组件：
+The main components are as following:
 
 ### TrackingOrigin
 
-追踪原点代理组件。
-
 ![tracking_origin](component/tracking_origin.png)
 
-| 属性                 | 说明                                                         |
+| Property                 | Description                                                         |
 | -------------------- | ------------------------------------------------------------ |
-| Offset Object        | 指定需要竖直偏移的对象，如果选择的对象还有子对象，则偏移的效果是选中对象及其所有子对象进行纵向偏移。 |
-| Tracking Origin Mode | 追踪的偏移方式。选择 Unbond 和 Device 时，下方出现 YOffsetValue，可手动输入数据；选择 Floor 时 YoffsetValue 隐藏。如果选择为 Floor，且设备开启了安全边界，则以设备离地面高度作为当前视角高度（暂时只支持 quest2）；如果选择为 Device，则偏移的高度为输入的高度。 |
-| YOffset Value        | 设备数值偏移量。手动输入偏移的值，米为单位，默认为 1.36144m。如果为固定值，则 OffsetObject 选中的对象 Transform 属性的 Y 值为当前填入的值。 |
+| Offset Object        | Specifies the object to be vertically offset. If the selected object has child objects, the offset will be applied to the selected object and all its child objects vertically. |
+| Tracking Origin Mode | The mode of tracking offset. When "Unbond" or "Device" is selected, the YOffsetValue will appear below for manually inputting the value. When "Floor" is selected, the YOffsetValue is hidden. If "Floor" is selected and the device has boundary settings enabled, the current viewpoint height will be determined by the distance of the device from the floor (currently only supported by Quest 2). If "Device" is selected, the offset height will be the input value. |
+| YOffset Value        | The value of the device offset. Manually input the offset value in meters. The default value is 1.36144m. If it is a fixed value, the Y value of the Transform property of the selected OffsetObject will be set to the entered value. |
 
 ### HMDCtrl
 
-HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具备双目立体绘图能力的 XR 眼镜设备都属于 HMD 的大范畴，因此此组件定义了 XR 眼镜的图像渲染输出相关参数。
+HMD (Head Mounted Display) controller is responsible for handling the head-mounted display devices. It can be considered as the general category for XR glasses devices that have the capability of rendering stereoscopic images. This component defines the parameters related to the rendering output for XR glasses.
 
 <img src="component/hmd.png" alt="hmd" style="zoom: 55%;" />
 
-| 属性           | 说明                                                         |
+| Property           | Description                                                         |
 | -------------- | ------------------------------------------------------------ |
-| Per Eye Camera | 开启单眼显示功能；勾选 PerEyeCamera 后下方出现 Sync With Main Camera 选项；XR HMD 下的两个子节点 LeftEye 和 RightEye 由隐藏变为显示 |
-| IPDOffset      | 调整瞳间距。下拉列表中选择 Manual 时下方出现 OffsetValue 输入框；在 PerEyeCamera 开启的情况下，调整 Manual 的参数可让 LeftEye 和 RightEye 的 TransForm 属性 X 值变化（变化的值为 ±IPDOffset/2） |
+| Per Eye Camera | Enable per-eye rendering. When checked, the "Sync With Main Camera" option appears below. The two sub-nodes, LeftEye and RightEye, under XR HMD, transition from hidden to visible. |
+| IPDOffset      | Adjust the inter-pupillary distance (IPD). When selecting "Manual" from the drop-down list, the OffsetValue input field appears below. When PerEyeCamera is enabled, adjusting the Manual parameter will change the Transform property's X value for LeftEye and RightEye (with a change of ±IPDOffset/2). |
 
 ### PoseTracker
 
-位姿追踪组件。
+PoseTracker is a component for tracking the position and orientation of an object.
 
 ![pose_tracker](component/pose_tracker.png)
 
-| 属性            | 说明                                                         |
+| Property            | Description                                                         |
 | --------------- | ------------------------------------------------------------ |
-| Tracking Source | 选择需要追踪的设备源                                         |
-| Tracking Type   | 追踪模式。选择 POSITION_AND_ROTATION 时追踪设备的平移 + 旋转；选择 POSITION 时只追踪平移的量；选择 ROTATION 时只追踪旋转的量。 |
+| Tracking Source | Select the tracking source device.                                        |
+| Tracking Type   | Tracking mode. Select "POSITION_AND_ROTATION" to track both position and rotation of the device, "POSITION" to track only the position, or "ROTATION" to track only the rotation. |
 
 ### TargetEye
 
-指定接受渲染相机的组件。
+Specifies the target eye.
 
 ![target_eye](component/target_eye.png)
 
-| 属性       | 说明                                                         |
+| Property       | Description                                                         |
 | ---------- | ------------------------------------------------------------ |
-| Target Eye | 指定渲染的目镜。Both 为左右眼都显示，left 为左眼，right 为右眼。 |
+| Target Eye | Specifies the target eye for rendering. "Both" displays for both left and right eyes, "Left" displays for the left eye, and "Right" displays for the right eye. |
 
 ### XRController
 
-控制器抽象组件。
+Abstract component for controllers.
 
 ![xr_controller](component/xr_controller.png)
 
-| 属性                 | 说明                                     |
+| Property                 | Description                                     |
 | -------------------- | ---------------------------------------- |
-| InputDevice          | 绑定输入手柄设备。                       |
-| SelectAction         | 将 Select 行为映射到手柄的对应实体按键   |
-| ActivateAction       | 将 Activate 行为映射到手柄的对应实体按键 |
-| UIPressAction        | 将交互 UI 行为映射到手柄的对应实体按键   |
-| AxisToPressThreshold | 行为触发时的阈值                         |
-| Model                | 用于指定手柄的模型对象。                 |
+| InputDevice          | Binds the input device to the controller.                       |
+| SelectAction         | Maps the "Select" action to a button on the controller.   |
+| ActivateAction       | Maps the "Activate" action to a button on the controller. |
+| UIPressAction        | Maps the UI press action to a button on the controller.   |
+| AxisToPressThreshold | The threshold for triggering the action.                         |
+| Model                | Specifies the model object for the controller.                 |
 
 ### ARCameraMgr
 
-移动端手持设备摄像头AR属性
+Properties for the mobile handheld device camera in AR.
 
-| 属性                     | 说明                                                         |
+| Property                     | Description                                                         |
 | ------------------------ | ------------------------------------------------------------ |
-| Auto Focus               | 开启或关闭相机自动对焦功能。关闭时，使用固定对焦模式。自动对焦功能是否可用取决于设备相机。 |
-| Light Estimate（实验性） | 开启后，运行时估计环境光各项属性并实时调整场景光照，让虚拟物体具有与真实场景相同的光照效果（光照一致性）。 |
+| Auto Focus               | Enable or disable the camera's auto-focus function. When disabled, fixed-focus mode is used. The availability of auto-focus depends on the device's camera. |
+| Light Estimate（Experimental） | When enabled, it estimates the ambient light properties at runtime and adjusts the scene lighting in real-time to provide consistent lighting between virtual and real objects. |
 
-> **注意**：v1.2.0 以上的版本光照估计支持两种模式：Basic 和 HDR。
+> **Note**: Starting from version 1.2.0, light estimation supports two modes: Basic and HDR
 
-若需要启用 Basic 模式，需要将场景中 Skybox 的 Envmap 属性设置为LDR。
+To enable the Basic mode, set the `Envmap` property of the Skybox in the scene to LDR.
 
-若需要启用 HDR 模式，需要将场景中 Skybox 的 Envmap 属性设置为HDR。
+To enable the HDR mode, set the `Envmap` property of the Skybox in the scene to HDR.
 
-> **注意**：当前 iOS 平台仅支持 Basic 模式。
+> **Note**: Currently, the Basic mode is only supported on iOS platforms.
 
-## 交互组件
+## Interaction Components
 
-一次交互操作需要有两种对象协调完成：交互主体和被交互物，对应的交互组件由此也分为两类：Interactor（交互器）和 Interactable（可交互对象）。
+An interaction operation requires coordination between two objects: the interaction subject and the interactable object. Correspondingly, the interaction components can be divided into two categories: **Interactor** and **Interactable**.
 
 ### RayInteractor
 
-射线交互器组件。
+RayInteractor is a component for ray-based interaction.
 
 <img src="component/ray_interactor.png" alt="ray_interactor" style="zoom:50%;" />
 
-| 属性                     | 说明                                                         |
+| Property                     | Description                                                         |
 | ------------------------ | ------------------------------------------------------------ |
-| AttachTransform          | 用此 AttachTransform 的位置作为抓取的物体最终落到的位置，如果为空就用当前 Interactor 的位置 |
-| ForceGrab                | 远距离抓起；开启时被抓对象吸附到 Attach Transform、关闭后抓取挂载在交互点的位置 |
-| RayOriginTransform       | 可以改变发出 Ray 的起始位置，为空就默认是当前 Interactor 的位置 |
-| LineType                 | 改变射线检测和射线样式；StraightLine 是直线；Projectile Line 是抛物线；Bezier Line 是贝塞尔曲线 |
-| MaxRayDistance           | 射线交互可以触发的最远距离                                   |
-| ReferenceNode            | LineType 为 ProjectileLine 和 BezierLine 时出现此项。用曲线的参考系来定义地平面和向上向量。如果在启动时没有设置，它将尝试找到 XR Agent，如果没有引用，它将默认使用全局的上向量和原点。 |
-| Velocity                 | LineType 为 ProjectileLine 时出现此项。初始速度。增加这个值将使曲线延伸的更远。 |
-| Acceleration             | LineType 为 ProjectileLine 时出现此项。重力加速度。             |
-| Additional Ground Height | LineType 为 ProjectileLine 时出现此项。在地平面以下的额外高度，射线超过地平线会继续向下投射。增加这个值将使终点的位置高度下降。 |
-| Additional Flight Time   | LineType 为 ProjectileLine 时出现此项。在落地后的额外飞行时间，射线超过地平线会继续向下投射。增加这个值将使投射的飞行时间延长。 |
-| End Point Distance       | LineType 为 BezierLine 时出现此项。增加这个值的距离会使曲线的末端离起始点更远。 |
-| End Point Height         | LineType 为BezierLine 时出现此项。降低这个值将使曲线的末端相对于起点下降得更低。 |
-| Control Point Distance   | LineType 为 BezierLine 时出现此项。增加这个值将使曲线的峰值离起点更远。 |
-| Control Point Height     | LineType 为 BezierLine 时出现此项。增加这个值将使曲线的峰值相对于起点更高。 |
-| Sample Frequency         | LineType为ProjectileLine和BezierLine时出现此项。用于近似曲线路径的采样点的数目。数目越多近似效果越好，但性能越低。 |
-| RaycastMask              | 只能和此 Layer 类型的交互物发生交互。                        |
-| SelectActionTrigger      | Select 行为触发机制，详情见交互功能介绍。                    |
+| AttachTransform          | The position used as the final position where the grabbed object will be placed. If empty, the position of the current Interactor is used. |
+| ForceGrab                | Enables long-range grabbing. When enabled, the grabbed object adheres to the Attach Transform, and when disabled, it grabs the position attached to the interaction point. |
+| RayOriginTransform       | Allows changing the starting position from which the ray is cast. If empty, the current Interactor's position is used by default. |
+| LineType                 | Changes the ray detection and ray style. "StraightLine" is a straight line, "Projectile Line" is a projectile curve, and "BezierLine" is a Bezier curve. |
+| MaxRayDistance           | The maximum distance at which the ray interaction can be triggered.                                   |
+| ReferenceNode            | Appears when LineType is set to "ProjectileLine" or "BezierLine". Defines the reference frame for the curve, including the ground plane and the up vector. If not set at startup, it will attempt to find the XR Agent, and if no reference is provided, it will default to the global up vector and origin. |
+| Velocity                 | Appears when LineType is set to "ProjectileLine". Initial velocity. Increasing this value extends the curve further. |
+| Acceleration             | Appears when LineType is set to "ProjectileLine". Gravity acceleration.             |
+| Additional Ground Height | Appears when LineType is set to "ProjectileLine". Additional height below the ground plane. If the ray goes below the ground, it continues to be projected downward. Increasing this value lowers the height of the endpoint. |
+| Additional Flight Time   | Appears when LineType is set to "ProjectileLine". Additional flight time after landing. If the ray goes below the ground, it continues to be projected downward. Increasing this value extends the flight time of the projection. |
+| End Point Distance       | Appears when LineType is set to "BezierLine". Increasing this value moves the endpoint of the curve further from the starting point. |
+| End Point Height         | Appears when LineType is set to "BezierLine". Decreasing this value lowers the endpoint of the curve relative to the starting point. |
+| Control Point Distance   | Appears when LineType is set to "BezierLine". Increasing this value moves the peak of the curve further from the starting point. |
+| Control Point Height     | Appears when LineType is set to "BezierLine". Increasing this value makes the peak of the curve higher relative to the starting point. |
+| Sample Frequency         | Appears when LineType is set to "ProjectileLine" or "BezierLine". The number of sample points used to approximate the curve path. A higher number of samples provides better approximation but lower performance. |
+| RaycastMask              | Only interacts with objects of this layer type.                        |
+| SelectActionTrigger      | Selects the action trigger mechanism for the Select behavior. See the interaction functionality section for details.                    |
 
-> **注意**：抛物线和贝塞尔曲线的功能需要扩展版本 **>= v1.1.0**，编辑器版本 **>= 3.7.1**。
+> **Note**: The functionality of projectile curves and Bezier curves requires the extended version >= v1.1.0 and Cocos Creator version >= 3.7.1.
 
 ### DirectInteractor
 
-直接交互器组件。
+DirectInteractor is a component for direct interaction.
 
 ![direct_interactor](component/direct_interactor.png)
 
-| 属性                | 说明                                                         |
+| Property                | Description                                                         |
 | ------------------- | ------------------------------------------------------------ |
-| AttachTransform     | 用此 AttachTransform 的位置作为抓取的物体最终落到的位置，如果为空就用当前 Interactor 的位置。 |
-| SelectActionTrigger | Select 行为触发机制，详情见交互功能介绍。                    |
+| AttachTransform     | The position of the AttachTransform is used as the final position where the grabbed object will end up. If it is empty, the current Interactor's position is used instead. |
+| SelectActionTrigger | Select action trigger mechanism. See the interaction functionality for details.                   |
 
 ### XRGazeInteractor
 
-凝视交互器，如果没有手柄或者其他控制器的话，可以用 HMD 的中心点凝视交互物（UI），凝视一段时间后出发交互行为。
+GazeInteractor allows interaction with objects (UI) by gazing at them with the center point of the HMD when there are no controllers or other input devices available. After gazing for a certain period, the interaction behavior is triggered.
 
 <img src="component/xr_gaze_interactor.png" alt="xr_gaze_interactor" style="zoom: 67%;" />
 
-| 属性                    | 说明                         |
+| Property                    | Description                         |
 | ----------------------- | ---------------------------- |
-| Gaze Pointer Offset     | 凝视点竖直方向偏移（单位米） |
-| Max Ray Distance        | 射线最远投射距离（单位米）   |
-| Gaze Default Distance   | 凝视点UI默认距离（单位米）   |
-| Gaze Timer Duration     | 凝视交互触发时间（单位秒）   |
-| Gaze Reticle Outer Ring | 凝视点外环UI                 |
+| Gaze Pointer Offset     | Vertical offset of the gaze point (in meters). |
+| Max Ray Distance        | Maximum distance for ray projection (in meters).   |
+| Gaze Default Distance   | Default distance of the gaze point from the UI (in meters).   |
+| Gaze Timer Duration     | Duration (in seconds) for the gaze interaction to be triggered.   |
+| Gaze Reticle Outer Ring | Outer ring UI of the gaze point.          |
 
-> **注意**：凝视交互器功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。
+> **Note**: GazeInteractor requires an extension version of >= v1.1.0 and Cocos Creator version of >=3.7.1.
 
 ### **ScreenTouchInteractor**
 
-屏幕手势交互器
+ScreenTouchInteractor is a component for screen gesture interaction.
 
 <img src="component/screen_touch_interactor.png" alt="screen_touch_interactor" style="zoom:50%;" />
 
-| 行为          | 属性              | 说明                                                         |
+| Action          | Property              | Description                                                         |
 | ------------- | ----------------- | ------------------------------------------------------------ |
-| Select Action |                   | 选择行为相关配置，可控制是否启用。                           |
-|               | Gesture           | 允许用户操作虚拟物体的可选收拾类型。                         |
-|               | Double Tap Gap    | Gesture 选择为 DoubleTap 时出现此项，当两次点击的时间间隔小于此值时，判定为双击。 |
-|               | HoldTouchDuration | Gesture 选择为 HoldTouch 时出现此项，当触碰屏幕时间大于此值时，判定为长按 |
-| Move Action   |                   | 移动行为相关配置，必须开启 Select Action，可控制是否启用。    |
-|               | Gesture           | 绑定移动行为的手势                                           |
-| RotateAction  |                   | 旋转行为相关配置，必须开启 Select Action，可控制是否启用。    |
-|               | Gesture           | 绑定旋转行为的手势                                           |
-|               | Drag Degree       | Gesture选择为 2FingersDrag 时出现此项，双指拖动速率。          |
-|               | Twist Degree      | Gesture选择为 2FingersRotate 时出现此项，双指旋转速率。        |
-| Scale Action  |                   | 放缩行为相关配置，必须开启 Select Action，可控制是否启用。    |
-|               | Gesture           | 绑定放缩行为的手势                                           |
-|               | Sensitivity       | 放缩的灵敏度                                                 |
-| Place Action  |                   | 放置行为相关配置，可控制是否启用。                           |
-|               | Gesture           | 绑定放置行为的手势                                           |
-|               | Calculation Mode  | 放置虚拟物体时，用于计算命中点位置的方法。有三种模式：<br />AR_HIT_DETECTION：使用 AR Hit Test 功能进行命中检测，将物体放置在命中点的位置。<br />SPATIAL_DISTANCE：基于屏幕交互器前方的固定距离来放置内容。<br />COLLISION_DETECTION：基于射线的碰撞检测返回碰撞结果，将物体放置在碰撞点的位置。 |
-|               | Distance          | Calculation Mode 选择为 SPATIAL DISTANCE 时出现此项，设置交互物摆放位置与交互器的距离。 |
-|               | Avoid Occlusion   | Calculation Mode 选择为 SPATIAL DISTANCE 时出现此项，设置交互物摆放时是否受距离内的遮挡物影响摆放结果。开启时忽略遮挡，将交互物放置在固定位置；关闭时，若距离内出现遮挡物则会将交互物放置在遮挡处。 |
-|               | Located Prefab    | Calculation Mode 选择为 SPATIAL DISTANCE 时出现此项，用于定位虚拟物体的摆放位置。 |
-|               | Placement Prefab  | 引用挂载 Placeable 组件的预置体。                              |
+| Select Action |                   | Configuration for the select action, which controls whether it is enabled.                          |
+|               | Gesture           | Optional gesture type for user interaction with virtual objects.                |
+|               | Double Tap Gap    | Appears when Gesture is set to DoubleTap. Determines the maximum time gap between two taps for them to be considered a double tap. |
+|               | HoldTouchDuration | Appears when Gesture is set to HoldTouch. Determines the minimum duration of touch for it to be considered a hold. |
+| Move Action   |                   | Configuration for the move action, which requires Select Action to be enabled and controls whether it is enabled.    |
+|               | Gesture           | Gesture associated with the move action.                                        |
+| RotateAction  |                   | Configuration for the rotate action, which requires Select Action to be enabled and controls whether it is enabled.    |
+|               | Gesture           | Gesture associated with the rotate action.                               |
+|               | Drag Degree       | Appears when Gesture is set to 2FingersDrag. Determines the rate at which the object is dragged using two fingers.       |
+|               | Twist Degree      | Appears when Gesture is set to 2FingersRotate. Determines the rate at which the object is rotated using two fingers.      |
+| Scale Action  |                   | Configuration for the scale action, which requires Select Action to be enabled and controls whether it is enabled.   |
+|               | Gesture           | Gesture associated with the scale action.                |
+|               | Sensitivity       | Sensitivity of the scaling action.                   |
+| Place Action  |                   | Configuration for the place action, which controls whether it is enabled.       |
+|               | Gesture           | Gesture associated with the place action.               |
+|               | Calculation Mode  | Method used to calculate the placement point when placing virtual objects. There are three modes:<br />- AR_HIT_DETECTION: Uses AR Hit Test to detect the placement point and places the object at that location.<br />- SPATIAL_DISTANCE: Places the object at a fixed distance in front of the screen interactor.<br />- COLLISION_DETECTION: Uses raycast collision detection to determine the placement point and places the object at that location. |
+|               | Distance          | Appears when Calculation Mode is set to SPATIAL_DISTANCE. Sets the distance between the interaction point and the object placement. |
+|               | Avoid Occlusion   | Appears when Calculation Mode is set to SPATIAL_DISTANCE. Controls whether the object placement is affected by occlusion within the specified distance. When enabled, the object is placed at a fixed position regardless of occlusion. When disabled, if there is occlusion within the specified distance, the object is placed at the occluded position. |
+|               | Located Prefab    | Appears when Calculation Mode is set to SPATIAL_DISTANCE. Specifies the prefab used for locating the placement position of the virtual object. |
+|               | Placement Prefab  | Reference to the prefab with the Placeable component attached.            |
 
-> **注意**：
-> 1. 屏幕手势交互器功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。各手势行为开关控制功能需要扩展版本 **>=v1.2.0**。
-> 2. WebXR平台暂时不支持接受双指手势输入。
+**Note**:
+
+1. ScreenTouchInteractor requires an extension version of >=v1.1.0 and an editor version of >=3.7.1. The toggle functionality for each gesture action requires an extension version of >=v1.2.0.
+2. Double-finger gesture input is not supported on the WebXR platform.
 
 ### GrabInteractable
 
-可抓取交互对象组件。
+The GrabInteractable component allows an object to be grabbed and interacted with.
 
 ![grab_interactable](component/grab_interactable.png)
 
-| 属性                      | 说明                                                         |
+| Property                      | Description                                                         |
 | ------------------------- | ------------------------------------------------------------ |
-| AttachTransform           | 用此 AttachTransform 的位置作为触碰点的位置，如果为空就用当前 node 的位置 |
-| AttachEaseInTime          | 对象被抓取到 AttachTransform 位置过程的时间（在该时间内，被抓取对象会有一个拖尾的效果，持续时间越久效果越不明显） |
-| GrabTrigger               | 两种方式用于触发抓取：当 Select 的行为触发时/当 Activate 行为触发时 |
-| RayReticle                | 当交互器与此交互物发生交互碰撞计算时，在碰撞点会显示此属性所引用的对象 |
-| HideController            | 开启时，此物体被抓取后会隐藏 XR Controller 所引用的 Model    |
-| ThrowOnDetach             | 开启后，允许模拟抛物的动作。                                 |
-| ThrowSimulationMode       | 选择为 InheritRigidbody 时，物体抛出时继承刚体的速度；选择为 CurveComputation 时，出现下列两项ThrowSmoothingDuration、ThrowSmoothingCurve，允许自定义抛出速度的计算 |
-| ThrowSmoothingDuration    | 速度计算的采样时间段。使用此值作为采样区间，用于计算物体被抛出前的速度的加权平均值，作为物体抛出时的初速度 |
-| ThrowSmoothingCurve       | 速度采样曲线。根据绘制的曲线进行抛出时初速度的加权平均值计算 |
-| ThrowVelocityScale        | 初速度的权重系数。权重越大，抛物瞬时速度所乘的系数也越大，在继承或者加权计算出的初速度基础上乘以一个系数 |
-| ThrowAngularVelocityScale | 初角速度的权重系数。权重越大，抛物瞬时角速度所乘的系数也越大，在继承或者加权计算出的初始角速度基础上乘以一个系数 |
+| AttachTransform           | The position of the AttachTransform is used as the final position where the grabbed object will end up. If it is empty, the current position of the node is used instead. |
+| AttachEaseInTime          | The duration in seconds for the object to be eased into the AttachTransform position. During this time, the grabbed object will have a trailing effect that becomes less prominent as the duration increases. |
+| GrabTrigger               | Specifies when the grab action should be triggered: On Select action trigger or On Activate action trigger. |
+| RayReticle                | The object referenced by this property will be displayed at the collision point when the interactor interacts with this interactable object. |
+| HideController            | When enabled, the XR Controller's model will be hidden when the object is grabbed.   |
+| ThrowOnDetach             | When enabled, allows simulating a throwing action when the object is detached.              |
+| ThrowSimulationMode       | Determines how the throwing velocity is calculated when ThrowOnDetach is enabled:<br>- InheritRigidbody: The velocity of the Rigidbody component is inherited when throwing the object.<br>- CurveComputation: Allows customizing the calculation of the throw velocity using the ThrowSmoothingDuration and ThrowSmoothingCurve properties. |
+| ThrowSmoothingDuration    | The duration in seconds used as the sampling interval for calculating the weighted average velocity of the object before it is thrown. This value is used as the initial velocity of the object when thrown. |
+| ThrowSmoothingCurve       | The curve used for velocity sampling. The weighted average velocity is calculated based on the drawn curve. |
+| ThrowVelocityScale        | The coefficient for the initial velocity. A higher value increases the instantaneous velocity of the throw, multiplying the inherited or calculated initial velocity by a factor. |
+| ThrowAngularVelocityScale | The coefficient for the initial angular velocity. A higher value increases the instantaneous angular velocity of the throw, multiplying the inherited or calculated initial angular velocity by a factor. |
 
 ### Teleportable
 
-可传送对象组件。
+The Teleportable component allows an object to be teleported.
 
 ![teleportable](component/teleportable.png)
 
-| 属性                 | 说明                                                         |
+| Property                 | Description                                                         |
 | -------------------- | ------------------------------------------------------------ |
-| TeleportableType     | 传送点的类型。选择为 Area 时，传送到射线与传送区域交互点的位置；选择为 Anchor 时，不受射线与传送区域的交互点的限制，之间传送到区域的固定位置。 |
-| Teleport Anchor Node | TeleportableType 选择为 Anchor 时出现此项，用于标定传送的落点。此项为空时传送到传送区域的默认中心区域；此项引用了其他对象就传送到引用的对象的位置 |
-| RayReticle           | 当交互器与此交互物发生交互碰撞计算时，在碰撞点会显示此属性所引用的对象 |
-| TeleportTrigger      | 触发传送行为的事件：OnSelectExited 表示 Select 行为结束的时刻（按钮抬起）执行传送；OnSelectEntered 表示 Select 触发的时刻（按钮按下） |
-| Teleporter           | 指定需要被传送的主体（一般为XR Agent），主体需挂载 Teleporter |
+| TeleportableType     | The type of teleportation point: Area or Anchor. When set to Area, the object is teleported to the interaction point where the ray intersects with the teleportation area. When set to Anchor, the object is teleported to a fixed position within the teleportation area, independent of the interaction point. |
+| Teleport Anchor Node | This property appears when TeleportableType is set to Anchor. It is used to specify the teleportation destination. If it is empty, the object is teleported to the default central area of the teleportation area. If it references another object, the object is teleported to the position of the referenced object. |
+| RayReticle           | The object referenced by this property will be displayed at the collision point when the interactor interacts with this interactable object. |
+| TeleportTrigger      | Specifies the event that triggers the teleportation action: OnSelectExited for when the Select action ends (button release), or OnSelectEntered for when the Select action is triggered (button press). |
+| Teleporter           | Specifies the subject (usually an XR Agent) to be teleported. The subject must have the Teleporter component attached. |
 
 ### Selectable
 
-挂载此组件的对象可以被选中，且可以在选中状态下发生位移、旋转或放缩行为。
+The Selectable component allows an object to be selected and enables displacement, rotation, and scaling actions while selected.
 
 <img src="component/selectable.png" alt="selectable" style="zoom:50%;" />
 
-| 属性                   | 说明                                         |
+| Property                   | Description                                         |
 | ---------------------- | -------------------------------------------- |
-| Allowed Actions        | 选择此对象后允许进行的操作。                 |
-| Selection Events       | 选择行为的回调，它将在特定事件发生时被触发。 |
-| Selected Visualization | 对象被选中时将激活的可视化效果。             |
+| Allowed Actions        | The actions that are allowed when the object is selected.              |
+| Selection Events       | Callbacks for selection actions triggered by specific events. |
+| Selected Visualization | The visual effects that are activated when the object is selected.        |
 
-> **注意**：选择交互功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。
+> **Note**: The selection interaction requires an extension version of >= v1.1.0 and Cocos Creator version of >= 3.7.1.
 
 ### Placeable
 
-挂载此组件的对象可以使用某种方式放置于空间、AR Plane 或 AR Mesh 上。
+The Placeable component allows an object to be placed in space, on an AR Plane, or an AR Mesh using a specified method.
 
 <img src="component/placeable.png" alt="placeable" style="zoom:50%;" />
 
 | 属性                     | 说明                                         |
 | ------------------------ | -------------------------------------------- |
-| Preview Placement Prefab | 在放置物生成之前要放置的预放置对象。         |
-| Placement Offset         | 偏移由交互器放置的预制件的位置。             |
-| Placement Events         | 放置行为的回调，它将在特定事件发生时被触发。 |
+| Preview Placement Prefab | The placeholder object to be placed before the placement of the actual object.        |
+| Placement Offset         | The offset from the placement position specified by the interactor.        |
+| Placement Events         | Callbacks for placement actions triggered by specific events. |
 
-> **注意**：放置交互功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。
+**Note**: The placement interaction requires an extension version of >= v1.1.0 and Cocos Creator version of >= 3.7.1.
 
-### 事件
+### Events
 
-在项目开发过程中用户会遇到很多依赖于 XR 组件的信号来触发的逻辑。为了方便用户专注于逻辑开发而不用关心两者之间的通知关系，Cocos CreatorXR 基于传统的事件系统在一部分常被事件依赖的交互组件中封装好了一部分事件信号，用户只需要在特定的信号上绑定一系列想要触发的对象和方法即可。
+During the development process, users often encounter logic that relies on signals from XR components to trigger certain behaviors. To allow users to focus on logic development without worrying about the notification relationship between the components, Cocos CreatorXR encapsulates a set of event signals in some interactive components that are commonly used for event dependency. Users only need to bind the desired objects and methods to specific signals to trigger the desired behavior.
 
-#### 事件信号
+#### Event Signals
 
-事件信号分为以下三种：
+Event signals are divided into the following three types:
 
-- Hover：指的是 XR 的输入设备的射线覆盖到物体上时触发
-- Select：当在输入设备上按下 Select 映射的按键时触发
-- Active：当在输入设备上按下 Active 映射的按键时触发
+- Hover：Triggered when the ray from the XR input device hovers over an object.
+- Select：Triggered when the Select button mapped to the input device is pressed.
+- Active：Triggered when the Active button mapped to the input device is pressed.
 
-其交互行为描述如下：
+The interaction behaviors are described as follows:
 
-| 交互行为 | 事件信号         | 说明                  |
+| Interaction Behavior | Event Signal         | Description                  |
 | -------- | ---------------- | --------------------- |
-| Hover    | OnHoverEntered   | Hover 行为执行的时刻  |
-|          | OnHoverExited    | Hover 行为退出的时刻  |
-|          | OnHoverCanceled  | Hover 行为取消的时刻  |
-| Select   | OnSelectEntered  | Select 行为执行的时刻 |
-|          | OnSelectExited   | Select 行为退出的时刻 |
-|          | OnSelectCanceled | Select 行为取消的时刻 |
-| Active   | OnActivated      | 激活的时刻            |
-|          | OnDeactivated    | 取消激活的时刻        |
+| Hover    | OnHoverEntered   | Moment when the Hover behavior is executed  |
+|          | OnHoverExited    | Moment when the Hover behavior exits  |
+|          | OnHoverCanceled  | Moment when the Hover behavior is canceled  |
+| Select   | OnSelectEntered  | Moment when the Select behavior is executed |
+|          | OnSelectExited   | Moment when the Select behavior exits |
+|          | OnSelectCanceled | Moment when the Select behavior is canceled |
+| Active   | OnActivated      | Moment of activation            |
+|          | OnDeactivated    | Moment when activation is canceled       |
 
-这些事件信号，可以在下列组件中选择，用于处理特定情形下的输入状态。
+These event signals can be used to handle input states in specific scenarios and can be selected in the following components.
 
-#### 交互事件组件
+#### Interactive Event Components
 
-交互组件分为：
+Interactive Components
 
-- InteractorEvents：交互器事件组件。
-- InteractableEvents：可交互对象事件组件。
+The interactive components are as follows:
 
-其属性描述如下：
+- InteractorEvents： Interactor event component.
+- InteractableEvents：Interactable object event component.
 
 #### InteractorEvents
 
 | 属性             | 说明                                     |
 | ---------------- | ---------------------------------------- |
-| AudioEvents      | 开启后可以绑定事件触发时播放的音频       |
-| HapticEvents     | 开启后可以绑定事件触发时控制器的震动反馈 |
-| InteractorEvents | 开启后可以绑定任意回调函数               |
+| AudioEvents      | Interactable object event component.       |
+| HapticEvents     | Enables controller vibration feedback for triggered events |
+| InteractorEvents | Enables binding arbitrary callback functions       |
 
 ##### Audio Events
 
-Audio Events 可以根据 **事件信号** 选择不同类型的事件触发，触发后可以播放特定的音频。
+Audio Events can trigger different types of events based on the event signals and play specific audio clips when triggered.
 
 ![audio_events](component/audio_events.png)
 
-选中 **事件信号** 右侧的单选框可启用/禁用该事件信号，启用后可以通过 AudioClip 属性右侧的下拉菜单选择不同的音频资源。
+By enabling or disabling the event signals on the right side, you can select which event signals to use. Once enabled, you can choose different audio resources from the dropdown menu on the right side of the AudioClip property.
 
 ![audio_clip](component/audio_clip.png)
 
 ##### Haptic Events
 
-> **注意**：此事件要求扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**
+> **Note**: This event requires an extension version of >= v1.1.0 and the Cocos Creator version of >=3.7.1.
 
 <img src="component/haptic_event.png" alt="haptic_event" style="zoom:50%;" />
 
-选中 **事件信号** 右侧的单选框后，可以调整控制器的震动反馈，通过震动可以给与用户更真实的触感反馈。
+By selecting the radio button on the right side of the event signals, you can adjust the controller's vibration feedback. Vibration feedback can provide users with a more realistic tactile experience.
 
 ![haptic_setting](component/haptic_setting.png)
 
-Haptic Intensity：震动的灵敏度 [0,1]
+Haptic Intensity：The intensity of the vibration [0,1]
 
-Duration：持续的时长
+Duration：The duration of the vibration.
 
 ##### Interactor Events
 
 ![interactor_events](component/interactor_events.png)
 
-在右侧的输入框内，输入任意整数值，可在 Interactor Events 数组内添加元素。
+Enter any integer value in the input box on the right side to add elements to the Interactor Events array.
 
 ![interactor_event_setting](component/interactor_event_setting.png)
 
-添加完成后，可对事件回调进行配置：
+After adding an event, you can configure the event callback:
 
-- Node：回调接收节点
-- 组件：回调组件
-- 方法：回调方法
-- CustomEventData：自定义事件的数据，这些数据会被当做回调方法的参数，传入到上述的回调方法中。
+- Node：The node that receives the callback.
+- Component：The component of the callback.
+Method: The callback method.
+- CustomEventData：Custom data for the event, which will be passed as an argument to the callback method.
 
 #### InteractableEvents
 
 ![interactable_events](component/interactable_events.png)
 
-## 交互限制组件
+## Interaction Constraint Components
 
-对于挂载了 Selectable 组件的交互物，可以使用交互限制组件限制他的交互效果。
+For interactive objects that have the `Selectable` component attached, you can use interaction restriction components to limit their interaction effects.
 
 ### MinMaxScaleConstrain
 
 <img src="component/min_max_scale_constrain.png" alt="min_max_scale_constrain" style="zoom:50%;" />
 
-| 属性      | 说明                     |
+| Property      | Description                     |
 | --------- | ------------------------ |
-| Min Scale | 可被缩小的最小尺寸比例。 |
-| Max Scale | 可被放大的最大尺寸比例。 |
+| Min Scale | The minimum scale ratio that can be scaled down. |
+| Max Scale | The maximum scale ratio that can be scaled up. |
 
 ### RotationAxisConstrain
 
 <img src="component/rotate_axis_constrain.png" alt="rotate_axis_constrain" style="zoom:50%;" />
 
-| 属性            | 说明                                                         |
+| Property            | Description                                                         |
 | --------------- | ------------------------------------------------------------ |
-| Axis Flag       | 限制交互物只能按所选旋转轴进行旋转。屏幕交互器最多只能控制双轴（x,y）旋转。 |
-| Use Local Space | 是否按本地坐标轴进行旋转。默认关闭，以世界坐标轴做旋转。     |
+| Axis Flag       | Restricts the interactive object to rotate only around the selected rotation axis. The screen interactor can only control dual-axis (x, y) rotation at most. |
+| Use Local Space | Whether to rotate based on the local coordinate system. By default, rotation is based on the world coordinate system.     |
 
-## 虚拟移动组件
+## Virtual Movement Components
 
-在绝大多数的 VR 项目中，用户会用第一人称的角色视角在虚拟场景中进行移动。这种移动行为一般不会依赖于用户在真实空间的移动反馈，因为位姿的追踪会受到现实世界物理空间的限制。因此我们需要一种类似传统 3D 游戏中那种利用接受控制器输入信号的方式来驱动移动行为的组件，称之为虚拟移动组件（Locomotion Component）。
+In most VR projects, users navigate through virtual scenes from a first-person perspective. This type of movement behavior generally does not rely on real-world movement feedback, as tracking of positional data is limited by the physical space. Therefore, we need a component that can drive movement behaviors by accepting input signals from controllers, similar to how it's done in traditional 3D games. This component is called the Locomotion Component.
 
 ### LocomotionChecker
 
-运动检查器。
+Movement checker.
 
 ![locomotion_checker](component/locomotion_checker.png)
 
-| 属性     | 说明                                                         |
+| Property     | Description                                                         |
 | -------- | ------------------------------------------------------------ |
-| XR Agent | 指定需要进行运动的 XR Agent（或其他对象）。添加该组件时，默认绑定遍历当前场景得到的第一个挂载了 TrackingOrigin 的节点，通常是 XR Agent；用户也可以自行指定需要进行 locomotion 操作的对象 |
+| XR Agent | Specifies the XR Agent (or other objects) that needs to perform movement. When adding this component, it is automatically bound to the first node in the scene hierarchy that has a TrackingOrigin component attached, usually the XR Agent. Users can also manually specify the object that needs to perform locomotion operations. |
 
 ### Teleporter
 
-传送驱动组件。
+Teleportation driver component.
 
 ![teleporter](component/teleporter.png)
 
-| 属性    | 说明                                                         |
+| Property    | Description                                                         |
 | ------- | ------------------------------------------------------------ |
-| Checker | 添加该组件时，默认绑定遍历当前场景得到的第一个挂载 Locomotion Checker 组件的节点 用户也可以自己拖入需要指定的 Locomotion Checker |
+| Checker | When adding this component, it is automatically bound to the first node in the scene hierarchy that has a Locomotion Checker component attached. Users can also manually assign the Locomotion Checker component they want to use. |
 
 ### SharpTurner
 
-瞬间转向驱动。
+Instant turning driver.
 
 ![sharp_turn](component/sharp_turn.png)
 
-| 属性              | 说明                                                         |
+| Property              | Description                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| Checker           | 添加该组件时，默认绑定遍历当前场景得到的第一个挂载 Locomotion Checker 组件的节点 用户也可以自己拖入需要指定的 Locomotion Checker |
-| InputDevice       | 绑定挂载了 XRController 的控制器对象                           |
-| TurnAngle         | 转动角度                                                     |
-| EnableTurnAround  | 开启后按下摇杆允许旋转180°（点击摇杆的按钮）                 |
-| ActivationTimeout | 执行连续的转弯时需要等待的时间                               |
+| Checker           | When adding this component, it is automatically bound to the first node in the scene hierarchy that has a Locomotion Checker component attached. Users can also manually assign the Locomotion Checker component they want to use. |
+| InputDevice       | Binds to the controller object that has the XRController component attached.                |
+| TurnAngle         | The angle of rotation.                                 |
+| EnableTurnAround  | When enabled, pressing the joystick button allows a 180° rotation (clicking the joystick button).     |
+| ActivationTimeout | The time to wait for continuous turns to be executed.              |
 
 ### ContinuousTurner
 
-连续转弯驱动。
+Continuous turning driver.
 
 ![ContinuousTurner](component/ContinuousTurner.png)
 
-| 属性         | 说明                                                         |
+| Property         | Description                                                         |
 | ------------ | ------------------------------------------------------------ |
-| Checker      | 添加该组件时，默认绑定遍历当前场景得到的第一个挂载 Locomotion Checker 组件的节点 用户也可以自己拖入需要指定的 Locomotion Checker |
-| InputDevice  | 绑定挂载了 XRController 的控制器对象                           |
-| InputControl | 绑定接受输入的摇杆                                           |
-| TurnSpeed    | 转动的角速度                                                 |
+| Checker      | When adding this component, it is automatically bound to the first node in the scene hierarchy that has a Locomotion Checker component attached. Users can also manually assign the Locomotion Checker component they want to use. |
+| InputDevice  | Binds to the controller object that has the XRController component attached.                  |
+| InputControl | Binds to the joystick that accepts input.                  |
+| TurnSpeed    | The angular speed                                      |
 
 #### ContinuousMover
 
-平移运动驱动。
+Translation movement driver.
 
 ![ContinuousMover](component/ContinuousMover.png)
 
-| 属性          | 说明                                                         |
+| Property          | Description                                                         |
 | ------------- | ------------------------------------------------------------ |
-| Checker       | 添加该组件时，默认绑定遍历当前场景得到的第一个挂载 Locomotion Checker 组件的节点 用户也可以自己拖入需要指定的 Locomotion Checker |
-| InputDevice   | 绑定挂载了 XRController 的控制器对象                           |
-| InputControl  | 绑定接受输入的摇杆                                           |
-| MoveSpeed     | 移动速度                                                     |
-| ForwardSource | 选择一个物体，用该物体节点的朝向作为移动的正方向             |
+| Checker       | When adding this component, it is automatically bound to the first node in the scene hierarchy that has a Locomotion Checker component attached. Users can also manually assign the Locomotion Checker component they want to use. |
+| InputDevice   | Binds to the controller object that has the XRController component attached.            |
+| InputControl  | Binds to the joystick that accepts input.                   |
+| MoveSpeed     | The movement speed.                            |
+| ForwardSource | Select an object to use its orientation as the forward direction for movement.         |
 
 ## XR UI
 
-传统的生成 UI 控件的方式都是把 UI 画在画布（Canvas）上，而画布本身不具有深度信息(位置属性不可更改)，导致了画布是贴在屏幕上的，只有与屏幕进行交互才能反馈作用于 UI 控件。由于 XR 设备的摄像头是两个目镜，不支持交互，这明显不满足于 XR 项目的需求。所以我们需要将 UI 的交互方式改为在空间中用交互器进行交互，因此需要将 UI 控件剥离出画布而能够单独存在于空间中，具有完整的位置属性并具有碰撞检测功能。
+The traditional way of generating UI controls is to draw them on a canvas, which doesn't have depth information (immutable position attributes). This results in the canvas being projected onto the screen, and interaction with the UI controls requires feedback from the screen.
 
-XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D 对象概述。
+However, XR devices have dual lenses and lack interactive capabilities, which doesn't meet the requirements of XR projects. Therefore, we need to change the interaction method of UI controls to interact with them in 3D space using interactors. This involves detaching UI controls from the canvas, allowing them to exist independently in space with complete positional attributes and collision detection capabilities.
 
-### 新建 UI
+XR UI is an extension of 2D UI and can be created by adding the XRUI component. For information on how to use 2D/UI components, refer to the 2D Objects Overview.
 
-在 **层级管理器 -> 创建 -> XR -> XRUI** 可以添加 XRUI。
+### Creating XR UI
+
+To create XR UI, go to **Hierarchy -> Create -> XR -> XRUI**.
 
 <img src="component/create_xrui.png" alt="create_xrui" style="zoom: 75%;" />
 
-相比于传统的 UI 控件，XR UI 会新增一些组件用于计算碰撞检测以触发交互，如图示，RaycastChecker 和 BoxCollider 可使其能够接收 XR 输入：相比于传统的 UI 控件，XR UI 会新增一些组件用于计算碰撞检测以触发交互，如图示，RaycastChecker 和 BoxCollider 可使其能够接收 XR 输入：
+Compared to traditional UI controls, XR UI introduces additional components for collision detection and interaction. As shown in the image, the RaycastChecker and BoxCollider components enable XR input interaction with the UI.
 
 ![xrui_comp](component/xrui_comp.png)
 
-注意：对于 3D 空间上的 UI，其根节点上需要 RenderRoot2D 组件才可以正常渲染。
+Note: For UI in 3D space, the root node requires the RenderRoot2D component for proper rendering.
 
-#### 存量 UI 转换
+#### Converting Existing UI
 
-如 UI 已制作完成，也参考下面的步骤将原本的 2D Canvas 下的 UI，转化为 XR 的 UI。
+If you have already created UI and want to convert it from a 2D canvas to XR UI, you can follow these steps.
 
-##### 方法一
+##### Method 1
 
-在 **层级管理器** 右键创建一个空节点（如命名为 UIRoot，下文均使用 UIRoot），为节点添加组件 **RenderRoot2D** 组件，同时节点会自动添加 **UITransform** 组件：
+Right-click in the Hierarchy and create an empty node (name it UIRoot). Add the RenderRoot2D component to the node, which will automatically add the UITransform component.
 
 ![add_renderroot](component/add_renderroot.png)
 
-将原有的 2D UI 控件分离出 Canvas，移动至 UIRoot 层级下。修改 Button 位置和 Layer 属性。同时将 Button 及其子节点的 Layer 属性，都修改为和 Camera 的 Layer 属性一致（此处均为DEFAULT）。
+Detach the existing 2D UI nodes from the Canvas and move them under the UIRoot node. Modify the position and layer properties of the buttons. Set the Layer property of the button and its child nodes to match the layer of the Camera (e.g., DEFAULT).
 
 ![change_layer](component/change_layer.gif)
 
-给 Button 及其子节点添加材质。在 资源管理器 中点击 **xr-plugin -> xr -> res -> default_materials**，选择 **xr-3dui-sprite-material** 拖拽至 Sprite 组件的 CustomMaterial 属性中。
+Add a material to the button and its child nodes. In the Assets window, navigate to **xr-plugin -> xr -> res -> default_materials** and select `xr-3dui-sprite-material`. Drag it onto the `CustomMaterial` property of the `Sprite` component.
 
 ![add_3d_sprite](component/add_3d_sprite.gif)
 
-给 Button 添加射线交互组件 RaycastChecker。点击 Button 节点，在 **属性检查器** 下方，点击 添加组件按钮，选择 **XR -> UI -> RaycastChecker**。
+Add the `RaycastChecker` component for ray interaction to the button. Click on the button node and, in the Inspector panel, click the "Add Component" button. Select **XR -> UI -> RaycastChecker**.
 
 ![add_raycastchecker](component/add_raycastchecker.png)
 
-在 **属性检查器** 中出现 RaycastChecker 组件和 BoxCollider 组件，且 BoxCollider 组件的 Size 属性的 xy 值与节点的 UITransfrom 的 Content Size 值一致，如下图：（此处可以将 BoxCollider 替换为其他所需 3D 碰撞体，能够贴合 UI 组件即可）。
+The `RaycastChecker` and `BoxCollider` components will appear in the Inspector panel. Ensure that the xy values of the BoxCollider's `size` property match the `Content Size` value of the node's `UITransform`. You can replace the `BoxCollider` with other 3D colliders as needed, as long as they fit the UI components.
 
 ![change_collider_size](component/change_collider_size.png)
 
-移动 Button 节点至场景中指定位置，调整 Rotation 和 Scale 的值以满足设计需求。
+Move the button node to the desired position in the scene and adjust the Rotation and Scale values to meet the design requirements.
 
-添加完所有 UI 组件后，删除旧有的 Canvas 节点。
+Once all the UI components have been added, delete the old Canvas node.
 
-到此为止，存量 UI 到 XR UI 的转化就完成了。
+With these steps, you have successfully converted your existing UI to XR UI.
 
-##### 方法二
+##### Method 2
 
-**v1.1.0** 版本新增一键转换为 XR UI 功能。
+Starting from version v1.1.0, there is a new feature to convert 2D UI to XR UI with a single click.
 
-在场景下右键传统 2DUI，菜单中会出现 2DUI 转为 XRUI 选项
+Right-click on the traditional 2D UI in the scene. In the context menu, you will see the option "2DUI to XRUI".
 
 ![convert_2d_to_3d](component/convert_2d_to_3d.png)
 
-转换成功后UI节点会自动添加以下三个组件，并可以调节其 cc.Node 中的空间属性。
+After successful conversion, the UI node will automatically add the following three components, and you can adjust their spatial properties in the `cc.Node`.
 
 ![auto_add_comp](component/auto_add_comp.png)
 
-> **注意**：已经为 XRUI 的 UI 不能出现转为 XRUI
+> **Note**: Once UI is converted to XRUI, it cannot be converted back.
 
-### 虚拟键盘（XR Keyboard）
+### XR Keyboard
 
-添加一个 EditBox 的 XR UI，同时给 EditBox 添加一个子节点，命名为 KeyboardRoot （命名随意），同时调整 KeyboardRoot 的位置信息（根据需求进行调整即可，可将 XR Keyboard 临时放在节点下进行调整）。
+To add an EditBox as XR UI and attach a keyboard to it, create a child node named "KeyboardRoot" (you can choose any name) under the EditBox node and adjust the position information of KeyboardRoot as needed (you can temporarily place the XR Keyboard under the node for adjustment).
 
 ![xr_keyboard_root](component/xr_keyboard_root.png)
 
-创建 XR Keyboard 对象：在资源管理器中点击 xr-plugin-> xr -> res -> default_prefab，选择 XR Keyboard 拖拽至场景中。
+Create an XR Keyboard object: In the Asset Browser, navigate to **xr-plugin -> xr -> res -> default_prefab** and select XR Keyboard. Drag it into the scene.
 
 ![xr_keyboard_prefab](component/xr_keyboard_prefab.png)
 
-为 EditBox 节点添加 XRKeyboardInputField 组件，同时绑定 SuspendTransform 和 XRKeyboard，将节点拖拽进去。
+Add the `XRKeyboardInputField` component to the EditBox node and bind it to `SuspendTransform` and `XRKeyboard` by dragging the nodes into the corresponding fields.
 
 ![add_xr_keyboard_input_field](component/add_xr_keyboard_input_field.png)
 
 ![bind_suspend](component/bind_suspend.png)
 
-### 射线材质
+### Raycast Material
 
-使用射线与 XR UI 进行交互时，需要给射线绑定材质 xr-default-line-material。位置在 **资源管理器 -> xr-plugin -> xr -> res -> default_materials**。
+When interacting with XR UI using raycasting, you need to assign the xr-default-line-material to the ray. You can find this material in **Assets -> xr-plugin -> xr -> res -> default_materials**.
 
 ![xr_line_material](component/xr_line_material.png)

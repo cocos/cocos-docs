@@ -1,28 +1,29 @@
-# XR 网页浏览器
+# XR Web Browser
 
-在XR中，网页浏览器可以让用户在虚拟现实环境中访问和浏览网页。用户可以设备控制器与网页界面进行交互，如选择链接、滚动页面等等操作，以增强用户的沉浸感和体验。
+XR Web Browser
+In XR, a web browser allows users to access and browse the web within a virtual reality environment. Users can interact with web interfaces using device controllers, such as selecting links, scrolling through pages, and more, enhancing the immersion and experience for users.
 
-## XR 网页浏览器功能
+## XR Web Browser Features
 
-| 属性    | 描述                                     |
+| Property    | Description                                     |
 | ------- | ---------------------------------------- |
-| Content | 指定用于渲染网页内容的MeshRenderer对象。 |
-| Url     | 网页链接。                               |
+| Content | Specifies the `MeshRenderer` object for rendering web content. |
+| Url     | The URL of the web page.                               |
 
-## 使用 XR 网页浏览器
+## Using the XR Web Browser
 
-层级管理器右键 **创建 > XR > XR Webview**。
+Right-click in the Hierarchy panel and select **Create > XR > XR Webview**.
 
-默认创建一个带有 cc.MeshRenderer 组件的节点作为子节点 Webview Content。
+By default, it creates a node with the `cc.MeshRenderer` component as a child node of the Webview Content.
 
-![](xr-webview/create-webview.png)
+![xr-webview/create-webview.png](xr-webview/create-webview.png)
 
-构建发布应用即可看到网页内容。
+Build and publish the application to see the web page content.
 
-![](xr-webview/web-effect.png)
+![xr-webview/web-effect.png](xr-webview/web-effect.png)
 
-注：
+Note:
 
-- 使用网页浏览器功能需要扩展版本 **>=1.2.0**，编辑器版本 **>=3.7.3**。
+- The web browser functionality requires the **XR extension version >= 1.2.0** and the **Cocos Creator version >= 3.7.3**.
 
-- Vulkan目前不支持视频播放器。
+- Vulkan does not currently support the video player feature.

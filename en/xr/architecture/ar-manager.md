@@ -1,56 +1,56 @@
 # AR Manager
 
-Cocos CreatorXR 的 AR 模块提供了一个全局管理器，用于收集当前项目使用到的 AR 特性并进行管理，特性管理器中每个特性的属性都是全局属性，调整参数会修改设备相关的或者项目全局的功能。cc.ARManager 默认挂载在 XR Agent 节点上，当您创建 AR 自动化行为节点时，ARManager 会收集此节点到其对应的特性列表中，方便后续管理和维护所有特性节点。
+The AR module of Cocos CreatorXR provides a global manager for collecting and managing the AR features used in the current project. Each feature in the feature manager has global properties, and adjusting these parameters will modify the device-specific or project-wide functionality. The `cc.ARManager` is automatically attached to the `XR Agent` node by default. When you create AR automation behavior nodes, the `ARManager` will collect these nodes into their corresponding feature lists for easy management and maintenance of all feature nodes.
 
-当前版本针对以支持的 AR 特性提供了对应的全局功能属性：
+the corresponding global feature properties are provided for the supported AR features in the current version.
 
-## 平面追踪特性
+## Plane Tracking
 
-当您在场景中创建一个或多个 Plane Tracking 节点，AR Manager 中的 Configuration 会新增 Plane Feature 属性。您可以调整特性下的各项参数，或定位到对应的特性节点。
+When you create one or more Plane Tracking nodes in the scene, the `Configuration` in the `ARManager` will have an additional `Plane Feature` property. You can adjust the parameters under the feature or locate the corresponding feature node.
 
 ![plane-tracking-node](ar-manager/plane-tracking-node.png)
 
 <img src="ar-manager/plane-feature-manager.png" alt="plane-feature-manager" style="zoom:50%;" />
 
-Direction Type 汇集了当前场景所有平面代理需要识别的平面朝向。
+- `Direction Type`: Collects the orientations of all plane proxies that need to be recognized in the current scene.
 
-Tracking Visualizer 给所有平面代理创建默认的可视化模型。
+- `Tracking Visualizer`: Creates default visualization models for all plane proxies.
 
-Tracking Quality Condition 表示当前可追踪的平面代理的最差质量，当稳定性质量小于此值时，平面不被可视化。
+- `Tracking Quality Condition`:  Represents the minimum quality of the tracked plane proxy. When the stability quality is below this value, the plane will not be visualized.
 
-Use Plane Shape 开启后可视化效果会根据现实环境中平面的真实物理性状使用多边形绘制，关闭后则使用四边形绘制代替。
+- `Use Plane Shape`: When enabled, the visualization effect will use polygon rendering based on the real physical shape of the plane in the real environment. When disabled, quad rendering will be used instead.
 
-Unsupported Event 会在设备不支持平面追踪时触发，用户可以根据需求添加事件。
+- `Unsupported Event`: Triggered when plane tracking is not supported by the device. Users can add events according to their needs.
 
-## 图像追踪特性
+## Image Tracking
 
-当您在场景中创建一个或多个 Image Tracking 节点，AR Manager 中的 Configuration 会新增 Image Feature 属性。您可以调整特性下的各项参数，或定位到对应的特性节点。
+When you create one or more `Image Tracking` nodes in the scene, the `Configuration` in the `ARManager` will have an additional `Image Feature` property. You can adjust the parameters under the feature or locate the corresponding feature node.
 
 ![image-feature-node](ar-manager/image-feature-node.png)
 
 <img src="ar-manager/image-feature-manager.png" alt="image-feature-manager" style="zoom:50%;" />
 
-Max Tracking Number 表示当前镜头内可同时追踪图片的最大数量，可以根据需要动态修改此值。
+The `Max Tracking Number` on each platform represents the maximum number of images that can be simultaneously tracked within the camera's field of view. This value can be dynamically modified as needed.
 
-注：Max Tracking Number 的上限根据设备平台会有差异，目前已知
+Note: The upper limit of `Max Tracking Number` varies depending on the device platform. Currently known limits are:
 
-- ARCore 平台可同时追踪最多 20 张图，单图像库存最多 1000 张。
-- ARKit 平台可同时追踪最多 4 张图，单图像库最多 100张。
-- AREngine 平台可同时追踪最多 1 张图。
+- ARCore: The platform can track up to 20 images simultaneously, with a maximum inventory of 1000 individual images.
+- ARKit: The platform can track up to 4 images simultaneously, with a maximum inventory of 100 images.
+- AREngine: The platform can track up to 1 image simultaneously.
 
-Unsupported Event 会在设备不支持图像追踪时触发，用户可以根据需求添加事件。
+The `Unsupported Event` will be triggered when image tracking is not supported by the device. Users can add events according to their needs.
 
-## 网格化特性（实验性）
+## Meshing（Experimental）
 
-当您在场景中创建一个或多个 Meshing 节点，AR Manager 中的 Configuration 会新增 Meshing Feature 属性。由于 Meshing 功能处于实验性阶段且支持环境重构的设备硬件要求较高，暂不支持对此做特性做参数控制。
+When you create one or more `Meshing` nodes in the scene, the `Meshing Feature` property will be added to the `ARManager`'s Configuration. Since the Meshing feature is experimental and requires high hardware requirements for environmental reconstruction, it does not currently support parameter control for this feature.
 
 <img src="ar-manager/meshing-manager.png" alt="meshing-manager" style="zoom:50%;" />
 
-Normals 默认开启，可以根据 Mesh 信息获取法线向量。
+`Normals` are enabled by default, allowing you to obtain normal vectors based on the mesh information.
 
 ## APIs
 
-AR Manager 还提供了控制特性开关以及特性可视化开关的接口：
+`ARManager` also provides interfaces to control feature switches and feature visualization switches:
 
 ```typescript
 public enableFeatureTracking (type: ARTrackingType, enable: boolean);

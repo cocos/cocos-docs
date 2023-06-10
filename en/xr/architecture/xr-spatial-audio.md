@@ -1,27 +1,28 @@
-# XR 空间音频
+# XR Spatial Audio
 
-XR 空间音频是虚拟现实领域中的一项重要技术，它可以模拟现实世界中的音频环境，让用户在虚拟现实环境中获得更加真实的听觉体验。基于头戴显示器的声音跟踪技术可以通过跟踪用户的头部运动来模拟现实世界中的音频环境。当用户在虚拟现实环境中移动头部时，系统可以根据用户的头部运动和位置来调整音频的位置和方向，从而模拟出现实世界中的音频环境。
+XR Spatial Audio is an important technology in the virtual reality field that can simulate audio environments from the real world, providing users with a more immersive auditory experience in virtual reality. **Sound-Tracking** technology based on head-mounted displays can simulate audio environments from the real world by tracking the user's head movements. When users move their heads in a virtual reality environment, the system can adjust the position and direction of the audio based on the user's head movements and position, creating a simulation of real-world audio environments.
 
-## XR 空间音频功能
+## XR Spatial Audio Features
 
-| 属性                   | 描述                             |
+| Property                   | Description                             |
 | ---------------------- | -------------------------------- |
-| Clip                   | 引用需要挂载的音频文件。         |
-| Loop                   | 是否循环播放音频。               |
-| Play On Wake           | 是否在启动项目时自动播放音频。   |
-| Volume                 | 音量大小。                       |
-| Distance Rolloff Model | 音量根据距离效应进行衰减的模型。 |
+| Clip                   | References the audio file to be played.         |
+| Loop                   | Determines if the audio should loop.               |
+| Play On Wake           | Determines if the audio should play automatically when the project starts.   |
+| Volume                 | Sets the volume level of the audio.                     |
+| Distance Rolloff Model | Determines the distance-dependent volume attenuation model. |
 
-## XR 空间音频使用
+## Using XR Spatial Audio
 
-选择想要添加音频的节点对象，在属性管理器中添加组件：**XR > Extra > XRSpatialAudioSource**
+Select the node object to which you want to add audio, and add the component in the property manager **XR -> Extra -> XRSpatialAudioSource**.
 
 <img src="xr-spatial-audio/add-spatial-audio.png" style="zoom:50%;" />
 
-## 声明
+## Acknowledgments
 
-空间音频功能引用了 GoogleVR 库，许可凭证详见 licenses 文件夹中 LICENSE_googlevr.txt。
+The Spatial Audio feature references the GoogleVR library. Please refer to the `LICENSE_googlevr.txt` file in the licenses folder for the licensing details.
 
-有关涵盖此 SDK 的谷歌 api 服务条款，请参阅 [https://developers.google.com/terms/](https://developers.google.com/terms/)。
+For Google API service terms that cover this SDK, please refer to
+ [https://developers.google.com/terms/](https://developers.google.com/terms/)。
 
-> **注意**：使用空间音频功能需要扩展版本 **>=1.2.0**，编辑器版本 **>=3.7.3**。
+> **Note**: The Spatial Audio feature requires an extension version >= 1.2.0 and the Cocos Creator version >= 3.7.3.

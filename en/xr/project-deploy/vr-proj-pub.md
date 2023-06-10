@@ -1,31 +1,31 @@
-# VR 项目构建与发布
+# Building and Publishing VR Project
 
-当项目开发完成后，需要将项目打包到对应的平台上，在菜单栏中选中 **项目** -> **构建发布** 打开构建发布面板，通过 **发布平台** 属性下的下拉框中选择目标平台：
+Once the project development is completed, it needs to be published to the target platform. In the menu bar, select **Project -> Build** to open the **Build** panel. Choose the target platform from the dropdown menu.
 
 ![select-platform](vr-proj-pub/select-platform.png)
 
-## 属性
+## Options
 
-构建通用属性可以参考：[构建选项介绍](../../editor/publish/build-panel.md)。
+For general build options, you can refer to the: [General Build Options](../../editor/publish/build-panel.md)。
 
-目前支持的 VR 设备都采用了安卓系统，开发者需搭建对应的开发环境，详情可参考 [安装配置原生开发环境](../../editor/publish/setup-native-development.md)。
+The supported VR devices currently use the Android system, so developers need to set up the corresponding development environment. For details, please refer to the [Setting up the Native Development Environment](../../editor/publish/setup-native-development.md) documentation.
 
-XR专用构建属性描述如下：
+The XR-specific build options are described as follows:
 
-**Rendering Scale**：渲染分辨率。
+- **Rendering Scale**: Adjusts the rendering resolution.
 
-**MSAA**：调整多重采样抗锯齿等级。
+- **MSAA**:  Adjusts the level of multisample anti-aliasing.
 
-**Remote Preview**：启用无限投屏预览。
+- **Remote Preview**: Enables wireless projection preview.
 
-**Foveation Level**：调整注视点渲染等级，级别越高时 GPU 负载越低，但双目渲染纹理边缘分辨率也会降低。（注：1、注视点渲染采用 OpenXR 通用接口，若设备 FFR 功能未对接 OpenXR 标准，此功能将不生效。2、此功能需要扩展版本 **>=1.2.0**，编辑器版本 **>=3.7.3**。）
+- **Foveation Level**: Adjusts the foveation rendering level. A higher level reduces the GPU load but also decreases the resolution of the per-eye rendering textures at the edges. (Note: 1. Foveation rendering uses the OpenXR universal interface. If the device's FFR feature is not integrated with the OpenXR standard, this feature will not work. 2. This feature requires **extension version >= 1.2.0** and the **Cocos Creator version >= 3.7.3**).
 
-## 构建
+## Build
 
-之后在构建任务中根据需要选择 **构建**、**生成** 或 **运行** 即可。
+Afterward, in the build task, choose Build, Make, and Run according to your needs.
 
 ![build](vr-proj-pub/build.png)
 
-## 发布
+## Publish
 
-生成应用程序以后，可以通过 adb 命令或设备的传输文件功能将应用程序传输到目标设备上，之后运行则可以完成整个构建和发布过程。
+Once the application is generated, you can transfer the application to the target device using `adb commands` or the device's file transfer function. After that, you can run the application.

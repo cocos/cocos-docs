@@ -1,3 +1,3 @@
-# 快速使用指南
+# Quick Start Guide
 
-这里提供建议的操作方式来创建和发布 XR 项目，使用发者可以参考以下流程快速上手使用 Cocos CreatorXR。
+Here are the recommended steps to create and publish XR projects. Developers can follow the following workflow to quickly get started with Cocos CreatorXR.

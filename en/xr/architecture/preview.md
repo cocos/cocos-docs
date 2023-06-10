@@ -1,47 +1,50 @@
-# 预览
+# Preview
 
-为了方便开发者在项目开发过程中实时调试，快速验证一些传统的功能逻辑来提高开发效率，Cocos CreatorXR 基于 Cocos Creator 的 Web Preview 功能开发了适用于 XR 项目的预览功能。
+To facilitate developers in real-time debugging and quickly verifying traditional functional logic during project development, Cocos CreatorXR offers a preview feature for XR projects based on Cocos Creator's **Preview in Browser** functionality.
 
-## 操作说明
+## How to Use
 
-在 xr-plugin 的资源库中找到 XR Simulator，将其拖拽至场景中。
+In the xr-plugin repository, find XR Simulator and drag it into the scene.
 
 <img src="preview/xr_web_simulator_prefab.png" alt="xr_web_simulator_prefab" style="zoom:50%;" />
 
-在编辑器的预览选项中选择浏览器预览，并点击运行。
+Select the **Preview in Browser** option in the editor's preview settings and click to play.
 
 ![preview_in_browser](preview/preview_in_browser.png)
 
-运行后即可在浏览器中进行模拟预览。
+Once running, you can simulate the preview in the browser.
 
 ![effect_of_preview_in_browser](preview/effect_of_preview_in_browser.png)
 
-键盘 WASD 来控制角色整体（HMD + 手柄）进行前左后右移动，QE 控制整体上升和下降。
+Use the WASD keys to control the movement of the character as a whole (HMD + controllers) in the forward, left, backward, and right directions. Use QE to control the overall up and down.
 
-键盘 Latin 部分的数字键 123 功能分别为：1.鼠标键盘的控制对象切换至 XR Agent （角色自身）此时前后左右上下作用于整体角色，鼠标滑动控制 HMD（Camera）转动，射线发出位置位于 HMD 中央，空格键用于触发 click（点击），按住空格拖动鼠标触发 drag（点击）；2 和 3 将鼠标和键盘的控制对象切换至左/右手柄，此时前后左右上下作用于单独的左/右手柄，射线从手柄位置发出，空格键用于触发 click（点击），按住空格拖动鼠标触发 drag（拖动）。
+The numeric keys 1,2,3 on the Latin part of the keyboard have the following functions: 
 
-长按 B 键重置手柄位置。
+- **Key 1**: Switch the control target of the mouse and keyboard to the XR Agent (the character itself). In this mode, the movements of forward, backward, left, right, up, and down will affect the character as a whole. Mouse movement controls the rotation of the HMD (Camera), and the raycasting originates from the center of the HMD. Press the spacebar to trigger a click, and hold the spacebar while dragging the mouse to trigger a drag. 
+- **Key 2 and 3**: Switch the control target of the mouse and keyboard to the left/right controller, respectively. In this mode, the movements of forward, backward, left, right, up, and down will affect the left/right controller individually. The raycasting originates from the position of the controller. Press the spacebar to trigger a click, and hold the spacebar while dragging the mouse to trigger a drag.
 
-控制手柄移动时，正前方向向量始终和 XR Agent 的前向保持一致。
+Hold down the B key to reset the controller position.
 
-## XR 设备无线串流调试
+When controlling the movement of the controllers, the forward vector always aligns with the forward direction of the XR Agent.
 
-v1.1.0 版本的预览组件新增无线串流模式，内容验证是项目开发过程中极其耗时的一环，由于 XR 设备的终端独立性和串流工具的封闭性，使得在编辑器中针对 XR 设备的项目比传统移动端/PC 端项目的内容调试验证更为困难。为此，Cocos CreatorXR v1.1.0 推出了无线串流调试功能，开发者可以直接在 Web 浏览器中预览XR项目并同步所有来自 XR 设备的信号，正确渲染实时画面并反馈各种控制器信号触发逻辑，无需打包应用至设备即可快速完整地体验所有XR项目内容。
+## XR Device Wireless Streaming Debugging
+
+The preview component in version 1.1.0 introduces wireless streaming mode. Content validation is a time-consuming process during project development. Due to the independence of XR devices and the closed nature of streaming tools, debugging and validating XR projects in the editor is more challenging compared to traditional mobile/PC projects. To address this, Cocos CreatorXR v1.1.0 introduces wireless streaming debugging. Developers can directly preview XR projects in a web browser and synchronize all signals from the XR devices, rendering real-time visuals and providing feedback on various controller signal-triggering logic. It allows for a complete and quick experience of all XR project content without the need to package the application onto the device.
 
 <img src="preview/xr_preview_by_wireless.png" alt="xr_preview_by_wireless" style="zoom:50%;" />
 
-将 XR Preview Type 选择为 REMOTE 模式，XR Connect Type 选择为 WIFI 模式，将电脑和设备处于同一 WIFI 下。
+Select REMOTE mode for XR Preview Type, and Wifi mode for XR Connect Type, and ensure that the computer and the device are on the same WIFI network.
 
-填写 XR 设备网络 IP 到 XR Device IP 属性中。
+Enter the XR device's IP address in the XR Device `IP` property.
 
-在构建面板中勾选 Remote Preview，打包项目至XR一体机。
+Check Remote Preview in the Build panel and package the project for the XR device.
 
 <img src="preview/remote_preview_type.png" alt="remote_preview_type" style="zoom:50%;" />
 
-项目预览方式选择浏览器预览。
+Choose **Preview in Browser** as the project preview method.
 
 ![preview_in_browser](preview/preview_in_browser.png)
 
-编辑器中点击运行进行浏览器预览，同时设备运行打包好的 APK。
+Click Run in the editor for browser preview and run the packaged APK on the device simultaneously.
 
-> **注意**：无线串流调试功能需要扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**。
+> **Note**: The wireless streaming debugging feature requires extension version >= v1.1.0 and the Cocos Creator version >= 3.7.1.

@@ -1,99 +1,99 @@
-# AR 自动化行为编辑
+# AR Automated Behavior Editing
 
-AR 场景中，虚拟物体与现实实体间总是存在未知的依赖关系，如果能够清晰方便的描述现实实体的条件特征并针对此种条件执行匹配的行为，可以很大程度上简化开发者处理复杂的 AR 功能特性而专注于编写项目核心逻辑。Cocos CreatorXR 提供了 AR 自动化行为编辑组件，将常用的物理特征和逻辑行为抽象成元素供开发者自由搭配，图形化的操作极大程度降低了 AR 应用的开发成本和开发门槛。
+In AR scenes, there is always an unknown dependency between virtual objects and real entities. If we can clearly and conveniently describe the conditional characteristics of real entities and execute matching behaviors based on these conditions, it can greatly simplify the handling of complex AR features for developers and allow them to focus on writing business-related code. Cocos CreatorXR provides AR automated behavior editing components that abstract common physical features and logical behaviors into elements that developers can freely combine. The graphical interface significantly reduces the cost and entry barrier for AR application development.
 
-每种特性的自动化行为编辑组件都有其独特的特征库和行为库，以下介绍了当前版本支持自动化行为的所有 AR 特性：
+Each automated behavior editing component for a specific feature has its own unique feature library and action library. The following describes all the AR features supported by the automated behavior editing in the current version:
 
-## 平面追踪
+## Plane Tracking
 
-在编辑器的层级管理器中右键 **创建 -> XR -> Plane Tracking**，创建平面代理节点，此节点可用于描述物理世界中的某一个平面实体。
+Right-click in the Hierarchy and choose **Create -> XR -> Plane Tracking** to create a plane agent node that can describe a plane entity in the physical world.
 
 <img src="ar-tracking-component/create-plane-tracking-node.png" alt="create-plane-tracking-node" style="zoom:50%;" />
 
-选中创建好的 Plane Tracking 节点，在属性检查器中可以看到默认添加好的 cc.ARPlaneTracking，选择 Factor 或 Action 页签可以查看当前已有的特征或行为项。点击 Add Factor 或 Add Action 可以添加特征库/行为库中其他的新项。
+Select the created **Plane Tracking** node, and in the **Inspector** panel, you can see the default `cc.ARPlaneTracking` component that has been added. Select the **Factor** or **Action** tab to view the existing features or actions. Click "Add Factor" or "Add Action" to add new items from the feature library or action library.
 
 <img src="ar-tracking-component/plane-tracking-factors.png" alt="plane-tracking-factors" style="zoom:50%;" />
 
 <img src="ar-tracking-component/plane-tracking-actions.png" alt="plane-tracking-actions" style="zoom:50%;" />
 
-在创建好的 Plane Tracking 节点下拖入需要展示的虚拟物体，调整为合适的大小比例。在 Action 中添加 Display 行为项（默认已经添加），即可在运行时识别到满足条件的平面后展示出虚拟物体。
+Drag the virtual object that needs to be displayed under the created **Plane Tracking** node and adjust its `size` and `scale` accordingly. Add the **Display** action item in the **Actions** section (already added by default), and the virtual object will be displayed when a plane that meets the conditions is recognized during runtime.
 
 ![plane-tracking-display](ar-tracking-component/plane-tracking-display.png)
 
 ![plane-tracking-effect](ar-tracking-component/plane-tracking-effect.png)
 
-## **图像追踪**
+## Image Tracking
 
-图像追踪允许您在运行时使用设备 AR 能力识别出 2D 图像资源。
+**Image Tracking** allows you to use the device's AR capabilities to recognize 2D image resources at runtime.
 
-在编辑器的层级列表中右键 **创建 -> XR -> Image Tracking**，创建图像代理节点，此节点可用于描述物理世界中的某一个图像实体。
+Right-click in the Hierarchy and select **Create -> XR -> Image Tracking** to create an image agent node that can describe an image entity in the physical world.
 
 <img src="ar-tracking-component/image-tracking-node.png" alt="image-tracking-node" style="zoom:50%;" />
 
-选中创建好的 Plane Tracking 节点，在属性检查器中可以看到默认添加好的 cc.ARImageTracking，在 Factor 页签的 Image Source 属性中新增一个图像资源。
+Select the created **Image Tracking** node, and in the Inspector panel, you can see the default `cc.ARImageTracking` component that has been added. In the **Factor** tab, under the `Image Source` property, add a new image resource.
 
 <img src="ar-tracking-component/image-tacking-comp.png" alt="image-tacking-comp" style="zoom:50%;" />
 
-在 Image 属性中拖入或直接选择资源管理器中的图片资源，在编辑器场景中可以看到当前引用的图像，设置图像的默认的物理尺寸。
+Drag and drop or directly select an image resource from the `Assets` window in the `Image` property. In the scene editor, you can see the currently referenced image and set its default physical size.
 
 ![set-image-source](ar-tracking-component/set-image-source.png)
 
-在创建好的 Image Tracking 节点下拖入需要展示的虚拟物体，调整为合适的大小比例。在 Action 中添加 Display 行为项（默认已经添加），即可在运行时识别到图像后展示出虚拟物体。
+Drag the virtual object that needs to be displayed under the created **Image Tracking** node and adjust its `size` and `scale` accordingly. Add the **Display** action item in the **Actions** section (already added by default), and the virtual object will be displayed when the image is recognized during runtime.
 
 ![image-tracking-display](ar-tracking-component/image-tracking-display.png)
 
 ![image-tracking-effect](ar-tracking-component/image-tracking-effect.png)
 
-## **网格化（实验性）**
+## **Meshing（Experimental）**
 
-目前网格化特性只对 iOS 平台中具有深度场景重建能力的设备上生效（带有 LiDAR 扫描仪的 iPhone/iPad Pro 系列），网格化允许您根据现实环境创建 3D 网格。
+Currently, the **Meshing** feature only works on iOS devices with depth scene reconstruction capabilities (such as iPhone/iPad Pro series with LiDAR scanner). **Meshing** allows you to create 3D meshes based on the real environment.
 
-在编辑器的层级列表中右键 **创建 -> XR -> Meshing**，创建网格化代理节点。
+Right-click in the Hierarchy and select **Create -> XR -> Meshing** to create a Meshing agent node.
 
 <img src="ar-tracking-component/meshing-node.png" alt="meshing-node" style="zoom:50%;" />
 
-在 cc.ARMeshing 的 Mesh Visualizer 属性中选择需要展示的网格效果。
+In the `cc.ARMeshing` component's `Mesh Visualizer` property, select the desired mesh visualization effect.
 
 <img src="ar-tracking-component/meshing-comp.png" alt="meshing-comp" style="zoom:50%;" />
 
-即可直接在运行时将现实环境的表面网格化。
+This will enable real-time surface meshing based on the physical environment during runtime.
 
 ![meshing-effect](ar-tracking-component/meshing-effect.jpeg)
 
-## 特征库和行为库
+## Feature Library
 
-当前可以添加特征和行为如下：
+Currently, you can add the following features:
 
-### 特征库
-
-| 特征项          | 特征属性             | 描述                                                         |
+| Feature          | Attribute             | Description                                                         |
 | --------------- | -------------------- | ------------------------------------------------------------ |
-| Plane Direction |                      | 设置此平面需要满足给定的朝向。平面可以选择指定的朝向(水平，垂直或其他)。 |
-| Plane Size      |                      | 设置此平面必须匹配给定的尺寸。设置时可以选择限制平面的最小/最大尺寸范围。 |
-| Image Source    | Image                | 设置图像追踪所依赖的图像资源。                               |
-|                 | Enable Physical Size | 开启后，识别到图像资源后，将默认以此物理尺寸作为现实图像的尺寸，而无需根据深度特征计算图像大小，可以加快识别的速度。 |
-|                 | ImagePhysicalSize    | 标定图像的物理尺寸限制(米为单位)。当改动宽或高任意一项数值时，另一项都会根据像素比自动计算数值。 |
+| Plane Direction |                      | Specifies the required orientation for the plane. The plane can be set to a specific direction (horizontal, vertical, or other). |
+| Plane Size      |                      | Sets the required size for the plane. When setting the size, you can choose to restrict the minimum/maximum size range of the plane. |
+| Image Source    | Image                | Sets the image resource for Image Tracking.                               |
+|                 | Enable Physical Size | When enabled, the recognized image will default to the specified physical size as the size of the real-world image, without calculating the image size based on depth features. This can speed up the recognition process. |
+|                 | ImagePhysicalSize    | Sets the physical size constraint for the calibrated image (in meters). When you change the width or height value, the other value will be automatically calculated based on the aspect ratio. |
 
-### 行为库
+### Action Library
 
-| 行为项          | 行为属性              | 描述                                                         |
+Currently, you can add the following actions:
+
+| Action          | Attribute              | Description                                                         |
 | --------------- | --------------------- | ------------------------------------------------------------ |
-| Display         |                       | 如果自动化行为编辑组件的所有特征与真实世界实体匹配成功，则激活子对象;否则禁用子对象。 |
-|                 | Display Children Node | 开启后，默认展示 Tracking 节点下的子节点对象。                 |
-|                 | Stop Tracking         | 满足当前节点的条件设定时，关闭此节点的AR追踪。               |
-|                 | Reset When Loss       | 追踪丢失时，子节点行为是否重置。                             |
-| Align           |                       | 该代理节点的位置与真实世界实体的位置的对齐关系。             |
-|                 | Towards               | 子物体摆放朝向。如果设置为 Local_Up，则直接使用子物体的姿态。 如果设置为 World_Up，子物体 Y 轴将始终与世界坐标上方向对齐。 |
-|                 | Face to Camera        | 开启后，子物体Z轴朝向 AR Camera 的方向。                       |
-|                 | MatchTrackingUpdate   | 当此节点匹配的真实世界数据更新时，布局和对齐效果也跟随刷新。 |
-| Surface Overlay |                       | 满足条件后用指定的预置体覆盖原来的可视化效果。               |
-|                 | Surface Offset        | 设置覆盖在平面上的表面位置的偏移值。                         |
-|                 | Replace Visualizer    | 创建后关闭并取代追踪可视化的效果。                           |
-| Adaptive Scale  |                       | 根据匹配的 AR 对象的边界来放缩子物体。                         |
-|                 | Max Scale             | 比例调整的最大上限。                                         |
-|                 | Match Tracking Update | Scale 的行为是否跟随追踪而不断刷新。                          |
-| Track Event     |                       | 在跟踪特征匹配期间调用的事件集。                             |
-|                 | on Track Success      | 追踪成功时调用的事件。                                       |
-|                 | on Track Refresh      | 追踪信息刷新时调用的事件。                                   |
-|                 | on Track Loss         | 追踪丢失时调用的事件。                                       |
-|                 | on Track Timeout      | 追踪超时时调用的事件。可以设置保持追踪检查的时间，此时间范围内没有成功匹配追踪数据会触发追踪失败的事件。 |
+| Display         |                       | Activates the child objects if all the features of the automation behavior editor component match the real-world entities; otherwise, disables the child objects. |
+|                 | Display Children Node | When enabled, displays the child nodes under the Tracking node by default.                 |
+|                 | Stop Tracking         | Disables AR tracking for this node when the specified conditions are met.               |
+|                 | Reset When Loss       | Determines whether the behavior of the child nodes should be reset when tracking is lost.                             |
+| Align           |                       | Specifies the alignment relationship between the position of the proxy node and the position of the real-world entity.             |
+|                 | Towards               | Sets the orientation of the child object. If set to Local_Up, it uses the pose of the child object directly. If set to World_Up, the child object's Y-axis will always align with the world coordinate's up direction. |
+|                 | Face to Camera        | When enabled, the child object faces the direction of the AR Camera along the Z-axis.                       |
+|                 | MatchTrackingUpdate   | When the real-world data matched by this node is updated, the layout and alignment effects are also refreshed. |
+| Surface Overlay |                       | Replaces the original visualization effect with the specified prefab when the conditions are met.               |
+|                 | Surface Offset        | Replaces the original visualization effect with the specified prefab when the conditions are met.                         |
+|                 | Replace Visualizer    | Disables and replaces the tracking visualization effect after creation.                           |
+| Adaptive Scale  |                       | Scales the child object based on the boundaries of the matched AR object.                         |
+|                 | Max Scale             | Sets the maximum limit for scaling adjustment.                                         |
+|                 | Match Tracking Update | Determines whether the behavior of scaling should be continuously refreshed along with tracking.                    |
+| Track Event     |                       | Collection of events called during the matching of tracking features.              |
+|                 | on Track Success      | Event called when tracking is successful.                 |
+|                 | on Track Refresh      | Event called when tracking information is refreshed.                   |
+|                 | on Track Loss         | Event called when tracking is lost.                     |
+|                 | on Track Timeout      | Event called when tracking times out. You can set the time for tracking check, and if no successful tracking data is matched within this time range, the tracking failure event will be triggered. |

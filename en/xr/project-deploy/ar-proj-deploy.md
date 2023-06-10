@@ -1,77 +1,79 @@
-# AR 项目创建
+# AR Project Creation
 
-参照以下步骤完成对项目的 AR 相关特性配置。
+Follow the steps below to set up AR-related features for your project.
 
-以下提供三种方法，可以任选一种来配置扩展或直接打开内置 AR 项目。
+Three methods are provided, and you can choose any one of them to set up the extension or open the built-in AR project directly.
 
-### 方法一：将 xr-plugin 应用到项目
+## 1. Apply xr-plugin to the Project
 
-在 Cocos Store 中搜索 xr-plugin，获取扩展并安装，具体安装说明请参考 [说明](../../../editor/extension/install)。
+Search for xr-plugin in the Cocos Store, obtain the extension, and install it. For detailed installation instructions, please refer to the [Extension Install Documentation](../../../editor/extension/install)。
 
-安装完毕后将扩展添加至对应工程。
+After installation, add the extension to the corresponding project.
 
-这种方式适合为存量 3D 项目做 XR 模式迁移。
+This method is suitable for migrating XR mode to existing 3D projects.
 
 ![search-in-store](ar-proj-deploy/search-in-store.png)
 
 ![install-for-proj](ar-proj-deploy/install-for-proj.png)
 
-### 方法二：创建 AR 模板工程
+## 2. Two Ways to Create from AR Project
 
-Dashboard 中新建项目，编辑器版本选择 v3.7.1 或更高，模板类别下选择 Empty(AR Mobile) 进行创建。
+### Create from AR Template
+
+Create a new project in the Cocos Dashboard, select editor version v3.7.1 or higher, and choose **Templates/Empty (AR Mobile)** as the template for creation.
 
 ![create-by-template](ar-proj-deploy/create-by-template.png)
 
-打开项目，进入 scene 场景。场景已经包含初始的 AR Camera 配置，可以直接进行功能开发。
+Open the project and go to the scene. The scene already includes the initial AR Camera configuration, allowing you to directly develop functionalities.
 
 ![open-ar-template](ar-proj-deploy/open-ar-template.png)
 
-创建 AR 案例
+### Create from AR Example
 
-Dashboard 中新建项目，编辑器版本选择 v3.7.1 或更高，案例类别下选择 AR(移动端) 案例进行创建。
+Create a new project in the Cocos Dashboard, select editor version v3.7.1 or higher, and choose **Examples/AR (Mobile) Example** as the example for creation.
 
 ![create-by-ar-example](ar-proj-deploy/create-by-ar-example.png)
 
-案例项目中包含当前版本扩展完整的有关AR特性功能的内容，可以直接进行构建打包体验。AR 应用的构建发布相关说明请查阅 [构建与发布](ar-proj-pub.md)。
+The example project contains complete XR-related features for the current version of the extension, allowing you to directly build and experience. For AR application building and publishing instructions, please refer to [Build and Publish](ar-proj-pub.md).
 
-### 方法三：场景配置
+## 3. Scene Configuration
 
-若采用第一种将 xr-plugin 应用到项目的方式配置插件，还需进行以下步骤对普通的 3D 场景完成 AR 功能的基本配置。
+If you choose the first method of applying **xr-plugin** to the project to get AR ability, you also need to follow the steps below to complete the basic AR feature configuration for a regular 3D scene.
 
-应用中的每个 AR 场景中必须要包含两个关键对象：XR Agent和AR Camera。
+Each AR scene in the application must include two key objects: XR Agent and AR Camera.
 
-推荐以下两种方式任选一种来进行场景配置：
+We recommend two methods to configure the scene, and you can choose either one:
 
-1. 右键单击 **层次管理器** 窗口，选择 创建 XR -> XR Agent。选中 XR Agent 节点，右键创建 Empty Node，并重命名为 TrackingSpace。选中 TrackingSpace 节点，右键创建 XR -> AR Camera。
+1. Right-click in the Hierarchy and select **Create XR -> XR Agent**. Select the XR Agent node, right-click to create an Empty Node, and rename it to **TrackingSpace**. Select the TrackingSpace node, and right-click to create **XR -> AR Camera**.
 
    ![create-ar-camera](ar-proj-deploy/create-ar-camera.png)
 
-   选中 XR Agent 节点，在属性检查器中点击“添加组件”，添加 XR -> AR Tracking -> ARSession 和 XR -> AR Tracking -> ARManager。
+   Select the XR Agent node and click "Add Component" in the Inspector to add **XR -> AR Tracking -> ARSession** and **XR -> AR Tracking -> ARManager**.
 
    <img src="ar-proj-deploy/set-ar-comp.png" alt="set-ar-comp" style="zoom:50%;" />
 
-2. 对于空场景或现有项目，可以直接选中场景中主摄像机，右键选择转为 AR Camera，即可得到上述默认的结构。
+2. For an empty scene or an existing project, you can directly select the main camera in the scene, right-click, and choose Convert to AR Camera to obtain the default structure mentioned above.
 
    ![convert-to-ar-camera](ar-proj-deploy/convert-to-ar-camera.png)
 
-XR Agent 和 AR Camera 及其组件在 AR 项目中扮演着重要的角色。要更详细地了解它们，请分别查阅 [设备映射]( ../architecture/component.md#设备映射组件) 和 [AR相机](../architecture/ar-camera.md)。
+XR Agent and AR Camera, along with their components, play important roles in AR projects. For more detailed information about them, please refer to [Device Mapping](../architecture/component.md) and [AR Camera](../architecture/ar-camera.m) respectively.
 
-## Spaces平台项目场景设置
+## Setup Spaces Platform Project
 
-新建空场景，将场景中 Main Camera 右键选择转为 XR HMD。
+Create a new empty scene and right-click the Main Camera in the scene to convert it to `XR HMD`.
 
-选中 XR Agent，点击 Add Component 添加 ARSession 和 ARManager 组件。
+Select the XR Agent and click Add Component to add `ARSession` and `ARManager` components.
 
 <img src="ar-proj-deploy/spaces-add-ar-comp.png" alt="spaces-add-ar-comp" style="zoom:50%;" />
 
-可以参考 [平面追踪](../architecture/ar-tracking-component.md#平面追踪) 和 [图像追踪](../architecture/ar-tracking-component.md#图像追踪) 给应用做AR赋能。
+You can refer to [Plane Tracking](../architecture/ar-tracking-component.md#plane-tracking) and [Image Tracking](../architecture/ar-tracking-component.md#image-tracking) to empower your application with AR capabilities.
 
-功能开发完成后可直接打包发布。
+After completing the development of functionalities, you can directly build and publish the application.
 
-在 Dashboard 的 VR 案例中，提供了一个简易的 Spaces 专用场景，可以直接打包应用并将此场景设为启动场景。
+In the Dashboard's VR cases, a simple **Spaces** dedicated scene is provided. You can package the application directly and set this scene as the launch scene.
 
 ![open-spaces-example](ar-proj-deploy/open-spaces-example.png)
 
 ![build-spaces](ar-proj-deploy/build-spaces.png)
 
-具体有关高通 Spaces 平台的 AR SDK 请参考 [这里](https://docs.spaces.qualcomm.com/)。
+For specific information about the AR SDK for the **Qualcomm Spaces** platform, please refer to [[here](https://docs.spaces.qualcomm.com)](https://docs.spaces.qualcomm.com/).
