@@ -2,7 +2,7 @@
 
 The AR module of Cocos CreatorXR provides a global manager for collecting and managing the AR features used in the current project. Each feature in the feature manager has global properties, and adjusting these parameters will modify the device-specific or project-wide functionality. The `cc.ARManager` is automatically attached to the `XR Agent` node by default. When you create AR automation behavior nodes, the `ARManager` will collect these nodes into their corresponding feature lists for easy management and maintenance of all feature nodes.
 
-the corresponding global feature properties are provided for the supported AR features in the current version.
+The corresponding global feature properties are provided for the supported AR features in the current version.
 
 ## Plane Tracking
 
@@ -42,7 +42,7 @@ The `Unsupported Event` will be triggered when image tracking is not supported b
 
 ## Meshing（Experimental）
 
-When you create one or more `Meshing` nodes in the scene, the `Meshing Feature` property will be added to the `ARManager`'s Configuration. Since the Meshing feature is experimental and requires high hardware requirements for environmental reconstruction, it does not currently support parameter control for this feature.
+When you create one or more `Meshing` nodes in the scene, the `Meshing Feature` property will be added to the `ARManager`'s configuration. Since the Meshing feature is experimental and requires high hardware requirements for environmental reconstruction, it does not currently support parameter control for this feature.
 
 <img src="ar-manager/meshing-manager.png" alt="meshing-manager" style="zoom:50%;" />
 

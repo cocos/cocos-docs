@@ -14,7 +14,7 @@ The XR-specific build options are described as follows:
 
 - **Rendering Scale**: Adjusts the rendering resolution.
 
-- **MSAA**:  Adjusts the level of multisample anti-aliasing.
+- **MSAA**: Adjusts the level of multisample anti-aliasing.
 
 - **Remote Preview**: Enables wireless projection preview.
 

@@ -11,7 +11,7 @@ After completing, you need to add the `cc.WebXRSessionController` component to t
 Choose the default `Session Mode` based on your needs:
 
 - IMMERSIVE_AR: The session will have exclusive access to the immersive XR device, and the rendered content will be blended with the real-world environment.
-- IMMERSIVE_VR： The session's rendering of the scene will not be overlaid or blended with the real-world environment.
+- IMMERSIVE_VR: The session's rendering of the scene will not be overlaid or blended with the real-world environment.
 - INLINE: The 3D content will be displayed inline within the element context of a standard HTML document, without occupying the entire visual space. Inline sessions can be rendered on both monoscopic and stereoscopic devices, and they do not require positional tracking. Inline sessions can be used on any [User Agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent) that supports the WebXR API.
 
 <img src="webxr-proj-deploy/add-wenxr-session-ctrl.png" style="zoom:50%;" />
