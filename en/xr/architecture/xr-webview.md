@@ -1,6 +1,5 @@
 # XR Web Browser
 
-XR Web Browser
 In XR, a web browser allows users to access and browse the web within a virtual reality environment. Users can interact with web interfaces using device controllers, such as selecting links, scrolling through pages, and more, enhancing the immersion and experience for users.
 
 ## XR Web Browser Features
