@@ -399,7 +399,7 @@
     - [Architecture](xr/architecture/index.md)
         - [Built-in Resources and Prefabs](xr/architecture/assets.md)
         - [XR Components](xr/architecture/component.md)
-        - [xw Preview](xr/architecture/preview.md)
+        - [XR Preview](xr/architecture/preview.md)
         - [XR Video Player](xr/architecture/xr-video-player.md)
         - [XR Preview in Browser](xr/architecture/xr-webview.md)
         - [XR Spatial Audio](xr/architecture/xr-spatial-audio.md)
