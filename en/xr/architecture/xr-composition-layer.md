@@ -8,8 +8,7 @@ In XR application development, the Composition Layer is a commonly used techniqu
 | -------------- | ------------------------------------------------------------ |
 | Layer Setting  | Composition layer effect settings.                                            |
 | --Type         | The type of the composition layer: Overlay: Renders the texture in front of the Eye Buffer. Underlay: Renders the texture behind the Eye Buffer. |
-| --Shape        | Provides two types of composition layer shapes: <br />Quad: A flat texture with four vertices, usually used to display text or information in the scene.<br />Cylinder: A cylindrical texture with curved radius, typically used for displaying curved UI interfaces.
- |
+| --Shape        | Provides two types of composition layer shapes: <br />Quad: A flat texture with four vertices, usually used to display text or information in the scene.<br />Cylinder: A cylindrical texture with curved radius, typically used for displaying curved UI interfaces. |
 | --Redius       | Appears when selecting Cylinder, sets the curvature radius.      |
 | --CentralAngle | Appears when selecting Cylinder, sets the central angle size.      |
 | --Depth        | Defines the order of the composition layer in the scene. The smaller the value, the closer it is to the Eye Buffer.   |
