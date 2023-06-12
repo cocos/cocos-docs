@@ -245,7 +245,7 @@ The Placeable component allows an object to be placed in space, on an AR Plane, 
 | Placement Offset         | The offset from the placement position specified by the interactor.        |
 | Placement Events         | Callbacks for placement actions triggered by specific events. |
 
-**Note**: The placement interaction requires an extension version of >= v1.1.0 and Cocos Creator version of >= 3.7.1.
+> **Note**: The placement interaction requires an extension version of >= v1.1.0 and Cocos Creator version of >= 3.7.1.
 
 ### Events
 
@@ -285,7 +285,7 @@ The interactive components are as follows:
 
 #### InteractorEvents
 
-| 属性             | 说明                                     |
+| Property             | Description                                     |
 | ---------------- | ---------------------------------------- |
 | AudioEvents      | Interactable object event component.       |
 | HapticEvents     | Enables controller vibration feedback for triggered events |
@@ -439,7 +439,7 @@ Compared to traditional UI controls, XR UI introduces additional components for 
 
 ![xrui_comp](component/xrui_comp.png)
 
-Note: For UI in 3D space, the root node requires the RenderRoot2D component for proper rendering.
+> **Note**: For UI in 3D space, the root node requires the RenderRoot2D component for proper rendering.
 
 #### Converting Existing UI
 
