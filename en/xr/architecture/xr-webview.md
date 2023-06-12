@@ -12,7 +12,7 @@ In XR, a web browser allows users to access and browse the web within a virtual 
 
 ## Using the XR Web Browser
 
-Right-click in the Hierarchy panel and select **Create > XR > XR Webview**.
+Right-click in the Hierarchy panel and select **Create -> XR -> XR Webview**.
 
 By default, it creates a node with the `cc.MeshRenderer` component as a child node of the Webview Content.
 
