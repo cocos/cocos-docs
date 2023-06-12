@@ -28,7 +28,7 @@ Click **Build** to generate the Xcode project.
 
 <img src="ar-proj-pub/build-ios-platform.png" alt="build-ios-platform" style="zoom:50%;" />
 
-**Note**: Currently, Cocos Creator only supports building the iOS project. Compilation and running need to be done in Xcode.
+> **Note**: Currently, Cocos Creator only supports building the iOS project. Compilation and running need to be done in Xcode.
 
 After the build is complete, locate the generated `xcodeproj` file and open it with Xcode. Configure the signing and developer team, connect the device, and click Run to run the application.
 
