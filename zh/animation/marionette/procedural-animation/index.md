@@ -11,6 +11,8 @@ Cocos Creator 3.8 开始实验性地支持程序式动画效果，使得开发�
 
 - [姿态图](./pose-graph/index.md) 中介绍了程序式动画的核心构件——姿态图。
 
+- [加性动画](../additive-animation/index.md) 是一种复用动画资产的手段。
+
 - 除姿态图外，[辅助曲线](./auxiliary-curve/index.md) 也是实现程序式动画的有效手段。
 
 - [姿态暂存](./pose-stash/index.md) 用于实现姿态图的复用。

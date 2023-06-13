@@ -38,13 +38,13 @@
 |----------|--------------------------------------------------------------------------|
 | `遮罩`   | 在混合时使用的动画遮罩。姿态 2 中只有被遮罩限定的部分会混合到姿态 1 中。 |
 
-## 加性混合
+## 叠加混合
 
-**加性混合结点** 按指定的比例，将一个加性姿态混加到基础姿态中。
+**叠加混合结点** 按指定的比例，将一个叠加姿态叠加到基础姿态中。
 
 | 输入                                                          | 类型   | 含义                                                            |
 |---------------------------------------------------------------|--------|-----------------------------------------------------------------|
 | {% poseGraphNodeInput PoseNodeAdditivelyBlend.basePose %}     | 姿态   | 基础姿态。                                                      |
-| {% poseGraphNodeInput PoseNodeAdditivelyBlend.additivePose %} | 姿态   | 加性姿态。                                                      |
-| {% poseGraphNodeInput PoseNodeAdditivelyBlend.ratio %}        | 浮点数 | 混合比例。例如，0.2 表示仅有 20% 的加性姿态会被混合到基础姿态。 |
+| {% poseGraphNodeInput PoseNodeAdditivelyBlend.additivePose %} | 姿态   | 叠加姿态。                                                      |
+| {% poseGraphNodeInput PoseNodeAdditivelyBlend.ratio %}        | 浮点数 | 混合比例。例如，0.2 表示仅有 20% 的叠加姿态会被混合到基础姿态。 |
 
