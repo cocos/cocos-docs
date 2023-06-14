@@ -1,16 +1,16 @@
-# 原生引擎跨语言调用优化
+# Optimization of Cross-Language Invocation for Native Engine
 
-## 前言
+## Introduction
 
-在 Cocos Creator 3.6.0 版本的原生实现上，我们提高了原生（CPP）层级，主要体现在节点树（Scene、Node）、资产（Asset 及其子类）、材质系统（Material、Pass、ProgramLib）、3D 渲染器 （包含 Model、SubModel）、2D 渲染器（Batch2D、RenderEntity）都在 CPP 中实现，并通过绑定技术暴露给 JS 层使用。
+In the native implementation of Cocos Creator version 3.6.0, we have made improvements in the native (CPP) code. This mainly involves the implementation of the node tree (Scene, Node), assets (Asset and its subclasses), material system (Material, Pass, ProgramLib), 3D renderer (including Model, SubModel), and 2D renderer (Batch2D, RenderEntity) in CPP. And these functionalities are exposed to the JS through binding techniques.
 
-众所周知，在 Cocos Creator 3.x 中，开发者只能使用 TS 脚本开发游戏业务逻辑。尽管我们将更多的引擎代码在 CPP 中实现，但是开发者并无法直接使用 CPP 语言进行游戏业务逻辑的开发，因此我们通过`脚本引擎封装层(Script Engine Wrapper)的 API，简称 SE API`，将这些 CPP 层实现的类型绑定并暴露给 JS 中，暴露到 JS 中的接口保持跟 Web 环境中一致。
+As known to all, in Cocos Creator 3.x, developers can only use TypeScript (TS) scripts to develop game logic. Although we have implemented more engine code in CPP, developers cannot directly use CPP for game logic development. Therefore, we use the Script Engine Wrapper API (referred to as SE API) to bind and expose the types implemented in the CPP to JS. The interfaces exposed to JS remain consistent with those in the web environment.
 
-原生层级的上移最直接的好处就是：在原生平台上引擎代码的执行性能得到提升，特别是不支持 JIT 的平台（比如：iOS）尤为明显。但在 3.6.0 正式版发布前，我们也面临了一系列由于`原生层级提升`带来的副作用，最主要的方面就是 JSB 调用（JS <-> CPP 语言之间的交互）次数比之前版本多了不少，而这直接导致`原生层级提升`带来的收益被抵消甚至性能相比之前版本（ 3.5 ）变得更差。本文将介绍一些降低 `JSB 调用 `的优化方式，若开发者自己的 CPP 代码中也存在类似的 JSB 调用过多的问题，希望本文也能提供一些优化思路。
+The primary benefit of moving core code to the native is that the execution performance of engine code running on native platforms is improved, especially on platforms that do not support JIT compilation (such as iOS). However, before the official release of version 3.6.0, we also faced a series of side effects resulting from the "elevation of the native level." The main issue was that the number of JSB calls (interactions between JS and CPP languages) increased significantly compared to previous versions. This directly offset the benefits brought by the elevation of the native level and even resulted in poorer performance compared to the previous version (3.5). This article will introduce some optimization methods to reduce JSB calls. If developers encounter similar issues with excessive JSB calls in their own CPP code, we hope this article can provide some optimization insights.
 
-## 共享内存
+## Shared Memory
 
-对 Node 中需要频繁同步的属性，我们使用 CPP 与 JS 共享内存的方式，避免 JSB 调用。为了更方便地共享 CPP 的内存到 JS 中，我们封装了 bindings::NativeMemorySharedToScriptActor 辅助类。
+For properties in Node that require frequent synchronization, we utilize shared memory between CPP and JS to avoid JSB calls. To facilitate the sharing of CPP memory with JS, we have encapsulated the bindings::NativeMemorySharedToScriptActor helper class.
 
 bindings/utils/BindingUtils.h
 
@@ -53,7 +53,7 @@ void NativeMemorySharedToScriptActor::initialize(void* ptr, uint32_t byteLength)
     // The callback of freeing buffer is empty since the memory is managed in native,
     // the external array buffer just holds a reference to the memory.
     _sharedArrayBufferObject = se::Object::createExternalArrayBufferObject(ptr, byteLength, [](void* /*contents*/, size_t /*byteLength*/, void* /*userData*/) {});
-    // Root 此对象，防止对象被 GC，当 Actor 对象销毁的时候会调用 destroy 函数，其内部会 unroot ArrayBuffer 对象
+    // Root this object to prevent it from being garbage collected (GC), we will invoke `unroot` in the destroy function.
     _sharedArrayBufferObject->root();
 }
 
@@ -91,7 +91,7 @@ Object *Object::createExternalArrayBufferObject(void *contents, size_t byteLengt
 }
 ```
 
-分析以上代码可知，其实 NativeMemorySharedToScriptActor 最终是调用 v8::ArrayBuffer::NewBackingStore 和 v8::ArrayBuffer::New 函数创建了一个 External 类型的 ArrayBuffer，取名为 External 的原因是其内存不在 V8 内部分配和管理，即其内存完全交由 V8 的上层管理，当 ArrayBuffer 对象被 GC 的后，freeFunc 回调函数会被触发。由于在 Node 中需要共享的内存是 Node 中的若干连续属性，内存的创建和释放完全交由 Node 自己维护，而 CPP Node 实例的销毁也是由 GC 控制的，因此 NativeMemorySharedToScriptActor::initialize 内部调用 se::Object::createExternalArrayBufferObject 的时候，传递了一个**空实现**的回调函数。
+Analysis of the code above reveals that NativeMemorySharedToScriptActor calls the v8::ArrayBuffer::NewBackingStore and v8::ArrayBuffer::New functions to create an External type of ArrayBuffer. It is named "External" because its memory is not allocated and managed internally by V8. Instead, its memory is entirely managed by the code out of V8. When the ArrayBuffer object is garbage collected, the freeFunc callback function is triggered. In Node, the memory that needs to be shared consists of several contiguous properties in the Node. The creation and release of this memory are entirely handled by CPP Node itself, and the destruction of CPP Node instances is controlled by the GC. Therefore, when NativeMemorySharedToScriptActor::initialize internally calls se::Object::createExternalArrayBufferObject, it passes an empty implementation of the callback function.
 
 Node.h
 
@@ -134,32 +134,32 @@ Node::Node(const ccstd::string &name) {
 }
 ```
 
-Node 构造函数中调用 `_sharedMemoryActor.initialize(&_eventMask, NODE_SHARED_MEMORY_BYTE_LENGTH);` 将 _eventMask 属性开始的 20 字节设置为共享内存。
+In the Node constructor, `_sharedMemoryActor.initialize(&_eventMask, NODE_SHARED_MEMORY_BYTE_LENGTH);` is called to set the first 20 bytes starting from the `_eventMask` property as shared memory.
 
 node.jsb.ts
 
-> 注意：所有的 .jsb.ts 结尾的文件最终在打包的时候会替换对应不带 .jsb 的文件，比如这里 node.jsb.ts 会替换掉 node.ts，具体可以查看引擎根目录下的 cc.config.json 文件，有对应的 overrides 字段：*"cocos/scene-graph/node.ts"*: "cocos/scene-graph/node.jsb.ts",
+> Note: All files ending with `.jsb.ts` will be replaced with their corresponding versions without the `.jsb` extension during the packaging process. For example, `node.jsb.ts` will replace `node.ts`. You can refer to the `cc.config.json` file in the root directory of the engine for more details. It contains the corresponding `overrides` field, such as `"cocos/scene-graph/node.ts": "cocos/scene-graph/node.jsb.ts"`.
 
 ```ts
-// JS 的 _ctor 回调函数会在 JS 的 var node = new Node(); 流程的最后阶段被触发，即 CPP Node 对象创建之后，因此 _getSharedArrayBufferObject 绑定函数返回的 ArrayBuffer 一定存在。
+// The _ctor callback function in JS is triggered during the final stage of the `var node = new Node();` process in JS, i.e., after the CPP Node object is created. Therefore, the ArrayBuffer returned by the _getSharedArrayBufferObject binding function must exist.
 nodeProto._ctor = function (name?: string) {
     ......
-    // 通过 _getSharedArrayBufferObject 绑定方法，取得 CPP 共享给 JS 的 ArrayBuffer 对象
+    // Get the CPP shared ArrayBuffer object through the _getSharedArrayBufferObject binding method
     const sharedArrayBuffer = this._getSharedArrayBufferObject();
     // Uint32Array with 3 elements, offset from the start: eventMask, layer, dirtyFlags
     this._sharedUint32Arr = new Uint32Array(sharedArrayBuffer, 0, 3);
-    // Int32Array with 1 element, offset from 12th bytes: siblingIndex
+    // Int32Array with 1 element, offset from the 12th byte: siblingIndex
     this._sharedInt32Arr = new Int32Array(sharedArrayBuffer, 12, 1);
-    // Uint8Array with 3 elements, offset from 16th bytes: activeInHierarchy, active, static
+    // Uint8Array with 3 elements, offset from the 16th byte: activeInHierarchy, active, static
     this._sharedUint8Arr = new Uint8Array(sharedArrayBuffer, 16, 3);
     //
   
-    this._sharedUint32Arr[1] = Layers.Enum.DEFAULT; // this._sharedUint32Arr[1] is layer
+    this._sharedUint32Arr[1] = Layers.Enum.DEFAULT; // this._sharedUint32Arr[1] represents the layer
     ......
 };
 ```
 
-采用共享内存的方式，也意味着我们无法通过 JSB 绑定函数的方式把要设置的值从 JS 传递到 CPP 中。因此我们需要在 .jsb.ts 中定义对应的 getter / setter 函数，其内部通过直接操作 TypedArray 的方式修改共享内存。
+By using shared memory, it also means that we cannot pass the values to be set from JS to CPP through JSB binding functions. Therefore, we need to define corresponding getter/setter functions in the `.jsb.ts` file. These functions will internally modify the shared memory by directly manipulating the TypedArray.
 
 ```ts
 Object.defineProperty(nodeProto, 'activeInHierarchy', {
@@ -282,13 +282,13 @@ Object.defineProperty(nodeProto, '_static', {
 });
 ```
 
-### 性能对比
+### Performance Comparison Results
 
 ![](jsb/opt-1.jpg)
 
-## 避免接口传参
+## Avoiding Parameters Passing
 
-如果 JSB 函数调用中包含参数，V8 内部需要对参数的合理性做校验，这些校验工作也会影响调用性能。针对 Node 中可能会高频调用的 JSB 函数，我们通过复用一个全局的 Float32Array 来避免浮点类型的参数传递。
+If JSB function calls involve parameters, V8 internally needs to validate the reasonableness of the parameters. These validation tasks can also impact the performance of the calls. For JSB functions that may be frequently called in Node, we avoid passing floating-point parameters by reusing a global Float32Array.
 
 scene-graph/utils.jsb.ts
 
@@ -311,27 +311,27 @@ export const fillMat4WithTempFloatArray = function fillMat4WithTempFloatArray (o
 //
 ```
 
-以上定义了一个全局的 `_tempFloatArray` ，用于存储 number 或者 number 的复合类型（Vec3/Vec4/Mat4等）参数。
+The above code defines a global `_tempFloatArray` that is used to store number or composite types (such as Vec3, Vec4, Mat4, etc.) parameters.
 
 node.jsb.ts
 
 ```ts
 // ......
-// 将 FloatArray 设置给 CPP 层
+// Set the FloatArray to the CPP code
 Node._setTempFloatArray(_tempFloatArray.buffer); 
 // ......
-// 在 JS 中重新实现带有参数 setPosition 函数
-nodeProto.setPosition = function setPosition (val: Readonly<Vec3> | number, y?: number, z?: number) {
+// Reimplement the setPosition function in JS with parameters
+nodeProto.setPosition = function setPosition(val: Readonly<Vec3> | number, y?: number, z?: number) {
     if (y === undefined && z === undefined) {
-        // 当 y 和 z 都是 undefined 的时候，表示第一个参数为 Vec3 类型的对象，_tempFloatArray 的第一个元素表示参数个数
+        // When both y and z are undefined, it means the first parameter is of type Vec3
         _tempFloatArray[0] = 3;
         const pos = val as Vec3;
-        // 将新的 pos 赋值到 FloatArray 数组和 this._lpos 缓存中
+        // Assign the new pos to the FloatArray and this._lpos cache
         this._lpos.x = _tempFloatArray[1] = pos.x;
         this._lpos.y = _tempFloatArray[2] = pos.y;
         this._lpos.z = _tempFloatArray[3] = pos.z;
     } else if (z === undefined) {
-        // 如果 z 为 undefined，那么只有 x 与 y 2 个参数
+        // If z is undefined, there are only 2 parameters x and y
         _tempFloatArray[0] = 2;
         this._lpos.x = _tempFloatArray[1] = val as number;
         this._lpos.y = _tempFloatArray[2] = y as number;
@@ -341,32 +341,32 @@ nodeProto.setPosition = function setPosition (val: Readonly<Vec3> | number, y?: 
         this._lpos.y = _tempFloatArray[2] = y as number;
         this._lpos.z = _tempFloatArray[3] = z as number;
     }
-    this._setPosition(); // 此为原生绑定出来的无参的函数
+    this._setPosition(); // This is a native binding function without parameters
 };
 ```
 
 jsb_scene_manual.cpp
 
-```c++
+```ts
 namespace {
 
 /**
- * 对共享的全局 FloatArray 操作的辅助类
+ * Helper class for operating on the shared global FloatArray
  */
 class TempFloatArray final {
 public:
     TempFloatArray() = default;
     ~TempFloatArray() = default;
 
-    inline void setData(float *data) { _data = data; }
+    inline void setData(float* data) { _data = data; }
 
     ......
 
-    inline const float &operator[](size_t index) const { return _data[index]; }
-    inline float &operator[](size_t index) { return _data[index]; }
+    inline const float& operator[](size_t index) const { return _data[index]; }
+    inline float& operator[](size_t index) { return _data[index]; }
 
 private:
-    float *_data{nullptr};
+    float* _data{ nullptr };
 
     CC_DISALLOW_ASSIGN(TempFloatArray)
 };
@@ -377,16 +377,16 @@ TempFloatArray tempFloatArray;
 ```
 
 ```c++
-static bool js_scene_Node_setTempFloatArray(se::State &s) // NOLINT(readability-identifier-naming)
+static bool js_scene_Node_setTempFloatArray(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    const auto &args = s.args();
+    const auto& args = s.args();
     size_t argc = args.size();
     CC_UNUSED bool ok = true;
     if (argc == 1) {
-        uint8_t *buffer = nullptr;
+        uint8_t* buffer = nullptr;
         args[0].toObject()->getArrayBufferData(&buffer, nullptr);
-        // 初始化 TempFloatArray 关联的数据
-        tempFloatArray.setData(reinterpret_cast<float *>(buffer));
+        // Initialize the associated data of TempFloatArray
+        tempFloatArray.setData(reinterpret_cast<float*>(buffer));
         return true;
     }
     SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 1);
@@ -395,10 +395,8 @@ static bool js_scene_Node_setTempFloatArray(se::State &s) // NOLINT(readability-
 SE_BIND_FUNC(js_scene_Node_setTempFloatArray)
 ```
 
-
-
 ```c++
-bool register_all_scene_manual(se::Object *obj) // NOLINT(readability-identifier-naming)
+bool register_all_scene_manual(se::Object* obj) // NOLINT(readability-identifier-naming)
 {
     ......
     __jsb_cc_Node_proto->defineFunction("_setPosition", _SE(js_scene_Node_setPosition));
@@ -411,20 +409,20 @@ bool register_all_scene_manual(se::Object *obj) // NOLINT(readability-identifier
 ```
 
 ```c++
-// 无参的 node._setPosition() 绑定
-static bool js_scene_Node_setPosition(void *s) // NOLINT(readability-identifier-naming)
+// Binding for node._setPosition() without parameters
+static bool js_scene_Node_setPosition(void* s) // NOLINT(readability-identifier-naming)
 {
-    auto *cobj = reinterpret_cast<cc::Node *>(s);
+    auto* cobj = reinterpret_cast<cc::Node*>(s);
     auto argc = static_cast<size_t>(tempFloatArray[0]);
     if (argc == 2) {
-        // 从 tempFloatArray 中获取参数
+        // Get the parameters from tempFloatArray
         cobj->setPositionInternal(tempFloatArray[1], tempFloatArray[2], true);
     } else {
         cobj->setPositionInternal(tempFloatArray[1], tempFloatArray[2], tempFloatArray[3], true);
     }
     return true;
 }
-SE_BIND_FUNC_FAST(js_scene_Node_setPosition) // 注意，这里使用了新的 SE_BIND_FUNC_FAST 宏
+SE_BIND_FUNC_FAST(js_scene_Node_setPosition) // Note that the new SE_BIND_FUNC_FAST macro is used here
 ```
 
 Node.h
@@ -453,10 +451,8 @@ bindings/jswrapper/v8/HelperMacros.h
 
 bindings/jswrapper/v8/HelperMacros.cpp
 
-
-
 ```c++
-// SE_BIND_FUNC 宏会调用 jsbFunctionWrapper 函数，其内部做了更多的事情
+// The SE_BIND_FUNC macro calls the jsbFunctionWrapper function, which performs additional tasks internally.
 SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args, se_function_ptr func, const char *funcName) {
     bool ret = false;
     v8::Isolate *isolate = v8args.GetIsolate();
@@ -475,9 +471,9 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
 }
 ```
 
-SE_BIND_FUNC_FAST 宏的内部实现非常快，因为其内部非常简单，拿到 private data 后立马出发回调函数，没有任何 se 相关的 API 调用。这避免了 se::Value 与 jsvalue 之间的转换，也避免了 V8 内部对参数进行校验。大家可以对比一下标准的 SE_BIND_FUNC 宏的内部实现。
+The internal implementation of the `SE_BIND_FUNC_FAST` macro is extremely fast because it is very simple. It immediately triggers the callback function once it obtains the private data, without any se-related API calls. This avoids the conversion between `se::Value` and `jsvalue` and also bypasses parameter validation by V8. You can compare it with the standard implementation of the `SE_BIND_FUNC` macro.
 
-另外，你可能会好奇，为什么直接不通过「共享内存」章节的方式来共享 position、rotation、scale 信息，而要通过 `_setPosition()`，`_setRotation()`，`_setScale()`  这种**无参**的 JSB 方法调用。原因是，这里的这个 JSB 调用无法被优化掉，我们来看 Node::setPosition 的实现：
+Furthermore, you may wonder why we don't share the position, rotation, and scale information directly through the approach described in the 'Shared Memory' section, but using `_setPosition()`, `_setRotation()`, and `_setScale()` JSB methods without parameters. The reason is that this JSB calls cannot be removed. Let's take a look at the implementation of `Node::setPosition()`:
 
 ```c++
 class Node : public CCObject {
@@ -515,15 +511,15 @@ void Node::setPositionInternal(float x, float y, float z, bool calledFromJS) {
 }
 ```
 
-setPosition 不止对 _localPostion 赋值，其还需要触发 invalidateChildren 函数的调用，invalidateChildren 是个递归函数，其内部还会遍历所有子节点，进而修改一些其它属性，比如 _transformFlags, _hasChangedFlagsVersion, _hasChangedFlags。因此，我们无法通过第一章节中「共享内存」的方式来优化 setPosition。
+`setPosition` not only assigns a value to `_localPosition`, but it also needs to trigger the invocation of the `invalidateChildren` function. `invalidateChildren` is a recursive function that internally traverses all child nodes and modifies other properties such as `_transformFlags`, `_hasChangedFlagsVersion`, and `_hasChangedFlags`. Therefore, we cannot remove `setPosition` through the "shared memory" approach mentioned in the first section.
 
-### 性能对比
+### Performance Comparison Results
 
 ![](jsb/opt-2.jpg)
 
-## 缓存属性
+## Caching Properties
 
-在 JS 层中缓存属性，避免 getter 访问 c++ 接口，也能减少 JSB 调用。
+Caching properties in the JS can help avoid accessing the C++ interface through getters and reduce JSB (JavaScript Bindings) calls.
 
 node.jsb.ts
 
@@ -556,27 +552,27 @@ nodeProto._ctor = function (name?: string) {
 };
 ```
 
-### 性能对比
+### Performance Comparison Results
 
 ![](jsb/opt-3.jpg)
 
-## 节点同步
+## Node Synchronization
 
-用户的逻辑代码中，也经常会这样使用：
+In the user's logic code, it is common to use the following pattern:
 
 ```ts
 const children = node.children;
 for (let i = 0; i < children.length; ++i) {
   const child = children[i];
-	// do something with child
+  // do something with child
 }
 ```
 
-`.children` getter 可能会被频繁调用，这也导致 JSB 调用过多。children 的 getter 绑定比较特殊，因为它是一个 JS array，在 CPP 中，它对应的是 `ccstd::vector<Node*> _children;`类型，因此 JS Array 与 CPP 的 std::vector 并没有很好的方式进行数据同步。如果每次调用 `.children` getter 都是 JSB 的方式返回的话，那么每次调用都会通过 `se::Object::createArrayObject` 生成一个临时的 JS Array ，并通过 `nativevalue_to_se` 依次转换 CPP 的 child 为 JS 的 child 并赋值到 JS Array 中，这算是比较重度的转换开销，而且会生成需要被 GC 的临时数组，给 GC 造成一定的额外压力。
+The `.children` getter may be called frequently, which can result in excessive JSB (JavaScript Bindings) calls. The getter for `children` is bound in a unique way because it represents a JS array, while in CPP it corresponds to the type `ccstd::vector<Node*> _children;`. As a result, there is no straightforward way to synchronize data between JS Array and CPP's std::vector. If the `.children` getter is called using JSB each time, it will generate a temporary JS Array using `se::Object::createArrayObject`, and then convert each CPP child to JS child using `nativevalue_to_se` and assign it to the JS Array. This incurs a heavy conversion overhead and generates temporary arrays that need to be garbage collected, adding additional pressure to the GC.
 
-为了解决此问题，我们在 JS 层中缓存了 _children 属性，当 CPP 层中有更改 _children 时候，通过监听 ChildAdded, ChildRemoved 事件的方式通知 JS 层中的 _children 更新内容。
+To address this issue, we cache the `_children` property in the JS. When `_children` is modified in the CPP, we use the event system to notify the JS code's `_children` to update its content. This is achieved by listening to `ChildAdded` and `ChildRemoved` events.
 
-以下以 `node.addChild(child);`  为例阐述：
+Let's illustrate this with the example of `node.addChild(child);`:
 
 ```c++
 class Node : public CCObject {
@@ -600,7 +596,7 @@ class Node : public CCObject {
 ```
 
 ```c++
-void Node::setParent(Node *parent, bool isKeepWorld /* = false */) {
+void Node::setParent(Node* parent, bool isKeepWorld /* = false */) {
     ......
     onSetParent(oldParent, isKeepWorld);
     emit<ParentChanged>(oldParent);
@@ -610,7 +606,7 @@ void Node::setParent(Node *parent, bool isKeepWorld /* = false */) {
             if (removeAt < 0) {
                 return;
             }
-            // 将 child 从旧的父节点中移除
+            // Remove the child from the old parent node
             oldParent->_children.erase(oldParent->_children.begin() + removeAt);
             oldParent->updateSiblingIndex();
             oldParent->emit<ChildRemoved>(this);
@@ -618,7 +614,7 @@ void Node::setParent(Node *parent, bool isKeepWorld /* = false */) {
     }
     if (newParent) {
         ......
-        // 将 child 添加到新的父节点中
+        // Add the child to the new parent node
         newParent->_children.emplace_back(this);
         _siblingIndex = static_cast<index_t>(newParent->_children.size() - 1);
         newParent->emit<ChildAdded>(this);
@@ -627,7 +623,7 @@ void Node::setParent(Node *parent, bool isKeepWorld /* = false */) {
 }
 ```
 
-调用完 addChild 后，CPP 层中的 Node::_children 被修改后，会触发 `emit<ChildAdded>` 事件，Node 初始化的时候会设置监听此事件，见 jsb_scene_manual.cpp 中的代码：
+After calling `addChild`,  the `Node::_children` in the CPP is modified, it triggers the `emit<ChildAdded>` event. This event is listened to during Node initialization, as seen in the code snippet in `jsb_scene_manual.cpp`.
 
 ```c++
 // jsb_scene_manual.cpp
@@ -637,7 +633,7 @@ static void registerOnChildAdded(cc::Node *node, se::Object *jsObject) {
             se::AutoHandleScope hs;
             se::Value arg0;
             nativevalue_to_se(child, arg0);
-            // 调用 JS 的私有函数 _onChildAdded
+            // Call the private JS function _onChildAdded
             se::ScriptEngine::getInstance()->callFunction(jsObject, "_onChildAdded", 1, &arg0);
         });
 }
@@ -680,7 +676,7 @@ nodeProto._onChildRemoved = function (child) {
     this.emit(NodeEventType.CHILD_REMOVED, child);
 };
 
-// 此函数会被 CPP 层 registerOnChildAdded 函数中调用
+// This function is called by the CPP's registerOnChildAdded function
 nodeProto._onChildAdded = function (child) {
     this.emit(NodeEventType.CHILD_ADDED, child);
 };
@@ -690,7 +686,7 @@ nodeProto.on = function (type, callback, target, useCapture: any = false) {
         ......
         case NodeEventType.CHILD_ADDED:
             if (!(this._registeredNodeEventTypeMask & REGISTERED_EVENT_MASK_CHILD_ADDED_CHANGED)) {
-                this._registerOnChildAdded(); // 调用 JSB 方法注册监听
+                this._registerOnChildAdded(); // Call the JSB method to register the listener
                 this._registeredNodeEventTypeMask |= REGISTERED_EVENT_MASK_CHILD_ADDED_CHANGED;
             }
             break;
@@ -705,9 +701,9 @@ nodeProto._ctor = function (name?: string) {
     ......
     this._children = [];
 
-  	// 使用 on 接口监听 CHILD_ADDED 和 CHILD_REMOVED 事件
+  	// Use the on interface to listen for CHILD_ADDED and CHILD_REMOVED events
     this.on(NodeEventType.CHILD_ADDED, (child) => {
-        // 同步 JS 层中的 this._children 数组
+        // Synchronize the this._children array in the JS
         this._children.push(child);
     });
 
@@ -724,21 +720,21 @@ nodeProto._ctor = function (name?: string) {
 };
 ```
 
-### 性能对比
+### Performance Comparison Results
 
 ![](jsb/opt-4.jpg)
 
-## 参数数组对象池
+## Parameter Array Object Pool
 
-截止 3.6.0，Cocos Creator 引擎还未实现高效的内存池，而引擎内部使用 se （ Script Engine Wrapper ）在做 JS -> CPP 交互的时候，都需要生成临时的 `se::ValueArray args(argCount);`，se::ValueArray 类型是 `ccstd::vector<se::Value>` 的 `typedef`, 因此会有大量临时内存的申请、释放，极大影响性能。在 3.6.0 之前的版本并没有暴露出此问题是因为原来的原生层级比较低，JSB 调用次数比较低，而 3.6.0 版本中，随着原生层级提升，JSB 调用变多，此问题变得愈发严重。
+Up to version 3.6.0, Cocos Creator engine does not have an efficient memory pool implementation. When using the se (Script Engine Wrapper) for JS -> CPP interactions, temporary `se::ValueArray args(argCount)` objects need to be created. `se::ValueArray` is a `ccstd::vector<se::Value>` typedef, which leads to a significant amount of temporary memory allocations and deallocations, greatly impacting performance. This issue was not exposed in previous versions because the native code was relatively low-level and had fewer JSB calls. However, in version 3.6.0, with the increased native level hierarchy and JSB calls, this problem became more severe.
 
-我们想到的解决方案是：使用对象池的方式复用 se::ValueArray。对象池（se::ValueArrayPool）的实现也比较简单，具体如下：
+To address this issue, we came up with a solution: using an object pool to reuse `se::ValueArray` objects. The implementation of the object pool, `se::ValueArrayPool`, is relatively simple and is outlined below:
 
 bindings/jswrapper/ValueArrayPool.h
 
 ```c++
-// 调用深度警卫类，用于使用完 se::ValueArray 后对其中的 se::Value 进行复位的操作
-// 如果 se::ValueArray 是 new 出来的，将会处理 delete 流程
+// CallbackDepthGuard class for resetting se::Value objects in a se::ValueArray after use
+// If the se::ValueArray is allocated with `new`, it will handle the `delete` process
 class CallbackDepthGuard final {
 public:
     CallbackDepthGuard(ValueArray &arr, uint32_t &depth, bool needDelete)
@@ -764,7 +760,8 @@ private:
 
 class ValueArrayPool final {
 public:
-    // 绑定函数的参数个数的上限为 20，如果有参数大于 20 个的情况，需要考虑重构函数参数
+    // The maximum number of arguments for a bound function is 20
+    // If there are more than 20 arguments, consider refactoring the function parameters
     static const uint32_t MAX_ARGS = 20;
 
     ValueArrayPool();
@@ -786,7 +783,7 @@ bindings/jswrapper/ValueArrayPool.cpp
 ```c++
 ValueArrayPool gValueArrayPool;
 
-// 定义最大深度为 5，如果超过此深度，则不使用对象池
+// Define the maximum depth as 5. If the depth exceeds this value, the object pool will not be used.
 #define SE_DEFAULT_MAX_DEPTH (5)
 
 ValueArrayPool::ValueArrayPool() {
@@ -797,7 +794,7 @@ ValueArrayPool::ValueArrayPool() {
 }
 
 ValueArray &ValueArrayPool::get(uint32_t argc, bool &outNeedDelete) {
-    // 如果深度大于对象池的大小，直接 new ValueArray
+    // If the depth is greater than the size of the object pool, directly create a new ValueArray object.
     if (SE_UNLIKELY(_depth >= _pools.size())) {
         outNeedDelete = true;
         auto *ret = ccnew ValueArray();
@@ -807,13 +804,13 @@ ValueArray &ValueArrayPool::get(uint32_t argc, bool &outNeedDelete) {
 
     outNeedDelete = false;
     CC_ASSERT_LE(argc, MAX_ARGS);
-    // 从对象池中取出 ValueArray 对象
+    // Retrieve a ValueArray object from the object pool.
     auto &ret = _pools[_depth][argc];
     CC_ASSERT(ret.size() == argc);
     return ret;
 }
 
-// 初始化对象池
+// Initialize pool
 void ValueArrayPool::initPool(uint32_t index) {
     auto &pool = _pools[index];
     uint32_t i = 0;
@@ -824,7 +821,7 @@ void ValueArrayPool::initPool(uint32_t index) {
 }
 ```
 
-我们回头再来看下 jsbFunctionWrapper 的实现：
+Let's look at the implementation of jsbFunctionWrapper function:
 
 ```c++
 SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args, se_function_ptr func, const char *funcName) {
@@ -832,18 +829,18 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
     v8::Isolate *isolate = v8args.GetIsolate();
     v8::HandleScope scope(isolate);
   
-    /* 原来的代码
+    /* Original code
     se::ValueArray args;
     args.reserve(10);
     */
 
-    // 新实现的优化代码------ 开始 -------
+    // Optimized implementation - Start
     bool needDeleteValueArray{false};
-    // 从全局的 se::ValueArray 对象池中取出 se::ValueArray，注意：needDeleteValueArray 是输出参数
+    // Retrieve a se::ValueArray from the global object pool, note that needDeleteValueArray is an output parameter
     se::ValueArray &args = se::gValueArrayPool.get(v8args.Length(), needDeleteValueArray);
-    // 定义「调用深度警卫」变量 depthGuard，当此变量销毁的时候，会自动清理对象池
+    // Define a "callback depth guard" variable depthGuard, which automatically cleans up the object pool when it's destroyed
     se::CallbackDepthGuard depthGuard{args, se::gValueArrayPool._depth, needDeleteValueArray};
-    // 新实现的优化代码------ 结束 -------
+    // Optimized implementation - End
   
     se::internal::jsToSeArgs(v8args, args);
     se::Object *thisObject = se::internal::getPrivate(isolate, v8args.This());
@@ -856,20 +853,20 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
 }
 ```
 
-### 性能对比
+### Performance Comparison Results
 
 ![](jsb/opt-5.jpg)
 
-## 总结
+## Conclusion
 
-在Cocos Creator 3.6.0版本中，我们通过以下主要优化手段改进了原生引擎的性能：
+The main optimization techniques employed in Cocos Creator 3.6.0 native engine are as follows:
 
-1. 在原生层（C++层）中实现引擎的核心模块，充分利用C++代码的执行性能。
-2. 尽可能减少跨语言的交互（JS <-> CPP）频率，我们采用了以下五种方法进行优化：
-   - 共享内存：通过减少内存拷贝的方式提高性能。
-   - 避免接口传参：使用成员变量替代频繁的参数传递。
-   - 缓存属性：将频繁访问的属性缓存起来，避免重复获取。
-   - 节点同步：在节点操作时，通过事件监听机制同步节点的变化。
-   - 参数数组对象池：使用对象池复用参数数组对象，减少内存分配和释放的开销。
+1. Implementing the engine's core modules in the native  (C++) to leverage the performance of C++ code execution.
+2. Minimizing the frequency of cross-language interactions (JS <-> CPP) through the following five methods:
+   - Shared memory: Improving performance by reducing memory copies.
+   - Avoiding parameter passing: Using member variables instead of frequent parameter passing.
+   - Caching properties: Storing frequently accessed properties in cache to avoid redundant retrieval.
+   - Node synchronization: Synchronizing node changes through an event listening mechanism during node operations.
+   - Parameter array object pool: Reusing parameter array objects using an object pool to reduce memory allocation and deallocation overhead.
 
-通过这些优化措施，我们改进了Cocos Creator引擎的性能表现。这些优化技术可以显著降低跨语言交互的开销，提高了引擎的整体性能和响应速度。
+By implementing these optimization measures, we have improved the performance of the Cocos Creator engine. These optimization techniques significantly reduce the overhead of cross-language interactions and enhance the overall performance and responsiveness of the engine.
