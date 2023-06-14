@@ -10,11 +10,13 @@
 
 为了让您的应用可以顺利上架，请检查下列的步骤是否都已经设置。
 
-1. 为了让游戏可以在 Windows 上运行（包括 intel 和 AMD 芯片），您需要采用 x86 架构进行构建。在 Cocos Creator 构建时，选中 [APP ABI](../native-options.md#app-abi) 并勾选 x86：
+1. 为了让游戏可以在 Windows 上运行（包括 intel 和 AMD 芯片），您需要采用 x86 架构进行构建。在 Cocos Creator 构建时，选中 [APP ABI](../native-options.md#app-abi) 并勾选 x86_64：
 
     ![ap](./index/app-abi.png)
 
-2. GPG 采用的 OpenGL ES 版本是 3.0，请不要使用高于 3.0 版本。Cocos Creator 支持的最高版本的 OpenGL ES 是 3.0。请参考下图。
+    > x86_64 同时支持 x86 和 x64 建构，为应对未来的需求变化，我们建议您勾选 x86_64。
+
+2. GPG 采用的 OpenGL ES 版本是 3.1，请不要使用高于 3.1 版本。Cocos Creator 支持的最高版本的 OpenGL ES 是 3.1。请参考下图。
 3. Vulkan 的版本不高于 1.1，对于 Cocos Creator 来说，要支持 Vulkan，在构建选项中需要勾选 Vulkan 即可，请参考下图。
 
     ![index/render-backend.png](index/render-backend.png)
@@ -46,9 +48,15 @@
     - [多分辨率适配方案](../../../ui-system/components/engine/multi-resolution.md)
     - [Widget 组件参考](../../../ui-system/components/editor/widget.md) 对子 UI 进行适配
 
+    更多详情请查看 [UI 实践指南](../../../ui-system/components/engine/usage-ui.md)。
+
+    对于大屏幕的设备的适配工作，您可以参考谷歌 [适用于大屏设备开发的响应式布局](https://developer.android.com/large-screens)。
+
+    <img src="./index/hyper-resolution.png" width="50%" height="50%"></img>
+
 9. GPG 要求支持 16:9 的长宽比。为了获得理想的玩家体验，游戏还应支持 21：9、16：10 和 3：2。
 纵向模式的游戏只需要支持 9:16 的长宽比。如果你的游戏缺乏横向支持，Google Play Games会在全屏模式下渲染黑条。同样可以参考上述的 **Widget** 组件部分。
-10. 适配窗口变换，GPG 游戏渲染的分辨率将在游戏启动时、窗口大小重设时、全屏和窗口模型切换时改变游戏的渲染分辨率，[详情](https://developer.android.com/games/playgames/graphics#dynamic-display)。同样可以参考上述的 **Widget** 组件部分。
+1. 适配窗口变换，GPG 游戏渲染的分辨率将在游戏启动时、窗口大小重设时、全屏和窗口模型切换时改变游戏的渲染分辨率，[详情](https://developer.android.com/games/playgames/graphics#dynamic-display)。同样可以参考上述的 **Widget** 组件部分。
 
 ## 发布流程
 
