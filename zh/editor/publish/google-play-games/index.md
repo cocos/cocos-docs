@@ -57,6 +57,7 @@
 9. GPG 要求支持 16:9 的长宽比。为了获得理想的玩家体验，游戏还应支持 21：9、16：10 和 3：2。
 纵向模式的游戏只需要支持 9:16 的长宽比。如果你的游戏缺乏横向支持，Google Play Games会在全屏模式下渲染黑条。同样可以参考上述的 **Widget** 组件部分。
 1. 适配窗口变换，GPG 游戏渲染的分辨率将在游戏启动时、窗口大小重设时、全屏和窗口模型切换时改变游戏的渲染分辨率，[详情](https://developer.android.com/games/playgames/graphics#dynamic-display)。同样可以参考上述的 **Widget** 组件部分。
+2. 为确保用户在移动设备和 PC 之间切换游玩时，游戏进度不会丢失，请检查您的游戏符合谷歌对连续性的要求，请参考[连续性概览](https://developer.android.com/games/playgames/identity?hl=zh-cn)
 
 ## 发布流程
 

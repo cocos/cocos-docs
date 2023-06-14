@@ -50,9 +50,14 @@ In order to get your app on the shelf smoothly, please check that the following 
 
     For more details, see [UI Practice Guide](../../../ui-system/components/engine/usage-ui.md)
 
+    For adapting devices with large screens, you can refer to Google [Responsive Layout for Large Screen Device Development](https://developer.android.com/large-screens).
+
+    <img src="./index/hyper-resolution.png" width="50%" height="50%"></img>
+
 9. GPG requires support for a 16:9 aspect ratio. For an ideal player experience, the game should also support 21:9, 16:10 and 3:2.
 Portrait mode games only need to support a 9:16 aspect ratio. If your game lacks landscape support, Google Play Games will render black bars in full screen mode. Again, see the **Widget** component section above.
 1. Adapting to window transformations, the resolution rendered by GPG games will change the game's rendering resolution at game startup, at window resize, and when switching between full-screen and window models, [details](https://developer.android.com/games/playgames/graphics#dynamic-display).
+2. To ensure that users do not lose progress when switching between mobile devices and PCs, please check that your game meets Google's requirements for continuity, see [About continuity and cross-device play](https://developer.android.com/games/playgames/identity?hl=zh-cn)
 
 ## Release process
 
