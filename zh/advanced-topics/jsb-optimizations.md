@@ -284,24 +284,6 @@ Object.defineProperty(nodeProto, '_static', {
 
 ### 性能对比
 
-1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
-
-​		New node.layer setter 100000 次调用：0.1ms
-
-​		Old node.layer setter 100000 次调用：14ms
-
-2. 测试设备：Pixel 4XL arm64-v8a (Android)
-
-   New node.layer setter 100000 次调用：0.18ms
-
-   Old node.layer setter 100000 次调用：27ms
-
-3. 测试设备：iPhoneX
-
-   New node.layer setter 100000 次调用：40ms
-
-   Old node.layer setter 100000 次调用：53ms
-
 ![](jsb/opt-1.jpg)
 
 ## 避免接口传参
@@ -537,24 +519,6 @@ setPosition 不止对 _localPostion 赋值，其还需要触发 invalidateChildr
 
 ### 性能对比
 
-1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
-
-​		New setPosition, 100000 times: 4.5ms
-
-​		Old setPosition, 100000 times: 45ms
-
-2. 测试设备：Pixel 4XL arm64-v8a (Android)
-
-   New setPosition, 100000 times: 7.5ms
-
-   Old setPosition, 100000 times: 115ms
-
-3. 测试设备：iPhoneX
-
-   New setPosition, 100000 times: 75ms
-
-   Old setPosition, 100000 times: 125ms
-
 ![](jsb/opt-2.jpg)
 
 ## 缓存属性
@@ -593,24 +557,6 @@ nodeProto._ctor = function (name?: string) {
 ```
 
 ### 性能对比
-
-1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
-
-​		New getPosition, 100000 times: 2.5ms
-
-​		Old getPosition, 100000 times: 13ms
-
-2. 测试设备：Pixel 4XL arm64-v8a (Android)
-
-   New getPosition, 100000 times: 4.4ms
-
-   Old getPosition, 100000 times: 33ms
-
-3. 测试设备：iPhoneX
-
-   New getPosition, 100000 times: 75ms
-
-   Old getPosition, 100000 times: 100ms
 
 ![](jsb/opt-3.jpg)
 
@@ -780,24 +726,6 @@ nodeProto._ctor = function (name?: string) {
 
 ### 性能对比
 
-1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
-
-​		New node.children getter, 100000 times: 0.13ms
-
-​		Old node.children getter, 100000 times: 78ms
-
-2. 测试设备：Pixel 4XL arm64-v8a (Android)
-
-   New node.children getter, 100000 times: 0.23ms
-
-   Old node.children getter, 100000 times: 217ms
-
-3. 测试设备：iPhoneX
-
-   New node.children getter, 100000 times: 33ms
-
-   Old node.children getter, 100000 times: 145ms
-
 ![](jsb/opt-4.jpg)
 
 ## 参数数组对象池
@@ -929,24 +857,6 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
 ```
 
 ### 性能对比
-
-1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
-
-​		New JSB setPosition(x, y, z) reuse args vector , 100000 times: 45ms
-
-​		Old JSB setPosition(x, y, z) doesn't reuse args vector , 100000 times: 54ms
-
-2. 测试设备：Pixel 4XL arm64-v8a (Android)
-
-   New JSB setPosition(x, y, z) reuse args vector , 100000 times: 115ms
-
-   Old JSB setPosition(x, y, z) doesn't reuse args vector , 100000 times: 148ms
-
-3. 测试设备：iPhoneX
-
-   New JSB setPosition(x, y, z) reuse args vector , 100000 times: 125ms
-
-   Old JSB setPosition(x, y, z) doesn't reuse args vector , 100000 times: 127ms
 
 ![](jsb/opt-5.jpg)
 
