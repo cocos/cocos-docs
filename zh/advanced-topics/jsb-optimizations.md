@@ -1,4 +1,6 @@
-# 前言
+# 原生引擎跨语言调用优化
+
+## 前言
 
 在 Cocos Creator 3.6.0 版本的原生实现上，我们提高了原生（CPP）层级，主要体现在节点树（Scene、Node）、资产（Asset 及其子类）、材质系统（Material、Pass、ProgramLib）、3D 渲染器 （包含 Model、SubModel）、2D 渲染器（Batch2D、RenderEntity）都在 CPP 中实现，并通过绑定技术暴露给 JS 层使用。
 
@@ -6,7 +8,7 @@
 
 原生层级的上移最直接的好处就是：在原生平台上引擎代码的执行性能得到提升，特别是不支持 JIT 的平台（比如：iOS）尤为明显。但在 3.6.0 正式版发布前，我们也面临了一系列由于`原生层级提升`带来的副作用，最主要的方面就是 JSB 调用（JS <-> CPP 语言之间的交互）次数比之前版本多了不少，而这直接导致`原生层级提升`带来的收益被抵消甚至性能相比之前版本（ 3.5 ）变得更差。本文将介绍一些降低 `JSB 调用 `的优化方式，若开发者自己的 CPP 代码中也存在类似的 JSB 调用过多的问题，希望本文也能提供一些优化思路。
 
-# 共享内存
+## 共享内存
 
 对 Node 中需要频繁同步的属性，我们使用 CPP 与 JS 共享内存的方式，避免 JSB 调用。为了更方便地共享 CPP 的内存到 JS 中，我们封装了 bindings::NativeMemorySharedToScriptActor 辅助类。
 
@@ -280,7 +282,7 @@ Object.defineProperty(nodeProto, '_static', {
 });
 ```
 
-## 性能对比
+### 性能对比
 
 1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
 
@@ -302,7 +304,7 @@ Object.defineProperty(nodeProto, '_static', {
 
 ![](jsb/opt-1.jpg)
 
-# 避免接口传参
+## 避免接口传参
 
 如果 JSB 函数调用中包含参数，V8 内部需要对参数的合理性做校验，这些校验工作也会影响调用性能。针对 Node 中可能会高频调用的 JSB 函数，我们通过复用一个全局的 Float32Array 来避免浮点类型的参数传递。
 
@@ -533,7 +535,7 @@ void Node::setPositionInternal(float x, float y, float z, bool calledFromJS) {
 
 setPosition 不止对 _localPostion 赋值，其还需要触发 invalidateChildren 函数的调用，invalidateChildren 是个递归函数，其内部还会遍历所有子节点，进而修改一些其它属性，比如 _transformFlags, _hasChangedFlagsVersion, _hasChangedFlags。因此，我们无法通过第一章节中「共享内存」的方式来优化 setPosition。
 
-## 性能对比
+### 性能对比
 
 1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
 
@@ -555,7 +557,7 @@ setPosition 不止对 _localPostion 赋值，其还需要触发 invalidateChildr
 
 ![](jsb/opt-2.jpg)
 
-# 缓存属性
+## 缓存属性
 
 在 JS 层中缓存属性，避免 getter 访问 c++ 接口，也能减少 JSB 调用。
 
@@ -590,7 +592,7 @@ nodeProto._ctor = function (name?: string) {
 };
 ```
 
-## 性能对比
+### 性能对比
 
 1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
 
@@ -612,7 +614,7 @@ nodeProto._ctor = function (name?: string) {
 
 ![](jsb/opt-3.jpg)
 
-# 节点同步
+## 节点同步
 
 用户的逻辑代码中，也经常会这样使用：
 
@@ -776,7 +778,7 @@ nodeProto._ctor = function (name?: string) {
 };
 ```
 
-## 性能对比
+### 性能对比
 
 1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
 
@@ -798,7 +800,7 @@ nodeProto._ctor = function (name?: string) {
 
 ![](jsb/opt-4.jpg)
 
-# 参数数组对象池
+## 参数数组对象池
 
 截止 3.6.0，Cocos Creator 引擎还未实现高效的内存池，而引擎内部使用 se （ Script Engine Wrapper ）在做 JS -> CPP 交互的时候，都需要生成临时的 `se::ValueArray args(argCount);`，se::ValueArray 类型是 `ccstd::vector<se::Value>` 的 `typedef`, 因此会有大量临时内存的申请、释放，极大影响性能。在 3.6.0 之前的版本并没有暴露出此问题是因为原来的原生层级比较低，JSB 调用次数比较低，而 3.6.0 版本中，随着原生层级提升，JSB 调用变多，此问题变得愈发严重。
 
@@ -926,7 +928,7 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
 }
 ```
 
-## 性能对比
+### 性能对比
 
 1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
 
@@ -948,7 +950,7 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
 
 ![](jsb/opt-5.jpg)
 
-# 总结
+## 总结
 
 以上就是我们在 Cocos Creator 3.6.0 版本中原生引擎的主要优化手段，其核心想法是：
 
