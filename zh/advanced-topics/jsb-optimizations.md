@@ -284,17 +284,23 @@ Object.defineProperty(nodeProto, '_static', {
 
 1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
 
-​		New node.layer setter 100000 次调用：5ms
+​		New node.layer setter 100000 次调用：0.1ms
 
 ​		Old node.layer setter 100000 次调用：14ms
 
 2. 测试设备：Pixel 4XL arm64-v8a (Android)
 
-   New node.layer setter 100000 次调用：9ms
+   New node.layer setter 100000 次调用：0.18ms
 
    Old node.layer setter 100000 次调用：27ms
 
+3. 测试设备：iPhoneX
 
+   New node.layer setter 100000 次调用：40ms
+
+   Old node.layer setter 100000 次调用：53ms
+
+![](jsb/opt-1.jpg)
 
 # 避免接口传参
 
@@ -541,6 +547,14 @@ setPosition 不止对 _localPostion 赋值，其还需要触发 invalidateChildr
 
    Old setPosition, 100000 times: 115ms
 
+3. 测试设备：iPhoneX
+
+   New setPosition, 100000 times: 75ms
+
+   Old setPosition, 100000 times: 125ms
+
+![](jsb/opt-2.jpg)
+
 # 缓存属性
 
 在 JS 层中缓存属性，避免 getter 访问 c++ 接口，也能减少 JSB 调用。
@@ -580,17 +594,25 @@ nodeProto._ctor = function (name?: string) {
 
 1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
 
-​		New getPosition, 100000 times: 3ms
+​		New getPosition, 100000 times: 2.5ms
 
-​		Old getPosition, 100000 times: 10ms
+​		Old getPosition, 100000 times: 13ms
 
 2. 测试设备：Pixel 4XL arm64-v8a (Android)
 
-   New getPosition, 100000 times: 4.2ms
+   New getPosition, 100000 times: 4.4ms
 
-   Old getPosition, 100000 times: 28ms
+   Old getPosition, 100000 times: 33ms
 
-# 节点关系信息同步
+3. 测试设备：iPhoneX
+
+   New getPosition, 100000 times: 75ms
+
+   Old getPosition, 100000 times: 100ms
+
+![](jsb/opt-3.jpg)
+
+# 节点同步
 
 用户的逻辑代码中，也经常会这样使用：
 
@@ -758,15 +780,23 @@ nodeProto._ctor = function (name?: string) {
 
 1. 测试设备：14-inch, 2021 MacBook Pro, Apple M1 Pro
 
-​		New node.children getter, 100000 times: 0.08ms
+​		New node.children getter, 100000 times: 0.13ms
 
-​		Old node.children getter, 100000 times: 60ms
+​		Old node.children getter, 100000 times: 78ms
 
 2. 测试设备：Pixel 4XL arm64-v8a (Android)
 
-   New node.children getter, 100000 times: 0.15ms
+   New node.children getter, 100000 times: 0.23ms
 
-   Old node.children getter, 100000 times: 215ms
+   Old node.children getter, 100000 times: 217ms
+
+3. 测试设备：iPhoneX
+
+   New node.children getter, 100000 times: 33ms
+
+   Old node.children getter, 100000 times: 145ms
+
+![](jsb/opt-4.jpg)
 
 # 参数数组对象池
 
@@ -910,7 +940,22 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
 
    Old JSB setPosition(x, y, z) doesn't reuse args vector , 100000 times: 148ms
 
+3. 测试设备：iPhoneX
+
+   New JSB setPosition(x, y, z) reuse args vector , 100000 times: 125ms
+
+   Old JSB setPosition(x, y, z) doesn't reuse args vector , 100000 times: 127ms
+
+![](jsb/opt-5.jpg)
+
 # 总结
 
-以上就是我们在 Cocos Creator 3.6.0 版本中原生引擎的主要优化手段。
+以上就是我们在 Cocos Creator 3.6.0 版本中原生引擎的主要优化手段，其核心想法是：
 
+1. 在原生层（CPP层）中实现引擎的核心模块，充分利用 CPP 代码的执行性能；
+2. 竟可能的降低`跨语言的交互（ JS <-> CPP ）频次，我们主要使用了 5 种方法来优化，分别为：
+   - 共享内存
+   - 避免接口传参
+   - 缓存属性
+   - 节点同步
+   - 参数数组对象池
