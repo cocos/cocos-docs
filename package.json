@@ -15,6 +15,9 @@
     "@aduh95/viz.js": "^3.2.1",
     "fs-extra": "^9.0.1"
   },
+  "overrides": {
+    "graceful-fs": "^4.2.11"
+  },
   "scripts": {
     "build": "gulp restore-ignore && gulp prebuild && gitbook build && gulp postbuild",
     "build:dots": "node ./scripts/build-dots.js",
