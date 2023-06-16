@@ -2,7 +2,7 @@
 
 Cocos Shader specifies that all non-sampler type uniforms should be declared in the form of UBO (Uniform Buffer Object/Uniform Block).
 
-Taking the `builtin-standard.effect` as an example, it's uniform block declaration is as follows.
+Taking the `builtin-standard.effect` as an example, its uniform block declaration is as follows.
 
 ```glsl
 uniform Constants {

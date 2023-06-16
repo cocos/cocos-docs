@@ -1,6 +1,6 @@
 # 安装配置原生开发环境
 
-除了内置的 Web 版游戏发布功能外，Cocos Creator 使用基于 Cocos2d-x 引擎的 JSB 技术实现跨平台发布原生应用。在使用 Cocos Creator 打包发布到原生平台之前，我们需要先配置好 Cocos2d-x 相关的开发环境。
+Cocos Creator 可以跨平台发布多个平台的原生应用，在使用 Cocos Creator 打包发布到原生平台之前，我们需要先配置好相关的原生开发环境。
 
 ## Android 平台相关依赖
 

@@ -1,4 +1,4 @@
-# Build Options
+# General Build Options
 
 ## General Build Options
 
@@ -119,7 +119,7 @@ For the relevant build options of each platform, please refer to:
 - [Publish to Native Platforms](native-options.md#build-options)
 - [Publish to Mini Game Platforms](publish-mini-game.md)
 
-Creator supports custom extension build plugins, handled in the same way as platform plugins. For details, please refer to the [Extension Build Process](custom-build-plugin.md) documentation.
+Cocos Creator supports custom extension build plugins, handled in the same way as platform plugins. For details, please refer to the [Extension Build Process](custom-build-plugin.md) documentation.
 
 ## Configuration of Other Options Involved in the Build
 
