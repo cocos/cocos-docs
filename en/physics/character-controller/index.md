@@ -81,11 +81,11 @@ When a character controller node is moved via the `setPosition` method, it will 
 
 ## Determine if on the Ground
 
-Use the `onGround` method to determine whether a character controller is standing on some colliders with the following code.
+Use the `isGrounded` method to determine whether a character controller is standing on some colliders with the following code.
 
 ```ts
 let characterController = this.node.getComponent(CharacterController);
-const isOnGround = characterController.onGround();
+const isOnGround = characterController.isGrounded;
 ```
 
 ## Collision Callback
@@ -132,3 +132,7 @@ The address of the character controller is [GIT](https://github.com/cocos/cocos-
 ## API
 
 For the API of the character controller, please refer to [Character Controller](__APIDOC__/api/en/classes/physics.CharacterController.html), [Box Character Controller](__APIDOC__/api/en/classes/physics.BoxCharacterController.html) and [Capsule Character Controller](__APIDOC__/api/en/classes/physics.CapsuleCharacterController.html).
+
+## Note
+
+The character controller is not supported on ByteDance mini-game wasm. Use the builtin wasm in Cocos Creator to enable this feature.

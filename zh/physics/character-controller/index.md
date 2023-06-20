@@ -81,11 +81,11 @@ characterController.setPosition(new Vec3(-3,5,6));
 
 ## 判断是否在地面上
 
-通过 `onGround` 方法，可以判定角色控制器是否站在某些碰撞体上，代码示例如下：
+通过 `isGrounded` 方法，可以判定角色控制器是否站在某些碰撞体上，代码示例如下：
 
 ```ts
 let characterController = this.node.getComponent(CharacterController);
-const isOnGround = characterController.onGround();
+const isOnGround = characterController.isGrounded;
 ```
 
 ## 监听角色碰撞
@@ -132,3 +132,7 @@ onColliderHit (selfCCT, hitCollider, contact){}
 ## API
 
 角色控制器的 API 请参考 [角色控制器](__APIDOC__/api/cn/classes/physics.CharacterController.html)、[盒角色控制器](__APIDOC__/api/cn/classes/physics.BoxCharacterController.html) 以及 [胶囊体角色控制器](__APIDOC__/api/cn/classes/physics.CapsuleCharacterController.html)
+
+## 支持情况
+
+该功能在字节跳动的小程序 wasm 上不支持。如要启用，请使用 Cocos Creator 自带的 wasm。
