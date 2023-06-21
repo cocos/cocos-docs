@@ -74,3 +74,13 @@ The GPG release process is similar to the Android release process, you can refer
 ## Related links
 
 - [GPG official website](https://developer.android.com/games/playgames/overview?hl=zh-cn)
+
+## Interface descriptions
+
+To determine whether the runtime is HPE, use the following code:
+
+```ts
+if( sys.hasFeature(sys.Feature.HPE) ) {
+    ...
+}
+```
