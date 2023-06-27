@@ -138,6 +138,10 @@ Build options for the Windows include **Render BackEnd** and **Target Platform**
 
 ![Windows build options](publish-native/windows-options.png)
 
+### Executable Name
+
+This a field used to specify the name of the main executable file of an application. If not provided, the system will generate a default value based on the app name field. The value for this field must adhere to a specific format, containing only numbers, letters, underscores (_) and hyphens (-).
+
 #### Render BackEnd
 
 Users may choose between **Vulkan**, **GLES3** and **GLES2** as the graphic API at backend.
@@ -159,6 +163,11 @@ Users can build the executable in either **win32** or **x64** architecture.
 Build options for iOS include **Bundle Identifier**, **Orientation**, **Skip the update of Xcode project**, **Render BackEnd**, **Developer Team** and **Target iOS Version**. Settings for **Orientation** is identical to that of Android's.
 
 ![iOS build options](publish-native/ios-options.png)
+
+### Executable Name
+
+This a field used to specify the name of the main executable file of an application, which is stored in the app's Info.plist file. If not provided, the system will generate a default value based on the app name field. The value for this field must adhere to a specific format, containing only numbers, letters, underscores (_) and hyphens (-).
+
 
 #### Bundle Identifier
 
@@ -191,6 +200,11 @@ This property specifies the target version of iOS platform and defaults to **12.
 Build options for Mac include **Bundle Identifier**, **Target macOS Version**, **Support Apple Silicon**, **Skip the update of Xcode project** and **Render BackEnd**.
 
 ![Mac build options](publish-native/mac-options.png)
+
+### Executable Name
+
+This a field used to specify the name of the main executable file of an application, which is stored in the app's Info.plist file. If not provided, the system will generate a default value based on the app name field. The value for this field must adhere to a specific format, containing only numbers, letters, underscores (_) and hyphens (-).
+
 
 #### Bundle Identifier
 
