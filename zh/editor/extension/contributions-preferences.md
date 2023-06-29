@@ -1,5 +1,9 @@
 # 自定义偏好设置面板
 
+偏好设置存放的一般是不需要通过 git 同步给该项目其他开发者的配置。例如一些开发工具的绝对路径。
+
+并且在偏好设置面板里，还能选择存放在项目还是存放在全局。存放在项目的配置只对当前项目生效，如果存放在全局，则会影响所有编辑器。
+
 ## 偏好设置面板简介
 
 在顶部菜单栏可找到 **Cocos Creator -> 偏好设置** 菜单，如下图所示：
@@ -32,16 +36,16 @@ Cocos Creator 允许每个扩展注册自己的编辑器配置，然后在偏好
 
 通用设置直接以选项卡的形式展示，而实验室开关则单独一个选项卡集中展示。
 
-- 当插件提供的功能比较稳定时建议将配置数据放在通用功能内。
-- 当插件提供的功能处于开发阶段时建议将功能的开关配置数据放在实验室配置中。
+- 当扩展提供的功能比较稳定时建议将配置数据放在通用功能内。
+- 当扩展提供的功能处于开发阶段时建议将功能的开关配置数据放在实验室配置中。
 
 ### 偏好设置定义
 
-自定义偏好设置需要依赖数据配置，需要先在 `contributions.profile.editor` 里定义好相关数据字段。
+我们在偏好设置里新增扩展的配置，也需要通过在扩展定义文件 `package.json` 里添加 `contributions` 配置来实现。
 
-> **注意**：偏好设置里的配置数据，都应该存放在 `profile.editor` 字段中。
+注册自定义偏好设置需要在 `contributions.profile.editor` 里定义好相关数据字段。更多相信信息可以参看 [配置系统](./profile.md)
 
-当定义好数据字段后，还需要在 `contributions.preferences` 字段里定义需要显示的数据以及用什么 UI 组件来显示。如下所示：
+这里我们举例新建一个叫做 `first-panel` 的扩展：
 
 ```JSON5
 {
@@ -67,6 +71,22 @@ Cocos Creator 允许每个扩展注册自己的编辑器配置，然后在偏好
                     "label":"foo3"
                 }
             }
+        },   
+    }
+}
+```
+
+> **注意**：偏好设置里的配置数据，都应该存放在 `profile.editor` 字段中。
+
+当定义好数据字段后，还需要在 `contributions.preferences` 字段里定义需要显示的数据以及用什么 UI 组件来显示。如下所示：
+
+```JSON5
+{
+    //`package.json`
+    "name": "first-panel",
+    "contributions": {
+        "profile": {
+            // ...
         },
         "preferences": {
             "properties": {
@@ -105,9 +125,7 @@ Cocos Creator 允许每个扩展注册自己的编辑器配置，然后在偏好
 }
 ```
 
-上面的示例中，在 `contributions.profile.project` 字段定义了 4 个数据项： `foo`、`foo1`、`foo2`、`foo3`。
-
-关于如何定义 `profile` 相关配置，请参看 [配置系统](./profile.md)。
+上面的示例中，在 `contributions.profile.editor` 字段定义了 4 个数据项： `foo`、`foo1`、`foo2`、`foo3`。
 
 在 `contributions.preferences` 字段中，我们定义了 `properties` 和 `laboratory`。
 

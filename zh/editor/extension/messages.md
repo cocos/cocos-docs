@@ -50,13 +50,13 @@ const info = await Editor.Message.request('scene', 'query-node', uuid);
 
 广播消息是某一个功能内的操作完成后，对外进行的一种通知。
 
-#### 接收广播消息
-
 比如，**场景编辑器** 在启动一个场景后，需要通知所有人 "场景" 已经启动完毕，**场景编辑器** 发送广播消息使用的是如下代码：
 
 ```typescript
 Editor.Message.broadcast('scene:ready', sceneUUID);
 ```
+
+#### 接收广播消息
 
 若一个扩展想要接收 `scene:ready` 消息，则需要在 `package.json` 里先定义，如下所示：
 
@@ -79,7 +79,7 @@ Editor.Message.broadcast('scene:ready', sceneUUID);
 
 若一个扩展想要发送广播消息，也需要在 `package.json` 里先定义。
 
-比如，"hello-world" 在准备好数据后，会向外广播一条消息，以方便其他扩展与之配合。如下所示：
+比如，"hello-world" 在准备好数据后，同样可以向外广播一条消息，以方便其他扩展与之配合。如下所示：
 
 ```json
 {
@@ -104,7 +104,7 @@ Editor.Message.broadcast('scene:ready', sceneUUID);
 Editor.Message.broadcast('hello-world:ready');
 ```
 
-> **注意**：广播消息可以没有 `methods`，表示不监听。如上面的定义所示，表示 “hello-world” 不需要监听自己的初始化完成的消息。
+> **注意**：广播消息可以没有 `methods`，表示不监听。如上面的定义所示，表示 “hello-world” 不需要监听自己的初始化完成的消息。因此只监听 `scene:ready` 但并未监听 `hello-world:ready`。
 
 #### 广播消息的命名规范
 
@@ -138,4 +138,37 @@ await Editor.Message.request(pkgName, message, ...args);
 
 ```typescript
 Editor.Message.broadcast(`${pkgName}:${actionName}`, ...args);
+```
+
+## 查看公开消息列表
+
+在编辑器的顶部菜单栏中找到 **开发者** -> **消息列表**，可以打开消息管理面板。
+
+![extension-message-mgr-menu](./image/extension-message-mgr-menu.png)
+
+面板里显示了编辑器各系统公开的消息以及其说明。
+
+![extension-message-mgr-panel](./image/extension-message-mgr-panel.png)
+
+这个面板里包含了几个部分。
+
+最左侧是扩展列表，也就是提供消息接口的扩展的名字。
+
+右侧分成了两部分， 通过 tab 页面区分出了 Mesasage 和 Broadcast。
+
+Message 是普通消息，我们可以通过 `Editor.Message.send` 和 `Editor.Message.request` 发送到这个扩展上执行操作。
+
+Broadcast 则是这个扩展可能对外发出的广播消息，我们需要在 `contributions.messages` 里监听这个广播消息：
+
+```json
+{
+    "name": "hello-world",
+    "contributions": {
+        "messages": {
+            "scene:ready": {
+                "methods": ["initData"]
+            }
+        }
+    }
+}
 ```

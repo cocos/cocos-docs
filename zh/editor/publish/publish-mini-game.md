@@ -10,7 +10,7 @@
 - [发布到小米快游戏](publish-xiaomi-quick-game.md)
 - [发布到百度小游戏](publish-baidu-mini-game.md)
 - [发布到微信小游戏](publish-wechatgame.md)
-    - [启用微信小游戏引擎插件](wechatgame-plugin.md)
+    - [启用微信小游戏引擎扩展](wechatgame-plugin.md)
     - [接入微信 PC 小游戏](publish-pc-wechatgame.md)
 - [开放数据域](build-open-data-context.md)
 - [小游戏分包](subpackage.md)

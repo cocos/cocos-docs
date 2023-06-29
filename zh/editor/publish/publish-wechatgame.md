@@ -51,7 +51,7 @@
 | 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中。| `orientation` |
 | AppID | 微信小游戏的 AppID，必填项，面板中默认的 `wx6ac3f5090a6b99c5` 仅用于测试。构建时会写入到发布包目录下的 `project.config.json` 文件中。| `appid` |
 | 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md)。 | `buildOpenDataContextTemplate` |
-| 分离引擎 | 是否使用微信小游戏引擎插件，详情请参考 [启用微信小游戏引擎插件](./wechatgame-plugin.md)。 | `separateEngine` |
+| 分离引擎 | 是否使用微信小游戏引擎扩展，详情请参考 [启用微信小游戏引擎扩展](./wechatgame-plugin.md)。 | `separateEngine` |
 | 高性能模式 | 是否开启微信的高性能模式 <br> 请参考 [高性能模式](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-high-performance.html) 获取更多信息 |
 | Wasm 3D 物理系统（基于 `ammo.js`） | 用于选择是否启用 Wasm，默认为开启，使用 **bullet（ammo.js）** 物理时生效。详情请参考下文 **WebAssembly 支持** 部分的内容。 | - |
 | 是否开启 WebGL2（实验性功能）| 为了未来允许在微信小游戏上开启 WebGL 2.0，我们在 v3.4.1 新增了该项，支持跟随项目设置中的配置启用 WebGL 2.0。该项默认为 **强制关闭**，以缩减包体。<br>若该项设置为 **与项目设置一致**，且 **项目设置 -> 功能裁剪** 中勾选了 **WebGL 2.0**，那么未来若微信环境支持 WebGL 2.0，即可成功启用。 | - |
@@ -95,7 +95,7 @@
 **Wasm 3D 物理系统** 默认开启，构建时会自动打包 `wasm` 模式的代码。若不开启则使用 `js` 模式。
 
 > **注意**：
-> 1. 微信小游戏引擎插件目前仅支持 `js` 模式。
+> 1. 微信小游戏引擎扩展目前仅支持 `js` 模式。
 > 2. 微信 WebAssembly 要求微信版本为 v7.0.17 及以上。
 > 3. 微信 WebAssembly 要求微信开发者工具的调试基础库为 v2.12.0 及以上。
 
