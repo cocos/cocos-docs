@@ -41,7 +41,7 @@ Facebook Instant Games 跟微信小游戏相比，本质上的区别在于 Faceb
 | 构建选项 | 说明 | 字段名（用于命令行发布） |
 | :--- | :--- | :--- |
 | 设备方向 | 可选值包括 **Landscape**、**Portrait** | `orientation` |
-| vConsole | 插入 vConsole 调试扩展，vConsole 类似 DevTools 的迷你版，用于辅助调试。 | `embedWebDebugger` |
+| vConsole | 插入 vConsole 调试工具，vConsole 类似 DevTools 的迷你版，用于辅助调试。 | `embedWebDebugger` |
 
 ### 上传到 Facebook
 
