@@ -506,5 +506,5 @@
     - [热更新管理器](advanced-topics/hot-update-manager.md)
     - [HTTP 请求](advanced-topics/http.md)
     - [WebSocket](advanced-topics/websocket-introduction.md)
-        - [WebSocket 服务器](advanced-topics/websocket-server.md)
         - [WebSocket 客户端](advanced-topics/websocket.md)
+        - [WebSocket 服务器](advanced-topics/websocket-server.md)

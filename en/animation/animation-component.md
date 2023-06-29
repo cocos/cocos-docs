@@ -102,16 +102,16 @@ class MyScript extends Component {
     public start() {
         const animation = this.node.getComponent(Animation);
         if (animation && animation.defaultClip) {
-            const { defaultClip } = animation;                        
+            const { defaultClip } = animation;
             defaultClip.events = [
                 {
                     frame: 0.5, // Triggers the event on the 0.5 second
                     func: 'onTriggered', // The name of the function to call when the event is triggered
                     params: [ 0 ], // Parameters passed to `func`
                 }
-            ];                                         
+            ];
 
-            animation.clips = animation.clips;                        
+            animation.clips = animation.clips;
         }
     }
 

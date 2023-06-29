@@ -397,6 +397,7 @@
     - [Compile Language](editor/l10n/compile-language.md)
     - [L10nLabel](editor/l10n/l10n-label.md)
     - [Sample](editor/l10n/script-using.md)
+
 - [XR](xr/index.md)
     - [Version History](xr/version-history.md)
     - [Architecture](xr/architecture/index.md)
@@ -478,5 +479,5 @@
     - [AssetManager for Hot Update](advanced-topics/hot-update-manager.md)
     - [HTTP Request](advanced-topics/http.md)
     - [WebSocket Introduction](advanced-topics/websocket-introduction.md)
-        - [WebSocket Server](advanced-topics/websocket-server.md)
         - [WebSocket Client](advanced-topics/websocket.md)
+        - [WebSocket Server](advanced-topics/websocket-server.md)

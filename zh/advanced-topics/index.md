@@ -24,5 +24,5 @@
 - [原生插件](native-plugins/brief.md)
     - [原生插件创建范例](native-plugins/tutorial.md)
 - [WebSocket 简介](websocket-introduction.md)
-    - [WebSocket 服务器](websocket-server.md)
     - [WebSocket 客户端](websocket.md)
+    - [WebSocket 服务器](websocket-server.md)

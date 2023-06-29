@@ -181,7 +181,7 @@ Open `builtin-standard.effect` in the `internal -> effects` directory in the **I
 
 | Macro | Description |
 | :---- | :--- |
-| USE_INSTANCING | Whether to enable GPU Instancing |
+| USE_INSTANCING | Whether to enable GPU Geomerty Instancing |
 | HAS_SECOND_UV | Whether there is a secondary UV  |
 | ALBEDO_UV | Specify the UVs used for the albedo color map, the first set is used by default |
 | EMISSIVE_UV | Specify the UVs used for the sampled emissive mapping, the first set is used by default|
