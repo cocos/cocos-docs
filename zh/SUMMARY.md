@@ -401,6 +401,7 @@
     - [JSB 2.0 使用指南](advanced-topics/JSB2.0-learning.md)
         - [JSB 手动绑定](advanced-topics/jsb-manual-binding.md)
         - [JSB 自动绑定](advanced-topics/jsb-auto-binding.md)
+        - [sebind](advanced-topics/jsb-sebind.md)
     - [Java 原生反射机制](advanced-topics/js-java-bridge.md)
     - [Objective-C 原生反射机制](advanced-topics/js-oc-bridge.md)
     - [JsbBridgeWrapper 基于原生反射机制的事件处理](advanced-topics/jsb-bridge-wrapper.md)
@@ -408,7 +409,8 @@
     - [原生引擎内存泄漏检测系统](advanced-topics/memory-leak-detector.md)
     - [原生场景剔除](advanced-topics/native-scene-culling.md)
     - [原生性能剖析器](advanced-topics/profiler.md)
-    - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
+    - [原生插件](advanced-topics/native-plugins/brief.md)
+        - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
     - WebSocket
-        - [WebSocket 服务器](advanced-topics/websocket-server.md)
         - [WebSocket 客户端](advanced-topics/websocket.md)
+        - [WebSocket 服务器](advanced-topics/websocket-server.md)

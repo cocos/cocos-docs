@@ -75,3 +75,17 @@ const mat = new Material();
 // Initialize material with built-in physically based lighting shader (PBR) 'builtin-standard.effect'
 mat.initialize({ effectName: "builtin-standard" });
 ```
+
+If it is a custom shader, you need to find the corresponding shader name in the **Shaders** property of the effect in the **Inspector** panel, and then load and use it by its unique string name.
+
+![img](img/load-custom-effect.png)
+
+Take the custom shader in the above figure as an example, the code example is as follows:
+
+```ts
+resources.load("custom-effect", EffectAsset, ()=>{
+    const effectAsset = EffectAsset.get("../resources/custom-effect");
+    const material = new Material();
+    material.initialize({ effectName: "../resources/custom-effect" });
+})        
+```

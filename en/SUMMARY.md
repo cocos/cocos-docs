@@ -367,7 +367,8 @@
     - [CMake Usage Introduction](advanced-topics/cmake-learning.md)
     - [Native engine memory leak detection system](advanced-topics/memory-leak-detector.md)
     - [Native Scene Culling](advanced-topics/native-scene-culling.md)
-    - [Cocos Native Plugin Quick Tutorial](advanced-topics/native-plugins/tutorial.md)
+    - [Native Plugins](advanced-topics/native-plugins/brief.md)
+        - [Cocos Native Plugin Quick Tutorial](advanced-topics/native-plugins/tutorial.md)
     - WebSocket
-        - [WebSocket Server](advanced-topics/websocket-server.md)
         - [WebSocket Client](advanced-topics/websocket.md)
+        - [WebSocket Server](advanced-topics/websocket-server.md)
