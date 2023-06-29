@@ -4,6 +4,17 @@ Welcome to the **Cocos Creator User Manual**! **Cocos Creator** is a free, cross
 
 **Note: please select the corresponding version of the manual in the upper right corner according to the version of Cocos Creator you are using.**
 
+## Product Line Overview
+
+Over the years, Cocos (Xiamen Yaji Software) has been continuously developing and has released several product lines closely related to Cocos Creator. To avoid confusion, here is a brief introduction to these products:
+- **Cocos Creator 3.x**: Released in early 2021, it is the latest version of Cocos Creator, and has been validated through numerous commercial projects. 3.x completely abandons the Cocos2d-x base, adopting a brand new high-performance cross-platform 3D core. This marks the official development of Cocos Creator into a comprehensive pan-mobile 3D game engine. Since the 3.x base has been completely rewritten, Cocos Creator is no longer considered a direct extension and upgrade of Cocos2d-x.
+- **Cocos Creator 2.x**: Released in 2018, updates ceased in 2023. All capabilities have been inherited by Cocos Creator 3.x, so it is recommended that new projects use the [latest Cocos Creator 3.x](https://www.cocos.com/creator-download).
+- **Cocos Creator 3D**: Initiated in 2017, it underwent small-scale testing in China for over a year as Cocos Creator 3D at the end of 2019, and later officially merged into Cocos Creator 3.0. Since it has been replaced by Cocos Creator 3.x and is no longer updated separately, Cocos Creator 3D usually refers to Cocos Creator's own 3D capabilities rather than this specific version.
+- **[Cocos2d-x](https://www.cocos.com/cocos2d-x)**: Released in 2010, it ceased updates in 2019. This is the most active branch of the Cocos2d community, and the underlying runtime initially adopted by Cocos Creator 2.x was the upgraded Cocos2d-x.
+- **Cocos**: When Cocos appears as the engine name alone, it usually represents Cocos Creator 3.x, rather than Cocos2d-x.
+
+After years of rapid development, there are significant differences in usage between Cocos Creator 3.x and Cocos Creator 2.x, and their APIs are not fully compatible. Therefore, when developers consult documentation, APIs, and tutorials, please pay attention to distinguish whether the target version is 2.x or 3.x to avoid errors due to version inconsistency.
+
 ## What's New
 
 - **As of v2.3.0**, Cocos Creator has added support for [3D Physics and Collision](physics-3d/index.md) and [3D Particle System](3d/particle-system-3d.md), while the [Material System](render/index.md) has been upgraded to the official version.
