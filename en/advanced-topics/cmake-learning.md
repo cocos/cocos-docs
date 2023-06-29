@@ -1,4 +1,4 @@
-# CMake Usage Introduction
+# Introduction to CMake Usage
 
 CMake is a cross-platform build tool that can output a variety of Makefile or Project files as needed. CMake uses `CMakeLists.txt` to configure project files, where developers can integrate SDKs or reference libraries and configurations for compiling native platforms, review [Secondary Development](../editor/publish/native-options.md#secondary-development).
 

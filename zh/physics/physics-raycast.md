@@ -1,10 +1,14 @@
-# 射线检测
+# 射线和线段检测
+
+本文将说明如何通过射线和线段对物理世界内的碰撞体进行检测。
+
+## 射线检测
 
 射线检测是对一条射线和另一个形状进行 **相交性判断**，如下图所示。
 
 ![图解](img/raycast.jpg)
 
-## 构造射线
+### 构造射线
 
 射线 **ray** 由 **起点** 和 **方向** 组成，构造一条射线有以下几种比较常见的方法：
 
@@ -45,7 +49,7 @@
     > 1. 首先需要获取一个相机组件或者相机实例的引用。
     > 2. 相机组件和相机实例两者暴露的接口参数顺序不一样。
 
-## 接口介绍
+### 接口介绍
 
 Cocos Creator 提供了一套基于物理引擎的射线检测功能。
 
@@ -100,14 +104,14 @@ if(bResult){
 }
 ```
 
-### 参数说明
+#### 参数说明
 
 - `worldRay`：世界空间下的射线
 - `mask`：用于过滤的 [掩码](physics-group-mask.md)，可以传入需要检测的分组，默认为 0xffffffff
 - `maxDistance`：最大检测距离，默认为 10000000，目前请勿传入 `Infinity` 或 `Number.MAX_VALUE`
 - `queryTrigger`：是否检测触发器
 
-### 返回结果说明
+#### 返回结果说明
 
 射线检测的结果由 [PhysicsRayResult](__APIDOC__/zh/class/physics.PhysicsRayResult) 进行存储，主要有以下信息：
 
@@ -115,3 +119,61 @@ if(bResult){
 - `distance`：击中点与射线起点的距离
 - `hitPoint`：击中点（世界坐标系中）
 - `hitNormal`：击中点所处面的法线（世界坐标系中）
+
+## 线段检测
+
+自 v3.7 起，Cocos Creator 支持线段/采样点检测。线段检测分为两个方法 `lineStripCast` 以及 `lineStripCastClosest`。
+
+### 接口描述
+
+该方法内部由 `raycast` 实现，通过定义 `samplePointsWorldSpace` 参数可以很方便的检测曲线是否有击中其他碰撞体。
+
+```ts
+lineStripCast (samplePointsWorldSpace: Array<Vec3>, mask = 0xffffffff, maxDistance = 10000000, queryTrigger = true): boolean;
+
+lineStripCastClosest (samplePointsWorldSpace: Array<Vec3>, mask = 0xffffffff, maxDistance = 10000000, queryTrigger = true): boolean;
+```
+
+#### 参数说明
+
+- `samplePointsWorldSpace`：世界空间下的采样点/直线段
+- `mask`：用于过滤的 [掩码](physics-group-mask.md)，可以传入需要检测的分组，默认为 0xffffffff
+- `maxDistance`：最大检测距离，默认为 10000000，目前请勿传入 `Infinity` 或 `Number.MAX_VALUE`
+- `queryTrigger`：是否检测触发器
+
+#### 返回结果说明
+
+返回 true 时，表示曲线和碰撞体相交。结果存储在 `PhysicsSystem.Instance.lineStripCastResults` 以及
+`PhysicsSystem.Instance.lineStripCastResults`，请参考下文：
+
+### 使用方法
+
+调用后如果方法返回 true，则可以通过 `lineStripCastClosestResult` 和 `lineStripCastResults` 获取检测结果。
+
+```ts
+if (PhysicsSystem.instance.lineStripCastClosest(sampleArray, ...)) {
+    const result = PhysicsSystem.instance.lineStripCastClosestResult;
+    ...    
+}
+```
+
+检测的结果类型为 `PhysicsLineStripCastResult`，`PhysicsLineStripCastResult` 继承自 `PhysicsRayResult`，属性描述如下：
+
+- `id`：发生相交时线段的索引
+- `collider`：击中的碰撞器
+- `distance`：击中点与射线起点的距离
+- `hitPoint`：击中点（世界坐标系中）
+- `hitNormal`：击中点所处面的法线（世界坐标系中）
+
+`lineStripCast` 检测的结果是一个 `PhysicsLineStripCastResult` 类型的数组，属性描述如上所示，代码示例如下：
+
+```ts
+if (PhysicsSystem.instance.lineStripCast(sampleArray, ... )) {    
+    const results = PhysicsSystem.instance.lineStripCastResults;
+    for (let i = 0; i < results.length; i++) {
+        const result = results[i];
+        ...
+    }
+}
+```
+

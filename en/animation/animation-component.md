@@ -94,26 +94,29 @@ The code implemented in the script is as follows:
 The following code indicates that the default Animation Clip of the Animation Component of the node where the `MyScript` script component is located will call the `onTriggered()` method of the `MyScript` component when it reaches the 0.5 second mark and pass the parameter `0`.
 
 ```ts
-import { Animation, Component } from 'cc';
-class MyScript extends Component {
-    constructor() {
+import { Animation, Component, _decorator } from 'cc';
+const { ccclass, property } = _decorator;
 
-    }
-
+@ccclass("MyScript")
+class MyScript extends Component {    
     public start() {
-        const animationComponent = this.node.getComponent(Animation);
-        if (animationComponent && animationComponent.defaultClip) {
-            const { defaultClip } = animationComponent;
-            defaultClip.events.push({
-                frame: 0.5, // Triggers the event on the 0.5 second
-                func: 'onTriggered', // The name of the function to call when the event is triggered
-                params: [ 0 ], // Parameters passed to `func`
-            });            
+        const animation = this.node.getComponent(Animation);
+        if (animation && animation.defaultClip) {
+            const { defaultClip } = animation;
+            defaultClip.events = [
+                {
+                    frame: 0.5, // Triggers the event on the 0.5 second
+                    func: 'onTriggered', // The name of the function to call when the event is triggered
+                    params: [ 0 ], // Parameters passed to `func`
+                }
+            ];
+
+            animation.clips = animation.clips;
         }
     }
 
     public onTriggered(arg: number) {
-        console.log('I am triggered!');
+        console.log('I am triggered!', arg);
     }
 }
 ```

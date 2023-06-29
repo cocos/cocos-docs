@@ -35,7 +35,7 @@ Manifest 文件中包含以下几个重要信息：
 
 ## 在 Cocos Creator 项目中支持热更新
 
-在这篇教程中，将提出一种针对 Cocos Creator 项目可行的热更新方案，我们也在 cocos2d-x 的中开放了 Downloader 的 JavaScript 接口，用户可以自由开发自己的热更新方案。
+在这篇教程中，将提出一种针对 Cocos Creator 项目可行的热更新方案，我们也开放了 Downloader 的 JavaScript 接口，用户可以自由开发自己的热更新方案。
 对于 Cocos Creator 来说，引擎脚本将会打包到 src 目录中，其他 Assets 资源将会被导出到 assets 目录。
 
 基于这样的项目结构，本篇教程中的热更新思路很简单：
@@ -131,7 +131,7 @@ Manifest 文件中包含以下几个重要信息：
 
 > **注意**: 这里的 `fileUtils` 位于传统的 `window.jsb` 中, 而非 `native`. 目前的脚本编译系统只支持在 TypeScript 中通过 `import` 导入 `native` 对象.
 
-这一步是必须要做的原因是，热更新的本质是用远程下载的文件取代原始游戏包中的文件。Cocos2d-x 的搜索路径恰好满足这个需求，它可以用来指定远程包的下载地址作为默认的搜索路径，这样游戏运行过程中就会使用下载好的远程版本。另外，这里搜索路径是在上一次更新的过程中使用 `localStorage`（它符合 WEB 标准的 [Local Storage API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)）固化保存在用户机器上，`HotUpdateSearchPaths` 这个键值是在 `HotUpdate.js` 中指定的，保存和读取过程使用的名字必须匹配。
+这一步是必须要做的原因是，热更新的本质是用远程下载的文件取代原始游戏包中的文件。Cocos 引擎的搜索路径恰好满足这个需求，它可以用来指定远程包的下载地址作为默认的搜索路径，这样游戏运行过程中就会使用下载好的远程版本。另外，这里搜索路径是在上一次更新的过程中使用 `localStorage`（它符合 WEB 标准的 [Local Storage API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)）固化保存在用户机器上，`HotUpdateSearchPaths` 这个键值是在 `HotUpdate.js` 中指定的，保存和读取过程使用的名字必须匹配。
 
 此外，打开工程过程中如果遇到这个警告可以忽略：`loader for [.manifest] not exists!`。
 

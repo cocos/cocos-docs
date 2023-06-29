@@ -1,6 +1,6 @@
 # HTTP 请求
 
-在某些情况下，可能需要向网络后端请求一些数据，在 Cocos Creator 里面可以通过 `fecth` 方法，`fecth` 方法是 JavaScript 的一部分：
+在某些情况下，可能需要向网络后端请求一些数据，在 Cocos Creator 里面可以通过 `fetch` 方法，`fetch` 方法是 JavaScript 的一部分：
 
 ```ts
 declare function fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response>;

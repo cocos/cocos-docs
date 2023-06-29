@@ -1,4 +1,4 @@
-# Build Options
+# General Build Options
 
 ## General Build Options
 
@@ -85,6 +85,19 @@ When the mouse is moved to this option, the **Edit Icon** button will appear. Cl
 
 ![splash setting](build-options/splash-setting.png)
 
+- **TotalTime**: the total time (milliseconds) to display the inset screen, minimum 500 milliseconds
+- **Image Size Multiplier**: the zoom ratio of the image, the minimum is 100%
+- **Preview**: If you want to change the splash screen image, hover your mouse over the preview window and click the '+' button, then select a new image path.
+
+If you want to disable the splash screen, please refer to [Introduction to Build Options](./publish/build-options.md) for details.
+
+> **Note**:
+> 1. After selecting different build platforms in the build options, adjusting the screen insertion rules again can achieve the diversity of screen insertion on different platforms
+> 2. the screen insertion will only take effect after the package, not during the preview.
+> 3. Some countries and regions are not open for full screen insertion, we apologize for any inconvenience caused to you.
+
+Translated with www.DeepL.com/Translator (free version)
+
 ### Erase module structure (experimental)
 
 If this option is checked, the script import speed is faster, but module features such as `import.meta`, `import()`, etc. cannot be used.
@@ -97,11 +110,7 @@ The default is 'false'. If this option is checked, the build skips the entire te
 
 This option is used to display all the services integrated in the [Service](https://service.cocos.com/document/en/) panel for the current project.
 
-### Cocos Analytics
-
-If this option is checked, the [Cocos Analytics](https://n-analytics.cocos.com/docs/en/) service in the [Service](https://service.cocos.com/document/en/) panel can be enabled directly.
-
-## Build options related to each platform
+## Related Build Options for Each Platform
 
 Due to the adjustment of the current build mechanism, the processing of different platforms is injected into the **Build** panel in the form of a plugin. After selecting the platform to build in the **Platform** option of the **Build** panel, notice the expanded options of the corresponding platform. The name of the expanded option is the platform plug-in name, in the editor main menu **Extensions -> Extension Manager -> Internal** to see various platform plug-ins.
 
@@ -110,7 +119,7 @@ For the relevant build options of each platform, please refer to:
 - [Publish to Native Platforms](native-options.md#build-options)
 - [Publish to Mini Game Platforms](publish-mini-game.md)
 
-Creator supports custom extension build plugins, handled in the same way as platform plugins. For details, please refer to the [Extension Build Process](custom-build-plugin.md) documentation.
+Cocos Creator supports custom extension build plugins, handled in the same way as platform plugins. For details, please refer to the [Extension Build Process](custom-build-plugin.md) documentation.
 
 ## Configuration of Other Options Involved in the Build
 
