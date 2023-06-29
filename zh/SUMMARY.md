@@ -143,6 +143,7 @@
     - [渲染管线](render-pipeline/overview.md)
         - [内置管线](render-pipeline/builtin-pipeline.md)
         - [自定义渲染管线（实验性质）](render-pipeline/custom-pipeline.md)
+          - [后期处理](render-pipeline/post-process/index.md)
     - [相机](editor/components/camera-component.md)
     - [光照](concepts/scene/light.md)
         - [基于物理的光照](concepts/scene/light/pbr-lighting.md)
