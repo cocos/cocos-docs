@@ -4,6 +4,18 @@ Welcome to the __Cocos Creator__ User Manual! __Cocos Creator__ is a free, cross
 
 > **Note**: please select the corresponding version of the manual in the upper right corner according to the version of __Cocos Creator__ you are using.
 
+## Product Line Overview
+
+After years of development, Cocos (Xiamen Yaji) has released several product lines closely related to Cocos Creator. To avoid confusion, a brief introduction is provided here.
+
+- Cocos Creator: Released in early 2016; featuring a comprehensive upgrade, it perfectly supports Web and mini-game platforms and has been validated in numerous commercial projects, making it the core product of the Cocos engine family.
+  - Cocos Creator 3.x: Refers specifically to Cocos Creator version 3.x; Version 3.0 was released in early 2021, abandoning the Cocos2d-x foundation and adopting a new high-performance cross-platform 3D kernel, marking the evolution of Cocos Creator into a comprehensive mobile 3D game engine. Since the foundation of 3.x has been entirely rewritten, Cocos Creator is no longer considered a direct extension and upgrade of Cocos2d-x.
+  - Cocos Creator 2.x: Refers specifically to Cocos Creator versions 1.x and 2.x, which initially inherited the native platform runtime from Cocos2d-x but went through extensive rewriting and upgrading. Version 2.4 was released in mid-2020, and updates ceased after the release of 2.4.12 in 2023. Therefore, new projects are recommended to use [the latest Cocos Creator 3.x](https://www.cocos.com/creator-download).
+- Cocos Creator 3D: Initiated in 2017, it underwent small-scale testing in China for more than a year at the end of 2019 under the name Cocos Creator 3D before being officially merged into Cocos Creator 3.0. Since it has been replaced by Cocos Creator 3.x for a long time and is no longer updated separately, when mentioning Cocos Creator 3D, it usually refers to the 3D capabilities of Cocos Creator itself rather than this specific version.
+- Cocos2d-x: Released in 2010, it is the most active branch of the Cocos2d community and has now ceased updates.
+
+Cocos Creator 3.x has gone through years of rapid development and is no longer entirely the same as Cocos Creator 2.x in terms of usage. Their APIs are also not fully compatible. Therefore, developers should pay attention to whether the documentation, APIs, and tutorials they refer to are for version 2.x or 3.x, as inconsistencies may lead to errors.
+
 ## Index
 
 - [Getting Started](getting-started/index.md)
