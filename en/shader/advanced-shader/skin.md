@@ -36,6 +36,6 @@ In the game skin if the use of ordinary BRDF material is often not enough red an
 
 2. **skin** configuration in materials.
 
-    - When adjusting the intensity of the skin material for a single model, you can find **Sss Intensity** in the **Property Viewer** of the skin material to set it, or you can add a **USE SSS MAP** map to the skin material to precisely control the intensity of the skin effect for each organ of the face.
+    - Subcutaneous Scattering Intensity: This value controls the skin's moistness and subcutaneous scattering intensity, which produces a reddish scattering effect in the transition areas between light and dark. When adjusting the skin material intensity for a single model, you can find **Sss Intensity** in the **Property Viewer** of the skin material to set it, or you can add a **USE SSS MAP** map to the skin material to precisely control the intensity of the skin effect for each organ of the face.
 
     ![image](skin/material.png)

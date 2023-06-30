@@ -7,4 +7,4 @@ The intensity of the skin material is set globally. The skin material is turned 
 | Attributes | Descriptions |
 | :---| :--- |
 | **Enabled**    | Whether to turn on skin material |
-| **Sss Intensity**   | Global skin material intensity setting |
+| **Sss Intensity**   | Global skin subcutaneous scattering intensity setting |
