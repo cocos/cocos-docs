@@ -196,6 +196,7 @@
             - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
             - [2D 着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)
         - [表面着色器（Surface Shader）](shader/surface-shader.md)
+        - [皮肤材质](shader/advanced-shader/skin.md)
     - [渲染排序](engine/rendering/sorting.md)
 
     - [特效组件](module-map/effects/index.md)
