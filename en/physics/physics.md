@@ -44,3 +44,9 @@ Adding a physics element to the game world can be done in the following steps:
 3. To give it a physical behavior, then add a [RigidBody](physics-rigidbody.md) component.
 
 This gives us a physics element with **both collider and physics behavior**.
+
+## Raycast and Geometry cast
+
+When developing a game, we may need some type of physics casting, such as whether a bullet hits its target, or whether a piece of furniture can be placed in a certain location. The usual way to do this is to cast a ray or project some kind of geometry(including boxes, spheres, capsules, etc) and can be found in the following documentations.
+
+- [Raycast Detection](./physics-raycast.md)

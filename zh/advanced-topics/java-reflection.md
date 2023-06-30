@@ -1,19 +1,20 @@
-# 如何在 Android 平台上使用 JavaScript 直接调用 Java 方法
+# 基于反射机制实现 JavaScript 与 Android 系统原生通信
 
-> **注意**：在3.6之后，jsb 模块将会逐步废弃，接口将会迁移到cc命名空间下的 native 模块。
+## JavaScript 调用 Java 静态方法
 
-使用 Creator 打包的安卓原生应用中，我们可以通过反射机制直接在 JavaScript 中调用 Java 的静态方法。它的使用方法很简单：
+使用 Cocos Creator 打包的安卓原生应用中，我们可以通过反射机制直接在 JavaScript 中调用 Java 的静态方法。它的定义如下：
 
 ```js
 import { native } from 'cc'; 
 var o = native.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
 ```
 
-在 `callStaticMethod` 方法中，我们通过传入 Java 的类名、方法名和方法签名，参数就可以直接调用 Java 的静态方法，并且可以获得 Java 方法的返回值。下面介绍的类名和方法签名可能会有一点奇怪，但是 Java 的规范就是如此的。
+- className：类名
+- methodName：方法名
+- methodSignature：方法签名
+- parameters：参数列表
 
-## 类名
-
-参数中的类名必须是包含 Java 包路径的完整类名，例如我们在 `com.cocos.game` 这个包下面写了一个 `Test` 类：
+接下来，我们以 `com.cocos.game` 包下面的 `Test` 类为例，来具体说明。
 
 ```java
 // package "com.cocos.game";
@@ -31,25 +32,24 @@ public class Test {
     public static int sum (int a) {
         return a + 2;
     }
-
 }
 ```
 
-那么这个 Test 类的完整类名应该是 `com/cocos/game/Test`，注意这里必须是斜线 `/`，而不是在 Java 代码中我们习惯的点 `.`。
+### className
 
-## 方法名
+`className` 需要包含包名信息，如果要调用上面的 Test 类中的静态方法，`className` 应该为 "com/cocos/game/Test"。
 
-方法名很简单，就是方法本来的名字，例如 sum 方法的名字就是 `sum`。
+    > **注意**：这里必须是斜线 `/`，而不是在 Java 代码中的 `.`。
 
-## 方法签名
+### methodName
 
-方法签名稍微有一点复杂，最简单的方法签名是 `()V`，它表示一个没有参数没有返回值的方法。其他一些例子：
+`methodName` 就是方法本来的名字，例如要调用 `sum` 方法的话，methodName 传入的就是 "sum"。
 
-- `(I)V` 表示参数为一个 int，没有返回值的方法
-- `(I)I` 表示参数为一个 int，返回值为int的方法
-- `(IF)Z` 表示参数为一个 int 和一个 float，返回值为 boolean 的方法
+### methodSignature
 
-括号内的符号表示参数类型，括号后面的符号表示返回值类型。因为 Java 是允许函数重载的，可以有多个方法名相同但是参数返回值不同的方法，方法签名正是用来帮助区分这些相同名字的方法的。
+由于 Java 支持函数重载功能，方法签名用于告诉反射系统对应的参数类型和返回值类型，以确定唯一的方法。
+
+它的格式为：**（参数类型）返回值类型**。
 
 目前 Cocos Creator 中支持的 Java 类型签名有以下 4 种：
 
@@ -60,78 +60,50 @@ public class Test {
 | boolean | Z   |
 | String  | Ljava/lang/String; |
 
-## 参数
+> **注意**：String 类型的签名为 `Ljava/lang/String;`，不要漏掉了最后的 `;`。
 
-参数可以是 0 个或任意多个，直接使用 JavaScript 中的 number、bool 和 string 就可以。
+下面是一些案例
 
-## 使用示例
+- `()V` 表示没有参数，没有返回值
+- `(I)V` 表示参数为一个 int，没有返回值的方法
+- `(I)I` 表示参数为一个 int，返回值为 int 的方法
+- `(IF)Z` 表示参数为一个 int 和一个 float，返回值为 boolean 的方法
+- `(ILjava/lang/String;F)Ljava/lang/String;` 表示参数类型为一个 int，一个 String 和一个 float，返回值类型为 String 的方法
 
-我们将会调用上面的 Test 类中的静态方法：
+### parameters
+
+传递的参数与签名匹配即可，支持 number、bool 和 string。
+
+### 使用示例
+
+接下来我们看几个 Test 类中的静态方法的调用示例：
 
 ```js
-// 调用 hello 方法
-native.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
+if(sys.os == sys.OS.ANDROID && sys.isNative){
+    // 调用 hello 方法
+    native.reflection.callStaticMethod("com/cocos/game/Test", "hello", "(Ljava/lang/String;)V", "this is a message from JavaScript");
 
-// 调用第一个 sum 方法
-var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
-log(result); // 10
+    // 调用第一个 sum 方法
+    var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(II)I", 3, 7);
+    log(result); // 10
 
-// 调用第二个 sum 方法
-var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
-log(result); // 5
-```
-
-这样在 **控制台** 中就会有正确的输出。
-
-## 注意
-
-另外有一点需要注意的就是，在 Android 应用中，Cocos 引擎的渲染和 JavaScript 的逻辑是在 GL 线程中进行的，而 Android 本身的 UI 更新是在 App 的 UI 线程进行的，所以如果我们在 JavaScript 中调用的 Java 方法有任何刷新 UI 的操作，都需要在 UI 线程进行。
-
-例如，在下面的例子中我们会调用一个 Java 方法，用于弹出一个 Android 的 Alert 对话框。
-
-```c++
-// 给我们熟悉的 AppActivity 类稍微加点东西
-public class AppActivity extends CocosActivity {
-    
-    private static AppActivity app = null;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        app = this;
-    }
-    
-    public static void showAlertDialog(final String title,final String message) {
-        
-        // 这里一定要使用 runOnUiThread
-        app.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                AlertDialog alertDialog = new AlertDialog.Builder(app).create();
-                alertDialog.setTitle(title);
-                alertDialog.setMessage(message);
-                alertDialog.setIcon(R.drawable.icon);
-                alertDialog.show();
-            }
-        });
-    }
+    // 调用第二个 sum 方法
+    var result = native.reflection.callStaticMethod("com/cocos/game/Test", "sum", "(I)I", 3);
+    log(result); // 5
 }
 ```
 
-然后在 JavaScript 中调用：
+`sys.isNative`  用于判断是否为原生平台，`sys.os` 用于判断当前运行系统。由于各平台通信机制不同，建议先判断再处理。
 
-```js
-native.reflection.callStaticMethod("com/cocos/game/AppActivity", "showAlertDialog", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
-```
-
-这样调用之后你就可以看到一个 Android 原生的 Alert 对话框了。
+运行后，可以在 **控制台** 中看到相应的输出结果。
 
 ## Java 调用 JavaScript
 
-现在我们可以从 JavaScript 调用 Java 了，那么能不能反过来？当然可以！
+除了 JavaScript 调用 Java，引擎也提供了 Java 调用 JavaScript 的机制。
 
-引擎中包含 `CocosJavascriptJavaBridge` 类，这个类有一个 `evalString` 方法可以执行 JavaScript 代码，位于引擎目录的 `resources\3d\engine\native\cocos\platform\android\java\src\com\cocos\lib\CocosJavascriptJavaBridge.java` 文件中。我们将会给刚才的 Alert 对话框增加一个按钮，并在它的响应中执行 JavaScript。和上面的情况相反，这次执行 JavaScript 代码必须在 GL 线程中进行。
+通过引擎提供的 `CocosJavascriptJavaBridge.evalString` 方法可以执行 JavaScript 代码。需要注意的是，由于 JavaScript 相关代码会在 GL 线程中执行，我们需要利用 `CocosHelper.runOnGameThread` 来确保线程是正确的。
 
-一般来说，目前引擎并未承诺多线程下的安全性，所以在开发过程中需要避免 JavaScript 代码在其他线程被调用，以避免各种内存错误。
+接下来，我们给刚才的 Alert 对话框增加一个按钮，并在它的响应函数中执行一段 JavaScript 代码。
 
 ```java
 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
@@ -147,12 +119,133 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 });
 ```
 
+### 调用全局函数
+
+我们可以在脚本中通过如下代码新增一个全局函数：
+
+```js
+window.callByNative = function(){
+  //to do
+}
+```
+
+> `window` 是 Cocos 引擎脚本环境中的全局对象，如果要让一个变量、函数、对象或者类全局可见，需要将它作为 `window` 的属性。可以使用 `window.变量名` 或者 `变量名` 进行访问。
+
+然后像下面这样调用:
+
+```java
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("window.callByNative()");
+    }
+});
+```
+
+或者：
+
+```js
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("callByNative()");
+    }
+});
+```
+
+### 调用类的静态函数
+
+假如在 TypeScript 脚本中有一个类具有如下静态函数：
+
+```ts
+export class NativeAPI{
+  public static callByNative(){
+    //to do
+  }
+}
+//将 NativeAPI 注册为全局类，否则无法在 Java 中被调用
+window.NativeAPI = NativeAPI;
+```
+
+我们可以像这样调用：
+
+```java
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("NativeAPI.callByNative()");
+    }
+});
+```
+
+### 调用单例函数
+
+如果脚本代码中，有实现可以全局访问的单例对象
+
+```ts
+export class NativeAPIMgr{
+  private static _inst:NativeAPIMgr;
+  
+  public static get inst():NativeAPIMgr{
+    if(!this._inst){
+      this._inst = new NativeAPIMgr();
+    }
+    return this._inst;
+  }
+
+  public static callByNative(){
+    //to do
+  }
+}
+
+//将 NativeAPIMgr 注册为全局类，否则无法在 Java 中被调用
+window.NativeAPIMgr = NativeAPIMgr;
+```
+
+我们可以像下面这样调用：
+
+```java
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("NativeAPIMgr.inst.callByNative()");
+    }
+});
+```
+
+### 参数传递
+
+以上几种 Java 调用 JS 的方式，均支持参数传递，但参数只支持 string, number 和 bool 三种基础类型。
+
+我们以全局函数为例：
+
+```js
+window.callByNative = function(a:string, b:number, c:bool){
+  //to do
+}
+```
+
+可像这样调用：
+
+```java
+CocosHelper.runOnGameThread(new Runnable() {
+    @Override
+    public void run() {
+        CocosJavascriptJavaBridge.evalString("window.callByNative('test',1,true)");
+    }
+});
+```
+
+## 在 C++ 代码中调用 JavaScript
+
 如果要在 C++ 中调用 `evalString`，我们可以参考下面的方式，确保 `evalString` 在 JavaScript 引擎所在的线程被执行：
 
 ```c++
-Application::getInstance()->getScheduler()->performFunctionInCocosThread([=]() {
+CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=]() {
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
 ```
 
-这样在点击 OK 按钮后，便可以在控制台看到正确的输出。`evalString` 可以执行任何 JavaScript 代码，并且它可以访问到在 JavaScript 代码中的对象。
+## 线程安全
+
+可以看到，上面的代码中，使用了 `CocosHelper.runOnGameThread` 和 `CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread`。这是为了代码在执行时处于正确的线程，详情请参考：[线程安全](./thread-safety.md)。

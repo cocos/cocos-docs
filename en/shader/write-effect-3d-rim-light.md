@@ -85,7 +85,7 @@ CCEffect %{
 
 This binding means that the values of the RGB component of the shader's `rimLightColor` are transferred through the engine to the `rgb` three components of the Uniform `rimColor`.
 
-> **Note**: The engine specifies that vectors of type vec3 cannot be used to avoid [implict padding](./effect-syntax.md), so when using a 3-dimensional vector (vec3), you can choose to use a 4-dimensional vector (vec4) instead. Don't worry, the alpha channel will be utilized without being wasted.
+> **Note**: The engine specifies that vectors of type vec3 cannot be used to avoid [implicit padding](./effect-syntax.md), so when using a 3-dimensional vector (vec3), you can choose to use a 4-dimensional vector (vec4) instead. Don't worry, the alpha channel will be utilized without being wasted.
 
 ## Vertex shader
 
@@ -143,13 +143,13 @@ CCProgram rimlight-fs %{
 The view direction is calculated by subtracting the current camera position (`cc_cameraPos`) from the position information passed in by the vertex shader within the slice shader `in vec3 v_position`.
 
 ```glsl
-vec3 viewDirection = cc_cameraPos.xyz - v_position; // Caculate the view direcion
+vec3 viewDirection = cc_cameraPos.xyz - v_position; // Calculate the view direction
 ```
 
 We don't care about the length of the view vector, so we get `viewDirection` and normalize it with the `normalize` method.
 
 ```glsl
-vec3 normalizedViewDirection = normalize(viewDirection);  // Normalize the view direciton
+vec3 normalizedViewDirection = normalize(viewDirection);  // Normalize the view direction
 ```
 
 The xyz component of `cc_cameraPos` represents the position of the camera.
@@ -158,7 +158,7 @@ The fragment shader code is as follows:
 
 ```glsl
   vec4 frag(){ 
-    vec3 viewDirection = cc_cameraPos.xyz - v_position; // Calculate the view direciton
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; // Calculate the view direction
     vec3 normalizedViewDirection = normalize(viewDirection);  // Normalize view direction
     vec4 col = mainColor * texture(mainTexture, v_uv); // Calculate the final color
     CC_APPLY_FOG(col, v_position);
@@ -298,12 +298,12 @@ vec4 frag(){
 
 Although the edge light effect can be observed, the light is too strong and not easily adjustable. An adjustable parameter `rimIntensity` can be added to the CCEffect. Since the alpha component of `rimColor` was not used before, borrowing this component for binding saves additional Uniform.
 
-> **Note**: When writing shaders, you need to avoid implict padding, for this see: [UBO memory layout](./effect-syntax.md), where using the unused alpha channel to store the intensity of the edge light maximizes the use of the `rimColor` field.
+> **Note**: When writing shaders, you need to avoid implicit padding, for this see: [UBO memory layout](./effect-syntax.md), where using the unused alpha channel to store the intensity of the edge light maximizes the use of the `rimColor` field.
 
 Add the following code to CCEffect.
 
 ```yaml
-rimInstensity:  { value: 1.0,         # Default value is 1
+rimIntensity:  { value: 1.0,         # Default value is 1
                   target: rimColor.a, # Bind to the alpha channel of ‘rimColor’
                   editor: {           # The style of the property inspector
                   slide: true,        # Use the slider as the display style
@@ -326,7 +326,7 @@ CCEffect %{
         # Rim Light's colors, which depend only on the components of the three rgb channels
         rimLightColor:  { value: [1.0, 1.0, 1.0], target: rimColor.rgb, editor: { displayName: Rim Color, type: color } }
         # The alpha channel of rimLightColor is not used and is reused to describe the intensity of rimLightColor.
-        rimInstensity:  { value: 1.0, target: rimColor.a, editor: {slide: true, range: [0, 10], step: 0.1}}   
+        rimIntensity:  { value: 1.0, target: rimColor.a, editor: {slide: true, range: [0, 10], step: 0.1}}   
 }%               
 
 ```
@@ -342,8 +342,8 @@ The `pow` function adjusts the edge light so that its range does not vary linear
 Add the following codes:
 
 ```glsl
-float rimInstensity = rimColor.a; // alpha channel is the index of brightness
-col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb;  // Exponential modification of dot product using 'pow' function
+float rimIntensity = rimColor.a; // alpha channel is the index of brightness
+col.rgb += pow(rimPower, rimIntensity) * rimColor.rgb;  // Exponential modification of dot product using 'pow' function
 ```
 
 `pow` is a built-in GLSL function of the form `pow(x, p)`, which represents an exponential function with `x` as the base and `p` as the exponent.
@@ -353,12 +353,12 @@ The final fragment shader code is as follows:
 ```glsl
   vec4 frag(){ 
     vec3 normal = normalize(v_normal);  // Renormalize the normals
-    vec3 viewDirection = cc_cameraPos.xyz - v_position; // Caculate the view direction
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; // Calculate the view direction
     vec3 normalizedViewDirection = normalize(viewDirection);  // Normalize the view direction
-    float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);// Caculate the intensisty of rim-light
-    vec4 col = mainColor * texture(mainTexture, v_uv); // Caculate the final color
-    float rimInstensity = rimColor.a;  // alpha channel is the index of brightness
-    col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; // Add rim-light
+    float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);// Calculate the intensity of rim-light
+    vec4 col = mainColor * texture(mainTexture, v_uv); // Calculate the final color
+    float rimIntensity = rimColor.a;  // alpha channel is the index of brightness
+    col.rgb += pow(rimPower, rimIntensity) * rimColor.rgb; // Add rim-light
     CC_APPLY_FOG(col, v_position);  
     return CCFragOutput(col);  
   }
@@ -393,7 +393,7 @@ CCEffect %{
         # Rim Light's colors, which depend only on the components of the three rgb channels
         rimLightColor:  { value: [1.0, 1.0, 1.0], target: rimColor.rgb, editor: { displayName: Rim Color, type: color } }
         # The alpha channel of rimLightColor is not used and is reused to describe the intensity of rimLightColor.
-        rimInstensity:  { value: 1.0, target: rimColor.a, editor: {slide: true, range: [0, 10], step: 0.1}}   
+        rimIntensity:  { value: 1.0, target: rimColor.a, editor: {slide: true, range: [0, 10], step: 0.1}}   
 }%
 
 CCProgram rimlight-fs %{
@@ -414,12 +414,12 @@ CCProgram rimlight-fs %{
   }; 
   vec4 frag(){     
     vec3 normal = normalize(v_normal);  // Renormalize the normals.
-    vec3 viewDirection = cc_cameraPos.xyz - v_position; // Caculate view direction
+    vec3 viewDirection = cc_cameraPos.xyz - v_position; // Calculate view direction
     vec3 normalizedViewDirection = normalize(viewDirection);  // Normalize view direction
-    float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);// Caculte the intensity of rim light
-    vec4 col = mainColor * texture(mainTexture, v_uv); // Caculate the final color
-    float rimInstensity = rimColor.a;  // alpha channel is the index of brightness
-    col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; // Add rim light
+    float rimPower = 1.0 - max(dot(normal, normalizedViewDirection), 0.0);// Calculate the intensity of rim light
+    vec4 col = mainColor * texture(mainTexture, v_uv); // Calculate the final color
+    float rimIntensity = rimColor.a;  // alpha channel is the index of brightness
+    col.rgb += pow(rimPower, rimIntensity) * rimColor.rgb; // Add rim light
     CC_APPLY_FOG(col, v_position); 
     return CCFragOutput(col);  
   }
@@ -431,13 +431,13 @@ To make the color of the edge light affected by the texture color, the following
 Change the following code:
 
 ```glsl
-col.rgb += pow(rimPower, rimInstensity) * rimColor.rgb; // Add rim light
+col.rgb += pow(rimPower, rimIntensity) * rimColor.rgb; // Add rim light
 ```
 
 To:
 
 ```glsl
-col.rgb *= 1.0 + pow(rimPower, rimInstensity) * rimColor.rgb; // The rim light is influenced by the object coloring
+col.rgb *= 1.0 + pow(rimPower, rimIntensity) * rimColor.rgb; // The rim light is influenced by the object coloring
 ```
 
 The rim light is then influenced by the final texture and vertex color.

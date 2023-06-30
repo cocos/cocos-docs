@@ -1,6 +1,24 @@
-# Cross-Platform Game Publishing
+# Publish to Multiple Platforms
 
-Cocos Creator currently supports publishing games to the Web, iOS, Android, Windows, Mac, and various mini-game platforms. Developers can develop on one platform and deploy on all supported platforms.
+Thanks to the Cocos Creator's dual-core engine architecture (the C++ core is for native platforms and the TS core is for web and mini-game platform), projects created with Cocos Creator can run smoothly on native, web, and mini-game platforms. This truly achieves the goal of developing once, run everywhere.
+
+## Supported Platforms
+
+- [iOS](./ios/index.md)
+- [Android](./android/index.md)
+- [Huawei HarmonyOS](./publish-huawei-ohos.md)
+- [Open HarmonyOS](./publish-openharmony.md)
+- [Web Mobile - H5](./publish-web.md)
+- [WeChat Mini Games](./publish-wechatgame.md)
+- [ByteDance Mini Games](./publish-bytedance-mini-game.md)
+- [Facebook Instant Games](./publish-fb-instant-games.md)
+- [OPPO Mini Games](./publish-oppo-mini-game.md)
+- [Huawei Quick Games](./publish-huawei-quick-game.md)
+- [vivo Mini Games](./publish-vivo-mini-game.md)
+- [Xiaomi Quick Games](./publish-xiaomi-quick-game.md)
+- [Web Web Desktop](publish-web.md)
+- [Windows](./windows/index.md)
+- [macOS](./ios/index.md)
 
 ## Preparation
 
@@ -8,14 +26,6 @@ The preparation that needs to be done before publishing includes getting familia
 
 - [Build Panel](build-panel.md)
 - [Build Options](build-options.md)
-
-## Publishing Platforms
-
-Currently, Cocos Creator supports publishing to Web, Native and mini-game platforms. Please refer to the following documentation for details:
-
-- [Publish to Web Platforms](publish-web.md)
-- [Publish to Native Platforms](native-options.md)
-- [Publish to Mini Game Platforms](publish-mini-game.md)
 
 Developers can also publish projects via the command line. For details, please refer to the [Publish from the Command Line](publish-in-command-line.md) documentation.
 
@@ -26,3 +36,8 @@ If you have a certain degree of familiarity and understanding of the build proce
 - [Introduction to the Build Process and FAQ](build-guide.md)
 - [Custom Project Build Process](custom-project-build-template.md)
 - [Extended Build Process](custom-build-plugin.md)
+
+## Additional Resources
+
+- [Cocos Technical Support](https://www.cocos.com/en/assistant)
+- [Cocos Official Forum](https://discuss.cocos2d-x.org/)

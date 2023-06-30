@@ -1,4 +1,4 @@
-# Introduction to GLSL Syntax
+# Introduction to GLSL Basic
 
 GLSL is a language for writing shaders tailored for graphics computing, and it includes features for vector and matrix operations that make rendering pipelines programmable. This chapter mainly introduces some syntax commonly used in Shader writing, including the following aspects:
 
@@ -67,7 +67,7 @@ The matrix construction has the following rules:
 
 ```glsl
 
-mat4 marixt4x4 = mat4(1.0); // marixt4x4 = { 1.0, 0.0, 0.0, 0.0, 
+mat4 matrix4x4 = mat4(1.0); // matrix4x4 = { 1.0, 0.0, 0.0, 0.0, 
                             //                0.0, 1.0, 0.0, 0.0 
                             //                0.0, 0.0, 1.0, 0.0                    
                             //                0.0, 0.0, 0.0, 1.0 }
@@ -145,7 +145,7 @@ for(int i =0; i < 4; i ++)
 ### Control flow
 
 GLSL supports standard C/C++ control flow, including:
-- `if-esle`/`switch-case`
+- `if-else`/`switch-case`
 - `for`/`while`/`do-while`
 - `break`/`continue`/`return`
 - There is no `goto`, use `discard` to jump out. This statement is only valid under the fragment shader. It should be noted that using this statement will cause the pipeline to discard the current fragment and will not write to the frame buffer.
