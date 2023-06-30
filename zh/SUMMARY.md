@@ -241,6 +241,7 @@
         - [自定义着色器](shader/write-effect-overview.md)
             - [2D 精灵着色器：Gradient](shader/write-effect-2d-sprite-gradient.md)
             - [3D 着色器：RimLight](shader/write-effect-3d-rim-light.md)
+        - [皮肤材质](shader/advanced-shader/skin.md)
         - [自定义几何体实例化属性](shader/instanced-attributes.md)
         - [UBO 内存布局策略](shader/ubo-layout.md)
         - [WebGL 1.0 向下兼容支持](shader/webgl-100-fallback.md)

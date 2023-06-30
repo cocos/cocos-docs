@@ -237,6 +237,7 @@
         - [Write Shaders](shader/write-effect-overview.md)
             - [2D Sprite Shader: Gradient](shader/write-effect-2d-sprite-gradient.md)
             - [3D Shader: RimLight](./write-effect-3d-rim-light.md)
+        - [Skin material](shader/advanced-shader/skin.md)
         - [Instanced Attributes](shader/instanced-attributes.md)
         - [UBO Layout](shader/ubo-layout.md)
         - [Fallback to WebGL 1.0](shader/webgl-100-fallback.md)
