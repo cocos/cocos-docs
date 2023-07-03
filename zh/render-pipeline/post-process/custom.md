@@ -25,9 +25,12 @@
 1. 定义 PostProcessSetting 组件，传递参数到 CustomPass 中
 
     ```js
+    import { _decorator, Material, postProcess } from 'cc';
+    const { ccclass, property, menu } = _decorator;
+
     @ccclass('CustomPostProcess')
     @menu('PostProcess/CustomPostProcess')
-    export class CustomPostProcess extends PostProcessSetting {
+    export class CustomPostProcess extends postProcess.PostProcessSetting {
         @property
         blueIntensity = 1
 
@@ -53,7 +56,10 @@
 2. 定义 CustomPass
 
     ```js
-    export class CustomPass extends SettingPass {
+    import { Vec4, gfx, postProcess, renderer, rendering } from "cc";
+    import { CustomPostProcess } from "./CustomPostProcess";
+
+    export class CustomPass extends postProcess.SettingPass {
         // custom pass name
         name = 'CustomPass'
 
@@ -113,7 +119,7 @@
                 // calculate a version
                 .version();
         }
-    }
+    }   
     ```
 
 3. 注册 custom pass
