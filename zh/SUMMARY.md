@@ -144,6 +144,8 @@
         - [内置管线](render-pipeline/builtin-pipeline.md)
         - [自定义渲染管线（实验性质）](render-pipeline/custom-pipeline.md)
             - [后期处理](render-pipeline/post-process/index.md)
+                - [PostProcess 组件](render-pipeline/post-process/post-process.md)
+                - [BlitScreen 组件](render-pipeline/post-process/blit-screen.md)
                 - [自定义后效](render-pipeline/post-process/custom.md)
     - [相机](editor/components/camera-component.md)
     - [光照](concepts/scene/light.md)
