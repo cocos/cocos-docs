@@ -129,7 +129,7 @@ Color Grading 使用颜色查找表（LUT）的方式对场景颜色做美术向
 - 开启 Color Grading
   ![lut-enabled](img/lut-enabled.png)
 
-### HBAO（Horizon-Based Ambient Occlusion ）
+### HBAO（Horizon-Based Ambient Occlusion）
 
 HBAO 提供了一种简便的方式去计算全局照明中的环境光遮蔽，对于整个场景层次感的提升有很大的帮助。
 
