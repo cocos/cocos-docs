@@ -1,28 +1,27 @@
-# 自定义后效
+# Customize a Post Process
 
-自定义后效有两种方式，简单的后效可以直接将后效材质添加到 [Blit-Screen 后效组件](./blit-screen.md) 上，复杂的后效需要自定义一个后效 pass 。
+There are two methods to customize a post-process, add a simple post-process material to the [BlitScreen Component](./blit-screen.md) or define a post pass for a complex post-process.
 
-## Blit-Screen 后效组件
+## Blit-Screen Component
 
-参考 [设置后效流程](index.md) 添加 [Blit-Screen 后效组件](./blit-screen.md)，
-将自定义后效材质拖入 **Material** 属性中，Blit-Screen 会按照 **Materials** 数组顺序依次渲染后效材质。
+Refer to the [Config Post Process](index.md), add a [BlitScreen Component](./blit-screen.md), and drag the custom post-process material to the **Material** property. The Blit-Screen component will render all the materials in the **Material** property according to the order they are added.
 
-**Materials** 属性中每个自定义后效材质都支持单独开关，方便开发者管理。
+Every material in the **Materials** property contains a single switch to help developers manage them.
 
 ![BlitScreen](img/custom-1.png)
 
 ![Dot Effect](img/custom-2.png)
 
-具体可以参考 [cocos-example-render-pipeline](https://github.com/cocos/cocos-example-render-pipeline/blob/main/assets/cases/post-process/post-process.scene)
+For more, please refer to [cocos-example-render-pipeline](https://github.com/cocos/cocos-example-render-pipeline/blob/main/assets/cases/post-process/post-process.scene).
 
-## 自定义后效 Pass
+## Customize a Post Process Pass
 
-如果需要自定义更加复杂的后效流程，你可以创建自定义后效 Pass 。
+You can create a custom post-process Pass to accomplish complex post-process effect. 
 
 ![custom-pass-1](img/custom-pass-1.png)
 ![custom-pass-2](img/custom-pass-2.png)
 
-1. 定义 PostProcessSetting 组件，传递参数到 CustomPass 中
+1. Define a PostProcessSetting component that will be delivered to the CustomPass
 
     ```js
     import { _decorator, Material, postProcess } from 'cc';
@@ -53,7 +52,7 @@
     }
     ```
 
-2. 定义 CustomPass
+2. Create a CustomPass
 
     ```js
     import { Vec4, gfx, postProcess, renderer, rendering } from "cc";
@@ -122,7 +121,7 @@
     }   
     ```
 
-3. 注册 custom pass
+3. Register the custom pass
 
     ```js
     let builder = rendering.getCustomPipeline('Custom') as postProcess.PostProcessBuilder;
@@ -132,4 +131,4 @@
     } 
     ```
 
-具体可以参考 [custom-pass](https://github.com/cocos/cocos-example-render-pipeline/blob/main/assets/cases/post-process/custom-pass.ts)
+For more, please refer to [custom-pass](https://github.com/cocos/cocos-example-render-pipeline/blob/main/assets/cases/post-process/custom-pass.ts).
