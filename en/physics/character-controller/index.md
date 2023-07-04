@@ -79,6 +79,8 @@ When a character controller node is moved via the `setPosition` method, it will 
 
 > That is because when every frame when the synchronization of the position from the render scene to the physics world, the center offset must be taken into consideration.
 
+It can be noticed that the Character Controller applies no force like gravity by default, developers need to add custom forces or change the velocity to simulate the movement or rotation.
+
 ## Determine if on the Ground
 
 Use the `isGrounded` method to determine whether a character controller is standing on some colliders with the following code.
