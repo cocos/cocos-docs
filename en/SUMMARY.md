@@ -351,6 +351,7 @@
         - [Raycast Detection](physics/physics-raycast.md)
         - [Continuous Collision Detection](physics/physics-ccd.md)
         - [Physics Application Cases](physics/physics-example.md)
+        - [Character Controller](physics/character-controller/index.md)
 
 - [Particle System](particle-system/index.md)
     - [2D Particle System](particle-system/2d-particle/2d-particle.md)
