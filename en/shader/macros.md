@@ -83,7 +83,7 @@ The second line declares a macro named `METALLIC_SOURCE`, with four possible opt
 > 1. every tag accepts a single parameter, in the syntax of YAML.
 > 2. Before v3.5, the syntax for Macro Tags feature is `#pragma define`, but from v3.5, the syntax will be automatically upgraded to `#pragma define-meta` during effect migration process, please pay attention to use the right syntax if you are writing new effect or using external effects without meta file.
 
-### Functional Macros
+### Function-like Macros
 
 Due to lack of native support in WebGL platform, functional macros are provided as an effect compile-time feature, all references will be expanded in the output shader.
 

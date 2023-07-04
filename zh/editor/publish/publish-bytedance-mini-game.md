@@ -2,13 +2,13 @@
 
 字节小游戏是基于字节跳动全产品矩阵开发，不需用户下载，点开即玩的全新游戏类型。
 
-小游戏的游戏提交，审核和发布流程等，需要遵守字节官方团队的要求和标准流程，具体信息可以参考 [字节跳动小游戏接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign/)。
+小游戏的游戏提交，审核和发布流程等，需要遵守字节官方团队的要求和标准流程，具体信息可以参考 [字节跳动小游戏接入指南](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction)。
 
 ## 准备工作
 
-1. 下载 [字节跳动开发者工具](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) 并安装。
+1. 下载 [字节跳动开发者工具](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) 并安装。
 
-2. 参考 [字节跳动小游戏接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign/)，在 [字节跳动开发者平台](https://microapp.bytedance.com/) 完成账号注册、登录以及申请小游戏。
+2. 参考 [字节跳动小游戏接入指南](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction)，在 [字节跳动开发者平台](https://microapp.bytedance.com) 完成账号注册、登录以及申请小游戏。
 
 3. 小游戏申请通过后，在开发者平台的 **开发管理 -> 开发设置** 中找到 **AppID**。
 
@@ -29,7 +29,7 @@
 
     ![package](./publish-bytedance-mini-game/package.png)
 
-3. 使用 **字节跳动开发者工具** 打开构建生成的 `bytedance-mini-game` 文件夹，即可打开字节跳动小游戏项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [字节跳动开发者工具介绍](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/development-assistance/mini-app-developer-instrument)。
+3. 使用 **字节跳动开发者工具** 打开构建生成的 `bytedance-mini-game` 文件夹，即可打开字节跳动小游戏项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [字节跳动开发者工具介绍](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/development-assistance/mini-app-developer-instrument)。
 
     ![tool](./publish-bytedance-mini-game/tool.png)
 
@@ -80,7 +80,7 @@
 - 整个小游戏的所有分包大小不超过 **16 M**
 - 单个分包/主包的大小不能超过 **4 M**
 
-具体可参考 [字节跳动小游戏分包加载官方文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/framework/subpackages/introduction)
+具体可参考 [字节跳动小游戏分包加载官方文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/subpackages/introduction/)
 
 ## 小游戏环境的资源管理
 
@@ -90,8 +90,8 @@
 
 ## 参考链接
 
-- [字节跳动小游戏开发接入指南](https://microapp.bytedance.com/docs/zh-CN/mini-game/introduction/plugin-reference/sign/)
+- [字节跳动小游戏开发接入指南](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction/)
 - [字节跳动开发者平台](https://microapp.bytedance.com/)
-- [字节跳动小游戏 API 文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game)
-- [字节跳动开发者工具下载](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
-- [字节跳动开发者工具文档](https://microapp.bytedance.com/docs/zh-CN/mini-game/develop/developer-instrument/development-assistance/mini-app-developer-instrument)
+- [字节跳动小游戏 API 文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game)
+- [字节跳动开发者工具下载](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
+- [字节跳动开发者工具文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/development-assistance/developer-instrument-introduction)

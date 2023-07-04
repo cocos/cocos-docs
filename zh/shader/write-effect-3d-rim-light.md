@@ -1,6 +1,6 @@
 # 3D 着色器：RimLight
 
-本文将通过实现一个 RimLight 效果，来演示如何编写一个在 Cocos 可用于 3D 模型渲染的着色器（Cocos Effect） 。
+本文将通过实现一个 RimLight 效果，来演示如何编写一个在 Cocos 可用于 3D 模型渲染的 Cocos Shader。
 
 **RimLight** 也称为“内发光”/“轮廓光”/“边缘光”（本文统一使用边缘光），是一种通过使物体的边缘发出高亮，让物体更加生动的技术。
 
@@ -18,7 +18,7 @@
 
 ## CCEffect
 
-Cocos Effect 使用 YAML 作为解析器，因此 CCEffect 的写法需要遵守 YAML 的语法标准，对于这块的内容可以参考 [YAML 101](./yaml-101.md)。
+Cocos Shader 使用 YAML 作为解析器，因此 CCEffect 的写法需要遵守 YAML 的语法标准，对于这块的内容可以参考 [YAML 101](./yaml-101.md)。
 
 在本示例中，将暂时不考虑半透明效果，此时可以将 `transparent` 部分删掉。
 
