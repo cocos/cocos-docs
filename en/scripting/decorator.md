@@ -84,6 +84,8 @@ export class Example extends Component {
 
 `@menu(path)` is used to add the current component to the component menu to make it easier for the user to find it.
 
+Please note that this decorator generates a new menu in the drop-down box when the users click the **Add Component** button on the **Inspector** panel.
+
 ```ts
 const { ccclass, menu } = _decorator;
 
