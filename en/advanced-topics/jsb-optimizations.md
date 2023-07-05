@@ -6,7 +6,7 @@ In the native implementation of Cocos Creator version 3.6.0, we have made improv
 
 As known to all, in Cocos Creator 3.x, developers can only use TypeScript (TS) scripts to develop game logic. Although we have implemented more engine code in CPP, developers cannot directly use CPP for game logic development. Therefore, we use the Script Engine Wrapper API (referred to as SE API) to bind and expose the types implemented in the CPP to JS. The interfaces exposed to JS remain consistent with those in the web environment.
 
-The primary benefit of moving core code to the native is that the execution performance of engine code running on native platforms is improved, especially on platforms that do not support JIT compilation (such as iOS). However, before the official release of version 3.6.0, we also faced a series of side effects resulting from the "elevation of the native level." The main issue was that the number of JSB calls (interactions between JS and CPP languages) increased significantly compared to previous versions. This directly offset the benefits brought by the elevation of the native level and even resulted in poorer performance compared to the previous version (3.5). This article will introduce some optimization methods to reduce JSB calls. If developers encounter similar issues with excessive JSB calls in their own CPP code, we hope this article can provide some optimization insights.
+The primary benefit of moving core code to the native is that the execution performance of engine code running on native platforms is improved, especially on platforms that do not support JIT compilation (such as iOS). However, before the official release of version 3.6.0, we also faced a series of side effects resulting from the "elevation of the native level". The main issue was that the number of JSB calls (interactions between JS and CPP languages) increased significantly compared to previous versions. This directly offset the benefits brought by the elevation of the native level and even resulted in poorer performance compared to the previous version(v3.5). This article will introduce some optimization methods to reduce JSB calls. If developers encounter similar issues with excessive JSB calls in their own CPP code, we hope this article can provide some optimization insights.
 
 ## Shared Memory
 
@@ -51,7 +51,7 @@ NativeMemorySharedToScriptActor::~NativeMemorySharedToScriptActor() {
 void NativeMemorySharedToScriptActor::initialize(void* ptr, uint32_t byteLength) {
     CC_ASSERT_NULL(_sharedArrayBufferObject);
     // The callback of freeing buffer is empty since the memory is managed in native,
-    // the external array buffer just holds a reference to the memory.
+    //The external array buffer just holds a reference to the memory.
     _sharedArrayBufferObject = se::Object::createExternalArrayBufferObject(ptr, byteLength, [](void* /*contents*/, size_t /*byteLength*/, void* /*userData*/) {});
     // Root this object to prevent it from being garbage collected (GC), we will invoke `unroot` in the destroy function.
     _sharedArrayBufferObject->root();
@@ -138,7 +138,7 @@ In the Node constructor, `_sharedMemoryActor.initialize(&_eventMask, NODE_SHARED
 
 node.jsb.ts
 
-> Note: All files ending with `.jsb.ts` will be replaced with their corresponding versions without the `.jsb` extension during the packaging process. For example, `node.jsb.ts` will replace `node.ts`. You can refer to the `cc.config.json` file in the root directory of the engine for more details. It contains the corresponding `overrides` field, such as `"cocos/scene-graph/node.ts": "cocos/scene-graph/node.jsb.ts"`.
+> **Note**: All files ending with `.jsb.ts` will be replaced with their corresponding versions without the `.jsb` extension during the packaging process. For example, `node.jsb.ts` will replace `node.ts`. You can refer to the `cc.config.json` file in the root directory of the engine for more details. It contains the corresponding `overrides` field, such as `"cocos/scene-graph/node.ts": "cocos/scene-graph/node.jsb.ts"`.
 
 ```ts
 // The _ctor callback function in JS is triggered during the final stage of the `var node = new Node();` process in JS, i.e., after the CPP Node object is created. Therefore, the ArrayBuffer returned by the _getSharedArrayBufferObject binding function must exist.
@@ -284,7 +284,7 @@ Object.defineProperty(nodeProto, '_static', {
 
 ### Performance Comparison Results
 
-![](jsb/opt-1.jpg)
+![jsb/opt-1.jpg](jsb/opt-1.jpg)
 
 ## Avoiding Parameters Passing
 
@@ -297,7 +297,7 @@ import { IMat4Like, Mat4 } from '../core/math';
 
 declare const jsb: any;
 
-// For optimize getPosition, getRotation, getScale
+// For optimizing getPosition, getRotation, getScale
 export const _tempFloatArray = new Float32Array(jsb.createExternalArrayBuffer(20 * 4));
 
 export const fillMat4WithTempFloatArray = function fillMat4WithTempFloatArray (out: IMat4Like) {
@@ -515,11 +515,11 @@ void Node::setPositionInternal(float x, float y, float z, bool calledFromJS) {
 
 ### Performance Comparison Results
 
-![](jsb/opt-2.jpg)
+![opt-2.jpg](jsb/opt-2.jpg)
 
 ## Caching Properties
 
-Caching properties in the JS can help avoid accessing the C++ interface through getters and reduce JSB (JavaScript Bindings) calls.
+Caching properties in the JS can help avoid accessing the C++ interface through getters and reduce JSB(JavaScript Bindings) calls.
 
 node.jsb.ts
 
@@ -554,7 +554,7 @@ nodeProto._ctor = function (name?: string) {
 
 ### Performance Comparison Results
 
-![](jsb/opt-3.jpg)
+![opt-3.jpg](jsb/opt-3.jpg)
 
 ## Node Synchronization
 
@@ -568,7 +568,7 @@ for (let i = 0; i < children.length; ++i) {
 }
 ```
 
-The `.children` getter may be called frequently, which can result in excessive JSB (JavaScript Bindings) calls. The getter for `children` is bound in a unique way because it represents a JS array, while in CPP it corresponds to the type `ccstd::vector<Node*> _children;`. As a result, there is no straightforward way to synchronize data between JS Array and CPP's std::vector. If the `.children` getter is called using JSB each time, it will generate a temporary JS Array using `se::Object::createArrayObject`, and then convert each CPP child to JS child using `nativevalue_to_se` and assign it to the JS Array. This incurs a heavy conversion overhead and generates temporary arrays that need to be garbage collected, adding additional pressure to the GC.
+The `.children` getter may be called frequently, which can result in excessive JSB (JavaScript Bindings) calls. The getter for `children` is bound uniquely because it represents a JS array, while in CPP it corresponds to the type `ccstd::vector<Node*> _children;`. As a result, there is no straightforward way to synchronize data between JS Array and CPP's std::vector. If the `.children` getter is called using JSB each time, it will generate a temporary JS Array using `se::Object::createArrayObject`, and then convert each CPP child to JS child using `nativevalue_to_se` and assign it to the JS Array. This incurs a heavy conversion overhead and generates temporary arrays that need to be garbage collected, adding additional pressure to the GC.
 
 To address this issue, we cache the `_children` property in the JS. When `_children` is modified in the CPP, we use the event system to notify the JS code's `_children` to update its content. This is achieved by listening to `ChildAdded` and `ChildRemoved` events.
 
@@ -722,7 +722,7 @@ nodeProto._ctor = function (name?: string) {
 
 ### Performance Comparison Results
 
-![](jsb/opt-4.jpg)
+![opt-4.jpg](jsb/opt-4.jpg)
 
 ## Parameter Array Object Pool
 
@@ -855,13 +855,13 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
 
 ### Performance Comparison Results
 
-![](jsb/opt-5.jpg)
+![opt-5.jpg](jsb/opt-5.jpg)
 
 ## Conclusion
 
 The main optimization techniques employed in Cocos Creator 3.6.0 native engine are as follows:
 
-1. Implementing the engine's core modules in the native  (C++) to leverage the performance of C++ code execution.
+1. Implementing the engine's core modules in the native(C++) to leverage the performance of C++ code execution.
 2. Minimizing the frequency of cross-language interactions (JS <-> CPP) through the following five methods:
    - Shared memory: Improving performance by reducing memory copies.
    - Avoiding parameter passing: Using member variables instead of frequent parameter passing.
