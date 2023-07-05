@@ -111,8 +111,8 @@ Cocos Creator 扩展系统基于 Electron 的多进程方式构建，每一个�
 如果想 **查询** 和 **设置** 位于扩展主进程中的数据，假设扩展中定义了 `queryData` 和 `saveData` 两个消息，我们可以这样使用：
 
 ```typescript
-const data = await Editor.Message.request(pacakgeName, 'queryData', dataName);
-await Editor.Message.request(pacakgeName, 'saveData', dataName,dataValue);
+const data = await Editor.Message.request(packageName, 'queryData', dataName);
+await Editor.Message.request(packageName, 'saveData', dataName,dataValue);
 ```
 
 如果想广播通知整个扩展系统，则可以利用 **广播消息** 机制实现，详细信息请参考文档 [消息系统](./messages.md)。

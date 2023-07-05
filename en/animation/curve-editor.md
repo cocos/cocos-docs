@@ -18,8 +18,15 @@ In addition, shortcut keys can be used to control the pan and zoom of the horizo
 
 ### Adding keyframes
 
-1. Right-click on an existing curve segment where the keyframe is to be added, and then select **Add Keyframe to Curve** in the pop-up menu.
-2. When only one curve is displayed, right-click on any blank space and select **New Keyframe** in the pop-up menu.
+1. When there is only one curve, right-clicking on the curve or any blanket, and choose **Create key frame** on the popup menu to create a new key frame.
+
+    Take the particle system as an example:
+
+    ![add-keyframe-to-curve.png](animation-curve/add-keyframe-to-curve.png)
+
+2. For animation editor, key frames could be added by clicking the following button:
+
+    ![add-keyframe.png](animation-curve/add-keyframe.png)
 
 ### Selecting keyframes
 

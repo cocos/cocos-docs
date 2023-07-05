@@ -94,26 +94,29 @@ animationComponent.crossFade('run', 0.3);
 以下代码表示 `MyScript` 脚本组件所在节点的动画组件的默认动画剪辑在进行到第 0.5 秒时，将调用 `MyScript` 组件的 `onTriggered()` 方法并传递参数 `0`。
 
 ```ts
-import { Animation, Component } from 'cc';
-class MyScript extends Component {
-    constructor() {
+import { Animation, Component, _decorator } from 'cc';
+const { ccclass, property } = _decorator;
 
-    }
-
+@ccclass("MyScript")
+class MyScript extends Component {    
     public start() {
-        const animationComponent = this.node.getComponent(Animation);
-        if (animationComponent && animationComponent.defaultClip) {
-            const { defaultClip } = animationComponent;
-            defaultClip.events.push({
-                frame: 0.5, // 第 0.5 秒时触发事件
-                func: 'onTriggered', // 事件触发时调用的函数名称
-                params: [ 0 ], // 向 `func` 传递的参数
-            });            
+        const animation = this.node.getComponent(Animation);
+        if (animation && animation.defaultClip) {
+            const { defaultClip } = animation;                        
+            defaultClip.events = [
+                {
+                    frame: 0.5, // 第 0.5 秒时触发事件
+                    func: 'onTriggered', // 事件触发时调用的函数名称
+                    params: [ 0 ], // 向 `func` 传递的参数
+                }
+            ];                                         
+
+            animation.clips = animation.clips;                        
         }
     }
 
     public onTriggered(arg: number) {
-        console.log('I am triggered!');
+        console.log('I am triggered!', arg);
     }
 }
 ```
