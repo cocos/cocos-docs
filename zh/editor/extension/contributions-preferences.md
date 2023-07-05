@@ -125,7 +125,7 @@ Cocos Creator 允许每个扩展注册自己的编辑器配置，然后在偏好
 }
 ```
 
-上面的示例中，在 `contributions.profile.editor` 字段定义了 4 个数据项： `foo`、`foo1`、`foo2`、`foo3`。
+上面的示例中，在 `contributions.profile.editor` 字段定义了 4 个数据项： `foo`、`foo1`、`foo2`、`foo3`。详看 [配置系统](./profile.md)
 
 在 `contributions.preferences` 字段中，我们定义了 `properties` 和 `laboratory`。
 

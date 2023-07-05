@@ -104,7 +104,7 @@ Editor.Message.broadcast('scene:ready', sceneUUID);
 Editor.Message.broadcast('hello-world:ready');
 ```
 
-> **注意**：广播消息可以没有 `methods`，表示不监听。如上面的定义所示，表示 “hello-world” 不需要监听自己的初始化完成的消息。因此只监听 `scene:ready` 但并未监听 `hello-world:ready`。
+> **注意**：广播消息可以没有 `methods`，当一条消息没有 methods 的时候，不会触发处理函数，我们可以给他增加 public 字段，让它出现在 [**消息列表面板**](./messages.md#查看消息列表)。如上面的定义所示，表示 `hello-world:ready` 没有触发函数，但是会在 [**消息列表面板**](./messages.md#查看消息列表) 上显示。
 
 #### 广播消息的命名规范
 
@@ -172,3 +172,5 @@ Broadcast 则是这个扩展可能对外发出的广播消息，我们需要在 
     }
 }
 ```
+
+我们可以在自己的扩展里注册消息并展示到面板，只需要在消息定义里标记 `public` 字段为 `true`，详看[自定义消息](./contribution-messages.md)

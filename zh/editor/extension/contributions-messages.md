@@ -28,7 +28,7 @@
 
 类型 {string} 可选
 
-是否对外显示这条消息，如果为 true，则会在消息管理面板显示这条消息的基本信息。
+是否对外显示这条消息，如果为 true，则会在 **开发者->消息列表** 面板显示这条消息的基本信息。
 
 ### description
 
@@ -53,7 +53,7 @@
 这是一个字符串数组，字符串为扩展或者面板上的方法（methods）。
 如果是触发扩展主程序的方法，则直接定义 `methodName`，如果要触发扩展里定义的面板上的方法，则要填写 `panelName.methodName`。
 
-下面的示例中，`send-to-package` 将触发扩展主程序中的 `sendMessage` 方法，`send-to-panel` 将触发 `test-panel` 面板中的 `sendMessage` 方法。
+下面的示例中，`package-message` 将触发扩展主程序中的 `sendMessage` 方法，`panel-message` 将触发 `test-panel` 面板中的 `sendMessage` 方法。
 
 ```json5
 {
@@ -66,17 +66,17 @@
     },
     "contributions": {
         "messages": {
-            "send-to-package": {
+            "package-message": {
                 "public": true,
                 "description": "Test Message: send to extension main.js",
                 "doc": "Unable to find inheritance data. Please check the specified source for any missing or incorrect information.\nLine breaks are also supported.\n- options {any}",
                 "methods": [
-                    "sendMessage"
+                    "receiveMessage"
                 ]
             },
-            "send-to-panel": {
+            "panel-message": {
                 "methods": [
-                    "test-panel.sendMessage"
+                    "test-panel.receiveMessage"
                 ]
             },
             "hello-world:ready": {
@@ -96,8 +96,8 @@
 
 ```typescript
 export const methods: { [key: string]: (...any: any) => any } = {
-    sendMessage() {
-        console.log('Any');
+    receiveMessage() {
+        console.log('Received a message');
     },
 };
 
@@ -108,14 +108,15 @@ export function unload() { }
 
 ## 通过消息触发函数（执行消息）
 
-刚刚我们定义了两个消息，send-to-package 和 send-to-panel。
+刚刚我们定义了两个消息，`package-message` 和 `panel-message`。
 
 我们可以通过消息系统的 API 触发这个消息监听器：
 
 ```typescript
-Editor.Message.send('hello-world', 'send-to-panel');
-// Or
-await Editor.Message.request('hello-world', 'send-to-panel');
+// 不需要返回值
+Editor.Message.send('hello-world', 'panel-message');
+// Or 需要等待数据返回
+const result = await Editor.Message.request('hello-world', 'panel-message');
 ```
 
 关于更多消息机制，请参考文档 [消息系统](./messages.md)。

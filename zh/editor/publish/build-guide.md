@@ -46,11 +46,11 @@ Cocos Creator 的通用构建流程，主要包括以下内容：
 
 每个 `Bundle` 都会经过以下资源处理流程：
 
-- **脚本构建**：编辑器内的脚本分为 [扩展脚本](../../scripting/external-scripts.md) 和 **非扩展脚本** 两类，不同种类的处理规则不同。
+- **脚本构建**：编辑器内的脚本分为 [插件脚本](../../scripting/external-scripts.md) 和 **非插件脚本** 两类，不同种类的处理规则不同。
 
-    - **扩展脚本**：直接将源文件按照原来的目录结构拷贝到构建后生成的发布包目录下的 `src` 目录中，所以扩展脚本是不支持任何需要编译的脚本形式的，比如 `TypeScript` 或者是使用 ES6 写法的 `JavaScript`。扩展脚本的资源信息会写进 `settings.json` 的 `jsList` 数组中。
+    - **插件脚本**：直接将源文件按照原来的目录结构拷贝到构建后生成的发布包目录下的 `src` 目录中，所以插件脚本是不支持任何需要编译的脚本形式的，比如 `TypeScript` 或者是使用 ES6 写法的 `JavaScript`。扩展脚本的资源信息会写进 `settings.json` 的 `jsList` 数组中。
 
-    - **非扩展脚本**：将会全部打包成 `project.js`，放在对应的 `src` 目录下。勾选 `sourceMap` 选项将会生成对应的 `.map` 文件，根据 `debug` 选项来影响脚本是否混淆压缩。
+    - **非插件脚本**：将会全部打包成 `project.js`，放在对应的 `src` 目录下。勾选 `sourceMap` 选项将会生成对应的 `.map` 文件，根据 `debug` 选项来影响脚本是否混淆压缩。
 
 - **自动图集处理**：查询项目内部的自动图集资源列表，根据自动图集资源的配置将图集下的 `SpriteFrame` 小图打包成大图、生成序列化文件等等。这一步骤也会修改 `json` 分组信息、asset 资源分组信息以及根据需要添加纹理压缩任务。
 
@@ -117,7 +117,7 @@ Cocos Creator 的通用构建流程，主要包括以下内容：
 {
     debug: boolean; // 是否为调试模式，取自构建发布面板
     designResolution: ISettingsDesignResolution; // Canvas 分辨率设置，取自项目设置中的数据
-    jsList: string[]; // 扩展脚本信息
+    jsList: string[]; // 插件脚本信息
     launchScene: string; // 初始场景 url
     moduleIds: string[]; // 所有用户脚本组件的信息
     platform: string;
