@@ -200,6 +200,10 @@ find_library(EXAMPLE_LIB libexample /usr/local/lib)
 
 ### `target_compile_options`
 
+```CMake
+message(STATUS "my custom debug info")
+```
+
 `target_compile_options()` 命令用于为指定的目标设置编译选项。这个命令至少需要两个参数：目标名称和编译选项。例如，`target_compile_options(MyApp PRIVATE -Wall)`。这个命令将 `-Wall` 选项添加到 `MyApp` 的编译选项中。这意味着 `MyApp` 在编译时会启用所有的警告（这是 `-Wall` 选项的作用）。
 
 ## 常见的任务

@@ -69,7 +69,7 @@ The desktop browsers tested during the development of Cocos Creator include: **C
 Browsers tested on mobile devices include: **Safari (iOS)**, **Chrome (Android)**, **QQ Browser (Android)** and **UC Browser (Android)**.
 
 When you build Web-Desktop platform with `WEBGPU` option enabled, only certain versions of chromium is supported currently.
-Chromium history version is available [here](https://vikyd.github.io/download-chromium-history-version/#/), any version greater than 105 should be well supported by Cocos Creator's WebGPU build.
+Chromium history version is available [here](https://vikyd.github.io/download-chromium-history-version/#/), version 105 and 106 should be well supported by Cocos Creator's WebGPU build, support for later version is comming soon.
 After chromium is opened, visit `chrome://flags` in the address bar, then enable `WebGPU Developer Features` and reopen chromium, then everything is set for you to try your project rendered with WebGPU.
 
 ## Retina Settings

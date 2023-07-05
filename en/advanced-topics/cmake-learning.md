@@ -1,4 +1,4 @@
-# CMake Usage Introduction
+# Introduction to CMake Usage
 
 
 CMake is a very powerful build tool that can greatly simplify the software compilation process and improve development efficiency. Cocos Creator uses CMake on various native platforms. Here are some quick advantages of CMake:

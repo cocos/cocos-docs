@@ -1,8 +1,8 @@
-# 内置着色器（Builtin Effect）
+# 内置着色器
 
 引擎提供了一系列通用的内置着色器，位于编辑器 **资源管理器** 面板的 `internal -> effects` 目录下。双击着色器文件即可在外部 IDE 打开进行查看和编辑（前提是需要在 **偏好设置 -> 外部程序** 中配置 **默认脚本编辑器**）。
 
-Creator 将内置着色器大致归类为以下几种：
+Cocos Creator 将内置着色器大致归类为以下几种：
 
 - `internal`：内置引擎功能相关着色器，比如编辑器内用 gizmo，几何体渲染等等。用户通常不需要关注这些。
 - `pipeline`：管线特效着色器，包括延迟光照、后效和抗锯齿等。
@@ -30,16 +30,17 @@ Creator 将内置着色器大致归类为以下几种：
 
 ![内置着色器](img/builtin-effect.png)
 
-| 内置材质着色器名称                   | 说明                                                                                 |
+| 内置材质着色器名称                   | 说明 |
 | :--- | :--- |
 | builtin-standard.effect | [基于物理的光照模型 PBR](effect-builtin-pbr.md) |
-| builtin-terrain.effectbuiltin-billboard.effect | 地形系统默认着色器公告板<br>公告板是一种使物体始终朝向摄像机的渲染方案，适用于树木，血条等渲染 |
-| builtin-toon.effectbuiltin-camera-texture.effect | [卡通渲染](effect-builtin-toon.md)相机纹理 |
-| builtin-unlit.effectbuiltin-clear-stencil.effect | [无光照](effect-builtin-unlit.md)清理模板缓存 |
+| builtin-terrain.effect | 地形系统默认着色器 |
+| builtin-billboard.effect | 公告板<br>公告板是一种使物体始终朝向摄像机的渲染方案，适用于树木，血条等渲染 |
+| builtin-toon.effect | [卡通渲染](effect-builtin-toon.md) |
+| builtin-camera-texture.effect | 相机纹理 |
+| builtin-unlit.effect | [无光照](effect-builtin-unlit.md) |
+| builtin-clear-stencil.effect | 清理模板缓存 |
 
-
-
-| 其他内置着色器名称                 | 说明                                                                                 |
+| 其他内置着色器名称                 | 说明 |
 | :--- | :--- |
 | builtin-graphics.effect            | [Graphics 组件](../ui-system/components/editor/graphics.md) 的着色器 |
 | builtin-occlusion-query.effect     | 遮挡查询 |
