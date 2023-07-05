@@ -12,6 +12,7 @@
     - [JSB 手动绑定](jsb-manual-binding.md)
     - [JSB 自动绑定](jsb-auto-binding.md)
     - [sebind](jsb-sebind.md)
+- [原生引擎跨语言调用优化](jsb-optimizations.md)
 - [Java 原生反射机制](js-java-bridge.md)
 - [Objective-C 原生反射机制](js-oc-bridge.md)
 - [CMake 使用简介](cmake-learning.md)
