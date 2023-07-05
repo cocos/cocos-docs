@@ -92,7 +92,7 @@ const pkgs = Editor.Package.getPackages({ enable: true });
 | Name            | Type       | Description   |
 | :-------------- | :--------- | :------------ |
 | `extensionName` | `string`   | 扩展的名字 |
-| `type?`         | `PathType` | 地址类型（temp 临时目录，data 需要同步的数据目录,不传则返回现在打开的扩展路径） |
+| `type?`         | `PathType` | 地址类型（temp 临时目录，data 需要同步的数据目录，不传则返回现在打开的扩展路径） |
 
 ```typescript
 const path = Editor.Package.getPath('menu');  // "D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\menu"
