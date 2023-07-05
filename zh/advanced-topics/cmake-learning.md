@@ -267,7 +267,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 ## 在 Cocos 中使用 CMake
 
-Android 在编译 C++ 代码使用了 cmake, 这是原生支持的. 我们会通过 gradle 去配置参数和调用 cmake 命名生成/编译/打包 C++ 代码.  对于其他的原生平台, 我们会通过构建插件调用对于的 cmake 命令去生成工程文件.  在Windows 上的 Visual Studio 工程, Mac 上的 Xcode 工程. 后续的开发就只需通过 IDE 去完成.
+Android 在编译 C++ 代码使用了 cmake，这是原生支持的. 我们会通过 gradle 去配置参数和调用 cmake 命名生成/编译/打包 C++ 代码。对于其他的原生平台，我们会通过构建插件调用对于的 cmake 命令去生成工程文件。在Windows 上的 Visual Studio 工程，Mac 上的 Xcode 工程. 后续的开发就只需通过 IDE 去完成.
 
 由于 CMake 的特性，可能会因为不同的开发环境和配置而产生差异，因此不建议共享生成的工程文件。另外，对生成工程的修改很容易被后续生成的工程覆盖。相反，应该将 CMakeLists.txt 文件包含在项目中，并在每个开发环境中使用 CMake 来生成相应的工程文件。所有对工程的修改都应该以 CMake 指令的方式写入到 CMakeLists.txt 中。
 
@@ -361,7 +361,7 @@ option(USE_SPINE                "Enable Spine"                      ON)
 
 构建后生成的发布包目录（例如 `build/android`）下有一个 `proj/cfg.cmake` 文件，用于存放当前项目的一些配置。因为 `CMakeLists.txt` 中有对 `cfg.cmake` 文件进行引入，所以当 `cfg.cmake` 文件中的配置做了修改，便会同步到 `CMakeLists.txt` 中；若是相同的配置，则直接覆盖，以 `cfg.cmake` 文件中的为准。
 
-从 3.6.2 开始，开发者可以在 `native/engine/common/localCfg.cmake` 中覆盖 `cfg.cmake` 中设置的选项, 而且 `localCfg.cmake` 会从 GIT 中忽略。
+从 3.6.2 开始，开发者可以在 `native/engine/common/localCfg.cmake` 中覆盖 `cfg.cmake` 中设置的选项，而且 `localCfg.cmake` 会从 GIT 中忽略。
 
 ```CMake
 CMakeLists.txt
