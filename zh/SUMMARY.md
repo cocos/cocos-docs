@@ -358,6 +358,7 @@
         - [物理材质](physics/physics-material.md)
         - [物理事件](physics/physics-event.md)
         - [射线检测](physics/physics-raycast.md)
+        - [几何投射检测](physics/physics-sweep.md)
         - [连续碰撞检测](physics/physics-ccd.md)
         - [物理应用案例](physics/physics-example.md)
 
