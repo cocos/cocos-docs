@@ -36,7 +36,7 @@ Cocos Creator 提供了如上图所示 4 种扩展模板，用于快速创建一
 ![extension-folder](image/extension-folder-blank.png)
 
 各子文件（夹）功能如下：
-- `@types` - TypeScript 定义文件。
+- `@types` - TypeScript 定义文件。包含编辑器全局对象 Editor 的定义，以及一些消息，和扩展对外的类型定义。
 - `dist` - TypeScript 生成的 javascript 代码。
 - `i18n` - 多语言配置。
 - `src` - TypeScript 源代码。
