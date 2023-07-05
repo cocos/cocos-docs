@@ -37,7 +37,7 @@
 | 场景     | Asset Bundle   | loadScene  | N/A          | preloadScene | N/A | getSceneInfo    |
 | 单个资源 | `resources` | load       | release      | preload      | get | getInfoWithPath |
 | 文件夹   | `resources` | loadDir    | releaseAsset | preloadDir   | N/A | getDirWithPath  |
-| 远程     | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A | N/A             |
+| 远程     | Asset Manager  | loadRemote | releaseAsset | N/A          | N/A | N/A |
 
 相关文档可参考：
 

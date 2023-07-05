@@ -6,7 +6,7 @@ For example, a scene where a large number of identical characters are to be draw
 
 Currently, in the default [pre-baked skeletal animation mode](./skeletal-animation.md#pre-baked-Skeletal-Animation-System), the joint textures are already globally auto-reused, but the size of each texture and which animations they store are not available. and which animations are stored in each of them are unpredictable. If instancing of the skinned model is enabled without any processing, The final runtime effect may have some animations that are correct and some that are completely wrong, which are completely unpredictable.
 
-A **Joint Texture Layout Settings** panel was added to the editor menu bar **Panel -> Animation** to manually specify which animation information is stored for which skeletons in each joint texture.
+A **Joint Texture Layout Settings** page was added to the editor **Project Setting** panel to manually specify which animation information is stored for which skeletons in each joint texture.
 
 ![joint texture layout panel](./joint-texture-layout/joint-texture-layout-panel.png)
 

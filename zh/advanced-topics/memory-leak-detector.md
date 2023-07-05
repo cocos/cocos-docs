@@ -1,6 +1,6 @@
 # 原生引擎内存泄漏检测系统
 
-原生引擎使用 C++ 语言开发，内存泄漏问题不可避免，为了方便游戏和引擎开发者快速查找内存泄漏，Creator 从 v3.4 开始提供了 **内存泄漏检测系统**。
+原生引擎使用 C++ 语言开发，为了方便游戏和引擎开发者快速查找内存泄漏，Creator 从 v3.4 开始提供了 **内存泄漏检测系统**。
 
 相对其他内存泄漏查找工具，Cocos Creator 内置的内存泄漏检测工具有以下优点：
 
@@ -12,7 +12,7 @@
 
 ## 使用步骤
 
-1. 内存泄漏检测系统默认是关闭的。若要开启，需要将引擎目录下 `engine-native/cocos/base/Config.h` 文件中宏 `USE_MEMORY_LEAK_DETECTOR` 的值修改为 **1**。
+1. 内存泄漏检测系统默认是关闭的。若要开启，需要将引擎目录下 `engine/native/cocos/base/Config.h` 文件中宏 `USE_MEMORY_LEAK_DETECTOR` 的值修改为 **1**。
 
     ```c++
     #ifndef USE_MEMORY_LEAK_DETECTOR

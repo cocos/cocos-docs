@@ -30,6 +30,7 @@ Currently, when using the command line to build, except for the required build o
 ## Publish Parameters
 
 - `--project`: Required, specify the project path.
+- `--engine`: Optional, specify custom engine path.
 
 - `--build`: Specify the parameters to be used when building the project.
 

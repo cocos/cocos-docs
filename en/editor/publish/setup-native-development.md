@@ -1,6 +1,6 @@
-# Installation and Configuration of Native Development Environment
+# Setting up Native Development Environment
 
-Apart from publishing games to the Web, **Cocos Creator** uses JSB technology based on the **Cocos2d-x** engine for the cross-platform publishing of native games. Before using **Cocos Creator** to build and publish games to native platforms.
+Projects created with **Cocos Creator** can be published to multiple native platforms. Before publishing, it is necessary to configure native development related environment first.
 
 The document provides specific development environment requirements, and we have verified and ensured the smooth operation within these specified environments. However, please note that we cannot guarantee full functionality outside of the specified environments. If you encounter any issues in non-specified environments, please don't hesitate to reach out to our forum or support channels. Our community is dedicated to assisting you in resolving problems and collecting feedback to improve our documentation and tools.
 

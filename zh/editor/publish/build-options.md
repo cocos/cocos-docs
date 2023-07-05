@@ -126,10 +126,6 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 该项用于显示当前项目在 [服务](https://service.cocos.com/document/zh/) 面板所集成的所有服务。
 
-### Cocos Analytics
-
-若勾选该项，可直接启用 [服务](https://service.cocos.com/document/zh/) 面板中的 [Cocos Analytics](https://n-analytics.cocos.com/docs/zh/) 服务。
-
 ## 各平台相关构建选项
 
 由于目前构建机制上的调整，不同平台的处理均以扩展的形式注入 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择要构建的平台后，将会看到对应平台的展开选项，展开选项的名称便是平台扩展名，在编辑器主菜单的 **扩展 -> 扩展管理器 -> 内置** 中可以看到各平台扩展。
