@@ -138,7 +138,7 @@ Node 构造函数中调用 `_sharedMemoryActor.initialize(&_eventMask, NODE_SHAR
 
 node.jsb.ts
 
-> 注意：所有的 .jsb.ts 结尾的文件最终在打包的时候会替换对应不带 .jsb 的文件，比如这里 node.jsb.ts 会替换掉 node.ts，具体可以查看引擎根目录下的 cc.config.json 文件，有对应的 overrides 字段：*"cocos/scene-graph/node.ts"*: "cocos/scene-graph/node.jsb.ts",
+> **注意**：所有的 .jsb.ts 结尾的文件最终在打包的时候会替换对应不带 .jsb 的文件，比如这里 node.jsb.ts 会替换掉 node.ts，具体可以查看引擎根目录下的 cc.config.json 文件，有对应的 overrides 字段：*"cocos/scene-graph/node.ts"*: "cocos/scene-graph/node.jsb.ts",
 
 ```ts
 // JS 的 _ctor 回调函数会在 JS 的 var node = new Node(); 流程的最后阶段被触发，即 CPP Node 对象创建之后，因此 _getSharedArrayBufferObject 绑定函数返回的 ArrayBuffer 一定存在。
@@ -858,13 +858,13 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
 
 ### 性能对比
 
-![](jsb/opt-5.jpg)
+![opt-5.jpg](jsb/opt-5.jpg)
 
 ## 总结
 
-在Cocos Creator 3.6.0版本中，我们通过以下主要优化手段改进了原生引擎的性能：
+在 Cocos Creator 3.6.0 版本中，我们通过以下主要优化手段改进了原生引擎的性能：
 
-1. 在原生层（C++层）中实现引擎的核心模块，充分利用C++代码的执行性能。
+1. 在原生层（C++层）中实现引擎的核心模块，充分利用 C++ 代码的执行性能。
 2. 尽可能减少跨语言的交互（JS <-> CPP）频率，我们采用了以下五种方法进行优化：
    - 共享内存：通过减少内存拷贝的方式提高性能。
    - 避免接口传参：使用成员变量替代频繁的参数传递。
@@ -872,4 +872,4 @@ SE_HOT void jsbFunctionWrapper(const v8::FunctionCallbackInfo<v8::Value> &v8args
    - 节点同步：在节点操作时，通过事件监听机制同步节点的变化。
    - 参数数组对象池：使用对象池复用参数数组对象，减少内存分配和释放的开销。
 
-通过这些优化措施，我们改进了Cocos Creator引擎的性能表现。这些优化技术可以显著降低跨语言交互的开销，提高了引擎的整体性能和响应速度。
+通过这些优化措施，我们改进了 Cocos Creator 引擎的性能表现。这些优化技术可以显著降低跨语言交互的开销，提高了引擎的整体性能和响应速度。
