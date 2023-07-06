@@ -242,6 +242,8 @@
         - [UBO Layout](shader/ubo-layout.md)
         - [Fallback to WebGL 1.0](shader/webgl-100-fallback.md)
         - [VSCode Extension - Cocos Effect](shader/vscode-plugin.md)
+        - [Compute Shader](./shader/compute-shader.md)
+
     - [Sorting](engine/rendering/sorting.md)
     - [Effects](module-map/effects/index.md)
         - [Billboard](particle-system/billboard-component.md)
