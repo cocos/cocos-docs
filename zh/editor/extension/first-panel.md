@@ -25,7 +25,7 @@ npm run build
 
 ### 查看面板
 
-启用并刷新插件后，可以在 **面板（Panel）** 菜单中找到如下图所示的菜单项：
+启用并刷新扩展后，可以在 **面板（Panel）** 菜单中找到如下图所示的菜单项：
 
 ![extension-first-panel-menu](./first/extension-first-panel-menu.png)
 
@@ -39,7 +39,7 @@ npm run build
 
 点击上图中红色方框所示的 **发送消息给面板（Send message to Default Panel）** 按钮后，可以看到面板上显示的内容会发生改变。
 
-> **注意**：如果没有显示该菜单，请打开 **扩展管理器** 面板，并确认该插件已启用。
+> **注意**：如果没有显示该菜单，请打开 **扩展管理器** 面板，并确认该扩展已启用。
 >
 > ![enable-first-panel](./image/enable-first-panel.png)
 
@@ -49,7 +49,7 @@ npm run build
 
 ### 面板目录结构
 
-在项目所在目录，找到 `./extensions/first-panel` 文件夹，即可以总览整个插件的目录：
+在项目所在目录，找到 `./extensions/first-panel` 文件夹，即可以总览整个扩展的目录：
 
 ![extension-first-panel-folder](./first/extension-first-panel-folder.png)
 

@@ -1,6 +1,6 @@
 # Package
 
-插件管理器
+扩展管理器
 
 ## 接口说明
 
@@ -32,13 +32,13 @@ type PathType = 'home' | 'data' | 'temp';
 
 ▸ **disable**(path: `string`): `any`
 
-关闭一个插件
+关闭一个扩展
 
 **请求参数**
 
 | Name      | Type     | Description      |
 | :-------- | :------- | ---------------- |
-| `path`    | `string` | 插件所在路径 |
+| `path`    | `string` | 扩展所在路径 |
 | `options` | `any`    | 关闭时带上的配置 |
 
 ```typescript
@@ -49,13 +49,13 @@ Editor.Package.disable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app
 
 ▸ **enable**(path: `string`): `any`
 
-启动一个插件
+启动一个扩展
 
 **请求参数**
 
 | Name   | Type     | Description      |
 | :----- | :------- | ---------------- |
-| `path` | `string` | 插件所在路径 |
+| `path` | `string` | 扩展所在路径 |
 
 ```typescript
 Editor.Package.enable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\assets', {});
@@ -65,7 +65,7 @@ Editor.Package.enable('D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.
 
 ▸ **getPackages**(options?: `GetPackageOptions`): `EditorInterfacePackageInfo[]`
 
-查询插件列表
+查询扩展列表
 
 **请求参数**
 
@@ -85,14 +85,14 @@ const pkgs = Editor.Package.getPackages({ enable: true });
 
 ▸ **getPath**(extensionName: `string`, type?: `PathType`): `any`
 
-获取一个插件的几个预制目录地址
+获取一个扩展的几个预制目录地址
 
 **请求参数**
 
 | Name            | Type       | Description   |
 | :-------------- | :--------- | :------------ |
 | `extensionName` | `string`   | 扩展的名字 |
-| `type?`         | `PathType` | 地址类型（temp 临时目录，data 需要同步的数据目录,不传则返回现在打开的插件路径） |
+| `type?`         | `PathType` | 地址类型（temp 临时目录，data 需要同步的数据目录，不传则返回现在打开的扩展路径） |
 
 ```typescript
 const path = Editor.Package.getPath('menu');  // "D:\\Program\\CocosEditor\\Creator\\3.4.0\\resources\\app.asar\\builtin\\menu"
