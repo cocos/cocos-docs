@@ -6,7 +6,9 @@
 
 > 图片来自 [https://sketchfab.com](https://sketchfab.com/3d-models/man-in-coat-character-human-riged-model-758a855697be47a1be0d707623e3907e)
 
-这就是动画制作中的 T-Pose，整个人形伸直双手做出和 T 一样的形状。
+这就是动画制作中的 *绑定姿势*。因为整个人形伸直双手做出和 T 一样的形状，该姿势又称为 T-Pose。
+
+> 除了 T-Pose 之外，广泛应用在人形骨骼上的还有 A-Pose。
 
 不知道您有没有考虑过为什么会有 T-Pose 这样的 “怪异” 的姿势。
 
