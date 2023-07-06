@@ -4,13 +4,13 @@
 
 - **One Step, Two Steps**([Github](https://github.com/cocos/tutorial-mind-your-step-3d)): A game with step-by-step tutorial in the [Quick Start](getting-started/first-game/index.md).
 - **Material Examples**([Github](https://github.com/cocos/cocos-example-materials)): Show examples of engine builtin materials like standard PBR and toon, also includes examples for hair, skin, eye, leaf, etc.
-- **Render Pipeline Usage Demo**([Github](https://github.com/cocos/cocos-example-render-pipeline)): Demonstrates in Sponza how to use builtin post process render pipeline with all post process features enabled.
-- **Examples of Physics**([Github](https://github.com/cocos/cocos-example-physics)): Includes 2D and 3D physics test cases and examples, such as **Engulfing Black Hole**, **Simple Car**, **Falling ball**, etc. The test cases introduce some basic functions and usage methods.It helps you understand the physical functions with documentation easily.
-- **Marionette Animation Examples**([Github](https://github.com/cocos/cocos-example-marionette)): Demonstrates how to use [Marionette Aniamtion System](../animation/marionette/index.md) in details, including state machine, pose graph, events, IK etc.
-- **UI Example**（[Github](https://github.com/cocos/cocos-example-ui/) | [Cocos Store](https://store.cocos.com/app/detail/2799)）：A complex UI example, including the home page, store, backpack and other common game UI interface.
-- **Example Cases**([GitHub](https://github.com/cocos/cocos-example-projects)): Includes examples of networking, npm modules and other features.
+- **Render Pipeline Usage Demo**([Github](https://github.com/cocos/cocos-example-render-pipeline)): Demonstrates in Sponza how to use builtin post process render pipeline with all post-process features enabled.
+- **Examples of Physics**([Github](https://github.com/cocos/cocos-example-physics)): Includes 2D and 3D physics test cases and examples, such as **Engulfing Black Hole**, **Simple Car**, **Falling ball**, etc. The test cases introduce some basic functions and usage methods. It helps you understand the physical functions with documentation easily.
+- **Marionette Animation Examples**([Github](https://github.com/cocos/cocos-example-marionette)): Demonstrates how to use [Marionette Aniamtion System](../animation/marionette/index.md) in details, including state machine, pose graph, events, IK, etc.
+- **UI Example**（[Github](https://github.com/cocos/cocos-example-ui/) | [Cocos Store](https://store.cocos.com/app/detail/2799)）： A complex UI example, including the home page, store, backpack, and other common game UI interface.
+- **Example Cases**([GitHub](https://github.com/cocos/cocos-example-projects)): Includes examples of networking, npm modules, and other features.
 - **Modules Test Cases**([Github](https://github.com/cocos/cocos-test-projects)): The example project of each function of the engine, which basically covers most of the function modules of the engine. Users can refer to the usage in this project when using the functions for development.
-- **Practical Solutions**([GitHub](https://github.com/cocos/cocos-awesome-tech-solutions)): A collection of practical soulutions provided by technical support engineers.
+- **Practical Solutions**([GitHub](https://github.com/cocos/cocos-awesome-tech-solutions)): A collection of practical solutions provided by technical support engineers.
 - **Jump Ball 3D**([Github](https://github.com/cocos/cocos-example-ball) | [Cocos Store](https://store.cocos.com/app/detail/2802)): Users can make jump ball games through this project.
 - **Taxi Game 3D**([Github](https://github.com/cocos/cocos-tutorial-taxi-game) | [Cocos Store](https://store.cocos.com/app/en/detail/2796)): A physics-based 3d game, users can make taxi games through this project.
 
@@ -32,6 +32,6 @@
 
 ## More
 
-- [Cocos Forum](https://discuss.cocos2d-x.org/)：ask questions, find anwsers, communicate with other developers.
-- [Cocos Store](http://store.cocos.com/)：various art assets, extensions, source codes and learning demos.
-- [Youtube channel — Cocos](https://www.youtube.com/@CocosEngine)：news and tutorials
+- [Cocos Forum](https://discuss.cocos2d-x.org/)： ask questions, find answers, communicate with other developers.
+- [Cocos Store](http://store.cocos.com/)： various art assets, extensions, source codes and learning demos.
+- [Youtube channel — Cocos](https://www.youtube.com/@CocosEngine)：news and tutorials.
