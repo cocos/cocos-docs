@@ -245,6 +245,7 @@
         - [UBO 内存布局策略](shader/ubo-layout.md)
         - [WebGL 1.0 向下兼容支持](shader/webgl-100-fallback.md)
         - [VSCode 着色器插件](shader/vscode-plugin.md)
+        - [计算着色器](./shader/compute-shader.md)
 
     - [渲染排序](engine/rendering/sorting.md)
 
