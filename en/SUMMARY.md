@@ -237,6 +237,7 @@
         - [Write Shaders](shader/write-effect-overview.md)
             - [2D Sprite Shader: Gradient](shader/write-effect-2d-sprite-gradient.md)
             - [3D Shader: RimLight](./write-effect-3d-rim-light.md)
+        - [Skin material](shader/advanced-shader/skin.md)
         - [Instanced Attributes](shader/instanced-attributes.md)
         - [UBO Layout](shader/ubo-layout.md)
         - [Fallback to WebGL 1.0](shader/webgl-100-fallback.md)
@@ -351,8 +352,10 @@
         - [Physics Material](physics/physics-material.md)
         - [Physics Event](physics/physics-event.md)
         - [Raycast Detection](physics/physics-raycast.md)
+        - [Geometry Cast Detection](physics/physics-sweep.md)
         - [Continuous Collision Detection](physics/physics-ccd.md)
         - [Physics Application Cases](physics/physics-example.md)
+        - [Character Controller](physics/character-controller/index.md)
 
 - [Particle System](particle-system/index.md)
     - [2D Particle System](particle-system/2d-particle/2d-particle.md)

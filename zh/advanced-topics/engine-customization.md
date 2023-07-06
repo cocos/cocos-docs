@@ -163,6 +163,15 @@ Cocos 原生引擎的编译，需要依赖 `cocos-engine/native/external` 中的
 
 ## 重新编译原生引擎模拟器
 
+    ```bash
+    cd cocos-engine/native
+    git clone https://github.com/cocos/cocos-engine-external external --branch tag
+    ```
+    
+    `branch_name` 是新的分支名；`tag` 是第三方库对应的 `tag` 名字，可以从 `cocos-engine/native/external-config.json` 里的 `checkout` 字段获取该值。
+    
+- 使用引擎自带的脚本下载。该脚本只会下载某个 `tag` 对应的第三方库。后续只要使用的 `tag` 有变化，就需要重新下载。每次需要下载几百兆的内容。
+
 Cocos Creator 提供了基于原生引擎的模拟器预览功能：
 
 ![custom-native-simulator](engine-customization/custom-native-simulator.png)
