@@ -1,6 +1,6 @@
 # RenderRoot2D 
 
-![renedertoot2d.png](renderroot2d\renedertoot2d.png)
+![renedertoot2d.png](./renderroot2d/renedertoot2d.png)
 
 The RenderRoot2D component is the parent class of [Canvas](./canvas.md), any 2D/UI elements that need to renderer should be attached under a node with RenderRoot2D component.
 
