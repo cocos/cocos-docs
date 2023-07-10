@@ -4,6 +4,7 @@
         "readme": "index.md"
     },
     "variables": {
+        "docType": "Manual",
         "products": [
             {
                 "name": "Cocos Creator",
