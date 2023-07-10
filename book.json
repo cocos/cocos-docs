@@ -7,9 +7,9 @@
         "anchorjs",
         "sharing",
         "splitter",
-        "theme-default-customize@git+https://github.com/cocos-creator/theme-default.git",
-        "github-issue-feedback-language-custom@git+https://github.com/cocos-creator/gitbook-plugin-github-issue-feedback.git",
-        "expandable-chapters-small@git+https://github.com/cocos-creator/gitbook-plugin-expandable-chapters-small.git"
+        "theme-default-customize@git+https://github.com/cocos-creator/gitbook-theme-default.git",
+        "github-issue-feedback-language-custom@git+https://github.com/cocos-creator/cocos-gitbook-plugin-github-issue-feedback.git",
+        "expandable-chapters-small@git+https://github.com/cocos-creator/cocos-gitbook-plugin-expandable-chapters-small.git"
     ],
     "styles": {
         "website": "./styles/website.css"
