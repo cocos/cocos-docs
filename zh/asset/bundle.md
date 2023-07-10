@@ -373,7 +373,7 @@ assetManager.removeBundle(bundle);
 
 ![bundle-build.png](./bundle/bundle-build.png)
 
-必须拥有至少一个构建任务，才可以构建 Bundle。点击面上上的 **打开构建面板** 来创建新的构建任务。
+必须拥有至少一个构建任务，才可以构建 Bundle。点击面板上的 **打开构建面板** 来创建新的构建任务。
 
 ![build-task.png](./bundle/build-task.png)
 
