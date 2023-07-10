@@ -371,8 +371,6 @@ Click the **Preview** button to preview all the assets in the bundle.
 
 Since v3.8, Cocos Creator supports the Build Bundle feature which allows the users can build a specified bundle instead of build all the asset bundles.
 
-在 **属性检查器** 的下方找到 **构建 Bundle** 点击该按钮会弹出构建面板。
-
 To open the **Build Bundle** panel, after selecting a bundle, click the **Build Bundle** button at the bottom of the **Inspector** panel.
 
 ![bundle-build.png](./bundle/bundle-build.png)
