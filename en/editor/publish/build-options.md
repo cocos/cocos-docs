@@ -35,6 +35,19 @@ It is necessary to set the first scene to enter after opening the game. One way 
 
 During the build process, all the assets and scripts in the bundle will be packaged except for the `resources` folder in the project directory and the assets and scripts in the bundle. Other assets are packaged on demand according to the scenes involved in the build and the asset referenced in the `bundle`. Therefore, removing the check box for scenes that do not need to be released can reduce the size of the project release package generated after the build.
 
+### Bundles
+
+As of v3.8, developers can decide whether a Bundle should participate in a build based on the needs of the project.
+
+![bundle-option](./build-options/bundle-option.png)
+
+- Select all: all Bundles will participate in the build.
+- Uncheck it to select the Bundle you want to participate in the build from the dropdown box.
+
+  ! [bundle-select.png](. /build-options/bundle-select.png)
+
+  > Main and engine built-in internal bundles cannot be canceled.
+
 ### MD5 Cache
 
 Adding MD5 information to all the asset file names after building can solve the problem of CDN or browser asset caching.

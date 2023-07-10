@@ -121,3 +121,9 @@ To view all the log information, there are the following operations:
 
 You can still add a new build task during the build process, and the new build task will be added to the build queue.
 During the build process, you can click the X button on the right side of the build task to interrupt the current build task.
+
+### Build Bundle Only
+
+![build-dropdown.png](./build-panel/build-dropdown.png)
+
+Cocos Creator supports **Build Bundles Only** since v3.8. All selected Bundles can be built at once when building the project. Unlike building individual Bundles, the **Build Bundles Only** option will build all Bundles and store public assets in high-priority Bundles.

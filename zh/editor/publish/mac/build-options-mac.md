@@ -2,6 +2,10 @@
 
 ![build-options-mac](./images/build-options-mac.png)
 
+## 可执行文件名
+
+用于指定应用程序主执行文件名称的字段，这个字段被存储在应用的 Info.plist 文件中。如果未填写，系统将根据应用名称字段生成默认值。值的设定只能包含数字、字母、下划线(_)以及减号(-)。
+
 ## Bundle Identifier
 
 包名，通常以产品网站 URL 倒序排列，如 `com.mycompany.myproduct`。

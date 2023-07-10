@@ -35,6 +35,19 @@
 
 在构建过程中，除了项目目录下的 `resources` 文件夹以及 bundle 中的资源和脚本会全部打包外，其他资源都是根据参与构建的场景以及 bundle 中的资源引用情况来按需打包的。因而去除勾选不需要发布的场景，可以减少构建后生成的项目发布包包体体积。
 
+### Bundles
+
+自 v3.8 起，开发者可以根据项目的需求，来决定某个 Bundle 是否要参与到构建中。
+
+![bundle-option](./build-options/bundle-option.png)
+
+- 全选：所有的 Bundle 都会参与构建。
+- 取消后可以从下拉框内选择需要参与构建的 Bundle。
+
+  ![bundle-select.png](./build-options/bundle-select.png)
+
+  > 主包和引擎内置 internal 包不可取消。
+
 ### MD5 缓存
 
 为构建后的所有资源文件名加上 MD5 信息，可以解决 CDN 或者浏览器资源缓存问题。
