@@ -329,7 +329,7 @@ If you want to disable the splash screen, please refer to [Build Options](../pub
 
 ![bundle-config.png](index/bundle-config.png)
 
-Bundle Config allows users can config different configurations for various platforms. For example, to distinguish normal textures and high resolution textures, or for different shops, etc. For more, please refer to [Asset Bundle](../../asset/bundle.md).
+Bundle Config allows users can config different configurations for various platforms. For example, to distinguish normal textures and high-resolution textures, or for different shops, etc. For more, please refer to [Asset Bundle](../../asset/bundle.md).
 
 Currently, three main types of platforms are supported by Cocos Creator including the native platform, web, and mini-games.
 
@@ -337,17 +337,17 @@ You can select the target platform by clicking on the platform buttons.
 
 ![bundle-platforms.png](./index/bundle-platforms.png)
 
-Use the menus on the top right of the panel to create new, import or export a config.
+Use the menus on the top right of the panel to create a new, import, or export config.
 
 ![bundle-menus.png](./index/bundle-menus.png)
 
-- **New Config**: Create a totally new config.
+- **New Config**: Create a new config.
 
     ![bundle-change-type.png](./index/bundle-change-type.png)
 
     After a config is created, you can select it by clicking on the drop-down box beside **Platform Settings** on the **Inspector** panel when a bundle is selected.
 
-    > Different bundles can use different config.
+    > Different bundles can use different configs.
 
 - **Import Config**：To import a JSON file as the bundle config.
 - **Export Config**：Export the config to reuse it in other projects.

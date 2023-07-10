@@ -336,23 +336,23 @@ The **Build Filter Config** allows you to config the selected bundle, and choose
 
 ### Filter Type
 
-There are two types of the filter, **Asset** and **URL**, the default value is **URL**.
+There are two types of filters, **Asset** and **URL**, the default value is **URL**.
 
 ![filter-type](./bundle/filter-type.png)
 
 - **Asset**: Take an asset as a filter type. Drag an asset from the **Assets** panel or click the lock button ![lock.png](./bundle/lock.png)  to select one.
-- **ULR**: Filter all assets in the selected bundle according to one of the four rules including **Glob Expression**, **Begin With**, **End With**, and **Containing**. After the rule is set, type any string in the right input-box to filter assets.
+- **ULR**: Filter all assets in the selected bundle according to one of the four rules including **Glob Expression**, **Begin With**, **End With**, and **Containing**. After the rule is set, type any string in the right input box to filter assets.
 
     ![filter-rule.png](./bundle/filter-rule.png)
 
 | Rule | Description |
 | :---| :---|
 | **Glob** | Glob Expression which can be referred by [npm](https://www.npmjs.com/package/glob).|
-| **Begin With** | Filter all assets begin with what in the input-box |
-| **End With** | Filter all assets end with what in the input-box |
-| **Containing** | Filter all assets containing what in the input-box |
+| **Begin With** | Filter all assets beginning with what is in the input-box |
+| **End With** | Filter all assets end with what is in the input-box |
+| **Containing** | Filter all assets containing what in the input box |
 
-To add a new filter rule, clicking the "+" button on the right.
+To add a new filter rule, click the "+" button on the right.
 Click the "-" button to delete the last added or selected rule.
 
 ### Include
@@ -361,7 +361,7 @@ A **Include** rule will include all the assets it configs.
 
 ### Exclude
 
-A **Exclude** rule will exclude all the assets meet the rule out of the bundle.
+A **Exclude** rule will exclude all the assets that meet the rule out of the bundle.
 
 ### Preview
 
@@ -369,13 +369,13 @@ Click the **Preview** button to preview all the assets in the bundle.
 
 ## Build Bundle
 
-Since v3.8, Cocos Creator supports the Build Bundle feature which allows the users can build a specified bundle instead of build all the asset bundles.
+Since v3.8, Cocos Creator supports the Build Bundle feature which allows the users can build a specified bundle instead of building all the asset bundles.
 
 To open the **Build Bundle** panel, after selecting a bundle, click the **Build Bundle** button at the bottom of the **Inspector** panel.
 
 ![bundle-build.png](./bundle/bundle-build.png)
 
-You need have at least one build task to build a bundle. Click the **Open Build Panel** button to create a new build task.
+You need to have at least one build task to build a bundle. Click the **Open Build Panel** button to create a new build task.
 
 ![build-task.png](./bundle/build-task.png)
 
@@ -387,26 +387,27 @@ Select a bundle from the drop-down list, and click the **Build** button at the b
 
 ![select-bundle.png](./bundle/select-bundle.png)
 
-There are to types of **Build Path**.
+There are two types of **Build Path**.
 
 ![build-path.png](./bundle/build-path.png)
 
 - file: The absolute path of the output bundle.
-- project：A related path based on the project.
+- project： A related path based on the project.
 
 ![select-open.png](./bundle/select-open.png)
 
-To select a different path, click the selected button ![select.png](./bundle/select.png), or after the build task finished, use the open button ![open.png](./bundle/open.png) to locate the output directory.。
+To select a different path, click the selected button ![select.png](./bundle/select.png), or after the build task is finished, use the open button ![open.png](./bundle/open.png) to locate the output directory.。
 
 Select platforms to build on the **Publish Config** list.
 
 ![task.png](./bundle/task.png)
 
-After clicking the **Build** button, it can be cancelled by clicking on the **Cancel** button.
+After clicking the **Build** button, it can be canceled by clicking on the **Cancel** button.
 
 ![building.png](./bundle/building.png)
 
-This feature is designed for the big projects or some time-consuming bundles. Developers can build these bundles separately to reduce the build time.
+This feature is designed for big projects or some time-consuming bundles. Developers can build these bundles separately to reduce the build time.
+
 
 ## FAQ
 
