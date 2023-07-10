@@ -1,14 +1,12 @@
 # Publish to Alipay Mini Game
 
-> **NOTE**: Starting May 24, 2022, Alipay will no longer support the release of mini-games.
-
 ## Environment Configuration
 
 - Download [Alipay Mini Program Studio](https://render.alipay.com/p/f/fd-jwq8nu2a/pages/home/index.html) to the desktop and install it.
 
 - Download [Alipay](https://mobile.alipay.com/index.htm) and install it on your mobile device.
 
-- The minimum version supported of the Alipay client on Android is 10.1.75 and on iOS is 10.1.78.
+- The minimum version supported of the Alipay client on Android is 10.3.70 and on iOS is 10.3.70.
 
 ## Publishing Process
 
@@ -41,20 +39,11 @@ It is recommended to save only the script files in the game package, and downloa
 
 ## Restrictions for Alipay Mini Game
 
-Work on adapting the Alipay Mini Game is not completely finished yet, and it is known that the text rendering may not work well on low-end machines. And the following modules are still not supported:
+The following modules are still not supported:
 
 - WebView
 - VideoPlayer
-- Subpackage loading
-- Custom Fonts
-
-The above features are expected to be gradually supported in future updates, and we will continue to communicate closely with the engineers of Alipay Mini Game to continuously optimize the adaptation effect.
 
 ## Documentation
 
-Since Alipay Mini Game related documentation is currently only available internally, developers who need it can contact them directly at:
-
-| Contact | Email |
-| :---- | :---- |
-| Li Zhi | lz98684@alibaba-inc.com |
-| Huang Jiao | huangjiao.hj@alibaba-inc.com |
+Since Alipay Mini Game related documentation is currently only available internally, developers can directly contact the members of Alipay integration group if needed.

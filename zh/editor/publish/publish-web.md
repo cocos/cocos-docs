@@ -28,7 +28,7 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 | 资源服务器地址 | 用于下载远程资源的服务器地址，详情请参考下文 **资源服务器地址** 部分的内容。 | `remoteServerAddress` |
 | 设备方向 | 可选值包括 **Auto**、**Landscape**、**Portrait** | `orientation` |
 | Polyfills | 构建支持一些脚本新特性的 polyfills，在打包脚本时会做对应处理，目前包括 **async Functions** 和 **coreJs** 两种，开发者可以根据实际需求选择需要的 polyfills。 | `polyfills` |
-| vConsole | 插入 vConsole 调试插件，vConsole 类似 DevTools 的迷你版，用于辅助调试。 | `embedWebDebugger` |
+| vConsole | 插入 vConsole 调试工具，vConsole 类似 DevTools 的迷你版，用于辅助调试。 | `embedWebDebugger` |
 | 预览二维码 | 用于扫描预览，详情可见下方介绍 | - |
 | 预览 URL | 用于预览的链接，详情可见下方介绍 | - |
 
@@ -57,9 +57,9 @@ Cocos Creator 提供了两种 Web 平台的页面模板，可以通过 **发布�
 
 ### 开启 WebGPU
 
-Cocos Creator自3.6.2起开始支持WebGPU, 构建Web-Desktop的时候勾选`WEBGPU`即可.
-构建`WebGPU`之后，先定位到构建好的资源文件所在文件夹，可以点击构建面板上的文件夹按钮直达，需要一个http-server或者nginx服务器来访问。
-在此之前请先检查浏览器的兼容性，下章**浏览器兼容性**会有详细介绍。
+Cocos Creator 自 v3.6.2 起开始支持 WebGPU, 构建 Web-Desktop 的时候勾选 `WEBGPU` 即可。
+构建 `WebGPU` 之后，先定位到构建好的资源文件所在文件夹，可以点击构建面板上的文件夹按钮直达，需要一个 http-server 或者 nginx 服务器来访问。
+在此之前请先检查浏览器的兼容性，下章 **浏览器兼容性** 会有详细介绍。
 
 ### 浏览器兼容性
 

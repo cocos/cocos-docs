@@ -172,7 +172,7 @@ console.log(l10n.t('this_is_apple'))
 // 这是一个苹果
 ```
 
-> **注意**: 语言数据需要配合 Localization Editor 插件在编译后生成。
+> **注意**: 语言数据需要配合 Localization Editor 扩展在编译后生成。
 ---
 
 ##### `exists`

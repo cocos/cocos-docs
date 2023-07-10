@@ -57,7 +57,9 @@ export class TestContactCallBack extends Component {
 
 ```
 
-The above code example demonstrates how to add all the collision callback functions to a script. There are four types of callbacks, each callback function has three parameters, see [Callback parameters](#Callback-parameters) below for details. The role of each callback function is shown in the comments, and developers can implement their own callback functions according to their needs.
+> __Note__：Contact2DType.PRE_SOLVE and Contact2DType.POST_SOLVE are deprecated since v3.7.1.
+
+The above code example demonstrates how to add all the collision callback functions to a script. There are four types of callbacks, each callback function has three parameters, see [Callback parameters](#callback-parameters) below for details. The role of each callback function is shown in the comments, and developers can implement their own callback functions according to their needs.
 
 ## Callback Order
 
@@ -111,9 +113,9 @@ Collision 3<br>
 
 The callback parameters contain all the collision contact information, and each callback function provides three parameters:
 
-- **selfCollider**: refers to the collider on the node of the callback script.
-- **otherCollider**: refers to the other collider.
-- **contact**: it's an interface of the class `IPhysics2DContact`. Contains the most important information about the collision. Some useful information in **contact** object are location of the collision and the normal vector. **contact** store location information according to rigidbody's local coordinate system. What we need however is information from world coordinate system. We can use `contact.getWorldManifold` to get these information. Note that the builtin physics module parameter is null.
+- __selfCollider__: refers to the collider on the node which the script attached
+- __otherCollider__: refers to the other collider.
+- __contact__: it's an interface of the class `IPhysics2DContact`. Contains the most important information about the collision. Some useful information in __contact__ object are location of the collision and the normal vector. __contact__ store location information according to rigidbody's local coordinate system. What we need however is information from world space. We can use `contact.getWorldManifold` to get these information. Note that the builtin physics module parameter is null.
 
 ### worldManifold
 
@@ -149,7 +151,7 @@ const normal = worldManifold.normal;
 
   The lines shown in the figure is the normal vectors on the contact point. In this collision, the quickest way to solve the collision is to add the impulse to push the triangle to the top and push the box down to the right. The normal vector here is only about the direction, not with the location properties, nor with connection to any of these contact points.
 
-  It is also necessary to understand that the **collision normal vector is not the same as the angle in which two object collides**. It will only be able to point the direction which can solve the two colliders intersecting with each other. For example, in the above example, if the triangle moves a little faster, the intersection will be shown below:
+  It is also necessary to understand that the __collision normal vector is not the same as the angle in which two object collides__. It will only be able to point the direction which can solve the two colliders intersecting with each other. For example, in the above example, if the triangle moves a little faster, the intersection will be shown below:
 
   ![world-manifold-normal-2](./image/world-manifold-normal-2.png)
 
@@ -177,7 +179,7 @@ contact.disabledOnce = true;
 
 ### Modify contact information
 
-To modify the contact information in **onPreSolve** because **onPreSolve** is called before the physics engine handles the contact information. Changes to the contact information will affect the subsequent collision calculations.
+To modify the contact information in __onPreSolve__ because __onPreSolve__ is called before the physics engine handles the contact information. Changes to the contact information will affect the subsequent collision calculations.
 
 ```ts
 // Modify the friction between the collision bodies

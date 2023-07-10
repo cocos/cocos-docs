@@ -41,3 +41,14 @@ Cocos Creator 既是一款高效、轻量、免费开源的跨平台 2D&3D 图�
 - [Cocos 官方论坛](https://forum.cocos.org/) 可以提问、查找问题答案、与其他开发者交流
 - [案例与教程](./cases-and-tutorials/index.md) 可以获得教程和官方示例项目
 - [Cocos Store](https://store.cocos.com) 可以获得更多素材、学习案例以及源码
+
+## 产品线简介
+
+Cocos（雅基软件）多年来不断发展，已经发布了多个与 Cocos Creator 密切相关的产品线。为避免混淆，以下是对这些产品的简要介绍：
+- **Cocos Creator 3.x**：发布于 2021 年初，是当前 Cocos Creator 的最新版本，已经过大量商业项目验证。3.x 完全摒弃了 Cocos2d-x 底层，采用全新高性能跨平台 3D 内核，标志着 Cocos Creator 正式发展为全面的泛移动端 3D 游戏引擎。由于 3.x 底层已经完全重写，Cocos Creator 不再被视为 Cocos2d-x 的直接扩展和升级版本。
+- **Cocos Creator 2.x**：发布于 2018 年，2023 年停止更新。所有能力已被 Cocos Creator 3.x 继承，因此建议新项目使用[最新的 Cocos Creator 3.x](https://www.cocos.com/creator-download)。
+- **Cocos Creator 3D**：2017 年立项，2019 年底以 Cocos Creator 3D 的身份在中国进行了一年多的小规模测试，后正式合并至 Cocos Creator 3.0。由于已被 Cocos Creator 3.x 替代且不再单独更新，提及 Cocos Creator 3D 时通常指代 Cocos Creator 本身的 3D 能力，而非此特定版本。
+- **[Cocos2d-x](https://www.cocos.com/cocos2d-x)**：发布于 2010 年，2019 年停止更新。这是 Cocos2d 社区最活跃的分支，Cocos Creator 2.x 最初采用的底层运行时便是升级过后的 Cocos2d-x。
+- **Cocos**：当 Cocos 作为引擎的名字单独出现时，通常代表 Cocos Creator 3.x，而不是 Cocos2d-x。
+
+经过多年的快速发展，Cocos Creator 3.x 与 Cocos Creator 2.x 在用法上已经有所不同，二者的 API 也不完全兼容。因此，在查阅文档、API 和教程时，请开发者注意辨别目标版本是 2.x 还是 3.x，以免因版本不一致导致错误。

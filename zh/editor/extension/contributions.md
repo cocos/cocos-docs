@@ -42,7 +42,7 @@ Cocos Creator 支持各个扩展间互相提供数据（`contributions`）。
 
 - `menu` - 定义扩展需要新增的菜单信息，详细信息请参看文档 [自定义主菜单](./contributions-menu.md)。
 
-- `messages` - 定义扩展需要用到的消息列表，详细信息请参看文档 [自定义消息](./contributions-messages.md)。
+- `messages` - 定义扩展需要用到的[消息列表](./messages.md#查看消息列表)，详细信息请参看文档 [自定义消息](./contributions-messages.md)。
 
 - `shortcuts` - 定义扩展需要用到的快捷键，详细信息请参看文档 [自定义快捷键](./contributions-shortcuts.md)。
 

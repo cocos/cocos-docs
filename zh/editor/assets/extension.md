@@ -1,10 +1,10 @@
 # 增强资源管理器面板
 
-为了能更好的理解本篇文档内容，在继续阅读本文档之前，推荐大家先阅读 Cocos Creator [扩展编辑器](../extension/readme.md) 文档，了解插件开发相关知识。
+为了能更好的理解本篇文档内容，在继续阅读本文档之前，推荐大家先阅读 Cocos Creator [扩展编辑器](../extension/readme.md) 文档，了解扩展开发相关知识。
 
 ## 自定义右击菜单
 
-若要自定义右击菜单，请先参考 [创建并安装扩展](../extension/first.md/#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95) 新建一个插件，在插件的 `package.json`文件中，通过定义 `contributions.assets.menu` 字段，即可对 **资源管理器** 面板的右击菜单显示事件进行监听，可以实现菜单的追加，如下所示：
+若要自定义右击菜单，请先参考 [创建并安装扩展](../extension/first.md/#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95) 新建一个扩展，在扩展的 `package.json`文件中，通过定义 `contributions.assets.menu` 字段，即可对 **资源管理器** 面板的右击菜单显示事件进行监听，可以实现菜单的追加，如下所示：
 
 ```json5
 // package.json
@@ -118,9 +118,9 @@ export function onAssetMenu(assetInfo: AssetInfo) {
 
 ## 拖入识别
 
-假设我们做了一个拥有若干资源的插件包，且有一个面板用于展示这些资源的图标。 我们希望实现将面板上的图标拖放到资源窗口时，即可将资源包中的资源拷贝到资源窗口。
+假设我们做了一个拥有若干资源的扩展包，且有一个面板用于展示这些资源的图标。 我们希望实现将面板上的图标拖放到资源窗口时，即可将资源包中的资源拷贝到资源窗口。
 
-在 Cocos Creator 插件中实现这个流程并不复杂。只需要定义一个 `<ui-drag-item type="xxx">` UI 组件，自定义一个拖入类型，并注入到 **资源管理器** 面板的识别范围内。后续在编辑器其他面板将含有该自定义类型的 `<ui-drag-item>` 元素拖入 **资源管理器** 面板时，**资源管理器** 面板便能识别到它，并给自定义类型的注册方（插件）发送消息，注册方便能执行一个自定义的动作，比如执行新建一组资源。
+在 Cocos Creator 扩展中实现这个流程并不复杂。只需要定义一个 `<ui-drag-item type="xxx">` UI 组件，自定义一个拖入类型，并注入到 **资源管理器** 面板的识别范围内。后续在编辑器其他面板将含有该自定义类型的 `<ui-drag-item>` 元素拖入 **资源管理器** 面板时，**资源管理器** 面板便能识别到它，并给自定义类型的注册方（扩展）发送消息，注册方便能执行一个自定义的动作，比如执行新建一组资源。
 
 和 **自定义右击菜单** 一样，我们需要在 `package.json` 文件做对应的配置。
 
@@ -139,13 +139,13 @@ export function onAssetMenu(assetInfo: AssetInfo) {
   },
   "messages": {
     "drop-asset": {
-      "methods": ["default.dropAsset"], // 'default' 是指当前插件的默认面板
+      "methods": ["default.dropAsset"], // 'default' 是指当前扩展的默认面板
     },
   },
 }
 ```
 
-- 在插件的 `default` 面板中加入 `dropAsset` 方法，如下所示：
+- 在扩展的 `default` 面板中加入 `dropAsset` 方法，如下所示：
 
   ```typescript
   export const methods = {
@@ -162,7 +162,7 @@ export function onAssetMenu(assetInfo: AssetInfo) {
     - `type`：string - 该资源的类型
     - `isDirectory`：boolean - 该资源是否是文件夹
 
-- 在插件的 `defualt` 面板中加入 `ui-drag-item` UI 组件，如下所示：
+- 在扩展的 `defualt` 面板中加入 `ui-drag-item` UI 组件，如下所示：
 
   ```html
   <ui-drag-item

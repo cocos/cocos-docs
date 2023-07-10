@@ -1,4 +1,4 @@
-# Event Mecanism based on JsbBridge
+# JsbBridgeWrapper - An Event Mechanism based on JsbBridge
 
 > **Note**: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
 

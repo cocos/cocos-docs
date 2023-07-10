@@ -126,20 +126,16 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 该项用于显示当前项目在 [服务](https://service.cocos.com/document/zh/) 面板所集成的所有服务。
 
-### Cocos Analytics
-
-若勾选该项，可直接启用 [服务](https://service.cocos.com/document/zh/) 面板中的 [Cocos Analytics](https://n-analytics.cocos.com/docs/zh/) 服务。
-
 ## 各平台相关构建选项
 
-由于目前构建机制上的调整，不同平台的处理均以插件的形式注入 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择要构建的平台后，将会看到对应平台的展开选项，展开选项的名称便是平台插件名，在编辑器主菜单的 **扩展 -> 扩展管理器 -> 内置** 中可以看到各平台插件。
+由于目前构建机制上的调整，不同平台的处理均以扩展的形式注入 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择要构建的平台后，将会看到对应平台的展开选项，展开选项的名称便是平台扩展名，在编辑器主菜单的 **扩展 -> 扩展管理器 -> 内置** 中可以看到各平台扩展。
 
 各平台相关构建选项，详情请参考：
 
 - [发布到原生平台](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
 - [发布到小游戏平台](publish-mini-game.md)
 
-Creator 支持自定义构建扩展插件，处理方式与平台插件一致，详情可参考 [自定义构建流程](custom-build-plugin.md)。
+Cocos Creator 支持自定义构建扩展，处理方式与平台扩展一致，详情可参考 [自定义构建流程](custom-build-plugin.md)。
 
 ## 其他参与构建的参数配置
 
