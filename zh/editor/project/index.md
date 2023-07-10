@@ -333,6 +333,47 @@ interface ICompressPresetItem {
 > 2. 插屏只会在打包后生效，预览时不会生效
 > 3. 部分国家和地区未开放完整的插屏功能，若对您造成不便，我们深表歉意。
 
+## Bundle 配置
+
+![bundle-config.png](index/bundle-config.png)
+
+Bundle 配置，可以让用户针对性的对不同的平台配置自己的 Bundle 方案，举一些例子，如：区分普通素材的和高清素材，针对不同的商店，等等。请参考 [Asset Bundle](../../asset/bundle.md)。
+
+目前 Cocos Creator 支持发布的平台主要为三类：原生平台、Web 以及小游戏。
+
+点击不同平台的按钮可以修改不同平台的配置。
+
+![bundle-platforms.png](./index/bundle-platforms.png)
+
+通过 Bundle 配置面板右上角的菜单，可以选择 **新建配置**、**导入配置** 或 **导出配置**。
+
+![bundle-menus.png](./index/bundle-menus.png)
+
+- **新建配置**：新建一个 Bundle 配置，新建后开发者可以在 Bundle 中修改配置。
+
+    ![bundle-change-type.png](./index/bundle-change-type.png)
+
+    选中任何配置的 Bundle，在 **平台设置** 选项中的下拉菜单中选择需要的配置。
+
+    > 不同的 Bundle 可以采用不同的配置。
+
+- **导入配置**：从外界导入已导出的 JSON 文件格式的 Bundle 配置
+- **导出配置**：将配置导出为 JSON 可供其他项目使用
+
+对于新增的配置，可以通过点击右侧的按钮 **复制配置**、**复制 ID**、**重命名** 和 **删除**。
+
+![bundle-copy.png](./index/bundle-copy.png)
+
+### 平台覆盖
+
+目前 Cocos Creator 支持多种平台发布，在各平台发布时，可以选择新增配置覆盖当前已经配置的平台选项。
+
+点击 **平台覆盖** 右侧的 “+” 号，选择目标平台。
+
+![bundle-override.png](./index/bundle-override.png)
+
+根据需要选择新的平台之后，这些新平台的配置将覆盖之前的通用配置。
+
 ## 自定义项目设置面板
 
 Creator 支持在 **项目设置** 右侧添加自定义功能页，详情请参考 [自定义项目设置面板](../../editor/extension/contributions-project.md)。
