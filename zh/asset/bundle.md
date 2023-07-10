@@ -396,7 +396,7 @@ assetManager.removeBundle(bundle);
 
 点击右侧的选择路径 ![select.png](./bundle/select.png) 可以将 Bundle 发布到不同的位置，或者待构建完成后点击 ![open.png](./bundle/open.png) 可以定位到 Bundle 的输出目录。
 
-通过 **发布配置** 右侧的列表，勾选该 Bundle 要发布的平台。
+通过 **发布配置** 右侧的列表，勾选该 Bundle 要发布的平台极其配置。
 
 ![task.png](./bundle/task.png)
 
