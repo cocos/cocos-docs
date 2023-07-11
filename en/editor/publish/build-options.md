@@ -44,7 +44,7 @@ As of v3.8, developers can decide whether a Bundle should participate in a build
 - Select all: all Bundles will participate in the build.
 - Uncheck it to select the Bundle you want to participate in the build from the dropdown box.
 
-  ! [bundle-select.png](. /build-options/bundle-select.png)
+  ![bundle-select.png](./build-options/bundle-select.png)
 
   > Main and engine built-in internal bundles cannot be canceled.
 
