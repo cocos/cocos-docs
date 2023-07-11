@@ -5,7 +5,7 @@ Unlit is the most basic shading model, under which no light source from the engi
 - Objects that are not affected by light sources
 - Scenes with low screen requirements or high performance requirements
 
-When switching the shader to the Creator's built-in unlit shader (builtin-unilit.effect) in the material's **Effect** property, the following image is shown:
+When switching the shader to the Creator's built-in unlit shader (builtin-unlit.effect) in the material's **Effect** property, the following image is shown:
 
 ![unlit](img/unlit-shademode.png)
 
@@ -19,7 +19,7 @@ To use PBR lighting, see: [Physically Based Rendering](effect-builtin-pbr.md)
 
 | parameter | description |
 | :--- | :--- |
-| mainTexture    | The main textrue |
+| mainTexture    | The main texture |
 | tilingOffset   | Scaling and offset of the model UV, xy corresponds to scaling, zw corresponds to offset |
 | mainColor      | The main color, which will be processed within the slice shader |
 | colorScale     | Multiply with main color to scale the main color |
@@ -31,6 +31,6 @@ To use PBR lighting, see: [Physically Based Rendering](effect-builtin-pbr.md)
 | :--- | :---- |
 | USE_INSTANCING | Whether to enable GPU geometry instancing |
 | USE_VERTEX_COLOR | Whether to overlay vertex colors and alpha values |
-| USE_TEXTURE      | Whether to use the main texture (`mainTexture)` |
+| USE_TEXTURE      | Whether to use the main texture (`mainTexture`) |
 | USE_ALPHA_TEST   | Whether to perform translucency testing (AlphaTest) |
 | SAMPLE_FROM_RT   | Whether to sample from the RenderTexture or not, when checked the Y value of the UV will be flipped |

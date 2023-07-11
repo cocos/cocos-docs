@@ -111,8 +111,8 @@ Since the process also exits when the panel is closed, we usually use the extens
 If you want to **query** and **set** the data located in the main process of the extension, assuming the extension defines two messages ``queryData` and `saveData`, we can use them as follows
 
 ```typescript
-const data = await Editor.Message.request(pacakgeName, 'queryData', dataName);
-await Editor.Message.request(pacakgeName, 'saveData', dataName,dataValue);
+const data = await Editor.Message.request(packageName, 'queryData', dataName);
+await Editor.Message.request(packageName, 'saveData', dataName,dataValue);
 ```
 
 If you want to broadcast notifications to the entire extension system, you can do so using the **broadcast message** mechanism, see the documentation [Messaging System](./messages.md).

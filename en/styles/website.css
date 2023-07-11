@@ -152,6 +152,11 @@
   text-align: right;
   min-width: 180px;
 }
+.version-link > ul {
+  right: 0;
+  width: auto !important;
+  min-width: 180px;
+}
 .version-link ul li .btn {
   padding-right: 35px;
   padding-left: 0;
@@ -159,6 +164,21 @@
 .version-link a span {
   padding: 0;
 }
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+
+  z-index: 10;
+
+  color: #0C090A;
+  background-color: #cccccc;
+
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 20px;
+}
+
 .book-header {
   min-width: 800px;
 }

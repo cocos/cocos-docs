@@ -133,7 +133,7 @@ For an existing effect, the migration field is declared as follows:
 ```yaml
 migrations:
   # macros: # macros follows the same rule as properties, without the component-wise features
-  # USE_MIAN_TEXTURE: { formerlySerializedAs: USE_MAIN_TEXTURE }
+  # USE_MAIN_TEXTURE: { formerlySerializedAs: USE_MAIN_TEXTURE }
   properties:
     newFloat: { formerlySerializedAs: oldVec4.w }
 ```
@@ -270,4 +270,4 @@ To again summarize the relevant rules set to prevent data loss.
 | Targets[i].<br>blendDstAlpha  | Specify the alpha blend factor for the **blend destination** | **zero** | one, zero, src_alpha_saturate,<br>src_alpha, one_minus_src_alpha,<br>dst_alpha, one_minus_dst_alpha,<br>src_color, one_minus_src_color,<br>dst_color, one_minus_dst_color,<br>constant_color, one_minus_constant_color,<br>constant_alpha, one_minus_constant_alpha |
 | Targets[i].<br>blendAlphaEq   |  Specifies the alpha blending function for **blend source** and **blend destination** | **add** | add, sub, rev_sub                                                           |
 | Targets[i].<br>blendColorMask | Specifies whether the RGB, Alpha component can be written to the frame buffer | **all** | all, none, r, g, b, a, rg, rb, ra, gb, ga, ba, rgb, rga, rba, gba           |
-| dynamics | Dynamically updateable pipeline status  | [] |    LINE_WIDTH, DEPTH_BIAS, BLEND_CONSTANTS, DEPTH_BOUNDS, STENCIL_WRITE_MASK, STENCIL_COMPARE_MASK |
+| dynamics | Dynamically updatable pipeline status  | [] |    LINE_WIDTH, DEPTH_BIAS, BLEND_CONSTANTS, DEPTH_BOUNDS, STENCIL_WRITE_MASK, STENCIL_COMPARE_MASK |

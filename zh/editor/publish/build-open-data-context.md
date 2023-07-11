@@ -71,7 +71,7 @@ export default {
 ## 定制开放数据域工程
 
 在定制开放数据域工程之前，开发者需要先了解一些基础信息：
-- [minigame-canvas-engine 快速入门](https://wechat-miniprogram.github.io/minigame-canvas-engine/api/guide.html#%E5%AE%89%E8%A3%85)
+- [minigame-canvas-engine 快速入门](https://wechat-miniprogram.github.io/minigame-canvas-engine/overview/guide.html)
 - [doT 模版引擎使用](http://olado.github.io/doT/?spm=a2c6h.12873639.0.0.36f45227oKu0XO)
 
 对这些基础信息有了大致的了解之后，我们来看一下构建后默认生成的开放数据域模版，目录结构如下：

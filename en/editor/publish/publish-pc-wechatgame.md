@@ -12,7 +12,7 @@ Cocos Creator supports publishing games to WeChat PC Mini Games, and completes t
 
 Download and install the latest version of [WeChat for PC](https://windows.weixin.qq.com/?lang=en_US) and login to it with the WeChat account bound to the WeChat DevTools.
 
-### Process of Publising
+### Process of Publishing
 
 1. Refer to the process of [Publish to WeChat Mini Games](./publish-wechatgame.md) and publish the game project to the WeChat Mini Game.
 
@@ -27,7 +27,7 @@ A: You can determine by `sys.isMobile` that the PC side returns `false` and the 
 > **Note**: the simulator on the WeChat DevTools simulates a environment on the mobile, so it returns `true`.
 
 Q: Does the WeChat PC Mini Game support Mac?<br>
-A: Not yet supported. By 2021-01-19, WeChat PC Mini Game has been officially launched, and it only supports Windows currently. Later on, we will actively cooperate with the engineers of WeChat PC Mini Game to adapt the Mac system at the first time.
+A: Yes. WeChat PC Mini Game already support Mac. The publishing process is the same as above.
 
 ## Related Reference Links
 

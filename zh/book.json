@@ -20,19 +20,6 @@
                 ]
             },
             {
-                "name": "Cocos Creator 3D",
-                "links": [
-                    {
-                        "name": "手册文档",
-                        "link": "https://docs.cocos.com/creator3d/manual/zh"
-                    },
-                    {
-                        "name": "API 参考",
-                        "link": "https://docs.cocos.com/creator3d/api/zh"
-                    }
-                ]
-            },
-            {
                 "name": "Cocos2d-x",
                 "links": [
                     {

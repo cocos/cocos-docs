@@ -32,7 +32,7 @@
                 <mxCell id="88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#99CCFF;" parent="1" source="62" target="64" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" value="根据当前项目的资源构建情况，生成 settings 对象数据，平台插件处理子包等相关信息。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#7EA6E0;fontColor=#0F0F0F;spacingTop=2;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                <mxCell id="62" value="根据当前项目的资源构建情况，生成 settings 对象数据，平台扩展处理子包等相关信息。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#7EA6E0;fontColor=#0F0F0F;spacingTop=2;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="180" y="400" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#99CCFF;" parent="1" source="64" target="89" edge="1">
