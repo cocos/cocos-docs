@@ -48,6 +48,19 @@ As of v3.8, developers can decide whether a Bundle should participate in a build
 
   > Main and engine built-in internal bundles cannot be canceled.
 
+### Embed Shared Script in Bundle
+
+![embed-script-in-bundle.png](./build-options/embed-script-in-bundle.png)
+
+Whether to embed shared scripts in bundle when build.
+
+> This option is read only, and only switched with the build button changes from **Normal Build** or **Build Bundle** in the **Build** panel.
+
+- Unchecked:
+  When building a Bundle, if there are shared scripts inside the Bundle, they will not be built inside the Bundle, but the script inside the Bundle will be built separately inside bundle.js in src/chunk. Therefore, the bundles built in this way are integrated with the project, which means that such bundles are smaller in size, but cannot exist separately from the project.
+- When checked:
+  The scripts inside the bundle are not built into the public JS library but inside the bundle. Such Bundle can be run independently from the project (because the required scripts are inside the Bundle, and Bundles referencing the same code may have duplicated parts), and can be loaded and run correctly even in other projects, but the drawback is that because the script resources are inside the Bundle, the final size of the Bundle will be larger.
+
 ### MD5 Cache
 
 Adding MD5 information to all the asset file names after building can solve the problem of CDN or browser asset caching.
