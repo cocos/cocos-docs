@@ -117,7 +117,7 @@ To view all the log information, there are the following operations:
 
 ### Build Queue and Interrupt Build
 
-![interrupt](build-panel/interrupt-build.gif)
+![interrupt](./build-panel/interrupt.gif)
 
 You can still add a new build task during the build process, and the new build task will be added to the build queue.
 During the build process, you can click the X button on the right side of the build task to interrupt the current build task.
