@@ -123,8 +123,8 @@ export class LOD extends Component {
 
 ![hover.png](./lod/hover.png)
 
-- Face count(%)：面数比例
-- Screen Ratio：最小屏占比
+- Face count(%)：面数比例，优化后的网格的三角面数量除以原始网格面数得到的比例。如 25% 则会优化掉原始模型的 75% 的面数。
+- Screen Ratio：最小屏占比，和 LOD 组件的 Screen Ratio 属性一致，请查看上文。
 
 每个层级和 LOD 组件的设置类似，可以修改不同层级的面数占比。
 

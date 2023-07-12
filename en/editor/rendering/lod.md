@@ -123,8 +123,8 @@ Mouse over the hierarchy to click ![-](./lod/+.png)/![-](./lod/-.png) to increas
 
 ![hover.png](./lod/hover.png)
 
-- Face count(%): Face count ratio
-- Screen Ratio: Minimum screen ratio
+- Face count(%): the face count ratio, the ratio of the number of triangular faces of the optimized mesh divided by the number of faces of the original mesh. For example, 25% means 75% original faces will be optimized.
+- Screen Ratio: the minimum screen ratio, same as the Screen Ratio property of the LOD component, see above.
 
 Each tier is set up similarly to the LOD component, allowing you to modify the percentage of faces in different tiers.
 
