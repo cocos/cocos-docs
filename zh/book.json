@@ -5,6 +5,7 @@
         "readme": "index.md"
     },
     "variables": {
+        "docType": "手册",
         "products": [
             {
                 "name": "Cocos Creator",
