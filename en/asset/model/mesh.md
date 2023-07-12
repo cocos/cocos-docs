@@ -88,6 +88,12 @@ The policy for Disable mesh split in v3.6 is as follows：
 
 ![warn](mesh/mesh-optimizer-warn.png)
 
+### LOD
+
+The mesh importer will automatically take sub-meshes end with _lodN as a LOD node, if none, you can use the auto LOD by check the LOD check box.
+
+For more, please refer to [Level Of Details](../../editor/rendering/lod.md)。
+
 ### Animation Module
 
 ![mesh_animation](mesh/mesh_animation.png)

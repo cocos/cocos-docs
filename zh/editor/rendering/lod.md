@@ -113,6 +113,21 @@ export class LOD extends Component {
 
 ![auto-match](lod/auto-match.png)
 
+#### 自动 LOD
+
+自 v3.8 起，我们优化了模型导入时的 LOD 功能，如模型未带有 LOD 信息，可以在模型的 **属性检查器** 上找到 Model 分页，找到并编辑模型的 LOD，勾选 LOD 的单选框则可以启用自动 LOD。
+
+![model.png](./lod/model.png)
+
+鼠标移动到层级上可以点击 ![-](./lod/+.png)/![-](./lod/-.png) 来增加和减少层级。
+
+![hover.png](./lod/hover.png)
+
+- Face count(%)：面数比例
+- Screen Ratio：最小屏占比
+
+每个层级和 LOD 组件的设置类似，可以修改不同层级的面数占比。
+
 ## Q&A
 
 - 我是否可以添加多个 LOD Group
