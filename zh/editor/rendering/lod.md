@@ -115,7 +115,7 @@ export class LOD extends Component {
 
 #### 自动 LOD
 
-自 v3.8 起，我们优化了模型导入时的 LOD 功能，如模型未带有 LOD 信息，可以在模型的 **属性检查器** 上找到 Model 分页，找到并编辑模型的 LOD，勾选 LOD 的单选框则可以启用自动 LOD。
+自 v3.8 起，我们优化了模型导入时的 LOD 功能，如模型未带有 LOD 信息，可以在网格的 **属性检查器** 上的 Model 分页，找到并编辑模型的 LOD，勾选 LOD 的单选框则可以启用自动 LOD。
 
 ![model.png](./lod/model.png)
 
