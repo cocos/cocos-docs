@@ -151,8 +151,11 @@
   padding-right: 15px;
   text-align: right;
   min-width: 180px;
+  display: flex;
+  align-items: center;
 }
 .version-link > ul {
+  top: 100%;
   right: 0;
   width: auto !important;
   min-width: 180px;
