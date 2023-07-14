@@ -297,6 +297,7 @@
             - [Auto Layout Container](ui-system/components/engine/auto-layout.md)
             - [Create a List of Dynamically Generated Content](ui-system/components/engine/list-with-data.md)
             - [Stretchable UI Sprite](ui-system/components/engine/sliced-sprite.md)
+            - [Android Large Screen Adaptation](ui-system/components/engine/large-screen.md)
 
 - [Animation](animation/index.md)
     - [Animation Clip](animation/animation-clip.md)
