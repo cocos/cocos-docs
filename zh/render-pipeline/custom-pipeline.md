@@ -231,7 +231,7 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 <img src="./image/cp-feature-enable.png" width=760></img>
 
 通过填写 **自定义管线** 的名字，选择注册好的 **自定义渲染管线**。
-- 目前支持 **Custom**, **Forward**, **Deferred** 三种 (其中 Custom 是基于 Forward 基础上添加的 Bloom 后效示例)。
+- 目前支持 **前向渲染管线**（名字为 Custom 或 Forward）和 **后向渲染管线**（名字为 Deferred）两种。
 
 <img src="./image/cp-pipeline-selection.png" width=760></img>
 
