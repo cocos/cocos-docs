@@ -45,7 +45,7 @@ Cocos**自定义渲染管线**能够在不同的平台、不同的硬件设备�
 <img src="./image/cp-feature-enable.png" width=760></img>
 
 通过填写 **自定义管线** 的名字，选择注册好的 **自定义渲染管线**。
-- 引擎目前内置 **Forward**, **Deferred** 两种管线。用户可以编写自己的管线。
+- 目前支持 **前向渲染管线**（名字为 Custom 或 Forward）和 **后向渲染管线**（名字为 Deferred）两种。
 
 <img src="./image/cp-pipeline-selection.png" width=760></img>
 
