@@ -232,7 +232,7 @@ Check the **Custom Rendering Pipeline** in **Project Settings** -> **Feature Cro
 
 Select a registered **custom rendering pipeline** by filling in the name of the **custom pipeline**.
 
-Currently only 'Forward', 'Deferred' are supported.
+**Forward Render Pipeline** (named Custom or Forward) and **Backward Render Pipeline** (name Deferred) are currently supported.
 
 <img src="./image/cp-pipeline-selection.png" width=760></img>
 

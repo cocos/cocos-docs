@@ -6,15 +6,9 @@ Post process and some common post effects are added to Cocos Creator in v3.8.
 
 ## Enable Post Process
 
-1. Enable custom render pipeline.
-
-  Open the **Project Settings** panel by clicking on the **Project** -> **Project Settings**. Navigate to the **Custom Render Pipeline** property on the **Feature Cropping** page.
+1. [Turn on the Custom Pipeline and switch to **Forward Render Pipeline**](../custom-pipeline.md#Feature Enable), as shown in the figure:
 
   ![1](img/1.png)
-
-2. Switch the render pipeline to **Custom**.
-
-  Navigate to the **Macro Configurations** page, find the **CUSTOM_PIPELINE_NAME** property, and rename it to `Custom`.
 
   ![2](img/2.png)
 
@@ -153,7 +147,7 @@ Properties:
 - HBAO enabled
 
   ![hbao-enabled](img/hbao-enabled.png)
- 
+
 - Clicking on the debug menu in the scene, and choose the **Ambient Occlusions** menu to debug the HBAO
 
   ![hbao-debugview](img/hbao-debugview.png)
