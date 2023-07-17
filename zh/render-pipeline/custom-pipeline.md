@@ -58,7 +58,7 @@ Cocos**自定义渲染管线**能够在不同的平台、不同的硬件设备�
 - 基础渲染管线
 - 标准渲染管线
 
-### 基础渲染管线(BasicPipeline)
+## 基础渲染管线(BasicPipeline)
 
 基础渲染管线提供跨平台的基础渲染功能，适用一切平台。
 
@@ -97,7 +97,7 @@ interface BasicRenderPassBuilder extends Setter {
     addQueue (hint?: QueueHint, phaseName?: string): RenderQueueBuilder;
 }
 ```
-### 标准渲染管线(Pipeline)
+## 标准渲染管线(Pipeline)
 
 标准渲染具备更丰富的管线功能，目前支持GLES3、Vulkan、Metal三个后端。
 
@@ -127,15 +127,91 @@ export interface ComputePassBuilder extends Setter {
     addQueue (phaseName?: string): ComputeQueueBuilder;
 }
 ```
-根据不同的平台，用户可以针对性构建不同的渲染通道。
+根据不同的平台，用户可以针对性构建不同的渲染管线。
 
 比如在移动平台上，用户可以通过**渲染子通道**(RenderSubpass)利用芯片上的高速缓存，减少内存读写来降低发热。
 
 在桌面平台上，用户则可以使用**计算通道**(ComputePass)编写复杂的图形算法。充分利用平台特性。
 
+### 渲染子通道 RenderSubpass （实验性质）
+
+渲染子通道表示渲染的一个阶段，该阶段读取和写入渲染通道中的一部分附件(Attachment)。
+
+渲染命令(Render commands)被记录到渲染通道实例的特定子通道中。
+
+```typescript
+export interface RenderSubpassBuilder extends Setter {
+    addRenderTarget (
+        name: string,
+        accessType: AccessType,
+        slotName?: string,
+        loadOp?: LoadOp,
+        storeOp?: StoreOp,
+        color?: Color): void;
+    addDepthStencil (
+        name: string,
+        accessType: AccessType,
+        depthSlotName?: string,
+        stencilSlotName?: string,
+        loadOp?: LoadOp,
+        storeOp?: StoreOp,
+        depth?: number,
+        stencil?: number,
+        clearFlags?: ClearFlagBit): void;
+    addTexture (name: string, slotName: string, sampler?: Sampler | null, plane?: number): void;
+    addStorageBuffer (name: string, accessType: AccessType, slotName: string): void;
+    addStorageImage (name: string, accessType: AccessType, slotName: string): void;
+    addQueue (hint?: QueueHint, phaseName?: string): RenderQueueBuilder;
+}
+```
+
+渲染子通道支持输入附件(Input Attachment)，可以通过`slotName`、`depthSlotName`、`stencilSlotName`指定，这个名字需要与effect中的注册的输入附件名字一致。
+```glsl
+// .effect
+#pragma subpass
+#pragma subpassColor in albedoMap
+#pragma subpassColor in normalMap
+#pragma subpassColor in emissiveMap
+#pragma subpassDepth in depthBuffer
+#pragma isubpassStencil in stencilBuffer // isubpass的i表示输入附件类型为int
+
+void main () {
+    vec4 albedo = subpassLoad(albedoMap);
+    vec4 normal = subpassLoad(normalMap);
+    vec4 emissive = subpassLoad(emissiveMap);
+    float depth = subpassLoad(depthBuffer).x;
+    int stencil = subpassLoad(stencilBuffer).x;
+    ...
+}
+```
+
+### 计算通道 ComputePass
+
+计算通道是对一次计算任务的抽象，可以调用Compute Shader，执行计算任务。
+
+```typescript
+export interface ComputePassBuilder extends Setter {
+    addTexture (name: string, slotName: string, sampler?: Sampler | null, plane?: number): void;
+    addStorageBuffer (name: string, accessType: AccessType, slotName: string): void;
+    addStorageImage (name: string, accessType: AccessType, slotName: string): void;
+    addQueue (phaseName?: string): ComputeQueueBuilder;
+}
+
+export interface ComputeQueueBuilder extends Setter {
+    addDispatch (
+        threadGroupCountX: number,
+        threadGroupCountY: number,
+        threadGroupCountZ: number,
+        material?: Material,
+        passID?: number): void;
+}
+```
+
+更多内容见[计算着色器](../shader/compute-shader.md)。
+
 ## 渲染队列（RenderQueue）
 
-**渲染队列** 是 **渲染通道**（Render Pass）的子节点，有严格的渲染先后顺序。只有一个 **渲染队列** 的内容完全绘制后，才会绘制下一个 **渲染队列** 的内容。
+**渲染队列** 是 **渲染通道/子通道**的子节点，有严格的渲染先后顺序。只有一个 **渲染队列** 的内容完全绘制后，才会绘制下一个 **渲染队列** 的内容。
 
 可以通过`RenderQueueBuilder`添加绘制内容，**渲染队列** 内对象的渲染顺序是未定义的，可能是任何顺序。
 
@@ -158,23 +234,6 @@ export enum SceneFlags {
 }
 ```
 
-## 计算队列（ComputeQueue）
-
-**计算队列** 只包含 **分发**（`Dispatch`）命令，可以调用Compute Shader，执行计算任务。
-
-Dispatch按顺序执行。
-
-```typescript
-export interface ComputeQueueBuilder extends Setter {
-    addDispatch (
-        threadGroupCountX: number,
-        threadGroupCountY: number,
-        threadGroupCountZ: number,
-        material?: Material,
-        passID?: number): void;
-}
-```
-
 ## 渲染数据设置
 
 我们可以通过`Setter`设置Shader里用到的数据和只读资源，名字是Shader里的变量名。
@@ -194,19 +253,42 @@ export interface Setter extends RenderNode {
 }
 ```
 
-这些数据需要是只读的。如果需要修改数据，需要注册到管线中，由管线进行管理。
+这里用到的数据和资源是管线相关的。材质相关的，需要设置到材质上，不应重复设置。
+
+资源必须是只读的。如果需要读写数据，需要注册到管线中，由管线进行管理。
 
 ### 数据更新频率
 
 Effect中，不同的变量有不同的更新频率。由低到高大致分为：
-- pass
-- phase
-- batch
-- instance
+- `pass`
+- `phase`
+- `batch`
+- `instance`
 
 effect中需要在变量声明前加上`#pragma rate`指定更新频率。
+- `batch`为缺省值
+- `instance`暂不支持自定义
 
-RenderGraph中的每个节点的更新频率，由节点的类型决定。
+例子:
+
+```glsl
+// copy-pass.effect
+
+precision highp float;
+in vec2 v_uv;
+
+#pragma rate outputResultMap pass
+uniform sampler2D outputResultMap;
+
+layout(location = 0) out vec4 fragColor;
+
+void main () {
+    fragColor = texture(outputResultMap, v_uv);
+}
+
+```
+
+RenderGraph中的每个节点的描述符集更新频率，由节点的类型决定。
 
 | 节点类型 | 更新频率 |
 | --- | --- |
