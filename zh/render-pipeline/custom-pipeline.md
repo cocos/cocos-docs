@@ -1,6 +1,6 @@
 # 自定义渲染管线
 
-Cocos Creator 3.8中添加了新的 **自定义渲染管线**。
+Cocos Creator 3.8中正式开放了新的 **自定义渲染管线**。
 
 
 **自定义渲染管线** 的接口位于 `cocos/core/pipeline/custom/pipeline.ts`
@@ -17,6 +17,20 @@ Cocos**自定义渲染管线**能够在不同的平台、不同的硬件设备�
 
 也能够在不同的平台、不同的硬件设备上，编写最通用的渲染管线，以达到最佳的性能表现以及跨平台性。
 
+## 启用自定义管线
+
+勾选 **自定义渲染管线**。
+
+<img src="./image/cp-feature-enable.png" width=760></img>
+
+通过填写 **自定义管线** 的名字，选择注册好的 **自定义渲染管线**。
+- 目前支持 **前向渲染管线**（名字为 Custom 或 Forward）和 **后向渲染管线**（名字为 Deferred）两种。
+
+<img src="./image/cp-pipeline-selection.png" width=760></img>
+
+### 编写自定义渲染管线
+
+新建 Typescript 文件，编写一个类，例如 `MyPipeline` ，让该类实现 `rendering.PipelineBuilder` 接口，通过 `rendering.setCustomPipeline` 方法把该 pipeline 注册到系统中。
 
 ## 概念
 
@@ -37,21 +51,6 @@ Cocos**自定义渲染管线**能够在不同的平台、不同的硬件设备�
 <img src="./image/cp-render-graph-2.png" width=640></img>
 
 我们可以层叠（Stack）以上两张图，得到 **渲染流程图**（RenderGraph）。**渲染流程图** 描述了 **自定义渲染管线** 的全部流程，引擎会按照用户定制的流程图进行资源分配、流程优化、渲染执行。
-
-## 启用自定义管线
-
-勾选 **自定义渲染管线**。
-
-<img src="./image/cp-feature-enable.png" width=760></img>
-
-通过填写 **自定义管线** 的名字，选择注册好的 **自定义渲染管线**。
-- 目前支持 **前向渲染管线**（名字为 Custom 或 Forward）和 **后向渲染管线**（名字为 Deferred）两种。
-
-<img src="./image/cp-pipeline-selection.png" width=760></img>
-
-### 编写自定义渲染管线
-
-新建 Typescript 文件，编写一个类，例如 `MyPipeline` ，让该类实现 `rendering.PipelineBuilder` 接口，通过 `rendering.setCustomPipeline` 方法把该 pipeline 注册到系统中。
 
 ## 渲染管线类型
 
