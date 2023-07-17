@@ -8,7 +8,7 @@ Post-Process 组件是 [后效](./index.md) 的辅助组件，提供后效的配
 
 | 属性 | 说明 |
 | :-- | :-- |
-| **Global** | 全否是后效特效，启用后，所有开启了 **Use Post Process** 的相机组件都会应用该组件下所挂载的后效 |
+| **Global** | 是否是全局后效特效，启用后，所有开启了 **Use Post Process** 的相机组件都会应用该组件下所挂载的后效 |
 | **Shading Scale** | 最终输出时的分辨率缩放因子，基于当前的屏幕分辨率，最大为 1，最小为  0.01 |
 | **Enable Shading Scale In Editor** | 是否在编辑器中启用 **Shading Scale** |
 
