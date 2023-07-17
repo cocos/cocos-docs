@@ -1,6 +1,6 @@
 # 自定义渲染管线
 
-Cocos Creator 3.8正式开放了新的 **自定义渲染管线**。
+Cocos Creator 3.8中正式开放了新的 **自定义渲染管线**。
 
 
 **自定义渲染管线** 的接口位于 `cocos/core/pipeline/custom/pipeline.ts`
