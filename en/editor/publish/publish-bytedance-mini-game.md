@@ -79,9 +79,17 @@ For ByteDance DevTools, please use **v2.0.6** or above, but below **v3.0.0**. Af
 
 > **Note**: if the product version does not support subpackage loading, the engine will load the subpackage as a normal asset bundle.
 
-Currently, the size of the ByteDance Mini Game subpackage has following restrictions:
-- The size of all subpackages of the entire mini game cannot exceed **16 M**
-- The size of a single subpackage/main package cannot exceed **4 M**
+### Ordinary game packages
+
+In the scenario of not configuring sub-packaging, the total size of code packages allowed to be uploaded for each mini-game is capped at 20MB.
+
+### Packages after packetization
+
+For games with subpackaging configured, the default limit is:
+
+- The size of the whole game package (the entire directory of the game package) should not exceed 20MB.
+- The size of a single main package should not exceed 4MB.
+- The size of a single sub-package should not exceed 20MB.
 
 For details, please refer to the [ByteDance Subpackage Loading Official Documentation [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/subpackages/introduction/)
 
