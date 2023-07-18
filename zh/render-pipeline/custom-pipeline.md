@@ -58,7 +58,7 @@ Cocos**自定义渲染管线**能够在不同的平台、不同的硬件设备�
 - 基础渲染管线
 - 标准渲染管线
 
-## 基础渲染管线(BasicPipeline)
+### 基础渲染管线(BasicPipeline)
 
 基础渲染管线提供跨平台的基础渲染功能，适用一切平台。
 
@@ -97,7 +97,7 @@ interface BasicRenderPassBuilder extends Setter {
     addQueue (hint?: QueueHint, phaseName?: string): RenderQueueBuilder;
 }
 ```
-## 标准渲染管线(Pipeline)
+### 标准渲染管线(Pipeline)
 
 标准渲染具备更丰富的管线功能，目前支持GLES3、Vulkan、Metal三个后端。
 
@@ -237,6 +237,8 @@ export enum SceneFlags {
 ## 渲染数据设置
 
 我们可以通过`Setter`设置Shader里用到的数据和只读资源，名字是Shader里的变量名。
+
+注意这里的Shader是管线相关的，而不是普通表面材质的Shader。
 
 ```typescript
 export interface Setter extends RenderNode {
