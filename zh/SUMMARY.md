@@ -311,6 +311,7 @@
             - [自动布局容器](ui-system/components/engine/auto-layout.md)
             - [制作动态生成内容的列表](ui-system/components/engine/list-with-data.md)
             - [制作可任意拉伸的 UI 图像](ui-system/components/engine/sliced-sprite.md)
+            - [安卓大屏幕适配](ui-system/components/engine/large-screen.md)
 
 - [动画系统](animation/index.md)
     - [动画剪辑](animation/animation-clip.md)
