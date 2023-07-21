@@ -57,7 +57,7 @@
 > 该选项目前无法修改，只会随着构建面板上的 **正常构建/仅构建 Bundle** 切换而切换。
 
 - 未勾选时：
-  在构建 Bundle 时，Bundle 内如果有公共脚本的话，不会构建在 Bundle 内，而是单独的将 Bundle 内的脚本构建在 src/chunk 内的 bundle.js 内。因此这样构建出来的 Bundle 是和项目相耦合的，意味着这样的 Bundle 体积更小，但是无法单独于项目存在。
+  在构建 Bundle 时，会将不同 Bundle 之间公用的一些 helper 之类的内容生成在 src/chunk 内的 bundle.js 内，减少整体脚本的体积。但这样构建出来的 Bundle 是和项目相耦合的，无法跨项目复用。
 - 勾选时：
   Bundle 内的脚本不再构建到公共的 JS 库内而是构建在 Bundle 的内部。这样的 Bundle 可以独立于项目而运行（因为所需的脚本都在 Bundle 的内部，而引用相同代码的 Bundle 可能会有重复的部分），即使在其他项目也可以正确的加载运行，缺陷是由于脚本资源都在 Bundle 内部，因此最终的 Bundle 体积会增大。
 
