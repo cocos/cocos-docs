@@ -113,6 +113,21 @@ In this case, the asset import system automatically recognizes these nodes and e
 
 ![auto-match](lod/auto-match.png)
 
+#### Auto LOD
+
+Since v3.8, we have optimized the LOD when importing models, if the model does not have LOD information, you can find the Model pagination on the **Inspector** panel of the model, find and edit the LOD of the model, check the LOD check box to enable auto LOD.
+
+![model.png](./lod/model.png)
+
+Mouse over the hierarchy to click ![-](./lod/+.png)/![-](./lod/-.png) to increase and decrease the level.
+
+![hover.png](./lod/hover.png)
+
+- Face count(%): the face count ratio, the ratio of the number of triangular faces of the optimized mesh divided by the number of faces of the original mesh. For example, 25% means 75% original faces will be optimized.
+- Screen Ratio: the minimum screen ratio, same as the Screen Ratio property of the LOD component, see above.
+
+Each tier is set up similarly to the LOD component, allowing you to modify the percentage of faces in different tiers.
+
 ## Q&A
 
 - Can I add more than one LOD Group?
