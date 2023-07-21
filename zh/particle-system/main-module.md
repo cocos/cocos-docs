@@ -13,7 +13,7 @@
 | Prewarm          | 选中之后，粒子系统会以已播放完一轮之后的状态开始播放（仅当循环播放启用时有效） |
 | SimulationSpace  | 控制粒子坐标计算所在的坐标系 |
 | SimulationSpeed  | 控制整个粒子系统的更新速度 |
-| StartDelay       | 粒子系统开始运行后，粒子延迟发射的时间 |
+| StartDelay       | 粒子系统开始运行后，粒子延迟发射的时间（勾选 Prewarm 之后 StartDelay 会被设置为0，此选项失效） |
 | StartLifetime    | 粒子生命周期 |
 | StartColor       | 粒子初始颜色 |
 | ScaleSpace       | 粒子缩放时所在的坐标系<br>**Local**：基于本地坐标系的缩放<br>**World**：基于世界坐标系的缩放<br>**Custom**：自定义缩放，不受节点的 **scale** 属性影响 |
