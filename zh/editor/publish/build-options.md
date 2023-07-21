@@ -59,7 +59,7 @@
 - 未勾选时：
   在构建 Bundle 时，会将不同 Bundle 之间公用的一些 helper 之类的内容生成在 src/chunk 内的 bundle.js 内，减少整体脚本的体积。但这样构建出来的 Bundle 是和项目相耦合的，无法跨项目复用。
 - 勾选时：
-  Bundle 内的脚本不再构建到公共的 JS 库内而是构建在 Bundle 的内部。这样的 Bundle 可以独立于项目而运行（因为所需的脚本都在 Bundle 的内部，而引用相同代码的 Bundle 可能会有重复的部分），即使在其他项目也可以正确的加载运行，缺陷是由于脚本资源都在 Bundle 内部，因此最终的 Bundle 体积会增大。
+  不再提取 Bundle 依赖的公共 JS 库内而是直接构建在 Bundle 的内部。这样的 Bundle 可以跨项目使用（因为所需的脚本都在 Bundle 的内部，而引用相同代码的 Bundle 可能会有重复的部分），缺陷是由于脚本资源都在 Bundle 内部，因此最终的 Bundle 体积会增大。
 
 ### MD5 缓存
 
