@@ -46,7 +46,7 @@
 
   ![bundle-select.png](./build-options/bundle-select.png)
 
-  > 主包和引擎内置 internal 包不可取消。
+  > 正常构建模式下，主包和引擎内置 internal 包不可取消。
 
 ### 在 Bundle 中嵌入公共脚本
 
