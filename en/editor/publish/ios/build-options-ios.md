@@ -2,6 +2,10 @@
 
 ![ios-build-options](./images/ios-build-options.png)
 
+## Executable Name
+
+This a field used to specify the name of the main executable file of an application, which is stored in the app's Info.plist file. If not provided, the system will generate a default value based on the app name field. The value for this field must adhere to a specific format, containing only numbers, letters, underscores (_) and hyphens (-).
+
 ## Bundle Identifier
 
 The package name, usually in reverse order of the product website URL, such as `com.mycompany.myproduct`.

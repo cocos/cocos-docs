@@ -35,6 +35,32 @@
 
 在构建过程中，除了项目目录下的 `resources` 文件夹以及 bundle 中的资源和脚本会全部打包外，其他资源都是根据参与构建的场景以及 bundle 中的资源引用情况来按需打包的。因而去除勾选不需要发布的场景，可以减少构建后生成的项目发布包包体体积。
 
+### Bundles
+
+自 v3.8 起，开发者可以根据项目的需求，来决定某个 Bundle 是否要参与到构建中。
+
+![bundle-option](./build-options/bundle-option.png)
+
+- 全选：所有的 Bundle 都会参与构建。
+- 取消后可以从下拉框内选择需要参与构建的 Bundle。
+
+  ![bundle-select.png](./build-options/bundle-select.png)
+
+  > 正常构建模式下，主包和引擎内置 internal 包不可取消。
+
+### 在 Bundle 中嵌入公共脚本
+
+![embed-script-in-bundle.png](./build-options/embed-script-in-bundle.png)
+
+是否在构建 Bundle 时嵌入公共脚本。
+
+> 该选项目前无法修改，只会随着构建面板上的 **正常构建/仅构建 Bundle** 切换而切换。
+
+- 未勾选时：
+  在构建 Bundle 时，会将不同 Bundle 之间公用的一些 helper 之类的内容生成在 src/chunk 内的 bundle.js 内，减少整体脚本的体积。但这样构建出来的 Bundle 是和项目相耦合的，无法跨项目复用。
+- 勾选时：
+  不再提取 Bundle 依赖的公共 JS 库内而是直接构建在 Bundle 的内部。这样的 Bundle 可以跨项目使用（因为所需的脚本都在 Bundle 的内部，而引用相同代码的 Bundle 可能会有重复的部分），缺陷是由于脚本资源都在 Bundle 内部，因此最终的 Bundle 体积会增大。
+
 ### MD5 缓存
 
 为构建后的所有资源文件名加上 MD5 信息，可以解决 CDN 或者浏览器资源缓存问题。
