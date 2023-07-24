@@ -2,7 +2,7 @@
 
 ## 前言
 
-我们在 Cocos Creator 3.6.1 的基础上成功适配了 OpenHarmony 在 7 月 30 日发布的 3.2 beta2 分支，并以《鹰击长空》项目为案例，成功运行在开发板上，并且能够相对流畅的操作。目前 OpenHarmony 平台的适配仍在持续进行中，因此需要单独下载社区版来试用，后续会进入到 Cocos Creator 的正式版本中。
+我们在 Cocos Creator v3.8.0 的基础上成功适配了 在 4 月 9 日发布的 [OpenHarmony 3.2 Release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md) 分支。
 
 鹰击长空：[GitHub - cocos/cocos-tutorial-airplane: video tutorial airplane](https://github.com/cocos/cocos-tutorial-airplane)
 
@@ -14,25 +14,22 @@
 
 ## 准备工作
 
-1. 下载 Cocos Creator 3.6.1-OH 传送门：[Cocos Creator 3.6.1-OH](https://download.cocos.org/CocosCreator/voh/CocosCreator-v3.6.1-oh-win-092319.zip)
+1. Cocos Creator 下载传送门(版本>=3.8.0)：[Cocos Creator](https://www.cocos.com/creator-download)
+2.  OpenHarmany系统与SDK 下载传送门：[OpenHarmony-3.2-release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md#%E4%BB%8E%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9%E8%8E%B7%E5%8F%96)
 
-2. 下载 OpenHarmany系统，下载地址：
-
+![](./publish-openharmony/document_image_rId2.png)
+OpenHarmony发布的系统是**32位**的，**64位**下载传送门：
 ```
-http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz
+http://ci.openharmony.cn/workbench/cicd/dailybuild/dailylist
 ```
+![](./publish-openharmony/document_image_rId0.png)
 
-3. 下载 OpenHarmony SDK系统，下载地址：
+1. 下载最新的IDE（版本\>=3.1.1）：[DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download)
+![](./publish-openharmony/document_image_rId3.png)
 
-```
-http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/20220926_181435/version-Master_Version-OpenHarmony_3.2.5.6-20220926_181435-ohos-sdk-full.tar.gz
-```
+1. 系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows) 烧录工具与 [使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
 
-4. 下载最新的IDE（版本\>=3.0.0.993）：[DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download_beta_openharmony)
-
-5. 系统烧录工具：[RKDevTool](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows) 烧录工具与 [使用文档](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97#https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200/%E7%83%A7%E5%86%99%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8C%87%E5%8D%97/windows)
-
-6. 开发套件：[HH-SCDAYU200](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200)
+2. 开发套件：[HH-SCDAYU200](https://gitee.com/hihope_iot/docs/tree/master/HiHope_DAYU200)
 
 ## 发布步骤
 
@@ -72,15 +69,20 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 ![](./publish-openharmony/document_image_rId27.png)
 
-10. 出现这个状态之后，解压下载的 [OpenHarmony系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)，如下图：
-
+10. 出现这个状态之后，解压下载的 [OpenHarmony系统](http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.5/20220926_081431/version-Master_Version-OpenHarmony_3.2.5.5-20220926_081431-dayu200.tar.gz)。解压后，如下图：
 ![](./publish-openharmony/document_image_rId29.png)
 
-11. 在 RKDevTool软件中，把打勾的部分，选择解压的系统对应的文件，如下图
+11. 鼠标右键，选择导入配置，如下图：
+![](./publish-openharmony/document_image_rId29-1.png)
 
+12. 选择解压后的系统文件中的config.cfg分区配置文件，如下图：
+![](./publish-openharmony/document_image_rId29-2.png)
+
+13. 在 RKDevTool软件中，把打勾的部分，选择解压的系统对应的文件，如下图：
+![](./publish-openharmony/document_image_rId30-1.png)
 ![](./publish-openharmony/document_image_rId30.png)
 
-12. 点击执行，等待日志显示'下载完成'即可。执行成功后，设备会自动进行重启，出现软件 OpenHarmony 界面欢迎页面，然后进入到桌面，即表示烧录成功，如下图：
+14. 点击执行，等待日志显示'下载完成'即可。执行成功后，设备会自动进行重启，出现软件 OpenHarmony 界面欢迎页面，然后进入到桌面，即表示烧录成功，如下图：
 
 ![](./publish-openharmony/document_image_rId31.png)
 
@@ -152,76 +154,49 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 ### OpenHarmonySDK 更换
 
-由于 SDK 随着 ID E的升级不断的升级，可能会导致部分兼容性的问题，为了能让工程正常运行，建议是替换 IDE 内置的 SDK。操作方法如下：
+由于 SDK 随着 IDE的升级不断的升级，可能会导致部分兼容性的问题，为了能让工程正常运行，建议是替换 IDE 内置的 SDK。操作方法如下：
 
 1. 更新 NDK
 
-    - 找到下载的 OpenHarmony SDK，解压后，打开 ohos-sdk/windows，如下图：
+- 备份原来的SDK目录, native_backup是备份原来为native目录，如下图：
 
     ![](./publish-openharmony/document_image_rId11.png)
 
-    - 找到 OpenHarmony 的 SDK\\nativ e目录（可以在 IDE 里查看目录），点开 **IDE(DevEco)-> 工具栏 File->Setting** 即可, 如下图：
+- 解压SDK，找到ohos-sdk\\windows里的native-windows-x64-3.2.11.9-Release.zip，解压至OHOS_SDK/9目录，如下图：
 
     ![](./publish-openharmony/document_image_rId14.png)
 
-    - 备份原来的 SDK 目录, 3.2.5.5_IDE 是备份目录，如下图：
+2. 更换ets
 
-    ![](./publish-openharmony/document_image_rId15.png)
+- 备份原来的ets文件，把SDK目录下的9/ets改成ets_backup，如下图：
+![](./publish-openharmony/document_image_rId18.png)
 
-    - 解压 SDK，找到 ohos-sdk\\windows 里的 native-windows-3.2.5.6-Beta2.zip，解压至 OHOS_SDK/native 目录，重命名 native 文件夹（默认解压之后是 native 文件夹）为 3.2.5.5 的目录里，如下图：
+- 解压文件ets-windows-x64-3.2.11.9-Release.zip至OHOS-SDK/9目录：
 
-    ![](./publish-openharmony/document_image_rId16.png)
+![](./publish-openharmony/document_image_rId8.png)
 
-    - 修改 OHOS_SDK\\native\\3.2.5.5\\oh-uni-package.json （解压后的NDK），修改版本号为 3.2.5.5，这一步修改是为了避免提示 NDK 升级，如下图：
+- 打开命令行进入目录OHOS_SDK\\9\\ets\\build-tools\\ets-loader，并执行npm
+install，如下图（注意目录要匹配）：
 
-    ![](./publish-openharmony/document_image_rId17.png)
+![](./publish-openharmony/document_image_rId10.png)
+> **注意**：如果 `npm install` 报错，检查下是否配置了华为的源，配置方法如下：
+> ` npm config set registry https://repo.huaweicloud.com/repository/npm/ `
 
-2. 更换 ets
-
-    - 备份原来的 ets 文件，把目录下的 3.2.5.5（注意不同的IDE下载的版本不一样，例如 DEVECO
-993里可能是 3.2.8.3，如果不是3.2.5.5则可以不需要备份，可以共存）改成 3.2.5.5_backup，如下图：
-
-    ![](./publish-openharmony/document_image_rId18.png)
-
-    - 解压文件ets-windows-3.2.5.6-Beta2.zip至OHOS-SDK/ets目录：
-
-    ![](./publish-openharmony/document_image_rId8.png)
-
-    - 解压至OHOS_SDK/ets目录，如下图：
-
-    ![](./publish-openharmony/document_image_rId7.png)
-
-    - 把ets目录改成3.2.5.5，如下图：
-
-    ![](./publish-openharmony/document_image_rId6.png)
-
-    - 修改 OHOS_SDK\\ets\\3.2.5.5\\oh-uni-package.json （解压后的ETS），修改版本号为 3.2.5.5。这一步修改是为了避免提示 ETS 升级，如下图：
-
-    ![](./publish-openharmony/document_image_rId5.png)
-
-    - 打开命令行进入目录 OHOS_SDK\\ets\\3.2.5.5\\build-tools\\ets-loader，并执行 `npm install`，如下图（注意目录要匹配）：
-
-    ![](./publish-openharmony/document_image_rId10.png)
-
-    > **注意**：如果 `npm install` 报错，检查下是否配置了华为的源，配置方法如下：
-    >
-    > ` npm config set registry https://repo.huaweicloud.com/repository/npm/ `
-
-    - 在 deveco 里，clear project 之后，重新 build 即可。clear project 操作如下图：
-
-     ![](./publish-openharmony/document_image_rId4.png)
+- 在 deveco 里，clear project 之后，重新 build 即可。clear project 操作如下图：
+![](./publish-openharmony/document_image_rId4.png)
 
 3. 其他
-将 js-windows-3.2.5.6-Beta2.zip、previewer-windows-3.2.5.6-Beta2.zip、toolchains-windows-3.2.5.6-Beta2.zip 这三个文件参考上述步骤替换，总结步骤入下：
-    - 备份源目录文件；
-    - 解压，重命名对应版本文件；
-    - 修改对应目录的oh-uni-package.json文件;
-
+js-windows-x64-3.2.11.9-Release.zip
+previewer-windows-x64-3.2.11.9-Release.zip
+toolchains-windows-x64-3.2.11.9-Release.zip
+这三个文件参考上诉步骤替换，总结步骤入下：
+- 备份SDK目录（OHOS_SDK/9）里的文件；
+- 解压至OHOS_SDK/9至对应的文件；
+***（注意‘9’是API版本，未来升级就对应升级之后的API版本）***
     目录对应关系，如下图：
+![](./publish-openharmony/document_image_rId9.png)
 
-    ![](./publish-openharmony/document_image_rId9.png)
-
-### Cocos Creator 3.6.1-OH 构建 OpenHarmony 工程
+### Cocos Creator 3.8.0-alpha 构建 OpenHarmony 工程
 
 1. 设置 OpenHarmony SDK 的路径，如下图：
 
@@ -239,37 +214,38 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 > **注意**：API Version 9 的版本要为已安装的状态，如果未安装，需要手动安装，如上图所示。
 
-2. 打开 Cocos Creator，打开存在的项目，如下图：
+4. 打开 Cocos Creator，打开存在的项目，如下图：
 
 > ![](./publish-openharmony/document_image_rId51.png)
 
-3. 选择工程的目录，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.7) 为例，如下图：
+5. 选择工程的目录，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.7) 为例，如下图：
 
 ![](./publish-openharmony/document_image_rId53.png)
 
-4. 登录开发者账号，如下图：
+6. 登录开发者账号，如下图：
 
 ![](./publish-openharmony/document_image_rId54.png)
 
-5. 根据创建游戏，增加游戏逻辑等
+7. 根据创建游戏，增加游戏逻辑等
 
-6. 制作完成之后，选择构建，选择标题栏中的 Project-\>Build，也可以使用 Ctrl+Shift+B 的快捷键，如下图：
+8. 制作完成之后，选择构建，选择标题栏中的 Project-\>Build，也可以使用 Ctrl+Shift+B 的快捷键，如下图：
 
 ![](./publish-openharmony/document_image_rId55.png)
 
-7. 点击新建任务，如下图：
+9. 点击新建任务，如下图：
 
 ![](./publish-openharmony/document_image_rId56.png)
 
-8. 选择 Openharmony
+10. 选择 Openharmony
 
 ![](./publish-openharmony/document_image_rId57.png)
 
-9. 配置工程名称、配置开始场景与包含的其他场景，勾选调试模式（其他参数需要保持默认配置），点击 build，如下图：
+11. 配置工程名称、配置开始场景与包含的其他场景，配置Debug/Release, 配置32位cocos应用或64位cocos应用（对应OpenHarmony32位系统与64位系统），点击 build，如下图：
 
 ![](./publish-openharmony/document_image_rId58.png)
+![](./publish-openharmony/document_image_rId58-1.png)
 
-11、点击 make（目前会提示失败，但是会生成无签名的 hap 包），之后点击 run（需要设备，由于没有签名，目前 run 会失败）即可（由于目前 make 和 run 都会失败，因此可以不操作）。
+12. 点击 make（目前会提示失败，但是会生成无签名的 hap 包），之后点击 run（需要设备，由于没有签名，目前 run 会失败）即可（由于目前 make 和 run 都会失败，因此可以不操作）。
 
 ![](./publish-openharmony/document_image_rId59.png)
 
@@ -299,60 +275,22 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 ## 几个注意事项
 
-目前适配的是 OpenHarmony 32 位系统，且系统暂不支持 JIT，因此性能会比较受限。引擎会继续适配 64 位系统，并继续优化性能。
+目前Cocos支持在 OpenHarmony 32位 与 64位 系统运行，且系统暂不支持 JIT，但是引擎目前支持AOT优化。
 
-另外，因为 OpenHarmony 还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。这些已知问题是：
-
-1. 未适配功能
-
-    - videoplay
-
-    - webview
-
-    - editbox 输入法
-
-    - network 网络相关的模块
-
-    - 重力传感器模块
-
-    - 横屏、竖屏适配接口
-
-2. 已知效果问题
-
-    - restart 还有问题；
-
-    - 音频播放带有杂音，播放速度比较慢；（单通道和 OpenSELS 的问题）
-
-    - 部分测试例，背景会显示桌面
-
-    - 用到 top level await 的代码，例如 L10N 暂时无法适配；
-
-    - 手动关闭 L10N
-        >> 由于 OpenHarmony 的 bata3.2 的分支目前支持 async 有问题，导致 L10N 的组件使用不了，需要手动关闭。
-        >>
-        >>（1）打工具栏，Pannel-\>localization Editor 选项，如下图：
-        >>
-        >>![](./publish-openharmony/document_image_rId67.png)
-        >>
-        >>（2）点击右上角三个点的按钮，选择关闭 L10N，如下图：
-        >>
-        >> ![](./publish-openharmony/document_image_rId68.png)
-        >>
-        >> 如果是已关闭状态，则不需要关闭。关闭状态如下图：
-        >>
-        >> ![](./publish-openharmony/document_image_rId69.png)
-        >>
-        >>（3）如果测试的是 cocos-test-project 工程，选择 Assets-\>cases-\>localization-deitor-\>点击鼠标右键-\>选择删除。
-        >>
-        >> ![](./publish-openharmony/document_image_rId70.png)
-        >>
-
-    - 如果修改 build 工程的参数，重新 build 之后，需要在 IDE 里，清楚缓存之后在编译，否则有可能会出现不生效的情况。这是 DevEco Studio 本身的问题，目前正在解决。操作如下图：
-        >>
-        >> ![](./publish-openharmony/document_image_rId71.png)
-        >>
-        >> 如果修改工程里的 js 文件等，也同样需要 clean project 的操作。否则也可能会不生效。
-
-    - 编译失败时，可以退出部分应用，重新 build 试试；
+另外，因为 OpenHarmony 还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。
+1. 目前已知问题是：
+    - restart 目前还未有方案；
+    - editbox显示时，会把这个游戏页面往上推
+    - RK3568不支持陀螺仪，线性加速度 
+    - 部分测试例，背景会显示桌面，驱动问题，非系统和引擎问题
+    - 编译失败时，可能是内存不足导致，退出部分应用，重新 build 试试；
         >>
         >> ![](./publish-openharmony/document_image_rId72.png)
+    - App Launch提示错误信息，在targets中，添加对应的运行环境：
+        >> ![](./publish-openharmony/document_image_rId73.png)
+        >> 解决方法，如下图：
+        >> ![](./publish-openharmony/document_image_rId74.png)
+    - 更新IDE，编译报错,如下图：
+       >> ![](./publish-openharmony/document_image_rId75.png)
+       >> 把Harmonyos与openharmony的SDK更新到最新；
+    - [时勾选左横屏与右横屏，出现分辨率不正确的现象。只选择左横屏或者右横屏即可解决](https://github.com/cocos/cocos-engine/pull/15785)。
