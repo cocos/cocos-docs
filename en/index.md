@@ -1,6 +1,6 @@
-# Cocos Creator User Manual 3.7
+# Cocos Creator User Manual 3.8
 
-Welcome to use Cocos Creator 3.7！
+Welcome to use Cocos Creator 3.8！
 
 Cocos Creator is both an efficient, lightweight, free and open source cross-platform 2D & 3D graphics engine and a real-time interactive 2D & 3D digital content creation platform. With many advantages such as **High Performance**, **Low Power Consumption**, **Streaming Loading** and **Cross-Platform Publishing**, you can use it to create projects in fields such as **Games**, **Cars**, **XR**, **MetaVerse** etc.
 
