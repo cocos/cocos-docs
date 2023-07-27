@@ -1,0 +1,400 @@
+{
+  "ver": "2.3.8",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe",
+  "files": [
+    "__original-animation-0.cconb",
+    "__original-animation-1.cconb",
+    "__original-animation-2.cconb",
+    "__original-animation-3.cconb"
+  ],
+  "subMetas": {
+    "60865": {
+      "importer": "gltf-skeleton",
+      "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe@60865",
+      "displayName": "",
+      "id": "60865",
+      "name": "Rig.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 27
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e2349": {
+      "importer": "gltf-mesh",
+      "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe@e2349",
+      "displayName": "",
+      "id": "e2349",
+      "name": "Mesh.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 324
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "2ff01": {
+      "importer": "gltf-animation",
+      "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe@2ff01",
+      "displayName": "",
+      "id": "2ff01",
+      "name": "Crouch.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.0416666679084301
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "94e83": {
+      "importer": "gltf-animation",
+      "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe@94e83",
+      "displayName": "",
+      "id": "94e83",
+      "name": "Leaning_Additive.animation",
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.0416666679084301
+        },
+        "events": [],
+        "additive": {
+          "enabled": true,
+          "refClip": "3705c9df-8a1c-4d36-92d3-512664e51cfe@e7f91"
+        }
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "d03ee": {
+      "importer": "gltf-animation",
+      "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe@d03ee",
+      "displayName": "",
+      "id": "d03ee",
+      "name": "Leaning_Original.animation",
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "speed": 1,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.0416666679084301
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "aff49": {
+      "importer": "gltf-animation",
+      "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe@aff49",
+      "displayName": "",
+      "id": "aff49",
+      "name": "ReferencePose.animation",
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.0416666679084301
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "e7f91": {
+      "importer": "gltf-animation",
+      "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe@e7f91",
+      "displayName": "",
+      "id": "e7f91",
+      "name": "Standing.animation",
+      "userData": {
+        "gltfIndex": 3,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.0416666679084301
+        },
+        "events": [],
+        "additive": {
+          "enabled": false
+        }
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "b4e6b": {
+      "importer": "gltf-material",
+      "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe@b4e6b",
+      "displayName": "",
+      "id": "b4e6b",
+      "name": "Material.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bbd5d": {
+      "importer": "gltf-scene",
+      "uuid": "3705c9df-8a1c-4d36-92d3-512664e51cfe@bbd5d",
+      "displayName": "",
+      "id": "bbd5d",
+      "name": "AdditivePoseDemonstration.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.13",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "animationImportSettings": [
+      {
+        "name": "Crouch",
+        "duration": 0.0416666679084301,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Crouch",
+            "from": 0,
+            "to": 0.0416666679084301,
+            "wrapMode": 2,
+            "previousId": "2ff01"
+          }
+        ]
+      },
+      {
+        "name": "Leaning",
+        "duration": 0.0416666679084301,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Leaning_Additive",
+            "from": 0,
+            "to": 0.0416666679084301,
+            "wrapMode": 2,
+            "previousId": "94e83",
+            "additive": {
+              "enabled": true,
+              "refClip": "3705c9df-8a1c-4d36-92d3-512664e51cfe@e7f91"
+            }
+          },
+          {
+            "name": "Leaning_Original",
+            "from": 0,
+            "to": 0.0416666679084301,
+            "wrapMode": 2,
+            "speed": 1,
+            "previousId": "d03ee"
+          }
+        ]
+      },
+      {
+        "name": "ReferencePose",
+        "duration": 0.0416666679084301,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "ReferencePose",
+            "from": 0,
+            "to": 0.0416666679084301,
+            "wrapMode": 2,
+            "previousId": "aff49"
+          }
+        ]
+      },
+      {
+        "name": "Standing",
+        "duration": 0.0416666679084301,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Standing",
+            "from": 0,
+            "to": 0.0416666679084301,
+            "wrapMode": 2,
+            "previousId": "e7f91",
+            "additive": {
+              "enabled": false
+            }
+          }
+        ]
+      }
+    ],
+    "redirect": "3705c9df-8a1c-4d36-92d3-512664e51cfe@bbd5d",
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "3705c9df-8a1c-4d36-92d3-512664e51cfe@e2349"
+      ],
+      "skeletons": [
+        "3705c9df-8a1c-4d36-92d3-512664e51cfe@60865"
+      ],
+      "textures": [],
+      "materials": [
+        "3705c9df-8a1c-4d36-92d3-512664e51cfe@b4e6b"
+      ],
+      "scenes": [
+        "3705c9df-8a1c-4d36-92d3-512664e51cfe@bbd5d"
+      ]
+    },
+    "materials": {
+      "3705c9df-8a1c-4d36-92d3-512664e51cfe@b4e6b": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "__editorExtras__": {},
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "c8f66d17-351a-48da-a12c-0212d28575c4",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {
+              "cullMode": 0
+            },
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "albedoScale": {
+              "__type__": "cc.Vec3",
+              "x": 0.2694019675254822,
+              "y": 0.2722896635532379,
+              "z": 0.8000000715255737
+            },
+            "roughness": 0,
+            "specularIntensity": 0.1
+          },
+          {},
+          {},
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}
