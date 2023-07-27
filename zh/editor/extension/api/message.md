@@ -2,7 +2,7 @@
 
 Creaotr 消息系统，消息在 Creator 非常重要，几乎所有的操作和数据传递都是通过消息进行的。
 
-具体插件支持调用的消息可以在菜单栏 `开发者->消息列表` 查看。
+具体扩展支持调用的消息可以在菜单栏 [`开发者->消息列表`](./messages.md#查看消息列表) 查看。
 
 ## 函数
 
@@ -16,7 +16,7 @@ Creaotr 消息系统，消息在 Creator 非常重要，几乎所有的操作和
 
 | Name      | Type              | Description    |
 | :-------- | :---------------- | :------------- |
-| `name`    | `string`          | 目标插件的名字  |
+| `name`    | `string`          | 目标扩展的名字  |
 | `message` | `string`          | 触发消息的名字  |
 | `...args` | `any[]`           | 消息需要的参数  |
 
@@ -34,7 +34,7 @@ Editor.Message.send('builder', 'open-devtools');
 
 | Name      | Type                | Description    |
 | :-------- | :------------------ | :------------- |
-| `name`    | `string`            | 目标插件的名字  |
+| `name`    | `string`            | 目标扩展的名字  |
 | `message` | `string`            | 触发消息的名字  |
 | `...args` | `any[]`               | 消息需要的参数  |
 
@@ -52,7 +52,7 @@ const sceneDirty = await Editor.Message.request('scene', 'query-dirty');  // fal
 
 广播一个消息
 
-我们约定每个插件自己发出的广播消息，将以 `[插件名]:xxx` 的形式命名，希望后续其他各个插件也可以遵守这样的规范
+我们约定每个扩展自己发出的广播消息，将以 `[扩展名]:xxx` 的形式命名，希望后续其他各个扩展也可以遵守这样的规范
 
 **请求参数**
 

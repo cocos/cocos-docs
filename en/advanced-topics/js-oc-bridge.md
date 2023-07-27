@@ -1,22 +1,16 @@
-# A Simpler Way to Call Objective-C Methods with JavaScript (Experimental)
-
-> **Note**: After v3.6.0, `jsb` module is about to be deprecated, APIs will be moved to the `native` module of namespace `cc`.
+# JavaScript and Objective-C Communication using JsbBridge
 
 ## Background
 
-Prior to v3.4.0, the reflection mechanism in [Using JavaScript to Call Objective-C](./oc-reflection.md) static methods, not only needed to strictly declare package names and function signatures, but also needed to strictly check the number of parameters to ensure proper operation, which was a complicated step.
+[JavaScript and iOS/macOS Communication with Reflection](./oc-reflection.md), We need to carefully verify the number of parameters to ensure proper operation. The steps involved are quite complex.
 
-Additionally provided in v3.4.0 is another experimental method for simplifying calls from the scripting layer to the native layer. This is a kind of channel, or a bridge, named `JsbBridge` before introducing other scripting systems, meaning that it serves as a bridge to communicate between script and native APP via the `JSB` binding.
+Therefore, we provide an additional method to simplify the communication between the script and the native. This method acts as a channel or bridge, and we named it `JsbBridge`, which stands for a bridge between scripts and the native app through JSB binding.
 
-> **Note**: both ways are working fine, developers can choose to use them according to their actual needs. To use the previous way, please review the  [Using JavaScript to Call Objective-C](./oc-reflection.md) documentation.
+> **Note**: Both methods can be used effectively, and developers can choose the one that suits their needs based on their specific requirements.
 
-## JavaScript Interface Introduction
+## JsbBridge Mechanism
 
-The only two interfaces at the scripting level are `sendToNative` and `onNative`, which are **transfer** and **receive native layer** parameters, respectively. The following points need to be noted when using them:
-
-- This feature is still in the experimental stage, only `string` transfers are supported. To transfer objects containing multiple parameters, please consider converting them to the `JSON` format for transfer and parsing them at different levels.
-- `onNative` will only record one function at a time, and will override the original `onNative` method when the property is `set` again.
-- The `sendToScript` method is a one-way communication and does not care about the return of the lower level, nor does it tell `JavaScript` whether the operation succeeded or failed. The developer needs to handle the operation itself.
+### JavaScript API
 
 ```js
 // JavaScript
@@ -34,14 +28,19 @@ export namespace bridge{
 }
 ```
 
-## Objective-C Interface Introduction
+As the names suggest, `sendToNative` is used to invoke code in the native layer, while `onNative` is used to respond to calls from the native layer.
 
-The corresponding `ObjC` interfaces are also dominated by two, including `sendToScript` and `onScript`:
+When using these interfaces, please note the following:
 
-- `sendToScript` corresponds to `sendToNative` and represents the parameters to be transferred to `JavaScript`.
-- `onScript` corresponds to `onNative`, which indicates the response behavior after receiving a script message. Wrap the behavior by creating an interface called `ICallback` and use `setCallback` to enable the interface function.
+- Since this feature is still in the experimental stage, it only supports the transmission of `string` data. If you need to transmit objects with multiple parameters, consider converting them to `Json` format for transmission and parse them before using.
+- `onNative` Only one function is recorded at a time for `onNative`, and setting the property again will override the previously set `onNative` method.
+- The `sendToScript` method is a one-way communication and does not have return value. It does not inform JavaScript of the success or failure of the operation. Developers need to handle the operation status themselves.
 
-```ObjC
+### Objective-C API
+
+In `Objective-C`, there are also two corresponding interfaces: `sendToScript` and `callByScript`, defined as follows:
+
+```objc
 //Objective-c
 typedef void (^ICallback)(NSString*, NSString*);
 
@@ -56,73 +55,97 @@ typedef void (^ICallback)(NSString*, NSString*);
 @end
 ```
 
+Among them, `sendToScript` is used to invoke code in the script layer, while `callByScript` is used to respond to calls from the script layer.
+
+We need to implement the `ICallback` interface and use `setCallback` to register and respond to the specific behavior of `callByScript`.
+
 ## Basic Usage
 
-### Using JavaScript to Trigger Objective-C Callbacks
+### Calling Objective-C from JavaScript
 
-Assuming the ad interface is set in the native layer, then when the player clicks the button to open the ad, it is logical to trigger `ObjC` to open the ad.
+Suppose we have written an Objective-C interface to open an advertisement, and when the player clicks the button to open the advertisement, it should be triggered by JavaScript calling the corresponding Objective-C interface.
 
-The code example of the interface to open the ad is as follows:
+First, we need to implement an `ICallback` interface to respond to the operation, and then register it with `JsbBridge` using the `setCallback` method.
+
+Here is the Objective-C code:
 
 ```ObjC
+#include "platform/apple/JsbBridge.h"
+
 static ICallback cb = ^void (NSString* _arg0, MSString* _arg1){
-    //open Ad
-}
-```
+    if([_arg0 isEqual:@"open_ad"]){
+        //open Ad
+    }
+};
 
-At this point, register the event that opens the ad first:
-
-```ObjC
 JsbBridge* m = [JsbBridge sharedInstance];
 [m setCallback:cb];
 ```
 
-Perform the open action on the button's click event in the `JavaScript` layer script:
+In JavaScript, we can call it like this:
 
 ```ts
 import { native } from 'cc'
 public static onclick(){
-    // 'usrName' and 'defaultAdUrl' are both string
-    native.bridge.sendToNative(usrName, defaultAdUrl);
+    native.bridge.sendToNative('open_ad', defaultAdUrl);
 } 
 ```
 
-This will send the required information to the `ObjC` layer through the `native.Bridge` channel to perform the action of opening the ad.
+### Calling JavaScript from Objective-C
 
-### Using Objective-C to trigger JavaScript Callbacks
+Suppose that after our advertisement finishes playing, we need to notify the JavaScript layer. We can do it as follows.
 
-Assume that the animation playback operation is recorded in JavaScript. To play this animation in the Objective-C layer, register an event to play the animation.
-
-First, define a function to play the animation:
+First, in JavaScript, use `onNative` to respond to the event:
 
 ```ts
-public void playAnimation(animationName: string, isLoop: boolean){
-    // Code to play Animation
-}
-```
-
-Next, document the method in `onNative`:
-
-```ts
-native.bridge.onNative = (animationName: string, isLoop: String | null):void=>{
-    if(isLoop && isLoop == "true") {
-        this.playAnimation(animationName, true);
-        return;
+native.bridge.onNative = (arg0:string, arg1: string):void=>{
+    if(arg0 == 'ad_close'){
+        if(arg1 == "finished") {
+            //ad playback completed.
+        }
+        else{
+            //ad cancel.
+        }
     }
-    this.playAnimation(animationName, false);
     return;
 }
 ```
 
-The `ObjC` code example is as follows:
+> In actual projects, you can place the above code in the `onload` function of a script component that needs to be loaded when the program starts to ensure early listening to events from the native layer.
+
+Then, in Objective-C, call it as follows:
 
 ```ObjC
+#include "platform/apple/JsbBridge.h"
+
 JsbBridge* m = [JsbBridge sharedInstance];
-[m sendToScript:@"Animation1" arg1:@"true"];
+[m sendToScript:@"ad_close" arg1:@"finished"];
 ```
 
-This will call the `JavaScript` playback operation.
+Through the above operations, we can notify JavaScript about the playback result of the advertisement.
 
-## Sample project: simple multi-event calls
+## Best Practices
 
-Creator provides the [native-script-bridge](https://github.com/cocos/cocos-example-projects/tree/v3.7/native-script-bridge) example, which developers can download for reference use as needed.
+JsbBridge provides two string-type parameters, `arg0` and `arg1`, to pass information, which can be allocated according to different needs.
+
+### 1. Both arg0 and arg1 used as parameters
+
+If the communication requirements are relatively simple and do not require categorization, you can use `arg0` and `arg1` as parameters.
+
+### 2. arg0 used as command type, arg1 used as a parameter
+
+If the communication requirements are relatively complex, you can use arg0 as a command type to process different commands, and arg1 can be used as a parameter.
+
+### 3. arg0 used as a command type, arg1 used as a JSON string
+
+For particularly complex requirements where simple string-type parameters are not sufficient, you can convert the objects that need to be passed into a string using `JSON.stringify` and pass them through `arg1`. When using them, you can restore them to objects using `JSON.parse` for further processing.
+
+> Since it involves serialization and deserialization operations of JSON, this usage is not recommended for frequent calls.
+
+## Thread Safety
+
+Note that if the related code involves native UI, you need to consider thread safety issues. For more details, please refer to:[Thread Safety](./thread-safety.md)。
+
+## Sample: Multiple Event Calls
+
+Cocos provides the [native-script-bridge](https://github.com/cocos/cocos-example-projects/tree/v3.7/native-script-bridge) example, which developers can download for reference use as needed.

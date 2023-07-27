@@ -14,7 +14,7 @@ Since the shader uses YAML as the flow control and GLSL as the shader language, 
 
 For unfamiliar developers, we have also prepared some brief introductions:
 
-- [Introduction to GLSL Syntax](./glsl.md)
+- [GLSL Basic](./glsl.md)
 - [YAML 101](./yaml-101.md)
 
 This section will take custom a 2D effect and a 3D effect as examples to introduce the custom process in detail. For details, please refer to:

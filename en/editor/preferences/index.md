@@ -151,6 +151,12 @@ The **Preview** tab is mainly used for the various options that can be set when 
 - **Auto clear cache when using simulator**: if this option is checked, the cache will be automatically cleared when using the simulator preview.
 - **Open simulator debugger**: if this option is checked, the debugger will be opened automatically when previewing the project with the simulator.
 - **Simulator wait for debugger to connect**: this option will take effect when **Open the simulator debugger** is checked, and it is used to pause the simulator startup process until the debugger is connected, which is used for debugging the loading process.
+- **Preview server port number**: Port for the preview server, Cocos Creator will create a http/https server to preview game when you click the preview button.
+- **Enable HTTPS**：Whether to enable HTTPS for debugging
+- **HTTPS port**: Server port of HTTPS
+- **Private key**: Path of the private key
+- **Public cert**: Path of the public cert
+- **CSR file for certificate singing**: The path of CSR file.
 
 ## Build
 

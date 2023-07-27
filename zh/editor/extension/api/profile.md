@@ -16,13 +16,13 @@ type projectProtocol = 'default' | 'project';
 
 ▸ **getConfig**(name: `string`, key?: `string`, type?: `preferencesProtocol`): Promise<`any`\>
 
-读取插件配置
+读取扩展配置
 
 **请求参数**
 
 | Name    | Type                  | Description      |
 | :------ | :-------------------- | :--------------- |
-| `name`  | `string`              | 插件名           |
+| `name`  | `string`              | 扩展名           |
 | `key?`  | `string`              | 配置路径         |
 | `type?` | `preferencesProtocol` | 配置的类型，选填 |
 
@@ -38,13 +38,13 @@ const value = await Editor.Profile.getConfig('asset-db', 'autoScan');
 
 ▸ **setConfig**(name: `string`, key: `string`, value: `any`, type?: `preferencesProtocol`): Promise<`void`\>
 
-设置插件配置
+设置扩展配置
 
 **请求参数**
 
 | Name    | Type                  | Description      |
 | :------ | :-------------------- | :--------------- |
-| `name`  | `string`              | 插件名           |
+| `name`  | `string`              | 扩展名           |
 | `key`   | `string`              | 配置路径         |
 | `value` | `any`                 | 配置的值         |
 | `type?` | `preferencesProtocol` | 配置的类型，选填 |
@@ -62,13 +62,13 @@ await Editor.Profile.setConfig('reference-image', 'show', true);
 
 ▸ **removeConfig**(name: `string`, key: `string`, type?: `preferencesProtocol`): Promise<`void`\>
 
-删除某个插件配置
+删除某个扩展配置
 
 **请求参数**
 
 | Name    | Type                  | Description      |
 | :------ | :-------------------- | :--------------- |
-| `name`  | `string`              | 插件名           |
+| `name`  | `string`              | 扩展名           |
 | `key`   | `string`              | 配置路径         |
 | `type?` | `preferencesProtocol` | 配置的类型，选填 |
 
@@ -84,13 +84,13 @@ await Editor.Profile.removeConfig('device', 'enable', 'global');
 
 ▸ **getProject**(`name: `string`, key?: `string`, type?: `projectProtocol`): Promise<`any`\>
 
-读取插件内的项目配置
+读取扩展内的项目配置
 
 **请求参数**
 
 | Name    | Type              | Description      |
 | :------ | :---------------- | :--------------- |
-| `name`  | `string`          | 插件名           |
+| `name`  | `string`          | 扩展名           |
 | `key?`  | `string`          | 配置路径         |
 | `type?` | `projectProtocol` | 配置的类型，选填 |
 
@@ -106,13 +106,13 @@ const engineModules = await Editor.Profile.getProject('engine', 'modules.include
 
 ▸ **setProject**(name: `string`, key: `string`, value: `any`, type?: `preferencesProtocol`): Promise<`void`\>
 
-设置插件内的项目配置
+设置扩展内的项目配置
 
 **请求参数**
 
 | Name    | Type              | Description      |
 | :------ | :---------------- | :--------------- |
-| `name`  | `string`          | 插件名           |
+| `name`  | `string`          | 扩展名           |
 | `key`   | `string`          | 配置路径         |
 | `value` | `any`             | 配置的值         |
 | `type?` | `projectProtocol` | 配置的类型，选填 |
@@ -129,13 +129,13 @@ await Editor.Profile.setProject('node-library', 'custom', {});
 
 ▸ **removeProject**(name: `string`, key: `string`, type?: `projectProtocol`): Promise<`void`\>
 
-删除插件内的项目配置
+删除扩展内的项目配置
 
 **请求参数**
 
 | Name    | Type              | Description      |
 | :------ | :---------------- | :--------------- |
-| `name`  | `string`          | 插件名           |
+| `name`  | `string`          | 扩展名           |
 | `key`   | `string`          | 配置路径         |
 | `type?` | `projectProtocol` | 配置的类型，选填 |
 
@@ -151,13 +151,13 @@ await Editor.Profile.removeProject('engine', 'modules.includeModules');
 
 ▸ **getTemp**(name: `string`, key?: `string`): Promise<`any`\>
 
-读取插件配置
+读取扩展配置
 
 **请求参数**
 
 | Name   | Type     | Description      |
 | :----- | :------- | :--------------  |
-| `name` | `string` | 插件名           |
+| `name` | `string` | 扩展名           |
 | `key?` | `string` | 配置路径，选填    |
 
 **返回结果**
@@ -172,13 +172,13 @@ const state = await Editor.Profile.getTemp('assets', 'state');
 
 ▸ **setTemp**(name: `string`, key: `string`, value: `any`): Promise<`void`\>
 
-设置插件配置
+设置扩展配置
 
 **请求参数**
 
 | Name    | Type     | Description |
 | :------ | :------- | :---------- |
-| `name`  | `string` | 插件名      |
+| `name`  | `string` | 扩展名      |
 | `key`   | `string` | 配置路径    |
 | `value` | `any`    | 配置的值    |
 
@@ -194,13 +194,13 @@ Editor.Profile.setTemp('assets', 'state', {});
 
 ▸ **removeTemp**(name: `string`, key: `string`): Promise<`void`\>
 
-删除某个插件配置
+删除某个扩展配置
 
 **请求参数**
 
 | Name   | Type     | Description |
 | :----- | :------- | :---------- |
-| `name` | `string` | 插件名      |
+| `name` | `string` | 扩展名      |
 | `key`  | `string` | 配置路径    |
 
 **返回结果**
@@ -215,14 +215,14 @@ await Editor.Profile.removeTemp('assets', 'state');
 
 ▸ **migrateProject**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `void`
 
-迁移插件某个版本的项目配置数据到编辑器最新版本
+迁移扩展某个版本的项目配置数据到编辑器最新版本
 
 **请求参数**
 
 | Name             | Type     | Description           |
 | :--------------- | :------- | --------------------- |
-| `pkgName`        | `string` | 插件名                 |
-| `profileVersion` | `string` | 要迁移的插件版本号      |
+| `pkgName`        | `string` | 扩展名                 |
+| `profileVersion` | `string` | 要迁移的扩展版本号      |
 | `profileData`    | `any`    | 迁移的数据             |
 
 ```typescript
@@ -234,14 +234,14 @@ await Editor.Profile.migrateProject('builder', '1.2.1', buildJson);
 
 ▸ **migrateGlobal**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `void`
 
-迁移插件某个版本的全局配置数据到编辑器最新版本
+迁移扩展某个版本的全局配置数据到编辑器最新版本
 
 **请求参数**
 
 | Name             | Type     | Description           |
 | :--------------- | :------- | --------------------- |
-| `pkgName`        | `string` | 插件名                 |
-| `profileVersion` | `string` | 要迁移的插件版本号      |
+| `pkgName`        | `string` | 扩展名                 |
+| `profileVersion` | `string` | 要迁移的扩展版本号      |
 | `profileData`    | `any`    | 迁移的数据             |
 
 ```typescript
@@ -253,14 +253,14 @@ await Editor.Profile.migrateGlobal('builder', '1.2.1', buildJson);
 
 ▸ **migrateLocal**(pkgName: `string`, profileVersion: `string`, profileData: `any`): `void`
 
-迁移插件某个版本的本地配置数据到编辑器最新版本
+迁移扩展某个版本的本地配置数据到编辑器最新版本
 
 **请求参数**
 
 | Name             | Type     | Description           |
 | :--------------- | :------- | --------------------- |
-| `pkgName`        | `string` | 插件名                 |
-| `profileVersion` | `string` | 要迁移的插件版本号      |
+| `pkgName`        | `string` | 扩展名                 |
+| `profileVersion` | `string` | 要迁移的扩展版本号      |
 | `profileData`    | `any`    | 迁移的数据             |
 
 ```typescript

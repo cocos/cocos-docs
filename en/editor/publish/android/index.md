@@ -1,15 +1,22 @@
-# Publish Android Application
+# Publishing Android Apps
 
-In this chapter we will introduce how to publish Android APK with Cocos Creator
+This article will introduce the process of publish a Cocos Creator project to Android apps.
 
 ## Content
 
-- [Android Publish Example](build-example.md)
-- [About the Build Panel](../build-panel.md)
-- [Build Options](../build-options.md)
-- [Installation and Configuration of Native Development Environment](../setup-native-development.md)
+- [Android Publishing Example](./build-example-android.md)
+- [Build Options - Android](build-options-android.md)
+- [Android Native Development Environment Setup](build-setup-evn-android.md)
+- [JavaScript and iOS/macOS Communication with Reflection](../../../advanced-topics/oc-reflection.md)
+- [JavaScript and Objective-C Communication using JsbBridge](../../../advanced-topics/js-oc-bridge.md)
+- [Features and System Versions](../../../advanced-topics/supported-versions.md)
+
+## Read More
+
+- [Build Panel](../build-panel.md)
+- [General Build Panel](../build-options.md)
+- [General Native Build Options](../native-options.md)
+- [Setting up Native Development Environment](../setup-native-development.md)
 - [Debugging JavaScript on Native Platforms](../debug-jsb.md)
-- [Introduction to the Build Process and FAQ](../build-guide.md)
-- [JSB Swig](../../../advanced-topics/jsb-swig.md)
-- [JSB](../../../advanced-topics/JSB2.0-learning.md)
-- [A Simpler Way to Call Java Methods with JavaScript](../../../advanced-topics/js-java-bridge.md)
+- [Build Process and FAQ](../build-guide.md)
+- [Native Platform Secondary Development Guide](../../../advanced-topics/native-secondary-development.md)

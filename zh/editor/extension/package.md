@@ -4,7 +4,7 @@
 
 ## Electron
 
-Cocos Creator 编辑器是基于 GitHub 的 [Electron](https://github.com/atom/electron) 内核开发。
+Cocos Creator 编辑器是基于 GitHub 的 [Electron](https://www.electronjs.org/) 内核开发。
 
 Electron 是一个集成了 [Node.js](https://nodejs.org/) 和 [Google Chromium](https://github.com/chromium/chromium) 的跨平台开发框架。
 
@@ -30,11 +30,11 @@ Electron 提供了进程间通信对应的模块 `ipcMain` 和 `ipcRenderer` 来
 
 ## 扩展的能力
 
-扩展内拥有完整的 Node.js 环境，可以很方便的使用 npm 市场上大量的工具，用于完成自己想要的功能。
+扩展内拥有完整的 Node.js 环境，可以很方便的使用 [npm](https://www.npmjs.com/) 市场上大量的工具，用于完成自己想要的功能。[详细参考](../npm.md)
 
 如果需要和其他功能交互，则需要对应功能开放对应的操作消息，我们在自己的扩展内，通过 [消息系统](./messages.md) 触发、查询和处理编辑器内的功能或者数据。
 
-已经开放的消息列表可以在顶部菜单 **开发者 -> 消息列表** 面板里查看，如下图所示：
+已经开放的消息列表可以在顶部菜单 [**开发者 -> 消息列表**](./messages.md#查看消息列表) 面板里查看，如下图所示：
 
 ![extension-message-mgr-menu](./image/extension-message-mgr-menu.png)
 

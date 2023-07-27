@@ -86,6 +86,8 @@ export class Example extends Component {
 
 `@menu(path)` 用来将当前组件添加到组件菜单中，方便用户查找。
 
+需要注意该菜单是添加在 **属性检查器** 面板中按下添加组件按钮后的下拉框内。
+
 ```ts
 const { ccclass, menu } = _decorator;
 

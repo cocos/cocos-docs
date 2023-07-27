@@ -1,4 +1,4 @@
-# Native engine memory leak detection system
+# Native Engine Memory Leak Detection System
 
 The native engine is developed using the C++ language. In order to facilitate game & engine developers to quickly find memory leaks, Cocos Creator provides a **memory leak detection system** since v3.4.0.
 

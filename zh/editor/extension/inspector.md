@@ -88,7 +88,7 @@ export function update(this: Selector<typeof $> & typeof methods, dump: any) {
 export function ready(this: Selector<typeof $> & typeof methods) {}
 ```
 
-编译并刷新插件后，我们可以发现 `CustomLabelComponent` 组件的渲染被接管了。
+编译并刷新扩展后，我们可以发现 `CustomLabelComponent` 组件的渲染被接管了。
 
 > **注意**：每一个 `ui-prop` 对应一条属性，若要显示多条属性需要定义多个 `ui-prop`。
 
@@ -168,7 +168,7 @@ export function ready(this: PanelThis) {
 
 可通过查看文件对应的 `*.meta` 中的 `importer` 字段获取该文件的类型定义。
 
-接下来，在插件目录下新建一个 `src/contributions/inspector/asset-effect.ts` 脚本文件，并编写如下代码：
+接下来，在扩展目录下新建一个 `src/contributions/inspector/asset-effect.ts` 脚本文件，并编写如下代码：
 
 ```typescript
 'use strict';
