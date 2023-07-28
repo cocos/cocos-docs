@@ -1,6 +1,6 @@
 # YAML 101
 
-Cocos Effect 使用的是符合 YAML 1.2 标准的解析器，这意味着 Cocos Effect 与 JSON 是完全兼容的，直接使用 JSON 也完全不会有问题，例如：
+Cocos Shader 使用的是符合 YAML 1.2 标准的解析器，这意味着 Cocos Shader 与 JSON 是完全兼容的，直接使用 JSON 也完全不会有问题，例如：
 
 ```yaml
 "techniques":
@@ -41,7 +41,7 @@ Cocos Effect 使用的是符合 YAML 1.2 标准的解析器，这意味着 Cocos
       key4: 'quoted string'
   ```
 
-- 以 **连字符** + **空格** 开头，表示数组元素
+- 以 **连字符** - **空格** 开头，表示数组元素
 
   ```yaml
   - 42
@@ -119,7 +119,7 @@ techniques:
   }
   ```
 
-对应到 Cocos Effect 中，比如多个 Pass 拥有相同的 `properties` 内容时（或更多其他需要复用数据的情况），可以很方便地复用数据，例如：
+对应到 Cocos Shader 中，比如多个 Pass 拥有相同的 `properties` 内容时（或更多其他需要复用数据的情况），可以很方便地复用数据，例如：
 
 ```yaml
 techniques:
@@ -133,7 +133,7 @@ techniques:
     properties: *props # reference anywhere
 ```
 
-最后需要注意的是：在 Cocos Effect 文件中使用 YAML 声明的所有流程，都要确保是在 **CCEffect** 语法块内：
+最后需要注意的是：在 Cocos Shader 文件中使用 YAML 声明的所有流程，都要确保是在 **CCEffect** 语法块内：
 
 ```yaml
 CCEffect %{
@@ -148,4 +148,4 @@ CCEffect %{
 - <https://en.wikipedia.org/wiki/YAML>
 - <https://yaml.org/spec/1.2/spec.html>
 
-[^1]: 标准 YAML 并不支持制表符，但在解析 Cocos Effect 内容时，我们会先尝试把其中所有的制表符替换为 2 个空格，以避免偶然插入制表符带来的麻烦。但请尽量避免插入制表符以确保编译无误。
+[^1]: 标准 YAML 并不支持制表符，但在解析 Cocos Shader 内容时，我们会先尝试把其中所有的制表符替换为 2 个空格，以避免偶然插入制表符带来的麻烦。但请尽量避免插入制表符以确保编译无误。

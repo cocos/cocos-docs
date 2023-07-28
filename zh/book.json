@@ -5,6 +5,7 @@
         "readme": "index.md"
     },
     "variables": {
+        "docType": "手册",
         "products": [
             {
                 "name": "Cocos Creator",
@@ -16,19 +17,6 @@
                     {
                         "name": "API 参考",
                         "link": "https://docs.cocos.com/creator/3.7/api/zh/"
-                    }
-                ]
-            },
-            {
-                "name": "Cocos Creator 3D",
-                "links": [
-                    {
-                        "name": "手册文档",
-                        "link": "https://docs.cocos.com/creator3d/manual/zh"
-                    },
-                    {
-                        "name": "API 参考",
-                        "link": "https://docs.cocos.com/creator3d/api/zh"
                     }
                 ]
             },

@@ -75,7 +75,7 @@ export async function ready(this: Selector<typeof $> & typeof methods) {
 You can also use Editor.Pabel.define for common panel objects.
 
 ```typescript
-module.exprots = Editor.Panel.define({
+module.exports = Editor.Panel.define({
     methods: {
         update() {},
     },

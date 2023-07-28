@@ -35,6 +35,32 @@
 
 在构建过程中，除了项目目录下的 `resources` 文件夹以及 bundle 中的资源和脚本会全部打包外，其他资源都是根据参与构建的场景以及 bundle 中的资源引用情况来按需打包的。因而去除勾选不需要发布的场景，可以减少构建后生成的项目发布包包体体积。
 
+### Bundles
+
+自 v3.8 起，开发者可以根据项目的需求，来决定某个 Bundle 是否要参与到构建中。
+
+![bundle-option](./build-options/bundle-option.png)
+
+- 全选：所有的 Bundle 都会参与构建。
+- 取消后可以从下拉框内选择需要参与构建的 Bundle。
+
+  ![bundle-select.png](./build-options/bundle-select.png)
+
+  > 正常构建模式下，主包和引擎内置 internal 包不可取消。
+
+### 在 Bundle 中嵌入公共脚本
+
+![embed-script-in-bundle.png](./build-options/embed-script-in-bundle.png)
+
+是否在构建 Bundle 时嵌入公共脚本。
+
+> 该选项目前无法修改，只会随着构建面板上的 **正常构建/仅构建 Bundle** 切换而切换。
+
+- 未勾选时：
+  在构建 Bundle 时，会将不同 Bundle 之间公用的一些 helper 之类的内容生成在 src/chunk 内的 bundle.js 内，减少整体脚本的体积。但这样构建出来的 Bundle 是和项目相耦合的，无法跨项目复用。
+- 勾选时：
+  不再提取 Bundle 依赖的公共 JS 库内而是直接构建在 Bundle 的内部。这样的 Bundle 可以跨项目使用（因为所需的脚本都在 Bundle 的内部，而引用相同代码的 Bundle 可能会有重复的部分），缺陷是由于脚本资源都在 Bundle 内部，因此最终的 Bundle 体积会增大。
+
 ### MD5 缓存
 
 为构建后的所有资源文件名加上 MD5 信息，可以解决 CDN 或者浏览器资源缓存问题。
@@ -126,20 +152,16 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 该项用于显示当前项目在 [服务](https://service.cocos.com/document/zh/) 面板所集成的所有服务。
 
-### Cocos Analytics
-
-若勾选该项，可直接启用 [服务](https://service.cocos.com/document/zh/) 面板中的 [Cocos Analytics](https://n-analytics.cocos.com/docs/zh/) 服务。
-
 ## 各平台相关构建选项
 
-由于目前构建机制上的调整，不同平台的处理均以插件的形式注入 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择要构建的平台后，将会看到对应平台的展开选项，展开选项的名称便是平台插件名，在编辑器主菜单的 **扩展 -> 扩展管理器 -> 内置** 中可以看到各平台插件。
+由于目前构建机制上的调整，不同平台的处理均以扩展的形式注入 **构建发布** 面板。在 **构建发布** 面板的 **发布平台** 中选择要构建的平台后，将会看到对应平台的展开选项，展开选项的名称便是平台扩展名，在编辑器主菜单的 **扩展 -> 扩展管理器 -> 内置** 中可以看到各平台扩展。
 
 各平台相关构建选项，详情请参考：
 
 - [发布到原生平台](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
 - [发布到小游戏平台](publish-mini-game.md)
 
-Creator 支持自定义构建扩展插件，处理方式与平台插件一致，详情可参考 [自定义构建流程](custom-build-plugin.md)。
+Cocos Creator 支持自定义构建扩展，处理方式与平台扩展一致，详情可参考 [自定义构建流程](custom-build-plugin.md)。
 
 ## 其他参与构建的参数配置
 

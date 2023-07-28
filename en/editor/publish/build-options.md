@@ -1,4 +1,4 @@
-# Build Options
+# General Build Options
 
 ## General Build Options
 
@@ -34,6 +34,32 @@ It is necessary to set the first scene to enter after opening the game. One way 
 ### Scenes that Participate in Build (Included Scenes)
 
 During the build process, all the assets and scripts in the bundle will be packaged except for the `resources` folder in the project directory and the assets and scripts in the bundle. Other assets are packaged on demand according to the scenes involved in the build and the asset referenced in the `bundle`. Therefore, removing the check box for scenes that do not need to be released can reduce the size of the project release package generated after the build.
+
+### Bundles
+
+As of v3.8, developers can decide whether a Bundle should participate in a build based on the needs of the project.
+
+![bundle-option](./build-options/bundle-option.png)
+
+- Select all: all Bundles will participate in the build.
+- Uncheck it to select the Bundle you want to participate in the build from the dropdown box.
+
+  ![bundle-select.png](./build-options/bundle-select.png)
+
+  > Main and engine built-in internal bundles cannot be canceled.
+
+### Embed Shared Script in Bundle
+
+![embed-script-in-bundle.png](./build-options/embed-script-in-bundle.png)
+
+Whether to embed shared scripts in bundle when build.
+
+> This option is read only, and only switched with the build button changes from **Normal Build** or **Build Bundle** in the **Build** panel.
+
+- Unchecked:
+  When building a Bundle, if there are shared scripts inside the Bundle, they will not be built inside the Bundle, but the script inside the Bundle will be built separately inside bundle.js in src/chunk. Therefore, the bundles built in this way are integrated with the project, which means that such bundles are smaller in size, but cannot exist separately from the project.
+- When checked:
+  The scripts inside the bundle are not built into the public JS library but inside the bundle. Such Bundle can be run independently from the project (because the required scripts are inside the Bundle, and Bundles referencing the same code may have duplicated parts), and can be loaded and run correctly even in other projects, but the drawback is that because the script resources are inside the Bundle, the final size of the Bundle will be larger.
 
 ### MD5 Cache
 
@@ -85,6 +111,19 @@ When the mouse is moved to this option, the **Edit Icon** button will appear. Cl
 
 ![splash setting](build-options/splash-setting.png)
 
+- **TotalTime**: the total time (milliseconds) to display the inset screen, minimum 500 milliseconds
+- **Image Size Multiplier**: the zoom ratio of the image, the minimum is 100%
+- **Preview**: If you want to change the splash screen image, hover your mouse over the preview window and click the '+' button, then select a new image path.
+
+If you want to disable the splash screen, please refer to [Introduction to Build Options](./publish/build-options.md) for details.
+
+> **Note**:
+> 1. After selecting different build platforms in the build options, adjusting the screen insertion rules again can achieve the diversity of screen insertion on different platforms
+> 2. the screen insertion will only take effect after the package, not during the preview.
+> 3. Some countries and regions are not open for full screen insertion, we apologize for any inconvenience caused to you.
+
+Translated with www.DeepL.com/Translator (free version)
+
 ### Erase module structure (experimental)
 
 If this option is checked, the script import speed is faster, but module features such as `import.meta`, `import()`, etc. cannot be used.
@@ -97,11 +136,7 @@ The default is 'false'. If this option is checked, the build skips the entire te
 
 This option is used to display all the services integrated in the [Service](https://service.cocos.com/document/en/) panel for the current project.
 
-### Cocos Analytics
-
-If this option is checked, the [Cocos Analytics](https://n-analytics.cocos.com/docs/en/) service in the [Service](https://service.cocos.com/document/en/) panel can be enabled directly.
-
-## Build options related to each platform
+## Related Build Options for Each Platform
 
 Due to the adjustment of the current build mechanism, the processing of different platforms is injected into the **Build** panel in the form of a plugin. After selecting the platform to build in the **Platform** option of the **Build** panel, notice the expanded options of the corresponding platform. The name of the expanded option is the platform plug-in name, in the editor main menu **Extensions -> Extension Manager -> Internal** to see various platform plug-ins.
 
@@ -110,7 +145,7 @@ For the relevant build options of each platform, please refer to:
 - [Publish to Native Platforms](native-options.md#build-options)
 - [Publish to Mini Game Platforms](publish-mini-game.md)
 
-Creator supports custom extension build plugins, handled in the same way as platform plugins. For details, please refer to the [Extension Build Process](custom-build-plugin.md) documentation.
+Cocos Creator supports custom extension build plugins, handled in the same way as platform plugins. For details, please refer to the [Extension Build Process](custom-build-plugin.md) documentation.
 
 ## Configuration of Other Options Involved in the Build
 

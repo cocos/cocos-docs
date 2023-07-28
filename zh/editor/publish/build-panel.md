@@ -124,3 +124,9 @@
 
 构建过程中依旧可以添加新的构建任务，此时新的构建任务会加入到构建队列中。
 在构建的过程中，可以点击构建任务右侧的 X 按钮来中断当前的构建任务。
+
+### 构建和仅构建 Bundle
+
+![build-dropdown.png](./build-panel/build-dropdown.png)
+
+自 v3.8 起，Cocos Creator 支持仅构建 Bundle，仅构建 Bundle，可以一次性构建选中的所有 Bundle，和单独的构建 Bundle 不同，仅构建 Bundle，会根据 Bundle 的优先级，将公共资源放在优先级高的 Bundle 内。

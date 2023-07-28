@@ -13,3 +13,4 @@
 - [Cocos Creator 3.6 材质升级指南](../material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
 - [粒子系统着色器 v3.5.x 升级到 v3.6.0](../particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
 - [v3.6 之前版本升级 CMake](./upgrade-cmake.md)
+- [v3.8 Android 工程升级](./upgrade-3.8-android.md)

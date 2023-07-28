@@ -88,6 +88,12 @@ Mesh 文件中存储了模型的顶点、索引、纹理坐标等数据。在 **
 
 ![warn](mesh/mesh-optimizer-warn.png)
 
+### LOD
+
+网格导入器会检查网格的子节点是否以 _lodN 结尾，如有，则会自动识别这些子节点为 LOD 节点。如果没有，也可以通过勾选 LOD 选项，提供自动的 LOD 功能。
+
+更多请参考 [多层次细节](../../editor/rendering/lod.md)。
+
 ### Animation 模块
 
 ![mesh animation](mesh/mesh_animation.png)

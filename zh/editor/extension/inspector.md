@@ -88,7 +88,7 @@ export function update(this: Selector<typeof $> & typeof methods, dump: any) {
 export function ready(this: Selector<typeof $> & typeof methods) {}
 ```
 
-编译并刷新插件后，我们可以发现 `CustomLabelComponent` 组件的渲染被接管了。
+编译并刷新扩展后，我们可以发现 `CustomLabelComponent` 组件的渲染被接管了。
 
 > **注意**：每一个 `ui-prop` 对应一条属性，若要显示多条属性需要定义多个 `ui-prop`。
 
@@ -157,7 +157,7 @@ export function ready(this: PanelThis) {
 }
 ```
 
-`effect` 表示我们要对 Cocos Effect（*.effect） 文件类型的资源属性面板自定义渲染。常见的资源文件类型如下：
+`effect` 表示我们要对 Cocos Shader（*.effect） 文件类型的资源属性面板自定义渲染。常见的资源文件类型如下：
 - `scene` - 场景文件
 - `typescript` - TypeScript 脚本文件
 - `prefab` - 预制体文件
@@ -168,7 +168,7 @@ export function ready(this: PanelThis) {
 
 可通过查看文件对应的 `*.meta` 中的 `importer` 字段获取该文件的类型定义。
 
-接下来，在插件目录下新建一个 `src/contributions/inspector/asset-effect.ts` 脚本文件，并编写如下代码：
+接下来，在扩展目录下新建一个 `src/contributions/inspector/asset-effect.ts` 脚本文件，并编写如下代码：
 
 ```typescript
 'use strict';
@@ -243,6 +243,6 @@ export function close(his: PanelThis, ) {
 };
 ```
 
-编译、刷新扩展后，回到 Cocos Creator 编辑器界面，选中某个 `Cocos Effect` 文件，可以在属性检查器底部发现，多了一个 **Test 复选框**。
+编译、刷新扩展后，回到 Cocos Creator 编辑器界面，选中某个 `Cocos Shader` 文件，可以在属性检查器底部发现，多了一个 **Test 复选框**。
 
 > **注意**：多个扩展注册的数据是并存的。如果一个 **组件**/**资源** 已经有了自定义渲染器，那么再次注册的自定义渲染器都会附加在后面。如果一个 **组件**/**资源** 没有内置自定义渲染器，使用的是默认的渲染器，那么当扩展注册自定义渲染器的时候，会完全接管渲染内容。
