@@ -90,7 +90,7 @@ http://ci.openharmony.cn/workbench/cicd/dailybuild/dailylist
 
 1. 下载最新的 IDE，下载对应平台的 IDE，点击右边的下载按钮，如下图：
 
-![](./publish-openharmony/document_image_rId32.png)
+![](./publish-openharmony/document_image_rId3.png)
 
 2. 解压目录，双击 deveco-studio-3.0.0.993.exe 进行安装，点击 next，如下图：
 
