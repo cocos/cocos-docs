@@ -59,6 +59,8 @@ The custom Asset Bundle is configured in **folders**. When we select a folder in
 | **Target Platform**  | An Asset Bundle can have different settings on different platforms and the editor will choose the corresponding setting at build time. |
 | **Compression Type** | Determines the final output form of the Asset Bundle, including the five compression types **Merge Depend**, **None**, **Merge All JSON**, **Mini Game Subpackage** and **Zip**. For more detail, see [Asset Bundle -- Compression Type](bundle.md#compression-type) documentation. |
 | **Is Remote Bundle** | Whether to configure the Asset Bundle as a remote package and not support the Web platform.<br>If checked, the Asset Bundle will be placed in the **remote** folder after the build, and you will need to place the entire **remote** folder on the remote server.<br>When building mini game platforms such as OPPO, vivo, Huawei, etc., the Asset Bundle will not be packaged into rpk if this option is checked. |
+| **Bundle Filter Config** | Use **Bundle Filter Config** to filter some assets in a bundle, and to preview the assets in the bundle by clicking on the **Preview** button. For more, see [Bundle Filter Config](./bundle.md#Bundle%20Filter%20Config) below. |
+| **Build Bundle** | Click to build the selected or specified bundle. For [more](./bundle#Build%20Bundle) |
 
 After the configuration, click the **green tick button** at the top right of the panel, and the folder will be configured as an Asset Bundle, then select the corresponding platform in the **Build** panel to build.
 
@@ -325,6 +327,87 @@ let bundle = assetManager.getBundle('bundle1');
 bundle.releaseAll();
 assetManager.removeBundle(bundle);
 ```
+
+## Bundle Filter Config
+
+The **Build Filter Config** allows you to config the selected bundle, and choose which asset should be included or excluded from the bundle.
+
+![filter.png](./bundle/filter.png)
+
+### Filter Type
+
+There are two types of filters, **Asset** and **URL**, the default value is **URL**.
+
+![filter-type](./bundle/filter-type.png)
+
+- **Asset**: Take an asset as a filter type. Drag an asset from the **Assets** panel or click the lock button ![lock.png](./bundle/lock.png)  to select one.
+- **ULR**: Filter all assets in the selected bundle according to one of the four rules including **Glob Expression**, **Begin With**, **End With**, and **Containing**. After the rule is set, type any string in the right input box to filter assets.
+
+    ![filter-rule.png](./bundle/filter-rule.png)
+
+| Rule | Description |
+| :---| :---|
+| **Glob** | Glob Expression which can be referred by [npm](https://www.npmjs.com/package/glob).|
+| **Begin With** | Filter all assets beginning with what is in the input-box |
+| **End With** | Filter all assets end with what is in the input-box |
+| **Containing** | Filter all assets containing what in the input box |
+
+To add a new filter rule, click the "+" button on the right.
+Click the "-" button to delete the last added or selected rule.
+
+### Include
+
+A **Include** rule will include all the assets it configs.
+
+### Exclude
+
+A **Exclude** rule will exclude all the assets that meet the rule out of the bundle.
+
+### Preview
+
+Click the **Preview** button to preview all the assets in the bundle.
+
+## Build Bundle
+
+Since v3.8, Cocos Creator supports the Build Bundle feature which allows the users can build a specified bundle instead of building all the asset bundles.
+
+To open the **Build Bundle** panel, after selecting a bundle, click the **Build Bundle** button at the bottom of the **Inspector** panel.
+
+![bundle-build.png](./bundle/bundle-build.png)
+
+You need to have at least one build task to build a bundle. Click the **Open Build Panel** button to create a new build task.
+
+![build-task.png](./bundle/build-task.png)
+
+After a build task is created, now you can see the build bundle panel.
+
+![build-budle-withtask.png](./bundle/build-budle-withtask.png)
+
+Select a bundle from the drop-down list, and click the **Build** button at the bottom, and the Bundle will be built to the specified **Build Path**.
+
+![select-bundle.png](./bundle/select-bundle.png)
+
+There are two types of **Build Path**.
+
+![build-path.png](./bundle/build-path.png)
+
+- file: The absolute path of the output bundle.
+- project： A related path based on the project.
+
+![select-open.png](./bundle/select-open.png)
+
+To select a different path, click the selected button ![select.png](./bundle/select.png), or after the build task is finished, use the open button ![open.png](./bundle/open.png) to locate the output directory.。
+
+Select platforms to build on the **Publish Config** list.
+
+![task.png](./bundle/task.png)
+
+After clicking the **Build** button, it can be canceled by clicking on the **Cancel** button.
+
+![building.png](./bundle/building.png)
+
+This feature is designed for big projects or some time-consuming bundles. Developers can build these bundles separately to reduce the build time.
+
 
 ## FAQ
 
