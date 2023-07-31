@@ -6,6 +6,8 @@
 
 Asset Bundle 可以按需求放置在不同地方，比如可以放在远程服务器、本地、或者小游戏平台的分包中。
 
+从 v3.8 开始，Bundle 的配置方案被转移到 **项目设置** -> **Bundle 配置** 分页内。您可以点击 **属性检查器** 上的 **编辑按钮** 或者通过 **项目** 菜单打开 **项目设置** 对 Bundle 进行配置。
+
 ## 内置 Asset Bundle
 
 项目中除了自定义的 Asset Bundle 外，Creator 还有内置的 3 个 Asset Bundle。与其他自定义 Asset Bundle 一样，内置 Asset Bundle 也可以根据不同平台进行配置。
@@ -57,9 +59,11 @@ function loadBundle (name) {
 | :---  | :---- |
 | Bundle 名称   | Asset Bundle 构建后的名称，默认会使用这个文件夹的名字，可根据需要修改。 |
 | Bundle 优先级 | Creator 开放了 20 个可供配置的优先级，构建时将会按照优先级 **从大到小** 的顺序对 Asset Bundle 依次进行构建。具体内容请参考 [Asset Bundle - 优先级](bundle.md#%E4%BC%98%E5%85%88%E7%BA%A7)。 |
-| 目标平台      | 不同平台可使用不同的配置，构建时将根据对应平台的设置来构建 Asset Bundle。|
+| 目标平台      | 不同平台可使用不同的配置，构建时将根据对应平台的设置来构建 Asset Bundle。支持通过下拉框选择不同的平台配置，目前为默认配置。开发者可以通过 **项目设置** -> **Bundle 配置** 自定义自己的配置方案 |
 | 压缩类型      | 决定 Asset Bundle 最后的输出形式，包括 **合并依赖**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 5 种压缩类型。具体内容请参考 [Asset Bundle - 压缩类型](bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B) |
 | 配置为远程包  | 是否将 Asset Bundle 配置为远程包，不支持 Web 平台。<br>若勾选了该项，则 Asset Bundle 在构建后会被放到 **remote** 文件夹，你需要将整个 **remote** 文件夹放到远程服务器上。<br>构建 OPPO、vivo、华为等小游戏平台时，若勾选了该项，则不会将 Asset Bundle 打包到 rpk 中。 |
+| **Bundle 资源过滤** | 资源过滤可以过滤掉 Bundle 内的某些资源，通过下方的 **预览** 按钮，可以查看 Bundle 最终会的资源列表，Bundle 过滤分为包含和排除两部分。详情请查看 [下文](./bundle.md#Bundle%20资源过滤)。|
+| **构建 Bundle** | 构建 Bundle 可以针对当前选中的 Bundle 进行构建，详情请查看 [下文](./bundle.md#构建%20Bundle) |
 
 配置完成后点击面板右上方的 **绿色打钩按钮**，这个文件夹就被配置为 Asset Bundle 的打包预设集合了，在放置需要的资源后，然后在 **构建发布** 面板选择对应的平台进行构建即可得到对应的 Asset Bundle。
 
@@ -322,6 +326,85 @@ let bundle = assetManager.getBundle('bundle1');
 bundle.releaseAll();
 assetManager.removeBundle(bundle);
 ```
+
+## Bundle 资源过滤
+
+资源过滤可以将选中的 Bundle 内的某些资源包括或者排除在 Bundle 内。
+
+![D:\Develop\creator-docs\zh\asset\bundle](./bundle/filter.png)
+
+### 过滤类型
+
+过滤类型目前有两种，**Asset** 资源以及 **URL**。默认为 **URL**。
+
+![filter-type](./bundle/filter-type.png)
+
+- **Asset**：将资源作为过滤的类型，从 **资源管理器** 拖拽或者点击右侧的 ![lock.png](./bundle/lock.png) 图标从下拉菜单中选择资源，每次仅可以选择一个（或一个目录）。
+- **URL**：根据后面的过滤规则过滤 Bundle 中的资源。过滤规则目前分为 4 种，分别为 **Glob 表达式**、**以 ... 开头**、**以 ... 结尾** 和 **包含 ...**。选择好过滤规则以后，在右侧的输入框内，输入对应的字符串来过滤对应的资源。
+
+    ![filter-rule.png](./bundle/filter-rule.png)
+
+| 规则 | 说明 |
+| :---| :---|
+| **Glob 表达式** | Glob 是一种类似正则的表达式，可以参考 [npm](https://www.npmjs.com/package/glob) 文档 |
+| **以 ... 开头** | 过滤出以右侧输入框内内容为开头的资源 |
+| **以 ... 结尾** | 过滤出以右侧输入框内内容为结尾的资源 |
+| **包含 ...** | 过滤出包含右侧输入框内内容的资源 |
+
+点击右侧的 “+” 号按钮可以添加新的过滤规则，“-” 将删除选中的规则，无选中时最后一个添加的规则。
+
+### 包含
+
+按照上述规则添加在 **包含** 规则内的资源将包含在 Bundle 内。
+
+### 排除
+
+按照上述规则添加在 **排除** 规则内的资源将 **不会** 包含在 Bundle 内。
+
+### 预览
+
+点击预览可以查看当前选中的 Bundle 内最终有哪些资源会打包进入 Bundle。
+
+## 构建 Bundle
+
+如果只是想更新某些 Bundle 而不是对整个游戏进行打包，引擎自 v3.8 开始提供了更方便的构建 Bundle 功能。
+
+在 **属性检查器** 的下方找到 **构建 Bundle** 点击该按钮会弹出构建面板。
+
+![bundle-build.png](./bundle/bundle-build.png)
+
+必须拥有至少一个构建任务，才可以构建 Bundle。点击面板上的 **打开构建面板** 来创建新的构建任务。
+
+![build-task.png](./bundle/build-task.png)
+
+创建完成后，该面板才可以进行操作。
+
+![build-budle-withtask.png](./bundle/build-budle-withtask.png)
+
+通过下拉菜单 找到要构建的 bundle，点击 **构建** 按钮， 该 Bundle 会自动构建到 **发布路径** 内。
+
+![select-bundle.png](./bundle/select-bundle.png)
+
+**发布路径** 有两种：
+
+![build-path.png](./bundle/build-path.png)
+
+- file：选择要输出的绝对地址
+- project：相对于项目目录下的相对路径
+
+![select-open.png](./bundle/select-open.png)
+
+点击右侧的选择路径 ![select.png](./bundle/select.png) 可以将 Bundle 发布到不同的位置，或者待构建完成后点击 ![open.png](./bundle/open.png) 可以定位到 Bundle 的输出目录。
+
+通过 **发布配置** 右侧的列表，勾选该 Bundle 要发布的平台极其配置。
+
+![task.png](./bundle/task.png)
+
+点击 **构建按钮** 后开始构建，期间可以点击 **取消** 按钮取消构建任务。
+
+![building.png](./bundle/building.png)
+
+该面板的设计目的是针对较大的项目，或者某些耗时的 Bundle，开发者可以单独对其进行打包。例如要热更新某个包。可以有效的降低打包耗时。
 
 ## FAQ
 

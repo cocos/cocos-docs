@@ -7,8 +7,8 @@ Prefab is used to store some scene objects that can be reused, it can contain no
 | Name | Description | Example |
 | :--- | :--- | :--- |
 | Prefab Asset           | The asset of prefab in __Assets__ panel, which is the serialize file of Prefab.| ![prefab asset](prefab/prefab-asset.png) |
-| Prefab Instance        | When the __Prefab Asset__ is drag to the __Hierarchy__ panel, it will generate a __Prefab Instance__. Its root node is currently marked in bright green, and its child nodes are dark green | ![prefab instance](prefab/prefab-instance.png) |
-| Prefab Editing Mode    | Double-click the __Prefab Asset__ to enter the prefab editing mode. At this time, all non-nested prefab nodes are displayed in dark green | ![prefab edit mode](prefab/prefab-edit-mode.png) |
+| Prefab Instance        | When the __Prefab Asset__ is drag to the __Hierarchy__ panel, it will generate a __Prefab Instance__. Its root node is currently marked in dark green, and its child nodes are bright green | ![prefab instance](prefab/prefab-instance.png) |
+| Prefab Editing Mode    | Double-click the __Prefab Asset__ to enter the prefab editing mode. At this time, all non-nested prefab nodes are displayed in bright green | ![prefab edit mode](prefab/prefab-edit-mode.png) |
 | Nested Prefab Instance | When a child node in a __Prefab Asset__ is an instance of another __Prefab Asset__, we call this child prefab a nested prefab instance | ![nested-prefab](prefab/nested-prefab.png) |
 
 ## Creating a Prefab

@@ -1,6 +1,6 @@
 # 集成 Input SDK
 
-Input SDK提供了一个统一的界面，让玩家在 Google Play Games For PC 上方便地找到游戏的鼠标和键盘绑定，从而提升玩家的游戏体验。 
+Input SDK提供了一个统一的界面，让玩家在 Google Play Games For PC 上方便地找到游戏的鼠标和键盘绑定，从而提升玩家的游戏体验。
 
 ## 准备工作
 
@@ -116,7 +116,7 @@ dependencies {
 
 ## 修改 `AppActivity` 注册 `InputMapping`
 
-`AppActivity.java` 位于 `native\engine\android\app\src\main\cocos\game `，需做如下修改。
+`AppActivity.java` 位于 `native\engine\android\app\src\main\cocos\game`，需做如下修改。
 
 ```java
     ...

@@ -291,7 +291,7 @@ Since v3.5.0, custom texture compression pages have been supported in order to m
 - **Compress format**: Config the processing format. After selecting a different format, quality options will keep the same type. If the customized compression mode fails, the system will automatically revert to the original compression scheme of the editor.
 
     ![overwrite-format](./texture-compress/custom-format.png)
-    
+
 - **Overwrite original format**: If this option is selected, the original compression format in the existing texture compression preset will be automatically overwritten. The name of the custom compression mode will appear next to the original configuration name. One format can only be overwritten by one custom compression mode.
 
   ![overwrite-format](./texture-compress/overwrite-format.png)
@@ -324,6 +324,49 @@ If you want to disable the splash screen, please refer to [Build Options](../pub
 > 1. After selecting different build platforms in the build options, adjust the splash screen rules again to achieve the diversity of splash screen on different platforms
 > 2. the splash screen will only take effect after packaging, not when previewing
 > 3. some countries and regions are not open for full splash screen, we apologize for any inconvenience caused to you.
+
+## Bundle Config
+
+![bundle-config.png](index/bundle-config.png)
+
+Bundle Config allows users can config different configurations for various platforms. For example, to distinguish normal textures and high-resolution textures, or for different shops, etc. For more, please refer to [Asset Bundle](../../asset/bundle.md).
+
+Currently, three main types of platforms are supported by Cocos Creator including the native platform, web, and mini-games.
+
+You can select the target platform by clicking on the platform buttons.
+
+![bundle-platforms.png](./index/bundle-platforms.png)
+
+Use the menus on the top right of the panel to create a new, import, or export config.
+
+![bundle-menus.png](./index/bundle-menus.png)
+
+- **New Config**: Create a new config.
+
+    ![bundle-change-type.png](./index/bundle-change-type.png)
+
+    After a config is created, you can select it by clicking on the drop-down box beside **Platform Settings** on the **Inspector** panel when a bundle is selected.
+
+    > Different bundles can use different configs.
+
+- **Import Config**：To import a JSON file as the bundle config.
+- **Export Config**：Export the config to reuse it in other projects.
+
+For the created config, you can **Copy Config**, **Copy ID**, **Rename** or **Delete** the config by clicking the menu button.
+
+![bundle-copy.png](./index/bundle-copy.png)
+
+### Platform Override
+
+Currently, Cocos Creator supports multiple platforms for publishing. When publishing on each platform, you can choose the option to add a new configuration to override the currently configured platform.
+
+Click the "+" sign on the right side of **Platform Override** to select the target platform.
+
+![bundle-override.png](./index/bundle-override.png)
+
+After selecting new platforms as needed, the configuration of these new platforms will override the previous generic configuration.
+
+This operation allows developers to optimize for certain platforms.
 
 ## Extending the Project Settings Panel
 

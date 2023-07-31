@@ -119,6 +119,9 @@
         - [Android Publishing Example](editor/publish/android/build-example-android.md)
         - [Build Options - Android](editor/publish/android/build-options-android.md)
         - [Android Development Environment Setup](editor/publish/android/build-setup-evn-android.md)
+    - [Publish to Google Play on PC](editor/publish/google-play-games/index.md)
+        - [Build and Run](editor/publish/google-play-games/build-and-run.md)
+        - [Integrating Input SDK](editor/publish/gpg-input-sdk.md)
     - [Publishing iOS Apps](editor/publish/ios/index.md)
         - [iOS Publishing Example](editor/publish/ios/build-example-ios.md)
         - [Build Options - iOS](editor/publish/ios/build-options-ios.md)
@@ -451,6 +454,7 @@
     - [Native Profiler](./advanced-topics/profiler.md)
     - [Native Plugins](./advanced-topics/native-plugins/brief.md)
         - [Cocos Native Plugin Quick Tutorial](./advanced-topics/native-plugins/tutorial.md)
+    - [Optimization of Cross-Language Invocation](advanced-topics/jsb-optimizations.md)
 
 ## Advanced Tutorials
 

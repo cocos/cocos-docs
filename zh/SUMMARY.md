@@ -124,6 +124,9 @@
         - [Android 构建示例](editor/publish/android/build-example-android.md)
         - [Android 构建选项](editor/publish/android/build-options-android.md)
         - [配置 Android 原生开发环境](editor/publish/android/build-setup-evn-android.md)
+    - [发布到谷歌 GPG 平台](editor/publish/google-play-games/index.md)
+        - [发布和运行](editor/publish/google-play-games/build-and-run.md)
+        - [集成 Input SDK](editor/publish/gpg-input-sdk.md)
     - [发布 iOS 应用](editor/publish/ios/index.md)
         - [iOS 发布示例](editor/publish/ios/build-example-ios.md)
         - [iOS 构建选项](editor/publish/ios/build-options-ios.md)
@@ -321,7 +324,7 @@
         - [动画编辑器面板介绍](animation/animation-editor.md)
         - [编辑动画剪辑](animation/edit-animation-clip.md)
             - [关键帧编辑视图](animation/animation-keyFrames.md)
-            - [曲线编辑视图](animation/animation-curve.md)            
+            - [曲线编辑视图](animation/animation-curve.md)
             - [曲线编辑器](animation/curve-editor.md)
             - [辅助曲线编辑视图](animation/animation-auxiliary-curve.md)
         - [添加动画事件](animation/animation-event.md)
@@ -470,7 +473,8 @@
     - [原生性能剖析器](advanced-topics/profiler.md)
     - [原生插件](advanced-topics/native-plugins/brief.md)
         - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
-
+    - [原生引擎跨语言调用优化](advanced-topics/jsb-optimizations.md)
+    
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
