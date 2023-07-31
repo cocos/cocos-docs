@@ -2,9 +2,13 @@
 
 辅助曲线是 Cocos Creator v3.8 新增的动画辅助功能，您可以阅读 [辅助曲线](./marionette/procedural-animation/auxiliary-curve/index.md) 来了解辅助曲线的基础概念。
 
-本节将主要介绍如何在动画编辑器中使用辅助曲线。辅助曲线编辑器是曲线编辑器的一种，曲线编辑器的基础操作可参考 [曲线编辑器](./curve-editor.md)
+如果要启用辅助曲线，请在 **偏好设置** 中的 **实验室** 分页中启用 **动画辅助曲线**。
 
-选中带有动画组件（Animation、SkeletalAnimation 或 AnimationController） 的节点。点击下图中的按钮进入编辑模式。
+![enable.png](./animation-auxiliary-curve/enable.png)
+
+本节将主要介绍如何在动画编辑器中使用辅助曲线。辅助曲线编辑器是曲线编辑器的一种，曲线编辑器的基础操作可参考 [曲线编辑器](./curve-editor.md)。
+
+选中带有动画组件（Animation、SkeletalAnimation 或 AnimationController）的节点。点击下图中的按钮进入编辑模式。
 
 ![start-edit.png](./animation-auxiliary-curve/start-edit.png)
 
