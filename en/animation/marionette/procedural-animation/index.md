@@ -12,8 +12,8 @@ Cocos Creator 3.8 starts to experimentally support procedural animation effects,
 
 - [Pose Graph](./pose-graph/index.md) describes the pose graph, the core building block of procedural animation.
 
-- [additive-animation](../additive-animation/index.md) is a means of reusing animation assets.
+- [Additive Animation](../additive-animation/index.md) is a means of reusing animation assets.
 
 - In addition to gesture maps, [auxiliary curve](. /auxiliary-curve/index.md) is also an effective means of implementing procedural animation.
 
-- [pose-stash](./pose-stash/index.md) is used to realize the reuse of pose graphs.
+- [Pose Stash](./pose-stash/index.md) is used to realize the reuse of pose graphs.
