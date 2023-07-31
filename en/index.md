@@ -15,7 +15,7 @@ If you are the first time to use Cocos Creator, take a look at the [Getting Star
 
 - New features such as **Procedural Animation**, **High Precision Text**, **New Custom Render Pipeline**, **Character Controller**, etc. have been added in this version.
 - For a full list of updates go to [Release Notes](https://www.cocos.com/creator-download)
-- For projects using older versions of Cocos Creator, please refer to [Upgrade Guide](. /release-notes/index.md)
+- For projects using older versions of Cocos Creator, please refer to [Upgrade Guide](./release-notes/index.md)
 
 ## User Manual sections
 
