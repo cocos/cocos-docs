@@ -1,4 +1,4 @@
-# Enable Procedural  animation
+# Enable Procedural Animation
 
 Procedural animation is currently an experimental feature, to enable it, find the **Laboratory** feature in **Preferences** and turn on the following options:
 
