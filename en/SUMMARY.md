@@ -454,6 +454,7 @@
     - [Native Profiler](./advanced-topics/profiler.md)
     - [Native Plugins](./advanced-topics/native-plugins/brief.md)
         - [Cocos Native Plugin Quick Tutorial](./advanced-topics/native-plugins/tutorial.md)
+    - [Optimization of Cross-Language Invocation](advanced-topics/jsb-optimizations.md)
 
 ## Advanced Tutorials
 
