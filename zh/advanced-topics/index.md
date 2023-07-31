@@ -15,6 +15,7 @@
     - [Swig](jsb-swig.md)
         - [Swig 示例](jsb/swig/tutorial/index.md)
     - [纯 JS 对象与绑定对象之间的差异](jsb-web-difference.md)
+- [原生引擎跨语言调用优化](jsb-optimizations.md)
 - [Java 原生反射机制](js-java-bridge.md)
 - [Objective-C 原生反射机制](js-oc-bridge.md)
 - [CMake 使用简介](cmake-learning.md)

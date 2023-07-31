@@ -451,7 +451,8 @@
     - [原生性能剖析器](advanced-topics/profiler.md)
     - [原生插件](advanced-topics/native-plugins/brief.md)
         - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
-
+    - [原生引擎跨语言调用优化](advanced-topics/jsb-optimizations.md)
+    
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)
