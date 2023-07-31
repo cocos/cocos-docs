@@ -1,10 +1,11 @@
 {
-    "language" : "zh-hans",
+    "language": "zh-hans",
     "structure": {
         "summary": "SUMMARY.md",
         "readme": "index.md"
     },
     "variables": {
+        "docType": "手册",
         "products": [
             {
                 "name": "Cocos Creator",
@@ -16,19 +17,6 @@
                     {
                         "name": "API 参考",
                         "link": "https://docs.cocos.com/creator/2.1/api/zh"
-                    }
-                ]
-            },
-            {
-                "name": "Cocos Creator 3D",
-                "links": [
-                    {
-                        "name": "手册文档",
-                        "link": "https://docs.cocos.com/creator3d/manual/zh"
-                    },
-                    {
-                        "name": "API 参考",
-                        "link": "https://docs.cocos.com/creator3d/api/zh"
                     }
                 ]
             },
@@ -50,6 +38,10 @@
             {
                 "name": "2.1",
                 "links": [
+                    {
+                        "name": "3.8",
+                        "link": "https://docs.cocos.com/creator/3.8/manual/zh"
+                    },
                     {
                         "name": "3.7",
                         "link": "https://docs.cocos.com/creator/3.7/manual/zh"
