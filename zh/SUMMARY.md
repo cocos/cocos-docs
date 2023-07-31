@@ -321,7 +321,7 @@
         - [动画编辑器面板介绍](animation/animation-editor.md)
         - [编辑动画剪辑](animation/edit-animation-clip.md)
             - [关键帧编辑视图](animation/animation-keyFrames.md)
-            - [曲线编辑视图](animation/animation-curve.md)            
+            - [曲线编辑视图](animation/animation-curve.md)
             - [曲线编辑器](animation/curve-editor.md)
             - [辅助曲线编辑视图](animation/animation-auxiliary-curve.md)
         - [添加动画事件](animation/animation-event.md)

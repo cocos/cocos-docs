@@ -2,6 +2,10 @@
 
 The Auxillary Curve is a new feature in Cocos Creator 3.8, and you can read the [Auxillary Curve](./marionette/procedural-animation/auxiliary-curve/index.md) to help understanding the basic concepts.
 
+Please make sure the **Animation Auxillary Curve** option is enabled in the **Laboratory** page of the **Preference** panel.
+
+![enable.png](./animation-auxiliary-curve/enable.png)
+
 In this section, we will introduce to you how to use the auxillary curve in the animation editor. Auxillary curve is a part of a curve editor, the basic curve options can be refer to [Curve Editor](./curve-editor.md).
 
 Select the node with the animation component (Animation, SkeletalAnimation or AnimationController). Click on the button in the figure below to enter the editing mode.

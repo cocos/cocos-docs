@@ -24,4 +24,8 @@ Cocos Creator has a built-in universal animation system for implementing keyfram
 
 - [Marionette Animation System](./marionette/index.md): added in v3.4 and implements an automated and reusable skeletal animation process controlled by a state machine.
 
+- [Procedural Animation](./marionette/procedural-animation/index.md): New in v3.8, you can programmatically control the sampling process of the animation through different animation nodes.
+
+- [Auxiliary Curve](./animation-auxiliary-curve.md): New in v3.8, used to add a curve editor that can be used to get information in animation clips.
+
 According to different animation requirements, the operation steps and code implementation for specific animations are different, please refer to the official example [animation](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/animation), which mainly introduces some common editing operations and code examples for reference.

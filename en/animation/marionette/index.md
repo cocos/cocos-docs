@@ -20,6 +20,7 @@ The Marionette system consists of four modules:
 - [State Transition](state-transition.md)
 - [Animation Mask](animation-mask.md)
 - [Animation Graph Variants](animation-variant.md)
+- [Procedural Animation](./procedural-animation/index.md)
 
 ## Terminology
 
