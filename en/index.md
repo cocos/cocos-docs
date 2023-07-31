@@ -11,11 +11,11 @@ You can read it from begin to end, or just use it as a reference.
 
 If you are the first time to use Cocos Creator, take a look at the [Getting Started](getting-started/index.md), and see the [Examples & Tutorials](./cases-and-tutorials/index.md).
 
-## What's new in v3.7
+## v3.8 New Features
 
-- New features such as **Light Probe**、**Reflection Probe**、**LOD**、**New Extension Manager** have been added in this version.
-- Go and see [Release Notes](https://www.cocos.com/creator-download) for more detail.
-- Upgrading projects from older versions of Cocos Creator: [Upgrade Guide](./release-notes/index.md)
+- New features such as **Procedural Animation**, **High Precision Text**, **New Custom Render Pipeline**, **Character Controller**, etc. have been added in this version.
+- For a full list of updates go to [Release Notes](https://www.cocos.com/creator-download)
+- For projects using older versions of Cocos Creator, please refer to [Upgrade Guide](. /release-notes/index.md)
 
 ## User Manual sections
 
