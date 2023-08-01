@@ -379,8 +379,10 @@
         - [物理事件](physics/physics-event.md)
         - [射线检测](physics/physics-raycast.md)
         - [几何投射检测](physics/physics-sweep.md)
+        - [几何投射检测](physics/physics-sweep.md)
         - [连续碰撞检测](physics/physics-ccd.md)
         - [物理应用案例](physics/physics-example.md)
+        - [角色控制器](physics/character-controller/index.md)
 
 - [粒子系统](particle-system/index.md)
     - [2D 粒子](particle-system/2d-particle/2d-particle.md)
@@ -474,7 +476,7 @@
     - [原生插件](advanced-topics/native-plugins/brief.md)
         - [原生插件创建范例](advanced-topics/native-plugins/tutorial.md)
     - [原生引擎跨语言调用优化](advanced-topics/jsb-optimizations.md)
-    
+
 ## 进阶教程
 
 - [扩展编辑器](editor/extension/readme.md)

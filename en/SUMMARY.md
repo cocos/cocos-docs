@@ -371,8 +371,10 @@
         - [Physics Event](physics/physics-event.md)
         - [Raycast Detection](physics/physics-raycast.md)
         - [Geometry Cast Detection](physics/physics-sweep.md)
+        - [Geometry Cast Detection](physics/physics-sweep.md)
         - [Continuous Collision Detection](physics/physics-ccd.md)
         - [Physics Application Cases](physics/physics-example.md)
+        - [Character Controller](physics/character-controller/index.md)
         - [Character Controller](physics/character-controller/index.md)
 
 - [Particle System](particle-system/index.md)
