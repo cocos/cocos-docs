@@ -131,6 +131,7 @@
         - [iOS 发布示例](editor/publish/ios/build-example-ios.md)
         - [iOS 构建选项](editor/publish/ios/build-options-ios.md)
     - [发布 HUAWEI HarmonyOS 应用](editor/publish/publish-huawei-ohos.md)
+    - [发布到 OpenHarmony 应用](editor/publish/publish-openharmony.md)
     - [发布 macOS 应用](editor/publish/mac/index.md)
         - [macOS 发布示例](editor/publish/mac/build-example-mac.md)
         - [macOS 构建选项](editor/publish/mac/build-options-mac.md)
