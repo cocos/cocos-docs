@@ -12,11 +12,11 @@
                 "links": [
                     {
                         "name": "手册文档",
-                        "link": "https://docs.cocos.com/creator/3.7/manual/zh"
+                        "link": "https://docs.cocos.com/creator/3.8/manual/zh"
                     },
                     {
                         "name": "API 参考",
-                        "link": "https://docs.cocos.com/creator/3.7/api/zh/"
+                        "link": "https://docs.cocos.com/creator/3.8/api/zh/"
                     }
                 ]
             },
