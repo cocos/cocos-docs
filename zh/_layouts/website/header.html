@@ -21,6 +21,7 @@
 {% for item in book.version %}
     {% if item.links %}
     <li class="version-link">
+        <div class="version-badge">Cocos Creator {{item.name}}</div>
         <a class="btn" style="color:#444">Version: <span style="font-weight:bold">{{item.name}}</span></a>
         <ul class="hovershow">
             {% for entry in item.links %}
