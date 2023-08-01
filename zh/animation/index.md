@@ -26,4 +26,4 @@ Cocos Creator 内置了通用的动画系统用以实现基于关键帧的动画
 - [程序化动画](./marionette/procedural-animation/index.md)：v3.8 新增，可通过不同的动画节点对动画的采样过程进行程序化控制。
 - [辅助曲线](./animation-auxiliary-curve.md)： v3.8 新增，用于在动画剪辑中增加可以辅助获取信息的曲线编辑器。
 
-具体的动画实现根据不同的动画需求，操作步骤以及代码实现都不同，可参考官方范例 **animation**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/animation) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.7/assets/cases/animation)），主要介绍一些常见的编辑操作方法以及代码范例，以供参考。
+具体的动画实现根据不同的动画需求，操作步骤以及代码实现都不同，可参考官方范例 **animation**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/animation) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/animation)），主要介绍一些常见的编辑操作方法以及代码范例，以供参考。

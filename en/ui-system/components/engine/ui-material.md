@@ -13,7 +13,7 @@ The usage is no different from other built-in materials, just drag and drop the 
 3. Please use a 2D-specific shader such as **builtin-spine** or **builtin-sprite** to customize materials, do not choose a shader used by other 3D components.
 4. The **Grayscale** property on the panel is disabled when a custom material for 2D rendering objects is used, and the user can choose to implement this feature in the material itself.
 5. If the BlendFactor is set in the code, when a custom material is used, the BlendFactor setting in the custom material will prevail.
-6. When a custom material is used, the depth detection information of the component will be based on the material. To achieve occlusion with 3D objects, please use custom materials and turn on depth detection. See the example [2d-rendering-in-3d](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/2D).
+6. When a custom material is used, the depth detection information of the component will be based on the material. To achieve occlusion with 3D objects, please use custom materials and turn on depth detection. See the example [2d-rendering-in-3d](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/2D).
 
 7. If you want to change the properties of the custom material, it can be done by getting the **customMaterial** on the 2D renderer component as following code( take Sprite for example):
 

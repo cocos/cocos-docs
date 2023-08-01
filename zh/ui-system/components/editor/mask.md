@@ -8,7 +8,7 @@ Mask 用于规定子节点可渲染的范围，默认带有 Mask 组件的节点
 
 遮罩的组件接口请参考 [Mask API](__APIDOC__/zh/class/Mask)。
 
-关于使用可以参考范例 **Mask**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/08.mask) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.7/assets/cases/ui/08.mask)）。
+关于使用可以参考范例 **Mask**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/08.mask) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/ui/08.mask)）。
 
 添加 Mask 组件后，会自动添加 [Graphics](./graphics.md) 组件，请不要删除该组件。在 Type 为 **SPRITE_STENCIL** 时，Mask 组件会添加 Sprite 组件，该 Sprite 组件会为模板提供形状，同理请勿删除。
 

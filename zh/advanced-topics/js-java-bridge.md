@@ -155,4 +155,4 @@ JsbBridge 提供了 arg0 和 arg1 两个 string 类型的参数用于传递信�
 
 ## 示例工程：简单的多事件调用
 
-Cocos Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.7/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.7/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。
+Cocos Creator 提供了 **native-script-bridge**（[GitHub](https://github.com/cocos-creator/example-3d/tree/v3.8/native-script-bridge) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-3d/tree/v3.8/native-script-bridge)）范例，开发者可根据需要自行下载以参考使用。

@@ -8,7 +8,7 @@ PageView 是一种页面视图容器.
 
 页面视图的脚本接口请参考 [PageView API](__APIDOC__/zh/class/PageView)。
 
-关于使用可以参考范例 **PageView**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/15.pageview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.7/assets/cases/ui/15.pageview)）。
+关于使用可以参考范例 **PageView**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/15.pageview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/ui/15.pageview)）。
 
 ## PageView 属性
 

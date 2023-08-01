@@ -8,7 +8,7 @@ Label 组件用来显示一段文字，文字可以是系统字体，TrueType �
 
 Label 的组件接口请参考 [Label API](__APIDOC__/zh/result?keyword=Label)。
 
-具体使用方法可参考范例 **Label**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/02.label) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.7/assets/cases/ui/02.label)）。
+具体使用方法可参考范例 **Label**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/02.label) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/ui/02.label)）。
 
 ## Label 属性
 

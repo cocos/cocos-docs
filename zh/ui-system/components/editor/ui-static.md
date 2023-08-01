@@ -6,7 +6,7 @@ UI 静态合批组件是一个提升 UI 渲染性能的组件，脚本在初始�
 
 遮罩的组件接口请参考 [UIStaticBatch API](__APIDOC__/zh/class/UIStaticBatch)。
 
-关于使用可以参考范例 **UIStaticBatch**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/19.static-ui) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.7/assets/cases/ui/19.static-ui)）。
+关于使用可以参考范例 **UIStaticBatch**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/19.static-ui) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/ui/19.static-ui)）。
 
 ## 通过脚本代码开启静态合批
 

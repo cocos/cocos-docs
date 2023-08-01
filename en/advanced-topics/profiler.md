@@ -60,7 +60,7 @@ The performance profiler is a tool for performance analysis and statistics that 
 
 - If you want to add the statistical information of `ObjectStats`, such as counting the number of rendered models per frame (need to be called in a function such as update for each frame):
 
-  The following macros are defined in [native/cocos/profiler/Profiler.h](https://github.com/cocos/cocos-engine/blob/v3.7.0/native/cocos/profiler/Profiler.h). Developers can use it as needed.
+  The following macros are defined in [native/cocos/profiler/Profiler.h](https://github.com/cocos/cocos-engine/blob/v3.8.0/native/cocos/profiler/Profiler.h). Developers can use it as needed.
 
   ```c++
   void RenderScene::update(uint32_t stamp) {

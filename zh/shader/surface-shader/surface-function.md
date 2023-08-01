@@ -11,7 +11,7 @@ Surface Shader 提供的自定义函数，在内部都有一个默认版本，�
 - SurfacesVertexModifyLocalNormal
 - SurfacesVertexModifyLocalTangent
 
-所有函数可以在 [`internal/chunks/surfaces/default-functions/`](https://github.com/cocos/cocos-engine/tree/v3.7.0/editor/assets/chunks/surfaces/default-functions) 中查看。
+所有函数可以在 [`internal/chunks/surfaces/default-functions/`](https://github.com/cocos/cocos-engine/tree/v3.8.0/editor/assets/chunks/surfaces/default-functions) 中查看。
 
 **如果你想替换某函数的实现，可以通过预定义该函数对应的宏来完成**。
 

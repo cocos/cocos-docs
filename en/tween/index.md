@@ -16,4 +16,4 @@ This chapter contains the following sections:
 
 ## Example
 
-Please see [GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/tween) for sample code for using tweens.
+Please see [GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/tween) for sample code for using tweens.

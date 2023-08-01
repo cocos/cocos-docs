@@ -156,4 +156,4 @@ Note that if the related code involves native UI, you need to consider thread sa
 
 ## Sample: Multiple Event Calls
 
-Cocos provides the [native-script-bridge](https://github.com/cocos/cocos-example-projects/tree/v3.7/native-script-bridge) example, which developers can download for reference use as needed.
+Cocos provides the [native-script-bridge](https://github.com/cocos/cocos-example-projects/tree/v3.8/native-script-bridge) example, which developers can download for reference use as needed.

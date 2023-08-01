@@ -14,4 +14,4 @@ The implementation of lighting in Creator simulates the effect of light on the r
 - [Shadows](light/shadow.md)
 - [Lightmapping](light/lightmap.md)
 
-Cocos Creator provides some [lighting examples](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/light), which mainly introduces some common editing operations for lighting and code examples for reference.
+Cocos Creator provides some [lighting examples](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/light), which mainly introduces some common editing operations for lighting and code examples for reference.
