@@ -1,4 +1,4 @@
-# Run and start
+# Build and Run
 
 ![build-and-run/run-on-hpe.png](build-and-run/run-on-hpe.png)
 

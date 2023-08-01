@@ -1,4 +1,4 @@
-# Custom rendering of pipelines (experimental)
+# Custom Render Pipeline(experimental)
 
 A new **Custom Render Pipeline** has been added in Cocos Creator 3.6.
 
