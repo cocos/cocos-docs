@@ -43,4 +43,4 @@ For the script interface of ParticleSystem2D, please refer to [ParticleSystem AP
 | EndRadius          | The end radius and range. Valid only when Emitter Mode is set to **RADIUS**.
 | RotatePerS         | The rotation angle and range of particles around the initial point per second. Only effective when Emitter Mode is set to **RADIUS**.
 
-For more specific usage, please refer to the official [ui/25.particle](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/25.particle) example.
+For more specific usage, please refer to the official [ui/25.particle](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/25.particle) example.

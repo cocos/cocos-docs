@@ -196,7 +196,7 @@ console.log(proto.pkg1.Bar);
     "build-proto:pbts": "pbts --main --out ./Proto.js/proto.d.ts ./Proto.js/*.js && node ./Tools/wrap-pbts-result.js"
     ```
 
-最终，就可以直接运行了。完整项目内容请参考：[npm-case](https://github.com/cocos/cocos-example-projects/tree/v3.7/npm-case)。
+最终，就可以直接运行了。完整项目内容请参考：[npm-case](https://github.com/cocos/cocos-example-projects/tree/v3.8/npm-case)。
 
 > **注意**：打包出来的 js 文件即可以放在项目 `assets` 目录下，也可以放在项目其它位置。`assets` 目录下的 js 文件不再需要勾选导出为插件，请各位悉知。
 

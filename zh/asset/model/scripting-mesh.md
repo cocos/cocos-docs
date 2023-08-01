@@ -19,4 +19,4 @@ API 请参考 [MeshUtils](__APIDOC__/zh/class/utils.MeshUtils)。
 
 ![dynamic mesh](./mesh/dynamic-mesh.gif)
 
-动态网格的范例请参考 [Github](https://github.com/cocos/cocos-test-projects/tree/v3.7)。
+动态网格的范例请参考 [Github](https://github.com/cocos/cocos-test-projects/tree/v3.8)。

@@ -236,7 +236,7 @@ toolchains-windows-x64-3.2.11.9-Release.zip
 
     > ![](./publish-openharmony/document_image_rId51.png)
 
-5. 选择工程的目录，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.7) 为例，如下图：
+5. 选择工程的目录，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.8) 为例，如下图：
 
     ![](./publish-openharmony/document_image_rId53.png)
 

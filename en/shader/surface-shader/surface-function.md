@@ -11,7 +11,7 @@ These functions are usually named in the way of `Surfaces+Shader+ShaderTypeName+
 - SurfacesVertexModifyLocalNormal
 - SurfacesVertexModifyLocalTangent
 
-All functions can be viewed at [`internal/chunks/surfaces/default-functions/`](https://github.com/cocos/cocos-engine/tree/v3.7.0/editor/assets/chunks/surfaces/default-functions).
+All functions can be viewed at [`internal/chunks/surfaces/default-functions/`](https://github.com/cocos/cocos-engine/tree/v3.8.0/editor/assets/chunks/surfaces/default-functions).
 
 **If you want to replace the implementation of a function, you can do so by pre-defining the macro corresponding to that function.**.
 

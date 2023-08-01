@@ -10,7 +10,7 @@ After adding a Mask component, a [Graphics](./graphics.md) component will be aut
 
 > __Note__: the Mask component cannot be added to a node with other renderer components such as __Sprite__, __Label__, etc.
 
-To use `Mask`, please refer to the [Mask API](__APIDOC__/en/class/Mask) documentation and the [Mask](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/ui/08.mask) scene of the test-cases-3d project.
+To use `Mask`, please refer to the [Mask API](__APIDOC__/en/class/Mask) documentation and the [Mask](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/08.mask) scene of the test-cases-3d project.
 
 ## Mask Properties
 

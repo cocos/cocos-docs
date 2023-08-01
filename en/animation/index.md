@@ -28,4 +28,4 @@ Cocos Creator has a built-in universal animation system for implementing keyfram
 
 - [Auxiliary Curve](./animation-auxiliary-curve.md): New in v3.8, used to add a curve editor that can be used to get information in animation clips.
 
-According to different animation requirements, the operation steps and code implementation for specific animations are different, please refer to the official example [animation](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/animation), which mainly introduces some common editing operations and code examples for reference.
+According to different animation requirements, the operation steps and code implementation for specific animations are different, please refer to the official example [animation](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/animation), which mainly introduces some common editing operations and code examples for reference.
