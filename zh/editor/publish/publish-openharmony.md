@@ -27,7 +27,7 @@ OpenHarmony 发布的系统是 **32位** 的，**64位** 下载传送门：
 http://ci.openharmony.cn/workbench/cicd/dailybuild/dailylist
 ```
 
-    ![](./publish-openharmony/document_image_rId0.png)
+![](./publish-openharmony/document_image_rId0.png)
 
 3. 下载最新的 IDE（版本\>=3.1.1）：[DevEco Studio](https://developer.harmonyos.com/cn/develop/deveco-studio#download)
 
@@ -95,8 +95,7 @@ http://ci.openharmony.cn/workbench/cicd/dailybuild/dailylist
 
 16. 点击执行，等待日志显示'下载完成'即可。执行成功后，设备会自动进行重启，出现软件 OpenHarmony 界面欢迎页面，然后进入到桌面，即表示烧录成功，如下图：
 
-
-    ![](./publish-openharmony/document_image_rId31.png)
+![](./publish-openharmony/document_image_rId31.png)
 
 ### 安装 DevEco Studio
 
