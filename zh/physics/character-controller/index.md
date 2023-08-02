@@ -23,7 +23,7 @@ Cocos Creator 提供两种角色控制器类型：盒控制器和胶囊控制器
 | Center  | 角色控制器的中心 |
 | Step Offset | 最大自动爬台阶高度 |
 | Slope Limit | 角色可以行走的最大坡度，单位：角度 |
-| Contact Offset | 控制器使用的接触偏移。请参考下方 **接触偏移** 获取更多信息。|
+| Skin Width | 控制器使用的皮肤宽度。请参考下方 **皮肤宽度** 获取更多信息。|
 
 ### 胶囊体角色控制器
 
@@ -92,23 +92,21 @@ const isOnGround = characterController.isGrounded;
 
 ## 监听角色碰撞
 
-当角色控制器和碰撞体发生碰撞时，会派发 `onColliderHit` 事件，代码参考如下：
+当角色控制器和碰撞体发生碰撞时，会派发 `onControllerColliderHit` 事件，代码参考如下：
 
 ```ts
 let characterController = this.node.getComponent(CharacterController)!;
-characterController.on('onColliderHit', this.onColliderHit, this);
+characterController.on('onControllerColliderHit', this.onColliderHit, this);
 ```
 
 碰撞回调如下：
 
 ```ts
-onColliderHit (selfCCT, hitCollider, contact){}
+onColliderHit (hit: CharacterControllerContact){}
 ```
 
 回调参数说明：
 
-- selfCCT: CharacterController 自身的角色控制器
-- otherCollider：[Collider](../physics-collider.md) 其他碰撞体
 - contact： 和其他碰撞体碰撞时的接触信息， API 参考：[CharacterControllerContact](__APIDOC__/api/en/classes/CharacterControllerContact.html)
 
 ## 细节说明
@@ -119,13 +117,13 @@ onColliderHit (selfCCT, hitCollider, contact){}
 
 如果场景中有多个角色控制器，控制器之间并不会产生物理反应。该功能会在后续版本中添加。
 
-### 接触偏移
+### 皮肤宽度
 
-接触偏移允许控制器和对象之前发生碰撞时，可以产生轻微的穿透从而避免抖动或者卡住。
+皮肤宽度允许控制器和对象之前发生碰撞时，可以产生轻微的穿透从而避免抖动或者卡住。
 
 通常为一个较小且为正的浮点数。
 
-如果出现频繁卡住的问题，可以尝试调大 **接触偏移** 属性，来避免数字精度的问题。
+如果出现频繁卡住的问题，可以尝试调大 **皮肤宽度** 属性，来避免数字精度的问题。
 
 ## 示例
 
