@@ -382,7 +382,7 @@
         - [几何投射检测](physics/physics-sweep.md)
         - [连续碰撞检测](physics/physics-ccd.md)
         - [角色控制器](physics/character-controller/index.md)
-        - [物理应用案例](physics/physics-example.md)        
+        - [物理应用案例](physics/physics-example.md)
 
 - [粒子系统](particle-system/index.md)
     - [2D 粒子](particle-system/2d-particle/2d-particle.md)
@@ -504,6 +504,7 @@
         - [基础结构](editor/extension/package.md)
         - [扩展包定义](editor/extension/define.md)
         - [消息系统](editor/extension/messages.md)
+        - [多语言系统（i18n）](editor/extension/i18n.md)
         - [配置系统](editor/extension/profile.md)
         - [面板系统](editor/extension/panel.md)
         - [UI 组件](editor/extension/ui.md)
