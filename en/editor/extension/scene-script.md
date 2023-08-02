@@ -56,8 +56,8 @@ export const methods = {
         const { director } = require('cc');
         let mainCamera = director.getScene().getChildByName("Main Camera");
         if(mainCamera){
-            let euler = mainCamera.eulerAngles;
-            euler.y += 10;
+            let euler = new Vec3();
+            euler.set(mainCamera.eulerAngles.x, mainCamera.eulerAngles.y + num, mainCamera.eulerAngles.z);
             mainCamera.setRotationFromEuler(euler);
             return true;
         }
