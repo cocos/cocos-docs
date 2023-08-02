@@ -135,7 +135,7 @@
     - [发布 macOS 应用](editor/publish/mac/index.md)
         - [macOS 发布示例](editor/publish/mac/build-example-mac.md)
         - [macOS 构建选项](editor/publish/mac/build-options-mac.md)
-    - [发布 Windows 应用](editor/publish/index.md)
+    - [发布 Windows 应用](editor/publish/windows/index.md)
         - [Windows 构建示例](editor/publish/windows/build-example-windows.md)
         - [Windows 构建选项](editor/publish/windows/build-options-windows.md)
     - [原生平台发布通用基础](editor/publish/publish-native-index.md)
