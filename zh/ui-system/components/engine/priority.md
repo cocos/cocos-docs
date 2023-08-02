@@ -24,10 +24,9 @@ UI 节点特指在 Canvas 节点下的 UI 节点，这些节点并未开启深�
 
 具体如何设置 **ClearFlag**，可参考以下几种情况：
 
-- 如果场景中只有一个 UI Canvas 或者 3D Camera，那么 **ClearFlag** 属性设置为 `Solid_Color`。
-- 如果场景中包含 2D 背景层、3D 场景层、 2D UI 层，则：
-    - 2D 背景层：**ClearFlag** 属性设置为 `Solid_Color`。
-    - 3D 场景层：**ClearFlag** 属性设置为 `Depth_Only`。
-    - 2D UI 层：若有模型，**ClearFlag** 属性设置为 `Depth_Only` 以避免出现模型闪屏或者穿透的情况。若没有模型，**ClearFlag** 属性可设置为 `Dont_Clear` 或 `Depth_Only`。
+- 用于 3D 场景渲染的摄像机，请确保第一个渲染的摄像机是 `Solid_Color`，其余摄像机可以根据项目需求决定 [ClearFlags](../../../editor/components/camera-component.md#%E7%9B%B8%E6%9C%BA%E7%BB%84%E4%BB%B6) 属性。
+- 用于 UI渲染（Canvas 内）的摄像机，需要将属性设置为 `Depth_Only`。
+- 如果某个摄像机的设置了 [targetTexture](../../../editor/components/camera-component.md#%E7%9B%B8%E6%9C%BA%E7%BB%84%E4%BB%B6) 属性，请设置为 `Solid_Color`。
+- 如果场景中只有一个 UI Canvas 或者 3D Camera，那么 **ClearFlag** 属性设置为 `Solid_Color`
 
-  ![sort](./priority/sort.png)
+![sort](./priority/sort.png)
