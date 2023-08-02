@@ -1,12 +1,12 @@
 # 几何投射检测
 
-Cocos Creator 从 v3.8 开始，支持扫略功能。
+Cocos Creator 从 v3.8 开始，支持扫掠功能。
 
-几何投射检测，会沿着指定的射线，发射不同的几何体，就像使用某个几何体沿着射线扫过一个区域，因此又称扫略。扫略会对几何体扫过的物理世界区域内的碰撞体进行检查，并返回特定的结果。
+几何投射检测，会沿着指定的射线，发射不同的几何体，就像使用某个几何体沿着射线扫过一个区域，因此又称扫掠。扫掠会对几何体扫过的物理世界区域内的碰撞体进行检查，并返回特定的结果。
 
 和 `rayCast` 射线检测发射的射线不同，`sweep` 允许物理引擎投射不同的几何体，并返回特定的碰撞信息。
 
-目前引擎提供以下 **盒形**、**球形** 以及 **胶囊体** 扫略。
+目前引擎提供以下 **盒形**、**球形** 以及 **胶囊体** 扫掠。
 
 ## 方法
 
@@ -50,7 +50,7 @@ Cocos Creator 从 v3.8 开始，支持扫略功能。
 
 ## 返回值
 
-函数的返回值为 boolean，用于确定表示是否有检测到碰撞。为保证扫略的性能，扫略方法的结果都被存储在 `PhysicsSystem` 内。使用时请先通过 `sweepCastClosestResult/sweepCastResults` 获取到检测结果，下次扫略后，之前的结果可能会被覆盖或失效，因此建议在获取到结果之后，将结果内的内容提取出来使用。
+函数的返回值为 boolean，用于确定表示是否有检测到碰撞。为保证扫掠的性能，扫掠方法的结果都被存储在 `PhysicsSystem` 内。使用时请先通过 `sweepCastClosestResult/sweepCastResults` 获取到检测结果，下次扫掠后，之前的结果可能会被覆盖或失效，因此建议在获取到结果之后，将结果内的内容提取出来使用。
 
 - `sweepBoxClosest`、`sweepSphereClosest` 以及 `sweepCapsuleClosest` 方法的结果被保存在 `PhysicsSystem.instance.sweepCastResults` 内，其类型为 `PhysicsRayResult`，代码示例如下
 
@@ -80,7 +80,7 @@ API 参考 [PhysicsRayResult](__APIDOC__/zh/class/PhysicsRayResult)。
 
 ## 示例
 
-以盒型扫略为例，使用方法如下：
+以盒型扫掠为例，使用方法如下：
 
 ```ts
 if (PhysicsSystem.instance.sweepSphereClosest(this._ray, this._sphereRadius * this._scale, this._mask, this._maxDistance, this._queryTrigger)) {
@@ -90,8 +90,8 @@ if (PhysicsSystem.instance.sweepSphereClosest(this._ray, this._sphereRadius * th
 
 更多示例请参考 [GIT](https://github.com/cocos/cocos-example-projects/tree/master/physics-3d)。
 
-下载示例后，打开 **case-physics-sweep** 场景，运行即可查看扫略的结果。
+下载示例后，打开 **case-physics-sweep** 场景，运行即可查看扫掠的结果。
 
 ![sweep.jpg](./img/sweep.jpg)
 
-示例中扫略的结果标记为 **红色**。
+示例中扫掠的结果标记为 **红色**。
