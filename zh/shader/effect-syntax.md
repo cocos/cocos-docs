@@ -23,7 +23,7 @@ CCEffect %{
   - name: opaque
     passes:
       - vert: unlit-vs:vert
-      - frag: unlit-fs:frag
+        frag: unlit-fs:frag
         properties: &props
         mainTexture:    { value: grey }
         tilingOffset:   { value: [1, 1, 0, 0] }
@@ -34,7 +34,7 @@ CCEffect %{
   - name: transparent
     passes:
       - vert: unlit-vs:vert
-      - frag: unlit-fs:frag
+        frag: unlit-fs:frag
         depthStencilState: &d1
         ...
 }%
