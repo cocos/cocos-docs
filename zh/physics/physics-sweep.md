@@ -25,7 +25,7 @@ Cocos Creator 从 v3.8 开始，支持扫掠功能。
 
 - 球形
     - `sweepSphere`：沿着给定的射线投射一个球形，并返回所有命中的碰撞体
-    - `sweepSphereClosest`：沿着给定的射线投射一个球形，并返回所有命中的碰撞体
+    - `sweepSphereClosest`：沿着给定的射线投射一个球形，并返回最近命中的碰撞体
 
     - 参数说明：
         - worldRay：geometry.Ray：世界空间下的一条射线
