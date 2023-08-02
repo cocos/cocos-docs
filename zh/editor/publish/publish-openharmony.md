@@ -17,7 +17,7 @@
 ## 准备工作
 
 1. Cocos Creator 下载传送门（版本>=3.8.0）：[Cocos Creator](https://www.cocos.com/creator-download)
-2.  OpenHarmany 系统与 SDK 下载传送门：[OpenHarmony-3.2-release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md#%E4%BB%8E%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9%E8%8E%B7%E5%8F%96)
+2. OpenHarmany 系统与 SDK 下载传送门：[OpenHarmony-3.2-release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md#%E4%BB%8E%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9%E8%8E%B7%E5%8F%96)
 
     ![](./publish-openharmony/document_image_rId2.png)
 
@@ -185,15 +185,13 @@ http://ci.openharmony.cn/workbench/cicd/dailybuild/dailylist
 
 - 解压文件ets-windows-x64-3.2.11.9-Release.zip至OHOS-SDK/9目录：
 
-
-    ![](./publish-openharmony/document_image_rId8.png)
+![](./publish-openharmony/document_image_rId8.png)
 
 - 打开命令行进入目录OHOS_SDK\\9\\ets\\build-tools\\ets-loader，并执行npm
 install，如下图（注意目录要匹配）：
 
+![](./publish-openharmony/document_image_rId10.png)
 
-    ![](./publish-openharmony/document_image_rId10.png)
-  
     > **注意**：如果 `npm install` 报错，检查下是否配置了华为的源，配置方法如下：
     > ` npm config set registry https://repo.huaweicloud.com/repository/npm/ `
 
@@ -201,7 +199,7 @@ install，如下图（注意目录要匹配）：
 
     ![](./publish-openharmony/document_image_rId4.png)
 
-3. 其他
+1. 其他
 js-windows-x64-3.2.11.9-Release.zip
 previewer-windows-x64-3.2.11.9-Release.zip
 toolchains-windows-x64-3.2.11.9-Release.zip
@@ -210,7 +208,7 @@ toolchains-windows-x64-3.2.11.9-Release.zip
 - 解压至OHOS_SDK/9至对应的文件；
 ***（注意‘9’是API版本，未来升级就对应升级之后的API版本）***
     目录对应关系，如下图：
-  
+
     ![](./publish-openharmony/document_image_rId9.png)
 
 ### Cocos Creator 3.8.0-alpha 构建 OpenHarmony 工程
@@ -298,7 +296,7 @@ toolchains-windows-x64-3.2.11.9-Release.zip
 1. 目前已知问题是：
     - restart 目前还未有方案；
     - editbox显示时，会把这个游戏页面往上推
-    - RK3568不支持陀螺仪，线性加速度 
+    - RK3568不支持陀螺仪，线性加速度
     - 部分测试例，背景会显示桌面，驱动问题，非系统和引擎问题
     - 编译失败时，可能是内存不足导致，退出部分应用，重新 build 试试；
         >>
