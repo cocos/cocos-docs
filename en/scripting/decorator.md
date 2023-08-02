@@ -312,7 +312,7 @@ If there are many properties or mixed properties defined in the script, the prop
 | `id`           | Group ID, `string` type, is a unique identifier for the property group, and defaults to `default`. |
 | `name`         | The name to classify the properties in the group, `string` type. |
 | `displayOrder` | Sort the groups, `number` type. The smaller the number, the higher the sorting. The default is `Infinity`, which means the group is sorted last.<br>If there are multiple groups without `displayOrder` set, they will be sorted in the order declared in the script. |
-| `style`        | Grouping styles, currently only **tab** styles are supported. |
+| `style`        | Grouping styles, currently **tab** and **section** styles are supported. The default value is **tab**. |
 
 Example script is as follows:
 
