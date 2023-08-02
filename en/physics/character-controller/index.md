@@ -23,7 +23,7 @@ The following properties are the common properties of the character controller w
 | Center  | The center of the character controller in local space |
 | Step Offset | The maximum height the character controller can automatically climb. |
 | Slope Limit | The slope limit of the character controller in degrees. |
-| Contact Offset | The contact offset of the character controller, please see below for more details|
+| Skin Width | The skin width of the character controller, please see below for more details|
 
 ### Capsule Character Controller
 
@@ -96,19 +96,17 @@ The `onColliderHit` event will be emitted when a collision occurs between the ch
 
 ```ts
 let characterController = this.node.getComponent(CharacterController)!;
-characterController.on('onColliderHit', this.onColliderHit, this);
+characterController.on('onControllerColliderHit', this.onColliderHit, this);
 ```
 
 The callback of the collision is declared as follows:
 
 ```ts
-onColliderHit (selfCCT, hitCollider, contact){}
+onColliderHit (contact: CharacterControllerContact){}
 ```
 
 The description of the callback is below.
 
-- selfCCT: the character controller that the event belongs.
-- otherCollider: other colliders, for more [Collider](../physics-collider.md)
 - contact: the contact information when the collision occurs, refer to [CharacterControllerContact](__APIDOC__/api/en/classes/CharacterControllerContact.html)
 
 ## Details
@@ -119,13 +117,13 @@ To simulate the full physics effect, please use [Dynamic Rigibody](../physics-ri
 
 There is no physics effect between character controllers, and this feature will be added in the future version.
 
-### Contact Offset
+### Skin Width
 
-The **Contact Offset** property allows slight penetration between a character controller and a collider to avoid shaking or stuck.
+The **Skin Width** property allows slight penetration between a character controller and a collider to avoid shaking or stuck.
 
 It is usually a small, floating number above zero.
 
-If stuck frequently, you can adjust the **Contact Offset** to a large number to avoid precision problems with floating-point numbers.
+If stuck frequently, you can adjust the **Skin Width** to a large number to avoid precision problems with floating-point numbers.
 
 ## Example
 
