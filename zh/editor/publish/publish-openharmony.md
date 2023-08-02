@@ -211,7 +211,7 @@ toolchains-windows-x64-3.2.11.9-Release.zip
 
     ![](./publish-openharmony/document_image_rId9.png)
 
-### Cocos Creator 3.8.0-alpha 构建 OpenHarmony 工程
+### Cocos Creator 构建 OpenHarmony 工程
 
 1. 设置 OpenHarmony SDK 的路径，如下图：
 
@@ -308,4 +308,4 @@ toolchains-windows-x64-3.2.11.9-Release.zip
     - 更新IDE，编译报错,如下图：
        >> ![](./publish-openharmony/document_image_rId75.png)
        >> 把Harmonyos与openharmony的SDK更新到最新；
-    - [时勾选左横屏与右横屏，出现分辨率不正确的现象。只选择左横屏或者右横屏即可解决](https://github.com/cocos/cocos-engine/pull/15785)。
+    - [同时勾选左横屏与右横屏，会出现分辨率不正确的现象。只选择左横屏或者右横屏即可解决](https://github.com/cocos/cocos-engine/pull/15785)。
