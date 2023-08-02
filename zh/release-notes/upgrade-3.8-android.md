@@ -59,7 +59,7 @@ Gradle 插件版本是 Gradle 与 Android 构建系统之间的接口。因此�
 
 ### 第四步：升级 Gradle 版本
 
-接下来，我们需要升级 Gradle wrapper 版本。在项目的 native/engine/android/gradle/wrapper/gradle-wrapper.properties 文件中，将 distributionUrl 改为 8.0.2，如下所示：
+接下来，我们需要升级 Gradle wrapper 版本。在项目的 `build/android/proj/gradle/wrapper/gradle-wrapper.properties` 文件中，将 distributionUrl 改为 8.0.2，如下所示：
 
 ```properties
 distributionUrl=https\://services.gradle.org/distributions/gradle-8.0.2-bin.zip

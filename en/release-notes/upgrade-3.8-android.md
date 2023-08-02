@@ -60,7 +60,7 @@ Based on the diff file below, edit `native/engine/android/app/build.gradle` and 
 
 ### Step 4: Upgrade Gradle Version
 
-Next, we need to upgrade the Gradle wrapper version. In the project's `native/engine/android/gradle/wrapper/gradle-wrapper.properties` file, change the distributionUrl to 8.0.2 as shown below:
+Next, we need to upgrade the Gradle wrapper version. In the project's `build/android/proj/gradle/wrapper/gradle-wrapper.properties` file, change the distributionUrl to 8.0.2 as shown below:
 
 ```properties
 distributionUrl=https\://services.gradle.org/distributions/gradle-8.0.2-bin.zip
