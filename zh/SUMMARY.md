@@ -381,8 +381,8 @@
         - [射线检测](physics/physics-raycast.md)
         - [几何投射检测](physics/physics-sweep.md)
         - [连续碰撞检测](physics/physics-ccd.md)
-        - [物理应用案例](physics/physics-example.md)
         - [角色控制器](physics/character-controller/index.md)
+        - [物理应用案例](physics/physics-example.md)        
 
 - [粒子系统](particle-system/index.md)
     - [2D 粒子](particle-system/2d-particle/2d-particle.md)
