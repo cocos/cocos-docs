@@ -29,8 +29,7 @@ To set the **ClearFlag** property, please refer to the following situations:
 
 - If there is only one **UI Canvas** or **3D Camera** in the scene, then the **ClearFlag** property is set to `Solid_Color`.
 - If the scene contains 2D background layer, 3D scene layer, 2D UI layer, then:
-    - **2D background layer**: **ClearFlag** property is set to `Solid_Color`.
-    - **3D scene layer**: **ClearFlag** property is set to `Depth_Only`.
-    - **2D UI layer**: If the model is included, the **ClearFlag** property is set to `Depth_Only` to avoid a model splash screen. If no model is present, the **ClearFlag** property can be set to `Dont_Clear`/`Depth_Only`.
-
+    - For cameras used for 3D scene rendering, make sure the first rendered camera is **SOLID_COLOR** (or set to **SKYBOX** if there is a skybox configured), and the rest of the cameras are determined by the project requirements.
+    - Cameras used for UI rendering (under Canvas) should be **DEPTH ONLY**.
+    - If a camera has a targetTexture set, set it to **SOLID_COLOR**.
   ![sort](./priority/sort.png)
