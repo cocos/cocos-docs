@@ -62,4 +62,4 @@ XR 头戴设备相较于传统的显示器拥有更为多样化的视频展示�
 | Caption File        | Source Type 为 LOCAL 时出现此项，本地字幕文件                   |
 | Video Player        | 关联指定的 VideoPlayer，将字幕按时间同步于此视频。            |
 
-注：Vulkan目前不支持视频播放器。
+注：Vulkan 目前不支持网页播放器。

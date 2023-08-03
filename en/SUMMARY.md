@@ -129,7 +129,7 @@
     - [Publishing macOS Desktop Application](editor/publish/mac/index.md)
         - [macOS Publishing Example](editor/publish/mac/build-example-mac.md)
         - [Build Options - macOS](editor/publish/mac/build-options-mac.md)
-    - [Publishing Windows Desktop Application](editor/publish/index.md)
+    - [Publishing Windows Desktop Application](editor/publish/windows/index.md)
         - [Windows Publishing Example](editor/publish/windows/build-example-windows.md)
         - [Build Options - Windows](editor/publish/windows/build-options-windows.md)
     - [Fundamentals for Publishing to Native Platforms](editor/publish/publish-native-index.md)

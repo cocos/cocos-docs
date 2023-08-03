@@ -28,8 +28,8 @@ setSiblingIndex 的使用说明：此操作是用于变更当前节点在父节�
 
 - 如果场景中只有一个 UI Canvas 或者 3D Camera，那么 **ClearFlag** 属性设置为 `Solid_Color`。
 - 如果场景中包含 2D 背景层、3D 场景层、 2D UI 层，则：
-    - 2D 背景层：**ClearFlag** 属性设置为 `Solid_Color`。
-    - 3D 场景层：**ClearFlag** 属性设置为 `Depth_Only`。
-    - 2D UI 层：若有模型，**ClearFlag** 属性设置为 `Depth_Only` 以避免出现模型闪屏或者穿透的情况。若没有模型，**ClearFlag** 属性可设置为 `Dont_Clear` 或 `Depth_Only`。
+    - 用于 3D 场景渲染的摄像机，请确保第一个渲染的摄像机是 **SOLID_COLOR**（如果有配置天空盒，则设置为 **SKYBOX** ），其余摄像机根据项目需求决定。
+    - 用于 UI 渲染（Canvas下面）的摄像机，要用 **DEPTH ONLY**。
+    - 如果某个摄像机的设置了targetTexture，请设置为 **SOLID_COLOR**。
 
   ![sort](./priority/sort.png)
