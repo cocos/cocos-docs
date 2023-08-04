@@ -82,6 +82,7 @@
 ### XCode Instruments
 
 ![3](optimize/3.png)
+
 XCode Instruments 是 XCode 自带的应用程序运行时分析工具，它同样适用于微信小游戏进程。
 
 使用 Activity Monitor，选择对应的设备 all processes 捕捉，等进程列表刷新后，输入 webkit 进行过滤，即可看到所有进程的 CPU 与内存情况.
@@ -90,7 +91,8 @@ XCode Instruments 是 XCode 自带的应用程序运行时分析工具，它同�
 
 ### Perfdog
 
-Perfdog（性能狗）是一个 iOS/Android/PC/主机平台的性能测试和分析工具，具体使用方式请参考:
+Perfdog（性能狗）是一个 iOS/Android/PC/ 主机平台的性能测试和分析工具，具体使用方式请参考:
+
 [https://perfdog.qq.com/](https://perfdog.qq.com/)
 
 选择对应的设置-进程名，即可看到相关性能数据。
@@ -115,7 +117,8 @@ Perfdog（性能狗）是一个 iOS/Android/PC/主机平台的性能测试和分
 ![6](optimize/6.png)
 
 具体操作步骤如下：
-1. 点击左上角的小圆圈按钮，会进入下面的录制按钮，柱状图的出现表示某个内存块的创建，消失标识内存块被释放。左上角的垃圾桶按钮是主动触发 JS引擎的 GC 的按钮，点击后可以加快内存回收速度。
+
+1. 点击左上角的小圆圈按钮，会进入下面的录制按钮，柱状图的出现表示某个内存块的创建，消失标识内存块被释放。左上角的垃圾桶按钮是主动触发 JS 引擎的 GC 的按钮，点击后可以加快内存回收速度。
 
 ![7](optimize/7.png)
 
@@ -141,7 +144,7 @@ Perfdog（性能狗）是一个 iOS/Android/PC/主机平台的性能测试和分
 
 2. 引擎内存占用加载是确定的，由于引擎加载会初始化渲染器，所以通常主 Canvas 内存占用也在这个时候确定，这块内存占用可以通过配置渲染分辨率的倍数来优化。运行时根据引擎模块需要，会动态增加一些缓存内存，开发者可以根据功能需要通过编辑器项目设置里面的功能裁剪来减少引擎内存占用。
 
-3. 脚本内存包含引擎和业务代码、配置表数据, 根据游戏的开发体量，业务代码和配置表数据内存会有几百M的大小，只能用户自己做优化。
+3. 脚本内存包含引擎和业务代码、配置表数据, 根据游戏的开发体量，业务代码和配置表数据内存会有几百 M 的大小，只能用户自己做优化。
 
 4. 单个双通道的音频实例可能在 20M 左右，音频播放完后做释放会减少这块内存损耗，也可以精简成单通道音频减少内存。
 
@@ -153,7 +156,7 @@ Perfdog（性能狗）是一个 iOS/Android/PC/主机平台的性能测试和分
 
 8. 还有其他的 JS 内存对象，比如 JSON 文件的释放，根据引擎提供的能力按需释放。
 
->本文由 **Cocos 引擎官方技术支持团队** 提供，已同步到引擎官方开源仓库中：[微信小游戏内存优化指南（IOS 端）](https://github.com/cocos/cocos-awesome-tech-solutions/blob/cdee10f39c7704724392c76d232d21b8338ccc2b/summary/Cocos%20%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97%EF%BC%88iOS%E7%AB%AF%EF%BC%89.md)，欢迎大家 Star、Fork。
+> 本文由 **Cocos 引擎官方技术支持团队** 提供，已同步到引擎官方开源仓库中：[微信小游戏内存优化指南（IOS 端）](https://github.com/cocos/cocos-awesome-tech-solutions/blob/cdee10f39c7704724392c76d232d21b8338ccc2b/summary/Cocos%20%E5%BE%AE%E4%BF%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97%EF%BC%88iOS%E7%AB%AF%EF%BC%89.md)，欢迎大家 Star、Fork。
 
 ![9](optimize/9.png)
 
