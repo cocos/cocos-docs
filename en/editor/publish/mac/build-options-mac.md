@@ -22,13 +22,11 @@ This option is used to provide better prompts for known engine module support is
 
 ## Skip the update of Xcode project
 
-By default, when building the project, the Xcode project is updated using the Xcode project template in `native/mac/`. Some configuration modifications in the project will be reset to the template.
+By default, each build will execute the CMake command to generate an Xcode project. However, if modifications or configurations are made to the generated Xcode project, such as integrating an SDK with CocoaPods, this could cause issues, as these modifications will be reverted in the next build.
 
-If this option is selected, the Xcode project configuration will not be updated during the build.
+However, if this option is checked, subsequent builds will no longer update or overwrite the configuration of the Xcode project.
 
-This option is useful when using CocoaPods or when you want to persist modifications to the Xcode project. Without selecting this option, the modifications made by `pod install` will be overwritten with each build. With this option selected, you don't have to worry about the modifications being overwritten.
-
-> **Note**: If this option is selected, subsequent changes to the configuration will not update the Xcode project.
+It should be noted that other changes related to CMake, such as adding C++ source code, will no longer trigger the regeneration of the Xcode project. 
 
 ### Render Backend
 

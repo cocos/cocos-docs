@@ -20,7 +20,7 @@ Click the **Add Component** button in the **Inspector** panel and enter Rigidbod
 | **EnabledContactListener** | Whether to enable listening for [CollisionCallback](./physics-2d-contact-callback.md) |
 | **Bullet** | Is this rigid body a fast-moving rigid body and needs to be prohibited from passing through other fast-moving rigid bodies <br>Please refer to [Rigidbody2D API](__APIDOC__/zh/class/RigidBody2D) for more information Information |
 | **Type** | Rigid body types, please refer to **Rigidbody Type** below for details |
-| **AlllowSleep** | Whether to allow rigid body sleep <br> [physics-configuration](../editor/project/physics-configs.md) can be adjusted in the threshold for sleep |
+| **AllowSleep** | Whether to allow rigid body sleep <br> [physics-configuration](../editor/project/physics-configs.md) can be adjusted in the threshold for sleep |
 | **GravityScale** | Gravity Scaling <br> Only for rigid bodies of type **Dynamic** |
 | **LinearDamping** | Linear velocity damping factor |
 | **AngularDamping** | Angular velocity damping factor |

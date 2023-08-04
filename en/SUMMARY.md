@@ -129,7 +129,7 @@
     - [Publishing macOS Desktop Application](editor/publish/mac/index.md)
         - [macOS Publishing Example](editor/publish/mac/build-example-mac.md)
         - [Build Options - macOS](editor/publish/mac/build-options-mac.md)
-    - [Publishing Windows Desktop Application](editor/publish/index.md)
+    - [Publishing Windows Desktop Application](editor/publish/windows/index.md)
         - [Windows Publishing Example](editor/publish/windows/build-example-windows.md)
         - [Build Options - Windows](editor/publish/windows/build-options-windows.md)
     - [Fundamentals for Publishing to Native Platforms](editor/publish/publish-native-index.md)
@@ -372,8 +372,8 @@
         - [Raycast Detection](physics/physics-raycast.md)
         - [Geometry Cast Detection](physics/physics-sweep.md)
         - [Continuous Collision Detection](physics/physics-ccd.md)
-        - [Physics Application Cases](physics/physics-example.md)
         - [Character Controller](physics/character-controller/index.md)
+        - [Physics Application Cases](physics/physics-example.md)
 
 - [Particle System](particle-system/index.md)
     - [2D Particle System](particle-system/2d-particle/2d-particle.md)

@@ -83,8 +83,8 @@ export const methods = {
         // 通过引擎的方法，进行一些基础处理
         const mainCamera = director.getScene().getChildByName('Main Camera');
         if (mainCamera) {
-            let euler = mainCamera.eulerAngles;
-            euler.y += num;
+            let euler = new Vec3();
+            euler.set(mainCamera.eulerAngles.x, mainCamera.eulerAngles.y + num, mainCamera.eulerAngles.z);
             mainCamera.setRotationFromEuler(euler);
             return true;
         }

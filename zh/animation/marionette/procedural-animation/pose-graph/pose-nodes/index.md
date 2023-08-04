@@ -15,7 +15,7 @@
 
 - [修改姿态](./modify-pose.md)
 
-- [状态机](./state-machine.md)
+- [状态机](./state-machine-node.md)
 
 - [使用暂存姿态](./use-stashed-pose.md)
 
