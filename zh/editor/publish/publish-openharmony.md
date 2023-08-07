@@ -2,6 +2,15 @@
 
 自 Cocos Creator v3.8 起，支持发布到 OpenHarmony 平台。
 
+## 支持情况
+
+| 引擎版本 | OpenHarmony 版本 | 说明 |
+| :-- | :-- | :-- |
+| v3.6.1 ~ v3.7.3 | OpenHarmony 3.2 beta | 该版本在社区公测，因此无法从 Dashboard 直接下载，开发者请从 [社区下载](https://forum.cocos.org/t/topic/141299) |
+| v3.8 | OpenHarmony 3.2，OpenHarmony 4.0 | 正式版，开发者可以选择从 Dashboard 中直接下载该编辑器版本。 |
+
+如果您使用的引擎版本低于 v3.8，我们建议您升级到 v3.8 方便发布正式版。
+
 ## 前言
 
 我们在 Cocos Creator v3.8.0 的基础上成功适配了在 2023 年 4 月 9 日发布的 [OpenHarmony 3.2 Release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md) 分支。
