@@ -90,7 +90,10 @@ Cocos 游戏开发资源商城，可浏览、下载和安装官方或者第三�
 
 点击下方各网站的图标可访问 Cocos 官方获取更多教程等信息，目前包括：
 
-- 微信公众号
+- Cocos 引擎官方微信公众号
+
+  ![Cocos](../support/cocos.jpg)
+
 - [微博](https://weibo.com/cocos2dx)
 - [Twitter](https://twitter.com/CocosEngine)
 - [哔哩哔哩](https://space.bilibili.com/491120849)

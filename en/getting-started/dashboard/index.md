@@ -14,7 +14,7 @@ The home page contains the Cocos product news, editor version news, and user's r
 
 It mainly consists of the following three parts:
 
-- Rotator: shows the latest Cocos product news.
+- Carousels: shows the latest Cocos product news.
 - Recently Projects: Shows recently opened projects, double-click to open a project; the **New Project** button on the top right quickly opens the New Project page to create a project, and the **View More** button takes you to the project list page.
 - Editors: Shows released products of Cocos, where you can quickly install editor versions, create new projects, and get the latest released editor versions.
 
@@ -56,13 +56,13 @@ The Installs page displays the successfully installed product editor, and you ca
 > **Note**: When Cocos Dashboard is first run, this list is empty. Click the two buttons in the top right corner to import existing Creator editors locally or download and install them directly.
 
 - **Locate**: Used to add locally existing editors, supports dragging and dropping locally existing Creator editors directly from the operating system's file manager into the version list.
-- **Install Editor**: Clicking on this button opens the Install Editor pag, showing all installed and uninstalled versions of the editor, which can be downloaded and installed as needed.
+- **Install Editor**: Clicking on this button opens the Install Editor page, showing all installed and uninstalled versions of the editor, which can be downloaded and installed as needed.
 
   ![Download](index/download.png)
 
 ## Store
 
-Cocos game development resource center, you can browse, download and install official or third-party plugins, source code, resources and so on, specific instructions can refer to the [Cocos Store](https://store.cocos.com/document/en/).
+Cocos game development resource center, you can browse, download and install official or third-party extensions, source code, resources and so on, specific instructions can refer to the [Cocos Store](https://store.cocos.com/document/en/).
 
 ![store](index/store.png)
 
