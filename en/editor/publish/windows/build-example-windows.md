@@ -7,7 +7,7 @@ This guide demonstrates how to publish a project created with Cocos Creator as a
 
 ## Installing C++ Development Environment
 
-First, you need to install [Visual Studio 2017/2019 Community](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+First, you need to install [Visual Studio 2019/2022](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 During the installation of Visual Studio, make sure to select the modules `Desktop development with C++` and `Game development with C++`.
 
