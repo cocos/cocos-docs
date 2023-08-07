@@ -6,7 +6,7 @@
 
 ## 安装 C++ 编译环境
 
-Windows 下需要安装 [Visual Studio 2017/2019 社区版](https://www.visualstudio.com/downloads/download-visual-studio-vs)。
+Windows 下需要安装 [Visual Studio 2019/2022](https://www.visualstudio.com/downloads/download-visual-studio-vs)。
 
 在安装 Visual Studio 时，请勾选 **使用 C++ 的桌面开发** 和 **使用 C++ 的游戏开发** 两个模块。
 
