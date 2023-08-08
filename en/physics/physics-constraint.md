@@ -129,6 +129,7 @@ Example: When the main axis of the constraint is set to the y-axis of the attach
 ### Linear driver settings
 
 ![physics-configurable-linear-driver](img/configurable-linear-driver.png)
+
 | Properties   | Description |
 | :-- | :-- |
 | **xDrive**   | Gets or sets the driver mode along the x axis |
