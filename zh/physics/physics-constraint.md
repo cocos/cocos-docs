@@ -112,7 +112,7 @@
 
 ![physics-configurable-angular-limit](img/configurable-angular-limit.png)
 
-| 属性                          | 描述                               |
+| 属性 | 描述 |
 | :-- | :-- |
 | **twistMotion**               | 获取或设置扭转轴的约束模式         |
 | **swingMotion1**              | 获取或设置摆动 y 轴的约束模式      |
@@ -132,7 +132,8 @@
 ## 线性马达 LinearDriverSettings
 
 ![physics-configurable-linear-driver](img/configurable-linear-driver.png)
-| 属性         | 描述                        |
+
+| 属性 | 描述 |
 | :----------- | :-------------------------- |
 | **xDrive**   | 获取或设置沿 x 轴的驱动模式 |
 | **yDrive**   | 获取或设置沿 y 轴的驱动模式 |
@@ -144,7 +145,8 @@
 ## 角度马达 AngularDriverSettings
 
 ![physics-configurable-angular-driver](img/configurable-angular-driver.png)
-| 属性            | 描述                            |
+
+| 属性 | 描述 |
 | :-- | :-- |
 | **twistDrive**  | 获取或设置沿扭转轴的驱动模式    |
 | **swingDrive1** | 获取或设置沿摆动 y 轴的驱动模式 |
