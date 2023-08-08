@@ -68,8 +68,8 @@ Configurable constraints are one of the most comprehensive constraints in physi
 Rigid bodies connected by configurable constraints can produce the desired relative motion driven by the motor. After the motor is enabled, the rigid body will move to the specified relative position or gradually accelerate to the specified relative velocity and maintain motion. The motor has two different modes, servo mode and normal mode. In servo mode, the driver will make the rigid body move to the specified position or angle and stop after reaching the target position or angle. In normal mode, the driver will gradually accelerate the rigid body to achieve the specified linear velocity or angular velocity, and then maintain that velocity. Another adjustable parameter is the maximum driving force of the driver, which determines how fast the rigid body can accelerate towards the specified target position and velocity. When the maximum driving force is large, it will be difficult for external interference to change the relative motion state between rigid bodies.
 
 ![physics-configurable-main](img/configurable-main.png)
-| Properties                | Description                                                                                                                                       |
-| :------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Properties | Description |
+| :-- | :-- |
 | **AttachedBody**          | The rigid body to which the constraint is attached, that is, the rigid body component under the same node where the current constraint is located |
 | **ConnectedBody**         | Gets or sets the rigid body to which the constraint is connected, null means it is linked to a static body                                        |
 | **EnableCollision**       | Gets or sets whether collision is enabled between two bodies connected by a constraint                                                            |
@@ -85,16 +85,16 @@ Rigid bodies connected by configurable constraints can produce the desired r
 | **LinearDriverSettings**  | Gets or sets the linear motor settings                                                                                                            |
 | **AngularDriverSettings** | Gets or sets the angular motor settings                                                                                                           |
 
-> Example: When the main axis of the constraint is set to the y-axis of the attached rigid body, and the secondary axis is set to the x-axis of the attached rigid body, the coordinate of the constraint is shown in the figure below.
-> | local coordinate of the attached body                                               | linear coordinate of the joint                          | angular coordinate of the joint                                         |
-> | :---------------------------------------------------------------------------------- | :------------------------------------------------------ | :---------------------------------------------------------------------- |
-> | ![configurable-constraint-axis-config](img/configurable_constraint_axis_config.png) | ![constraint-coordinate](img/constraint_coordinate.png) | ![constraint-angular-coordinate](img/constraint_angular_coordinate.png) |
+Example: When the main axis of the constraint is set to the y-axis of the attached rigid body, and the secondary axis is set to the x-axis of the attached rigid body, the coordinate of the constraint is shown in the figure below.
+| local coordinate of the attached body | linear coordinate of the joint | angular coordinate of the joint |
+| :-- | :-- | :-- |
+| ![configurable-constraint-axis-config](img/configurable_constraint_axis_config.png) | ![constraint-coordinate](img/constraint_coordinate.png) | ![constraint-angular-coordinate](img/constraint_angular_coordinate.png) |
 
 ### Linear limit settings
 
 ![physics-configurable-linear-limit](img/configurable-linear-limit.png)
-| Properties               | Description                                      |
-| :----------------------- | :----------------------------------------------- |
+| Properties | Description |
+| :-- | :-- |
 | **xMotion**              | Gets or sets the constraint mode of the x-axis   |
 | **yMotion**              | Gets or sets the constraint mode of the y-axis   |
 | **zMotion**              | Gets or sets the constraint mode of the z-axis   |
@@ -108,8 +108,9 @@ Rigid bodies connected by configurable constraints can produce the desired r
 ### Angular limit settings
 
 ![physics-configurable-angular-limit](img/configurable-angular-limit.png)
+
 | Properties                    | Description                                              |
-| :---------------------------- | :------------------------------------------------------- |
+| :-- | :-- |
 | **twistMotion**               | Gets or sets the constraint mode of the twist axis       |
 | **swingMotion1**              | Gets or sets the constraint mode of the swing y axis     |
 | **swingMotion2**              | Gets or sets the constraint mode of the swing z axis     |
@@ -128,8 +129,8 @@ Rigid bodies connected by configurable constraints can produce the desired r
 ### Linear driver settings
 
 ![physics-configurable-linear-driver](img/configurable-linear-driver.png)
-| Properties   | Description                                   |
-| :----------- | :-------------------------------------------- |
+| Properties   | Description |
+| :-- | :-- |
 | **xDrive**   | Gets or sets the driver mode along the x axis |
 | **yDrive**   | Gets or sets the driver mode along the y axis |
 | **zDrive**   | Gets or sets the driver mode along the z axis |
@@ -140,8 +141,9 @@ Rigid bodies connected by configurable constraints can produce the desired r
 ### Angular driver settings
 
 ![physics-configurable-angular-driver](img/configurable-angular-driver.png)
-| Properties      | Description                                         |
-| :-------------- | :-------------------------------------------------- |
+
+| Properties | Description |
+| :-- | :-- |
 | **twistDrive**  | Gets or sets the driver mode along the twist axis   |
 | **swingDrive1** | Gets or sets the driver mode along the swing y axis |
 | **swingDrive2** | Gets or sets the driver mode along the swing z axis |
