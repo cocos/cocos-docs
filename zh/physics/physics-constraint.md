@@ -61,7 +61,7 @@
 
 固定约束接口请参考 [FixedConstraint API](__APIDOC__/zh/class/physics.FixedConstraint)。
 
-# 可配置约束 Configurable constraint
+## 可配置约束 Configurable constraint
 
 可配置约束是物理引擎中最全面的约束之一，包括各种游戏引擎中常用的约束类型。通过配置，可以对6个自由度分别进行控制，并通过设置不同方向上的约束参数实现几乎所有物理引擎中常用的特殊约束。不同自由度可以有不同的约束模式，如free、limited和locked。其中，free表示不做任何约束，limit表示限制刚体的运动范围和过程，而locked表示限制连接的刚体必须相对静止。例如，将所有6个自由度的约束模式设置为locked时，相当于使用fixed约束限制刚体。在limit模式下，可以对刚体的运动进行一定程度的限制，如限制该自由度在某个区间内运动。对于limit模式下的刚体，在运动到被限制范围的边界时，会发生回弹。此时，可以通过设置不同的回弹系数来调节回弹的力度，并通过调节软约束的参数实现约束的弹性，给运动施加一定量的阻力等。
 
@@ -86,13 +86,16 @@
 | **LinearDriverSettings**  | 获取或设置线性马达设置                                     |
 | **AngularDriverSettings** | 获取或设置角度马达设置                                     |
 
-> 示例：当设置约束体主轴朝向为依附刚体的 y 轴，次轴为依附刚体的 x 轴时，约束体各个轴的朝向如下图所示。
-> | 附着刚体轴向                                                                        | 约束体线性轴向                                          | 约束体旋转轴轴向                                                        |
-> | :---------------------------------------------------------------------------------- | :------------------------------------------------------ | :---------------------------------------------------------------------- |
-> | ![configurable-constraint-axis-config](img/configurable_constraint_axis_config.png) | ![constraint-coordinate](img/constraint_coordinate.png) | ![constraint-angular-coordinate](img/constraint_angular_coordinate.png) |
+示例：当设置约束体主轴朝向为依附刚体的 y 轴，次轴为依附刚体的 x 轴时，约束体各个轴的朝向如下图所示。
+
+| 附着刚体轴向 | 约束体线性轴向 | 约束体旋转轴轴向 |
+| :-- | :-- | :-- |
+| ![configurable-constraint-axis-config](img/configurable_constraint_axis_config.png) | ![constraint-coordinate](img/constraint_coordinate.png) | ![constraint-angular-coordinate](img/constraint_angular_coordinate.png) |
+
 ## 线性限制 LinearLimitSettings
 
 ![physics-configurable-linear-limit](img/configurable-linear-limit.png)
+
 | 属性                     | 描述                      |
 | :----------------------- | :------------------------ |
 | **xMotion**              | 获取或设置 x 轴的约束模式 |
@@ -104,11 +107,13 @@
 | **enableSoftConstraint** | 获取或设置是否启用软约束  |
 | **damping**              | 获取或设置约束的阻尼系数  |
 | **stiffness**            | 获取或设置约束的硬度系数  |
+
 ## 角度限制 AngularLimitSettings
 
 ![physics-configurable-angular-limit](img/configurable-angular-limit.png)
+
 | 属性                          | 描述                               |
-| :---------------------------- | :--------------------------------- |
+| :-- | :-- |
 | **twistMotion**               | 获取或设置扭转轴的约束模式         |
 | **swingMotion1**              | 获取或设置摆动 y 轴的约束模式      |
 | **swingMotion2**              | 获取或设置摆动 z 轴的约束模式      |
@@ -140,7 +145,7 @@
 
 ![physics-configurable-angular-driver](img/configurable-angular-driver.png)
 | 属性            | 描述                            |
-| :-------------- | :------------------------------ |
+| :-- | :-- |
 | **twistDrive**  | 获取或设置沿扭转轴的驱动模式    |
 | **swingDrive1** | 获取或设置沿摆动 y 轴的驱动模式 |
 | **swingDrive2** | 获取或设置沿摆动 z 轴的驱动模式 |
@@ -148,4 +153,4 @@
 | **velocity**    | 获取或设置目标角速度            |
 | **force**       | 获取或设置最大驱动力            |
 
-有关可配置约束接口，请参阅[ConfigurableConstraint API](__APIDOC__/zh-cn/class/physics.ConfigurableConstraint)。
+有关可配置约束接口，请参阅[ConfigurableConstraint API](__APIDOC__/zh/class/physics.ConfigurableConstraint)。
