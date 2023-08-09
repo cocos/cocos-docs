@@ -198,6 +198,7 @@
         - [Export FBX file from Maya](asset/model/maya-export-fbx.md)
         - [glTF](asset/model/glTF.md)
         - [Programmatically Create Meshes](asset/model/scripting-mesh.md)
+        - [Vertex Animation Texture (VAT)](asset/model/vat.md)
     - [Textures](module-map/texture/index.md)
         - [Textures](asset/texture.md)
         - [Texture Cube](asset/texture-cube.md)

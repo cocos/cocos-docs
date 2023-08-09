@@ -203,6 +203,7 @@
         - [从 Maya 中导出 FBX 模型资源](asset/model/maya-export-fbx.md)
         - [glTF 模型](asset/model/glTF.md)
         - [程序化创建网格](asset/model/scripting-mesh.md)
+        - [顶点动画贴图 （VAT）](asset/model/vat.md)
     - [纹理](module-map/texture/index.md)
         - [纹理贴图](asset/texture.md)
         - [立方体贴图](asset/texture-cube.md)
