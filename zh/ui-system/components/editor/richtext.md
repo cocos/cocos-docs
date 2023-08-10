@@ -100,3 +100,42 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 富文本组件全部由 JS 层实现，采用底层的 Label 节点拼装而成，并且在上层做排版逻辑。这意味着，你新建一个复杂的富文本，底层可能有十几个 label 节点，而这些 label 节点都是采用系统字体渲染的。
 
 所以，一般情况下，你不应该在游戏的主循环里面频繁地修改富文本的文本内容，这可能会导致性能比较低。另外，如果能不使用富文本组件，就尽量使用普通的文本组件，并且 BMFont 的效率是最高的。
+
+## 示例
+
+### 事件的用法
+
+我们以 `on` 标签作为示例，来说明下事件的用法。请在项目中新建任意一个带有 RichText 组件的节点。并创建一个自定义脚本，挂载在 RichText 组件上。
+
+![richText](./richText/example-components.png)
+
+将如下的代码复制到 RichText 的 **String** 属性内。
+
+```html
+<on click="onClicked" param="hello world">Click Me!</on>
+```
+
+![example-string.png](./richText/example-string.png)
+
+复制下面的代码到您的自定义脚本中：
+
+```ts
+import { _decorator, Component, EventTouch } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('ClickEventHandler')
+export class ClickEventHandler extends Component {
+
+    onClicked(eventTouch:EventTouch, param:string){
+        console.log("onClicked", param);
+    }
+}
+```
+
+运行游戏。
+
+![example-running.png](./richText/example-running.png)
+
+使用鼠标点击该文本，可以查看到控制台的输出：
+
+![example-console.png](./richText/example-console.png)
