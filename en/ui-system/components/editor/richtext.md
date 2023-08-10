@@ -105,3 +105,42 @@ Since the RichText component is assembled from multiple Label nodes, the number 
 The __RichText__ component is implemented in the JavaScript layer and uses the Label node as the rendering part. All the layout logic goes also in JavaScript layer. This means if you create a very complex __RichText__, it will end up with many label node created under the hook. And all these label node are using system font for rendering.
 
 Avoid modifying the __RichText__ content frequently in the game's main loop, which can lead to lower performance. Also, try to use the normal Label component instead of the __RichText__ component if possible, and BMFont is the most efficient.
+
+## Example
+
+### on
+
+Let's take the `on` tag as an example. Please create a new RichText node, and a custom script component, and attach it to the rich text node.
+
+![richText](./richText/example-components.png)
+
+Copy the following text to the **String** property of the RichText Component.
+
+```html
+<on click="onClicked" param="hello world">Click Me!</on>
+```
+
+![example-string.png](./richText/example-string.png)
+
+Copy the following code to your custom script.
+
+```ts
+import { _decorator, Component, EventTouch } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass('ClickEventHandler')
+export class ClickEventHandler extends Component {
+
+    onClicked(eventTouch:EventTouch, param:string){
+        console.log("onClicked", param);
+    }
+}
+```
+
+Then run the game.
+
+![example-running.png](./richText/example-running.png)
+
+Click the RichText on the screen, and you can see the following output in the console.
+
+![example-console.png](./richText/example-console.png)
