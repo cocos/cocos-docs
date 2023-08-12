@@ -75,7 +75,7 @@ module.exports = Editor.Panel.define({
 
 `listeners` - 面板的一些事件监听
 `template` - 面板的 HTML 布局文件
-`stype` - 面板的 css 文件
+`style` - 面板的 css 文件
 `$` - 全局选择器，用于快速访问一些元素
 `methods` - 此面板对外的方法接口
 `ready` - 当面板被打开时会调用
