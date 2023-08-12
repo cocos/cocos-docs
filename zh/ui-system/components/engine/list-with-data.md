@@ -2,147 +2,222 @@
 
 UI 界面只有静态页面内容是不够的，我们会遇到很多需要由一组数据动态生成多个元素组成的 UI 面板，比如选人界面、物品栏、选择关卡等等。
 
-## 准备数据
+本篇文档以动态生成一个可滑动的商品列表为例，演示一下具体的操作流程，主要步骤包括：
 
-以物品栏为例，我们要动态生成一个物品，大概需要这样的一组数据：
+- 列表 UI 准备
+- 数据准备
+- 列表 UI 脚本绑定
+- 最终预览效果
 
-- 物品 id
-- 图标 id，我们可以在另一张资源表中建立图标 id 到对应 spriteFrame 的索引
+## 列表 UI 准备
+
+以商品列表为例，要动态生成一个可滑动的商品列表。需要先通过Creator 编辑器设定好静态 UI 部分。
+
+首先，我们需要先创建一个空场景，点击上方工具栏中的 2D/3D 按钮，将 **场景编辑器** 切换为 2D 视图，然后搭建静态 UI 页面，如下图所示：
+
+![scrollView](list-with-data/scrollview.png)
+
+具体的操作步骤为：
+
+1. 在 **层级管理器** 中创建一个 [ScrollView](../editor/scrollview.md) 节点，`ScrollView` 节点下自带的 `scrollBar` 节点和 `item` 节点我们这里不需要用到，可将其移除。
+2. 在 `ScrollView` 节点下新建一个名为 `bg` 的空节点，再将背景图片和按钮等 UI 挂载到 bg 节点下，根据需要排列好，例如下图：
+
+    ![bgList](list-with-data/bgList.png)
+
+3. 设置 `ScrollView` 节点自带的 view 节点，将其 `ContentSize` 属性设为比父节点 `ScrollView` 节点的尺寸稍小。因为 `view` 节点上默认挂载了 **Mask** 组件，可以确保之后可见区域在滑动期间不会穿帮。
+4. 设置 `view` 节点下的容器节点 `content`，通过以下设置可以在进行下一步骤添加预制体商品到 `content` 节点中时，将其自动按照顺序排列：
+
+   - 将 **UITransform** 组件的 `AnchorPoint` 属性设置为 `（0.5，1）`
+   - 将 **UITransform** 组件的 `ContentSize` 属性中 `Width` 的值设置为与父节点 `view` 节点的一致
+   - 节点属性 `Position` 中的 `Y` 值设置为 为 `view` 节点中 **UITransform** 组件 `ContentSize` 属性中的 `Width` 值的一半大小
+   - 挂载 **Layout** 组件，点击 属性检查器 下方的 **添加组件** -> **UI** -> **Layout** 即可，并设置 **Layout** 组件的以下属性：
+       - `Type`：`VERTICAL`
+       - `Resize Mode`：`CONTAINER`
+       - `PaddingBottom`: `10`
+       - `SpacingY`: `20`
+
+    ![content](list-with-data/content.png)
+
+通过上述操作，可以在添加预制体商品到 `content` 节点中时，自动按照顺序排列。
+
+### 创建 Prefab
+
+接下来需要创建一个商品的 [Prefab 预制](../../../asset/prefab.md) 预制资源，作为在运行时实例化创建商品的模板。
+
+在 **层级管理器** 创建一个 `Sprite` 节点，重命名为 `itemGiftBag`，然后根据需要制作商品 UI，例如：
+
+![itemGiftBag](list-with-data/itemGiftBag.png)
+
+`spr`、`name` 和 `price` 子节点用来显示商品图片、商品名称和商品价格。
+
+### 商品图片准备
+
+我们在 **层级管理器** 的 **resources/monster** 目录下放置了一批小怪兽头像资源做为商品图片，并将资源命名为 **monster01 ~ monster12**，这样命名可以方便我们后续批量 [动态加载资源](../../../scripting/load-assets.md)。
+
+![monster](list-with-data/monster.png)
+
+将资源命名为 **monster01 ~ monster12**。这样命名可以方便我们后续批量的 [动态加载资源](../../../scripting/load-assets.md)。
+
+## 数据准备
+
+要动态生成一个物品，大概需要这样的一组数据：
+
+- 图标 id，我们可以在另一张资源表中建立图标 id 到对应 spriteFrame 的索引（在本次示例中先直接使用图片名称）
 - 物品名称
 - 出售价格
 - ...
 
-下面我们将会结合脚本介绍如何定义和使用数据，如果您对 Cocos Creator 3.0 的脚本系统还不熟悉，可以先从 [脚本开发指南](../../../scripting/index.md) 一章开始学习。
+在实际制作项目的过程中，经常使用 Excel、数据库等专业的系统来管理数据，将外部数据格式转化为 Cocos Creator 可以使用的 TypeScript 和 JSON 格式都非常容易。在本次示例中，我们提供一个 [Excel 转 Json](https://gitee.com/lixinjiang/excel-to-json) 的工具，将我们需要的数据，最终生成一个 Json 文件。
 
-### 自定义数据类
+![excel](list-with-data/excel.png)
 
-对于大多数游戏来说，这些数据通常都来自于服务器或本地的数据库，现在我们为了展示流程，暂时把数据存在列表组件里就可以了。您可以新建一个脚本 `ItemList.ts`，并添加如下的属性：
+其中 `title`、`price` 和 `name` 就对应着商品名称、出售价格和图片名称。
+
+## 列表 UI 脚本绑定
+
+完成场景 UI 搭建以及基本数据准备之后，我们可以通过一个组件脚本来绑定它们。
+
+在 **资源管理器** 中新建一个名为 `ItemTemplate.ts` 的脚本，然后在 **层级管理器** 中创建一个名为 `ItemTemplate` 的空节点，并挂载 `ItemTemplate.ts` 脚本。
+
+`ItemTemplate.ts` 脚本内容如下：
 
 ```ts
-@ccclass('Item')
-export class Item {
-    @property
-    id = 0;
-    @property
-    itemName = '';
-    @property
-    itemPrice = 0;
-    @property(SpriteFrame)
-    iconSF: SpriteFrame | null = null;
+
+// ItemTemplate.ts
+import { _decorator, Component, Node, Prefab, instantiate, JsonAsset } from 'cc';
+import { ItemGiftBag } from './ItemGiftBag';
+const { ccclass, property } = _decorator;
+
+/** 商品数据定义接口 */
+export interface ItemGiftList {
+
+    price: number; // 商品价格
+    title: string; // 商品名称
+    name: string; // 商品图片名称
+
+}
+@ccclass('ItemTemplate')
+export class ItemTemplate extends Component {
+
+    // 定义一个 itemContent 属性，用于指定 ScrollView 的容器节点 content 
+    @property(Node)
+    itemContent: Node = null!;
+
+    // 定义一个 itemGiftPre 属性，用于指定商品预制资源 itemGiftBag
+    @property(Prefab)
+    itemGiftPre: Prefab = null!;
+
+    // 定义一个 itemGiftJson 属性，用于指定包含数据的 Json 文件
+    @property(JsonAsset)
+    itemGiftJson: JsonAsset = null!;
+    start() {
+        this.initData();
+    }
+
+    initData() {
+        const data: object = this.itemGiftJson.json!;
+        const jsonLength: number = Object.keys(data).length;
+        const str: string = JSON.stringify(data);
+        const parse: Array<ItemGiftList> = JSON.parse(str);
+        for (let i = 1; i <= jsonLength; i++) {
+
+            let item: Node = instantiate(this.itemGiftPre);
+            if (item) {
+                item.parent = this.itemContent;
+            }
+        }
+    }
 }
 
-@ccclass
-export class ItemList extends Component {
-    @property([Item])
-    items: Item[] = [];
-    @property(Prefab)
-    itemPrefab: Prefab | null = null;
+```
 
-    onLoad() {
-        for (let i = 0; i < this.items.length; ++i) {
-            const item = instantiate(this.itemPrefab);
-            const data = this.items[i];
-            this.node.addChild(item);
-            item.getComponent('ItemTemplate').init(data);
+在 `initData` 函数中，先将 Json 数据转换为数组，再根据数组的长度去依次生成对应数量的模板预制体 `itemGiftPre`。最后将生成的预制体的父节点设置为 `itemContent`。
+
+![ItemTemplate](list-with-data/ItemTemplate.png)
+
+当根据上图所示，将声明的组件一一拖拽绑定，并保存场景后，执行预览便能得到下图所示的效果：
+
+![showCase](list-with-data/showCase.gif)
+
+通过上述 gif 图可以得知想要的效果已经大致出来了，但是还缺少了商品栏中的商品数据。
+
+### 模板组件脚本绑定
+
+接下来新建一个 `ItemGiftBag.ts` 的脚本，添加到之前制作的模板`itemGiftBag` 上。该脚本内容如下：
+
+```ts
+
+// ItemGiftBag.ts
+import { _decorator, Component, Node, Sprite, Label, resources, SpriteFrame } from 'cc';
+import { ItemGiftList } from './ItemTemplate';
+const { ccclass, property } = _decorator;
+
+@ccclass('ItemGiftBag')
+export class ItemGiftBag extends Component {
+    // 商品图片节点
+    @property(Sprite)
+    itemSpr: Sprite = null!;
+    // 商品名称节点
+    @property(Label)
+    nameLbl: Label = null!;
+    // 商品价格节点
+    @property(Label)
+    priceLbl: Label = null!;
+ 
+}
+
+```
+
+接下来将对应的节点拖拽到该组件的各个属性上：
+
+![itemScripts](list-with-data/itemScripts.png)
+
+### 通过数据更新模板表现
+
+接下来继续修改 `ItemGiftBag.ts`，为其添加接受数据后的逻辑。在上述脚本后面加入以下内容：
+
+```ts
+// ItemGiftBag.ts
+
+init(data: ItemGiftList) {
+    const str = 'monster/' + data.name + "/spriteFrame";
+    resources.load(str, SpriteFrame, (err, res) => {
+        this.itemSpr.spriteFrame = res;
+    })
+    this.nameLbl.string = data.title;
+    this.priceLbl.string = '$' + data.price;
+}
+
+```
+
+`init` 函数接受一个数据对象，并使用这个对象里的数据更新各个负责表现组件的相应属性，动态加载商品图片。关于动态加载的更多细节，可以参考 [动态加载资源](../../../scripting/load-assets.md)。
+
+最后，在 `ItemTemplate` 脚本的 `initData` 函数中，在遍历生成预制件的同时，添加对 `ItemGiftBag` 脚本中 `init` 函数的调用和数据赋值。最终 `initData` 函数如下所示：
+
+```ts
+
+// ItemTemplate.ts
+
+initData(){
+    const data: object = this.itemGiftJson.json!;
+    const jsonLength: number = Object.keys(data).length;
+    const str: string = JSON.stringify(data);
+    const parse: Array<ItemGiftList> = JSON.parse(str);
+
+    for (let i = 1; i <= jsonLength; i++) {
+
+        const item: Node = instantiate(this.itemGiftPre);
+        if (item) {
+            const itemGiftScripts = item.getComponent(ItemGiftBag);
+            itemGiftScripts?.init(parse[i]);
+            item.parent = this.itemContent;
         }
     }
 }
 ```
 
-上面脚本的前半部分我们声明了一个叫做 `Item` 的数据类，用来存放我们展示物品需要的各种数据。注意这个类并没有继承 `Component`，因此它不是一个组件，但可以被组件使用。关于声明自定义类的更多内容，请查阅 [装饰器](../../../scripting/decorator.md) 文档。
+## 最终预览效果
 
-下半部分是正常的组件声明方式，这个组件中只有一个 `items` 属性，上面的声明方式将会给我们一个由 `Item` 类组成的数组，我们可以在 **属性检查器** 中为每个 `Item` 元素设置数据。
+最后，所有内容编辑完成后，回到编辑器，保存场景，即可通过预览查看最后的效果：
 
-新建一个节点并将 `ItemList.ts` 添加上去，我们可以在 **属性检查器** 里找到 `Items` 属性，要开始创建数据，需要先将数组的容量设为大于 0 的值。让我们将容量设为 3，并将每个元素的数据如下图设置。
-
-![item list](list-with-data/itemlist.png)
-
-这样我们最基本的数据就准备好了，如果您在制作有很多内容的游戏，请务必使用 excel、数据库等更专业的系统来管理您的数据，将外部数据格式转化为 Cocos Creator 可以使用的 TypeScript 和 JSON 格式都非常容易。
-
-## 制作表现：Prefab 模板
-
-接下来我们还需要一个可以在运行时用来实例化每个物品的模板资源 —— [Prefab 预制](../../../asset/prefab.md)。这个 Prefab 的结构如下图所示：
-
-![item template](list-with-data/item-template.png)
-
-`icon`、`name`、`price` 子节点之后就会用来展示图标、物品名称和价格的数据。
-
-### 模板组件绑定
-
-您在拼装 Prefab 时可以根据自己的需要自由发挥，上图中展示的仅仅是一个结构的例子。有了物品的模板结构，接下来我们需要一个组件脚本来完成节点结构的绑定。新建一个 `ItemTemplate.ts` 的脚本，并将其添加到刚才制作的模板节点上。该脚本内容如下：
-
-```ts
-@ccclass
-export class ItemTemplate extends Component {
-    @property
-    public id = 0;
-    @property(Sprite)
-    public icon: Sprite | null = null;
-    @property(Label)
-    public itemName: Label | null = null;
-    @property(Label)
-    public itemPrice: Label | null = null;
-}
-```
-
-接下来将对应的节点拖拽到该组件的各个属性上：
-
-![item binding](list-with-data/item-binding.png)
-
-注意 `id` 这个属性我们会直接通过数据赋值，不需要绑定节点。
-
-### 通过数据更新模板表现
-
-接下来我们需要继续修改 `ItemTemplate.ts`，为其添加接受数据后进行处理的逻辑。在上述脚本后面加入以下内容：
-
-```ts
-// data: { id, iconSF, itemName, itemPrice }
-init(data: Item) {
-    this.id = data.id;
-    this.icon.spriteFrame = data.iconSF;
-    this.itemName.string = data.itemName;
-    this.itemPrice.string = data.itemPrice;
-}
-```
-
-`init` 方法接受一个数据对象，并使用这个对象里的数据更新各个负责表现组件的相应属性。现在我们可以将 `Item` 节点保存成一个 Prefab 了，这就是我们物品的模板。
-
-## 根据数据生成列表内容
-
-现在让我们回到 `ItemList.ts` 脚本，接下来要添加的是物品模板 Prefab 的引用，以及动态生成列表的逻辑。
-
-```ts
-//...
-@property(Prefab)
-itemPrefab: Prefab | null = null;
-
-onLoad () {
-    for (let i = 0; i < this.items.length; ++i) {
-        const item = instantiate(this.itemPrefab);
-        const data = this.items[i];
-        this.node.addChild(item);
-        item.getComponent('ItemTemplate').init(data);
-    }
-}
-```
-
-在 `onLoad` 回调方法里，我们依次遍历 `items` 里存储的每个数据，以 `itemPrefab` 为模板生成新节点并添加到 `ItemList.ts` 所在节点上。之后调用 `ItemTemplate.ts` 里的 `init` 方法，更新每个节点的表现。
-
-现在我们可以为 `ItemList.ts` 所在的节点添加一个 **Layout** 组件，通过 **属性检查器** 下方的 **添加组件 -> UI -> Layout**，然后设置 **Layout** 组件的以下属性：
-
-- `Type`：`HORIZONTAL`
-- `Resize Mode`：`CONTAINER`
-
-别忘了把 `item` Prefab 拖拽到 `ItemList` 组件的 `itemPrefab` 属性里。您还可以为这个节点添加一个 **Sprite** 组件，作为列表的背景。
-
-完成后的 `itemList` 节点属性如下：
-
-![itemlist complete](list-with-data/itemlist-complete.png)
-
-## 预览效果
-
-最后运行预览，可以看到类似这样的效果（具体效果和您制作的物品模板，以及输入的数据有关）：
-
-![result](list-with-data/result.png)
-
-注意前面步骤中添加 **Layout** 组件并不是必须的，**Layout** 能够帮助您自动排列列表中的节点元素，但您也可以用脚本程序来控制节点的排列。我们通常还会配合 **ScrollView** 滚动视图组件一起使用，以便在有限的空间内展示大量内容。可以配合 [自动布局](auto-layout.md) 和 [滚动视图](../editor/scrollview.md) 一起学习。
+![lastShow](list-with-data/lastShow.gif)
