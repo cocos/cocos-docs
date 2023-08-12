@@ -75,7 +75,7 @@ module.exports = Editor.Panel.define({
 
 `listeners` - some event listeners for the panel
 `template` - the panel's HTML layout file
-`stype` - the panel's css file
+`style` - the panel's css file
 `$` - global selector for quick access to some elements
 `methods` - the external method interface for this panel
 `ready` - called when the panel is opened
