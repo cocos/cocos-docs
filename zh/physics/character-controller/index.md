@@ -131,7 +131,7 @@ onColliderHit (hit: CharacterControllerContact){}
 
 ## API
 
-角色控制器的 API 请参考 [角色控制器](__APIDOC__/api/zh/classes/physics.CharacterController.html)、[盒角色控制器](__APIDOC__/api/zh/classes/physics.BoxCharacterController.html) 以及 [胶囊体角色控制器](__APIDOC__/api/zh/classes/physics.CapsuleCharacterController.html)
+角色控制器的 API 请参考 [角色控制器](__APIDOC__/api/zh/classes/physics.CharacterController)、[盒角色控制器](__APIDOC__/api/zh/classes/physics.BoxCharacterController) 以及 [胶囊体角色控制器](__APIDOC__/api/zh/classes/physics.CapsuleCharacterController)
 
 ## 支持情况
 
