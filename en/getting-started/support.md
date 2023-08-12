@@ -24,7 +24,6 @@ Apart from the information provided in this guide, you can also obtain informati
 ### Tools for texture atlas
 
 - [TexturePacker](https://www.codeandweb.com/texturepacker)
-- [Zwoptex](https://zwopple.com/zwoptex/)
 
 ### Tools for Bitmap font
 
