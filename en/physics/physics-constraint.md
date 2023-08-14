@@ -95,15 +95,15 @@ Example: When the main axis of the constraint is set to the y-axis of the attach
 ![physics-configurable-linear-limit](img/configurable-linear-limit.png)
 | Properties | Description |
 | :-- | :-- |
-| **xMotion**              | Gets or sets the constraint mode of the x-axis   |
-| **yMotion**              | Gets or sets the constraint mode of the y-axis   |
-| **zMotion**              | Gets or sets the constraint mode of the z-axis   |
-| **upper**                | Gets or sets the upper limit of the linear limit |
-| **lower**                | Gets or sets the lower limit of the linear limit |
-| **restitution**          | Gets or sets the restitution of the constraint   |
-| **enableSoftConstraint** | Gets or sets whether to enable soft constraint   |
-| **damping**              | Gets or sets the damping of the constraint       |
-| **stiffness**            | Gets or sets the stiffness of the constraint     |
+| **XMotion**              | Gets or sets the constraint mode of the x-axis   |
+| **YMotion**              | Gets or sets the constraint mode of the y-axis   |
+| **ZMotion**              | Gets or sets the constraint mode of the z-axis   |
+| **Upper**                | Gets or sets the upper limit of the linear limit |
+| **Lower**                | Gets or sets the lower limit of the linear limit |
+| **Restitution**          | Gets or sets the restitution of the constraint   |
+| **Enable Soft Constraint** | Gets or sets whether to enable soft constraint   |
+| **Damping**              | Gets or sets the damping of the constraint       |
+| **Stiffness**            | Gets or sets the stiffness of the constraint     |
 
 ### Angular limit settings
 
@@ -111,20 +111,20 @@ Example: When the main axis of the constraint is set to the y-axis of the attach
 
 | Properties                    | Description                                              |
 | :-- | :-- |
-| **twistMotion**               | Gets or sets the constraint mode of the twist axis       |
-| **swingMotion1**              | Gets or sets the constraint mode of the swing y axis     |
-| **swingMotion2**              | Gets or sets the constraint mode of the swing z axis     |
-| **twistExtent**               | Gets or sets the limit angle along the twist axis        |
-| **swingExtent1**              | Gets or sets the limit angle along the swing y axis      |
-| **swingExtent2**              | Gets or sets the limit angle along the swing z axis      |
-| **twistRestitution**          | Gets or sets the restitution of the twist constraint     |
-| **swingRestitution**          | Gets or sets the restitution of the swing constraint     |
-| **enableSoftConstraintTwist** | Gets or sets whether to enable soft constraint for twist |
-| **twistDamping**              | Gets or sets the damping of the twist constraint         |
-| **twistStiffness**            | Gets or sets the stiffness of the twist constraint       |
-| **enableSoftConstraintSwing** | Gets or sets whether to enable soft constraint for swing |
-| **swingDamping**              | Gets or sets the damping of the swing constraint         |
-| **swingStiffness**            | Gets or sets the stiffness of the swing constraint       |
+| **Twist Motion**               | Gets or sets the constraint mode of the twist axis       |
+| **Swing Motion1**              | Gets or sets the constraint mode of the swing y axis     |
+| **Swing Motion2**              | Gets or sets the constraint mode of the swing z axis     |
+| **Twist Extent**               | Gets or sets the limit angle along the twist axis        |
+| **Swing Extent1**              | Gets or sets the limit angle along the swing y axis      |
+| **Swing Extent2**              | Gets or sets the limit angle along the swing z axis      |
+| **Twist Restitution**          | Gets or sets the restitution of the twist constraint     |
+| **Swing Restitution**          | Gets or sets the restitution of the swing constraint     |
+| **Enable Soft Constraint Twist** | Gets or sets whether to enable soft constraint for twist |
+| **Twist Damping**              | Gets or sets the damping of the twist constraint         |
+| **Twist Stiffness**            | Gets or sets the stiffness of the twist constraint       |
+| **Enable Soft Constraint Swing** | Gets or sets whether to enable soft constraint for swing |
+| **Swing Damping**              | Gets or sets the damping of the swing constraint         |
+| **Swing Stiffness**            | Gets or sets the stiffness of the swing constraint       |
 
 ### Linear driver settings
 
@@ -132,12 +132,12 @@ Example: When the main axis of the constraint is set to the y-axis of the attach
 
 | Properties   | Description |
 | :-- | :-- |
-| **xDrive**   | Gets or sets the driver mode along the x axis |
-| **yDrive**   | Gets or sets the driver mode along the y axis |
-| **zDrive**   | Gets or sets the driver mode along the z axis |
-| **target**   | Gets or sets the target position              |
-| **velocity** | Gets or sets the target velocity              |
-| **force**    | Gets or sets the maximum driving force        |
+| **XDrive**   | Gets or sets the driver mode along the x axis |
+| **YDrive**   | Gets or sets the driver mode along the y axis |
+| **ZDrive**   | Gets or sets the driver mode along the z axis |
+| **target Position**   | Gets or sets the target position              |
+| **Target Velocity** | Gets or sets the target velocity              |
+| **Strength**    | Gets or sets the maximum driving force        |
 
 ### Angular driver settings
 
@@ -145,11 +145,35 @@ Example: When the main axis of the constraint is set to the y-axis of the attach
 
 | Properties | Description |
 | :-- | :-- |
-| **twistDrive**  | Gets or sets the driver mode along the twist axis   |
-| **swingDrive1** | Gets or sets the driver mode along the swing y axis |
-| **swingDrive2** | Gets or sets the driver mode along the swing z axis |
-| **target**      | Gets or sets the target angle                       |
-| **velocity**    | Gets or sets the target angular velocity            |
-| **force**       | Gets or sets the maximum driving force              |
+| **Twist Drive**  | Gets or sets the driver mode along the twist axis   |
+| **Swing Drive1** | Gets or sets the driver mode along the swing y axis |
+| **Swing Drive2** | Gets or sets the driver mode along the swing z axis |
+| **target Orientation**      | Gets or sets the target angle                       |
+| **Target velocity**    | Gets or sets the target angular velocity            |
+| **Strength**       | Gets or sets the maximum driving force              |
+
+## Drive Mode
+
+Both linear and angular motors can have their drive modes adjusted by sub-axis, there are 3 drive modes:
+
+- **DISABLED**: Disabled mode, in which the corresponding split-axis is not affected by the motor driving force or torque.
+- **SERVO**: Attempts to move/rotate to a specified position/angle.
+    - Linear motors: The Drive attributes of X, Y and Z correspond to the three parameters of the Target Position.
+
+        ![servo.png](./img/servo.png)
+
+        For example, if **XDrive** is **SERVO** and the X component of **Target Position** is 10, then the constraint will try to move to 10.
+
+    - Angle motors: Twist Drive, Swig Drive1, Swig Drive2 correspond to the three parameters of Target Orientation respectively
+- **INDUCTION**: drive the constraint to the specified speed/angular velocity.
+    - Linear motors: The Drive attributes of X, Y, and Z correspond to the three parameters of Target Velocity respectively
+
+        The Drive attribute for X, Y, and Z corresponds to the three parameters of Target Velocity.
+
+        ![induction.png](./img/induction.png)
+
+        For example, if **XDrive** is **INDUCTION** and the X component of **Target Velocity** is 10, then the constraint will try to move its velocity to 10.
+
+    - Angle motors: Twist Drive, Swig Drive1, Swig Drive2 correspond to the three parameters of Target Velocity.
 
 For configurable constraint interface, please refer to [ConfigurableConstraint API](__APIDOC__/en/class/physics.ConfigurableConstraint).
