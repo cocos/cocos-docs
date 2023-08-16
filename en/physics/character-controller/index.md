@@ -107,7 +107,7 @@ onColliderHit (contact: CharacterControllerContact){}
 
 The description of the callback is below.
 
-- contact: the contact information when the collision occurs, refer to [CharacterControllerContact](__APIDOC__/api/en/classes/CharacterControllerContact.html)
+- contact: the contact information when the collision occurs, refer to [CharacterControllerContact](__APIDOC__/en/classes/CharacterControllerContact.html)
 
 ## Details
 
@@ -131,7 +131,7 @@ The address of the character controller is [GIT](https://github.com/cocos/cocos-
 
 ## API
 
-For the API of the character controller, please refer to [Character Controller](__APIDOC__/api/en/classes/physics.CharacterController.html), [Box Character Controller](__APIDOC__/api/en/classes/physics.BoxCharacterController.html) and [Capsule Character Controller](__APIDOC__/api/en/classes/physics.CapsuleCharacterController.html).
+For the API of the character controller, please refer to [Character Controller](__APIDOC__/en/class/physics.CharacterController.html), [Box Character Controller](__APIDOC__/en/class/physics.BoxCharacterController.html) and [Capsule Character Controller](__APIDOC__/en/class/physics.CapsuleCharacterController.html).
 
 ## Note
 
