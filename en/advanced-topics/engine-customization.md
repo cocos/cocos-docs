@@ -51,7 +51,7 @@ Obtain the specific version of cocos-engine source code from the Cocos Engine re
 
 ### 2. Installing Compilation Dependencies
 
-The compilation dependencies require `NodeJS`. Make sure you have installed `NodeJS v12.0` or above on your computer. If not, please download and install it from [https://nodejs.org/](https://nodejs.org/).
+The compilation dependencies require `NodeJS`. Make sure you have installed `NodeJS v18.0` or above on your computer. If not, please download and install it from [https://nodejs.org/](https://nodejs.org/).
 
 After installation, navigate to the root directory of the custom engine and execute the following commands:
 
