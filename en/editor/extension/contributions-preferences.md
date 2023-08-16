@@ -2,7 +2,7 @@
 
 ## Preferences Panel Introduction
 
-The **Cocos Creator -> Preferences** menu can be found in the top menu bar, as shown in the following image:
+The **Cocos Creator/File -> Preferences** menu can be found in the top menu bar, as shown in the following image:
 
 ![preferences](./image/preferences-menu.png)
 

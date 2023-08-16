@@ -2,7 +2,7 @@
 
 编辑器布局是指 Cocos Creator 里各个面板的位置、大小和层叠情况。
 
-选择主菜单里的 **Cocos Creator -> 布局** 菜单，目前只支持 **默认布局**。在默认布局的基础上，也可以继续对各个面板的位置和大小进行调节。对布局的修改会自动保存在全局目录下：
+选择主菜单里的 **Cocos Creator/File -> 布局** 菜单，目前只支持 **默认布局**。在默认布局的基础上，也可以继续对各个面板的位置和大小进行调节。对布局的修改会自动保存在全局目录下：
 
 - **Windows**：`%USERPROFILE%\.CocosCreator\editor\window.json`
 - **macOS**：`$HOME/.CocosCreator/editor/window.json`

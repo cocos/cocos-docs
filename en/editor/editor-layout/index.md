@@ -2,7 +2,7 @@
 
 Editor layout is the position, size and stacking of each panel in Cocos Creator.
 
-Select the **Cocos Creator -> Layout** menu in the main menu, currently only **Default Layout** is supported. Based on the default layout, it is allowed to continue to adjust the position and size of each panel. Changes to the layout are automatically saved in the global directory at:
+Select the **Cocos Creator/File -> Layout** menu in the main menu, currently only **Default Layout** is supported. Based on the default layout, it is allowed to continue to adjust the position and size of each panel. Changes to the layout are automatically saved in the global directory at:
 
 - **Windows**: `%USERPROFILE%\.CocosCreator\editor\window.json`
 - **macOS**: `$HOME/.CocosCreator/editor/window.json`

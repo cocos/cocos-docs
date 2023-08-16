@@ -14,7 +14,7 @@ At any time during game development we can click the **Preview** button at the t
 
     ![select-scene](index/select-scene.png)
 
-- ![play](index/refresh.png): refresh button, click this button to refresh all opened preview pages. To refresh the preview page automatically after the save scene operation, select **Cocos Creator -> Preferences -> Preview** in the editor main menu, and then check **Refresh preview page when saving scene**.
+- ![play](index/refresh.png): refresh button, click this button to refresh all opened preview pages. To refresh the preview page automatically after the save scene operation, select **Cocos Creator/File -> Preferences -> Preview** in the editor main menu, and then check **Refresh preview page when saving scene**.
 
 > **Note**: double-click is needed to open the scene to preview the game content. If there are not any scenes open, or if an empty scene is created, no content will show.
 
@@ -24,7 +24,7 @@ After selecting **Browser** to preview, click the **Preview** button next to it 
 
 At the top of the browser preview screen there are a series of controls to control the preview effect:
 
-- The leftmost menu is used to select the scale size of the preview window to simulate the display effect on different mobile devices, and the device resolution can be added manually in **Cocos Creator -> Preferences -> Device Manager**.
+- The leftmost menu is used to select the scale size of the preview window to simulate the display effect on different mobile devices, and the device resolution can be added manually in **Cocos Creator/File -> Preferences -> Device Manager**.
 - **Rotate**: decide whether to display landscape or portrait screen
 - **Debug Mode**: choose which levels of log in the script will be output to the browser console
 - **Show FPS**: allows choosing whether to display debug information such as frames per second and number of drawcalls in the bottom left corner
@@ -110,7 +110,7 @@ When you select **Simulator** preview, the current game scene will be run using 
 
 ![simulator](index/simulator.png)
 
-When using **Simulator** preview, it supports automatically opening debug window for debugging, which can be set in **Cocos Creator -> Preferences -> Preview**, please refer to [Preferences - Preview](../preferences/index.md).
+When using **Simulator** preview, it supports automatically opening debug window for debugging, which can be set in **Cocos Creator/File -> Preferences -> Preview**, please refer to [Preferences - Preview](../preferences/index.md).
 
 To add support for the iOS simulator on Apple M1 (Silicon) architecture devices, click the **App** button in the upper right corner of the Creator, open the `CMakeLists.txt` file in the `resources\3d\engine\native\external` directory of the Editor, and uncomment the code related to the iOS simulator and comment the code related to the iOS physical device, as shown below:
 
@@ -130,7 +130,7 @@ There are the following ways to debug the preview effect on mobile phone:
 
 - Directly **Enter the preview address in your cell phone browser**
 
-> **Note**: the phone needs to be on the **same network segment** as the computer. Since there may be more than one network for the computer, if the IP address of the editor preview URL is not selected correctly, change it in the main menu bar in **Cocos Creator -> Preferences -> General -> Preview IP**.
+> **Note**: the phone needs to be on the **same network segment** as the computer. Since there may be more than one network for the computer, if the IP address of the editor preview URL is not selected correctly, change it in the main menu bar in **Cocos Creator/File -> Preferences -> General -> Preview IP**.
 
 ## Build
 

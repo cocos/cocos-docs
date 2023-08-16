@@ -66,7 +66,7 @@ gulp build
 
 ### 3. Modifying the Engine Path
 
-Use the **Cocos Creator -> Preferences -> Engine Manager** tab to set the path to the engine source code. Note that **you need to restart the editor after modifying the engine path**.
+Use the **Cocos Creator/File -> Preferences -> Engine Manager** tab to set the path to the engine source code. Note that **you need to restart the editor after modifying the engine path**.
 
 ![custom ts engine](engine-customization/custom-engine.png)
 

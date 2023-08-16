@@ -14,7 +14,7 @@
 
 1. 在 [微信官方文档](https://mp.weixin.qq.com/debug/wxagame/dev/devtools/download.html) 下载微信开发者工具。
 
-2. 在编辑器主菜单的 **Cocos Creator -> 偏好设置 -> [外部程序](../../editor/preferences/index.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径。
+2. 在编辑器主菜单的 **Cocos Creator/File -> 偏好设置 -> [外部程序](../../editor/preferences/index.md#%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)** 中设置微信开发者工具路径。
 
     ![preference](./publish-wechatgame/preference.png)
 

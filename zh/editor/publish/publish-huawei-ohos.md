@@ -22,7 +22,7 @@
 
 ### 使用 Cocos Creator 构建
 
-1. 使用 Cocos Creator 打开项目工程，点击上方菜单栏中的 **Cocos Creator -> 偏好设置 -> 外部程序**，配置 **HarmonyOS NDK** 和 **HarmonyOS SDK** 路径：
+1. 使用 Cocos Creator 打开项目工程，点击上方菜单栏中的 **Cocos Creator/File -> 偏好设置 -> 外部程序**，配置 **HarmonyOS NDK** 和 **HarmonyOS SDK** 路径：
 
     ![preferences](./publish-huawei-ohos/preferences.png)
 

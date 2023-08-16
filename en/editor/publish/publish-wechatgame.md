@@ -16,7 +16,7 @@ In addition, the game submission, review and release process of the **WeChat Min
 
 1. Download the **WeChat DevTools** on [WeChat Official Document](https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html)
 
-2. Set the **WeChatGame App Path** in **Cocos Creator -> Preferences -> [Native Develop](../../editor/preferences/index.md)**.
+2. Set the **WeChatGame App Path** in **Cocos Creator/File -> Preferences -> [Native Develop](../../editor/preferences/index.md)**.
 
     ![preference](./publish-wechatgame/preference.png)
 

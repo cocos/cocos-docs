@@ -66,7 +66,7 @@ gulp build
 
 ### 3. 修改引擎路径
 
-通过 **Cocos Creator -> 偏好设置** 的 **引擎管理器** 选项卡来设置需要使用的引擎源码路径。需要注意的是 **修改引擎路径后需要重启编辑器**。
+通过 **Cocos Creator/File -> 偏好设置** 的 **引擎管理器** 选项卡来设置需要使用的引擎源码路径。需要注意的是 **修改引擎路径后需要重启编辑器**。
 
 ![custom ts engine](engine-customization/custom-engine.png)
 

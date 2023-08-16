@@ -52,7 +52,7 @@ A cube will be created and displayed in the **Scene** panel:
 
 - Adding code
 
-  Double-click the new script and it will be automatically opened in the script editor, provided that you specify the script editor in the editor menu bar under **Cocos Creator -> Preferences -> External Program -> Default Script Editor**.
+  Double-click the new script and it will be automatically opened in the script editor, provided that you specify the script editor in the editor menu bar under **Cocos Creator/File -> Preferences -> External Program -> Default Script Editor**.
 
   Then add the `start()` function to the script. The `start()` function will be called when the component is activated for the first time and will output "Hello world".
 
