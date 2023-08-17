@@ -1,4 +1,4 @@
-# Android 工程升级
+# v3.8 Android 工程升级
 
 从 v3.8 开始，构建产出的 Android 工程默认支持新版本的 Android Studio（Flamingo | 2022.2.1）。由于 Android Gradle 插件的 [要求](https://developer.android.com/studio/releases?hl=zh-cn#jdk-17)，开发者需要将 JDK 升级到 17，同时升级 Android Studio 到 Flamingo 版本。
 
