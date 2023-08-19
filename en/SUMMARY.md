@@ -119,6 +119,7 @@
         - [Android Publishing Example](editor/publish/android/build-example-android.md)
         - [Build Options - Android](editor/publish/android/build-options-android.md)
         - [Android Development Environment Setup](editor/publish/android/build-setup-evn-android.md)
+        - [Upgrading Android Project to v3.8](./release-notes/upgrade-3.8-android.md)
     - [Publish to Google Play on PC](editor/publish/google-play-games/index.md)
         - [Build and Run](editor/publish/google-play-games/build-and-run.md)
         - [Integrating Input SDK](editor/publish/gpg-input-sdk.md)

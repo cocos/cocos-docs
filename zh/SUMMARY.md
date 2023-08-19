@@ -124,6 +124,7 @@
         - [Android 构建示例](editor/publish/android/build-example-android.md)
         - [Android 构建选项](editor/publish/android/build-options-android.md)
         - [配置 Android 原生开发环境](editor/publish/android/build-setup-evn-android.md)
+        - [v3.8 Android 工程升级](./release-notes/upgrade-3.8-android.md)
     - [发布到谷歌 GPG 平台](editor/publish/google-play-games/index.md)
         - [发布和运行](editor/publish/google-play-games/build-and-run.md)
         - [集成 Input SDK](editor/publish/gpg-input-sdk.md)
