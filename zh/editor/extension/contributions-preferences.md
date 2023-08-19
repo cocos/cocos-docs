@@ -8,7 +8,7 @@
 
 ## 偏好设置面板简介
 
-在顶部菜单栏可找到 **Cocos Creator -> 偏好设置** 菜单，如下图所示：
+在顶部菜单栏可找到 **Cocos Creator/File -> 偏好设置** 菜单，如下图所示：
 
 ![preferences](./image/preferences-menu.png)
 

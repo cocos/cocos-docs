@@ -58,7 +58,7 @@ Please install the following runtime environment:
 
 ## Configuring Native development environments path
 
-Next, go back to Cocos Creator to configure the environmental path of the native platform. Choose **Cocos Creator -> Preferences** in the main menu, and open the **Preferences** panel. We need to configure the following two paths here:
+Next, go back to Cocos Creator to configure the environmental path of the native platform. Choose **Cocos Creator/File -> Preferences** in the main menu, and open the **Preferences** panel. We need to configure the following two paths here:
 
 ![preference](setup-native-development/sdk.png)
 

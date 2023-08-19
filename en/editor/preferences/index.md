@@ -1,6 +1,6 @@
 # Preferences
 
-The **Preferences** panel provides personalized settings for the editor, which can be opened by clicking **Cocos Creator -> Preferences** in the editor's main menu bar.
+The **Preferences** panel provides personalized settings for the editor, which can be opened by clicking **Cocos Creator/File -> Preferences** in the editor's main menu bar.
 
 **Preferences** consists of several different tabs, including **General**, **External Program**, **Device Manager**, **Engine Manager**, **AssetDB**, **Console**, **Inspector**, **Preview**, **Build** and **Laboratory**. The **Preferences** panel will automatically save the changes after you modify them.
 
