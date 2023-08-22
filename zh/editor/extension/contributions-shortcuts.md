@@ -56,7 +56,7 @@
 
 在某些条件下才会触发这个快捷键。
 
-`"when": "PanelName === 'hello-world'"` 表示当获得焦点的面板名称为 `hello-world` 时，按下快捷键才会发送 `message` 消息。
+`"when": "panelName === 'hello-world'"` 表示当获得焦点的面板名称为 `hello-world` 时，按下快捷键才会发送 `message` 消息。
 
 ### win
 
