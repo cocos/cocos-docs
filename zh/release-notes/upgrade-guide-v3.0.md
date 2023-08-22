@@ -138,7 +138,7 @@ export class AudioController extends Component {
 
 #### 针对 Cocos Creator 3D 1.2 用户
 
-1. Cocos Creator 3.0 资源加载相关的 API 与 v2.4 一致，都对 `loader` 进行了重构，v1.2 用户可参考 [v2.4 资源管理模块升级指南](https://docs.cocos.com/creator/manual/zh/release-notes/asset-manager-upgrade-guide.html) 进行升级。
+1. Cocos Creator 3.0 资源加载相关的 API 与 v2.4 一致，都对 `loader` 进行了重构，v1.2 用户可参考 [v2.4 资源管理模块升级指南](https://docs.cocos.com/creator/2.4/manual/zh/release-notes/asset-manager-upgrade-guide.html) 进行升级。
 
 2. 组件类名更改
 
