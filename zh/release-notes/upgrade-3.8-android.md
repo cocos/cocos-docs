@@ -90,6 +90,8 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-8.0.2-bin.zip
 
 安装完成后，可以通过在命令行输入 `java -version` 来检查是否安装成功。
 
+> 从 3.8.1 开始, 您可以在 [偏好设置中配置](../../zh/editor/preferences/index.md#外部程序) Java Home 为 JDK 17 的路径, 不需要修改环境变量. 
+
 ## 第七步：升级 Android Studio
 
 在升级 Gradle 之后，我们还需要升级 Android Studio。如果您当前使用的是较老版本的 Android Studio，请先下载最新版本的 Android Studio（Flamingo | 2022.2.1）。下载地址为: [https://developer.android.com/studio](https://developer.android.com/studio)。

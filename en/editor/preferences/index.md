@@ -33,7 +33,7 @@ The **External Program** tab is used to set up the development environment requi
 ![external-program](./index/external-program.png)
 
 - **WeChat DevTools**: used to configure the Developer tools of WeChat Mini Game, please refer to the [Publishing to WeChat Mini Game](../publish/publish-wechatgame.md) documentation.
-
+- **Java Home**: used to set up the Java SDK Root for compilation Android.
 - **Android NDK**: used to set up the Android NDK path, please refer to the [Setup Native Development Environment](../publish/setup-native-development.md) documentation.
 
 - **Android SDK**: used to set the Android SDK path, please refer to the [Setup Native Development Environment](../publish/setup-native-development.md) documentation.

@@ -90,6 +90,8 @@ Download and install JDK 17 from the [official website](https://www.oracle.com/j
 
 Once the installation is complete, you can verify if it was successful by running `java -version` in the command line.
 
+
+> Starting from 3.8.1, you can configure Java Home to the path of JDK 17 in [Preferences](../../en/editor/preferences/index.md#external-program), eliminating the need to modify environment variables.
 ## Step 7: Upgrade Android Studio
 
 After upgrading Gradle, we also need to upgrade Android Studio. If you are currently using an older version of Android Studio, please download the latest version of Android Studio (Flamingo | 2022.2.1) from [https://developer.android.com/studio](https://developer.android.com/studio).

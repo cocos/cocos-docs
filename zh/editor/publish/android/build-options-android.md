@@ -46,6 +46,13 @@ Android 平台的构建选项如下：
 
 Android 要求所有 APK 必须先使用证书进行数字签署，然后才能安装。Cocos Creator 提供了默认的密钥库，勾选 **使用调试密钥库** 就是使用默认密钥库。若开发者需要自定义密钥库可去掉 **使用调试密钥库** 勾选，详情请参考 [官方文档](https://developer.android.google.cn/studio/publish/app-signing?hl=zh-cn)。
 
+## 可调整大小的 Activity
+
+设置属性 `android:resizeableActivity` 到 AndroidManifest.xml, 参考 [resizeableActivity](https://developer.android.com/guide/topics/large-screens/multi-window-support#resizeableActivity).
+## 最大宽高比
+
+设置属性 `android:maxAspectRatio` 到 AndroidManifest.xml, 参考 [Declare a maximum aspect ratio](https://developer.android.com/guide/practices/screens-distribution#maxAspectRatio).
+
 ## 屏幕方向
 
 屏幕方向目前包括 **Portrait**、**Landscape Left**、**Landscape Right** 三种。
