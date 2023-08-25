@@ -22,11 +22,43 @@ Creator 中的骨骼动画资源是由 [Spine 编辑器](http://zh.esotericsoftw
 
   ![spine](spine/import.png)
 
+> **注意**：导出的资源名称需要 `.json/.skel` 和 `.text/.atlas` 保持同名。
+
 ## 创建骨骼动画
 
 从 **资源管理器** 中将骨骼动画资源拖动到 **属性检查器** Spine 组件的 SkeletonData 属性中：
 
 ![spine](spine/set_skeleton.png)
+
+## 属性
+
+![property](spine/properties.png)
+
+| 属性 | 说明 |
+| :--- | :--- |
+| **Custom Material** | 自定义材质，保持为空时引擎会默认使用 default-spine-material.mtl |
+| **Color** | Spine 动画的颜色 |
+| **SkeletalData** | 骨骼动画的动画问。拖入 Spine 动画的 .json 或者 .skeleton 文件 |
+| **Default Skin** | 默认的皮肤，可以通过下拉框选择不同的皮肤 |
+| **Animation** | 当前播放的动画 |
+| **Animation Cache Mode**| 动画缓存的类型，请参考下文缓存类型部分 |
+| **Premultiplied Alpha** | 预乘 Alpha。 如果出现不透明色块，请取消该选项 |
+| **Loop** | 是否循环 |
+| **Time Scale** | 时间缩放因子 |
+| **Use Tint**  | 是否启动颜色效果 |
+| **Enable Batch** | 是否合批 |
+| **Sockets** | 挂点，请参考下方挂点系统 |
+| **Debug Slots** | 调试挂点 |
+| **Debug Bones** | 调试骨骼 |
+| **Debug Mesh** | 调试网格 |
+
+## 播放动画
+
+播放动画除了可以在 **属性检查器** 内通过下拉框来选择，也可以调用 `setAnimation` 方法来播放动画，代码示例如下：
+
+```ts
+this.skeleton.setAnimation(0, 'walk', false);                    
+```
 
 ## 从服务器远程加载 Spine
 
