@@ -104,3 +104,37 @@ assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.bin' }], (
     });
 });
 ```
+
+## 缓存类型
+
+目前的 sp.Skeleton 组件支持三种不同的缓存类型。
+
+- REALTIME 实时模式，此模式下动画数据不会缓存
+- SHARED_CACHE 共享缓存模式，此模式下，使用相同的骨骼数据的动画组件会使用共享的动画数据。
+- PRIVATE_CACHE 私有缓存，此模式下，动画数据会缓存至该组件内部。
+
+对于不同组件，但采用同样的动画数据，此时可以使用 SHARED_CACHE 来提高性能。
+
+## 挂点系统
+
+在 **Sockets** 属性后的输入框内，输入大于 0 的整数可以增加挂点，挂点可以实现一些简单的换肤功能，比如给角色增加配饰等。
+
+![sockets.png](spine/sockets.png)
+
+通过下拉框选择要挂载的骨骼节点，骨骼名称可以通过 spine 编辑器查看。
+
+![bones.png](spine/bones.png)
+
+在 spine 组件的节点下创建一个新的节点：
+
+![socket-node.png](spine/socket-node.png)
+
+并将这个节点赋值给 Sockets 的 Target 属性：
+
+![target.png](spine/target.png)
+
+此时运行可以观察到作为演示节点的 Sprite 随着骨骼运行：
+
+![socket.gif](spine/socket.gif)
+
+> 资源来自 Spine 官网
