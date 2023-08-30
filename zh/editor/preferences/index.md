@@ -34,6 +34,7 @@
 
 - **WeChat 开发者工具**：配置微信小游戏开发者工具，详情请参考 [发布到微信小游戏](../publish/publish-wechatgame.md)。
 
+- **Java Home**：设置 Java SDK 的根路径, 用于 Android 平台的编译. 
 - **Android NDK**：设置 Android NDK 路径，详情请参考 [安装配置原生开发环境](../publish/setup-native-development.md)。
 
 - **Android SDK**：设置 Android SDK 路径，详情请参考 [安装配置原生开发环境](../publish/setup-native-development.md)。

@@ -50,6 +50,12 @@ Set the CPU types that your Android app needs to support. You can choose one or 
 
 Android requires that all APKs be digitally signed with a certificate before they can be installed. Cocos Creator provides a default keystore, and checking **Use Debug Keystore** means using the default keystore. If developers need a custom keystore, uncheck **Use Debug Keystore**. For more details, refer to the [Android Developer - App Signing](https://developer.android.google.cn/studio/publish/app-signing)。
 
+## Resizeable Activity
+
+Set the attribute `android:resizeableActivity` in AndroidManifest.xml, refer to [resizeableActivity](https://developer.android.com/guide/topics/large-screens/multi-window-support#resizeableActivity).
+## Max Aspect Ratio
+
+Set the attribute `android:maxAspectRatio` in AndroidManifest.xml, refer to [Declare a maximum aspect ratio](https://developer.android.com/guide/practices/screens-distribution#maxAspectRatio).
 ## Orientation
 
 The screen orientation currently includes three options: **Portrait**, **Landscape Left**, and **Landscape Right**.
