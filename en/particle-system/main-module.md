@@ -13,7 +13,7 @@ The particle system main module is used to store all data displayed in the **Ins
 | Prewarm          | After being selected, the particle system will start playing after one round has been played (only valid when loop playback is enabled). |
 | SimulationSpace  | The coordinate system where the particle coordinates are calculated. |
 | SimulationSpeed  | The update rate of the entire particle system. |
-| StartDelay       | The delayed emission time of the particles after the particle system starts running. |
+| StartDelay       | The delayed emission time of the particles after the particle system starts running. (StartDelay will be set to 0 if Prewarm is selected)|
 | StartLifetime    | The life cycle of particles. |
 | StartColor       | The initial color of particles. |
 | ScaleSpace       | The coordinate system in which the particle is scaled<br>**Local**: scaling based on the local coordinate system<br>**World**: scaling based on the world coordinate system<br>**Custom**: custom scaling, not affected by the node's **scale** property. |
