@@ -53,6 +53,8 @@ Cocos 是一个开源引擎，不同版本的引擎源码可以从 Cocos 引擎�
 
 编译依赖项需要使用 `NodeJS`，请确保电脑安装了 `NodeJS v18.0` 以上版本，如未安装，请前往 [https://nodejs.org/](https://nodejs.org/) 下载安装。
 
+**注意**：Cocos Creator 3.8.1 以及之前的版本，请使用  `NodeJS v14.x` 版本。
+
 安装完成后，在自定义引擎根目录，执行以下命令。
 
 ```bash

@@ -53,6 +53,8 @@ Obtain the specific version of cocos-engine source code from the Cocos Engine re
 
 The compilation dependencies require `NodeJS`. Make sure you have installed `NodeJS v18.0` or above on your computer. If not, please download and install it from [https://nodejs.org/](https://nodejs.org/).
 
+__Note__: For Cocos Creator 3.8.1 and earlier versions, please use `NodeJS v14.x` version.
+
 After installation, navigate to the root directory of the custom engine and execute the following commands:
 
 ```bash
