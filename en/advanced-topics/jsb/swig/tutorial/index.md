@@ -10,36 +10,15 @@
 
 - Add necessary configuration, you refer to the existed  `.i` files in `native/tools/swig-config` directory or refer to [the following section](#How to Bind a New Module in Developer's Project)  
 
-### Modify swig-config.js
-
-```js
-// ......
-// Engine Module Configuration
-const configList = [
-    [ '2d.i', 'jsb_2d_auto.cpp' ],
-    // ......
-    [ 'renderer.i', 'jsb_render_auto.cpp' ],
-    [ 'new-engine-module.i', 'jsb_new_engine_module_auto.cpp' ], // Add this line
-];
-//......
-```
-
-### Generate bindings
-
-```bash
-cd engine/native/tools/swig-config
-node genbindings.js
-```
-
 ### Modify `engine/native/cocos/CMakeLists.txt`
 
 ```cmake
 ######## auto
 cocos_source_files(
-    NO_WERROR   NO_UBUILD   cocos/bindings/auto/jsb_new_engine_module_auto.cpp # Add this line
-                            cocos/bindings/auto/jsb_new_engine_module_auto.h # Add this line
-    NO_WERROR   NO_UBUILD   cocos/bindings/auto/jsb_cocos_auto.cpp
-                            cocos/bindings/auto/jsb_cocos_auto.h
+    NO_WERROR   NO_UBUILD   ${SWIG_OUTPUT}/jsb_cocos_auto.cpp # Add this line
+                            ${SWIG_OUTPUT}/jsb_cocos_auto.h # Add this line
+    NO_WERROR   NO_UBUILD   ${SWIG_OUTPUT}/jsb_cocos_auto.cpp
+                            ${SWIG_OUTPUT}/jsb_cocos_auto.h
     ......
 ```
 
