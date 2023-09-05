@@ -10,36 +10,15 @@
 
 - 添加必要的配置，可以参考 `native/tools/swig-config`  目录下现有的 .i 文件配置，或者参考[下面的章节内容](#如何为开发者的项目绑定一个新模块)。
 
-### 修改 swig-config.js 文件
-
-```js
-// ......
-// 引擎模块配置
-const configList = [
-    [ '2d.i', 'jsb_2d_auto.cpp' ],
-    // ......
-    [ 'renderer.i', 'jsb_render_auto.cpp' ],
-    [ 'new-engine-module.i', 'jsb_new_engine_module_auto.cpp' ], // 添加此行
-];
-//......
-```
-
-### 生成绑定代码
-
-```bash
-cd engine/native/tools/swig-config
-node genbindings.js
-```
-
 ### 修改 `engine/native/cocos/CMakeLists.txt`
 
 ```cmake
 ######## auto
 cocos_source_files(
-    NO_WERROR   NO_UBUILD   cocos/bindings/auto/jsb_new_engine_module_auto.cpp # 添加此行
-                            cocos/bindings/auto/jsb_new_engine_module_auto.h # 添加此行
-    NO_WERROR   NO_UBUILD   cocos/bindings/auto/jsb_cocos_auto.cpp
-                            cocos/bindings/auto/jsb_cocos_auto.h
+    NO_WERROR   NO_UBUILD   ${SWIG_OUTPUT}/jsb_cocos_auto.cpp # 添加此行
+                            ${SWIG_OUTPUT}/jsb_cocos-auto.h # 添加此行
+    NO_WERROR   NO_UBUILD   ${SWIG_OUTPUT}/jsb_cocos_auto.cpp
+                            ${SWIG_OUTPUT}/jsb_cocos_auto.h
     ......
 ```
 

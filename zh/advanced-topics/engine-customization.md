@@ -49,7 +49,50 @@ Cocos 是一个开源引擎，不同版本的引擎源码可以从 Cocos 引擎�
 - 如果自定义引擎仅为某一个项目使用，则建议放入对应的项目目录。
 - 如果多个项目会共享一套自定义引擎，则根据项目管理方案，放到适合的公共目录。
 
-### 2. 安装编译依赖
+### 2. 获取 external
+
+Cocos 原生引擎的编译，需要依赖 `cocos-engine/native/external` 中的库。这些库有几百 MB 大小，所以源码包内默认是没有的，可以通过以下三种方式获取。
+
+**第一种方式**：通过 git 命令行。
+
+```ts
+  cd cocos-engine/native
+  git clone https://github.com/cocos/cocos-engine-external external
+  cd external
+  git checkout -b branch_name tag 
+```
+
+- branch_name：是新的分支名
+- tag：是第三方库对应的 tag 名字，可以从 cocos-engine/native/external-config.json 里的 checkout 字段获取该值。
+
+> 示例： 假如我们要使用 3.7.3-1 版本，则可以写成 `git checkout -b 3.7.3-1 3.7.3-1`
+
+**第二种方式**：使用引擎自带的脚本下载。
+
+该脚本只会下载某个 tag 对应的第三方库。
+
+```ts
+  cd cocos-engine/native
+  npm install
+  gulp init
+```
+
+> 只要使用的 tag 有变化，就需要重新下载。每次需要下载几百兆的内容。
+
+**第三种方式**：下载 ZIP 包
+
+如果某些原因不能通过 NodeJS 和 git 命令下载 `external` 源码包，则可以直接在 [cocos-engine-external](https://github.com/cocos/cocos-engine-external) 仓库页面，按照以下步骤下载。
+
+![download-external-zip](engine-customization/download-external-zip.png)
+
+1. 选择对应的分支，需要使用哪一个分支可以从 cocos-engine/native/external-config.json 中的 `checkout` 字段中查看。
+2. 点击右边的 **源代码（Code）** 按钮，弹出源码下载页面。
+3. 点击 **下载ZIP（Download ZIP）** 按钮，下载源码压缩包。
+4. 解压，重命名为 `external`，并放到  `cocos-engine/native` 目录下。
+
+> **注意**：external 与 cocos-engine 的版本号要一致，否则可能导致编译失败。
+
+### 3. 安装编译依赖
 
 编译依赖项需要使用 `NodeJS`，请确保电脑安装了 `NodeJS v12.0` 以上版本，如未安装，请前往 [https://nodejs.org/](https://nodejs.org/) 下载安装。
 
@@ -64,7 +107,7 @@ npm install
 gulp build
 ```
 
-### 3. 修改引擎路径
+### 4. 修改引擎路径
 
 通过 **Cocos Creator/File -> 偏好设置** 的 **引擎管理器** 选项卡来设置需要使用的引擎源码路径。需要注意的是 **修改引擎路径后需要重启编辑器**。
 
@@ -107,49 +150,6 @@ gulp build
 如果需要定制和原生平台相关的引擎功能，除了修改 TypeScript 代码，可能还需要修改 C++ 代码。
 
 为了使原生部分的代码能够正常被编译，需要确保 `Native Module` 中的 `Use Custom` 被选中。
-
-### 获取 external
-
-Cocos 原生引擎的编译，需要依赖 `cocos-engine/native/external` 中的库。这些库有几百 MB 大小，所以源码包内默认是没有的，可以通过以下三种方式获取。
-
-**第一种方式**：通过 git 命令行。
-
-```ts
-  cd cocos-engine/native
-  git clone https://github.com/cocos/cocos-engine-external external
-  cd external
-  git checkout -b branch_name tag 
-```
-
-- branch_name：是新的分支名
-- tag：是第三方库对应的 tag 名字，可以从 cocos-engine/native/external-config.json 里的 checkout 字段获取该值。
-
-> 示例： 假如我们要使用 3.7.3-1 版本，则可以写成 `git checkout -b 3.7.3-1 3.7.3-1`
-
-**第二种方式**：使用引擎自带的脚本下载。
-
-该脚本只会下载某个 tag 对应的第三方库。
-
-```ts
-  cd cocos-engine/native
-  npm install
-  gulp init
-```
-
-> 只要使用的 tag 有变化，就需要重新下载。每次需要下载几百兆的内容。
-
-**第三种方式**：下载 ZIP 包
-
-如果某些原因不能通过 NodeJS 和 git 命令下载 `external` 源码包，则可以直接在 [cocos-engine-external](https://github.com/cocos/cocos-engine-external) 仓库页面，按照以下步骤下载。
-
-![download-external-zip](engine-customization/download-external-zip.png)
-
-1. 选择对应的分支，需要使用哪一个分支可以从 cocos-engine/native/external-config.json 中的 `checkout` 字段中查看。
-2. 点击右边的 **源代码（Code）** 按钮，弹出源码下载页面。
-3. 点击 **下载ZIP（Download ZIP）** 按钮，下载源码压缩包。
-4. 解压，重命名为 `external`，并放到  `cocos-engine/native` 目录下。
-
-> **注意**：external 与 cocos-engine 的版本号要一致，否则可能导致编译失败。
 
 ### 在 Cocos Creator 中编译
 

@@ -49,7 +49,50 @@ Obtain the specific version of cocos-engine source code from the Cocos Engine re
 - If the custom engine is only used for a specific project, it is recommended to put it in the project directory.
 - If multiple projects will share the same custom engine, place it in a suitable shared directory based on your project management approach.
 
-### 2. Installing Compilation Dependencies
+### 2. Downloading external
+
+The compilation of the Cocos native engine depends on the libraries in `cocos-engine/native/external/`. These libraries are several hundred megabytes in size and are not included by default in the source code package. You can obtain them in the following three ways:
+
+**The First Way:** Use git command-line
+
+```ts
+  cd cocos-engine/native
+  git clone https://github.com/cocos/cocos-engine-external external
+  cd external
+  git checkout -b branch_name tag 
+```
+
+- branch_name：The new branch name
+- tag：The tag name corresponding to the third-party library. You can get it from the `checkout` field in `cocos-engine/native/external-config.json` file.
+
+> Example: If we want to use version 3.7.1-1, it can be written as `git checkout -b 3.7.3-1 3.7.3-1`
+
+**The Second Way:** Use gulp
+
+The following shell will only download the third-party libraries corresponding to the specific tag.
+
+```ts
+  cd cocos-engine/native
+  npm install
+  gulp init
+```
+
+> Whenever the used tag changes, you need to download it again. It requires downloading several hundred megabytes of content each time.
+
+**The Third Way:** Download the ZIP package
+
+If, for some reason, you cannot download the `external` source code package using `NodeJS` and `git commands`, you can directly download it from the [cocos-engine-external repository](https://github.com/cocos/cocos-engine-external) by following these steps.
+
+![download-external-zip](engine-customization/download-external-zip.png)
+
+1. Select the corresponding tag. You can check which one to use from the `checkout` field of `cocos-engine/native/external-config.json`.
+2. Click the **Code** button on the right to open the code-getting panel.
+3. Click the **Download ZIP** button to download the source code as a ZIP package.
+4. Exact the package, rename it to `external`, and place it in the  `cocos-engine/native` folder.
+
+> **Note:** The version of `external` and `cocos-engine` must match, otherwise, it may result in compilation errors.
+
+### 3. Installing Compilation Dependencies
 
 The compilation dependencies require `NodeJS`. Make sure you have installed `NodeJS v12.0` or above on your computer. If not, please download and install it from [https://nodejs.org/](https://nodejs.org/).
 
@@ -64,7 +107,7 @@ npm install
 gulp build
 ```
 
-### 3. Modifying the Engine Path
+### 4. Modifying the Engine Path
 
 Use the **Cocos Creator/File -> Preferences -> Engine Manager** tab to set the path to the engine source code. Note that **you need to restart the editor after modifying the engine path**.
 
@@ -107,49 +150,6 @@ This command will generate a bin folder under the engine directory and compile t
 If you need to customize the engine functionality related to native platforms, in addition to modifying the TypeScript code, you may also need to modify the C++ code.
 
 To ensure that the native code can be compiled properly, make sure that the `Use Custom` option in the `Native Module` is selected.
-
-### Downloading external
-
-The compilation of the Cocos native engine depends on the libraries in `cocos-engine/native/external/`. These libraries are several hundred megabytes in size and are not included by default in the source code package. You can obtain them in the following three ways:
-
-**The First Way:** Use git command-line
-
-```ts
-  cd cocos-engine/native
-  git clone https://github.com/cocos/cocos-engine-external external
-  cd external
-  git checkout -b branch_name tag 
-```
-
-- branch_name：The new branch name
-- tag：The tag name corresponding to the third-party library. You can get it from the `checkout` field in `cocos-engine/native/external-config.json` file.
-
-> Example: If we want to use version 3.7.1-1, it can be written as `git checkout -b 3.7.3-1 3.7.3-1`
-
-**The Second Way:** Use gulp
-
-The following shell will only download the third-party libraries corresponding to the specific tag.
-
-```ts
-  cd cocos-engine/native
-  npm install
-  gulp init
-```
-
-> Whenever the used tag changes, you need to download it again. It requires downloading several hundred megabytes of content each time.
-
-**The Third Way:** Download the ZIP package
-
-If, for some reason, you cannot download the `external` source code package using `NodeJS` and `git commands`, you can directly download it from the [cocos-engine-external repository](https://github.com/cocos/cocos-engine-external) by following these steps.
-
-![download-external-zip](engine-customization/download-external-zip.png)
-
-1. Select the corresponding tag. You can check which one to use from the `checkout` field of `cocos-engine/native/external-config.json`.
-2. Click the **Code** button on the right to open the code-getting panel.
-3. Click the **Download ZIP** button to download the source code as a ZIP package.
-4. Exact the package, rename it to `external`, and place it in the  `cocos-engine/native` folder.
-
-> **Note:** The version of `external` and `cocos-engine` must match, otherwise, it may result in compilation errors.
 
 ### Compiling in Cocos Creator
 
