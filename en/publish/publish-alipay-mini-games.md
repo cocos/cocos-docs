@@ -1,6 +1,6 @@
 # Publish to Alipay Mini Games
 
-Starting with Cocos Creator **v2.1.4**, creating games for the Alipay Mini Games is officially supported.
+Starting with Cocos Creator **v2.4.12**, creating games for the Alipay Mini Games is officially supported.
 
 ## Environment Configuration
 
@@ -8,7 +8,7 @@ Starting with Cocos Creator **v2.1.4**, creating games for the Alipay Mini Games
 
 - Download [Alipay](https://mobile.alipay.com/index.htm) and install it on your phone.
 
-- The minimum supported version of Alipay on Android is 10.1.75, on iOS is 10.1.78.
+- The minimum supported version of Alipay on Android is 10.3.70, on iOS is 10.3.70.
 
 ## Release Process
 
@@ -62,13 +62,8 @@ The following modules are still not supported:
 
 - WebView
 - VideoPlayer
-- Custom Font
 
 ## About Documentation
 
-Since the documents related to Alipay mini games are currently only open to the inside, you can contact them directly if needed:
+Since Alipay Mini Game related documentation is currently only available internally, developers can directly contact the members of Alipay integration group if needed.
 
-| Contacts | Email |
-| :----- | :----- |
-| Ning Yu | yoaer.ty@antgroup.com      |
-| Jiao Huang | huangjiao.hj@alibaba-inc.com |
