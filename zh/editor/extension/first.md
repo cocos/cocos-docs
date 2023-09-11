@@ -195,6 +195,6 @@ export const methods: { [key: string]: (...any: any) => any } = {
 
 执行 `npm run build` 命令，编译扩展。
 
-点击扩展右侧的 ![refresh](first/refresh.png) 按钮，使上面的修改内容生效。
+点击扩展右侧的 ![refresh](first/refresh.png) 按钮，并禁用再启用扩展，使上面的修改内容生效。
 
 再次点击 `Develop/test`菜单项，会发现在 Cocos Creator **控制台** 打印出了 “Hello World”。

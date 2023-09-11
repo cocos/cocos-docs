@@ -107,7 +107,7 @@ onColliderHit (hit: CharacterControllerContact){}
 
 回调参数说明：
 
-- contact： 和其他碰撞体碰撞时的接触信息， API 参考：[CharacterControllerContact](__APIDOC__/api/en/classes/CharacterControllerContact.html)
+- contact： 和其他碰撞体碰撞时的接触信息， API 参考：[CharacterControllerContact](__APIDOC__/api/zh/class/physics.CharacterControllerContact)
 
 ## 细节说明
 

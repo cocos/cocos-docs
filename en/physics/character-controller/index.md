@@ -107,7 +107,7 @@ onColliderHit (contact: CharacterControllerContact){}
 
 The description of the callback is below.
 
-- contact: the contact information when the collision occurs, refer to [CharacterControllerContact](__APIDOC__/en/classes/CharacterControllerContact.html)
+- contact: the contact information when the collision occurs, refer to [CharacterControllerContact](__APIDOC__/en/classes/physics.CharacterControllerContact)
 
 ## Details
 
