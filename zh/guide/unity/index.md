@@ -56,11 +56,11 @@ Cocos Creator 的 2D 和 3D 工作流与 Unity 类似，您可以阅读 [场景�
 
 同时 Cocos Creator 也支持 glTF 格式的文件，以及 Maya、3DMax 等 DCC 工具的标准材质。
 
-### Spine
+### Spine 骨骼动画
 
 Cocos Creator 内置了 Spine 动画组件，您可以直接通过 `spine.Skeleton` 组件来使用他。
 
-### 动画
+### 动画和状态机
 
 Cocos Creator 支持关键帧动画、骨骼动画。您可以直接在编辑器内编辑和预览这些动画。
 
