@@ -34,7 +34,7 @@ Unity Hub 可以使用来管理 Unity 的编辑器版本、项目以及各种模
 
 Cocos Creator 的 2D 和 3D 工作流与 Unity 类似，您可以阅读 [场景制作工作流程](../../concepts/scene/index.md) 来查看 Cocos Creator 的工作流。
 
-## 贴图资源
+### 贴图资源
 
 贴图资源的导入和 Unity 类似。
 
@@ -46,7 +46,7 @@ Cocos Creator 的 2D 和 3D 工作流与 Unity 类似，您可以阅读 [场景�
 
 ![cocos-texture-compress.png](./index/cocos-texture-compress.png)
 
-## 模型和动画
+### 模型和动画
 
 在 Cocos Creator 中导入 FBX 和 Unity 是一样的，将文件拖拽或者复制到工程的 Assets 目录下即可。
 
@@ -70,13 +70,13 @@ Cocos Creator 支持关键帧动画、骨骼动画。您可以直接在编辑器
 
 ![./index/cocos-anim-graph.png](./index/cocos-anim-graph.png)
 
-## 音乐和音效
+### 音乐和音效
 
 Cocos Creator 同样支持 Audio Source 组件用于播放音乐和音效。
 
 ![cocos-audio-source.png](./index/cocos-audio-source.png)
 
-## 资源包
+### 资源包
 
 和 Unity 类似，Cocos Creator 也支持从外界导入资源包的方式进行合作开发。
 
@@ -84,7 +84,7 @@ Cocos Creator 同样支持 Audio Source 组件用于播放音乐和音效。
 | :-- | :-- |
 | <img src="./index/unity-import-package.png" width="300" heigh="200" > | <img src="./index/cocos-import-package.png" width="300" heigh="200"> |
 
-## 发布和构建
+### 发布和构建
 
 除了和 Unity 一样发布在各种原生平台外，Cocos Creator 也支持发布在如微信小游戏、抖音小游戏等小游戏平台。
 
