@@ -28,6 +28,7 @@
     - [Editor Layout](editor/editor-layout/index.md)
     - [Preview & Debugging](editor/preview/index.md)
 - [Glossary](glossary/index.md)
+- [Cocos Creator Quick Guide for Unity Developers](./guide/unity/index.md)
 
 ## Tutorials
 

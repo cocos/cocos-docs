@@ -27,6 +27,7 @@
     - [编辑器布局](editor/editor-layout/index.md)
     - [预览调试](editor/preview/index.md)
 - [术语](glossary/index.md)
+- [Unity 开发者快速入门指南](./guide/unity/index.md)
 
 ## 示例和教程
 
