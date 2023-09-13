@@ -1,4 +1,4 @@
-# Cocos Creator Quick Quide for Unity Developers
+# Cocos Creator Quick Guide for Unity Developers
 
 In recent years, due to the rise of H5 games, more and more developers need a single write, multi-platform release of the mobile lightweight engine, and Cocos Creator is precisely designed for this purpose.
 
