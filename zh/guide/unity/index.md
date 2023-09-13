@@ -108,13 +108,12 @@ Cocos Creator 同样支持 Audio Source 组件用于播放音乐和音效。
 
 在 Unity 中，我们继承 Monobehavior 来实现我们自己的游戏脚本。
 
-```c#
+```csharp
 public class Player : NetworkBehaviour
 {
     Animation _animation;
 
-    Start(){
-        //获取对应的GameObject上的组件
+    Start(){      
         _animation = gameObject.GetComponent<Animation>();
     }
 }
@@ -128,11 +127,9 @@ Cocos Creator 使用 Typescript 来编写脚本。
 @ccclass('MotionController')
 export  class MotionController extends Component {  
 
-    //对要使用的组件进行生命
     animation: SkeletalAnimation;
 
      start() {
-        // 获取动画组件
         this.animation = this.getComponent(SkeletalAnimation);        
     }    
 }
@@ -191,7 +188,7 @@ Unity 采用自定义的 shader 文件来作为 DSL， 而 Cocos creator 使用�
 
 #### 着色器语法规则
 
-Unity Shader语法规则
+Unity Shader 语法规则
 
 ```shader
 Shader "Transparent/Cutout/DiffuseDoubleside" {
@@ -229,7 +226,7 @@ Fallback "Transparent/Cutout/VertexLit"
 
 ```
 
-Cocos creator effect语法规则
+Cocos creator effect 语法规则
 
 ```
 // Effect Syntax Guide: https://github.com/cocos-creator/docs-3d/blob/master/zh/material-system/effect-syntax.md
@@ -280,76 +277,75 @@ CCProgram unlit-fs %{`
 
 ### 着色器语法对比
 
-本小节将对比 UnityShader 和 Cocos Effect 的文件结构。
+本小节将对比 Unity Shader 和 Cocos Effect 的文件结构。
 
 ### 结构对比
 
 定义Shader对象
 
-Unity shader:
+- Unity shader:
 
-```shader
-Shader "<name>"
-{
-    <optional: Material properties>
-    <One or more SubShader definitions>
-    <optional: custom editor>
-    <optional: fallback>
-}
-```
+  ```shader
+  Shader "<name>"
+  {
+      <optional: Material properties>
+      <One or more SubShader definitions>
+      <optional: custom editor>
+      <optional: fallback>
+  }
+  ```
 
-Cocos Shader:
+- Cocos Shader:
 
-```yaml
-CCEffect %{
-    <techniques>
-        <passes>
-    <techniques>
-        <passes>
+  ```yaml
+  CCEffect %{
+      <techniques>
+          <passes>
+      <techniques>
+          <passes>
 
-    <shader program>
-}
+      <shader program>
+  }
+  ```
 
-```
+### Pass 结构
 
-### Pass shader结构
+- Unity Shader：
 
-UnityShader：
+  ```shader
+  SubShader{
 
-```shader
-SubShader{
+      <optional>Tag {}    
 
-    <optional>Tag {}    
+      <optionall> Pass
+  }
 
-    <optionall> Pass
-}
+  ```
 
-```
+  Pass：
 
-Pass：
+  ```yaml
+  Pass{
+      <name>
 
-```yaml
-Pass{
-    <name>
+      <tag>    
 
-    <tag>    
+      <code>
+  }
+  ```
 
-    <code>
-}
-```
+- CocosCreator Shader:
 
-CocosCreator Shader:
+  ```yaml
+  CCProgram <name> %{
 
-```
-CCProgram <name> %{
+      <in parameters>
+      <out parameters>
 
-    <in parameters>
-    <out parameters>
+      <uniforms>  
 
-    <uniforms>  
+      function vert();
 
-    function vert();
-
-    function frag();
-}%
-```
+      function frag();
+  }%
+  ```
