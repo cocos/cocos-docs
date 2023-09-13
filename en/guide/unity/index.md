@@ -1,6 +1,6 @@
 # Cocos Creator Quick Guide for Unity Developers
 
-In recent years, due to the rise of H5 games, more and more developers need a single write, multi-platform release of the mobile lightweight engine, and Cocos Creator is precisely designed for this purpose.
+With the increasing variety of game platforms and portals, developers want to be able to write their games once and publish them multiple times to different platforms and portals, and Cocos Creator is a great way to fulfill this need.
 
 In this article, we will compare the following perspectives from a Unity developer's point of view to help Unity developers quickly get started with the Cocos Creator engine.
 
