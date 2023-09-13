@@ -1,6 +1,6 @@
 # Summary
 
-[Cocos Creator User Manual 3.7](index.md)
+[Cocos Creator User Manual 3.8](index.md)
 
 ## Introduction
 
