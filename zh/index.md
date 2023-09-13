@@ -10,6 +10,8 @@ Cocos Creator 既是一款高效、轻量、免费开源的跨平台 2D&3D 图�
 
 如果您是第一次使用 Cocos Creator，可以从 [新手上路](getting-started/index.md) 和 [示例与教程](./cases-and-tutorials/index.md) 开始。
 
+如果您已经熟悉其他引擎如 Unity，您可以查看 [Unity 开发者入门 Cocos Creator 快速指南](./guide/unity/index.md) 来快上上手 Cocos Creator。
+
 ## v3.8 新增功能
 
 - 此版本中增加了 **程序化动画**、**高精度文本**、**全新的自定义渲染管线**、**角色控制器** 等全新特性。
