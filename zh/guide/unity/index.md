@@ -140,13 +140,13 @@ export  class MotionController extends Component {
 
 C# 和 Typescript 都是微软开发的编程语言，其易用程度是类似的。
 
-### 调试和日志 
+### 调试和日志
 
 #### 日志调试
 
 Unity中使用日志我们可以使用 `Debug.Log` 的方法。
 
-在 Cocos Creator 中使用日志，既可以使用js的日志打印 `console.log()`，也可使用cocos的日志方法：
+在 Cocos Creator 中使用日志，既可以使用 js 的日志打印 `console.log()`，也可使用 Cocos Creator 的日志方法：
 
 ```ts
 cc.log()
