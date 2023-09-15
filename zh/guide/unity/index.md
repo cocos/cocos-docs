@@ -100,7 +100,7 @@ Cocos Creator 同样支持 Audio Source 组件用于播放音乐和音效。
 
 ### 组件的生命周期
 
-和 Unity 类似， Cocos Creator 的组件也有自己的生命中期，系统将通过回调组件内已注册的方法，方便开发者处理业务逻辑。
+和 Unity 类似， Cocos Creator 的组件也有自己的生命周期，系统将通过回调组件内已注册的方法，方便开发者处理业务逻辑。
 
 ![组件生命周期](./index/script-lifecycle.png)
 
