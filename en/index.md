@@ -11,6 +11,8 @@ You can read it from begin to end, or just use it as a reference.
 
 If you are the first time to use Cocos Creator, take a look at the [Getting Started](getting-started/index.md), and see the [Examples & Tutorials](./cases-and-tutorials/index.md).
 
+If you're already familiar with other engines like Unity, you can check out the [Unity Developer's Quick Guide to Cocos Creator](./guide/unity/index.md) to get started with Cocos Creator.
+
 ## v3.8 New Features
 
 - New features such as **Procedural Animation**, **High Precision Text**, **New Custom Render Pipeline**, **Character Controller**, etc. have been added in this version.
