@@ -12,7 +12,7 @@ Apart from the information provided in this guide, you can also obtain informati
 - [Cocos Support](https://www.cocos.com/en/assistant)
 <!-- - QQ group: 738190852-->
 - [Submit PR for Cocos Engine on GitHub](../submit-pr/submit-pr.md)
-- [Submit Issues for Cocos Engine on Github](https://github.com/cocos/cocos-engine/issues/new/choose)
+- [Submit Issues for Cocos Engine on GitHub](https://github.com/cocos/cocos-engine/issues/new/choose)
 
 ## Third-party tools you may need
 

@@ -80,7 +80,7 @@ The policy for Disable mesh split in v3.6 is as follows：
 
 | Properties | Description |
 | :-- | :-- |
-| __Algorithm__ | Optimization algorithm <br> __simplify__：[Github - Fast-Quadric-Mesh-Simplification](https://github.com/sp4cerat/Fast-Quadric-Mesh-Simplification)<br>__gltfpack(deprecated)__：Deprecated, the implementation of this feature is based on  [Github - zeux/meshoptimizer](https://github.com/zeux/meshoptimizer)。<br> There is a known issue that the UV layout may be lost after faceting <br> Developers should pay attention to the warnings in the __Inspector__ panel to decide whether to use this option <br> For more information, please refer to the following figure |
+| __Algorithm__ | Optimization algorithm <br> __simplify__：[GitHub - Fast-Quadric-Mesh-Simplification](https://github.com/sp4cerat/Fast-Quadric-Mesh-Simplification)<br>__gltfpack(deprecated)__：Deprecated, the implementation of this feature is based on  [GitHub - zeux/meshoptimizer](https://github.com/zeux/meshoptimizer)。<br> There is a known issue that the UV layout may be lost after faceting <br> Developers should pay attention to the warnings in the __Inspector__ panel to decide whether to use this option <br> For more information, please refer to the following figure |
 | __Ratio__ | LOD Compress ratio |
 | __Smart Link__ | To prevent broken surface |
 | __Agressiveness__ | Error Distance |

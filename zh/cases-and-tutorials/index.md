@@ -3,10 +3,10 @@
 ## 示例项目
 
 - **一步两步**（[GitHub](https://github.com/cocos/tutorial-mind-your-step-3d)）：也就是 [快速上手](../getting-started/first-game/index.md) 文档里分步讲解制作的游戏。
-- **材质展示 Demo**（[Github](https://github.com/cocos/cocos-example-materials)）：展示各种引擎内置和自定义材质效果，包括标准 PBR、卡通渲染，也包含皮肤、头发、眼球、树叶等高级材质。
-- **渲染管线 Demo**（[Github](https://github.com/cocos/cocos-example-render-pipeline)）：展示如何使用内置后处理渲染管线以及各种后处理特性的开启效果。
+- **材质展示 Demo**（[GitHub](https://github.com/cocos/cocos-example-materials)）：展示各种引擎内置和自定义材质效果，包括标准 PBR、卡通渲染，也包含皮肤、头发、眼球、树叶等高级材质。
+- **渲染管线 Demo**（[GitHub](https://github.com/cocos/cocos-example-render-pipeline)）：展示如何使用内置后处理渲染管线以及各种后处理特性的开启效果。
 - **物理范例集合**（[GitHub](https://github.com/cocos/cocos-example-physics)）：包含了 2D & 3D 的两个物理测试例工程，也包含一些物理小游戏如吞噬黑洞、简化小车、坠落小球等，介绍了一些基础的功能和使用方法，方便用户结合文档了解物理功能。
-- **Marionette 动画系统范例**（[Github](https://github.com/cocos/cocos-example-marionette)）：全方位展示了 [Marionette 动画系统](../animation/marionette/index.md)的使用，包含动画状态机、事件处理、姿态图、反向动力学 IK 等功能的展示。
+- **Marionette 动画系统范例**（[GitHub](https://github.com/cocos/cocos-example-marionette)）：全方位展示了 [Marionette 动画系统](../animation/marionette/index.md)的使用，包含动画状态机、事件处理、姿态图、反向动力学 IK 等功能的展示。
 - **UI 展示 Demo**（[GitHub](https://github.com/cocos/cocos-example-ui/)| [Cocos Store](https://store.cocos.com/app/detail/2799)）：各类 UI 组件组合使用的演示 Demo。
 - **部分功能范例**（[GitHub](https://github.com/cocos/cocos-example-projects) | [Gitee](https://gitee.com/cocos/example-projects)）：包括含了引擎网络、NPM 模块等功能的独立示例。
 - **模块展示集合**（[GitHub](https://github.com/cocos/cocos-test-projects)）：引擎各个功能的范例项目，基本涵盖了引擎的大部分功能模块，用户在使用功能时可参考此项目中的用法进行开发。

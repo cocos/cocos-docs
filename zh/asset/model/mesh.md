@@ -80,7 +80,7 @@ Mesh 文件中存储了模型的顶点、索引、纹理坐标等数据。在 **
 
 | 属性 | 说明 |
 | :-- | :-- |
-| **Algorithm** | 优化算法 <br> **simplify**：简化模式 <br> 功能实现为：[Github - Fast-Quadric-Mesh-Simplification](https://github.com/sp4cerat/Fast-Quadric-Mesh-Simplification)<br>**gltfpack(deprecated)**：已废弃，该功能的实现是基于 [Github - zeux/meshoptimizer](https://github.com/zeux/meshoptimizer)。<br> 已知的问题为：可能会存在在减面后丢失 UV 排布的情况 <br> 开发者需关注 **属性检查器** 内的警告情况以决定是否使用该选项 <br> 详细信息请参考下图|
+| **Algorithm** | 优化算法 <br> **simplify**：简化模式 <br> 功能实现为：[GitHub - Fast-Quadric-Mesh-Simplification](https://github.com/sp4cerat/Fast-Quadric-Mesh-Simplification)<br>**gltfpack(deprecated)**：已废弃，该功能的实现是基于 [GitHub - zeux/meshoptimizer](https://github.com/zeux/meshoptimizer)。<br> 已知的问题为：可能会存在在减面后丢失 UV 排布的情况 <br> 开发者需关注 **属性检查器** 内的警告情况以决定是否使用该选项 <br> 详细信息请参考下图|
 | **Ratio** | LOD 压缩比例 |
 | **Smart Link** | 防止破面 |
 | **Agressiveness** | 误差距离 |
