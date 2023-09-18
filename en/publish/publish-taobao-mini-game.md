@@ -62,6 +62,18 @@ Taobao Mini Game currently does not support the following features:
 - WebView
 - Custom fonts
 
+## Differences Between Taobao and Other Small Game Platforms
+
+- Access to Global Variables: Accessing global variables in Taobao requires them to be mounted onto the global object.
+
+- Explanation of 'global-variables.js': The window variable is a reference to the global object, so it is necessary to ensure that variables on the global object already exist for temporary variables to have values. If you are using custom scripts or third-party plugins and encounter situations where global variables are missing, it is typically due to loading timing issues, where the script is used before it is fully loaded.
+
+- Custom JavaScript Virtual Machine in Taobao: Taobao utilizes its own custom JavaScript virtual machine, not built on the V8 engine. The number of draw calls may impact the frame rate, so developers should strive to minimize the number of draw calls during the development process.
+
+- Inconsistencies Among Taobao IDE, Simulator, and Real Device JS Environments: The JavaScript environments in Taobao's IDE, simulator, and real devices are not consistent. If your code works flawlessly on a real device but encounters issues elsewhere, it is advisable to directly report the problem to the Taobao platform.
+
+- Frame Rate Discrepancies in Real Device Debugging and Preview: There can be significant differences in frame rates between real device debugging and preview modes. Debugging on a real device may result in lower frame rates, so it is recommended to verify frame rates using the preview mode during testing.
+
 ## References
 
 - [Taobao Open Platform Development Guide](https://miniapp.open.taobao.com/docV3.htm?docId=119114&docType=1&tag=dev)
