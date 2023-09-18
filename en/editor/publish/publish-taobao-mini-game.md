@@ -74,7 +74,7 @@ Work on adapting the Taobao Mini Game is not completely finished yet, and it is 
 
 - Inconsistencies Among Taobao IDE, Simulator, and Real Device JS Environments: The JavaScript environments in Taobao's IDE, simulator, and real devices are not consistent. If there are no issues on real devices, it is recommended to report the problem directly to the Taobao platform.
 
-- Frame Rate Discrepancies in Real Device Debugging and Preview: There can be significant differences in frame rates between real device debugging and preview modes. Frame rates during real device debugging tend to be lower, so it is advisable to verify frame rates using the preview mode during testing.
+- Due to the additional performance overhead in real device debugging mode, it is advisable to use real device preview mode, rather than real device debugging mode, when verifying frame rates.
 
 ## References
 
