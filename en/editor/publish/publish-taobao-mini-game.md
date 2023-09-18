@@ -66,17 +66,15 @@ Work on adapting the Taobao Mini Game is not completely finished yet, and it is 
 
 ## Differences Between Taobao and Other Mini Game Platforms
 
-- Accessing Global Variables: Accessing global variables in Taobao requires them to be mounted onto the global object.
+- Access to Global Variables: Accessing global variables in Taobao requires mounting them onto the global object. For example: `$global.my = my;`
 
 - Explanation of 'global-variables.js': The window variable is a reference to the global object, so it is necessary to ensure that variables on the global object already exist for temporary variables to have values. If you are using custom scripts or third-party plugins and encounter situations where global variables are missing, it is typically due to loading timing issues, where the script is used before it is fully loaded.
 
-- Taobao's Custom JavaScript Virtual Machine: Taobao utilizes its own custom JavaScript virtual machine, not built on the V8 engine. The number of draw calls may impact the frame rate, so developers should strive to minimize the number of draw calls during the development process. You can enable the texture atlas batch feature in the engine. In the Creator project settings, enable "CLEANUP_IMAGE_CACHE." Then, in the taobao-mini-game/src directory generated during the build, locate the settings.json file and change CLEANUP_IMAGE_CACHE to false.
+- Taobao's Custom JavaScript Virtual Machine: Taobao utilizes its own custom JavaScript virtual machine, which is not developed based on V8. The number of draw calls has a more significant impact on frame rates compared to other platforms, so developers should make efforts to minimize the number of draw calls. To reduce draw calls, you can enable the texture atlas batch feature in the engine. In Creator project settings, enable "CLEANUP_IMAGE_CACHE." Then, in the taobao-mini-game/src directory generated during the build, locate the settings.json file and change CLEANUP_IMAGE_CACHE to false.
 
-- Inconsistencies Among Taobao IDE, Simulator, and Real Device JS Environments: The JavaScript environments in Taobao's IDE, simulator, and real devices are not consistent. If your code works flawlessly on a real device but encounters issues elsewhere, it is advisable to directly report the problem to the Taobao platform.
+- Inconsistencies Among Taobao IDE, Simulator, and Real Device JS Environments: The JavaScript environments in Taobao's IDE, simulator, and real devices are not consistent. If there are no issues on real devices, it is recommended to report the problem directly to the Taobao platform.
 
-- Frame Rate Discrepancies in Real Device Debugging and Preview: There can be significant differences in frame rates between real device debugging and preview modes. Debugging on a real device may result in lower frame rates, so it is recommended to verify frame rates using the preview mode during testing. You can also set breakpoints to check the frame rate on real devices, and it is advisable to test frame rates using the preview mode.
-
-The above features are expected to be gradually supported in future updates, and we will continue to communicate closely with the engineers of Taobao Mini Game to continuously optimize the adaptation effect.
+- Frame Rate Discrepancies in Real Device Debugging and Preview: There can be significant differences in frame rates between real device debugging and preview modes. Frame rates during real device debugging tend to be lower, so it is advisable to verify frame rates using the preview mode during testing.
 
 ## References
 

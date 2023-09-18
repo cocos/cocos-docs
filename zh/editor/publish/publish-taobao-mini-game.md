@@ -66,11 +66,11 @@
 
 ## 淘宝与其他小游戏平台的差异
 
-- 全局变量的访问，需要挂载到 global 变量上 
+- 全局变量的访问，需要挂载到 global 变量上。例：$global.my = my;
 - 'global-variables.js' 说明: window 变量是 global 的引用，需要先确保 global上变量已经存在，定义的临时变量才会有值。若使用自定义脚本或使用第三方插件，发现全局变量不存在，通常是加载时机问题导致脚本还没被加载，就使用到了脚本内的全局变量。
-- 淘宝的 js 虚拟机是自研的，不是基于 v8 开发；draw call 的次数可能会影响到帧率，开发过程应该尽量减少 draw call 的次数; 引擎中可以开启图集合批功能，在creator 项目设置中，开启 CLEANUP_IMAGE_CACHE，在构建的 taobao-mini-game/src 目录下查找 settings.json, 修改 CLEANUP_IMAGE_CACHE 为 false。
+- 淘宝的 js 虚拟机是自研的，不是基于 v8 开发。draw call 次数相比其他平台对帧率的影响更大，应该尽量减少 draw call 的次数。 引擎中可以开启图集合批功能来降低 draw call 次数，在creator 项目设置中，开启 CLEANUP_IMAGE_CACHE，在构建的 taobao-mini-game/src 目录下查找 settings.json, 修改 CLEANUP_IMAGE_CACHE 为 false。
 - 淘宝 IDE, 模拟器和真机的 JS 环境是不一致的；若是真机无问题，直接把问题反馈给淘宝平台
-- 真机调试和预览方式帧率会有比较大的差异；真机可以断点帧率比较低，在测试的时候应该以预览的方式验证帧率
+- 真机调试和预览方式帧率会有比较大的差异；真机调试的帧率比较低，在测试的时候应该以预览的方式验证帧率
 
 ## 相关文档 
 
