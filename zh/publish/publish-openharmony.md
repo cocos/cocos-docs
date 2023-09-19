@@ -21,20 +21,20 @@ OpenHarmony 系统与 SDK 下载传送门：[OpenHarmony-3.2-release](https://gi
 ![](./publish-openharmony/step-006.png)
 
 3. 启动DevEco Studio，如下图
-   ![](./publish-openharmony/step-007.png)
+![](./publish-openharmony/step-007.png)
 4. 首次会提示设置源，默认应该就可以，如下图:
-   ![](./publish-openharmony/step-008.png)
+![](./publish-openharmony/step-008.png)
 5. 首次安装需要安装 Node.js，如果之前安装有 Node.js，选择本地的 Node.js 即可，但是有版本要求，Node.js 的版本必须大于 v14.19.1 和小于 v15.0.0。npm 的版本要求大于 6.14.16 和小于 7.0.0。如下图
-   ![](./publish-openharmony/step-009.png)
+![](./publish-openharmony/step-009.png)
 6. 这里选择下载新的 Node.js 为例，如下图:
-   ![](./publish-openharmony/step-010.png)
-   ![](./publish-openharmony/step-011.png)
+![](./publish-openharmony/step-010.png)
+![](./publish-openharmony/step-011.png)
 7. 接下来会提示安装 SDK，点击下一步，注意是 OpenHarmonySDK，如下图
-   ![](./publish-openharmony/step-012.png)
-   ![](./publish-openharmony/step-013.png)
+![](./publish-openharmony/step-012.png)
+![](./publish-openharmony/step-013.png)
 8. 选择 Accept 之后，选择 Next，等待下载完成，之后点击 Finish 即可，如下图：
-   ![](./publish-openharmony/step-014.png)
-   ![](./publish-openharmony/step-015.png)
+![](./publish-openharmony/step-014.png)
+![](./publish-openharmony/step-015.png)
 
 ## 环境配置
 
@@ -65,7 +65,7 @@ OpenHarmony 系统与 SDK 下载传送门：[OpenHarmony-3.2-release](https://gi
 
 ## 几个注意事项
 
-目前 Cocos Creator 支持在 OpenHarmony 32位 与 64位 系统运行，且系统暂不支持 JIT，但是引擎目前支持AOT优化。
+目前 Cocos Creator 支持在 OpenHarmony 64位 系统运行，暂时不支持 32 位且系统暂不支持 JIT。
 
 另外，因为 OpenHarmony 还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。
 
