@@ -30,6 +30,10 @@ Click the **New Node (+)** button in the upper left corner of the panel or right
 
 When creating a node, an **Input box** will appear asking for the name of the node, which is allowed to be empty and will be named by the default node name if it is empty.
 
+> The menus are a little different when you create a project through the Project(2D) template in the Cocos Dashboard.
+> - Only 2D objects can be created.
+> - All 3D objects, terrain, particle systems and lights are invalid.
+
 ![node-name](img/node-name.png)
 
 - If there isn't a node selected in the tree list, the new node will be created under the current root node by default (`Scene`).
