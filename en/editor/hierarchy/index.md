@@ -6,8 +6,8 @@ You can single-select, multi-select, create, copy, move, delete and rename nodes
 
 ![Panel Overview](img/thumb.gif)
 
-- When a node is selected, it is highlighted in yellow on a blue background and its detailed properties are displayed in the **Inspector** panel. Click on the blank area of the panel to **unselect** it.
-- Functions in the **Toolbar** include: **New Node(+)**, **Search Type**, **Search Box**, **All Collapse** and **Refresh**.
+- When a node is selected, it is highlighted on a blue background and its detailed properties are displayed in the **Inspector** panel. Click on the blank area of the panel to **unselect** it.
+- Functions in the **Toolbar** include: **New Node(+)**, **Search Type**, **Search Box**, and **All Collapse**.
 - The **Node list** mainly reflects the hierarchical relationship of nodes, the root node is **Scene**. When editing the Prefab file, its own node is used as the root node. Add or delete nodes is done here with the right-click menu or a drag-and-drop operation.
 - The panel supports the following keyboard shortcuts:
     - **Copy**: Ctrl/Cmd + C
@@ -45,7 +45,7 @@ For a Prefab node, drag a **Prefab** asset from the **Assets** panel directly in
 
 ## Search Nodes
 
-Search types include: **Search Name or UUID**, **Search UUID**, **Search Path**, **Search Component Name**, and **Search Asset UUID**.
+Search types include: **Search Name or UUID**, **Search UUID**, **Search Path**, **Search Component Name**, **Search Asset UUID**, and **Only Nodes With Missing Asset**.
 
 ![search-type](img/search-type.png)
 

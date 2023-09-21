@@ -11,7 +11,7 @@
 
 - [Getting Started](getting-started/index.md)
 
-    - [Installing and Launching](getting-started/install/index.md)
+    - [Install and Launch](getting-started/install/index.md)
     - [Dashboard](getting-started/dashboard/index.md)
     - [Hello World!](getting-started/helloworld/index.md)
     - [Project Structure](getting-started/project-structure/index.md)

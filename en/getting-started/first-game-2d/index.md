@@ -32,7 +32,7 @@ For example, you could input: cocos-tutorial-mind-your-step-2d.
 
 Let's make a game that is similar to the one in [Quick Start: Making Your First 3D Game](../first-game/index.md).
 
-If you haven't read [Quick Start: Making Your First 3D Game](../first-game-2d/index.md) yet, that's okay. In this section, we'll assume you haven't used Cocos Creator before, and we'll start from scratch!
+If you haven't read [Quick Start: Making Your First 3D Game](../first-game/index.md) yet, that's okay. In this section, we'll assume you haven't used Cocos Creator before, and we'll start from scratch!
 
 Without further ado, let's get started.
 

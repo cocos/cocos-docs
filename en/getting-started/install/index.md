@@ -1,12 +1,12 @@
-# Installing and Launching
+# Install and Launch
 
-Cocos Creator is equipped with a new Dashboard system which allows developers to upgrade and manage multiple versions of the engine and projects at the same time! It also integrates a unified project management and creation panel, so developers can use different versions of the engine to develop projects at the same time!
+Cocos Creator is equipped with a new Dashboard system which allows developers to upgrade and manage multiple versions of the engine and projects at the same time! Cocos Dashboard will serve as a unified downloader and launch portal for each Creator engine, making it easy to upgrade and manage multiple versions of Creator, as well as integrating a unified project management and creation dashboard, making it easy to work on projects with different versions of the engine at the same time.
 
 ![Dashboard](index/dashboard-editor.png)
 
 ## Downloading Dashboard
 
-Download the Dashboard installation package by visiting the download link on the [Cocos Creator Product Page](https://www.cocos.com/en/creator).
+Download the Dashboard installation package by visiting the download link on the [Cocos Creator Product Page](https://www.cocos.com/en/creator-download).
 
 Double-click the installation package after downloading.
 

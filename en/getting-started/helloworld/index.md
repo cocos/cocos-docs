@@ -2,6 +2,8 @@
 
 It's time to create and open the **Hello World** project.
 
+Before we starts, please make sure you have read the [Install and Launch](../install/index.md), installed the Cocos Dashboard, and the newest Cocos Creator editor.
+
 ## Creating a new project
 
 In the **Project** tab of Cocos Dashboard, click the **New** button in the bottom right corner to enter the **New Project** page. Select the **empty** project template, set the project name and project path
@@ -52,7 +54,7 @@ A cube will be created and displayed in the **Scene** panel:
 
 - Adding code
 
-  Double-click the new script and it will be automatically opened in the script editor, provided that you specify the script editor in the editor menu bar under **Cocos Creator/File -> Preferences -> External Program -> Default Script Editor**.
+  Double-click the new script and it will be automatically opened in the script editor, provided that you specify the script editor in the editor menu bar under **Cocos Creator/File -> Preferences -> Program Manager -> Default Script Editor**.
 
   Then add the `start()` function to the script. The `start()` function will be called when the component is activated for the first time and will output "Hello world".
 

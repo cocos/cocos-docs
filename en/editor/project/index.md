@@ -83,6 +83,11 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 - **Exports Conditions**: specify the parsing conditions for conditionalized export modules, see [Conditional exports](../../scripting/modules/spec.md) for details.
 
+## Model
+
+- **Start Material Conversion**: Please refer to [FBX Smart Material Conversion
+](../../importer/materials/fbx-materials.md) for more details.
+
 ## Joint Texture Layout
 
 ![joint texture layout](./index/joint-texture-layout.png)
