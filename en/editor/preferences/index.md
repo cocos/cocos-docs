@@ -190,16 +190,25 @@ The **Laboratory** tab will occasionally provide some new technical solutions or
 
 ![laboratory](./index/laboratory.png)
 
-- **Enable Deferred Render Pipeline**: Enable or disable the Deferred Render Pipeline. Deferred Render Pipeline is disable by default. Please refer to [Deferred Render Pipeline](../../render-pipeline/builtin-pipeline.md#Deferred%Render%Pipeline) for more information.
-- **Optimal scheduling strategy**: This strategy tries to merge processes that repeatedly import assets multiple times to reduce the number of scheduling
-- **Scene Real-time Cache**: This option is enabled by default and is mainly used to cache scene data to the `temp/scene/[SCENE_UUID]/[TIME].json` file in the project directory at regular intervals (currently 5s) during scene editing. In case of emergencies such as scene crash, process stuck, etc., a popup window will be displayed when the editor is opened again to indicate whether to apply the most recent scene file in the cache.
+- **Enable Deferred Rendering Pipeline**: enables or disables the deferred rendering pipeline. By default, deferred rendering pipelines are disabled. For details, see [Deferred Render Pipeline](../../render-pipeline/builtin-pipeline.md#%E5%BB%B6%E8%BF%9F%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF).
 
-  > **Note**: in daily use, as long as the scene is opened normally, all the scene files cached before the current scene is opened will be cleared. If you have special needs to view the specified scene files in the cache, please close the corresponding scene in the editor first.
+- **Automatically update script's import path after relocation**: when enabled, the import part of the script will be automatically modified and relocated to the new location when you move the script in the editor.
 
-- **Keep scene is mainloop running**: Allow scenes to remain in a rendering loop
-- **Animation EmbeddedPlayer**: This feature allows users to play other particles and animations simultaneously while editing animations
-- **Transition Interruption**: Whether to enable transition breaks in the Marionette animation system
-- **Enable baking feature**: Used to enable the Lightmapping. For details, please refer to the [Lightmapping](./../../concepts/scene/light/lightmap.md) documentation.
+- **Optimized scheduling strategy**: This policy will try to merge resources when importing them multiple times repeatedly to reduce the number of scheduling times.
+
+- **Scene real-time cache**: this item is enabled by default, it is mainly used to cache scene files to `temp/scene/[SCENE_UUID]/[TIME].json` file in project directory every once in a while during scene editing (the current time interval is 5s). In case of unexpected situation, such as scene crash, process crash, etc., when you open the editor again, a popup window will prompt you whether to apply the latest scene file in the cache.
+
+  > **Note**: In daily use, as long as the scene is opened normally, all scene files cached before the current scene is opened will be cleared. If you have a special need to view the cache files of a specific scene, please close the corresponding scene in the editor first.
+
+- **Keep scene main loop running**: whether or not to allow the scene to be rendered in the same way as in the preview with a constant rendering loop.
+- **Enable native engine loading scene editor**: when enabled, the rendering module inside the editor will use the native engine.
+- **Debug native engine for scene editor**: whether or not the native engine scene can be enabled. When this option is enabled, it will prevent the native engine from starting and a dialog box will pop up, click to confirm before it will continue to start. It is mainly used for debugging the logic inside the scene after the native engine has been activated.
+
+- **Animation Embedded Player**: This feature supports the user to synchronize with other particles and animations while editing the animation
+- **Animation Auxiliary Curve**: If or not the animation auxiliary curve function is enabled, please check [Auxiliary Curve Edit View](../../animation/animation-auxiliary-curve.md) for details.
+
+- **Enable Pose-Express Function**: If or not enable the animation gesture map function, please check [Programmatic Animation](../../animation/animation-auxiliary-curve.md) for more details.
+- **Enable baking feature**: Use to enable the baking function, please refer to [Light Mapping](../../concepts/scene/light/lightmap.md)
 
 ### Caution
 
