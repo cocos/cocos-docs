@@ -109,6 +109,14 @@ The description of the callback is below.
 
 - contact: the contact information when the collision occurs, refer to [CharacterControllerContact](__APIDOC__/en/classes/physics.CharacterControllerContact)
 
+A trigger event occurs when the character controller hits or leaves a trigger collider, as described below.
+
+| Event | Description |
+| :--------------- | :------- |
+| `onControllerTriggerEnter` | Triggered when the trigger starts |
+| `onControllerTriggerStay` | Triggered frequently when the trigger is held |
+| `onControllerTriggerExit` | Triggered at the end of a trigger |
+
 ## Details
 
 Normally a character is not a fully simulated physics object when we try to simulate a character, which means it will not exhibit full physics characteristics. This means that when the collision occurs, the force situation of the character controller is different from a dynamic rigid body. Changing the position, or simulating velocity in the collision callback to implement the fore effect.
