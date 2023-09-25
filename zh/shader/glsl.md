@@ -145,7 +145,7 @@ for(int i =0; i < 4; i ++)
 ### 控制流程
 
 GLSL 支持标准的 C/C++ 控制流程，包括：
-- `if-esle`/`switch-case`
+- `if-else`/`switch-case`
 - `for`/`while`/`do-while`
 - `break`/`continue`/`return`
 - 没有 `goto`，若要跳出可使用 `discard`。该语句仅在片元着色器下有效，需要注意的是使用该语句会导致管线放弃当前片元，不会写入帧缓存
