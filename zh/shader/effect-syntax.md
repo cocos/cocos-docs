@@ -95,7 +95,7 @@ CCEffect %{
 - add
 - alpha-blend
 
-`opaque` 专门用于渲染不透明物体的渲染技术，`transparent`，`transparent`，`add`，`alpha-blend` 则用来渲染半透明物体。
+`opaque` 专门用于渲染不透明物体的渲染技术，`transparent`，`add`，`alpha-blend` 则用来渲染半透明物体。
 
 每个渲染技术（`technique`）都包含了名称（`name`）和渲染过程（`pass`）。
 
