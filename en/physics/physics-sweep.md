@@ -75,7 +75,7 @@ The detail of `PhysicsRayResult` is as follows:
 - collider: Collider, the collider hit by the ray.
 - hitNormal: vec3, the normal of the hit plane， in world space.
 
-For more, please refer to [PhysicsRayResult](__APIDOC__/zh/class/PhysicsRayResult)。
+For more, please refer to [PhysicsRayResult](__APIDOC__/en/class/physics.PhysicsRayResult)。
 
 ## Examples
 

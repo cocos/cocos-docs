@@ -36,7 +36,7 @@ The shadow effect can be seen by clicking on the preview at
 
 ### Importing model resources
 
-Importing models, materials, animations and other resources from the original sources is not the focus of this basic tutorial, so we will directly use the resources that have been imported into the project. Put **project** ([GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d)  tutorial-mind-your-step-3d)) in the assets directory and copy the cocos folder to the assets directory of your own project.
+Importing models, materials, animations and other resources from the original sources is not the focus of this basic tutorial, so we will directly use the resources that have been imported into the project. Put **project** ([GitHub](https://github.com/cocos-creator/tutorial-mind-your-step-3d) in the assets directory and copy the cocos folder to the assets directory of your own project.
 
 ### Adding to the scene
 

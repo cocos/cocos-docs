@@ -107,7 +107,15 @@ onColliderHit (hit: CharacterControllerContact){}
 
 回调参数说明：
 
-- contact： 和其他碰撞体碰撞时的接触信息， API 参考：[CharacterControllerContact](__APIDOC__/api/zh/class/physics.CharacterControllerContact)
+- contact： 和其他碰撞体碰撞时的接触信息， API 参考：[CharacterControllerContact](__APIDOC__/zh/class/physics.CharacterControllerContact)
+
+和触发器发生碰撞时的事件包括以下三种：
+
+| 事件             | 说明     |
+| :--------------- | :------- |
+| `onControllerTriggerEnter` | 触发开始时触发该事件 |
+| `onControllerTriggerStay`  | 触发保持时会频发触发该事件 |
+| `onControllerTriggerExit`  | 触发结束时触发该事件 |
 
 ## 细节说明
 

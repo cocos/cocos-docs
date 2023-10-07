@@ -41,11 +41,11 @@ In 2D view, the view of the **Scene** panel can be moved and positioned by the f
 - Right mouse button: pans the view.
 - **F** Shortcut: focus the camera on the currently selected node.
 
-## Transformation Tools
+## Transform Tools
 
 ![transform](images/transform-bar.png)
 
-The above tools are the transformation tools group, responsible for node **moving, scaling, rotating, attaching, anchoring/centering, local/world coordinate system**, etc.
+The above tools are the transform tools group, responsible for node **moving, scaling, rotating, attaching, anchoring/centering, local/world coordinate system**, etc.
 
 - ![3d](bar_img/translate.png) Switch the moving gizmo in the current scene to **Move Gizmo**, the shortcut key is <kbd>W</kbd>
 
@@ -110,16 +110,16 @@ The above tools are the transformation tools group, responsible for node **movin
 
 The incremental snap tool mainly consists of **Increment Snap Configuration** and **Rect Tool Snap Configuration**.
 
-### Transform Snap Configuration
+### Increment Snap Configuration
 
-The transform snapping feature can be used to manipulate nodes in a set step size when using the move/rotate/scale transform tools in the scene editor. The transform snapping feature can be triggered in the following two ways:
+The increment snapping feature can be used to manipulate nodes in a set step size when using the move/rotate/scale transform tools in the scene editor. The increment snapping feature can be triggered in the following two ways:
 
-1. Press and hold the <kbd>Ctrl/Command</kbd> key while using transform tools to trigger the transform snapping feature.
-2. In the transform snapping configuration panel, use the button to enable the automatic snapping feature of corresponding transform tools. See below for details.
+1. Press and hold the <kbd>Ctrl/Command</kbd> key while using transform tools to trigger the increment snapping feature.
+2. In the increment snapping configuration panel, use the button to enable the automatic snapping feature of corresponding transform tools. See below for details.
 
-Click on the fifth **Transform snapping configuration** button in the toolbar in the upper left corner of the editor's main window, the transform snapping configuration panel will pop up, which can be used to set the step size of corresponding transform tools, and enable the auto snapping feature:
+Click on the fifth **Increment Snapping configuration** button in the toolbar in the upper left corner of the editor's main window, the increment snapping configuration panel will pop up, which can be used to set the step size of corresponding transform tools, and enable the auto snapping feature:
 
-![transform snap config](images/increase-snap-conf.png)
+![increment snap config](images/increase-snap-conf.png)
 
 | Button | Description |
 | :-- | :-- |
@@ -308,7 +308,7 @@ Pressing the left mouse button and dragging the mouse within the scene will simu
 
 The core function of **Scene** panel is to edit and arrange the visible elements in the scene in a WYSIWYG way. **Gizmos** are mainly used to assist in the visual editing of the scene.
 
-- [Transform Gizmo](../toolbar/index.md)
+- [Toolbar](../toolbar/index.md)
 - [Camera Gizmo](./camera-gizmo.md)
 - [Collider Gizmo](./collider-gizmo.md)
 - [Particle System Gizmo](./particle-system-gizmo.md)

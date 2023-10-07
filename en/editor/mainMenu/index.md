@@ -71,7 +71,6 @@ This option is mainly used to perform preview run build projects, project config
 | Option | Description |
 | :--- | :--- |
 | Project Settings | Opens [Project Settings](../project/index.md) panel to set the relevant configuration options for a specific project. |
-| Lightmapping | Opens the [Lightmapping](../../concepts/scene/light/lightmap.md) panel to configure the baking properties for generating light maps. |
 | Play on Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd>) | Click on this option to preview the project in the selected browser/simulator window, for details please refer to the [Project Preview & Debugging](../preview/index.md) documentation. |
 | Refresh Device (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) | Refreshes the opened browser preview window. |
 | Create Preview Template | This option is used to customize the desired preview effect, please refer to the [Web Preview Customization Workflow](../preview/browser.md) documentation for details. |
@@ -92,10 +91,14 @@ This option is mainly used to open various panels in the editor.
 | Assets | Opens **Assets**/**Assets Preview** panel. For accessing/managing/viewing project assets, please refer to the [Assets](../assets/index.md) documentation for details. | The shortcut for the **Assets** panel is <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>2</kbd>
 | Inspector | Opens the [Inspector](../inspector/index.md) panel. For viewing and editing the working area of the currently selected node, node components and assets. |<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>3</kbd>
 | Hierarchy | Opens the [Hierarchy](../hierarchy/index.md) panel, which shows the hierarchical relationship between all nodes in the scene in the form of a tree-like list. |<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>4</kbd>
-| Preview | Opens the **Camera Preview** panel, which shows the same screen as the one shown in the bottom right corner of the **Scene** panel when the corresponding Camera node is selected in the scene. When adjusting the scene, the screen in the Camera Preview panel will also be synchronized in real time. |<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>5</kbd>
 | Animation | Opens the [Animation](../../animation/index.md) panel or [Joint Texture Layout](../../animation/joint-texture-layout.md) panel. For editing and viewing frame animation or skeleton animation, etc. |The shortcut for the **Animation** panel is <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>6</kbd>
+| Animation Graph | Opens the [Animation Graph](../../animation/marionette/index.md) panel. Animated Graphics and Program Animation is a visual animation editing panel. | The shortcut for the **Animation** panel is <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>5</kbd>
+| Light Baking | Opens the [Lightmapping](../../concepts/scene/light/lightmap.md) panel to configure the baking properties for generating light maps. |
 | Node Library | Open the Node Prefab Library panel. This panel is a very simple and straightforward visual control repository, where developers can drag and drop the controls listed here into the **Scene** or the **Hierarchy** panel to quickly create pre-configured controls. |<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>7</kbd>
 | Service | Opens the [Service](https://service.cocos.com/document/en) panel, which provides a number of quality official and third-party services that allow developers to access more extensions beyond the engine and make game development easier. |<kbd>Ctrl</kbd>/<kbd>Cmd </kbd> + <kbd>8</kbd>
+| Reference Image | Opens the [reference image](../../editor/scene/index.md#reference-image) panel when creating UI in the scene |<kbd>Ctrl</kbd>/<kbd>Cmd </kbd> + <kbd>8</kbd>
+| Service | Opens the [Service](https://service.cocos.com/document/en) panel, which provides a number of quality official and third-party services that allow developers to access more extensions beyond the engine and make game development easier. |<kbd>Ctrl</kbd>/<kbd>Cmd </kbd> + <kbd>9</kbd>
+| Localization Editor | Opens the [L10N](../l10n/overview.md) panel. |
 
 ## Extension
 
@@ -142,6 +145,6 @@ This option contains mainly development-related menu functions such as scripts, 
 | User Manual | Open [User Manual](../../index.md) in default browser.                                                        |
 | API Reference | Open [API Reference Documentation](__APIDOC__/en/) in default browser.                                        |
 | Forum | Open [Cocos Creator Forum](https://discuss.cocos2d-x.org/c/33) in default browser.                            |
-| Release Notes | Open the [release notes](https://www.cocos.com/creator) for each version of Cocos Creator in default browser. |
+| Release Notes | Open the [release notes](https://www.cocos.com/creator-download) for each version of Cocos Creator in default browser. |
 | Engine Repository | Open [TypeScript Engine Repository](https://github.com/cocos/cocos-engine) in default browser.              |
 | About Cocos Creator | Shows Cocos Creator-related version number and copyright information. |

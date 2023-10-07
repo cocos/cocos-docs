@@ -2,8 +2,8 @@
 
 ## Examples
 
-- **One Step, Two Steps**([GitHub](https://github.com/cocos/tutorial-mind-your-step-3d)): A game with step-by-step tutorial in the [Quick Start](../getting-started/index.md).
-- **Material Examples**([GitHub](https://github.com/cocos/cocos-example-materials)): Show examples of engine builtin materials like standard PBR and toon, also includes examples for hair, skin, eye, leaf, etc.
+- **One Step, Two Steps**([GitHub](https://github.com/cocos/tutorial-mind-your-step-3d)): A game with step-by-step tutorial in the [Quick Start](../getting-started/first-game/index.md).
+- **Material Examples**([GitHub](https://github.com/cocos/cocos-example-materials)): Shows a variety of engine-built and customized material effects, including standard PBR, cartoon rendering, and also includes advanced materials such as skin, hair, eyeballs, leaves, and more.
 - **Render Pipeline Usage Demo**([GitHub](https://github.com/cocos/cocos-example-render-pipeline)): Demonstrates in Sponza how to use builtin post process render pipeline with all post-process features enabled.
 - **Examples of Physics**([GitHub](https://github.com/cocos/cocos-example-physics)): Includes 2D and 3D physics test cases and examples, such as **Engulfing Black Hole**, **Simple Car**, **Falling ball**, etc. The test cases introduce some basic functions and usage methods. It helps you understand the physical functions with documentation easily.
 - **Marionette Animation Examples**([GitHub](https://github.com/cocos/cocos-example-marionette)): Demonstrates how to use [Marionette Aniamtion System](../animation/marionette/index.md) in details, including state machine, pose graph, events, IK, etc.
@@ -32,6 +32,6 @@
 
 ## More
 
-- [Cocos Forum](https://discuss.cocos2d-x.org/)： ask questions, find answers, communicate with other developers.
+- [Cocos Forum](https://discuss.cocos2d-x.org/c/creator/33)： ask questions, find answers, communicate with other developers.
 - [Cocos Store](http://store.cocos.com/)： various art assets, extensions, source codes and learning demos.
 - [Youtube channel — Cocos](https://www.youtube.com/@CocosEngine)：news and tutorials.

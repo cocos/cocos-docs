@@ -12,10 +12,6 @@ The **General** tab is mainly for configuring some basic information related to 
 
 **Language**: choose Chinese or English, the editor will automatically switch the language after modifying the language setting, if some texts are not switched, refresh the editor.
 
-- **Preview IP**: users can manually select one of them as the default address and QR code address when previewing if there are multiple IP addresses on the local machine. All the local IPs will be listed here, and the editor will pick one IP automatically by default.
-
-- **Preview Server Port Number**: modify the port number used by the editor when previewing the game. Restart the editor to take effect after the modification is finished.
-
 - **Number Step**: used to set the step size when adjusting the numeric properties by step button in the **Inspector** panel. The default step size is 0.001. The step buttons in the **Inspector** panel include the following two types:
 
     - When the mouse is moved to the right of the numeric property input box, a set of up and down arrows will appear, which can continuously increase or decrease the value by a certain step magnitude.
@@ -157,6 +153,18 @@ The **Preview** tab is mainly used for the various options that can be set when 
 - **Private key**: Path of the private key
 - **Public cert**: Path of the public cert
 - **CSR file for certificate singing**: The path of CSR file.
+
+## Animation
+
+**Animation** Paging is used to set up the [animation system](../../animation/index.md) some parameters and configurations during editing.
+
+![animation](./index/animation.png)
+
+- **Enable animation instant cache function**: when enabled, the animation in the editor will be automatically cached according to the **Caching interval time**
+- **Cache interval time**: the time between caches, in milliseconds.
+- **Maximum number of cached files**: the maximum number of animations that can be cached
+
+> **Note**: Currently the cached animation files are not automatically restored, if you want to restore the cached files, please refer to [Animation System](../../animation/index.md).
 
 ## Build
 

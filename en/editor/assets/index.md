@@ -100,6 +100,8 @@ The search function can limit the search type and specify the search field, both
     4. **Find UUID usage**, used to find out which assets the UUID asset is used by. For example:
 
         ![search-uuid](img/search-uuid.png)
+    5. **Only Show Imported Failed**: show asserts that failed to import.
+    6. **Search Bundle**: search for bundle assets/
 
 If you want to search only in a parent asset (e.g.: folder), right-click and select **Find in Folder** to narrow the search.
 
@@ -125,7 +127,8 @@ After selecting a specific asset/folder, right-click on it to perform a series o
 - **Select All**: selects all assets in the same hierarchy.
 - **Search in Folder**: when using the search function, only search the assets in that folder.
 - **Find UUID Usages**: find which assets the asset is referenced by by the asset's UUID.
-- **Importing/Exporting Asset Package**: please refer to the introduction below for details.
+- **Import New Files/New Folders**: import new files or folder to the project.
+- **Import/Export Asset Package**: please refer to the introduction below for details.
 - **Preview this scene in the browser**: only available for scene assets.
 - **Reveal in Explorer (Windows) or Finder (Mac)**: opens the folder where this asset is located in the operating system's file manager window.
 - **Reimport Asset**: updates the asset to the project's `./library` folder of the project, with multiple selections for bulk import.
