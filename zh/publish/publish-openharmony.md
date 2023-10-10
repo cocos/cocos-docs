@@ -17,7 +17,7 @@
 <img src="./publish-openharmony/step-005.png" width="900"> <br>
 <img src="./publish-openharmony/step-006.png" width="900"> <br>  
 
-3. 启动DevEco Studio，如下图：  
+3. 启动 DevEco Studio，如下图：  
 
 <img src="./publish-openharmony/step-007.png" alt="" width="900"> <br>
 
