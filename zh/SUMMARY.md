@@ -119,6 +119,7 @@
     - [打包发布原生平台](publish/publish-native.md)
     - [原生平台 JavaScript 调试](publish/debug-jsb.md)
     - [发布到 HUAWEI AppGallery Connect](publish/publish-huawei-agc.md)
+    - [发布到 OpenHarmony 应用](./publish/publish-openharmony.md)
     - [发布到 Google Play Instant](publish/publish-android-instant.md)
     - [发布到支付宝小游戏](publish/publish-alipay-mini-games.md)
     - [发布到淘宝小程序创意互动](publish/publish-taobao-creative-app.md)
@@ -136,7 +137,7 @@
         - [微信小游戏开放数据域](publish/publish-wechatgame-sub-domain.md)
         - [启用微信小游戏引擎插件](publish/wechat-engine-plugin.md)
         - [接入微信 PC 小游戏](publish/publish-pc-wechatgame.md)
-        - [小游戏分包](publish/subpackage.md)
+        - [小游戏分包](publish/subpackage.md)    
     - [命令行发布项目](publish/publish-in-command-line.md)
     - [定制项目构建模板](publish/custom-project-build-template.md)
 
