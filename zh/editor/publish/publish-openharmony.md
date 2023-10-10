@@ -17,7 +17,7 @@
 ## 准备工作
 
 1. Cocos Creator 下载传送门（版本>=3.8.0）：[Cocos Creator](https://www.cocos.com/creator-download)
-2.  OpenHarmany 系统与 SDK 下载传送门：[OpenHarmony-3.2-release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md#%E4%BB%8E%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9%E8%8E%B7%E5%8F%96)
+2.  OpenHarmony 系统与 SDK 下载传送门：[OpenHarmony-3.2-release](https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v3.2-release.md#%E4%BB%8E%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9%E8%8E%B7%E5%8F%96)
 
     ![](./publish-openharmony/document_image_rId2.png)
 
@@ -254,11 +254,11 @@ toolchains-windows-x64-3.2.11.9-Release.zip
 
     ![](./publish-openharmony/document_image_rId56.png)
 
-10. 选择 Openharmony
+10. 选择 OpenHarmony
 
     ![](./publish-openharmony/document_image_rId57.png)
 
-11. 配置工程名称、配置开始场景与包含的其他场景，配置Debug/Release, 配置32位cocos应用或64位cocos应用（对应OpenHarmony32位系统与64位系统），点击 build，如下图：
+11. 配置工程名称、配置开始场景与包含的其他场景，配置Debug/Release, 配置32位或64位cocos应用（对应OpenHarmony32位系统与64位系统），点击 build，如下图：
 
     ![](./publish-openharmony/document_image_rId58.png)
     ![](./publish-openharmony/document_image_rId58-1.png)
@@ -310,5 +310,5 @@ toolchains-windows-x64-3.2.11.9-Release.zip
         >> ![](./publish-openharmony/document_image_rId74.png)
     - 更新IDE，编译报错,如下图：
        >> ![](./publish-openharmony/document_image_rId75.png)
-       >> 把Harmonyos与openharmony的SDK更新到最新；
-    - [时勾选左横屏与右横屏，出现分辨率不正确的现象。只选择左横屏或者右横屏即可解决](https://github.com/cocos/cocos-engine/pull/15785)。
+       >> 把HarmonyOS与openHarmony的SDK更新到最新；
+    - [同时勾选左横屏与右横屏，出现分辨率不正确的现象，只选择左横屏或者右横屏即可解决](https://github.com/cocos/cocos-engine/pull/15785)。
