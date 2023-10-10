@@ -88,4 +88,4 @@
    - 部分测试例，背景会显示桌面，驱动问题，非系统和引擎问题
    - 编译失败时，可能是内存不足导致，退出部分应用，重新 build 试试；![](./publish-openharmony/issue-001.png)
    - App Launch 提示错误信息，在 targets 中，添加对应的运行环境：![](./publish-openharmony/issue-002.png) 解决方法，如下图：![](./publish-openharmony/issue-002-1.png)
-   - 更新 IDE，编译报错,如下图：![](./publish-openharmony/issue-003.png) 把 Harmonyos 与 OpenHarmony 的 SDK 更新到最新
+   - 更新 IDE，编译报错,如下图：![](./publish-openharmony/issue-003.png) 把 HarmonyOS 与 OpenHarmony 的 SDK 更新到最新
