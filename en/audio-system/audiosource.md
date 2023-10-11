@@ -1,6 +1,6 @@
 # AudioSource Component Reference
 
-The AudioSource component is used to control the playback of music and sound effects.
+The AudioSource component controls the playback of music and sound effects.
 
 ![audioSource](audio/audiosource.png)
 
@@ -10,7 +10,7 @@ Select the node in the **Hierarchy** panel, then click the **Add Component** but
 
 | Property | Description |
 | :-- | :-- |
-| Clip | The added [audio asset](../asset/audio.md) for playback , default is empty, click the arrow button behind it to select. |
+| Clip | The added [audio asset](../asset/audio.md) for playback, default is empty, click the arrow button behind it to select. |
 | Loop | Whether to loop. |
 | PlayOnAwake | Whether the audio will be played automatically when the game is running (component is active). |
 | Volume | Volume, in the range 0~1. |
@@ -38,7 +38,7 @@ In addition, Creator divides audio into longer **music** and shorter **sound eff
 
 ### Via script
 
-For more flexible control of AudioSource playback, you can add a custom script to the node where the **AudioSource component** is located and then call the appropriate API to control audio playback.
+For more flexible control of AudioSource playback, add a custom script to the node where the **AudioSource component** is located and then call the appropriate API to control audio playback.
 
 1. Add the AudioSource component to the node and specify the audio asset.
 
