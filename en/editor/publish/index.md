@@ -10,7 +10,7 @@ Thanks to the Cocos Creator's dual-core engine architecture (the C++ core is for
 - [Open HarmonyOS](./publish-openharmony.md)
 - [Web Mobile - H5](./publish-web.md)
 - [WeChat Mini Games](./publish-wechatgame.md)
-- [ByteDance Mini Games](./publish-bytedance-mini-game.md)
+- [Douyin Mini Games](./publish-bytedance-mini-game.md)
 - [Facebook Instant Games](./publish-fb-instant-games.md)
 - [OPPO Mini Games](./publish-oppo-mini-game.md)
 - [Huawei Quick Games](./publish-huawei-quick-game.md)

@@ -53,7 +53,7 @@ However, **PhysX** is currently too large a package (~5MB) and has some limitati
 
 Some newer platforms and devices, such as HarmonyOS devices, will be supported in the future, please pay attention to the update announcement. Apple M1 (Silicon) architecture devices are already supported in v3.4.
 
-In addition, the ByteDance platform provides the underlying native physics feature, so it is also available in ByteDance mini-games, please refer to [Publish to ByteDance Mini Games - Native Physics](../editor/publish/publish-bytedance-mini-game.md).
+In addition, the Douyin platform provides the underlying native physics feature, so it is also available in Douyin mini-games, please refer to [Publish to Douyin Mini Games - Native Physics](../editor/publish/publish-bytedance-mini-game.md).
 
 ### Different physical back-end collision shape support
 
@@ -89,7 +89,7 @@ If you don't need to use any physics-related components and interfaces, you can 
 
 The performance of **Bullet** and **PhysX** physics is compared for various trivia platforms and native platforms.
 
-- On both native and ByteDance mini game platforms, the best performance is obtained using **PhysX** physics.
+- On both native and Douyin mini game platforms, the best performance is obtained using **PhysX** physics.
 - On all types of other mini game platforms, the best performance is obtained with **Bullet** physics.
 
 ## Differences in the effect of the physics engine

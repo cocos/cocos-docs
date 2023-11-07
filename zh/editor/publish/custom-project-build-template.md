@@ -46,7 +46,7 @@ project-folder
 | 华为 AGC | huawei-agc | 暂不支持 |
 | 支付宝小游戏 | alipay-mini-game | `game.json` |
 | 淘宝小游戏 | taobao-mini-game | `game.json`、`mini.project.json` |
-| 字节跳动小游戏 | bytedance-mini-game | `game.ejs`、`game.json`、`project.config.json` |
+| 抖音小游戏 | bytedance-mini-game | `game.ejs`、`game.json`、`project.config.json` |
 | OPPO 小游戏 | oppo-mini-game | `manifest.json` |
 | 华为快游戏 | huawei-quick-game | 暂不支持 |
 | Cocos Play | cocos-play |  `game.config.json` |

@@ -143,4 +143,4 @@ onColliderHit (hit: CharacterControllerContact){}
 
 ## 支持情况
 
-该功能在字节跳动的小程序 wasm 上不支持。如要启用，请使用 Cocos Creator 自带的 wasm。
+该功能在抖音的小程序 wasm 上不支持。如要启用，请使用 Cocos Creator 自带的 wasm。

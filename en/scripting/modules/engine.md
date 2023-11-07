@@ -49,7 +49,7 @@ The constants in the following table indicate whether the application is running
 | `NATIVE` | Native Platforms | ❌ | ❌ | ❌ |
 | `ALIPAY` | Alipay Mini Game | ✔️ | ❌ | ✔️ |
 | `BAIDU` | Baidu Mini Game | ✔️ | ❌ | ✔️ |
-| `BYTEDANCE` | ByteDance Mini Game | ✔️ | ❌ | ✔️ |
+| `BYTEDANCE` | Douyin Mini Game | ✔️ | ❌ | ✔️ |
 | `WECHAT` | WeChat Mini Gamee | ✔️ | ❌ | ✔️ |
 | `XIAOMI` | Xiaomi Quick Game | ✔️ | ❌ | ✔️ |
 | `COCOSPLAY` | Cocos Play | ❌ | ✔️ | ✔️ |

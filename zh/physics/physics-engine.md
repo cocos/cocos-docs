@@ -53,7 +53,7 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 
 部分较新的平台和设备，例如 HarmonyOS 的设备，将在后续支持，请留意更新公告。Apple M1（Silicon）架构的设备已在 v3.4 支持。
 
-除此之外，字节跳动平台提供了底层的原生物理功能，因此字节跳动小游戏中同样可以使用该功能，详情请参考 [发布到字节跳动小游戏 - 原生物理](../editor/publish/publish-bytedance-mini-game.md)。
+除此之外，抖音平台提供了底层的原生物理功能，因此抖音小游戏中同样可以使用该功能，详情请参考 [发布到抖音小游戏 - 原生物理](../editor/publish/publish-bytedance-mini-game.md)。
 
 ### 不同物理后端碰撞形状支持情况
 
@@ -89,7 +89,7 @@ ammo.js（[GitHub](https://github.com/cocos-creator/ammo.js) | [Gitee](https://g
 
 主要针对各类小游戏平台和原生平台，并对使用 **Bullet** 和 **PhysX** 物理时的性能进行了对比：
 
-- 在原生和字节跳动小游戏平台上，使用 **PhysX** 物理可以得到更加良好的性能。
+- 在原生和抖音小游戏平台上，使用 **PhysX** 物理可以得到更加良好的性能。
 - 在各类小游戏平台上，使用 **Bullet** 物理可以得到更加良好的性能。
 
 ## 物理引擎的效果差异

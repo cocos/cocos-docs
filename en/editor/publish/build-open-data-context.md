@@ -1,6 +1,6 @@
 # Access to Open Data Context
 
-Currently, platforms such as **WeChat**, **Baidu**, and **ByteDance Mini Game** have added the concept of **Open Data Context**, which is a separate game execution environment, in order to protect their social relationship chain data. The resources, engines, and applications in the **Open Data Context** are completely isolated from the main context, and only in the **Open Data Context** can developers access the relationship chain data through the open interface provided by the platform to implement some features such as leaderboards.
+Currently, platforms such as **WeChat**, **Baidu**, and **Douyin Mini Game** have added the concept of **Open Data Context**, which is a separate game execution environment, in order to protect their social relationship chain data. The resources, engines, and applications in the **Open Data Context** are completely isolated from the main context, and only in the **Open Data Context** can developers access the relationship chain data through the open interface provided by the platform to implement some features such as leaderboards.
 
 In **Cocos Creator 3.0**, we deprecate the Canvas Renderer module and replaced it with a lightweight front-end Canvas engine based on **XML** + **CSS** designed by WeChat team. The engine is integrated into the **Cocos Creator 3.0**'s built-in **Open Data Context** project template, which allows developers to implement a leaderboard-like feature based on the template with a few basic front-end skills.
 
@@ -52,7 +52,7 @@ The **FPS** property is primarily used to set how often the main context will up
 
 1. Open the project and double-click the scene, then add the `SubContextView` component to the node on which you need to render the **Open Data Context**.
 
-2. After the scene is set, save the scene, and then open the **Build** panel in **Menu -> Project**, select the **WeChat** / **Baidu** / **ByteDance Mini Game** platform you want to release, check **Generate Open Data Context Template**, and then click **Build**.
+2. After the scene is set, save the scene, and then open the **Build** panel in **Menu -> Project**, select the **WeChat** / **Baidu** / **Douyin Mini Game** platform you want to release, check **Generate Open Data Context Template**, and then click **Build**.
 
     ![generate-template](./build-open-data-context/generate-template.png)
 
