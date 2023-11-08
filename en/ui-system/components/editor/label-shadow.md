@@ -10,7 +10,7 @@ Click the **Add Component** button at the bottom of the **Inspector** panel and 
 >
 > 1. LabelShadow can only be used for **system fonts** or **TTF fonts**.
 > 2. LabelShadow does not take effect when the **CacheMode** property of the Label component is set to **CHAR**.
-> 3. LabelShadow does not support native platforms.
+> 3. LabelShadow does not support Windows and Mac native platforms.
 
 LabelShadow script interface, please refer to the [LabelShadow API](__APIDOC__/api/en/classes/ui.labelshadow.html) for details.
 

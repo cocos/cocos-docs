@@ -98,7 +98,7 @@ CCProgram unlit-fs %{
 当 FACTOR 只有 -3,-2,5 这三个值的情况下，我们就可以用 `options` 来处理。
 
 ```glsl
-#pragma define-meta FACTOR range([-3, -2, 5])
+#pragma define-meta FACTOR options([-3, -2, 5])
 ```
 
 材质面板上可以产生如下所示的选项效果：

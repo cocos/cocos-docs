@@ -15,7 +15,7 @@
 - [发布 Web 桌面端](publish-web.md)
 - [发布微信小游戏](./publish-wechatgame.md)
 - [发布淘宝小程序创意互动](./publish-taobao-creative-app.md)
-- [发布字节小游戏](./publish-bytedance-mini-game.md)
+- [发布抖音小游戏](./publish-bytedance-mini-game.md)
 - [发布 Facebook 小游戏](./publish-fb-instant-games.md)
 - [发布 OPPO 小游戏](./publish-oppo-mini-game.md)
 - [发布华为快游戏](./publish-huawei-quick-game.md)

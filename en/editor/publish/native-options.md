@@ -110,7 +110,7 @@ To learn more about debugging in IDEs, please refer to [Debugging JavaScript on 
 
 3. When building for Android, compilation output of Cocos Creator and Android Studio may differ in the following ways:
 
-    - After the **Make** process is executed in Cocos Creator, the `build` folder will be generated in the release directory, and the .apk package will be generated in the `app\build\outputs\apk` folder of the build directory.
+    - After the **Make** process is executed in Cocos Creator, the `build` folder will be generated in the release directory, and the .apk package will be generated in the `build\app\publish\` folder of the build directory.
 
     - After the project is compiled in Android Studio, the .apk package will be generated in the `proj\app\build\outputs\apk` folder.
 

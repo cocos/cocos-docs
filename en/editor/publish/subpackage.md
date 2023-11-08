@@ -1,6 +1,6 @@
 # Mini Game Subpackage
 
-Some mini game platforms support subpackaging to divide resources, scripts and scenes. Including WeChat Mini Game, Baidu Mini Game, Xiaomi Quick Game, Bytedance Mini Game, Huawei Quick Game, OPPO Mini Game and vivo Mini Game.
+Some mini game platforms support subpackaging to divide resources, scripts and scenes. Including WeChat Mini Game, Baidu Mini Game, Xiaomi Quick Game, Douyin Mini Game, Huawei Quick Game, OPPO Mini Game and vivo Mini Game.
 
 Cocos Creator supports [Asset Bundle](../../asset/bundle.md) starting in v2.4, which allows developers to divide contents that need to be subpackaged into multiple Asset Bundles, and these Asset Bundles will be built into subpackages of the mini game. Only the necessary main packages will be downloaded when you startup the game, and these subpackages will not be loaded, but will be manually loaded by the developer during the game. This effectively reduces the time for the game startup.
 

@@ -3,7 +3,7 @@
 - [发布到 HUAWEI AppGallery Connect](publish-huawei-agc.md)
 - [发布到支付宝小游戏](publish-alipay-mini-game.md)
 - [发布到淘宝小游戏](publish-taobao-mini-game.md)
-- [发布到字节跳动小游戏](publish-bytedance-mini-game.md)
+- [发布到抖音小游戏](publish-bytedance-mini-game.md)
 - [发布到华为快游戏](publish-huawei-quick-game.md)
 - [发布到 OPPO 小游戏](publish-oppo-mini-game.md)
 - [发布到 vivo 小游戏](publish-vivo-mini-game.md)

@@ -49,7 +49,7 @@ log('Hello world!');
 | `NATIVE`    | 原生平台     | ❌                  | ❌                 | ❌                 |
 | `ALIPAY`    | 支付宝小游戏  | ✔️                   | ❌                 | ✔️                 |
 | `BAIDU`     | 百度小游戏    | ✔️                   | ❌                | ✔️                  |
-| `BYTEDANCE` | 字节跳动小游戏 | ✔️                   | ❌                | ✔️                  |
+| `BYTEDANCE` | 抖音小游戏 | ✔️                   | ❌                | ✔️                  |
 | `WECHAT`    | 微信小游戏    | ✔️                   | ❌                | ✔️                  |
 | `XIAOMI`    | 小米快游戏    | ✔️                   | ❌                | ✔️                  |
 | `COCOSPLAY` | Cocos Play  | ❌                   | ✔️                 | ✔️                 |
