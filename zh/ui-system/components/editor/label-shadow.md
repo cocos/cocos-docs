@@ -10,7 +10,7 @@ LabelShadow 组件可以为 Label 组件添加阴影效果。
 >
 > 1. LabelShadow 只能用于 **系统字体** 或者 **TTF 字体**。
 > 2. 当 Label 组件的 **CacheMode** 属性设置为 **CHAR** 时，LabelShadow 不生效。
-> 3. LabelShadow 不支持原生平台
+> 3. LabelShadow 不支持 Windows 和 Mac 原生
 
 LabelShadow 相关脚本接口请参考 [LabelShadow API](__APIDOC__/zh/class/LabelShadow)。
 

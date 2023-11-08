@@ -12,6 +12,8 @@ If a game can only run on a physical device, then the packaged game must be debu
 
   ![v8-android-debug](debug-jsb/v8-android-debug.png)
 
+>It is recommended to check the "Debug" and "Source Maps" options when buiding. This ensures that the corresponding JavaScript code is displayed in an expanded format.
+
 ## Debugging on Windows / Mac
 
 The steps for debugging a game on the Windows / Mac platform are similar to the Android / iOS, just compile the project and run it in the IDE.

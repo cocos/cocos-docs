@@ -12,6 +12,8 @@
 
   ![v8-android-debug](debug-jsb/v8-android-debug.png)
 
+>构建时，建议勾选 Debug, Source Maps 选项，这样对应的 js 代码显示才是展开的。
+
 ## Windows 平台及 Mac 平台调试
 
 在 Windows 平台及 Mac 平台下调试游戏，步骤与真机调试类似，将工程用 IDE 编译运行之后，此时便可进行调试。步骤如下：

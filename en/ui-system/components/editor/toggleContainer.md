@@ -25,7 +25,7 @@ The ToggleContainer event callback has two parameters, the first one is the Togg
 
 ## Detailed Explanation
 
-The ToggleContainer won't be used alone and it usually be used with `Toggle` to implement the RatioButton.
+The ToggleContainer won't be used alone and it usually be used with `Toggle` to implement the RadioButton.
 
 ## Add a callback through the script code
 

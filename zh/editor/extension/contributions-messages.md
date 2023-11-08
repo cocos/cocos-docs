@@ -53,7 +53,7 @@
 这是一个字符串数组，字符串为扩展或者面板上的方法（methods）。
 如果是触发扩展主程序的方法，则直接定义 `methodName`，如果要触发扩展里定义的面板上的方法，则要填写 `panelName.methodName`。
 
-下面的示例中，`package-message` 将触发扩展主程序中的 `sendMessage` 方法，`panel-message` 将触发 `test-panel` 面板中的 `sendMessage` 方法。
+下面的示例中，`package-message` 将触发扩展主程序中的 `receiveMessage` 方法，`panel-message` 将触发 `test-panel` 面板中的 `receiveMessage` 方法。
 
 ```json5
 {
