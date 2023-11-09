@@ -143,4 +143,4 @@ For the API of the character controller, please refer to [Character Controller](
 
 ## Note
 
-The character controller is not supported on ByteDance mini-game wasm. Use the builtin wasm in Cocos Creator to enable this feature.
+The character controller is not supported on Douyin mini-game wasm. Use the builtin wasm in Cocos Creator to enable this feature.
