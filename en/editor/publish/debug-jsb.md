@@ -8,7 +8,7 @@ If a game can only run on a physical device, then the packaged game must be debu
 
 - Make sure that the Android / iOS device is on the same LAN as Windows or Mac.
 - Select the **Android/iOS** platform and **Debug** mode in the **Build** panel to build, compile and run a project (for the iOS platform, it is recommended to connect to the physical device via Xcode to compile and run).
-- Open this address with Chrome browser: `devtools://devtools/bundled/js_app.html?v8only=true&ws=Local IP of the device:6086/00010002-0003-4004-8005-000600070008`.
+- Open this address with Chrome browser: `devtools://devtools/bundled/js_app.html?v8only=true&ws=Local IP of the device:43086/00010002-0003-4004-8005-000600070008`.
 
   ![v8-android-debug](debug-jsb/v8-android-debug.png)
 
