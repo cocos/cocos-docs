@@ -45,6 +45,7 @@ assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (
         asset.atlasText = assets[0];
         asset.textures = [texture];
         asset.textureNames = ['1.png'];
+        asset._uuid = ske; // 可以传入任意字符串，但不能为空
         skeleton.skeletonData = asset;
     });
 });
