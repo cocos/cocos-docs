@@ -45,6 +45,7 @@ assetManager.loadAny([{ url: atlas, ext: '.txt' }, { url: ske, ext: '.txt' }], (
         asset.atlasText = assets[0];
         asset.textures = [texture];
         asset.textureNames = ['1.png'];
+        asset._uuid = ske; // Any string can be passed in, but it cannot be empty.
         skeleton.skeletonData = asset;
     });
 });
