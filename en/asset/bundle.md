@@ -4,7 +4,7 @@
 
 Starting with v2.4, Creator officially supports **Asset Bundle**. The Asset Bundle is a modular resource tool that allows developers to divide the resources such as textures, scripts, scenes, etc. into different Asset Bundles according to the project requirements. Then, as the game runs, load different Asset Bundles as needed to minimize the number of resources to be loaded at startup. thus reducing the time required for the first download and loading of the game.
 
-The Asset Bundle can be placed in different places as needed, such as on a remote server, locally, or in a subpackage of a mini game platform. 
+The Asset Bundle can be placed in different places as needed, such as on a remote server, locally, or in a subpackage of a mini game platform.
 
 ## The built-in Asset Bundle
 
@@ -408,6 +408,9 @@ After clicking the **Build** button, it can be canceled by clicking on the **Can
 
 This feature is designed for big projects or some time-consuming bundles. Developers can build these bundles separately to reduce the build time.
 
+### Bundle Build via Command Line
+
+Please refer to [Executing Independent Release Bundle in Command Line](./../editor/publish/publish-in-command-line.md) for details.
 
 ## FAQ
 
@@ -429,7 +432,7 @@ This feature is designed for big projects or some time-consuming bundles. Develo
   **A**: Absolutely. In fact, as of v2.4, the packaged project is entirely based on the Asset Bundle, and the `settings.json` no longer stores any configuration information related to the resource, all configuration information are stored in the `config.json` of each Asset Bundle. Each `config.json` stores only the resource information in the respective Asset Bundle, which reduces the size of the first package. This can simply be understood as all the `config.json` combined equal to the previous `settings.json`.
 
 - **Q**: Does the Asset Bundle support cross project reuse?<br>
-  **A**: The current version supports it, but we **do not recommend reusing **across projects. As the engine is updated and iterated, this can create all kinds of compatibility issues. cross-project reuse requires the following conditions to be met for now:
+  **A**: The current version supports it, but we **do not recommend reusing**across projects. As the engine is updated and iterated, this can create all kinds of compatibility issues. cross-project reuse requires the following conditions to be met for now:
   1. The engine version is the same
   2. All scripts referenced in the Asset bundle are placed under the Asset bundle.
   3. The Asset Bundle has no other external dependency bundle, and if it does, it must be loaded.

@@ -110,13 +110,192 @@ Please pay extra attention to the following points when writing start scripts:
 
 1. The environment variables in different processes will be different. The start script will be loaded by the rendering process and the main process at the same time, do not use the editor interface that only exists in a single process in the start script.
 
-2. There are two ways to configure the key of `config`: 
+2. There are two ways to configure the key of `config`:
 
     - One is for a single platform configuration, and the key is filled in as **platform plugin name** (available in the editor menu bar **Extensions -> Extension Manager -> Internal** to view the platform plug-in name).
 
     - One is the configuration for all platforms, the key is filled in as `*`. These two configuration methods are mutually exclusive, please do not use them in the same build extension package.
 
     > **Note**: these two configuration methods are mutually exclusive, please do not use both in the same build extension package. Otherwise the configuration for a single platform (key value `platform build plugin name`) will overwrite the configuration for all platforms (key value `*`).
+
+## Customizing Build Panel Options
+
+There are currently two ways to add build options to the interface: **options automatic rendering configuration method** and **panel custom panel configuration method** (>=3.8.2). The former automatically renders the content of the options configuration in the build panel and performs data update operations after some operations, while the latter adds a panel configuration to place the content of a custom panel, and the build will use this configuration to render with `ui-panel`.
+To facilitate testing, this article will use `web-mobile` as an example to demonstrate how to add new options to the build panel and display them.
+
+### Options Automatic Rendering Configuration Method
+
+Create a new `src/builder.ts` script file and write the following code in `builder.ts`:
+
+```ts
+import { BuildPlugin, IBuildTaskOption } from "../@types/packages/builder/@types";
+
+export const load: BuildPlugin.load = function() {
+    console.debug('custom-build-example load');
+};
+
+export const unload: BuildPlugin.load = function() {
+    console.debug('custom-build-example unload');
+};
+
+export const configs:BuildPlugin.Configs = {
+    'web-mobile': {
+        options: {
+            testInput: {
+                label: 'testVar',
+                description: 'this is a test input.',
+                default: '',
+                render: {
+                    ui: 'ui-input',
+                    attributes: {
+                        placeholder: 'Enter numbers',
+                    },
+                },
+                verifyRules: ['required','ruleTest']
+            },
+            testCheckbox: {
+                label: 'testCheckbox',
+                description: 'this is a test checkbox.',
+                default: false,
+                render: {
+                    ui: 'ui-checkbox',
+                },
+            },
+        },
+        verifyRuleMap: {
+            ruleTest: {
+                message: 'length of content should be less than 6.',
+                func(val: any, option: IBuildTaskOption) {
+                    if (val.length < 6) {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        }
+    },
+};
+```
+
+In the above `configs`, we define two parameters:
+
+- `testInput`: string - String variable, modified by input box
+- `testCheckbox`: boolean - Boolean variable, modified by checkbox
+
+The meanings of each field in the configuration of build options are as follows:
+
+- `label`: string - Required, the name of this parameter displayed on the interface, supports `i18n:key` configuration
+- `description`: string - Optional, brief description information, used for displaying hints when the mouse hovers over the label, supports `i18n:key` configuration
+- `default`: any - Optional, the default value of the parameter
+- `render`: {} - Required, configure information about the rendered component
+    - `ui`: string - Required, UI component name, please refer to the documentation [UI components](../extension/ui.md)
+    - `attributes`: {} - Optional, properties required by the UI component, please refer to the documentation [UI components](../extension/ui.md)
+
+- `verifyRules`: [] - Optional, parameter verification rules
+- `verifyRuleMap`: [] - Optional, custom parameter verification rule functions. Refer to the section below on [parameter validation rules](#%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99)
+
+After executing `npm run build` to compile this extension and refresh it, open the build panel and you can see two additional build parameters at the end of the web-mobile build task, as shown in the following figure:
+
+![custom-build-example-options](./custom-build-plugin/custom-build-example-options.png)
+
+### Panel customization method (>=3.8.2)
+
+Create a new `src/builder.ts` script file and write the following code in `builder.ts`:
+
+```ts
+import { BuildPlugin, IBuildTaskOption } from "../@types/packages/builder/@types";
+
+export const configs:BuildPlugin.Configs = {
+    'web-mobile': {
+        panel: './panel',
+    }
+};
+ ```
+
+Create a new `src/panel.ts` script file and write the following code in `panel.ts`:
+
+```ts
+import { ICustomPanelThis, ITaskOptions } from '../@types';
+import { PACKAGE_NAME } from './global';
+let panel: ICustomPanelThis;
+
+export const style = ``;
+
+export const template = `
+<div class="build-plugin">
+    <ui-prop>
+        <ui-label slot="label" value="Hide Link"></ui-label>
+        <ui-checkbox slot="content"></ui-checkbox>
+    </ui-prop>
+</div>
+`;
+
+export const $ = {
+    root: '.build-plugin',
+    hideLink: 'ui-checkbox',
+    link: '#link',
+};
+
+/**
+ * all change of options dispatched will enter here
+ * @param options 
+ * @param key 
+ * @returns 
+ */
+export async function update(options: ITaskOptions, key: string) {
+    if (key) {
+        return;
+    }
+    // when import build options, key will bey ''
+    init();
+}
+
+export function ready(options: ITaskOptions) {
+    // @ts-ignore
+    panel = this as ICustomPanelThis;
+    panel.options = options;
+    init();
+}
+
+export function close() {
+    panel.$.hideLink.removeEventListener('change', onHideLinkChange);
+}
+
+function init() {
+    panel.$.hideLink.value = panel.options.hideLink;
+    updateLink();
+    panel.$.hideLink.addEventListener('change', onHideLinkChange);
+}
+
+function onHideLinkChange(event: any) {
+    panel.options.hideLink = event.target.value;
+    // Note: dispatch the change to build panel
+    panel.dispatch('update', `packages.${PACKAGE_NAME}.hideLink`, panel.options.hideLink);
+    updateLink();
+}
+
+function updateLink() {
+    if (panel.options.hideLink) {
+        panel.$.link.style.display = 'none';
+    } else {
+        panel.$.link.style.display = 'block';
+    }
+}
+```
+
+#### Rules for customizing build panels
+
+The above code comes from a simple example code in the template of a custom build plugin. You can choose other front-end frameworks to develop the interface more conveniently according to your preferences. Just pay attention to the following rules:
+
+  1. The file content rules of the panel are rendered by ui-panel, and need to follow the relevant component rules, which basically refer to the variables or lifecycle hooks exposed in the above example code.
+  2. The `ready` function of the panel will be called after the panel has been loaded. According to needs, you can do some dom element initialization, event binding, or some front-end framework initialization binding in this function.
+  3. The `close` function of the panel will be called when the panel is closed. According to needs, you can do some event unregistration, object destruction, etc. in this function.
+
+  4. The `update` function of the panel will be called whenever any build option changes (including those sent by itself). If necessary, you can add this hook here. At the same time, when the build panel has an action of importing configuration, you can also do some updating of the customization panel in this function. At this time, `key` is an empty string.
+
+  5. If the interaction in the customized panel involves updating the build option, including the data update that may be done during the initialization process, you must use `panel.dispatch('update', key, value, error)` to perform the update, where `key` needs to follow the format of `packages.${PACKAGE_NAME}.key`. Only after calling it will the data be synchronized to the final build option when building. Sending an error mainly affects the disablement status of the build button, and error is an optional parameter.
+
+  6. If the interaction in the customized panel involves reading the build option, you need to use `panel.options.key`
 
 ### Start script interface definition
 

@@ -365,7 +365,7 @@ assetManager.removeBundle(bundle);
 
 点击预览可以查看当前选中的 Bundle 内最终有哪些资源会打包进入 Bundle。
 
-## 构建 Bundle
+## 独立构建 Bundle
 
 如果只是想更新某些 Bundle 而不是对整个游戏进行打包，引擎自 v3.8 开始提供了更方便的构建 Bundle 功能。
 
@@ -405,6 +405,10 @@ assetManager.removeBundle(bundle);
 ![building.png](./bundle/building.png)
 
 该面板的设计目的是针对较大的项目，或者某些耗时的 Bundle，开发者可以单独对其进行打包。例如要热更新某个包。可以有效的降低打包耗时。
+
+### 命令行执行独立发布 Bundle
+
+详情请参考 [命令行执行独立发布 Bundle](./../editor/publish/publish-in-command-line.md#命令行执行独立发布-Bundle)
 
 ## FAQ
 

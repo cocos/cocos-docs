@@ -56,7 +56,7 @@ Except for the `JPG` and `PNG` supported by all platforms, the details of other 
 
 | Platform          | TextureCompressTypes |
 | ----------------- | -------------------- |
-| Web Desktop       | ASTC / ETC2 / ETC1 / PVR / WEBP |
+| Web Desktop       | - |
 | Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
 | WeChat Mini Game  | ASTC / ETC1 / PVR           |
 | AliPay Mini Game  | ETC1 / PVR           |

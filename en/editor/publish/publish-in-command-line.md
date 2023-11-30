@@ -68,6 +68,47 @@ Each platform's build will be embedded in the **Build** panel as a separate plug
 
 After the build plugin system is opened to the public, the configuration parameters of other plugins are embedded in the **Build** panel in the same way. **Please refer to the documentation of each platform for the specific parameter fields of each platform**, it is better to use the **Export** function of the **Build** panel to get the configuration parameters. Currently it is still compatible with the old version of the parameters to build, but the compatibility process will be gradually removed later, so please upgrade the configuration parameters as soon as possible.
 
+## Bundle Build via Command Line
+
+1. Open the Bundle Build panel and configure the options. After configuring, export the configuration (since 3.8.2).
+    ![export-config](./../../asset/bundle/export-config.png)
+    The exported configuration is as follows:
+
+    ```json
+    {
+        "buildTaskIds": [
+            "1699344873959"
+        ],
+        "dest": "project://build/build-bundle",
+        "id": "buildBundle",
+        "bundleConfigs": [
+            {
+                "root": "db://assets/resources",
+                "output": true
+            }
+        ],
+        "taskName": "build bundle db://assets/resources"
+    }
+
+    ```
+
+2. Execute the following command in the command line:
+
+- Mac
+
+  ```bash
+  /Applications/CocosCreator/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
+  --build "stage=bundle;configPath=./bundle-build-config.json;"
+  ```
+
+- Windows
+
+  ```bash
+  ...\CocosCreator.exe --project projectPath --build "stage=bundle;configPath=./bundle-build-config.json;"
+  ```
+
+The command line publish of the Bundle is similar to the ordinary command line build, but the `stage` parameter needs to be specified as `bundle`, and the configuration exported on the Bundle Build Panel should be specified as the `configPath` parameter.
+
 ## Publish using Jenkins
 
 **Cocos Creator** still needs the GUI environment when running from the command line. If the Jenkins server can not run **Cocos Creator** from the command line, a solution is running Jenkins in agent mode, so it can interact with the operating systems window server. For more details please review this [Stack Overflow post](https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed).

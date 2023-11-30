@@ -36,7 +36,7 @@
   在 `--build` 后如果没有指定参数，则会使用 Cocos Creator 中 **构建发布** 面板当前的平台、模板等设置来作为默认参数。如果指定了其他参数设置，则会使用指定的参数来覆盖默认参数。可选择的参数有：
 
     - `configPath` - 参数文件路径。如果定义了这个字段，那么构建时将会按照 `json` 文件格式来加载这个数据，并作为构建参数。这个参数可以自己修改也可以直接从构建面板导出，当配置和 configPath 内的配置冲突时，configPath 指定的配置将会被覆盖。
-    - `stage` - 指定构建模式，默认为 'build'，可选 'make' | 'build
+    - `stage` - 指定构建模式，默认为 'build'，可选 'make' | 'build' | 'bundle' 等
     - `logDest` - 指定日志输出路径
     - `includedModules` - 定制引擎打包功能模块，只打包需要的功能模块。具体有哪些功能模块可以参考引擎仓库根目录下 **cc.config.json**（[GitHub](https://github.com/cocos/cocos-engine/blob/3d/cc.config.json) | [Gitee](https://gitee.com/mirrors_cocos-creator/engine/blob/3d/cc.config.json)）文件中的 `features` 字段。
     - `outputName` - 构建后生成的发布包文件夹名称。
@@ -66,6 +66,48 @@ Cocos Creator 3.0 各个平台的构建会作为独立的扩展嵌入到 **构�
 ```
 
 之后在构建扩展支持对外开放，其他扩展的配置参数也会通过同样的方式嵌入到 **构建发布** 面板中。具体各个平台的参数字段 **请参照各个平台文档中的参数介绍**，最好是通过 **构建发布** 面板的 **导出** 功能来获取配置参数，更加方便快捷。目前依旧兼容旧版本的参数进行构建，但之后将会移除该兼容处理，请尽快升级配置参数。
+
+## 命令行执行独立发布 Bundle
+
+1. 打开 Bundle 构建面板，配置好选项后，导出配置(自 3.8.2 起)
+
+    ![export-config](./../../asset/bundle/export-config.png)
+    导出的配置大致如下：
+
+    ```json
+    {
+        "buildTaskIds": [
+            "1699344873959"
+        ],
+        "dest": "project://build/build-bundle",
+        "id": "buildBundle",
+        "bundleConfigs": [
+            {
+                "root": "db://assets/resources",
+                "output": true
+            }
+        ],
+        "taskName": "build bundle db://assets/resources"
+    }
+
+    ```
+
+2. 在命令行中执行以下命令：
+
+- Mac
+
+  ```bash
+  /Applications/CocosCreator/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
+  --build "stage=bundle;configPath=./bundle-build-config.json;"
+  ```
+
+- Windows
+
+  ```bash
+  ...\CocosCreator.exe --project projectPath --build "stage=bundle;configPath=./bundle-build-config.json;"
+  ```
+
+命令行发布 Bundle 与普通的命令行构建类似，不过 `stage` 参数需要指定为 `bundle`，同时将在 bundle 构建面板上导出的配置指定为 `configPath` 参数。
 
 ## 在 Jenkins 上部署
 

@@ -89,7 +89,11 @@ export const configs:BuildPlugin.Configs = {
 
 ## 自定义构建面板选项
 
+目前有两种方式可以添加构建选项到界面上，一种是 **options 自动渲染配置方式**，构建将会自动将 options 里面的配置的内容渲染到构建面板中并完成操作后的一些数据更新操作；另一种是 **panel 自定义面板配置方式**（>=3.8.2)，添加 panel 配置放置一个自定义面板的内容，构建将会使用这份配置用 ui-panel 来渲染。
+
 为了方便测试，本文将以 web-mobile 为例来展示如何在构建面板上新增选项并显示。
+
+### options 自动渲染配置方式
 
 新建 `src/builder.ts` 脚本文件，并在 `builder.ts` 中编写如下代码：
 
@@ -163,6 +167,105 @@ export const configs:BuildPlugin.Configs = {
 执行 `npm run build` 编译此扩展并刷新后，打开构建面板，在 web-mobile 构建任务中可以看到末尾多出了 2 个构建参数，如下图所示：
 
 ![custom-build-example-options](./custom-build-plugin/custom-build-example-options.png)
+
+### panel 自定义面板配置方式（>=3.8.2)
+
+新建 `src/builder.ts` 脚本文件，并在 `builder.ts` 中编写如下代码：
+
+```ts
+import { BuildPlugin, IBuildTaskOption } from "../@types/packages/builder/@types";
+
+export const configs:BuildPlugin.Configs = {
+    'web-mobile': {
+        panel: './panel',
+    }
+};
+ ```
+
+新建 `src/panel.ts` 脚本文件，并在 `panel.ts` 中编写如下代码：
+
+```ts
+import { ICustomPanelThis, ITaskOptions } from '../@types';
+import { PACKAGE_NAME } from './global';
+let panel: ICustomPanelThis;
+
+export const style = ``;
+
+export const template = `
+<div class="build-plugin">
+    <ui-prop>
+        <ui-label slot="label" value="Hide Link"></ui-label>
+        <ui-checkbox slot="content"></ui-checkbox>
+    </ui-prop>
+</div>
+`;
+
+export const $ = {
+    root: '.build-plugin',
+    hideLink: 'ui-checkbox',
+    link: '#link',
+};
+
+/**
+ * all change of options dispatched will enter here
+ * @param options 
+ * @param key 
+ * @returns 
+ */
+export async function update(options: ITaskOptions, key: string) {
+    if (key) {
+        return;
+    }
+    // when import build options, key will bey ''
+    init();
+}
+
+export function ready(options: ITaskOptions) {
+    // @ts-ignore
+    panel = this as ICustomPanelThis;
+    panel.options = options;
+    init();
+}
+
+export function close() {
+    panel.$.hideLink.removeEventListener('change', onHideLinkChange);
+}
+
+function init() {
+    panel.$.hideLink.value = panel.options.hideLink;
+    updateLink();
+    panel.$.hideLink.addEventListener('change', onHideLinkChange);
+}
+
+function onHideLinkChange(event: any) {
+    panel.options.hideLink = event.target.value;
+    // Note: dispatch the change to build panel
+    panel.dispatch('update', `packages.${PACKAGE_NAME}.hideLink`, panel.options.hideLink);
+    updateLink();
+}
+
+function updateLink() {
+    if (panel.options.hideLink) {
+        panel.$.link.style.display = 'none';
+    } else {
+        panel.$.link.style.display = 'block';
+    }
+}
+```
+
+#### 自定义构建面板选项的规则
+
+以上代码来自自定义构建插件模板内的简易示例代码，可以根据自己的偏好选择其他的前端框架来开发界面更方便。只要注意以下几点约定的规则即可：
+
+1. panel 的文件内容规则是 ui-panel 来渲染的，需要遵循相关的组件规则，基本是参照以上示例在代码内暴露 `style`、`template`、`$` 等变量或生命周期钩子。
+2. panel 的 `ready` 函数会在面板加载完成后被调用，可以根据需要在此函数中做一些 dom 元素的初始化、事件绑定或者是一些前端框架的初始化绑定。
+3. panel 的 `close` 函数会在面板关闭时被调用，可以根据需要在此函数中做一些事件的反注册、对象销毁等。
+
+4. panel 的 `update` 函数会在任意构建选项发生变化时被调用（包括自身发送的 update)，可以根据需要在此函数中做相应的处理，比如**需要根据其他构建选项做一些交互联动**时，可以添加此钩子。同时当构建面板有导入配置的行为时也可以在此函数中做自定义面板的一些界面更新，此时 `key` 为 空字符串。
+
+5. 自定义面板中的交互如果涉及到构建选项的更新包括初始化过程中可能做的数据更新，都需要使用 `panel.dispatch('update', key, value, error)` 进行更新，其中 `key` 值需要遵循 `packages.${PACKAGE_NAME}.key` 的格式。只有调用后才会同步数据到最终构建时的那份构建选项，发送 error 的作用主要是影响构建按钮的禁用情况，error 为可选项。
+
+6. 自定义面板中的交互如果涉及到构建选项的读取，需要使用 `panel.options.key` 进行读取，其中 `key` 值需要遵循 `packages.${PACKAGE_NAME}.key` 的格式。
 
 ### 特别注意事项
 
