@@ -54,7 +54,7 @@ Cocos Creator 3.0 在构建图片的时候，会查找当前图片是否进行�
 
 | 平台名称          | 支持的压缩格式 |
 | :---------------- | :------------------- |
-| Web Desktop       | ASTC / ETC2 / ETC1 / PVR / WEBP |
+| Web Desktop       | - |
 | Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
 | WeChat Mini Game  | ASTC / ETC1 / PVR           |
 | AliPay Mini Game  | ETC1 / PVR           |
