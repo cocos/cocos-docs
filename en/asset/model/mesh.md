@@ -51,9 +51,17 @@ Alternatively, to expand the node of the __model__ file, select the `.prefab` fi
 
 When the model asset file (`.fbx` or `.gltf`) is selected in the __Assets__ panel, the properties of the model asset can be set in the __Inspector__ panel.
 
-### Model Module
+There are four tabs to choose from:
+| Tab | Description |
+| :--- | :--- |
+| __Model__ | Used to set options related to model mesh import. |
+| __Animation__ | Used to view and edit model animation clips. |
+| __Material__ | Used to set options related to the import of model materials. |
+| __FBX__ | Used to set options related to FBX file. |
 
-![mesh_model](mesh/mesh_model.png)
+### Model
+
+![mesh_model](mesh/mesh-model.jpg)
 
 | Property | Description |
 | :--- | :--- |
@@ -64,7 +72,6 @@ When the model asset file (`.fbx` or `.gltf`) is selected in the __Assets__ pane
 | Disable mesh split | Currently there is a joint-counting-based mesh splitting process during the import pipeline to workaround the max uniform vector limit problem for real-time calculated skeletal animation system on many platforms. This process has a preference impact on other runtime system too. So if it can be pre-determined that the real-time calculated skeletal animations (when `useBakedAnimation` option of the __SkeletalAnimation__ component is unchecked) will not be used, this option can be checked to improve preference. But note that toggling this would update the corresponding prefab, so all the references in the scene should be updated as well to accompany that. <br> Please refer to the following for details. |
 | Allow Data Access| Identifies whether all mesh data in this model can be read or written. If unchecked, the grid data will be automatically released after it is committed to the CPU |
 | Promote Single Root Node| If enabled and there is only one root node at the top of the model scene, then that node will be the root node of the Prefab, otherwise all root nodes of the scene will be the children of the Prefab |
-| Mesh Optimizer | Used to optimize the model. See below for details |
 
 ### Disable Mesh Split
 
@@ -74,27 +81,51 @@ The policy for Disable mesh split in v3.6 is as follows：
 - If the number of bones does not exceed the actual runtime drive limit, pass it directly using uniform
 - If the number of bones exceeds the limit, use texture pass
 
-### Mesh Optimizer
+![mesh-advopts](mesh/mesh-advopts.jpg)
 
-![optimizer](mesh/mesh-optimizer.png)
-
-| Properties | Description |
+### Mesh Optimize
+| Property | Desc |
 | :-- | :-- |
-| __Algorithm__ | Optimization algorithm <br> __simplify__：[GitHub - Fast-Quadric-Mesh-Simplification](https://github.com/sp4cerat/Fast-Quadric-Mesh-Simplification)<br>__gltfpack(deprecated)__：Deprecated, the implementation of this feature is based on  [GitHub - zeux/meshoptimizer](https://github.com/zeux/meshoptimizer)。<br> There is a known issue that the UV layout may be lost after faceting <br> Developers should pay attention to the warnings in the __Inspector__ panel to decide whether to use this option <br> For more information, please refer to the following figure |
-| __Ratio__ | LOD Compress ratio |
-| __Smart Link__ | To prevent broken surface |
-| __Agressiveness__ | Error Distance |
-| __Max Iteration Count__ | Max iteration count |
+| __Vetex Cache__ | Reorder triangles to improve the vertex cache hit rate.|
+| __Vertex Fetch__| Reorder triangles to improve the vertex fetch efficiency. |
+| __Overdraw__ | Reorder triangles to reduce overdraw. |
 
-![warn](mesh/mesh-optimizer-warn.png)
+> It is recommended to enable the above options for meshes with high vertex count.
+> If multiple options are enabled simultaneously, the optimization algorithm will automatically adjust parameters to achieve the best result.
 
-### LOD
+### Mesh Simplify
+| Property | Desc |
+| :-- | :-- |
+| __Target Ratio__ | Target ratio of the simplified mesh data, recommended to set to 0.5 |
+| __Auto Error Rate__ | Whether to calculate the error rate automatically |
+| __Error Rate__ | Tune it until you get a good result |
+| __Lock Boundary__ | Whether to lock the boundary of the simplified mesh data |
+
+> The known issue is that there may be a loss of UV layout after mesh reduction. Developers should pay attention to warnings at the bottom of the inspector to determine whether to use this option.
+
+### Mesh Cluster
+| Property | Desc |
+| :-- | :-- |
+| __Generate Bounding__ | Whether to generate bounding sphere and normal cone for clustered mesh |
+
+### Mesh Compress
+| Property | Desc |
+| :-- | :-- |
+| __Encode__ | Encode to binary format to reduce file size |
+| __Compress__ | Use zlib, which is based on LZ777 and Huffman coding, for compression |
+| __Quantize__ | Quantize the mesh data, compress float-point values to reduce file size |
+
+### LODS
 
 The mesh importer will automatically take sub-meshes end with _lodN as a LOD node, if none, you can use the auto LOD by checking the LOD check box.
 
-For more, please refer to [Level Of Details](../../editor/rendering/lod.md)。
+The LOD1 and LOD2 options are used to set the ratios of the triangle count for different levels.
 
-### Animation Module
+For more, please refer to [Level Of Details](../../editor/rendering/lod.md).
+
+>The algorithm details for the above options can be found in the open-source library: https://github.com/zeux/meshoptimizer
+
+### Animation
 
 ![mesh_animation](mesh/mesh_animation.png)
 
@@ -104,7 +135,7 @@ The above image is all the animation asset information under the current model, 
 
 - Click the __-__ button in the red box on the image to delete the currently selected animation file
 
-### Material Module
+### Material
 
 ![mesh_material](mesh/mesh_material.png)
 
@@ -117,7 +148,7 @@ The top half of the properties are described below, while the bottom half shows 
 | Use vertex colors | Whether to use vertex colors. |
 | Depth-write if blending | Enable depth-write when Alpha mode is __Blend__. |
 
-### FBX Module
+### FBX
 
 ![mesh material](mesh/mesh_fbx.png)
 
