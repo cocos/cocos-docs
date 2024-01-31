@@ -51,9 +51,17 @@ Mesh 文件中存储了模型的顶点、索引、纹理坐标等数据。在 **
 
 当在 **资源管理器** 中选中模型资源文件时（ `.fbx` 、 `.gltf` 或 `.glb`），在 **属性检查器** 中就可以直接设置模型资源的相关属性。
 
-### Model 模块
+一共有四个标签可以选择：
+| 标签 | 说明 |
+| :--- | :--- |
+| __模型（Model）__ | 用于设置模型网格导入时的相关选项 |
+| __动画（Animation）__ | 用于查看和编辑模型动画片段 |
+| __材质（Material）__ | 用于设置模型材质导入的相关选项 |
+| __FBX__ | 用于设置 FBX 文件相关选项 |
 
-![mesh model](mesh/mesh_model.png)
+## 模型（Model）
+
+![mesh model](mesh/mesh-model.jpg)
 
 | 属性 | 说明 |
 | :--- | :--- |
@@ -63,8 +71,7 @@ Mesh 文件中存储了模型的顶点、索引、纹理坐标等数据。在 **
 | 跳过验证（Skip Validation）| 是否跳过对模型文件的标准检测。 |
 | 是否禁用 Mesh 拆分（Disable mesh split） | 为了解决实时骨骼动画系统下 uniform vector 数量限制问题，目前在资源导入期会根据骨骼数量做拆分，这会对其他系统也产生影响。如果确定不会使用实时计算模式（对应 SkeletalAnimation 组件的 useBakedAnimation 选项未勾选时），可以勾选此项以提升性能。但注意改变此选项会影响生成的 prefab 内容，需要对应更新场景中的引用。<br> 详情请参考下文。 |
 | 允许数据访问（Allow Data Access）| 标识此模型中的所有网格数据是否可被读写，此接口只对静态网格资源生效。若不勾选，网格数据提交至 CPU 后会自动释放 |
-| 提升单一根节点（Promote Single Root Node ）| |
-| 网格优化（Mesh Optimizer） | 网格优化，用于模型的减面、重新排布顶点、减少内存占用以及压缩 Vertex Buffer 等操作。请参考下方 **网格优化** 获取更多内容 |
+| 提升单一根节点（Promote Single Root Node ）| 开启此选项，若模型场景只有一个根节点，那么该节点就作为预制体的根节点，否则会为根节点新建一个父节点 |
 
 ### 是否禁用 Mesh 拆分（Disable mesh split）
 
@@ -74,27 +81,50 @@ Mesh 文件中存储了模型的顶点、索引、纹理坐标等数据。在 **
 - 如果骨骼数量未超过实际运行时驱动的限制，直接使用 uniform 传递
 - 如果骨骼数量超过限制，则使用纹理传递
 
-### 网格优化
+![mesh-advopts](mesh/mesh-advopts.jpg)
 
-![optimizer](mesh/mesh-optimizer.png)
-
+### 网格优化 (Mesh Optimize)
 | 属性 | 说明 |
 | :-- | :-- |
-| **Algorithm** | 优化算法 <br> **simplify**：简化模式 <br> 功能实现为：[GitHub - Fast-Quadric-Mesh-Simplification](https://github.com/sp4cerat/Fast-Quadric-Mesh-Simplification)<br>**gltfpack(deprecated)**：已废弃，该功能的实现是基于 [GitHub - zeux/meshoptimizer](https://github.com/zeux/meshoptimizer)。<br> 已知的问题为：可能会存在在减面后丢失 UV 排布的情况 <br> 开发者需关注 **属性检查器** 内的警告情况以决定是否使用该选项 <br> 详细信息请参考下图|
-| **Ratio** | LOD 压缩比例 |
-| **Smart Link** | 防止破面 |
-| **Agressiveness** | 误差距离 |
-| **Max Iteration Count** | 计算迭代次数 |
+| **顶点缓存（Vetex Cache）** | 优化三角形顺序，提升 GPU 缓存命中率，建议对顶点较多的模型开启。 |
+| **顶点提取（Vertex Fetch）** | 优化三角形顺序，提升顶点数据提取效率，建议对顶点较多的模型开启。 |
+| **过度绘制（Overdraw）** | 优化三角形顺序，减少过度绘制，建议对顶点较多的模型开启。 |
 
-![warn](mesh/mesh-optimizer-warn.png)
+> 若有多个选项同时开启，优化算法会自动调节参数，达到最佳效果。
 
-### LOD
+### 网格简化（Mesh Simplify）
+| 属性 | 说明 |
+| :-- | :-- |
+| **目标比率（Target Ratio）** | 目标顶点数比率，建议设置为 0.5 |
+| **自动误差率（Auto Error Rate）** | 是否自动计算误差率 |
+| **误差率（Error Rate）** | 调整此值，获得最佳效果 |
+| **锁定边界（Lock Boundary）** | 是否锁定网格数据边界 |
 
-网格导入器会检查网格的子节点是否以 _lodN 结尾，如有，则会自动识别这些子节点为 LOD 节点。如果没有，也可以通过勾选 LOD 选项，提供自动的 LOD 功能。
+> 已知的问题为：可能会存在在减面后丢失 UV 排布的情况 <br> 开发者需关注 **属性检查器** 内的警告情况以决定是否使用该选项。
+
+### 网格切块（Mesh Cluster）
+| 属性 | 说明 |
+| :-- | :-- |
+| **生成包围体（Generate Bounding）** | 是否为切块生成包围球和法线锥 |
+
+### 网格压缩（Mesh Compress）
+| 属性 | 说明 |
+| :-- | :-- |
+| **编码（Encode）** | 使用二进制编码 |
+| **压缩（Compress）** | zlib 算法，使用 LZ77 和哈弗曼进行编码 |
+| **量化（Quantize）** | 量化，压缩浮点信息，减小包体 |
+
+### LODS
+
+网格导入器会检查网格的子节点是否以 _lodN 结尾，如有，则会自动识别这些子节点为 LOD 节点。如果没有，也可以通过勾选 LODS 选项，提供自动的 LOD 功能。
+
+LOD1、LOD2 选项用于设置不同等级的三角面比例。
 
 更多请参考 [多层次细节](../../editor/rendering/lod.md)。
 
-### Animation 模块
+以上选项算法细节，请参考开源库：https://github.com/zeux/meshoptimizer
+
+### 动画（Animation）
 
 ![mesh animation](mesh/mesh_animation.png)
 
@@ -104,7 +134,7 @@ Mesh 文件中存储了模型的顶点、索引、纹理坐标等数据。在 **
 
 - 点击图上红框内的 **-** 按钮可以删除当前选中的动画文件
 
-### Material 模块
+### 材质（Material）
 
 ![mesh material](mesh/mesh_material.png)
 
@@ -117,7 +147,7 @@ Mesh 文件中存储了模型的顶点、索引、纹理坐标等数据。在 **
 | 使用顶点色   | 是否使用顶点色。 |
 | 混合模式下的深度写入 | 当 Alpha 模式为 **Blend** 时开启深度写入。 |
 
-### FBX 模块
+### FBX
 
 ![mesh material](mesh/mesh_fbx.png)
 
