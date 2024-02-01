@@ -137,7 +137,7 @@ module.exports = {
 
 ```bash
 cd /Users/james/NewProject/tools/swig-config
-node < 引擎根目录 >/native/tools/swig-config/genbindings.js
+node < 引擎根目录 >/native/tools/swig-config/genbindings.js -c swig-config.js
 ```
 
 如果成功，包含自动绑定代码的 `jsb_my_module_auto.cpp/.h` 两个文件将被创建到 `/Users/james/NewProject/native/engine/bindings/auto` 目录下。
