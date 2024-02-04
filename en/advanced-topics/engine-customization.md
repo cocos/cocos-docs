@@ -103,8 +103,6 @@ After installation, navigate to the root directory of the custom engine and exec
 npm install -g gulp
 # Install the required modules
 npm install
-# Compile some data, including debug, infos and .d.ts
-gulp init
 ```
 
 ### 4. Modifying the Engine Path
