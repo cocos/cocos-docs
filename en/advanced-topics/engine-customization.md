@@ -104,7 +104,7 @@ npm install -g gulp
 # Install the required modules
 npm install
 # Compile some data, including debug, infos and .d.ts
-gulp build
+gulp init
 ```
 
 ### 4. Modifying the Engine Path
