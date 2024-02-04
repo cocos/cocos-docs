@@ -104,7 +104,7 @@ npm install -g gulp
 # 安装依赖的模块
 npm install
 # 编译一些数据，包括 debug infos 和 .d.ts
-gulp build
+gulp init
 ```
 
 ### 4. 修改引擎路径
