@@ -40,7 +40,7 @@ npm install -g gulp
 # Install dependent modules
 npm install
 # Compile some data, including 'debug infos' and '.d.ts'
-gulp build
+gulp init
 ```
 
 > **Note**: the gulp build tool is required to generate debug infos.
