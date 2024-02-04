@@ -103,8 +103,6 @@ Cocos 原生引擎的编译，需要依赖 `cocos-engine/native/external` 中的
 npm install -g gulp
 # 安装依赖的模块
 npm install
-# 编译一些数据，包括 debug infos 和 .d.ts
-gulp init
 ```
 
 ### 4. 修改引擎路径
