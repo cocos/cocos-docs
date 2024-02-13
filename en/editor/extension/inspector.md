@@ -83,7 +83,7 @@ export function update(this: Selector<typeof $>, dump: any) {
     // Use ui-prop to auto-render, set the type of prop to dump
     // render pass in a dump data to be able to automatically render the corresponding interface
     // Auto-rendered interface can automatically commit data after modification
-    this.$.test.render(dump.value.label.value);
+    this.$.test.render(dump.value.label);
 }
 export function ready(this: Selector<typeof $>) {}
 ```
