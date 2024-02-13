@@ -131,12 +131,14 @@ export function ready(this: PanelThis) {
     this.$.testInput.addEventListener('confirm', () => {
         this.dump.value.label.value = this.$.testInput.value;
         this.$.test.dispatch('change-dump');
-        //An alternative to change-dump being update.call(this, this.dump);
     });
 }
 ```
 
 Manual rendering mode still requires data to be submitted via a `ui-prop` element of type `dump`. However, the `html` layout in the `template` is a completely free-handed content that can be displayed in very complex ways depending on the requirements.
+> **Note 1**: If you do not modify `this.$.test.dump = dump.value.label`, `this.$.test.dispatch('change-dump')` won't actually do anything.
+> **Note 2**: If you wish to modify a more complex field, such as a `cc.JsonAsset`, yoiu need to do `this.$.testJsonInput.value = dump.value.testJson.value.uuid`. Since the value from the acutal asset won't fit the controller there.
+
 
 ## Customizing Asset rendering
 
