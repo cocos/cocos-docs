@@ -122,8 +122,6 @@ If you want to disable the splash screen, please refer to [Introduction to Build
 > 2. the screen insertion will only take effect after the package, not during the preview.
 > 3. Some countries and regions are not open for full screen insertion, we apologize for any inconvenience caused to you.
 
-Translated with <www.DeepL.com/Translator> (free version)
-
 ### Erase module structure (experimental)
 
 If this option is checked, the script import speed is faster, but module features such as `import.meta`, `import()`, etc. cannot be used.
