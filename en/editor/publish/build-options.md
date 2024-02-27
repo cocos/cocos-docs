@@ -122,7 +122,7 @@ If you want to disable the splash screen, please refer to [Introduction to Build
 > 2. the screen insertion will only take effect after the package, not during the preview.
 > 3. Some countries and regions are not open for full screen insertion, we apologize for any inconvenience caused to you.
 
-Translated with www.DeepL.com/Translator (free version)
+Translated with <www.DeepL.com/Translator> (free version)
 
 ### Erase module structure (experimental)
 
@@ -131,6 +131,25 @@ If this option is checked, the script import speed is faster, but module feature
 ### Skip Compress Texture
 
 The default is 'false'. If this option is checked, the build skips the entire texture compression process to reduce build time. The command parameter is `skipCompressTexture`.
+
+### Engine Config
+
+As of 3.8.3, it is possible to configure some of the engine module configurations in the build panel, making it easier to select different physical backends for different platform or build tasks, etc.
+
+![Engine Config](build-options/engine-config.png)
+
+The following configuration changes are currently supported:
+
+| Configuration | Optional | Description | Default |
+| --- | --- | --- | --- |
+| CLEANUP_IMAGE_CACHE | `Inherit Project Setting`, `On`, `Off` | Whether to clear the original image cache after uploaded a texture to GPU | `Inherit Project Setting` |
+| 2D Physics | `Inherit Project Setting`, `Box 2D`, `Built-In` | - | Inherit Project Setting |
+| 3D Physics | `Inherit Project Setting`, `Bullet`, `cannon`, `PhysX`, `built-in` | - |Inherit Project Setting|
+| WebGL 2.0 | `Inherit Project Setting`, `On`, `Off` | - | Inherit Project Setting|
+| Bundle Mode Of Native Code | `Wasm + AsmJS`, `Wasm`, `AsmJS` | It mainly affects the native module packing format of Physics, Spine, etc., in which Wasm mode can improve the performance of games to a certain extent. Since the support degree of different game platforms is not consistent, please judge the choice according to the actual official support data. | Wasm + AsmJS|
+| Enable Wasm Brotli compression | `On`, `Off` | Enabling this will reduce the size of the wasm package, which will take slightly longer to load due to the need to decompress it at runtime | Off |
+
+The above options will be shown or hidden according to the selection of the actual module in the project settings, e.g. `If the 2D Physical Module is not checked in the project settings, the corresponding option will not appear`.
 
 ### Cocos Service Config Set
 
