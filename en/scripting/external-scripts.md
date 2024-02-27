@@ -14,7 +14,7 @@ Unlike other scripts in the project, Cocos Creator will not modify the content o
 
 Many third-party JavaScript libraries provide library functions in the form of global variables. These libraries often write global variables `window`, `global`, `self` and `this`.
 
-However, these global variables are not necessarily cross-platform. For convenience, when importing plug-in scripts, the option **Simulate global variables** is provided. After opening, **Cocos Creator** will insert the necessary code to simulate these global variables. Example:
+However, these global variables are not necessarily cross-platform. For convenience, when importing plug-in scripts, the option **GlobalThis Alias** is provided. After opening, **Cocos Creator** will insert the necessary code to simulate these global variables. Example:
 
 ```js
 (function() {
@@ -29,17 +29,30 @@ However, these global variables are not necessarily cross-platform. For convenie
 }).call(this);
 ```
 
+Common global variables will be simulated by default. For special global variable aliases, you can add the corresponding variable name in the input box.
+
 ### Execution Timing
+
+#### Execution environment
 
 Developers can control whether plug-in scripts are executed in certain environments.
 
 | Options | Affected Platform | Remarks |
 | :--------- | :---------- | :---------- |
-| **Allow web platform to load** | Browser, Web page preview, Editor | Enabled by default, when disabled, it will be disabled with **Allow editor to load** |
-| **Allow editor to load** | Editor | Disabled by default. If other common scripts in the editor depend on the current script during the loading process, you need to manually enable this option. <br>After opening, local variables that are not declared in any function in the script will not be exposed as global variables, so global variables need to be defined with `window.abc = 0` to take effect. |
-| **Allow Native platform to load** | Native platform, emulator preview | Enabled by default |
+| **Load In Web** | Browser, Web page preview, Editor | Enabled by default, when disabled, it will be disabled with **Allow editor to load** |
+| **Load In Editor** | Editor | Disabled by default. If other common scripts in the editor depend on the current script during the loading process, you need to manually enable this option. <br>After opening, local variables that are not declared in any function in the script will not be exposed as global variables, so global variables need to be defined with `window.abc = 0` to take effect. |
+| **Load In Native** | Native platform, emulator preview | Enabled by default |
+| **Load In MiniGame** | Minigame platform | Enabled by default. |
 
-In the import checker, developers can specify dependencies to ensure the execution order of scripts.
+#### Order of execution
+
+Plugin scripts will by default be executed after the engine starts and before the project scripts are loaded. The order between plugin scripts is sorted by default according to the naming of the plugin scripts themselves. Since 3.8.3, you can specify the priority order of the plugin scripts in the project settings. The scripts with the specified priority order will be reordered to meet the specified order after the default ordering.
+
+> The modification interactions for specific project settings can be found in the [Project Settings Documentation](../editor/project/index.md)
+
+![sort plugin script](plugin-scripts/sort-plugin.png)
+
+For example, suppose there are plugin scripts with names: `1,2,3,4,5,6,7,8`, the default sort order will be from 1 - 8, if you specify the priority order of some of the scripts in the project settings: `8,3,1,7,5`, then the final sort result will be: `8,3,1,2,4,7,5,6`.
 
 ### Usability and Cross-Platform
 

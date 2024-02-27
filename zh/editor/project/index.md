@@ -83,6 +83,26 @@
 
 - **导出条件**：为条件化导出模块指定解析条件，详情可参考 [条件性导出](../../scripting/modules/spec.md#%E6%9D%A1%E4%BB%B6%E6%80%A7%E5%AF%BC%E5%87%BA)。
 
+### 插件脚本排序
+
+关于插件脚本的部分介绍，可以参见文档 [插件脚本](../../scripting/external-scripts.md)
+
+![Sorting Plugin Scripts](index/sorting-plugin-script.png)
+
+当部分插件脚本之间有一定的优先加载顺序时，可以在此处添加排序。（仅需添加有优先顺序的插件脚本即可）
+
+**操作方式**：
+
+- 点击 `+` 按钮，可以添加项目内已被识别但未被添加的插件脚本
+- 单击选中插件脚本后点击 `-` 按钮可以删除选中的插件脚本
+- 点击 `┇` 按钮，可以展开菜单，选择`添加所有插件脚本`或者`以 JSON 形式编辑`。
+
+    ![右键菜单](index/plugin-script-menu.png)
+
+    其中以 JSON 形式编辑主要是为了方便希望直接编辑数据的用户，此处仅提供了简单的转换，请自行做好数据的检查、格式的验证，不合法的 JSON 格式将无法被提交保存。
+
+    ![以 JSON 形式编辑](index/json-editor.png)
+
 ## 模型
 
 ![model](./index/model.png)
