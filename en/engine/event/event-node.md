@@ -134,7 +134,7 @@ At the same time, if C has a parent node, it will also pass the touch event to i
 
 In v3.4.0, the ability of event penetrating dispatch is supported. In this example, if the event needs to be dispatched to node B, the event can be prevented from being swallowed by node C by calling `event.preventSwallow = true`.
 
-> __Note__: the event penetrating dispatch reduces the efficiency of event dispatch, please use it with caution.
+> __Note__: Can prevent swallowing touch end event only if prevent swallowing corresponding touch start event. Penetrating dispatch reduces the efficiency of event dispatch, please use it with caution.
 
 ### Point of Contact Attribution for Different Canvas
 
