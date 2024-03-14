@@ -83,6 +83,25 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 
 - **Exports Conditions**: specify the parsing conditions for conditionalized export modules, see [Conditional exports](../../scripting/modules/spec.md) for details.
 
+### Sorting Plugin Scripts
+
+A partial introduction to plugin scripts can be found in the document [Plugin Scripts](../.../scripting/external-scripts.md).
+
+![Sorting Plugin Scripts](index/sorting-plugin-script.png)
+
+When some of the plugin scripts have a certain prioritized loading order between them, you can add the sorting here. (Just add the plugin scripts that have a prioritized order)
+
+**How to operate**:
+
+- Click the `+` button to add plug-in scripts that are recognized but not added to the project.
+- Click the `-` button to delete the selected plugin scripts.
+- Click the `┇` button to expand the menu and select `Add All Plugin Scripts` or `Edit as JSON`.
+
+    ![context menu](index/plugin-script-menu.png)
+    Editing in JSON is for those who want to edit the data directly, this is only a simple conversion, please check the data and format by yourself, illegal JSON format will not be submitted and saved.
+
+    ![Edit in JSON](index/json-editor.png)
+
 ## Model
 
 - **Start Material Conversion**: Please refer to [FBX Smart Material Conversion
