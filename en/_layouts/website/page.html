@@ -3,7 +3,8 @@
     <nav role="navigation" class="autoshow">
         <ul class="summary">
         <li><a href="https://cocos.com" class="btn" target="_blank"><img src="https://forum.cocos.org/images/logo.png" height="30" /></a></li>
-        <li><a href="#" class="btn" onclick="toggleLanguage()">中文</a></li>
+        <li><a href="#" class="btn" onclick="switchLanguage('pt')">Português</a></li>  
+        <li><a href="#" class="btn" onclick="switchLanguage('zh')">中文</a></li>
         {% for item in book.version %}
         {% if item.links %}
         <li class="version-link">
@@ -39,18 +40,17 @@
 {% block javascript %}
     {{ super() }}
     <script type="text/javascript">
-    function toggleLanguage () {
+        function switchLanguage(language = 'en') {
             let path = location.href;
-            // console.log(path);
-            if (path.indexOf('/zh') !== -1) {
-                path = path.replace(/\/zh[\/$\s]/i, '/en/');
+
+            if (path.indexOf(`/${language}`) !== -1) {
+                path = path.replace(new RegExp(`\/${language}[\/$\\s]`, 'i'), '/en/');
             } else if (path.indexOf('/en') !== -1) {
-                path = path.replace(/\/en[\/$\s]/i, '/zh/');
+                path = path.replace(/\/en[\/$\s]/i, `/${language}/`);
             }
-            // console.log('after: ' + path);
-            // remove point
+
             path = path.split("#")[0];
             location.assign(path);
-    }
+        }
     </script>
 {% endblock %}

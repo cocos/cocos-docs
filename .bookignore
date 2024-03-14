@@ -6,6 +6,7 @@ package.json
 .bookignore
 /README.md
 /zh/CONTRIBUTING.md
+/pt/CONTRIBUTING.md
 *.xlsx
 *.orig
 *.less

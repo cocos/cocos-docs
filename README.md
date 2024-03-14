@@ -121,4 +121,6 @@ If you encounters any typo or content problem please [report issue](https://gith
 
 - [Contributions in English](en/CONTRIBUTING.md)
 
+- [Contribuições em Português](pt/CONTRIBUTING.md)
+
 - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
