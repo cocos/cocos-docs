@@ -79,13 +79,13 @@ export const $ = {
     test: '.test',
 };
 
-export function update(this: Selector<typeof $> & typeof methods, dump: any) {
-    // Use ui-porp to auto-render, set the type of prop to dump
+export function update(this: Selector<typeof $>, dump: any) {
+    // Use ui-prop to auto-render, set the type of prop to dump
     // render pass in a dump data to be able to automatically render the corresponding interface
     // Auto-rendered interface can automatically commit data after modification
-    this.$.test.render(dump.label.value);
+    this.$.test.render(dump.value.label);
 }
-export function ready(this: Selector<typeof $> & typeof methods) {}
+export function ready(this: Selector<typeof $>) {}
 ```
 
 After compiling and refreshing the extension, we can see that the rendering of the `CustomLabelComponent` component has been taken over.
@@ -136,6 +136,9 @@ export function ready(this: PanelThis) {
 ```
 
 Manual rendering mode still requires data to be submitted via a `ui-prop` element of type `dump`. However, the `html` layout in the `template` is a completely free-handed content that can be displayed in very complex ways depending on the requirements.
+> **Note 1**: If you do not modify `this.$.test.dump = dump.value.label`, `this.$.test.dispatch('change-dump')` won't actually do anything.
+> **Note 2**: If you wish to modify a more complex field, such as a `cc.JsonAsset`, yoiu need to do `this.$.testJsonInput.value = dump.value.testJson.value.uuid`. Since the value from the acutal asset won't fit the controller there.
+
 
 ## Customizing Asset rendering
 
@@ -165,6 +168,8 @@ Add the `contributions.section.asset` field to `package.json` and define a custo
 - `material` - material files
 - `directory` - folder
 - `image` - image files
+
+> **Note**: Currently, you can't add new assets. Those listed above are the only extensible assets for this time. 
 
 You can get the type definition of the file by looking at the `importer` field in the `*.meta` corresponding to the file.
 
