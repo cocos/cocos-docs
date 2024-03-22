@@ -68,7 +68,7 @@ function loadBundle (name) {
 配置完成后点击面板右上方的 **绿色打钩按钮**，这个文件夹就被配置为 Asset Bundle 的打包预设集合了，在放置需要的资源后，然后在 **构建发布** 面板选择对应的平台进行构建即可得到对应的 Asset Bundle。
 
 **注意**：
-1. Creator 有 4 个 [内置 Asset Bundle](bundle.md#%E5%86%85%E7%BD%AE-asset-bundle)，包括 **internal**、**resources**、**main**、**start-scene**，在设置 **Bundle 名称** 时请不要使用这三个名称。
+1. Creator 有 4 个 [内置 Asset Bundle](bundle.md#%E5%86%85%E7%BD%AE-asset-bundle)，包括 **internal**、**resources**、**main**、**start-scene**，在设置 **Bundle 名称** 时请不要使用这几个名称。
 2. [小游戏分包](../editor/publish/subpackage.md) 只能放在本地，不能配置为远程包。所以当 **压缩类型** 设置为 **小游戏分包** 时，**配置为远程包** 项不可勾选。
 3. Zip 压缩类型主要是为了降低网络请求数量，如果放在本地，不用网络请求，则没什么必要。所以要求与 **配置为远程包** 搭配使用。
 4. 设置为 Bundle 的文件夹配置是作为 Asset Bundle 的选项配置集合，我们不建议您非常直接地将资源都放置在其中。和之前版本的 resources 类似，Bundle 配置文件夹最好是放置 Scene、Prefab 等入口资源或者需要在脚本内动态加载的资源，最后在构建阶段将会根据依赖关系导出所有引用的资源文件最终填充整个 Asset Bundle。通过这样的方式，可以最大限度的较少不必要的资源导出。

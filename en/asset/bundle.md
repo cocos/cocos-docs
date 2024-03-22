@@ -66,7 +66,7 @@ After the configuration, click the **green tick button** at the top right of the
 
 > **Notes**:
 >
-> 1. There are three [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in Creator, including **internal**, **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these three names.
+> 1. There are 4 [built-in Asset Bundles](bundle.md#the-built-in-asset-bundle) in Creator, including **internal**, **resources**, **main** and **start-scene**. When setting the **Bundle Name**, **do not** use these names.
 > 2. The [mini game subpackage](../editor/publish/subpackage.md) can only be placed locally and cannot be configured as remote packages. So the **Is Remote Bundle** option cannot be checked when the compression type is set to **Mini Game Subpackage**.
 > 3. The Zip compression type is primarily used to reduce the number of network requests and is used by default with the **Is Remote Bundle** option. Since the package doesn't need network requests if it's local, there's no need to use Zip compression.
 > 4. The folder configuration set to Bundle is used as a collection of options for the Asset Bundle and we do not recommend that you place all assets in it very directly. Similar to the previous version of resources, the Bundle configuration folder should preferably hold entry assets such as Scene, Prefab, or assets that need to be dynamically loaded within the script, and the final build phase will export all referenced assets based on dependencies to eventually populate the entire Asset Bundle.In this way, unnecessary resource exports can be minimized.
