@@ -112,6 +112,7 @@
         - [发射和监听事件](engine/event/event-emit.md)
         - [输入事件系统](engine/event/event-input.md)
         - [节点事件系统](engine/event/event-node.md)
+        - [屏幕事件系统](engine/event/event-screen.md)
         - [事件 API](engine/event/event-api.md)
     - [模块规范与示例](scripting/modules/index.md)
         - [引擎模块](scripting/modules/engine.md)
