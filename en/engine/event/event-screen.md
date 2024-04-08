@@ -11,7 +11,7 @@ Here's a table outlining the currently supported global screen events:
 | Event Name                 | Description                                     | Supported Platforms       | Supported Version |
 |----------------------------|-------------------------------------------------|--------------------------|-------------------|
 | `window-resize`            | Listens for window size changes.                | Web, Native, MiniGame    | 3.8.0             |
-| `orientation-change`       | Listens for screen orientation changes.        | Web, Native, MiniGame    | 3.8.3             |
+| `orientation-change`       | Listens for screen orientation changes.        | Web, Native    | 3.8.3             |
 | `fullscreen-change`        | Listens for full screen changes.                 | Web                     | 3.8.0             |
 
 ## Event Usage Example
