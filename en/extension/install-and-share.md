@@ -8,7 +8,6 @@ To apply a package to all of your Cocos Creator projects, the extensions can be 
 
 - **Windows** `%USERPROFILE%\.CocosCreator\packages`
 - **Mac** `$HOME/.CocosCreator/packages`
-- **Linux** `$HOME/.CocosCreator/packages`
 
 ## Project Packages
 
