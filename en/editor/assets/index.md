@@ -163,6 +163,22 @@ During the import process, the user will be asked to confirm the imported assets
 > 1. Imported zip packages are only supported by Cocos Creator 3.0.0 and above using **Export Asset Package**.
 > 2. Importing scripts with the same class name is not supported.
 
+### 资源模板
+
+Since v3.8.3, the editor allows new resource types to be created with support for placing resource templates in the `templates/new-asset` directory in the project directory. Projects can customize their own scenarios and script templates, and the templates will be copied to the target directory when they are created.
+
+For different assets types, you need to create a folder with the name `[importer]` and place the corresponding template file in it. The name of the `importer` can be referred to the `importer` field in the asset meta file, or you can refer to the built-in directory structure for placing the resource templates.
+
+![internal-templates](img/internal-templates.png)
+
+The name of the placed resource file will be displayed as the display name in the Resource Creation menu at the second level of the original Resource Creation menu, and the editor's original built-in default template will be named `Default` at the top.
+
+- For example:
+After placing a file in `[Project]/templates/new-asset/scene/template.scene`, the creation menu for `template` will appear in the secondary directory of the creation menu for the new scene resource.
+    ![new-asset](img/new-asset.png)
+
+If the project has a template named default, it will override the editor's built-in template and not add a new secondary menu.
+
 ## Extending the Assets Panel
 
 Currently supported extensions include **right-click menu** and **drop-in recognition**, please refer to the [Extending the Assets Panel](./extension.md) documentation.
