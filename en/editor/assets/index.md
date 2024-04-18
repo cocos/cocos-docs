@@ -163,7 +163,7 @@ During the import process, the user will be asked to confirm the imported assets
 > 1. Imported zip packages are only supported by Cocos Creator 3.0.0 and above using **Export Asset Package**.
 > 2. Importing scripts with the same class name is not supported.
 
-### 资源模板
+### Assets Templates
 
 Since v3.8.3, the editor allows new resource types to be created with support for placing resource templates in the `templates/new-asset` directory in the project directory. Projects can customize their own scenarios and script templates, and the templates will be copied to the target directory when they are created.
 
