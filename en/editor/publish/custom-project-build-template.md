@@ -49,6 +49,8 @@ Taking the creation of a Web Mobile build template as an example, the generated 
 
 Many mini games have their own configuration `JSON` files, like `game.json` to WeChat Mini Games. Files in the build templates folder will just copy in **default**, but this configuration JSON will be merged instead of overwrite. Of course, it doesn't mean that all `JSON` file will be merged, you can check it in the tables below.
 
+Note: If the build template and the build interface options configure the same field value, the actual result will be based on the build options.
+
 ### Special Custom Build Template supported Platform list
 
 Most files placed in the `templates/build/[platform]` directory will be copied directly to the corresponding directory. In addition, many platforms support some template files with special name formats. The supported file with special name formats for build templates by the platform are as follows:
