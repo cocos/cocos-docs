@@ -6,24 +6,23 @@ This documentation site is powered by [GitBook](https://www.gitbook.com/). You c
 
 You need [Node.js](https://nodejs.org/en/) and npm to be able to build the site.
 
-To install gitbook:
+Make sure your are using node@10.24.1 
 
 ```bash
-npm install gitbook-cli -g
+nvm use 10.24.1
+```
+
+Install packages
+```bash
+npm install
 ```
 
 Install gitbook plugins:
 
 ```bash
-gitbook install
+npx gitbook install
 ```
-
-Install gulp and other modules:
-
-```bash
-npm install gulp -g
-npm install
-```
+This is a time-consuming action, depending on your network
 
 ## Preview
 
@@ -32,6 +31,7 @@ To preview the doc, run the following command:
 ```bash
 npm run preview
 ```
+This is a time-consuming action
 
 Or
 ```bash
@@ -45,7 +45,7 @@ The second command allows you to build the page that you assigned straightly. Pl
 After generation finished, don't quit server process, run the following command in other terminal context:
 
 ```bash
-gulp prune-left-bar
+npx gulp prune-left-bar
 ```
 
 This will remove unused links from left bar.
