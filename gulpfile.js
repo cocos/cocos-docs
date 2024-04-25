@@ -120,7 +120,7 @@ function restoreIgnore (path) {
 }
 
 function openServer (done) {
-    var server = exec('gitbook serve --no-watch --open');
+    var server = exec('npx gitbook serve --no-watch --open');
     server.stderr.on('error', error => {
         if(error) {
            return done(error);
