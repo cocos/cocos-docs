@@ -45,10 +45,10 @@ function click() {
 <style>
 .feedback-area {
     padding-left: 16px;
-    & button {
+}
+.feedback-area button {
         border: 1px solid var(--vp-c-divider);
         padding: 0 8px;
         border-radius: 4px;
     }
-}
 </style>

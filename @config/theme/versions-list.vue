@@ -55,18 +55,18 @@ function changeVersion(e) {
     margin-left: 20px;
     display: flex;
     align-items: center;
-    & .current {
-        background-color: var(--vp-sidebar-bg-color, #f6f6f7);
-        padding: 0 12px;
-        border-radius: 6px;
-    }
-    & select {
-        margin-left: 4px;
-        border: 1px solid var(--vp-c-divider);
-        padding: 0 10px;
-        min-width: 40px;
-        text-align: center;
-        border-radius: 6px;
-    }
+}
+.history-version-list  .current {
+    background-color: var(--vp-sidebar-bg-color, #f6f6f7);
+    padding: 0 12px;
+    border-radius: 6px;
+}
+.history-version-list select {
+    margin-left: 4px;
+    border: 1px solid var(--vp-c-divider);
+    padding: 0 10px;
+    min-width: 40px;
+    text-align: center;
+    border-radius: 6px;
 }
 </style>
