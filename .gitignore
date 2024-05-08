@@ -13,3 +13,5 @@ _book/
 *.pdf
 *.mobi
 *.history
+cache/
+dist/

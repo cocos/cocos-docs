@@ -1,0 +1,45 @@
+[
+    {
+        "text": "简介",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "关于 Cocos Creator",
+                "link": "getting-started/introduction/index.md"
+            },
+            {
+                "text": "获取帮助和支持",
+                "link": "getting-started/support.md"
+            }
+        ]
+    },
+    {
+        "text": "基础知识",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "新手上路",
+                "link": "getting-started/index.md",
+                "items": [
+                    {
+                        "text": "安装和启动",
+                        "link": "getting-started/install/index.md"
+                    },
+                    {
+                        "text": "使用 Dashboard",
+                        "link": "getting-started/dashboard/index.md"
+                    },
+                    {
+                        "text": "Hello World!",
+                        "link": "getting-started/helloworld/index.md"
+                    },
+                    {
+                        "text": "项目结构",
+                        "link": "getting-started/project-structure/index.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    }
+]

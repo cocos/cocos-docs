@@ -1,0 +1,46 @@
+[
+    {
+        "text": "Introduction",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "About Cocos Creator",
+                "link": "getting-started/introduction/index.md"
+            },
+            {
+                "text": "Support",
+                "link": "getting-started/support.md"
+            }
+        ]
+    },
+    {
+        "text": "Understanding the Basics",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "Getting Started",
+                "link": "getting-started/index.md",
+                "items": [
+                    {
+                        "text": "Install and Launch",
+                        "link": "getting-started/install/index.md"
+                    },
+                    {
+                        "text": "Dashboard",
+                        "link": "getting-started/dashboard/index.md"
+                    },
+                    {
+                        "text": "Hello World!",
+                        "link": "getting-started/helloworld/index.md"
+                    },
+                    {
+                        "text": "Project Structure",
+                        "link": "getting-started/project-structure/index.md"
+                    }
+                ],
+                "collapsed": true
+            }
+           
+        ]
+    }
+]
