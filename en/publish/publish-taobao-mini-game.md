@@ -81,5 +81,4 @@ Taobao Mini Game currently does not support the following features:
 - [Introduction to Taobao Mini Game](https://miniapp.open.taobao.com/doc.htm?docId=121646&docType=1&tag=game-info)
 - [Taobao Mini Game API Documentation](https://miniapp.open.taobao.com/doc.htm?docId=121112&docType=1&tag=game-dev)
 - [Download Taobao Developer Tools](https://developer.taobao.com/?spm=a219a.15212435.0.0.7892669alqxNjY)
-- [Taobao Developer Tools Introduction](https://miniapp.open.taobao.com/doc.htm?docId=119189&docType=1&tag=dev)
 - [Taobao Developer Tools Real Device Debugging](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=game-dev)
