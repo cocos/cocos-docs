@@ -4,7 +4,7 @@ Cocos Creator 从 v2.4.12 开始支持将游戏发布到 **淘宝小游戏**。
 
 ## 准备工作
 
-- 参考 [淘宝小游戏接入指南](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121007&treeId=804)，在淘宝开放平台完成开发者入驻流程和应用创建。
+- 参考 [淘宝小游戏接入指南](https://miniapp.open.taobao.com/doc.htm?docId=121732&docType=1&tag=game-info)，在淘宝开放平台完成开发者入驻流程和应用创建。
 
 - 桌面端下载 [淘宝开发者工具](https://developer.taobao.com/?spm=a219a.15212435.0.0.11ef669aIQNlnI) 并安装。
 
@@ -46,7 +46,7 @@ Cocos Creator 从 v2.4.12 开始支持将游戏发布到 **淘宝小游戏**。
 
   ![build](./publish-taobao-mini-game/build.png)
 
-- 使用 **淘宝开发者工具** 打开构建生成的 **taobao-minigame** 文件夹，即可打开淘宝小游戏项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119188&docType=1&tag=dev)。
+- 使用 **淘宝开发者工具** 打开构建生成的 **taobao-minigame** 文件夹，即可打开淘宝小游戏项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=121682&docType=1&tag=game-dev)。
 
   ![preview](./publish-taobao-mini-game/preview.png)
 
@@ -74,10 +74,9 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 
 ## 参考链接
 
-- [淘宝开放平台开发指南](https://miniapp.open.taobao.com/docV3.htm?docId=119114&docType=1&tag=dev)
-- [淘宝开发者入驻文档](https://miniapp.open.taobao.com/doc.htm?spm=a219a.15212435.0.0.4f44669ay8X5vm&docId=119111&docType=1&)
-- [淘宝小游戏介绍](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121009&treeId=804)
-- [淘宝小游戏 API 文档](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121112&treeId=805)
+- [淘宝小游戏接入全链路](https://miniapp.open.taobao.com/doc.htm?docId=121719&docType=1&tag=game-dev)
+- [淘宝开发者入驻文档](https://miniapp.open.taobao.com/doc.htm?docId=121648&docType=1&tag=game-info)
+- [淘宝小游戏介绍](https://miniapp.open.taobao.com/doc.htm?docId=121646&docType=1&tag=game-info)
+- [淘宝小游戏 API 文档](https://miniapp.open.taobao.com/doc.htm?docId=121112&docType=1&tag=game-dev)
 - [淘宝开发者工具下载](https://developer.taobao.com/?spm=a219a.15212435.0.0.7892669alqxNjY)
-- [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119189&docType=1&tag=dev)
-- [淘宝开发者工具真机调试](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=dev)
+- [淘宝开发者工具真机调试](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=game-dev)

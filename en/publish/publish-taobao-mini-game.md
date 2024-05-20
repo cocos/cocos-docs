@@ -4,7 +4,7 @@ Cocos Creator has supported publishing games to **Taobao Mini Game** since versi
 
 ## Preparations
 
-- Refer to the [Taobao Mini Game Integration Guide](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121007&treeId=804) and complete the developer onboarding process and application creation on the Taobao Open Platform.
+- Refer to the [Taobao Mini Game Integration Guide](https://miniapp.open.taobao.com/doc.htm?docId=121732&docType=1&tag=game-info) and complete the developer onboarding process and application creation on the Taobao Open Platform.
 
 - Download and install the [Taobao Developer Tools](https://developer.taobao.com/?spm=a219a.15212435.0.0.11ef669aIQNlnI) for desktop.
 
@@ -44,7 +44,7 @@ Here are the rules for configuring the relevant parameters:
 
   ![build](./publish-taobao-mini-game/build.png)
 
-- Use the **Taobao Developer Tools** to open the generated **taobao-minigame** folder, where you can preview and debug the game content. Refer to the [Taobao Developer Tools Introduction](https://miniapp.open.taobao.com/doc.htm?docId=119188&docType=1&tag=dev) for specific usage instructions.
+- Use the **Taobao Developer Tools** to open the generated **taobao-minigame** folder, where you can preview and debug the game content. Refer to the [Taobao Developer Tools Introduction](https://miniapp.open.taobao.com/doc.htm?docId=121682&docType=1&tag=game-dev) for specific usage instructions.
 
   ![preview](./publish-taobao-mini-game/preview.png)
 
@@ -76,10 +76,10 @@ Taobao Mini Game currently does not support the following features:
 
 ## References
 
-- [Taobao Open Platform Development Guide](https://miniapp.open.taobao.com/docV3.htm?docId=119114&docType=1&tag=dev)
-- [Taobao Developer Onboarding Documentation](https://miniapp.open.taobao.com/doc.htm?spm=a219a.15212435.0.0.4f44669ay8X5vm&docId=119111&docType=1&)
-- [Introduction to Taobao Mini Game](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121009&treeId=804)
-- [Taobao Mini Game API Documentation](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121112&treeId=805)
+- [Taobao Open Platform Development Guide](https://miniapp.open.taobao.com/doc.htm?docId=121719&docType=1&tag=game-dev)
+- [Taobao Developer Onboarding Documentation](https://miniapp.open.taobao.com/doc.htm?docId=121648&docType=1&tag=game-info)
+- [Introduction to Taobao Mini Game](https://miniapp.open.taobao.com/doc.htm?docId=121646&docType=1&tag=game-info)
+- [Taobao Mini Game API Documentation](https://miniapp.open.taobao.com/doc.htm?docId=121112&docType=1&tag=game-dev)
 - [Download Taobao Developer Tools](https://developer.taobao.com/?spm=a219a.15212435.0.0.7892669alqxNjY)
 - [Taobao Developer Tools Introduction](https://miniapp.open.taobao.com/doc.htm?docId=119189&docType=1&tag=dev)
-- [Taobao Developer Tools Real Device Debugging](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=dev)
+- [Taobao Developer Tools Real Device Debugging](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=game-dev)

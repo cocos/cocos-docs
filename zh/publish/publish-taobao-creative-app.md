@@ -44,7 +44,7 @@ Cocos Creator 从 v2.4.11 开始支持将游戏发布到 **淘宝小程序创意
 
   ![build](./publish-taobao-creative-app/build.png)
 
-- 使用 **淘宝开发者工具** 打开构建生成的 **taobao** 文件夹，即可打开淘宝小程序创意互动项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119188&docType=1&tag=dev)。
+- 使用 **淘宝开发者工具** 打开构建生成的 **taobao** 文件夹，即可打开淘宝小程序创意互动项目及预览调试游戏内容。开发者工具的具体使用方式请参考 [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=121682&docType=1&tag=game-dev)。
 
   ![preview](./publish-taobao-creative-app/preview.png)
 
@@ -66,10 +66,9 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 
 ## 参考链接
 
-- [淘宝开放平台开发指南](https://miniapp.open.taobao.com/docV3.htm?docId=119114&docType=1&tag=dev)
-- [淘宝开发者入驻文档](https://miniapp.open.taobao.com/doc.htm?spm=a219a.15212435.0.0.4f44669ay8X5vm&docId=119111&docType=1&)
+- [淘宝小游戏接入全链路](https://miniapp.open.taobao.com/doc.htm?docId=121719&docType=1&tag=game-dev)
+- [淘宝小游戏注册与入驻](https://miniapp.open.taobao.com/doc.htm?docId=121648&docType=1&tag=game-info)
 - [淘宝小程序创意互动介绍](https://miniapp.open.taobao.com/doc.htm?docId=119177&docType=1&tag=dev)
 - [淘宝小程序创意互动 API 文档](https://miniapp.open.taobao.com/doc.htm?docId=119062&docType=1&tag=dev)
 - [淘宝开发者工具下载](https://developer.taobao.com/?spm=a219a.15212435.0.0.7892669alqxNjY)
-- [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119189&docType=1&tag=dev)
-- [淘宝开发者工具真机调试](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=dev)
+- [淘宝开发者工具真机调试](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=game-dev)
