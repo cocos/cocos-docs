@@ -39,4 +39,3 @@ node ./scripts/publish.js versions/3.8
 node ./scripts/publish.js versions/all
 
 >上文中的 3.8 替换为对应版本即可实现版本发布
-
