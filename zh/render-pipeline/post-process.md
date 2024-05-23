@@ -1,3 +1,0 @@
-# 后期处理
-
-要新建一个后期处理需要新建一个RenderFlow脚本，然后将其type设为POSTPROCESS。制作流程与其它RenderFlow相同，但RenderPipeline不会自动执行后期处理，需要在Camera中设置flows属性来指定执行哪些后期处理。

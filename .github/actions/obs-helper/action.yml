@@ -1,0 +1,50 @@
+# action.yml
+name: 'Huawei Cloud OBS Helper Action'
+description: 'Upload/Download files or folders to Huawei Cloud OBS'
+inputs:
+  access_key:
+    description: "Access key id"
+    required: false
+  secret_key:
+    description: "Secret access key"
+    required: false
+  region:
+    description: 'Region'
+    required: false
+    default: 'cn-north-4'
+  bucket_name:
+    description: "The name of the bucket"
+    required: true
+  operation_type:
+    description: "Use 'download' to download object from obs, use 'upload' to upload object to obs, use 'createbucket' to create a new bucket, and use 'deletebucket' to delete a bucket."
+    required: true
+  local_file_path:
+    description: "Local file/folder path"
+    required: false
+  obs_file_path:
+    description: "The file/folder path of obs bucket"
+    required: false  
+  include_self_folder:
+    description: "Include root folder when upload or download"
+    required: false
+    default: false
+  exclude:
+    description: "Exclude file or folder when download a folder"
+    required: false
+  public_read:
+    description: "Whether to enable the public read permission of the bucket."
+    required: false
+    default: false
+  storage_class:
+    description: "Bucket storage class that can be specified during the bucket creation"
+    required: false
+  clear_bucket:
+    description: "Whether to delete all objects and parts in the bucket"
+    required: false
+    default: true
+branding:
+  icon: 'cloud'
+  color: 'red'
+runs:
+  using: 'node16'
+  main: 'src/index.js'

@@ -1,0 +1,108 @@
+{
+    "structure": {
+        "summary": "SUMMARY.md",
+        "readme": "index.md"
+    },
+    "variables": {
+        "docType": "Manual",
+        "products": [
+            {
+                "name": "Cocos Creator",
+                "links": [
+                    {
+                        "name": "Manual",
+                        "link": "https://docs.cocos.com/creator/3.8/manual/en"
+                    },
+                    {
+                        "name": "API Ref",
+                        "link": "https://docs.cocos.com/creator/3.8/api/en/"
+                    }
+                ]
+            },
+            {
+                "name": "Cocos2d-x",
+                "links": [
+                    {
+                        "name": "Manual",
+                        "link": "https://docs.cocos.com/cocos2d-x/manual/en"
+                    },
+                    {
+                        "name": "API Ref",
+                        "link": "http://docs.cocos2d-x.org/api-ref/index.html"
+                    }
+                ]
+            }
+        ],
+        "version": [
+            {
+                "name": "3.8",
+                "links": [
+                    {
+                        "name": "3.8",
+                        "link": "https://docs.cocos.com/creator/3.8/manual/en"
+                    },
+                    {
+                        "name": "3.7",
+                        "link": "https://docs.cocos.com/creator/3.7/manual/en"
+                    },
+                    {
+                        "name": "3.6",
+                        "link": "https://docs.cocos.com/creator/3.6/manual/en"
+                    },
+                    {
+                        "name": "3.5",
+                        "link": "https://docs.cocos.com/creator/3.5/manual/en"
+                    },
+                    {
+                        "name": "3.4",
+                        "link": "https://docs.cocos.com/creator/3.4/manual/en"
+                    },
+                    {
+                        "name": "3.3",
+                        "link": "https://docs.cocos.com/creator/3.3/manual/en"
+                    },
+                    {
+                        "name": "3.2",
+                        "link": "https://docs.cocos.com/creator/3.2/manual/en"
+                    },
+                    {
+                        "name": "3.1",
+                        "link": "https://docs.cocos.com/creator/3.1/manual/en"
+                    },
+                    {
+                        "name": "3.0",
+                        "link": "https://docs.cocos.com/creator/3.0/manual/en"
+                    },
+                    {
+                        "name": "2.4",
+                        "link": "https://docs.cocos.com/creator/2.4/manual/en"
+                    },
+                    {
+                        "name": "2.3",
+                        "link": "https://docs.cocos.com/creator/2.3/manual/en"
+                    },
+                    {
+                        "name": "2.2",
+                        "link": "https://docs.cocos.com/creator/2.2/manual/en"
+                    },
+                    {
+                        "name": "2.1",
+                        "link": "https://docs.cocos.com/creator/2.1/manual/en"
+                    },
+                    {
+                        "name": "2.0",
+                        "link": "https://docs.cocos.com/creator/2.0/manual/en"
+                    },
+                    {
+                        "name": "1.10",
+                        "link": "https://docs.cocos.com/creator/1.10/manual/en"
+                    },
+                    {
+                        "name": "1.9",
+                        "link": "https://docs.cocos.com/creator/1.9/manual/en"
+                    }
+                ]
+            }
+        ]
+    }
+}

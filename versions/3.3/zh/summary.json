@@ -1,0 +1,1410 @@
+[
+    {
+        "text": "新手入门",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "基础使用",
+                "link": "getting-started/index.md",
+                "items": [
+                    {
+                        "text": "关于 Cocos Creator",
+                        "link": "getting-started/introduction/index.md"
+                    },
+                    {
+                        "text": "安装和启动",
+                        "link": "getting-started/install/index.md"
+                    },
+                    {
+                        "text": "使用 Dashboard",
+                        "link": "getting-started/dashboard/index.md"
+                    },
+                    {
+                        "text": "Hello World!",
+                        "link": "getting-started/helloworld/index.md"
+                    },
+                    {
+                        "text": "项目结构",
+                        "link": "getting-started/project-structure/index.md"
+                    },
+                    {
+                        "text": "编辑器界面",
+                        "link": "editor/index.md",
+                        "items": [
+                            {
+                                "text": "场景编辑器",
+                                "link": "editor/scene/index.md"
+                            },
+                            {
+                                "text": "层级管理器",
+                                "link": "editor/hierarchy/index.md"
+                            },
+                            {
+                                "text": "资源管理器",
+                                "link": "editor/assets/index.md"
+                            },
+                            {
+                                "text": "属性检查器",
+                                "link": "editor/inspector/index.md"
+                            },
+                            {
+                                "text": "控制台",
+                                "link": "editor/console/index.md"
+                            },
+                            {
+                                "text": "偏好设置",
+                                "link": "editor/preferences/index.md"
+                            },
+                            {
+                                "text": "项目设置",
+                                "link": "editor/project/index.md"
+                            },
+                            {
+                                "text": "主菜单",
+                                "link": "editor/mainMenu/index.md"
+                            },
+                            {
+                                "text": "工具栏",
+                                "link": "editor/toolbar/index.md"
+                            },
+                            {
+                                "text": "编辑器布局",
+                                "link": "editor/editor-layout/index.md"
+                            },
+                            {
+                                "text": "预览调试",
+                                "link": "editor/preview/index.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "获取帮助和支持",
+                        "link": "getting-started/support.md"
+                    },
+                    {
+                        "text": "注意事项",
+                        "link": "getting-started/attention/index.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "快速上手：制作第一个游戏",
+                "link": "getting-started/first-game/index.md"
+            },
+            {
+                "text": "升级指南",
+                "link": "release-notes/index.md",
+                "items": [
+                    {
+                        "text": "v3.0 升级指南",
+                        "link": "release-notes/upgrade-guide-v3.0.md"
+                    },
+                    {
+                        "text": "v3.0 材质升级指南",
+                        "link": "material-system/effect-2.x-to-3.0.md"
+                    },
+                    {
+                        "text": "v3.1 材质升级指南",
+                        "link": "material-system/Material-upgrade-documentation-for-v3.0-to-v3.1.md"
+                    },
+                    {
+                        "text": "v3.3 动画剪辑数据升级指南",
+                        "link": "animation/animation-clip-migration-3.3.x.md"
+                    },
+                    {
+                        "text": "资源分包升级指南",
+                        "link": "asset/subpackage-upgrade-guide.md"
+                    },
+                    {
+                        "text": "资源管理模块升级指南",
+                        "link": "asset/asset-manager-upgrade-guide.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    },
+    {
+        "text": "基本工作流",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "场景制作",
+                "link": "concepts/scene/index.md",
+                "items": [
+                    {
+                        "text": "场景资源",
+                        "link": "asset/scene.md"
+                    },
+                    {
+                        "text": "节点和组件",
+                        "link": "concepts/scene/node-component.md"
+                    },
+                    {
+                        "text": "坐标系和节点变换",
+                        "link": "concepts/scene/coord.md"
+                    },
+                    {
+                        "text": "节点层级和渲染顺序",
+                        "link": "concepts/scene/node-tree.md"
+                    },
+                    {
+                        "text": "使用场景编辑器搭建场景",
+                        "link": "concepts/scene/scene-editing.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "资源系统",
+                "link": "asset/index.md",
+                "items": [
+                    {
+                        "text": "资源工作流",
+                        "link": "asset/asset-workflow.md"
+                    },
+                    {
+                        "text": "图像资源",
+                        "link": "asset/image.md",
+                        "items": [
+                            {
+                                "text": "纹理贴图资源",
+                                "link": "asset/texture.md"
+                            },
+                            {
+                                "text": "精灵帧资源",
+                                "link": "asset/sprite-frame.md",
+                                "items": [
+                                    {
+                                        "text": "图像资源的自动剪裁",
+                                        "link": "ui-system/components/engine/trim.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "立方体贴图资源",
+                                "link": "asset/texture-cube.md"
+                            },
+                            {
+                                "text": "图集资源",
+                                "link": "asset/atlas.md"
+                            },
+                            {
+                                "text": "自动图集资源",
+                                "link": "asset/auto-atlas.md"
+                            },
+                            {
+                                "text": "艺术数字资源",
+                                "link": "asset/label-atlas.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "预制资源",
+                        "link": "asset/prefab.md"
+                    },
+                    {
+                        "text": "字体资源",
+                        "link": "asset/font.md"
+                    },
+                    {
+                        "text": "音频资源",
+                        "link": "asset/audio.md"
+                    },
+                    {
+                        "text": "材质资源",
+                        "link": "asset/material.md"
+                    },
+                    {
+                        "text": "模型资源",
+                        "link": "asset/model/mesh.md",
+                        "items": [
+                            {
+                                "text": "从第三方工具导出模型资源",
+                                "link": "asset/model/dcc-export-mesh.md"
+                            },
+                            {
+                                "text": "glTF 模型",
+                                "link": "asset/model/glTF.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Spine 骨骼动画资源",
+                        "link": "asset/spine.md"
+                    },
+                    {
+                        "text": "DragonBones 骨骼动画资源",
+                        "link": "asset/dragonbones.md"
+                    },
+                    {
+                        "text": "TiledMap 瓦片图资源",
+                        "link": "asset/tiledmap.md"
+                    },
+                    {
+                        "text": "JSON 资源",
+                        "link": "asset/json.md"
+                    },
+                    {
+                        "text": "文本资源",
+                        "link": "asset/text.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "脚本指南及事件机制",
+                "link": "scripting/index.md",
+                "items": [
+                    {
+                        "text": "编程语言支持",
+                        "link": "scripting/language-support.md"
+                    },
+                    {
+                        "text": "脚本基础",
+                        "link": "scripting/script-basics.md",
+                        "items": [
+                            {
+                                "text": "创建脚本",
+                                "link": "scripting/setup.md"
+                            },
+                            {
+                                "text": "配置代码编辑环境",
+                                "link": "scripting/coding-setup.md"
+                            },
+                            {
+                                "text": "脚本运行环境",
+                                "link": "scripting/basic.md"
+                            },
+                            {
+                                "text": "装饰器使用",
+                                "link": "scripting/decorator.md"
+                            },
+                            {
+                                "text": "属性参数参考",
+                                "link": "scripting/reference/attributes.md"
+                            },
+                            {
+                                "text": "生命周期回调",
+                                "link": "scripting/life-cycle-callbacks.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "脚本使用",
+                        "link": "scripting/usage.md",
+                        "items": [
+                            {
+                                "text": "访问节点和其他组件",
+                                "link": "scripting/access-node-component.md"
+                            },
+                            {
+                                "text": "常用节点和组件接口",
+                                "link": "scripting/basic-node-api.md"
+                            },
+                            {
+                                "text": "创建和销毁节点",
+                                "link": "scripting/create-destroy.md"
+                            },
+                            {
+                                "text": "使用计时器",
+                                "link": "scripting/scheduler.md"
+                            },
+                            {
+                                "text": "组件和组件执行顺序",
+                                "link": "scripting/component.md"
+                            },
+                            {
+                                "text": "加载和切换场景",
+                                "link": "scripting/scene-managing.md"
+                            },
+                            {
+                                "text": "获取和加载资源",
+                                "link": "scripting/load-assets.md"
+                            },
+                            {
+                                "text": "tsconfig 配置",
+                                "link": "scripting/tsconfig.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "脚本进阶",
+                        "link": "scripting/reference-class.md"
+                    },
+                    {
+                        "text": "事件系统",
+                        "link": "engine/event/index.md",
+                        "items": [
+                            {
+                                "text": "发射和监听事件",
+                                "link": "engine/event/event-emit.md"
+                            },
+                            {
+                                "text": "节点系统事件",
+                                "link": "engine/event/event-builtin.md"
+                            },
+                            {
+                                "text": "全局系统事件",
+                                "link": "engine/event/event-input.md"
+                            },
+                            {
+                                "text": "事件 API",
+                                "link": "engine/event/event-api.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "模块规范与示例",
+                        "link": "scripting/modules/index.md",
+                        "items": [
+                            {
+                                "text": "引擎模块",
+                                "link": "scripting/modules/engine.md"
+                            },
+                            {
+                                "text": "外部模块使用案例",
+                                "link": "scripting/modules/example.md"
+                            },
+                            {
+                                "text": "模块规范",
+                                "link": "scripting/modules/spec.md"
+                            },
+                            {
+                                "text": "导入映射",
+                                "link": "scripting/modules/import-map.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "插件脚本",
+                        "link": "scripting/external-scripts.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "跨平台发布",
+                "link": "editor/publish/index.md",
+                "items": [
+                    {
+                        "text": "熟悉构建发布面板",
+                        "link": "editor/publish/build-panel.md"
+                    },
+                    {
+                        "text": "通用构建选项介绍",
+                        "link": "editor/publish/build-options.md"
+                    },
+                    {
+                        "text": "发布到 Web 平台",
+                        "link": "editor/publish/publish-web.md"
+                    },
+                    {
+                        "text": "发布到原生平台",
+                        "link": "editor/publish/native-options.md",
+                        "items": [
+                            {
+                                "text": "发布 HUAWEI HarmonyOS 应用",
+                                "link": "editor/publish/publish-huawei-ohos.md"
+                            },
+                            {
+                                "text": "安装配置原生环境",
+                                "link": "editor/publish/setup-native-development.md"
+                            },
+                            {
+                                "text": "原生平台 JavaScript 调试",
+                                "link": "editor/publish/debug-jsb.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "发布到小游戏平台",
+                        "link": "editor/publish/publish-mini-game.md",
+                        "items": [
+                            {
+                                "text": "发布到 HUAWEI AppGallery Connect",
+                                "link": "editor/publish/publish-huawei-agc.md"
+                            },
+                            {
+                                "text": "发布到支付宝小游戏",
+                                "link": "editor/publish/publish-alipay-mini-game.md"
+                            },
+                            {
+                                "text": "发布到字节跳动小游戏",
+                                "link": "editor/publish/publish-bytedance-mini-game.md"
+                            },
+                            {
+                                "text": "发布到华为快游戏",
+                                "link": "editor/publish/publish-huawei-quick-game.md"
+                            },
+                            {
+                                "text": "发布到 OPPO 小游戏",
+                                "link": "editor/publish/publish-oppo-mini-game.md"
+                            },
+                            {
+                                "text": "发布到 vivo 小游戏",
+                                "link": "editor/publish/publish-vivo-mini-game.md"
+                            },
+                            {
+                                "text": "发布到小米快游戏",
+                                "link": "editor/publish/publish-xiaomi-quick-game.md"
+                            },
+                            {
+                                "text": "发布到百度小游戏",
+                                "link": "editor/publish/publish-baidu-mini-game.md"
+                            },
+                            {
+                                "text": "发布到微信小游戏",
+                                "link": "editor/publish/publish-wechatgame.md",
+                                "items": [
+                                    {
+                                        "text": "启用微信小游戏引擎插件",
+                                        "link": "editor/publish/wechatgame-plugin.md"
+                                    },
+                                    {
+                                        "text": "接入微信 PC 小游戏",
+                                        "link": "editor/publish/publish-pc-wechatgame.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "开放数据域",
+                                "link": "editor/publish/build-open-data-context.md"
+                            },
+                            {
+                                "text": "小游戏分包",
+                                "link": "editor/publish/subpackage.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "命令行发布项目",
+                        "link": "editor/publish/publish-in-command-line.md"
+                    },
+                    {
+                        "text": "构建流程简介与常见错误处理",
+                        "link": "editor/publish/build-guide.md"
+                    },
+                    {
+                        "text": "定制项目的构建模版",
+                        "link": "editor/publish/custom-project-build-template.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    },
+    {
+        "text": "功能模块",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "图形渲染",
+                "link": "module-map/graphics.md",
+                "items": [
+                    {
+                        "text": "渲染管线",
+                        "link": "render-pipeline/overview.md",
+                        "items": [
+                            {
+                                "text": "内置管线",
+                                "link": "render-pipeline/builtin-pipeline.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "相机",
+                        "link": "editor/components/camera-component.md"
+                    },
+                    {
+                        "text": "光照",
+                        "link": "concepts/scene/light.md",
+                        "items": [
+                            {
+                                "text": "基于物理的光照",
+                                "link": "concepts/scene/light/pbr-lighting.md"
+                            },
+                            {
+                                "text": "光源",
+                                "link": "concepts/scene/light/lightType/index.md",
+                                "items": [
+                                    {
+                                        "text": "平行光",
+                                        "link": "concepts/scene/light/lightType/dir-light.md"
+                                    },
+                                    {
+                                        "text": "球面光",
+                                        "link": "concepts/scene/light/lightType/sphere-light.md"
+                                    },
+                                    {
+                                        "text": "聚光灯",
+                                        "link": "concepts/scene/light/lightType/spot-light.md"
+                                    },
+                                    {
+                                        "text": "环境光",
+                                        "link": "concepts/scene/light/lightType/ambient.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "基于多 Pass 的多光源支持",
+                                "link": "concepts/scene/light/additive-per-pixel-lights.md"
+                            },
+                            {
+                                "text": "阴影",
+                                "link": "concepts/scene/light/shadow.md"
+                            },
+                            {
+                                "text": "光照贴图",
+                                "link": "concepts/scene/light/lightmap.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "网格",
+                        "link": "module-map/mesh/index.md",
+                        "items": [
+                            {
+                                "text": "MeshRenderer",
+                                "link": "engine/renderable/model-component.md"
+                            },
+                            {
+                                "text": "SkinnedMeshRenderer 组件",
+                                "link": "module-map/mesh/skinnedMeshRenderer.md"
+                            },
+                            {
+                                "text": "SkinnedMeshBatchRenderer 组件",
+                                "link": "module-map/mesh/skinnedMeshBatchRenderer.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "纹理",
+                        "link": "module-map/texture/index.md",
+                        "items": [
+                            {
+                                "text": "压缩纹理",
+                                "link": "asset/compress-texture.md"
+                            },
+                            {
+                                "text": "渲染纹理",
+                                "link": "asset/render-texture.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "材质系统",
+                        "link": "material-system/overview.md",
+                        "items": [
+                            {
+                                "text": "YAML 101",
+                                "link": "material-system/yaml-101.md"
+                            },
+                            {
+                                "text": "Effect Syntax",
+                                "link": "material-system/effect-syntax.md"
+                            },
+                            {
+                                "text": "Pass Params",
+                                "link": "material-system/pass-parameter-list.md"
+                            },
+                            {
+                                "text": "Builtin Shader Uniforms",
+                                "link": "material-system/builtin-shader-uniforms.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "特效组件",
+                        "link": "module-map/effects/index.md",
+                        "items": [
+                            {
+                                "text": "广告牌",
+                                "link": "particle-system/billboard-component.md"
+                            },
+                            {
+                                "text": "线段组件",
+                                "link": "particle-system/line-component.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "天空盒",
+                        "link": "concepts/scene/skybox.md"
+                    },
+                    {
+                        "text": "全局雾",
+                        "link": "concepts/scene/fog.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "2D 对象",
+                "link": "2d-object/index.md",
+                "items": [
+                    {
+                        "text": "2D 渲染",
+                        "link": "2d-object/2d-render/index.md",
+                        "items": [
+                            {
+                                "text": "渲染排序规则",
+                                "link": "ui-system/components/engine/priority.md"
+                            },
+                            {
+                                "text": "2D 渲染组件合批说明",
+                                "link": "ui-system/components/engine/ui-batch.md"
+                            },
+                            {
+                                "text": "2D 渲染对象自定义材质",
+                                "link": "ui-system/components/engine/ui-material.md"
+                            },
+                            {
+                                "text": "2D 渲染组件",
+                                "link": "ui-system/components/editor/render-component.md",
+                                "items": [
+                                    {
+                                        "text": "Sprite 组件参考",
+                                        "link": "ui-system/components/editor/sprite.md"
+                                    },
+                                    {
+                                        "text": "Label 组件参考",
+                                        "link": "ui-system/components/editor/label.md"
+                                    },
+                                    {
+                                        "text": "Mask 组件参考",
+                                        "link": "ui-system/components/editor/mask.md"
+                                    },
+                                    {
+                                        "text": "Graphics 组件参考",
+                                        "link": "ui-system/components/editor/graphics.md"
+                                    },
+                                    {
+                                        "text": "RichText 组件参考",
+                                        "link": "ui-system/components/editor/richtext.md"
+                                    },
+                                    {
+                                        "text": "UIStaticBatch 组件参考",
+                                        "link": "ui-system/components/editor/ui-static.md"
+                                    },
+                                    {
+                                        "text": "Spine Skeleton 组件参考",
+                                        "link": "editor/components/spine.md"
+                                    },
+                                    {
+                                        "text": "DragonBones ArmatureDisplay 组件参考",
+                                        "link": "editor/components/dragonbones.md"
+                                    },
+                                    {
+                                        "text": "TiledMap 组件参考",
+                                        "link": "editor/components/tiledmap.md"
+                                    },
+                                    {
+                                        "text": "TiledTile 组件参考",
+                                        "link": "editor/components/tiledtile.md"
+                                    },
+                                    {
+                                        "text": "MotionStreak",
+                                        "link": "editor/components/motion-streak.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "UI 系统",
+                        "link": "2d-object/ui-system/index.md",
+                        "items": [
+                            {
+                                "text": "UI 组件",
+                                "link": "ui-system/components/editor/base-component.md",
+                                "items": [
+                                    {
+                                        "text": "Canvas 组件参考",
+                                        "link": "ui-system/components/editor/canvas.md"
+                                    },
+                                    {
+                                        "text": "UITransform 组件参考",
+                                        "link": "ui-system/components/editor/ui-transform.md"
+                                    },
+                                    {
+                                        "text": "Widget 组件参考",
+                                        "link": "ui-system/components/editor/widget.md"
+                                    },
+                                    {
+                                        "text": "Button 组件参考",
+                                        "link": "ui-system/components/editor/button.md"
+                                    },
+                                    {
+                                        "text": "Layout 组件参考",
+                                        "link": "ui-system/components/editor/layout.md"
+                                    },
+                                    {
+                                        "text": "EditBox 组件参考",
+                                        "link": "ui-system/components/editor/editbox.md"
+                                    },
+                                    {
+                                        "text": "ScrollView 组件参考",
+                                        "link": "ui-system/components/editor/scrollview.md"
+                                    },
+                                    {
+                                        "text": "ScrollBar 组件参考",
+                                        "link": "ui-system/components/editor/scrollbar.md"
+                                    },
+                                    {
+                                        "text": "ProgressBar 组件参考",
+                                        "link": "ui-system/components/editor/progress.md"
+                                    },
+                                    {
+                                        "text": "LabelOutline 组件参考",
+                                        "link": "ui-system/components/editor/label-outline.md"
+                                    },
+                                    {
+                                        "text": "LabelShadow 组件参考",
+                                        "link": "ui-system/components/editor/label-shadow.md"
+                                    },
+                                    {
+                                        "text": "Toggle 组件参考",
+                                        "link": "ui-system/components/editor/toggle.md"
+                                    },
+                                    {
+                                        "text": "ToggleContainer 组件参考",
+                                        "link": "ui-system/components/editor/toggleContainer.md"
+                                    },
+                                    {
+                                        "text": "Slider 组件参考",
+                                        "link": "ui-system/components/editor/slider.md"
+                                    },
+                                    {
+                                        "text": "PageView 组件参考",
+                                        "link": "ui-system/components/editor/pageview.md"
+                                    },
+                                    {
+                                        "text": "PageViewIndicator 组件参考",
+                                        "link": "ui-system/components/editor/pageviewindicator.md"
+                                    },
+                                    {
+                                        "text": "UIMeshRenderer 组件参考",
+                                        "link": "ui-system/components/editor/ui-model.md"
+                                    },
+                                    {
+                                        "text": "UICoordinateTracker 组件参考",
+                                        "link": "ui-system/components/editor/ui-coordinate-tracker.md"
+                                    },
+                                    {
+                                        "text": "UIOpacity 组件参考",
+                                        "link": "ui-system/components/editor/ui-opacity.md"
+                                    },
+                                    {
+                                        "text": "BlockInputEvents 组件参考",
+                                        "link": "ui-system/components/editor/block-input-events.md"
+                                    },
+                                    {
+                                        "text": "WebView 组件参考",
+                                        "link": "ui-system/components/editor/webview.md"
+                                    },
+                                    {
+                                        "text": "VideoPlayer 组件参考",
+                                        "link": "ui-system/components/editor/videoplayer.md"
+                                    },
+                                    {
+                                        "text": "SafeArea 组件参考",
+                                        "link": "ui-system/components/editor/safearea.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "UI 实践指南",
+                                "link": "ui-system/components/engine/usage-ui.md",
+                                "items": [
+                                    {
+                                        "text": "多分辨率适配方案",
+                                        "link": "ui-system/components/engine/multi-resolution.md"
+                                    },
+                                    {
+                                        "text": "对齐策略",
+                                        "link": "ui-system/components/engine/widget-align.md"
+                                    },
+                                    {
+                                        "text": "文字排版",
+                                        "link": "ui-system/components/engine/label-layout.md"
+                                    },
+                                    {
+                                        "text": "自动布局容器",
+                                        "link": "ui-system/components/engine/auto-layout.md"
+                                    },
+                                    {
+                                        "text": "制作动态生成内容的列表",
+                                        "link": "ui-system/components/engine/list-with-data.md"
+                                    },
+                                    {
+                                        "text": "制作可任意拉伸的 UI 图像",
+                                        "link": "ui-system/components/engine/sliced-sprite.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "动画系统",
+                "link": "animation/index.md",
+                "items": [
+                    {
+                        "text": "动画剪辑",
+                        "link": "animation/animation-clip.md"
+                    },
+                    {
+                        "text": "动画组件参考",
+                        "link": "animation/animation-comp.md"
+                    },
+                    {
+                        "text": "使用动画编辑器",
+                        "link": "animation/animation.md",
+                        "items": [
+                            {
+                                "text": "创建 Animation 组件和动画剪辑",
+                                "link": "animation/animation-create.md"
+                            },
+                            {
+                                "text": "动画编辑器面板介绍",
+                                "link": "animation/animation-editor.md"
+                            },
+                            {
+                                "text": "编辑动画剪辑",
+                                "link": "animation/edit-animation-clip.md",
+                                "items": [
+                                    {
+                                        "text": "关键帧编辑视图",
+                                        "link": "animation/animation-keyFrames.md"
+                                    },
+                                    {
+                                        "text": "曲线编辑视图",
+                                        "link": "animation/animation-curve.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "添加动画事件",
+                                "link": "animation/animation-event.md"
+                            },
+                            {
+                                "text": "程序化编辑动画剪辑",
+                                "link": "animation/use-animation-curve.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "骨骼动画",
+                        "link": "animation/skeletal-animation.md",
+                        "items": [
+                            {
+                                "text": "骨骼贴图布局设置",
+                                "link": "animation/joint-texture-layout.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "程序化控制动画",
+                        "link": "animation/animation-component.md",
+                        "items": [
+                            {
+                                "text": "动画状态",
+                                "link": "animation/animation-state.md"
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "音频系统",
+                "link": "audio-system/overview.md",
+                "items": [
+                    {
+                        "text": "AudioSource 组件参考",
+                        "link": "audio-system/audiosource.md"
+                    },
+                    {
+                        "text": "音频播放示例",
+                        "link": "audio-system/audioExample.md"
+                    },
+                    {
+                        "text": "兼容性说明",
+                        "link": "audio-system/audioLimit.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "物理系统",
+                "link": "physics/index.md",
+                "items": [
+                    {
+                        "text": "2D 物理",
+                        "link": "physics-2d/physics-2d.md",
+                        "items": [
+                            {
+                                "text": "2D 物理系统",
+                                "link": "physics-2d/physics-2d-system.md"
+                            },
+                            {
+                                "text": "2D 刚体组件",
+                                "link": "physics-2d/physics-2d-rigid-body.md"
+                            },
+                            {
+                                "text": "2D 碰撞体",
+                                "link": "physics-2d/physics-2d-collider.md"
+                            },
+                            {
+                                "text": "2D 碰撞回调",
+                                "link": "physics-2d/physics-2d-contact-callback.md"
+                            },
+                            {
+                                "text": "2D 物理关节",
+                                "link": "physics-2d/physics-2d-joint.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "3D 物理",
+                        "link": "physics/physics.md",
+                        "items": [
+                            {
+                                "text": "物理选项",
+                                "link": "physics/physics-item.md"
+                            },
+                            {
+                                "text": "物理系统",
+                                "link": "physics/physics-system.md"
+                            },
+                            {
+                                "text": "物理组件",
+                                "link": "physics/physics-component.md"
+                            },
+                            {
+                                "text": "使用物理",
+                                "link": "physics/physics-use.md",
+                                "items": [
+                                    {
+                                        "text": "使用碰撞器",
+                                        "link": "physics/physics-collider.md"
+                                    },
+                                    {
+                                        "text": "物理配置",
+                                        "link": "editor/project/physics-configs.md"
+                                    },
+                                    {
+                                        "text": "物理材质",
+                                        "link": "physics/physics-material.md"
+                                    },
+                                    {
+                                        "text": "使用刚体",
+                                        "link": "physics/physics-rigidbody.md"
+                                    },
+                                    {
+                                        "text": "物理事件",
+                                        "link": "physics/physics-event.md"
+                                    },
+                                    {
+                                        "text": "分组和掩码",
+                                        "link": "physics/physics-group-mask.md"
+                                    },
+                                    {
+                                        "text": "射线检测",
+                                        "link": "physics/physics-raycast.md"
+                                    },
+                                    {
+                                        "text": "连续碰撞检测",
+                                        "link": "physics/physics-ccd.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "粒子系统",
+                "link": "particle-system/index.md",
+                "items": [
+                    {
+                        "text": "2D 粒子",
+                        "link": "particle-system/2d-particle/2d-particle.md"
+                    },
+                    {
+                        "text": "3D 粒子",
+                        "link": "particle-system/overview.md",
+                        "items": [
+                            {
+                                "text": "粒子系统模块",
+                                "link": "particle-system/module.md",
+                                "items": [
+                                    {
+                                        "text": "主模块",
+                                        "link": "particle-system/main-module.md"
+                                    },
+                                    {
+                                        "text": "发射器模块",
+                                        "link": "particle-system/emitter.md"
+                                    },
+                                    {
+                                        "text": "速度模块",
+                                        "link": "particle-system/velocity-module.md"
+                                    },
+                                    {
+                                        "text": "加速度模块",
+                                        "link": "particle-system/force-module.md"
+                                    },
+                                    {
+                                        "text": "大小模块",
+                                        "link": "particle-system/size-module.md"
+                                    },
+                                    {
+                                        "text": "旋转模块",
+                                        "link": "particle-system/rotation-module.md"
+                                    },
+                                    {
+                                        "text": "颜色模块",
+                                        "link": "particle-system/color-module.md"
+                                    },
+                                    {
+                                        "text": "贴图动画模块",
+                                        "link": "particle-system/texture-animation-module.md"
+                                    },
+                                    {
+                                        "text": "限速模块",
+                                        "link": "particle-system/limit-velocity-module.md"
+                                    },
+                                    {
+                                        "text": "拖尾模块",
+                                        "link": "particle-system/trail-module.md"
+                                    },
+                                    {
+                                        "text": "渲染模块",
+                                        "link": "particle-system/renderer.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "粒子属性编辑",
+                                "link": "particle-system/editor/index.md",
+                                "items": [
+                                    {
+                                        "text": "控制面板",
+                                        "link": "particle-system/editor/particle-effect-panel.md"
+                                    },
+                                    {
+                                        "text": "粒子曲线编辑器",
+                                        "link": "particle-system/editor/curve-editor.md"
+                                    },
+                                    {
+                                        "text": "渐变色编辑器",
+                                        "link": "particle-system/editor/gradient-editor.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "缓动系统",
+                "link": "tween/index.md"
+            },
+            {
+                "text": "地形系统",
+                "link": "editor/terrain/index.md"
+            },
+            {
+                "text": "资源管理",
+                "link": "asset/asset-manager.md",
+                "items": [
+                    {
+                        "text": "loader 升级 assetManager 指南",
+                        "link": "asset/asset-manager-upgrade-guide.md"
+                    },
+                    {
+                        "text": "子包升级 Asset Bundle 指南",
+                        "link": "asset/subpackage-upgrade-guide.md"
+                    },
+                    {
+                        "text": "资源加载",
+                        "link": "asset/dynamic-load-resources.md"
+                    },
+                    {
+                        "text": "Asset Bundle",
+                        "link": "asset/bundle.md"
+                    },
+                    {
+                        "text": "资源释放",
+                        "link": "asset/release-manager.md"
+                    },
+                    {
+                        "text": "下载与解析",
+                        "link": "asset/downloader-parser.md"
+                    },
+                    {
+                        "text": "加载与预加载",
+                        "link": "asset/preload-load.md"
+                    },
+                    {
+                        "text": "缓存管理器",
+                        "link": "asset/cache-manager.md"
+                    },
+                    {
+                        "text": "可选参数",
+                        "link": "asset/options.md"
+                    },
+                    {
+                        "text": "管线与任务",
+                        "link": "asset/pipeline-task.md"
+                    },
+                    {
+                        "text": "资源管理注意事项 - meta 文件",
+                        "link": "asset/meta.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    },
+    {
+        "text": "进阶教程",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "扩展编辑器",
+                "link": "editor/extension/readme.md",
+                "items": [
+                    {
+                        "text": "创建扩展",
+                        "link": "editor/extension/create-extension.md"
+                    },
+                    {
+                        "text": "第一个扩展包",
+                        "link": "editor/extension/first.md"
+                    },
+                    {
+                        "text": "第一个面板",
+                        "link": "editor/extension/first-panel.md"
+                    },
+                    {
+                        "text": "第一次数据交互",
+                        "link": "editor/extension/first-communication.md"
+                    },
+                    {
+                        "text": "安装与分享",
+                        "link": "editor/extension/install.md"
+                    },
+                    {
+                        "text": "提交插件到商店",
+                        "link": "editor/extension/store/upload-store.md"
+                    },
+                    {
+                        "text": "扩展面板",
+                        "link": "editor/extension/panel.md",
+                        "items": [
+                            {
+                                "text": "编写面板",
+                                "link": "editor/extension/panel-boot.md"
+                            },
+                            {
+                                "text": "面板与插件的通信",
+                                "link": "editor/extension/panel-messages.md"
+                            },
+                            {
+                                "text": "与其他面板的通信",
+                                "link": "editor/extension/to-panel-messages.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "扩展已有功能",
+                        "link": "editor/extension/contributions.md",
+                        "items": [
+                            {
+                                "text": "自定义消息",
+                                "link": "editor/extension/contributions-messages.md"
+                            },
+                            {
+                                "text": "快捷键",
+                                "link": "editor/extension/contributions-shortcuts.md"
+                            },
+                            {
+                                "text": "场景脚本",
+                                "link": "editor/extension/scene-script.md"
+                            },
+                            {
+                                "text": "扩展主菜单",
+                                "link": "editor/extension/contributions-menu.md"
+                            },
+                            {
+                                "text": "扩展资源管理器面板",
+                                "link": "editor/assets/extension.md"
+                            },
+                            {
+                                "text": "扩展项目设置面板",
+                                "link": "editor/extension/contributions-project.md"
+                            },
+                            {
+                                "text": "扩展偏好设置面板",
+                                "link": "editor/extension/contributions-preferences.md"
+                            },
+                            {
+                                "text": "扩展资源数据库",
+                                "link": "editor/extension/contributions-database.md"
+                            },
+                            {
+                                "text": "扩展构建流程",
+                                "link": "editor/publish/custom-build-plugin.md"
+                            },
+                            {
+                                "text": "扩展属性检查器面板",
+                                "link": "editor/extension/inspector.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "基础功能",
+                        "link": "editor/extension/basic.md",
+                        "items": [
+                            {
+                                "text": "扩展包定义",
+                                "link": "editor/extension/define.md"
+                            },
+                            {
+                                "text": "插件系统",
+                                "link": "editor/extension/package.md"
+                            },
+                            {
+                                "text": "消息系统",
+                                "link": "editor/extension/messages.md"
+                            },
+                            {
+                                "text": "多语言系统",
+                                "link": "editor/extension/i18n.md"
+                            },
+                            {
+                                "text": "配置系统",
+                                "link": "editor/extension/profile.md"
+                            },
+                            {
+                                "text": "UI 组件",
+                                "link": "editor/extension/ui.md"
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "进阶主题",
+                "link": "advanced-topics/index.md",
+                "items": [
+                    {
+                        "text": "如何向 Cocos 提交代码",
+                        "link": "submit-pr/submit-pr.md"
+                    },
+                    {
+                        "text": "热更新范例教程",
+                        "link": "advanced-topics/hot-update.md"
+                    },
+                    {
+                        "text": "热更新管理器",
+                        "link": "advanced-topics/hot-update-manager.md"
+                    },
+                    {
+                        "text": "i18n 游戏多语言支持",
+                        "link": "advanced-topics/i18n.md"
+                    },
+                    {
+                        "text": "动态合图",
+                        "link": "advanced-topics/dynamic-atlas.md"
+                    },
+                    {
+                        "text": "引擎定制工作流程",
+                        "link": "advanced-topics/engine-customization.md"
+                    },
+                    {
+                        "text": "网页预览定制工作流程",
+                        "link": "editor/preview/browser.md"
+                    },
+                    {
+                        "text": "JSB 2.0 使用指南",
+                        "link": "advanced-topics/JSB2.0-learning.md",
+                        "items": [
+                            {
+                                "text": "JSB 手动绑定",
+                                "link": "advanced-topics/jsb-manual-binding.md"
+                            },
+                            {
+                                "text": "JSB 自动绑定",
+                                "link": "advanced-topics/jsb-auto-binding.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Java 原生反射机制",
+                        "link": "advanced-topics/java-reflection.md"
+                    },
+                    {
+                        "text": "Objective-C 原生反射机制",
+                        "link": "advanced-topics/oc-reflection.md"
+                    },
+                    {
+                        "text": "CMake 使用简介",
+                        "link": "advanced-topics/cmake-learning.md"
+                    },
+                    {
+                        "text": "WebSocket 服务器",
+                        "link": "advanced-topics/websocket-server.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    }
+]

@@ -1,0 +1,148 @@
+<mxfile host="65bd71144e" modified="2021-02-23T08:38:14.047Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="TlSw3P9Z6MPsPypbQR-y" version="14.2.4" type="embed">
+    <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
+        <mxGraphModel dx="852" dy="380" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1200" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#66B2FF;" parent="1" target="58" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="255" y="120" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#66B2FF;" parent="1" source="56" target="58" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="255" y="60" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="56" value="&lt;span&gt;开始构建&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#66B2FF;fillColor=#99CCFF;fontColor=#0F0F0F;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="30" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#66B2FF;" parent="1" source="58" target="60" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="构建 options 数据初始化，资源信息库初始化，任务数据整理，加载用户脚本，查询本次构建所有任务信息" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#7EA6E0;fontColor=#0F0F0F;spacingTop=2;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="120" width="150" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#66B2FF;" parent="1" source="60" target="62" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="根据整理的构建任务，进行统一的构建，主要涉及到资源、脚本引擎的打包、序列化与 json 合并、md5 写入等项目内各种资源的生成。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#99CCFF;strokeColor=#7EA6E0;fontColor=#FFFFFF;spacingTop=2;spacingLeft=4;spacingRight=4;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="260" width="150" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#99CCFF;" parent="1" source="62" target="64" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="根据当前项目的资源构建情况，生成 settings 对象数据，平台插件处理子包等相关信息。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#7EA6E0;fontColor=#0F0F0F;spacingTop=2;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="400" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#99CCFF;" parent="1" source="64" target="89" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="压缩 settings 对象内的 uuid 再写入到实际包内。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#99CCFF;strokeColor=#7EA6E0;fontColor=#FFFFFF;spacingTop=2;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="520" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="&lt;span&gt;结束构建&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#66B2FF;fillColor=#99CCFF;fontColor=#0F0F0F;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="1111" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#66B2FF;fontColor=#0F0F0F;" parent="1" source="69" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="238" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="69" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 15px&quot;&gt;onBeforeBuildAssets&lt;/font&gt;" style="html=1;fontColor=#FAFFFF;fontStyle=1;align=center;verticalAlign=middle;spacing=0;labelBorderColor=none;fillColor=none;dashed=1;strokeWidth=2;strokeColor=#7EA6E0;spacingLeft=0;spacingTop=0;labelBackgroundColor=none;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="385" y="218" width="170" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#66B2FF;fontColor=#0F0F0F;" parent="1" source="71" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="377" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="71" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 15px&quot;&gt;onAfterBuildAssets&lt;/font&gt;" style="html=1;fontColor=#FAFFFF;fontStyle=1;align=center;verticalAlign=middle;spacing=0;labelBorderColor=none;fillColor=none;dashed=1;strokeWidth=2;strokeColor=#7EA6E0;spacingLeft=0;spacingTop=0;labelBackgroundColor=none;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="385" y="357" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 15px&quot;&gt;onBeforeCompressSettings&lt;/font&gt;" style="html=1;fontColor=#FAFFFF;fontStyle=1;align=center;verticalAlign=middle;spacing=0;labelBorderColor=none;fillColor=none;dashed=1;strokeWidth=2;strokeColor=#7EA6E0;spacingLeft=0;spacingTop=0;labelBackgroundColor=none;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="385" y="485.75" width="220" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#66B2FF;fontColor=#0F0F0F;fontStyle=1" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="501.25" as="targetPoint"/>
+                        <mxPoint x="380" y="501.25" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#99CCFF;" parent="1" source="74" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="601" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="74" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 15px&quot;&gt;onAfterCompressSettings&lt;/font&gt;" style="html=1;fontColor=#FAFFFF;fontStyle=1;align=center;verticalAlign=middle;spacing=0;labelBorderColor=none;fillColor=none;dashed=1;strokeWidth=2;strokeColor=#7EA6E0;spacingLeft=0;spacingTop=0;labelBackgroundColor=none;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="385" y="582" width="220" height="37" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#99CCFF;" parent="1" source="76" target="72" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="想要加入一些自定义配置信息到 settings 内部可以在此钩子函数内修改 settings 对象。" style="shape=note;strokeWidth=2;fontSize=14;size=20;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#666600;labelBackgroundColor=none;align=center;spacingTop=2;spacingLeft=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="655" y="447" width="155" height="112.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#99CCFF;" parent="1" source="81" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="265" y="90" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="81" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 15px&quot;&gt;onBeforeBuild&lt;/font&gt;" style="html=1;fontColor=#FAFFFF;fontStyle=1;align=center;verticalAlign=middle;spacing=0;labelBorderColor=none;fillColor=none;dashed=1;strokeWidth=2;strokeColor=#7EA6E0;spacingLeft=0;spacingTop=0;labelBackgroundColor=none;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="385" y="70" width="165" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#99CCFF;" parent="1" source="83" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="740" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="83" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 15px&quot;&gt;onAfterBuild&lt;/font&gt;" style="html=1;fontColor=#FAFFFF;fontStyle=1;align=center;verticalAlign=middle;spacing=0;labelBorderColor=none;fillColor=none;dashed=1;strokeWidth=2;strokeColor=#7EA6E0;spacingLeft=0;spacingTop=0;labelBackgroundColor=none;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="385" y="720" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#99CCFF;" parent="1" source="95" target="65" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="拷贝处理平台构建模板以及不同平台的 adapter 生成等。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#7EA6E0;fontColor=#0F0F0F;spacingTop=2;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="630" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="配置编译环境，生成 rpk/cpk/apk 等等" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#7EA6E0;fontColor=#0F0F0F;spacingTop=2;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="936" width="150" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#99CCFF;" parent="1" source="89" target="95" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="255" y="710" as="sourcePoint"/>
+                        <mxPoint x="255" y="1240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="98" value="&lt;span&gt;结束基础构建&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#66B2FF;fillColor=#99CCFF;fontColor=#0F0F0F;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="780" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#99CCFF;" parent="1" source="100" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="896" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="100" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 15px&quot;&gt;onBeforeMake&lt;/font&gt;" style="html=1;fontColor=#FAFFFF;fontStyle=1;align=center;verticalAlign=middle;spacing=0;labelBorderColor=none;fillColor=none;dashed=1;strokeWidth=2;strokeColor=#7EA6E0;spacingLeft=0;spacingTop=0;labelBackgroundColor=none;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="415" y="876" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#99CCFF;" parent="1" source="102" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="258" y="1022" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="102" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 15px&quot;&gt;onAfterMake&lt;/font&gt;" style="html=1;fontColor=#FAFFFF;fontStyle=1;align=center;verticalAlign=middle;spacing=0;labelBorderColor=none;fillColor=none;dashed=1;strokeWidth=2;strokeColor=#7EA6E0;spacingLeft=0;spacingTop=0;labelBackgroundColor=none;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="413" y="1002" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeColor=#85C0D6;" parent="1" vertex="1">
+                    <mxGeometry x="94" y="851" width="527" height="209" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#1ba1e2;strokeColor=#66B2FF;" parent="1" source="104" target="103" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" value="仅在部分支持生成流程的平台构建时会有这部分钩子，例如原生平台、华为快游戏这类。" style="shape=note;strokeWidth=2;fontSize=14;size=20;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#666600;labelBackgroundColor=none;align=center;spacingTop=2;spacingLeft=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="665" y="899.25" width="155" height="112.5" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

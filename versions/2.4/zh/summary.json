@@ -1,0 +1,1258 @@
+[
+    {
+        "text": "新手入门",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "新手上路",
+                "link": "getting-started/index.md",
+                "items": [
+                    {
+                        "text": "关于 Cocos Creator",
+                        "link": "getting-started/introduction.md"
+                    },
+                    {
+                        "text": "安装和启动",
+                        "link": "getting-started/install.md"
+                    },
+                    {
+                        "text": "使用 Dashboard",
+                        "link": "getting-started/dashboard.md"
+                    },
+                    {
+                        "text": "Hello World!",
+                        "link": "getting-started/hello-world.md"
+                    },
+                    {
+                        "text": "项目结构",
+                        "link": "getting-started/project-structure.md"
+                    },
+                    {
+                        "text": "编辑器基础",
+                        "link": "getting-started/basics/editor-overview.md",
+                        "items": [
+                            {
+                                "text": "资源管理器",
+                                "link": "getting-started/basics/editor-panels/assets.md"
+                            },
+                            {
+                                "text": "场景编辑器",
+                                "link": "getting-started/basics/editor-panels/scene.md"
+                            },
+                            {
+                                "text": "层级管理器",
+                                "link": "getting-started/basics/editor-panels/node-tree.md"
+                            },
+                            {
+                                "text": "属性检查器",
+                                "link": "getting-started/basics/editor-panels/properties.md"
+                            },
+                            {
+                                "text": "控件库",
+                                "link": "getting-started/basics/editor-panels/node-library.md"
+                            },
+                            {
+                                "text": "控制台",
+                                "link": "getting-started/basics/editor-panels/console.md"
+                            },
+                            {
+                                "text": "设置",
+                                "link": "getting-started/basics/editor-panels/preferences.md"
+                            },
+                            {
+                                "text": "项目设置",
+                                "link": "getting-started/basics/editor-panels/project-settings.md"
+                            },
+                            {
+                                "text": "主菜单",
+                                "link": "getting-started/basics/main-menu.md"
+                            },
+                            {
+                                "text": "工具栏",
+                                "link": "getting-started/basics/toolbar.md"
+                            },
+                            {
+                                "text": "编辑器布局",
+                                "link": "getting-started/basics/layout.md"
+                            },
+                            {
+                                "text": "构建预览",
+                                "link": "getting-started/basics/preview-build.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "代码编辑环境配置",
+                        "link": "getting-started/coding-setup.md"
+                    },
+                    {
+                        "text": "快速上手：制作第一个游戏",
+                        "link": "getting-started/quick-start.md"
+                    },
+                    {
+                        "text": "Cocos2d-x 用户上手指南",
+                        "link": "getting-started/cocos2d-x-guide.md"
+                    },
+                    {
+                        "text": "获取帮助和支持",
+                        "link": "getting-started/support.md"
+                    },
+                    {
+                        "text": "升级指南",
+                        "link": "release-notes/index.md",
+                        "items": [
+                            {
+                                "text": "v2.4 资源管理模块升级指南",
+                                "link": "release-notes/asset-manager-upgrade-guide.md"
+                            },
+                            {
+                                "text": "v2.4 资源分包升级指南",
+                                "link": "release-notes/subpackage-upgrade-guide.md"
+                            },
+                            {
+                                "text": "v2.4 定制项目构建流程升级指南",
+                                "link": "release-notes/build-extend-upgrade-guide.md"
+                            },
+                            {
+                                "text": "v2.0 升级指南",
+                                "link": "release-notes/upgrade-guide-v2.0.md"
+                            },
+                            {
+                                "text": "v1.10 资源升级指南",
+                                "link": "release-notes/raw-asset-migration.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "FAQ",
+                        "link": "getting-started/faq.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    },
+    {
+        "text": "基本工作流程",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "资源工作流程",
+                "link": "asset-workflow/index.md",
+                "items": [
+                    {
+                        "text": "创建和管理场景",
+                        "link": "asset-workflow/scene-managing.md"
+                    },
+                    {
+                        "text": "贴图资源",
+                        "link": "asset-workflow/sprite.md"
+                    },
+                    {
+                        "text": "预制资源",
+                        "link": "asset-workflow/prefab.md"
+                    },
+                    {
+                        "text": "图集资源",
+                        "link": "asset-workflow/atlas.md"
+                    },
+                    {
+                        "text": "自动图集资源",
+                        "link": "asset-workflow/auto-atlas.md"
+                    },
+                    {
+                        "text": "压缩纹理",
+                        "link": "asset-workflow/compress-texture.md"
+                    },
+                    {
+                        "text": "艺术数字资源",
+                        "link": "asset-workflow/label-atlas.md"
+                    },
+                    {
+                        "text": "跨项目导入导出资源",
+                        "link": "asset-workflow/import-export.md"
+                    },
+                    {
+                        "text": "图像资源的自动剪裁",
+                        "link": "asset-workflow/trim.md"
+                    },
+                    {
+                        "text": "脚本资源",
+                        "link": "asset-workflow/script.md"
+                    },
+                    {
+                        "text": "字体资源",
+                        "link": "asset-workflow/font.md"
+                    },
+                    {
+                        "text": "粒子资源",
+                        "link": "asset-workflow/particle.md"
+                    },
+                    {
+                        "text": "声音资源",
+                        "link": "asset-workflow/audio-asset.md"
+                    },
+                    {
+                        "text": "Spine 骨骼动画资源",
+                        "link": "asset-workflow/spine.md"
+                    },
+                    {
+                        "text": "DragonBones 骨骼动画资源",
+                        "link": "asset-workflow/dragonbones.md"
+                    },
+                    {
+                        "text": "瓦片图资源",
+                        "link": "asset-workflow/tiledmap.md"
+                    },
+                    {
+                        "text": "JSON 资源",
+                        "link": "asset-workflow/json.md"
+                    },
+                    {
+                        "text": "文本资源",
+                        "link": "asset-workflow/text.md"
+                    },
+                    {
+                        "text": "导入其他编辑器项目",
+                        "link": "asset-workflow/project-import.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "场景制作工作流程",
+                "link": "content-workflow/index.md",
+                "items": [
+                    {
+                        "text": "节点和组件",
+                        "link": "content-workflow/node-component.md"
+                    },
+                    {
+                        "text": "坐标系和变换",
+                        "link": "content-workflow/transform.md"
+                    },
+                    {
+                        "text": "管理节点层级和显示顺序",
+                        "link": "content-workflow/node-tree.md"
+                    },
+                    {
+                        "text": "使用场景编辑器搭建场景图像",
+                        "link": "content-workflow/scene-editing.md"
+                    },
+                    {
+                        "text": "场景摄像机配置面板",
+                        "link": "content-workflow/camera-config.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "脚本开发指南",
+                "link": "scripting/index.md",
+                "items": [
+                    {
+                        "text": "创建和使用组件脚本",
+                        "link": "scripting/use-component.md"
+                    },
+                    {
+                        "text": "使用 cc.Class 声明类型",
+                        "link": "scripting/class.md"
+                    },
+                    {
+                        "text": "访问节点和其他组件",
+                        "link": "scripting/access-node-component.md"
+                    },
+                    {
+                        "text": "常用节点和组件接口",
+                        "link": "scripting/basic-node-api.md"
+                    },
+                    {
+                        "text": "生命周期回调",
+                        "link": "scripting/life-cycle-callbacks.md"
+                    },
+                    {
+                        "text": "创建和销毁节点",
+                        "link": "scripting/create-destroy.md"
+                    },
+                    {
+                        "text": "加载和切换场景",
+                        "link": "scripting/scene-managing.md"
+                    },
+                    {
+                        "text": "获取和设置资源",
+                        "link": "scripting/load-assets.md",
+                        "items": [
+                            {
+                                "text": "加载资源",
+                                "link": "scripting/dynamic-load-resources.md"
+                            },
+                            {
+                                "text": "配置和加载 Asset Bundle",
+                                "link": "scripting/asset-bundle.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "发射和监听事件",
+                        "link": "scripting/events.md"
+                    },
+                    {
+                        "text": "系统内置事件",
+                        "link": "scripting/internal-events.md"
+                    },
+                    {
+                        "text": "玩家输入事件",
+                        "link": "scripting/player-controls.md"
+                    },
+                    {
+                        "text": "使用缓动系统",
+                        "link": "scripting/tween.md"
+                    },
+                    {
+                        "text": "使用动作系统",
+                        "link": "scripting/actions.md"
+                    },
+                    {
+                        "text": "使用计时器",
+                        "link": "scripting/scheduler.md"
+                    },
+                    {
+                        "text": "脚本执行顺序",
+                        "link": "scripting/execution-order.md"
+                    },
+                    {
+                        "text": "网络接口",
+                        "link": "scripting/network.md"
+                    },
+                    {
+                        "text": "使用对象池",
+                        "link": "scripting/pooling.md"
+                    },
+                    {
+                        "text": "模块化脚本",
+                        "link": "scripting/modular-script.md"
+                    },
+                    {
+                        "text": "插件脚本",
+                        "link": "scripting/plugin-scripts.md"
+                    },
+                    {
+                        "text": "JavaScript 快速入门",
+                        "link": "scripting/javascript-primer.md"
+                    },
+                    {
+                        "text": "使用 TypeScript 脚本",
+                        "link": "scripting/typescript.md"
+                    },
+                    {
+                        "text": "CCClass 进阶参考",
+                        "link": "scripting/reference/class.md"
+                    },
+                    {
+                        "text": "属性参数参考",
+                        "link": "scripting/reference/attributes.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "一键接入第三方服务",
+                "link": "https://service.cocos.com/document/zh/",
+                "items": [
+                    {
+                        "text": "Cocos Service 简介",
+                        "link": "https://service.cocos.com/document/zh/"
+                    },
+                    {
+                        "text": "服务面板操作指南",
+                        "link": "https://service.cocos.com/document/zh/user-guide.html"
+                    },
+                    {
+                        "text": "计费和充值",
+                        "link": "https://service.cocos.com/document/zh/billing-and-charge.html"
+                    },
+                    {
+                        "text": "服务列表",
+                        "link": "https://service.cocos.com/document/zh/#%E6%94%AF%E6%8C%81%E6%9C%8D%E5%8A%A1",
+                        "items": [
+                            {
+                                "text": "Cocos Analytics",
+                                "link": "https://service.cocos.com/document/zh/cocos-analytics.html"
+                            },
+                            {
+                                "text": "声网（Agora RTC）",
+                                "link": "https://service.cocos.com/document/zh/agora.html"
+                            },
+                            {
+                                "text": "云开发（腾讯云）",
+                                "link": "https://service.cocos.com/document/zh/tcb.html"
+                            },
+                            {
+                                "text": "游戏联机对战引擎（腾讯云）",
+                                "link": "https://service.cocos.com/document/zh/mgobe.html"
+                            },
+                            {
+                                "text": "游戏多媒体引擎（腾讯云）",
+                                "link": "https://service.cocos.com/document/zh/gme.html"
+                            },
+                            {
+                                "text": "定位服务（HMS Core）",
+                                "link": "https://service.cocos.com/document/zh/hms-location.html"
+                            },
+                            {
+                                "text": "分析服务（HMS Core）",
+                                "link": "https://service.cocos.com/document/zh/hms-analytics.html"
+                            },
+                            {
+                                "text": "性能管理（AGC）",
+                                "link": "https://service.cocos.com/document/zh/agc-apm.html"
+                            },
+                            {
+                                "text": "认证服务（AGC）",
+                                "link": "https://service.cocos.com/document/zh/agc-auth.html"
+                            },
+                            {
+                                "text": "崩溃服务（AGC）",
+                                "link": "https://service.cocos.com/document/zh/agc-crash.html"
+                            },
+                            {
+                                "text": "远程配置（AGC）",
+                                "link": "https://service.cocos.com/document/zh/agc-remote.html"
+                            },
+                            {
+                                "text": "应用内消息（AGC）",
+                                "link": "https://service.cocos.com/document/zh/agc-appmessaging.html"
+                            },
+                            {
+                                "text": "云数据库（AGC）",
+                                "link": "https://service.cocos.com/document/zh/agc-clouddb.html"
+                            },
+                            {
+                                "text": "云存储（AGC）",
+                                "link": "https://service.cocos.com/document/zh/agc-cloudstorage.html"
+                            },
+                            {
+                                "text": "云函数（AGC）",
+                                "link": "https://service.cocos.com/document/zh/agc-cloudfunc.html"
+                            },
+                            {
+                                "text": "App Linking（AGC）",
+                                "link": "https://service.cocos.com/document/zh/agc-applinking.html"
+                            },
+                            {
+                                "text": "Cocos SDKHub",
+                                "link": "https://service.cocos.com/document/zh/sdkhub.html",
+                                "items": [
+                                    {
+                                        "text": "Cocos SDKHub 简介",
+                                        "link": "https://service.cocos.com/document/zh/sdkhub.html"
+                                    },
+                                    {
+                                        "text": "HUAWEI HMS Core",
+                                        "link": "https://service.cocos.com/document/zh/sdkhub-plugins/sdkhub-hms.html"
+                                    }
+                                ],
+                                "collapsed": true
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "发布跨平台游戏",
+                "link": "publish/index.md",
+                "items": [
+                    {
+                        "text": "发布到 Web 平台",
+                        "link": "publish/publish-web.md",
+                        "items": [
+                            {
+                                "text": "发布到 Facebook Instant Games",
+                                "link": "publish/publish-fb-instant-games.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "安装配置原生开发环境",
+                        "link": "publish/setup-native-development.md",
+                        "items": [
+                            {
+                                "text": "Mac 平台安装 Python 的小指南",
+                                "link": "publish/short-tutorial-to-install-python.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "打包发布原生平台",
+                        "link": "publish/publish-native.md"
+                    },
+                    {
+                        "text": "原生平台 JavaScript 调试",
+                        "link": "publish/debug-jsb.md"
+                    },
+                    {
+                        "text": "发布到 HUAWEI AppGallery Connect",
+                        "link": "publish/publish-huawei-agc.md"
+                    },
+                    {
+                        "text": "发布到 OpenHarmony 应用",
+                        "link": "./publish/publish-openharmony.md"
+                    },
+                    {
+                        "text": "发布到 Google Play Instant",
+                        "link": "publish/publish-android-instant.md"
+                    },
+                    {
+                        "text": "发布到支付宝小游戏",
+                        "link": "publish/publish-alipay-mini-games.md"
+                    },
+                    {
+                        "text": "发布到淘宝小程序创意互动",
+                        "link": "publish/publish-taobao-creative-app.md"
+                    },
+                    {
+                        "text": "发布到淘宝小游戏",
+                        "link": "publish/publish-taobao-mini-game.md"
+                    },
+                    {
+                        "text": "发布到字节跳动小游戏",
+                        "link": "publish/publish-bytedance.md",
+                        "items": [
+                            {
+                                "text": "字节跳动小游戏开放数据域",
+                                "link": "publish/publish-bytedance-sub-domain.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "发布到 Cocos Play",
+                        "link": "publish/publish-cocosplay.md"
+                    },
+                    {
+                        "text": "发布到华为快游戏",
+                        "link": "publish/publish-huawei-quick-games.md"
+                    },
+                    {
+                        "text": "发布到 OPPO 小游戏",
+                        "link": "publish/publish-oppo-instant-games.md"
+                    },
+                    {
+                        "text": "发布到 vivo 小游戏",
+                        "link": "publish/publish-vivo-instant-games.md"
+                    },
+                    {
+                        "text": "发布到小米快游戏",
+                        "link": "publish/publish-xiaomi-quick-games.md"
+                    },
+                    {
+                        "text": "发布到百度小游戏",
+                        "link": "publish/publish-baidugame.md",
+                        "items": [
+                            {
+                                "text": "百度小游戏开放数据域",
+                                "link": "publish/publish-baidugame-sub-domain.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "发布到微信小游戏",
+                        "link": "publish/publish-wechatgame.md",
+                        "items": [
+                            {
+                                "text": "微信小游戏开放数据域",
+                                "link": "publish/publish-wechatgame-sub-domain.md"
+                            },
+                            {
+                                "text": "启用微信小游戏引擎插件",
+                                "link": "publish/wechat-engine-plugin.md"
+                            },
+                            {
+                                "text": "接入微信 PC 小游戏",
+                                "link": "publish/publish-pc-wechatgame.md"
+                            },
+                            {
+                                "text": "小游戏分包",
+                                "link": "publish/subpackage.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "命令行发布项目",
+                        "link": "publish/publish-in-command-line.md"
+                    },
+                    {
+                        "text": "定制项目构建模板",
+                        "link": "publish/custom-project-build-template.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    },
+    {
+        "text": "子系统介绍",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "图像和渲染",
+                "link": "render/index.md",
+                "items": [
+                    {
+                        "text": "基本图像渲染",
+                        "link": "render/core-renderer.md"
+                    },
+                    {
+                        "text": "外部资源渲染",
+                        "link": "render/external-renderer.md"
+                    },
+                    {
+                        "text": "摄像机",
+                        "link": "render/camera.md"
+                    },
+                    {
+                        "text": "材质资源",
+                        "link": "render/material.md"
+                    },
+                    {
+                        "text": "Effect",
+                        "link": "render/effect.md"
+                    },
+                    {
+                        "text": "Sprite 组件参考",
+                        "link": "components/sprite.md"
+                    },
+                    {
+                        "text": "Label 组件参考",
+                        "link": "components/label.md"
+                    },
+                    {
+                        "text": "LabelOutline 组件参考",
+                        "link": "components/label-outline.md"
+                    },
+                    {
+                        "text": "LabelShadow 组件参考",
+                        "link": "components/label-shadow.md"
+                    },
+                    {
+                        "text": "Mask 组件参考",
+                        "link": "components/mask.md"
+                    },
+                    {
+                        "text": "MotionStreak 组件参考",
+                        "link": "components/motion-streak.md"
+                    },
+                    {
+                        "text": "ParticleSystem 组件参考",
+                        "link": "components/particle-system.md"
+                    },
+                    {
+                        "text": "TiledMap 组件参考",
+                        "link": "components/tiledmap.md",
+                        "items": [
+                            {
+                                "text": "TiledTile 组件参考",
+                                "link": "components/tiledtile.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Spine 组件参考",
+                        "link": "components/spine.md"
+                    },
+                    {
+                        "text": "DragonBones 组件参考",
+                        "link": "components/dragonbones.md"
+                    },
+                    {
+                        "text": "VideoPlayer 组件参考",
+                        "link": "components/videoplayer.md"
+                    },
+                    {
+                        "text": "WebView 组件参考",
+                        "link": "components/webview.md"
+                    },
+                    {
+                        "text": "Graphics 组件参考",
+                        "link": "components/graphics.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "UI 系统",
+                "link": "ui/index.md",
+                "items": [
+                    {
+                        "text": "多分辨率适配方案",
+                        "link": "ui/multi-resolution.md"
+                    },
+                    {
+                        "text": "对齐策略",
+                        "link": "ui/widget-align.md"
+                    },
+                    {
+                        "text": "制作可任意拉伸的 UI 图像",
+                        "link": "ui/sliced-sprite.md"
+                    },
+                    {
+                        "text": "文字排版",
+                        "link": "ui/label-layout.md"
+                    },
+                    {
+                        "text": "自动布局容器",
+                        "link": "ui/auto-layout.md"
+                    },
+                    {
+                        "text": "制作动态生成内容的列表",
+                        "link": "ui/list-with-data.md"
+                    },
+                    {
+                        "text": "UI 组件参考",
+                        "link": "ui/ui-components.md",
+                        "items": [
+                            {
+                                "text": "Canvas 组件参考",
+                                "link": "components/canvas.md"
+                            },
+                            {
+                                "text": "Widget 组件参考",
+                                "link": "components/widget.md"
+                            },
+                            {
+                                "text": "Button 组件参考",
+                                "link": "components/button.md"
+                            },
+                            {
+                                "text": "Layout 组件参考",
+                                "link": "components/layout.md"
+                            },
+                            {
+                                "text": "SafeArea 组件参考",
+                                "link": "components/safearea.md"
+                            },
+                            {
+                                "text": "EditBox 组件参考",
+                                "link": "components/editbox.md"
+                            },
+                            {
+                                "text": "RichText 组件参考",
+                                "link": "components/richtext.md"
+                            },
+                            {
+                                "text": "ScrollView 组件参考",
+                                "link": "components/scrollview.md"
+                            },
+                            {
+                                "text": "ScrollBar 组件参考",
+                                "link": "components/scrollbar.md"
+                            },
+                            {
+                                "text": "ProgressBar 组件参考",
+                                "link": "components/progress.md"
+                            },
+                            {
+                                "text": "Toggle 组件参考",
+                                "link": "components/toggle.md"
+                            },
+                            {
+                                "text": "ToggleContainer 组件参考",
+                                "link": "components/toggleContainer.md"
+                            },
+                            {
+                                "text": "Slider 组件参考",
+                                "link": "components/slider.md"
+                            },
+                            {
+                                "text": "PageView 组件参考",
+                                "link": "components/pageview.md"
+                            },
+                            {
+                                "text": "PageViewIndicator 组件参考",
+                                "link": "components/pageviewindicator.md"
+                            },
+                            {
+                                "text": "BlockInputEvents 组件参考",
+                                "link": "components/block-input-events.md"
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "动画系统",
+                "link": "animation/index.md",
+                "items": [
+                    {
+                        "text": "关于 Animation",
+                        "link": "animation/animation.md"
+                    },
+                    {
+                        "text": "创建 Animation 组件和动画剪辑",
+                        "link": "animation/animation-clip.md"
+                    },
+                    {
+                        "text": "编辑动画曲线",
+                        "link": "animation/animation-curve.md"
+                    },
+                    {
+                        "text": "编辑序列帧动画",
+                        "link": "animation/sprite-animation.md"
+                    },
+                    {
+                        "text": "编辑时间曲线",
+                        "link": "animation/time-curve.md"
+                    },
+                    {
+                        "text": "添加动画事件",
+                        "link": "animation/animation-event.md"
+                    },
+                    {
+                        "text": "使用脚本控制动画",
+                        "link": "animation/scripting-animation.md"
+                    },
+                    {
+                        "text": "Animation 组件参考",
+                        "link": "components/animation.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "音乐和音效",
+                "link": "audio/index.md",
+                "items": [
+                    {
+                        "text": "音频播放",
+                        "link": "audio/audio.md"
+                    },
+                    {
+                        "text": "AudioSource 组件参考",
+                        "link": "components/audiosource.md"
+                    },
+                    {
+                        "text": "兼容性说明",
+                        "link": "audio/compatibility.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "物理与碰撞系统",
+                "link": "physics/index.md",
+                "items": [
+                    {
+                        "text": "碰撞系统",
+                        "link": "physics/collision/index.md",
+                        "items": [
+                            {
+                                "text": "编辑碰撞组件",
+                                "link": "physics/collision/edit-collider-component.md"
+                            },
+                            {
+                                "text": "碰撞分组管理",
+                                "link": "physics/collision/collision-group.md"
+                            },
+                            {
+                                "text": "碰撞系统脚本控制",
+                                "link": "physics/collision/collision-manager.md"
+                            },
+                            {
+                                "text": "Collider 组件参考",
+                                "link": "components/collider.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "物理系统",
+                        "link": "physics/physics/index.md",
+                        "items": [
+                            {
+                                "text": "物理系统管理器",
+                                "link": "physics/physics/physics-manager.md"
+                            },
+                            {
+                                "text": "刚体组件",
+                                "link": "physics/physics/rigid-body.md"
+                            },
+                            {
+                                "text": "碰撞组件",
+                                "link": "physics/physics/collider-component.md"
+                            },
+                            {
+                                "text": "碰撞回调",
+                                "link": "physics/physics/contact-callback.md"
+                            },
+                            {
+                                "text": "关节组件",
+                                "link": "physics/physics/joint-component.md"
+                            },
+                            {
+                                "text": "高级设置",
+                                "link": "physics/physics/advanced-settings.md"
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "3D 系统",
+                "link": "3d/index.md",
+                "items": [
+                    {
+                        "text": "3D 节点",
+                        "link": "3d/3d-node.md"
+                    },
+                    {
+                        "text": "3D 场景",
+                        "link": "3d/3d-scene.md"
+                    },
+                    {
+                        "text": "导入模型资源",
+                        "link": "3d/import-model.md"
+                    },
+                    {
+                        "text": "网格资源",
+                        "link": "3d/mesh.md"
+                    },
+                    {
+                        "text": "Mesh Renderer 组件参考",
+                        "link": "3d/mesh-renderer.md"
+                    },
+                    {
+                        "text": "Skinned Mesh Renderer 组件参考",
+                        "link": "3d/skinned-mesh-renderer.md"
+                    },
+                    {
+                        "text": "骨骼动画组件参考",
+                        "link": "3d/skeleton-animation.md"
+                    },
+                    {
+                        "text": "碰撞检测",
+                        "link": "3d/intersect.md"
+                    },
+                    {
+                        "text": "光照",
+                        "link": "3d/lighting.md"
+                    },
+                    {
+                        "text": "光源组件参考",
+                        "link": "3d/light-component.md"
+                    },
+                    {
+                        "text": "3D 粒子",
+                        "link": "3d/particle-system-3d.md"
+                    },
+                    {
+                        "text": "基础 3D 物体",
+                        "link": "3d/primitive.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "3D 物理与碰撞系统",
+                "link": "physics-3d/index.md",
+                "items": [
+                    {
+                        "text": "设置物理引擎",
+                        "link": "physics-3d/physics-select.md"
+                    },
+                    {
+                        "text": "物理系统管理器",
+                        "link": "physics-3d/physics-manager.md"
+                    },
+                    {
+                        "text": "刚体组件",
+                        "link": "physics-3d/physics-rigidbody.md"
+                    },
+                    {
+                        "text": "恒力组件",
+                        "link": "physics-3d/physics-constant-force.md"
+                    },
+                    {
+                        "text": "碰撞组件",
+                        "link": "physics-3d/physics-collider.md"
+                    },
+                    {
+                        "text": "物理事件",
+                        "link": "physics-3d/physics-event.md"
+                    },
+                    {
+                        "text": "物理材质",
+                        "link": "physics-3d/physics-material.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Asset Manager 资源管理",
+                "link": "asset-manager/index.md",
+                "items": [
+                    {
+                        "text": "Asset Bundle",
+                        "link": "asset-manager/bundle.md"
+                    },
+                    {
+                        "text": "资源释放",
+                        "link": "asset-manager/release-manager.md"
+                    },
+                    {
+                        "text": "下载与解析",
+                        "link": "asset-manager/downloader-parser.md"
+                    },
+                    {
+                        "text": "加载与预加载",
+                        "link": "asset-manager/preload-load.md"
+                    },
+                    {
+                        "text": "缓存管理器",
+                        "link": "asset-manager/cache-manager.md"
+                    },
+                    {
+                        "text": "可选参数",
+                        "link": "asset-manager/options.md"
+                    },
+                    {
+                        "text": "管线与任务",
+                        "link": "asset-manager/pipeline-task.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    },
+    {
+        "text": "进阶使用",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "扩展编辑器",
+                "link": "extension/index.md",
+                "items": [
+                    {
+                        "text": "你的第一个扩展包",
+                        "link": "extension/your-first-extension.md"
+                    },
+                    {
+                        "text": "安装与分享",
+                        "link": "extension/install-and-share.md"
+                    },
+                    {
+                        "text": "IPC 简介",
+                        "link": "extension/introduction-to-ipc.md"
+                    },
+                    {
+                        "text": "入口程序",
+                        "link": "extension/entry-point.md"
+                    },
+                    {
+                        "text": "扩展包工作流程模式",
+                        "link": "extension/extension-workflow.md"
+                    },
+                    {
+                        "text": "扩展主菜单",
+                        "link": "extension/extends-main-menu.md"
+                    },
+                    {
+                        "text": "扩展编辑器面板",
+                        "link": "extension/extends-panel.md"
+                    },
+                    {
+                        "text": "进程间通讯工作流程",
+                        "link": "extension/ipc-workflow.md"
+                    },
+                    {
+                        "text": "定义一份简单的面板窗口",
+                        "link": "extension/define-simple-panel.md"
+                    },
+                    {
+                        "text": "多语言化",
+                        "link": "extension/i18n.md"
+                    },
+                    {
+                        "text": "工作路径和常用 URL",
+                        "link": "extension/working-directory.md"
+                    },
+                    {
+                        "text": "提交插件到商店",
+                        "link": "extension/submit-to-store.md"
+                    },
+                    {
+                        "text": "调用引擎 API 和项目脚本",
+                        "link": "extension/scene-script.md"
+                    },
+                    {
+                        "text": "管理项目资源",
+                        "link": "extension/asset-management.md"
+                    },
+                    {
+                        "text": "编写面板界面",
+                        "link": "extension/writing-your-panel.md"
+                    },
+                    {
+                        "text": "掌握 UI Kit",
+                        "link": "extension/using-ui-kit.md"
+                    },
+                    {
+                        "text": "扩展 UI Kit",
+                        "link": "extension/extends-ui-kit.md"
+                    },
+                    {
+                        "text": "界面排版",
+                        "link": "extension/layout-ui-element.md"
+                    },
+                    {
+                        "text": "在面板中使用 Vue",
+                        "link": "extension/work-with-vue.md"
+                    },
+                    {
+                        "text": "扩展 Inspector",
+                        "link": "extension/extends-inspector.md"
+                    },
+                    {
+                        "text": "自定义 Gizmo",
+                        "link": "extension/custom-gizmo.md"
+                    },
+                    {
+                        "text": "自定义 Gizmo 进阶",
+                        "link": "extension/custom-gizmo-advance.md"
+                    },
+                    {
+                        "text": "测试你的扩展包",
+                        "link": "extension/test-your-package.md"
+                    },
+                    {
+                        "text": "package.json 字段参考",
+                        "link": "extension/reference/package-json-reference.md"
+                    },
+                    {
+                        "text": "主菜单字段参考",
+                        "link": "extension/reference/main-menu-reference.md"
+                    },
+                    {
+                        "text": "面板字段参考",
+                        "link": "extension/reference/panel-json-reference.md"
+                    },
+                    {
+                        "text": "面板定义参考",
+                        "link": "extension/reference/panel-reference.md"
+                    },
+                    {
+                        "text": "自定义界面元素定义参考",
+                        "link": "extension/reference/custom-element-reference.md"
+                    },
+                    {
+                        "text": "常用 IPC 消息参考",
+                        "link": "extension/reference/ipc-reference.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "进阶主题",
+                "link": "advanced-topics/index.md",
+                "items": [
+                    {
+                        "text": "资源管理注意事项 - meta 文件",
+                        "link": "advanced-topics/meta.md"
+                    },
+                    {
+                        "text": "JSB 2.0 使用指南",
+                        "link": "advanced-topics/JSB2.0-learning.md",
+                        "items": [
+                            {
+                                "text": "JSB 手动绑定",
+                                "link": "advanced-topics/jsb-manual-binding.md"
+                            },
+                            {
+                                "text": "JSB 自动绑定",
+                                "link": "advanced-topics/jsb-auto-binding.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "热更新范例教程",
+                        "link": "advanced-topics/hot-update.md"
+                    },
+                    {
+                        "text": "热更新管理器",
+                        "link": "advanced-topics/assets-manager.md"
+                    },
+                    {
+                        "text": "i18n 游戏多语言支持",
+                        "link": "advanced-topics/i18n.md"
+                    },
+                    {
+                        "text": "存储和读取用户数据",
+                        "link": "advanced-topics/data-storage.md"
+                    },
+                    {
+                        "text": "引擎定制工作流程",
+                        "link": "advanced-topics/engine-customization.md"
+                    },
+                    {
+                        "text": "自定义网页预览",
+                        "link": "advanced-topics/custom-preview-template.md"
+                    },
+                    {
+                        "text": "渲染流",
+                        "link": "advanced-topics/render-flow.md"
+                    },
+                    {
+                        "text": "UI 渲染批次合并指南",
+                        "link": "advanced-topics/ui-auto-batch.md"
+                    },
+                    {
+                        "text": "动态合图",
+                        "link": "advanced-topics/dynamic-atlas.md"
+                    },
+                    {
+                        "text": "Java 原生反射机制",
+                        "link": "advanced-topics/java-reflection.md"
+                    },
+                    {
+                        "text": "Objective-C 原生反射机制",
+                        "link": "advanced-topics/oc-reflection.md"
+                    },
+                    {
+                        "text": "如何向 Cocos 提交代码",
+                        "link": "submit-pr/submit-pr.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "SDK 集成",
+                "link": "sdk/index.md",
+                "items": [
+                    {
+                        "text": "Facebook 直播和广告",
+                        "link": "sdk/fb-an-and-live.md"
+                    },
+                    {
+                        "text": "WebSocket 服务器",
+                        "link": "sdk/websocket-server.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    }
+]

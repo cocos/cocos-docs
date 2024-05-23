@@ -1,0 +1,16 @@
+# Publish to Mini Game Platforms
+
+- [Publish to HUAWEI AppGallery Connect](publish-huawei-agc.md)
+- [Publish to Alipay Mini Game](publish-alipay-mini-game.md)
+- [Publish to Taobao Mini Game](publish-taobao-mini-game.md)  
+- [Publish to ByteDance Mini Game](publish-bytedance-mini-game.md)
+- [Publish to Huawei Quick Game](publish-huawei-quick-game.md)
+- [Publish to OPPO Mini Game](publish-oppo-mini-game.md)
+- [Publish to vivo Mini Game](publish-vivo-mini-game.md)
+- [Publish to Xiaomi Quick Game](publish-xiaomi-quick-game.md)
+- [Publish to Baidu Mini Game](publish-baidu-mini-game.md)
+- [Publish to WeChat Mini Game](publish-wechatgame.md)
+    - [WeChat Engine Plugin](wechatgame-plugin.md)
+    - [Access to WeChat PC Mini Game](publish-pc-wechatgame.md)
+- [Access to Open Data Context](build-open-data-context.md)
+- [Mini Game Subpackage](subpackage.md)

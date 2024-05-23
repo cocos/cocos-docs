@@ -1,0 +1,77 @@
+name: 发布到华为云
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  judge:
+    if: contains(github.event.head_commit.message, 'docs:')
+    runs-on: ubuntu-latest
+    steps:
+        - name: Extract version from commit message
+          run: |
+            COMMIT_MSG=$(echo '${{ github.event.head_commit.message }}' | grep -oP '(?<=docs:)\d+\.\d+')
+            if [ -z "$COMMIT_MSG" ]; then
+              echo "没有指定需要发布的版本"
+              exit 1  
+            fi
+            echo "将构建版本： $COMMIT_MSG !"
+
+  deploy:
+    needs: judge
+    runs-on: ubuntu-latest
+    steps:
+      - name: 提取版本信息
+        id: extract
+        run: |
+            COMMIT_MSG=$(echo '${{ github.event.head_commit.message }}' | grep -oP '(?<=docs:)\d+\.\d+')
+            echo "version=$COMMIT_MSG" >> "$GITHUB_OUTPUT"
+      
+      - uses: actions/checkout@v4
+
+      - name: 设置 node 环境
+        uses: actions/setup-node@v4
+        with:
+            node-version: 22
+            cache: 'npm'
+
+      - name: 安装依赖
+        run: npm install
+
+      - name: 构建项目
+        run: node scripts/publish.js --version=versions/${{ steps.extract.outputs.version }}
+
+      - name: 登录华为云
+        uses: huaweicloud/auth-action@v1.0.0
+        with: 
+            access_key_id: ${{ secrets.ACCESSKEY }} 
+            secret_access_key: ${{ secrets.SECRETACCESSKEY }}
+            region: 'cn-north-4'  
+        
+      # 按版本上传到对应的文件去
+
+      - name: 上传文件到华为云 (测试环境)
+        uses: ./.github/actions/obs-helper
+        with:
+          bucket_name: 'cce-creator-docs-test'
+          local_file_path: ./versions/${{ steps.extract.outputs.version }}/.vitepress/dist
+          obs_file_path: gitbook/creator/${{ steps.extract.outputs.version }}/manual/
+          operation_type: upload 
+          include_self_folder: false
+          
+      - name: 上传文件到华为云（正式环境）
+        if: contains(github.event.head_commit.message, 'publish:docs:')  
+        #uses: huaweicloud/obs-helper@master
+        uses: ./.github/actions/obs-helper
+        with:
+            bucket_name: 'cce-creator-docs-pro'
+            local_file_path: ./versions/${{ steps.extract.outputs.version }}/.vitepress/dist
+            obs_file_path: gitbook/creator/${{ steps.extract.outputs.version }}/manual/
+            operation_type: upload 
+            include_self_folder: false    
+    

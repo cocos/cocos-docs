@@ -1,0 +1,5 @@
+digraph G {
+    
+  lateUpdate -> SyncSceneToPhysics -> PhysicsSimulation -> SyncPhysicsToScene -> emitEvents;
+  
+}

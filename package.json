@@ -1,35 +1,17 @@
 {
-  "name": "creator-docs",
-  "version": "1.6.1",
-  "description": "This repo is for hosting Cocos Creator documents.",
-  "main": "index.js",
-  "dependencies": {
-    "commander": "^2.12.2",
-    "del": "^3.0.0",
-    "globby": "^7.1.1",
-    "gulp": "^3.9.1",
-    "gulp-sequence": "^0.4.6",
-    "lodash": "^4.17.4"
-  },
-  "devDependencies": {
-    "@aduh95/viz.js": "^3.2.1",
-    "fs-extra": "^9.0.1"
-  },
+  "name": "cocos-creator-docs",
+  "version": "1.0.0",
+  "description": "cocos-creator-docs",
+  "type": "module",
   "scripts": {
-    "build": "gulp restore-ignore && gulp prebuild && gitbook build && gulp postbuild",
-    "build:dots": "node ./scripts/build-dots.js",
-    "preview": "gulp preview",
-    "upload": "gulp publish --dest /Volumes/creator/manual",
-    "publish": "npm run build && npm run upload"
+    "docs:dev": "vitepress dev versions/3.8 --port=5001 --host",
+    "docs:build": "vitepress build versions/3.8",
+    "docs:preview": "vitepress preview versions/3.8"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cocos-creator/creator-docs.git"
-  },
-  "author": "",
+  "keywords": [],
+  "author": "cocos",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cocos-creator/creator-docs/issues"
-  },
-  "homepage": "https://github.com/cocos-creator/creator-docs#readme"
+  "devDependencies": {
+    "vitepress": "^1.1.4"
+  }
 }

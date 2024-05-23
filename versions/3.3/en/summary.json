@@ -1,0 +1,1352 @@
+[
+    {
+        "text": "Beginners Guide",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "Basic Usage",
+                "link": "getting-started/index.md",
+                "items": [
+                    {
+                        "text": "About Cocos Creator",
+                        "link": "getting-started/introduction/index.md"
+                    },
+                    {
+                        "text": "Installing and Launching",
+                        "link": "getting-started/install/index.md"
+                    },
+                    {
+                        "text": "Dashboard",
+                        "link": "getting-started/dashboard/index.md"
+                    },
+                    {
+                        "text": "Hello World!",
+                        "link": "getting-started/helloworld/index.md"
+                    },
+                    {
+                        "text": "Project Structure",
+                        "link": "getting-started/project-structure/index.md"
+                    },
+                    {
+                        "text": "Editor Panels",
+                        "link": "editor/index.md",
+                        "items": [
+                            {
+                                "text": "Scene",
+                                "link": "editor/scene/index.md"
+                            },
+                            {
+                                "text": "Hierarchy",
+                                "link": "editor/hierarchy/index.md"
+                            },
+                            {
+                                "text": "Assets",
+                                "link": "editor/assets/index.md"
+                            },
+                            {
+                                "text": "Inspector",
+                                "link": "editor/inspector/index.md"
+                            },
+                            {
+                                "text": "Console",
+                                "link": "editor/console/index.md"
+                            },
+                            {
+                                "text": "Preferences",
+                                "link": "editor/preferences/index.md"
+                            },
+                            {
+                                "text": "Project Settings",
+                                "link": "editor/project/index.md"
+                            },
+                            {
+                                "text": "Main Menu",
+                                "link": "editor/mainMenu/index.md"
+                            },
+                            {
+                                "text": "Tool Bar",
+                                "link": "editor/toolbar/index.md"
+                            },
+                            {
+                                "text": "Editor Layout",
+                                "link": "editor/editor-layout/index.md"
+                            },
+                            {
+                                "text": "Preview & Debugging",
+                                "link": "editor/preview/index.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Support",
+                        "link": "getting-started/support.md"
+                    },
+                    {
+                        "text": "Caution!",
+                        "link": "getting-started/attention/index.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Quick Start: First Game",
+                "link": "getting-started/first-game/index.md"
+            },
+            {
+                "text": "Upgrade Guide",
+                "link": "release-notes/index.md",
+                "items": [
+                    {
+                        "text": "Cocos Creator 3.0 Upgrade Guide",
+                        "link": "release-notes/upgrade-guide-v3.0.md"
+                    },
+                    {
+                        "text": "Cocos Creator 3.0 Material Upgrade Guide",
+                        "link": "material-system/effect-2.x-to-3.0.md"
+                    },
+                    {
+                        "text": "Cocos Creator 3.1 Material Upgrade Guide",
+                        "link": "material-system/Material-upgrade-documentation-for-v3.0-to-v3.1.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    },
+    {
+        "text": "Basic Workflow",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "Scene Creation",
+                "link": "concepts/scene/index.md",
+                "items": [
+                    {
+                        "text": "Scene Assets",
+                        "link": "asset/scene.md"
+                    },
+                    {
+                        "text": "Nodes and Components",
+                        "link": "concepts/scene/node-component.md"
+                    },
+                    {
+                        "text": "Coordinate Systems and Transformations",
+                        "link": "concepts/scene/coord.md"
+                    },
+                    {
+                        "text": "Node Hierarchy and Rendering Order",
+                        "link": "concepts/scene/node-tree.md"
+                    },
+                    {
+                        "text": "Build a Scene Image Using the Scene Panel",
+                        "link": "concepts/scene/scene-editing.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Asset System",
+                "link": "asset/index.md",
+                "items": [
+                    {
+                        "text": "Asset Workflow",
+                        "link": "asset/asset-workflow.md"
+                    },
+                    {
+                        "text": "Images",
+                        "link": "asset/image.md",
+                        "items": [
+                            {
+                                "text": "Textures",
+                                "link": "asset/texture.md"
+                            },
+                            {
+                                "text": "Sprite Frames",
+                                "link": "asset/sprite-frame.md",
+                                "items": [
+                                    {
+                                        "text": "Auto Trim for SpriteFrame",
+                                        "link": "ui-system/components/engine/trim.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "Atlas",
+                                "link": "asset/atlas.md"
+                            },
+                            {
+                                "text": "Auto Atlas",
+                                "link": "asset/auto-atlas.md"
+                            },
+                            {
+                                "text": "Label Atlas",
+                                "link": "asset/label-atlas.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Prefab",
+                        "link": "asset/prefab.md"
+                    },
+                    {
+                        "text": "Fonts",
+                        "link": "asset/font.md"
+                    },
+                    {
+                        "text": "Audio",
+                        "link": "asset/audio.md"
+                    },
+                    {
+                        "text": "Material",
+                        "link": "asset/material.md"
+                    },
+                    {
+                        "text": "Model",
+                        "link": "asset/model/mesh.md",
+                        "items": [
+                            {
+                                "text": "Importing Models Exported from DCC Tools",
+                                "link": "asset/model/dcc-export-mesh.md"
+                            },
+                            {
+                                "text": "glTF",
+                                "link": "asset/model/glTF.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Spine Skeletal Animation",
+                        "link": "asset/spine.md"
+                    },
+                    {
+                        "text": "DragonBones Skeletal Animation",
+                        "link": "asset/dragonbones.md"
+                    },
+                    {
+                        "text": "TiledMap",
+                        "link": "asset/tiledmap.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Scripting Guide and Event System",
+                "link": "scripting/index.md",
+                "items": [
+                    {
+                        "text": "Programming Language Support",
+                        "link": "scripting/language-support.md"
+                    },
+                    {
+                        "text": "Scripting Basics",
+                        "link": "scripting/script-basics.md",
+                        "items": [
+                            {
+                                "text": "Script Creation",
+                                "link": "scripting/setup.md"
+                            },
+                            {
+                                "text": "Coding Environment Setup",
+                                "link": "scripting/coding-setup.md"
+                            },
+                            {
+                                "text": "Operating Environment",
+                                "link": "scripting/basic.md"
+                            },
+                            {
+                                "text": "Decorator",
+                                "link": "scripting/decorator.md"
+                            },
+                            {
+                                "text": "Property Attributes",
+                                "link": "scripting/reference/attributes.md"
+                            },
+                            {
+                                "text": "Life Cycle Callbacks",
+                                "link": "scripting/life-cycle-callbacks.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Using Scripts",
+                        "link": "scripting/usage.md",
+                        "items": [
+                            {
+                                "text": "Access Nodes and Components",
+                                "link": "scripting/access-node-component.md"
+                            },
+                            {
+                                "text": "Common Node and Component Interfaces",
+                                "link": "scripting/basic-node-api.md"
+                            },
+                            {
+                                "text": "Create and Destroy Nodes",
+                                "link": "scripting/create-destroy.md"
+                            },
+                            {
+                                "text": "Scheduler",
+                                "link": "scripting/scheduler.md"
+                            },
+                            {
+                                "text": "Components and Component Execution Order",
+                                "link": "scripting/component.md"
+                            },
+                            {
+                                "text": "Loading and Switching Scenes",
+                                "link": "scripting/scene-managing.md"
+                            },
+                            {
+                                "text": "Obtaining and Loading Assets",
+                                "link": "scripting/load-assets.md"
+                            },
+                            {
+                                "text": "tsconfig Configuration",
+                                "link": "scripting/tsconfig.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Advanced Scripting",
+                        "link": "scripting/reference-class.md"
+                    },
+                    {
+                        "text": "Events",
+                        "link": "engine/event/index.md",
+                        "items": [
+                            {
+                                "text": "Listening to and Launching Events",
+                                "link": "engine/event/event-emit.md"
+                            },
+                            {
+                                "text": "Node System Events",
+                                "link": "engine/event/event-builtin.md"
+                            },
+                            {
+                                "text": "Global System Events",
+                                "link": "engine/event/event-input.md"
+                            },
+                            {
+                                "text": "Event API",
+                                "link": "engine/event/event-api.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Modules",
+                        "link": "scripting/modules/index.md",
+                        "items": [
+                            {
+                                "text": "Engine Modules",
+                                "link": "scripting/modules/engine.md"
+                            },
+                            {
+                                "text": "External Module Usage Case",
+                                "link": "scripting/modules/example.md"
+                            },
+                            {
+                                "text": "Module Specification",
+                                "link": "scripting/modules/spec.md"
+                            },
+                            {
+                                "text": "Import Maps",
+                                "link": "scripting/modules/import-map.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Plugin Scripts",
+                        "link": "scripting/external-scripts.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Cross-platform Game Publish",
+                "link": "editor/publish/index.md",
+                "items": [
+                    {
+                        "text": "About the Build Panel",
+                        "link": "editor/publish/build-panel.md"
+                    },
+                    {
+                        "text": "General Build Options",
+                        "link": "editor/publish/build-options.md"
+                    },
+                    {
+                        "text": "Publish to Web Platforms",
+                        "link": "editor/publish/publish-web.md"
+                    },
+                    {
+                        "text": "Publish to Native Platforms",
+                        "link": "editor/publish/native-options.md",
+                        "items": [
+                            {
+                                "text": "Publish for the Huawei HarmonyOS",
+                                "link": "editor/publish/publish-huawei-ohos.md"
+                            },
+                            {
+                                "text": "Setup Native Development",
+                                "link": "editor/publish/setup-native-development.md"
+                            },
+                            {
+                                "text": "Debugging JavaScript on Native Platforms",
+                                "link": "editor/publish/debug-jsb.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Publish to Mini Game Platforms",
+                        "link": "editor/publish/publish-mini-game.md",
+                        "items": [
+                            {
+                                "text": "Publish to HUAWEI AppGallery Connect",
+                                "link": "editor/publish/publish-huawei-agc.md"
+                            },
+                            {
+                                "text": "Publish to Alipay Mini Game",
+                                "link": "editor/publish/publish-alipay-mini-game.md"
+                            },
+                            {
+                                "text": "Publish to ByteDance Mini Game",
+                                "link": "editor/publish/publish-bytedance-mini-game.md"
+                            },
+                            {
+                                "text": "Publish to Huawei Quick Game",
+                                "link": "editor/publish/publish-huawei-quick-game.md"
+                            },
+                            {
+                                "text": "Publish to OPPO Mini Game",
+                                "link": "editor/publish/publish-oppo-mini-game.md"
+                            },
+                            {
+                                "text": "Publish to vivo Mini Game",
+                                "link": "editor/publish/publish-vivo-mini-game.md"
+                            },
+                            {
+                                "text": "Publish to Xiaomi Quick Game",
+                                "link": "editor/publish/publish-xiaomi-quick-game.md"
+                            },
+                            {
+                                "text": "Publish to Baidu Mini Game",
+                                "link": "editor/publish/publish-baidu-mini-game.md"
+                            },
+                            {
+                                "text": "Publish to WeChat Mini Game",
+                                "link": "editor/publish/publish-wechatgame.md",
+                                "items": [
+                                    {
+                                        "text": "WeChat Engine Plugin",
+                                        "link": "editor/publish/wechatgame-plugin.md"
+                                    },
+                                    {
+                                        "text": "Access to the WeChat PC Mini Game",
+                                        "link": "editor/publish/publish-pc-wechatgame.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "Access to Open Data Context",
+                                "link": "editor/publish/build-open-data-context.md"
+                            },
+                            {
+                                "text": "Mini Game Subpackage",
+                                "link": "editor/publish/subpackage.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Publish from the Command Line",
+                        "link": "editor/publish/publish-in-command-line.md"
+                    },
+                    {
+                        "text": "Build Process with FAQ",
+                        "link": "editor/publish/build-guide.md"
+                    },
+                    {
+                        "text": "Custom Project Build Process",
+                        "link": "editor/publish/custom-project-build-template.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    },
+    {
+        "text": "Function Modules",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "Graphics Rendering",
+                "link": "module-map/graphics.md",
+                "items": [
+                    {
+                        "text": "Render Pipeline",
+                        "link": "render-pipeline/overview.md",
+                        "items": [
+                            {
+                                "text": "Built-in Render Pipeline",
+                                "link": "render-pipeline/builtin-pipeline.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Camera",
+                        "link": "editor/components/camera-component.md"
+                    },
+                    {
+                        "text": "Lighting",
+                        "link": "concepts/scene/light.md",
+                        "items": [
+                            {
+                                "text": "Physically Based Lighting",
+                                "link": "concepts/scene/light/pbr-lighting.md"
+                            },
+                            {
+                                "text": "Lights",
+                                "link": "concepts/scene/light/lightType/index.md",
+                                "items": [
+                                    {
+                                        "text": "Directional Lights",
+                                        "link": "concepts/scene/light/lightType/dir-light.md"
+                                    },
+                                    {
+                                        "text": "Spherical Lights",
+                                        "link": "concepts/scene/light/lightType/sphere-light.md"
+                                    },
+                                    {
+                                        "text": "Spotlights",
+                                        "link": "concepts/scene/light/lightType/spot-light.md"
+                                    },
+                                    {
+                                        "text": "Ambient Light",
+                                        "link": "concepts/scene/light/lightType/ambient.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "Additive Per-Pixel Lights",
+                                "link": "concepts/scene/light/additive-per-pixel-lights.md"
+                            },
+                            {
+                                "text": "Shadows",
+                                "link": "concepts/scene/light/shadow.md"
+                            },
+                            {
+                                "text": "Lightmapping",
+                                "link": "concepts/scene/light/lightmap.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Meshes",
+                        "link": "module-map/mesh/index.md",
+                        "items": [
+                            {
+                                "text": "MeshRenderer",
+                                "link": "engine/renderable/model-component.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Textures",
+                        "link": "module-map/texture/index.md",
+                        "items": [
+                            {
+                                "text": "Texture Compression",
+                                "link": "asset/compress-texture.md"
+                            },
+                            {
+                                "text": "RenderTexture",
+                                "link": "asset/render-texture.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Material System",
+                        "link": "material-system/overview.md",
+                        "items": [
+                            {
+                                "text": "YAML 101",
+                                "link": "material-system/yaml-101.md"
+                            },
+                            {
+                                "text": "Effect Syntax",
+                                "link": "material-system/effect-syntax.md"
+                            },
+                            {
+                                "text": "Pass Params",
+                                "link": "material-system/pass-parameter-list.md"
+                            },
+                            {
+                                "text": "Builtin Shader Uniforms",
+                                "link": "material-system/builtin-shader-uniforms.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Effects",
+                        "link": "module-map/effects/index.md",
+                        "items": [
+                            {
+                                "text": "Billboard",
+                                "link": "particle-system/billboard-component.md"
+                            },
+                            {
+                                "text": "Line",
+                                "link": "particle-system/line-component.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Skybox",
+                        "link": "concepts/scene/skybox.md"
+                    },
+                    {
+                        "text": "Global Fog",
+                        "link": "concepts/scene/fog.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "2D Objects",
+                "link": "2d-object/index.md",
+                "items": [
+                    {
+                        "text": "2D Render",
+                        "link": "2d-object/2d-render/index.md",
+                        "items": [
+                            {
+                                "text": "Rendering Order",
+                                "link": "ui-system/components/engine/priority.md"
+                            },
+                            {
+                                "text": "2D Renderable Component Batching Rules",
+                                "link": "ui-system/components/engine/ui-batch.md"
+                            },
+                            {
+                                "text": "Custom Materials for 2D Rendering Objects",
+                                "link": "ui-system/components/engine/ui-material.md"
+                            },
+                            {
+                                "text": "2D Renderable Components",
+                                "link": "ui-system/components/editor/render-component.md",
+                                "items": [
+                                    {
+                                        "text": "Sprite Component Reference",
+                                        "link": "ui-system/components/editor/sprite.md"
+                                    },
+                                    {
+                                        "text": "Label Component Reference",
+                                        "link": "ui-system/components/editor/label.md"
+                                    },
+                                    {
+                                        "text": "Mask Component Reference",
+                                        "link": "ui-system/components/editor/mask.md"
+                                    },
+                                    {
+                                        "text": "Graphics Component Reference",
+                                        "link": "ui-system/components/editor/graphics.md"
+                                    },
+                                    {
+                                        "text": "RichText Component Reference",
+                                        "link": "ui-system/components/editor/richtext.md"
+                                    },
+                                    {
+                                        "text": "UIStaticBatch Component Reference",
+                                        "link": "ui-system/components/editor/ui-static.md"
+                                    },
+                                    {
+                                        "text": "Spine Skeleton Component Reference",
+                                        "link": "editor/components/spine.md"
+                                    },
+                                    {
+                                        "text": "DragonBones ArmatureDisplay Component Reference",
+                                        "link": "editor/components/dragonbones.md"
+                                    },
+                                    {
+                                        "text": "TiledMap Component Reference",
+                                        "link": "editor/components/tiledmap.md"
+                                    },
+                                    {
+                                        "text": "TiledTile Component Reference",
+                                        "link": "editor/components/tiledtile.md"
+                                    },
+                                    {
+                                        "text": "MotionStreak Component Reference",
+                                        "link": "editor/components/motion-streak.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "UI System",
+                        "link": "2d-object/ui-system/index.md",
+                        "items": [
+                            {
+                                "text": "UI Components",
+                                "link": "ui-system/components/editor/base-component.md",
+                                "items": [
+                                    {
+                                        "text": "Canvas Component Reference",
+                                        "link": "ui-system/components/editor/canvas.md"
+                                    },
+                                    {
+                                        "text": "UITransform Component Reference",
+                                        "link": "ui-system/components/editor/ui-transform.md"
+                                    },
+                                    {
+                                        "text": "Widget Component Reference",
+                                        "link": "ui-system/components/editor/widget.md"
+                                    },
+                                    {
+                                        "text": "Button Component Reference",
+                                        "link": "ui-system/components/editor/button.md"
+                                    },
+                                    {
+                                        "text": "Layout Component Reference",
+                                        "link": "ui-system/components/editor/layout.md"
+                                    },
+                                    {
+                                        "text": "EditBox Component Reference",
+                                        "link": "ui-system/components/editor/editbox.md"
+                                    },
+                                    {
+                                        "text": "ScrollView Component Reference",
+                                        "link": "ui-system/components/editor/scrollview.md"
+                                    },
+                                    {
+                                        "text": "ScrollBar Component Reference",
+                                        "link": "ui-system/components/editor/scrollbar.md"
+                                    },
+                                    {
+                                        "text": "ProgressBar Component Reference",
+                                        "link": "ui-system/components/editor/progress.md"
+                                    },
+                                    {
+                                        "text": "LabelOutline Component Reference",
+                                        "link": "ui-system/components/editor/label-outline.md"
+                                    },
+                                    {
+                                        "text": "LabelShadow Component Reference",
+                                        "link": "ui-system/components/editor/label-shadow.md"
+                                    },
+                                    {
+                                        "text": "Toggle Component Reference",
+                                        "link": "ui-system/components/editor/toggle.md"
+                                    },
+                                    {
+                                        "text": "ToggleContainer Component Reference",
+                                        "link": "ui-system/components/editor/toggleContainer.md"
+                                    },
+                                    {
+                                        "text": "Slider Component Reference",
+                                        "link": "ui-system/components/editor/slider.md"
+                                    },
+                                    {
+                                        "text": "PageView Component Reference",
+                                        "link": "ui-system/components/editor/pageview.md"
+                                    },
+                                    {
+                                        "text": "PageViewIndicator Component Reference",
+                                        "link": "ui-system/components/editor/pageviewindicator.md"
+                                    },
+                                    {
+                                        "text": "UIMeshRenderer Component Reference",
+                                        "link": "ui-system/components/editor/ui-model.md"
+                                    },
+                                    {
+                                        "text": "UICoordinateTracker Component Reference",
+                                        "link": "ui-system/components/editor/ui-coordinate-tracker.md"
+                                    },
+                                    {
+                                        "text": "UIOpacity Component Reference",
+                                        "link": "ui-system/components/editor/ui-opacity.md"
+                                    },
+                                    {
+                                        "text": "BlockInputEvents Component Reference",
+                                        "link": "ui-system/components/editor/block-input-events.md"
+                                    },
+                                    {
+                                        "text": "WebView Component Reference",
+                                        "link": "ui-system/components/editor/webview.md"
+                                    },
+                                    {
+                                        "text": "VideoPlayer Component Reference",
+                                        "link": "ui-system/components/editor/videoplayer.md"
+                                    },
+                                    {
+                                        "text": "SafeArea Component Reference",
+                                        "link": "ui-system/components/editor/safearea.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "UI Practice Guide",
+                                "link": "ui-system/components/engine/usage-ui.md",
+                                "items": [
+                                    {
+                                        "text": "Multi-Resolution Adaption",
+                                        "link": "ui-system/components/engine/multi-resolution.md"
+                                    },
+                                    {
+                                        "text": "Widget Alignment",
+                                        "link": "ui-system/components/engine/widget-align.md"
+                                    },
+                                    {
+                                        "text": "Label Layout",
+                                        "link": "ui-system/components/engine/label-layout.md"
+                                    },
+                                    {
+                                        "text": "Auto Layout Container",
+                                        "link": "ui-system/components/engine/auto-layout.md"
+                                    },
+                                    {
+                                        "text": "Create a List of Dynamically Generated Content",
+                                        "link": "ui-system/components/engine/list-with-data.md"
+                                    },
+                                    {
+                                        "text": "Stretchable UI Sprite",
+                                        "link": "ui-system/components/engine/sliced-sprite.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Animation",
+                "link": "animation/index.md",
+                "items": [
+                    {
+                        "text": "Animation Clip",
+                        "link": "animation/animation-clip.md"
+                    },
+                    {
+                        "text": "Animation Component Reference",
+                        "link": "animation/animation-comp.md"
+                    },
+                    {
+                        "text": "Animation Panel",
+                        "link": "animation/animation.md",
+                        "items": [
+                            {
+                                "text": "Creating Animation Components and Animation Clips",
+                                "link": "animation/animation-create.md"
+                            },
+                            {
+                                "text": "Get Familiar with the Animation Panel",
+                                "link": "animation/animation-editor.md"
+                            },
+                            {
+                                "text": "Editing Animation Clips",
+                                "link": "animation/edit-animation-clip.md"
+                            },
+                            {
+                                "text": "Editing Animation Easing Curve",
+                                "link": "animation/animation-curve.md"
+                            },
+                            {
+                                "text": "Adding Animation Events",
+                                "link": "animation/animation-event.md"
+                            },
+                            {
+                                "text": "Using Animation Curves",
+                                "link": "animation/use-animation-curve.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Skeletal Animation",
+                        "link": "animation/skeletal-animation.md",
+                        "items": [
+                            {
+                                "text": "Joint Texture Layout Settings",
+                                "link": "animation/joint-texture-layout.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Controlling Animation with Scripts",
+                        "link": "animation/animation-component.md",
+                        "items": [
+                            {
+                                "text": "Animation State",
+                                "link": "animation/animation-state.md"
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Audio System",
+                "link": "audio-system/overview.md",
+                "items": [
+                    {
+                        "text": "AudioSource Component Reference",
+                        "link": "audio-system/audiosource.md"
+                    },
+                    {
+                        "text": "AudioSource Playback Example",
+                        "link": "audio-system/audioExample.md"
+                    },
+                    {
+                        "text": "Compatibility Notes",
+                        "link": "audio-system/audioLimit.md"
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Physics System",
+                "link": "physics/index.md",
+                "items": [
+                    {
+                        "text": "Physics 2D",
+                        "link": "physics-2d/physics-2d.md",
+                        "items": [
+                            {
+                                "text": "2D Physics Manager",
+                                "link": "physics-2d/physics-2d-system.md"
+                            },
+                            {
+                                "text": "2D RigidBody",
+                                "link": "physics-2d/physics-2d-rigid-body.md"
+                            },
+                            {
+                                "text": "2D Physics Collider",
+                                "link": "physics-2d/physics-2d-collider.md"
+                            },
+                            {
+                                "text": "2D Contact Callback",
+                                "link": "physics-2d/physics-2d-contact-callback.md"
+                            },
+                            {
+                                "text": "2D Physics Joint",
+                                "link": "physics-2d/physics-2d-joint.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Physics 3D",
+                        "link": "physics/physics.md",
+                        "items": [
+                            {
+                                "text": "3D Physics Options",
+                                "link": "physics/physics-item.md"
+                            },
+                            {
+                                "text": "3D Physics System",
+                                "link": "physics/physics-system.md"
+                            },
+                            {
+                                "text": "3D Physics Component",
+                                "link": "physics/physics-component.md"
+                            },
+                            {
+                                "text": "Using 3D Physics",
+                                "link": "physics/physics-use.md",
+                                "items": [
+                                    {
+                                        "text": "3D Physics Collider",
+                                        "link": "physics/physics-collider.md"
+                                    },
+                                    {
+                                        "text": "3D Physics Configs",
+                                        "link": "editor/project/physics-configs.md"
+                                    },
+                                    {
+                                        "text": "3D Physics Material",
+                                        "link": "physics/physics-material.md"
+                                    },
+                                    {
+                                        "text": "3D RigidBody",
+                                        "link": "physics/physics-rigidbody.md"
+                                    },
+                                    {
+                                        "text": "3D Physics Events",
+                                        "link": "physics/physics-event.md"
+                                    },
+                                    {
+                                        "text": "Groups And Masks",
+                                        "link": "physics/physics-group-mask.md"
+                                    },
+                                    {
+                                        "text": "3D RayCast Detection",
+                                        "link": "physics/physics-raycast.md"
+                                    },
+                                    {
+                                        "text": "Continuous Collision Detection",
+                                        "link": "physics/physics-ccd.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Particle System",
+                "link": "particle-system/index.md",
+                "items": [
+                    {
+                        "text": "2D Particle System",
+                        "link": "particle-system/2d-particle/2d-particle.md"
+                    },
+                    {
+                        "text": "3D Particle System",
+                        "link": "particle-system/overview.md",
+                        "items": [
+                            {
+                                "text": "Particle System Module",
+                                "link": "particle-system/module.md",
+                                "items": [
+                                    {
+                                        "text": "Main Module",
+                                        "link": "particle-system/main-module.md"
+                                    },
+                                    {
+                                        "text": "Shape Module",
+                                        "link": "particle-system/emitter.md"
+                                    },
+                                    {
+                                        "text": "Velocity Overtime Module",
+                                        "link": "particle-system/velocity-module.md"
+                                    },
+                                    {
+                                        "text": "Force Overtime Module",
+                                        "link": "particle-system/force-module.md"
+                                    },
+                                    {
+                                        "text": "Size Overtime Module",
+                                        "link": "particle-system/size-module.md"
+                                    },
+                                    {
+                                        "text": "Rotation Overtime Module",
+                                        "link": "particle-system/rotation-module.md"
+                                    },
+                                    {
+                                        "text": "Color Over Life Time Module",
+                                        "link": "particle-system/color-module.md"
+                                    },
+                                    {
+                                        "text": "Texture Animation Module",
+                                        "link": "particle-system/texture-animation-module.md"
+                                    },
+                                    {
+                                        "text": "Limit Velocity Overtime Module",
+                                        "link": "particle-system/limit-velocity-module.md"
+                                    },
+                                    {
+                                        "text": "Trail Module",
+                                        "link": "particle-system/trail-module.md"
+                                    },
+                                    {
+                                        "text": "Renderer Module",
+                                        "link": "particle-system/renderer.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "Particle Properties Editor",
+                                "link": "particle-system/editor/index.md",
+                                "items": [
+                                    {
+                                        "text": "Curve Editor",
+                                        "link": "particle-system/editor/curve-editor.md"
+                                    },
+                                    {
+                                        "text": "Gradient Editor",
+                                        "link": "particle-system/editor/gradient-editor.md"
+                                    },
+                                    {
+                                        "text": "Particle Editor",
+                                        "link": "particle-system/editor/particle-effect-panel.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Tween System",
+                "link": "tween/index.md"
+            },
+            {
+                "text": "Terrain System",
+                "link": "editor/terrain/index.md"
+            },
+            {
+                "text": "Asset Manager",
+                "link": "asset/asset-manager.md",
+                "items": [
+                    {
+                        "text": "AssetManager Upgrade Guide",
+                        "link": "asset/asset-manager-upgrade-guide.md"
+                    },
+                    {
+                        "text": "Asset Bundle Upgrade Guide",
+                        "link": "asset/subpackage-upgrade-guide.md"
+                    },
+                    {
+                        "text": "Asset Loading",
+                        "link": "asset/dynamic-load-resources.md"
+                    },
+                    {
+                        "text": "Asset Bundle",
+                        "link": "asset/bundle.md"
+                    },
+                    {
+                        "text": "Release Of Assets",
+                        "link": "asset/release-manager.md"
+                    },
+                    {
+                        "text": "Download and Parse",
+                        "link": "asset/downloader-parser.md"
+                    },
+                    {
+                        "text": "Loading and Preloading",
+                        "link": "asset/preload-load.md"
+                    },
+                    {
+                        "text": "Cache Manager",
+                        "link": "asset/cache-manager.md"
+                    },
+                    {
+                        "text": "Optional Parameters",
+                        "link": "asset/options.md"
+                    },
+                    {
+                        "text": "Pipeline and Task",
+                        "link": "asset/pipeline-task.md"
+                    },
+                    {
+                        "text": "Resource Management Considerations --- meta files",
+                        "link": "asset/meta.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    },
+    {
+        "text": "Advanced Tutorials",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "Editor Extension",
+                "link": "editor/extension/readme.md",
+                "items": [
+                    {
+                        "text": "Generating Extensions using Templates",
+                        "link": "editor/extension/create-extension.md"
+                    },
+                    {
+                        "text": "First Extension",
+                        "link": "editor/extension/first.md"
+                    },
+                    {
+                        "text": "First Panel",
+                        "link": "editor/extension/first-panel.md"
+                    },
+                    {
+                        "text": "First Data Interaction",
+                        "link": "editor/extension/first-communication.md"
+                    },
+                    {
+                        "text": "Install and Share",
+                        "link": "editor/extension/install.md"
+                    },
+                    {
+                        "text": "Submitting Resources to Cocos Store",
+                        "link": "editor/extension/store/upload-store.md"
+                    },
+                    {
+                        "text": "Extension Panel",
+                        "link": "editor/extension/panel.md",
+                        "items": [
+                            {
+                                "text": "Compose Panel",
+                                "link": "editor/extension/panel-boot.md"
+                            },
+                            {
+                                "text": "Panel Message",
+                                "link": "editor/extension/panel-messages.md"
+                            },
+                            {
+                                "text": "Communicate with the Panel",
+                                "link": "editor/extension/to-panel-messages.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Contributions",
+                        "link": "editor/extension/contributions.md",
+                        "items": [
+                            {
+                                "text": "Message",
+                                "link": "editor/extension/contributions-messages.md"
+                            },
+                            {
+                                "text": "Shortcuts",
+                                "link": "editor/extension/contributions-shortcuts.md"
+                            },
+                            {
+                                "text": "Call the engine API and project script",
+                                "link": "editor/extension/scene-script.md"
+                            },
+                            {
+                                "text": "Extending the Main Menu",
+                                "link": "editor/extension/contributions-menu.md"
+                            },
+                            {
+                                "text": "Extending the Assets Panel",
+                                "link": "editor/assets/extension.md"
+                            },
+                            {
+                                "text": "Extending the Assets Database",
+                                "link": "editor/extension/contributions-database.md"
+                            },
+                            {
+                                "text": "Extending the Project Settings Panel",
+                                "link": "editor/extension/contributions-project.md"
+                            },
+                            {
+                                "text": "Extending the Preferences Panel",
+                                "link": "editor/extension/contributions-preferences.md"
+                            },
+                            {
+                                "text": "Extend the Build Process",
+                                "link": "editor/publish/custom-build-plugin.md"
+                            },
+                            {
+                                "text": "Extending Inspector Panel",
+                                "link": "editor/extension/inspector.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "Basic",
+                        "link": "editor/extension/basic.md",
+                        "items": [
+                            {
+                                "text": "Extension Description",
+                                "link": "editor/extension/define.md"
+                            },
+                            {
+                                "text": "Extension",
+                                "link": "editor/extension/package.md"
+                            },
+                            {
+                                "text": "Message",
+                                "link": "editor/extension/messages.md"
+                            },
+                            {
+                                "text": "I18n",
+                                "link": "editor/extension/i18n.md"
+                            },
+                            {
+                                "text": "Profile",
+                                "link": "editor/extension/profile.md"
+                            },
+                            {
+                                "text": "Editor UI",
+                                "link": "editor/extension/ui.md"
+                            }
+                        ],
+                        "collapsed": true
+                    }
+                ],
+                "collapsed": true
+            },
+            {
+                "text": "Advanced Topics",
+                "link": "advanced-topics/index.md",
+                "items": [
+                    {
+                        "text": "Hot Update Tutorial",
+                        "link": "advanced-topics/hot-update.md"
+                    },
+                    {
+                        "text": "AssetManager for Hot Update",
+                        "link": "advanced-topics/hot-update-manager.md"
+                    },
+                    {
+                        "text": "Dynamic Atlas",
+                        "link": "advanced-topics/dynamic-atlas.md"
+                    },
+                    {
+                        "text": "Engine Customization Workflow",
+                        "link": "advanced-topics/engine-customization.md"
+                    },
+                    {
+                        "text": "Web Preview Customization Workflow",
+                        "link": "editor/preview/browser.md"
+                    },
+                    {
+                        "text": "The Tutorial for JSB 2.0",
+                        "link": "advanced-topics/JSB2.0-learning.md"
+                    },
+                    {
+                        "text": "JavaScript to Java Reflection",
+                        "link": "advanced-topics/java-reflection.md"
+                    },
+                    {
+                        "text": "JavaScript to Objective-C Reflection",
+                        "link": "advanced-topics/oc-reflection.md"
+                    },
+                    {
+                        "text": "CMake Usage Introduction",
+                        "link": "advanced-topics/cmake-learning.md"
+                    },
+                    {
+                        "text": "WebSocket Server",
+                        "link": "advanced-topics/websocket-server.md"
+                    }
+                ],
+                "collapsed": true
+            }
+        ]
+    }
+]

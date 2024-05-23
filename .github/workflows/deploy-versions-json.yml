@@ -1,0 +1,43 @@
+name: 更新历史版本列表
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: contains(github.event.head_commit.message, 'versions')
+    runs-on: ubuntu-latest
+    steps:  
+      - uses: actions/checkout@v4
+
+      - name: 登录华为云
+        uses: huaweicloud/auth-action@v1.0.0
+        with: 
+            access_key_id: ${{ secrets.ACCESSKEY }} 
+            secret_access_key: ${{ secrets.SECRETACCESSKEY }}
+            region: 'cn-north-4'  
+        
+      - name: 上传文件到华为云 (测试环境)
+        uses: huaweicloud/obs-helper@master
+        with:
+          bucket_name: 'cce-creator-docs-test'
+          local_file_path: ./versions.json
+          obs_file_path: gitbook/creator/versions/versions.json
+          operation_type: upload 
+          include_self_folder: false
+          
+      - name: 上传文件到华为云（正式环境）
+        if: contains(github.event.head_commit.message, 'publish:versions:')  
+        uses: huaweicloud/obs-helper@master
+        with:
+            bucket_name: 'cce-creator-docs-pro'
+            local_file_path: ./versions.json
+            obs_file_path: gitbook/creator/versions/versions.json
+            operation_type: upload 
+            include_self_folder: false    
+    
