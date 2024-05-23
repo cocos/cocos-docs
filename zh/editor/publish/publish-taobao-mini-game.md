@@ -38,7 +38,7 @@
 
 - **分离引擎**
   该项为可选项。<br>
-  勾选后，可以减小游戏的首包大小。使用方法可以参考文档 [使用说明](wechatgame-plugin.md#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)，其中构建平台选择淘宝小游戏。
+  勾选后，可以减小游戏的首包大小。使用方法可以参考文档 [使用说明](./taobaominigame-plugin.md)，其中构建平台选择淘宝小游戏。
 
 ### 运行预览
 
@@ -74,4 +74,4 @@
 
 ## 相关文档 
 
-- [淘宝文档中心](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121213&treeId=804)
+- [淘宝文档中心](https://miniapp.open.taobao.com/doc.htm?docId=121719&docType=1&tag=game-dev)

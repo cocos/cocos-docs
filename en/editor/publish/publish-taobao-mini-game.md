@@ -38,7 +38,7 @@ The specific filling rules for related parameter configuration are as follows:
 
 - **Separate Engine**
   This option is optional.<br>
-  After checking, the initial package size of the game can be reduced. You can refer to the document [Usage Instructions](wechatgame-plugin.md#how-to-use) for instructions on how to use it. Please select Taobao Mini Game as the building platform.
+  After checking, the initial package size of the game can be reduced. You can refer to the document [Usage Instructions](./taobaominigame-plugin.md) for instructions on how to use it. Please select Taobao Mini Game as the building platform.
 
 ### Running Preview
 
@@ -78,4 +78,4 @@ Work on adapting the Taobao Mini Game is not completely finished yet, and it is 
 
 ## References
 
-- [Taobao Document Center - CN](https://open.taobao.com/v2/doc#/abilityToOpen?docType=1&docId=121213&treeId=804)
+- [Taobao Document Center - CN](https://miniapp.open.taobao.com/doc.htm?docId=121719&docType=1&tag=game-dev)

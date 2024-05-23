@@ -67,9 +67,8 @@ Cocos Creator 已经帮开发者做好了远程资源的下载、缓存和版本
 ## 参考链接
 
 - [淘宝开放平台开发指南](https://miniapp.open.taobao.com/docV3.htm?docId=119114&docType=1&tag=dev)
-- [淘宝开发者入驻文档](https://miniapp.open.taobao.com/doc.htm?spm=a219a.15212435.0.0.4f44669ay8X5vm&docId=119111&docType=1&)
-- [淘宝小程序创意互动介绍](https://miniapp.open.taobao.com/doc.htm?docId=119177&docType=1&tag=dev)
-- [淘宝小程序创意互动 API 文档](https://miniapp.open.taobao.com/doc.htm?docId=119062&docType=1&tag=dev)
+- [淘宝开发者入驻文档](https://miniapp.open.taobao.com/doc.htm?docId=121648&docType=1&tag=game-info)
+- [淘宝小游戏介绍](https://miniapp.open.taobao.com/doc.htm?docId=121646&docType=1&tag=game-info)
+- [淘宝小游戏API文档](https://miniapp.open.taobao.com/doc.htm?docId=121112&docType=1&tag=game-dev)
 - [淘宝开发者工具下载](https://developer.taobao.com/?spm=a219a.15212435.0.0.7892669alqxNjY)
-- [淘宝开发者工具介绍](https://miniapp.open.taobao.com/doc.htm?docId=119189&docType=1&tag=dev)
-- [淘宝开发者工具真机调试](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=dev)
+- [淘宝开发者工具真机调试](https://miniapp.open.taobao.com/doc.htm?docId=119194&docType=1&tag=game-dev)
