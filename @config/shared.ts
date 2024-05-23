@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress';
 import { github } from './config.ts';
 import { search as zhSearch } from './shared-theme-zh'
-import { link } from 'fs';
 
 export const shared = defineConfig({
   title: 'Cocos Creator',
@@ -87,15 +86,15 @@ export const shared = defineConfig({
 
 export function nav(version: string, lang: 'en' | 'zh') {
   return [ {
-    text: { zh:'Cocos Creator API 参考', en:'Cocos Creator API Ref'},
+    text: { zh:'API 参考', en:'API Reference'},
     link: `https://docs.cocos.com/creator/${version}/api/${lang}/`
   },
   {
-    text: { zh:'Cocos Creator 下载', en:'Get Cocos Creator API'},
+    text: { zh:'引擎下载', en:'Engine Download'},
     link:'https://www.cocos.com/'
   },
   {
-    text: { zh:'Cocos 资源商店', en:'Cocos Store'},
+    text: { zh:'资源商店', en:'Cocos Store'},
     link:'https://store.cocos.com'
   }].map(v => {
     return {

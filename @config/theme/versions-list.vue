@@ -1,6 +1,6 @@
 <template>
     <div class="history-version-list">
-        <div class="current">v{{ currentVersion }}</div>
+        <div class="current">Cocos Creator</div>
         <select name="version" :value="currentVersion" @change="changeVersion">
             <option v-for="v in list" :key="v.version" :value="v.version">{{ v.version }}</option>  
         </select>
