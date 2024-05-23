@@ -4,6 +4,12 @@
 - 官方文档地址：[https://docs.cocos.com](https://docs.cocos.com)
 - 引擎下载地址：[https://www.cocos.com](https://www.cocos.com/)
 
+## 准备工作
+
+```sh
+npm install
+```
+
 ## 生成侧边栏数据
 
 node ./scripts/create-sidebar.js versions/3.8/zh/SUMMARY.md
