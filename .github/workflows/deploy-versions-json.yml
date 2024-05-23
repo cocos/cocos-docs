@@ -32,7 +32,7 @@ jobs:
           include_self_folder: false
           
       - name: 上传文件到华为云（正式环境）
-        if: contains(github.event.head_commit.message, 'publish:versions:')  
+        if: contains(github.event.head_commit.message, 'publish:versions')  
         uses: huaweicloud/obs-helper@master
         with:
             bucket_name: 'cce-creator-docs-pro'
