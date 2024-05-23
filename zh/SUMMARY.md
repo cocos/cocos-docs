@@ -124,6 +124,7 @@
     - [发布到支付宝小游戏](publish/publish-alipay-mini-games.md)
     - [发布到淘宝小程序创意互动](publish/publish-taobao-creative-app.md)
     - [发布到淘宝小游戏](publish/publish-taobao-mini-game.md)
+        - [启用淘宝小游戏引擎插件](publish/taobaominigame-plugin.md)
     - [发布到字节跳动小游戏](publish/publish-bytedance.md)
         - [字节跳动小游戏开放数据域](publish/publish-bytedance-sub-domain.md)
     - [发布到 Cocos Play](publish/publish-cocosplay.md)
