@@ -56,6 +56,7 @@ jobs:
       # 按版本上传到对应的文件去
 
       - name: 上传文件到华为云 (测试环境)
+        if: contains(github.event.head_commit.message, 'test:docs:')
         uses: ./.github/actions/obs-helper
         with:
           bucket_name: 'cce-creator-docs-test'
