@@ -101,7 +101,7 @@
             },
             {
                 "text": "Cocos Creator Quick Guide for Unity Developers",
-                "link": "./guide/unity/index.md"
+                "link": "guide/unity/index.md"
             }
         ]
     },
@@ -487,7 +487,7 @@
                             },
                             {
                                 "text": "Upgrading Android Project to v3.8",
-                                "link": "./release-notes/upgrade-3.8-android.md"
+                                "link": "release-notes/upgrade-3.8-android.md"
                             }
                         ],
                         "collapsed": true
@@ -1054,7 +1054,7 @@
                                     },
                                     {
                                         "text": "3D Shader: RimLight",
-                                        "link": "./write-effect-3d-rim-light.md"
+                                        "link": "write-effect-3d-rim-light.md"
                                     }
                                 ],
                                 "collapsed": true
@@ -1081,7 +1081,7 @@
                             },
                             {
                                 "text": "Compute Shader",
-                                "link": "./shader/compute-shader.md"
+                                "link": "shader/compute-shader.md"
                             }
                         ],
                         "collapsed": true
@@ -1882,7 +1882,7 @@
                     },
                     {
                         "text": "Quick Start",
-                        "link": "xr/index.md",
+                        "link": "xr/project-deploy/index.md",
                         "items": [
                             {
                                 "text": "VR Project Creation",
@@ -1967,27 +1967,27 @@
                     },
                     {
                         "text": "CMake Usage Introduction",
-                        "link": "./advanced-topics/cmake-learning.md"
+                        "link": "advanced-topics/cmake-learning.md"
                     },
                     {
                         "text": "Native Engine Memory Leak Detection System",
-                        "link": "./advanced-topics/memory-leak-detector.md"
+                        "link": "advanced-topics/memory-leak-detector.md"
                     },
                     {
                         "text": "Native Scene Culling",
-                        "link": "./advanced-topics/native-scene-culling.md"
+                        "link": "advanced-topics/native-scene-culling.md"
                     },
                     {
                         "text": "Native Profiler",
-                        "link": "./advanced-topics/profiler.md"
+                        "link": "advanced-topics/profiler.md"
                     },
                     {
                         "text": "Native Plugins",
-                        "link": "./advanced-topics/native-plugins/brief.md",
+                        "link": "advanced-topics/native-plugins/brief.md",
                         "items": [
                             {
                                 "text": "Cocos Native Plugin Quick Tutorial",
-                                "link": "./advanced-topics/native-plugins/tutorial.md"
+                                "link": "advanced-topics/native-plugins/tutorial.md"
                             }
                         ],
                         "collapsed": true

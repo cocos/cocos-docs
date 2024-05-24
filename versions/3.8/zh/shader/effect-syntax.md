@@ -17,7 +17,7 @@ Cocos Creator 中的着色器（Cocos Shader ，文件扩展名为 *.effect）�
 
 在 VS Code 中打开 Cocos Creator **资源管理器** 面板中 `internal/effects/` 目录下的 `builtin-unlit.effect` 文件，可以看到主要内容如下：
 
-```ts
+```glsl
 CCEffect %{
   techniques:
   - name: opaque

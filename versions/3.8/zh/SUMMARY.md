@@ -26,7 +26,7 @@
     - [编辑器布局](editor/editor-layout/index.md)
     - [预览调试](editor/preview/index.md)
 - [术语](glossary/index.md)
-- [Unity 开发者快速入门指南](./guide/unity/index.md)
+- [Unity 开发者快速入门指南](guide/unity/index.md)
 
 ## 示例和教程
 
@@ -125,7 +125,7 @@
         - [Android 构建示例](editor/publish/android/build-example-android.md)
         - [Android 构建选项](editor/publish/android/build-options-android.md)
         - [配置 Android 原生开发环境](editor/publish/android/build-setup-evn-android.md)
-        - [v3.8 Android 工程升级](./release-notes/upgrade-3.8-android.md)
+        - [v3.8 Android 工程升级](release-notes/upgrade-3.8-android.md)
     - [发布到谷歌 GPG 平台](editor/publish/google-play-games/index.md)
         - [发布和运行](editor/publish/google-play-games/build-and-run.md)
         - [集成 Input SDK](editor/publish/gpg-input-sdk.md)
@@ -258,7 +258,7 @@
         - [UBO 内存布局策略](shader/ubo-layout.md)
         - [WebGL 1.0 向下兼容支持](shader/webgl-100-fallback.md)
         - [VSCode 着色器插件](shader/vscode-plugin.md)
-        - [计算着色器](./shader/compute-shader.md)
+        - [计算着色器](shader/compute-shader.md)
 
     - [渲染排序](engine/rendering/sorting.md)
 
@@ -455,7 +455,7 @@
             - [AR 交互](xr/architecture/ar-interaction.md)
             - [AR 降级](xr/architecture/xr-fallback.md)
 
-    - [快速部署指南](xr/index.md)
+    - [快速部署指南](xr/project-deploy/index.md)
         - [VR 项目创建](xr/project-deploy/vr-proj-deploy.md)
         - [VR 项目构建与发布](xr/project-deploy/vr-proj-pub.md)
         - [AR 项目创建](xr/project-deploy/ar-proj-deploy.md)
