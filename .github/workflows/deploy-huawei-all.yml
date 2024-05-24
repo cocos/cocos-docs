@@ -1,0 +1,61 @@
+name: 发布到华为云
+
+on:
+  push:
+    branches: [ "master_alan" ]
+  pull_request:
+    branches: [ "master_alan" ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: contains(github.event.head_commit.message, 'publish:all')
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [3.8, 3.7] 
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 设置 node 环境
+        uses: actions/setup-node@v4
+        with:
+            node-version: 22
+            cache: 'npm'
+
+      - name: 安装依赖
+        run: npm install
+
+      - name: 构建项目
+        run: node scripts/publish.js --version=versions/${{ matrix.node-version }}
+
+      - name: 登录华为云
+        uses: huaweicloud/auth-action@v1.0.0
+        with: 
+            access_key_id: ${{ secrets.ACCESSKEY }} 
+            secret_access_key: ${{ secrets.SECRETACCESSKEY }}
+            region: 'cn-north-4'  
+        
+      # 按版本上传到对应的文件去
+
+      - name: 上传文件到华为云 (测试环境)
+        if: contains(github.event.head_commit.message, 'publish:all:test')
+        uses: ./.github/actions/obs-helper
+        with:
+          bucket_name: 'cce-creator-docs-test'
+          local_file_path: ./versions/${{ matrix.node-version }}/.vitepress/dist
+          obs_file_path: gitbook/creator/${{ matrix.node-version }}/manual/
+          operation_type: upload 
+          include_self_folder: false
+          
+      - name: 上传文件到华为云（正式环境）
+        if: contains(github.event.head_commit.message, 'publish:all:prod')  
+        uses: ./.github/actions/obs-helper
+        with:
+            bucket_name: 'cce-creator-docs-pro'
+            local_file_path: ./versions/${{ matrix.node-version }}/.vitepress/dist
+            obs_file_path: gitbook/creator/${{ matrix.node-version }}/manual/
+            operation_type: upload 
+            include_self_folder: false    
+    
