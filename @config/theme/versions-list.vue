@@ -70,4 +70,13 @@ function changeVersion(e) {
         border-radius: 6px;
     }
 }
+/* 针对小屏设备 */
+@media (max-width: 480px) {
+    .history-version-list {
+        margin-left: 10px;
+        & .current {
+            display: none;
+        }
+    }
+}
 </style>
