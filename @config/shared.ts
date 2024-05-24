@@ -6,7 +6,7 @@ export const shared = defineConfig({
   title: 'Cocos Creator',
 
   lastUpdated: true,
-  cleanUrls: true,
+  cleanUrls: false,
   metaChunk: true,
 
   // 为了让构建通过，正式发布需要删除
