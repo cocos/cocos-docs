@@ -16,7 +16,7 @@ Let's explore the syntax of Cocos Shader by taking the built-in shader `builtin-
 
 In VS Code, Open the `builtin-unlit.effect` file located in the `internal/effects/` folder.
 
-```ts
+```glsl
 CCEffect %{
   techniques:
   - name: opaque
