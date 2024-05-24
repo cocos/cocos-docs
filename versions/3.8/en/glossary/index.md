@@ -18,7 +18,7 @@ If you find any unexplained or poorly described glossaries, please send us feedb
 | Glossary | Description |
 | :--- | :--- |
 | VB, Vertex Buffer | A vertex buffer is a set of vertices in a model, often described as an array, where each element of the array is a composite structure, including properties such as Position, Texture-coordinate, Color or Normal. |
-| IB, Index Buffer | Index Buffer, which stores the indexes of the vertices in the above VB, through which the specific geometry is combined, example: If VB is { (0, 0, 0), (1, 0, 0), (1, 1, 0) }, IB is [0, 2, 1], then the vertices of the triangle are drawn as follows: { VB[0], VB[2], VB[1] } |
+| IB, Index Buffer | Index Buffer, which stores the indexes of the vertices in the above VB, through which the specific geometry is combined, example: If VB is \{ (0, 0, 0), (1, 0, 0), (1, 1, 0) \}, IB is [0, 2, 1], then the vertices of the triangle are drawn as follows: \{ VB[0], VB[2], VB[1] \} |
 | FPS | Frame rate, the number of renderings per second. |
 | Layer | refers to the grouping of nodes when rendering, and the [Visibility property of the camera](../editor/components/camera-component.md#camera-group-rendering) can be used to handle whether certain nodes are rendered by the camera. |
 | LOD | Level of details,which improves rendering efficiency by having models with different levels of details at different levels. |
