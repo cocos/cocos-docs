@@ -1,10 +1,10 @@
-name: 发布到华为云
+name: 全量发布到华为云
 
 on:
   push:
-    branches: [ "master_alan" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master_alan" ]
+    branches: [ "master" ]
 
   workflow_dispatch:
 
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [3.8, 3.7] 
+        node-version: [3.8, 3.7, 3.6, 3.5, 3.4, 3.3, 3.2, 3.1, 3.0, 2.4] 
     steps:
       - uses: actions/checkout@v4
 
@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
             node-version: 22
-            cache: 'npm'
+            cache: npm
 
       - name: 安装依赖
         run: npm install
