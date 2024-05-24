@@ -17,6 +17,7 @@ export const shared = defineConfig({
   ],
 
   head: [
+    ['link', { rel: 'icon', type: 'image/x-ico', href: '/favicon.ico' }],
     [
       'script',
       {},
