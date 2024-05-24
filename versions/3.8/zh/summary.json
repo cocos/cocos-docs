@@ -101,7 +101,7 @@
             },
             {
                 "text": "Unity 开发者快速入门指南",
-                "link": "./guide/unity/index.md"
+                "link": "guide/unity/index.md"
             }
         ]
     },
@@ -511,7 +511,7 @@
                             },
                             {
                                 "text": "v3.8 Android 工程升级",
-                                "link": "./release-notes/upgrade-3.8-android.md"
+                                "link": "release-notes/upgrade-3.8-android.md"
                             }
                         ],
                         "collapsed": true
@@ -1109,7 +1109,7 @@
                             },
                             {
                                 "text": "计算着色器",
-                                "link": "./shader/compute-shader.md"
+                                "link": "shader/compute-shader.md"
                             }
                         ],
                         "collapsed": true
