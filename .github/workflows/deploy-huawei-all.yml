@@ -50,7 +50,7 @@ jobs:
           include_self_folder: false
           
       - name: 上传文件到华为云（正式环境）
-        if: contains(github.event.head_commit.message, 'publish:all:prod')  
+        if: contains(github.event.head_commit.message, 'publish:all:pro')  
         uses: ./.github/actions/obs-helper
         with:
             bucket_name: 'cce-creator-docs-pro'
