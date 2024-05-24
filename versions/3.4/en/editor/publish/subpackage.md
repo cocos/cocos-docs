@@ -44,7 +44,7 @@ Currently, the size of the WeChat Mini Game subpackage has following restriction
 - The size of a single subpackage is not limited.
 - The main package size can not exceed **4M**.
 
-Please refer to the [WeChat Mini Game Subpackage Loading](https://developers.weixin.qq.com/minigame/en/dev/guide/base-ability/sub-packages.html) documentation for details.
+Please refer to the [WeChat Mini Game Subpackage Loading](https://developers.weixin.qq.com/minigame/en/dev/guide/base-ability/subPackage/useSubPackage.html) documentation for details.
 
 ## vivo Mini Games
 
