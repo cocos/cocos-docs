@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [3.8, 3.7, 3.6, 3.5, 3.4, 3.3, 3.2, 3.1, 3.0, 2.4] 
+        publish-version: [3.8, 3.7, 3.6, 3.5, 3.4, 3.3, 3.2, 3.1, 3.0, 2.4] 
     steps:
       - uses: actions/checkout@v4
 
@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: 构建项目
-        run: node scripts/publish.js --version=versions/${{ matrix.node-version }}
+        run: node scripts/publish.js --version=versions/${{ matrix.publish-version }}
 
       - name: 登录华为云
         uses: huaweicloud/auth-action@v1.0.0
@@ -44,8 +44,8 @@ jobs:
         uses: ./.github/actions/obs-helper
         with:
           bucket_name: 'cce-creator-docs-test'
-          local_file_path: ./versions/${{ matrix.node-version }}/.vitepress/dist
-          obs_file_path: gitbook/creator/${{ matrix.node-version }}/manual/
+          local_file_path: ./versions/${{ matrix.publish-version }}/.vitepress/dist
+          obs_file_path: gitbook/creator/${{ matrix.publish-version }}/manual/
           operation_type: upload 
           include_self_folder: false
           
@@ -54,8 +54,8 @@ jobs:
         uses: ./.github/actions/obs-helper
         with:
             bucket_name: 'cce-creator-docs-pro'
-            local_file_path: ./versions/${{ matrix.node-version }}/.vitepress/dist
-            obs_file_path: gitbook/creator/${{ matrix.node-version }}/manual/
+            local_file_path: ./versions/${{ matrix.publish-version }}/.vitepress/dist
+            obs_file_path: gitbook/creator/${{ matrix.publish-version }}/manual/
             operation_type: upload 
             include_self_folder: false    
     
