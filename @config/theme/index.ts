@@ -4,6 +4,7 @@ import DefaultTheme from 'vitepress/theme'
 import versionList from './versions-list.vue'
 import feedback from './feedback.vue'
 import { github, branch } from '../config'
+import './custom.css'
 
 export default function(version: string) {
   return {
