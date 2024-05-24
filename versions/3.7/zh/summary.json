@@ -1802,7 +1802,7 @@
                     },
                     {
                         "text": "快速部署指南",
-                        "link": "xr/index.md",
+                        "link": "xr/project-deploy/index.md",
                         "items": [
                             {
                                 "text": "VR 项目创建",

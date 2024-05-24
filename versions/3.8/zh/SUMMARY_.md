@@ -455,7 +455,7 @@
       - [AR 交互](xr/architecture/ar-interaction.md)
       - [AR 降级](xr/architecture/xr-fallback.md)
 
-  - [快速部署指南](xr/index.md)
+  - [快速部署指南](xr/project-deploy/index.md)
     - [VR 项目创建](xr/project-deploy/vr-proj-deploy.md)
     - [VR 项目构建与发布](xr/project-deploy/vr-proj-pub.md)
     - [AR 项目创建](xr/project-deploy/ar-proj-deploy.md)

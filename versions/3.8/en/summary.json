@@ -1882,7 +1882,7 @@
                     },
                     {
                         "text": "Quick Start",
-                        "link": "xr/index.md",
+                        "link": "xr/project-deploy/index.md",
                         "items": [
                             {
                                 "text": "VR Project Creation",

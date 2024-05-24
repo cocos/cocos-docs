@@ -441,7 +441,7 @@
             - [AR Manager](xr/architecture/ar-manager.md)
             - [AR Automated Behavior Editing](xr/architecture/ar-tracking-component.md)
             - [AR Interaction](xr/architecture/ar-interaction.md)
-    - [Quick Start](xr/index.md)
+    - [Quick Start](xr/project-deploy/index.md)
         - [VR Project Creation](xr/project-deploy/vr-proj-deploy.md)
         - [VR Building and Publishing](xr/project-deploy/vr-proj-pub.md)
         - [AR Project Creation](xr/project-deploy/ar-proj-deploy.md)
