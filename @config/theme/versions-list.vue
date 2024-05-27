@@ -18,7 +18,11 @@ const props = defineProps({
     currentVersion: String
 })
 
-const list = ref([]);
+const list = ref([
+    {
+        version: props.currentVersion
+    }
+]);
 
 onMounted(() => {
     const url = `/creator/versions/versions.json?v=${Date.now()}`;
