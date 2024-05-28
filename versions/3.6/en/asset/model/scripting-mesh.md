@@ -13,7 +13,7 @@ The return value is the `Mesh` component, so it is convenient to assign it to th
 
 ## API
 
-API please refer to [MeshUtils](__APIDOC__/zh/class/utils.MeshUtils).
+API please refer to [MeshUtils](%__APIDOC__%/zh/class/utils.MeshUtils).
 
 ## Example
 

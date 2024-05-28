@@ -35,7 +35,7 @@
   });
   ```
 
-  > **注意**：加载 Asset Bundle 中的资源需要使用 Asset Bundle 相关的 API，具体请查看 API 文档 [Asset Bundle](__APIDOC__/zh/class/AssetManager.Bundle)。
+  > **注意**：加载 Asset Bundle 中的资源需要使用 Asset Bundle 相关的 API，具体请查看 API 文档 [Asset Bundle](%__APIDOC__%/zh/class/AssetManager.Bundle)。
 
 ## Asset Bundle 的使用方式
 

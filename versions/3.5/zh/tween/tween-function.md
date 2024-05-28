@@ -78,4 +78,4 @@ tween(this.node)
     .start()
 ```
 
-完整 API 描述请参考： [ITweenOption](__APIDOC__/zh/interface/ITweenOption)
+完整 API 描述请参考： [ITweenOption](%__APIDOC__%/zh/interface/ITweenOption)

@@ -6,7 +6,7 @@ Using Sprite is the most common way to display images in 2D/3D games. By adding 
 
 Add a **Sprite** component to the node by clicking the __Add Component__ button below the __Inspector__ panel and selecting __2D -> Sprite__.
 
-To use `Sprite`, please refer to the [Sprite API](__APIDOC__/en/class/Sprite) documentation and the [Sprite](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/01.sprite) scene of the test-cases-3d project.
+To use `Sprite`, please refer to the [Sprite API](%__APIDOC__%/en/class/Sprite) documentation and the [Sprite](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/01.sprite) scene of the test-cases-3d project.
 
 ## Sprite Properties
 

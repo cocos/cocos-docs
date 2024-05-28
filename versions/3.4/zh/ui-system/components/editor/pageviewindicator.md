@@ -6,7 +6,7 @@ PageViewIndicator 用于显示 PageView 当前的页面数量和标记当前所�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI -> PageViewIndicator** 即可添加 PageViewIndicator 组件到节点上。
 
-PageViewIndicator 的脚本接口请参考 [PageViewIndicator API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/PageViewIndicator)。
+PageViewIndicator 的脚本接口请参考 [PageViewIndicator API](%__APIDOC__%/zh/#/docs/3.4/zh/ui/Class/PageViewIndicator)。
 
 关于使用可以参考范例 **PageView**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.4/assets/cases/ui/15.pageview) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/15.pageview)）。
 

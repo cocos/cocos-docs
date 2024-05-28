@@ -67,7 +67,7 @@ let rigidbody = collider.attachedRigidBody;
 | **Center**  | 在本地坐标系中，形状的中心位置 |
 | **Size**  |  在本地坐标系中，盒的大小，即长、宽、高 |
 
-盒碰撞器组件接口请参考 [BoxCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/boxcollider.html)。
+盒碰撞器组件接口请参考 [BoxCollider API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/boxcollider.html)。
 
 #### 球碰撞器组件 SphereCollider
 
@@ -80,7 +80,7 @@ let rigidbody = collider.attachedRigidBody;
 | **Center**  | 在本地坐标系中，形状的中心位置 |
 | **Radius** | 在本地坐标系中，球的半径 |
 
-球碰撞器组件接口请参考 [SphereCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/spherecollider.html)。
+球碰撞器组件接口请参考 [SphereCollider API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/spherecollider.html)。
 
 #### 胶囊碰撞器组件 CapsuleCollider
 
@@ -99,7 +99,7 @@ let rigidbody = collider.attachedRigidBody;
 
 ![capsule-explain](img/capsule-explain.png)
 
-胶囊碰撞器组件接口请参考 [CapsuleCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/capsulecollider.html)。
+胶囊碰撞器组件接口请参考 [CapsuleCollider API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/capsulecollider.html)。
 
 #### 圆柱碰撞器组件 CylinderCollider
 
@@ -114,7 +114,7 @@ let rigidbody = collider.attachedRigidBody;
 | **Height** | 在本地坐标系中，圆柱体在相应轴向的高度 |
 | **Direction** | 在本地坐标系中，圆柱体的朝向 |
 
-圆柱碰撞器组件接口请参考 [CylinderCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/cylindercollider.html)。
+圆柱碰撞器组件接口请参考 [CylinderCollider API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/cylindercollider.html)。
 
 #### 圆锥碰撞器组件 ConeCollider
 
@@ -128,7 +128,7 @@ let rigidbody = collider.attachedRigidBody;
 | **Height** | 在本地坐标系中，圆锥体在相应轴向的高度 |
 | **Direction** | 在本地坐标系中，圆锥体的朝向 |
 
-圆锥碰撞器组件接口请参考 [ConeCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/ConeCollider.html)。
+圆锥碰撞器组件接口请参考 [ConeCollider API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/ConeCollider.html)。
 
 ### 复合碰撞体
 
@@ -148,7 +148,7 @@ let rigidbody = collider.attachedRigidBody;
 | **Normal** | 在本地坐标系中，平面的法线 |
 | **Constant** | 在本地坐标系中，平面从原点开始沿着法线运动的距离 |
 
-平面碰撞器组件接口请参考 [PlaneCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/PlaneCollider.html)。
+平面碰撞器组件接口请参考 [PlaneCollider API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/PlaneCollider.html)。
 
 ### 网格碰撞组件 MeshCollider
 
@@ -166,7 +166,7 @@ let rigidbody = collider.attachedRigidBody;
 | **Mesh** | 网格碰撞器所使用的网格资源，用于初始化网格碰撞体 |
 | **Convex** | 是否使用网格的凸包近似代替，网格顶点数应小于 **255**，开启后可以支持动力学 |
 
-网格碰撞器组件接口请参考 [MeshCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/meshcollider.html)。
+网格碰撞器组件接口请参考 [MeshCollider API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/meshcollider.html)。
 
 ### 单纯形碰撞组件 SimplexCollider
 
@@ -183,7 +183,7 @@ let rigidbody = collider.attachedRigidBody;
 | **Vertex2** | 单纯形的顶点 2，三角面（以此类推） |
 | **Vertex3** | 单纯形的顶点 3，四面体 |
 
-单纯形碰撞器组件接口请参考 [SimplexCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/simplexcollider.html)。
+单纯形碰撞器组件接口请参考 [SimplexCollider API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/simplexcollider.html)。
 
 > **注意**：`cannon.js` 对线和三角面的支持目前还不完善。
 
@@ -198,7 +198,7 @@ let rigidbody = collider.attachedRigidBody;
 | **Center** | 在本地坐标系中，形状的中心位置 |
 | **Terrain** | 获取或设置此碰撞体引用的网格资源 |
 
-地形碰撞器组件接口请参考 [TerrainCollider API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/terraincollider.html)。
+地形碰撞器组件接口请参考 [TerrainCollider API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/terraincollider.html)。
 
 ## 自动缩放
 

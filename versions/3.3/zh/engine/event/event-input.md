@@ -31,8 +31,8 @@
 - 事件触发后的回调函数：
     - 自定义回调函数：callback(event);
 - 回调参数：
-    - KeyCode：[API 传送门](__APIDOC__/zh/#/docs/3.3/zh/event/Class/EventKeyboard)
-    - Event：[API 传送门](__APIDOC__/zh/#/docs/3.3/zh/event/Class/Event)
+    - KeyCode：[API 传送门](%__APIDOC__%/zh/#/docs/3.3/zh/event/Class/EventKeyboard)
+    - Event：[API 传送门](%__APIDOC__%/zh/#/docs/3.3/zh/event/Class/Event)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEvent, EventKeyboard, KeyCode } from 'cc';
@@ -74,7 +74,7 @@ export class Example extends Component {
 - 事件触发后的回调函数：
     - 自定义回调函数：`callback(event);`
 - 回调参数：
-    - Event：[API 传送门](__APIDOC__/zh/#/docs/3.3/zh/event/Class/Event)
+    - Event：[API 传送门](%__APIDOC__%/zh/#/docs/3.3/zh/event/Class/Event)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEvent, log } from 'cc';

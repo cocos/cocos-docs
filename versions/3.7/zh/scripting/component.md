@@ -1,6 +1,6 @@
 # 组件和组件执行顺序
 
-所有继承自 [Component](__APIDOC__/zh/class/Component) 的类都称为组件类，其对象称为组件，实现了 Cocos Creator 3.0 EC 系统中的组件概念。
+所有继承自 [Component](%__APIDOC__%/zh/class/Component) 的类都称为组件类，其对象称为组件，实现了 Cocos Creator 3.0 EC 系统中的组件概念。
 
 **组件类必须是 cc 类**。
 

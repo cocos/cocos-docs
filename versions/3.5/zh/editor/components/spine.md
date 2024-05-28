@@ -8,7 +8,7 @@ Spine Skeleton 组件支持 Spine 官方工具导出的数据格式，并对 Spi
 
 - Spine Skeleton 组件的使用方法可参考 **Spine**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.5/assets/cases/middleware/spine) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.5/assets/cases/spine)）范例。
 
-- Spine Skeleton 相关的脚本接口请参考 [Skeleton API](__APIDOC__/zh/class/Skeleton)。
+- Spine Skeleton 相关的脚本接口请参考 [Skeleton API](%__APIDOC__%/zh/class/Skeleton)。
 
 ## Spine 属性
 

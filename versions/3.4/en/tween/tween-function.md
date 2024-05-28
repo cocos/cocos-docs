@@ -78,4 +78,4 @@ tween(this.node)
     .start()
 ```
 
-For full API description, please refer to: [ITweenOption](__APIDOC__/zh/#/docs/3.4/zh/tween/Interface/ITweenOption)
+For full API description, please refer to: [ITweenOption](%__APIDOC__%/zh/#/docs/3.4/zh/tween/Interface/ITweenOption)

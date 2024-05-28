@@ -19,7 +19,7 @@ const meshRenderer = this.node.getComponent(MeshRenderer)!;
 const morph = meshRenderer.mesh.struct.morph;
 ```
 
-如果要改变变形动画的状态，可通过 [setWeight](__APIDOC__/zh/class/MeshRenderer?id=setWeight) 可以修改动画的权重。代码示例如下：
+如果要改变变形动画的状态，可通过 [setWeight](%__APIDOC__%/zh/class/MeshRenderer?id=setWeight) 可以修改动画的权重。代码示例如下：
 
 ```ts
 const meshRenderer = this.node.getComponent(MeshRenderer);
@@ -34,9 +34,9 @@ meshRenderer.setWeight(weight, subMeshIndex, shapIndex);
 | subMeshIndex | number | 子网格的索引 |
 | shapIndex | number | 子网格的变形索引 |
 
-通过 [getWeight](__APIDOC__/zh/class/MeshRenderer?id=getWeight) 可以获取外形的权重，以及通过 [setWeights](__APIDOC__/zh/class/MeshRenderer?id=setWeights) 可以同时改变多个子网格的权重。
+通过 [getWeight](%__APIDOC__%/zh/class/MeshRenderer?id=getWeight) 可以获取外形的权重，以及通过 [setWeights](__APIDOC__/zh/class/MeshRenderer?id=setWeights) 可以同时改变多个子网格的权重。
 
-更多接口说明请参考 [MeshRenderer](__APIDOC__/zh/class/MeshRenderer?id=setWeight)。
+更多接口说明请参考 [MeshRenderer](%__APIDOC__%/zh/class/MeshRenderer?id=setWeight)。
 
 ## 着色器
 

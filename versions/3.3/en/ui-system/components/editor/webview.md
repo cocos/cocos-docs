@@ -6,7 +6,7 @@
 
 Click **Add Component** at the bottom of **Properties** panel and select **WebView** from **UI Component** to add the WebView component to the node.
 
-For more information, please refer to the [WebView API](__APIDOC__/en/#/docs/3.3/en/component-web-view/Class/WebView) documentation.
+For more information, please refer to the [WebView API](%__APIDOC__%/en/#/docs/3.3/en/component-web-view/Class/WebView) documentation.
 
 ## WebView Properties
 
@@ -28,7 +28,7 @@ For more information, please refer to the [WebView API](__APIDOC__/en/#/docs/3.3
 |**Handler**| Specify a callback, when the WebView is loading the web pages, or the loading is finished or there are errors occurred. The callback will be called. For more information, please refer to `Parameter of WebViewEvents`.
 | **CustomEventData** | The user specifies that any string is passed in as the last parameter of the event callback. |
 
-For more information, please refer to the [Component.EventHandler Class](__APIDOC__/en/#/docs/3.3/en/event/Class/EventHandler) documentation.
+For more information, please refer to the [Component.EventHandler Class](%__APIDOC__%/en/#/docs/3.3/en/event/Class/EventHandler) documentation.
 
 ### Parameter of WebViewEvents
 
@@ -38,7 +38,7 @@ For more information, please refer to the [Component.EventHandler Class](__APIDO
 | **LOADED**| WebView is finished loading.
 | **ERROR**| Errors occurred when loading web pages.
 
-For more information, please refer to the [WebView Events](__APIDOC__/en/#/docs/3.3/en/component-web-view/Class/WebView?id=webviewevents) documentation or [22.webview example](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/22.webview) of the `test-cases-3d` samples bundled with Creator.
+For more information, please refer to the [WebView Events](%__APIDOC__%/en/#/docs/3.3/en/component-web-view/Class/WebView?id=webviewevents) documentation or [22.webview example](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/ui/22.webview) of the `test-cases-3d` samples bundled with Creator.
 
 ## Details Explanation
 

@@ -4,7 +4,7 @@
 
 Material resources can be regarded as resource instances of shader resources (EffectAsset) in the scene.
 
-Creator supports manually [creating material resources](../asset/material.md) in **Assets**, and also supports [IMaterialInfo](__APIDOC__/zh/#/docs/3.4/zh/material/Interface/IMaterialInfo) interface to create materials programmatically in a script module. Configurable parameters for `IMaterialInfo` include:
+Creator supports manually [creating material resources](../asset/material.md) in **Assets**, and also supports [IMaterialInfo](%__APIDOC__%/zh/#/docs/3.4/zh/material/Interface/IMaterialInfo) interface to create materials programmatically in a script module. Configurable parameters for `IMaterialInfo` include:
 
 - `effectAsset`/`effectName`：An effect asset reference that specifies which EffectAsset describes the process to use for rendering. (either `effectAsset` or `effectName` must be selected)
 - `technique`：Specifies which technique in the EffectAsset to use, defaults to 0.

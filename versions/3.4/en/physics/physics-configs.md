@@ -55,7 +55,7 @@ conf.gravity = new Vec3(10, 10, 0);
 PhysicsSystem.instance.resetConfiguration(conf);
 ```
 
-For more API content, please check the PhysicsSystem interface please refer to: [PhysicsSystem API](__APIDOC__/en/#/docs/3.4/en/physics/classes/physicssystem.html).
+For more API content, please check the PhysicsSystem interface please refer to: [PhysicsSystem API](%__APIDOC__%/en/#/docs/3.4/en/physics/classes/physicssystem.html).
 
 ## Collision Matrix
 

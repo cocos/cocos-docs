@@ -10,7 +10,7 @@ For more information about BBCode, please refer to the __BBCode format__ section
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __RichText__ from __UI -> Render__ to add the RichText component to the node.
 
-To use `RichText`, please refer to the [RichText API](__APIDOC__/en/class/RichText) documentation and the [RichText](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/07.richtext) scene of the test-cases-3d project.
+To use `RichText`, please refer to the [RichText API](%__APIDOC__%/en/class/RichText) documentation and the [RichText](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/ui/07.richtext) scene of the test-cases-3d project.
 
 ## RichText Properties
 

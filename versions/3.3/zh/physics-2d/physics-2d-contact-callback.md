@@ -116,7 +116,7 @@ Box2D 物理模块模拟碰撞的过程是比较复杂的，我们可以通过�
 
 - **selfCollider**：指的是回调脚本的节点上的碰撞体；
 - **otherCollider**：指的是发生碰撞的另一个碰撞体；
-- **contact**：是一个 [IPhysics2DContact](__APIDOC__/zh/#/docs/3.3/zh/physics2d/Interface/IPhysics2DContact) 类型的接口。包含碰撞最主要的信息。其中比较常用的信息就是碰撞的位置和法向量，`contact` 内部是按照刚体的本地坐标来存储信息的，而我们一般需要的是世界坐标系下的信息，我们可以通过 `contact.getWorldManifold` 来获取这些信息。注意，在 Builtin 物理模块这个参数为空。
+- **contact**：是一个 [IPhysics2DContact](%__APIDOC__%/zh/#/docs/3.3/zh/physics2d/Interface/IPhysics2DContact) 类型的接口。包含碰撞最主要的信息。其中比较常用的信息就是碰撞的位置和法向量，`contact` 内部是按照刚体的本地坐标来存储信息的，而我们一般需要的是世界坐标系下的信息，我们可以通过 `contact.getWorldManifold` 来获取这些信息。注意，在 Builtin 物理模块这个参数为空。
 
 ### worldManifold
 

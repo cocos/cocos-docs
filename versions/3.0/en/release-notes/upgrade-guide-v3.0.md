@@ -152,7 +152,7 @@ In v3.0, there are continued improvements to the design of the material system a
 
         - `group`: change to `layer`.
 
-        - `zIndex`: change to [priority](__APIDOC__/en/classes/ui.uitransform.html#priority) of `UITransform`.
+        - `zIndex`: change to [priority](%__APIDOC__%/en/classes/ui.uitransform.html#priority) of `UITransform`.
 
 - `CCSpriteFrame`:
 

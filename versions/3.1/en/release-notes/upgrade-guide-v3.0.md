@@ -152,7 +152,7 @@ In v3.0, there are continued improvements to the design of the material system a
 
         - `group`: change to `layer`.
 
-        - `zIndex`: change to [priority](__APIDOC__/en/classes/ui.uitransform.html#priority) of `UITransform`.
+        - `zIndex`: change to [priority](%__APIDOC__%/en/classes/ui.uitransform.html#priority) of `UITransform`.
 
             > **Note**: the `priority` property is deprecated as of v3.1, please use the `setSiblingIndex` function to adjust the order of the node tree.
 

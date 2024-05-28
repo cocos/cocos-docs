@@ -13,7 +13,7 @@
 
 ## API
 
-API 请参考 [MeshUtils](__APIDOC__/zh/class/utils.MeshUtils)。
+API 请参考 [MeshUtils](%__APIDOC__%/zh/class/utils.MeshUtils)。
 
 ## 范例
 

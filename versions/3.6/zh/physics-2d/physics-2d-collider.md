@@ -35,7 +35,7 @@
 | :-- | :-- |
 | **Size** | 盒碰撞组件的大小 |
 
-盒碰撞组件接口请参考 [BoxCollider2D API](__APIDOC__/zh/class/BoxCollider2D)。
+盒碰撞组件接口请参考 [BoxCollider2D API](%__APIDOC__%/zh/class/BoxCollider2D)。
 
 ### 编辑碰撞组件
 
@@ -67,7 +67,7 @@
 | :-- | :-- |
 | **Radius** | 圆形的半径 |
 
-圆形碰撞组件接口请参考 [CircleCollider2D API](__APIDOC__/zh/class/CircleCollider2D)。
+圆形碰撞组件接口请参考 [CircleCollider2D API](%__APIDOC__%/zh/class/CircleCollider2D)。
 
 ### 编辑碰撞组件
 
@@ -90,7 +90,7 @@
 | **Threshold** | 指明生成贴图轮廓顶点间的最小距离，值越大则生成的点越少，可根据需求进行调节 |
 | **Points** | 多边形的顶点，顶点可以通过勾选 **Editing** 在场景内进行编辑，也可以在 **属性检查器** 上输入数值来调整 |
 
-多边形碰撞组件接口请参考 [PolygonCollider2D API](__APIDOC__/zh/class/PolygonCollider2D)。
+多边形碰撞组件接口请参考 [PolygonCollider2D API](%__APIDOC__%/zh/class/PolygonCollider2D)。
 
 ### 编辑碰撞组件
 

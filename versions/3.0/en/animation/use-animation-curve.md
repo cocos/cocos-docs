@@ -196,11 +196,11 @@ The following are some of the commonly used fade methods:
 
 Some interpolation algorithms require additional data to be stored in the curve value for each frame, so the curve value is not necessarily the same as the value type of the target property. For numeric types or value types, Cocos Creator provides several general interpolation methods. Also, it is possible to define custom interpolation methods.
 
-- When the [interpolate](__APIDOC__/en/interfaces/animation.ipropertycurvedata.html#interpolate) property of the curve data is `true`, the curve will try to use the interpolation function.
+- When the [interpolate](%__APIDOC__%/en/interfaces/animation.ipropertycurvedata.html#interpolate) property of the curve data is `true`, the curve will try to use the interpolation function.
 
     - If the curve value is of type `number`, `Number`, linear interpolation will be applied.
     - If the curve value inherits from `ValueType`, the `lerp` function of `ValueType` will be called to complete the interpolation. `lerp` methods for most value types built into Cocos Creator are implemented as linear interpolation, e.g.: `Vec3`, `vec4`, etc.
-    - If the curve value is [interpolable](__APIDOC__/en/interfaces/animation.ilerpable.html), the `lerp` function for the curve value will be called to complete the interpolation[^1].
+    - If the curve value is [interpolable](%__APIDOC__%/en/interfaces/animation.ilerpable.html), the `lerp` function for the curve value will be called to complete the interpolation[^1].
 
 - If the curve value does not satisfy any of the above conditions, or when the `interpolate` property of the curve data is `false`, no interpolation will be performed and the curve value from the previous frame will always be used as the result.
 
@@ -318,6 +318,6 @@ Different wrap modes can be set for Animation Clips by setting `AnimationClip.wr
 | WrapMode.Loop | Loop
 | PingPong | Play from the beginning to the end of the animation, then play back to the beginning from the end, and so on.
 
-For more wrap modes, please refer to the [WrapMode](__APIDOC__/en/enums/animation.wrapmode.html) API and the [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count) documentation.
+For more wrap modes, please refer to the [WrapMode](%__APIDOC__%/en/enums/animation.wrapmode.html) API and the [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count) documentation.
 
 [^1]: For numeric, quaternion, and various vectors, Cocos Creator provides the appropriate interpolate classes to implement [Cubic Spline Interpolation](https://en.wikipedia.org/wiki/Spline_interpolation).

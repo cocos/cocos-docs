@@ -7,7 +7,7 @@ The ArmatureDisplay component can render and play DragonBones assets.
 In the **Hierarchy** panel, select the node where you want to add the ArmatureDisplay component, and then click the **Add Components -> DragonBones -> ArmatureDisplay** button under the **Inspector** panel to add the ArmatureDisplay component to the node.
 
 - For information on using the ArmatureDisplay component, please refer to the [DragonBones example case](https://github.com/cocos-creator/test-cases-3d/tree/v3.3/assets/cases/dragonbones) for details.
-- For DragonBones ArmatureDisplay related scripting interfaces, please refer to the [ArmatureDisplay API](__APIDOC__/en/#/docs/3.3/en/dragonBones/Class/ArmatureDisplay) for details.
+- For DragonBones ArmatureDisplay related scripting interfaces, please refer to the [ArmatureDisplay API](%__APIDOC__%/en/#/docs/3.3/en/dragonBones/Class/ArmatureDisplay) for details.
 
 ## DragonBones Properties
 

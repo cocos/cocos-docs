@@ -49,7 +49,7 @@
 
 Cocos Creator 提供了一套基于物理引擎的射线检测功能。
 
-目前接口由 [**PhysicsSystem**](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/physicssystem.html) 提供，有以下两类：
+目前接口由 [**PhysicsSystem**](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/physicssystem.html) 提供，有以下两类：
 
 - `raycast` : 检测所有的碰撞体，并记录所有被检测到的结果，通过 `PhysicsSystem.instance.raycastResults` 获取。接口返回布尔值，返回 `true` 表示射线是否和碰撞体相交。
 - `raycastClosest` ：检测所有的碰撞体，并记录与射线距离最短的检测结果，通过 `PhysicsSystem.instance.raycastClosestResult` 获取。同样返回布尔值，表示是否和碰撞体相交。
@@ -109,7 +109,7 @@ if(bResult){
 
 ### 返回结果说明
 
-射线检测的结果由 [PhysicsRayResult](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/physicsrayresult.html) 进行存储，主要有以下信息：
+射线检测的结果由 [PhysicsRayResult](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/physicsrayresult.html) 进行存储，主要有以下信息：
 
 - `collider`：击中的碰撞器
 - `distance`：击中点与射线起点的距离

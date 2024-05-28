@@ -48,7 +48,7 @@ The following properties only take effect when **Type** is set to **DYNAMIC**.
 | **LinerFactor** | Linearity factor to scale the physics values (velocity and force) in each axis direction |
 | **AngularFactor** | Angular factor for scaling physical values in each axis direction (velocity and force) |
 
-Please refer to [RigidBody API](__APIDOC__/en/#/docs/3.4/en/physics/classes/rigidbody.html) for rigid body component interface.
+Please refer to [RigidBody API](%__APIDOC__%/en/#/docs/3.4/en/physics/classes/rigidbody.html) for rigid body component interface.
 
 ## RigidBody Types
 

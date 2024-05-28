@@ -174,7 +174,7 @@ export class AudioController extends Component {
 
         - `group`：变更为 `layer`。
 
-        - `zIndex`：变更为 `UITransform` 中的 [priority](__APIDOC__/zh/classes/ui.uitransform.html#priority)。
+        - `zIndex`：变更为 `UITransform` 中的 [priority](%__APIDOC__%/zh/classes/ui.uitransform.html#priority)。
 
 - `CCSpriteFrame`：
 

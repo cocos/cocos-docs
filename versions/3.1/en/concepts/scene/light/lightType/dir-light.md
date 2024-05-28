@@ -14,7 +14,7 @@ Adding directional lights to the scene can be done as described in [Adding Light
 
 A directional light node `Main Light` will be created automatically by default when creating a new scene.
 
-For the interface of the directional light component, please refer to [DirectionalLight API](__APIDOC__/en/classes/component_light.directionallight.html).
+For the interface of the directional light component, please refer to [DirectionalLight API](%__APIDOC__%/en/classes/component_light.directionallight.html).
 
 ## Directional Light Properties
 

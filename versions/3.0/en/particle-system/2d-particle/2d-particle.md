@@ -6,15 +6,15 @@ The ParticleSystem2D component is used to read the particle asset data and perfo
 
 Click the **Add Component** button at the bottom of the **Inspector** panel and select **ParticleSystem2D** from **Effects** to add the ParticleSystem2D component to the node.
 
-For the script interface of ParticleSystem2D, please refer to [ParticleSystem API](__APIDOC__/en/classes/particle2d.particlesystem2d.html).
+For the script interface of ParticleSystem2D, please refer to [ParticleSystem API](%__APIDOC__%/en/classes/particle2d.particlesystem2d.html).
 
 ## ParticleSystem2D Properties
 
 | Property | Description
 | :-------------- | :----------- |
 | CustomMaterial     | Custom material, please refer to the [Custom Material](../../ui-system/components/engine/ui-material.md) documentation.
-| SrcBlendFactor     | Source Blend Factor, please refer to [SrcBlendFactor API](__APIDOC__/en/classes/particle2d.particlesystem2d.html#srcblendfactor).
-| DstBlendFactor     | Destination Blend Factor, please refer to [DstBlendFactor API](__APIDOC__/en/classes/particle2d.particlesystem2d.html#dstblendfactor).
+| SrcBlendFactor     | Source Blend Factor, please refer to [SrcBlendFactor API](%__APIDOC__%/en/classes/particle2d.particlesystem2d.html#srcblendfactor).
+| DstBlendFactor     | Destination Blend Factor, please refer to [DstBlendFactor API](%__APIDOC__%/en/classes/particle2d.particlesystem2d.html#dstblendfactor).
 | Color              | Color of particles.
 | Preview            | Previews particles in editor mode. When enabled, particles will be played automatically in the **Scene** panel when they are selected.
 | PlayOnLoad         | If this option is checked, the particles will be emitted automatically at runtime.
@@ -34,8 +34,8 @@ For the script interface of ParticleSystem2D, please refer to [ParticleSystem AP
 | StartSpin          | The initial spin angle and range of particles.
 | EndSpin            | The end spin angle and size of particles.
 | PosVar             | The range of the emitter position (horizontal and vertical).
-| PositionType       | The type of particle position, including **FREE**, **RELATIVE**, **GROUPED**. For details, please refer to [PositionType API](__APIDOC__/en/classes/particle2d.particlesystem2d.html#positiontype).
-| EmitterMode        | The type of the emitter, including **GRAVITY**, **RADIUS**. For details, please refer to [EmitterMode API](__APIDOC__/en/classes/particle2d.articlesystem2d.html#emittermode-1).
+| PositionType       | The type of particle position, including **FREE**, **RELATIVE**, **GROUPED**. For details, please refer to [PositionType API](%__APIDOC__%/en/classes/particle2d.particlesystem2d.html#positiontype).
+| EmitterMode        | The type of the emitter, including **GRAVITY**, **RADIUS**. For details, please refer to [EmitterMode API](%__APIDOC__%/en/classes/particle2d.articlesystem2d.html#emittermode-1).
 | Gravity            | Gravity. Only works when Emitter Mode is set to **GRAVITY**.
 | Speed              | The speed and range. Only effective when Emitter Mode is set to **GRAVITY**.
 | TangentialAccel    | The tangential acceleration and range of each particle i.e. the acceleration perpendicular to the direction of gravity. Effective only when Emitter Mode is set to **GRAVITY**.

@@ -12,7 +12,7 @@ LabelShadow 组件可以为 Label 组件添加阴影效果。
 > 2. 当 Label 组件的 **CacheMode** 属性设置为 **CHAR** 时，LabelShadow 不生效。
 > 3. LabelShadow 不支持原生平台
 
-LabelShadow 相关脚本接口请参考 [LabelShadow API](__APIDOC__/api/zh/classes/ui.labelshadow.html)。
+LabelShadow 相关脚本接口请参考 [LabelShadow API](%__APIDOC__%/api/zh/classes/ui.labelshadow.html)。
 
 ## LabelShadow 属性
 

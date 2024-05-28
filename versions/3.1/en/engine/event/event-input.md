@@ -33,8 +33,8 @@ Event types included:
 - Call Back:
     - Custom Event: callback(event);
 - Call Back Parameter:
-    - KeyCode: [API Reference](__APIDOC__/en/classes/event.eventkeyboard-1.html)
-    - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
+    - KeyCode: [API Reference](%__APIDOC__%/en/classes/event.eventkeyboard-1.html)
+    - Event: [API Reference](%__APIDOC__%/en/classes/event.event-1.html)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEventType, EventKeyboard, macro } from 'cc';
@@ -76,7 +76,7 @@ export class Example extends Component {
 - Call back:
   - Custom event: `callback(event);`;
 - Call back parameter:
-  - Event: [API Reference](__APIDOC__/en/classes/event.event-1.html)
+  - Event: [API Reference](%__APIDOC__%/en/classes/event.event-1.html)
 
 ```ts
 import { _decorator, Component, Node, systemEvent, SystemEventType, log } from 'cc';

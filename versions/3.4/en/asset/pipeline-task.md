@@ -70,4 +70,4 @@ assetManager.pipeline.insert(function (task, done) {
 }, 1);
 ```
 
-For details, please refer to the type [AssetManager.Task](__APIDOC__/en/#/docs/3.4/en/asset-manager/Class/AssetManager?id=task).
+For details, please refer to the type [AssetManager.Task](%__APIDOC__%/en/#/docs/3.4/en/asset-manager/Class/AssetManager?id=task).

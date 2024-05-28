@@ -18,7 +18,7 @@
 | **Skeleton** | 当前模型的骨骼数据，一般直接来自导入的 glTF 或 FBX 模型文件|
 | **SkinningRoot** | 骨骼根节点的引用，对应控制该模型的动画组件所在节点  |
 
-蒙皮网格渲染器组件相关接口请参考 [SkinnedMeshRenderer API](__APIDOC__/zh/#/docs/3.3/zh/3d/Class/SkinnedMeshRenderer)。
+蒙皮网格渲染器组件相关接口请参考 [SkinnedMeshRenderer API](%__APIDOC__%/zh/#/docs/3.3/zh/3d/Class/SkinnedMeshRenderer)。
 
 蒙皮网格渲染器组件（SkinnedMeshRenderer）与普通的网格渲染组件（MeshRenderer）的区别在于：
 

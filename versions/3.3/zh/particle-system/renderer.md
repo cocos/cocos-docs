@@ -16,7 +16,7 @@
 
 ## 粒子渲染器
 
-粒子渲染部分由 **渲染器** [ParticleSystemRenderer](__APIDOC__/zh/#/docs/3.3/zh/particle/Class/ParticleSystem) 控制，渲染器分为 **CPU 渲染器**（默认）和 **GPU 渲染器**，可通过渲染模块中的 **UseGPU** 属性选择使用。
+粒子渲染部分由 **渲染器** [ParticleSystemRenderer](%__APIDOC__%/zh/#/docs/3.3/zh/particle/Class/ParticleSystem) 控制，渲染器分为 **CPU 渲染器**（默认）和 **GPU 渲染器**，可通过渲染模块中的 **UseGPU** 属性选择使用。
 
 - CPU 渲染器（ParticleSystemRendererCPU）通过一个对象池来维护所有粒子，根据粒子当前状态来生成对应的 VB、IB 数据，持有粒子需要渲染的材质，并且保存相关渲染状态。粒子系统默认使用 CPU 渲染器。
 

@@ -16,9 +16,9 @@ MeshRenderer（网格渲染器）组件用于显示一个静态的 3D 模型。�
 | **ReceiveShadow** | 指定当前模型是否会接收并显示其它物体产生的阴影效果，需要先在场景中 [开启阴影](../../concepts/scene/light/shadow.md#%E5%BC%80%E5%90%AF%E9%98%B4%E5%BD%B1)。该属性仅在阴影类型为 **ShadowMap** 时生效。 |
 | **Mesh** | 指定渲染所用的网格资源，详情请参考下文 **网格资源** 部分的内容。 |
 
-网格渲染器组件相关接口请参考 [MeshRenderer API](__APIDOC__/zh/class/MeshRenderer)。
+网格渲染器组件相关接口请参考 [MeshRenderer API](%__APIDOC__%/zh/class/MeshRenderer)。
 
-蒙皮网格渲染器组件相关接口请参考 [SkinnedMeshRenderer API](__APIDOC__/zh/class/SkinnedMeshRenderer)
+蒙皮网格渲染器组件相关接口请参考 [SkinnedMeshRenderer API](%__APIDOC__%/zh/class/SkinnedMeshRenderer)
 
 ### 网格资源
 

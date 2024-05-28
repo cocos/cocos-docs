@@ -8,7 +8,7 @@ The __Button__ component responds to a click from the user. When the user clicks
 
 Click the __Add Component__ button at the bottom of the __Inspector__ panel and select __UI/Button__ to add the __Button__ component to the node.
 
-To use `Button`, please refer to the [Button API](__APIDOC__/en/classes/ui.button.html) documentation and the [Button](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/03.button) scene of the test-cases-3d project.
+To use `Button`, please refer to the [Button API](%__APIDOC__%/en/classes/ui.button.html) documentation and the [Button](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/03.button) scene of the test-cases-3d project.
 
 ## Button Properties
 

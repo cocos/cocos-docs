@@ -4,7 +4,7 @@
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **UI/UITransform** 即可添加 UITransform 组件到节点上。
 
-UITransform 脚本接口请参考 [Mask API](__APIDOC__/zh/classes/ui.uitransform.html)。
+UITransform 脚本接口请参考 [Mask API](%__APIDOC__%/zh/classes/ui.uitransform.html)。
 
 ## UITransform 属性介绍
 

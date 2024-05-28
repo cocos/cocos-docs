@@ -23,7 +23,7 @@ Hinge constraints constrain the motion of connected objects to a certain axis. T
 
 ![physics-hinge](img/physics-hinge.gif)
 
-Please refer to [HingeConstraint API](__APIDOC__/en/class/physics.HingeConstraint) for the hinge constraint interface.
+Please refer to [HingeConstraint API](%__APIDOC__%/en/class/physics.HingeConstraint) for the hinge constraint interface.
 
 ## PointToPointConstraint
 
@@ -41,4 +41,4 @@ A point-to-point constraint is a simple composite constraint that connects two o
 
 ![physics-p2p](img/physics-p2p.gif)
 
-For point-to-point constraint interface, please refer to [PointToPointConstraint API](__APIDOC__/en/class/physics.PointToPointConstraint).
+For point-to-point constraint interface, please refer to [PointToPointConstraint API](%__APIDOC__%/en/class/physics.PointToPointConstraint).

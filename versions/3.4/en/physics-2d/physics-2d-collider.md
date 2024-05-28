@@ -35,7 +35,7 @@ The Box Collider component is a common collider used to simulate a rectangle-lik
 | :-- | :-- |
 | **Size** | The size of the box collider component |
 
-Please refer to [BoxCollider2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/BoxCollider2D) for details.
+Please refer to [BoxCollider2D API](%__APIDOC__%/zh/#/docs/3.4/zh/physics2d/Class/BoxCollider2D) for details.
 
 ### Editing Collider
 
@@ -67,7 +67,7 @@ Click **Add Component** on the **Inspector** panel and enter CircleCollider2D to
 | :-- | :-- |
 | **Radius** | radius of the circle |
 
-Please refer to [CircleCollider2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/CircleCollider2D) for details.
+Please refer to [CircleCollider2D API](%__APIDOC__%/zh/#/docs/3.4/zh/physics2d/Class/CircleCollider2D) for details.
 
 ### Editing Collider
 
@@ -90,7 +90,7 @@ Click **Add Component** on the **Inspector** panel and enter PolygonCollider2D t
 | **Threshold** | Specifies the minimum distance between the vertices of the generated map outline, the larger the value, the fewer points will be generated, adjustable according to requirements |
 | **Points** | The vertices of the polygon can be edited within the scene by checking **Editing**, and can also be adjusted by entering values on the **Inspector** panel |
 
-Please refer to [PolygonCollider2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/PolygonCollider2D) for details.
+Please refer to [PolygonCollider2D API](%__APIDOC__%/zh/#/docs/3.4/zh/physics2d/Class/PolygonCollider2D) for details.
 
 ### Edit Collider
 

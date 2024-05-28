@@ -7,7 +7,7 @@ The Spine Skeleton components support the data format exported by the official S
 Select the node and choose **Add Component -> Spine -> Skeleton** on the **Inspector** panel to add the Skeleton component to the node.
 
 - For information on using the Spine Skeleton component, please refer to the [Spine Skeleton example case](https://github.com/cocos/cocos-test-projects/tree/v3.6/assets/cases/middleware/spine) for details.
-- For Spine Skeleton component related scripting interfaces, please refer to the [Spine Skeleton API](__APIDOC__/en/class/Skeleton) for details.
+- For Spine Skeleton component related scripting interfaces, please refer to the [Spine Skeleton API](%__APIDOC__%/en/class/Skeleton) for details.
 
 ## Spine Properties
 

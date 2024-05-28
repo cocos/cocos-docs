@@ -14,7 +14,7 @@ Adding directional lights to the scene can be done as described in [Adding Light
 
 A directional light node `Main Light` will be created automatically by default when creating a new scene.
 
-For the interface of the directional light component, please refer to [DirectionalLight API](__APIDOC__/en/class/DirectionalLight).
+For the interface of the directional light component, please refer to [DirectionalLight API](%__APIDOC__%/en/class/DirectionalLight).
 
 > **Note**: Starting with v3.5, **Parallel Light Shadows** are separated from the Scene Settings panel and do not set shadow properties globally.
 

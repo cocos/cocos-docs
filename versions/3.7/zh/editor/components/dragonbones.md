@@ -7,7 +7,7 @@ ArmatureDisplay 组件可以对 DragonBones（龙骨）资源进行渲染和播�
 在 **层级管理器** 中选中需要添加 ArmatureDisplay 组件的节点，然后点击 **属性检查器** 下方的 **添加组件 -> DragonBones -> ArmatureDisplay** 按钮，即可添加 ArmatureDisplay 组件到节点上。
 
 - ArmatureDisplay 组件的使用方法可参考 **DragonBones**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.7/assets/cases/middleware/dragonbones) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.7/assets/cases/dragonbones)）范例。
-- DragonBones 相关的脚本接口请参考 [DragonBones API](__APIDOC__/zh/class/dragonBones.ArmatureDisplay)。
+- DragonBones 相关的脚本接口请参考 [DragonBones API](%__APIDOC__%/zh/class/dragonBones.ArmatureDisplay)。
 
 ## DragonBones 属性
 

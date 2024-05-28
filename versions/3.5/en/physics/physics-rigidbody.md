@@ -20,7 +20,7 @@ const rigidbody = this.node.addComponent(RigidBody);
 const rigidBody = this.node.getComponent(RigidBody);
 ```
 
-For more information, please refer to the [RigidBody API](__APIDOC__/en/class/physics.RigidBody).
+For more information, please refer to the [RigidBody API](%__APIDOC__%/en/class/physics.RigidBody).
 
 ### When to Add Rigid Bodies
 
@@ -50,7 +50,7 @@ The following properties only take effect when **Type** is set to **DYNAMIC**.
 | **LinerFactor** | Linearity factor to scale the physics values (velocity and force) in each axis direction |
 | **AngularFactor** | Angular factor for scaling physical values in each axis direction (velocity and force) |
 
-Please refer to [RigidBody API](__APIDOC__/en/class/physics.RigidBody) for rigid body component interface.
+Please refer to [RigidBody API](%__APIDOC__%/en/class/physics.RigidBody) for rigid body component interface.
 
 ## RigidBody Types
 

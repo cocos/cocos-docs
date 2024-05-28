@@ -56,7 +56,7 @@ resources.load(url, SpriteFrame, (err: any, spriteFrame) => {
 });
 ```
 
-In some cases only the source ImageAsset can be loaded, so we provide the [createWithImage](__APIDOC__/en/class/SpriteFrame?id=createWithImage) method to help users create a SpriteFrame asset from the loaded ImageAsset. Depending on the source of the ImageAsset, there are two ways to create it:
+In some cases only the source ImageAsset can be loaded, so we provide the [createWithImage](%__APIDOC__%/en/class/SpriteFrame?id=createWithImage) method to help users create a SpriteFrame asset from the loaded ImageAsset. Depending on the source of the ImageAsset, there are two ways to create it:
 
 1. Assets on the server can only be loaded to the source ImageAsset. For specific methods, please refer to the [dynamic load asset](./dynamic-load-resources.md) documentation. The code example for creating a SpriteFrame asset is as follows:
 
@@ -107,4 +107,4 @@ In some cases only the source ImageAsset can be loaded, so we provide the [creat
 
 RenderTexture is a rendering texture that renders content from the camera directly to a texture instead of the screen. SpriteFrame can easily display 3D camera content on the UI by managing RenderTexture. For specific usage and code example, please refer to [Render Texture](render-texture.md).
 
-For API information, please refer to the [SpriteFrame](__APIDOC__/en/class/SpriteFrame) documentation.
+For API information, please refer to the [SpriteFrame](%__APIDOC__%/en/class/SpriteFrame) documentation.

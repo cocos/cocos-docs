@@ -14,7 +14,7 @@ The light location and color, as well as its illumination range can be clearly s
 
 Adding spherical lights to the scene can be done as described in [Adding Lights](index.md#adding-lights).
 
-For the spherical light component interface, please refer to [SphereLight API](__APIDOC__/en/classes/component_light.spherelight.html).
+For the spherical light component interface, please refer to [SphereLight API](%__APIDOC__%/en/classes/component_light.spherelight.html).
 
 ## Sphere Light Properties
 

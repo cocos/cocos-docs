@@ -172,7 +172,7 @@ function setupMaterialPropertyTrack(track: animation.TrackPath) {
 | `WrapMode.Loop`    | 循环播放 |
 | `WrapMode.PingPong` | 从动画开头播放到结尾后，从结尾开始反向播放到开头，如此循环往复 |
 
-更多循环模式，详情请参考 API [WrapMode](__APIDOC__/zh/class/AnimationClip?id=wrapMode) 以及文档 [循环模式与循环次数](./animation-state.md#%E5%BE%AA%E7%8E%AF%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0)。
+更多循环模式，详情请参考 API [WrapMode](%__APIDOC__%/zh/class/AnimationClip?id=wrapMode) 以及文档 [循环模式与循环次数](./animation-state.md#%E5%BE%AA%E7%8E%AF%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BE%AA%E7%8E%AF%E6%AC%A1%E6%95%B0)。
 
 ## 外来动画
 

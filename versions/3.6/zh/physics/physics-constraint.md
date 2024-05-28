@@ -23,7 +23,7 @@
 
 ![physics-hinge](img/physics-hinge.gif)
 
-铰链约束接口请参考 [HingeConstraint API](__APIDOC__/zh/class/physics.HingeConstraint)。
+铰链约束接口请参考 [HingeConstraint API](%__APIDOC__%/zh/class/physics.HingeConstraint)。
 
 ## 点对点约束 PointToPointConstraint
 
@@ -41,4 +41,4 @@
 
 ![physics-p2p](img/physics-p2p.gif)
 
-点对点约束接口请参考 [PointToPointConstraint API](__APIDOC__/zh/class/physics.PointToPointConstraint)。
+点对点约束接口请参考 [PointToPointConstraint API](%__APIDOC__%/zh/class/physics.PointToPointConstraint)。

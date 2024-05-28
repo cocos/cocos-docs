@@ -6,7 +6,7 @@ Slider 是一个滑动器组件。
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，选择 **UI -> Slider** 即可添加 Slider 组件到节点上。也可以直接在 **层级管理器** 中点击右上角的 **+** 按钮，然后选择 **UI 组件 -> Slider** 创建一个 Slider 节点。
 
-滑动器的脚本接口请参考 [Slider API](__APIDOC__/zh/#/docs/3.4/zh/ui/Class/Slider)。
+滑动器的脚本接口请参考 [Slider API](%__APIDOC__%/zh/#/docs/3.4/zh/ui/Class/Slider)。
 
 关于使用可以参考范例 **Slider**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.4/assets/cases/ui/10.slider) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.4/assets/cases/ui/10.slider)）。
 

@@ -62,7 +62,7 @@ Cocos Creator 开发过程中测试的桌面浏览器包括：**Chrome**、**Fir
 
 ## Retina 设置
 
-可以在脚本中通过 `view.enableRetina(true)` 设置是否使用高分辨率，构建到 Web 平台时默认会开启 Retina 显示。详情可参考 API [enableRetina](__APIDOC__/zh/classes/core.view-2.html#enableretina)。
+可以在脚本中通过 `view.enableRetina(true)` 设置是否使用高分辨率，构建到 Web 平台时默认会开启 Retina 显示。详情可参考 API [enableRetina](%__APIDOC__%/zh/classes/core.view-2.html#enableretina)。
 
 ## 发布到 Web 服务器
 

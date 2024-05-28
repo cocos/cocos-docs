@@ -2,11 +2,11 @@
 
 Animation clips only describe the animation data of a certain type of object, such as a character running, walking, jumping, etc., but are not bound to the specific object to be animated. Animation states are Animation Clips that are used to control the animation on a certain object, similar to a player. In addition to providing simple control functions that are also available for Animation components, they also provide more animation information and an animation control interface that allows control of animation playback such as speed control, setting loop mode, etc. An Animation Clip can be used by multiple animation states at the same time.
 
-Animation states are managed by [Class `AnimationState`](__APIDOC__/en/#/docs/3.3/en/animation/Class/AnimationState).
+Animation states are managed by [Class `AnimationState`](%__APIDOC__%/en/#/docs/3.3/en/animation/Class/AnimationState).
 
 ## Setting the playback speed
 
-First get the animation state by [getState()](__APIDOC__/en/#/docs/3.3/en/animation/Class/Animation?id=getstate):
+First get the animation state by [getState()](%__APIDOC__%/en/#/docs/3.3/en/animation/Class/Animation?id=getstate):
 
 ```ts
 // Get the Animation component
@@ -34,14 +34,14 @@ The animation state records the **cumulative play time** of the animation. Initi
 
 The playback position of the animation at any given moment is called **progress time**, so the progress time is always in the range `[0, animation period]`.
 
-- The **cumulative play time** is obtained from the [time](__APIDOC__/en/#/docs/3.3/en/animation/Class/AnimationState?id=time) field of `AnimationState`, and can be set explicitly.
-- The **progress time** is obtained from the [current](__APIDOC__/en/#/docs/3.3/en/animation/Class/AnimationState?id=current) field of `AnimationState`, and is **read-only**.
+- The **cumulative play time** is obtained from the [time](%__APIDOC__%/en/#/docs/3.3/en/animation/Class/AnimationState?id=time) field of `AnimationState`, and can be set explicitly.
+- The **progress time** is obtained from the [current](%__APIDOC__%/en/#/docs/3.3/en/animation/Class/AnimationState?id=current) field of `AnimationState`, and is **read-only**.
 
 The wrap mode and repeat count of the animation determines the progress time of the animation when it reaches a certain time, whether the **cumulative play time** is increased by time or changed by direct setting, the **progress time** will be changed accordingly.
 
 ## Wrap Mode and Repeat Count
 
-Animation can be played to the end and stop, or it can be looped all the time, or it can be played to the end and then looped from the end to the beginning, these are collectively called wrap modes and are represented by the enumeration [`AnimationClip.WrapMode`](__APIDOC__/en/#/docs/3.3/en/animation/Class/AnimationState?id=wrapmode), the following are included:
+Animation can be played to the end and stop, or it can be looped all the time, or it can be played to the end and then looped from the end to the beginning, these are collectively called wrap modes and are represented by the enumeration [`AnimationClip.WrapMode`](%__APIDOC__%/en/#/docs/3.3/en/animation/Class/AnimationState?id=wrapmode), the following are included:
 
 | Wrap Mode | Description |
 | :--- | :--- |
@@ -92,4 +92,4 @@ The relationship between the playback control and the playback state is shown in
 
 ![Playback control](./animation-state/playback-control.svg)
 
-The animation state allows getting information about all the animations in order to use this information to determine what needs to be done. For more interfaces, please refer to [Class `AnimationState`](__APIDOC__/en/#/docs/3.3/en/animation/Class/AnimationState).
+The animation state allows getting information about all the animations in order to use this information to determine what needs to be done. For more interfaces, please refer to [Class `AnimationState`](%__APIDOC__%/en/#/docs/3.3/en/animation/Class/AnimationState).

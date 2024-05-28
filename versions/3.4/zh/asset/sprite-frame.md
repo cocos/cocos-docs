@@ -56,7 +56,7 @@ resources.load(url, SpriteFrame, (err: any, spriteFrame) => {
 });
 ```
 
-但在有些情况下只能加载到图像源资源 ImageAsset，因此我们提供了 [createWithImage](__APIDOC__/zh/#/docs/3.4/zh/asset/Class/SpriteFrame?id=createwithimage) 方法来帮助用户通过加载到的 ImageAsset 创建一个 SpriteFrame 资源。根据 ImageAsset 的来源不同，有以下两种创建方式：
+但在有些情况下只能加载到图像源资源 ImageAsset，因此我们提供了 [createWithImage](%__APIDOC__%/zh/#/docs/3.4/zh/asset/Class/SpriteFrame?id=createwithimage) 方法来帮助用户通过加载到的 ImageAsset 创建一个 SpriteFrame 资源。根据 ImageAsset 的来源不同，有以下两种创建方式：
 
 1. 存放在服务器上的资源只能加载到图像源资源 ImageAsset，加载方法请参考 [动态加载资源](./dynamic-load-resources.md)。创建 SpriteFrame 资源的代码示例如下：
 
@@ -107,4 +107,4 @@ resources.load(url, SpriteFrame, (err: any, spriteFrame) => {
 
 RenderTexture 是一个渲染纹理，它可以将摄像机上的内容直接渲染到一张纹理上而不是屏幕上。SpriteFrame 通过管理 RenderTexture 可以轻松地将 3D 相机内容显示在 UI 上。具体的使用方法及代码示例可参考 [渲染纹理资源](render-texture.md)。
 
-API 接口文档：[SpriteFrame 资源类型](__APIDOC__/zh/#/docs/3.4/zh/asset/Class/SpriteFrame)。
+API 接口文档：[SpriteFrame 资源类型](%__APIDOC__%/zh/#/docs/3.4/zh/asset/Class/SpriteFrame)。

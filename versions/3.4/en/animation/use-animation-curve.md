@@ -200,7 +200,7 @@ Some interpolation algorithms require additional data to be stored in the curve 
 
     - If the curve value is of type `number`, `Number`, linear interpolation will be applied.
     - If the curve value inherits from `ValueType`, the `lerp` function of `ValueType` will be called to complete the interpolation. `lerp` methods for most value types built into Cocos Creator are implemented as linear interpolation, e.g.: `Vec3`, `vec4`, etc.
-    - If the curve value is [interpolable](__APIDOC__/en/#/docs/3.4/en/animation/Interface/ILerpable), the `lerp` function for the curve value will be called to complete the interpolation[^1].
+    - If the curve value is [interpolable](%__APIDOC__%/en/#/docs/3.4/en/animation/Interface/ILerpable), the `lerp` function for the curve value will be called to complete the interpolation[^1].
 
 - If the curve value does not satisfy any of the above conditions, or when the `interpolate` property of the curve data is `false`, no interpolation will be performed and the curve value from the previous frame will always be used as the result.
 
@@ -318,6 +318,6 @@ Different wrap modes can be set for Animation Clips by setting `AnimationClip.wr
 | WrapMode.Loop | Loop
 | PingPong | Play from the beginning to the end of the animation, then play back to the beginning from the end, and so on.
 
-For more wrap modes, please refer to the [WrapMode](__APIDOC__/en/#/docs/3.4/en/animation/Class/AnimationState?id=wrapmode) API and the [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count) documentation.
+For more wrap modes, please refer to the [WrapMode](%__APIDOC__%/en/#/docs/3.4/en/animation/Class/AnimationState?id=wrapmode) API and the [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count) documentation.
 
 [^1]: For numeric, quaternion, and various vectors, Cocos Creator provides the appropriate interpolate classes to implement [Cubic Spline Interpolation](https://en.wikipedia.org/wiki/Spline_interpolation).

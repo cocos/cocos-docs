@@ -87,7 +87,7 @@ export class LOD extends Component {
 }
 ```
 
-API reference could be found at [LOD Group API](__APIDOC__/en/class/LODGroup)
+API reference could be found at [LOD Group API](%__APIDOC__%/en/class/LODGroup)
 
 ## Art Workflow
 

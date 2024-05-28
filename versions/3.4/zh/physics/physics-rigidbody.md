@@ -52,7 +52,7 @@ const rigidBody = this.node.getComponent(RigidBody);
 | **LinerFactor**    | 线性因子，用于缩放每个轴方向上的物理数值（速度和力） |
 | **AngularFactor**  | 角因子，用于缩放每个轴方向上的物理数值（速度和力）   |
 
-刚体组件接口请参考 [RigidBody API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/rigidbody.html)。
+刚体组件接口请参考 [RigidBody API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/rigidbody.html)。
 
 ## 刚体类型
 

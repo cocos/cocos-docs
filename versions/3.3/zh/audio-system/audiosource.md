@@ -111,7 +111,7 @@ export class AudioController extends Component {
 
 > **注意**：`playOneShot` 是一次性播放操作，播放后的音效无法暂停或停止播放，也无法监听播放结束的事件回调。
 
-更多音频相关的脚本接口请参考 [AudioSource API](__APIDOC__/zh/#/docs/3.3/zh/component-audio/Class/AudioSource)。
+更多音频相关的脚本接口请参考 [AudioSource API](%__APIDOC__%/zh/#/docs/3.3/zh/component-audio/Class/AudioSource)。
 
 更多对音频的播放控制，可以参考文档 [AudioSource 播放示例](./audioExample.md)。
 

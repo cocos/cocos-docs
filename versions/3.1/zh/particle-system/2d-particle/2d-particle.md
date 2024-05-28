@@ -6,7 +6,7 @@
 
 点击 **属性检查器** 下方的 **添加组件** 按钮，然后从 **Effects** 中选择 **ParticleSystem2D**，即可添加 ParticleSystem2D 组件到节点上。
 
-ParticleSystem2D 的脚本接口请参考 [ParticleSystem API](__APIDOC__/zh/classes/particle2d.particlesystem2d.html)。
+ParticleSystem2D 的脚本接口请参考 [ParticleSystem API](%__APIDOC__%/zh/classes/particle2d.particlesystem2d.html)。
 
 ## ParticleSystem2D 属性
 
@@ -32,8 +32,8 @@ ParticleSystem2D 的脚本接口请参考 [ParticleSystem API](__APIDOC__/zh/cla
 | StartSpin            | 粒子开始自旋角度及变化范围
 | EndSpin              | 粒子结束自旋角度及变化范围
 | PosVar               | 发射器位置的变化范围（横向和纵向）
-| PositionType         | 粒子位置类型，包括 **FREE**、**RELATIVE**、**GROUPED** 三种。详情可参考 [PositionType API](__APIDOC__/zh/classes/particle2d.particlesystem2d.html#positiontype)
-| EmitterMode          | 发射器类型，包括 **GRAVITY**、**RADIUS** 两种。详情可参考 [EmitterMode API](__APIDOC__/zh/classes/particle2d.particlesystem2d.html#emittermode-1)
+| PositionType         | 粒子位置类型，包括 **FREE**、**RELATIVE**、**GROUPED** 三种。详情可参考 [PositionType API](%__APIDOC__%/zh/classes/particle2d.particlesystem2d.html#positiontype)
+| EmitterMode          | 发射器类型，包括 **GRAVITY**、**RADIUS** 两种。详情可参考 [EmitterMode API](%__APIDOC__%/zh/classes/particle2d.particlesystem2d.html#emittermode-1)
 | Gravity              | 重力。仅在 Emitter Mode 设为 **GRAVITY** 时生效
 | Speed                | 速度及变化范围。仅在 Emitter Mode 设为 **GRAVITY** 时生效
 | TangentialAccel      | 每个粒子的切向加速度及变化范围，即垂直于重力方向的加速度。仅在 Emitter Mode 设为 **GRAVITY** 时生效

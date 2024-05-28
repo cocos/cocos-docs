@@ -174,7 +174,7 @@ export class AudioController extends Component {
 
         - `group`：变更为 `layer`。
 
-        - `zIndex`：变更为 `UITransform` 中的 [priority](__APIDOC__/zh/#/docs/3.3/zh/ui/Class/UITransform)。
+        - `zIndex`：变更为 `UITransform` 中的 [priority](%__APIDOC__%/zh/#/docs/3.3/zh/ui/Class/UITransform)。
 
           > **注意**：从 v3.1 开始，`priority` 属性已弃用，若需要调整节点树的顺序请使用 `setSiblingIndex` 方法。
 

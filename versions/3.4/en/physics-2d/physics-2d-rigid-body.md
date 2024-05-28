@@ -18,7 +18,7 @@ Click the **Add Component** button in the **Inspector** panel and enter Rigidbod
 | :-- | :-- |
 | **Group** | The group of rigid bodies. The [Collision Matrix](../editor/project/physics-configs.md) you can set the possibility of collision between different groups |
 | **EnabledContactListener** | Whether to enable listening for [CollisionCallback](./physics-2d-contact-callback.md) |
-| **Bullet** | Is this rigid body a fast-moving rigid body and needs to be prohibited from passing through other fast-moving rigid bodies <br>Please refer to [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D) for more information Information |
+| **Bullet** | Is this rigid body a fast-moving rigid body and needs to be prohibited from passing through other fast-moving rigid bodies <br>Please refer to [Rigidbody2D API](%__APIDOC__%/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D) for more information Information |
 | **Type** | Rigid body types, please refer to **Rigidbody Type** below for details |
 | **AlllowSleep** | Whether to allow rigid body sleep <br> [physics-configuration](../editor/project/physics-configs.md) can be adjusted in the threshold for sleep |
 | **GravityScale** | Gravity Scaling <br> Only for rigid bodies of type **Dynamic** |
@@ -29,7 +29,7 @@ Click the **Add Component** button in the **Inspector** panel and enter Rigidbod
 | **FixedRotation** | Whether fixed rotation |
 | **AwakeOnLoad** | Wake up the rigid body as soon as the loading is completed |
 
-Rigidbody component interface please refer to [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D).
+Rigidbody component interface please refer to [Rigidbody2D API](%__APIDOC__%/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D).
 
 ## RigidBody Properties
 
@@ -256,4 +256,4 @@ Sometimes you need to get the velocity of a RigidBody at a certain point, you ca
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
 
-More rigid body methods can be found in [Rigidbody2D API](__APIDOC__/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D)
+More rigid body methods can be found in [Rigidbody2D API](%__APIDOC__%/zh/#/docs/3.4/zh/physics2d/Class/Rigidbody2D)

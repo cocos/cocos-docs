@@ -55,7 +55,7 @@ conf.gravity = new Vec3(10, 10, 0);
 PhysicsSystem.instance.resetConfiguration(conf);
 ```
 
-更多 API 内容请查看物理系统接口请参考：[PhysicsSystem API](__APIDOC__/zh/#/docs/3.4/zh/physics/classes/physicssystem.html)。
+更多 API 内容请查看物理系统接口请参考：[PhysicsSystem API](%__APIDOC__%/zh/#/docs/3.4/zh/physics/classes/physicssystem.html)。
 
 ## 碰撞矩阵
 

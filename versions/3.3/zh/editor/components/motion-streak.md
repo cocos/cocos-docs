@@ -10,7 +10,7 @@ MotionStreak（拖尾）是运动轨迹，用于在游戏对象的运动轨迹�
 
 ![add motionStreak](motion-streak/add-motion-streak.png)
 
-拖尾的脚本接口请参考 [MotionStreak API](__APIDOC__/zh/#/docs/3.3/zh/particle2d/Class/MotionStreak)。
+拖尾的脚本接口请参考 [MotionStreak API](%__APIDOC__%/zh/#/docs/3.3/zh/particle2d/Class/MotionStreak)。
 
 ## MotionStreak 属性
 

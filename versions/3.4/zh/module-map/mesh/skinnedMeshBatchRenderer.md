@@ -24,4 +24,4 @@
 
 更多合批相关的内容，详情请参考文档 [骨骼动画 — BatchedSkinnedMeshRenderer 组件](../../animation/skeletal-animation.md)。
 
-批量蒙皮网格渲染器组件的相关接口，请参考 [SkinnedMeshBatchRenderer API](__APIDOC__/zh/#/docs/3.4/zh/3d/Class/SkinnedMeshBatchRenderer)。
+批量蒙皮网格渲染器组件的相关接口，请参考 [SkinnedMeshBatchRenderer API](%__APIDOC__%/zh/#/docs/3.4/zh/3d/Class/SkinnedMeshBatchRenderer)。

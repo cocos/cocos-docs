@@ -6,7 +6,7 @@ The __Graphics__ component provides a series of drawing functions that reference
 
 Select a node in the __Hierarchy__ panel, then click the __Add Component__ button at the bottom of the __Inspector__ panel and select __Graphics__ from __UI -> Render__. Then you can add the __Graphics__ component to the node.
 
-To use graphics, please refer to the [graphics API](__APIDOC__/en/classes/ui.graphics-1.html) documentation and the [graphics](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/14.graphics) scene of the test-cases-3d project.
+To use graphics, please refer to the [graphics API](%__APIDOC__%/en/classes/ui.graphics-1.html) documentation and the [graphics](https://github.com/cocos/cocos-test-projects/tree/v3.0/assets/cases/ui/14.graphics) scene of the test-cases-3d project.
 
 ## Graphic Properties
 
