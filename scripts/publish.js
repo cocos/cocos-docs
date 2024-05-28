@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-import { spawnCommand, parseCommands,replaceAPIDOCbyUrl } from './command-tools.js'
+import { spawnCommand, parseCommands } from './command-tools.js'
 
 async function publishTargetVersion(targetVersion) {
     let bExist = fs.existsSync(targetVersion);
