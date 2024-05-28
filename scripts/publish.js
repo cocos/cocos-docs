@@ -14,9 +14,6 @@ async function publishTargetVersion(targetVersion) {
     await spawnCommand(`node ./scripts/create-sidebar.js ${targetVersion}/zh/SUMMARY.md`, targetVersion);
     console.log('Generating SUMMARY.md -> summary.json Complete', targetVersion);
     await spawnCommand(`npx vitepress build ${targetVersion}`, targetVersion);
-
-    //let version = targetVersion.split('/')[1];
-    //await replaceAPIDOCbyUrl(`${targetVersion}/.vitepress/dist` ,`https://docs.cocos.com/creator/${version}/api/en/`);
 }
 
 (async () => {
