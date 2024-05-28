@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 import { github } from './config.ts';
 import { search as zhSearch } from './shared-theme-zh'
+import replaceEnvVariables from './replace-env-variables.ts';
 
 export const shared = defineConfig({
   title: 'Cocos Creator',
@@ -81,6 +82,12 @@ export const shared = defineConfig({
       }
     },
 
+  },
+
+  markdown: {
+    config: (md) => {
+      md.use(replaceEnvVariables)
+    }
   }
 })
 
