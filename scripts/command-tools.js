@@ -4,6 +4,7 @@ import fs, { linkSync } from 'fs';
 import path from 'path';
 import { dir } from 'console';
 
+
 export const spawnCommand = (command, targetVersion) => {
     return new Promise((resolve, reject) => {
         const child = exec(command);
