@@ -20,7 +20,7 @@ function (node: Node) {
 
 #### Playing animations
 
-The Animation Component controls the playback of the specified animation via the [play()](__APIDOC__/en/class/Animation?id=play) API, e.g:
+The Animation Component controls the playback of the specified animation via the [play()](%__APIDOC__%/en/class/Animation?id=play) API, e.g:
 
 ```ts
 // Play the animation state 'idle'
@@ -36,7 +36,7 @@ animationComponent.play();
 
 #### Switching animation
 
-When using the `play` interface to play an animation, if there are other animations playing at the same time, the other animations will be stopped immediately. This switch is very abrupt, and in some cases we want the switch to be a "fade in and fade out" effect, use [crossFade()](__APIDOC__/en/class/Animation?id=crossFade) to smoothly complete the switch within the specified period. For example:
+When using the `play` interface to play an animation, if there are other animations playing at the same time, the other animations will be stopped immediately. This switch is very abrupt, and in some cases we want the switch to be a "fade in and fade out" effect, use [crossFade()](%__APIDOC__%/en/class/Animation?id=crossFade) to smoothly complete the switch within the specified period. For example:
 
 ```ts
 // Play the animation state 'walk'
@@ -52,7 +52,7 @@ This fade-in and fade-out mechanism of `crossFade()` makes it possible for more 
 
 Even so, the Animation Component provides `pause()`, `resume()`, and `stop()` methods that pause, resume, and stop all the animation states being played while also pausing, resuming, and stopping the animation switching.
 
-For more details about the control interface related to the Animation Component, please refer to the [Class Animation](__APIDOC__/en/class/Animation).
+For more details about the control interface related to the Animation Component, please refer to the [Class Animation](%__APIDOC__%/en/class/Animation).
 
 ## Animation State
 
@@ -174,4 +174,4 @@ export class AnimationEvent extends Component {
 }
 ```
 
-For more details, please refer to the [Animation.EventType](__APIDOC__/en/namespace/Animation?id=EventType) API.
+For more details, please refer to the [Animation.EventType](%__APIDOC__%/en/namespace/Animation?id=EventType) API.

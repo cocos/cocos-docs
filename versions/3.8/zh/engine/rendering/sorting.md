@@ -84,4 +84,4 @@ export class SortingSample extends Component {
 
 ## API
 
-渲染排序组件的 API 可以参考 [Sorting](__APIDOC__/zh/class/Sorting) 以及 [排序层管理器 SortingLayers](__APIDOC__/zh/class/SortingLayers) 。
+渲染排序组件的 API 可以参考 [Sorting](%__APIDOC__%/zh/class/Sorting) 以及 [排序层管理器 SortingLayers](__APIDOC__/zh/class/SortingLayers) 。

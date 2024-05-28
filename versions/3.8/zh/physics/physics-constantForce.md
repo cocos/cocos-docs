@@ -11,4 +11,4 @@
 | **torque** | 在世界坐标系中，对刚体施加的扭转力 |
 | **localTorque** | 在本地坐标系中，对刚体施加的扭转力 |
 
-恒力组件接口请参考 [ConstantForce API](__APIDOC__/zh/class/physics.ConstantForce)。
+恒力组件接口请参考 [ConstantForce API](%__APIDOC__%/zh/class/physics.ConstantForce)。

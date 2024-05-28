@@ -121,7 +121,7 @@ Configure the joint texture layout within the project. Please refer to [Joint Te
 
 - **ENABLE_TILEDMAP_CULLING**: whether or not to enable TiledMap auto-culling. It's enabled by default. Note that if `skew` and `rotation` are set in the TiledMap, it's necessary to turn it off manually, otherwise it will cause rendering errors.
 
-- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](__APIDOC__/en/interface/Macro?id=TOUCH_TIMEOUT) for details.
+- **TOUCH_TIMEOUT**: the duration of the delay used to screen a contact object to see if it has failed and can be removed. This value can be modified to get the desired effect, the default value is 5000 ms. Please refer to the API [TOUCH_TIMEOUT](%__APIDOC__%/en/interface/Macro?id=TOUCH_TIMEOUT) for details.
 
 - **ENABLE_TRANSPARENT_CANVAS**: used to set whether the Canvas background supports alpha channels.
 

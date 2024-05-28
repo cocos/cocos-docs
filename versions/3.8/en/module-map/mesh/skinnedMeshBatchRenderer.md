@@ -24,4 +24,4 @@ The SkinnedMeshBatchRenderer component is used to combine the rendering of all m
 
 Please refer to [BatchedSkinnedMeshRenderer](../../animation/skeletal-animation.md) for more details.
 
-For API reference, please refer to [SkinnedMeshBatchRenderer API](__APIDOC__/en/class/SkinnedMeshBatchRenderer).
+For API reference, please refer to [SkinnedMeshBatchRenderer API](%__APIDOC__%/en/class/SkinnedMeshBatchRenderer).

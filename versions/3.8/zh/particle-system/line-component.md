@@ -63,4 +63,4 @@ Line 组件用于渲染 3D 场景中给定的点连成的线段。Line 组件渲
 | **TwoGradients** | 使用两个渐变颜色 |
 | **RandomColor** | 使用随机的颜色 |
 
-Line 组件接口请参考 [Line API](__APIDOC__/zh/class/Line)。
+Line 组件接口请参考 [Line API](%__APIDOC__%/zh/class/Line)。

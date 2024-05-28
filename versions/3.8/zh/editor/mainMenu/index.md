@@ -142,7 +142,7 @@ Cocos Creator 顶部的主菜单栏中包括 **文件**、**编辑**、**节点*
 | 选项 | 说明 |
 | :--- | :-- |
 | 使用手册 | 在默认浏览器打开 [用户手册文档](../../index.md) |
-| API 文档 | 在默认浏览器打开 [API 参考文档](__APIDOC__/zh) |
+| API 文档 | 在默认浏览器打开 [API 参考文档](%__APIDOC__%/zh) |
 | 论坛 | 在默认浏览器打开 [Cocos Creator 论坛](https://forum.cocos.org/c/58)|
 | 软件许可| 可以查看 Cocos Creator 的软件许可信息 |
 | 更新日志 |  在默认浏览器打开 Cocos Creator 各版本的 [更新日志](https://www.cocos.com/creator)  |

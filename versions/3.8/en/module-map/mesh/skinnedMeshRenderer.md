@@ -18,7 +18,7 @@ After [Import Model Assets](../../asset/model/mesh.md), the SkinnedMeshRenderer 
 | **Skeleton** | The skeletal data of the current model, usually directly from the imported glTF or FBX model file |
 | **SkinningRoot** | Reference to the skeleton root node, corresponding to the node that controls the animation component of the model |
 
-Please refer to [SkinnedMeshRenderer API](__APIDOC__/en/class/SkinnedMeshRenderer) for API reference.
+Please refer to [SkinnedMeshRenderer API](%__APIDOC__%/en/class/SkinnedMeshRenderer) for API reference.
 
 The difference between SkinnedMeshRenderer component and MeshRenderer component are as follows:
 

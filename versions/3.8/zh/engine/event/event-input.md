@@ -72,7 +72,7 @@
 
 - 回调参数
 
-    - [EventMouse](__APIDOC__/zh/class/EventMouse) 或 [EventTouch](__APIDOC__/zh/class/EventTouch)
+    - [EventMouse](%__APIDOC__%/zh/class/EventMouse) 或 [EventTouch](__APIDOC__/zh/class/EventTouch)
 
 指针事件的使用范例如下：
 
@@ -113,7 +113,7 @@ export class Example extends Component {
 
 - 回调参数
 
-    - [EventKeyboard](__APIDOC__/zh/class/EventKeyboard)
+    - [EventKeyboard](%__APIDOC__%/zh/class/EventKeyboard)
 
 使用键盘事件的代码示例如下：
 
@@ -163,7 +163,7 @@ export class Example extends Component {
 
 - 回调参数
 
-    - [EventAcceleration](__APIDOC__/zh/class/EventAcceleration)
+    - [EventAcceleration](%__APIDOC__%/zh/class/EventAcceleration)
 
 使用设备重力传感事件的代码示例如下：
 

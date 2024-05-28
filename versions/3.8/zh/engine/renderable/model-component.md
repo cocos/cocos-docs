@@ -53,9 +53,9 @@ MeshRenderer（网格渲染器）组件用于显示一个静态的 3D 模型。�
 | **Reflection Probe** | [反射探针](../../concepts/scene/light/probe/reflection-probe.md) 的类型 <br> 支持 **PLANNAR_REFLECTION** 、 **CUBE_REFLECTION**、**BLEND_PROBES**、**BLEND_PROBES_AND_SKYBOX** <br> **PLANNAR_REFLECTION**：配置为动态反射探针 <br> **CUBE_REFLECTION**：配置为使用烘焙后的反射探针 <br> **BLEND_PROBES**：配置为使用烘焙后的反射探针并且反射探针之间会进行混合。 <br> **BLEND_PROBES_AND_SKYBOX**：配置为使用烘焙后的反射探针并且在BLEND_PROBES项的基础上增加了和天空盒混合的功能 |
 | **Bake To Reflection Probe** | 配置是否烘焙至反射探针生成的贴图内 |
 
-网格渲染器组件相关接口请参考 [MeshRenderer API](__APIDOC__/zh/class/MeshRenderer)。
+网格渲染器组件相关接口请参考 [MeshRenderer API](%__APIDOC__%/zh/class/MeshRenderer)。
 
-蒙皮网格渲染器组件相关接口请参考 [SkinnedMeshRenderer API](__APIDOC__/zh/class/SkinnedMeshRenderer)
+蒙皮网格渲染器组件相关接口请参考 [SkinnedMeshRenderer API](%__APIDOC__%/zh/class/SkinnedMeshRenderer)
 
 ### 网格资源
 

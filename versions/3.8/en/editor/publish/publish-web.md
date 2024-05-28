@@ -74,7 +74,7 @@ After chromium is opened, visit `chrome://flags` in the address bar, then enable
 
 ## Retina Settings
 
-Set whether to use high resolution through `view.enableRetina(true)` in the script. Retina display will be turned on by default when it is built on the Web platform. For details, please refer to the [enableRetina](__APIDOC__/en/class/View?id=enableRetina) API.
+Set whether to use high resolution through `view.enableRetina(true)` in the script. Retina display will be turned on by default when it is built on the Web platform. For details, please refer to the [enableRetina](%__APIDOC__%/en/class/View?id=enableRetina) API.
 
 ## Publish to Web Server
 

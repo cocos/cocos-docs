@@ -18,7 +18,7 @@
 | :-- | :-- |
 | **Group** | 刚体的分组。通过 [碰撞矩阵](../editor/project/physics-configs.md) 可设置不同分组间碰撞的可能性|
 | **EnabledContactListener** | 开启监听[碰撞回调](./physics-2d-contact-callback.md) |
-| **Bullet** | 这个刚体是否是一个快速移动的刚体，并且需要禁止穿过其他快速移动的刚体 <br>请参考 [Rigidbody2D API](__APIDOC__/zh/class/RigidBody2D) 获取更多信息 |
+| **Bullet** | 这个刚体是否是一个快速移动的刚体，并且需要禁止穿过其他快速移动的刚体 <br>请参考 [Rigidbody2D API](%__APIDOC__%/zh/class/RigidBody2D) 获取更多信息 |
 | **Type** | 刚体类型，详情请参考下方 **刚体类型** |
 | **AllowSleep** | 是否允许刚体休眠 <br> [物理配置](../editor/project/physics-configs.md) 中可调整休眠的临界值 |
 | **GravityScale** | 重力缩放比例 <br> 仅对 **Dynamic** 类型的刚体生效 |
@@ -29,7 +29,7 @@
 | **FixedRotation** | 是否固定旋转 |
 | **AwakeOnLoad** | 加载完成后立刻唤醒刚体 |
 
-刚体组件接口请参考 [Rigidbody2D API](__APIDOC__/zh/class/RigidBody2D)。
+刚体组件接口请参考 [Rigidbody2D API](%__APIDOC__%/zh/class/RigidBody2D)。
 
 ## 刚体属性
 
@@ -257,4 +257,4 @@ rigidbody.applyAngularImpulse(impulse);
 rigidbody.getLinearVelocityFromWorldPoint(worldPoint);
 ```
 
-更多刚体的方法可以参考 [Rigidbody2D API](__APIDOC__/zh/class/RigidBody2D)
+更多刚体的方法可以参考 [Rigidbody2D API](%__APIDOC__%/zh/class/RigidBody2D)

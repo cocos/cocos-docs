@@ -107,7 +107,7 @@ onColliderHit (hit: CharacterControllerContact){}
 
 回调参数说明：
 
-- contact： 和其他碰撞体碰撞时的接触信息， API 参考：[CharacterControllerContact](__APIDOC__/zh/class/physics.CharacterControllerContact)
+- contact： 和其他碰撞体碰撞时的接触信息， API 参考：[CharacterControllerContact](%__APIDOC__%/zh/class/physics.CharacterControllerContact)
 
 和触发器发生碰撞时的事件包括以下三种：
 
@@ -139,7 +139,7 @@ onColliderHit (hit: CharacterControllerContact){}
 
 ## API
 
-角色控制器的 API 请参考 [角色控制器](__APIDOC__/zh/class/physics.CharacterController)、[盒角色控制器](__APIDOC__/zh/class/physics.BoxCharacterController) 以及 [胶囊体角色控制器](__APIDOC__/zh/class/physics.CapsuleCharacterController)
+角色控制器的 API 请参考 [角色控制器](%__APIDOC__%/zh/class/physics.CharacterController)、[盒角色控制器](__APIDOC__/zh/class/physics.BoxCharacterController) 以及 [胶囊体角色控制器](__APIDOC__/zh/class/physics.CapsuleCharacterController)
 
 ## 支持情况
 

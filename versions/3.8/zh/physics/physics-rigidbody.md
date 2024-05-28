@@ -22,7 +22,7 @@ const rigidbody = this.node.addComponent(RigidBody);
 const rigidBody = this.node.getComponent(RigidBody);
 ```
 
-刚体的 API 接口请参考 [Class RigidBody](__APIDOC__/zh/class/physics.RigidBody)。
+刚体的 API 接口请参考 [Class RigidBody](%__APIDOC__%/zh/class/physics.RigidBody)。
 
 ### 什么情况下需要添加刚体
 
@@ -54,7 +54,7 @@ const rigidBody = this.node.getComponent(RigidBody);
 | **LinerFactor**    | 线性因子，用于缩放每个轴方向上的物理数值（速度和力） |
 | **AngularFactor**  | 角因子，用于缩放每个轴方向上的物理数值（速度和力）   |
 
-刚体组件接口请参考 [RigidBody API](__APIDOC__/zh/class/physics.RigidBody)。
+刚体组件接口请参考 [RigidBody API](%__APIDOC__%/zh/class/physics.RigidBody)。
 
 ## 刚体类型
 

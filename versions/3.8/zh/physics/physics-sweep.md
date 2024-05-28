@@ -46,7 +46,7 @@ Cocos Creator 从 v3.8 开始，支持扫掠功能。
         - maxDistance：number 最大检测距离，默认为 10000000，目前请勿传入 Infinity 或 Number.MAX_VALUE
         - queryTrigger：boolean 默认为 true，是否检测触发器
 
-详细说明请参考 [API](__APIDOC__/zh/class/PhysicsSystem)。
+详细说明请参考 [API](%__APIDOC__%/zh/class/PhysicsSystem)。
 
 ## 返回值
 
@@ -76,7 +76,7 @@ Cocos Creator 从 v3.8 开始，支持扫掠功能。
 - collider: Collider 击中的碰撞盒
 - hitNormal: vec3 在世界坐标系下击中面的法线
 
-API 参考 [PhysicsRayResult](__APIDOC__/zh/class/physics.PhysicsRayResult)。
+API 参考 [PhysicsRayResult](%__APIDOC__%/zh/class/physics.PhysicsRayResult)。
 
 ## 示例
 

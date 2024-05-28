@@ -23,7 +23,7 @@ Hinge constraints constrain the motion of connected objects to a certain axis. T
 
 ![physics-hinge](img/physics-hinge.gif)
 
-Please refer to [HingeConstraint API](__APIDOC__/en/class/physics.HingeConstraint) for the hinge constraint interface.
+Please refer to [HingeConstraint API](%__APIDOC__%/en/class/physics.HingeConstraint) for the hinge constraint interface.
 
 ## PointToPointConstraint
 
@@ -41,7 +41,7 @@ A point-to-point constraint is a simple composite constraint that connects two o
 
 ![physics-p2p](img/physics-p2p.gif)
 
-For point-to-point constraint interface, please refer to [PointToPointConstraint API](__APIDOC__/en/class/physics.PointToPointConstraint).
+For point-to-point constraint interface, please refer to [PointToPointConstraint API](%__APIDOC__%/en/class/physics.PointToPointConstraint).
 
 ## FixedConstraint
 
@@ -59,7 +59,7 @@ A fixed constraint is the simplest constraint, it locks the relative position an
 
 ![physics-fixed](img/fixed-constraint.gif)
 
-For fixed constraint interface, please refer to [FixedConstraint API](__APIDOC__/en/class/physics.FixedConstraint).
+For fixed constraint interface, please refer to [FixedConstraint API](%__APIDOC__%/en/class/physics.FixedConstraint).
 
 ## Configurable constraint
 
@@ -176,4 +176,4 @@ Both linear and angular motors can have their drive modes adjusted by sub-axis, 
 
     - Angle motors: Twist Drive, Swig Drive1, Swig Drive2 correspond to the three parameters of Target Velocity.
 
-For configurable constraint interface, please refer to [ConfigurableConstraint API](__APIDOC__/en/class/physics.ConfigurableConstraint).
+For configurable constraint interface, please refer to [ConfigurableConstraint API](%__APIDOC__%/en/class/physics.ConfigurableConstraint).
