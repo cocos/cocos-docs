@@ -77,7 +77,7 @@ Build a native project in Cocos Creator's build panel, we get `/Users/james/NewP
 
 #### Create a simple class
 
-Create a header file in `/Users/james/NewProject/native/engine/Classes/MyObject.h` , its content is 
+Create a header file in `/Users/james/NewProject/native/engine/common/Classes/MyObject.h` , its content is 
 
 ```c++
 // MyObject.h

@@ -56,7 +56,7 @@ bool jsb_register_all_modules() {
 
 #### 创建一个简单类
 
-创建一个头文件，其位于 `/Users/james/NewProject/native/engine/Classes/MyObject.h` , 其内容为：
+创建一个头文件，其位于 `/Users/james/NewProject/native/engine/common/Classes/MyObject.h` , 其内容为：
 
 ```c++
 // MyObject.h

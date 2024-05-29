@@ -178,7 +178,7 @@ Promise<`OpenDialogReturnValue`\>
 ```typescript
 const result = await Editor.Dialog.select({
     title: 'Select Title',
-    path: aEditor.Project.path,
+    path: Editor.Project.path,
     filters: [{ name: 'Package', extensions: ['zip'] }],
 });
 if (result.filePaths && result.filePaths[0]) {
