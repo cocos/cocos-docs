@@ -107,7 +107,7 @@
 
         ![local-rotation](./images/local-rotation.png)
 
-    - ![global](bar_img/world-or-local.png) Global：变换工具中控制手柄的方向以世界坐标系为准，不受节点旋转的影响，如下图：
+    - ![global](bar_img/world-or-local.jpg) Global：变换工具中控制手柄的方向以世界坐标系为准，不受节点旋转的影响，如下图：
 
         ![global-rotation](./images/global-rotation.png)
 
