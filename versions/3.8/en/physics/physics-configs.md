@@ -78,7 +78,7 @@ The figure shows the configuration of a collider group for a flying shooter game
 
 ![set-collider-config](img/set-collider-config.png)
 
-This configuration means that the group **ENEMY_PLANE** can collide with the groups **ENEMY_BULLET** and **SELF_BULLET**. Here the group **ENEMY_BULLET** and **SELF_BULLET** are the masks of the group **ENEMY_PLANE**. Similarly, for the group **ENEMY_BULLET**, **ENEMY_PLANE** is also its mask.
+This configuration means that the group **SELF_PLANE** can collide with the groups **ENEMY_BULLET** and **SELF_BULLET**. Here the group **ENEMY_BULLET** and **SELF_BULLET** are the masks of the group **ENEMY_PLANE**. Similarly, for the group **ENEMY_BULLET**, **ENEMY_PLANE** is also its mask.
 
 Once the collision matrix is configured, you can add the **RigidBody** component to the object to be collided with and set the collision group `Group`.
 

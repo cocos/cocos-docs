@@ -78,7 +78,7 @@ PhysicsSystem.instance.resetConfiguration(conf);
 
 ![set-collider-config](img/set-collider-config.png)
 
-此配置代表的意思是分组 **ENEMY_PLANE** 可以与分组 **ENEMY_BULLET** 和 **SELF_BULLET** 产生碰撞。这里的分组 **ENEMY_BULLET** 和 **SELF_BULLET** 就是分组 **ENEMY_PLANE** 的掩码。同样，对于分组 **ENEMY_BULLET** 来说 **ENEMY_PLANE** 也是它的掩码。
+此配置代表的意思是分组 **SELF_PLANE** 可以与分组 **ENEMY_BULLET** 和 **SELF_BULLET** 产生碰撞。这里的分组 **ENEMY_BULLET** 和 **SELF_BULLET** 就是分组 **ENEMY_PLANE** 的掩码。同样，对于分组 **ENEMY_BULLET** 来说 **ENEMY_PLANE** 也是它的掩码。
 
 配置完成碰撞矩阵之后，就可以对需要产生碰撞的对象添加 **刚体（RigidBody）** 组件，设置碰撞分组 `Group`。
 
