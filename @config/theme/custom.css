@@ -3,3 +3,8 @@
     /* 增大侧边栏的宽度 */
     --vp-sidebar-width: 332px;
 }
+
+/* 防治点击侧边导航的时候文字被选中，影响体验 */
+#VPSidebarNav {
+    user-select: none;
+}
