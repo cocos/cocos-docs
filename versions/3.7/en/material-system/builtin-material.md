@@ -6,7 +6,7 @@ Creator has built-in several common materials in the **internal -> default_mater
 
 | Builtin material | description |
 |:--|:--|
-|default-materail| [Standard Material](../shader/effect-builtin-pbr.md) for opaque objects |
-|default-materail-transparent|  [Standard Material](../shader/effect-builtin-pbr.md) for transparent objects |
+|default-material| [Standard Material](../shader/effect-builtin-pbr.md) for opaque objects |
+|default-material-transparent|  [Standard Material](../shader/effect-builtin-pbr.md) for transparent objects |
 |particle-add| Standard material for particle system |
-|ui-sprite-material| Standard materail for sprite  |
+|ui-sprite-material| Standard material for sprite  |
