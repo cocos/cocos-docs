@@ -540,10 +540,10 @@ this.node.x = 200;
 
 // v3.x
 
-// Access the axes
-let xAxis = this.node.position.x;
+// Access the pos
+let pos = this.node.position;
 // Modify the x-axis coordinates
-this.node.setPosition(200);
+this.node.setPosition(200,pos.y,pos.z);
 ```
 
 ## TypeScript Reference Tutorials

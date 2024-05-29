@@ -557,10 +557,10 @@ this.node.x = 200;
 
 // v3.x
 
-// 访问坐标轴
-let xAxis = this.node.position.x;
+// 访问坐标
+let pos = this.node.position;
 // 修改 X 轴坐标
-this.node.setPosition(200);
+this.node.setPosition(200,pos.y,pos.z);
 ```
 
 ## TypeScript 参考教程
