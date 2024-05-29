@@ -57,7 +57,7 @@ cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurren
 
 在 **Debugger Command** 中输入命令：
 
-```lldb
+```txt
 expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 ```
 
@@ -71,7 +71,7 @@ expr --  cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->
 
 同上，也可以执行以下代码查看调用栈：
 
-```lldb
+```txt
 expr -- cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 ```
 

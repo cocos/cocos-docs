@@ -8,7 +8,7 @@ Input SDK提供了一个统一的界面，让玩家在 Google Play Games For PC 
 
 如果这个 Anrdoid 工程是之前构建的，就需要手动在 文件 `native/engine/android/app/build.gradle` 中添加下面的代码：
 
-```gradle
+```txt
 dependencies {
   implementation 'com.google.android.libraries.play.games:inputmapping:1.0.0-beta'
   ...

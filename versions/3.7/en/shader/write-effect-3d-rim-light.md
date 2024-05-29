@@ -212,19 +212,19 @@ vec4 frag(){
 
 At this point, the angle between the normal and the view direction can be calculated. Inside linear algebra, the dot product is expressed as the cosine of the modulus of two vectors multiplied by the angle.
 
-```math
+```txt
 a·b = |a|*|b|*cos(θ)
 ```
 
 A simple exchange law leads to.
 
-```math
+```txt
 cos(θ) = a·b /(|a|*|b|)
 ```
 
 Since the normal and view directions are normalized, they are modulo 1 and the result of the dot product is expressed as the cos values of the normal and view directions.
 
-```math
+```txt
 cos(θ) = a·b
 ```
 

@@ -57,7 +57,7 @@ However, this approach has an obvious drawback: it works for **all projects** an
 
 Enter the following command in the **Debugger Command**:
 
-```lldb
+```txt
 expr -- cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 ```
 
@@ -71,7 +71,7 @@ After the breakpoint is triggered, a callback needs to be added to the lldb cons
 
 As above, the call stack can also be viewed by executing the following code:
 
-```lldb
+```txt
 expr -- cocos2d::log(".lldbinit ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str())
 ```
 

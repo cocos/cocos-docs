@@ -165,7 +165,7 @@ export class PlayerController extends Component {
 
 在牛顿力学里面我们学过，如果要让一个物体匀速的运动，那么他的位置一定是这样：
 
-```math
+```txt
 P_1 = P_0 + v*t
 ```
 

@@ -165,7 +165,7 @@ Good, here we have completed the main framework of our Player controller, so we 
 
 In Newtonian mechanics, we have learned that if an object is to move with uniform velocity, then its position must be like the following:
 
-```math
+```txt
 P_1 = P_0 + v*t
 ```
 

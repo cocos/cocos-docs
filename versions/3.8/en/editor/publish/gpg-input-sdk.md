@@ -8,7 +8,7 @@ If you are using Input SDK on a new Android build, simply check the Input SDK op
 
 If the Android project was built previously, you will need to manually add the following code to the `native/engine/android/app/build.gradle` file.
 
-```gradle
+```txt
 dependencies {
   implementation 'com.google.android.libraries.play.games:inputmapping:1.0.0-beta'
   ...

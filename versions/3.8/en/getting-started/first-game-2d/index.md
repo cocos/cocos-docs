@@ -272,7 +272,7 @@ The code has implemented that:
 
 In our game, the player moves horizontally to the right, so we need to use a simple physics formula as below:
 
-```math
+```txt
 P_1 = P_0 + v*t
 ```
 

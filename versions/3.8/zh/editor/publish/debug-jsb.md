@@ -43,7 +43,7 @@ DONE
 
 设置了 **每次断点** 后的行为，执行以下代码输出 JS 调用栈的信息：
 
-```lldb
+```txt
 po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
@@ -59,7 +59,7 @@ po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 
 在 **Debugger Command** 中输入命令：
 
-```lldb
+```txt
 po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
@@ -73,7 +73,7 @@ po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 
 同上，也可以执行以下代码查看调用栈：
 
-```lldb
+```txt
 po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 

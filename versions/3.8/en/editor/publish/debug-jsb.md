@@ -43,7 +43,7 @@ DONE
 
 The behavior after setting **every breakpoint** and executing the following code to output the JS call stack:
 
-```lldb
+```txt
 po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
@@ -59,7 +59,7 @@ However, this approach has an obvious drawback: it works for **all projects** an
 
 Enter the following command in the **Debugger Command**:
 
-```lldb
+```txt
 po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
@@ -73,7 +73,7 @@ After the breakpoint is triggered, a callback needs to be added to the lldb cons
 
 As above, the call stack can also be viewed by executing the following code:
 
-```lldb
+```txt
 po se::ScriptEngine::getInstance()->getCurrentStackTrace()
 ```
 
