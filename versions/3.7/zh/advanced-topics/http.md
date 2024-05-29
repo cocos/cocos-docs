@@ -58,6 +58,6 @@ export class HttpTest extends Component {
 > http request received.
 ```
 
-也可通过 `respoonse.json()` 来获取 JSON 格式的返回。
+也可通过 `response.json()` 来获取 JSON 格式的返回。
 
 您可以通过 [MDN Web Doc 社区](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch) 来查看更多详细的信息。
