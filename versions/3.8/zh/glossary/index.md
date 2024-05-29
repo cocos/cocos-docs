@@ -89,7 +89,7 @@
 
 | 术语 | 描述 |
 | :--- | :--- |
-| 组件 | 继承自 `cc.Component` 的脚本，可以挂在在节点上 |
+| 组件 | 继承自 `cc.Component` 的脚本，可以挂载在节点上 |
 | 事件 | Cocos Creator 基于 [Web 的事件冒泡及捕获标准](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%8F%8A%E6%8D%95%E8%8E%B7) 实现的事件系统，用于响应硬件输入或者节点间的通信，[更多](../engine/event/index.md)
 
 ## 原生开发

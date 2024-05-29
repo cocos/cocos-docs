@@ -101,7 +101,7 @@ export class PlayerController extends Component {
 }
 ```
 
-**组件** 必须要挂在在某个节点上才会生效，因此尝试将 PlayerController 脚本拖拽到 Player 节点的 **属性检查器上**：
+**组件** 必须要挂载在某个节点上才会生效，因此尝试将 PlayerController 脚本拖拽到 Player 节点的 **属性检查器上**：
 
 ![add-player-controller.gif](images/add-player-controller.gif)
 
@@ -600,7 +600,7 @@ jumpByStep(step: number) {
 > 如果您在不熟悉的情况下输入了错误的名字，可以选择删除再重新创建一个新的文件。
 > 如果只是修改文件名，不修改里面的内容，会导致类名与文件名不一致，而无法在 **属性检查器** 内找到对应的类。
 
-创建好 GameManager 之后，我们可以将其挂在在场景内任何一个节点上，但出于清晰的考虑我们一般会选择创建一个同名的节点，并将 GameManager 挂在在他上面：
+创建好 GameManager 之后，我们可以将其挂载在场景内任何一个节点上，但出于清晰的考虑我们一般会选择创建一个同名的节点，并将 GameManager 挂载在他上面：
 
 ![create-game-manager.png](images/create-game-manager.png)
 

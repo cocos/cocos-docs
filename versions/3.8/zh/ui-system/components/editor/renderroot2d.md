@@ -2,7 +2,7 @@
 
 ![renedertoot2d.png](renderroot2d\renedertoot2d.png)
 
-RenderRoot2D 组件是 [Canvas](./canvas.md) 的基类，任何需要显示的 2D/UI 节点都 **必须要挂在在 RenderRoot2D 下才** 可以正确的显示。
+RenderRoot2D 组件是 [Canvas](./canvas.md) 的基类，任何需要显示的 2D/UI 节点都 **必须要挂载在 RenderRoot2D 下才** 可以正确的显示。
 
 RenderRoot2D 只会搜集子节点下的所有和 2D/UI 相关组件的需要绘制的信息，并提交给渲染引擎。即使将 3D 对象如 Mesh，放在 RenderRoot2D 所在的节点下，RenderRoot2D 也不会搜集该 3D 对象的几何信息。
 
