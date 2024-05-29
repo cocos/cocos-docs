@@ -64,44 +64,39 @@ jobs:
             operation_type: upload 
             include_self_folder: false    
 
-      - name: Refresh Huawei Cloud CDN Cache  
+      - name: Get Huawei Cloud IAM Token    
+        id: get-token  
         env:  
-          access_key_id: ${{ secrets.ACCESSKEY }}  
-          secret_access_key: ${{ secrets.SECRETACCESSKEY }}  
+          HWCLOUD_USERNAME: ${{ secrets.HUAWEI_CLOUD_USERNAME }}  
+          HWCLOUD_PASSWORD: ${{ secrets.HUAWEI_CLOUD_PASSWORD }}  
+          HWCLOUD_DOMAIN_NAME: ${{ secrets.HUAWEI_CLOUD_DOMAIN_NAME }}  
+          HWCLOUD_PROJECT_ID: ${{ secrets.HUAWEI_CLOUD_PROJECT_ID }}  
+          IAM_ENDPOINT: 'https://iam.myhuaweicloud.com/v3/auth/tokens'  
         run: |  
-          # 安装必要的软件包  
-          sudo apt-get update  
-          sudo apt-get install -y jq  
-  
-          # 设置必要的环境变量  
-          CURRENT_DATE=$(date -u +'%Y%m%dT%H%M%SZ')  
-          SERVICE_NAME="cdn"  
-          REGION="cn-north-4" # 替换为你的华为云区域  
-          REQUEST_METHOD="POST"  
-          REQUEST_URI="/v1.0/cdn/content/refresh"  
-          HOST="cdn.myhuaweicloud.com"  
-          CONTENT_TYPE="application/json"  
-          # 设置需要刷新的目录URL
-          DIRECTORY_URL="https://docs.cocos.com/"  
-          # 构建用于刷新目录的请求负载  
-          REQUEST_PAYLOAD="{\"refresh_task\":{\"type\":\"directory\",\"urls\":[\"${DIRECTORY_URL}\"]}}"            
-          REQUEST_PAYLOAD_HASH=$(echo -n $REQUEST_PAYLOAD | openssl dgst -sha256 -binary | base64)  
-          CANONICAL_URI="/v1.0/cdn/content/refresh"  
-          CANONICAL_QUERYSTRING=""  
-          CANONICAL_HEADERS="content-type:${CONTENT_TYPE}\nhost:${HOST}\nx-sdk-date:${CURRENT_DATE}\n"  
-          SIGNED_HEADERS="content-type;host;x-sdk-date"  
-          CANONICAL_REQUEST="${REQUEST_METHOD}\n${CANONICAL_URI}\n${CANONICAL_QUERYSTRING}\n${CANONICAL_HEADERS}\n${SIGNED_HEADERS}\n${REQUEST_PAYLOAD_HASH}"  
-  
-          # 生成签名  
-          SIGNATURE=$(echo -n "SDK-HMAC-SHA256\n${CURRENT_DATE}\n${REGION}/${SERVICE_NAME}/sdk_request\n$(echo -n ${CANONICAL_REQUEST} | openssl dgst -sha256 -binary | base64)" | openssl dgst -sha256 -hmac "${secret_access_key}" -binary | base64)  
-  
-          # 发送刷新CDN的请求  
-          curl -X $REQUEST_METHOD "https://${HOST}${CANONICAL_URI}" \  
-            -H "Content-Type: ${CONTENT_TYPE}" \  
-            -H "Host: ${HOST}" \  
-            -H "X-Sdk-Date: ${CURRENT_DATE}" \  
-            -H "Authorization: SDK-HMAC-SHA256 Access=${access_key_id}, SignedHeaders=${SIGNED_HEADERS}, Signature=${SIGNATURE}" \  
-            -d $REQUEST_PAYLOAD  
+          PAYLOAD="{\"auth\":{\"identity\":{\"methods\":[\"password\"],\"password\":{\"user\":{\"name\":\"$HWCLOUD_USERNAME\",\"password\":\"$HWCLOUD_PASSWORD\",\"domain\":{\"name\":\"$HWCLOUD_DOMAIN_NAME\"}}}},\"scope\":{\"project\":{\"id\":\"$HWCLOUD_PROJECT_ID\"}}}}"  
+          IAM_RESPONSE=$(curl -si -X POST "$IAM_ENDPOINT" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD")
+          IAM_TOKEN=$(echo "$IAM_RESPONSE" | grep X-Subject-Token: | awk '{print $2}' | tr -d '\r')  
+          if [ -z "$IAM_TOKEN" ]; then  
+            echo "Failed to get IAM token"  
+            exit 1  
+          fi  
+          echo "::add-mask::$IAM_TOKEN"  
+          echo "::set-output name=IAM_TOKEN::$IAM_TOKEN"  
+        
+      - name: Refresh CDN Cache  
+        if: success() && steps.get-token.outputs.IAM_TOKEN  
+        env:  
+          CDN_ENDPOINT: 'https://cdn.myhuaweicloud.com/v1.0/cdn/content/refresh-tasks'  
+          IAM_TOKEN: ${{ steps.get-token.outputs.IAM_TOKEN }}
+        run: |  
+          CDN_PAYLOAD="{\"refresh_task\":{\"type\":\"directory\",\"urls\":[\"https://docs.cocos.com/\"]}}"
+          CDN_RESPONSE=$(curl -si -X POST "$CDN_ENDPOINT" \
+            -H "Content-Type: application/json" \
+            -H "X-Auth-Token: $IAM_TOKEN" \
+            -d "$CDN_PAYLOAD")
+          echo "$CDN_RESPONSE"
 
 
 
