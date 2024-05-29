@@ -18,11 +18,11 @@ Creator 3.0 目前支持 **Planar** 和 **ShadowMap** 两种阴影类型。
 
     ![enable-shadow](shadow/enable-light-shadow.png)
 
-3. 在 **层级管理器** 中选中需要显示阴影的 3D 节点，然后在 **属性检查器** 的 **MeshRenderer** 组件中将 **ShadowCastingMode** 属性设置为 **ON**。
+3. 在 **层级管理器** 中选中需要显示阴影的 3D 节点，然后在 **属性检查器** 的 **MeshRenderer** 组件中将 **Cast Shadows** 属性设置为 **ON**。
 
     ![set-meshrenderer](shadow/set-meshrenderer.png)
 
-    若阴影类型是 **ShadowMap**，还需要将 MeshRenderer 组件上的 **ReceiveShadow** 属性设置为 **ON**。
+    若阴影类型是 **ShadowMap**，还需要将 MeshRenderer 组件上的 **Receive Shadows** 属性设置为 **ON**。
 
 > **注意**：如果阴影无法正常显示，需要调整一下方向光的照射方向。
 
