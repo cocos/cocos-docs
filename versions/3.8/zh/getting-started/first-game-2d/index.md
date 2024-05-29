@@ -1054,6 +1054,8 @@ private _curMoveIndex: number = 0;
 ```ts
 reset() {
     this._curMoveIndex = 0;
+    this.node.getPosition(this._curPos);
+    this._targetPos.set(0,0,0);
 }   
 ```
 
@@ -1252,6 +1254,8 @@ export class PlayerController extends Component {
 
     reset() {
         this._curMoveIndex = 0;
+        this.node.getPosition(this._curPos);
+        this._targetPos.set(0,0,0);
     }   
 
     onMouseUp(event: EventMouse) {
