@@ -28,7 +28,7 @@ jobs:
         with:
           bucket_name: 'cce-creator-docs-test'
           local_file_path: ./favicon.ico
-          obs_file_path: gitbook/creator/versions/favicon.ico
+          obs_file_path: gitbook/creator/favicon.ico
           operation_type: upload 
           include_self_folder: false
           
@@ -38,7 +38,7 @@ jobs:
         with:
             bucket_name: 'cce-creator-docs-pro'
             local_file_path: ./favicon.ico
-            obs_file_path: gitbook/creator/versions/favicon.ico
+            obs_file_path: gitbook/creator/favicon.ico
             operation_type: upload 
             include_self_folder: false    
     
