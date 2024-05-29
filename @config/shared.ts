@@ -18,7 +18,7 @@ export const shared = defineConfig({
   ],
 
   head: [
-    ['link', { rel: 'icon', type: 'image/x-ico', href: './favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/x-ico', href: 'https://docs.cocos.com/creator/3.8/manual/favicon.ico' }],
     [
       'script',
       {},
