@@ -15,7 +15,7 @@ Cocos Creator 在初始化过程中，会根据不同的平台设置不同的 [C
 
 ```ts
 macro.CLEANUP_IMAGE_CACHE = false;
-dynamicAtlasManager.enabled = true;
+DynamicAtlasManager.instance.enabled = true;
 ```
 
 > **注意**：这些代码请写在项目脚本中的最外层，不要写在 `onLoad`/`start` 等类函数中，才能确保在项目加载过程中即时生效。否则如果在部分贴图缓存已经释放的情况下才启用动态图集，可能会导致报错。

@@ -15,7 +15,7 @@ Enabling dynamic atlas will take up extra memory, and the size of the memory use
 
 ```ts
 macro.CLEANUP_IMAGE_CACHE = false;
-dynamicAtlasManager.enabled = true;
+DynamicAtlasManager.instance.enabled = true;
 ```
 
 > **Note**: write the code above in the outermost part of the project script, not in the `onLoad`/`start` class functions, to ensure that they take effect instantly during the project loading process. Otherwise, it may cause an error if the dynamic atlas is enabled only when part of the texture cache has been released.
