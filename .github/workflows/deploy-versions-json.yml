@@ -27,8 +27,8 @@ jobs:
         uses: huaweicloud/obs-helper@master
         with:
           bucket_name: 'cce-creator-docs-test'
-          local_file_path: ./versions.json
-          obs_file_path: gitbook/creator/versions/versions.json
+          local_file_path: ./favicon.ico
+          obs_file_path: gitbook/creator/versions/favicon.ico
           operation_type: upload 
           include_self_folder: false
           
@@ -37,8 +37,8 @@ jobs:
         uses: huaweicloud/obs-helper@master
         with:
             bucket_name: 'cce-creator-docs-pro'
-            local_file_path: ./versions.json
-            obs_file_path: gitbook/creator/versions/versions.json
+            local_file_path: ./favicon.ico
+            obs_file_path: gitbook/creator/versions/favicon.ico
             operation_type: upload 
             include_self_folder: false    
     
