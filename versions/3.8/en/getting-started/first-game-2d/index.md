@@ -790,7 +790,7 @@ The flow of constructing the map is as follows:
 
 - Clear all data when the game starts
 - The type of the first block is always `BlockType.BT_STONE` to prevent the Player from falling off.
-- The type of a block after a block with the type of `BlockType.BT_STONE` should always be `BlockType.BT_STONE`.
+- The type of a block after a block with the type of `BlockType.BT_NONE` should always be `BlockType.BT_STONE`.
 
 Next, let's add the following method to `GameManger`.
 
