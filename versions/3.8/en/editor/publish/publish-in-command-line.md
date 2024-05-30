@@ -109,6 +109,12 @@ After the build plugin system is opened to the public, the configuration paramet
 
 The command line publish of the Bundle is similar to the ordinary command line build, but the `stage` parameter needs to be specified as `bundle`, and the configuration exported on the Bundle Build Panel should be specified as the `configPath` parameter.
 
+3. Execute "Build script only" on the command line:
+- Mac && Windows
+   ```bash
+   --build "buildScriptsOnly=true" 
+   ```
+
 ## Publish using Jenkins
 
 **Cocos Creator** still needs the GUI environment when running from the command line. If the Jenkins server can not run **Cocos Creator** from the command line, a solution is running Jenkins in agent mode, so it can interact with the operating systems window server. For more details please review this [Stack Overflow post](https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed).
