@@ -109,6 +109,12 @@ Cocos Creator 3.0 各个平台的构建会作为独立的扩展嵌入到 **构�
 
 命令行发布 Bundle 与普通的命令行构建类似，不过 `stage` 参数需要指定为 `bundle`，同时将在 bundle 构建面板上导出的配置指定为 `configPath` 参数。
 
+3. 在命令行中执行“只构建脚本”
+- Mac && Windows
+   ```bash
+   --build "buildScriptsOnly=true" 
+   ```
+
 ## 在 Jenkins 上部署
 
 Cocos Creator 命令行运行的时候也是需要 GUI 环境的。如果你的 Jenkins 无法使用 Cocos Creator 命令行运行，一个解决办法是：确保 Jenkins 运行在 agent 模式下，这样才能访问到 WindowServer。详情请参考 <https://stackoverflow.com/questions/13966595/build-unity-project-with-jenkins-failed>。
