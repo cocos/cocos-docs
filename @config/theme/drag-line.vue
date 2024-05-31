@@ -21,6 +21,7 @@ function mousedownHandle(e: MouseEvent) {
     val = e.clientX;
     document.addEventListener('mousemove',dragIng)
     document.querySelector('.VPContent')?.classList.add('no-select');
+    document.querySelector('body')?.classList.add('is-darging');
 }
 
 function dragIng(e: MouseEvent) {
@@ -45,6 +46,7 @@ onMounted(() => {
         if(val !== null) {
             document.removeEventListener('mousemove', dragIng);
             document.querySelector('.VPContent')?.classList.remove('no-select');
+            document.querySelector('body')?.classList.remove('is-darging');
             localStorage.setItem(key, getRootStyle());
             val = null;
         }
@@ -78,5 +80,9 @@ onMounted(() => {
 /* 拖动分隔线调整导航宽度时，防止正文有文字选中的效果，在拖动时动态给正文容器添加这个 class */
 .no-select {
     user-select: none;
+}
+/* 为了让拖动的时候鼠标标识不闪烁变动 */
+.is-darging {
+    cursor: col-resize;
 }
 </style>
