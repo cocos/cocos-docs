@@ -56,7 +56,8 @@ onMounted(() => {
 .drag-line {
     position: fixed;
     width: 3px;
-    left: calc(var(--vp-sidebar-width) - 1px);
+    /* 因为线条是在 3px 的中间，所以 left - 1 视觉效果才是线条刚好在侧边栏旁边，否则有1px 空隙 */
+    left: calc(var(--vp-sidebar-width) - 1px); 
     top:0;
     right: 0;
     bottom:0;
