@@ -56,7 +56,7 @@ onMounted(() => {
 .drag-line {
     position: fixed;
     width: 3px;
-    left: var(--vp-sidebar-width);
+    left: calc(var(--vp-sidebar-width) - 1px);
     top:0;
     right: 0;
     bottom:0;
@@ -80,5 +80,11 @@ onMounted(() => {
 .is-darging {
     cursor: col-resize;
     user-select: none;
+}
+
+@media (max-width: 480px) {
+    .drag-line {
+        display: none;
+    }
 }
 </style>
