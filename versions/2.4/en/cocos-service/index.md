@@ -32,8 +32,6 @@ The **Service** Panel currently supports the integration of third-party services
 
   - [Cloud Functions (AppGallery Connect)](agc-cloudfunc.md)
 
-  - [Agora RTC](agora.md)
-
 ## Usage
 
 - Open the Cocos Creator, choose **Menu bar -> Panel -> Service** to open the **Service** panel. Click the ![setting](index/setting.png) button above the **Service** panel. Select **Dashboard** and go to the [Cocos Account Center](https://auth.cocos.com/#/) to register your user account.
