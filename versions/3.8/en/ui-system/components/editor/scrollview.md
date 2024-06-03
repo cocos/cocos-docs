@@ -50,7 +50,7 @@ Normally a ScrollView node tree resembles the following:
 
 ![scrollview-hierarchy](scroll/scrollview-hierarchy.png)
 
-The `view` here is used to define a scroll area that can be displayed. As a result, the Mask will normally be added to the `view`. Contents that can scroll can be put in the content node or added to its child node.
+The `view` here is used to define a scroll area that can be displayed. As a result, the [Mask Component](./mask.md) will normally be added to the `view`. Contents that can scroll can be put in the content node or added to its child node.
 
 ## Add a callback through the script code
 
