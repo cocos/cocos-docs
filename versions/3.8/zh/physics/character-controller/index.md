@@ -68,16 +68,7 @@ characterController.move(movement);
 
 `move` 方法会考量行进路线中的碰撞体，内部使用了 `sweep` 的算法去检测，检测碰到物体后，一方面会判断控制器和物体的夹角，如果小于最大爬坡角度（Slope Limit），控制器会接着沿物体表面走；另一方面会考虑碰到控制器和物体的高度差，如果小于最大自动爬台阶高度（Step Offset）也会接着沿物体表面走。如果这两个都不满足，控制器就会停下来。
 
-如果要重置角色的位置，请使用角色控制器的 `setPosition` 而不是节点的 `setPosition`，代码示例如下：
-
-```
-let characterController = this.node.getComponent(CharacterController);
-characterController.setPosition(new Vec3(-3,5,6));
-```
-
-使用角色控制器的 `setPosition` 移动节点时，会和物理系统同步；而如果只使用节点的 `setPosition` 或者 `setWorldPosition`，可能造成节点位置和物理世界内的位置不同步现象。
-
-> 这里是因为每帧当角色控制器从渲染场景到物理场景的同步时，还需要考量角色控制器的中心偏移。
+如果要重置角色的位置，请使用角色控制器的 `setPosition` 和 `setWorldPosition`。
 
 需要注意的是，角色控制器是不受力影响的，因此开发者需要自行处理角色控制器的受力或者速度。
 
