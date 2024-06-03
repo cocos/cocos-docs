@@ -1,6 +1,6 @@
 # ScrollView Component Reference
 
-__ScrollView__ is a container with a scroll function. It provides a way to browse more contents within a limited display area. Generally, ScrollView will be used along with the __Mask__ component and the __ScrollBar__ component can also be added to show the current offset location within the browsing content.
+__ScrollView__ is a container with a scroll function. It provides a way to browse more contents within a limited display area. Generally, ScrollView will be used along with the [__Mask__ component](./mask.md) and the [__ScrollBar__ component](./scrollbar.md) can also be added to show the current offset location within the browsing content.
 
 ![scrollview-content](scroll/scrollview-content.png)
 
