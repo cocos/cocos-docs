@@ -10,11 +10,6 @@ Cocos Service 是集成在 Cocos Creator 内的服务面板。我们甄选优质
 
 Cocos Service 目前提供的服务包括：
 
-- [Cocos 数据统计](https://www.cocos.com/analytics/)：精准了解游戏的新增、活跃、留存、付费等数据。
-- [声网（Agora RTC）](https://www.agora.io/cn/)：游戏内置实时音视频 SDK。
-- [云开发（腾讯云）](https://cloud.tencent.com/product/tcb)：Serverless 云端一体化产品方案，助力小程序、Web 应用、移动应用成功。
-- [游戏联机对战引擎（腾讯云）](https://cloud.tencent.com/product/mgobe)：实时、弹性扩容的高性能联机对战服务，快速构建游戏多人一起玩的能力。
-- [游戏多媒体引擎（腾讯云）](https://cloud.tencent.com/product/gme)：一站式语音解决方案，助力开发者快速实现各类语音功能。
 - [定位服务（HMS Core）](https://developer.huawei.com/consumer/cn/hms/huawei-locationkit)：采用 GPS、Wi-Fi、基站等多种混合定位模式进行定位，赋予您的应用程序快速、精准地获取用户位置信息的能力。
 - [分析服务（HMS Core）](https://developer.huawei.com/consumer/cn/hms/huawei-analyticskit)：基于开发者上报的用户行为和属性数据，提供多种分析能力。
 - [性能管理（AppGallery Connect）](https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-apms-introduction)：实时性能报告，帮助改善应用性能。
@@ -34,12 +29,6 @@ Cocos Service 目前提供的服务包括：
     - [服务面板操作指南](user-guide.md)
     - [计费与充值](billing-and-charge.md)
 - [服务列表](service-index.md)
-    - [Cocos Analytics 统计](cocos-analytics.md)
-    - [声网（Agora RTC）](agora.md)
-    - [云开发（腾讯云）](tcb.md)
-    - [游戏联机对战引擎（腾讯云）](mgobe.md)
-    - [游戏多媒体引擎（腾讯云）](gme.md)
-        - [接口文档](gme-api-docs.md)
     - [定位服务（HMS Core）](hms-location.md)
     - [分析服务（HMS Core）](hms-analytics.md)
     - [性能管理（AppGallery Connect）](agc-apm.md)

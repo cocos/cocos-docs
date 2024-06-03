@@ -48,12 +48,6 @@ Cocos Service 是集成在 Cocos Creator 内的服务面板，其中提供了一
 ## 支持服务
 
 Cocos Service 目前支持集成以下服务：
-
-- [Cocos Analytics](cocos-analytics.md)：精准了解游戏的新增、活跃、留存、付费等数据。
-- [声网（Agora RTC）](agora.md)：实时音视频。
-- [云开发（腾讯云）](tcb.md)：Serverless 云端一体化产品方案，助力小程序、Web 应用、移动应用成功。
-- [游戏联机对战引擎（腾讯云）](mgobe.md)：实时、弹性扩容的高性能联机对战服务，快速构建游戏多人一起玩的能力。
-- [游戏多媒体引擎（腾讯云）](gme.md)：一站式语音解决方案，助力开发者快速实现各类语音功能。
 - [定位服务（HMS Core）](hms-location.md)：采用 GPS、Wi-Fi、基站等多种混合定位模式进行定位，赋予您的应用程序快速、精准地获取用户位置信息的能力。
 - [分析服务（HMS Core）](hms-analytics.md)：基于开发者上报的用户行为和属性数据，提供多种分析能力。
 - [性能管理（AppGallery Connect）](agc-apm.md)：提供分钟级应用性能监控能力，收集应用性能数据。

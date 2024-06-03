@@ -1,6 +1,6 @@
 # ScrollView 组件参考
 
-ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有限的显示区域内浏览更多的内容。通常 ScrollView 会与 **Mask** 组件配合使用，同时也可以添加 **ScrollBar** 组件来显示浏览内容的位置。
+ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有限的显示区域内浏览更多的内容。通常 ScrollView 会与 [**Mask** 组件](./mask.md) 配合使用，同时也可以添加 [**ScrollBar** 组件](./scrollbar.md) 来显示浏览内容的位置。
 
 ![scrollview-content](scroll/scrollview-content.png)
 
@@ -48,7 +48,7 @@ ScrollView 组件必须有指定的 content 节点才能起作用，通过指定
 
 ![scrollview-hierarchy](scroll/scrollview-hierarchy.png)
 
-这里的 view 用来定义一个可以显示的滚动区域，所以通常 MaskComponent 组件会被添加到 view 上。可以滚动的内容可以直接放到 content 节点或者添加节 content 的子节点上。
+这里的 view 用来定义一个可以显示的滚动区域，所以通常 [Mask 组件](./mask.md) 会被添加到 view 上。可以滚动的内容可以直接放到 content 节点或者添加节 content 的子节点上。
 
 ## 通过脚本代码添加回调
 

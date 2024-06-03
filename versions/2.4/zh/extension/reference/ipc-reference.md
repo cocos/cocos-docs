@@ -70,7 +70,7 @@ Creator 内置的一些组件，或者插件，在某些操作下，会向所有
 
 在编辑器内打开一个新的场景。
 
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:new-scene');
 ```
 
@@ -78,7 +78,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:new-scene');
 
 使用界面上当前选中的预览设备来进行预览。
 
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:play-on-device');
 ```
 
@@ -86,7 +86,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:play-on-device');
 
 查询编辑器内当前打开场景里的 hierarchy 数据。
 
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-hierarchy', (error, sceneID, hierarchy) => {
     if (error)
         return Editor.error(error);
@@ -98,7 +98,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-hierarchy', (error, sceneID, hierar
 
 传入一个 Component 名字，返回场景内含有这个组件的节点数组。
 
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-nodes-by-comp-name', 'cc.Sprite', (error, nodes) => {
     if (error)
         return Editor.error(error);
@@ -110,7 +110,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-nodes-by-comp-name', 'cc.Sprite', (
 
 发送一个节点 id，查询这个节点的 dump 数据。dump 数据是一个字符串，需要使用 JSON 手动转成 Object 使用。
 
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-node', '9608cbWFmVIM7m6hasLXYV7', (error, dump) => {
     if (error)
         return Editor.error(error);
@@ -122,7 +122,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-node', '9608cbWFmVIM7m6hasLXYV7', (
 
 传入一个节点或者组件的 id 与一个类型，返回查询的节点的基本信息。
 
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-node-info', '9608cbWFmVIM7m6hasLXYV7', 'cc.Node', (error, info) => {
     if (error)
         return Editor.error(error);
@@ -134,7 +134,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-node-info', '9608cbWFmVIM7m6hasLXYV
 
 传入一个节点 id，返回这个节点上所有组件内的函数
 
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-node-functions', '9608cbWFmVIM7m6hasLXYV7', (error, functions) => {
     if (error) {
         return Editor.error(error);
@@ -146,7 +146,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-node-functions', '9608cbWFmVIM7m6ha
 ### scene:query-animation-node
 
 传入一个节点 id，根据这个节点查找最近的动画根节点。并返回这个节点的 dump 数据。
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-animation-node', '9608cbWFmVIM7m6hasLXYV7', (error, dump) => {
     if (error) {
         return Editor.error(error);
