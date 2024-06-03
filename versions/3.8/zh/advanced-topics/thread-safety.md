@@ -68,6 +68,8 @@ alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 如果写的 Objective-C 或者 C++ 代码想要确保线程安全，可以通过 `CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread` 方法让代码在 GL 线程中执行。
 
 ```c++
+#include "application/ApplicationManager.h"
+
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     //TO DO
 });
