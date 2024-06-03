@@ -56,21 +56,21 @@ Query build options
 #### scene:new-scene
 
 Open a new scene in the editor.
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:new-scene');
 ```
 
 #### scene:play-on-device
 
 Preview of the currently selected device.
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:play-on-device');
 ```
 
 #### scene:query-hierarchy
 
 Query the hierarchy data in the current open scene.
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-hierarchy', (error, sceneID, hierarchy) => {
     if (error)
         return Editor.error(error);
@@ -81,7 +81,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-hierarchy', (error, sceneID, hierar
 #### scene:query-nodes-by-comp-name
 
 Query the node that contains the specified component in the current scene.
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-nodes-by-comp-name', 'cc.Sprite', (error, nodes) => {
     if (error)
         return Editor.error(error);
@@ -92,7 +92,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-nodes-by-comp-name', 'cc.Sprite', (
 #### scene:query-node
 
 Query the dump data of the specified node.
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-node', '9608cbWFmVIM7m6hasLXYV7', (error, dump) => {
     if (error)
         return Editor.error(error);
@@ -103,7 +103,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-node', '9608cbWFmVIM7m6hasLXYV7', (
 #### scene:query-node-info
 
 Query the basic information of a node.
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-node-info', '9608cbWFmVIM7m6hasLXYV7', 'cc.Node', (error, info) => {
     if (error)
         return Editor.error(error);
@@ -114,7 +114,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-node-info', '9608cbWFmVIM7m6hasLXYV
 #### scene:query-node-functions
 
 Query the component function that can be called on a node.
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-node-functions', '9608cbWFmVIM7m6hasLXYV7', (error, functions) => {
     if (error) {
         return Editor.error(error);
@@ -126,7 +126,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:query-node-functions', '9608cbWFmVIM7m6ha
 #### scene:query-animation-node
 
 Query animation root node.
-```javacript
+```javascript
 Editor.Ipc.sendToPanel('scene', 'scene:query-animation-node', '9608cbWFmVIM7m6hasLXYV7', (error, dump) => {
     if (error) {
         return Editor.error(error);
