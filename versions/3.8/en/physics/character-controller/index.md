@@ -68,16 +68,7 @@ characterController.move(movement);
 
 The `move` method which uses the algorithm of the `sweep` method as its internal takes into all the colliders on its path. On the one hand, it will judge the angle between the character controller and the collider, if it is smaller than the slope limit, the character controller will continue to walk along the surface of the collider, on the other hand, if the height difference between the character controller and the collider is smaller than the step offset, the character controller also automatically climbing the step. But if the two conditions above are not satisfied, the controller will stop.
 
-To reset the position of a character controller, use the `setPosition` method of the character controller instead of using `setPosition` of the node, as follows.
-
-```
-let characterController = this.node.getComponent(CharacterController);
-characterController.setPosition(new Vec3(-3,5,6));
-```
-
-When a character controller node is moved via the `setPosition` method, it will automatically set the position of the physics world simultaneously, however, the `setPosition` or `setWorldPosition` method of the node may cause the scene and physics world position out of sync.
-
-> That is because when every frame when the synchronization of the position from the render scene to the physics world, the center offset must be taken into consideration.
+To reset the position of a character controller, use the `setPosition` and `setWorldPosition` method of the character controller's node.
 
 It can be noticed that the Character Controller applies no force like gravity by default, developers need to add custom forces or change the velocity to simulate the movement or rotation.
 
