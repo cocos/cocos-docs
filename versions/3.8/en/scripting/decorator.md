@@ -281,6 +281,24 @@ To force hiding, set the `visible` attribute to `false`:
 num = 0;
 ```
 
+#### dynamic visibility
+To set visibility dynamically, you must pass a function to it with the `this` argument and return a boolean:
+
+```typescript
+@ccclass('DynamicVisibilityExample')
+export class DynamicVisibilityExample extends Component
+{
+    @property(CCBoolean)
+    private isNumberAttributeVisible: boolean = true;
+    
+    @property({visible(this: DynamicVisibilityExample){return this.isNumberAttributeVisible;}, type: CCInteger})
+    private myNumber: number = 500;
+}
+```
+
+- When false ![Image showing before ticking the visibility](dynamic-visibility-0.png)
+- When true ![Image showing after ticking the visibility](dynamic-visibility-1.png)
+
 ### `serializable` attribute
 
 Properties are serialized by default. Once serialized, the property values set in the editor will be saved to the scene and other resource files, and will be automatically restored to the set property values when the scene is loaded. To not serialize, set `serializable` as false.
