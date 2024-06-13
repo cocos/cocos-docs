@@ -537,8 +537,6 @@ const srcTween = tween(this.node).delay(1.0).by(1.0, { position: new Vec3(0, 10,
 srcTween.clone(find("Cone")).start();
 ```
 
-Here's the translated version of the provided Markdown content:
-
 > [!TIP]
 >
 > Starting from v3.8.5, it is supported to clone tweens without passing the `target` parameter, meaning the cloned tween directly uses the original target.
@@ -569,8 +567,6 @@ tween(node)
 ```
 
 The `sequence` and `then` interfaces work in a similar manner.
-
-Here's the translated version of the provided Markdown content:
 
 ## Stopping Tweens
 
@@ -667,7 +663,7 @@ Tween.stopAllByTarget(node1); // t1 and t3 are associated with node1, so they wi
 
 > [!TIP]
 >
-> Supported from v3.8.5 onwards
+> Supported from v3.8.5
 
 Manual pause and resume:
 
@@ -688,13 +684,13 @@ t.resume(); // Resume the tween t
 
 > [!IMPORTANT]
 >
-> From v3.8.5 onwards, if the tween target is of type Node, the tween will automatically pause and resume based on the Node's active state.
+> From v3.8.5, if the tween target is of type Node, the tween will automatically pause and resume based on the Node's active state.
 
 ## Scaling Tween Time
 
 > [!TIP]
 >
-> Supported from v3.8.5 onwards
+> Supported from v3.8.5
 
 ```ts
 tween(this.node)
@@ -709,7 +705,7 @@ In the above example, `timeScale` is set to 0.5. The `to` action's duration is 1
 
 > [!TIP]
 >
-> Supported from v3.8.5 onwards
+> Supported from v3.8.5
 
 ```ts
 const t = tween(this.node)
@@ -724,7 +720,7 @@ console.log(t.duration); // Outputs 2
 
 > [!TIP]
 >
-> Supported from v3.8.5 onwards
+> Supported from v3.8.5
 
 The `update` interface is used to add a custom action.
 
@@ -767,7 +763,7 @@ tween(this.node)
 
 > [!TIP]
 >
-> Supported from v3.8.5 onwards
+> Supported from v3.8.5
 
 The `start` interface can receive a `startTime` parameter, in seconds, to start the tween from a specific time. All tweens before this time will be executed immediately.
 
@@ -787,7 +783,7 @@ In the above example, two `to` actions are created with a total duration of 2 se
 
 > [!TIP]
 >
-> Supported from v3.8.5 onwards
+> Supported from v3.8.5
 
 When the target of tween is `Node`, it will listen to its destruction event for automatic destruction of tween, and the call to `target` method will also update the listener automatically.
 
@@ -819,4 +815,4 @@ To stop and destroy the tween, the following methods are available.
     Tween.stopAllByTarget(this.node); // Destroy all tweens on this node
     ```
 
-> **Note**: In versions prior to v3.8.5, remember to stop the corresponding tweens when switching scenes. From v3.8.5 onwards, the engine will handle this automatically.
+> **Note**: In versions prior to v3.8.5, remember to stop the corresponding tweens when switching scenes. From v3.8.5, the engine will handle this automatically.
