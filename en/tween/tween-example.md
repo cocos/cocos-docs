@@ -433,7 +433,7 @@ tween(this.node)
 
 ### `reverse(otherTween, id?)` Example
 
-- Without passing an `id`, reverse the entire tween `otherTween` and integrate all actions into a single Sequence action, then add this action to the current tween's action queue. Achieves the same effect as the example in [reverse() Example](####`reverse()` Example):
+- Without passing an `id`, reverse the entire tween `otherTween` and integrate all actions into a single Sequence action, then add this action to the current tween's action queue. Achieves the same effect as the example in [reverse() Example](#reverse-example):
 
 ```ts
 const t = tween(this.node)

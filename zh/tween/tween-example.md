@@ -249,7 +249,7 @@ let t2 = tween(this.node)
 tween(this.node).sequence(t1, t2).start(); // 将 t1 和 t2 两个缓动加入到新的缓动队列内
 ```
 
-用 [then](###插入缓动) 接口也可以实现一样的效果：
+用 [then](#插入缓动) 接口也可以实现一样的效果：
 
 ```ts
 let tweenDuration: number = 1.0;
@@ -431,7 +431,7 @@ tween(this.node)
 
 ### reverse (otherTween, id?)
 
-- 没有传递 id 时，可以翻转 otherTween 整个缓动，并将缓动的所有动作整合为一个 Sequence 动作，然后将此动作添加到当前缓动的动作队列中。可用如下代码实现 [reverse () 示例](####reverse () 示例) 中一样的效果：
+- 没有传递 id 时，可以翻转 otherTween 整个缓动，并将缓动的所有动作整合为一个 Sequence 动作，然后将此动作添加到当前缓动的动作队列中。可用如下代码实现 [reverse () 示例](#reverse--示例) 中一样的效果：
 
 ```ts
 const t = tween(this.node)
