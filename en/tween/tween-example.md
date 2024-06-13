@@ -250,7 +250,7 @@ let t2 = tween(this.node)
 tween(this.node).sequence(t1, t2).start(); // Add t1 and t2 tweens to the new tween queue
 ```
 
-You can achieve the same effect using the [then](###Then) interface as well:
+You can achieve the same effect using the [then](#then) interface as well:
 
 ```ts
 let tweenDuration: number = 1.0;
