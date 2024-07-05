@@ -173,4 +173,4 @@ Broadcast 则是这个扩展可能对外发出的广播消息，我们需要在 
 }
 ```
 
-我们可以在自己的扩展里注册消息并展示到面板，只需要在消息定义里标记 `public` 字段为 `true`，详看[自定义消息](./contribution-messages.md)
+我们可以在自己的扩展里注册消息并展示到面板，只需要在消息定义里标记 `public` 字段为 `true`，详看[自定义消息](./contributions-messages.md)
