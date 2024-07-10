@@ -4,26 +4,37 @@
 
 ### Interface
 
-| Interface         | Description                                     |
-| :---------------- | :------------------------------------------ |
-| **tag**           | Add a number tag to the current tween |
-| **to**            | Create motion by interpolating the property’s value to an **absolute value** |
-| **by**            | Create motion by interpolate the property’s value to a value **relative** to the current one |
-| **set**           | Create an instant motion by setting the property to a value |
-| **delay**         | Create an instant motion of pausing for a period of time |
-| **call**          | Create an instant motion by calling a function |
-| **target**        | Define the target node or component to which the tween is applied |
-| **union**         | Combine multiple motions as one tween |
-| **then**          | Insert a new motion to the current tween queue |
-| **repeat**        | Define the number of times for the motion to be executed (In previous versions, this is used to define the number of times the motion is repeated.) |
-| **repeatForever** | Set the motion to repeat for infinite times |
-| **sequence**      | Define a collection of motions to be executed in sequence |
-| **parallel**      | Define a collection of motions to be executed simultaneously |
-| **start**         | Start the tween |
-| **stop**          | Stop the tween |
-| **clone**         | Clone the tween |
-| **show**          | Enable the tween target to be rendered. Tween target is mandatory to be Node. |
-| **hide**          | Disable the tween target to be rendered. Tween target is mandatory to be Node. |
+The interfaces supported from `v3.8.5` onwards include: `reverse`, `id`, `union(fromId?: number)`, `timeScale`, `pause`, `resume`, `pauseAllByTarget`, `resumeAllByTarget`, `update`, `start(time)`, `duration`.
+
+| Interface         | Description                                                  |
+| :---------------- | :----------------------------------------------------------- |
+| **tag**           | Add a numeric tag (`number`) to the current tween            |
+| **to**            | Add an interval action that computes the **absolute value** of properties |
+| **by**            | Add an interval action that computes the **relative value** of properties |
+| **set**           | Add an instantaneous action that **directly sets target properties** |
+| **delay**         | Add an instantaneous action that **delays time**             |
+| **call**          | Add an instantaneous action that **calls a callback**        |
+| **target**        | Add an instantaneous action that **directly sets the tween target** |
+| **union**         | Package all previous actions into one, or package actions from a specific id |
+| **then**          | **Insert a new tween into the tween queue**                  |
+| **repeat**        | **Execute several times** (previously repeated, please adapt accordingly) |
+| **repeatForever** | **Repeat indefinitely**                                      |
+| **update**        | Add a custom action                                          |
+| **id**            | Set an id for the previous action, commonly used with reverse and union |
+| **reverse**       | Reverse **all** or **specific** actions in **another** tween and add them to the **current** tween; or reverse **specific** actions in the **current** tween |
+| **timeScale**     | Set the time scaling factor for the current tween: 1 is normal speed (default), 0.5 is half speed, 2 is double speed, etc. |
+| **sequence**      | **Add a sequential tween**                                   |
+| **parallel**      | **Add a simultaneous tween**                                 |
+| **start**         | **Start the tween** or start the tween from **a specific time point (in seconds)** |
+| **stop**          | **Stop the tween**                                           |
+| **pause**         | **Pause the tween**                                          |
+| **resume**        | **Resume the tween**                                         |
+| **clone**         | **Clone the tween**, optionally resetting the target object  |
+| **show**          | **Enable rendering on the node, the tween target must be Node** |
+| **hide**          | **Disable rendering on the node, the tween target must be Node** |
+| **removeSelf**    | **Remove the node from the scene tree, the tween target must be Node** |
+| **destroySelf**   | **Remove the node from the scene tree and call the node destruction function, the tween target must be Node** |
+| **duration**      | Get the total duration of the current tween. This is a getter, called as `const d = tweenInstance.duration;` |
 
 ### Static Interface
 
@@ -35,21 +46,23 @@ Tween.stopAllByTag(0);
 Tween.stopAllByTarget(this.node);
 ```
 
-| Interface | Description |
-| :--- | :--- |
-| **stopAll**         | Stop all tween motions. <br>This method will remove all registered tweens at root level. <br> **Note**: this method will affect all tween targets. |
-| **stopAllByTag**    | Stop all tween motions by their number tags. <br>This method will remove all registered tweens by the designated tag at the root level. Users may use the method parameter `target?: object` to check if the tween is attached with the tag. |
-| **stopAllByTarget** | Stop all tween motions by their targets |
+| Interface             | Description                                                  |
+| :-------------------- | :----------------------------------------------------------- |
+| **stopAll**           | Stop all tween instances <br> This interface will remove all registered tweens at the underlying level <br> **Note**: This method will affect all objects |
+| **stopAllByTag**      | Stop all tween instances with a specific tag <br> This interface will remove all tweens specified by the **tag** method <br> You can specify a second parameter `target?: object` to only remove tweens with a specific tag on that object |
+| **stopAllByTarget**   | Stop all tween instances associated with a target object     |
+| **pauseAllByTarget**  | Pause all tween instances associated with a target object    |
+| **resumeAllByTarget** | Resume all tween instances associated with a target object   |
 
 ## Utility Function
 
 |Interface| Description |
 |:-- |:--|
-| **`tween<T>`** | Utility function to help instantiate the `Tween` class. <br> **Note**: This function is not a member of the `Tween` class. Users may call `new Tween<T>(target:T)` to instantiate a new tween instance. |
+| **tween<T>** | Utility function to help instantiate the `Tween` class. <br> **Note**: This function is not a member of the `Tween` class. Users may call `new Tween<T>(target:T)` to instantiate a new tween instance. |
 
 ### Example
 
-The following is an example of using `to` method to create tween motions:
+The following is an example of using `to` method to create a tween instance:
 
 ```ts
 let tweenDuration : number = 1.0;                                   // Duration of the tween
@@ -60,6 +73,18 @@ tween(this.node.position).to( tweenDuration, new Vec3(0, 10, 0),    // Here take
     }
 }).start();                                                         // Start the tween by calling 'start' function
 ```
+
+Alternatively,
+
+```ts
+let tweenDuration : number = 1.0;     // Duration of the tween
+tween(this.node).to(                  // Directly use node as the tween target
+    tweenDuration,
+    { position: new Vec3(0, 10, 0) }  // Create an object with the position property
+).start();                            // Call the start method to begin the tween
+```
+
+Note: If the node is used as the tween target, there is no need to use `setPosition` or the `position` setter within `onUpdate` to update the node's position. The tween system will automatically call the `position` setter internally.
 
 For more examples, please see [Tween Example](tween-example.md).
 
