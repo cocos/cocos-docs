@@ -13,7 +13,8 @@ async function publishTargetVersion(targetVersion) {
     await spawnCommand(`node ./scripts/create-sidebar.js ${targetVersion}/en/SUMMARY.md`, targetVersion);
     await spawnCommand(`node ./scripts/create-sidebar.js ${targetVersion}/zh/SUMMARY.md`, targetVersion);
     console.log('Generating SUMMARY.md -> summary.json Complete', targetVersion);
-    await spawnCommand(`npx vitepress build ${targetVersion}`, targetVersion);
+    let versionNumber = targetVersion.split('/')[1];
+    await spawnCommand(`npx cross-env __APIDOC__=https://docs.cocos.com/creator/${versionNumber}/api npx vitepress build ${targetVersion}`, targetVersion);
 }
 
 (async () => {
