@@ -6,7 +6,7 @@ WebView is a component for displaying web pages, you could use this component to
 
 Click **Add Component** at the bottom of **Properties** panel and select **WebView** from **UI Component** to add the WebView component to the node.
 
-For more information about WebView API, please refer to [WebView API](../../../api/en/classes/WebView.html) for details.
+For more information about WebView API, please refer to [WebView API](%__APIDOC__%/en/classes/WebView.html) for details.
 
 ## WebView Properties
 
@@ -28,7 +28,7 @@ For more information about WebView API, please refer to [WebView API](../../../a
 |Handler| Specify a callback, when the WebView is loading the web pages, or the loading is finished or there are errors occurred. The callback will be called. For more information, please refer to `Parameter of WebViewEvents`.
 | CustomEventData | The user specifies that any string is passed in as the last parameter of the event callback. |
 
-For more information, please refer to [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html).
+For more information, please refer to [Component.EventHandler Class](%__APIDOC__%/en/classes/Component.EventHandler.html).
 
 ### Parameter of WebViewEvents
 
@@ -38,7 +38,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 | LOADED| WebView is finished loading.
 | ERROR| Errors occurred when loading web pages.
 
-For more information, please refer to the [WebView Events](../../../api/en/classes/WebView.html#events) or [10_webview](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/10_webview) of the example-cases samples bundled with Creator.
+For more information, please refer to the [WebView Events](%__APIDOC__%/en/classes/WebView.html#events) or [10_webview](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/10_webview) of the example-cases samples bundled with Creator.
 
 ## Details Explanation
 

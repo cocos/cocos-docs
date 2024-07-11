@@ -6,7 +6,7 @@ ProgressBar is usually used to show the progress of a certain operation in the g
 
 Click the **Add component** button at the bottom of the **Properties** panel and select **ProgressBar** from **UI Component**. Then you can add the ProgressBar component to the node.
 
-For the script interface of the ProgressBar, please refer to [ProgressBar API](../../../api/en/classes/ProgressBar.html).
+For the script interface of the ProgressBar, please refer to [ProgressBar API](%__APIDOC__%/en/classes/ProgressBar.html).
 
 ## ProgressBar properties
 

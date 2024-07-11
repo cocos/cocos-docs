@@ -6,7 +6,7 @@ EditBox is a text input component, you could use this component to gather user i
 
 Click **Add Component** button at the bottom of **Properties** panel and then select **EditBox** from **UI Component**, then you can add the EditBox component to the node.
 
-For EditBox API reference, please refer to [EditBox API](../../../api/en/classes/EditBox.html).
+For EditBox API reference, please refer to [EditBox API](%__APIDOC__%/en/classes/EditBox.html).
 
 ## Upgrade for EditBox component
 

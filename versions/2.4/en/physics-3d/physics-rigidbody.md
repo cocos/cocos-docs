@@ -19,7 +19,7 @@ Click the **Add Component -> Physics Component -> Rigid Body 3D** button at the 
 | Linear Factor   | It can affect the linear velocity change of the rigidbody in each axis. The larger the value, the faster the rigidbody moves.   |
 | Angular Factor  | It can affect the rotation speed change of the rigidbody in each axis. The larger the value, the faster the rigidbody rotates. |
 
-For the API interface of RigidBody, please refer to [RigidBody3D](../../../api/en/classes/RigidBody3D.html).
+For the API interface of RigidBody, please refer to [RigidBody3D](%__APIDOC__%/en/classes/RigidBody3D.html).
 
 ## RigidBody Motion
 

@@ -8,7 +8,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 The LabelOutline component does not take effect when the Cache Mode property of the Label component is set to CHAR, except for the native platform, but the native platform also takes effect only when using TTF fonts.
 
-Please refer to the [LabelOutline API](../../../api/en/classes/LabelOutline.html) for details.
+Please refer to the [LabelOutline API](%__APIDOC__%/en/classes/LabelOutline.html) for details.
 
 ## LabelOutline Properties
 

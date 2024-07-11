@@ -37,4 +37,4 @@ You used the API `cc.loader.downloader.loadSubpackage` in your own code to load 
 
 For details on how to use the **Asset Bundle**, please refer to the [Asset Bundle](../scripting/asset-bundle.md) documentation.
 
-For APIs related to the **Asset Bundle**, please refer to the [Asset Bundle API](../../../api/en/classes/Bundle.html) documentation.
+For APIs related to the **Asset Bundle**, please refer to the [Asset Bundle API](%__APIDOC__%/en/classes/Bundle.html) documentation.

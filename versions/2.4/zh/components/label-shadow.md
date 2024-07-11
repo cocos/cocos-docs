@@ -8,7 +8,7 @@ LabelShadow 组件可以为 Label 组件添加阴影效果，但只能用于系�
 
 LabelShadow 组件在 Label 组件的 Cache Mode 属性设置为 CHAR 时不生效，除了原生平台，但是原生平台也只有在使用 TTF 字体时是生效的。
 
-描边脚本接口请参考 [LabelShadow API](../../../api/zh/classes/LabelShadow.html)。
+描边脚本接口请参考 [LabelShadow API](%__APIDOC__%/zh/classes/LabelShadow.html)。
 
 ## LabelShadow 属性
 

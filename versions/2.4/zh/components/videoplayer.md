@@ -12,7 +12,7 @@ VideoPlayer 是一种视频播放组件，可通过该组件播放本地和远�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **VideoPlayer**，即可添加 VideoPlayer 组件到节点上。
 
-VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/VideoPlayer.html)。
+VideoPlayer 的脚本接口请参考 [VideoPlayer API](%__APIDOC__%/zh/classes/VideoPlayer.html)。
 
 ## VideoPlayer 属性
 
@@ -27,7 +27,7 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 | Keep Aspect Ratio  | 是否保持视频原来的宽高比  |
 | Is Fullscreen      | 是否全屏播放视频  |
 | Stay On Bottom     | 永远在游戏视图最底层（该属性仅在 Web 平台生效）|
-| Video Player Event | 视频播放回调函数，该回调函数会在特定情况被触发，比如播放中，暂时，停止和完成播放。详情见下方的 **VideoPlayer 事件** 章节或者 [VideoPlayerEvent API](../../../api/zh/classes/VideoPlayer.html#videoplayerevent)。|
+| Video Player Event | 视频播放回调函数，该回调函数会在特定情况被触发，比如播放中，暂时，停止和完成播放。详情见下方的 **VideoPlayer 事件** 章节或者 [VideoPlayerEvent API](%__APIDOC__%/zh/classes/VideoPlayer.html#videoplayerevent)。|
 
 **注意**：在 **Video Player Event** 属性的 **cc.Node** 中，应该填入的是一个挂载有用户脚本组件的节点，在用户脚本中便可以根据用户需要使用相关的 VideoPlayer 事件。
 
@@ -42,7 +42,7 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 | handler         | 指定一个回调函数，当视频开始播放后，暂停时或者结束时都会调用该函数，该函数会传一个事件类型参数进来。|
 | customEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。 |
 
-详情可参考 API 文档 [Component.EventHandler 类型](../../../api/zh/classes/Component.EventHandler.html)
+详情可参考 API 文档 [Component.EventHandler 类型](%__APIDOC__%/zh/classes/Component.EventHandler.html)
 
 ### 事件回调参数
 
@@ -58,7 +58,7 @@ VideoPlayer 的脚本接口请参考 [VideoPlayer API](../../../api/zh/classes/V
 
 > **注意**：在 iOS 平台的全屏模式下，点击视频无法发送 CLICKED 事件。如果需要让 iOS 全屏播放并正确接受 CLICKED 事件，可以使用 Widget 组件把视频控件撑满。
 
-详情可参考 [VideoPlayer 事件](../../../api/zh/classes/VideoPlayer.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 范例中的 **09_videoplayer**（[GitHub](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/09_videoplayer)）。
+详情可参考 [VideoPlayer 事件](%__APIDOC__%/zh/classes/VideoPlayer.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 范例中的 **09_videoplayer**（[GitHub](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/09_videoplayer)）。
 
 ## 详细说明
 
@@ -125,7 +125,7 @@ cc.Class({
 
 **注意**：由于 VideoPlayer 是特殊的组件，所以它无法监听节点上的 **触摸** 和 **鼠标** 事件。
 
-关于完整的 VideoPlayer 的事件列表，可以参考 [VideoPlayer API](../../../api/zh/classes/VideoPlayer.html)。
+关于完整的 VideoPlayer 的事件列表，可以参考 [VideoPlayer API](%__APIDOC__%/zh/classes/VideoPlayer.html)。
 
 ## 如何实现 UI 在 VideoPlayer 上渲染
 

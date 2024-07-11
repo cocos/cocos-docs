@@ -10,7 +10,7 @@
 
 当我们需要销毁节点时，调用对象池实例的 `put(node)` 方法，传入需要销毁的节点实例，对象池会自动完成把节点从场景节点树中移除的操作，然后返回给对象池。这样就实现了少数节点的循环利用。假如玩家在一关中要杀死 100 个敌人，但同时出现的敌人不超过 5 个，那我们就只需要生成 5 个节点大小的对象池，然后循环使用就可以了。
 
-关于 `cc.NodePool` 的详细 API 说明，请参考 [cc.NodePool API 文档](../../../api/zh/classes/NodePool.html)。
+关于 `cc.NodePool` 的详细 API 说明，请参考 [cc.NodePool API 文档](%__APIDOC__%/zh/classes/NodePool.html)。
 
 ## 流程介绍
 

@@ -73,7 +73,7 @@ Below are all the functions of the timer in the component:
 - unschedule: cancel a timer
 - unscheduleAllCallbacks: cancel all the timers of this component
 
-These detailed descriptions about API can all be found in [Component API](../../../api/en/classes/Component.html).
+These detailed descriptions about API can all be found in [Component API](%__APIDOC__%/en/classes/Component.html).
 
 Besides this, if every frame needs to run a function, please add function `update` directly into the component, so this function will be called by every frame. A detailed description can be found in [life cycle file](life-cycle-callbacks.md#update).
 

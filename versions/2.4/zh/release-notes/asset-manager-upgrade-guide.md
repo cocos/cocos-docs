@@ -338,7 +338,7 @@
 
 - **downloader，loader，md5Pipe，subPackPipe**
 
-  `cc.loader.downloader` 可由 `cc.assetManager.downloader` 代替，`cc.loader.loader` 可由 `cc.assetManager.parser` 代替。但其中的接口没有完全继承，具体内容请参考文档 [下载与解析](../asset-manager/downloader-parser.md) 或者 API 文档 [cc.assetManager.downloader](../../../api/zh/classes/AssetManager.html#downloader) 和 [cc.assetManager.parser](../../../api/zh/classes/AssetManager.html#parser)。
+  `cc.loader.downloader` 可由 `cc.assetManager.downloader` 代替，`cc.loader.loader` 可由 `cc.assetManager.parser` 代替。但其中的接口没有完全继承，具体内容请参考文档 [下载与解析](../asset-manager/downloader-parser.md) 或者 API 文档 [cc.assetManager.downloader](%__APIDOC__%/zh/classes/AssetManager.html#downloader) 和 [cc.assetManager.parser](%__APIDOC__%/zh/classes/AssetManager.html#parser)。
 
   **注意**：出于对性能、模块化和易读性的考虑，`cc.loader.assetLoader`、`cc.loader.md5Pipe`、`cc.loader.subPackPipe` 已经被合并到 `cc.assetManager.transformPipeline` 中，你应该避免使用这三个模块中的任何方法与属性。关于 `cc.assetManager.transformPipeline` 的具体内容可参考 [管线与任务](../asset-manager/pipeline-task.md)。
 

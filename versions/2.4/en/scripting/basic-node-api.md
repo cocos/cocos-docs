@@ -1,6 +1,6 @@
 # Basic Node and Component API
 
-We learned how to get access to node and component instances with previous article [Access node and other component](access-node-component.md). Now we will go through useful node and component API. This article works together with [cc.Node](../../../api/en/classes/Node.html) and [cc.Component](../../../api/en/classes/Component.html) API reference.
+We learned how to get access to node and component instances with previous article [Access node and other component](access-node-component.md). Now we will go through useful node and component API. This article works together with [cc.Node](%__APIDOC__%/en/classes/Node.html) and [cc.Component](%__APIDOC__%/en/classes/Component.html) API reference.
 
 ## Node active state and hierarchy
 

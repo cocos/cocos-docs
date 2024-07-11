@@ -6,7 +6,7 @@ ScrollBar allows the user to scroll a picture by dragging a sliding block. It's 
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **ScrollBar** from **UI Component**. You can then add the ScrollBar component to the node.
 
-For the script interface of the ScrollBar, refer to [ScrollBar API](../../../api/en/classes/Scrollbar.html).
+For the script interface of the ScrollBar, refer to [ScrollBar API](%__APIDOC__%/en/classes/Scrollbar.html).
 
 ## ScrollBar properties
 

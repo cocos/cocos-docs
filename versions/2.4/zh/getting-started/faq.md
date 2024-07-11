@@ -224,7 +224,7 @@ HTML 只支持 H.264 编码格式的 MP4，建议使用视频格式转换工具�
 
 ### 监听多点触摸，假设有 A、B 两点，按住 B 点，重复点击 A 点之后，松开 B 点时不响应 `touchend` 事件
 
-在项目的任意脚本最外层对 [cc.macro.TOUCH_TIMEOUT](../../../api/zh/classes/macro.html#touchtimeout) 重新赋予一个更大的值即可。注意赋值代码请写在项目脚本中的最外层，不要写在 `onLoad` / `start` 等类函数中。
+在项目的任意脚本最外层对 [cc.macro.TOUCH_TIMEOUT](%__APIDOC__%/zh/classes/macro.html#touchtimeout) 重新赋予一个更大的值即可。注意赋值代码请写在项目脚本中的最外层，不要写在 `onLoad` / `start` 等类函数中。
 
 ### 动态修改材质的纹理
 

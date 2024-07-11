@@ -7,7 +7,7 @@ The DragonBones component can render and play DragonBones resources.
 Click the **Add Component** button at the bottom of the **Properties** panel and select **DragonBones** from **Renderer Component** to add the DragonBones component to the node.
 
 - The operation of the DragonBones component in the script refer to the [DragonBones test](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/dragonbones) in the [example-cases](https://github.com/cocos/example-projects).
-- About the DragonBones's scripting interface please refer to [DragonBones API](../../../api/en/modules/dragonBones.html)
+- About the DragonBones's scripting interface please refer to [DragonBones API](%__APIDOC__%/en/modules/dragonBones.html)
 
 ## DragonBones Properties
 

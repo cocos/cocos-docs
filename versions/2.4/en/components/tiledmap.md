@@ -8,7 +8,7 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 
 ![](./tiledmap/add_tiledmap.png)
 
-API reference: [TiledMap API](../../../api/en/classes/TiledMap.html).
+API reference: [TiledMap API](%__APIDOC__%/en/classes/TiledMap.html).
 
 ## TiledMap Properties
 

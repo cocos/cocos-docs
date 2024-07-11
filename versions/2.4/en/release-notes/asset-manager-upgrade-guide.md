@@ -338,7 +338,7 @@ If you use `cc.loader.release`, `cc.loader.releaseAsset`, `cc.loader.releaseRes`
 
 - **downloader, loader, md5Pipe, subPackPipe**
 
-  `cc.loader.downloader` can be replaced by `cc.assetManager.downloader`, and `cc.loader.loader` can be replaced by `cc.assetManager.parser`. For details, see [Download and Parse](../asset-manager/downloader-parser.md) documentation or the corresponding API documentation [cc.assetManager.downloader](../../../api/classes/AssetManager.html#downloader) and [cc.assetManager.parser](../../../api/en/classes/AssetManager.html#parser).
+  `cc.loader.downloader` can be replaced by `cc.assetManager.downloader`, and `cc.loader.loader` can be replaced by `cc.assetManager.parser`. For details, see [Download and Parse](../asset-manager/downloader-parser.md) documentation or the corresponding API documentation [cc.assetManager.downloader](%__APIDOC__%/classes/AssetManager.html#downloader) and [cc.assetManager.parser](%__APIDOC__%/en/classes/AssetManager.html#parser).
 
   > **Note**: for performance, modularity and readability reasons, `cc.loader.assetLoader`, `cc.loader.md5Pipe`, `cc.loader.subPackPipe` have been merged into `cc.assetManager.transformPipeline` and you should avoid using any of the methods and properties in these three modules. Details about `cc.assetManager.transformPipeline` can be found in [Pipeline and Tasks](../asset-manager/pipeline-task.md) documentation.
 

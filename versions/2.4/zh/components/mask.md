@@ -6,13 +6,13 @@ Mask 用于规定子节点可渲染的范围，带有 Mask 组件的节点会使
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **渲染组件** 中选择 **Mask**，即可添加 Mask 组件到节点上。注意该组件不能添加到有其他渲染组件（如 **Sprite**、**Label** 等）的节点上。
 
-遮罩的脚本接口请参考 [Mask API](../../../api/zh/classes/Mask.html)。
+遮罩的脚本接口请参考 [Mask API](%__APIDOC__%/zh/classes/Mask.html)。
 
 ## Mask 属性
 
 | 属性  |   功能说明           |
 | -------------- | ----------- |
-| Type           | 遮罩类型。包括 **RECT**、**ELLIPSE**、**IMAGE_STENCIL** 三种类型，详情可查看 [Type API](../../../api/zh/enums/Mask.Type.html)
+| Type           | 遮罩类型。包括 **RECT**、**ELLIPSE**、**IMAGE_STENCIL** 三种类型，详情可查看 [Type API](%__APIDOC__%/zh/enums/Mask.Type.html)
 | Inverted       | 布尔值，反向遮罩
 | Alpha Threshold| Alpha 阈值，该属性为浮点类型，仅在 Type 设为 **IMAGE_STENCIL** 时才生效。<br>只有当模板像素的 alpha 值大于该值时，才会绘制内容。<br>该属性的取值范围是 0 ~ 1，1 表示完全禁用。
 | Sprite Frame   | 遮罩所需要的贴图，只在遮罩类型设为 **IMAGE_STENCIL** 时生效

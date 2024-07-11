@@ -6,7 +6,7 @@
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **其他组件** 中选择 **Animation**，即可添加 **Animation（动画）** 组件到节点上。
 
-动画的脚本接口请参考 [Animation API](../../../api/zh/classes/Animation.html)。
+动画的脚本接口请参考 [Animation API](%__APIDOC__%/zh/classes/Animation.html)。
 
 ## Animation 属性
 

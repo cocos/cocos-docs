@@ -19,7 +19,7 @@
 | Center     | 碰撞体在所在节点坐标中的位置  |
 | Size       | 碰撞体的大小，即长、宽、高    |
 
-盒碰撞组件的 API 接口请参考 [BoxCollider3D](../../../api/zh/classes/BoxCollider3D.html)。
+盒碰撞组件的 API 接口请参考 [BoxCollider3D](%__APIDOC__%/zh/classes/BoxCollider3D.html)。
 
 ## 球碰撞组件（SphereCollider3D）
 
@@ -36,4 +36,4 @@
 | Center     | 碰撞体在所在节点坐标中的位置  |
 | Radius     | 碰撞体的半径               |
 
-球碰撞组件的 API 接口请参考 [SphereCollider3D](../../../api/zh/classes/SphereCollider3D.html)。
+球碰撞组件的 API 接口请参考 [SphereCollider3D](%__APIDOC__%/zh/classes/SphereCollider3D.html)。

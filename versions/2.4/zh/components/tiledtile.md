@@ -12,7 +12,7 @@ TiledTile 组件可以单独对某一个地图块进行操作。
 
 ![](./tiledtile/add_tiledtile.png)
 
-相关 TiledTile 脚本接口请参考 [TiledTile API](../../../api/zh/classes/TiledTile.html)
+相关 TiledTile 脚本接口请参考 [TiledTile API](%__APIDOC__%/zh/classes/TiledTile.html)
 
 ### 2、通过代码创建
 
@@ -36,7 +36,7 @@ var tiledTile = node.addComponent(cc.TiledTile);
 var tiledTile = this.layer.getTiledTileAt(0, 0);
 ```
 
-Layer 脚本接口相关请参考 [TiledLayer API](../../../api/zh/classes/TiledLayer.html)
+Layer 脚本接口相关请参考 [TiledLayer API](%__APIDOC__%/zh/classes/TiledLayer.html)
 
 ## TiledTile 属性
 

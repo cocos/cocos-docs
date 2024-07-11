@@ -6,7 +6,7 @@ WebView 是一种显示网页的组件，该组件让你可以在游戏里面集
 
 点击 **属性检查器** 下方的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **WebView**，即可添加 WebView 组件到节点上。
 
-WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.html)。
+WebView 的脚本接口请参考 [WebView API](%__APIDOC__%/zh/classes/WebView.html)。
 
 ## WebView 属性
 
@@ -28,7 +28,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 | Handler         | 指定一个回调函数，当网页加载过程中、加载完成后或者加载出错时会被调用，该函数会传一个事件类型参数进来。详情见下方的 **WebView 事件回调参数** 部分 |
 | CustomEventData | 用户指定任意的字符串作为事件回调的最后一个参数传入。 |
 
-详情可参考 API 文档 [Component.EventHandler 类型](../../../api/zh/classes/Component.EventHandler.html)
+详情可参考 API 文档 [Component.EventHandler 类型](%__APIDOC__%/zh/classes/Component.EventHandler.html)
 
 ### WebView 事件回调参数
 
@@ -38,7 +38,7 @@ WebView 的脚本接口请参考 [WebView API](../../../api/zh/classes/WebView.h
 | LOADED         | 表示网页加载已经完毕。   |
 | ERROR          | 表示网页加载出错了。     |
 
-详情可参考 [WebView 事件](../../../api/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 范例中的 **10_webview**（[GitHub](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/10_webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/10_webview)）。
+详情可参考 [WebView 事件](%__APIDOC__%/zh/classes/WebView.html#%E4%BA%8B%E4%BB%B6) 或者参考引擎自带的 example-cases 范例中的 **10_webview**（[GitHub](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/10_webview) | [Gitee](https://gitee.com/mirrors_cocos-creator/example-cases/tree/v2.4.3/assets/cases/02_ui/10_webview)）。
 
 ## 详细说明
 

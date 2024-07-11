@@ -6,14 +6,14 @@ PageView component is derived from ScrollView, the difference is that when scrol
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **PageView** from **UI Component**. This will add PageView component to the current node.
 
-Please refer to the script interface of the [PageView API](../../../api/en/classes/PageView.html)
+Please refer to the script interface of the [PageView API](%__APIDOC__%/en/classes/PageView.html)
 
 ## PageView properties
 
 | Property                    | Function description |
 | --------------------------- | --------------------------- |
 | Content                     | It is a node reference that is used to contain the contents of the PageView |
-| Size Mode                   | Specify the size type of each page in PageView, currently has Unified type and Free type. Please refer to [SizeMode API](../../../api/en/enums/PageView.SizeMode.html) for details.|
+| Size Mode                   | Specify the size type of each page in PageView, currently has Unified type and Free type. Please refer to [SizeMode API](%__APIDOC__%/en/enums/PageView.SizeMode.html) for details.|
 | Direction                   | The page view direction |
 | Scroll Threshold            | This value will be multiplied with the distance between two pages, to get the threshold distance. If user scroll distance is larger than this threshold distance, the page will turn immediately |
 | Auto Page Turning Threshold | Auto page turning velocity threshold. When users swipe the PageView quickly, it will calculate a velocity based on the scroll distance and time, if the calculated velocity is larger than the threshold, then it will trigger page turning. |

@@ -28,8 +28,8 @@ Event types included:
 - Call Back: Custom Event: callback(event);
 
 - Call Back Parameter:
-    - KeyCode: [API Reference](../../../api/en/classes/Event.EventKeyboard.html)
-    - Event: [API Reference](../../../api/en/classes/Event.html)
+    - KeyCode: [API Reference](%__APIDOC__%/en/classes/Event.EventKeyboard.html)
+    - Event: [API Reference](%__APIDOC__%/en/classes/Event.html)
 
 ```js
 cc.Class({
@@ -70,7 +70,7 @@ cc.Class({
 - Call Back: Custom Event: callback(event);
 
 - Call Back Parameter:
-  - Event: [API reference](../../../api/en/classes/Event.html)
+  - Event: [API reference](%__APIDOC__%/en/classes/Event.html)
 
 ```js
 cc.Class({

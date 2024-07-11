@@ -19,4 +19,4 @@
 | Torque       | 对世界朝向施加的扭矩    |
 | Local Torque | 对本地朝向施加的扭矩    |
 
-恒力组件的 API 接口请参考 [ConstantForce](../../../api/zh/classes/ConstantForce.html)。
+恒力组件的 API 接口请参考 [ConstantForce](%__APIDOC__%/zh/classes/ConstantForce.html)。

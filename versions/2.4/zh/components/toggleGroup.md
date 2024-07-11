@@ -8,7 +8,7 @@ ToggleGroup 不是一个可见的 UI 组件，它可以用来修改一组 Toggle
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **ToggleGroup**，即可添加 ToggleGroup 组件到节点上。
 
-ToggleGroup 的脚本接口请参考 [ToggleGroup API](../../../api/zh/classes/ToggleGroup.html)。
+ToggleGroup 的脚本接口请参考 [ToggleGroup API](%__APIDOC__%/zh/classes/ToggleGroup.html)。
 
 ## ToggleGroup 属性
 

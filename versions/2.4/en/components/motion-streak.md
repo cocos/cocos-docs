@@ -8,7 +8,7 @@ Click the **Add Component** at the bottom of **Properties** and select **MotionS
 
 ![add motionStreak](motion-streak/add-motion-streak.png)
 
-MotionStreak please refer to the scripting interface [MotionStreak API](../../../api/en/classes/MotionStreak.html).
+MotionStreak please refer to the scripting interface [MotionStreak API](%__APIDOC__%/en/classes/MotionStreak.html).
 
 ## MotionStreak Properties
 

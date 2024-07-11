@@ -223,7 +223,7 @@ Note that you should call `widget.updateAlignment();` to request the Widget refr
 
 ### Listening to multi-touch events, suppose there are two points A and B, hold down B, after repeatedly clicking A, release B but no "touchend" event received.
 
-Just set a larger value to [cc.macro.TOUCH_TIMEOUT](../../../api/en/classes/macro.html#touchtimeout) in the outermost scope of any script in the project. Note that the code should be placed in the outermost scope, not in any class functions such as `onLoad` / `start`.
+Just set a larger value to [cc.macro.TOUCH_TIMEOUT](%__APIDOC__%/en/classes/macro.html#touchtimeout) in the outermost scope of any script in the project. Note that the code should be placed in the outermost scope, not in any class functions such as `onLoad` / `start`.
 
 ### Change a material's texture in script
 

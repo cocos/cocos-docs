@@ -71,7 +71,7 @@ AudioEngine 与 AudioSource 都能播放音频，它们的区别在于 AudioSour
     });
     ```
 
-目前建议使用 [audioEngine.play](../../../api/zh/classes/audioEngine.html#play) 接口来统一播放音频。或者也可以使用 [audioEngine.playEffect](../../../api/zh/classes/audioEngine.html#playeffect) 和 [audioEngine.playMusic](../../../api/zh/classes/audioEngine.html#playmusic) 这两个接口，前者主要是用于播放音效，后者主要是用于播放背景音乐。具体可查看 API 文档。
+目前建议使用 [audioEngine.play](%__APIDOC__%/zh/classes/audioEngine.html#play) 接口来统一播放音频。或者也可以使用 [audioEngine.playEffect](%__APIDOC__%/zh/classes/audioEngine.html#playeffect) 和 [audioEngine.playMusic](%__APIDOC__%/zh/classes/audioEngine.html#playmusic) 这两个接口，前者主要是用于播放音效，后者主要是用于播放背景音乐。具体可查看 API 文档。
 
 AudioEngine 播放的时候，需要注意这里传入的是一个完整的 AudioClip 对象（而不是 url）。所以不建议在 play 接口内直接填写音频的 url 地址，而是希望用户在脚本的 properties 中先定义一个 AudioClip，然后在编辑器的 **属性检查器** 中添加对应的用户脚本组件，将音频资源拖拽到脚本组件的 audio-clip 上。如下所示：
 

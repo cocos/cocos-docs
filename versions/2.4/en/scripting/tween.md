@@ -99,7 +99,7 @@ cc.tween().to(1, { scale: 2 }, { easing: t => t*t; })
 cc.tween().to(1, { scale: 2, position: { value: cc.v3(100, 100, 100), easing: 'sineOutIn' } })
 ```
 
-For parameters of easing, please refer to the [API documentation](../../../api/en/classes/Easing.html).
+For parameters of easing, please refer to the [API documentation](%__APIDOC__%/en/classes/Easing.html).
 
 ## Custom progress
 

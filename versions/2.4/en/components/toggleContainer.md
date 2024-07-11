@@ -8,7 +8,7 @@ ToggleContainer is not a visible UI component but a way to modify the behavior o
 
 Click the **Add component** button at the bottom of the **Properties** panel and select **ToggleContainer** from **UI Component**. You can then add the ToggleContainer component to the node.
 
-The API reference of ToggleContainer is here: [ToggleContainer API](../../../api/en/classes/ToggleContainer.html).
+The API reference of ToggleContainer is here: [ToggleContainer API](%__APIDOC__%/en/classes/ToggleContainer.html).
 
 ## ToggleContainer properties
 

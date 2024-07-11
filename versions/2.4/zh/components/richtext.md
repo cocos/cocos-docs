@@ -26,7 +26,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 | Image Atlas        | 对于 img 标签里面的 src 属性名称，都需要在 imageAtlas 里面找到一个有效的 spriteFrame，否则 img tag 会判定为无效。 |
 | Handle Touch Event | 选中此选项后，RichText 将阻止节点边界框中的所有输入事件（鼠标和触摸），从而防止输入事件穿透到底层节点。 |
 
-富文本的 API 接口请参考 [RichText API](../../../api/zh/classes/RichText.html)。
+富文本的 API 接口请参考 [RichText API](%__APIDOC__%/zh/classes/RichText.html)。
 
 ## BBCode 标签格式
 
@@ -49,7 +49,7 @@ RichText 组件用来显示一段带有不同样式效果的文字，你可以�
 
 | 名称 | 描述 | 示例 | 注意事项
 | :-------|:------- | :-----|:------ |
-| color   | 指定字体渲染颜色，颜色值可以是内置颜色，比如 white、black 等，也可以使用 16 进制颜色值，比如 #ff0000 表示红色 | `<color=#ff0000>Red Text</color>` | 内置颜色值参考 [cc.Color](../../../api/zh/classes/Color.html)
+| color   | 指定字体渲染颜色，颜色值可以是内置颜色，比如 white、black 等，也可以使用 16 进制颜色值，比如 #ff0000 表示红色 | `<color=#ff0000>Red Text</color>` | 内置颜色值参考 [cc.Color](%__APIDOC__%/zh/classes/Color.html)
 | size    | 指定字体渲染大小，大小值必须是一个整数 | `<size=30>enlarge me</size>` |  Size 值必须使用等号赋值
 | outline | 设置文本的描边颜色和描边宽度 | `<outline color=red width=4>A label with outline</outline>` | 如果你没有指定描边的颜色或者宽度的话，那么默认的颜色是白色（#ffffff），默认的宽度是 1
 | b       | 指定使用粗体来渲染 | `<b>This text will be rendered as bold</b>` | 名字必须是小写，且不能写成 bold

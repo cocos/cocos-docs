@@ -28,7 +28,7 @@ var particleSystem = node.adComponent(cc.ParticleSystem);
 // Next you can particleSystem this object for a series of operations
 ```
 
-Please refer to the script interface of the Particle System [ParticleSystem API](../../../api/en/classes/ParticleSystem.html).
+Please refer to the script interface of the Particle System [ParticleSystem API](%__APIDOC__%/en/classes/ParticleSystem.html).
 
 ## ParticleSystem Properties
 
@@ -55,8 +55,8 @@ Please refer to the script interface of the Particle System [ParticleSystem API]
 | End Spin              | End angle and variation of each particle.
 | Source Pos            | Source position of the emitter.
 | Pos Var               | Variation of source position.
-| Position Type         | Particles movement type. Including `FREE`, `RELATIVE`, `GROUPED` three types, refer to [PositionType API](../../../api/en/enums/ParticleSystem.PositionType.html) for details.
-| Emitter Mode          | Particles emitter modes. Including `GRAVITY`, `RADIUS` three types, refer to [EmitterMode API](../../../api/en/enums/ParticleSystem.EmitterMode.html) for details.
+| Position Type         | Particles movement type. Including `FREE`, `RELATIVE`, `GROUPED` three types, refer to [PositionType API](%__APIDOC__%/en/enums/ParticleSystem.PositionType.html) for details.
+| Emitter Mode          | Particles emitter modes. Including `GRAVITY`, `RADIUS` three types, refer to [EmitterMode API](%__APIDOC__%/en/enums/ParticleSystem.EmitterMode.html) for details.
 | Gravity               | Gravity of the emitter, which takes effect only when the Emitter Mode is set to `GRAVITY`
 | Speed                 | Speed and variation of the emitter.
 | Tangential Accel      | Tangential acceleration and variation of each particle. Only available in `Gravity` mode.
@@ -65,5 +65,5 @@ Please refer to the script interface of the Particle System [ParticleSystem API]
 | Start Radius          | Starting radius and variation of the particles. Only available in `Radius` mode.
 | End Radius            | Ending radius and variation of the particles. Only available in `Radius` mode.
 | Rotate Per S          | Number of degress to rotate a particle around the source pos per second and variation. Only available in `Radius` mode.
-| Src Blend Factor      | The source image blend mode. Refer to [BlendFactor API](../../../api/en/enums/BlendFactor.html) for details.
-| Dst Blend Factor      | The destination image blend mode. Refer to [BlendFactor API](../../../api/en/enums/BlendFactor.html) for details.
+| Src Blend Factor      | The source image blend mode. Refer to [BlendFactor API](%__APIDOC__%/en/enums/BlendFactor.html) for details.
+| Dst Blend Factor      | The destination image blend mode. Refer to [BlendFactor API](%__APIDOC__%/en/enums/BlendFactor.html) for details.

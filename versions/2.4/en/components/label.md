@@ -26,10 +26,10 @@ Click the **Add Component** button at the bottom of the **Properties** panel and
 | Underline Height | Height of underline.                                                                                                        |
 | Cache Mode       | Text cache mode includes **NONE**, **BITMAP** or **CHAR**. Takes effect only for System Font or TTF font, BMFont does not require this optimization. See [Cache Mode](#cache-mode-new-in-v209) below for details. |
 | Use System Font  | If enabled, **System Font** will be used.
-| Src Blend Factor      | The fetch mode of the source image when blending text images. Refer to: [BlendFactor API](../../../api/en/enums/BlendFactor.html), specific instructions can be found in section **Blend Mode Of System Font** below. |
-| Dst Blend Factor      | The fetch mode of the target image when the two images are displayed together. Refer to: [BlendFactor API](../../../api/en/enums/BlendFactor.html), specific instructions can be found in section **Blend Mode Of System Font** below. |
+| Src Blend Factor      | The fetch mode of the source image when blending text images. Refer to: [BlendFactor API](%__APIDOC__%/en/enums/BlendFactor.html), specific instructions can be found in section **Blend Mode Of System Font** below. |
+| Dst Blend Factor      | The fetch mode of the target image when the two images are displayed together. Refer to: [BlendFactor API](%__APIDOC__%/en/enums/BlendFactor.html), specific instructions can be found in section **Blend Mode Of System Font** below. |
 
-For additional details, please refer to the [Label API](../../../api/en/classes/Label.html).
+For additional details, please refer to the [Label API](%__APIDOC__%/en/classes/Label.html).
 
 ## Label Layout
 

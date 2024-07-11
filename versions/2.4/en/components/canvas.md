@@ -20,4 +20,4 @@ When Canvas adapts the screen, it only scales or stretches the entire game's scr
 
 If you want to use the size of the Canvas as the design resolution, you can manually remove or disable the Widget component. In addition, when the old project is upgraded to v2.3, the editor will add Widget components automatically.
 
-Please refer to the [Canvas API](../../../api/en/classes/Canvas.html) for the script interface.
+Please refer to the [Canvas API](%__APIDOC__%/en/classes/Canvas.html) for the script interface.

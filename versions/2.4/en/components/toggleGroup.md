@@ -8,7 +8,7 @@ ToggleGroup is not a visible UI component but a way to modify the behavior of a 
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **ToggleGroup** from **UI Component**. You can then add the ToggleGroup component to the node.
 
-The API reference of ToggleGroup is here: [ToggleGroup API](../../../api/en/classes/ToggleGroup.html).
+The API reference of ToggleGroup is here: [ToggleGroup API](%__APIDOC__%/en/classes/ToggleGroup.html).
 
 ## ToggleGroup property
 

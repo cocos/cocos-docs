@@ -10,7 +10,7 @@ Cocos Creator 提供了在项目构建时的静态合图方法 —— **自动�
 
 ## 启用、禁用动态合图
 
-Cocos Creator 在初始化过程中，会根据不同的平台设置不同的 [CLEANUP_IMAGE_CACHE](../../../api/zh/classes/macro.html#cleanupimagecache) 参数，当禁用 `CLEANUP_IMAGE_CACHE` 时，动态合图就会默认开启。
+Cocos Creator 在初始化过程中，会根据不同的平台设置不同的 [CLEANUP_IMAGE_CACHE](%__APIDOC__%/zh/classes/macro.html#cleanupimagecache) 参数，当禁用 `CLEANUP_IMAGE_CACHE` 时，动态合图就会默认开启。
 
 启用动态合图会占用额外的内存，不同平台占用的内存大小不一样。目前在小游戏和原生平台上默认会禁用动态合图，但如果你的项目内存空间仍有富余的话建议开启。
 
@@ -37,7 +37,7 @@ cc.dynamicAtlasManager.enabled = false;
 cc.dynamicAtlasManager.maxFrameSize = 512;
 ```
 
-详情可参考 API 文档 [DynamicAtlasManager](../../../api/zh/classes/DynamicAtlasManager.html)。
+详情可参考 API 文档 [DynamicAtlasManager](%__APIDOC__%/zh/classes/DynamicAtlasManager.html)。
 
 ## 支持定制的渲染组件
 
