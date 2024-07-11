@@ -58,7 +58,7 @@ Tween.stopAllByTarget(this.node);
 
 |Interface| Description |
 |:-- |:--|
-| **tween<T>** | Utility function to help instantiate the `Tween` class. <br> **Note**: This function is not a member of the `Tween` class. Users may call `new Tween<T>(target:T)` to instantiate a new tween instance. |
+| **tween\<T\>** | Utility function to help instantiate the `Tween` class. <br> **Note**: This function is not a member of the `Tween` class. Users may call `new Tween<T>(target:T)` to instantiate a new tween instance. |
 
 ### Example
 

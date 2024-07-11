@@ -6,7 +6,7 @@
 
 例如，节点的世界坐标系内的位置，是 `Readonly` 的：
 
-```typscript
+```ts
 /**
 * @en Position in world coordinate system
 * @zh 世界坐标系下的坐标

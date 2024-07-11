@@ -18,7 +18,7 @@ The HTTP/1.1 protocol can be upgraded to the Websocket protocol by upgrading the
 
 WebSocket transfers can optionally use Binary or String to increase the specificity and security of the private protocol.
 
-To use Websock within Cocos Creator, see [Using WebSocket Server](websocket-server.md) and [WebSocket Client](websocket.md).
+To use Websocket within Cocos Creator, see [Using WebSocket Server](websocket-server.md) and [WebSocket Client](websocket.md).
 
 [^1]: [The WebSocket Protocol](https://www.rfc-editor.org/rfc/rfc6455)
 [^2]: [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)

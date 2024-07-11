@@ -6,7 +6,7 @@ Since `Readonly` is a read-only property, it is not recommended to write to it. 
 
 For example, the position of a node in the world coordinate system is `Readonly` for.
 
-```typscript
+```ts
 /**
 * @en Position in world coordinate system
 * @zh 世界坐标系下的坐标
