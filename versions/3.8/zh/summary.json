@@ -625,7 +625,14 @@
                             },
                             {
                                 "text": "发布到淘宝小游戏",
-                                "link": "editor/publish/publish-taobao-mini-game.md"
+                                "link": "editor/publish/publish-taobao-mini-game.md",
+                                "items": [
+                                    {
+                                        "text": "启用淘宝小游戏引擎插件",
+                                        "link": "editor/publish/taobaominigame-plugin.md"
+                                    }
+                                ],
+                                "collapsed": true
                             },
                             {
                                 "text": "发布到微信小游戏",

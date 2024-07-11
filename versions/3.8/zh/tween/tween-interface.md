@@ -58,7 +58,7 @@ Tween.stopAllByTarget(this.node);
 
 |接口| 功能说明
 |:-- |:--|
-|**tween<T>**| 这是一个工具函数，帮助实例化 `Tween` 类 <br> **注意**：该方法并非 `Tween` 类的成员，开发者也可自行调用 `new Tween<T>(target:T)` 的方式实例化缓动。
+|**tween\<T\>**| 这是一个工具函数，帮助实例化 `Tween` 类 <br> **注意**：该方法并非 `Tween` 类的成员，开发者也可自行调用 `new Tween<T>(target:T)` 的方式实例化缓动。
 
 ### 示例
 

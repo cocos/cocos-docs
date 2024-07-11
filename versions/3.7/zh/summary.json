@@ -1,8 +1,12 @@
 [
     {
-        "text": "简介",
+        "text": "用户手册 3.7",
         "collapsed": false,
         "items": [
+            {
+                "text": "Cocos Creator 3.7",
+                "link": "index.md"
+            },
             {
                 "text": "关于 Cocos Creator",
                 "link": "getting-started/introduction/index.md"
