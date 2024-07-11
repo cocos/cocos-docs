@@ -18,7 +18,7 @@ HTTP/1.1 协议可以通过升级将连接升级为 Websocket 协议[^2]，完�
 
 WebSocket 传输时可以选择使用二进制（Binary）或 字符串（String）以此来提高私有协议的特定制性和安全性。
 
-在 Cocos Creator 内如果要使用 Websock 可以参考 [使用 WebSocket 服务端](websocket-server.md)以及 [WebSocket 客户端](websocket.md)。
+在 Cocos Creator 内如果要使用 Websocket 可以参考 [使用 WebSocket 服务端](websocket-server.md)以及 [WebSocket 客户端](websocket.md)。
 
 [^1]: [The WebSocket Protocol](https://www.rfc-editor.org/rfc/rfc6455)
 [^2]: [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
