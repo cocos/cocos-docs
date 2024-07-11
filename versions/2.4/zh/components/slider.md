@@ -8,7 +8,7 @@ Slider 是一个滑动器组件。
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **Slider**，即可添加 Slider 组件到节点上。
 
-滑动器的脚本接口请参考 [Slider API](../../../api/zh/classes/Slider.html)。
+滑动器的脚本接口请参考 [Slider API](%__APIDOC__%/zh/classes/Slider.html)。
 
 ## Slider 属性
 

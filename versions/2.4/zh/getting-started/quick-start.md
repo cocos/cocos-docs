@@ -279,7 +279,7 @@ Cocos Creator 规定一个节点具有的属性都需要写在 `properties` 代�
 
 这里涉及到了 **缓动（cc.tween）系统**，在 Cocos Creator 中，`cc.tween` 可以对任何对象进行操作，并且可以对对象的 **任意属性** 进行缓动。
 
-例如在上面的代码中，`by()` 方法的作用是对属性进行相对值计算，表示的是变化值。具体的内容可参考文档 [缓动系统](../scripting/tween.md) 以及 API 文档 [Tween 类型](../../../api/zh/classes/Tween.html)。
+例如在上面的代码中，`by()` 方法的作用是对属性进行相对值计算，表示的是变化值。具体的内容可参考文档 [缓动系统](../scripting/tween.md) 以及 API 文档 [Tween 类型](%__APIDOC__%/zh/classes/Tween.html)。
 
 接下来在 `onLoad` 方法中调用刚刚添加的 `runJumpAction` 方法，然后调用 `start` 来开始动作：
 

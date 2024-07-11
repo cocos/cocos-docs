@@ -12,7 +12,7 @@ Create an empty node under the Layer node that was automatically generated durin
 
 ![](tiledtile/add_tiledtile.png)
 
-TiledTile API reference [TiledTile API](../../../api/en/classes/TiledTile.html)
+TiledTile API reference [TiledTile API](%__APIDOC__%/en/classes/TiledTile.html)
 
 ### 2. Create in code
 
@@ -36,7 +36,7 @@ var tiledTile = node.addComponent(cc.TiledTile);
 var tiledTile = this.layer.getTiledTileAt(0, 0);
 ```
 
-For the Layer script interface, please refer to [TiledLayer API](../../../api/en/classes/TiledLayer.html)
+For the Layer script interface, please refer to [TiledLayer API](%__APIDOC__%/en/classes/TiledLayer.html)
 
 ## TiledTile Properties
 

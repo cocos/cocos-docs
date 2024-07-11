@@ -1101,6 +1101,8 @@ endif()
 
 - 用 Chrome 浏览器打开 <devtools://devtools/bundled/js_app.html?v8only=true&ws=xxx.xxx.xxx.xxx:43086/00010002-0003-4004-8005-000600070008>，其中 `xxx.xxx.xxx.xxx` 为局域网中 Android/iOS 设备的 IP 地址。（若使用的是旧版 Chrome，则需要将地址开头的 `devtools` 改成 `chrome-devtools`）
 
+>如果端口被占用，端口会做+1自增处理，若连接不上，请查看 App 启动时控制台打印的端口号。
+
 - 调试界面与 Windows 相同
 
 ## Q & A

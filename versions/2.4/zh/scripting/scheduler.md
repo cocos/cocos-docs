@@ -73,7 +73,7 @@
 - `unschedule`：取消一个计时器
 - `unscheduleAllCallbacks`：取消这个组件的所有计时器
 
-这些 API 的详细描述都可以在 [Component API](../../../api/zh/classes/Component.html) 文档中找到。
+这些 API 的详细描述都可以在 [Component API](%__APIDOC__%/zh/classes/Component.html) 文档中找到。
 
 除此之外，如果需要每一帧都执行一个函数，请直接在 Component 中添加 `update` 函数，这个函数将默认被每帧调用，这在 [生命周期文档](life-cycle-callbacks.md#update) 中有详细描述。
 

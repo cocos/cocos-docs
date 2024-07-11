@@ -6,14 +6,14 @@ PageView 是一种页面视图容器.
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **PageView**，即可添加 PageView 组件到节点上。
 
-页面视图的脚本接口请参考 [PageView API](../../../api/zh/classes/PageView.html)。
+页面视图的脚本接口请参考 [PageView API](%__APIDOC__%/zh/classes/PageView.html)。
 
 ## PageView 属性
 
 | 属性                      | 功能说明 |
 | --------------            | ----------- |
 | Content                     | 它是一个节点引用，用来创建 PageView 的可滚动内容 |
-| Size Mode                   | 页面视图中每个页面大小类型，目前有 Unified 和 Free 类型。详情可参考 [SizeMove API](../../../api/zh/enums/PageView.SizeMode.html)  |
+| Size Mode                   | 页面视图中每个页面大小类型，目前有 Unified 和 Free 类型。详情可参考 [SizeMove API](%__APIDOC__%/zh/enums/PageView.SizeMode.html)  |
 | Direction                   | 页面视图滚动方向                             |
 | Scroll Threshold            | 滚动临界值，默认单位百分比，当拖拽超出该数值时，松开会自动滚动下一页，小于时则还原 |
 | Auto Page Turning Threshold | 快速滑动翻页临界值，当用户快速滑动时，会根据滑动开始和结束的距离与时间计算出一个速度值，该值与此临界值相比较，如果大于临界值，则进行自动翻页 |

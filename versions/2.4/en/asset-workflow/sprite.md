@@ -120,8 +120,8 @@ Why SpriteFrame? Besides a SpriteFrame from a Texture, there is another asset, A
 
 The API documentation for Texture & SpriteFrame:
 
-- [Texture](../../../api/en/classes/Texture2D.html)
-- [SpriteFrame](../../../api/en/classes/SpriteFrame.html)
+- [Texture](%__APIDOC__%/en/classes/Texture2D.html)
+- [SpriteFrame](%__APIDOC__%/en/classes/SpriteFrame.html)
 
 ## SpriteFrame Usage
 

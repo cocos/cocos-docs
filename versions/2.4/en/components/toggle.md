@@ -6,7 +6,7 @@ The toggle component is a CheckBox, when it used together with a ToggleGroup, it
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **Toggle** from **UI Component**. Then you can add the Toggle component to the node.
 
-The API reference of Toggle is here: [Toggle API](../../../api/en/classes/Toggle.html).
+The API reference of Toggle is here: [Toggle API](%__APIDOC__%/en/classes/Toggle.html).
 
 ## Toggle properties
 

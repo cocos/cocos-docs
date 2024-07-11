@@ -1,41 +1,35 @@
 
-# Cocos Creator 用户手册
+# Repo for Cocos Creator User Manual
 
-- 官方文档地址：[https://docs.cocos.com](https://docs.cocos.com)
-- 引擎下载地址：[https://www.cocos.com](https://www.cocos.com/)
+- Cocos Creator User Manual: [https://docs.cocos.com](https://docs.cocos.com)
+- Cocos Engine Official Website：[https://www.cocos.com](https://www.cocos.com/)
 
-## 准备工作
+## Install Node Modules
 
 ```sh
 npm install
 ```
 
-## 生成侧边栏数据
+## Generate Sidebar
 
 node ./scripts/create-sidebar.js versions/3.8/zh/SUMMARY.md
 
 node ./scripts/create-sidebar.js versions/3.8/en/SUMMARY.md
 
-## 本地启动具体版本
+## Run In Dev Mode
 
 npx vitepress dev versions/3.8
 
-## 本地构建具体版本
+## Build
 
-npx vitepress build versions/3.8
+node ./scripts/publish.js --version=versions/3.8
 
-## 本地预览具体版本
+## Build All
+
+node ./scripts/publish.js --version=versions/all
+
+## Preview
 
 npx vitepress preview versions/3.8
 
-## 发布版本
-
-### 发布单个
-
-node ./scripts/publish.js versions/3.8
-
-### 发布全部
-
-node ./scripts/publish.js versions/all
-
->上文中的 3.8 替换为对应版本即可实现版本发布
+> Change the '3.8' above to operate another version.

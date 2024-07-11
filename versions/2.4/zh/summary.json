@@ -379,26 +379,6 @@
                         "link": "https://service.cocos.com/document/zh/#%E6%94%AF%E6%8C%81%E6%9C%8D%E5%8A%A1",
                         "items": [
                             {
-                                "text": "Cocos Analytics",
-                                "link": "https://service.cocos.com/document/zh/cocos-analytics.html"
-                            },
-                            {
-                                "text": "声网（Agora RTC）",
-                                "link": "https://service.cocos.com/document/zh/agora.html"
-                            },
-                            {
-                                "text": "云开发（腾讯云）",
-                                "link": "https://service.cocos.com/document/zh/tcb.html"
-                            },
-                            {
-                                "text": "游戏联机对战引擎（腾讯云）",
-                                "link": "https://service.cocos.com/document/zh/mgobe.html"
-                            },
-                            {
-                                "text": "游戏多媒体引擎（腾讯云）",
-                                "link": "https://service.cocos.com/document/zh/gme.html"
-                            },
-                            {
                                 "text": "定位服务（HMS Core）",
                                 "link": "https://service.cocos.com/document/zh/hms-location.html"
                             },

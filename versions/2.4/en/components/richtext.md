@@ -12,7 +12,7 @@ For more information about BBCode, please refer to the **BBCode format** section
 
 Click the **Add Component** button at the bottom of the **Properties** panel and select **RichText** from **Renderer Component** to add the RichText component to the node.
 
-The API reference of RichText is here: [RichText API](../../../api/en/classes/RichText.html).
+The API reference of RichText is here: [RichText API](%__APIDOC__%/en/classes/RichText.html).
 
 ## RichText properties
 
@@ -29,7 +29,7 @@ The API reference of RichText is here: [RichText API](../../../api/en/classes/Ri
 | Image Atlas        | The image atlas for the img tag. For each src value in the img tag, there should be a valid spriteFrame in the image atlas. |
 | Handle Touch Event | Once checked, the RichText will block all input events (mouse and touch) within the bounding box of the node, preventing the input from penetrating into the underlying node. |
 
-The API reference of RichText is here: [RichText API](../../../api/en/classes/RichText.html).
+The API reference of RichText is here: [RichText API](%__APIDOC__%/en/classes/RichText.html).
 
 ## BBCode format
 
@@ -49,7 +49,7 @@ Here is an example of the `size` and `color` tag:
 
 | Name | Description | Example | Note |
 | :------ | :------- | :----- | :------ |
-| color  | Specify the font rendering color, the color value could be a built-in value or a hex value. eg, use #ff0000 for red. | `<color=#ff0000>Red Text</color>` | For built-in color, please refer to [cc.Color](../../../api/en/classes/Color.html) |
+| color  | Specify the font rendering color, the color value could be a built-in value or a hex value. eg, use #ff0000 for red. | `<color=#ff0000>Red Text</color>` | For built-in color, please refer to [cc.Color](%__APIDOC__%/en/classes/Color.html) |
 | size   | Specify the font rendering size, the size should be a integer.| `<size=30>enlarge me</size>` | The size assignment should use `=` sign. |
 | outline | Specify the font outline, you could customize the outline color and width by using the `color` and `width` property. | `<outline color=red width=4>A label with outline</outline>` | If you don't specify the color or width of outline, the default color value is `#ffffff` and the default width is `1`. |
 | b      | Render text as bold font | `<b>This text will be rendered as bold</b>`| The tag name must be lowercase and tag name `bold` is not supported. |

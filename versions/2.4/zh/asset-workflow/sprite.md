@@ -125,8 +125,8 @@ SpriteFrame 是核心渲染组件 **Sprite** 所使用的资源，设置或替�
 
 下面是 Texture 和 SpriteFrame 的 API 接口文档：
 
-- [Texture 资源类型](../../../api/zh/classes/Texture2D.html)
-- [SpriteFrame 资源类型](../../../api/zh/classes/SpriteFrame.html)
+- [Texture 资源类型](%__APIDOC__%/zh/classes/Texture2D.html)
+- [SpriteFrame 资源类型](%__APIDOC__%/zh/classes/SpriteFrame.html)
 
 ## 使用 SpriteFrame
 

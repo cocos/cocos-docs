@@ -12,7 +12,7 @@ VideoPlayer is a component for playing videos, you could use this component for 
 
 Click **Add Component** at the bottom of **Properties** panel and select **VideoPlayer** from **UI Component** to add the VideoPlayer component to the node.
 
-For more information about VideoPlayer's scripting interface, please refer to [VideoPlayer API](../../../api/en/classes/VideoPlayer.html).
+For more information about VideoPlayer's scripting interface, please refer to [VideoPlayer API](%__APIDOC__%/en/classes/VideoPlayer.html).
 
 ## VideoPlayer Properties
 
@@ -27,7 +27,7 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | Keep Aspect Ratio  | Whether keep the aspect ratio of the original video. |
 | Is Fullscreen      | Whether play video in fullscreen mode. |
 | Stay On Bottom     | Display video below the game view (Only available on web). |
-| Video Player Event | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](../../../api/en/classes/VideoPlayer.html#videoplayerevent) for more details. |
+| Video Player Event | The video player's callback, it will be triggered when certain event occurs. Please refer to the `VideoPlayer Event` section below or [VideoPlayerEvent API](%__APIDOC__%/en/classes/VideoPlayer.html#videoplayerevent) for more details. |
 
 > **Note**: in `cc.Node` of the **Video Player Event** property, you should fill in a Node that hangs the user script component, and in the user script you can use the relevant VideoPlayer event according to the user's needs.
 
@@ -42,7 +42,7 @@ For more information about VideoPlayer's scripting interface, please refer to [V
 | handler         | Specify a callback, when the video player is about to playing or paused, it will be called. There is a parameter in the callback which indicate the state of played videos.|
 | customEventData | The user specifies that any string is passed in as the last parameter of the event callback |
 
-For more information, please refer to [Component.EventHandler Class](../../../api/en/classes/Component.EventHandler.html).
+For more information, please refer to [Component.EventHandler Class](%__APIDOC__%/en/classes/Component.EventHandler.html).
 
 ### Parameter of VideoPlayerEvent
 
@@ -58,7 +58,7 @@ For more information, please refer to [Component.EventHandler Class](../../../ap
 
 > **Note**: on iOS platform, due to the platform limitations, the CLICKED event can't be fired when VideoPlayer is in fullscreen mode. If you want to let the Video played in fullscreen and also fire the CLICKED event properly, you should use a Widget component to hack the VideoPlayer's size.
 
-For more information, please refer to the [VideoPlayer Events](../../../api/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
+For more information, please refer to the [VideoPlayer Events](%__APIDOC__%/en/classes/VideoPlayer.html#events) or [09_videoplayer](https://github.com/cocos/example-projects/tree/v2.4.3/assets/cases/02_ui/09_videoplayer) of the example-cases samples bundled with Creator.
 
 ## Detailed Explanation
 
@@ -124,7 +124,7 @@ cc.Class({
 
 Likewise, you can also register `meta-loaded`, `clicked`, `playing` events, and the parameters of the callback function for these events are consistent with the `ready-to-play` parameters.
 
-About VideoPlayer events, please refer to [VideoPlayer API](../../../api/en/classes/VideoPlayer.html) for details.
+About VideoPlayer events, please refer to [VideoPlayer API](%__APIDOC__%/en/classes/VideoPlayer.html) for details.
 
 > **Note**: since the VideoPlayer is a special component, you cannot register `touch` or `mouse` events on the node with VideoPlayer component.
 

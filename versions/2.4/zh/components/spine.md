@@ -6,7 +6,7 @@ Spine 组件支持 Spine 导出的数据格式，并对骨骼动画（Spine）�
 
 选中节点，点击 **属性检查器** 下方的 **添加组件 -> 渲染组件 -> Spine Skeleton** 按钮，即可添加 Spine 组件到节点上。
 
-Spine 的脚本接口请参考 [Skeleton API](../../../api/zh/classes/Skeleton.html)。
+Spine 的脚本接口请参考 [Skeleton API](%__APIDOC__%/zh/classes/Skeleton.html)。
 
 ## Spine 属性
 

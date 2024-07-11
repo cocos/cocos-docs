@@ -279,7 +279,7 @@ Next we add a method called `runJumpAction` under the `properties: {...},` code 
 
 Here you need to know about the `cc.tween` system. In Cocos Creator, `cc.tween` provides a chain-created method that can manipulate any object, and easing any of the object's properties.
 
-For example, in the code above, the `by()` method is used to calculate the relative value of the property, which is the changing value. See the [cc.tween](../scripting/tween.md) documentation and the API documentation [Tween class](../../../api/en/classes/Tween.html) for more details.
+For example, in the code above, the `by()` method is used to calculate the relative value of the property, which is the changing value. See the [cc.tween](../scripting/tween.md) documentation and the API documentation [Tween class](%__APIDOC__%/en/classes/Tween.html) for more details.
 
 Next, call the `runJumpAction` method you just added in the `onLoad` method, and then call `start` to start the action:
 

@@ -8,7 +8,7 @@ ToggleContainer 不是一个可见的 UI 组件，它可以用来修改一组 To
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **ToggleContainer**，即可添加 ToggleContainer 组件到节点上。
 
-ToggleContainer 的脚本接口请参考 [ToggleContainer API](../../../api/zh/classes/ToggleContainer.html)。
+ToggleContainer 的脚本接口请参考 [ToggleContainer API](%__APIDOC__%/zh/classes/ToggleContainer.html)。
 
 ## ToggleContainer 属性
 

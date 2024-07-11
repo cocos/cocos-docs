@@ -19,7 +19,7 @@ Click the **Add Component -> Physics Component -> Collider -> Box 3D** button at
 | Center     | The position of the Collider in the coordinates of the node  |
 | Size       | The size of the Collider in the X, Y, Z directions           |
 
-For the API interface of Box Collider, please refer to [BoxCollider3D](../../../api/en/classes/BoxCollider3D.html).
+For the API interface of Box Collider, please refer to [BoxCollider3D](%__APIDOC__%/en/classes/BoxCollider3D.html).
 
 ## Sphere Collider
 
@@ -36,4 +36,4 @@ Click the **Add Component -> Physics Component -> Collider -> Sphere 3D** button
 | Center     | The position of the Collider in the coordinates of the node  |
 | Radius     | The radius of the Collider             |
 
-For the API interface of Sphere Collider, please refer to [SphereCollider3D](../../../api/en/classes/SphereCollider3D.html).
+For the API interface of Sphere Collider, please refer to [SphereCollider3D](%__APIDOC__%/en/classes/SphereCollider3D.html).

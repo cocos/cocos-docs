@@ -104,7 +104,7 @@ Editor.Ipc.sendToPanel('scene', 'scene:apply-prefab', node.uuid);
 
 跳转链接格式：`[跳转的文档名称](跳转的文档目录)`。使用半角（halfwidth）英文标点，且 [] 与 () 之间不要有空格
 
-> eg：`[Mask API](../../../api/zh/classes/Mask.html)`
+> eg：`[Mask API](%__APIDOC__%/zh/classes/Mask.html)`
 
 **注意**：跳转到另一个仓库的文档文件名后缀要使用 **.html**
 

@@ -68,7 +68,7 @@ var manager = cc.director.getPhysicsManager();
 manager.enabledAccumulator = true;
 
 // Physics timestep, default FIXED_TIME_STEP is 1/60
-manager.FIXED_TIME_STEP = 1/30;
+manager.FIXED_TIME_STEP = 1/60;
 
 // The number of iterations per update of the Physics System processing speed is 10 by default
 manager.VELOCITY_ITERATIONS = 8;

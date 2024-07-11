@@ -26,11 +26,11 @@ Label 组件用来显示一段文字，文字可以是系统字体、TrueType �
 | Underline Height | 下划线的高度。                                                                                             |
 | Cache Mode       | 文本缓存类型包括 **NONE**、**BITMAP**、**CHAR** 三种。仅对系统字体或 TTF 字体有效，BMFont 字体无需进行这个优化。详情见下方的 [文本缓存类型](#%E6%96%87%E6%9C%AC%E7%BC%93%E5%AD%98%E7%B1%BB%E5%9E%8B%EF%BC%88cache-mode%EF%BC%89)。 |
 | Use System Font  | 是否使用系统字体。                                                                                          |
-| Src Blend Factor      | 混合文本图片时，源图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)，具体说明可参考下文 **系统文本的混合模式说明** 部分的内容。|
-| Dst Blend Factor      | 混合显示两张图片时，目标图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)，具体说明可参考下文 **系统文本的混合模式说明** 部分的内容。 |
+| Src Blend Factor      | 混合文本图片时，源图片的取值模式。可参考 [BlendFactor API](%__APIDOC__%/zh/enums/BlendFactor.html)，具体说明可参考下文 **系统文本的混合模式说明** 部分的内容。|
+| Dst Blend Factor      | 混合显示两张图片时，目标图片的取值模式。可参考 [BlendFactor API](%__APIDOC__%/zh/enums/BlendFactor.html)，具体说明可参考下文 **系统文本的混合模式说明** 部分的内容。 |
 | Materials        | 材质资源，详情请参考文档 [Material](../render/material.md)。                                                 |
 
-Label 的 API 接口请参考 [Label API](../../../api/zh/classes/Label.html)。
+Label 的 API 接口请参考 [Label API](%__APIDOC__%/zh/classes/Label.html)。
 
 ## Label 排版
 

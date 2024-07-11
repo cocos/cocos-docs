@@ -19,4 +19,4 @@ It should be noted that when adding a ConstantForce component, the [RigidBody co
 | Torque       | Torque applied to the world orientation           |
 | Local Torque | Torque applied to local orientation               |
 
-For the API interface of ConstantForce, please refer to [ConstantForce](../../../api/en/classes/ConstantForce.html).
+For the API interface of ConstantForce, please refer to [ConstantForce](%__APIDOC__%/en/classes/ConstantForce.html).

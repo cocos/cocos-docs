@@ -29,11 +29,11 @@ jobs:
 
       - name: 构建项目 （测试环境）
         if: contains(github.event.head_commit.message, 'publish:all:test')
-        run: npx dotenvx run --env-file=.env.test -- node scripts/publish.js --version=versions/${{ matrix.publish-version }}
+        run: node scripts/publish.js --version=versions/${{ matrix.publish-version }}
 
       - name: 构建项目 （正式环境）
         if: contains(github.event.head_commit.message, 'publish:all:pro')  
-        run: npx dotenvx run --env-file=.env.pro -- node scripts/publish.js --version=versions/${{ matrix.publish-version }}   
+        run: node scripts/publish.js --version=versions/${{ matrix.publish-version }}   
 
       - name: 登录华为云
         uses: huaweicloud/auth-action@v1.0.0

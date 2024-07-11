@@ -8,7 +8,7 @@ LabelOutline 组件将为所在节点上的 Label 组件添加描边效果，只
 
 LabelOutline 组件在 Label 组件的 Cache Mode 属性设置为 CHAR 时不生效，除了原生平台，但是原生平台也只有在使用 TTF 字体时是生效的。
 
-LabelOutline 组件的脚本接口请参考 [LabelOutline API](../../../api/zh/classes/LabelOutline.html)。
+LabelOutline 组件的脚本接口请参考 [LabelOutline API](%__APIDOC__%/zh/classes/LabelOutline.html)。
 
 ## LabelOutline 属性
 

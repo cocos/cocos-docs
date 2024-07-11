@@ -10,7 +10,7 @@ Node Pool is a collection of reusable node object. We can use `new cc.NodePool()
 
 When a node is not needed anymore, we call `put(newNode)` method of our Node Pool instance to return the node to the pool instead of destroy it. This method will also remove the node from its parent, so we don't need to call `removeFromParent` explicitly. Returning nodes to the pool is very important since only this way we can keep the stock of nodes up in our pool for future requesting. If player need to kill 100 enemies to finish the level, but no more than 5 enemies show up at the same time, we can fulfill the design need with a Node Pool that has a total count of 5 and keep recycling enemies.
 
-To learn the detailed API of `cc.NodePool`, please read [cc.NodePool API reference](../../../api/en/classes/NodePool.html).
+To learn the detailed API of `cc.NodePool`, please read [cc.NodePool API reference](%__APIDOC__%/en/classes/NodePool.html).
 
 ## Workflow
 

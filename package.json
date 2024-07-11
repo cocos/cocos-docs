@@ -4,9 +4,9 @@
   "description": "cocos-creator-docs",
   "type": "module",
   "scripts": {
-    "docs:dev": "dotenvx run --env-file=.env.test -- vitepress dev versions/3.8 --port=5001 --host",
-    "docs:build:test": "dotenvx run --env-file=.env.test -- vitepress build versions/3.8",
-    "docs:build:pro": "dotenvx run --env-file=.env.pro -- vitepress build versions/3.8",
+    "docs:dev": "cross-env __APIDOC__=https://docs.cocos.com/creator/3.8/api vitepress dev versions/3.8 --port=5001 --host",
+    "docs:build:test": "cross-env __APIDOC__=https://docs.cocos.com/creator/3.8/api vitepress build versions/3.8",
+    "docs:build:pro": "cross-env __APIDOC__=https://docs.cocos.com/creator/3.8/api vitepress build versions/3.8",
     "docs:preview": "vitepress preview versions/3.8"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
   "devDependencies": {
     "@dotenvx/dotenvx": "^0.44.1",
     "@types/node": "^20.12.12",
+    "cross-env": "^7.0.3",
     "vitepress": "^1.2.2"
   }
 }

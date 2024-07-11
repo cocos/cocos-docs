@@ -6,7 +6,7 @@ Sprite（精灵）是 2D 游戏中最常见的显示图像的方式，在节点�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **渲染组件** 中选择 **Sprite**，即可添加 Sprite 组件到节点上。
 
-脚本接口请参考 [Sprite API](../../../api/zh/classes/Sprite.html)。
+脚本接口请参考 [Sprite API](%__APIDOC__%/zh/classes/Sprite.html)。
 
 ## Sprite 属性
 

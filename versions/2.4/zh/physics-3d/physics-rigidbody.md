@@ -19,7 +19,7 @@
 | Linear Factor   | 线性因子，可影响刚体在每个轴向的线性速度变化，值越大刚体移动越快 |
 | Angular Factor  | 旋转因子，可影响刚体在每个轴向的旋转速度变化，值越大刚体旋转越快 |
 
-刚体的 API 接口请参考 [RigidBody3D](../../../api/zh/classes/RigidBody3D.html)。
+刚体的 API 接口请参考 [RigidBody3D](%__APIDOC__%/zh/classes/RigidBody3D.html)。
 
 ## 刚体运动
 

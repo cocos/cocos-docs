@@ -6,7 +6,7 @@ PageviewIndicator 用于显示 PageView 当前的页面数量和标记当前所�
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **PageviewIndicator**，即可添加 PageviewIndicator 组件到节点上。
 
-PageviewIndicator 的脚本接口请参考 [PageviewIndicator API](../../../api/zh/classes/PageViewIndicator.html)。
+PageviewIndicator 的脚本接口请参考 [PageviewIndicator API](%__APIDOC__%/zh/classes/PageViewIndicator.html)。
 
 ## PageviewIndicator 属性
 

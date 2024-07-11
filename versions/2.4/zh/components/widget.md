@@ -4,7 +4,7 @@ Widget (对齐挂件) 是一个很常用的 UI 布局组件。它能使当前节
 
 ![default](widget/widget-default.png)
 
-对齐挂件的脚本接口请参考 [Widget API](../../../api/zh/classes/Widget.html)。
+对齐挂件的脚本接口请参考 [Widget API](%__APIDOC__%/zh/classes/Widget.html)。
 
 ## 选项
 
@@ -74,4 +74,4 @@ Align Mode | 指定 widget 的对齐方式，用于决定运行时 widget 应何
 
 ## 注意
 
-Widget 组件会自动调整当前节点的坐标和宽高，不过目前调整后的结果要到下一帧才能在脚本里获取到，除非你先手动调用 [updateAlignment](../../../api/zh/classes/Widget.html#updatealignment)。
+Widget 组件会自动调整当前节点的坐标和宽高，不过目前调整后的结果要到下一帧才能在脚本里获取到，除非你先手动调用 [updateAlignment](%__APIDOC__%/zh/classes/Widget.html#updatealignment)。

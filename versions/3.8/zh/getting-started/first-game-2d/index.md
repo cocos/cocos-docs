@@ -490,6 +490,12 @@ export class PlayerController extends Component {
 }
 ```
 
+注意：如果发现 Aniamtion 无法拖动或不显示，请检查该文件的 import 段是否已添加 Animation 的导入，代码示例如下：
+
+```ts
+import { Animation } from "cc";
+```
+
 这里我们给 BodyAnim 添加了一个名为 `@property` 的属性，这样的语法被称为 [装饰器](../../scripting/decorator.md)，这里的 `@property` 可以帮助编辑器，使其将 BodyAnim 在编辑器内视为 Animation 类型。
 
 如果这里代码没有编译通过，请查看是否有 `const { ccclass, property } = _decorator;` 代码，这里的语句将会正确的将 `property` 方法导出，完整的导出如下：

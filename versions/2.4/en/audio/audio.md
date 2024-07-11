@@ -69,7 +69,7 @@ Both AudioEngine and AudioSource can play audio. The difference is that AudioSou
     });
     ```
 
-It is currently recommended to use the [audioEngine.play](../../../api/en/classes/audioEngine.html#play) interface to play audio in unison. Or you can use the two interfaces [audioEngine.playEffect](../../../api/en/classes/audioEngine.html#playeffect) and [audioEngine.playMusic](../../../api/en/classes/audioEngine.html#playmusic), the former is mainly used to play sound effects, the latter is mainly used to play background music. See the API documentation for details.
+It is currently recommended to use the [audioEngine.play](%__APIDOC__%/en/classes/audioEngine.html#play) interface to play audio in unison. Or you can use the two interfaces [audioEngine.playEffect](%__APIDOC__%/en/classes/audioEngine.html#playeffect) and [audioEngine.playMusic](%__APIDOC__%/en/classes/audioEngine.html#playmusic), the former is mainly used to play sound effects, the latter is mainly used to play background music. See the API documentation for details.
 
 When playing AudioEngine, it is important to note that a complete AudioClip object (not a URL) is passed in here. Therefore, it is not recommended to fill in the URL address of the audio directly within the `play` interface, but rather to the user to define a AudioClip in the `properties` of the script, and then add the corresponding custom component to the editor's **Properties**, dragging the audio resource into the `audio-clip` of the custom component. As shown below:
 

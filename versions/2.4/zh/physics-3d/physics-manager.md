@@ -20,7 +20,7 @@ cc.director.getPhysics3DManager().enabled = true;
 | deltaTime  | 物理每步模拟消耗的时间，默认为 1/60 秒  |
 | gravity    | 物理世界的重力值，默认为 (0, -10, 0)  |
 
-API 接口相关可参考 [Physics3DManager](../../../api/zh/classes/Physics3DManager.html)。
+API 接口相关可参考 [Physics3DManager](%__APIDOC__%/zh/classes/Physics3DManager.html)。
 
 **注意**：Builtin 物理引擎不支持以上与物理模拟相关的属性。
 
@@ -33,7 +33,7 @@ API 接口相关可参考 [Physics3DManager](../../../api/zh/classes/Physics3DMa
   通过 `cc.director.getPhysics3DManager().raycast` 接口，检测射线路径上所有与射线发生碰撞的碰撞体，检测到的结果顺序不是固定的。
 
     - 若没有检测到任何碰撞体，则返回 `null`。
-    - 若有，则返回一个包含所有碰撞结果的数组。具体的内容可参考 API 文档 [raycast](../../../api/zh/classes/Physics3DManager.html#raycast)。
+    - 若有，则返回一个包含所有碰撞结果的数组。具体的内容可参考 API 文档 [raycast](%__APIDOC__%/zh/classes/Physics3DManager.html#raycast)。
 
     代码示例：
 
@@ -55,7 +55,7 @@ API 接口相关可参考 [Physics3DManager](../../../api/zh/classes/Physics3DMa
   通过 `cc.director.getPhysics3DManager().raycastClosest` 接口，检测射线路径上所有与射线发生碰撞的距离最短的碰撞体。
 
     - 若没有检测到任何碰撞体，则返回 `null`。
-    - 若有，则返回符合要求的碰撞体，用法与 `raycast` 接口类似。具体内容可参考 API 文档 [raycastClosest](../../../api/zh/classes/Physics3DManager.html#raycastclosest)。
+    - 若有，则返回符合要求的碰撞体，用法与 `raycast` 接口类似。具体内容可参考 API 文档 [raycastClosest](%__APIDOC__%/zh/classes/Physics3DManager.html#raycastclosest)。
 
     代码示例：
 

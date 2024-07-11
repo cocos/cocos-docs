@@ -12,6 +12,7 @@ If a game can only run on a physical device, then the packaged game must be debu
 
   ![v8-android-debug](debug-jsb/v8-android-debug.png)
 
+>If the port is occupied, the port will auto-increment by +1. If you cannot connect, please check the port number printed in the console when the App starts.
 >It is recommended to check the "Debug" and "Source Maps" options when buiding. This ensures that the corresponding JavaScript code is displayed in an expanded format.
 
 ## Debugging on Windows / Mac

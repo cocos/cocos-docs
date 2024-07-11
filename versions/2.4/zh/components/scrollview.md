@@ -8,7 +8,7 @@ ScrollView 是一种带滚动功能的容器，它提供一种方式可以在有
 
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI 组件** 中选择 **ScrollView**，即可添加 ScrollView 组件到节点上。
 
-滚动视图的脚本接口请参考 [ScrollView API](../../../api/zh/classes/ScrollView.html)。
+滚动视图的脚本接口请参考 [ScrollView API](%__APIDOC__%/zh/classes/ScrollView.html)。
 
 ## ScrollView 属性
 
@@ -112,4 +112,4 @@ cc.Class({
 
 同样的，你也可以注册 `scrolling`、`touch-up`、`scroll-began` 等事件，这些事件的回调函数的参数与 `scroll-to-top` 的参数一致。
 
-关于完整的 ScrollView 的事件列表，可以参考 ScrollView 的 API 文档 [ScrollView API](../../../api/zh/classes/ScrollView.html)。
+关于完整的 ScrollView 的事件列表，可以参考 ScrollView 的 API 文档 [ScrollView API](%__APIDOC__%/zh/classes/ScrollView.html)。

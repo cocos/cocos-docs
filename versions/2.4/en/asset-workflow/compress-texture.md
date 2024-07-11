@@ -34,7 +34,7 @@ If the configuration of the compressed texture is found, texture compression is 
 
 At runtime, not all these generated images will be loaded, and the engine will choose to load images in the appropriate format, depending on the support of the actual devices.
 
-[cc.macro.SUPPORT_TEXTURE_FORMATS](../../../api/en/classes/macro.html#supporttextureformats) lists all the image formats supported by the current platform, and when the engine loads the image, it will find the format with the highest priority in the list to load from the generated image.
+[cc.macro.SUPPORT_TEXTURE_FORMATS](%__APIDOC__%/en/classes/macro.html#supporttextureformats) lists all the image formats supported by the current platform, and when the engine loads the image, it will find the format with the highest priority in the list to load from the generated image.
 
 You can customize the image resource support for the platform and the priority of the load order by modifying `cc.macro.SUPPORT_TEXTURE_FORMATS`.
 

@@ -44,7 +44,7 @@ let renderer = this.getComponent(cc.MeshRenderer);
 renderer.mesh = mesh;
 ```
 
-For more information about `cc.primitive`, please refer to [Primitive API](../../../api/en/modules/primitive.html). Users can also download the [TheAviator Demo](https://github.com/cocos/cocos-example-the-aviator) to learn how to use `cc.primitive`.
+For more information about `cc.primitive`, please refer to [Primitive API](%__APIDOC__%/en/modules/primitive.html). Users can also download the [TheAviator Demo](https://github.com/cocos/cocos-example-the-aviator) to learn how to use `cc.primitive`.
 
 ### Create in the editor
 

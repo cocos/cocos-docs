@@ -28,7 +28,7 @@ ParticleSystem 组件可通过编辑器和脚本两种方式创建，如下所�
   // 接下去就可以对 particleSystem 这个对象进行一系列操作了
   ```
 
-  ParticleSystem 的脚本接口请参考 [ParticleSystem API](../../../api/zh/classes/ParticleSystem.html)。
+  ParticleSystem 的脚本接口请参考 [ParticleSystem API](%__APIDOC__%/zh/classes/ParticleSystem.html)。
 
 ## ParticleSystem 属性
 
@@ -55,8 +55,8 @@ ParticleSystem 组件可通过编辑器和脚本两种方式创建，如下所�
 | End Spin              | 粒子结束自旋角度及变化范围
 | Source Pos            | 发射器位置
 | Pos Var               | 发射器位置的变化范围。（横向和纵向）
-| Position Type         | 粒子位置类型，包括 **FREE**、**RELATIVE**、**GROUPED** 三种。详情可参考 [PositionType API](../../../api/zh/enums/ParticleSystem.PositionType.html)
-| Emitter Mode          | 发射器类型，包括 **GRAVITY**、**RADIUS** 两种。详情可参考 [EmitterMode API](../../../api/zh/enums/ParticleSystem.EmitterMode.html)
+| Position Type         | 粒子位置类型，包括 **FREE**、**RELATIVE**、**GROUPED** 三种。详情可参考 [PositionType API](%__APIDOC__%/zh/enums/ParticleSystem.PositionType.html)
+| Emitter Mode          | 发射器类型，包括 **GRAVITY**、**RADIUS** 两种。详情可参考 [EmitterMode API](%__APIDOC__%/zh/enums/ParticleSystem.EmitterMode.html)
 | Gravity               | 重力。仅在 Emitter Mode 设为 **GRAVITY** 时生效
 | Speed                 | 速度及变化范围。仅在 Emitter Mode 设为 **GRAVITY** 时生效
 | Tangential Accel      | 每个粒子的切向加速度及变化范围，即垂直于重力方向的加速度。仅在 Emitter Mode 设为 `GRAVITY` 时生效
@@ -65,5 +65,5 @@ ParticleSystem 组件可通过编辑器和脚本两种方式创建，如下所�
 | Start Radius          | 初始半径及变化范围，表示粒子发射时相对发射器的距离。仅在 Emitter Mode 设为 **RADIUS** 时生效
 | End Radius            | 结束半径。仅在 Emitter Mode 设为 **RADIUS** 时生效
 | Rotate Per S          | 粒子每秒围绕起始点的旋转角度及变化范围。仅在 Emitter Mode 设为 **RADIUS** 时生效
-| Src Blend Factor      | 混合显示两张图片时，原图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)
-| Dst Blend Factor      | 混合显示两张图片时，目标图片的取值模式。可参考 [BlendFactor API](../../../api/zh/enums/BlendFactor.html)
+| Src Blend Factor      | 混合显示两张图片时，原图片的取值模式。可参考 [BlendFactor API](%__APIDOC__%/zh/enums/BlendFactor.html)
+| Dst Blend Factor      | 混合显示两张图片时，目标图片的取值模式。可参考 [BlendFactor API](%__APIDOC__%/zh/enums/BlendFactor.html)

@@ -31,7 +31,7 @@ When switching from current scene to the next scene, if current scene disabled t
 
 ### Prevent auto releasing for some specifed assets
 
-With the auto releasing enabled for a scene, if some of the scene's assets are saved in the script as "special reference", these references will become invalid once the scene switched, since the resource has been released, may cause rendering problems. To prevent these assets from being released automatically, we can use [Asset.addRef](../../../api/en/classes/Asset.html#addref) to retain them.
+With the auto releasing enabled for a scene, if some of the scene's assets are saved in the script as "special reference", these references will become invalid once the scene switched, since the resource has been released, may cause rendering problems. To prevent these assets from being released automatically, we can use [Asset.addRef](%__APIDOC__%/en/classes/Asset.html#addref) to retain them.
 
 > "Special reference" refer to references in the form of global variables, singleton, closures, "dynamic assets", and so on. "Dynamic assets" refer to assets that are dynamically created or dynamically modified in a script.
 
