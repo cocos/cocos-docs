@@ -72,7 +72,7 @@ Here is the Objective-C code:
 ```ObjC
 #include "platform/apple/JsbBridge.h"
 
-static ICallback cb = ^void (NSString* _arg0, MSString* _arg1){
+static ICallback cb = ^void (NSString* _arg0, NSString* _arg1){
     if([_arg0 isEqual:@"open_ad"]){
         //open Ad
     }

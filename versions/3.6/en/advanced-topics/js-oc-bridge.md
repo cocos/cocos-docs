@@ -65,7 +65,7 @@ Assuming the ad interface is set in the native layer, then when the player click
 The code example of the interface to open the ad is as follows:
 
 ```ObjC
-static ICallback cb = ^void (NSString* _arg0, MSString* _arg1){
+static ICallback cb = ^void (NSString* _arg0, NSString* _arg1){
     //open Ad
 }
 ```

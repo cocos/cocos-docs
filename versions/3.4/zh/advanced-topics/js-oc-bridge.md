@@ -63,7 +63,7 @@ typedef void (^ICallback)(NSString*, NSString*);
 打开广告的接口的代码示例如下：
 
 ```ObjC
-static ICallback cb = ^void (NSString* _arg0, MSString* _arg1){
+static ICallback cb = ^void (NSString* _arg0, NSString* _arg1){
     //open Ad
 }
 ```
