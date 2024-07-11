@@ -609,7 +609,7 @@ export class PlayerController extends Component {
 }
 ```
 
-> **Note**：The TypeScript and Cocos Creator both have an Animation class, please make sure the `Animation` is included in the code line `import { ... } from "cc" `. Otherwise, the code will use the `Animation` from TypeScript, and unpredictable errors may occur.
+> **Note**：The TypeScript and Cocos Creator both have an Animation class, please make sure the `Animation` is included in the code line `import { ..., Animation,... } from "cc" `. Otherwise, the code will use the `Animation` from TypeScript, and unpredictable errors may occur.
 
 Here we added a property named `BodyAnim` and added `@property` above it. This syntax is called: [Decorator](../../scripting/decorator.md). The `@property` decorator allows the editor to be aware of the type of `BodyAnim` and display the exported properties of the Animation component on the Inspector panel.
 
