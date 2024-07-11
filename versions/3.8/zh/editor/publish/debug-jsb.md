@@ -12,6 +12,7 @@
 
   ![v8-android-debug](debug-jsb/v8-android-debug.png)
 
+>如果端口被占用，端口会做+1自增处理，若连接不上，请查看 App 启动时控制台打印的端口号。
 >构建时，建议勾选 Debug, Source Maps 选项，这样对应的 js 代码显示才是展开的。
 
 ## Windows 平台及 Mac 平台调试
@@ -22,6 +23,8 @@
 - 在游戏运行时打开 Chrome 浏览器，输入地址：`devtools://devtools/bundled/js_app.html?v8only=true&ws=127.0.0.1:6086/00010002-0003-4004-8005-000600070008` 即可进行调试。
 
    ![](debug-jsb/v8-win32-debug.png)
+
+>如果端口被占用，端口会做+1自增处理，若连接不上，请查看 App 启动时控制台打印的端口号。
 
 ## 使用 `lldb` 查看当前的 JS 调用栈
 
