@@ -4,7 +4,7 @@
 
 ### 接口说明
 
-`v3.8.5` 开始支持的接口有：reverse, id, union(fromId?: number), timeScale, pause, resume, pauseAllByTarget, resumeAllByTarget, update, start(time) , duration。
+`v3.8.4` 开始支持的接口有：reverse, id, union(fromId?: number), timeScale, pause, resume, pauseAllByTarget, resumeAllByTarget, update, start(time) , duration。
 
 | 接口               | 功能说明                                     |
 | :---------------- | :------------------------------------------ |
