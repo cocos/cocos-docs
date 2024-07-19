@@ -40,7 +40,7 @@ tween(this.node.position)
 
 >  [!TIP]
 >
-> Supported since v3.8.5
+> Supported since v3.8.4
 
 ```ts
 tween(this.node).to(1, { angle: ()=>90 ).start();
@@ -56,7 +56,7 @@ tween(this.node).to(1, { angle: 90 ).start();
 
 >  [!TIP]
 >
-> Supported since v3.8.5
+> Supported since v3.8.4
 
 - For a specific property of the current action
 
@@ -90,7 +90,7 @@ tween(this.node).to(1, { angle: 90, position: v3(90, 90, 90) }, {
 
 >  [!TIP]
 >
-> Supported since v3.8.5
+> Supported since v3.8.4
 
 - For a specific property of the current action
 
@@ -217,7 +217,7 @@ tween(this.node)
 
 > [!TIP]
 >
-> Supported from v3.8.5: `union(fromId)`
+> Supported from v3.8.4: `union(fromId)`
 
 The `union(fromId)` method merges actions from a specified identifier to the current action into a single sequence action. It is often used in conjunction with `id`, `repeat`, and `repeatForever`. The sample code is as follows:
 
@@ -355,7 +355,7 @@ The usage of `repeatForever` interface is similar to `repeat`, but it becomes pe
 
 > [!TIP]
 >
-> Supported since v3.8.5
+> Supported since v3.8.4
 
 The `id` interface is used to assign a numerical identifier to the preceding action. Ensure that **identifiers are unique**, as the tween system will directly use the first action found during internal searches.
 
@@ -373,7 +373,7 @@ tween(this.node)
 
 > [!TIP]
 >
-> Supported since v3.8.5
+> Supported since v3.8.4
 
 The `reverse` interface has three overloaded implementations:
 
@@ -539,7 +539,7 @@ srcTween.clone(find("Cone")).start();
 
 > [!TIP]
 >
-> Starting from v3.8.5, it is supported to clone tweens without passing the `target` parameter, meaning the cloned tween directly uses the original target.
+> Starting from v3.8.4, it is supported to clone tweens without passing the `target` parameter, meaning the cloned tween directly uses the original target.
 
 Example:
 
@@ -552,7 +552,7 @@ const clonedTween = srcTween.clone(); // clonedTween's target is also the this.n
 
 > [!TIP]
 >
-> Supported from v3.8.5
+> Supported from v3.8.4
 
 If you want to handle actions like `position`, `contentSize`, and `color` simultaneously in a tween chain, with their targets being different—node, UITransform component on the node, and Sprite component on the node respectively, you can achieve this using the following code:
 
@@ -663,7 +663,7 @@ Tween.stopAllByTarget(node1); // t1 and t3 are associated with node1, so they wi
 
 > [!TIP]
 >
-> Supported from v3.8.5
+> Supported from v3.8.4
 
 Manual pause and resume:
 
@@ -684,13 +684,13 @@ t.resume(); // Resume the tween t
 
 > [!IMPORTANT]
 >
-> From v3.8.5, if the tween target is of type Node, the tween will automatically pause and resume based on the Node's active state.
+> From v3.8.4, if the tween target is of type Node, the tween will automatically pause and resume based on the Node's active state.
 
 ## Scaling Tween Time
 
 > [!TIP]
 >
-> Supported from v3.8.5
+> Supported from v3.8.4
 
 ```ts
 tween(this.node)
@@ -705,7 +705,7 @@ In the above example, `timeScale` is set to 0.5. The `to` action's duration is 1
 
 > [!TIP]
 >
-> Supported from v3.8.5
+> Supported from v3.8.4
 
 ```ts
 const t = tween(this.node)
@@ -720,7 +720,7 @@ console.log(t.duration); // Outputs 2
 
 > [!TIP]
 >
-> Supported from v3.8.5
+> Supported from v3.8.4
 
 The `update` interface is used to add a custom action.
 
@@ -763,7 +763,7 @@ tween(this.node)
 
 > [!TIP]
 >
-> Supported from v3.8.5
+> Supported from v3.8.4
 
 The `start` interface can receive a `startTime` parameter, in seconds, to start the tween from a specific time. All tweens before this time will be executed immediately.
 
@@ -783,7 +783,7 @@ In the above example, two `to` actions are created with a total duration of 2 se
 
 > [!TIP]
 >
-> Supported from v3.8.5
+> Supported from v3.8.4
 
 When the target of tween is `Node`, it will listen to its destruction event for automatic destruction of tween, and the call to `target` method will also update the listener automatically.
 
@@ -815,4 +815,4 @@ To stop and destroy the tween, the following methods are available.
     Tween.stopAllByTarget(this.node); // Destroy all tweens on this node
     ```
 
-> **Note**: In versions prior to v3.8.5, remember to stop the corresponding tweens when switching scenes. From v3.8.5, the engine will handle this automatically.
+> **Note**: In versions prior to v3.8.4, remember to stop the corresponding tweens when switching scenes. From v3.8.4, the engine will handle this automatically.

@@ -40,7 +40,7 @@ tween(this.node.position)
 
 >  [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 ```ts
 tween(this.node).to(1, { angle: ()=>90 ).start();
@@ -56,7 +56,7 @@ tween(this.node).to(1, { angle: 90 ).start();
 
 >  [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 - 针对当前动作的某个属性
 
@@ -90,7 +90,7 @@ tween(this.node).to(1, { angle: 90, position: v3(90, 90, 90) }, {
 
 >  [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 - 针对当前动作的某个属性
 
@@ -217,7 +217,7 @@ tween(this.node)
 
 > [!TIP]
 >
-> 从 v3.8.5 开始支持：`union(fromId)` 
+> 从 v3.8.4 开始支持：`union(fromId)` 
 
 `union(fromId)` 方法会将从某个标识的的动作到当前的所有动作合并为一个顺序动作（Sequence），常与 `id`、`repeat` 和 `repeatForever` 配合使用，示例代码如下：
 
@@ -353,7 +353,7 @@ tween(this.node)
 
 > [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 接口 `id` 用于给前一个动作添加一个 `number` 类型的标识，注意 **标识不要有重复** ，否则缓动系统内部搜索标识的时候将直接使用第一个表示的动作。
 
@@ -371,7 +371,7 @@ tween(this.node)
 
 > [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 `reverse` 接口有 3 个重载实现，分别为：
 
@@ -537,7 +537,7 @@ srcTween.clone(find("Cone")).start();
 
 > [!TIP]
 >
-> 从 v3.8.5 开始支持在 clone 的时候不传递 target 参数，即复制生成的新缓动直接使用原来的 target
+> 从 v3.8.4 开始支持在 clone 的时候不传递 target 参数，即复制生成的新缓动直接使用原来的 target
 
 示例如下：
 
@@ -550,7 +550,7 @@ const clonedTween = srcTween.clone(); // clonedTween 的 target 也是 this.node
 
 >  [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 如果要在一个缓动链式调用中同时处理 position, contentSize, color 动作，它们的目标分别为：节点、节点上的 UITransform 组件、节点上的 Sprite 组件，可以通过如下代码实现：
 
@@ -661,7 +661,7 @@ Tween.stopAllByTarget(node1); // t1 和 t3 关联了 node1，因此它们将被�
 
 > [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 手动暂停恢复：
 
@@ -682,13 +682,13 @@ t.resume(); // 恢复缓动 t
 
 > [!IMPORTANT]
 >
-> 从 v3.8.5 开始，如果缓动目标是 Node 类型，那么缓动会根据 Node 的 active 状态自动暂停恢复。
+> 从 v3.8.4 开始，如果缓动目标是 Node 类型，那么缓动会根据 Node 的 active 状态自动暂停恢复。
 
 ## 缩放缓动时间
 
 > [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 ```ts
 tween(this.node)
@@ -703,7 +703,7 @@ tween(this.node)
 
 > [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 ```ts
 const t = tween(this.node)
@@ -718,7 +718,7 @@ console.log(t.duration); // 将输出 2
 
 > [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 `update` 接口用于添加一个自定义动作。
 
@@ -762,7 +762,7 @@ tween(this.node)
 
 > [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 `start` 接口可接收 startTime 参数，单位为秒，用于从某个时间开始缓动，此时间前的所有缓动将被立马执行完毕。
 
@@ -782,7 +782,7 @@ const t = tween(this.node)
 
 >  [!TIP]
 >
-> 从 v3.8.5 开始支持
+> 从 v3.8.4 开始支持
 
 当缓动目标为 `Node` 时，将会监听其销毁事件进行缓动的自动销毁，调用 `target` 方法也会自动更新监听。
 
@@ -814,4 +814,4 @@ const t = tween(this.node)
     Tween.stopAllByTarget(this.node); // 销毁该节点上的所有缓动
     ```
 
-> **注意**：在 v3.8.5 之前的版本，切换场景时记得停止相应的缓动。v3.8.5 及之后的版本，引擎会自动处理。
+> **注意**：在 v3.8.4 之前的版本，切换场景时记得停止相应的缓动。v3.8.4 及之后的版本，引擎会自动处理。
