@@ -16,5 +16,5 @@
 
 ## 范例
 
-更多关于 Tween 具体的使用方法，详情请参考范例 **Tween**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8.5/assets/cases/tween)）。
+更多关于 Tween 具体的使用方法，详情请参考范例 **Tween**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8.4/assets/cases/tween)）。
 
