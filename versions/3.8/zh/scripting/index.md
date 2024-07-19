@@ -14,6 +14,7 @@ Cocos Creator 脚本用于实现用户定义的（游戏）行为，支持 JavaS
 - [模块规范与示例](./modules/index.md)
 - [插件脚本](./external-scripts.md)
 - [WASM 支持](./wasm-support.md)
+- [只读属性](./readonly.md)
 
 ## 更多参考
 

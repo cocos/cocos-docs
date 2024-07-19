@@ -13,6 +13,7 @@ During the component scripting process, developers can declare properties to map
 - [Event System](../engine/event/index.md)
 - [Modules](./modules/index.md)
 - [Plugin Scripts](./external-scripts.md)
+- [ReadOnly](./readonly.md)
 
 ## More Reference
 

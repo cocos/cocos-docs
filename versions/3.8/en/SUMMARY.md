@@ -92,6 +92,7 @@
         - [Decorator](scripting/decorator.md)
         - [Property Attributes](scripting/reference/attributes.md)
         - [Life Cycle Callbacks](scripting/life-cycle-callbacks.md)
+        - [Development Notes](scripting/readonly.md)
     - [Using Scripts](scripting/usage.md)
         - [Access Nodes and Components](scripting/access-node-component.md)
         - [Common Node and Component Interfaces](scripting/basic-node-api.md)
