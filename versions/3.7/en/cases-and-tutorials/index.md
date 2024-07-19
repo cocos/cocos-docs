@@ -18,10 +18,23 @@
 
 ### Videos
 
-- [Cocos Creator 3.x for Beginners](https://www.youtube.com/watch?v=JSOXYPqZ1-8&list=PLbvpmJKjO3NA4dlW43GzhJUMaXyIp3xpc)
-- [Cocos Quick Look](https://www.youtube.com/watch?v=R4Mxm55x56Q&list=PLbvpmJKjO3NCgicfQ_N32Oo62LgPVs4kf)
-- [Introduction to Shaders with Cocos Creator](https://www.youtube.com/watch?v=tUQHK42UcHc&list=PLbvpmJKjO3ND91HTUSKWNzMboob-7J_wq)
-- [Introduction to Cocos Creator 3.0](https://www.youtube.com/watch?v=3v4pq0tDo5g&list=PLbvpmJKjO3NDv_eb6vlN70Zo-pdAv8MNW)
+- [Cocos Creator 3.8.x 2024 - Thai](https://www.youtube.com/playlist?list=PLg8rmK5l3iAv4wyC51WexGEoAZsGsE-5h)
+- [Cocos Creator 3.x - Russian](https://www.youtube.com/playlist?list=PLgr-6BfBjOQe57V5DmfS8QrjaXeZALEqQ)
+- [Cocos Creator Node (3.6) - English](https://www.youtube.com/playlist?list=PLA7APcbP_j1CwdFOBc_oKALXG5cQYUys0)
+- [Cocos Creator 3.8 - Vietnamese](https://www.youtube.com/playlist?list=PL4MGZa9rm2XqlViV0BoWI9F4WGpYlEDnq)
+- [Cocos creator - Russian](https://www.youtube.com/playlist?list=PLxteTodXPVzzD4pH0KoyuHfTM_-qdgTQC)
+- [Build Games with Cocos Creator 3.x - Hindi](https://www.youtube.com/playlist?list=PLHtj5-dnEqODK8gZ61G1_DkYyWj5Ps3nG)
+- [Mind Your Step Cocos Creator 3D Game Tutorial - English](https://www.youtube.com/playlist?list=PLCZLyGdEmWnN4AQ1OPLIJ-QKyj0NLOsxX)
+- [Cocos Creator 3.x - Vietnamese](https://www.youtube.com/playlist?list=PLy6W1KkOryCm-Vm55oH9XWkBKnCEGmHHO)
+- [Уроки Cocos Creator 3.x  3D - Russian](https://www.youtube.com/playlist?list=PLltSq0ByhzqEjbFslajW6O-9HC33HqnEJ)
+- [Cocos Creator [สอน] 3.x - Thai](https://www.youtube.com/playlist?list=PLg8rmK5l3iAstV5g-OEKXDDeuCTy9XKRU)
+- [Cocos Creator 3.x - Vietnamese](https://www.youtube.com/playlist?list=PLFGr79zIDarZLBQ6JCW1gYluZ_iFG46E_)
+- [สร้างเกม 2D ด้วย Cocos Creator 3.x - That](https://www.youtube.com/playlist?list=PLs7ibWRUM5eEsioZbbqV6gt1ilW1EX5Ni)
+
+- [Cocos Creator 3.x for Beginners - English](https://www.youtube.com/watch?v=JSOXYPqZ1-8&list=PLbvpmJKjO3NA4dlW43GzhJUMaXyIp3xpc)
+- [Cocos Quick Look - English](https://www.youtube.com/watch?v=R4Mxm55x56Q&list=PLbvpmJKjO3NCgicfQ_N32Oo62LgPVs4kf)
+- [Introduction to Shaders with Cocos Creator - English](https://www.youtube.com/watch?v=tUQHK42UcHc&list=PLbvpmJKjO3ND91HTUSKWNzMboob-7J_wq)
+- [Introduction to Cocos Creator 3.0 - English](https://www.youtube.com/watch?v=3v4pq0tDo5g&list=PLbvpmJKjO3NDv_eb6vlN70Zo-pdAv8MNW)
 
 ### Articles
 
