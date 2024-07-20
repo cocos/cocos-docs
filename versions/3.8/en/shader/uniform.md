@@ -41,13 +41,11 @@ All currently available built-in uniforms, grouped by the chunks they are locate
 
 | Name | Type | Info |
 | :-- | :-- | :-- |
-| `cc_sphereLitPos[MAX_LIGHTS]` | vec4 | xyz: position of spherical lights |
-| `cc_sphereLitSizeRange[MAX_LIGHTS]` | vec4 | x: size of spherical lights<br>y: range of spherical lights |
-| `cc_sphereLitColor[MAX_LIGHTS]` | vec4 | xyz: color of spherical lights<br>w: intensity |
-| `cc_spotLitPos[MAX_LIGHTS]` | vec4 | xyz: position of spotlights |
-| `cc_spotLitSizeRangeAngle[MAX_LIGHTS]` | vec4 | x: size of spotlights<br>y: range of spotlights<br>z: angle of spotlights |
-| `cc_spotLitDir[MAX_LIGHTS]` | vec4 | xyz: direction of spotlights |
-| `cc_spotLitColor[MAX_LIGHTS]` | vec4 | xyz: color of spotlights<br>w: intensity |
+| `cc_lightPos[LIGHTS_PER_PASS]`            | vec4 | xyz: light source position<br> w: valid light source type 0: directional light, 1: spherical light, 2: spotlight, 3: point light, 4: range directional light, 5: unknown |
+| `cc_lightColor[LIGHTS_PER_PASS]`          | vec4 | xyz: spherical light color<br>w: spherical light intensity                                                                                                               |
+| `cc_lightSizeRangeAngle[LIGHTS_PER_PASS]` | vec4 | x: light source size, y: light source range, z: cos(outer half-angle), w: enable shadow                                                                                  |
+| `cc_lightDir[LIGHTS_PER_PASS]`            | vec4 | xyz: direction, w: unused                                                                                                                                                |
+| `cc_lightBoundingSizeVS[LIGHTS_PER_PASS]` | vec4 | xyz: range directional light node half-scale
 
 ## `cc-shadow.chunk`
 
