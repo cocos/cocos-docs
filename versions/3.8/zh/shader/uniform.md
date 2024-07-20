@@ -49,13 +49,11 @@
 
 | Name | Type | Info |
 | :--- | :-- | :-- |
-| `cc_sphereLitPos[MAX_LIGHTS]` | vec4 | xyz：球面光位置 |
-| `cc_sphereLitSizeRange[MAX_LIGHTS]` | vec4 | x：球光尺寸<br>y：球光范围 |
-| `cc_sphereLitColor[MAX_LIGHTS]` | vec4 | xyz：球光颜色<br>w：球光强度 |
-| `cc_spotLitPos[MAX_LIGHTS]` | vec4 | xyz：聚光灯位置 |
-| `cc_spotLitSizeRangeAngle[MAX_LIGHTS]` | vec4 | x：聚光灯尺寸<br>y：聚光灯范围<br>z：聚光灯角度 |
-| `cc_spotLitDir[MAX_LIGHTS]` | vec4 | xyz：聚光灯方向 |
-| `cc_spotLitColor[MAX_LIGHTS]` | vec4 | xyz：聚光灯颜色<br>w：聚光灯强度 |
+| `cc_lightPos[LIGHTS_PER_PASS]` | vec4 | xyz：光源位置<br> w: 有效的光源类型0: 方向光,1: 球形光,2: 聚光灯,3: 点光源,4: 范围方向光,5: 未知 |
+| `cc_lightColor[LIGHTS_PER_PASS]` | vec4 | xyz：球光颜色<br>w：球光强度 |
+| `cc_lightSizeRangeAngle[LIGHTS_PER_PASS]` | vec4 | x:光源大小, y:光源范围, z: cos(外半角), w: 启用阴影 |
+| `cc_lightDir[LIGHTS_PER_PASS]` | vec4 | xyz: 方向, w: 未使用 |
+| `cc_lightBoundingSizeVS[LIGHTS_PER_PASS]` | vec4 | xyz: 范围方向光节点半比例 |
 
 ## `cc-shadow.chunk`
 
