@@ -20,11 +20,11 @@ Once enabled, scripts in the project will be encrypted and encapsulated in a .js
 
 ![encrypt js](publish-native/encrypt-js.png)
 
-#### Native Engine
+### Native Engine
 
 Users may choose Cocos Creator’s built-in native engine or their custom typescript engine to deploy to native platforms. Click **Edit** to open the **Preferences** panel and enter the custom engine directory under the **[Engine Manager](../preferences/index.md#engine-manager)** tab.
 
-#### Job System
+### Job System
 
 Job System is managed by the internal mechanisms and does not require manual modifications. Should such need emerges, please take note:
 
@@ -37,7 +37,7 @@ At the bottom right of the **Build** panel, there are three buttons: **Build**, 
 
 If you want, you can click the **Link** button between two buttons, and it will turn into an **Arrow**. This means that the next step pointed to by the arrow will be automatically executed after the completion of the previous step. Clicking the arrow again will restore it to its previous state.
 
-### Other Build Options
+## Other Build Options
 
 To publish to native platforms, you need to install and configure some necessary environments. For more details, please refer to [Setting up Native Development Environment](setup-native-development.md).
 
