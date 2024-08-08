@@ -125,7 +125,6 @@ So, let's drag the `PlayerController` script onto the  Inspector of Player node.
 You should see that a `PlayerController` component has been added to the Player node.
 
 > **Note**: You can also click on the **Add Component** button to add different types of components.
-> `import { _decorator, Component, Node } from 'cc'`
 
 ## Map
 
