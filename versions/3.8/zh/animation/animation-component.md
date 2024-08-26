@@ -52,6 +52,8 @@ animationComponent.crossFade('run', 0.3);
 
 即便如此，动画组件仍提供了 `pause()`、`resume()`、`stop()` 方法，这些方法在暂停、继续以及停止正在播放的所有动画状态的同时，也暂停、继续以及停止动画的切换。
 
+**备注：只作用于实时骨骼动画**
+
 关于动画组件更多相关的控制接口，详情请参考 [类 `Animation`](%__APIDOC__%/zh/class/Animation)。
 
 ## 动画状态
