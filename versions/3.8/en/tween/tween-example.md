@@ -144,6 +144,188 @@ tween(this.node).to(1, { angle: 90, position: v3(90, 90, 90) }, {
 }).start();
 ```
 
+### Easing Strings
+
+> [!TIP]
+>
+> Supported since v3.8.4
+
+Consider defining a class:
+
+```ts
+class StringTarget {
+    string = '';
+}
+```
+
+#### Example 1 (Integer Strings)
+
+Using the `to` interface, animate the `string` property from '0' to '100' over one second:
+
+```ts
+const t = new StringTarget();
+t.string = '0';
+
+// Here, the type of the `string` value can be either a number or a string that can be converted to a number
+tween(t).to(1, { string: 100 }).start(); 
+tween(t).to(1, { string: '100' }).start();
+```
+
+#### Example 2 (Floating-Point Strings)
+
+```ts
+const t = new StringTarget();
+t.string = '10';
+
+// Animate from 10 to 110, keeping two decimal places throughout the animation
+// For example: '10.00' -> '43.33' -> '76.67' -> '110.00'
+tween(t).to(1, { string: { value: 110, toFixed: 2 } }).start(); // Note: `value` represents the target value, `toFixed` specifies the number of decimal places
+```
+
+#### Example 3 (Custom Handling of Multiple String Properties)
+
+```ts
+const o = { 
+    gold: "¥0.00",
+    exp: '1000/1000',
+    lv: 'Lv.100',
+    attack: '100 points',
+    health: '10.00',
+};
+
+const tweenFormat = {
+    currency(value: number): TTweenCustomProperty<string> {
+        return {
+            value: `¥${value}`,
+            progress(start: number, end: number, current: string, ratio: number): string { // Custom progress function
+                return `¥${lerp(start, end, ratio).toFixed(2)}`; // Keep two decimal places
+            },
+            convert(v: string): number { // Custom conversion callback to convert string to number
+                return Number(v.slice(1)); // The string starts with '¥' which isn't part of the animation, so slice it off and convert the remaining part to a number
+            },
+        };
+    },
+
+    health(value: number): TTweenCustomProperty<string> {
+        // `health` is a floating-point number with two decimal places, so no need for a custom progress function; use the built-in progress function
+        return {
+            value: `${value}`,
+            toFixed: 2, // Specify two decimal places; without this, the result would be an integer string
+        };
+    },
+
+    exp(value: number): TTweenCustomProperty<string> {
+        return {
+            value: () => `${value}/1000`,
+            progress(start: number, end: number, current: string, ratio: number): string {
+                return `${lerp(start, end, ratio).toFixed(0)}/1000`;
+            },
+            convert(v: string): number {
+                return Number(v.slice(0, v.indexOf('/')));
+            },
+            // `exp` is an integer string, so no need to specify the `toFixed` parameter
+        };
+    },
+
+    lv(value: number): TTweenCustomProperty<string> {
+        return {
+            value: `Lv.${value}`,
+            progress(start: number, end: number, current: string, ratio: number): string {
+                return `Lv.${lerp(start, end, ratio).toFixed(0)}`;
+            },
+            convert(v: string): number {
+                return Number(v.slice(v.indexOf('.') + 1));
+            },
+        };
+    },
+};
+
+tween(o).to(1, { 
+    gold: tweenFormat.currency(100),
+    health: tweenFormat.health(1),
+    exp: tweenFormat.exp(0),
+    lv: tweenFormat.lv(0),
+}).start();
+```
+
+### Custom Easing for Arbitrary Object Types
+
+```ts
+class MyProp {
+    constructor(x = 0, y = 0) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public static lerp (a: MyProp, b: MyProp, out: MyProp, t: number): MyProp {
+        const x = a.x;
+        const y = a.y;
+        out.x = x + t * (b.x - x);
+        out.y = y + t * (b.y - y);
+        return out;
+    }
+
+    public static add (a: MyProp, b: MyProp): MyProp {
+        const out = new MyProp();
+        out.x = a.x + b.x;
+        out.y = a.y + b.y;
+        return out;
+    }
+
+    public static sub (a: MyProp, b: MyProp): MyProp {
+        const out = new MyProp();
+        out.x = a.x - b.x;
+        out.y = a.y - b.y;
+        return out;
+    }
+
+    clone(): MyProp {
+        return new MyProp(this.x, this.y);
+    }
+
+    equals (other: MyProp, epsilon = EPSILON): boolean {
+        return (
+            Math.abs(this.x - other.x) <= epsilon * Math.max(1.0, Math.abs(this.x), Math.abs(other.x))
+	            && Math.abs(this.y - other.y) <= epsilon * Math.max(1.0, Math.abs(this.y), Math.abs(other.y))
+        );
+    }
+
+    x = 0;
+    y = 0;
+}
+
+class MyObject {
+    angle = 0;
+    str = '';
+    private _myProp = new MyProp();
+
+    set myProp(v) {
+        this._myProp.x = v.x;
+        this._myProp.y = v.y;
+    }
+
+    get myProp() {
+        return this._myProp;
+    }
+}
+
+const o = new MyObject();
+o.myProp.x = 1;
+o.myProp.y = 1;
+
+tween(o)
+    .by(1, { myProp: {
+        value: new MyProp(100, 100), // Target value
+        progress: MyProp.lerp, // Provide custom easing function for the object
+        clone: v => v.clone(), // Provide clone function
+        add: MyProp.add, // If using the `by` action, provide the `add` method
+        sub: MyProp.sub, // If using the `by` action with reverse, provide the `sub` method along with `add`
+        legacyProgress: false, // Set to `false` to use the new progress callback with object parameters, e.g., `MyProp.lerp`, instead of the default number-based progress callback
+    } }).id(123)
+    .reverse(123)
+    .start();
+```
+
 ## Binding Different Objects
 
 There are more scenarios where `Node` is used as a binding target in development, and the code example is as follows.
@@ -716,23 +898,24 @@ const t = tween(this.node)
 console.log(t.duration); // Outputs 2
 ```
 
-## Custom Actions
+## Custom Actions (constant duration)
 
 > [!TIP]
 >
 > Supported from v3.8.4
 
-The `update` interface is used to add a custom action.
+The `update` interface is used to add a custom action with constant duration.
 
 Its interface declaration is as follows:
 
 ```ts
+export type TweenUpdateCallback<T extends object, Args extends any[]> = (target: T, ratio: number, ...args: Args) => void;
 /**
- * @en Add a custom action.
- * @param duration @en The tween time in seconds.
- * @param cb @en The callback of the current action.
- * @param args @en The arguments passed to the callback function.
- * @return @en The instance itself for easier chaining.
+ * Add a custom action with constant duration.
+ * @param duration The tween time in seconds.
+ * @param cb The callback of the current action.
+ * @param args The arguments passed to the callback function.
+ * @return The instance itself for easier chaining.
  */
 update<Args extends any[]> (duration: number, cb: TTweenUpdateCallback<T, Args>, ...args: Args): Tween<T> { ... }
 ```
@@ -758,6 +941,84 @@ tween(this.node)
     .call(() => { done = true; })
     .start();
 ```
+
+## Custom Action (Indeterminate Duration)
+
+> [!TIP]
+>
+> Supported from v3.8.4
+
+The `updateUntil` interface is used to add a custom action with an indeterminate duration.
+
+Its interface declaration is as follows:
+
+```ts
+export type TweenUpdateUntilCallback<T extends object, Args extends any[]> = (target: T, dt: number, ...args: Args) => boolean;
+
+/**
+ * Adds a custom action with an indeterminate duration. If the callback function returns `true`, it indicates that the current action has ended.
+ * @param cb The action callback function. If the callback function returns `true`, it indicates that the current action has ended.
+ * @param args The arguments to pass to the action callback function.
+ * @return The instance itself to allow for chained calls.
+ */
+updateUntil<Args extends any[]> (cb: TweenUpdateUntilCallback<T, Args>, ...args: Args): Tween<T> { ... }
+```
+
+The following example code is used to track a dynamic object. When the object is approached, the node scales up, resets its position, and repeats the process.
+
+```ts
+import { _decorator, Component, Node, tween, v3, Vec3 } from 'cc';
+const { ccclass, property } = _decorator;
+
+const positionTmp = new Vec3();
+const positionTmp2 = new Vec3();
+
+@ccclass('TweenTest')
+export class TweenTest extends Component {
+
+    @property(Node)
+    targetNode: Node | null = null;
+
+    start() {
+        tween(this.node)
+            .updateUntil((curNode: Node, dt: number)=>{
+                const d = Vec3.copy(positionTmp2, this.targetNode!.position).subtract(curNode.position);
+                const length = d.length();
+                if (length < 10) {
+                    return true; // The `updateUntil` process ends when the distance between the current node and the target node is less than 10
+                }
+                
+                const newPos = Vec3.copy(positionTmp, curNode.position).add(d.normalize().multiplyScalar(length / 10 * dt * 10));
+                curNode.setPosition(newPos);
+                return false; // Returning `false` indicates that the `updateUntil` process should continue
+            })
+            .by(0.25, { scale: v3(1, 1, 0) }, { easing: 'cubicInOut' }).id(1)
+            .reverse(1)
+            .call((curNode?: Node)=>{
+                const newPos = v3((Math.random() - 0.5) * 400, (Math.random() - 0.5) * 400, 0);
+                if (newPos.y < 100 && newPos.y > 0) newPos.y = 100;
+                if (newPos.y > -100 && newPos.y < 0) newPos.y = -100;
+
+                if (newPos.x < 100 && newPos.x > 0) newPos.x = 100;
+                if (newPos.x > -100 && newPos.x < 0) newPos.x = -100;
+                curNode?.setPosition(newPos);
+            })
+            .union()
+            .repeatForever()
+            .start();
+
+        tween(this.node)
+            .by(1, { angle: 360 })
+            .repeatForever()
+            .start();
+
+    }
+}
+```
+
+Result:
+
+![](img/updateUntil.gif)
 
 ## Starting Tween from a Specific Time
 
