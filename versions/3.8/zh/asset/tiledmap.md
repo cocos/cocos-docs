@@ -34,15 +34,10 @@
 
 ![alt text](tiledmap/image-8.png)
 
-**这里需要选择的是拉伸后的大小**
+**这里需要设置为要使用原图片的大小，即32X32，并且设置margin为1(图片偏移上下左右1像素)，间距设置为2(左右1像素，就是两个像素，上下也一样)**
 
 - 编辑图集
 ![alt text](tiledmap/image-9.png)
-- 设置偏移，因为使用texturepacker之后，图集是偏移过的，因此需要进行偏移。
-![alt text](tiledmap/image-10.png)
-
-- 绘制，因为偏移过的，所以绘制时，上下左右都超出1像素是正常的，例如下图
-![alt text](tiledmap/image-11.png)
 
 - 完成地图，如下图：
 ![alt text](tiledmap/image-12.png)
