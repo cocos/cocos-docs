@@ -28,7 +28,7 @@
 
 我们在项目配置里新增扩展的配置，也需要通过在扩展定义文件 `package.json` 里添加 `contributions` 配置来实现。
 
-自定义项目设置需要依赖数据配置，需要先在 `contributions.profile.project` 里定义好相关数据字段。更多相信信息可以参看 [配置系统](./profile.md)
+自定义项目设置需要依赖数据配置，需要先在 `contributions.profile.project` 里定义好相关数据字段。更多详细信息可以参看 [配置系统](./profile.md)
 
 这里我们举例新建一个叫做 `first-panel` 的扩展：
 

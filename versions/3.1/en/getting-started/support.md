@@ -27,7 +27,7 @@ More engine dynamics, quality tutorials, and interviews can be viewed at [![twit
 ### Tools for generating texture packer
 
 - [TexturePacker](https://www.codeandweb.com/texturepacker)
-- [Zwoptex](https://zwopple.com/zwoptex/)
+
 
 ### Tools for generating Bitmap font
 

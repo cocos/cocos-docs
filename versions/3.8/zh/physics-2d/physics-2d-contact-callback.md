@@ -27,16 +27,12 @@ export class TestContactCallBack extends Component {
         if (collider) {
             collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
             collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
-            collider.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
-            collider.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
         }
 
         // 注册全局碰撞回调函数
         if (PhysicsSystem2D.instance) {
             PhysicsSystem2D.instance.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
             PhysicsSystem2D.instance.on(Contact2DType.END_CONTACT, this.onEndContact, this);
-            PhysicsSystem2D.instance.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
-            PhysicsSystem2D.instance.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
         }
     }
     onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
@@ -58,8 +54,6 @@ export class TestContactCallBack extends Component {
 }
 
 ```
-
-> **注意**：自 v3.7.1 起，Contact2DType.PRE_SOLVE 和 Contact2DType.POST_SOLVE 已废弃。
 
 上面的代码示例演示了如何在脚本中添加所有的碰撞回调函数。回调一共有四种，每种回调函数都有三个参数，详情可查看下方的 **回调参数** 说明。每种回调函数的作用如注释所示，开发者可以根据自己的需求实现相应的回调函数。
 

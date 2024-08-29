@@ -25,16 +25,12 @@ export class TestContactCallBack extends Component {
         if (collider) {
             collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
             collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
-            collider.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
-            collider.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
         }
 
         // Registering global contact callback functions
         if (PhysicsSystem2D.instance) {
             PhysicsSystem2D.instance.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
             PhysicsSystem2D.instance.on(Contact2DType.END_CONTACT, this.onEndContact, this);
-            PhysicsSystem2D.instance.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
-            PhysicsSystem2D.instance.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
         }
     }
     onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
@@ -56,8 +52,6 @@ export class TestContactCallBack extends Component {
 }
 
 ```
-
-> __Note__：Contact2DType.PRE_SOLVE and Contact2DType.POST_SOLVE are deprecated since v3.7.1.
 
 The above code example demonstrates how to add all the collision callback functions to a script. There are four types of callbacks, each callback function has three parameters, see [Callback parameters](#callback-parameters) below for details. The role of each callback function is shown in the comments, and developers can implement their own callback functions according to their needs.
 

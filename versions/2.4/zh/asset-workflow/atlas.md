@@ -22,7 +22,7 @@
 接下来可以使用专门的软件生成图集，我们推荐的图集制作软件包括：
 
 - [TexturePacker](https://www.codeandweb.com/texturepacker)
-- [Zwoptex](https://zwopple.com/zwoptex/)
+
 
 使用这些软件生成图集时请选择 cocos2d-x 格式的 plist 文件。最终得到的图集文件是同名的 **plist** 和 **png**。
 
