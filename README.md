@@ -1,4 +1,3 @@
-
 # Repo for Cocos Creator User Manual
 
 - Cocos Creator User Manual: [https://docs.cocos.com](https://docs.cocos.com)
