@@ -36,7 +36,7 @@
 ### 图集生产工具
 
 - [TexturePacker](https://www.codeandweb.com/texturepacker)
-- [Zwoptex](https://zwopple.com/zwoptex/)
+
 
 ### 位图字体生产工具
 

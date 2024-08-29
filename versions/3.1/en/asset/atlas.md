@@ -22,7 +22,7 @@ To generate an __Atlas__, you should first prepare a set of original pictures. E
 __Next__, use special software to generate the __Atlas__. Examples:
 
 - [TexturePacker 4.x](https://www.codeandweb.com/texturepacker)
-- [Zwoptex](https://zwopple.com/zwoptex/)
+
 
 When using these software packages to generate an __Atlas__, please select a `.plist` file in **Cocos2d-x** format. The resulting __Atlas__ files are a `.plist` and `.png` with the same name. Example: `myAtlas.plist` and `myAtlas.png`.
 

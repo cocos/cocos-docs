@@ -22,7 +22,7 @@ You should prepare the original images for generating Atlas:
 Then you can generate Atlas by special tools. We suggest:
 
 - [TexturePacker](https://www.codeandweb.com/texturepacker)
-- [Zwoptex](https://zwopple.com/zwoptex/)
+
 
 Please select plist files for cocos2d-x when export atlas by the tool. Then you will get **plist** & **png** with the same name:
 
