@@ -5,7 +5,7 @@
 | 函数名                 | 返回值类型             | 意义             |
 | :-------------             | :----------            |   :----------        |
 | **getScrollY**      |  Number             | 获取滚轮滚动的 Y 轴距离，只有滚动时才有效。                      |
-| **getButton**       | Number | **Event.EventMouse.BUTTON_LEFT** 或 **Event.EventMouse.BUTTON_RIGHT** 或 **Event.EventMouse.BUTTON_MIDDLE**。                     ｜
+| **getButton**       | Number | **EventMouse.BUTTON_LEFT** 或 **EventMouse.BUTTON_RIGHT** 或 **EventMouse.BUTTON_MIDDLE**。                     ｜
 
 ### 全局鼠标事件 API
 
