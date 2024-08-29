@@ -45,7 +45,7 @@ Cocos Creator 允许每个扩展注册自己的编辑器配置，然后在偏好
 
 我们在偏好设置里新增扩展的配置，也需要通过在扩展定义文件 `package.json` 里添加 `contributions` 配置来实现。
 
-注册自定义偏好设置需要在 `contributions.profile.editor` 里定义好相关数据字段。更多相信信息可以参看 [配置系统](./profile.md)
+注册自定义偏好设置需要在 `contributions.profile.editor` 里定义好相关数据字段。更多详细信息可以参看 [配置系统](./profile.md)
 
 这里我们举例新建一个叫做 `first-panel` 的扩展：
 
