@@ -52,6 +52,8 @@ This fade-in and fade-out mechanism of `crossFade()` makes it possible for more 
 
 Even so, the Animation Component provides `pause()`, `resume()`, and `stop()` methods that pause, resume, and stop all the animation states being played while also pausing, resuming, and stopping the animation switching.
 
+**Notes：Only take effect on REALTIME Mode spine Animation**
+
 For more details about the control interface related to the Animation Component, please refer to the [Class Animation](%__APIDOC__%/en/class/Animation).
 
 ## Animation State
