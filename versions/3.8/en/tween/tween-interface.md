@@ -4,7 +4,7 @@
 
 ### Interface
 
-The interfaces supported from `v3.8.5` onwards include: `reverse`, `id`, `union(fromId?: number)`, `timeScale`, `pause`, `resume`, `pauseAllByTarget`, `resumeAllByTarget`, `update`, `start(time)`, `duration`.
+The interfaces supported from `v3.8.4` onwards include: `reverse`, `id`, `union(fromId?: number)`, `timeScale`, `pause`, `resume`, `pauseAllByTarget`, `resumeAllByTarget`, `update`, `start(time)`, `duration`.
 
 | Interface         | Description                                                  |
 | :---------------- | :----------------------------------------------------------- |

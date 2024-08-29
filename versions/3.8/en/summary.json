@@ -361,6 +361,10 @@
                             {
                                 "text": "Life Cycle Callbacks",
                                 "link": "scripting/life-cycle-callbacks.md"
+                            },
+                            {
+                                "text": "Development Notes",
+                                "link": "scripting/readonly.md"
                             }
                         ],
                         "collapsed": true
