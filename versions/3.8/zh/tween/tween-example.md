@@ -144,6 +144,188 @@ tween(this.node).to(1, { angle: 90, position: v3(90, 90, 90) }, {
 }).start();
 ```
 
+### 缓动字符串
+
+> [!TIP]
+>
+> 从 v3.8.4 开始支持
+
+假设定义一个类：
+
+```ts
+class StringTarget {
+    string = '';
+}
+```
+
+#### 用例一 (整型字符串)
+
+使用 to 接口，在一秒之内，string 属性从 '0' 过度到 '100'
+
+```ts
+const t = new StringTarget();
+t.string = '0';
+
+// 这里 string 的值的类型可以是 number 或能转换为 number 的字符串
+tween(t).to(1, { string: 100 }).start(); 
+tween(t).to(1, { string: '100' }).start();
+```
+
+#### 用例二（浮点字符串）
+
+```ts
+const t = new StringTarget();
+t.string = '10';
+
+// 从 10 缓动到 110， 缓动过程中 t.string 的值始终保持小数点后两位有效数字
+// 比如：'10.00' -> '43.33' -> '76.67' -> '110.00'
+tween(t).to(1, { string: { value: 110, toFixed: 2 } }).start(); // 注意，这里使用 value 表示目标值，toFixed 表示要保留的小数位
+```
+
+#### 用例三（自定义处理多个字符串属性）
+
+```ts
+const o = { 
+    gold: "¥0.00",
+    exp: '1000/1000',
+    lv: 'Lv.100',
+    attack: '100 points',
+    health: '10.00',
+};
+
+const tweenFormat = {
+    currency(value: number): TTweenCustomProperty<string> {
+        return {
+            value: `¥${value}`,
+            progress(start: number, end: number, current: string, ratio: number): string { // 自定义 progress 函数
+                return `¥${lerp(start, end, ratio).toFixed(2)}`; // 保留小数点后 2 位有效数字
+            },
+            convert(v: string): number { // 提供自定义转换 string 为 number 的回调方法
+                return Number(v.slice(1)); // 字符串开通的 ¥ 为前缀，不参与缓动，因此裁剪它，剩余数字部分转成 number
+            },
+        };
+    },
+
+    health(value: number): TTweenCustomProperty<string> {
+        // health 为小数点后 2 位浮点，并且没有非数字的前缀与后缀，因此不需要指定自定义 progress 函数，直接使用内置的 progress 函数即可
+        return {
+            value: `${value}`,
+            toFixed: 2, // 这里需要指定需要保留小数点后 2 位有效数字，若不指定，结果将被设置为整型字符串
+        };
+    },
+
+    exp(value: number): TTweenCustomProperty<string> {
+        return {
+            value: () => `${value}/1000`,
+            progress(start: number, end: number, current: string, ratio: number): string {
+                return `${lerp(start, end, ratio).toFixed(0)}/1000`;
+            },
+            convert(v: string): number {
+                return Number(v.slice(0, v.indexOf('/')));
+            },
+            // exp 为整型字符串，因此不需要指定 toFixed 参数
+        };
+    },
+
+    lv(value: number): TTweenCustomProperty<string> {
+        return {
+            value: `Lv.${value}`,
+            progress(start: number, end: number, current: string, ratio: number): string {
+                return `Lv.${lerp(start, end, ratio).toFixed(0)}`;
+            },
+            convert(v: string): number {
+                return Number(v.slice(v.indexOf('.') + 1));
+            },
+        };
+    },
+};
+
+tween(o).to(1, { 
+    gold: tweenFormat.currency(100),
+    health: tweenFormat.health(1),
+    exp: tweenFormat.exp(0),
+    lv: tweenFormat.lv(0),
+}).start();
+```
+
+### 自定义任意类型对象的缓动流程
+
+```ts
+class MyProp {
+    constructor(x = 0, y = 0) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public static lerp (a: MyProp, b: MyProp, out: MyProp, t: number): MyProp {
+        const x = a.x;
+        const y = a.y;
+        out.x = x + t * (b.x - x);
+        out.y = y + t * (b.y - y);
+        return out;
+    }
+
+    public static add (a: MyProp, b: MyProp): MyProp {
+        const out = new MyProp();
+        out.x = a.x + b.x;
+        out.y = a.y + b.y;
+        return out;
+    }
+
+    public static sub (a: MyProp, b: MyProp): MyProp {
+        const out = new MyProp();
+        out.x = a.x - b.x;
+        out.y = a.y - b.y;
+        return out;
+    }
+
+    clone(): MyProp {
+        return new MyProp(this.x, this.y);
+    }
+
+    equals (other: MyProp, epsilon = EPSILON): boolean {
+        return (
+            Math.abs(this.x - other.x) <= epsilon * Math.max(1.0, Math.abs(this.x), Math.abs(other.x))
+	            && Math.abs(this.y - other.y) <= epsilon * Math.max(1.0, Math.abs(this.y), Math.abs(other.y))
+        );
+    }
+
+    x = 0;
+    y = 0;
+}
+
+class MyObject {
+    angle = 0;
+    str = '';
+    private _myProp = new MyProp();
+
+    set myProp(v) {
+        this._myProp.x = v.x;
+        this._myProp.y = v.y;
+    }
+
+    get myProp() {
+        return this._myProp;
+    }
+}
+
+const o = new MyObject();
+o.myProp.x = 1;
+o.myProp.y = 1;
+
+tween(o)
+    .by(1, { myProp: {
+        value: new MyProp(100, 100), // 目标值
+        progress: MyProp.lerp, // 提供自定义对象缓动过程
+        clone: v => v.clone(), // 提供克隆函数
+        add: MyProp.add, // 如果用 by 动作，则需要提供 add 方法
+        sub: MyProp.sub, // 如果用 by 动作，并且有 reverse 操作，则除了 add 方法，还需要提供 sub 方法
+        legacyProgress: false, // 设置为 false 表示使用新的基于对象参数类型的 progress 回调，即 MyProp.lerp 中的参数类型为 MyProp 对象自身，而不是默认的 number
+    } }).id(123)
+    .reverse(123) // 翻转
+    .start();
+```
+
 ## 绑定不同对象
 
 开发中使用 `Node` 作为绑定目标的情景会更多一些，代码示例如下：
@@ -714,29 +896,30 @@ const t = tween(this.node)
 console.log(t.duration); // 将输出 2
 ```
 
-## 自定义动作
+## 自定义动作（固定时长）
 
 > [!TIP]
 >
 > 从 v3.8.4 开始支持
 
-`update` 接口用于添加一个自定义动作。
+`update` 接口用于添加一个固定时长的自定义动作。
 
 其接口声明如下：
 
 ```ts
+export type TweenUpdateCallback<T extends object, Args extends any[]> = (target: T, ratio: number, ...args: Args) => void;
+
 /**
- * @en Add an custom action.
- * @zh 添加一个自定义动作。
- * @param duration @en The tween time in seconds. @zh 缓动时间，单位为秒。
- * @param cb @en The callback of the current action. @zh 动作回调函数。
- * @param args @en The arguments passed to the callback function. @zh 传递给动作回调函数的参数。
- * @return @en The instance itself for easier chaining. @zh 返回该实例本身，以便于链式调用。
+ * 添加一个固定时长的自定义动作。
+ * @param duration 缓动时间，单位为秒。
+ * @param cb 动作回调函数。
+ * @param args 传递给动作回调函数的参数。
+ * @return 返回该实例本身，以便于链式调用。
  */
 update<Args extends any[]> (duration: number, cb: TTweenUpdateCallback<T, Args>, ...args: Args): Tween<T> { ... }
 ```
 
-示例代码如下：
+示例代码：
 
 ```ts
 let done = false;
@@ -757,6 +940,84 @@ tween(this.node)
     .call(()=>{ done = true; })
     .start();
 ```
+
+## 自定义动作（不确定时长）
+
+>  [!TIP]
+>
+> 从 v3.8.4 开始支持
+
+`updateUntil` 接口用于添加一个不确定时长的自定义动作。
+
+其接口声明如下：
+
+```ts
+export type TweenUpdateUntilCallback<T extends object, Args extends any[]> = (target: T, dt: number, ...args: Args) => boolean;
+
+/**
+ * 添加一个不确定时长的自定义动作。如果回调函数返回 true，表示当前动作结束。
+ * @param cb 动作回调函数。如果回调函数返回 true，表示当前动作结束。
+ * @param args 传递给动作回调函数的参数。
+ * @return 返回该实例本身，以便于链式调用。
+ */
+updateUntil<Args extends any[]> (cb: TweenUpdateUntilCallback<T, Args>, ...args: Args): Tween<T> { ... }
+```
+
+以下示例代码，用于追踪动态物体，当接近物体时候，放大并重置位置后重复执行。
+
+```ts
+import { _decorator, Component, Node, tween, v3, Vec3 } from 'cc';
+const { ccclass, property } = _decorator;
+
+const positionTmp = new Vec3();
+const positionTmp2 = new Vec3();
+
+@ccclass('TweenTest')
+export class TweenTest extends Component {
+
+    @property(Node)
+    targetNode: Node | null = null;
+
+    start() {
+        tween(this.node)
+            .updateUntil((curNode: Node, dt: number)=>{
+                const d = Vec3.copy(positionTmp2, this.targetNode!.position).subtract(curNode.position);
+                const length = d.length();
+                if (length < 10) {
+                    return true; // 当前节点与目标节点距离小于 10 的时候，返回 true 表示为当前 updateUntil 过程结束
+                }
+                
+                const newPos = Vec3.copy(positionTmp, curNode.position).add(d.normalize().multiplyScalar(length / 10 * dt * 10));
+                curNode.setPosition(newPos);
+                return false; // 返回 false 表示 updateUntil 过程还需要继续执行
+            })
+            .by(0.25, { scale: v3(1, 1, 0) }, { easing: 'cubicInOut' }).id(1)
+            .reverse(1)
+            .call((curNode?: Node)=>{
+                const newPos = v3((Math.random() - 0.5) * 400, (Math.random() - 0.5) * 400, 0);
+                if (newPos.y < 100 && newPos.y > 0) newPos.y = 100;
+                if (newPos.y > -100 && newPos.y < 0) newPos.y = -100;
+
+                if (newPos.x < 100 && newPos.x > 0) newPos.x = 100;
+                if (newPos.x > -100 && newPos.x < 0) newPos.x = -100;
+                curNode?.setPosition(newPos);
+            })
+            .union()
+            .repeatForever()
+            .start();
+
+        tween(this.node)
+            .by(1, { angle: 360 })
+            .repeatForever()
+            .start();
+
+    }
+}
+```
+
+运行结果:
+
+![](img/updateUntil.gif)
 
 ## 从某个时间开始缓动
 
