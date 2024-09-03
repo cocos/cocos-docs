@@ -1,12 +1,34 @@
 # 瓦片图资源（TiledMap）
-## 制作瓦片贴图需要的素材
+
+## 问题分析
+由于使用图集时，如果没有设置1像素的拉伸，会与相邻的图片发生混合，导致边缘颜色不对，例如出现黑边的问题。
+因此在制作图集时，需要针对每个图片拉伸一像素作为边缘像素。
+
+引擎之前的实现是自动处理这种问题，会缩进1像素，代码：
+```
+if (spFrame) {
+    grid._name = spFrame.name;
+    const lm = spFrame.unbiasUV[0];
+    const bm = spFrame.rotated ? spFrame.unbiasUV[1] : spFrame.unbiasUV[5];
+    grid.l = lm + (grid.x + 0.5) / texWidth;
+    grid.t = bm + (grid.y + 0.5) / texHeight;
+    grid.r = lm + (grid.x + grid.width - 0.5) / texWidth;
+    grid.b = bm + (grid.y + grid.height - 0.5) / texHeight;
+    grid._rect = new Rect(grid.x, grid.y, grid.width, grid.height);
+} 
+```
+但是这样会产生额外的问题，会让UI设计的好地图可能看起来有明显的缩进，类似[issue](https://github.com/cocos/cocos-engine/issues/17257)
+
+为了解决这个问题，需要用户制作图集时，需要设置延伸1像素。
+
+## 制作瓦片贴图的图集
 一般需要制作成图集，可以使用[TexturePacker](https://www.codeandweb.com/texturepacker)工具。
 - 把素材添加到工具中，如下图：
 ![alt text](tiledmap/image.png)
 - 整理导出的图集布局，并设置
 ![alt text](tiledmap/image-14.png)
 **这里需要拉伸1像素，因为相邻的两个纹理如果不拉伸一个像素，使用的时候会出现边缘异常**
-- 发布精灵设置保存路径即可
+- 发布精灵，然后设置保存路径即可
 ![alt text](tiledmap/image-2.png)
 
 ## 使用tiled创建与编辑地图
@@ -35,10 +57,7 @@
 ![alt text](tiledmap/image-8.png)
 
 
-**这里需要设置为要使用原图片的大小，即32X32，并且设置margin为1(图片偏移上下左右1像素)，间距设置为2(左右1像素，就是两个像素，上下也一样)**
-
-- 编辑图集
-![alt text](tiledmap/image-9.png)
+**这里需要设置为要使用原图片的大小，即32X32，并且设置margin为1(图片偏移上下左右1像素)，间距设置为2(左右1像素，就是两个像素，上下也一样)。如果在texturepacker里没设置拉伸，这里就需要设置margin为0，间距设置为0**
 
 - 完成地图，如下图：
 ![alt text](tiledmap/image-12.png)
