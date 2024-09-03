@@ -18,7 +18,7 @@ if (spFrame) {
 
 But there's another problem, it makes the UI design of a good map may look indented, as seen in this [issue](https://github.com/cocos/cocos-engine/issues/17257).
 
-In order to solve this problem, it is necessary to set the extension 1 pixel when the user creates a texture altas.
+To fix this, in version **3.8.5** we are removing the code that automatically indents by 1 pixel, and will need to require the user to make a texture altas that needs to be set to extend by 1 pixel.
 
 ## Creating a Texture Atlas for Tiled Maps
 
