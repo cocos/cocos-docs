@@ -20,8 +20,7 @@ export default function(version: string) {
           version: version,
           branch: branch
         }),
-        // 本意不是要在此添加元素，只是找个结构嵌套不深的地方放置拖动条
-        'doc-bottom': () => h(DragLine)
+        'sidebar-nav-before': () => h(DragLine)
       })
     }
   }
