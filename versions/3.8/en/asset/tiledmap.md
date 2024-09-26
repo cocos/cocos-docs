@@ -34,7 +34,7 @@ Generally, you'll need to create a texture atlas. You can use the [TexturePacker
 
 - Export the sprite sheet and then set the save path.  
   ![alt text](tiledmap/image-2.png)
-![alt text](image.png)
+
 ## Creating and Editing Maps Using Tiled
 
 Tiled map resources are exported in a data format by the [Tiled Editor](https://www.mapeditor.org/).
