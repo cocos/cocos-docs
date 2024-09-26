@@ -54,14 +54,13 @@ onMounted(() => {
 
 <style>
 .drag-line {
-    position: fixed;
+    position: absolute;
     width: 3px;
-    /* 因为线条是在 3px 的中间，所以 left - 1 视觉效果才是线条刚好在侧边栏旁边，否则有1px 空隙 */
-    left: calc(var(--vp-sidebar-width) - 1px); 
+    right: 0px;
     top:0;
-    right: 0;
     bottom:0;
     cursor: col-resize;
+    z-index: 200;
     &::after {
         display: block;
         content: '';
@@ -70,7 +69,6 @@ onMounted(() => {
         left: 1px;
         top: 0;
         bottom: 0;
-        background-color: var(--vp-c-divider);
     }
     &:hover::after {
         background-color:var(--vp-c-brand-1, blue);
