@@ -3,6 +3,7 @@ import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import versionList from './versions-list.vue'
 import feedback from './feedback.vue'
+import DragLine from './drag-line.vue'
 import { github, branch } from '../config'
 import './custom.css'
 
@@ -18,7 +19,9 @@ export default function(version: string) {
           repo: github,
           version: version,
           branch: branch
-        })
+        }),
+        // 本意不是要在此添加元素，只是找个结构嵌套不深的地方放置拖动条
+        'doc-bottom': () => h(DragLine)
       })
     }
   }
