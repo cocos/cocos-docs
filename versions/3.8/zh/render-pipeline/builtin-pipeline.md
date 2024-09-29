@@ -25,7 +25,7 @@ Cocos Creator 3.1 的内置渲染管线包括 **builtin-forward**（前向渲染
 
 2. **MainFlow** 包含了 **GBufferStage**、**LightingStage**、**BloomStage** 和 **PostProcessStage** 四个阶段：  
     - **GbufferStage** 会对场景中的非透明物体进行绘制；
-    - 然后 **LightingStage** 会对输出到 **GBuffer** 中的非透明物体信息进行基于屏幕空间的光照计算，再绘制半透明物体。如果有非透明物体并且设备支持 ComputeShader，还可以进行 SSPR(Screen Space Planar Reflection) 的资源收集与绘制；
+    - 然后 **LightingStage** 会对输出到 **GBuffer** 中的非透明物体信息进行基于屏幕空间的光照计算，再绘制半透明物体。如果有非透明物体并且设备支持 ComputeShader，还会进行 SSPR 的资源收集与绘制；
     - 若还开启了 Bloom 效果，**BloomStage** 会对已经经过 **LightingStage** 处理后的图像进行 Bloom 后处理；
     - 最后 **PostProcessStage** 会把 **BloomStage**/**LightingStage** 输出的全屏图像绘制到主屏幕中，再进行 UI 的绘制。
 
