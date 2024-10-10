@@ -511,7 +511,7 @@
         - [配置系统](editor/extension/profile.md)
         - [面板系统](editor/extension/panel.md)
         - [UI 组件](editor/extension/ui.md)
-        - [使用第三方工具](editor/extension/npm.md)
+        - [使用第三方工具](editor/npm.md)
     - [Editor 接口说明](editor/extension/editor-api.md)
         - [App](editor/extension/api/app.md)
         - [Clipboard](editor/extension/api/clipboard.md)

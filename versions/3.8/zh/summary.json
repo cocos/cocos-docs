@@ -2173,7 +2173,7 @@
                             },
                             {
                                 "text": "使用第三方工具",
-                                "link": "editor/extension/npm.md"
+                                "link": "editor/npm.md"
                             }
                         ],
                         "collapsed": true
