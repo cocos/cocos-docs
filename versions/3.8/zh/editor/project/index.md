@@ -133,9 +133,9 @@
 
 - **ENABLE_WEBGL_ANTIALIAS**：是否开启 WebGL 的抗锯齿配置，默认开启。这个配置只影响 WebGL 后端，对应在创建 WebGL Context 时是否传入抗锯齿选项（仅适用于前向渲染管线）。
 
-- **ENABLE_ANTIALIAS_FXAA**：用于开启 FXAA 抗锯齿（仅适用于经典延迟渲染管线，要自定义FXAA功能请参考[自定义渲染管线(实验性质)](../../render-pipeline/custom-pipeline.md)）。
+- **ENABLE_ANTIALIAS_FXAA**：用于开启 FXAA 抗锯齿（仅适用于经典延迟渲染管线，要自定义FXAA功能请参考[可定制渲染管线](../../render-pipeline/custom-pipeline.md)。
 
-- **ENABLE_BLOOM**：用于开启 BLOOM 后处理特效（仅适用于经典延迟管线，要自定义Bloom功能请参考[自定义渲染管线(实验性质)](../../render-pipeline/custom-pipeline.md))。
+- **ENABLE_BLOOM**：用于开启 BLOOM 后处理特效（仅适用于经典延迟管线，要自定义Bloom功能请参考[可定制渲染管线](../../render-pipeline/custom-pipeline.md)。
 
 - **CLEANUP_IMAGE_CACHE**：是否在将贴图上传至 GPU 之后删除原始图片缓存，删除之后图片将无法进行 [动态合图](../../advanced-topics/dynamic-atlas.md)。该项默认不开启。
 

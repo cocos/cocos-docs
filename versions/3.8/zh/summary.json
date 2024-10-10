@@ -726,31 +726,16 @@
                         "link": "render-pipeline/overview.md",
                         "items": [
                             {
-                                "text": "内置管线",
-                                "link": "render-pipeline/builtin-pipeline.md"
+                                "text": "使用内置管线",
+                                "link": "render-pipeline/use-builtin-pipeline.md"
                             },
                             {
-                                "text": "自定义渲染管线（实验性质）",
-                                "link": "render-pipeline/custom-pipeline.md"
+                                "text": "编写渲染管线",
+                                "link": "render-pipeline/write-render-pipeline.md"
                             },
                             {
-                                "text": "后期处理",
-                                "link": "render-pipeline/post-process/index.md",
-                                "items": [
-                                    {
-                                        "text": "PostProcess 组件",
-                                        "link": "render-pipeline/post-process/post-process.md"
-                                    },
-                                    {
-                                        "text": "BlitScreen 组件",
-                                        "link": "render-pipeline/post-process/blit-screen.md"
-                                    },
-                                    {
-                                        "text": "自定义后效",
-                                        "link": "render-pipeline/post-process/custom.md"
-                                    }
-                                ],
-                                "collapsed": true
+                                "text": "使用后期效果",
+                                "link": "render-pipeline/use-post-process.md"
                             }
                         ],
                         "collapsed": true
@@ -2188,7 +2173,7 @@
                             },
                             {
                                 "text": "使用第三方工具",
-                                "link": "editor/extension/npm.md"
+                                "link": "editor/npm.md"
                             }
                         ],
                         "collapsed": true
