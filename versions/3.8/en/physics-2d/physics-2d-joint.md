@@ -4,9 +4,9 @@ The physics system contains a series of joint components for connecting two rigi
 
 > **Note**.
 > 1. Joint components are not available in the Builtin 2D physics module.
-> 2. Joint components are required with [rigid body](./physics-2d-rigid-body.md) to work correctly. As shown in the following figure.
+> 2. Joint components are required with [rigid body](./physics-2d-rigid-body.md) and [collider](./physics-2d-collider.md) to work correctly. As shown in the following figure.
 >
->    ![with-body](image/joint-with-body.png)
+>    ![with-body](image/joint-with-body-collider.png)
 
 ## Adding joints
 

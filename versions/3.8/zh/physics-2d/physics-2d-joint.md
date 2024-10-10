@@ -4,9 +4,9 @@
 
 > **注意**：
 > 1. 关节组件在 Builtin 2D 物理模块中是无效的。
-> 2. 关节组件都需要搭配 [刚体](./physics-2d-rigid-body.md) 才可以正确运行。如下图所示：
+> 2. 关节组件都需要搭配 [刚体](./physics-2d-rigid-body.md) 和 [碰撞组件](./physics-2d-collider.md) 才可以正确运行。如下图所示：
 >
->    ![with-body](image/joint-with-body.png)
+>    ![with-body](image/joint-with-body-collider.png)
 
 ## 添加关节
 
