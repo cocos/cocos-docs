@@ -173,7 +173,7 @@
 - [图形渲染](module-map/graphics.md)
   - [渲染管线](render-pipeline/overview.md)
     - [内置管线](render-pipeline/builtin-pipeline.md)
-    - [自定义渲染管线（实验性质）](render-pipeline/custom-pipeline.md)
+    - [可定制渲染管线](render-pipeline/custom-pipeline.md)
     - [后期处理](render-pipeline/post-process/index.md)
       - [PostProcess 组件](render-pipeline/post-process/post-process.md)
       - [BlitScreen 组件](render-pipeline/post-process/blit-screen.md)

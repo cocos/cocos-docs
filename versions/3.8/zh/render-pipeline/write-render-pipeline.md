@@ -1,6 +1,10 @@
-# 编写渲染管线（进阶）
+# 编写渲染管线
 
-这个教程以内置渲染管线（Bultin）为例，展示如何编写一个渲染管线。
+项目中为了实现一些特殊效果，或者是精准控制渲染流程以获得最大的性能提升，往往需要对渲染流程进行定制化修改。
+
+Cocos 可定制渲染管线（CRP），使开发者可以在不修改引擎源码的情况下，编写通用跨平台的自定义渲染管线。
+
+这个教程以内置渲染管线（Bultin）为例，展示如何基于 CRP 编写一个自定义渲染管线。
 
 ## 创建渲染管线
 
@@ -46,7 +50,7 @@ if (rendering) {
 
 ## 渲染资源管理
 
-Cocos的可自定义渲染管线基于`Render Graph`理念，但在资源管理上与以往`Render Graph`有所不同。
+Cocos的可定制渲染管线（CRP）基于`Render Graph`理念，但在资源管理上与以往`Render Graph`有所不同。
 
 对于需要写入的资源，必须在管线中注册。一般在`windowResize`方法中注册渲染资源。
 
@@ -720,6 +724,7 @@ prefilterPass
 拷贝完后，需要对类的名字、以及注册名进行改写。
 
 `builtin-pipeline.ts`：
+
 ```typescript
 class MyPipelineBuilder implements rendering.PipelineBuilder {
     // ...
@@ -730,6 +735,7 @@ if (rendering) {
 ```
 
 `builtin-pipeline-settings.ts`:
+
 ```typescript
 @ccclass('MyPipelineSettings')
 @menu('Rendering/MyPipelineSettings')
@@ -741,9 +747,3 @@ export class MyPipelineSettings extends Component {
 
 }
 ```
-
-## 内置管线的升级
-
-我们会尽量保证老版本的内置管线代码，在新版本中仍然可以使用。由于可自定义渲染管线的接口与行为比较稳定的，做到这点是可能的。
-
-但是新版本的内置管线的代码实现，变动可能较大。使用、改写时需要注意版本。

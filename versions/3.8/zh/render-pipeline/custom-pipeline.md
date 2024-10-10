@@ -1,10 +1,10 @@
-# 新渲染管线
+# 可定制渲染管线（Deprecated）
 
-Cocos Creator 3.8 中正式开放了新的 **自定义渲染管线接口**。
+本文档适用于 v3.8.3 及以下，使用可定制渲染管线的用户。 v3.8.4 及以上用户，请参考文档：[编写渲染管线](./write-render-pipeline.md)。
 
-Cocos Creator 3.8.4 在此基础上，添加了**内置渲染管线**，替换了原有管线。
+Cocos Creator 3.8 中正式开放了新的 **可定制渲染管线( CRP - Customizable Render Pipeline )接口**。
 
-**自定义渲染管线接口** 位于 `cocos/core/pipeline/custom/pipeline.ts`
+**可定制渲染管线接口** 位于 `cocos/core/pipeline/custom/pipeline.ts`
 
 **内置渲染管线** 的实现位于 `editor/assets/default_renderpipeline/builtin-pipeline.ts`
 
@@ -18,28 +18,29 @@ Cocos Creator 3.8.4 在此基础上，添加了**内置渲染管线**，替换�
 
 这需要引擎提供足够的灵活性，让用户可以自由定制渲染管线，以实现各种各样的效果。
 
-Cocos Creator **自定义渲染管线** 能够在不同的平台、不同的硬件设备上，编写最优的渲染管线，以达到最佳的画面表现。
+Cocos Creator 的 **可定制渲染管线** 能够在不修改引擎源码的情况下，在不同的平台、不同的硬件设备上，编写最优的渲染管线，以达到最佳的画面表现。
 
-也能够在不同的平台、不同的硬件设备上，编写最通用的渲染管线，以达到最佳的性能表现以及跨平台性。
+也能够在不同的平台、不同的硬件设备上，为 2D/3D 项目编写专用的渲染管线，以达到最佳的性能表现以及跨平台性。
 
 ## 启用自定义管线
 
-勾选 **自定义渲染管线**。
+勾选 **可定制渲染管线**。
 
-<img src="./image/cp-feature-enable.png" width=760></img>
+![cp-feature-enable](./image/cp-feature-enable.png)
 
-通过填写 **自定义管线** 的名字，选择注册好的 **自定义渲染管线**。
-- 目前支持 **前向渲染管线**（名字为 Custom 或 Forward）和 **后向渲染管线**（名字为 Deferred）两种。
+通过填写 **自定义管线** 的名字，选择注册好的 **可定制渲染管线**。
 
-<img src="./image/cp-pipeline-selection.png" width=760></img>
+目前支持 **前向渲染管线**（名字为 Custom 或 Forward）和 **后向渲染管线**（名字为 Deferred）两种。
 
-### 编写自定义渲染管线
+![cp-pipeline-selection](./image/cp-pipeline-selection.png)
+
+### 编写可定制渲染管线
 
 新建 Typescript 文件，编写一个类，例如 `MyPipeline`，让该类实现 `rendering.PipelineBuilder` 接口，通过 `rendering.setCustomPipeline` 方法把该 pipeline 注册到系统中。
 
 ## 概念
 
-自定义渲染管线以数据流（Dataflow）的形式概括了渲染的整个流程，用**渲染图**（RenderGraph）描述。
+可定制渲染管线以数据流（Dataflow）的形式概括了渲染的整个流程，用**渲染图**（RenderGraph）描述。
 
 **渲染图**由不同的渲染节点组成，比如**渲染通道**（RenderPass），**计算通道**（ComputePass）等。每个渲染通道有数据输入与输出，比如**渲染目标**（RenderTarget）、**深度模板**（DepthStencil）、**贴图**（Texture）等。这些输入与输出会在计算节点间构成链接关系，形成数据流。
 
@@ -47,19 +48,20 @@ Cocos Creator **自定义渲染管线** 能够在不同的平台、不同的硬�
 
 **渲染内容** 可以是 **场景**、屏幕 **矩形**，也可以是计算任务的 **分发**（Dispatch），不同的通道支持不同的渲染内容。
 
-**自定义渲染管线** 的【**渲染通道**、**渲染队列**、**渲染内容**】构成一个森林：
+**可定制渲染管线** 的【**渲染通道**、**渲染队列**、**渲染内容**】构成一个森林：
 
-<img src="./image/cp-render-graph-1.png" width=640></img>
+![cp-render-graph-1](./image/cp-render-graph-1.png)
 
-**自定义渲染管线**的【**渲染通道**、**渲染资源**】构成一个有向无圈图（DAG）：
+**可定制渲染管线**的【**渲染通道**、**渲染资源**】构成一个有向无圈图（DAG）：
 
-<img src="./image/cp-render-graph-2.png" width=640></img>
+![cp-render-graph-2](./image/cp-render-graph-2.png)
 
-我们可以层叠（Stack）以上两张图，得到 **渲染流程图**（RenderGraph）。**渲染流程图** 描述了 **自定义渲染管线** 的全部流程，引擎会按照用户定制的流程图进行资源分配、流程优化、渲染执行。
+我们可以层叠（Stack）以上两张图，得到 **渲染流程图**（RenderGraph）。**渲染流程图** 描述了 **可定制渲染管线** 的全部流程，引擎会按照用户定制的流程图进行资源分配、流程优化、渲染执行。
 
 ## 渲染管线类型
 
-引擎的渲染管线根据硬件能力，分为了两种
+引擎的渲染管线根据硬件能力，分为了两种：
+
 - 基础渲染管线
 - 标准渲染管线
 
@@ -103,6 +105,7 @@ interface BasicRenderPassBuilder extends Setter {
     addQueue (hint?: QueueHint, phaseName?: string): RenderQueueBuilder;
 }
 ```
+
 ### 标准渲染管线(Pipeline)
 
 标准渲染具备更丰富的管线功能，目前支持GLES3、Vulkan、Metal三个后端。
@@ -271,12 +274,14 @@ export interface Setter extends RenderNode {
 ### 数据更新频率
 
 Effect中，不同的变量有不同的更新频率。由低到高大致分为：
+
 - `pass`
 - `phase`
 - `batch`
 - `instance`
 
 effect中需要在变量声明前加上`#pragma rate`指定更新频率。
+
 - `batch`为缺省值
 - `instance`暂不支持自定义
 
@@ -298,6 +303,8 @@ void main () {
 }
 
 ```
+
+### 节点类型
 
 RenderGraph中的每个节点描述符集的更新频率，由节点的类型决定。
 
