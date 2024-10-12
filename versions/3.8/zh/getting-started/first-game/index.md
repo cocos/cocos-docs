@@ -625,7 +625,7 @@ export class PlayerController extends Component {
 
 > 预制体是引擎内置的一种资源，其主要的作用是为某些节点提供克隆的可能。想象一下如果游戏有 1000 个相同的敌人，那么制作 1000 个这样节点是非常耗时的，预制体可以帮助我们很好的解决这个问题，我们只需将这个角色的预制体克隆 1000 次就可以了
 
-将生成跑道的基本元素 **正方体（Cube）** 制作成 Prefab，之后可以把场景中的三个 Cube 都删除了。
+将生成跑道的基本元素 **立方体（Cube）** 制作成 Prefab，之后可以把场景中的三个 Cube 都删除了。
 
 ![create cube prefab](./images/create-cube-prefab.gif)
 
