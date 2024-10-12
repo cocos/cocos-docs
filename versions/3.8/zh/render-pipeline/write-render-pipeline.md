@@ -6,6 +6,17 @@ Cocos 可定制渲染管线（CRP），使开发者可以在不修改引擎源�
 
 这个教程以内置渲染管线（Bultin）为例，展示如何基于 CRP 编写一个自定义渲染管线。
 
+## 源码位置
+
+建议大家在内置管线的基础编写自己的管线，可以快速起步和迭代有。以下两种方案均可以得到内置管线源码：
+
+1. 参考 Github 上的 [Cocos CRP 示例项目](https://github.com/cocos/cocos-example-custom-pipeline)，找到对应引擎版本的分支即可。
+2. 复制编辑器内 internal/default_renderpipeline/ 目录下的三个管线相关脚本到 assets 目录，再做修改。
+
+   - builtin-pipeline.ts：管线实现
+   - builtin-pipeline-types.ts：管线需要用到的相关数据类型
+   - buitlin-pipeline-settings.ts：管线设置组件
+
 ## 创建渲染管线
 
 首先，我们需要创建一个渲染管线的类，继承自`rendering.Pipeline`。
