@@ -4,7 +4,7 @@
 
 之所以这篇文档的标题为教程，是因为目前 Cocos Creator 资源热更新的工作流还没有彻底集成到编辑器中，不过引擎本身对于热更新的支持是完备的，所以借助一些外围脚本和一些额外的工作就可以达成。
 
-本篇文档的范例工程可以从 [GitHub](https://github.com/cocos-creator/tutorial-hot-update/tree/master) | [Gitee](https://gitee.com/mirrors_cocos-creator/tutorial-hot-update/tree/master) 获取（master 分支）。
+本篇文档的范例工程可以从 [GitHub](https://github.com/cocos-creator/tutorial-hot-update/tree/master) 获取（master 分支）。
 
 ![hot update](./hot-update/title.jpg)
 
@@ -45,11 +45,7 @@ Manifest 文件中包含以下几个重要信息：
 3. 游戏发布后，若需要更新版本，则生成一套远程版本资源，包含 assets 目录、src 目录和 Manifest 文件，将远程版本部署到服务端。
 4. 当热更新组件检测到服务端 Manifest 版本不一致时，就会开始热更新
 
-为了展示热更新的过程，教程所使用的范例工程已经在 `remote-assets` 目录中保存了包含 1.1.0 信息的完整版本，而项目默认构建生成版本为 1.0.0 版本。游戏开始时会检查远程是否有版本更新，如果发现远程版本则提示用户更新，更新完成后，用户重新进入游戏即可看到 1.1.0 版本信息。
-
 ![](./hot-update/table.png)
-
-> **注意**：项目中包含的 `remote-assets` 为 debug 模式，开发者在测试的时候必须使用 debug 模式构建项目才有效，否则 release 模式的 jsc 文件优先级会高于 `remote-assets` 中的资源而导致脚本失效。
 
 ### 使用 Version Generator 来生成 Manifest 文件
 
@@ -81,6 +77,8 @@ Manifest 文件中包含以下几个重要信息：
 1. `assets/project.manifest`：游戏的本地 Manifest 文件中的 `packageUrl`、`remoteManifestUrl` 和 `remoteVersionUrl`
 2. `remote-assets/project.manifest`：远程包的 Manifest 文件中的 `packageUrl`、`remoteManifestUrl` 和 `remoteVersionUrl`
 3. `remote-assets/version.manifest`：远程包的 Version 文件中的 `packageUrl`、`remoteManifestUrl` 和 `remoteVersionUrl`
+
+> `remote-assets` 代表远程服务端资源目录。
 
 ### 打包原生版本
 

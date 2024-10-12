@@ -12,7 +12,7 @@ resources.load("test_assets/prefab", Prefab, (err, prefab) => {
 });
 
 // 加载 AnimationClip
-resources.load("test_assets/anim", AnimationClip, (err, clip) => {s
+resources.load("test_assets/testAnim", AnimationClip, (err, clip) => {
     this.node.getComponent(Animation).addClip(clip, "anim");
 });
 ```

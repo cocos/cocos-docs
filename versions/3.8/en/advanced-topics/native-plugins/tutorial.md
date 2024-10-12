@@ -387,7 +387,7 @@ It's ready to ship.
 
 ## Distribute with Editor Extension
 
-Follow the steps in [Editor Extension](../..//editor/extension/readme.md) to create an Editor Extension, you need to copy the directory `native/plugins/hello_cocos` into the extension package when [Packaging the Extension](../../editor/extension/store/upload-store.md#packaging-the-extension), then submit.
+Follow the steps in [Editor Extension](../../editor/extension/readme.md) to create an Editor Extension, you need to copy the directory `native/plugins/hello_cocos` into the extension package when [Packaging the Extension](../../editor/extension/store/upload-store.md#packaging-the-extension), then submit.
 
 About upgrade: The editor extension system does not support update detection at the moment. Plugin users need to check in Cocos Store or Dashboard and manually upgrade to the latest version.
 Of course, developers can still implement their version management based on the existing extension system.

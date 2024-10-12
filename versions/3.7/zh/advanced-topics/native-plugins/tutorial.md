@@ -384,6 +384,6 @@ native/plugins/hello_cocos
 
 ## 使用编辑器扩展机制发布
 
-根据 [扩展编辑器](../../editor/extension/readme.md) 创建编辑器扩展，在 [打包扩展](../..//editor/extension/store/upload-store.md#packaging-the-extension) 前把目录 `native/plugins/hello_cocos` 一并打包到扩展中，再发布。开发者在下载扩展后，原生插件就会启用。
+根据 [扩展编辑器](../../editor/extension/readme.md) 创建编辑器扩展，在 [打包扩展](../../editor/extension/store/upload-store.md#packaging-the-extension) 前把目录 `native/plugins/hello_cocos` 一并打包到扩展中，再发布。开发者在下载扩展后，原生插件就会启用。
 
 关于升级：目前编辑器扩展系统不支持升级检测，用户需要到 Cocos 商城手动更新。
