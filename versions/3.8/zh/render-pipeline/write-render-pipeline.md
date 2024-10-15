@@ -17,6 +17,42 @@ Cocos 可定制渲染管线（CRP），使开发者可以在不修改引擎源�
    - builtin-pipeline-types.ts：管线需要用到的相关数据类型
    - buitlin-pipeline-settings.ts：管线设置组件
 
+## 改写内置管线
+
+由于管线的编写较为复杂，可以在内置管线的基础上进行改写。
+
+用户可以复制内置管线的代码到项目中，然后根据自己的需求，进行修改。
+
+需要拷贝的文件有：
+`builtin-pipeline.ts`，`builtin-pipeline-types.ts`，以及`builtin-pipeline-settings.ts`。
+
+拷贝完后，需要对类的名字、以及注册名进行改写。
+
+`builtin-pipeline.ts`：
+
+```typescript
+class MyPipelineBuilder implements rendering.PipelineBuilder {
+    // ...
+}
+if (rendering) {
+    rendering.setCustomPipeline('MyPipeline', new MyPipelineBuilder());
+}
+```
+
+`builtin-pipeline-settings.ts`:
+
+```typescript
+@ccclass('MyPipelineSettings')
+@menu('Rendering/MyPipelineSettings')
+@requireComponent(Camera)
+@disallowMultiple
+@executeInEditMode
+export class MyPipelineSettings extends Component {
+    // ...
+
+}
+```
+
 ## 创建渲染管线
 
 首先，我们需要创建一个渲染管线的类，继承自`rendering.Pipeline`。
@@ -43,11 +79,23 @@ class BuiltinPipelineBuilder implements rendering.PipelineBuilder {
 }
 ```
 
-其中`windowResize`方法，用于处理窗口大小变化事件，`setup`方法，用于设置相机的渲染。
+自定义管线需要实现两个核心方法 `windowResize` 和 `setup`。
+
+### `windowResize`方法
+
+`windowResize` 方法会在管线启动时，以及窗口大小改变时被调用。在 `windowResize` 中，我们需要将使用的资源进行注册。只在有 `windowResize` 函数中注册过的资源，才能在管线中被使用。
+
+> 注：注册资源只是向系统添加资源描述，如果在渲染过程中不被使用，则不会分配系统资源，不会增大内存开销。
+
+### `setup` 方法
+
+`setup`方法每帧都会在摄像机渲染时被调用，用于设置此摄像机的渲染流程。此方法用于构建 RenderGraph 节点图，构建完成后，会交给渲染管线进行渲染。
+
+> 注：只有在 `windowResize` 中注册过的资源才能被使用。
 
 内置管线的具体实现，在`builtin-pipeline.ts`中。
 
-## 管线注册
+## 管线注册与使用
 
 用户实现的渲染管线，可以在脚本导入阶段，注册到渲染系统中。
 
@@ -58,6 +106,8 @@ if (rendering) {
     rendering.setCustomPipeline('Builtin', new BuiltinPipelineBuilder());
 }
 ```
+
+其中 `Builtin` 是内置管线的名字，你可以更换为任意你想要的字符串。 更换完成后，在项目设置->图形设置->新渲染管线中，将管线名称切换为自己的管线名称即可使用该管线。
 
 ## 渲染资源管理
 
@@ -662,7 +712,7 @@ effect中，我们定义了`inputTexture`，用于接收输入的场景颜色，
 
 如果频率为`pass`，Texture、Buffer可以作为输出，状态会被RenderGraph跟踪。不标注的话，为默认频率，多用于材质参数。
 
-```
+```txt
 CCProgram prefilter-fs %{
   precision highp float;
   #include <common/color/gamma>
@@ -722,39 +772,3 @@ prefilterPass
 在渲染通道之间，我们会根据资源绑定的ShaderStage、读写状态、资源类型等，自动插入`Barrier`，进行同步、缓存的刷新、以及资源布局的转换。
 
 这样，我们就可以专注于渲染效果的实现，而不用关心资源的状态管理。
-
-## 改写内置管线
-
-由于管线的编写较为复杂，可以在内置管线的基础上进行改写。
-
-用户可以复制内置管线的代码到项目中，然后根据自己的需求，进行修改。
-
-需要拷贝的文件有：
-`builtin-pipeline.ts`，`builtin-pipeline-types.ts`，以及`builtin-pipeline-settings.ts`。
-
-拷贝完后，需要对类的名字、以及注册名进行改写。
-
-`builtin-pipeline.ts`：
-
-```typescript
-class MyPipelineBuilder implements rendering.PipelineBuilder {
-    // ...
-}
-if (rendering) {
-    rendering.setCustomPipeline('MyPipeline', new MyPipelineBuilder());
-}
-```
-
-`builtin-pipeline-settings.ts`:
-
-```typescript
-@ccclass('MyPipelineSettings')
-@menu('Rendering/MyPipelineSettings')
-@requireComponent(Camera)
-@disallowMultiple
-@executeInEditMode
-export class MyPipelineSettings extends Component {
-    // ...
-
-}
-```
