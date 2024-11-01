@@ -507,6 +507,10 @@
                         "link": "publish/publish-vivo-instant-games.md"
                     },
                     {
+                        "text": "Publish to Migu Mini Games",
+                        "link": "publish/publish-migu-mini-game.md"
+                    },
+                    {
                         "text": "Publish to Xiaomi Quick Games",
                         "link": "publish/publish-xiaomi-quick-games.md"
                     },
