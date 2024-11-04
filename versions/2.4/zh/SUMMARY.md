@@ -126,6 +126,7 @@
     - [发布到华为快游戏](publish/publish-huawei-quick-games.md)
     - [发布到 OPPO 小游戏](publish/publish-oppo-instant-games.md)
     - [发布到 vivo 小游戏](publish/publish-vivo-instant-games.md)
+    - [发布到咪咕小游戏](publish/publish-migu-mini-game.md)
     - [发布到小米快游戏](publish/publish-xiaomi-quick-games.md)
     - [发布到百度小游戏](publish/publish-baidugame.md)
         - [百度小游戏开放数据域](publish/publish-baidugame-sub-domain.md)
