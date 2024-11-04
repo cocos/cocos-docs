@@ -158,6 +158,7 @@
         - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
         - [发布到 vivo 小游戏](editor/publish/publish-vivo-mini-game.md)
+        - [发布到咪咕小游戏](editor/publish/publish-migu-mini-game.md)
         - [发布到小米快游戏](editor/publish/publish-xiaomi-quick-game.md)
         - [发布到百度小游戏](editor/publish/publish-baidu-mini-game.md)
         - [开放数据域](editor/publish/build-open-data-context.md)
