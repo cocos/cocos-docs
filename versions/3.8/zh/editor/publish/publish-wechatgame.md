@@ -43,18 +43,37 @@
 
     > **注意**：如果之前没有运行过微信开发者工具，可能会出现：`Please ensure that the IDE has been properly installed` 的报错，需要手动打开一次微信开发者工具，然后才能在 Cocos Creator 里直接点击 **运行** 调用。
 
+### 主包设置
+
+| 主包设置 | 说明 | 字段名（用于命令行发布） |
+| :---- | :-- | :-- |
+| 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
+| 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
+
+### 引擎设置
+
+Cocos Creator 3.8 中，将引擎相关的构建选项统一到了**引擎设置**中，方便根据需求选择不同的引擎配置。
+
+| 引擎设置 | 说明 | 字段名（用于命令行发布） |
+| :---- | :-- | :-- |
+| CLEANUP_IMAGE_CACHE | 是否在纹理数据上传 GPU 后，删除内存数据，删除后无法使用动态合图功能。 | - |
+| 物理系统 | 选择不同的物理系统，发布后以当前选择的为准 | - |
+| WebGL 2.0 | 选择不同的 WebGL 版本 | - |
+| 原生代码打包模式 | 此选项会影响 Spine、物理等 Webassembly 模块的打包方式，将统一控制所有的 wasm/asmjs 模块，默认为最优值，若无特殊情况，不建议更改。| - |
+| Wasm 3D 物理系统（基于 `ammo.js`） | 用于选择是否启用 Wasm，默认为开启，使用 **bullet（ammo.js）** 物理时生效。详情请参考下文 **WebAssembly 支持** 部分的内容。 | - |
+| 引擎原生代码分包 | 将引擎的 WASM/Asm.js 代码放入子包，减少包体。| - |
+| 启用 WASM Brotli 压缩 | 开启此选项会减少 WASM 模块大小，但会略微增加加载时的解压时间，根据需要开启 | - |
+
 ### 构建选项
 
 | 构建选项 | 说明 | 字段名（用于命令行发布） |
 | :--- | :--- | :--- |
-| 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
 | 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中。| `orientation` |
 | AppID | 微信小游戏的 AppID，必填项，面板中默认的 `wx6ac3f5090a6b99c5` 仅用于测试。构建时会写入到发布包目录下的 `project.config.json` 文件中。| `appid` |
 | 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md)。 | `buildOpenDataContextTemplate` |
+| 引擎原生代码分包 | 将引擎的 WASM/Asm.js 代码模块放入小游戏分包，减少主包包体。| - |
 | 分离引擎 | 是否使用微信小游戏引擎插件，详情请参考 [启用微信小游戏引擎插件](./wechatgame-plugin.md)。 | `separateEngine` |
-| 高性能模式 | 是否开启微信的高性能模式 <br> 请参考 [高性能模式](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-high-performance.html) 获取更多信息 |
-| Wasm 3D 物理系统（基于 `ammo.js`） | 用于选择是否启用 Wasm，默认为开启，使用 **bullet（ammo.js）** 物理时生效。详情请参考下文 **WebAssembly 支持** 部分的内容。 | - |
-| 是否开启 WebGL2（实验性功能）| 为了未来允许在微信小游戏上开启 WebGL 2.0，我们在 v3.4.1 新增了该项，支持跟随项目设置中的配置启用 WebGL 2.0。该项默认为 **强制关闭**，以缩减包体。<br>若该项设置为 **与项目设置一致**，且 **项目设置 -> 功能裁剪** 中勾选了 **WebGL 2.0**，那么未来若微信环境支持 WebGL 2.0，即可成功启用。 | - |
+| 高性能模式 | 是否开启微信的高性能模式 <br> 请参考 [高性能模式](https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-high-performance.html) 获取更多信息 | - |
 
 ## 微信小游戏的资源管理
 
