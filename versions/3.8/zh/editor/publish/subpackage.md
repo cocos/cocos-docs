@@ -46,6 +46,25 @@ Asset Bundle 是以 **文件夹** 为单位进行配置的。当我们在 **资�
 
 具体请参考 [微信小游戏分包加载官方文档](https://developers.weixin.qq.com/minigame/dev/guide/base-ability/subPackage/useSubPackage.html)。
 
+## 抖音小游戏
+
+在抖音小游戏的构建中，Asset Bundle 的配置也会按照规则自动生成到抖音小游戏发布目录下的 **game.json** 配置文件中。
+![profile](subpackage/profile.png)
+
+**game.json** 中具体的字段含义，可以参考文档：[抖音小游戏配置](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/mini-game-configuration/)。
+
+### 分包大小限制
+
+目前抖音小游戏分包大小有以下限制：
+
+- ​小游戏整体包（小游戏包整个目录）大小不超过 20MB；​
+- 单个主包不超过 4MB；​
+- 单个分包大小不超过 20MB。
+
+> 抖音小游戏开放数据域文件类似子包，该文件 / 目录的大小不超过 4MB。​
+
+详情请参考文档：[抖音小游戏分包加载](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/subpackages/introduction)。
+
 ## 淘宝小游戏
 
 在淘宝小游戏的构建中，Asset Bundle 的配置也会按照规则自动生成到淘宝小游戏发布包目录下的 `setting.json` 配置文件中。

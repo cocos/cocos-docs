@@ -33,33 +33,36 @@
 
     ![tool](./publish-bytedance-mini-game/tool.png)
 
+### 主包设置
+
+| 主包设置 | 说明 | 字段名（用于命令行发布） |
+| :---- | :-- | :-- |
+| 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
+| 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
+
+### 引擎设置
+
+Cocos Creator 3.8 中，将引擎相关的构建选项统一到了**引擎设置**中，方便根据需求选择不同的引擎配置。
+
+| 引擎设置 | 说明 | 字段名（用于命令行发布） |
+| :---- | :-- | :-- |
+| CLEANUP_IMAGE_CACHE | 是否在纹理数据上传 GPU 后，删除内存数据，删除后无法使用动态合图功能。 | - |
+| 物理系统 | 选择不同的物理系统，发布后以当前选择的为准 | - |
+| WebGL 2.0 | 选择不同的 WebGL 版本 | - |
+| 原生代码打包模式 | 此选项会影响 Spine、物理等 Webassembly 模块的打包方式，将统一控制所有的 wasm/asmjs 模块，默认为最优值，若无特殊情况，不建议更改。| - |
+| Wasm 3D 物理系统（基于 `ammo.js`） | 用于选择是否启用 Wasm，默认为开启，使用 **bullet（ammo.js）** 物理时生效。详情请参考下文 **WebAssembly 支持** 部分的内容。 | - |
+| 引擎原生代码分包 | 将引擎的 WASM/Asm.js 代码放入子包，减少包体。| - |
+| 启用 WASM Brotli 压缩 | 开启此选项会减少 WASM 模块大小，但会略微增加加载时的解压时间，根据需要开启 | - |
+
 ### 构建选项
 
 | 构建选项 | 说明 | 字段名（用于命令行发布） |
 | :---- | :-- | :-- |
-| 初始场景分包 | 勾选后，首场景及其相关的依赖资源会被构建到发布包目录 `assets` 下的内置 Asset Bundle — [start-scene](../../asset/bundle.md#%E5%86%85%E7%BD%AE-asset-bundle) 中，提高初始场景的资源加载速度。 | `startSceneAssetBundle` |
-| 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中。 | `orientation` |
-| AppID | 必填项，抖音小游戏的 AppID，构建时会写入到发布包目录下的 `project.config.json` 文件中。 | `appid` |
-| 资源服务器地址 | 用于填写资源存放在远程服务器上的地址。开发者需要在构建后手动将发布包目录下的 `remote` 文件夹上传到所填写的资源服务器地址上。详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md) | `remoteServerAddress` |
 | 生成开放数据域工程模板 | 用于接入开放数据域，详情请参考 [开放数据域](./build-open-data-context.md)。 | `buildOpenDataContextTemplate` |
-| 原生 PhysX 物理系统 | 该项用于设置是否使用 PhysX 物理系统，具体说明请查看下文 **原生物理** 部分的内容。 | - |
-
-## 原生物理
-
-抖音平台一直致力于为开发者提供更强大的性能和基础能力，抖音将在 v16.3 及之后的版本为小游戏提供 PhysX 原生物理接口。而 Cocos Creator 与抖音平台进行了深度合作，在 **v3.2** 中以实验性功能支持在抖音小游戏中使用平台提供的 PhysX 物理能力，优化物理运算性能，对比使用 Bullet 物理有近 100% 的性能提升：
-
-![compare performance](./publish-bytedance-mini-game/performance.png)
-
-使用原生物理的前提是需要在主菜单栏的 **项目 -> 项目设置 -> 功能裁剪** 中将 **物理系统** 设置为 **PhysX 物理系统**。然后打开 **构建发布** 面板，**发布平台** 选择 **抖音小游戏**，可以看到原生物理相关的配置选项如下：
-
-![PhysX options](./publish-bytedance-mini-game/physx-options.png)
-
-| 构建选项 | 说明 | 字段名（用于命令行发布） |
-| :---- | :-- | :-- |
-| 不打包内置的 PhysX 库 | 若勾选该项，则构建时不会打包内置的 PhysX 库文件，有助于减小包体，但 PhysX 便无法在部分字节跳动的应用平台运行，例如抖音（iOS 版本）及开发者工具。<br>若不勾选该项，则 Creator 支持 PhysX 运行在字节跳动的全应用平台。 | `physX.notPackPhysXLibs` |
-| 开启多线程模式 | 若勾选该项，则启用多线程模式。 | `physX.multiThread` |
-| 子线程的个数 | 启用多线程模式时子线程的个数。 | `physX.subThreadCount` |
-| 容忍误差 | 若勾选该项，则使用多线程模式时的精度会比单线程的低。 | `physX.epsilon` |
+| AppID | 必填项，抖音小游戏的 AppID，构建时会写入到发布包目录下的 `project.config.json` 文件中。 | `appid` |
+| 设备方向 | 可选值包括 **Portrait** 和 **Landscape**。构建时会写入到发布包目录下的 `game.json` 文件中。 | `orientation` |
+| 引擎原生代码分包 | 将引擎的 WASM/Asm.js 代码模块放入小游戏分包，减少主包包体。| - |
+| 开发者工具打开方式 | 默认为 Lite 模式，以加快启动速度。| - |
 
 ## 分包加载
 

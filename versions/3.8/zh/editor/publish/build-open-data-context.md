@@ -1,8 +1,8 @@
 # 开放数据域
 
-目前，**微信**、**百度** 和 **抖音** 小游戏这些平台为了保护其社交关系链数据，增加了 **开放数据域** 的概念，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏（主域）完全隔离，开发者只有在开放数据域中才能通过平台提供的开放接口来访问关系链数据，用于实现一些例如排行榜的功能。
+目前，**微信**、**抖音**、**百度**等小游戏平台为了保护其社交关系链数据，增加了 **开放数据域** 的概念，这是一个单独的游戏执行环境。开放数据域中的资源、引擎、程序，都和主游戏（主域）完全隔离，开发者只有在开放数据域中才能通过平台提供的开放接口来访问关系链数据，用于实现一些例如排行榜的功能。
 
-开放数据域目前只支持 Canvas 渲染，在 Cocos Creator 3.0 中，我们废弃了之前的 Canvas Renderer 模块，使用微信团队基于 **XML** + **CSS** 设计研发的一个前端轻量级 Canvas 引擎来替代。并且将该引擎整合进了 Creator 3.0 内置的开放数据域工程模板中，开发者只需要掌握一些基本的前端技能，就能在该模板的基础上定制排行榜功能。
+开放数据域目前只支持 Canvas 渲染，在 Cocos Creator 3.0 中，我们废弃了之前的 Canvas Renderer 模块，使用一个基于 **XML** + **CSS** 设计研发的轻量级 Canvas 前端引擎来替代。并且将该引擎整合进了 Creator 3.0 内置的开放数据域工程模板中，开发者只需要掌握一些基本的前端技能，就能在该模板的基础上定制排行榜功能。
 
 ## SubContextView 组件说明
 
@@ -52,7 +52,7 @@ export default {
 
 1. 打开项目并双击场景，然后在需要渲染开放数据域的节点上添加 **SubContextView** 组件。
 
-2. 场景设置完成后保存场景，然后在 **菜单栏 -> 项目** 中打开 **构建发布** 面板，选择需要发布的 **微信** / **百度** / **抖音小游戏** 平台，勾选 **生成开放数据域工程模版**，然后点击 **构建**。
+2. 场景设置完成后保存场景，然后在 **菜单栏 -> 项目** 中打开 **构建发布** 面板，选择需要发布的 **微信** / **抖音小游戏** / **百度** 平台，勾选 **生成开放数据域工程模版**，然后点击 **构建**。
 
     ![generate template](./build-open-data-context/generate-template.png)
 
@@ -89,7 +89,9 @@ export default {
 
 1. 由于项目构建后生成的 build 目录默认会被 git 排除在版本控制外，所以如果开发者希望将定制后的开放数据域纳入版本控制，可以将 `openDataContext` 文件夹（例如 `build/wechatgame/openDataContext`）放入项目的 `build-templates` 目录中，具体可参考 [定制项目构建流程](./custom-project-build-template.md)
 
-2. 在开放数据域工程中，如果需要监听来自主域的消息，则需要先判断消息是否来自主域引擎，以微信接口为例：
+2. 在开放数据域工程中，如果需要监听来自主域的消息，则需要先判断消息是否来自主域引擎。
+
+3. 微信接口示例：
 
     ```js
     wx.onMessage(res => {
@@ -99,11 +101,27 @@ export default {
     });
     ```
 
+    详情请参考文档：[微信小游戏-开放数据域基础能力](https://developers.weixin.qq.com/minigame/dev/guide/open-ability/opendata/basic.html)
+
     当主域向开放数据域发送消息时，建议附带上 type 信息以避免处理错误的消息源。例如上述代码中的 `res.type === 'engine'` 表示消息来源于主域引擎。
+4. 抖音小游戏示例：
+
+    ```js
+    tt.onMessage(data => {
+        if (!(data && data.type === 'engine')) {
+            console.log('do something...');
+        }
+    });
+    ```
+
+    详情请参考文档：[抖音小游戏-开放数据域基础能力](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/guide/open-ability/relationship-chain/open-data-base)
+
+> 其他平台的使用类似，具体细节请参考相关平台文档。
 
 ## 参考链接
 
-- [微信官方文档 — 小游戏 Canvas 引擎](https://wechat-miniprogram.github.io/minigame-canvas-engine/)
+- **Cocos Creator 小游戏开放数据域范例工程**：[GitHub](https://github.com/cocos/cocos-example-open-data-context) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)
+
+- [小游戏 Canvas 引擎简介](https://wechat-miniprogram.github.io/minigame-canvas-engine/)
 - [小游戏 Canvas 引擎源码](https://github.com/wechat-miniprogram/minigame-canvas-engine)
 - [doT 模版引擎](http://olado.github.io/doT/?spm=a2c6h.12873639.0.0.36f45227oKu0XO)
-- **Cocos Creator 小游戏开放数据域范例工程**：[GitHub](https://github.com/cocos/cocos-example-open-data-context) | [Gitee](https://gitee.com/mirrors_cocos-creator/OpenDataContext_TestCase)

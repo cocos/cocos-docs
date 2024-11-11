@@ -42,6 +42,26 @@ At present, the size of the WeChat Mini Game subpackage has following restrictio
 
 Please refer to the [WeChat Subpackage Loading](https://developers.weixin.qq.com/minigame/en/dev/guide/base-ability/subPackage/useSubPackage.html) documentation for details.
 
+## ByteDance Mini Game
+
+When building for the ByteDance Mini Game, the configuration of the Asset Bundle will be automatically generated into the `game.json` configuration file of the ByteDance Mini Games release package directory according to the rules.
+
+![profile](subpackage/profile.png)
+
+For the specific property meanings in game.json, you can refer to the documentation:[ByteDane Mini Game Configurition](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/mini-game-configuration/).
+
+### Subpackage Limit
+
+Currently, the size of the WeChat Mini Game subpackage has following restrictions:
+
+- The size of all subpackage of the entire Mini Game can not exceed 20MB​
+- The main package size can not exceed 4MB
+- The size of a single subpackage can not exceed 20MB
+
+> The ByteDance Mini Game Open Data Context is similar to the subpackage, which can not exceed a size of 4MB.
+
+For more details, pelease refer to:[ByteDance Mini Game Subpackage](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/subpackages/introduction).
+
 ## vivo Mini Games
 
 When building for the vivo Mini Game, the configuration of the Asset Bundle will be automatically generated into the **manifest.json** configuration file in the `qgame/src` directory of the vivo Mini Game release package according to the rules.

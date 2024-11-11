@@ -26,7 +26,7 @@ WebXR 所使用的用于提供 Web 资源的服务必须使用 [安全上下文(
 
 ![](webxr-proj-pub/https-license.png)
 
-在命令终端的此目录下输入：**https-server -S** 。启动 https 服务即可。
+在命令终端的此目录下输入：**http-server -S** 。启动 https 服务即可。
 
 <img src="./webxr-proj-pub/start-https-server.png" style="zoom:50%;" />
 
