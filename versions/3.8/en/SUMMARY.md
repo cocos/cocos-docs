@@ -148,6 +148,7 @@
             - [WeChat Mini Games Engine Plugin Instructions](editor/publish/wechatgame-plugin.md)
             - [Access to WeChat PC Mini Games](editor/publish/publish-pc-wechatgame.md)
         - [Publish to Douyin Mini Games](editor/publish/publish-bytedance-mini-game.md)
+            - [Access to Douyin PC Mini Games](editor/publish/publish-pc-bytedance.md)
         - [Publish to Huawei Quick Games](editor/publish/publish-huawei-quick-game.md)
         - [Publish to OPPO Mini Games](editor/publish/publish-oppo-mini-game.md)
         - [Publish to vivo Mini Games](editor/publish/publish-vivo-mini-game.md)

@@ -155,6 +155,7 @@
             - [启用微信小游戏引擎插件](editor/publish/wechatgame-plugin.md)
             - [接入微信 PC 小游戏](editor/publish/publish-pc-wechatgame.md)
         - [发布到抖音小游戏](editor/publish/publish-bytedance-mini-game.md)
+          - [接入抖音 PC 小游戏](editor/publish/publish-pc-bytedance.md)
         - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
         - [发布到 vivo 小游戏](editor/publish/publish-vivo-mini-game.md)

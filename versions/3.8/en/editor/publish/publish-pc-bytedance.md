@@ -1,4 +1,4 @@
-# Integrating Douyin PC Mini Games
+# Access to Douyin PC Mini Games
 
 Douyin PC Mini Games allow you to play Douyin mini-games directly through the Streaming Companion. PC mini-games retain most features available on mobile but currently do not support the following: `keyDown`/`keyUp` keyboard events, screen recording, recording, ads, sharing, favorites, group chat, sidebar, payments, or capabilities that depend heavily on mobile device hardware, such as compass, accelerometer, camera, and microphone.
 
