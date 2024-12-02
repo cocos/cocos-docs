@@ -542,10 +542,6 @@
                             {
                                 "text": "iOS 构建选项",
                                 "link": "editor/publish/ios/build-options-ios.md"
-                            },
-                            {
-                                "text": "iOS 微信小游戏内存与性能优化指南",
-                                "link": "editor/publish/ios/optimize.md"
                             }
                         ],
                         "collapsed": true
@@ -645,13 +641,28 @@
                                     {
                                         "text": "接入微信 PC 小游戏",
                                         "link": "editor/publish/publish-pc-wechatgame.md"
+                                    },
+                                    {
+                                        "text": "iOS 微信小游戏内存与性能优化指南",
+                                        "link": "editor/publish/wechat-ios-optimize.md"
                                     }
                                 ],
                                 "collapsed": true
                             },
                             {
                                 "text": "发布到抖音小游戏",
-                                "link": "editor/publish/publish-bytedance-mini-game.md"
+                                "link": "editor/publish/publish-bytedance-mini-game.md",
+                                "items": [
+                                    {
+                                        "text": "接入抖音 PC 小游戏",
+                                        "link": "editor/publish/publish-pc-bytedance.md"
+                                    },
+                                    {
+                                        "text": "iOS 抖音小游戏内存与性能优化指南",
+                                        "link": "editor/publish/bytedance-ios-optimize.md"
+                                    }
+                                ],
+                                "collapsed": true
                             },
                             {
                                 "text": "发布到华为快游戏",
