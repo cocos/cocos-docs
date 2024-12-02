@@ -616,7 +616,14 @@
                             },
                             {
                                 "text": "Publish to Douyin Mini Games",
-                                "link": "editor/publish/publish-bytedance-mini-game.md"
+                                "link": "editor/publish/publish-bytedance-mini-game.md",
+                                "items": [
+                                    {
+                                        "text": "Access to Douyin PC Mini Games",
+                                        "link": "editor/publish/publish-pc-bytedance.md"
+                                    }
+                                ],
+                                "collapsed": true
                             },
                             {
                                 "text": "Publish to Huawei Quick Games",
