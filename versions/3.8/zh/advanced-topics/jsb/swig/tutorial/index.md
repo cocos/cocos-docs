@@ -183,7 +183,7 @@ Windows: `< 一个存放项目的目录 >/NewProject/build/win64/proj/NewProject
 
 #### 为脚本引擎注册新的模块
 
-修改 `Game.cpp`
+修改工程目录下的 `Game.cpp`
 
 ```c++
 #include "Game.h"
