@@ -1,5 +1,7 @@
 # Publish to Migu Mini Games
 
+Starting from Cocos Creator v3.8.5, games can be published to **Migu Mini Games**.
+
 ## Preparation Work
 
 - Refer [Migu Mini Games Integration Guide](https://open.migufun.com/document/detail?id=640), complete the developer registration process and app creation on the Migu Open Platform.

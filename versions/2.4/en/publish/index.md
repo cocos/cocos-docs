@@ -13,6 +13,7 @@
 - [Publish to Huawei Quick Games](publish-huawei-quick-games.md)
 - [Publish to OPPO Mini Games](publish-oppo-instant-games.md)
 - [Publish to vivo Mini Games](publish-vivo-instant-games.md)
+- [Publish to migu Mini Games](publish-migu-mini-game.md)
 - [Publish to Xiaomi Quick Games](publish-xiaomi-quick-games.md)
 - [Publish to Baidu Mini Games](publish-baidugame.md)
     - [Baidu Open Data Context](publish-baidugame-sub-domain.md)
