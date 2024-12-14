@@ -1,5 +1,7 @@
 # 发布到咪咕小游戏
 
+Cocos Creator 从 v3.8.5 开始支持将游戏发布到 **咪咕小游戏**。
+
 ## 准备工作
 
 - 参考 [咪咕小游戏接入指南](https://open.migufun.com/document/detail?id=640)，在咪咕开放平台完成开发者入驻流程和应用创建。
