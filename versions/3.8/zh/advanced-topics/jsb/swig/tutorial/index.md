@@ -187,7 +187,7 @@ Windows: `< 一个存放项目的目录 >/NewProject/build/win64/proj/NewProject
 
 ```c++
 #include "Game.h"
-#include "bindings/auto/jsb_my_module_auto.h" // 添加此行
+#include "../bindings/auto/jsb_my_module_auto.h" // 添加此行
 //......
 int Game::init() {
   // ......
@@ -1043,7 +1043,7 @@ list(APPEND CC_COMMON_SOURCES
 
 ```c++
 #include "Game.h"
-#include "bindings/auto/jsb_my_module_auto.h"
+#include "../bindings/auto/jsb_my_module_auto.h"
 #include "bindings/auto/jsb_another_module_auto.h" // Add this line
 //......
 
@@ -1078,7 +1078,7 @@ int Game::init() {
 
 // %{ ... %} 代码块中的内容最终会被原封不动地插入到生成的源文件(.cpp)开头的地方
 %{
-#include "bindings/auto/jsb_my_module_auto.h"
+#include "../bindings/auto/jsb_my_module_auto.h"
 #include "bindings/auto/jsb_another_module_auto.h" // Add this line
 %}
 
