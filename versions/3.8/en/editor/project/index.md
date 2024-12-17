@@ -80,6 +80,11 @@ Used to configure various parameters of physics, please refer to the [Physics Co
 - **Import Map**: used to control the import behavior of TypeScript/JavaScript, see the [Import Map](../../scripting/modules/import-map.md) documentation for details.
 
 - **Browser list used for preview**: sets the browser list config file for TypeScript/JavaScript compilation at preview time.
+  > **Example:**
+  > For instance, when previewing, async/await uses polyfill by default. If we don't want to use polyfill,
+  > we can create a previewbrowserlist.txt file in the project root directory with the content chrome 80.
+  > Then go to Project Settings -> Scripts -> Browser List for Preview -> select the previewbrowserlist.txt file.
+  > Restart the editor or restart the script compilation process. The polyfill for async/await will no longer be applied.
 
 - **Exports Conditions**: specify the parsing conditions for conditionalized export modules, see [Conditional exports](../../scripting/modules/spec.md) for details.
 
