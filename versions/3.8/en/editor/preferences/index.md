@@ -20,8 +20,6 @@ The **General** tab is mainly for configuring some basic information related to 
 
     - When the mouse is hovered near the name of a numeric property, the cursor will change to ![mouse cursor](index/mouse-cursor.jpg), and then drag the mouse left and right to increase or decrease the value continuously in a certain step.
 
-- **Theme Color**: set the editor display color, currently including **creator** and **dark**.
-
 ## External Program
 
 The **External Program** tab is used to set up the development environment required to build for publishing to the native platform, as well as to configure some third-party programs. When the mouse is moved over a specific configuration item, a gray circular question mark icon is displayed on the left side. Clicking on this icon allows setting the configuration item to be applied to the current project or to all projects globally. When set to apply to the current project, the gray icon will turn yellow.
