@@ -80,6 +80,11 @@
 - **导入映射**：该项用于控制 TypeScript/JavaScript 的导入行为，详情请参考 [Import Map](../../scripting/modules/import-map.md)。
 
 - **用于预览的浏览器列表**：设置在预览时 TypeScript/JavaScript 代码编译的浏览器列表文件。
+  > **示例**：
+  > 比如我们在预览的时候，async/await是使用的polyfill。但我们希望不使用polyfill，
+  > 那么我们可以在项目根目录下创建一个 previewbrowserlist.txt 文件，内容为 chrome 80
+  > 然后在项目设置 -> 脚本 -> 用于预览的浏览器列表 -> 选择 previewbrowserlist.txt 这个文件。
+  > 重启编辑器 或者 重启 脚本编译进程。 对于async/await的profill就没有了。 
 
 - **导出条件**：为条件化导出模块指定解析条件，详情可参考 [条件性导出](../../scripting/modules/spec.md#%E6%9D%A1%E4%BB%B6%E6%80%A7%E5%AF%BC%E5%87%BA)。
 
