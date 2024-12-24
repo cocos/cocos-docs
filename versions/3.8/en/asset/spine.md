@@ -22,6 +22,12 @@ The assets required for skeletal animation are:
 
   ![spine](spine/import.png)
 
+## Spine Preview
+
+In version 3.8.5, we have added preview support to the inspector panel of Spine. After users select a certain Spine file, they can see the corresponding rendering content in the panel, which can greatly improve the efficiency of resource inspection.
+
+![preview](spine/spine-preview.png)
+
 ## Create Skeletal Animation
 
 Drag the skeletal animation asset from the **Assets** panel to the `SkeletonData` property of the spine component in the **Inspector** panel.

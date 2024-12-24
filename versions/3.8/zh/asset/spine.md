@@ -1,4 +1,4 @@
-# 骨骼动画资源（Spine）
+# Spine 动画资源
 
 Creator 中的骨骼动画资源是由 [Spine 编辑器](http://zh.esotericsoftware.com/) 导出的，目前支持 [JSON](http://zh.esotericsoftware.com/spine-export/#JSON) 和 [二进制](http://zh.esotericsoftware.com/spine-export/#%E4%BA%8C%E8%BF%9B%E5%88%B6) 两种数据格式。
 
@@ -12,7 +12,7 @@ Creator 中的骨骼动画资源是由 [Spine 编辑器](http://zh.esotericsoftw
 | v2.0.8～v2.1 | v3.6 |
 | v2.0.7 及以下 | v2.5 |
 
-## 导入骨骼动画资源
+## 导入 Spine 骨骼动画资源
 
 骨骼动画所需资源有：
 
@@ -22,7 +22,13 @@ Creator 中的骨骼动画资源是由 [Spine 编辑器](http://zh.esotericsoftw
 
   ![spine](spine/import.png)
 
-## 创建骨骼动画
+## Spine 预览
+
+在 v3.8.5 中，我们在 Spine 的属性查看器面板中，添加了预览支持。用户选中某个 Spine 文件后，就可以在面板中看到对应的渲染内容，能够极大地提升资源检查效率。
+
+![preview](spine/spine-preview.png)
+
+## 创建 Spine 骨骼动画
 
 从 **资源管理器** 中将骨骼动画资源拖动到 **属性检查器** Spine 组件的 SkeletonData 属性中：
 
