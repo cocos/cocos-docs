@@ -18,6 +18,8 @@
 
 - `profiles`：编辑器配置
 
+- `settings`：项目设置
+
 - `temp`：临时文件目录
 
 - `package.json`：项目配置
