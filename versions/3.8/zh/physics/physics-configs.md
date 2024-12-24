@@ -22,10 +22,7 @@
 | **AutoSimulation** | 是否开启自动模拟, 默认值 `true` |
 | **FixedTimeStep** | 每步模拟消耗的固定时间，默认值 `1/60`，最小值 `0` |
 | **MaxSubSteps** | 每步模拟的最大子步数，默认值 `1`，最小值 `0` |
-| **Friction** | 摩擦系数，默认值 `0.5` |
-| **RollingFriction** | 滚动摩擦系数，默认值 `0.1` |
-| **SpinningFriction** | 自旋摩擦系数，默认值 `0.1` |
-| **Restitution** | 弹性系数，默认值 `0.1` |
+| **DefualtMaterial** | 默认物理材质 |
 | **CollisionMatrix** | 碰撞矩阵，仅用于初始化 |
 
 > **注意**：目前 **2D** / **3D** 物理共用一个配置。
