@@ -51,3 +51,30 @@ When developing a game, we may need some type of physics casting, such as whethe
 
 - [Raycast Detection](./physics-raycast.md)
 - [Geometry Cast Detection](./physics-sweep.md)
+
+### Physics Debug Draw
+
+![debug-draw](img/physics-debugdraw.png)
+
+By default, the physics system does not draw any debug information. If you need to draw debug information, please set the `PhysicsSystem.instance.debugDrawFlags`.
+
+The physics system provides a variety of debug information, and relevant content can be drawn by combining these pieces of information.
+
+- EPhysicsDrawFlags.NONE = 0: Draw nothing.
+- EPhysicsDrawFlags.WIRE_FRAME = 1: Draw the wireframe of colliders.
+- EPhysicsDrawFlags.CONSTRAINT = 2: Draw constraints.
+- EPhysicsDrawFlags.ABB = 4: Draw bounding boxes.
+
+To draw all the information, you can refer to the following code:
+
+```ts
+PhysicsSystem.instance.debugDrawFlags = EPhysicsDrawFlags.WIRE_FRAME
+    | EPhysicsDrawFlags.AABB
+    | EPhysicsDrawFlags.CONSTRAINT;
+```
+
+Set the drawing flag to `EPhysicsDrawFlags.NONE` to turn off the drawing.
+
+```ts
+PhysicsSystem.instance.debugDrawFlags = EPhysicsDrawFlags.NONE;
+```

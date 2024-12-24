@@ -29,7 +29,7 @@ void SurfacesFragmentModifySharedData(inout SurfacesMaterialData surfaceData)
 如果我们更换它的头文件：
 
 ```glsl
-//toom 表面材质
+//toon 表面材质
 #include <surfaces/data-structures/toon>
 #define CC_SURFACES_FRAGMENT_MODIFY_SHARED_DATA
 void SurfacesFragmentModifySharedData(inout SurfacesMaterialData surfaceData)
