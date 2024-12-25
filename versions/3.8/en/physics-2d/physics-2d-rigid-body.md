@@ -206,19 +206,15 @@ When force is applied to a RigidBody, the mass center of the RigidBody is genera
 
 ```ts
 // Get the mass center in the local coordinate system
-const localCenter = rigidbody.getLocalCenter();
-
-// or through the parameters to receive the return value
-localCenter = v2();
+let localCenter = v2();
 rigidbody.getLocalCenter(localCenter);
 
 // Get the mass center in the world coordinate system
-const worldCenter = rigidbody.getWorldCenter();
-
-// or through the parameters to receive the return value
-worldCenter = v2();
+let worldCenter = v2();
 rigidbody.getWorldCenter(worldCenter);
 ```
+
+> For the out variables passed when calling `rigidbody.getXXX` in the above code, it is recommended to cache them to avoid creating new ones every time, which may cause GC (Garbage Collection) issues.
 
 ### Force and Impulse
 
