@@ -102,7 +102,6 @@ const colliderList = PhysicsSystem2D.instance.testAABB(rect);
 ### 射线测试
 
 Box2D 物理模块（Builtin 模块没有）提供了射线检测来检测给定的线段穿过哪些碰撞体，我们还可以获取到碰撞体在线段穿过碰撞体的那个点的法线向量和其他一些有用的信息。
-
 ```ts
 const results = PhysicsSystem2D.instance.raycast(p1, p2, type, mask);
 
@@ -114,6 +113,7 @@ for (let i = 0; i < results.length; i++) {
     const fraction = result.fraction;
 }
 ```
+注意：在 2D 物理系统中，PhysicsSystem2D.rayCast 使用的是世界坐标来进行计算。如果传入射线的起点和终点是基于本地坐标（如this.node.position），它们可能并不匹配物理世界中的位置，导致射线无法命中。无特殊需求请使用worldPosition传入p1,p2
 
 射线检测的第三个参数指定检测的类型，射线检测支持四种类型。这是因为 Box2D 的射线检测不是从射线起始点最近的物体开始检测的，所以检测结果不能保证结果是按照物体距离射线起始点远近来排序的。Cocos Creator 物理系统将根据射线检测传入的检测类型来决定是否对 Box2D 检测结果进行排序，这个类型会影响到最后返回给用户的结果。
 
