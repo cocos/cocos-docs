@@ -106,7 +106,7 @@ The __Box2D__ physics module (not available in the Builtin module) also provides
 ```ts
 const results = PhysicsSystem2D.instance.raycast(p1, p2, type, mask);
 
-for (const i = 0; i < results.length; i++) {
+for (let i = 0; i < results.length; i++) {
     const result = results[i];
     const collider = result.collider;
     const point = result.point;
