@@ -51,6 +51,7 @@
     - [v3.6 构建模板与 settings.json 升级指南](release-notes/build-template-settings-upgrade-guide-v3.6.md)
     - [Cocos Creator 3.6 材质升级指南](material-system/effect-upgrade-documentation-for-v3.5-to-v3.6.md)
     - [升级指南：粒子从 v3.5.x 升级到 v3.6.0](particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md)
+    - [v3.8 Android 工程升级](release-notes/upgrade-3.8-android.md)
 
 - [场景制作](concepts/scene/index.md)
     - [场景资源](asset/scene.md)
