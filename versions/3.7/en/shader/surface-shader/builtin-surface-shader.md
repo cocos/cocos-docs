@@ -314,7 +314,7 @@ The same applies to ALPHA_TEST_CHANNEL. By default, the 'a' channel is used, but
 
 Surface Shader uses a texture as a PBR map, and according to the definition, we can know the meaning of each channel.
 - r: Ambient Occlusion
-- r: Roughness
+- g: Roughness
 - b: Metallic
 - a: Specular Intensity
 

@@ -51,3 +51,30 @@ Cocos Creator 支持以下几种物理引擎：
 
 - [射线检测](./physics-raycast.md)
 - [几何投射检测](./physics-sweep.md)
+
+### 绘制物理调试信息
+
+![debug-draw](img/physics-debugdraw.png)
+
+物理系统默认是不绘制任何调试信息的，如果需要绘制调试信息，请设置 `PhysicsSystem.instance.debugDrawFlags`。
+
+物理系统提供了各种各样的调试信息，可以通过组合这些信息来绘制相关的内容。
+
+- EPhysicsDrawFlags.NONE = 0：不绘制任何内容
+- EPhysicsDrawFlags.WIRE_FRAME = 1：绘制碰撞体线框
+- EPhysicsDrawFlags.CONSTRAINT = 2：绘制约束
+- EPhysicsDrawFlags.ABB = 4：绘制包围盒。
+
+想要绘制所有信息，可参考如下代码：
+
+```ts
+PhysicsSystem.instance.debugDrawFlags = EPhysicsDrawFlags.WIRE_FRAME
+    | EPhysicsDrawFlags.AABB
+    | EPhysicsDrawFlags.CONSTRAINT;
+```
+
+设置绘制标志位为 **EPhysicsDrawFlags.NONE**，即可以关闭绘制。
+
+```ts
+PhysicsSystem.instance.debugDrawFlags = EPhysicsDrawFlags.NONE;
+```

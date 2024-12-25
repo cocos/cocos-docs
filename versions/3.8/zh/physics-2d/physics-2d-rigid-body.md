@@ -207,19 +207,15 @@ rigidbody.getLocalVector(worldVector, localVector);
 
 ```ts
 // 获取本地坐标系下刚体的质心
-const localCenter = rigidbody.getLocalCenter();
-
-// 或者通过参数来接收返回值
-localCenter = new Vec2();
+let localCenter = new Vec2();
 rigidbody.getLocalCenter(localCenter);
 
 // 获取世界坐标系下的刚体质心
-const worldCenter = rigidbody.getWorldCenter();
-
-// 或者通过参数来接收返回值
-worldCenter = new Vec2();
+let worldCenter = new Vec2();
 rigidbody.getWorldCenter(worldCenter);
 ```
+
+> 上面代码中用于调用 `rigidbody.getXXX` 返回的 out 变量，建议缓存下来，避免每次都 new 造成 GC 问题。
 
 ### 力与冲量
 

@@ -22,10 +22,7 @@ The **Project Settings -> Physical Configuration** allows you to configure the r
 | **AutoSimulation** | Whether to enable auto simulation, default `true` |
 | **FixedTimeStep** | Fixed time per simulation step, default `1/60`, min `0` |
 | **MaxSubSteps** | The maximum number of sub-steps per step, default `1`, min `0` |
-| **Friction** | Friction coefficient, default value `0.5` |
-| **RollingFriction** | Rolling friction coefficient, default `0.1` |
-| **SpinningFriction** | SpinFriction, default `0.1` |
-| **Restitution** | Coefficient of elasticity, default `0.1` |
+| **DefaultMaterial** | Default physics material |
 | **CollisionMatrix** | Collision matrix, for initialization only |
 
 > **Note**: Currently **2D** / **3D** physics share a common configuration.

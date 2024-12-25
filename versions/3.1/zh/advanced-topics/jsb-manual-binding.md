@@ -57,7 +57,7 @@ jsb.fileDownloader.requestDownload(url, savePath, cookies, options, (success, ur
 
 ## 前置
 
-在开始之前，我们需要需要知道有关 ScriptEngine 抽象层、相关 API 等相关知识，这部分内容如果已从 Cocos Creator 文档了解可跳过，直接进行 **实践** 部分。
+在开始之前，我们需要知道有关 ScriptEngine 抽象层、相关 API 等相关知识，这部分内容如果已从 Cocos Creator 文档了解可跳过，直接进行 **实践** 部分。
 
 ### 抽象层
 

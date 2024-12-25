@@ -104,7 +104,7 @@ Box2D 物理模块（Builtin 模块没有）提供了射线检测来检测给定
 ```ts
 const results = PhysicsSystem2D.instance.rayCast(p1, p2, type, mask);
 
-for (const i = 0; i < results.length; i++) {
+for (let i = 0; i < results.length; i++) {
     const result = results[i];
     const collider = result.collider;
     const point = result.point;

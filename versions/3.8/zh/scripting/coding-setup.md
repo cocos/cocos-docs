@@ -1,16 +1,24 @@
 # 配置代码编辑环境
 
-在 **偏好设置** 面板中指定了 [默认脚本编辑器](../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%A8%8B%E5%BA%8F)，便可以在 **资源管理器** 中双击脚本文件打开代码编辑器快速编辑代码。本篇内容主要以 Visual Studio Code 为例介绍如何配置开发环境。
+在 Cocos Creator **偏好设置** 面板中，可以指定 [默认脚本编辑器](../editor/preferences/index.md#%E5%A4%96%E9%83%A8%E7%A8%8B%E5%BA%8F)。
 
-[Visual Studio Code](https://code.visualstudio.com/) （以下简称 VS Code）是微软推出的轻量化跨平台 IDE，支持 Windows、Mac、Linux 平台，安装和配置非常简单。使用 VS Code 管理和编辑项目脚本代码，可以轻松实现语法高亮、智能代码提示、网页调试等功能。
+在 **资源管理器** 中双击脚本文件时，会使用指定的代码编辑器打开代码。
+
+我们推荐大家使用 Visual Studio Code，或者基于 Visual Studio Code 的其他编辑器产品作为代码编辑器。
 
 ## 安装 VS Code
+
+[Visual Studio Code](https://code.visualstudio.com/) （以下简称 VS Code）是微软推出的轻量化跨平台 IDE，支持 Windows、Mac、Linux 平台，安装和配置非常简单。使用 VS Code 管理和编辑项目脚本代码，可以轻松实现语法高亮、智能代码提示、网页调试等功能。
 
 前往 VS Code 的 [官方网站](https://code.visualstudio.com/)，点击首页的下载链接即可下载。
 
 MacOS 用户解压下载包后双击 **Visual Studio Code** 即可运行。
 
 Windows 用户下载后运行 **VSCodeUserSetup.exe** 按提示完成安装即可运行。
+
+安装完成后，在**偏号设置**面板中指定默认脚本编辑器即可。
+
+> 如果只是日常开发，那么代码编辑环境到这一步就算配置好了。本文后续内容可等有需要的时候再来配置。
 
 ## 智能提示数据
 

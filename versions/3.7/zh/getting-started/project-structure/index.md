@@ -17,6 +17,8 @@
 - `local`：日志文件目录
 
 - `profiles`：编辑器配置
+  
+- `settings`：项目设置
 
 - `temp`：临时文件目录
 
