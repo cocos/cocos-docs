@@ -113,7 +113,7 @@
 目前cocos与ark是分两个线程的，一个是UI线程，跑的是ark引擎，另一个是worker线程，可以跑ark/v8引擎。所以这里要分两种情况：
 ### cocos使用ark 引擎
 这样globalThis与cocos的globalThis是一致的，也就是说给globalThis赋值，在cocos上可以直接使用globalThis获取。
-参考实现(构建openharmony工程，使用deveco打开工程，查看：entry/src/main/ets/cocos/oh-adapter/sys-ability-polyfill文件的实现)：
+参考实现(构建HarmonyOS Next工程，使用deveco打开工程，查看：entry/src/main/ets/cocos/oh-adapter/sys-ability-polyfill文件的实现)：
 ```
 globalThis.getSystemLanguage = function () {
   return i18n.getSystemLanguage();
@@ -123,7 +123,7 @@ globalThis.getSystemLanguage = function () {
 globalThis.getSystemLanguage();
 ```
 
-但是并不是所有的接口都可以这样封装，由于部分openharmony的系统接口是只能在UI线程上使用的，例如tts与asr等接口；还有些UI操作相关的接口，例如editbox，video等。
+但是并不是所有的接口都可以这样封装，由于部分HarmonyOS Next的系统接口是只能在UI线程上使用的，例如tts与asr等接口；还有些UI操作相关的接口，例如editbox，video等。
 
 这样必须使用进程间的通信机制来完成
 
@@ -206,6 +206,5 @@ std::string System::getCurrentLanguageCode() const {
         >> ![](./publish-openharmony/document_image_rId72.png)
     - 更新IDE，编译报错,如下图：
        >> ![](./publish-openharmony/document_image_rId75.png)
-       >> 把Harmonyos与openharmony的SDK更新到最新；
 
 
