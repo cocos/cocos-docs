@@ -34,7 +34,7 @@
 <img src="./publish-openharmony/step-010.png" width="900"> <br>
 <img src="./publish-openharmony/step-011.png" width="900"> <br>
 
-7. 接下来会提示安装 SDK，点击下一步，注意是 OpenHarmonySDK，如下图：
+7. 接下来会提示安装 SDK，点击下一步，如下图：
 
 <img src="./publish-openharmony/step-012.png" width="900"> <br>
 <img src="./publish-openharmony/step-013.png" width="900"> <br>

@@ -110,6 +110,8 @@
 
 
 ## HarmonyOS Next系统接口与Cocos交互
+[基于反射机制实现 JavaScript 与 HarmonyOS Next 系统原生通信](../../advanced-topics/arkts-reflection.md)
+
 目前cocos与ark是分两个线程的，一个是UI线程，跑的是ark引擎，另一个是worker线程，可以跑ark/v8引擎。所以这里要分两种情况：
 ### cocos使用ark 引擎
 这样globalThis与cocos的globalThis是一致的，也就是说给globalThis赋值，在cocos上可以直接使用globalThis获取。
