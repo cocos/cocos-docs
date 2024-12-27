@@ -114,7 +114,7 @@
     - [打包发布原生平台](publish/publish-native.md)
     - [原生平台 JavaScript 调试](publish/debug-jsb.md)
     - [发布到 HUAWEI AppGallery Connect](publish/publish-huawei-agc.md)
-    - [发布到 OpenHarmony 应用](./publish/publish-openharmony.md)
+    - [发布到 HarmonyOS Next 应用](./publish/publish-harmonyos-next.md)
     - [发布到 Google Play Instant](publish/publish-android-instant.md)
     - [发布到支付宝小游戏](publish/publish-alipay-mini-games.md)
     - [发布到淘宝小程序创意互动](publish/publish-taobao-creative-app.md)

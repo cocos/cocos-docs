@@ -482,8 +482,8 @@
                         "link": "publish/publish-huawei-agc.md"
                     },
                     {
-                        "text": "发布到 OpenHarmony 应用",
-                        "link": "./publish/publish-openharmony.md"
+                        "text": "发布到 HarmonyOS Next 应用",
+                        "link": "./publish/publish-harmonyos-next.md"
                     },
                     {
                         "text": "发布到 Google Play Instant",
