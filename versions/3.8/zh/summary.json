@@ -192,6 +192,10 @@
                     {
                         "text": "升级指南：粒子从 v3.5.x 升级到 v3.6.0",
                         "link": "particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md"
+                    },
+                    {
+                        "text": "v3.8 Android 工程升级",
+                        "link": "release-notes/upgrade-3.8-android.md"
                     }
                 ],
                 "collapsed": true
@@ -515,6 +519,10 @@
                             }
                         ],
                         "collapsed": true
+                    },
+                    {
+                        "text": "发布 Google Play 示例",
+                        "link": "editor/publish/google-play/build-example-google-play.md"
                     },
                     {
                         "text": "发布到谷歌 GPG 平台",

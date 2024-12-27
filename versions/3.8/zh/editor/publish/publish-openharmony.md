@@ -1,19 +1,11 @@
 # 发布到 HarmonyOS Next
 
-自 Cocos Creator v3.8 起，支持发布到 HarmonyOS Next 平台。
-
-## 支持情况
-
-| 引擎版本 | HarmonyOS Next 版本 | 说明 |
-| :-- | :-- | :-- |
-| v3.6.1 ~ v3.7.3 | OpenHarmony 3.2 beta | 该版本在社区公测，因此无法从 Dashboard 直接下载，开发者请从 [社区下载](https://forum.cocos.org/t/topic/141299) |
-| v3.8 | OpenHarmony 3.2，OpenHarmony 4.0 | 正式版，开发者可以选择从 Dashboard 中直接下载该编辑器版本。 |
-| v3.8.5 | HarmonyOS Next | 正式版，开发者可以选择从 Dashboard 中直接下载该编辑器版本。 |
-
-如果您使用的引擎版本低于 v3.8，我们建议您升级到 v3.8 方便发布正式版。
+自 Cocos Creator v3.8.5 起，支持发布到 HarmonyOS Next 平台。
 
 ## 准备工作
+
 ### 安装最新的Creator
+
 1. Cocos Creator 下载传送门（版本>=3.8.5）：[Cocos Creator](https://www.cocos.com/creator-download)
 
 ### 安装 DevEco Studio
@@ -22,15 +14,15 @@
 
     ![](./publish-openharmony/document_image_rId3.png)
 
-2. 解压目录，双击 deveco-studio-5.0.5.310.exe 进行安装，点击 next，如下图：
+2. 解压目录，双击 deveco-studio-5.0.5.310.exe 进行安装，点击 Next，如下图：
 
     ![](./publish-openharmony/document_image_rId33.png)
 
-3. 选择安装路径，点 next，如下图：
+3. 选择安装路径，点 Next，如下图：
 
     ![](./publish-openharmony/document_image_rId34.png)
 
-4. 根据需求配置，点击 next，如下图:
+4. 根据需求配置，点击 Next，如下图:
 
     ![](./publish-openharmony/document_image_rId35.png)
 
@@ -46,7 +38,7 @@
 
     ![](./publish-openharmony/document_image_rId38.png)
 
-8. 启动DevEco Studio，如下图:
+8. 启动 DevEco Studio，如下图:
 
     ![](./publish-openharmony/document_image_rId39.png)
 
@@ -66,7 +58,7 @@
 
     ![](./publish-openharmony/document_image_rId43.png)
 
-13. 确认版本信息，点击 next，如下图：
+13. 确认版本信息，点击 Next，如下图：
 
     ![](./publish-openharmony/document_image_rId45.png)
 
@@ -79,6 +71,7 @@
     ![](./publish-openharmony/document_image_rId47.png)
 
 ### Creator构建HarmonyOS Next工程
+
 1. 选择工程的目录，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.8) 为例，如下图：
 
     ![](./publish-openharmony/document_image_rId53.png)
@@ -101,36 +94,47 @@
 
     ![](./publish-openharmony/document_image_rId57.png)
 
-7. 配置工程名称、配置开始场景与包含的其他场景，配置Debug/Release，点击 build，如下图：
+7. 配置工程名称、配置开始场景与包含的其他场景，配置 Debug/Release，点击 Build，如下图：
 
     ![](./publish-openharmony/document_image_rId58.png)
 
-8. 目前Make与Run功能还未实现，请使用DevEco打开工程
+8. 目前Make与Run功能还未实现，请使用 DevEco 打开工程
     ![](./publish-openharmony/document_image_rId59.png)
 
 
-## HarmonyOS Next系统接口与Cocos交互
+## HarmonyOS Next 系统接口与 Cocos 交互
+
 [基于反射机制实现 JavaScript 与 HarmonyOS Next 系统原生通信](../../advanced-topics/arkts-reflection.md)
 
-目前cocos与ark是分两个线程的，一个是UI线程，跑的是ark引擎，另一个是worker线程，可以跑ark/v8引擎。所以这里要分两种情况：
-### cocos使用ark 引擎
-这样globalThis与cocos的globalThis是一致的，也就是说给globalThis赋值，在cocos上可以直接使用globalThis获取。
-参考实现(构建HarmonyOS Next工程，使用deveco打开工程，查看：entry/src/main/ets/cocos/oh-adapter/sys-ability-polyfill文件的实现)：
-```
+目前 Cocos 与 Ark 是分两个线程的，一个是 UI 线程，跑的是 Ark 引擎，另一个是 worker 线程，可以跑 Ark/V8 引擎。
+
+所以这里要分两种情况：
+
+### Cocos 使用 Ark 引擎
+
+这样 globalThis 与 Cocos 的 globalThis 是一致的，也就是说给 globalThis 赋值，在 Cocos 上可以直接使用 globalThis 获取。
+
+参考实现(构建 HarmonyOS Next 工程，使用 DevEco 打开工程，查看：entry/src/main/ets/cocos/oh-adapter/sys-ability-polyfill文件的实现)：
+
+```ts
 globalThis.getSystemLanguage = function () {
   return i18n.getSystemLanguage();
 }
+```
 
-在cocos上，可以直接使用
+在 Cocos 上，可以直接使用:
+
+```ts
 globalThis.getSystemLanguage();
 ```
 
-但是并不是所有的接口都可以这样封装，由于部分HarmonyOS Next的系统接口是只能在UI线程上使用的，例如tts与asr等接口；还有些UI操作相关的接口，例如editbox，video等。
+但是并不是所有的接口都可以这样封装，由于部分 HarmonyOS Next 的系统接口是只能在 UI 线程上使用的，例如 tts 与 asr 等接口；还有些 UI 操作相关的接口，例如 Editbox、Video 等。
 
 这样必须使用进程间的通信机制来完成
 
-cocos封装了一个类，名为ProxyPort类，这个是个公共类，同时可以在ui线程与worker线程上使用。可以通过使用proxyport接口互相发送消息。例如，在ui线程上（即ets布局文件与ability等文件）使用：
-```
+Cocos 封装了一个类，名为 ProxyPort 类，这个是个公共类，同时可以在 ui 线程与 worker 线程上使用。可以通过使用 ProxyPort 接口互相发送消息。例如，在 ui 线程上（即 ets 布局文件与 ability 等文件）使用：
+
+```ts
 // entry/src/main/ets/pages/index.ets文件
 // 监听从worker上发送的消息，即cocos发送的消息；
 this.workPort.on('createWebview', (param: number)=> {
@@ -159,17 +163,19 @@ uiPort.on("onVideoEvent", (param) => {
 
 ```
 
-### cocos使用V8引擎
-使用V8，则不能使用globalThis来进行互相调用，因为globalThis已经是两个不同的东西；
+### Cocos使用 V8 引擎
+
+使用 V8，则不能使用 globalThis 来进行互相调用，因为 globalThis 已经是两个不同的东西；
 因此需要交互的话，需要通过native进行绑定。
 
 绑定分为两个部分：
-- ark通过napi接口与native进行绑定；
-- V8通过接口绑定到native
 
-这样就可以在native里进行互相调用；
-例如：
-```
+- Ark 通过  napi 接口与 native 进行绑定；
+- V8 通过接口绑定到 native
+
+这样就可以在native里进行互相调用，例如：
+
+```ts
 // entry/src/main/ets/cocos/oh-adapter/sys-ability-polyfill文件的实现
 globalThis.getSystemLanguage = function () {
   return i18n.getSystemLanguage();
@@ -177,9 +183,9 @@ globalThis.getSystemLanguage = function () {
 
 ```
 
-在native里：
+在 native 里：
 
-```
+```c++
 // getCurrentLanguageCode是js上的jsb.__getCurrentLanguageCode的实现
 std::string System::getCurrentLanguageCode() const {
     // 通过napi调用ark引擎上的getSystemLanguage接口
@@ -196,17 +202,13 @@ std::string System::getCurrentLanguageCode() const {
 }
 ```
 
-
-
-
 ## 几个注意事项
+
 另外，因为 HarmonyOS Next 还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。
-1. 目前已知问题是：
-    - restart 目前还未有方案；
-    - 编译失败时，可能是内存不足导致，退出部分应用，重新 build 试试；
-        >>
-        >> ![](./publish-openharmony/document_image_rId72.png)
-    - 更新IDE，编译报错,如下图：
-       >> ![](./publish-openharmony/document_image_rId75.png)
 
-
+- Restart 目前还未有方案；
+- 编译失败时，可能是内存不足导致，退出部分应用，重新 build 试试；
+    >>
+    >> ![](./publish-openharmony/document_image_rId72.png)
+- 更新IDE，编译报错,如下图：
+   >> ![](./publish-openharmony/document_image_rId75.png)
