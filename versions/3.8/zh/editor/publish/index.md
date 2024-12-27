@@ -8,7 +8,7 @@
 - [发布 iOS 应用](./ios/index.md)
 - [发布 Android 应用](./android/index.md)
 - [发布 HUAWEI HarmonyOS 应用](./publish-huawei-ohos.md)
-- [发布 OpenHarmony 应用](./publish-openharmony.md)
+- [发布 HarmonyOS Next 应用](./publish-harmonyos-next.md)
 - [发布 Windows 应用](./windows/index.md)
 - [发布 macOS 应用](./ios/index.md)
 - [发布 Web 移动端 - H5](./publish-web.md)
