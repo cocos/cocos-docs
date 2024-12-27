@@ -1,6 +1,6 @@
 # 发布到 HarmonyOS Next 应用
 
-自 Cocos Creator v2.4.12 起，支持发布到 **HarmonyOS Next** 平台。
+自 Cocos Creator v2.4.14 起，支持发布到 **HarmonyOS Next** 平台。
 
 ## 安装 DevEco Studio
 
@@ -8,7 +8,7 @@
 
 <img src="./publish-openharmony/deveco-studio-download.png" width="900"> <br>
 
-2. 解压目录，双击进行安装，点击 next，如下步骤：
+2. 解压目录，双击进行安装，点击 Next，如下步骤：
 
 <img src="./publish-openharmony/step-001.png" width="900"> <br>
 <img src="./publish-openharmony/step-002.png" width="900"> <br>
