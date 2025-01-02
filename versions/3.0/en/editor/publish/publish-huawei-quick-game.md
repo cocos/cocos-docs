@@ -6,7 +6,7 @@ __Cocos Creator__ officially supports the release of games to the **Huawei Quick
 
 ## Environment Configuration
 
-- Download the [Huawei Quick APP Loader](https://developer.huawei.com/consumer/en/doc/development/quickApp-Guides/quickapp-installtool#h1-1575365259108) and install it on your Android device (Android Phone 6.0 or above is recommended)
+- Download the [Huawei Quick APP Loader](https://developer.huawei.com/consumer/en/doc/Tools-Library/quickapp-ide-download-0000001101172926#section9347192715112) and install it on your Android device (Android Phone 6.0 or above is recommended)
 
 - Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally.
 
@@ -113,4 +113,4 @@ After the build is complete, the generated subpackages and main package are merg
 
 ## Reference documentation
 
-[Huawei Quick Game Development Guide](https://developer.huawei.com/consumer/en/doc/development/quickApp-Guides/quickgame-develop-runtime-game)
+[Huawei Quick Game Development Guide](https://developer.huawei.com/consumer/en/doc/quickApp-Guides/quickgame-dev-runtimegame-guide-0000001159778255)

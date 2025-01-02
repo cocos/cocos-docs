@@ -2,7 +2,7 @@
 
 ## Environment Configuration
 
-- Download [Huawei Quick APP Loader](https://developer.huawei.com/consumer/en/doc/development/quickApp-Guides/quickapp-installtool#h1-1575365259108) and install it on an Android device (Android Phone 6.0 or above is recommended)
+- Download [Huawei Quick APP Loader](https://developer.huawei.com/consumer/en/doc/Tools-Library/quickapp-ide-download-0000001101172926#section9347192715112) and install it on an Android device (Android Phone 6.0 or above is recommended)
 
 - Install [nodejs-8.1.4](https://nodejs.org/en/download/) or above, globally.
 
@@ -166,4 +166,4 @@ Cocos Creator already helps developers with downloading, caching and version man
 
 ## Related Reference Links
 
-[Huawei Quick Game development documentation](https://developer.huawei.com/consumer/en/doc/development/quickApp-Guides/quickgame-develop-runtime-game)
+[Huawei Quick Game development documentation](https://developer.huawei.com/consumer/en/doc/quickApp-Guides/quickgame-dev-runtimegame-guide-0000001159778255)
