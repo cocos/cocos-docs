@@ -69,10 +69,10 @@ let param = {
     a:1,
     b:2
 }
-let o1 = jsb.reflection.callStaticMethod(true,"entry/src/main/ets/test","entry/test",JSON.stringify(param));
+let o1 = native.reflection.callStaticMethod("entry/src/main/ets/test","entry/test",JSON.stringify(param), true);
 console.log("result::", o1, typeof o1, JSON.parse(o1).a);
 
-let o2 =jsb.reflection.callStaticMethod(false,"entry/src/main/ets/test","entry/syncTest",JSON.stringify(param));
+let o2 = native.reflection.callStaticMethod("entry/src/main/ets/test","entry/syncTest",JSON.stringify(param), false);
 console.log("result::", o2, typeof o2, JSON.parse(o2).a);
 ```
 ### HAP加载HAR模块名
@@ -118,9 +118,9 @@ let param = {
     a:1,
     b:2
 }
-let o1 = jsb.reflection.callStaticMethod(true,"library","entry/test",JSON.stringify(param));
+let o1 = native.reflection.callStaticMethod("library","entry/test",JSON.stringify(param), true);
 console.log("result::", o1, typeof o1, JSON.parse(o1).a);
 
-let o2 =jsb.reflection.callStaticMethod(false,"library","entry/syncTest",JSON.stringify(param));
+let o2 = native.reflection.callStaticMethod("library","entry/syncTest",JSON.stringify(param), false);
 console.log("result::", o2, typeof o2, JSON.parse(o2).a);
 ```
