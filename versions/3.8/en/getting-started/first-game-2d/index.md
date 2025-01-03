@@ -615,7 +615,7 @@ Here we added a property named `BodyAnim` and added `@property` above it. This s
 To make sure there is a code line in your PlayerController file as below, or the code will fail to compile.
 
 ```ts
-`const { ccclass, property } = _decorator;`
+const { ccclass, property } = _decorator;
 ```
 
 Here `_decorator` is a class containing all of the decorators that can be used in Cocos Creator, it should be imported from namespace cc before using it.
