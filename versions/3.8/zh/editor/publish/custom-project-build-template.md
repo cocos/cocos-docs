@@ -46,17 +46,22 @@ project-folder
 | 华为 AGC | huawei-agc | 暂不支持 |
 | 支付宝小游戏 | alipay-mini-game | `game.json` |
 | 淘宝小游戏 | taobao-mini-game | `game.json`、`mini.project.json` |
-| 抖音小游戏 | bytedance-mini-game | `game.ejs`、[`game.json`](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/mini-game-configuration)、`project.config.json` |
+| 抖音小游戏 | bytedance-mini-game | `game.ejs`、`game.json`、`project.config.json` |
 | OPPO 小游戏 | oppo-mini-game | `manifest.json` |
 | 华为快游戏 | huawei-quick-game | 暂不支持 |
 | Cocos Play | cocos-play |  `game.config.json` |
 | vivo 小游戏 | vivo-mini-game | `project.config.json` |
 | 小米快游戏 | xiaomi-quick-game | `manifest.json` |
 | 百度小游戏 | baidu-mini-game | `game.json`、`project.swan.json` |
-| 微信小游戏 | wechatgame | `game.ejs`、[`game.json`](https://developers.weixin.qq.com/miniprogram/dev/framework/release/v2.html)、`project.config.json` |
+| 微信小游戏 | wechatgame | `game.ejs`、`game.json`、`project.config.json` |
 | Web Desktop | web-desktop | `index.ejs` |
 | Web Mobile | web-mobile | `index.ejs` |
 | 原生平台 | native | 暂不支持 |
+
+| 平台 | 配置文件 | 配置说明 |
+| :--- | :--- | :--- |
+| 抖音 | game.json | https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/mini-game-configuration |
+| 微信 | game.json | https://developers.weixin.qq.com/minigame/dev/reference/configuration/app.html|
 
 <!-- ## 定制 `application.js`
 
