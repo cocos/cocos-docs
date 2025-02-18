@@ -122,7 +122,7 @@ console.log("result::", o2, typeof o2, JSON.parse(o2).a);
 
 ## ArkTs 调用 JavaScript
 
-使用 Cocos Creator 3.8.6及以上 打包的鸿蒙原生应用中，C++封装了evalString方法提供给开发者直接从AtkTs直接执行JavaScript代码 使用方法如下：
+使用 Cocos Creator 2.4.15及以上 打包的鸿蒙原生应用中，C++封装了evalString方法提供给开发者直接从AtkTs直接执行JavaScript代码 使用方法如下：
 
 --- 
  ** ⚠️注意事项：**
