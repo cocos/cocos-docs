@@ -470,6 +470,7 @@
     - [原生平台二次开发指南](advanced-topics/native-secondary-development.md)
     - [Java 原生反射机制](advanced-topics/java-reflection.md)
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)
+    - [ArkTS 原生反射机制](advanced-topics/arkts-reflection.md)
     - [JsbBridge JS 与 JAVA 通信](advanced-topics/js-java-bridge.md)
     - [JsbBridge JS 与 Objective-C 通信](advanced-topics/js-oc-bridge.md)
     - [JsbBridgeWrapper 基于原生反射机制的事件处理](advanced-topics/jsb-bridge-wrapper.md)
