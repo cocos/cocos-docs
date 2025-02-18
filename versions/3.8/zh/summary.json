@@ -2005,8 +2005,8 @@
                         "link": "advanced-topics/oc-reflection.md"
                     },
                     {
-                        "text": "Objective-C 原生反射机制",
-                        "link": "advanced-topics/oc-reflection.md"
+                        "text": "ArkTs 原生反射机制",
+                        "link": "advanced-topics/arkts-reflection.md"
                     },
                     {
                         "text": "JsbBridge JS 与 JAVA 通信",
