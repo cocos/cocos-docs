@@ -288,6 +288,7 @@
     - [动态合图](advanced-topics/dynamic-atlas.md)
     - [Java 原生反射机制](advanced-topics/java-reflection.md)
     - [Objective-C 原生反射机制](advanced-topics/oc-reflection.md)
+    - [ArkTs 原生反射机制](advanced-topics/arkts-reflection.md)
     - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
 - [SDK 集成](sdk/index.md)
     - [Facebook 直播和广告](sdk/fb-an-and-live.md)
