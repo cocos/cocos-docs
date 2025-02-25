@@ -14,7 +14,7 @@ All currently available built-in uniforms, grouped by the chunks they are locate
 
 | Name | Type | Info |
 | :-- | :-- | :-- |
-| `cc_time` | vec4 | x: seconds since engine started |
+| `cc_time` | vec4 | x: seconds since engine started. y: The elapsed time since the last frame, in seconds (delta time). z: The current frame count. w: Reserved for future use (usually set to 0). | 
 | `cc_screenSize` | vec4 | xy: shading screen size<br>zw: reciprocal of shading screen size |
 | `cc_screenScale` | vec4 | xy: screen scale<br>zw: reciprocal of screen scale |
 | `cc_nativeSize` | vec4 | xy: canvas size<br>zw: reciprocal of canvas size |
