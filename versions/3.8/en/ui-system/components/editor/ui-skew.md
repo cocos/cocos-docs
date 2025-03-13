@@ -11,8 +11,7 @@ For UISkew scripting interface reference, please see [UISkew API](%__APIDOC__%/e
 | Property | Description |
 | :-------------- | :----------- |
 | rotational | Whether to use rotation-based skew algorithm
-| skewX | Horizontal skew angle (in degrees)
-| skewY | Vertical skew angle (in degrees)
+| skew | Skew angles in horizontal and vertical directions (Type: Vec2, x and y values set the skew angles for X and Y axes respectively)
 
 ---
 
