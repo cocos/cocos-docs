@@ -170,7 +170,7 @@ export class AudioController extends Component {
 
         - `opacity`：如果节点上有渲染组件，直接设置渲染组件的 `color`。如果没有渲染组件，则可以通过添加 `UIOpacity` 组件，并设置相关属性。
 
-        - `skew`：该接口已被移除。
+        - `skew`：从 v3.8.6 开始需要在节点上添加 UISkew 组件，之后调用 setSkew 接口设置 skew 属性。
 
         - `group`：变更为 `layer`。
 
@@ -474,7 +474,7 @@ uiColor.color = color(255,255,255);
 
 ### 修改 2D 节点的 `skew` 不生效
 
-从 v3.0 开始，`skew` 接口已经被移除。
+从 v3.8.6 开始需要在节点上添加 UISkew 组件，之后调用 setSkew 接口设置 skew 属性。
 
 ### 无法获取分组，但 Creator 的项目设置面板中仍有分组设置（Layers）
 

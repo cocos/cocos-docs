@@ -148,7 +148,7 @@ In v3.0, there are continued improvements to the design of the material system a
 
         - `opacity`: If there is a renderable component on the node, set the `color` of the renderable component directly. If there is no renderable component, you can set the renderable component's `color` by adding the `UIOpacity` component and setting the related property.
 
-        - `skew`: The interface has been removed.
+        - `skew`: Starting from v3.8.6, you need to add the UISkew component to the node and then call the setSkew method to configure the skew property.
 
         - `group`: change to `layer`.
 
@@ -454,7 +454,7 @@ uiColor.color = color(255,255,255);
 
 ### Modifying `skew` for 2D nodes does not work
 
-As of v3.0, the `skew` interface has been removed.
+Starting from v3.8.6, you need to add the UISkew component to the node and then call the setSkew method to configure the skew property.
 
 ### Grouping is not available, but there are still grouping settings (Layers) in the project settings panel of Creator
 
