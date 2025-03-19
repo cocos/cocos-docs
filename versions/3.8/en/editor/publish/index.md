@@ -7,6 +7,8 @@ Thanks to the Cocos Creator's dual-core engine architecture (the C++ core is for
 - [iOS](./ios/index.md)
 - [Android](./android/index.md)
 - [Huawei HarmonyOS](./publish-huawei-ohos.md)
+- [Google Play](google-play/build-example-google-play.md)
+- [Google Play On Games](google-play-games/index.md)
 - [Web Mobile - H5](./publish-web.md)
 - [WeChat Mini Games](./publish-wechatgame.md)
 - [Douyin Mini Games](./publish-bytedance-mini-game.md)

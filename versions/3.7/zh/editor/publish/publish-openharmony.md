@@ -251,7 +251,7 @@ http://download.ci.openharmony.cn/version/Master_Version/OpenHarmony_3.2.5.6/202
 
 ![](./publish-openharmony/document_image_rId54.png)
 
-5. 根据创建游戏，增加游戏逻辑等
+5. 创建游戏项目，增加游戏逻辑等
 
 6. 制作完成之后，选择构建，选择标题栏中的 Project-\>Build，也可以使用 Ctrl+Shift+B 的快捷键，如下图：
 

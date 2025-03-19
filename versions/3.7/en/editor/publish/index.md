@@ -6,8 +6,9 @@ Thanks to the Cocos Creator's dual-core engine architecture (the C++ core is for
 
 - [iOS](./ios/index.md)
 - [Android](./android/index.md)
-- [Huawei HarmonyOS](./publish-huawei-ohos.md)
-- [Open HarmonyOS](./publish-openharmony.md)
+- [HarmonyOS](./publish-huawei-ohos.md)
+- [Windows](./windows/index.md)
+- [macOS](./ios/index.md)
 - [Web Mobile - H5](./publish-web.md)
 - [WeChat Mini Games](./publish-wechatgame.md)
 - [ByteDance Mini Games](./publish-bytedance-mini-game.md)
@@ -17,8 +18,6 @@ Thanks to the Cocos Creator's dual-core engine architecture (the C++ core is for
 - [vivo Mini Games](./publish-vivo-mini-game.md)
 - [Xiaomi Quick Games](./publish-xiaomi-quick-game.md)
 - [Web Web Desktop](publish-web.md)
-- [Windows](./windows/index.md)
-- [macOS](./ios/index.md)
 
 ## Preparation
 

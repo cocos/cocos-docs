@@ -159,8 +159,13 @@ Due to the adjustment of the current build mechanism, the processing of differen
 
 For the relevant build options of each platform, please refer to:
 
-- [Publish to Native Platforms](native-options.md#build-options)
-- [Publish to Mini Game Platforms](publish-mini-game.md)
+- [Publish to Web Platform](publish-web.md)
+- [Publish to Mini Game Platform](publish-mini-game.md)
+- [Publish to Facebook Instant Games](publish-fb-instant-games.md)
+- [Publish to Native Platform](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
+- [Publish to Google Play](google-play/build-example-google-play.md)
+- [Publish to Google Play On Games](google-play-games/index.md)
+- [Publish to HarmonyOS Platform](publish-huawei-ohos.md)
 
 Cocos Creator supports custom extension build plugins, handled in the same way as platform plugins. For details, please refer to the [Extension Build Process](custom-build-plugin.md) documentation.
 

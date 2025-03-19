@@ -177,8 +177,14 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 各平台相关构建选项，详情请参考：
 
-- [发布到原生平台](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
+- [发布到 Web 平台](publish-web.md)
 - [发布到小游戏平台](publish-mini-game.md)
+- [发布到 Facebook Instant Games](publish-fb-instant-games.md)
+- [发布到原生平台](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
+- [发布到 Google Play](google-play/build-example-google-play.md)
+- [发布到 Google Play On Games](google-play-games/index.md)
+- [发布到 HarmonyOS 平台](publish-huawei-ohos.md)
+- [发布到 HarmonyOS Next 平台](publish-harmonyos-next.md)
 
 Cocos Creator 支持自定义构建扩展，处理方式与平台扩展一致，详情可参考 [自定义构建流程](custom-build-plugin.md)。
 

@@ -101,8 +101,8 @@ Cocos Creator 3.8 中，将引擎相关的构建选项统一到了**引擎设置
 
 ## 参考链接
 
-- [抖音小游戏开发接入指南](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction/)
-- [抖音开发者平台](https://microapp.bytedance.com/)
-- [抖音小游戏 API 文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game)
+- [抖音小游戏接入指南](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction/)
+- [抖音小游戏开发者文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/guide/bytedance-mini-game)
+- [抖音小游戏 API 文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/api/overview)
 - [抖音开发者工具下载](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
-- [抖音开发者工具文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/development-assistance/developer-instrument-introduction)
+- [抖音开发者工具文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/dev-tools/developer-instrument/development-assistance/mini-app-developer-instrument)
