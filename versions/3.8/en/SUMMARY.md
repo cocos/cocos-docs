@@ -153,6 +153,7 @@
         - [Publish to OPPO Mini Games](editor/publish/publish-oppo-mini-game.md)
         - [Publish to vivo Mini Games](editor/publish/publish-vivo-mini-game.md)
         - [Publish to Migu Mini Games](editor/publish/publish-migu-mini-game.md)
+        - [Publish to Honor Mini Games](editor/publish/publish-honor-mini-game.md)
         - [Publish to Xiaomi Quick Games](editor/publish/publish-xiaomi-quick-game.md)
         - [Publish to Baidu Mini Games](editor/publish/publish-baidu-mini-game.md)
         - [Access to Open Data Context](editor/publish/build-open-data-context.md)

@@ -8,6 +8,7 @@
 - [Publish to OPPO Mini Game](publish-oppo-mini-game.md)
 - [Publish to vivo Mini Game](publish-vivo-mini-game.md)
 - [Publish to migu Mini Game](publish-migu-mini-game.md)
+- [Publish to Honor Mini Game](publish-honor-mini-game.md)
 - [Publish to Xiaomi Quick Game](publish-xiaomi-quick-game.md)
 - [Publish to Baidu Mini Game](publish-baidu-mini-game.md)
 - [Publish to WeChat Mini Game](publish-wechatgame.md)

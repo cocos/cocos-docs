@@ -9,6 +9,7 @@
 - [发布到 OPPO 小游戏](publish-oppo-mini-game.md)
 - [发布到 vivo 小游戏](publish-vivo-mini-game.md)
 - [发布到咪咕小游戏](publish-migu-mini-game.md)
+- [发布到荣耀小游戏](publish-honor-mini-game.md)
 - [发布到小米快游戏](publish-xiaomi-quick-game.md)
 - [发布到百度小游戏](publish-baidu-mini-game.md)
 - [发布到微信小游戏](publish-wechatgame.md)
