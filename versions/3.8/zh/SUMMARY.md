@@ -539,6 +539,7 @@
     - [网页预览定制工作流程](editor/preview/browser.md)
     - [i18n 游戏多语言支持](advanced-topics/i18n.md)
     - [动态合图](advanced-topics/dynamic-atlas.md)
+    - [压缩引擎内部属性](advanced-topics/mangle-properties.md)
     - [热更新范例教程](advanced-topics/hot-update.md)
     - [热更新管理器](advanced-topics/hot-update-manager.md)
     - [HTTP 请求](advanced-topics/http.md)

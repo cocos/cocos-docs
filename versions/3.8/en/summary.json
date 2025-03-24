@@ -2162,6 +2162,10 @@
                         "link": "advanced-topics/dynamic-atlas.md"
                     },
                     {
+                        "text": "Mangle Engine Internal Properties",
+                        "link": "advanced-topics/mangle-properties.md"
+                    },
+                    {
                         "text": "Hot Update Tutorial",
                         "link": "advanced-topics/hot-update.md"
                     },

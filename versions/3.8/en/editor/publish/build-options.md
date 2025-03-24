@@ -100,7 +100,7 @@ If this option is unchecked, the build is running in release mode, compressing a
 If this option is checked, the build is running in debug mode. At the same time, the **Source Maps** option can be checked, which is more convenient for locating problems.
 
 ### Mangle Engine Internal Properties
-This feature is supported since v3.8.6. When enabled, it mangles internal properties in the engine's TypeScript code, effectively reducing code size. After the project is built, an `engine-mangle-config.json` configuration file will be generated in the root directory, where users can customize and add properties to be mangled. This feature currently does not support native platforms. If the project has enabled the engine separation plugin feature, this configuration will be ignored during build. For detailed usage instructions, please refer to [Mangle Engine Internal Properties](../../../../3.8/en/advanced-topics/mangle-properties.md)
+This feature is supported since v3.8.6. When enabled, it mangles internal properties in the engine's TypeScript code, effectively reducing code size. After the project is built, an `engine-mangle-config.json` configuration file will be generated in the root directory, where users can customize and add properties to be mangled. This feature currently does not support native platforms. If the project has enabled the engine separation plugin feature, this configuration will be ignored during build. For detailed usage instructions, please refer to [Mangle Engine Internal Properties](../../advanced-topics/mangle-properties.md)
 
 ### Inline Enums
 

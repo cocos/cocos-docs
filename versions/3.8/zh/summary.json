@@ -2296,6 +2296,10 @@
                         "link": "advanced-topics/dynamic-atlas.md"
                     },
                     {
+                        "text": "压缩引擎内部属性",
+                        "link": "advanced-topics/mangle-properties.md"
+                    },
+                    {
                         "text": "热更新范例教程",
                         "link": "advanced-topics/hot-update.md"
                     },

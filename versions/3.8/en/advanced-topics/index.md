@@ -5,6 +5,7 @@
 - [Engine Customization Workflow](engine-customization.md)
 - [Web Preview Customization Workflow](../editor/preview/browser.md)
 - [Dynamic Atlas](dynamic-atlas.md)
+- [Mangle Engine Internal Properties](mangle-properties.md)
 - [Hot Update Tutorial](hot-update.md)
 - [AssetManager for Hot Update](hot-update-manager.md)
 - [HTTP Request](http.md)

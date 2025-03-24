@@ -506,6 +506,7 @@
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [Web Preview Customization Workflow](editor/preview/browser.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
+    - [Mangle Engine Internal Properties](advanced-topics/mangle-properties.md)
     - [Hot Update Tutorial](advanced-topics/hot-update.md)
     - [AssetManager for Hot Update](advanced-topics/hot-update-manager.md)
     - [HTTP Request](advanced-topics/http.md)

@@ -6,6 +6,7 @@
 - [网页预览定制工作流程](../editor/preview/browser.md)
 - [i18n 游戏多语言支持](i18n.md)
 - [动态合图](dynamic-atlas.md)
+- [压缩引擎内部属性](mangle-properties.md)
 - [热更新范例教程](hot-update.md)
 - [热更新管理器](hot-update-manager.md)
 - [HTTP 请求](http.md)
