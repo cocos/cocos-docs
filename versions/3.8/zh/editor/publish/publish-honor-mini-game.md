@@ -6,7 +6,7 @@ Cocos Creator 从 v3.8.6 开始支持将游戏发布到 **荣耀小游戏**。
 
 - 参考 [荣耀小游戏接入指南](https://developer.honor.com/cn/docs/game_center/guides/miniGame/miniGameGuidelines)，在荣耀开放平台完成开发者入驻流程和应用创建。
 
-- 下载 [荣耀小游戏调试器]()，可安装到荣耀手机设备进行小游戏调试。
+- 下载 [荣耀小游戏调试器](https://developer.honor.com/cn/docs/game_center/guides/miniGame/miniGameGuidelines#开发+调试指引)，可安装到荣耀手机设备进行小游戏调试。
 
 ## 发布流程
 
@@ -24,7 +24,7 @@ Cocos Creator 从 v3.8.6 开始支持将游戏发布到 **荣耀小游戏**。
 | 桌面图标 | 必填项 | 点击输入框后面的放大镜图标按钮选择所需的图标。构建时，图标将会被构建到荣耀小游戏的工程中。桌面图标建议使用 **png** 图片。 | `icon` |
 | 游戏版本名称 | 必填项 | 游戏版本名称是真实的版本，如：1.0.0 | `versionName` |
 | 游戏版本号 | 必填项 | **游戏版本号** 与 **游戏版本名称** 不同，**游戏版本号** 主要用于区别版本更新。每次提交审核时游戏版本号都要比上次提交审核的值至少 +1，一定不能等于或者小于上次提交审核的值，建议每次提交审核时游戏版本号递归 +1。<br>**注意**：**游戏版本号** 必须为正整数。 | `versionCode` |
-| 支持的最小平台版本号 | 必填项 | 用于兼容性检查，避免上线后在低版本平台运行导致不兼容。具体填写的值可通过点击 [更新记录]() 来查看最新的 荣耀小游戏 引擎版本号。 | `minPlatformVersion` |
+| 支持的最小平台版本号 | 必填项 | 用于兼容性检查，避免上线后在低版本平台运行导致不兼容。 | `minPlatformVersion` |
 | 屏幕方向 | 必填项 | 设备方向，可选值包括 `landscape` 和 `portrait`。构建时会写入到发布包目录下的 `manifest.json` 中。| `orientation` |
 | 使用调试密钥库 | - | 若勾选该项，表示构建 rpk 包时默认使用的是 Creator 自带的证书，仅用于 **调试** 时使用。若 rpk 包要用于提交审核，则构建时不要勾选该项。<br> 若不勾选该项，则需要手动配置签名证书。| `useDebugKey` |
 | **certificate.pem 路径**<br>**private.pem 路径** | - | 如果不勾选 **密钥库**，则需要配置签名文件 **certificate.pem 路径** 和 **private.pem 路径**，此时构建后生成的是可以 **直接发布** 的 rpk 包。开发者可通过输入框右边的放大镜图标按钮来配置两个签名文件，或者也可以参考下方的 **生成签名文件**。 | `privatePemPath`、`certificatePemPath` |
@@ -66,7 +66,7 @@ Cocos Creator 从 v3.8.6 开始支持将游戏发布到 **荣耀小游戏**。
 
     然后在荣耀设备上打开之前已经安装完成的 **荣耀调试器**，点击**扫码体验**按钮，直接扫描二维码即可打开 rpk。
 
-    ![](./publish-honor-mini-game/migu-instant_scan_install1.png)
+    ![](./publish-honor-mini-game/honor-instant_scan_install1.png)
 
 - **方法二**：
 
@@ -74,7 +74,7 @@ Cocos Creator 从 v3.8.6 开始支持将游戏发布到 **荣耀小游戏**。
 
     在荣耀设备上打开之前已经安装完成的 **荣耀小游戏调试器**，点击 **本地安装**，然后从手机内部存储目录中找到 rpk 文件，选择打开即可。
 
-    ![](./publish-honor-mini-game/migu-instant_scan_install2.png)
+    ![](./publish-honor-mini-game/honor-instant_native_install2.png)
 
 ## 荣耀小游戏环境的资源管理
 
@@ -85,4 +85,4 @@ Cocos Creator 从 v3.8.6 开始支持将游戏发布到 **荣耀小游戏**。
 ## 参考链接
 
 - [荣耀小游戏接入文档](https://developer.honor.com/cn/docs/game_center/guides/miniGame/miniGameGuidelines)
-- [荣耀小游戏调试器下载]()
+- [荣耀小游戏调试器下载](https://developer.honor.com/cn/docs/game_center/guides/miniGame/miniGameGuidelines#开发+调试指引)
