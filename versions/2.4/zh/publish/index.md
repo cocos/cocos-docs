@@ -15,6 +15,7 @@
 - [发布到 OPPO 小游戏](publish-oppo-instant-games.md)
 - [发布到 vivo 小游戏](publish-vivo-instant-games.md)
 - [发布到咪咕小游戏](publish-miug-mini-game.md)
+- [发布到荣耀小游戏](publish-honor-mini-game.md)
 - [发布到小米快游戏](publish-xiaomi-quick-games.md)
 - [发布到百度小游戏](publish-baidugame.md)
     - [百度小游戏开放数据域](publish-baidugame-sub-domain.md)
