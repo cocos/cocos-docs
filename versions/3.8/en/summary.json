@@ -642,6 +642,10 @@
                                 "link": "editor/publish/publish-migu-mini-game.md"
                             },
                             {
+                                "text": "Publish to Honor Mini Games",
+                                "link": "editor/publish/publish-honor-mini-game.md"
+                            },
+                            {
                                 "text": "Publish to Xiaomi Quick Games",
                                 "link": "editor/publish/publish-xiaomi-quick-game.md"
                             },

@@ -17,6 +17,7 @@ Thanks to the Cocos Creator's dual-core engine architecture (the C++ core is for
 - [Huawei Quick Games](./publish-huawei-quick-game.md)
 - [vivo Mini Games](./publish-vivo-mini-game.md)
 - [migu Mini Games](./publish-migu-mini-game.md)
+- [Honor Mini Games](./publish-honor-mini-game.md)
 - [Xiaomi Quick Games](./publish-xiaomi-quick-game.md)
 - [Web Web Desktop](publish-web.md)
 - [Windows](./windows/index.md)
