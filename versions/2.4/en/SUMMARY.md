@@ -122,6 +122,7 @@
     - [Publish to OPPO Mini Games](publish/publish-oppo-instant-games.md)
     - [Publish to vivo Mini Games](publish/publish-vivo-instant-games.md)
     - [Publish to Migu Mini Games](publish/publish-migu-mini-game.md)
+    - [Publish to Honor Mini Games](publish/publish-honor-mini-game.md)
     - [Publish to Xiaomi Quick Games](publish/publish-xiaomi-quick-games.md)
     - [Publish to Baidu Mini Games](publish/publish-baidugame.md)
         - [Baidu Open Data Context](publish/publish-baidugame-sub-domain.md)

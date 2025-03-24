@@ -540,6 +540,10 @@
                         "link": "publish/publish-migu-mini-game.md"
                     },
                     {
+                        "text": "发布到荣耀小游戏",
+                        "link": "publish/publish-honor-mini-game.md"
+                    },
+                    {
                         "text": "发布到小米快游戏",
                         "link": "publish/publish-xiaomi-quick-games.md"
                     },
