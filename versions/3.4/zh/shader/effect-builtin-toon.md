@@ -44,7 +44,7 @@ Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为�
 
 ### 渲染过程 1
 
-卡通渲染的核心思路是通过降低色阶的数量，模拟器卡通中的赛璐璐（Celluloid）画风。
+卡通渲染的核心思路是通过降低色阶的数量，模拟卡通中的赛璐璐（Celluloid）画风。
 
 在着色器中将色阶降低为三个色阶，并通过三个颜色组成：
 
@@ -56,7 +56,7 @@ Creator 提供了内置卡通渲染着色器 `builtin-toon.effect`，以此为�
 
 ![toon-shade-color](img/shade-color.png)
 
-勾选 **USE_1ST_SHADE_MAP** 和 **USE_2ND_SHADE_MAP** 的情况下，使用外部进行纹理模拟色阶不连续现象。
+勾选 **USE_1ST_SHADE_MAP** 和 **USE_2ND_SHADE_MAP** 的情况下，使用外部纹理进行模拟色阶不连续现象。
 
 ![shade map](img/shade-map.png)
 
