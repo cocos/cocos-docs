@@ -109,9 +109,9 @@ The subpackage loading of vivo Mini Games is similar to WeChat Mini Games. Pleas
 
 ## vivo Mini Game Environment Resource Management
 
-The part of vivo mini games that exceed the package size limit must be downloaded through the network.
+Similar to WeChat Mini Games, Vivo Mini Games also have package size limitations. The main package size limit for Honor Mini Games is **4MB**, and any content exceeding this limit must be downloaded via network requests.<br>When the package size is too large, you can configure the **Remote Server Address** option in the **Build and Publish** panel to upload low-priority resources to a remote server. For more details, please refer to [Uploading Resources to Remote Server](../../asset/cache-manager.md).
 
-Cocos Creator helps developers to download, cache and manage remote resources. For details, please refer to [Resource Management](../../asset/cache-manager.md).
+After the game starts, the engine will automatically download resources from the remote server address. Once the resources are downloaded, the engine's cache manager will record the save paths of these resources. This information is used to automatically delete some cached game resources when the cache space is insufficient. Please refer to [Cache Manager](../../asset/cache-manager.md) for more details.
 
 ## Reference documentation
 
