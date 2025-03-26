@@ -88,11 +88,11 @@
     ![making.png](images/making.png)
 
 
-3. 在点击下面的按钮打开生成好的工程：
+3. 点击下面的按钮打开生成好的工程：
 
     ![open](images/open.png)
 
-4. 找到publish目录
+4. 找到 publish 目录
     
     ![find-publish-dir](images/find-publish-dir.png)
 
@@ -118,8 +118,11 @@
     打开 Android Studio 后，会花一段时间进行准备工作，待 Android Studio 将项目准备完成后，即可打包 APK。准备过程可能会耗时较久，如果长时间无响应，请检查网络，或者切换到其他镜像。此时如果您需要中断目前的后台任务，可参考下列关闭方法：
 
     > Android Studio 有后台任务时，可以点击窗口下方的后台任务栏：
-    > ![background-task.png](./images/background-task.png) <br>
+    >
+    > ![background-task.png](./images/background-task.png)
+    >
     > 在弹出窗中点击右侧的 × 以结束后台任务：
+    >
     > ![interrupt-sync.png](images/interrupt-sync.png)
 
 5. 打开 **Build** 菜单选择 **Build Bundle(s)**：
@@ -131,7 +134,7 @@
     ![apk.png](images/apk.png)
 
 ## 其他
-其他基本与android一致，可以参考[android构建示例](../android/build-example-android.md)
+其他基本与 android 一致，可以参考[安卓构建示例](../android/build-example-android.md)
 
 ## Google Play 游戏服务
 [Google Play Game Services 使用文档](./google-play-game-services.md)

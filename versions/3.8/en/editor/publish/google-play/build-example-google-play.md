@@ -32,21 +32,39 @@ Next, in Cocos Creator, find the **Project** menu, click the **Build** button to
 
     ![start-scene.png](../../../../zh/editor/publish/google-play/images/start-scene.png)
 
-5. Refer to [Android Platform Build Options - Render Backend](../../../../en/editor/publish/native-options.md#%E6%B8%B2%E6%9F%93%E5%90%8E%E7%AB%AF) to select the render backend
+5. Enable ADPF (Optional) 
+
+    ![enable-adpf.png](../../../../zh/editor/publish/google-play/images/enable-adpf.png)
+
+6. Refer to [Android Platform Build Options - Render Backend](../../../../en/editor/publish/native-options.md#%E6%B8%B2%E6%9F%93%E5%90%8E%E7%AB%AF) to select the render backend
 
     ![render-backend.png](../../../../zh/editor/publish/google-play/images/render-backend.png)
 
-6. Enter the package name
+7. Enter the package name
 
     ![game-package-name.png](../../../../zh/editor/publish/google-play/images/game-package-name.png)
 
     > For naming conventions, please refer to [Application ID Name](../../../../en/editor/publish/native-options.md#%E5%BA%94%E7%94%A8-id-%E5%90%8D%E7%A7%B0)
 
-7. Select Target API Level
+8. Change Application Icon (Optional)
+
+![custom-icon.png](images/custom-icon.png)
+
+9. Select Target API Level
 
     ![target-api-level.png](../../../../zh/editor/publish/google-play/images/target-api-level.png)
 
     > If there's no dropdown box, please check if the **SDK and NDK Configuration** above is correct.
+
+10. Enable Google Play Instant (Optional)
+
+    ![enable-google-play-instant.png](../../../../zh/editor/publish/google-play/images/enable-google-play-instant.png)
+    
+11. Enable Google Play Billing Feature
+
+    ![enable-google-play-billing.png](../../../../zh/editor/publish/google-play/images/enable-google-play-billing.png)
+
+    > Without checking this option, you cannot use the Google Play Billing interface
 
 For other options, please refer to [Android Platform Build Options](../../../../en/editor/publish/native-options.md#android-%E5%B9%B3%E5%8F%B0%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9) for configuration.
 
@@ -60,38 +78,62 @@ For other options, please refer to [Android Platform Build Options](../../../../
 
     ![building.png](../../../../zh/editor/publish/google-play/images/building.png)
 
-3. Click the button below to open the generated Android Studio project:
+#### Generate AAB Package via Creator
+1. Click **Generate** 
+
+    ![make](../../../../zh/editor/publish/google-play/images/make.png)
+
+2. Wait for the generation to complete
+
+    ![making.png](../../../../zh/editor/publish/google-play/images/making.png)
+
+3. Click the button below to open the generated project:
 
     ![open](../../../../zh/editor/publish/google-play/images/open.png)
 
-4. Find the corresponding project directory
+4. Find the publish directory
+    
+    ![find-publish-dir](../../../../zh/editor/publish/google-play/images/find-publish-dir.png)
+
+5. Find the generated AAB package
+    
+    ![find-release-aab](../../../../zh/editor/publish/google-play/images/find-release-aab.png)
+
+#### Generate AAB Package via Android Studio
+1. 找到工程对应的目录
 
     ![find-proj](../../../../zh/editor/publish/google-play/images/find-proj.png)
 
-5. Open Android Studio menu:
+2. Open Android Studio menu:
 
     ![android studio open project menu](../../../../zh/editor/publish/google-play/images/as-open-menu.png)
 
-6. Open the built project at `{project path}/build/google-play/proj`:
+3. Open the built project at `{project path}/build/google-play/proj`:
 
     ![android studio open project](../../../../zh/editor/publish/google-play/images/as-open-proj.png)
 
-7. Build APK using Android Studio
+4. Build APK using Android Studio
 
     After opening Android Studio, it will take some time for preparation. Once Android Studio has finished preparing the project, you can package the APK. The preparation process might take a while. If there's no response for a long time, please check your network or switch to another mirror. If you need to interrupt the current background task, you can refer to the following closing method:
 
     > When Android Studio has background tasks, you can click the background task bar at the bottom of the window:
-    > ![background-task.png](../../../../zh/editor/publish/google-play/images/background-task.png) <br>
+    >
+    > ![background-task.png](../../../../zh/editor/publish/google-play/images/background-task.png)
+    >
     > Click the × on the right in the popup window to end the background task:
+    >
     > ![interrupt-sync.png](../../../../zh/editor/publish/google-play/images/interrupt-sync.png)
 
-8. Open the **Build** menu and select **Build Bundle(s) / APK(s)**:
+5. Open the **Build** menu and select **Build Bundle(s) / APK(s)**:
 
     ![build-apk.png](../../../../zh/editor/publish/google-play/images/build-apk.png)
 
-9. After successful publication, you can find the Debug version of the APK in the proj/build directory:
+6. After successful publication, you can find the Debug version of the APK in the proj/build directory:
 
     ![apk.png](../../../../zh/editor/publish/google-play/images/apk.png)
 
 ## Others
 Other aspects are basically the same as Android. You can refer to [Android Build Example](../../../../en/editor/publish/android/build-example-android.md)
+
+## Google Play Game Services
+[Google Play Game Services Documentation](./google-play-game-services.md)
