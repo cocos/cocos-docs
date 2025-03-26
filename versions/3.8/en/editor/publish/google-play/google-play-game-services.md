@@ -133,11 +133,11 @@ google.play.PlayGames.getAchievementsClient().reveal();
 ### Recall API
 To communicate with Google's servers using the correct information, you need to request a Recall session ID from the client SDK and send it to your game server.
 ```typescript
-    const recallClient = google.play.PlayGames.getRecallClient();
-    recallClient.requestRecallAccess().addOnSuccessListener({
-        onSuccess: (recallAccess: google.play.RecallAccess) => {
-            const recallSessionId = recallAccess.getSessionId();
-            // Send the recallSessionId to your game server
-        }
-    })
+const recallClient = google.play.PlayGames.getRecallClient();
+recallClient.requestRecallAccess().addOnSuccessListener({
+    onSuccess: (recallAccess: google.play.RecallAccess) => {
+        const recallSessionId = recallAccess.getSessionId();
+        // Send the recallSessionId to your game server
+    }
+})
 ```

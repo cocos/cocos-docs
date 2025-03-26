@@ -159,13 +159,12 @@
 
 ### Recall Api
 若要使用正确的信息与 Google 的服务器进行通信，您需向客户端 SDK 请求 Recall 会话 ID，并将该 ID 发送到游戏服务器。
-
-    ``` typescript
-    const recallClient = google.play.PlayGames.getRecallClient();
-    recallClient.requestRecallAccess().addOnSuccessListener({
-        onSuccess: (recallAccess: google.play.RecallAccess) => {
-            const recallSessionId = recallAccess.getSessionId();
-            // Send the recallSessionId to your game server
-        }
-    })
-    ```
+``` typescript
+const recallClient = google.play.PlayGames.getRecallClient();
+recallClient.requestRecallAccess().addOnSuccessListener({
+    onSuccess: (recallAccess: google.play.RecallAccess) => {
+        const recallSessionId = recallAccess.getSessionId();
+        // Send the recallSessionId to your game server
+    }
+})
+```
