@@ -1,4 +1,4 @@
-# Google Play构建示例
+# Google Play 构建示例
 
 本文需要在Google Play平台才可以使用。参考[发布 Google Play 示例](editor/publish/google-play/build-example-google-play.md)
 
@@ -6,15 +6,15 @@
 ### 自动登录
 当玩家启动启用了自动登录功能的游戏时，他们无需与登录提示互动即可登录游戏。玩家可以在 Google Play 游戏应用中或在游戏中显示的初始登录提示中启用自动登录功能。
 
-#### google 后台配置
-google Cloud配置：
+#### Google Cloud 后台配置
 
-创建凭据
+- 创建凭据
 
 ![new credentials](game-services-images/google-cloud-new-oauth-client-id.png)
 
-需要在google cloud创建OAuth 客户端ID，才能在google console里配置凭证里可以看到。
+需要在 Google Cloud 创建 OAuth 客户端 ID ，才能在 Google Console 里配置凭证里可以看到。
 
+### Google Play Console 后台配置
 [参考文档](https://developer.android.com/games/pgs/console/setup?hl=zh-cn#add_your_game_to_the)
 
 1. 新增凭证
@@ -97,7 +97,7 @@ google.play.PlayGames.getAchievementsClient().unlock("achievementId");
 import { google } from 'cc';
 google.play.PlayGames.getAchievementsClient().increment("achievementId", 1);
 ```
-您无需编写其他代码即可解锁成就；完成的步骤达到要求后，Google Play 游戏服务便会自动解锁成就。
+完成的步骤达到要求后，Google Play 游戏服务便会自动解锁成就。
 
 3. 加载所有成就信息：
 

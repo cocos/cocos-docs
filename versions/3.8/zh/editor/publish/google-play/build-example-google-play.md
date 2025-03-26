@@ -60,7 +60,7 @@
 
     ![enable-google-play-instant.png](images/enable-google-play-instant.png)
     
-11. 使能 Google Play Billing 接口
+11. 开启 Google Play Billing 功能
 
     ![enable-google-play-billing.png](images/enable-google-play-billing.png)
 
