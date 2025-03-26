@@ -1330,6 +1330,10 @@
                                         "link": "ui-system/components/editor/ui-opacity.md"
                                     },
                                     {
+                                        "text": "UISkew 组件参考",
+                                        "link": "ui-system/components/editor/ui-skew.md"
+                                    },
+                                    {
                                         "text": "BlockInputEvents 组件参考",
                                         "link": "ui-system/components/editor/block-input-events.md"
                                     },
@@ -2009,7 +2013,7 @@
                         "link": "advanced-topics/oc-reflection.md"
                     },
                     {
-                        "text": "ArkTs 原生反射机制",
+                        "text": "ArkTS 原生反射机制",
                         "link": "advanced-topics/arkts-reflection.md"
                     },
                     {

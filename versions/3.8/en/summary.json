@@ -1298,6 +1298,10 @@
                                         "link": "ui-system/components/editor/ui-opacity.md"
                                     },
                                     {
+                                        "text": "UISkew Component Reference",
+                                        "link": "ui-system/components/editor/ui-skew.md"
+                                    },
+                                    {
                                         "text": "BlockInputEvents Component Reference",
                                         "link": "ui-system/components/editor/block-input-events.md"
                                     },

@@ -305,6 +305,7 @@
             - [UIMeshRenderer Component Reference](ui-system/components/editor/ui-model.md)
             - [UICoordinateTracker Component Reference](ui-system/components/editor/ui-coordinate-tracker.md)
             - [UIOpacity Component Reference](ui-system/components/editor/ui-opacity.md)
+            - [UISkew Component Reference](ui-system/components/editor/ui-skew.md)
             - [BlockInputEvents Component Reference](ui-system/components/editor/block-input-events.md)
             - [WebView Component Reference](ui-system/components/editor/webview.md)
             - [VideoPlayer Component Reference](ui-system/components/editor/videoplayer.md)
