@@ -1,5 +1,15 @@
 [
     {
+        "text": "User Manual 3.5",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "Cocos Creator 3.5",
+                "link": "index.md"
+            }
+        ]
+    },
+    {
         "text": "Beginners Guide",
         "collapsed": false,
         "items": [

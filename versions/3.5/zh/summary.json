@@ -1,5 +1,15 @@
 [
     {
+        "text": "用户手册 3.5",
+        "collapsed": false,
+        "items": [
+            {
+                "text": "Cocos Creator 3.5",
+                "link": "index.md"
+            }
+        ]
+    },
+    {
         "text": "基础使用",
         "collapsed": false,
         "items": [

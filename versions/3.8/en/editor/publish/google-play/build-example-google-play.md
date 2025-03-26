@@ -48,7 +48,7 @@ Next, in Cocos Creator, find the **Project** menu, click the **Build** button to
 
 8. Change Application Icon (Optional)
 
-![custom-icon.png](images/custom-icon.png)
+![custom-icon.png](../../../../zh/editor/publish/google-play/images/custom-icon.png)
 
 9. Select Target API Level
 
