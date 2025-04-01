@@ -449,14 +449,11 @@
                 "items": [
                     {
                         "text": "发布到 Web 平台",
-                        "link": "publish/publish-web.md",
-                        "items": [
-                            {
-                                "text": "发布到 Facebook Instant Games",
-                                "link": "publish/publish-fb-instant-games.md"
-                            }
-                        ],
-                        "collapsed": true
+                        "link": "publish/publish-web.md"
+                    },
+                    {
+                        "text": "发布到 Facebook Instant Games",
+                        "link": "publish/publish-fb-instant-games.md"
                     },
                     {
                         "text": "安装配置原生开发环境",

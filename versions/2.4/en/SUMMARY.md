@@ -107,7 +107,7 @@
         - [HUAWEI HMS Core](https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html)
 - [Publish Game](publish/index.md)
     - [Publish to Web](publish/publish-web.md)
-        - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
+    - [Publish to Facebook Instant Games](publish/publish-fb-instant-games.md)
     - [Setup Native Development](publish/setup-native-development.md)
         - [A short tutorial to install python on MacOS](publish/short-tutorial-to-install-python.md)
     - [Publish to native](publish/publish-native.md)
