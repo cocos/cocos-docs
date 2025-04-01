@@ -112,6 +112,43 @@ Facebook Instant Games 跟微信小游戏相比，本质上的区别在于 Faceb
 - `index.html`：这里可以修改引入的 Facebook Instant Games SDK 版本
 - `index.js`：这里可以修改 SDK 初始化与进度条
 
+## 在游戏中创建 Dom elements
+请参考示例代码在 facebook instant game 中创建 Dom elements，并显示在游戏画面中
+```javascript
+var buttonDiv = document.createElement("div");
+var button = document.createElement("button");
+
+const frameSize = screen.windowSize;
+const imageWidth = 195, imageHeight = 57;
+
+button.style.position = "absolute";
+button.style.left = `${frameSize.width / 2 - imageWidth / 2}px`;
+button.style.top = `${frameSize.height / 2 - imageHeight / 2}px`;
+
+//load image from resources bundle
+resources.load("btn_play", Texture2D, (error, res)=>{
+  if (!error) {
+    button.style.backgroundImage = `url(${res.nativeUrl})`;
+    button.style.backgroundRepeat = "no-repeat";
+    button.style.backgroundPosition = "center";
+    button.style.width = res.width + "px";
+    button.style.height = res.height + "px";
+    button.style.backgroundColor = "transparent";
+    button.style.borderColor = "transparent";
+    button.onclick = (()=>{
+          //DO SOMETHING
+    });
+    buttonDiv.appendChild(button);
+    var body = document.body;
+    body.insertBefore(buttonDiv, body.lastChild);
+  }
+});
+```
+
+运行效果：
+
+![](./publish-fb-instant-games/use-dom-element.png)
+
 ## SDK 说明
 
 Creator 已集成 Facebook 提供的 Instant Games SDK，并且在游戏加载时自动进行了初始化（`initializeAsync` 及 `startGameAsync`）。用户可直接通过 `FBInstant` 模块访问，使用说明详见 [Instant Games SDK](https://developers.facebook.com/docs/games/instant-games/sdk)。
