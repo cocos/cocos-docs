@@ -9,7 +9,7 @@ When players launch a game with auto sign-in enabled, they can sign in without i
 
 - Create Credentials
 
-![new credentials](../../../../zh/editor/publish/google-play/game-services-images/google-cloud-new-oauth-client-id.png)
+![new credentials](./game-services-images/google-cloud-new-oauth-client-id.png)
 
 You need to create an OAuth client ID in Google Cloud before you can see it in the credentials section of the Google Console.
 
@@ -17,23 +17,23 @@ You need to create an OAuth client ID in Google Cloud before you can see it in t
 [Reference Documentation](https://developer.android.com/games/pgs/console/setup?hl=en#add_your_game_to_the)
 
 1. Add New Credentials
-![new credentials](../../../../zh/editor/publish/google-play/game-services-images/new-credentials.png)
+![new credentials](./game-services-images/new-credentials.png)
 2. Fill in Credential Information
-![credentials infomations](../../../../zh/editor/publish/google-play/game-services-images/credentials-infos.png)
+![credentials infomations](./game-services-images/credentials-infos.png)
 3. Creation Completed
-![application id](../../../../zh/editor/publish/google-play/game-services-images/application-id.png)
+![application id](./game-services-images/application-id.png)
 The Application ID highlighted in the red box is what you'll need to fill in below.
 4. After building for the Google Play platform, users need to configure the application ID.
 
 For English applications, configure in English:
-![config application id](../../../../zh/editor/publish/google-play/game-services-images/config-application-id-en.png)
+![config application id](./game-services-images/config-application-id-en.png)
 For Chinese applications, configure in Chinese:
-![config application id](../../../../zh/editor/publish/google-play/game-services-images/config-application-id-zh.png)
+![config application id](./game-services-images/config-application-id-zh.png)
 
 You can configure both English and Chinese simultaneously.
 
 If not configured, you'll see the following error:
-![no-config-application-id-error](../../../../zh/editor/publish/google-play/game-services-images/no-config-application-id-error.png)
+![no-config-application-id-error](./game-services-images/no-config-application-id-error.png)
 
 #### Usage Example
 1. Initialize SDK:
@@ -66,11 +66,11 @@ Achievements are an excellent way to increase user engagement in your game. You 
 
 #### Google Backend Configuration
 1. Create Achievement
-![create-achievements](../../../../zh/editor/publish/google-play/game-services-images/create-achievements.png)
+![create-achievements](./game-services-images/create-achievements.png)
 2. Fill in Achievement Information
-![achievement-infos](../../../../zh/editor/publish/google-play/game-services-images/achievement-infos.png)
+![achievement-infos](./game-services-images/achievement-infos.png)
 3. Publish Achievement Information
-![publish-achievement](../../../../zh/editor/publish/google-play/game-services-images/publish-achievement.png)
+![publish-achievement](./game-services-images/publish-achievement.png)
 
 Usage Examples:
 1. Display Achievements:
@@ -81,7 +81,7 @@ google.play.PlayGames.getAchievementsClient().showAchievements();
 ```
 The display effect is shown below:
 
-![default achievements](../../../../zh/editor/publish/google-play/game-services-images/default-achievements.png)
+![default achievements](./game-services-images/default-achievements.png)
 
 2. Unlock Achievement:
 ```typescript
