@@ -94,11 +94,17 @@
 
     ![](./publish-openharmony/document_image_rId57.png)
 
-7. 配置工程名称、配置开始场景与包含的其他场景，配置 Debug/Release，点击 Build，如下图：
+
+7. 配置工程名称、配置开始场景与包含的其他场景，配置 Debug/Release，如下图：
 
     ![](./publish-openharmony/document_image_rId58.png)
 
-8. 目前Make与Run功能还未实现，请使用 DevEco 打开工程
+8. 配置Javascript引擎，目前支持V8、Ark、JSVM，如下图：
+
+    ![](./publish-openharmony/document_image_rId76.png)
+
+
+9. 目前Make与Run功能还未实现，请使用 DevEco 打开工程
     ![](./publish-openharmony/document_image_rId59.png)
 
 
@@ -206,7 +212,7 @@ std::string System::getCurrentLanguageCode() const {
 
 另外，因为 HarmonyOS Next 还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。
 
-- Restart 目前还未有方案；
+- ARK不支持Restart，JSVM与V8是支持的。
 - 编译失败时，可能是内存不足导致，退出部分应用，重新 build 试试；
     >>
     >> ![](./publish-openharmony/document_image_rId72.png)
