@@ -1001,7 +1001,7 @@ export class GameManager extends Component {
     }
     ```
 
-    init 时我们先显示 StartMenu、创建地图以及重设角色的为和状态并禁用角色输入。
+    init 时我们先显示 StartMenu、创建地图以及重设角色的位置和状态并禁用角色输入。
 
 - GS_PLAYING：在状态下隐藏 StartMenu、重设计步器的数值以及启用用户输入：
 
