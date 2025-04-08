@@ -6,6 +6,7 @@ Thanks to the Cocos Creator's dual-core engine architecture (the C++ core is for
 
 - [iOS](./ios/index.md)
 - [Android](./android/index.md)
+- [HUAWEI AppGallery Connect](./publish-huawei-agc.md)
 - [HarmonyOS](./publish-huawei-ohos.md)
 - [Windows](./windows/index.md)
 - [macOS](./ios/index.md)

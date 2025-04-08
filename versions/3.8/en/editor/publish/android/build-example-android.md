@@ -8,7 +8,7 @@ Please prepare a Cocos Creator project with at least one scene.
 
 ## Set Android Development Environment
 
-To publish an Android native application, you need to install the Android Studio development environment, as well as specific versions of JDK (or OpenSDK), Android SDK, NDK, and more. For more details, please refer to the [Android Native Development Environment Setup](build-setup-evn-android.md).
+To publish an Android native application, you need to install the Android Studio development environment, as well as specific versions of JDK (or OpenSDK), Android SDK, NDK, and more. For more details, please refer to the [Android Native Development Environment Setup](../setup-native-development.md).
 
 ## Publish Process
 

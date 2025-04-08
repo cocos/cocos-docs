@@ -126,6 +126,7 @@
     - [发布 iOS 应用](editor/publish/ios/index.md)
         - [iOS 发布示例](editor/publish/ios/build-example-ios.md)
         - [iOS 构建选项](editor/publish/ios/build-options-ios.md)
+    - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
     - [发布 HUAWEI HarmonyOS 应用](editor/publish/publish-huawei-ohos.md)
     - [发布 macOS 应用](editor/publish/mac/index.md)
         - [macOS 发布示例](editor/publish/mac/build-example-mac.md)

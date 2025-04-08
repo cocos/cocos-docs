@@ -121,6 +121,7 @@
     - [Publishing iOS Apps](editor/publish/ios/index.md)
         - [iOS Publishing Example](editor/publish/ios/build-example-ios.md)
         - [Build Options - iOS](editor/publish/ios/build-options-ios.md)
+    - [Publish to HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
     - [Publishing Huawei HarmonyOS Apps](editor/publish/publish-huawei-ohos.md)
     - [Publishing macOS Desktop Application](editor/publish/mac/index.md)
         - [macOS Publishing Example](editor/publish/mac/build-example-mac.md)

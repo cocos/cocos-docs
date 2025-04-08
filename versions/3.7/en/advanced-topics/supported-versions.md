@@ -1,6 +1,6 @@
 # Features and System Versions
 
-## Modules and System Versions
+## Modules and Minimum Supported System Versions
 
 | Module | Android | iOS |
 | :-- | :--- | :-- |
@@ -10,7 +10,7 @@
 | TaskFlow | API Level 18(4.3) | 12.0 |
 | Deferred Rendering Pipeline | API Level 21(5.0) | 10.0 |
 
-## C++ and System Versions
+## C++ and Minimum Supported System Versions
 
 | Cocos Creator | C++ | Android | iOS |
 | :-- | :--- | :-- | :-- |
@@ -20,8 +20,3 @@
 | 3.6.0 以上 | C++17 | API Level 21(5.0) | 11.0
 
 > **Note**: Enabling the `TaskFlow` will automatically enable C++17 support for compilation, and `TaskFlow` requires iOS 12+ for its required features.
-
-## Supported Maximum System Versions
-
-- Android：API Level 31（13.x）
-- iOS：16.x

@@ -474,6 +474,33 @@
                 "link": "editor/publish/index.md",
                 "items": [
                     {
+                        "text": "General Build Options",
+                        "link": "editor/publish/build-options.md"
+                    },
+                    {
+                        "text": "Fundamentals for Publishing to Native Platforms",
+                        "link": "editor/publish/publish-native-index.md",
+                        "items": [
+                            {
+                                "text": "General Native Build Options",
+                                "link": "editor/publish/native-options.md"
+                            },
+                            {
+                                "text": "Setting up Native Development Environment",
+                                "link": "editor/publish/setup-native-development.md"
+                            },
+                            {
+                                "text": "Debugging JavaScript on Native Platforms",
+                                "link": "editor/publish/debug-jsb.md"
+                            },
+                            {
+                                "text": "Integrating Input SDK",
+                                "link": "editor/publish/gpg-input-sdk.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
                         "text": "Publishing Android Apps",
                         "link": "editor/publish/android/index.md",
                         "items": [
@@ -484,10 +511,6 @@
                             {
                                 "text": "Build Options - Android",
                                 "link": "editor/publish/android/build-options-android.md"
-                            },
-                            {
-                                "text": "Android Development Environment Setup",
-                                "link": "editor/publish/android/build-setup-evn-android.md"
                             },
                             {
                                 "text": "Upgrading Android Project to v3.8",
@@ -527,6 +550,10 @@
                         "collapsed": true
                     },
                     {
+                        "text": "Publish to HuaWei AppGallery Connect",
+                        "link": "editor/publish/publish-huawei-agc.md"
+                    },
+                    {
                         "text": "Publishing Huawei HarmonyOS Apps",
                         "link": "editor/publish/publish-huawei-ohos.md"
                     },
@@ -556,29 +583,6 @@
                             {
                                 "text": "Build Options - Windows",
                                 "link": "editor/publish/windows/build-options-windows.md"
-                            }
-                        ],
-                        "collapsed": true
-                    },
-                    {
-                        "text": "Fundamentals for Publishing to Native Platforms",
-                        "link": "editor/publish/publish-native-index.md",
-                        "items": [
-                            {
-                                "text": "General Native Build Options",
-                                "link": "editor/publish/native-options.md"
-                            },
-                            {
-                                "text": "Setting up Native Development Environment",
-                                "link": "editor/publish/setup-native-development.md"
-                            },
-                            {
-                                "text": "Debugging JavaScript on Native Platforms",
-                                "link": "editor/publish/debug-jsb.md"
-                            },
-                            {
-                                "text": "Integrating Input SDK",
-                                "link": "editor/publish/gpg-input-sdk.md"
                             }
                         ],
                         "collapsed": true
@@ -675,10 +679,6 @@
                     {
                         "text": "Publish to Web Platforms",
                         "link": "editor/publish/publish-web.md"
-                    },
-                    {
-                        "text": "General Build Options",
-                        "link": "editor/publish/build-options.md"
                     },
                     {
                         "text": "Publish from the Command Line",

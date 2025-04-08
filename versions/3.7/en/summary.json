@@ -496,6 +496,10 @@
                         "collapsed": true
                     },
                     {
+                        "text": "Publish to HUAWEI AppGallery Connect",
+                        "link": "editor/publish/publish-huawei-agc.md"
+                    },
+                    {
                         "text": "Publishing Huawei HarmonyOS Apps",
                         "link": "editor/publish/publish-huawei-ohos.md"
                     },

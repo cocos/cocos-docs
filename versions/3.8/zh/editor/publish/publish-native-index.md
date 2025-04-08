@@ -3,7 +3,9 @@
 Cocos Creator 支持发布到多个平台的原生应用程序：
 - [发布 iOS 应用程序](./ios/index.md)
 - [发布 Android 应用程序](./android/index.md)
+- [发布 HUAWEI AppGallery Connect 应用程序](./publish-huawei-agc.md)
 - [发布 HUAWEI Harmony 应用程序](./publish-huawei-ohos.md)
+- [发布 HarmonyOS Next 应用程序](./publish-openharmony.md)
 - [发布 macOS 桌面端应用](./mac/index.md)
 - [发布 Windows 桌面端应用](./windows/index.md)
 

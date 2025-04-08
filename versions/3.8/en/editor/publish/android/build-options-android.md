@@ -33,7 +33,7 @@ The Game Package Name usually follows the reverse order of the product's website
 
 ## Target API Level
 
-Set the Target API Level required for Android platform compilation. Clicking the Set Android SDK button next to it will quickly navigate to the configuration page. For specific configuration rules, refer to [Android Development Environment Setup](./build-setup-evn-android.md).
+Set the Target API Level required for Android platform compilation. Clicking the Set Android SDK button next to it will quickly navigate to the configuration page. For specific configuration rules, refer to [Android Development Environment Setup](../setup-native-development.md).
 
 ## APP ABI
 

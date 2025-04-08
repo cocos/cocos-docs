@@ -8,7 +8,7 @@ Please prepare a Cocos Creator project with at least one scene.
 
 ## Setting Up the Publishing Environment
 
-To publish a Google Play native application, you need to install the Android Studio development environment, along with specific versions of JDK (or OpenSDK), Android SDK, and NDK. For details, please refer to [Configure Android Native Development Environment](../../../../en/editor/publish/android/build-setup-evn-android.md).
+To publish a Google Play native application, you need to install the Android Studio development environment, along with specific versions of JDK (or OpenSDK), Android SDK, and NDK. For details, please refer to [Configure Android Native Development Environment](../setup-native-development.md).
 
 ## Publishing Process
 

@@ -8,7 +8,7 @@
 
 ## 发布环境搭建
 
-要想发布 Google Play 原生应用，需要安装 Android Studio 开发环境，以及特定版本的 JDK（或者 OpenSDK），Android SDK 和 NDK 等。详情请参考 [配置 Android 原生开发环境](../android/build-setup-evn-android.md)。
+要想发布 Google Play 原生应用，需要安装 Android Studio 开发环境，以及特定版本的 JDK（或者 OpenSDK），Android SDK 和 NDK 等。详情请参考 [配置 Android 原生开发环境](../setup-native-development.md)。
 
 ## 发布流程
 
