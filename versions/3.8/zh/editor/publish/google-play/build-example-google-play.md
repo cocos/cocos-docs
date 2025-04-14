@@ -136,5 +136,8 @@
 ## 其他
 其他基本与 android 一致，可以参考[安卓构建示例](../android/build-example-android.md)
 
+## Google Play Billing
+[Google Play Billing 使用文档](./google-play-game-services.md)
+
 ## Google Play 游戏服务
 [Google Play Game Services 使用文档](./google-play-game-services.md)
