@@ -1,4 +1,4 @@
-# Sorting
+# 3D Sorting
 
 For most rendering cases, the default sorting is sufficient. But in practice, due to the special nature of translucent objects, we may need to sort these objects manually. For this case, the **Sorting** component can be used.
 

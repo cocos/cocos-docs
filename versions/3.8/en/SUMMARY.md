@@ -259,7 +259,7 @@
         - [VSCode Extension - Cocos Effect](shader/vscode-plugin.md)
         - [Compute Shader](shader/compute-shader.md)
 
-    - [Sorting](engine/rendering/sorting.md)
+    - [3D Sorting](engine/rendering/sorting.md)
     - [Effects](module-map/effects/index.md)
         - [Billboard](particle-system/billboard-component.md)
         - [Line](particle-system/line-component.md)

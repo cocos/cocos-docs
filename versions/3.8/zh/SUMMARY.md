@@ -262,7 +262,7 @@
         - [VSCode 着色器插件](shader/vscode-plugin.md)
         - [计算着色器](shader/compute-shader.md)
 
-    - [渲染排序](engine/rendering/sorting.md)
+    - [3D 渲染排序](engine/rendering/sorting.md)
 
     - [特效组件](module-map/effects/index.md)
         - [广告牌](particle-system/billboard-component.md)
