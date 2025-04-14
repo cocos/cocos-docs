@@ -749,8 +749,8 @@
                                 "link": "render-pipeline/use-builtin-pipeline.md"
                             },
                             {
-                                "text": "编写渲染管线",
-                                "link": "render-pipeline/write-render-pipeline.md"
+                                "text": "自定义渲染管线",
+                                "link": "render-pipeline/custom-pipeline.md"
                             },
                             {
                                 "text": "使用后期效果",

@@ -714,8 +714,8 @@
                                 "link": "render-pipeline/builtin-pipeline.md"
                             },
                             {
-                                "text": "Custom rendering of pipelines (experimental)",
-                                "link": "experimental"
+                                "text": "Custom rendering of pipelines",
+                                "link": "render-pipeline/custom-pipeline.md"
                             },
                             {
                                 "text": "Full Screen Post Process",

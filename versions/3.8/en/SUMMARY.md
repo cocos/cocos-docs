@@ -171,7 +171,7 @@
 - [Graphics](module-map/graphics.md)
     - [Render Pipeline](render-pipeline/overview.md)
         - [Built-in Render Pipeline](render-pipeline/builtin-pipeline.md)
-        - [Custom rendering of pipelines (experimental)](render-pipeline/custom-pipeline.md)
+        - [Custom rendering of pipelines](render-pipeline/custom-pipeline.md)
         - [Full Screen Post Process](render-pipeline/post-process/index.md)
             - [PostProcess Component](render-pipeline/post-process/post-process.md)
             - [BlitScreen Component](render-pipeline/post-process/blit-screen.md)

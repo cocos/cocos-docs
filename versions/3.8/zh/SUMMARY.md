@@ -178,7 +178,7 @@
 - [图形渲染](module-map/graphics.md)
     - [渲染管线](render-pipeline/overview.md)
         - [使用内置管线](render-pipeline/use-builtin-pipeline.md)
-        - [编写渲染管线](render-pipeline/write-render-pipeline.md)
+        - [自定义渲染管线](render-pipeline/custom-pipeline.md)
         - [使用后期效果](render-pipeline/use-post-process.md)
     - [相机](editor/components/camera-component.md)
     - [光照](concepts/scene/light.md)
