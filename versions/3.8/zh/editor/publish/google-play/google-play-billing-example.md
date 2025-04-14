@@ -36,7 +36,7 @@ const product = google.billing.QueryProductDetailsParams.Product.newBuilder()
                     .setProductId("productId")
                     .setProductType(google.billing.BillingClient.ProductType.INAPP)
                     .build();
-const params =  google.billing.QueryProductDetailsParams.newBuilder().setProductList([product]).build();
+const params = google.billing.QueryProductDetailsParams.newBuilder().setProductList([product]).build();
 this._client.queryProductDetailsAsync(params, {
     onProductDetailsResponse: (billingResult: google.billing.BillingResult, productDetailsList: google.billing.ProductDetails[]): void => {
         // TODO: 产品查询回调

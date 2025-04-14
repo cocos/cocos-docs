@@ -135,5 +135,8 @@ For other options, please refer to [Android Platform Build Options](../../../../
 ## Others
 Other aspects are basically the same as Android. You can refer to [Android Build Example](../../../../en/editor/publish/android/build-example-android.md)
 
+## Google Play Billing
+[Google Play Billing Documentation](./google-play-billing-example.md)
+
 ## Google Play Game Services
 [Google Play Game Services Documentation](./google-play-game-services.md)
