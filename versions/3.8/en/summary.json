@@ -718,23 +718,8 @@
                                 "link": "render-pipeline/custom-pipeline.md"
                             },
                             {
-                                "text": "Full Screen Post Process",
-                                "link": "render-pipeline/post-process/index.md",
-                                "items": [
-                                    {
-                                        "text": "PostProcess Component",
-                                        "link": "render-pipeline/post-process/post-process.md"
-                                    },
-                                    {
-                                        "text": "BlitScreen Component",
-                                        "link": "render-pipeline/post-process/blit-screen.md"
-                                    },
-                                    {
-                                        "text": "Customize a Post Process",
-                                        "link": "render-pipeline/post-process/custom.md"
-                                    }
-                                ],
-                                "collapsed": true
+                                "text": "Use Post Process",
+                                "link": "render-pipeline/use-post-process.md"
                             }
                         ],
                         "collapsed": true
