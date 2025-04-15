@@ -1,4 +1,4 @@
-# Customize a Post Process
+# Customize a Post Process(No longer maintained)
 
 There are two methods to customize a post-process, add a simple post-process material to the [BlitScreen Component](./blit-screen.md) or define a post pass for a complex post-process.
 

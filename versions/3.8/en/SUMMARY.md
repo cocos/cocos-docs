@@ -173,6 +173,7 @@
         - [Built-in Render Pipeline](render-pipeline/builtin-pipeline.md)
         - [Custom rendering of pipelines](render-pipeline/custom-pipeline.md)
         - [Use Post Process](render-pipeline/use-post-process.md)
+        - [Custom Post Process](render-pipeline/post-process/custom.md)
 
     - [Camera](editor/components/camera-component.md)
     - [Lighting](concepts/scene/light.md)

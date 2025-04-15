@@ -720,6 +720,10 @@
                             {
                                 "text": "Use Post Process",
                                 "link": "render-pipeline/use-post-process.md"
+                            },
+                            {
+                                "text": "Custom Post Process",
+                                "link": "render-pipeline/post-process/custom.md"
                             }
                         ],
                         "collapsed": true

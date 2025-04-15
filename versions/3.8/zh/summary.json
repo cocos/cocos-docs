@@ -755,6 +755,10 @@
                             {
                                 "text": "使用后期效果",
                                 "link": "render-pipeline/use-post-process.md"
+                            },
+                            {
+                                "text": "自定义后效",
+                                "link": "render-pipeline/post-process/custom.md"
                             }
                         ],
                         "collapsed": true

@@ -180,6 +180,7 @@
         - [使用内置管线](render-pipeline/use-builtin-pipeline.md)
         - [自定义渲染管线](render-pipeline/custom-pipeline.md)
         - [使用后期效果](render-pipeline/use-post-process.md)
+        - [自定义后效](render-pipeline/post-process/custom.md)
     - [相机](editor/components/camera-component.md)
     - [光照](concepts/scene/light.md)
         - [基于物理的光照](concepts/scene/light/pbr-lighting.md)
