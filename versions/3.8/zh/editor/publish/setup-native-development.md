@@ -42,7 +42,7 @@ java -version
 3. 打开 SDK Tools 分页栏，在安装所需工具前，需要勾选右下角的 **Show Package Details** 显示不同版本的工具。
 4. 在 **Android SDK Build-Tools** 里，选择最新的 build tools 版本。
 5. 勾选 **Android SDK Platform-Tools** 和 **CMake**，如需安装 Android 支持库，请参考 [官方文档 — 支持库设置](https://developer.android.google.cn/topic/libraries/support-library/setup)。
-6. 勾选需要下载的 **NDK** 版本。推荐选择 **r21 ~ 23** 范围的版本避免意外的适配错误。
+6. 勾选需要下载的 **NDK** 版本。推荐选择 **r21 ~ r23** 范围的版本避免意外的适配错误。使用 Apple M 系列芯片的用户推荐使用 **r24** 版本。
 7. 点击 **Apply** 之后进行安装，后续如果需要删除已安装的工具，也可以在此处进行。
 
     ![sdk manager](setup-native-development/sdk-manager.png)

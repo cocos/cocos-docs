@@ -42,7 +42,7 @@ After installing Android Studio, open SDK Manager following the official documen
 3. In SDK Tools tab, check **Show Package Details** to display different tool versions before installation
 4. Under **Android SDK Build-Tools**, select the latest build tools version
 5. Check **Android SDK Platform-Tools** and **CMake**. For Android Support Library installation, refer to [Official Documentation - Support Library Setup](https://developer.android.google.cn/topic/libraries/support-library/setup)
-6. Select desired **NDK** version. Recommended versions: **r21 ~ 23** to avoid compatibility issues
+6. Select desired **NDK** version. Recommended versions: **r21 ~ r23** to avoid compatibility issues. Users with Apple M-series chips are recommended to use the **r24** version.
 7. Click **Apply** to install. You can also manage installed tools here later
 
     ![sdk manager](setup-native-development/sdk-manager.png)
