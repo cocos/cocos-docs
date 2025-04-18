@@ -480,7 +480,7 @@
                     },
                     {
                         "text": "发布到 HarmonyOS Next 应用",
-                        "link": "./publish/publish-harmonyos-next.md"
+                        "link": "./publish/publish-openharmony.md"
                     },
                     {
                         "text": "发布到 Google Play Instant",
