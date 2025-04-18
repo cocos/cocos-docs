@@ -151,7 +151,7 @@
         - [集成 Input SDK](editor/publish/gpg-input-sdk.md)
     - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
     - [发布 HUAWEI HarmonyOS 应用](editor/publish/publish-huawei-ohos.md)
-    - [发布 HarmonyOS Next 应用](editor/publish/publish-harmonyos-next.md)
+    - [发布 HarmonyOS Next 应用](editor/publish/publish-openharmony.md)
     - [发布 Android 应用](editor/publish/android/index.md)
         - [Android 构建示例](editor/publish/android/build-example-android.md) 
         - [Android 构建选项](editor/publish/android/build-options-android.md)

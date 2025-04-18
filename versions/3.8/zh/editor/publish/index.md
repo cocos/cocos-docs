@@ -9,7 +9,7 @@
 - [发布 Android 应用](./android/index.md)
 - [发布 HUAWEI AppGallery Connect 应用程序](./publish-huawei-agc.md)
 - [发布 HUAWEI HarmonyOS 应用](./publish-huawei-ohos.md)
-- [发布 HarmonyOS Next 应用](./publish-harmonyos-next.md)
+- [发布 HarmonyOS Next 应用](./publish-openharmony.md)
 - [发布到 Google Play](google-play/build-example-google-play.md)
 - [发布到 Google Play On Games](google-play-games/index.md)
 - [发布 Windows 应用](./windows/index.md)

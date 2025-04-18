@@ -190,7 +190,7 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 - [发布到 Google Play](google-play/build-example-google-play.md)
 - [发布到 Google Play On Games](google-play-games/index.md)
 - [发布到 HarmonyOS 平台](publish-huawei-ohos.md)
-- [发布到 HarmonyOS Next 平台](publish-harmonyos-next.md)
+- [发布到 HarmonyOS Next 平台](publish-openharmony.md)
 
 Cocos Creator 支持自定义构建扩展，处理方式与平台扩展一致，详情可参考 [自定义构建流程](custom-build-plugin.md)。
 

@@ -101,8 +101,9 @@
 
 8. 配置Javascript引擎，目前支持V8、Ark、JSVM，如下图：
 
-    ![](./publish-openharmony/document_image_rId76.png)
+    ![](./publish-openharmony/document_image_rId77.png)
 
+    > **注意**：在当前平台使用 V8 作为 JavaScript 引擎暂时无法使用 JIT 优化，建议选择使用 JSVM 获得最优的游戏性能。
 
 9. 目前Make与Run功能还未实现，请使用 DevEco 打开工程
     ![](./publish-openharmony/document_image_rId59.png)
