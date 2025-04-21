@@ -238,3 +238,13 @@ std::string System::getCurrentLanguageCode() const {
     >> ![](./publish-openharmony/document_image_rId72.png)
 - 更新IDE，编译报错,如下图：
    >> ![](./publish-openharmony/document_image_rId75.png)
+- Mac 版 IDE 编译报错，报错信息为:
+
+    ```
+    npm ERR! Your cache folder contains root-owned files, due to a bug in
+    npm ERR! previous versions of npm which has since been addressed.
+    ```
+
+    解决方法:
+
+        在设备终端中执行命令 `sudo chown -R 502:20 "/Users/修改为你的设备用户名/.npm"`，之后重新编译项目
