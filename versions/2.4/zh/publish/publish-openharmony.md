@@ -74,3 +74,24 @@
     <img src="./publish-openharmony/step-019.png" width="900"> <br>
 
 7. 执行成功之后，在设备上查看效果。
+
+## 几个注意事项
+
+另外，因为 HarmonyOS Next 还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。
+
+- ARK不支持Restart，JSVM与V8是支持的。
+- 编译失败时，可能是内存不足导致，退出部分应用，重新 build 试试；
+    >>
+    >> ![](./publish-openharmony/document_image_rId72.png)
+- 更新IDE，编译报错,如下图：
+   >> ![](./publish-openharmony/document_image_rId75.png)
+- Mac 版 IDE 编译报错，报错信息为:
+
+    ```
+    npm ERR! Your cache folder contains root-owned files, due to a bug in
+    npm ERR! previous versions of npm which has since been addressed.
+    ```
+
+    解决方法:
+
+        在设备终端中执行命令 `sudo chown -R 502:20 "/Users/修改为你的设备用户名/.npm"`，之后重新编译项目
