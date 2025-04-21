@@ -108,6 +108,25 @@
 9. 目前Make与Run功能还未实现，请使用 DevEco 打开工程
     ![](./publish-openharmony/document_image_rId59.png)
 
+### Deveco 编译运行
+
+1. 使用[DevEcoStudio](https://developer.harmonyos.com/cn/develop/deveco-studio#download)，打开工程，如下图：
+
+    ![](./publish-openharmony/document_image_rId62.png)
+2. 找到工程目录（native/engine/openharmony）并点击打开，如下图（下图是以[cocos-test-projects](https://github.com/cocos/cocos-test-projects)为例）：
+
+    ![](./publish-openharmony/document_image_rId64.png)
+
+3. 配置签名，如下图：
+
+    ![](./publish-openharmony/document_image_rId65.png)
+
+4. 插入设备，点击运行，如下图：
+
+    ![](./publish-openharmony/document_image_rId66.png)
+
+执行成功之后，就能看到效果了。
+
 
 ## HarmonyOS Next 系统接口与 Cocos 交互
 
