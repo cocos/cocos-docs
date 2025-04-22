@@ -247,4 +247,4 @@ std::string System::getCurrentLanguageCode() const {
 
     解决方法:
 
-        在设备终端中执行命令 `sudo chown -R 502:20 "/Users/修改为你的设备用户名/.npm"`，之后重新编译项目
+    在设备终端中执行命令 `sudo chown -R 502:20 "/Users/修改为你的设备用户名/.npm"`，之后重新编译项目
