@@ -26,10 +26,10 @@ java -version
 
 不同版本的 CocosCreator 引擎通常兼容不同版本的 Android Studio。用户可以根据下方版本推荐信息，前往 [Android Studio 历史版本](https://developer.android.com/studio/archive?hl=zh-cn) 下载对应的 IDE。
 
-| CocosCreator 引擎版本范围 |   Android Studio 推荐使用版本
-| :-------------- | :----------- |
-| v2.4.12 及以上 或 v3.8.0 及以上 | 2022.2.1 或 2022.3.1
-| v2.4.11 及以下 或 v3.0.0 ~ 3.7.4 | 2020.3.1 或更早的版本
+| CocosCreator 引擎版本范围 | Android Studio 推荐使用版本 | JDK 版本 |
+| :-------------- | :----------- | :----------- |
+| v2.4.12 及以上 或 v3.8.0 及以上 | 2022.2.1 或 2022.3.1 | JDK 17 |
+| v2.4.11 及以下 或 v3.0.0 ~ 3.7.4 | 2020.3.1 或更早的版本 | JDK 11 |
 
 ## 下载 Android 平台所需的 SDK 和 NDK
 

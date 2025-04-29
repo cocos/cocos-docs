@@ -26,10 +26,10 @@ If your system uses JRE, install [JAVA SE Runtime Environment](http://www.oracle
 
 Different versions of Cocos Creator engine typically support different Android Studio versions. Users can refer to the following version recommendations and download the corresponding IDE from [Android Studio Archive](https://developer.android.com/studio/archive?hl=zh-cn).
 
-| Cocos Creator Version Range | Recommended Android Studio Version |
-| :-------------------------- | :--------------------------------- |
-| v2.4.12+ or v3.8.0+         | 2022.2.1 or 2022.3.1              |
-| v2.4.11- or v3.0.0-3.7.4    | 2020.3.1 or earlier versions      |
+| Cocos Creator Version Range | Recommended Android Studio Version | JDK Version |
+| :-------------------------- | :--------------------------------- | :---------- |
+| v2.4.12+ or v3.8.0+         | 2022.2.1 or 2022.3.1              | JDK 17 |
+| v2.4.11- or v3.0.0-3.7.4    | 2020.3.1 or earlier versions      | JDK 11 |
 
 ## Download Android SDK and NDK
 
