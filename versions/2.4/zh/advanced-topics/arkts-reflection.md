@@ -11,6 +11,8 @@
 var result = jsb.reflection.callStaticMethod(isSync, clsPath, methodName, paramStr);
 ```
 
+> **注意**：创建的 arkTs 文件需要放在 `entry/src/main/ets` 文件夹下才能被 JS/TS 调用。
+
 在 callStaticMethod 方法中，我们通过传入 arkTs 是否同步，模块路径或者依赖包名或者远程库名，方法名，参数就可以直接调用 arkTs 的静态方法，并且可以获得 arkTs 方法的返回值。
 
 > callStaticMethod这个函数本身是同步的，但是可以调用异步的ArkTs的异步方法，但是会阻塞当前的线程，等待ArkTs调用完成，然后获取结果返回、
@@ -52,7 +54,7 @@ export { test, syncTest };
   "arkOptions": {
     "runtimeOnly": {
       "sources": [
-        "./src/main/ets/test.ts"
+        "./src/main/ets/Test.ets"
       ]
     }
   }
@@ -64,14 +66,16 @@ let param = {
     a:1,
     b:2
 }
-let o1 = jsb.reflection.callStaticMethod(true, "entry/src/main/ets/test","entry/test",JSON.stringify(param));
+let o1 = jsb.reflection.callStaticMethod(true, "entry/src/main/ets/Test","entry/test",JSON.stringify(param));
 console.log("result::", o1, typeof o1, JSON.parse(o1).a);
 
-let o2 = jsb.reflection.callStaticMethod(false, "entry/src/main/ets/test","entry/syncTest",JSON.stringify(param));
+let o2 = jsb.reflection.callStaticMethod(false, "entry/src/main/ets/Test","entry/syncTest",JSON.stringify(param));
 console.log("result::", o2, typeof o2, JSON.parse(o2).a);
 ```
 ### HAP加载HAR模块名
+
 1. HAR包Index.ets文件如下
+
 ``` ts
 function test(param: string): string {
   console.log("param::", param);
@@ -87,7 +91,9 @@ function syncTest(param: string, cb: Function): void {
 
 export { test, syncTest };
 ```
-2. 在加载本地HAR包时，首先需要在oh-package.json5文件中配置dependencies项
+
+2. 在加载本地 HAR 包时，首先需要在 oh-package.json5 文件中配置 dependencies 项
+
 ```
 {
     "dependencies": {
@@ -95,7 +101,9 @@ export { test, syncTest };
     }
 }
 ```
-3. 其次，还需要在build-profile.json5中进行配置
+
+3. 其次，还需要在 build-profile.json5 中进行配置
+
 ```
 "buildOption": {
   "arkOptions": {
@@ -107,7 +115,9 @@ export { test, syncTest };
   }
 }
 ```
+
 4. 游戏中调用
+
 ``` ts
 let param = {
     a:1,
@@ -122,14 +132,14 @@ console.log("result::", o2, typeof o2, JSON.parse(o2).a);
 
 ## ArkTs 调用 JavaScript
 
-使用 Cocos Creator 2.4.15及以上 打包的鸿蒙原生应用中，C++封装了evalString方法提供给开发者直接从AtkTs直接执行JavaScript代码 使用方法如下：
+使用 Cocos Creator 2.4.15 及以上 打包的鸿蒙原生应用中，C++封装了evalString方法提供给开发者直接从 AtkTs 直接执行 JavaScript 代码 使用方法如下：
 
 --- 
  ** ⚠️注意事项：**
-- 此方法只能在worker线程执行，因此如果有业务需求在主线程执行后调用的话，需要在主线程将结果发送给worker线程后再调用evalString。
-- 此方法需要在worker线程的js引擎初始化完成之后才可以调用，也就是renderContext.nativeEngineInit()执行之后
-- 此方法只能在v8和jsvm两种js引擎中有效，方舟引擎不支持。tips：方舟引擎的js交互可直接在globalThis上绑定对象后访问
-- 此方法只支持返回number，string，boolean，纯对象相较于老办法nativeSdkUtil.gameMsgHandle，性能提升约30%+，推荐使用。
+- 此方法只能在 worker 线程执行，因此如果有业务需求在主线程执行后调用的话，需要在主线程将结果发送给 worker 线程后再调用 evalString。
+- 此方法需要在 worker 线程的 js 引擎初始化完成之后才可以调用，也就是 renderContext.nativeEngineInit() 执行之后
+- 此方法只能在 v8 和 jsvm 两种 js 引擎中有效，方舟引擎不支持。tips：方舟引擎的 js 交互可直接在 globalThis 上绑定对象后访问
+- 此方法只支持返回 number，string，boolean，纯对象相较于老办法 nativeSdkUtil.gameMsgHandle，性能提升约 30%+，推荐使用。
 ---
 
 使用示例如下：
