@@ -689,7 +689,16 @@ export class GameManager extends Component {
 - 由于我们的角色可以选择跳 1 个方块或者 2 个方块，和某个戴红帽子穿背带裤家伙比起来太弱鸡了，因此坑最多不应该连续超过 2 个，也就意味着如果前面 1 个地块是坑，那么接下来的地块必须是方块
 
 接下来为 `GameManager` 添加几个方法：
+- 引用
+    ```ts
+    import { _decorator, Component, Prefab, CCInteger, instantiate, Node } from 'cc';
+    import { BLOCK_SIZE, PlayerController } from './PlayerController';
 
+    const { ccclass, property } = _decorator;
+    
+    ...
+    ...
+    ```
 - 生成地图的方法：
 
     ```ts
