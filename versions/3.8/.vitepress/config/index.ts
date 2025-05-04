@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, mergeConfig } from 'vitepress'
 import { shared } from '../../../../@config/shared'
 
 // 每个语言的配置
@@ -10,7 +10,7 @@ import { nav } from '../../../../@config/shared';
 import menusEN from '../../en/summary.json' with {type: 'json'};
 import menusZH from '../../zh/summary.json' with {type: 'json'};
 
-import { version } from './version.ts';
+import { version, algoliaAppid, algoliaSearchKey, algoliaIndexName } from './version.ts';
 
 // 英文配置
 const configEn = configEnFn(version);
@@ -46,7 +46,7 @@ const zh = defineConfig({
   }
 })
 
-export default defineConfig({
+export default mergeConfig(defineConfig({
   ...shared,
   base: `/creator/${version}/manual/` , // `/${version}/`
   locales: {
@@ -55,4 +55,15 @@ export default defineConfig({
     en: { label: 'English', ...en },
     zh: { label: '简体中文', ...zh }
   }
-})
+}), defineConfig({
+  themeConfig: {
+    search: {
+      provider: 'algolia',
+      options: {
+        appId: algoliaAppid,
+        apiKey: algoliaSearchKey,
+        indexName: algoliaIndexName,
+      }
+    }
+  }
+}))
