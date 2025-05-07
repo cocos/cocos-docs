@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress';
 import { github } from './config.ts';
 import { search as zhSearch } from './shared-theme-zh'
 import replaceEnvVariables from './replace-env-variables.ts';
+import llmstxt from 'vitepress-plugin-llms'
 
 export const shared = defineConfig({
   title: 'Cocos Creator',
@@ -88,6 +89,10 @@ export const shared = defineConfig({
     config: (md) => {
       md.use(replaceEnvVariables)
     }
+  },
+
+  vite: {
+    plugins: [llmstxt()]
   }
 })
 
