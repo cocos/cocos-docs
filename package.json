@@ -16,6 +16,7 @@
     "@dotenvx/dotenvx": "^0.44.1",
     "@types/node": "^20.12.12",
     "cross-env": "^7.0.3",
-    "vitepress": "^1.2.2"
+    "vitepress": "^1.2.2",
+    "vitepress-plugin-llms": "^1.1.3"
   }
 }
