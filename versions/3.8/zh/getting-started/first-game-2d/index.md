@@ -1042,6 +1042,7 @@ onStartButtonClicked() {
 ![click-event.gif](images/click-event.gif)
 
 此时已可以正常的开始玩游戏：
+> #### 注意：如果你运行游戏后发现 UI 出现重影，请查阅本文的 `层级` 章节解决问题。
 
 ![start-game-without-result.gif](./images/start-game-without-result.gif)
 
