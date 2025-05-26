@@ -2284,6 +2284,10 @@
                         "link": "advanced-topics/data-storage.md"
                     },
                     {
+                        "text": "自定义加载 Wasm/Asm 文件与模块",
+                        "link": "advanced-topics/wasm-asm-load.md"
+                    },
+                    {
                         "text": "引擎定制工作流程",
                         "link": "advanced-topics/engine-customization.md"
                     },

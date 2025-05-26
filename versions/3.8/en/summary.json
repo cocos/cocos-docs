@@ -2147,6 +2147,10 @@
                         "link": "advanced-topics/data-storage.md"
                     },
                     {
+                        "text": "Custom loading Wasm/Asm files and modules",
+                        "link": "advanced-topics/wasm-asm-load.md"
+                    },
+                    {
                         "text": "Engine Customization Workflow",
                         "link": "advanced-topics/engine-customization.md"
                     },

@@ -536,6 +536,7 @@
 - [进阶主题](advanced-topics/index.md)
     - [如何向 Cocos 提交代码](submit-pr/submit-pr.md)
     - [存储和读取用户数据](advanced-topics/data-storage.md)
+    - [自定义加载 Wasm/Asm 文件与模块](advanced-topics/wasm-asm-load.md)
     - [引擎定制工作流程](advanced-topics/engine-customization.md)
     - [网页预览定制工作流程](editor/preview/browser.md)
     - [i18n 游戏多语言支持](advanced-topics/i18n.md)

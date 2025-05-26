@@ -503,6 +503,7 @@
 - [Advanced Topics](advanced-topics/index.md)
     - [Submit Code to Cocos Engine Repository](submit-pr/submit-pr.md)
     - [User Data Storage](advanced-topics/data-storage.md)
+    - [Custom loading Wasm/Asm files and modules](advanced-topics/wasm-asm-load.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [Web Preview Customization Workflow](editor/preview/browser.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)
