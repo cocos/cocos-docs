@@ -87,7 +87,7 @@ ShadowMap 一般用于要求光影效果比较真实，且较为复杂的场景�
 | 属性 | 说明 |
 | :------ | :-- |
 | ShadowEnabled | 是否开启平行光阴影 |
-| ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
+| ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**、**SOFT_4X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
 | ShadowBias | 设置阴影偏移值，防止 Z-Fighting |
 | ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
 | ShadowSaturation | 调节阴影饱和度，建议设置为 **1.0**。若需要减小方向光阴影的饱和程度，推荐通过增加环境光来实现，而不是调节该值 |
@@ -119,7 +119,7 @@ FixedArea 模式用于设置是否手动控制 Camera 可见范围内显示阴�
 | 属性 | 说明 |
 | :------ | :-- |
 | ShadowEnabled | 是否开启平行光阴影 |
-| ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
+| ShadowPcf | 设置阴影边缘反走样等级，目前支持 **HARD**、**SOFT**、**SOFT_2X**、**SOFT_4X**，详情可参考下文 **PCF 软阴影** 部分的介绍。 |
 | ShadowBias | 设置阴影偏移值，防止 z-fighting |
 | ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
 
