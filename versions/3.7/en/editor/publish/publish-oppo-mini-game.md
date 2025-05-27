@@ -112,7 +112,7 @@ For more information, please refer to the [OPPO Mini Game - Subpackage [cn]](htt
 
 **OPPO Mini Game** is similar to **WeChat Mini Game**. There are restrictions on the package size. The main package size limit for OPPO Mini Game is **4MB**, more than that must be downloaded via a network request.
 
-Cocos Creator already helps developers with downloading, caching and version management of remote resources. Please refer to the [Cache Manager](../../asset/cache-manager.md#resource-download-process) documentation for details.
+After the game starts, the engine will automatically download resources from the remote server address. Once the resources are downloaded, the engine's cache manager will record the save paths of these resources. This information is used to automatically delete some cached game resources when the cache space is insufficient. Please refer to [Cache Manager](../../asset/cache-manager.md) for more details.
 
 ## Reference documentation
 

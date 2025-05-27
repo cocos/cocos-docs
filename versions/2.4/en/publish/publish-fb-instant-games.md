@@ -104,6 +104,54 @@ Developers can [create the `build-templates/fb-instant-games` directory](custom-
  - `index.html`: This will change the version of the Instant Games SDK introduced.
  - `main.js`: Here you can modify the SDK initialization and progress bar.
 
+## Customizing Instant Games
+
+Developers can create the [build-templates/fb-instant-games](custom-project-build-template.md) directory under the Creator project folder to customize them according to their needs, and then copy the published files into that directory to customize them: ##
+
+![file](./publish-fb-instant-games/file.png)
+
+- `fbapp-config.json`: this is the configuration for the whole package, go to [official introduction](https://developers.facebook.com/docs/games/instant-games/bundle-config)
+- `index.html`: Here you can modify the introduced Facebook Instant Games SDK version
+- `index.js`: Here you can modify the SDK initialization and progress bar
+
+## Creating DOM Elements in the Game
+Please refer to the example code below to create Dom elements in a Facebook Instant Game and display them on the game screen.
+
+```javascript
+var buttonDiv = document.createElement("div");
+var button = document.createElement("button");
+
+const frameSize = cc.view.getFrameSize();
+const imageWidth = 195, imageHeight = 57;
+
+button.style.position = "absolute";
+button.style.left = `${frameSize.width / 2 - imageWidth / 2}px`;
+button.style.top = `${frameSize.height / 2 - imageHeight / 2}px`;
+
+//load image from resources bundle
+cc.resources.load("btn_play", cc.Texture2D, (error, res)=>{
+  if (!error) {
+    button.style.backgroundImage = `url(${res.nativeUrl})`;
+    button.style.backgroundRepeat = "no-repeat";
+    button.style.backgroundPosition = "center";
+    button.style.width = res.width + "px";
+    button.style.height = res.height + "px";
+    button.style.backgroundColor = "transparent";
+    button.style.borderColor = "transparent";
+    button.onclick = (()=>{
+          //DO SOMETHING
+    });
+    buttonDiv.appendChild(button);
+    var body = document.body;
+    body.insertBefore(buttonDiv, body.lastChild);
+  }
+});
+```
+
+Result when running:
+
+![](../../zh/publish/publish-fb-instant-games/use-dom-element.png)
+
 ## SDK Instructions
 
 Cocos Creator has integrated the Facebook **Instant Games SDK** and it automatically initializes (`initializeAsync` and `startGameAsync`) when the game is loaded. The user can access directly through the `FBInstant` namespace. See the [Instant Games SDK](https://developers.facebook.com/docs/games/instant-games/sdk) for details.

@@ -192,6 +192,10 @@
                     {
                         "text": "升级指南：粒子从 v3.5.x 升级到 v3.6.0",
                         "link": "particle-system/particle-upgrade-documentation-for-v3.5-to-v3.6.md"
+                    },
+                    {
+                        "text": "v3.8 Android 工程升级",
+                        "link": "release-notes/upgrade-3.8-android.md"
                     }
                 ],
                 "collapsed": true
@@ -494,6 +498,141 @@
                 "link": "editor/publish/index.md",
                 "items": [
                     {
+                        "text": "通用构建选项介绍",
+                        "link": "editor/publish/build-options.md"
+                    },
+                    {
+                        "text": "发布到小游戏平台",
+                        "link": "editor/publish/publish-mini-game.md",
+                        "items": [
+                            {
+                                "text": "发布到微信小游戏",
+                                "link": "editor/publish/publish-wechatgame.md",
+                                "items": [
+                                    {
+                                        "text": "启用微信小游戏引擎插件",
+                                        "link": "editor/publish/wechatgame-plugin.md"
+                                    },
+                                    {
+                                        "text": "接入微信 PC 小游戏",
+                                        "link": "editor/publish/publish-pc-wechatgame.md"
+                                    },
+                                    {
+                                        "text": "iOS 微信小游戏内存与性能优化指南",
+                                        "link": "editor/publish/wechat-ios-optimize.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "发布到淘宝小游戏",
+                                "link": "editor/publish/publish-taobao-mini-game.md",
+                                "items": [
+                                    {
+                                        "text": "启用淘宝小游戏引擎插件",
+                                        "link": "editor/publish/taobaominigame-plugin.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "发布到支付宝小游戏",
+                                "link": "editor/publish/publish-alipay-mini-game.md"
+                            },
+                            {
+                                "text": "发布到抖音小游戏",
+                                "link": "editor/publish/publish-bytedance-mini-game.md",
+                                "items": [
+                                    {
+                                        "text": "接入抖音 PC 小游戏",
+                                        "link": "editor/publish/publish-pc-bytedance.md"
+                                    },
+                                    {
+                                        "text": "iOS 抖音小游戏内存与性能优化指南",
+                                        "link": "editor/publish/bytedance-ios-optimize.md"
+                                    }
+                                ],
+                                "collapsed": true
+                            },
+                            {
+                                "text": "发布到华为快游戏",
+                                "link": "editor/publish/publish-huawei-quick-game.md"
+                            },
+                            {
+                                "text": "发布到荣耀小游戏",
+                                "link": "editor/publish/publish-honor-mini-game.md"
+                            },
+                            {
+                                "text": "发布到 OPPO 小游戏",
+                                "link": "editor/publish/publish-oppo-mini-game.md"
+                            },
+                            {
+                                "text": "发布到 vivo 小游戏",
+                                "link": "editor/publish/publish-vivo-mini-game.md"
+                            },
+                            {
+                                "text": "发布到咪咕小游戏",
+                                "link": "editor/publish/publish-migu-mini-game.md"
+                            },
+                            {
+                                "text": "发布到小米快游戏",
+                                "link": "editor/publish/publish-xiaomi-quick-game.md"
+                            },
+                            {
+                                "text": "开放数据域",
+                                "link": "editor/publish/build-open-data-context.md"
+                            },
+                            {
+                                "text": "小游戏分包",
+                                "link": "editor/publish/subpackage.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "发布到 Web 平台",
+                        "link": "editor/publish/publish-web.md"
+                    },
+                    {
+                        "text": "发布到 Facebook Instant Games 平台",
+                        "link": "editor/publish/publish-fb-instant-games.md"
+                    },
+                    {
+                        "text": "原生平台发布通用基础",
+                        "link": "editor/publish/publish-native-index.md",
+                        "items": [
+                            {
+                                "text": "安装配置原生环境",
+                                "link": "editor/publish/setup-native-development.md"
+                            },
+                            {
+                                "text": "原生平台通用构建选项",
+                                "link": "editor/publish/native-options.md"
+                            },
+                            {
+                                "text": "原生平台 JavaScript 调试",
+                                "link": "editor/publish/debug-jsb.md"
+                            },
+                            {
+                                "text": "集成 Input SDK",
+                                "link": "editor/publish/gpg-input-sdk.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
+                        "text": "发布到 HUAWEI AppGallery Connect",
+                        "link": "editor/publish/publish-huawei-agc.md"
+                    },
+                    {
+                        "text": "发布 HUAWEI HarmonyOS 应用",
+                        "link": "editor/publish/publish-huawei-ohos.md"
+                    },
+                    {
+                        "text": "发布 HarmonyOS Next 应用",
+                        "link": "editor/publish/publish-openharmony.md"
+                    },
+                    {
                         "text": "发布 Android 应用",
                         "link": "editor/publish/android/index.md",
                         "items": [
@@ -506,15 +645,15 @@
                                 "link": "editor/publish/android/build-options-android.md"
                             },
                             {
-                                "text": "配置 Android 原生开发环境",
-                                "link": "editor/publish/android/build-setup-evn-android.md"
-                            },
-                            {
                                 "text": "v3.8 Android 工程升级",
                                 "link": "release-notes/upgrade-3.8-android.md"
                             }
                         ],
                         "collapsed": true
+                    },
+                    {
+                        "text": "发布 Google Play 示例",
+                        "link": "editor/publish/google-play/build-example-google-play.md"
                     },
                     {
                         "text": "发布到谷歌 GPG 平台",
@@ -542,21 +681,9 @@
                             {
                                 "text": "iOS 构建选项",
                                 "link": "editor/publish/ios/build-options-ios.md"
-                            },
-                            {
-                                "text": "iOS 微信小游戏内存与性能优化指南",
-                                "link": "editor/publish/ios/optimize.md"
                             }
                         ],
                         "collapsed": true
-                    },
-                    {
-                        "text": "发布 HUAWEI HarmonyOS 应用",
-                        "link": "editor/publish/publish-huawei-ohos.md"
-                    },
-                    {
-                        "text": "发布到 OpenHarmony 应用",
-                        "link": "editor/publish/publish-openharmony.md"
                     },
                     {
                         "text": "发布 macOS 应用",
@@ -587,118 +714,6 @@
                             }
                         ],
                         "collapsed": true
-                    },
-                    {
-                        "text": "原生平台发布通用基础",
-                        "link": "editor/publish/publish-native-index.md",
-                        "items": [
-                            {
-                                "text": "原生平台通用构建选项",
-                                "link": "editor/publish/native-options.md"
-                            },
-                            {
-                                "text": "安装配置原生环境",
-                                "link": "editor/publish/setup-native-development.md"
-                            },
-                            {
-                                "text": "原生平台 JavaScript 调试",
-                                "link": "editor/publish/debug-jsb.md"
-                            },
-                            {
-                                "text": "集成 Input SDK",
-                                "link": "editor/publish/gpg-input-sdk.md"
-                            }
-                        ],
-                        "collapsed": true
-                    },
-                    {
-                        "text": "发布到小游戏平台",
-                        "link": "editor/publish/publish-mini-game.md",
-                        "items": [
-                            {
-                                "text": "发布到 HUAWEI AppGallery Connect",
-                                "link": "editor/publish/publish-huawei-agc.md"
-                            },
-                            {
-                                "text": "发布到支付宝小游戏",
-                                "link": "editor/publish/publish-alipay-mini-game.md"
-                            },
-                            {
-                                "text": "发布到淘宝小游戏",
-                                "link": "editor/publish/publish-taobao-mini-game.md",
-                                "items": [
-                                    {
-                                        "text": "启用淘宝小游戏引擎插件",
-                                        "link": "editor/publish/taobaominigame-plugin.md"
-                                    }
-                                ],
-                                "collapsed": true
-                            },
-                            {
-                                "text": "发布到微信小游戏",
-                                "link": "editor/publish/publish-wechatgame.md",
-                                "items": [
-                                    {
-                                        "text": "启用微信小游戏引擎插件",
-                                        "link": "editor/publish/wechatgame-plugin.md"
-                                    },
-                                    {
-                                        "text": "接入微信 PC 小游戏",
-                                        "link": "editor/publish/publish-pc-wechatgame.md"
-                                    }
-                                ],
-                                "collapsed": true
-                            },
-                            {
-                                "text": "发布到抖音小游戏",
-                                "link": "editor/publish/publish-bytedance-mini-game.md"
-                            },
-                            {
-                                "text": "发布到华为快游戏",
-                                "link": "editor/publish/publish-huawei-quick-game.md"
-                            },
-                            {
-                                "text": "发布到 OPPO 小游戏",
-                                "link": "editor/publish/publish-oppo-mini-game.md"
-                            },
-                            {
-                                "text": "发布到 vivo 小游戏",
-                                "link": "editor/publish/publish-vivo-mini-game.md"
-                            },
-                            {
-                                "text": "发布到咪咕小游戏",
-                                "link": "editor/publish/publish-migu-mini-game.md"
-                            },
-                            {
-                                "text": "发布到小米快游戏",
-                                "link": "editor/publish/publish-xiaomi-quick-game.md"
-                            },
-                            {
-                                "text": "发布到百度小游戏",
-                                "link": "editor/publish/publish-baidu-mini-game.md"
-                            },
-                            {
-                                "text": "开放数据域",
-                                "link": "editor/publish/build-open-data-context.md"
-                            },
-                            {
-                                "text": "小游戏分包",
-                                "link": "editor/publish/subpackage.md"
-                            }
-                        ],
-                        "collapsed": true
-                    },
-                    {
-                        "text": "发布到 Facebook Instant Games 平台",
-                        "link": "editor/publish/publish-fb-instant-games.md"
-                    },
-                    {
-                        "text": "发布到 Web 平台",
-                        "link": "editor/publish/publish-web.md"
-                    },
-                    {
-                        "text": "通用构建选项介绍",
-                        "link": "editor/publish/build-options.md"
                     },
                     {
                         "text": "命令行发布项目",
@@ -734,12 +749,16 @@
                                 "link": "render-pipeline/use-builtin-pipeline.md"
                             },
                             {
-                                "text": "编写渲染管线",
-                                "link": "render-pipeline/write-render-pipeline.md"
+                                "text": "自定义渲染管线",
+                                "link": "render-pipeline/custom-pipeline.md"
                             },
                             {
                                 "text": "使用后期效果",
                                 "link": "render-pipeline/use-post-process.md"
+                            },
+                            {
+                                "text": "自定义后效",
+                                "link": "render-pipeline/post-process/custom.md"
                             }
                         ],
                         "collapsed": true
@@ -1111,7 +1130,7 @@
                         "collapsed": true
                     },
                     {
-                        "text": "渲染排序",
+                        "text": "3D 渲染排序",
                         "link": "engine/rendering/sorting.md"
                     },
                     {
@@ -1305,6 +1324,10 @@
                                     {
                                         "text": "UIOpacity 组件参考",
                                         "link": "ui-system/components/editor/ui-opacity.md"
+                                    },
+                                    {
+                                        "text": "UISkew 组件参考",
+                                        "link": "ui-system/components/editor/ui-skew.md"
                                     },
                                     {
                                         "text": "BlockInputEvents 组件参考",
@@ -1986,6 +2009,10 @@
                         "link": "advanced-topics/oc-reflection.md"
                     },
                     {
+                        "text": "ArkTS 原生反射机制",
+                        "link": "advanced-topics/arkts-reflection.md"
+                    },
+                    {
                         "text": "JsbBridge JS 与 JAVA 通信",
                         "link": "advanced-topics/js-java-bridge.md"
                     },
@@ -2257,6 +2284,10 @@
                         "link": "advanced-topics/data-storage.md"
                     },
                     {
+                        "text": "自定义加载 Wasm/Asm 文件与模块",
+                        "link": "advanced-topics/wasm-asm-load.md"
+                    },
+                    {
                         "text": "引擎定制工作流程",
                         "link": "advanced-topics/engine-customization.md"
                     },
@@ -2271,6 +2302,10 @@
                     {
                         "text": "动态合图",
                         "link": "advanced-topics/dynamic-atlas.md"
+                    },
+                    {
+                        "text": "压缩引擎内部属性",
+                        "link": "advanced-topics/mangle-properties.md"
                     },
                     {
                         "text": "热更新范例教程",

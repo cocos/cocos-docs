@@ -138,11 +138,11 @@ glTF 贴图缩小筛选器将按照下表中的映射关系转换为 Cocos Creat
 |   glTF 贴图缩小筛选器      | Cocos Creator 贴图缩小筛选器 | Cocos Creator 贴图 Mip Map 筛选器 |
 |:------------------------ | :--------------------------- | :-------------------------------- |
 | `NEAREST`                | `TextureBase.Filter.NEAREST` | `TextureBase.Filter.NONE`         |
-| `LINEAR_MIPMAP_LINEAR`   | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.NONE`         |
-| `LINEAR_MIPMAP_NEAREST`  | `TextureBase.Filter.NEAREST` | `TextureBase.Filter.NEAREST`      |
-| `LINEAR`                 | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.NEAREST`      |
+| `LINEAR_MIPMAP_LINEAR`   | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.LINEAR`       |
+| `LINEAR_MIPMAP_NEAREST`  | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.NEAREST`      |
+| `LINEAR`                 | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.NONE`         |
 | `NEAREST_MIPMAP_LINEAR`  | `TextureBase.Filter.NEAREST` | `TextureBase.Filter.LINEAR`       |
-| `NEAREST_MIPMAP_NEAREST` | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.LINEAR`       |
+| `NEAREST_MIPMAP_NEAREST` | `TextureBase.Filter.NEAREST` | `TextureBase.Filter.NEAREST`      |
 
 glTF 贴图环绕模式将按照下表中的映射关系转换为 Cocos Creator 贴图环绕模式：
 

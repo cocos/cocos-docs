@@ -25,6 +25,12 @@ After the creation is complete, the original __Node__ will automatically become 
 
 ![create-prefab](prefab/create-prefab.gif)
 
+## Prefab Preview
+
+In version 3.8.5, we have added preview support to the inspector panel of Prefab. After users select a certain prefab, they can view the rendering content of the Prefab in the panel, which can greatly improve the efficiency of resource inspection.
+
+![preview](prefab/prefab-preview.png)
+
 ## Using Prefabs
 
 Drag a __Prefab Asset__ from the __Assets__ panel to the __Hierarchy__ panel or __Scene__ panel to create a __Prefab Node__ in the __Scene__.

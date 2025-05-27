@@ -17,6 +17,8 @@ Cocos（雅基软件）多年来不断发展，已经发布了多个与 Cocos Cr
 
 ## 特别推荐
 
+- 从 v2.4.15 开始，Cocos Creator 支持发布到 [荣耀小游戏](publish/publish-honor-mini-game.md)。
+- 从 v2.4.14 开始，Cocos Creator 支持发布到 [咪咕小游戏](publish/publish-migu-mini-game.md)。
 - 从 v2.4.11 开始，Cocos Creator 支持发布到 [淘宝小程序创意互动](publish/publish-taobao-creative-app.md)。
 - 从 v2.4.2 开始，Cocos Creator 支持发布到 [字节跳动小游戏](publish/publish-bytedance.md)。
 - 从 v2.4.1 开始，Cocos Creator 支持发布到 [HUAWEI AppGallery Connect](publish/publish-huawei-agc.md)。

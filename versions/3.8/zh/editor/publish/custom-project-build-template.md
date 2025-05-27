@@ -58,6 +58,11 @@ project-folder
 | Web Mobile | web-mobile | `index.ejs` |
 | 原生平台 | native | 暂不支持 |
 
+| 平台 | 配置文件 | 配置说明 |
+| :--- | :--- | :--- |
+| 抖音 | game.json | https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/framework/mini-game-configuration |
+| 微信 | game.json | https://developers.weixin.qq.com/minigame/dev/reference/configuration/app.html|
+
 <!-- ## 定制 `application.js`
 
 所有平台在构建后都会生成一个启动脚本 `application.js`，若要定制启动脚本，有以下两种方式：

@@ -50,7 +50,7 @@ let collider = this.node.addComponent(BoxCollider)!;
 let rigidbody = collider.attachedRigidBody;
 ```
 
-To editing Colliders, please refer to: [Collider Gizmo](../editor/scene/collider-gizmo.md).
+To edit Colliders, please refer to: [Collider Gizmo](../editor/scene/collider-gizmo.md).
 
 > **Note**: Please check [Different physical back-end collision shape support](physics-engine.md#Different%20physical%20back-end%20collision%20shape%20support) before using colliders to make sure the physics engine you are currently using supports it.
 
@@ -62,7 +62,7 @@ To editing Colliders, please refer to: [Collider Gizmo](../editor/scene/collider
 
 ![BoxCollider](img/collider-box.jpg)
 
-The BoxCollider is a rectangular shape based collider that can be used to achieve collision of wooden boxes, walls, and other objects. It can be used to combine into composite shapes.
+The BoxCollider is a rectangular shaped collider that can be used to achieve collision of wooden boxes, walls, and other objects. It can be combined into composite shapes.
 
 | Properties | Description |
 | :---|:--- |
@@ -208,7 +208,7 @@ Each component is bound to a node, and some components will dynamically update d
 
 The model component will automatically update the model's world matrix based on the bound nodes, thus enabling changes to the node's position, scaling, rotation, and other information, which can make the rendered model have the corresponding affine transformation.
 
-However, there are some properties of colliders that cause scaling to be handled less differently.
+However, there are some properties of colliders that cause scaling to be differ from the bound node.
 
 - Colliders are generally described in terms of geometric structures
 - Colliders are mostly of convex packet type
@@ -223,7 +223,7 @@ Assuming that the scaling information of the bound node is **(1,2,1)** (non-unif
 
 For non-standard shapes like pebbles, you can use [MeshCollider](#meshcollider) to replace the base colliders.
 
-> **Note**: If you need to support kinmetaic rigid bodies, you must enable the **convex** function.
+> **Note**: If you need to support kinematic rigid bodies, you must enable the **convex** function.
 
 ![cobblestone](img/collider-cobblestone.jpg)
 
@@ -249,4 +249,4 @@ For the case of node chains, there are currently two usage options.
     - Increases node coupling, and when nodes are updated, the corresponding dependent nodes need to be updated.
     - More content needs to be maintained when the node chain is broken, and the node chain needs to handle complex logic when it is repeatedly broken.
 
-> **Note**: Currently Cocos Creator is using scheme **1**, subsequent versions may also be adjusted, please pay attention to the version update announcement.
+> **Note**: Currently Cocos Creator is using scheme **1**. This may change in subsequent versions, so please pay attention to version update announcements.

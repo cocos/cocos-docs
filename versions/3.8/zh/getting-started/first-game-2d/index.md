@@ -689,7 +689,16 @@ export class GameManager extends Component {
 - 由于我们的角色可以选择跳 1 个方块或者 2 个方块，和某个戴红帽子穿背带裤家伙比起来太弱鸡了，因此坑最多不应该连续超过 2 个，也就意味着如果前面 1 个地块是坑，那么接下来的地块必须是方块
 
 接下来为 `GameManager` 添加几个方法：
+- 引用
+    ```ts
+    import { _decorator, Component, Prefab, CCInteger, instantiate, Node } from 'cc';
+    import { BLOCK_SIZE, PlayerController } from './PlayerController';
 
+    const { ccclass, property } = _decorator;
+    
+    ...
+    ...
+    ```
 - 生成地图的方法：
 
     ```ts
@@ -1001,7 +1010,7 @@ export class GameManager extends Component {
     }
     ```
 
-    init 时我们先显示 StartMenu、创建地图以及重设角色的为和状态并禁用角色输入。
+    init 时我们先显示 StartMenu、创建地图以及重设角色的位置和状态并禁用角色输入。
 
 - GS_PLAYING：在状态下隐藏 StartMenu、重设计步器的数值以及启用用户输入：
 
@@ -1042,6 +1051,7 @@ onStartButtonClicked() {
 ![click-event.gif](images/click-event.gif)
 
 此时已可以正常的开始玩游戏：
+> #### 注意：如果你运行游戏后发现 UI 出现重影，请查阅本文的 `层级` 章节解决问题。
 
 ![start-game-without-result.gif](./images/start-game-without-result.gif)
 

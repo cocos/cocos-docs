@@ -2,9 +2,11 @@
 
 - [Submit Code to Cocos Engine Repository](../submit-pr/submit-pr.md)
 - [User Data Storage](data-storage.md)
+- [Custom loading Wasm/Asm files and modules](wasm-asm-load.md)
 - [Engine Customization Workflow](engine-customization.md)
 - [Web Preview Customization Workflow](../editor/preview/browser.md)
 - [Dynamic Atlas](dynamic-atlas.md)
+- [Mangle Engine Internal Properties](mangle-properties.md)
 - [Hot Update Tutorial](hot-update.md)
 - [AssetManager for Hot Update](hot-update-manager.md)
 - [HTTP Request](http.md)

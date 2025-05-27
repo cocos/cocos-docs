@@ -317,8 +317,9 @@ ALPHA_TEST_CHANNEL 也是如此，默认使用 `a` 通道，但也可以选择 r
 ```
 
 Surface Shader 使用一张图作为 PBR 贴图，根据定义就可以知道，PBR 贴图各通道的含义：
+
 - r通道：环境遮蔽
-- r通道：粗糙度
+- g通道：粗糙度
 - b通道：金属度
 - a通道：高光强度
 
@@ -334,6 +335,7 @@ Surface Shader 使用一张图作为 PBR 贴图，根据定义就可以知道，
 ## Shader 组装
 
 上面提到的几个 CCProgram：
+
 - shared-ubos
 - macro-remapping
 - surface-vertex
@@ -344,6 +346,7 @@ Surface Shader 使用一张图作为 PBR 贴图，根据定义就可以知道，
 具体的组装机制请查看：[Surface Shader 组装](./shader-assembly.md)。
 
 最后组装出来的 CCProgram，才是 CCEffect 部分引用的内容。
+
 - CCProgram standard-vs
 
 - CCProgram shadow-caster-vs

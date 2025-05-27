@@ -474,6 +474,33 @@
                 "link": "editor/publish/index.md",
                 "items": [
                     {
+                        "text": "General Build Options",
+                        "link": "editor/publish/build-options.md"
+                    },
+                    {
+                        "text": "Fundamentals for Publishing to Native Platforms",
+                        "link": "editor/publish/publish-native-index.md",
+                        "items": [
+                            {
+                                "text": "General Native Build Options",
+                                "link": "editor/publish/native-options.md"
+                            },
+                            {
+                                "text": "Setting up Native Development Environment",
+                                "link": "editor/publish/setup-native-development.md"
+                            },
+                            {
+                                "text": "Debugging JavaScript on Native Platforms",
+                                "link": "editor/publish/debug-jsb.md"
+                            },
+                            {
+                                "text": "Integrating Input SDK",
+                                "link": "editor/publish/gpg-input-sdk.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
                         "text": "Publishing Android Apps",
                         "link": "editor/publish/android/index.md",
                         "items": [
@@ -484,10 +511,6 @@
                             {
                                 "text": "Build Options - Android",
                                 "link": "editor/publish/android/build-options-android.md"
-                            },
-                            {
-                                "text": "Android Development Environment Setup",
-                                "link": "editor/publish/android/build-setup-evn-android.md"
                             },
                             {
                                 "text": "Upgrading Android Project to v3.8",
@@ -527,6 +550,10 @@
                         "collapsed": true
                     },
                     {
+                        "text": "Publish to HuaWei AppGallery Connect",
+                        "link": "editor/publish/publish-huawei-agc.md"
+                    },
+                    {
                         "text": "Publishing Huawei HarmonyOS Apps",
                         "link": "editor/publish/publish-huawei-ohos.md"
                     },
@@ -556,29 +583,6 @@
                             {
                                 "text": "Build Options - Windows",
                                 "link": "editor/publish/windows/build-options-windows.md"
-                            }
-                        ],
-                        "collapsed": true
-                    },
-                    {
-                        "text": "Fundamentals for Publishing to Native Platforms",
-                        "link": "editor/publish/publish-native-index.md",
-                        "items": [
-                            {
-                                "text": "General Native Build Options",
-                                "link": "editor/publish/native-options.md"
-                            },
-                            {
-                                "text": "Setting up Native Development Environment",
-                                "link": "editor/publish/setup-native-development.md"
-                            },
-                            {
-                                "text": "Debugging JavaScript on Native Platforms",
-                                "link": "editor/publish/debug-jsb.md"
-                            },
-                            {
-                                "text": "Integrating Input SDK",
-                                "link": "editor/publish/gpg-input-sdk.md"
                             }
                         ],
                         "collapsed": true
@@ -616,7 +620,14 @@
                             },
                             {
                                 "text": "Publish to Douyin Mini Games",
-                                "link": "editor/publish/publish-bytedance-mini-game.md"
+                                "link": "editor/publish/publish-bytedance-mini-game.md",
+                                "items": [
+                                    {
+                                        "text": "Access to Douyin PC Mini Games",
+                                        "link": "editor/publish/publish-pc-bytedance.md"
+                                    }
+                                ],
+                                "collapsed": true
                             },
                             {
                                 "text": "Publish to Huawei Quick Games",
@@ -633,6 +644,10 @@
                             {
                                 "text": "Publish to Migu Mini Games",
                                 "link": "editor/publish/publish-migu-mini-game.md"
+                            },
+                            {
+                                "text": "Publish to Honor Mini Games",
+                                "link": "editor/publish/publish-honor-mini-game.md"
                             },
                             {
                                 "text": "Publish to Xiaomi Quick Games",
@@ -664,10 +679,6 @@
                     {
                         "text": "Publish to Web Platforms",
                         "link": "editor/publish/publish-web.md"
-                    },
-                    {
-                        "text": "General Build Options",
-                        "link": "editor/publish/build-options.md"
                     },
                     {
                         "text": "Publish from the Command Line",
@@ -703,27 +714,16 @@
                                 "link": "render-pipeline/builtin-pipeline.md"
                             },
                             {
-                                "text": "Custom rendering of pipelines (experimental)",
-                                "link": "experimental"
+                                "text": "Custom rendering of pipelines",
+                                "link": "render-pipeline/custom-pipeline.md"
                             },
                             {
-                                "text": "Full Screen Post Process",
-                                "link": "render-pipeline/post-process/index.md",
-                                "items": [
-                                    {
-                                        "text": "PostProcess Component",
-                                        "link": "render-pipeline/post-process/post-process.md"
-                                    },
-                                    {
-                                        "text": "BlitScreen Component",
-                                        "link": "render-pipeline/post-process/blit-screen.md"
-                                    },
-                                    {
-                                        "text": "Customize a Post Process",
-                                        "link": "render-pipeline/post-process/custom.md"
-                                    }
-                                ],
-                                "collapsed": true
+                                "text": "Use Post Process",
+                                "link": "render-pipeline/use-post-process.md"
+                            },
+                            {
+                                "text": "Custom Post Process",
+                                "link": "render-pipeline/post-process/custom.md"
                             }
                         ],
                         "collapsed": true
@@ -1095,7 +1095,7 @@
                         "collapsed": true
                     },
                     {
-                        "text": "Sorting",
+                        "text": "3D Sorting",
                         "link": "engine/rendering/sorting.md"
                     },
                     {
@@ -1285,6 +1285,10 @@
                                     {
                                         "text": "UIOpacity Component Reference",
                                         "link": "ui-system/components/editor/ui-opacity.md"
+                                    },
+                                    {
+                                        "text": "UISkew Component Reference",
+                                        "link": "ui-system/components/editor/ui-skew.md"
                                     },
                                     {
                                         "text": "BlockInputEvents Component Reference",
@@ -2143,6 +2147,10 @@
                         "link": "advanced-topics/data-storage.md"
                     },
                     {
+                        "text": "Custom loading Wasm/Asm files and modules",
+                        "link": "advanced-topics/wasm-asm-load.md"
+                    },
+                    {
                         "text": "Engine Customization Workflow",
                         "link": "advanced-topics/engine-customization.md"
                     },
@@ -2153,6 +2161,10 @@
                     {
                         "text": "Dynamic Atlas",
                         "link": "advanced-topics/dynamic-atlas.md"
+                    },
+                    {
+                        "text": "Mangle Engine Internal Properties",
+                        "link": "advanced-topics/mangle-properties.md"
                     },
                     {
                         "text": "Hot Update Tutorial",

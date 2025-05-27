@@ -8,6 +8,8 @@ The Extension Manager panel is as follows.
 
 ![extension-manager](./image/extension-manager.png)
 
+## Functions
+
 Its relevant functions are described as follows.
 
 1. Extension type, divided into **Cocos Official** and **Builtin**, selected by drop-down menu. 
@@ -28,3 +30,8 @@ Its relevant functions are described as follows.
       - **Enable/Disable** the extension
     The built-in and official extensions cannot be deleted or disabled, some of the buttons need to be visible by moving the mouse over the entry.
 5. Details of extensions
+
+## Import Methods
+
+- **Import Extension Folder**: If you choose this import method, you need to copy the extension to the "extensions" directory of the project.
+- **Developer Import**: After choosing this import method, the extension will be referenced in the form of a soft link and doesn't need to be copied to the "extensions" directory, which facilitates developers in project management.

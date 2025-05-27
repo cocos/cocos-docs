@@ -10,6 +10,14 @@ The game submission, review and release process of a mini-game needs to comply w
 
 1. Download the [Douyin DevTools [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download) and install it..
 
+## Reference Links
+
+- [ByteDance Mini Game Integration Guide](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction/)
+- [ByteDance Mini Game Developer Documentation](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/guide/bytedance-mini-game)
+- [ByteDance Mini Game API Documentation](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/api/overview)
+- [ByteDance Developer Tools Download](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
+- [ByteDance Developer Tools Documentation](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/dev-tools/developer-instrument/development-assistance/mini-app-developer-instrument)
+
 2. Refer to the [Douyin Mini Game Access Guide [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction) to register, login and apply for mini games on the [Douyin Developer Platform [cn]](https://microapp.bytedance.com).
 
 3. After the application is approved, find the appid in **Development Management -> Development Settings** of the developer platform.
@@ -119,8 +127,8 @@ Specifically, developers need to do the following:
 
 > **Note**: some platforms only have Chinese documentation available when visiting the platforms website. It may be necessary to use Google Translate in-order to review the documentation.
 
-- [Douyin Mini Game Developer Document Guide [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction/)
-- [Douyin Developer Platform [cn]](https://microapp.bytedance.com/)
-- [Douyin Mini Game API Documentation [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game)
-- [Douyin DevTools Download [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
-- [Douyin DevTools Documentation [cn]](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/development-assistance/developer-instrument-introduction)
+- [ByteDance Mini Game Integration Guide](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction/)
+- [ByteDance Mini Game Developer Documentation](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/guide/bytedance-mini-game)
+- [ByteDance Mini Game API Documentation](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/api/overview)
+- [ByteDance Developer Tools Download](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
+- [ByteDance Developer Tools Documentation](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/dev-tools/developer-instrument/development-assistance/mini-app-developer-instrument)

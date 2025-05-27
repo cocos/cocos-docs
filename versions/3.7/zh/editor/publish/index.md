@@ -7,6 +7,7 @@
 目前 Cocos Creator 支持发布到以下平台：
 - [发布 iOS 应用](./ios/index.md)
 - [发布 Android 应用](./android/index.md)
+- [发布到 HUAWEI AppGallery Connect](./publish-huawei-agc.md)
 - [发布鸿蒙应用](./publish-huawei-ohos.md)
 - [发布 Windows 应用](./windows/index.md)
 - [发布 macOS 应用](./ios/index.md)

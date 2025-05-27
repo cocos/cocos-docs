@@ -95,14 +95,16 @@ Cocos Creator 3.8 中，将引擎相关的构建选项统一到了**引擎设置
 
 ## 小游戏环境的资源管理
 
-抖音小游戏与微信小游戏类似，都存在着主包包体限制，超过 4MB 的额外资源，必须通过网络请求下载。<br>当包体过大时，可在 **构建发布** 面板配置 **资源服务器地址** 选项，将资源上传到远程服务器，详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md)。
+抖音小游戏与微信小游戏类似，都存在着主包包体限制，超过 4MB 的额外资源，必须通过网络请求下载。
 
-我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。Cocos Creator 已经帮用户做好了远程资源的下载、缓存和版本管理，详情可参考 [缓存管理器](../../asset/cache-manager.md)。
+当包体过大时，可在 **构建发布** 面板配置 **资源服务器地址** 选项，将低加载优先级的资源上传到远程服务器，详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md)。
+
+游戏启动之后引擎会自动下载远程服务器地址中的资源，资源下载后引擎的缓存管理器会记录资源的保存路径，用于在缓存空间不足时自动删除部分缓存的游戏资源。请参考 [缓存管理器](../../asset/cache-manager.md)。
 
 ## 参考链接
 
-- [抖音小游戏开发接入指南](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction/)
-- [抖音开发者平台](https://microapp.bytedance.com/)
-- [抖音小游戏 API 文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/api/mini-game/bytedance-mini-game)
+- [抖音小游戏接入指南](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/introduction/)
+- [抖音小游戏开发者文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/guide/bytedance-mini-game)
+- [抖音小游戏 API 文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/api/overview)
 - [抖音开发者工具下载](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/developer-instrument-update-and-download)
-- [抖音开发者工具文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/developer-instrument/development-assistance/developer-instrument-introduction)
+- [抖音开发者工具文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/dev-tools/developer-instrument/development-assistance/mini-app-developer-instrument)

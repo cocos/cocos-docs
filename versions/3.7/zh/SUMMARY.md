@@ -126,6 +126,7 @@
     - [发布 iOS 应用](editor/publish/ios/index.md)
         - [iOS 发布示例](editor/publish/ios/build-example-ios.md)
         - [iOS 构建选项](editor/publish/ios/build-options-ios.md)
+    - [发布到 HUAWEI AppGallery Connect](editor/publish/publish-huawei-agc.md)
     - [发布 HUAWEI HarmonyOS 应用](editor/publish/publish-huawei-ohos.md)
     - [发布 macOS 应用](editor/publish/mac/index.md)
         - [macOS 发布示例](editor/publish/mac/build-example-mac.md)
@@ -244,7 +245,7 @@
         - [WebGL 1.0 向下兼容支持](shader/webgl-100-fallback.md)
         - [VSCode 着色器插件](shader/vscode-plugin.md)
 
-    - [渲染排序](engine/rendering/sorting.md)
+    - [3D 渲染排序](engine/rendering/sorting.md)
 
     - [特效组件](module-map/effects/index.md)
         - [广告牌](particle-system/billboard-component.md)

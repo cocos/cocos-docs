@@ -1,1 +1,0 @@
-__APIDOC__=https://docs.cocos.com/creator/api

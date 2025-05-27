@@ -107,6 +107,12 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 若勾选该项，则处于调试模式，同时也可以配合勾选 Source Maps 选项，对项目进行调试，更方便定位问题。
 
+### 压缩引擎内部属性
+此功能从 v3.8.6 开始支持。开启后会对引擎 TS 代码的内部属性进行压缩，能够有效减少代码体积。当项目构建后会在根目录生成 `engine-mangle-config.json` 配置文件，用户可以在其中自定义添加压缩属性。此功能暂不支持原生平台。若项目启用分离引擎插件功能，那么构建时将忽略此配置。详细使用方法请参考 [压缩引擎内部属性](../../advanced-topics/mangle-properties.md)
+
+### 内联枚举
+此功能从 v3.8.6 开始支持。开启后会把引擎 TS 代码中的枚举值替换为具体的数值，也会禁用枚举双端映射（ Reverse-Mapping ）功能，能够有效减少代码体积。如果你需要为某些枚举生成双端映射，那么可以用 'cc.Enum(your_enum)' 函数修饰对应的枚举动态地生成双端映射。若项目启用分离引擎插件功能，那么构建时将忽略此配置。
+
 ### Source Maps
 
 如果需要生成 sourcemap，请勾选该项。构建时便会默认压缩引擎文件和项目脚本。
@@ -177,8 +183,14 @@ url = assetManager.utils.getUrlWithUuid(uuid);
 
 各平台相关构建选项，详情请参考：
 
-- [发布到原生平台](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
+- [发布到 Web 平台](publish-web.md)
 - [发布到小游戏平台](publish-mini-game.md)
+- [发布到 Facebook Instant Games](publish-fb-instant-games.md)
+- [发布到原生平台](native-options.md#%E6%9E%84%E5%BB%BA%E9%80%89%E9%A1%B9)
+- [发布到 Google Play](google-play/build-example-google-play.md)
+- [发布到 Google Play On Games](google-play-games/index.md)
+- [发布到 HarmonyOS 平台](publish-huawei-ohos.md)
+- [发布到 HarmonyOS Next 平台](publish-openharmony.md)
 
 Cocos Creator 支持自定义构建扩展，处理方式与平台扩展一致，详情可参考 [自定义构建流程](custom-build-plugin.md)。
 

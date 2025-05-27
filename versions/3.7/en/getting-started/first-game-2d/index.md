@@ -1243,6 +1243,7 @@ Go back to Cocos Creator, and drag the corresponding node to each property for `
 ![bind-manager.png](images/bind-manager.png)
 
 Look! We can play it now.
+> #### Note: If you find that the UI appears duplicated after running the game, please refer to the `Layers & Visibility` section of this article to resolve the issue.
 
 ![start-game-without-result.gif](./images/start-game-without-result.gif)
 

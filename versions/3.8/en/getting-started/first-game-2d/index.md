@@ -615,7 +615,7 @@ Here we added a property named `BodyAnim` and added `@property` above it. This s
 To make sure there is a code line in your PlayerController file as below, or the code will fail to compile.
 
 ```ts
-`const { ccclass, property } = _decorator;`
+const { ccclass, property } = _decorator;
 ```
 
 Here `_decorator` is a class containing all of the decorators that can be used in Cocos Creator, it should be imported from namespace cc before using it.
@@ -694,7 +694,7 @@ this._jumpTime = state.duration;
 
 In game development, we can manually place nodes using Box.prefab to build the map, but the map will be fixed. To make the map change whenever the game starts and provide some surprises for the players, we can randomly build the map in code.
 
-Now, let's create a new TypeScript component called `GameManger`  in the Assets Manager window to archive this.
+Now, let's create a new TypeScript component called `GameManger`  in the Assets Manager window to achieve this.
 
 > **Note**：If you forget to rename the script or input the wrong name you don't want to use when creating a script component, The best way to fix it is to delete it and create a new one.
 > **Note**：If you modify the name of a script, the content in the script file will not change accordingly.
@@ -868,7 +868,7 @@ You can see the generated map when running the game.
 
 In a game that has a movable player, we often let the camera follow the player. As a result, you can see the screen scrolling when the player is moving.
 
-It's very simple to archive it in Cocos Creator. Just make the following changes.
+It's very simple to achieve it in Cocos Creator. Just make the following changes.
 
 1. Select the Canvas node, and uncheck the **Align Canvas With Screen** property of cc.Canvas component on the Inspector panel.
 
@@ -1242,6 +1242,7 @@ Go back to Cocos Creator, and drag the corresponding node to each property for `
 ![bind-manager.png](images/bind-manager.png)
 
 Look! We can play it now.
+> #### Note: If you find that the UI appears duplicated after running the game, please refer to the `Layers & Visibility` section of this article to resolve the issue.
 
 ![start-game-without-result.gif](./images/start-game-without-result.gif)
 

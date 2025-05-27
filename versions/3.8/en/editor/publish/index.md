@@ -6,19 +6,24 @@ Thanks to the Cocos Creator's dual-core engine architecture (the C++ core is for
 
 - [iOS](./ios/index.md)
 - [Android](./android/index.md)
+- [HuaWei AppGallery Connect](./publish-huawei-agc.md)
 - [Huawei HarmonyOS](./publish-huawei-ohos.md)
-- [Open HarmonyOS](./publish-openharmony.md)
+- [Google Play](google-play/build-example-google-play.md)
+- [Google Play On Games](google-play-games/index.md)
+- [macOS](./ios/index.md)
+- [Windows](./windows/index.md)
 - [Web Mobile - H5](./publish-web.md)
+- [Web Web Desktop](publish-web.md)
+- [Facebook Instant Games](./publish-fb-instant-games.md)
 - [WeChat Mini Games](./publish-wechatgame.md)
 - [Douyin Mini Games](./publish-bytedance-mini-game.md)
 - [Facebook Instant Games](./publish-fb-instant-games.md)
 - [OPPO Mini Games](./publish-oppo-mini-game.md)
 - [Huawei Quick Games](./publish-huawei-quick-game.md)
 - [vivo Mini Games](./publish-vivo-mini-game.md)
+- [migu Mini Games](./publish-migu-mini-game.md)
+- [Honor Mini Games](./publish-honor-mini-game.md)
 - [Xiaomi Quick Games](./publish-xiaomi-quick-game.md)
-- [Web Web Desktop](publish-web.md)
-- [Windows](./windows/index.md)
-- [macOS](./ios/index.md)
 
 ## Preparation
 

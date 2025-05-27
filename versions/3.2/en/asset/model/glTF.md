@@ -138,13 +138,13 @@ The glTF texture magnification filter will be converted to the Cocos Creator tex
 The glTF Texture Minification Filter will be converted to Cocos Creator Texture Minification Filter and Cocos Creator Texture Mip Map Filter according to the texture relationships in the following table:
 
 | glTF Texture Minification Filter | Cocos Creator Texture Minification Filter | Cocos Creator Mip Map Filter |
-|:------------------------ | :--------------------------- | :-------------------------------- |
-| `NEAREST`                | `TextureBase.Filter.NEAREST` | `TextureBase.Filter.NONE`         |
-| `LINEAR_MIPMAP_LINEAR`   | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.NONE`         |
-| `LINEAR_MIPMAP_NEAREST`  | `TextureBase.Filter.NEAREST` | `TextureBase.Filter.NEAREST`      |
-| `LINEAR`                 | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.NEAREST`      |
-| `NEAREST_MIPMAP_LINEAR`  | `TextureBase.Filter.NEAREST` | `TextureBase.Filter.LINEAR`       |
-| `NEAREST_MIPMAP_NEAREST` | `TextureBase.Filter.LINEAR`  | `TextureBase.Filter.LINEAR`       |
+|:------------------------ | :---------------------------- | :----------------------------- |
+| `NEAREST`                | `TextureBase.Filter.NEAREST`  | `TextureBase.Filter.NONE`      |
+| `LINEAR_MIPMAP_LINEAR`   | `TextureBase.Filter.LINEAR`   | `TextureBase.Filter.LINEAR`    |
+| `LINEAR_MIPMAP_NEAREST`  | `TextureBase.Filter.LINEAR`   | `TextureBase.Filter.NEAREST`   |
+| `LINEAR`                 | `TextureBase.Filter.LINEAR`   | `TextureBase.Filter.NONE`      |
+| `NEAREST_MIPMAP_LINEAR`  | `TextureBase.Filter.NEAREST`  | `TextureBase.Filter.LINEAR`    |
+| `NEAREST_MIPMAP_NEAREST` | `TextureBase.Filter.NEAREST`  | `TextureBase.Filter.NEAREST`   |
 
 glTF Texture Wrap mode will be converted to Cocos Creator Texture Wrap mode according to the texture in the following table:
 

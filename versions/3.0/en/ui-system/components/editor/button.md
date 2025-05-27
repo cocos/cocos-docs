@@ -114,7 +114,7 @@ There are two ways to add a callback through the script.
     const { ccclass, property } = _decorator;
 
     @ccclass("example")
-    export class example ex tends Component {
+    export class example extends Component {
         @property(Button)
         button: Button | null = null;
         onLoad () {

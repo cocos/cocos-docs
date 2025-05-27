@@ -36,7 +36,7 @@ When using these interfaces, please note the following:
 
 - Since this feature is still in the experimental stage, it only supports the transmission of `string` data. If you need to transmit objects with multiple parameters, consider converting them to `Json` format for transmission and parse them before using.
 - `onNative` Only one function is recorded at a time for `onNative`, and setting the property again will override the previously set `onNative` method.
-- The `sendToScript` method is a one-way communication and does not have return value. It does not inform JavaScript of the success or failure of the operation. Developers need to handle the operation status themselves.
+- The `sendToNative` method is a one-way communication and does not have return value. It does not inform JavaScript of the success or failure of the operation. Developers need to handle the operation status themselves.
 
 ### Java API
 

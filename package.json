@@ -5,17 +5,16 @@
   "type": "module",
   "scripts": {
     "docs:dev": "cross-env __APIDOC__=https://docs.cocos.com/creator/3.8/api vitepress dev versions/3.8 --port=5001 --host",
-    "docs:build:test": "cross-env __APIDOC__=https://docs.cocos.com/creator/3.8/api vitepress build versions/3.8",
-    "docs:build:pro": "cross-env __APIDOC__=https://docs.cocos.com/creator/3.8/api vitepress build versions/3.8",
+    "docs:build": "cross-env __APIDOC__=https://docs.cocos.com/creator/3.8/api vitepress build versions/3.8",
     "docs:preview": "vitepress preview versions/3.8"
   },
   "keywords": [],
   "author": "cocos",
   "license": "ISC",
   "devDependencies": {
-    "@dotenvx/dotenvx": "^0.44.1",
     "@types/node": "^20.12.12",
     "cross-env": "^7.0.3",
-    "vitepress": "^1.2.2"
+    "vitepress": "^1.2.2",
+    "vitepress-plugin-llms": "^1.1.3"
   }
 }

@@ -2,7 +2,7 @@
 
 ## 环境配置
 
-- 下载 [华为快应用加载器](https://developer.huawei.com/consumer/cn/doc/development/quickApp-Guides/quickapp-installtool#h1-1575365259108)，并安装到华为手机上（建议 Android Phone 6.0 或以上版本）
+- 下载 [华为快应用加载器](https://developer.huawei.com/consumer/cn/doc/Tools-Library/quickapp-ide-download-0000001101172926#section9347192715112)，并安装到华为手机上（建议 Android Phone 6.0 或以上版本）
 
 - PC 端全局安装 [nodejs-8.1.4](https://nodejs.org/zh-cn/download/) 或以上版本
 
@@ -80,10 +80,12 @@
 
 ## 华为快游戏环境的资源管理
 
-华为快游戏与微信小游戏类似，都存在着包体限制, 华为快游戏允许上传的代码包总大小为 **10MB**，超过的部分必须通过网络请求下载。<br>当包体过大时，可在 **构建发布** 面板配置 **资源服务器地址** 选项，将资源上传到远程服务器，详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md)。
+华为快游戏与微信小游戏类似，都存在着包体限制, 华为快游戏允许上传的代码包总大小为 **10MB**，超过的部分必须通过网络请求下载。
 
-我们建议用户只保存脚本文件在小游戏包内，其他资源都从远程服务器下载。Cocos Creator 已经帮用户做好了远程资源的下载、缓存和版本管理，详情请参考 [缓存管理器](../../asset/cache-manager.md)。
+当包体过大时，可在 **构建发布** 面板配置 **资源服务器地址** 选项，将低加载优先级的资源上传到远程服务器，详情请参考 [上传资源到远程服务器](../../asset/cache-manager.md)。
+
+游戏启动之后引擎会自动下载远程服务器地址中的资源，资源下载后引擎的缓存管理器会记录资源的保存路径，用于在缓存空间不足时自动删除部分缓存的游戏资源。请参考 [缓存管理器](../../asset/cache-manager.md)。
 
 ## 相关参考链接
 
-[华为快游戏开发文档](https://developer.huawei.com/consumer/cn/doc/development/quickApp-Guides/quickgame-develop-runtime-game)
+[华为快游戏开发文档](https://developer.huawei.com/consumer/cn/doc/quickApp-Guides/quickgame-dev-runtimegame-guide-0000001159778255)

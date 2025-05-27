@@ -37,7 +37,7 @@ Use **Alipay Mini Program Studio** to open the `alipay-mini-game` folder generat
 
 Alipay Mini Game are similar to WeChat Mini Game in that there is a package size limit, and additional resources over **4MB** must be downloaded via network requests. <br>When the package size is too large, configure the **Resource Server Address** option in the **Build** panel to upload the resources to a remote server, please refer to the [Upload Resources to Remote Server](../../asset/cache-manager.md) documentation.
 
-It is recommended to save only the script files in the game package, and download all other resources from the remote server. Cocos Creator has already done the download, cache and version management of remote resources for you, please refer to the [Cache Manager](../../asset/cache-manager.md) documentation.
+After the game starts, the engine will automatically download resources from the remote server address. Once the resources are downloaded, the engine's cache manager will record the save paths of these resources. This information is used to automatically delete some cached game resources when the cache space is insufficient. Please refer to [Cache Manager](../../asset/cache-manager.md) for more details.
 
 ## Restrictions for Alipay Mini Game
 

@@ -520,6 +520,10 @@
                         "collapsed": true
                     },
                     {
+                        "text": "发布到 HUAWEI AppGallery Connect",
+                        "link": "editor/publish/publish-huawei-agc.md"
+                    },
+                    {
                         "text": "发布 HUAWEI HarmonyOS 应用",
                         "link": "editor/publish/publish-huawei-ohos.md"
                     },
@@ -1045,7 +1049,7 @@
                         "collapsed": true
                     },
                     {
-                        "text": "渲染排序",
+                        "text": "3D 渲染排序",
                         "link": "engine/rendering/sorting.md"
                     },
                     {

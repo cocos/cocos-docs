@@ -449,14 +449,11 @@
                 "items": [
                     {
                         "text": "发布到 Web 平台",
-                        "link": "publish/publish-web.md",
-                        "items": [
-                            {
-                                "text": "发布到 Facebook Instant Games",
-                                "link": "publish/publish-fb-instant-games.md"
-                            }
-                        ],
-                        "collapsed": true
+                        "link": "publish/publish-web.md"
+                    },
+                    {
+                        "text": "发布到 Facebook Instant Games",
+                        "link": "publish/publish-fb-instant-games.md"
                     },
                     {
                         "text": "安装配置原生开发环境",
@@ -482,7 +479,7 @@
                         "link": "publish/publish-huawei-agc.md"
                     },
                     {
-                        "text": "发布到 OpenHarmony 应用",
+                        "text": "发布到 HarmonyOS Next 应用",
                         "link": "./publish/publish-openharmony.md"
                     },
                     {
@@ -538,6 +535,10 @@
                     {
                         "text": "发布到咪咕小游戏",
                         "link": "publish/publish-migu-mini-game.md"
+                    },
+                    {
+                        "text": "发布到荣耀小游戏",
+                        "link": "publish/publish-honor-mini-game.md"
                     },
                     {
                         "text": "发布到小米快游戏",
@@ -1221,6 +1222,10 @@
                     {
                         "text": "Objective-C 原生反射机制",
                         "link": "advanced-topics/oc-reflection.md"
+                    },
+                    {
+                        "text": "ArkTs 原生反射机制",
+                        "link": "advanced-topics/arkts-reflection.md"
                     },
                     {
                         "text": "如何向 Cocos 提交代码",

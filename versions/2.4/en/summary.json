@@ -442,14 +442,11 @@
                 "items": [
                     {
                         "text": "Publish to Web",
-                        "link": "publish/publish-web.md",
-                        "items": [
-                            {
-                                "text": "Publish to Facebook Instant Games",
-                                "link": "publish/publish-fb-instant-games.md"
-                            }
-                        ],
-                        "collapsed": true
+                        "link": "publish/publish-web.md"
+                    },
+                    {
+                        "text": "Publish to Facebook Instant Games",
+                        "link": "publish/publish-fb-instant-games.md"
                     },
                     {
                         "text": "Setup Native Development",
@@ -509,6 +506,10 @@
                     {
                         "text": "Publish to Migu Mini Games",
                         "link": "publish/publish-migu-mini-game.md"
+                    },
+                    {
+                        "text": "Publish to Honor Mini Games",
+                        "link": "publish/publish-honor-mini-game.md"
                     },
                     {
                         "text": "Publish to Xiaomi Quick Games",
