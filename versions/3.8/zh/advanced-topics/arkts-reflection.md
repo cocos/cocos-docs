@@ -91,7 +91,7 @@ let param = {
     b:2
 }
 
-//调步调用
+//同步调用
 let o1 = native.reflection.callStaticMethod("entry/src/main/ets/Test","entry/test",JSON.stringify(param), true);
 console.log("result::", o1, typeof o1, JSON.parse(o1).a);
 
@@ -100,7 +100,7 @@ let o2 = native.reflection.callStaticMethod("entry/src/main/ets/Test","entry/syn
 console.log("result::", o2, typeof o2, JSON.parse(o2).a);
 ```
 
-> 注意：异步调用会产生等待，暂停游戏线程。 如果调用了需要较长时间才返回的异步调用，或者是永远不会有返回的异步调用，将导致游戏卡死。
+> 注意：异步调用会产生等待，暂停游戏线程。 如果调用了需要较长时间才返回的异步调用，或者是永远不会有返回的异步调用，将导致游戏卡死。 如果需要异步调用，请配合 cocos.evalString 实现 callback 机制。
 
 ### HAP 加载 HAR 模块名
 
