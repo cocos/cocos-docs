@@ -3,6 +3,7 @@
 - [如何向 Cocos 提交代码](../submit-pr/submit-pr.md)
 - [存储和读取用户数据](data-storage.md)
 - [自定义加载 Wasm/Asm 文件与模块](wasm-asm-load.md)
+- [使用 Emscripten 将原生代码转化为 Wasm/Asm 文件](wasm-asm-create.md)
 - [引擎定制工作流程](engine-customization.md)
 - [网页预览定制工作流程](../editor/preview/browser.md)
 - [i18n 游戏多语言支持](i18n.md)
