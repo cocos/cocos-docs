@@ -2,15 +2,18 @@
 
 自 Cocos Creator v3.8.5 起，支持发布到 HarmonyOS Next 平台。
 
+> 1. Cocos Creator 3.8.6 对 HarmonyOS Next 性能、功耗做了深度优化
+> 2. Cocos Creator 3.8.7 对原生通信做了调整，更易使用。适配了鼠标键盘，支持鸿蒙PC。
+
 ## 准备工作
 
-### 安装最新的Creator
+### 安装 Cocos Creator
 
 1. Cocos Creator 下载传送门（版本>=3.8.5）：[Cocos Creator](https://www.cocos.com/creator-download)
 
 ### 安装 DevEco Studio
 
-1. 下载最新的 IDE，下载对应平台的 IDE，点击右边的下载按钮，如下图：
+1. 进入 [DevEco Studio IDE](https://developer.huawei.com/consumer/cn/download/) 下载页面（需要登录华为开发者账号），选择对应平台的版本，点击右边的下载按钮，如下图：
 
     ![](./publish-openharmony/document_image_rId3.png)
 
@@ -38,77 +41,41 @@
 
     ![](./publish-openharmony/document_image_rId38.png)
 
-8. 启动 DevEco Studio，如下图:
 
-    ![](./publish-openharmony/document_image_rId39.png)
+### Creator 构建 HarmonyOS Next工程
 
-9. 首次会提示设置源，默认应该就可以，如下图:
-
-    ![](./publish-openharmony/document_image_rId40.png)
-
-10. 首次安装需要安装 Node.js，如果之前安装有 Node.js，选择本地的 Node.js 即可，但是有版本要求，Node.js 的版本必须大于 v14.19.1和小于 v15.0.0。npm 的版本要求大于 6.14.16 和小于 7.0.0。如下图：
-
-    ![](./publish-openharmony/document_image_rId41.png)
-
-11. 这里选择下载新的 Node.js 为例，如下图:
-
-    ![](./publish-openharmony/document_image_rId42.png)
-
-12. 等待下载完成，然后点击 Finish 按钮，如下图：
-
-    ![](./publish-openharmony/document_image_rId43.png)
-
-13. 确认版本信息，点击 Next，如下图：
-
-    ![](./publish-openharmony/document_image_rId45.png)
-
-14. 选择 Accept 之后，选择 Next，如下图：
-
-    ![](./publish-openharmony/document_image_rId46.png)
-
-15. 等待下载完成，之后点击 Finish 即可，如下图：
-
-    ![](./publish-openharmony/document_image_rId47.png)
-
-### Creator构建HarmonyOS Next工程
-
-1. 选择工程的目录，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.8) 为例，如下图：
+1. 使用 Cocos Creator 打开一个项目，以下以 [cocos-test-projects](https://github.com/cocos/cocos-test-projects/tree/v3.8) 为例，如下图：
 
     ![](./publish-openharmony/document_image_rId53.png)
 
-2. 登录开发者账号，如下图：
 
-    ![](./publish-openharmony/document_image_rId54.png)
-
-3. 创建游戏项目，增加游戏逻辑等
-
-4. 制作完成之后，选择构建，选择标题栏中的 Project-\>Build，也可以使用 Ctrl+Shift+B 的快捷键，如下图：
+2. 选择标题栏中的 Project-\>Build，也可以使用 Ctrl+Shift+B 的快捷键，如下图：
 
     ![](./publish-openharmony/document_image_rId55.png)
 
-5. 点击新建任务，如下图：
+3. 点击新建任务，如下图：
 
     ![](./publish-openharmony/document_image_rId56.png)
 
-6. 选择 HarmonyOS Next
+4. 选择 HarmonyOS Next
 
     ![](./publish-openharmony/document_image_rId57.png)
 
 
-7. 配置工程名称、配置开始场景与包含的其他场景，配置 Debug/Release，如下图：
+5. 配置工程名称、配置开始场景与包含的其他场景，配置 Debug/Release，如下图：
 
     ![](./publish-openharmony/document_image_rId58.png)
 
-8. 配置Javascript引擎，目前支持V8、Ark、JSVM，如下图：
+6. 配置 Javascript 引擎，目前支持V8、Ark、JSVM，如下图：
 
     ![](./publish-openharmony/document_image_rId77.png)
 
-    > **注意**：在当前平台使用 V8 作为 JavaScript 引擎暂时无法使用 JIT 优化，建议选择使用 JSVM 获得最优的游戏性能。
+    > **注意**：建议使用 JSVM 以获得最优的游戏性能。
 
-9. 目前Make与Run功能还未实现，请使用 DevEco 打开工程
+7. 目前 Make 与 Run 功能还未实现，请使用 DevEco Studio 打开工程
     ![](./publish-openharmony/document_image_rId59.png)
 
-### Deveco 编译运行
+### DevEco Studio 编译运行
 
 1. 使用[DevEcoStudio](https://developer.harmonyos.com/cn/develop/deveco-studio#download)，打开工程，如下图：
 
@@ -127,112 +94,64 @@
 
 执行成功之后，就能看到效果了。
 
+**注意：如果出现安装失败，可能是以下几种原因导致的。**
 
-## HarmonyOS Next 系统接口与 Cocos 交互
+> 1. 包名冲突，请卸载之前安装的包，或者修改自己的 App 包名。
+> 2. 签名失效，请进入 File -> Project Structure -> Signing Configs 配置签名
+> 3. 签名更新，由于配置的自动签名，有可能签名会变，请卸载之前安装的 App 再启动即可。
 
-[基于反射机制实现 JavaScript 与 HarmonyOS Next 系统原生通信](../../advanced-topics/arkts-reflection.md)
+## 原生工程目录
 
-目前 Cocos 与 Ark 是分两个线程的，一个是 UI 线程，跑的是 Ark 引擎，另一个是 worker 线程，可以跑 Ark/V8 引擎。
+发布成功后，项目目录内容如下：
 
-所以这里要分两种情况：
+- **AppScope/app.json5**：应用的全局配置信息。
+- **entry/src/main/**：应用的主模块，编译构建生成一个 HAP 包。
+  - **cpp/**：存放 so 包导出的接口描述文件和依赖配置文件，比如 libcocos.so。
+  - **ets/**：存放 ArkTS/TS 相关文件。
+    - **cocos/oh-adapter/sys-ability-polyfill.js**：一些系统接口的Ark调用方法。
+    - **cocos/WorkerManager.ets**：worker 管理类。
+    - **common/PortProxy.ts**：worker 代理类，用于主线程和 worker 线程通信。
+    - **components/**：Videoplayer、Webview、Editbox 的 ArkTS 实现。
+    - **entryability/EntryAbility.ts**：ability，程序入口，管理 ability 生命周期和窗口。
+    - **pages/index.ets**：page 页面用于渲染页面，初始化 worker，系统接口的调用通常在此调用。
+  - **workers/cocos_worker.ts**：worker 线程文件，通过 worker 接收主线程消息。
+  - **resources/**：resources 文件夹，存放 cocos 游戏 js 文件和资源。
+  - **module.json5**：应用配置文件，包括权限、旋转属性、启动设置等。
+- **entry/build-profile.json5**：应用级配置信息，包括签名、产品配置等。
+- **hvigorfile.ts**：应用级编译构建任务脚本。
+- **oh-package.json5**：工程级依赖配置文件，用于存放依赖库的信息。
 
-### Cocos 使用 Ark 引擎
+## JSVM、V8、ArkTS 的选择
 
-这样 globalThis 与 Cocos 的 globalThis 是一致的，也就是说给 globalThis 赋值，在 Cocos 上可以直接使用 globalThis 获取。
+> 推荐使用 JSVM!
 
-参考实现(构建 HarmonyOS Next 工程，使用 DevEco 打开工程，查看：entry/src/main/ets/cocos/oh-adapter/sys-ability-polyfill文件的实现)：
+由于历史原因，目前支持 JSVM、V8、ArkTS 三种脚本机制，区别如下：
+![](./publish-openharmony/document_image_rId78.png)
 
-```ts
-globalThis.getSystemLanguage = function () {
-  return i18n.getSystemLanguage();
-}
-```
+1. 不管如何选择， 项目中的 ArkTS 代码均在方舟引擎环境中执行。
+2. 选择 Ark 后，引擎中的 TS/JS 代码在方舟引擎环境中执行。
+3. 选择 V8 后，引擎中的 TS/JS 代码在 V8 虚拟机中执行。
+4. 选择 JSVM 后，引擎中的 TS/JS 代码在 JSVM 中执行。
 
-在 Cocos 上，可以直接使用:
+不同的选择，也影响 JIT和热更新功能
 
-```ts
-globalThis.getSystemLanguage();
-```
+| 引擎    |  JIT   |  热更新   |
+| --- | --- | --- |
+|  JSVM   |  支持   |   支持  |
+|  V8   |   不支持  |  支持   |
+|  Ark   |   暂不支持  |  暂不支持   |
 
-但是并不是所有的接口都可以这样封装，由于部分 HarmonyOS Next 的系统接口是只能在 UI 线程上使用的，例如 tts 与 asr 等接口；还有些 UI 操作相关的接口，例如 Editbox、Video 等。
+因此， JSVM 是综合来看的最佳选择。
 
-这样必须使用进程间的通信机制来完成
+## Cocos 与 HarmonyOS Next 原生通信
 
-Cocos 封装了一个类，名为 ProxyPort 类，这个是个公共类，同时可以在 ui 线程与 worker 线程上使用。可以通过使用 ProxyPort 接口互相发送消息。例如，在 ui 线程上（即 ets 布局文件与 ability 等文件）使用：
-
-```ts
-// entry/src/main/ets/pages/index.ets文件
-// 监听从worker上发送的消息，即cocos发送的消息；
-this.workPort.on('createWebview', (param: number)=> {
-    this.webViewArray.push(new WebViewInfo(0, 0, 0, 0, param));
-    this.webViewIndexMap.set(param, this.webViewArray.length - 1);
-});
-
-// entry/src/main/ets/components/CocosVideoPlayer.ets文件
-// 在UI线程上，把事件派发给worker线程（即cocos）。
-this.workPort?.postMessage("onVideoEvent", {
-    videoTag: this.videoInfo.viewTag as number,
-    videoEvent: EventType.PLAYING as EventType
-} as param);
-
-// entry/src/main/ets/workers/cocos_worker.ts 文件
-// 在worker线程（即cocos）上，接收来着ui线程发送的消息
-// 这里相当于中转，对游戏来说是只关心回调。
-uiPort.on("onVideoEvent", (param) => {
-  // @ts-ignore
-  if (globalThis.oh && typeof globalThis.oh.onVideoEvent === "function") {
-    // @ts-ignore 
-    // 回调至业务代码
-    globalThis.oh.onVideoEvent(msg.param.videoTag, msg.param.videoEvent, msg.param.args);
-  }
-});
-
-```
-
-### Cocos使用 V8 引擎
-
-使用 V8，则不能使用 globalThis 来进行互相调用，因为 globalThis 已经是两个不同的东西；
-因此需要交互的话，需要通过native进行绑定。
-
-绑定分为两个部分：
-
-- Ark 通过  napi 接口与 native 进行绑定；
-- V8 通过接口绑定到 native
-
-这样就可以在native里进行互相调用，例如：
-
-```ts
-// entry/src/main/ets/cocos/oh-adapter/sys-ability-polyfill文件的实现
-globalThis.getSystemLanguage = function () {
-  return i18n.getSystemLanguage();
-}
-
-```
-
-在 native 里：
-
-```c++
-// getCurrentLanguageCode是js上的jsb.__getCurrentLanguageCode的实现
-std::string System::getCurrentLanguageCode() const {
-    // 通过napi调用ark引擎上的getSystemLanguage接口
-    auto ret = NapiHelper::napiCallFunction("getSystemLanguage");
-    if (!ret.IsString()) {
-        return {};
-    }
-    auto str = ret.As<Napi::String>().Utf8Value();
-    std::string::size_type pos = str.find('-');
-    if(pos != std::string::npos) {
-        str = str.substr(0, pos);
-    }
-    return str;
-}
-```
+详细的通信机制，请参考 [基于反射机制实现 JavaScript 与 HarmonyOS Next 系统原生通信](../../advanced-topics/arkts-reflection.md)。
 
 ## 几个注意事项
 
 另外，因为 HarmonyOS Next 还在不断完善当中，因此有些已知问题。这些问题都会在后续的版本解决。
 
-- ARK不支持Restart，JSVM与V8是支持的。
+- Ark 不支持 Restart，JSVM 与 V8 是支持的。
 - 编译失败时，可能是内存不足导致，退出部分应用，重新 build 试试；
     >>
     >> ![](./publish-openharmony/document_image_rId72.png)
@@ -240,7 +159,7 @@ std::string System::getCurrentLanguageCode() const {
    >> ![](./publish-openharmony/document_image_rId75.png)
 - Mac 版 IDE 编译报错，报错信息为:
 
-    ```
+    ```txt
     npm ERR! Your cache folder contains root-owned files, due to a bug in
     npm ERR! previous versions of npm which has since been addressed.
     ```

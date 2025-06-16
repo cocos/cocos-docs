@@ -2151,6 +2151,10 @@
                         "link": "advanced-topics/wasm-asm-load.md"
                     },
                     {
+                        "text": "Converting Native Code to Wasm/Asm Files Using Emscripten",
+                        "link": "advanced-topics/wasm-asm-create.md"
+                    },
+                    {
                         "text": "Engine Customization Workflow",
                         "link": "advanced-topics/engine-customization.md"
                     },
