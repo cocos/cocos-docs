@@ -63,7 +63,7 @@
 
 参考 [自定义加载 Wasm/Asm 文件与模块](./wasm-asm-load.md) 中的内容加载 Wasm/Asm 文件。
 
-## 编译 Cocos 引擎的 Spine Wasm
+## 编译 Cocos 引擎的 Spine Wasm（适用于 3.8.0 ~ 3.8.4 版本引擎）
 
 1. **安装 CMake:** 前往 [CMake 官网](https://cmake.org/) 下载并安装
 
@@ -95,7 +95,10 @@
     >
     > * 若需编译 Debug 版，将 CMakeLists.txt 中的 CMAKE_BUILD_TYPE 设置为 Debug，取消 emcc 命令中的 -O3 优化选项，增加 -g 编译选项。
 
-10. **更新 Cocos 引擎自带的 Spine Wasm:** 将生成后的 Spine Wasm 拷贝到相对路径 `engine-native/external/emscripten/spine` 所在的文件夹下即可。
+10. **更新 Cocos 引擎自带的 Spine Wasm:** 将生成后的 Spine Wasm 拷贝到相对路径 `engine-native/external/emscripten/spine` 所在的文件夹下，将 Spine.js 文件改名为 Spine.wasm.js。
 
     > **注意：** 切换 debug 或 release 模式后需要重启编辑器。
 
+## 编译 Cocos 引擎的 Spine Wasm(适用于 3.8.5 及以上版本引擎)
+
+参考 [Spine WASM Compilation Guide](https://github.com/cocos/cocos-engine/blob/v3.8.7/native/cocos/editor-support/spine-wasm/README.md) 中的内容。

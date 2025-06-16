@@ -63,7 +63,7 @@
 
 Refer to [Custom Loading of Wasm/Asm Files and Modules](./wasm-asm-load.md) for instructions on loading Wasm/Asm files.
 
-## Compiling Cocos Engine's Spine Wasm
+## Compiling Cocos Engine's Spine Wasm (Available for 3.8.0 ~ 3.8.4 engine versions)
 
 1. **Install CMake:** Download and install from [CMake official website](https://cmake.org/)
 
@@ -95,6 +95,10 @@ Refer to [Custom Loading of Wasm/Asm Files and Modules](./wasm-asm-load.md) for 
     >
     > * To compile a Debug version, set CMAKE_BUILD_TYPE to Debug in CMakeLists.txt, remove the -O3 optimization option from emcc commands, and add the -g compilation option.
 
-10. **Update Cocos Engine's built-in Spine Wasm:** Copy the generated Spine Wasm files to the relative path `engine-native/external/emscripten/spine`.
+10. **Update Cocos Engine's built-in Spine Wasm:** Copy the generated Spine Wasm files to the relative path `engine-native/external/emscripten/spine`, and rename the Spine.js file to Spine.wasm.js.
 
     > **Note:** You need to restart the editor after switching between debug and release modes.
+
+## Compiling Cocos Engine's Spine Wasm (For engine versions 3.8.5 and above)
+
+Refer to the content in [Spine WASM Compilation Guide](https://github.com/cocos/cocos-engine/blob/v3.8.7/native/cocos/editor-support/spine-wasm/README.md).
