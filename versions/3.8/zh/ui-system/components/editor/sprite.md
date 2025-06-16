@@ -1,26 +1,36 @@
-# Sprite 组件参考
+# Sprite 组件使用范例
 
-Sprite（精灵）是 2D/3D 游戏最常见的显示图像的方式，在节点上添加 Sprite 组件，就可以在场景中显示项目资源中的图片。
+![sprite](sprite/sprite-component.png)
 
-![add sprite](sprite/sprite-component.png)
+Sprite 通常是一个 2D UI 组件，负责读取图片资源中的纹理颜色渲染为游戏背景或界面。通过以下步骤可以在场景中快速创建一个显示图像颜色的游戏背景：
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后选择 **2D/Sprite** 即可添加 Sprite 组件到节点上。
+1. 添加 Sprite: 在场景中已经添加 Canvas 组件的节点中添加一个子节点，并设置此子节点的 Layer 属性为 `Layers.Enum.UI_2D`，最后为这个子节点添加一个 Sprite 组件。
 
-图像的组件接口请参考 [Sprite API](%__APIDOC__%/zh/class/Sprite)。
+2. 添加 spriteFrame: 将资源管理器中的 SpriteFrame 类型资源设置为 Sprite 组件的 spriteFrame 属性，用于渲染游戏背景颜色。
 
-关于使用可以参考范例 **Sprite**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/01.sprite) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/ui/01.sprite)）。
+3. 添加纯色 spriteFrame: 如果想要创建纯色背景（例如蓝绿色背景），可以使用 internal 内置资源库中 default_ui 文件夹中的 default_sprite_splash.png 的 spriteFrame 资源作为 Sprite 组件的 spriteFrame。
+
+4. 修改 Sprite 节点大小: 当为 Sprite 组件 spriteFrame 属性添加 SpriteFrame 类型资源后，Sprite 组件会读取 spriteFrame 资源的宽高数值并设置到节点的 UITransform 组件的 contentSize 属性上。当 Sprite 组件的 Size Mode 为 Trimmed 或 Raw 时，此时使用 spriteFrame 资源的宽高作为节点的尺寸大小并覆盖节点原有尺寸大小。如果 Size Mode 属性为 Custom，则不会改变节点的尺寸大小。
+
+5. 修改 Sprite 颜色：如果 Sprite 的 spriteFrame 属性不为空，那么修改 Sprite 组件的 color 属性，可以改变 Sprite 组件的最终显示颜色。
+
+## 编辑器内手动添加 Sprite 组件
+
+点击节点 **属性检查器** 上的 **添加组件** 按钮，然后选择 **2D/Sprite** 即可添加 Sprite 组件到节点上。此时 Sprite 组件的 spriteFrame 属性为空，无法显示任何图像，需要开发者手动添加任意 SpriteFrame 类型的资源到 spriteFrame 属性上进行渲染。
+
+![editor add sprite](sprite/sprite_editor_add.png)
 
 ## Sprite 属性
 
 | 属性 |   功能说明
 | :-------------- | :----------- |
-| Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）和填充（Filled）四种模式，详情请参考下文 **渲染模式** 部分的内容
 | CustomMaterial | 自定义材质，使用方法参考 [自定义材质](../engine/ui-material.md)
-| Grayscale | 灰度模式，开启后 Sprite 会使用灰度模式渲染。
 | Color | 图片颜色
 | Sprite Atlas | Sprite 显示图片资源所属的图集（参考 [Atlas](../../../asset/atlas.md)）。
 | Sprite Frame | 渲染 Sprite 使用的 [SpriteFrame 图片资源](../../../asset/sprite-frame.md)。
+| Grayscale | 灰度模式，开启后 Sprite 会使用灰度模式渲染。
 | Size Mode | 指定 Sprite 的尺寸<br>**Trimmed** 表示会使用原始图片资源裁剪透明像素后的尺寸<br>**Raw** 表示会使用原始图片未经裁剪的尺寸<br> **Custom** 表示会使用自定义尺寸。当用户手动修改过 **Size** 属性后，**Size Mode** 会被自动设置为 **Custom**，除非再次指定为前两种尺寸。
+| Type | 渲染模式，包括普通（Simple）、九宫格（Sliced）、平铺（Tiled）和填充（Filled）四种模式，详情请参考下文 **渲染模式** 部分的内容
 | Trim | 是否渲染原始图像周围的透明像素区域，详情请参考 [图像资源的自动剪裁](../engine/trim.md)
 
 添加 Sprite 组件之后，通过从 **资源管理器** 中拖拽 SpriteFrame 类型的资源到 **SpriteFrame** 属性引用中，就可以通过 Sprite 组件显示资源图像。
@@ -64,3 +74,11 @@ Sprite 组件支持以下几种渲染模式：
 在 **HORIZONTAL** 和 **VERTICAL** 这两种填充类型下，**Fill Start** 设置的数值将影响填充总量，如果 **Fill Start** 设为 0.5，那么即使 **Fill Range** 设为 1.0，实际填充的范围也仍然只有 Sprite 总大小的一半。
 
 而 **RADIAL** 类型中 **Fill Start** 只决定开始填充的方向，**Fill Start** 为 0 时，从 x 轴正方向开始填充。**Fill Range** 决定填充总量，值为 1 时将填充整个圆形。**Fill Range** 为正值时逆时针填充，为负值时顺时针填充。
+
+#### API 文档
+
+图像的组件接口请参考 [Sprite API](%__APIDOC__%/zh/class/Sprite)。
+
+### 范例 Demo
+
+关于使用可以参考范例 **Sprite**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/01.sprite) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/ui/01.sprite)）。
