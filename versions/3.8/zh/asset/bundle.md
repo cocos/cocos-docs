@@ -61,7 +61,7 @@ function loadBundle (name) {
 | Bundle 优先级 | Creator 开放了 20 个可供配置的优先级，构建时将会按照优先级 **从大到小** 的顺序对 Asset Bundle 依次进行构建。具体内容请参考 [Asset Bundle - 优先级](bundle.md#%E4%BC%98%E5%85%88%E7%BA%A7)。 |
 | 目标平台      | 不同平台可使用不同的配置，构建时将根据对应平台的设置来构建 Asset Bundle。支持通过下拉框选择不同的平台配置，目前为默认配置。开发者可以通过 **项目设置** -> **Bundle 配置** 自定义自己的配置方案 |
 | 压缩类型      | 决定 Asset Bundle 最后的输出形式，包括 **合并依赖**、**无压缩**、**合并所有 JSON**、**小游戏分包**、**Zip** 5 种压缩类型。具体内容请参考 [Asset Bundle - 压缩类型](bundle.md#%E5%8E%8B%E7%BC%A9%E7%B1%BB%E5%9E%8B) |
-| 配置为远程包  | 是否将 Asset Bundle 配置为远程包，不支持 Web 平台。<br>若勾选了该项，则 Asset Bundle 在构建后会被放到 **remote** 文件夹，你需要将整个 **remote** 文件夹放到远程服务器上。<br>构建 OPPO、vivo、华为等小游戏平台时，若勾选了该项，则不会将 Asset Bundle 打包到 rpk 中。 |
+| 配置为远程包  | 是否将 Asset Bundle 配置为远程包。<br>若勾选了该项，则 Asset Bundle 在构建后会被放到 **remote** 文件夹，你需要将整个 **remote** 文件夹放到远程服务器上。<br>构建 OPPO、vivo、华为等小游戏平台时，若勾选了该项，则不会将 Asset Bundle 打包到 rpk 中。 |
 | **Bundle 资源过滤** | 资源过滤可以过滤掉 Bundle 内的某些资源，通过下方的 **预览** 按钮，可以查看 Bundle 最终会的资源列表，Bundle 过滤分为包含和排除两部分。详情请查看 [下文](./bundle.md#Bundle%20资源过滤)。|
 | **构建 Bundle** | 构建 Bundle 可以针对当前选中的 Bundle 进行构建，详情请查看 [下文](./bundle.md#构建%20Bundle) |
 
