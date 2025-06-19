@@ -1,63 +1,84 @@
-# Sprite Component Reference
+# Sprite Component Usage Example
 
-Using Sprite is the most common way to display images in 2D/3D games. By adding the Sprite component to a Node, you can display __SpriteFrame__ assets from project assets.
+![sprite](sprite/sprite-component.png)
 
-![add sprite](sprite/sprite-component.png)
+A Sprite is typically a 2D UI component responsible for rendering texture colors from image resources as game backgrounds or interfaces. Follow these steps to quickly create a game background displaying image colors in a scene:
 
-Add a **Sprite** component to the node by clicking the __Add Component__ button below the __Inspector__ panel and selecting __2D -> Sprite__.
+1. **Add a Sprite**: Add a child node to a node that already has a Canvas component in the scene. Set this child node's Layer property to `Layers.Enum.UI_2D`, then add a Sprite component to this child node.
 
-To use `Sprite`, please refer to the [Sprite API](%__APIDOC__%/en/class/Sprite) documentation and the [Sprite](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/01.sprite) scene of the test-cases-3d project.
+2. **Add spriteFrame**: Set a SpriteFrame type resource from the Asset Manager as the Sprite component's spriteFrame property to render the game background color.
+
+3. **Add Solid Color spriteFrame**: To create a solid color background (e.g., cyan background), use the default_sprite_splash.png SpriteFrame resource from the default_ui folder in the internal built-in resource library as the Sprite component's spriteFrame.
+
+4. **Modify Sprite Node Size**: After adding a SpriteFrame type resource to the Sprite component's spriteFrame property, the Sprite component will read the width and height values of the spriteFrame resource and set them to the node's UITransform component's contentSize property. When the Sprite component's Size Mode is Trimmed or Raw, it will use the spriteFrame resource's dimensions as the node's size, overriding the node's original size. If the Size Mode property is Custom, it will not change the node's dimensions.
+
+5. **Modify Sprite Color**: If the Sprite's spriteFrame property is not empty, modifying the Sprite component's color property will change the Sprite component's final display color.
+
+## Manually Adding Sprite Components in the Editor
+
+Click the **Add Component** button on the node's **Property Inspector**, then select **2D/Sprite** to add a Sprite component to the node. At this point, the Sprite component's spriteFrame property is empty and cannot display any image. Developers need to manually add any SpriteFrame type resource to the spriteFrame property for rendering.
+
+![editor add sprite](sprite/sprite_editor_add.png)
 
 ## Sprite Properties
 
-| Property | Function Explanation
+| Property | Description |
 | :-------------- | :----------- |
-| **Type** | Rendering mode, currently includes four rendering modes: `SIMPLE`, `SLICED`, `TILED` and `FILLED`. Please refer to the **Rendering mode** section below for details.
-| **CustomMaterial** | Custom Material, please refer to [UI Custom Material](../engine/ui-material.md)
-| **GrayScale** | If enabled, Sprite will be rendered in gray scale mode.
-| **Color** | Image color.
-| **Sprite Atlas** | The [Atlas](../../../asset/atlas.md) to which the Sprite's image asset belongs.
-| **Sprite Frame** | [Sprite Frame Assets](../../../asset/sprite-frame.md) which is used to render the Sprite.
-| **Size Mode** | Specify the size of the Sprite.<br>`TRIMMED` automatically fit to the size of the sprite cropped<br>`RAW` automatic fit for sprite original size.<br>`CUSTOM` use the node preset size. When the developer manually modifies `Size` properties, `Size Mode` will be automatically set to `Custom`.
-| **Trim** | Whether the transparent pixel area is included in the node bounding box. Please refer to the [Auto Trim for SpriteFrame](../engine/trim.md) documentation.
+| CustomMaterial | Custom material. For usage, refer to [Custom Materials](../engine/ui-material.md) |
+| Color | Image color |
+| Sprite Atlas | The atlas to which the Sprite's displayed image resource belongs (refer to [Atlas](../../../asset/atlas.md)). |
+| Sprite Frame | The [SpriteFrame image resource](../../../asset/sprite-frame.md) used to render the Sprite. |
+| Grayscale | Grayscale mode. When enabled, the Sprite will be rendered in grayscale. |
+| Size Mode | Specifies the Sprite's size:<br>**Trimmed**: Uses the original image resource's dimensions after trimming transparent pixels<br>**Raw**: Uses the original image's untrimmed dimensions<br>**Custom**: Uses custom dimensions. When the user manually modifies the **Size** property, **Size Mode** will automatically be set to **Custom** unless specified as one of the previous two modes. |
+| Type | Rendering mode, including Simple, Sliced, Tiled, and Filled. For details, refer to the **Rendering Modes** section below. |
+| Trim | Whether to render transparent pixel areas around the original image. For details, refer to [Automatic Cropping of Image Resources](../engine/trim.md) |
 
-After adding the Sprite component, drag the SpriteFrame type asset from the __Assets__ to the `Sprite Frame` property reference. Then, the asset image can be displayed through the Sprite component.
+After adding the Sprite component, drag a SpriteFrame type resource from the **Asset Manager** to the **SpriteFrame** property reference to display the resource image through the Sprite component.
 
-If this SpriteFrame asset is contained within an Atlas asset, then the `Atlas` property of the Sprite will be set up along with it.
+If the dragged SpriteFrame resource is part of an Atlas resource, the Sprite's **Atlas** property will also be set automatically.
 
-> **Note**: to dynamically replace SpriteFrame, you need to dynamically load the image asset before you replace it, please refer to the [Acquire and load asset: how to dynamically load](../../../asset/dynamic-load-resources.md) documentation.
+**To dynamically replace SpriteFrame, first dynamically load the image resource and then perform the replacement. For details, refer to [Acquiring and Loading Resources: Dynamic Loading](../../../asset/dynamic-load-resources.md#loading-spriteframe-or-texture2d).**
 
-## Rendering mode
+## Rendering Modes
 
-Currently, the Sprite component supports the following rendering modes:
+The Sprite component supports the following rendering modes:
 
-- `Simple mode`: rendering the Sprite according to the original image asset. It is normally used along with `Use Original Size` to guarantee the image shown in the scene is in full accordance with the image designed by the graphic designer.
+- `Simple Mode`: Renders the Sprite based on the original image resource. In this mode, we generally do not manually modify the node's dimensions to ensure the image displayed in the scene matches the proportions of the image produced by the artist.
 
-- `Sliced mode`: the image is cut up into a 9-slicing and according to certain rules is scaled to fit freely set dimensions (`size`). It is usually used in UI elements or to make images that can be enlarged infinitely without influencing the image quality. It will cut up the original image into a grid to save game asset space. Please read [Use a Sliced Sprite to make a UI image](../engine/sliced-sprite.md) for details.
+- `Sliced Mode`: The image is divided into a 9-slice grid and scaled according to specific rules to adapt to freely set dimensions (`size`). Typically used for UI elements or to save game resource space by creating 9-slice images that can be infinitely enlarged without affecting image quality. For details, read the [Creating 9-Slice Images with the Sprite Editor](../engine/sliced-sprite.md#-) section.
 
-- `Tiled mode`: The image will be repeated to fit the size of the Sprite. If the SpriteFrame is [9-sliced](../engine/sliced-sprite.md), the corners will also remain unscaled while the other areas will be repeated.
+- `Tiled Mode`: When the Sprite's size increases, the image is not stretched. Instead, it repeats according to the original image's size, tiling the entire Sprite like tiles.
 
   ![tiled](sprite/tiled.png)
 
-- `Filled mode`: draws a portion of the original image in a certain direction and scale, based on the origin and fill mode settings. Often used for dynamic display of progress bars.
+- `Filled Mode`: Draws part of the original image based on the origin and fill mode settings, following a certain direction and proportion. Often used for dynamic displays like progress bars.
 
-### Filled mode
+<!-- - `Mesh Mode`: Requires using **TexturePacker 4.x** or higher and setting the polygon algorithm to pack plist files to use this mode. -->
 
-When the `Type` property selects `FILLED`, a new set of properties appears to be configured. So let's explain their roles in turn.
+### Filled Mode
 
-| Property |   Function Explanation
+After selecting Filled mode for the **Type** property, a new set of properties becomes available for configuration:
+
+| Property | Description |
 | :-------------- | :----------- |
-| **Fill Type** | Fill type selection, including `HORIZONTAL`, `VERTICAL`, and `RADIAL`. |
-| **Fill Start** | Normalized values for filling starting position (from 0 ~ 1, denoting the percentage of total population), when you select a horizontal fill, the `Fill Start` is set to 0, and it is populated from the leftmost edge of the image. |
-| **Fill Range** | Normalized values for padding ranges (same from 0 ~ 1). When set to 1, it fills up the entire range of the original image. |
-| **Fill Center** | Fill center point, this property can only be modified if the `RADIAL` fill type is selected. Determines which point on the Sprite is used as pivot when the FillType is set to RADIAL. |
+| Fill Type | Fill type selection: **HORIZONTAL** (horizontal fill), **VERTICAL** (vertical fill), and **RADIAL** (radial fill). |
+| Fill Start | Normalized value for the fill start position (0 ~ 1, representing the percentage of total fill). When selecting horizontal fill, setting **Fill Start** to 0 starts filling from the leftmost part of the image. |
+| **Fill Range** | Normalized value for the fill range (also 0 ~ 1). Setting it to 1 fills up to the entire original image range. |
+| **Fill Center** | Fill center point. This property can only be modified when `RADIAL` fill type is selected. Determines which point on the Sprite the radial fill will revolve around. |
+<!-- The coordinate system used is the same as [Anchor Points](../content-workflow/transform.md#-anchor-). -->
 
 ![radial](sprite/radial.png)
 
-#### Fill Range Supplemental description
+#### Additional Notes on Fill Range
 
-Under both the `HORIZONTAL` and `VERTICAL` fill types, the values set by `Fill Start` affect the total number of fills, if `Fill Start` is set to 0.5, even if `Fill Range` is set to 1.0, the actual padding is still only half the total size of the Sprite.
+For **HORIZONTAL** and **VERTICAL** fill types, the value set by **Fill Start** affects the total fill amount. If **Fill Start** is set to 0.5, even with **Fill Range** at 1.0, the actual filled range will only be half the total size of the Sprite.
 
-The `Fill Start` in the `RADIAL` type only determines the orientation of the starting fill, when `Fill Start` is set to 0, start filling from the x axis positive direction.
+In **RADIAL** type, **Fill Start** only determines the starting direction of the fill. When **Fill Start** is 0, filling starts from the positive x-axis direction. **Fill Range** determines the total fill amount, with a value of 1 filling the entire circle. Positive **Fill Range** values fill counterclockwise, while negative values fill clockwise.
 
-`Fill Range` determines the total amount of padding, which fills the entire circle when `Fill Range` is set to 1. A counter anticlockwise fill when `Fill Range` is positive, and is filled clockwise when negative.
+#### API Documentation
+
+For the component interface of images, refer to [Sprite API](%__APIDOC__%/en/class/Sprite).
+
+### Example Demo
+
+For usage examples, see the **Sprite** sample ([GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/01.sprite) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/ui/01.sprite)).
