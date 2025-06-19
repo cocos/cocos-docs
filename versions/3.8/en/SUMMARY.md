@@ -504,6 +504,7 @@
     - [Submit Code to Cocos Engine Repository](submit-pr/submit-pr.md)
     - [User Data Storage](advanced-topics/data-storage.md)
     - [Custom loading Wasm/Asm files and modules](advanced-topics/wasm-asm-load.md)
+    - [Converting Native Code to Wasm/Asm Files Using Emscripten](advanced-topics/wasm-asm-create.md)
     - [Engine Customization Workflow](advanced-topics/engine-customization.md)
     - [Web Preview Customization Workflow](editor/preview/browser.md)
     - [Dynamic Atlas](advanced-topics/dynamic-atlas.md)

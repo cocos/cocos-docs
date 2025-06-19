@@ -8,7 +8,7 @@ CocosCreator 引擎对 Spine、Box2D 等模块提供了手动加载 Wasm/Asm 的
 
     ```js
     //判断当前平台是否支持加载 wasm 文件，Cocos 引擎目前暂不支持在 iOS 平台加载 wasm 文件。
-    if (sys.hasFeature(sys.Feature.WASM) || sys.os !== sys.OS.IOS) {
+    if (sys.hasFeature(sys.Feature.WASM) || (sys.isNative && sys.os !== sys.OS.IOS)) {
         if (sys.isNative) {
             //@ts-ignore
             assetManager.downloader.register('.wasm', assetManager.downloader._downloaders[".bin"]);
@@ -60,7 +60,7 @@ CocosCreator 引擎对 Spine、Box2D 等模块提供了手动加载 Wasm/Asm 的
 
     ```js
     wasmOrAsmLoadTest () {
-        if (sys.hasFeature(sys.Feature.WASM) || sys.os !== sys.OS.IOS) {
+        if (sys.hasFeature(sys.Feature.WASM) || (sys.isNative && sys.os !== sys.OS.IOS)) {
             import('./effekseer.js').then(({ default: wasmFactory })=> {
                 this.loadWasmOrAsm("wasmFiles", "effekseer", "44cacb3c-e901-455d-b3e1-1c38a69718e1").then((wasmFile)=>{
                     //TODO: 初始化 wasm 文件
@@ -154,7 +154,7 @@ CocosCreator 引擎对 Spine、Box2D 等模块提供了手动加载 Wasm/Asm 的
 
     ```js
     wasmOrAsmLoadTest () {
-        if (sys.hasFeature(sys.Feature.WASM) || sys.os !== sys.OS.IOS) {
+        if (sys.hasFeature(sys.Feature.WASM) || (sys.isNative && sys.os !== sys.OS.IOS)) {
             import('./effekseer.js').then(({ default: wasmFactory })=> {
                 this.loadWasmOrAsm("wasmFiles", "effekseer", "44cacb3c-e901-455d-b3e1-1c38a69718e1").then((wasmFile)=>{
                     this.initWasm(wasmFactory, wasmFile).then((instance: any)=> {
@@ -220,7 +220,7 @@ CocosCreator 引擎对 Spine、Box2D 等模块提供了手动加载 Wasm/Asm 的
 
     ```js
     wasmOrAsmLoadTest () {
-        if (sys.hasFeature(sys.Feature.WASM) || sys.os !== sys.OS.IOS) {
+        if (sys.hasFeature(sys.Feature.WASM) || (sys.isNative && sys.os !== sys.OS.IOS)) {
             import('./effekseer.js').then(({ default: wasmFactory })=> {
                 this.loadWasmOrAsm("wasmFiles", "effekseer", "44cacb3c-e901-455d-b3e1-1c38a69718e1").then((wasmFile)=>{
                     this.initWasm(wasmFactory, wasmFile).then((instance: any)=> {
