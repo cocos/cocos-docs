@@ -95,10 +95,16 @@ Refer to [Custom Loading of Wasm/Asm Files and Modules](./wasm-asm-load.md) for 
     >
     > * To compile a Debug version, set CMAKE_BUILD_TYPE to Debug in CMakeLists.txt, remove the -O3 optimization option from emcc commands, and add the -g compilation option.
 
-10. **Update Cocos Engine's built-in Spine Wasm:** Copy the generated Spine Wasm files to the relative path `engine-native/external/emscripten/spine`, and rename the Spine.js file to Spine.wasm.js.
+10. **Update Cocos Engine's Built-in Spine Wasm:** Copy the generated spine Wasm and spine.js files to the folder at relative path `engine-native/external/emscripten/spine`, rename spine.js to spine.wasm.js, and replace the old file.
 
     > **Note:** You need to restart the editor after switching between debug and release modes.
+
+11. **Update Editor's Cached spine.wasm.js:** Delete spine.wasm.js in the editor's cache folder at relative path `resources\3d\engine\bin\.cache`, then restart the editor.
 
 ## Compiling Cocos Engine's Spine Wasm (For engine versions 3.8.5 and above)
 
 Refer to the content in [Spine WASM Compilation Guide](https://github.com/cocos/cocos-engine/blob/v3.8.7/native/cocos/editor-support/spine-wasm/README.md).
+
+## Debugging Debug Version of Spine Wasm
+
+Use Google Chrome and install the [C/C++ DevTools Support extension](https://chromewebstore.google.com/detail/cc++-devtools-support-dwa/pdcpmagijalfljmkmjngeonclgbbannb). After installation, you can open and debug Spine Wasm C++ related code files in the Chrome DevTools console.

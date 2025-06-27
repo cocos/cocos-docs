@@ -95,10 +95,16 @@
     >
     > * 若需编译 Debug 版，将 CMakeLists.txt 中的 CMAKE_BUILD_TYPE 设置为 Debug，取消 emcc 命令中的 -O3 优化选项，增加 -g 编译选项。
 
-10. **更新 Cocos 引擎自带的 Spine Wasm:** 将生成后的 Spine Wasm 拷贝到相对路径 `engine-native/external/emscripten/spine` 所在的文件夹下，将 Spine.js 文件改名为 Spine.wasm.js。
+10. **更新 Cocos 引擎自带的 Spine Wasm:** 将生成后的 spine Wasm 与 spine.js 拷贝到相对路径 `engine-native/external/emscripten/spine` 所在的文件夹下，将 spine.js 文件改名为 spine.wasm.js 并替换旧文件。
 
     > **注意：** 切换 debug 或 release 模式后需要重启编辑器。
+
+11. **更新编辑器缓存的 spine.wasm.js:** 删除编辑器位于相对路径 `resources\3d\engine\bin\.cache` 文件夹下的 spine.wasm.js，删除之后重启编辑器。
 
 ## 编译 Cocos 引擎的 Spine Wasm(适用于 3.8.5 及以上版本引擎)
 
 参考 [Spine WASM Compilation Guide](https://github.com/cocos/cocos-engine/blob/v3.8.7/native/cocos/editor-support/spine-wasm/README.md) 中的内容。
+
+## 调试 Debug 版本的 Spine Wasm
+
+使用 Google 浏览器并安装 [C/C++ DevTools Support 拓展插件](https://chromewebstore.google.com/detail/cc++-devtools-support-dwa/pdcpmagijalfljmkmjngeonclgbbannb)，安装完成后运行后在谷歌浏览器控制台中可以打开 Spine Wasm C++ 相关的代码文件并进行调试。
