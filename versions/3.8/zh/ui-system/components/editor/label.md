@@ -1,14 +1,26 @@
-# Label 组件参考
-
-Label 组件用来显示一段文字，文字可以是系统字体，TrueType 字体、BMFont 字体或艺术数字。另外，Label 还具有排版功能。
+# Label 组件使用范例
 
 ![label-property](./label/label-property.png)
 
+Label 组件通常是一个 2D 文字渲染组件，负责在游戏界面中渲染文字信息。组件默认使用系统字体，也支持使用自定义字体，通过以下步骤可以在场景中快速创建一个产品说明信息界面。
+
+1. 添加 Label：为场景中已添加 Canvas 组件的节点中添加一个子节点，并设置它的 Layer 属性为 `Layers.Enum.UI_2D`, 最后为这个子节点添加一个 Label 组件。
+
+2. 设置 Label 组件的文字信息：将需要显示的文字信息设置到 Label 组件的 string 属性中。如果 string 属性为空，并且 Label 组件的 overflow 属性为 0，那么 Label 节点的宽将一直是 0 。
+
+3. 设置 Label 节点的宽度：设置 Label 组件的 overflow 属性的值为 3 (RESIZE_HEIGHT 模式)，并且设置 UITransform 组件的 contentSize 属性的 width 值。
+
+4. 设置 Label 组件的水平对齐方式：设置 Label 组件的 horizontalAlign 属性的值为 0 (左对齐模式)。此模式可以让 Label 的文字水平向左对齐。
+
+5. 设置 Label 组件的文字大小：设置 Label 组件的 fontSize 属性的值。
+
+6. 设置 Label 组件的行高：设置 Label 组件的 lineHeight 属性的值。
+
+7. 设置 Label 组件加粗、倾斜、下划线等样式：需要使用加粗、倾斜、下划线等样式时，分别设置 Label 组件的 isBold、isItalic、isUnderline 属性为 true。
+
+## 编辑器内手动添加 Sprite 组件
+
 点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **UI** 中选择 **Label**，即可添加 Label 组件到节点上。
-
-Label 的组件接口请参考 [Label API](%__APIDOC__%/zh/result?keyword=Label)。
-
-具体使用方法可参考范例 **Label**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/02.label) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/ui/02.label)）。
 
 ## Label 属性
 
@@ -37,9 +49,13 @@ Label 的组件接口请参考 [Label API](%__APIDOC__%/zh/result?keyword=Label)
 
 | 属性 |   功能说明
 | :-------------- | :----------- |
+| NONE  | Label 组件默认的排版模式，此模式不会进行自动换行。此模式下 Label 节点的 UITransform 组件的 width 属性只受 Label 组件的 string 属性影响而变化，无法直接修改数值。
 | CLAMP | 文字尺寸不会根据 Content Size 的大小进行缩放。<br>Wrap Text 关闭的情况下，按照正常文字排列，超出 Content Size 的部分将不会显示。<br>Wrap Text 开启的情况下，会试图将本行超出范围的文字换行到下一行。如果纵向空间也不够时，也会隐藏无法完整显示的文字。
 | SHRINK | 文字尺寸会根据 Content Size 大小进行自动缩放（不会自动放大，最大显示 Font Size 规定的尺寸）。<br>Wrap Text 开启时，当宽度不足时会优先将文字换到下一行，如果换行后还无法完整显示，则会将文字进行自动适配 Content Size 的大小。<br>Wrap Text 关闭时，则直接按照当前文字进行排版，如果超出边界则会进行自动缩放。
 | RESIZE_HEIGHT | 文本的 Content Size 会根据文字排版进行适配，这个状态下用户无法手动修改文本的高度，文本的高度由内部算法自动计算出来。
+
+**注意：** 
+* 使用 clamp、shrink、resize_height 等文本排版模式时，Label 节点的 UITransform 组件的 width 属性不会随着 Label 组件 string 属性变化而变化。
 
 ## 文本缓存类型（Cache Mode）
 
@@ -55,3 +71,9 @@ Label 的组件接口请参考 [Label API](%__APIDOC__%/zh/result?keyword=Label)
 
  理论上，如果你的游戏 UI 没有使用系统字体或者 TTF 字体，并且所有的 UI 图片资源都可以合在一张图上，那么 UI 是可以只用一个 Draw Call 来完成的。
  更多关于 BMFont 与 UI 合图自动批处理的内容，请参考 [BMFont 与 UI 合图自动批处理](https://docs.cocos.com/creator/2.1/manual/zh/advanced-topics/ui-auto-batch.html) -->
+
+#### API 文档
+Label 的组件接口请参考 [Label API](%__APIDOC__%/zh/result?keyword=Label)。
+
+### 范例 Demo
+具体使用方法可参考范例 **Label**（[GitHub](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/ui/02.label) | [Gitee](https://gitee.com/mirrors_cocos-creator/test-cases-3d/tree/v3.8/assets/cases/ui/02.label)）。

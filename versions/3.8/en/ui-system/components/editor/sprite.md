@@ -2,7 +2,7 @@
 
 ![sprite](sprite/sprite-component.png)
 
-A Sprite is typically a 2D UI component responsible for rendering texture colors from image resources as game backgrounds or interfaces. Follow these steps to quickly create a game background displaying image colors in a scene:
+A Sprite is typically a 2D image rendering component that reads texture colors from image resources to render game backgrounds or UI elements. Follow these steps to quickly create a game background displaying image colors in a scene:
 
 1. **Add a Sprite**: Add a child node to a node that already has a Canvas component in the scene. Set this child node's Layer property to `Layers.Enum.UI_2D`, then add a Sprite component to this child node.
 
