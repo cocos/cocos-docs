@@ -1,14 +1,26 @@
-# Button（按钮）组件参考
-
-Button 组件可以响应用户的点击操作，当用户点击 Button 时，Button 自身会有状态变化。另外，Button 还可以让用户在完成点击操作后响应一个自定义的行为。
+# Button（按钮）组件使用范例
 
 ![button.png](./button/button.png)
 
 ![button-color](./button/button-color.png)
 
-点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **添加 UI 组件** 中选择 **Button**，即可添加 Button 组件到节点上。
+Button 组件通常是一个 2D 按钮交互组件，负责在游戏界面中响应用户的屏幕点击。组件不具备渲染能力，通常 Button 节点会添加 Sprite 组件节点以及 Label 组件节点作为按钮背景和按钮标签。按顺序通过以下步骤可以在场景中快速创建一个交互按钮。
 
-按钮的脚本接口请参考 [Button API](%__APIDOC__%/zh/class/Button)。
+1. 添加 Button：为场景中已添加 Canvas 组件的节点添加一个子节点，并设置它的 Layer 属性为 `Layers.Enum.UI_2D`，最后为这个子节点添加一个 Button 组件。
+
+2. 设置 Button 的宽高：设置 Button 节点的 UITransform 组件的 contentSize 属性的 width 和 height 值。
+
+3. 添加 Button 的背景颜色：在 Button 节点中添加一个子节点，并给子节点添加一个 Sprite 组件用于渲染背景，之后设置 Sprite 组件的颜色以及 spriteFrame 属性。使用 internal 内置资源库的 default_ui 文件夹中的 default_sprite_splash.png 的 spriteFrame 资源作为 Sprite 组件的 spriteFrame。
+
+4. 设置 Button 的背景宽高：Button 的背景宽高需要与 Button 的宽高一致。将 Button 节点的 UITransform 组件的 contentSize 属性值设置为已添加 Sprite 组件的子节点的 UITransform 组件的 contentSize 属性值。
+
+5. 添加 Button 的标签：在 Button 节点中添加一个 UI 子节点，并添加一个 Label 组件，以及设置 Label 组件的 string 属性。
+
+6. 设置 Button 的交互效果：设置 Button 组件的 transition 属性值为 3 (Scale 模式)。
+
+## 编辑器内手动添加 Button 组件
+
+点击 **属性检查器** 下面的 **添加组件** 按钮，然后从 **添加 UI 组件** 中选择 **Button**，即可添加 Button 组件到节点上。
 
 ## Button 属性
 
@@ -128,3 +140,7 @@ export class example extends Component {
     }
 }
 ```
+
+#### API 文档
+
+按钮的脚本接口请参考 [Button API](%__APIDOC__%/zh/class/Button)。
