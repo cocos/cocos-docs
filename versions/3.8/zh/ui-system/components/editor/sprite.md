@@ -1,18 +1,20 @@
-# Sprite 组件使用范例
+# Sprite 组件简介
 
 ![sprite](sprite/sprite-component.png)
 
-Sprite 通常是一个 2D 图片渲染组件，负责读取图片资源中的纹理颜色渲染为游戏背景或界面。通过以下步骤可以在场景中快速创建一个显示图像颜色的游戏背景：
+Sprite 通常是一个 2D 图片渲染组件，负责读取图片资源中的纹理颜色渲染为游戏背景或界面。
+
+## 创建一个纯色的游戏背景
+
+参考以下步骤在场景中创建一个纯色的游戏背景
 
 1. 添加 Sprite: 在场景中已经添加 Canvas 组件的节点中添加一个子节点，并设置此子节点的 Layer 属性为 `Layers.Enum.UI_2D`，最后为这个子节点添加一个 Sprite 组件。
 
-2. 添加 spriteFrame: 将资源管理器中的 SpriteFrame 类型资源设置为 Sprite 组件的 spriteFrame 属性，用于渲染游戏背景颜色。
+2. 添加纯色 spriteFrame: 使用 internal 内置资源库中 default_ui 文件夹中的 default_sprite_splash.png 的 spriteFrame 资源作为 Sprite 组件的 spriteFrame。
 
-3. 添加纯色 spriteFrame: 如果想要创建纯色背景（例如蓝绿色背景），可以使用 internal 内置资源库中 default_ui 文件夹中的 default_sprite_splash.png 的 spriteFrame 资源作为 Sprite 组件的 spriteFrame。
+3. 修改 Sprite 节点大小: 设置 Sprite 组件的 sizeMode 属性为 custom，修改 Sprite 节点的 UITransform 组件的 contentSize 属性的 width 和 height 的值。
 
-4. 修改 Sprite 节点大小: 当为 Sprite 组件 spriteFrame 属性添加 SpriteFrame 类型资源后，Sprite 组件会读取 spriteFrame 资源的宽高数值并设置到节点的 UITransform 组件的 contentSize 属性上。当 Sprite 组件的 Size Mode 为 Trimmed 或 Raw 时，此时使用 spriteFrame 资源的宽高作为节点的尺寸大小并覆盖节点原有尺寸大小。如果 Size Mode 属性为 Custom，则不会改变节点的尺寸大小。
-
-5. 修改 Sprite 颜色：如果 Sprite 的 spriteFrame 属性不为空，那么修改 Sprite 组件的 color 属性，可以改变 Sprite 组件的最终显示颜色。
+4. 修改 Sprite 颜色：如果 Sprite 的 spriteFrame 属性不为空，那么修改 Sprite 组件的 color 属性，可以改变 Sprite 组件的最终显示颜色。
 
 ## 编辑器内手动添加 Sprite 组件
 
