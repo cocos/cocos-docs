@@ -243,6 +243,14 @@ json 打包后都会存放在 `assets/XXXBundle/import` 文件夹内，如果是
 
 如果引擎编译失败，请检查安装包是否完整、修改的内置引擎代码是否正确，以及若使用了自定义引擎，路径是否正确等等。
 
+### 使用自定义引擎并重新打包后，Android Studio 依然使用默认的引擎文件
+
+需要在 Android Studio 中打开 Build 菜单并点击 Refresh Linked C++ Projects 按钮，之后就可以使用切换引擎目录后的代码文件。
+
+### 使用自定义引擎并重新打包后，DevEco Studio 依然使用默认的引擎文件
+
+需要在 DevEco Studio 中打开 File 菜单并点击 Sync and Refresh Project 按钮，之后就可以使用切换引擎目录后的代码文件。
+
 ### 其他报错
 
 如果遇到的错误无法自行解决，请附上 Creator 版本、构建选项配置、构建任务中的构建日志文件以及可复现问题的 Demo 到 [论坛](https://forum.cocos.org/c/58) 反馈。

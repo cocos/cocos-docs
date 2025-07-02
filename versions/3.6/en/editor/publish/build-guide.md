@@ -243,6 +243,10 @@ After json is packaged, it will be stored in the `assets/XXXBundle/import` folde
 
 If the engine fails to compile, please check if the installation package is complete, if the modified built-in engine code is correct, and if you are using a custom engine, if the path is correct, etc.
 
+### After switching to a custom engine and rebuilding, Android Studio still uses the default engine files
+
+In Android Studio, open the `Build` menu and click the `Refresh Linked C++ Projects` button to use the code files from the new engine directory.
+
 ### Other errors
 
 If errors are encountered that cannot be resolved, please send feedback to the [Cocos Forum](https://discuss.cocos2d-x.org/c/creator/33) with the version of Creator, build options configuration, build log file from the build task, and a demo that reproduces the issue.
