@@ -15,6 +15,45 @@
 >如果端口被占用，端口会做+1自增处理，若连接不上，请查看 App 启动时控制台打印的端口号。
 >构建时，建议勾选 Debug, Source Maps 选项，这样对应的 js 代码显示才是展开的。
 
+## HarmonyOS Next 平台调试
+### 使用 V8 引擎
+与 IOS 和 Android 类似
+1. 编译工程，运行工程，搜索日志：
+
+![jsvm-debug-info-log](debug-jsb/v8-debug-info-log.png)
+
+2. 把这个链接拷贝到浏览器中运行即可。
+
+### 使用 JSVM 引擎
+1. 在 项目工程目录/native/engine/common/Classes/Game.cpp 中配置调试信息：
+ ![config-debug-info](debug-jsb/config-debug-info.png)
+ 
+ port : 配置端口号
+
+ pauseOnStart : 等待连接调试开始
+
+
+2. 编译工程，运行工程，搜索日志：
+
+![jsvm-debug-info-log](debug-jsb/jsvm-debug-info-log.png)
+
+3. 检查端侧端口是否打开成功。hdc shell "netstat -anp | grep 8806"。结果为8806端口（注意端口号，是与步骤1中的端口号一致）状态为“LISTEN"即可，如果2、3正常的话，可以忽略这个步骤。
+
+
+4. 转发端口。hdc fport tcp:9906 tcp:8806。转发开发者个人计算机侧端口9906到端侧端口8806。结果为"Forwardport result:OK"即可，个人计算机侧端口可以与端侧端口不一样，默认是个人计算机侧端口与端侧端口一样。
+（建议使用个人计算机测与端侧端口一致，也就是都写8806，这里只是为了演示不一样的情况）
+![hdc-fport](debug-jsb/hdc-fport.png)
+
+5. 获取端口连接信息，在chrome浏览器地址栏输入"localhost:9906/json"(这里的端口是个人计算机侧端口，如果使用的和端侧端口一样，可以拷贝步骤2的日志连接)，回车。
+![jsvm-localhost-json](debug-jsb/jsvm-localhost-json.png)
+
+6. 拷贝"devtoolsFrontendUrl"字段url内容到地址栏，回车，进入DevTools源码页，将看到在应用中通过OH_JSVM_RunScript执行的JS源码，此时暂停在第一行JS源码处。(注："devtoolsFrontendUrl"字段url只支持使用Chrome、Edge浏览器打开，不支持使用Firefox、Safari等浏览器打开。)
+![jsvm-debug](debug-jsb/jsvm-debug.png)
+
+
+*注意： 每次重新运行之后，需要重新拷贝devtoolsFrontendUrl字段，因为devtoolsFrontendUrl字段每次重新运行后不一样*
+### NAPI 暂不支持调试
+
 ## Windows 平台及 Mac 平台调试
 
 在 Windows 平台及 Mac 平台下调试游戏，步骤与真机调试类似，将工程用 IDE 编译运行之后，此时便可进行调试。步骤如下：
