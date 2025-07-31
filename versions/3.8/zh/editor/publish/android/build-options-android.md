@@ -71,3 +71,54 @@ Android 要求所有 APK 必须先使用证书进行数字签署，然后才能�
 ## 生成 App Bundle（Google Play）
 
 勾选该项即可将游戏打包成 App Bundle 格式用于上传到 Google Play 商店。具体请参考 [官方文档](https://developer.android.google.cn/guide/app-bundle/)。
+
+## 其他选项
+
+安卓有部分 SDK，NDK 选项需要在偏好设置里设置，除了在偏好设置以外还可以通过构建参数传递指定。
+
+**sdkPath**: 指定 SDK 路径
+**ndkPath**: 指定 NDK 路径
+
+可以通过导出构建配置，并在安卓对应的选项内添加参数即可。
+
+## 构建参数接口定义（用于命令行构建修改参数）
+
+```ts
+interface IOptions {
+    packageName: string;
+    resizeableActivity: boolean;
+    maxAspectRatio: string;
+    orientation: {
+        landscapeRight: boolean;
+        landscapeLeft: boolean;
+        portrait: boolean;
+        upsideDown: boolean;
+    },
+
+    apiLevel: number;
+    appABIs: IAppABI[];
+
+    useDebugKeystore: boolean;
+    keystorePath: string;
+    keystorePassword: string;
+    keystoreAlias: string;
+    keystoreAliasPassword: string;
+
+    appBundle: boolean;
+    androidInstant: boolean;
+    inputSDK: boolean;
+    remoteUrl: string;
+    sdkPath: string;
+    ndkPath: string;
+    javaHome?: string;
+    javaPath?: string;
+
+    swappy: boolean;
+
+    renderBackEnd: {
+        vulkan: boolean;
+        gles3: boolean;
+        gles2: boolean;
+    }
+}
+```
