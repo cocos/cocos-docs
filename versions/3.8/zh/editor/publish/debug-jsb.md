@@ -37,10 +37,11 @@
 
 ![jsvm-debug-info-log](debug-jsb/jsvm-debug-info-log.png)
 
-3. 检查端侧端口是否打开成功。hdc shell "netstat -anp | grep 8806"。结果为8806端口状态为“LISTEN"即可，如果2、3正常的话，可以忽略这个步骤。
+3. 检查端侧端口是否打开成功。hdc shell "netstat -anp | grep 8806"。结果为8806端口（注意端口号，是与步骤1中的端口号一致）状态为“LISTEN"即可，如果2、3正常的话，可以忽略这个步骤。
 
 
 4. 转发端口。hdc fport tcp:9906 tcp:8806。转发开发者个人计算机侧端口9906到端侧端口8806。结果为"Forwardport result:OK"即可，个人计算机侧端口可以与端侧端口不一样，默认是个人计算机侧端口与端侧端口一样。
+（建议使用个人计算机测与端侧端口一致，也就是都写8806，这里只是为了演示不一样的情况）
 ![hdc-fport](debug-jsb/hdc-fport.png)
 
 5. 获取端口连接信息，在chrome浏览器地址栏输入"localhost:9906/json"(这里的端口是个人计算机侧端口，如果使用的和端侧端口一样，可以拷贝步骤2的日志连接)，回车。
