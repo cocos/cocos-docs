@@ -43,12 +43,12 @@ Most files placed in the `build-templates/[platform]` directory will be copied d
 
 | Platform | Actual Name | Supported File Type |
 | :-------- | :---------- | :----------- |
-| **Huawei AGC** | huawei-agc | not supported yet |
+| **Huawei AGC** | huawei-agc | `index.ejs` |
 | **Alipay Mini Game** | alipay-mini-game | `game.json` |
 | **Taobao Mini Game** | taobao-mini-game | `game.json`、`mini.project.json` |
 | **Douyin Mini Game** | bytedance-mini-game | `game.ejs`、`game.json`、`project.config.json` |
 | **OPPO Mini Game** | oppo-mini-game | `manifest.json` |
-| **Huawei Quick Game** | huawei-quick-game | not supported yet |
+| **Huawei Quick Game** | huawei-quick-game | `game.ejs` |
 | **Cocos Play** | cocos-play | `game.config.json` |
 | **vivo Mini Game** | vivo-mini-game | `project.config.json` |
 | **Xiaomi Quick Game** | xiaomi-quick-game | `manifest.json` |
@@ -56,7 +56,7 @@ Most files placed in the `build-templates/[platform]` directory will be copied d
 | **WeChat Mini Game** | wechatgame | `game.ejs`, `game.json`, `project.config.json` |
 | **Web Desktop** | web-desktop | `index.ejs` |
 | **Web Mobile** | web-mobile | `index.ejs` |
-| **Native** | native | not supported yet |
+| **Native** | native | `index.ejs` |
 
 <!--
 ## Customizing `application.js`

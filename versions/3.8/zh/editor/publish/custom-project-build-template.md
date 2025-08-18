@@ -43,12 +43,12 @@ project-folder
 
 | 平台 | 平台构建扩展名 | 支持的特殊文件类型 |
 | :--- | :--- | :--- |
-| 华为 AGC | huawei-agc | 暂不支持 |
+| 华为 AGC | huawei-agc | `index.ejs` |
 | 支付宝小游戏 | alipay-mini-game | `game.json` |
 | 淘宝小游戏 | taobao-mini-game | `game.json`、`mini.project.json` |
 | 抖音小游戏 | bytedance-mini-game | `game.ejs`、`game.json`、`project.config.json` |
 | OPPO 小游戏 | oppo-mini-game | `manifest.json` |
-| 华为快游戏 | huawei-quick-game | 暂不支持 |
+| 华为快游戏 | huawei-quick-game | `game.ejs` |
 | Cocos Play | cocos-play |  `game.config.json` |
 | vivo 小游戏 | vivo-mini-game | `project.config.json` |
 | 小米快游戏 | xiaomi-quick-game | `manifest.json` |
@@ -56,7 +56,7 @@ project-folder
 | 微信小游戏 | wechatgame | `game.ejs`、`game.json`、`project.config.json` |
 | Web Desktop | web-desktop | `index.ejs` |
 | Web Mobile | web-mobile | `index.ejs` |
-| 原生平台 | native | 暂不支持 |
+| 原生平台 | native | `index.ejs` |
 
 | 平台 | 配置文件 | 配置说明 |
 | :--- | :--- | :--- |
