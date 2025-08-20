@@ -359,91 +359,6 @@
                 "collapsed": true
             },
             {
-                "text": "一键接入第三方服务",
-                "link": "https://service.cocos.com/document/zh/",
-                "items": [
-                    {
-                        "text": "Cocos Service 简介",
-                        "link": "https://service.cocos.com/document/zh/"
-                    },
-                    {
-                        "text": "服务面板操作指南",
-                        "link": "https://service.cocos.com/document/zh/user-guide.html"
-                    },
-                    {
-                        "text": "计费和充值",
-                        "link": "https://service.cocos.com/document/zh/billing-and-charge.html"
-                    },
-                    {
-                        "text": "服务列表",
-                        "link": "https://service.cocos.com/document/zh/#%E6%94%AF%E6%8C%81%E6%9C%8D%E5%8A%A1",
-                        "items": [
-                            {
-                                "text": "定位服务（HMS Core）",
-                                "link": "https://service.cocos.com/document/zh/hms-location.html"
-                            },
-                            {
-                                "text": "分析服务（HMS Core）",
-                                "link": "https://service.cocos.com/document/zh/hms-analytics.html"
-                            },
-                            {
-                                "text": "性能管理（AGC）",
-                                "link": "https://service.cocos.com/document/zh/agc-apm.html"
-                            },
-                            {
-                                "text": "认证服务（AGC）",
-                                "link": "https://service.cocos.com/document/zh/agc-auth.html"
-                            },
-                            {
-                                "text": "崩溃服务（AGC）",
-                                "link": "https://service.cocos.com/document/zh/agc-crash.html"
-                            },
-                            {
-                                "text": "远程配置（AGC）",
-                                "link": "https://service.cocos.com/document/zh/agc-remote.html"
-                            },
-                            {
-                                "text": "应用内消息（AGC）",
-                                "link": "https://service.cocos.com/document/zh/agc-appmessaging.html"
-                            },
-                            {
-                                "text": "云数据库（AGC）",
-                                "link": "https://service.cocos.com/document/zh/agc-clouddb.html"
-                            },
-                            {
-                                "text": "云存储（AGC）",
-                                "link": "https://service.cocos.com/document/zh/agc-cloudstorage.html"
-                            },
-                            {
-                                "text": "云函数（AGC）",
-                                "link": "https://service.cocos.com/document/zh/agc-cloudfunc.html"
-                            },
-                            {
-                                "text": "App Linking（AGC）",
-                                "link": "https://service.cocos.com/document/zh/agc-applinking.html"
-                            },
-                            {
-                                "text": "Cocos SDKHub",
-                                "link": "https://service.cocos.com/document/zh/sdkhub.html",
-                                "items": [
-                                    {
-                                        "text": "Cocos SDKHub 简介",
-                                        "link": "https://service.cocos.com/document/zh/sdkhub.html"
-                                    },
-                                    {
-                                        "text": "HUAWEI HMS Core",
-                                        "link": "https://service.cocos.com/document/zh/sdkhub-plugins/sdkhub-hms.html"
-                                    }
-                                ],
-                                "collapsed": true
-                            }
-                        ],
-                        "collapsed": true
-                    }
-                ],
-                "collapsed": true
-            },
-            {
                 "text": "发布跨平台游戏",
                 "link": "publish/index.md",
                 "items": [
@@ -487,6 +402,29 @@
                         "link": "publish/publish-android-instant.md"
                     },
                     {
+                        "text": "发布到微信小游戏",
+                        "link": "publish/publish-wechatgame.md",
+                        "items": [
+                            {
+                                "text": "微信小游戏开放数据域",
+                                "link": "publish/publish-wechatgame-sub-domain.md"
+                            },
+                            {
+                                "text": "启用微信小游戏引擎插件",
+                                "link": "publish/wechat-engine-plugin.md"
+                            },
+                            {
+                                "text": "接入微信 PC 小游戏",
+                                "link": "publish/publish-pc-wechatgame.md"
+                            },
+                            {
+                                "text": "小游戏分包",
+                                "link": "publish/subpackage.md"
+                            }
+                        ],
+                        "collapsed": true
+                    },
+                    {
                         "text": "发布到支付宝小游戏",
                         "link": "publish/publish-alipay-mini-games.md"
                     },
@@ -517,10 +455,6 @@
                         "collapsed": true
                     },
                     {
-                        "text": "发布到 Cocos Play",
-                        "link": "publish/publish-cocosplay.md"
-                    },
-                    {
                         "text": "发布到华为快游戏",
                         "link": "publish/publish-huawei-quick-games.md"
                     },
@@ -543,40 +477,6 @@
                     {
                         "text": "发布到小米快游戏",
                         "link": "publish/publish-xiaomi-quick-games.md"
-                    },
-                    {
-                        "text": "发布到百度小游戏",
-                        "link": "publish/publish-baidugame.md",
-                        "items": [
-                            {
-                                "text": "百度小游戏开放数据域",
-                                "link": "publish/publish-baidugame-sub-domain.md"
-                            }
-                        ],
-                        "collapsed": true
-                    },
-                    {
-                        "text": "发布到微信小游戏",
-                        "link": "publish/publish-wechatgame.md",
-                        "items": [
-                            {
-                                "text": "微信小游戏开放数据域",
-                                "link": "publish/publish-wechatgame-sub-domain.md"
-                            },
-                            {
-                                "text": "启用微信小游戏引擎插件",
-                                "link": "publish/wechat-engine-plugin.md"
-                            },
-                            {
-                                "text": "接入微信 PC 小游戏",
-                                "link": "publish/publish-pc-wechatgame.md"
-                            },
-                            {
-                                "text": "小游戏分包",
-                                "link": "publish/subpackage.md"
-                            }
-                        ],
-                        "collapsed": true
                     },
                     {
                         "text": "命令行发布项目",
@@ -1248,6 +1148,10 @@
                     }
                 ],
                 "collapsed": true
+            },
+            {
+                "text": "Cocos Service",
+                "link": "service/service.md"
             }
         ]
     }
