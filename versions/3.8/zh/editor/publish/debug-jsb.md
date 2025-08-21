@@ -28,7 +28,7 @@
 1. 在 项目工程目录/native/engine/common/Classes/Game.cpp 中配置调试信息：
  ![config-debug-info](debug-jsb/config-debug-info.png)
  
- port : 配置端口号
+ port : 配置端口号（这个配置的是端测端口）
 
  pauseOnStart : 等待连接调试开始
 
