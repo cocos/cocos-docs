@@ -205,7 +205,7 @@
             - [DragonBones ArmatureDisplay 组件参考](editor/components/dragonbones.md)
             - [TiledMap 组件参考](editor/components/tiledmap.md)
             - [TiledTile 组件参考](editor/components/tiledtile.md)
-            - [MotionStreak](editor/components/motion-streak.md)
+            - [MotionStreak 组件参考](editor/components/motion-streak.md)
     - [UI 系统](2d-object/ui-system/index.md)
         - [UI 组件](ui-system/components/editor/base-component.md)
             - [Canvas 组件参考](ui-system/components/editor/canvas.md)
