@@ -9,8 +9,7 @@ Publish a project from the command line can help us build auto publish step, we 
 - Mac
 
 ```bash
-/Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path projectPath
-  --build "platform=android;debug=true"
+/Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path projectPath --build "platform=android;debug=true"
 ```
 
 - Windows

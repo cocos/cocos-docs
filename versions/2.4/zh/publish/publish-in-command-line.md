@@ -9,8 +9,7 @@
 - Mac
 
   ```bash
-  /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path projectPath
-  --build "platform=android;debug=true"
+  /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path projectPath --build "platform=android;debug=true"
   ```
 
 - Windows

@@ -9,8 +9,7 @@ Publish a project from the command line can help us build an auto-publish routin
 - Mac
 
   ```bash
-  /Applications/CocosCreator/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
-  --build "platform=web-desktop;debug=true"
+  /Applications/CocosCreator/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath --build "platform=web-desktop;debug=true"
   ```
 
 - Windows
