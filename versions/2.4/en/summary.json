@@ -363,80 +363,6 @@
                 "collapsed": true
             },
             {
-                "text": "Access to Third Party Services",
-                "link": "https://service.cocos.com/document/en/",
-                "items": [
-                    {
-                        "text": "Cocos Service Introduction",
-                        "link": "https://service.cocos.com/document/en/"
-                    },
-                    {
-                        "text": "Agora RTC",
-                        "link": "https://service.cocos.com/document/en/agora.html"
-                    },
-                    {
-                        "text": "Location Kit (HMS Core)",
-                        "link": "HMS Core"
-                    },
-                    {
-                        "text": "Analytics Kit (HMS Core)",
-                        "link": "HMS Core"
-                    },
-                    {
-                        "text": "APM (AGC)",
-                        "link": "AGC"
-                    },
-                    {
-                        "text": "Auth Service (AGC)",
-                        "link": "AGC"
-                    },
-                    {
-                        "text": "Crash (AGC)",
-                        "link": "AGC"
-                    },
-                    {
-                        "text": "Remote Configuration (AGC)",
-                        "link": "AGC"
-                    },
-                    {
-                        "text": "App Messaging (AGC)",
-                        "link": "AGC"
-                    },
-                    {
-                        "text": "App Linking (AGC)",
-                        "link": "AGC"
-                    },
-                    {
-                        "text": "Cloud DB (AGC)",
-                        "link": "AGC"
-                    },
-                    {
-                        "text": "Cloud Storage (AGC)",
-                        "link": "AGC"
-                    },
-                    {
-                        "text": "Cloud Functions (AGC)",
-                        "link": "AGC"
-                    },
-                    {
-                        "text": "Cocos SDKHub",
-                        "link": "https://service.cocos.com/document/en/sdkhub.html",
-                        "items": [
-                            {
-                                "text": "Cocos SDKHub Introduction",
-                                "link": "https://service.cocos.com/document/en/sdkhub.html"
-                            },
-                            {
-                                "text": "HUAWEI HMS Core",
-                                "link": "https://service.cocos.com/document/en/sdkhub-plugins/sdkhub-hms.html"
-                            }
-                        ],
-                        "collapsed": true
-                    }
-                ],
-                "collapsed": true
-            },
-            {
                 "text": "Publish Game",
                 "link": "publish/index.md",
                 "items": [
@@ -1200,6 +1126,10 @@
                     }
                 ],
                 "collapsed": true
+            },
+            {
+                "text": "Cocos Service",
+                "link": "service/cocos-service.md"
             }
         ]
     }
