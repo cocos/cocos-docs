@@ -4,7 +4,7 @@
 
 2D rendering nodes can be divided into nodes under Canvas and nodes that are not under Canvas:
 
-- The nodes under Canvas can be found in **UI node ordering** below.
+- - Nodes under Canvas use **[UI node ordering](#ui-node-ordering)** by default. Use the [Sorting2D component](./sorting-2d.md) for custom rendering order.
 
 - The nodes that are not under Canvas, the user can choose to enable depth detection and occlusion display of 3D objects through [custom materials](ui-material.md), which will render the occlusion according to the Z-axis coordinates of the object when enabled (see example [2d-rendering-in-3d](https://github.com/cocos/cocos-test-projects/tree/v3.8/assets/cases/2D)).
 

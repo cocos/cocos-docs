@@ -46,20 +46,21 @@ The render pipeline is used to control the rendering process of the scene, curre
 
 ![sorting-layer](index/sorting-layer.png)
 
-Used to define the sorting capability when rendering translucent objects.
+Customize the rendering order for both 2D UI and 3D objects.
 
-- Click the **Delete** button on the right to delete the corresponding layer.
-- All layers can be edited manually, except for the `default` layer, which cannot be edited.
-- Click the Add Button to add a different layer.
-- The layers can be sorted manually by dragging the gray striped button to the left of the sorting layers using the mouse.
+* Operation Instructions
+    - Click the delete button on the right to remove the corresponding layer.
+    - Except for the `default` layer which cannot be edited, all other layers can have their names manually edited.
+    - Click the plus button to add different layers.
+    - Drag and drop the gray striped button on the left side of layers to manually rearrange them.
 
     ![drag](index/drag-to-sort.gif)
 
-Once added, [Sorting](../../engine/rendering/sorting.md) can be added to any node that has a MeshRenderer or SpriteRenderer component. And with [Sorting](../../engine/rendering/sorting.md) component to control the manual sorting of these nodes.
+* **(2D UI Rendering Order)** After adding render layers, attach the [Sorting2D](../../engine/rendering/sorting-2d.md) component to any 2D render component node and configure the sorting layer and in-layer order to customize the 2D UI rendering sequence.
+![sorting-2d](../../../zh/engine/rendering/sorting-2d/sorting2D-component.png)
 
+* **(3D Object Rendering Order)** After adding render layers, attach the [Sorting](../../engine/rendering/sorting.md) component to any node with MeshRenderer or SpriteRenderer components and configure the sorting layer and in-layer order to customize the 3D object rendering sequence.
 ![sorting](index/sorting.png)
-
-> **Note**: Can only be used for nodes that hold **MeshRenderer** and **SpriteRenderer** components.
 
 ## Physics
 

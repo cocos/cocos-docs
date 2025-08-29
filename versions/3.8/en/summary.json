@@ -1095,7 +1095,11 @@
                         "collapsed": true
                     },
                     {
-                        "text": "3D Sorting",
+                        "text": "2D Rendering Sorting",
+                        "link": "engine/rendering/sorting-2d.md"
+                    },
+                    {
+                        "text": "3D Rendering Sorting",
                         "link": "engine/rendering/sorting.md"
                     },
                     {

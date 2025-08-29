@@ -46,20 +46,21 @@
 
 ![sorting-layer](index/sorting-layer.png)
 
-定义半透明物体渲染时的排序能力。
+自定义 2D UI 以及 3D 物体的渲染排序。
 
-- 点击右侧的删除按钮可以删掉对应的图层。
-- 除 `default` 图层不可编辑外，其他图层都可以手动编辑名称。
-- 点击加号可以添加不同的图层。
-- 使用鼠标拖拽排序图层左侧的灰色条纹状按钮可以手动对图层进行排序。
+* 操作说明
+    - 点击右侧的删除按钮可以删掉对应的图层。
+    - 除 `default` 图层不可编辑外，其他图层都可以手动编辑名称。
+    - 点击加号可以添加不同的图层。
+    - 使用鼠标拖拽排序图层左侧的灰色条纹状按钮可以手动对图层进行排序。
 
     ![drag](index/drag-to-sort.gif)
 
-添加完成后，在任意拥有 MeshRenderer 或者 SpriteRenderer 组件的节点上可以添加 [Sorting](../../engine/rendering/sorting.md) 组件。并通过 [Sorting](../../engine/rendering/sorting.md) 组件来控制这些节点的手动排序。
+* **(2D UI 渲染排序)** 添加渲染层级后，在任意 2D 渲染组件的节点上添加 [Sorting2D](../../engine/rendering/sorting-2d.md) 组件并设置排序图层与图层内排序，即可自定义 2D UI 的渲染顺序。
+![sorting-2d](../../engine/rendering/sorting-2d/sorting2D-component.png)
 
+* **(3D 物体渲染排序)** 添加渲染层级后，在任意拥有 MeshRenderer 或者 SpriteRenderer 组件的节点上添加 [Sorting](../../engine/rendering/sorting.md) 组件并设置排序图层与图层内排序，即可自定义 3D 物体的渲染顺序。
 ![sorting](index/sorting.png)
-
-> **注意**：只能用于持有 **网格渲染器（MeshRenderer）** 以及 **精灵渲染器（SpriteRenderer）** 组件的节点。
 
 ## 物理
 

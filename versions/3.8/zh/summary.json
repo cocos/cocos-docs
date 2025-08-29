@@ -1130,6 +1130,10 @@
                         "collapsed": true
                     },
                     {
+                        "text": "2D 渲染排序",
+                        "link": "engine/rendering/sorting-2d.md"
+                    },
+                    {
                         "text": "3D 渲染排序",
                         "link": "engine/rendering/sorting.md"
                     },
@@ -1232,7 +1236,7 @@
                                         "link": "editor/components/tiledtile.md"
                                     },
                                     {
-                                        "text": "MotionStreak",
+                                        "text": "MotionStreak 组件参考",
                                         "link": "editor/components/motion-streak.md"
                                     }
                                 ],
