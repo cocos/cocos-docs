@@ -8,6 +8,8 @@ Cocos Creator provides the following graphics features to enrich the graphics an
 - [Meshes](mesh/index.md)
 - [Textures](texture/index.md)
 - [Material](../material-system/overview.md)
+- [Sorting2D](../engine/rendering/sorting-2d.md)
+- [Sorting3D](../engine/rendering/sorting.md)
 - [Particle](../particle-system/overview.md)
 - [Effects](effects/index.md)
 - [Skybox](../concepts/scene/skybox.md)
