@@ -26,6 +26,7 @@ For the Spotlight component interface, please refer to [SpotLight API](%__APIDOC
 | Size | Sets the light size. |
 | Range | Sets the range of light effect. |
 | SpotAngle | Adjusts the spot angle to control the light range. |
+| AngleAttenuationStrength | The larger the value, the softer the edge, and the smaller the value, the harder the edge. |
 | Term | Sets the light intensity unit type, including **LUMINOUS_POWER** and **LUMINANCE**.
 | LuminousPower | Luminous flux in **lumens (lm)**. <br>Effective when **Term** is set to **LUMINOUS_POWER**. |
 | Luminance | Brightness in **Candela per square meter (cd/m<sup>2</sup>)**.<br>Effective when **Term** is set to **LUMINANCE**. |
