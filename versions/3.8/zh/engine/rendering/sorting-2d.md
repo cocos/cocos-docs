@@ -77,4 +77,4 @@ export class NewComponent extends Component {
 
 [Sorting2D API](https://docs.cocos.com/creator/3.8/api/zh/class/Sorting2D)
 
-[Sorting2D Demo](https://github.com/zhefengzhang/test-cases-3d/tree/v3.8.7-add-sorting2d-testCase/assets/cases/ui/other/sorting2D)
+[Sorting2D Demo](https://github.com/cocos/cocos-test-projects/tree/v3.8.7/assets/cases/ui/other/sorting2D)
