@@ -22,7 +22,7 @@
         "collapsed": false,
         "items": [
             {
-                "text": "新手上路",
+                "text": "新手入门",
                 "link": "getting-started/index.md",
                 "items": [
                     {
@@ -1151,7 +1151,7 @@
                                         "link": "editor/components/tiledtile.md"
                                     },
                                     {
-                                        "text": "MotionStreak",
+                                        "text": "MotionStreak 组件参考",
                                         "link": "editor/components/motion-streak.md"
                                     }
                                 ],
