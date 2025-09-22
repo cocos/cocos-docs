@@ -8,7 +8,7 @@
 
 ## 基础知识
 
-- [新手上路](getting-started/index.md)
+- [新手入门](getting-started/index.md)
     - [安装和启动](getting-started/install/index.md)
     - [使用 Dashboard](getting-started/dashboard/index.md)
     - [Hello World!](getting-started/helloworld/index.md)
@@ -67,6 +67,7 @@
         - [纹理贴图资源](asset/texture.md)
         - [精灵帧资源](asset/sprite-frame.md)
             - [图像资源的自动剪裁](ui-system/components/engine/trim.md)
+        - [压缩纹理资源](asset/compress-texture.md)
         - [立方体贴图资源](asset/texture-cube.md)
         - [图集资源](asset/atlas.md)
         - [自动图集资源](asset/auto-atlas.md)
@@ -211,8 +212,8 @@
         - [顶点动画贴图 （VAT）](asset/model/vat.md)
     - [纹理](module-map/texture/index.md)
         - [纹理贴图](asset/texture.md)
-        - [立方体贴图](asset/texture-cube.md)
         - [压缩纹理](asset/compress-texture.md)
+        - [立方体贴图](asset/texture-cube.md)
         - [渲染纹理](asset/render-texture.md)
     - [材质系统](material-system/overview.md)
         - [在脚本中使用材质](material-system/material-script.md)

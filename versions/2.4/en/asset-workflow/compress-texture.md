@@ -1,6 +1,17 @@
 # Texture Compression
 
-Cocos Creator allows you to set the compression method required by the texture directly in the editor, and then automatically compress the texture when the project is published. For the Web platform, support for exporting multiple image formats at the same time, and the engine will automatically download the appropriate format according to different browsers.
+Cocos Creator allows you to directly set the compression method for textures in the editor, and then automatically compresses textures during project publishing. It supports exporting multiple image formats for the same platform simultaneously, and the engine will load the appropriate compressed texture based on the device's support for compressed texture formats.
+
+## Advantages of Compressed Textures
+
+* For compressed textures like PNG, JPG, WEBP, etc.
+    - Configuring compressed textures allows compressing texture pixel data during project build to reduce resource size and improve game resource download speed.
+* For GPU compressed textures like ASTC, ETC1, ETC2, PVRTC, etc.
+    - Configuring compressed textures allows converting texture pixel data into GPU-specific compressed formats during project build. These formats can be used directly in GPU memory without runtime decompression, significantly reducing memory usage, lowering bandwidth requirements, and improving game rendering performance and loading speed.
+
+> **Note**:
+> * For non-GPU compressed texture formats like PNG, JPG, WEBP, compressing image quality does not reduce the time to decode image resources or reduce game memory.
+> * Compressing PNG, JPG, WEBP and other format images uses the [sharp](https://github.com/lovell/sharp) open source library. Its compression ratio is slightly lower than [tinypng](https://tinypng.com/) and may result in larger images after compression. If you need to optimize this issue, it is recommended to use [custom plugins](../extension/index.md) to solve it yourself.
 
 ## Configuring Texture Compression
 
@@ -11,20 +22,37 @@ For example, on the mobile platform may only need the original image 80% or less
 Before Cocos Creator v2.4, texture compression configuration was only supported on **Android**, **iOS**, **Web** and **WeChat Mini Game** platforms.
 Starting with v2.4, texture compression configuration is supported on all mini game platforms.
 
-| Picture Format | Android | iOS | Mini Game | Web |
-| :----------- | :------------ | :-------- | :------- | :------- |
-| PNG | Support | Support | Support | Support |
-| JPG | Support | Support | Support | Support |
-| WEBP | Android 4.0 above native support<br>Other versions can use the [resolver library](https://github.com/alexey-pelykh/webp-android-backport) | Use [resolver library](https://github.com/carsonmcdonald/WebP-iOS-example) | Unsupport | [resolver library](https://caniuse.com/#feat=webp) |
-| PVR | Unsupport | Support iOS | Unsupport | Unsupport |
-| PVR | Unsupport | Support | Support iOS | Support iOS |
-| ETC1 | Support | Unsupport | Support Android | Support Android |
-| ETC2 | Only support for generating resources, and the engine needs to be implemented by reference to PR [#1685](https://github.com/cocos/engine-native/pull/1685) | Only support for generating resources, and the engine needs to be implemented by reference to PR [#1685](https://github.com/cocos/engine-native/pull/1685) | - | - |
-| ASTC | Partially Supported  | Partially Supported | Not Supported (WeChat Mini Game v8.0.3 or above for iOS are supported.) | Partially Supported |
+| Image Format | Android | iOS | Mini Games | Web | Windows | Mac |
+| :----------- | :------ | :-- | :--------- | :-- | :------ | :-- |
+| PNG | Supported | Supported | Supported | Supported | Supported | Supported |
+| JPG | Supported | Supported | Supported | Supported | Supported | Supported |
+| WEBP | Natively supported on Android 4.0+, other versions can use [parsing library](https://github.com/alexey-pelykh/webp-android-backport) | Can use [parsing library](https://github.com/carsonmcdonald/WebP-iOS-example) | Supported | [Partially supported](https://caniuse.com/#feat=webp) | Not supported | Not supported |
+| PVR | Not supported | Supported | Supported on iOS devices | Supported on iOS devices | Not supported | Not supported |
+| ETC1 | Supported | Not supported | Supported on Android devices | Supported on Android devices | Not supported | Not supported |
+| ETC2 | Partially supported, depends on mobile hardware | Not supported | Not supported | Supported on some Android devices | Not supported | Not supported |
+| ASTC | Supported (Android 5.0+) | Supported (iOS 9.0+/iPhone6+) | Supported on platforms like WeChat, Douyin, Alipay, Taobao, etc. For details, see [Compressed Texture Support Details for Each Platform](#Compressed-Texture-Support-Details-for-Each-Mobile-Platform). Note: Developer tools do not support, requires real device debugging | Partially supported | Not supported | Not supported |
 
 By default, Cocos Creator outputs the original image when it is built. If you need to compress an image at build time, you can select this image in the **Assets** and edit the texture format in the **Properties**.
 
 ![compress-texture](compress-texture/compress-texture.png)
+
+### Compressed Texture Support Details for Each Mobile Platform
+
+In addition to `JPG` and `PNG` which are supported across all platforms, the support for other texture compression formats is as follows:
+
+| Platform Name | Supported Compression Formats |
+| :------------ | :---------------------------- |
+| Web Mobile | ASTC / ETC1 / ETC2 / PVR / WEBP |
+| WeChat Mini Game | ASTC / ETC1 / ETC2 / PVR |
+| ByteDance Mini Game | ASTC / ETC1 / ETC2 / PVR |
+| Alipay Mini Game | ASTC / ETC1 / PVR |
+| Taobao Mini Game | ASTC / ETC1 / PVR |
+| OPPO Mini Game | ETC1 |
+| vivo Mini Game | ETC1 / ASTC |
+| Huawei Quick Game | ETC1 |
+| Xiaomi Quick Game | ETC1 |
+| iOS | ASTC / ETC1 / ETC2 / PVR / WEBP |
+| Android / Huawei AGC | ASTC / ETC1 / ETC2 / WEBP |
 
 ## Texture Compression Details
 

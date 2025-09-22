@@ -22,7 +22,7 @@
         "collapsed": false,
         "items": [
             {
-                "text": "新手上路",
+                "text": "新手入门",
                 "link": "getting-started/index.md",
                 "items": [
                     {
@@ -257,6 +257,10 @@
                                     }
                                 ],
                                 "collapsed": true
+                            },
+                            {
+                                "text": "压缩纹理资源",
+                                "link": "asset/compress-texture.md"
                             },
                             {
                                 "text": "立方体贴图资源",
@@ -902,12 +906,12 @@
                                 "link": "asset/texture.md"
                             },
                             {
-                                "text": "立方体贴图",
-                                "link": "asset/texture-cube.md"
-                            },
-                            {
                                 "text": "压缩纹理",
                                 "link": "asset/compress-texture.md"
+                            },
+                            {
+                                "text": "立方体贴图",
+                                "link": "asset/texture-cube.md"
                             },
                             {
                                 "text": "渲染纹理",

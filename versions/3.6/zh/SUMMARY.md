@@ -6,7 +6,7 @@
 
 ## 基础使用
 
-- [新手上路](getting-started/index.md)
+- [新手入门](getting-started/index.md)
     - [关于 Cocos Creator](getting-started/introduction/index.md)
     - [安装和启动](getting-started/install/index.md)
     - [使用 Dashboard](getting-started/dashboard/index.md)

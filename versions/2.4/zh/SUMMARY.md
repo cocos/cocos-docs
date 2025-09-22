@@ -2,7 +2,7 @@
 
 ## 新手入门
 
-- [新手上路](getting-started/index.md)
+- [新手入门](getting-started/index.md)
     - [关于 Cocos Creator](getting-started/introduction.md)
     - [安装和启动](getting-started/install.md)
     - [使用 Dashboard](getting-started/dashboard.md)

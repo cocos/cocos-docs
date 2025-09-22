@@ -1,6 +1,17 @@
 # 压缩纹理
 
-Cocos Creator 可以直接在编辑器中设置纹理需要的压缩方式，然后在项目发布时自动对纹理进行压缩。针对 Web 平台，支持同时导出多种图片格式，引擎将根据不同的浏览器自动下载合适的格式。
+Cocos Creator 可以直接在编辑器中设置纹理需要的压缩方式，然后在项目发布时自动对纹理进行压缩。支持同一平台同时导出多种图片格式，引擎将根据设备对压缩纹理格式的支持情况加载合适的压缩纹理。
+
+## 压缩纹理的优势
+
+* 对于 png、jpg、webp 等压缩纹理
+    - 通过配置压缩纹理能够在构建项目时压缩纹理像素数据减少资源体积，提高游戏的资源下载速度。
+* 对于 astc、etc1、etc2、pvrtc 等 GPU 压缩纹理
+    - 通过配置压缩纹理能够在构建项目时将纹理像素数据转化为GPU专用的压缩格式，这些格式可以直接在GPU内存中使用，无需运行时解压，从而显著减少内存占用、降低带宽需求，提高游戏的渲染性能和加载速度。
+
+> **注意**：
+> * png、jpg、webp 等非 GPU 压缩纹理格式的图片资源，在压缩图片质量后并不能减少解码图片资源的时间以及减少游戏的内存。
+> * 压缩 png、jpg、webp 等格式图片使用的是 [sharp](https://github.com/lovell/sharp) 开源库，它的压缩率稍低于 [tinypng](https://tinypng.com/) 并且可能出现压缩后图片更大的情况，如果你需要优化此问题，建议使用 [自定义插件](../extension/index.md) 自行解决此问题。
 
 ## 配置压缩纹理
 
@@ -8,19 +19,37 @@ Cocos Creator 支持导入多种格式的图片（具体见下表），但是在
 
 在 Cocos Creator v2.4 之前，配置压缩纹理只支持 **Android**、**iOS**、**Web** 和 **微信小游戏** 平台，而从 v2.4 开始，支持所有的小游戏平台。
 
-| 图片格式 | Android | iOS | Mini Game | Web |
-| :----------- | :------------ | :-------- | :------- | :------- |
-| PNG | 支持 | 支持 | 支持 | 支持 |
-| JPG | 支持 | 支持 | 支持 | 支持 |
-| WEBP | Android 4.0 以上原生支持<br>其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 不支持 | [部分支持](https://caniuse.com/#feat=webp) |
-| PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备 |
-| ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备 |
-| ETC2 | 只支持生成资源，引擎部分需要参考 PR [#1685](https://github.com/cocos/engine-native/pull/1685) 自己实现。 | 只支持生成资源，引擎部分需要参考 PR [#1685](https://github.com/cocos/engine-native/pull/1685) 自己实现。 | - | - |
-| ASTC | 部分支持  | 部分支持 | 不支持（iOS 版微信小游戏 v8.0.3 以上支持） | 部分支持 |
+| 图片格式 | Android | iOS | 小游戏 | Web  | Windows | Mac
+| :------ | :------ | :------ | :----- | :------ | :----- | :------ |
+| PNG | 支持 | 支持   | 支持 | 支持 | 支持 | 支持 |
+| JPG | 支持 | 支持 | 支持 | 支持 | 支持 | 支持 |
+| WEBP | Android 4.0 以上原生支持，其他版本可以使用 [解析库](https://github.com/alexey-pelykh/webp-android-backport) | 可以使用 [解析库](https://github.com/carsonmcdonald/WebP-iOS-example) | 支持 | [部分支持](https://caniuse.com/#feat=webp) | 不支持 | 不支持 |
+| PVR | 不支持 | 支持 | 支持 iOS 设备 | 支持 iOS 设备 | 不支持 | 不支持 |
+| ETC1 | 支持 | 不支持 | 支持 Android 设备 | 支持 Android 设备 | 不支持 | 不支持 |
+| ETC2 | 部分支持，取决于手机硬件 | 不支持 | 不支持 | 支持部分 Android 设备 | 不支持 | 不支持 |
+| ASTC | 支持(Android 5.0+)  | 支持(iOS 9.0+/iPhone6+) | 微信、抖音、阿里、淘宝等平台支持，详情请看[各平台压缩纹理支持详情](#各移动平台压缩纹理支持详情)。注：开发者工具不支持，需真机调试 | 部分支持 | 不支持 | 不支持 |
 
 默认情况下 Cocos Creator 在构建的时候输出的是原始图片，如果在构建时需要对某一张图片进行压缩，可以在 **资源管理器** 中选中这张图片，然后在 **属性管理器** 中对图片的纹理格式进行编辑。
 
 ![compress-texture](compress-texture/compress-texture.png)
+
+### 各移动平台压缩纹理支持详情
+
+除全平台支持的 `JPG` 和 `PNG` 外，其他纹理压缩格式的支持情况如下：
+
+| 平台名称          | 支持的压缩格式 |
+| :---------------- | :------------------- |
+| Web Mobile        | ASTC / ETC1 / ETC2 / PVR / WEBP |
+| WeChat Mini Game  | ASTC / ETC1 / ETC2 / PVR    |
+| ByteDance Mini Game | ASTC / ETC1 / ETC2 / PVR  |
+| AliPay Mini Game  | ASTC / ETC1 / PVR           |
+| TaoBao Mini Game  | ASTC / ETC1 / PVR           |
+| OPPO Mini Game    | ETC1                        |
+| vivo Mini Game    | ETC1 / ASTC                 |
+| Huawei Quick Game | ETC1                        |
+| Xiaomi Quick Game | ETC1                        |
+| iOS               | ASTC / ETC1 / ETC2 / PVR / WEBP |
+| Android / Huawei AGC | ASTC / ETC1 / ETC2 / WEBP |
 
 ## 压缩纹理详解
 

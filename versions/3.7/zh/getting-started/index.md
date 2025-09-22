@@ -1,4 +1,4 @@
-# 新手上路
+# 新手入门
 
 欢迎使用 Cocos Creator，在学习使用之前，请先参考 [安装和启动](install/index.md) 安装好 Cocos Creator。
 

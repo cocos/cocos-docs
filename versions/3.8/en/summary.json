@@ -243,6 +243,10 @@
                                 "collapsed": true
                             },
                             {
+                                "text": "Texture Compression",
+                                "link": "asset/compress-texture.md"
+                            },
+                            {
                                 "text": "Texture Cube",
                                 "link": "asset/texture-cube.md"
                             },
