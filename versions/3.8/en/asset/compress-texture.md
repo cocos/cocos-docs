@@ -57,18 +57,17 @@ Except for the `JPG` and `PNG` supported by all platforms, the details of other 
 | Platform          | TextureCompressTypes |
 | ----------------- | -------------------- |
 | Web Desktop       | - |
-| Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
-| WeChat Mini Game  | ASTC / ETC2 / ETC1 / PVR    |
-| ByteDance Mini Game | ASTC / ETC2 / ETC1 / PVR  |
+| Web Mobile        | ASTC / ETC1 / ETC2 / PVR / WEBP |
+| WeChat Mini Game  | ASTC / ETC1 / ETC2 / PVR    |
+| ByteDance Mini Game | ASTC / ETC1 / ETC2 / PVR  |
 | AliPay Mini Game  | ASTC / ETC1 / PVR           |
 | TaoBao Mini Game  | ASTC / ETC1 / PVR           |
-| OPPO Mini Game    | ETC1                 |
-| vivo Mini Game    | ETC1                 |
-| Huawei Quick Game | ETC1                 |
-| Huawei AGC        | ASTC / ETC2 / ETC1   |
-| Xiaomi Quick Game | ETC1                 |
-| iOS               | ASTC / PVR / WEBP / ETC1 / ETC2 |
-| Android / Huawei AGC | ASTC / ETC2 / ETC1 / WEBP |
+| OPPO Mini Game    | ETC1                        |
+| vivo Mini Game    | ETC1                        |
+| Huawei Quick Game | ETC1                        |
+| Xiaomi Quick Game | ETC1                        |
+| iOS               | ASTC / ETC1 / ETC2 / PVR / WEBP |
+| Android / Huawei AGC | ASTC / ETC1 / ETC2 / WEBP |
 
 ## Custom build texture compression processing
 

@@ -23,19 +23,17 @@ Cocos Creator 支持导入多种格式的图片（具体见下表），但是在
 | 平台名称          | 支持的压缩格式 |
 | :---------------- | :------------------- |
 | Web Desktop       | - |
-| Web Mobile        | ASTC / ETC2 / ETC1 / PVR / WEBP |
-| WeChat Mini Game  | ASTC / ETC2 / ETC1 / PVR    |
-| ByteDance Mini Game | ASTC / ETC2 / ETC1 / PVR  |
+| Web Mobile        | ASTC / ETC1 / ETC2 / PVR / WEBP |
+| WeChat Mini Game  | ASTC / ETC1 / ETC2 / PVR    |
+| ByteDance Mini Game | ASTC / ETC1 / ETC2 / PVR  |
 | AliPay Mini Game  | ASTC / ETC1 / PVR           |
 | TaoBao Mini Game  | ASTC / ETC1 / PVR           |
-| OPPO Mini Game    | ETC1                 |
-| vivo Mini Game    | ETC1                 |
-| Huawei Quick Game | ETC1                 |
-| Huawei AGC        | ASTC / ETC2 / ETC1   |
-| Xiaomi Quick Game | ETC1                 |
-| iOS               | ASTC / PVR / WEBP / ETC1 / ETC2  |
-| Android / Huawei AGC | ASTC / ETC2 / ETC1 / WEBP |
-<!-- | Mac               | ASTC / PVR           | -->
+| OPPO Mini Game    | ETC1                        |
+| vivo Mini Game    | ETC1                        |
+| Huawei Quick Game | ETC1                        |
+| Xiaomi Quick Game | ETC1                        |
+| iOS               | ASTC / ETC1 / ETC2 / PVR / WEBP |
+| Android / Huawei AGC | ASTC / ETC1 / ETC2 / WEBP |
 
 ## 关于 ASTC
 
