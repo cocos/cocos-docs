@@ -84,4 +84,4 @@ export class SortingSample extends Component {
 
 ## API
 
-The API for sorting components can be found in [Sorting](%__APIDOC__%/en/class/Sorting) and [SortingLayers](__APIDOC__/en/class/SortingLayers) 。
+The API for sorting components can be found in [Sorting](%__APIDOC__%/en/class/Sorting) and [SortingLayers](%__APIDOC__%/en/class/SortingLayers) 。
