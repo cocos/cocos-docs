@@ -32,6 +32,21 @@ For the Spotlight component interface, please refer to [SpotLight API](%__APIDOC
 | Luminance | Brightness in **Candela per square meter (cd/m<sup>2</sup>)**.<br>Effective when **Term** is set to **LUMINANCE**. |
 | StaticSettings | Static lighting settings, please refer to the [Lightmapping](../lightmap.md) documentation. |
 
+### **Note**:
+* Due to the significant performance overhead of real-time shadows in 3D scenes on mobile native platforms such as openharmony, harmonyNext, android, and ios, the engine by default does not allow multiple spot lights to enable shadows on these platforms. To lift this restriction, you need to call the relevant modification code before the engine completes rendering pipeline initialization. Refer to the following code example:
+    ```ts
+    import { _decorator, Component, macro, rendering } from 'cc';
+    const { ccclass, property } = _decorator;
+
+    // Lift the restriction on multiple spot lights enabling shadows on mobile platforms
+    var builder = rendering.getCustomPipeline(macro.CUSTOM_PIPELINE_NAME) as any;
+    builder._configs.isMobile = false;
+
+    @ccclass('NewComponent')
+    export class NewComponent extends Component {}
+    ```
+* If the game enables MSAA anti-aliasing, it will also prevent multiple spot lights from enabling shadows on mobile native platforms.
+
 ### Spotlight Shadow Properties
 
 ![image](spotlight/spot-light-shadow-prop.png)

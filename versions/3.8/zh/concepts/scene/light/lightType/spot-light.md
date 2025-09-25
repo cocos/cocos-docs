@@ -47,6 +47,21 @@
 | ShadowBias | 设置阴影偏移值，防止 z-fighting |
 | ShadowNormalBias | 设置法线偏移值，防止曲面出现锯齿状 |
 
+### **注意**：
+* 由于 3D 场景中实时阴影的性能开销在 openharmony、harmonyNext、android、ios 等移动端原生平台的性能开销较大，引擎默认在这些平台不允许多个 spot light 灯光开启阴影。如果要解除这个限制，需要在引擎完成渲染管线初始化之前，调用相关的修改代码，参考如下代码示例：
+    ```ts
+    import { _decorator, Component, macro, rendering } from 'cc';
+    const { ccclass, property } = _decorator;
+
+    //解除移动端对多 spot light 开启阴影的限制
+    var builder = rendering.getCustomPipeline(macro.CUSTOM_PIPELINE_NAME) as any;
+    builder._configs.isMobile = false;
+
+    @ccclass('NewComponent')
+    export class NewComponent extends Component {}
+    ```
+* 如果游戏开启了 msaa 抗锯齿，也会导致移动端原生平台无法对多个 spot light 灯光开启阴影。
+
 ### PCF 软阴影
 
 百分比渐近过滤（PCF）是一个简单、常见的用于实现阴影边缘反走样的技术，通过对阴影边缘进行平滑处理来消除阴影贴图的锯齿现象。原理是在当前像素（也叫做片段）周围进行采样，然后计算样本跟片段相比更接近光源的比例，使用这个比例对散射光和镜面光成分进行缩放，然后再对片段着色，以达到模糊阴影边缘的效果。
