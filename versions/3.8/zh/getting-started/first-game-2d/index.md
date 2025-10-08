@@ -758,7 +758,7 @@ export class GameManager extends Component {
 
     通过 `BlockType` 来确定是否要真的创建这个方块，当然只在 `type` 为 `BT_STONE` 的时候我们通过 `instantiate` 方法来创建方块，其他情况下，返回一个空值。
 
-    > `instantiate`: 是 Cocos Creator 提供的克隆预制体的方法。当然它不仅能克隆预制体，你甚至可以用它克隆别的类型比如某个对象！
+    > `instantiate`: 是 Cocos Creator 提供的实例化预制体为节点的方法。当然它不仅能实例化预制体，你甚至可以用它克隆任意类型的对象！
 
 此时如果我们在 `GameManager` 的 `start` 内调用 `generateRoad` 来创建地图：
 
