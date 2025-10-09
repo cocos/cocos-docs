@@ -69,6 +69,8 @@ Write a `src/contributions/inspector/comp-label.ts` file with the following cont
 ```typescript
 'use strict';
 
+import { methods } from "../../main";
+
 type Selector<$> = { $: Record<keyof $, any | null> }
 
 export const template = `

@@ -69,6 +69,8 @@ export class CustomLabelComponent extends Component {
 ```typescript
 'use strict';
 
+import { methods } from "../../main";
+
 type Selector<$> = { $: Record<keyof $, any | null> }
 
 export const template = `
