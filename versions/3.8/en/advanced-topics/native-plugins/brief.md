@@ -104,7 +104,7 @@ Cocos native projects use CMake for management. Native plugins are managed throu
 
 ## Installing and Disabling Native Plugins
 
-Download the created plugin package from [Native Plugin Creation and Usage Example](https://github.com/zhefengzhang/cocos-native-plugins), and choose to extract it to the `extensions` or `native` directory according to project needs.
+Download the pre-built plugin package from the [Native Plugin Creation and Usage Example](https://github.com/zhefengzhang/cocos-native-plugins), then select a folder and copy it to the `extensions` or `native` directory according to your project requirements.
 
 If you want to disable the plugin, or disable it only on specific platforms, you can modify the `disabled` and `disable-by-platforms` fields in cc_plugin.json.
 
