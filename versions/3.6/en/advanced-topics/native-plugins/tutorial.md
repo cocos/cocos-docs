@@ -1,30 +1,38 @@
-# Cocos Native Plugin Quick Tutorial
+# Native Plugin Creation Example
 
-If you want to use third-party native libraries in a native project, you can follow the steps in this article.
+If you want to use third-party native libraries in native projects, you can follow the steps in this article.
 
-This article requires some understanding of native project compilation and generation, which developers can learn about through [CMake official website](https://cmake.org/). We have also prepared a sample project [GitHub](https://github.com/PatriceJiang/ccplugin_tutorial) for reference.
+This article requires some understanding of native project compilation and generation. Developers can learn about it through the [CMake official website](https://cmake.org/). We have also prepared a [Native Plugin Creation and Usage Example](https://github.com/zhefengzhang/cocos-native-plugins) for reference.
 
-## Create a native plugin
+## Creating Native Plugins
 
-### Basic Setup
+### Compiling Dependent Libraries or Static Libraries
 
-- Create a cocos project with Cocos Creator 3.6+
+Use the compilation tools provided by the application platform to compile c or cpp files into .lib or .a files. In the [Native Plugin Creation and Usage Example](https://github.com/zhefengzhang/cocos-native-plugins) repository, the hello_cocos.cpp file in the src folder has been compiled into .lib and .a files and added to the plugin directories of various platforms. The jni directory in the repository provides the configuration and code used when compiling .a files with the `ndk-build` command on the Android platform for developers' reference. Please compile for other platforms yourself.
 
-    Start the CocosCreator application, and run `Create an empty project` in the chosen folder.
+### Windows Configuration for Plugin Development Project
 
-    ![create ](doc/images/1_create_empty_project.png)
+In this example, we will introduce hello_cocos.lib as a plugin on the Windows platform, integrate it into the engine, and make it available for use in TS/JS. Other platforms will use hello_cocos.a as an example. If you want to use other libraries, please compile them for the corresponding platform in advance.
+
+- Create a project using Cocos Creator 3.6.3 or higher
+
+    Start CocosCreator and execute `Create Empty Project` in the specified directory.
+
+    ![create](doc/images/1_create_empty_project.png)
 
 - Create and save an empty scene
 
     ![save scene](doc/images/1_2_save_emtpy_scene.png)
 
-- A native build is needed to be created first to generate the `native/` directory.
+- Export the native project through the **Build & Publish** panel and build it to generate the `native/` directory
 
-    Create a build task for any native platform, for example Windows
+    Here we create a new build task for Windows.
 
     ![build windows](doc/images/1_3_create_windows_build.png)
 
-    Run **Build**, `native/` folder should be created after that.
+    Execute **Build**, which will also generate the `native/` directory.
+
+    View the contents of the directory through the console (Windows CMD or PowerShell or similar software):
 
     ```console
     $ tree native/ -L 2
@@ -35,54 +43,53 @@ This article requires some understanding of native project compilation and gener
 
     ```
 
-- Create a folder for the plugin
+- Create a directory for plugin storage in `native/`
 
     ```console
-    mkdir -p native/plugins/hello_cocos
+    mkdir -p native/native-plugin/
     ```
 
-### Add support for Windows
+### Adding Native Plugin Support for Windows
 
-- Prepare the folder for Windows
+- Add Windows platform-related subdirectories:
 
     ```console
-    mkdir -p native/plugins/hello_cocos/windows/
+    mkdir -p native/native-plugin/windows/
     ```
 
-- Copy precompiled `hello_cocos` library and header files into the plugin directory
+- Copy the pre-compiled dependency library `hello_cocos.lib` and header files to the corresponding directory:
 
     ```console
-    $ tree native/plugins/
-    native/plugins/
-    └── hello_cocos
-        ├── include
-        │   └── hello_cocos.h
-        └── windows
-            └── lib
-                ├── hello_cocos.lib
-                └── hello_cocosd.lib
+    $ tree native/native-plugin/
 
-    ```
-
-- Add files `hello_cocos_glue.cpp`, `CMakeLists.txt` and `hello_cocos_glue-config.cmake`
-
-    ```console
-    mkdir native/plugins/hello_cocos/src
-    touch native/plugins/hello_cocos/src/hello_cocos_glue.cpp
-    touch native/plugins/hello_cocos/src/CMakeLists.txt
-    touch native/plugins/hello_cocos/windows/hello_cocos_glue-config.cmake
-    ```
-
-    Now the plugin directory should look like this:
-
-    ```console
-    $ tree native/plugins/hello_cocos/
-    native/plugins/hello_cocos/
+    native/native-plugin/
     ├── include
-    │   └── hello_cocos.h
+    │   └── hello_cocos.h
+    └── windows
+        └── lib
+            ├── hello_cocos.lib
+            └── hello_cocosd.lib
+    ```
+
+- Add files `hello_cocos_glue.cpp`, `CMakeLists.txt` and `hello_cocos_glue-config.cmake`:
+
+    ```console
+    mkdir native/native-plugin/src
+    touch native/native-plugin/src/hello_cocos_glue.cpp
+    touch native/native-plugin/src/CMakeLists.txt
+    touch native/native-plugin/hello_cocos_glue-config.cmake
+    ```
+
+    Current plugin directory contents:
+
+    ```console
+    $ tree native/native-plugin/
+    native/native-plugin/
+    ├── include
+    │   └── hello_cocos.h
     ├── src
-    │   ├── CMakeLists.txt
-    │   └── hello_cocos_glue.cpp
+    │   ├── CMakeLists.txt
+    │   └── hello_cocos_glue.cpp
     └── windows
         ├── hello_cocos_glue-config.cmake
         └── lib
@@ -90,7 +97,7 @@ This article requires some understanding of native project compilation and gener
             └── hello_cocosd.lib
     ```
 
-- Edit `hello_cocos_glue-config.cmake` with following content
+- Edit `hello_cocos_glue-config.cmake` to add declarations for `hello_cocos.lib` and imported content:
 
     ```cmake
     set(_hello_cocos_GLUE_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -104,9 +111,7 @@ This article requires some understanding of native project compilation and gener
     include(${_hello_cocos_GLUE_DIR}/../src/CMakeLists.txt)
     ```
 
-    Declare an existing library `hello_cocos` add import it.
-
-- Edit `native/plugins/hello_cocos/src/CMakeLists.txt` with following content
+- Edit `native/native-plugin/src/CMakeLists.txt` and add the following content:
 
     ```cmake
     set(_hello_cocos_GLUE_SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -123,14 +128,15 @@ This article requires some understanding of native project compilation and gener
     )
     ```
 
-- Create `cc_plugin.json` in `native/plugins/hello_cocos/`
+- Create configuration file `cc_plugin.json` in directory `native/native-plugin/`
 
     ```json
     {
         "name":"hello-cocos-demo",
-        "version":"0.1.0",
-        "author":"cocosdemo",
-        "engine-version":">=3.6.0",
+        "version":"1.0.0",
+        "author":"cocos",
+        "engine-version":">=3.6.3",
+        "disabled":false,
         "modules":[
             {
                 "target":"hello_cocos_glue"
@@ -138,22 +144,21 @@ This article requires some understanding of native project compilation and gener
         ],
         "platforms":["windows"]
     }
-
     ```
 
-Now the plugin is created and enabled in this project. But it won't compile, since there is no code in `hello_cocos_glue.cpp`
+    The files required for the native plugin have now been created, but they cannot be compiled yet. The file `hello_cocos_glue.cpp` needs to register the plugin's initialization function.
 
-Let's **Build** again in the build panel to refresh the Visual Studio project.
+    Execute **Build** again to trigger the update of the Visual Studio project.
 
-- Open the Visual Studio project under `build/windows/proj/`
+- Open the sln file in directory `build/windows/proj/` with Visual Studio
 
-Two additional targets are generated
+    - A `plugin_registry` target is automatically generated for initializing all enabled plugins:
 
-![Solution Explorer](./doc/images/2_1_vs_project.png)
+        ![Solution Explorer](./doc/images/2_1_vs_project.png)
 
-If you run the target directly, you will fail with the following link error:
+    - Directly running the target will result in similar error reports:
 
-![link error](./doc/images/2_1_link_error.png)
+        ![link error](./doc/images/2_1_link_error.png)
 
 - Edit `hello_cocos_glue.cpp`
 
@@ -162,7 +167,6 @@ If you run the target directly, you will fail with the following link error:
     #include "bindings/sebind/sebind.h"
     #include "plugins/bus/EventBus.h"
     #include "plugins/Plugins.h"
-
 
     // export c++ methods to JS
     static bool register_demo(se::Object *ns) {
@@ -191,50 +195,51 @@ If you run the target directly, you will fail with the following link error:
     * second param: callback when engine initialized
     */ 
     CC_PLUGIN_ENTRY(hello_cocos_glue, add_demo_class);
-
     ```
 
-Start the project in debug mode, a new window should launch.
+    After compiling again, there are no more errors, and the project can now be compiled and run correctly.
 
-![empty window](./doc/images/2_3_empty_window.png)
+- Run the target project:
 
-Until now, we are not sure if the plugin is enabled or not.
+    ![empty window](./doc/images/2_3_empty_window.png)
 
-In the output window, we can the debug URL of the devtools
+- To verify whether our native plugin has been loaded, we need to connect to devtools:
 
-![debug url](./doc/images/2_3_debug_url.png)
+    From the `Output` panel, obtain the debugging connection.
 
-Open the URL with chrome and type following code in Console
+    ![debug url](./doc/images/2_3_debug_url.png)
 
-```javascript
-new Demo("World").hello("Cocos")
-```
+    Open the browser, enter the debugging link address from the image above, and type the following code in the console:
 
-![devtools](./doc/images/2_5_devtool.png)
-
-The class `hello_cocos` and its methods are exported successfully!
-
-### Add support for Android
-
-- Add a build task for Android
-
-- Create a folder for android
-
-    ```console
-    mkdir native/plugins/hello_cocos/android
+    ```javascript
+    new Demo("World").hello("Cocos")
     ```
 
-- Copy precompiled libraries and headers and create `hello_cocos_glue-config.cmake`
+    ![devtools](./doc/images/2_5_devtool.png)
 
-    The folder should look like this:
+    Based on the output, it can be confirmed that our interface has been successfully exported through the native plugin.
+
+### Adding Native Plugin Support for Android
+
+- Add Android build task
+
+- Create Android-related native plugin directory
 
     ```console
-    $ tree native/plugins/hello_cocos/android/
-    native/plugins/hello_cocos/android/
+    mkdir native/native-plugin/android
+    ```
+
+- Copy pre-compiled dependency libraries and header files to the corresponding directory, create `hello_cocos_glue-config.cmake`
+
+    Android directory status:
+
+    ```console
+    $ tree native/native-plugin/android/
+    native/native-plugin/android/
     ├── hello_cocos_glue-config.cmake
     ├── arm64-v8a
-    │   └── lib
-    │       └── libhello_cocos.a
+    │   └── lib
+    │       └── libhello_cocos.a
     └── armeabi-v7a
         └── lib
             └── libhello_cocos.a
@@ -246,7 +251,6 @@ The class `hello_cocos` and its methods are exported successfully!
     ```cmake
     set(_hello_cocos_GLUE_DIR ${CMAKE_CURRENT_LIST_DIR})
 
-
     add_library(hello_cocos STATIC IMPORTED GLOBAL)
     set_target_properties(hello_cocos PROPERTIES
         IMPORTED_LOCATION ${_hello_cocos_GLUE_DIR}/${ANDROID_ABI}/lib/libhello_cocos.a
@@ -255,16 +259,15 @@ The class `hello_cocos` and its methods are exported successfully!
     include(${_hello_cocos_GLUE_DIR}/../src/CMakeLists.txt)
     ```
 
-- Update `cc_plugin.json`
-
-    Add `android` to `platforms` field
+- Update `cc_plugin.json`, add `android` to the `platforms` field
 
     ```json
     {
         "name":"hello-cocos-demo",
-        "version":"0.1.0",
-        "author":"cocosdemo",
-        "engine-version":">=3.6.0",
+        "version":"1.0.0",
+        "author":"cocos",
+        "engine-version":">=3.6.3",
+        "disabled":false,
         "modules":[
             {
                 "target":"hello_cocos_glue"
@@ -275,23 +278,23 @@ The class `hello_cocos` and its methods are exported successfully!
 
     ```
 
-- **Create an android build task**
+- Add new Android build task
 
     ![Android build](./doc/images/3_1_android_build.png)
 
-Run **Build** and debug with Android Studio.
+After building, you can open the project with Android Studio and use devtool for debugging verification.
 
-### Add support for iOS
+### Adding Native Plugin Support for iOS
 
-- Add a build task for iOS
+- Add iOS build task
 
-    Prepare a folder for iOS
+- Create iOS-related native plugin directory
 
     ```
-    mkdir -p native/plugins/hello_cocos/ios/lib
+    mkdir -p native/native-plugin/ios/lib
     ```
 
-    Copy precompiled libraries and edit `native/plugins/hello_cocos/ios/hello_cocos_glue-config.cmake`
+- Copy pre-compiled dependency libraries and header files to the corresponding directory, create `hello_cocos_glue-config.cmake`, edit according to the following example:
 
     ```cmake
     set(_hello_cocos_GLUE_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -305,21 +308,20 @@ Run **Build** and debug with Android Studio.
     include(${_hello_cocos_GLUE_DIR}/../src/CMakeLists.txt)
     ```
 
-### Add support for Mac
+### Adding Native Plugin Support for MacOS
 
-- Add a build task for MacOS
+- Add MacOS build task
 
-- Prepare a folder for MacOS
+- Create MacOS-related native plugin directory
 
     ```console
-    mkdir -p native/plugins/hello_cocos/mac/lib
+    mkdir -p native/native-plugin/mac/lib
     ```
 
-- Copy precompiled libraries and edit `native/plugins/hello_cocos/ios/hello_cocos_glue-config.cmake`
+- Copy pre-compiled dependency libraries and header files to the corresponding directory, create `hello_cocos_glue-config.cmake`
 
     ```cmake
     set(_hello_cocos_GLUE_DIR ${CMAKE_CURRENT_LIST_DIR})
-
 
     add_library(hello_cocos STATIC IMPORTED GLOBAL)
     set_target_properties(hello_cocos PROPERTIES
@@ -329,14 +331,15 @@ Run **Build** and debug with Android Studio.
     include(${_hello_cocos_GLUE_DIR}/../src/CMakeLists.txt)
     ```
 
-- Update `cc_plugin.json` again**, Add `iOS` & `mac` to `platforms` field
+- Update `cc_plugin.json`, add `iOS` and `mac` to the `platforms` field
 
     ```json
     {
         "name":"hello-cocos-demo",
-        "version":"0.1.0",
-        "author":"cocosdemo",
-        "engine-version":">=3.6.0",
+        "version":"1.0.0",
+        "author":"cocos",
+        "engine-version":">=3.6.3",
+        "disabled":false,
         "modules":[
             {
                 "target":"hello_cocos_glue"
@@ -347,13 +350,13 @@ Run **Build** and debug with Android Studio.
 
     ```
 
-Now a plugin supporting Android, Windows, MacOS & iOS is done.
+At this point, a native plugin that supports Android, Windows, MacOS, and iOS has been developed.
 
-The final content of the plugins is:
+The final contents of the native plugin directory are as follows:
 
 ```console
-$ tree native/plugins/hello_cocos/
-native/plugins/hello_cocos
+$ tree native/native-plugin/
+native/native-plugin
 ├── cc_plugin.json
 ├── include
 │   └── hello_cocos.h
@@ -382,12 +385,3 @@ native/plugins/hello_cocos
         ├── hello_cocos.lib
         └── hello_cocosd.lib
 ```
-
-It's ready to ship.
-
-## Distribute with Editor Extension
-
-Follow the steps in [Editor Extension](../../editor/extension/readme.md) to create an Editor Extension, you need to copy the directory `native/plugins/hello_cocos` into the extension package when [Packaging the Extension](../../editor/extension/store/upload-store.md#packaging-the-extension), then submit.
-
-About upgrade: The editor extension system does not support update detection at the moment. Plugin users need to check in Cocos Store or Dashboard and manually upgrade to the latest version.
-Of course, developers can still implement their version management based on the existing extension system.

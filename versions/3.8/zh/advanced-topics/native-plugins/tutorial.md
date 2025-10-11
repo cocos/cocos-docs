@@ -2,15 +2,19 @@
 
 如果想在原生项目中使用第三方原生库，则可以按照本文的步骤进行。
 
-本文需要对原生工程的编译生成有一定了解，开发者可以通过 [CMake 官网](https://cmake.org/) 了解。 我们也准备了范例工程 [GitHub](https://github.com/PatriceJiang/ccplugin_tutorial) 以供参考。
+本文需要对原生工程的编译生成有一定了解，开发者可以通过 [CMake 官网](https://cmake.org/) 了解。 我们也准备了 [原生插件创建与使用示例](https://github.com/zhefengzhang/cocos-native-plugins) 以供参考。
 
 ## 创建原生插件
+
+### 编译依赖库或静态库
+
+通过应用平台提供的编译工具将 c 或 cpp 文件编译为 .lib 或 .a 文件。在 [原生插件创建与使用示例](https://github.com/zhefengzhang/cocos-native-plugins) 仓库中已经将 src 文件夹中的 hello_cocos.cpp 编译为 .lib 与 .a 文件并添加到各个平台的插件目录下。仓库中 jni 目录提供了 android 平台使用 `ndk-build` 命令编译 .a 文件时所使用的配置与代码，供开发者参考。其余平台请自行编译。
 
 ### 插件开发工程 Windows 配置
 
 示例中，我们将引入 hello_cocos.lib 作为 windows 平台上的插件，引入引擎并使其支持在 TS/JS 中使用。其他平台将使用 hello_cocos.a 为例，如果要使用其他库，请提前编译到对应平台。
 
-- 使用 Cocos Creator 3.6+ 创建一个工程
+- 使用 Cocos Creator 3.6.3 及以上版本创建工程
 
     启动 CocosCreator，在指定目录执行 `创建空工程`。
 
@@ -42,7 +46,7 @@
 - 在 `native/` 中创建插件存放的目录
 
     ```console
-    mkdir -p native/plugins/hello_cocos
+    mkdir -p native/native-plugin/
     ```
 
 ### 添加原生插件对 Windows 的支持
@@ -50,38 +54,37 @@
 - 添加 Windows 平台相关的子目录：
 
     ```console
-    mkdir -p native/plugins/hello_cocos/windows/
+    mkdir -p native/native-plugin/windows/
     ```
 
 - 把预先编译好的依赖库 `hello_cocos.lib` 和头文件拷贝到对应的目录：
 
     ```console
-    $ tree native/plugins/
-    native/plugins/
-    └── hello_cocos
-        ├── include
-        │   └── hello_cocos.h
-        └── windows
-            └── lib
-                ├── hello_cocos.lib
-                └── hello_cocosd.lib
+    $ tree native/native-plugin/
 
+    native/native-plugin/
+    ├── include
+    │   └── hello_cocos.h
+    └── windows
+        └── lib
+            ├── hello_cocos.lib
+            └── hello_cocosd.lib
     ```
 
 - 添加文件 `hello_cocos_glue.cpp`，`CMakeLists.txt` 和 `hello_cocos_glue-config.cmake`：
 
     ```console
-    mkdir native/plugins/hello_cocos/src
-    touch native/plugins/hello_cocos/src/hello_cocos_glue.cpp
-    touch native/plugins/hello_cocos/src/CMakeLists.txt
-    touch native/plugins/hello_cocos/windows/hello_cocos_glue-config.cmake
+    mkdir native/native-plugin/src
+    touch native/native-plugin/src/hello_cocos_glue.cpp
+    touch native/native-plugin/src/CMakeLists.txt
+    touch native/native-plugin/hello_cocos_glue-config.cmake
     ```
 
     当前插件目录的内容：
 
     ```console
-    $ tree native/plugins/hello_cocos/
-    native/plugins/hello_cocos/
+    $ tree native/native-plugin/
+    native/native-plugin/
     ├── include
     │   └── hello_cocos.h
     ├── src
@@ -108,7 +111,7 @@
     include(${_hello_cocos_GLUE_DIR}/../src/CMakeLists.txt)
     ```
 
-- 编辑 `native/plugins/hello_cocos/src/CMakeLists.txt`，并添加如下内容：
+- 编辑 `native/native-plugin/src/CMakeLists.txt`，并添加如下内容：
 
     ```cmake
     set(_hello_cocos_GLUE_SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
@@ -125,14 +128,15 @@
     )
     ```
 
-- 在目录 `native/plugins/hello_cocos/` 中创建配置文件 `cc_plugin.json`
+- 在目录 `native/native-plugin/` 中创建配置文件 `cc_plugin.json`
 
     ```json
     {
         "name":"hello-cocos-demo",
-        "version":"0.1.0",
-        "author":"cocosdemo",
-        "engine-version":">=3.6.0",
+        "version":"1.0.0",
+        "author":"cocos",
+        "engine-version":">=3.6.3",
+        "disabled":false,
         "modules":[
             {
                 "target":"hello_cocos_glue"
@@ -222,7 +226,7 @@
 - 创建 Android 相关的原生插件目录
 
     ```console
-    mkdir native/plugins/hello_cocos/android
+    mkdir native/native-plugin/android
     ```
 
 - 将预先编译好的依赖库和头文件拷贝到对应的目录，创建 `hello_cocos_glue-config.cmake`
@@ -230,8 +234,8 @@
     Android 目录的状态：
 
     ```console
-    $ tree native/plugins/hello_cocos/android/
-    native/plugins/hello_cocos/android/
+    $ tree native/native-plugin/android/
+    native/native-plugin/android/
     ├── hello_cocos_glue-config.cmake
     ├── arm64-v8a
     │   └── lib
@@ -260,9 +264,10 @@
     ```json
     {
         "name":"hello-cocos-demo",
-        "version":"0.1.0",
-        "author":"cocosdemo",
-        "engine-version":">=3.6.0",
+        "version":"1.0.0",
+        "author":"cocos",
+        "engine-version":">=3.6.3",
+        "disabled":false,
         "modules":[
             {
                 "target":"hello_cocos_glue"
@@ -286,7 +291,7 @@
 - 创建 iOS 相关的原生插件目录
 
     ```
-    mkdir -p native/plugins/hello_cocos/ios/lib
+    mkdir -p native/native-plugin/ios/lib
     ```
 
 - 将预先编译好的依赖库和头文件拷贝到对应的目录，创建 `hello_cocos_glue-config.cmake`，如根据下列示例编辑：
@@ -310,7 +315,7 @@
 - 创建 MacOS 相关的原生插件目录
 
     ```console
-    mkdir -p native/plugins/hello_cocos/mac/lib
+    mkdir -p native/native-plugin/mac/lib
     ```
 
 - 将预先编译好的依赖库和头文件拷贝到对应的目录，创建`hello_cocos_glue-config.cmake`
@@ -331,9 +336,10 @@
     ```json
     {
         "name":"hello-cocos-demo",
-        "version":"0.1.0",
-        "author":"cocosdemo",
-        "engine-version":">=3.6.0",
+        "version":"1.0.0",
+        "author":"cocos",
+        "engine-version":">=3.6.3",
+        "disabled":false,
         "modules":[
             {
                 "target":"hello_cocos_glue"
@@ -349,8 +355,8 @@
 原生插件目录的最终内容如下：
 
 ```console
-$ tree native/plugins/hello_cocos/
-native/plugins/hello_cocos
+$ tree native/native-plugin/
+native/native-plugin
 ├── cc_plugin.json
 ├── include
 │   └── hello_cocos.h
@@ -379,11 +385,3 @@ native/plugins/hello_cocos
         ├── hello_cocos.lib
         └── hello_cocosd.lib
 ```
-
-下一步即可通过 **构建发布** 面板进行发布。
-
-## 使用编辑器扩展机制发布
-
-根据 [扩展编辑器](../../editor/extension/readme.md) 创建编辑器扩展，在 [打包扩展](../../editor/extension/store/upload-store.md#packaging-the-extension) 前把目录 `native/plugins/hello_cocos` 一并打包到扩展中，再发布。开发者在下载扩展后，原生插件就会启用。
-
-关于升级：目前编辑器扩展系统不支持升级检测，用户需要到 Cocos 商城手动更新。
