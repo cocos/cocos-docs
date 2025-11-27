@@ -776,7 +776,10 @@ start() {
 
 2D 横版游戏中必须要处理卷轴问题，所谓的卷轴就是相机随着角色的运动而运动，导致看到的场景不太一样的情况。
 
-为了实现卷轴，我们需要允许 Camera 可以移动并不在强制和 Canvas 对齐，取消 Canvas 节点上 `cc.Canvas` 组件的 **Align Canvas With Screen** 属性：
+为了实现卷轴，我们需要允许 Camera 可以移动并不在强制和 Canvas 对齐：
+
+1. 取消 Canvas 节点上 `cc.Canvas` 组件的 **Align Canvas With Screen** 属性
+2. 将 Camera 节点拖到 Player 节点上，使其成为子节点
 
 ![setup-scroll.gif](./images/setup-scroll.gif)
 
