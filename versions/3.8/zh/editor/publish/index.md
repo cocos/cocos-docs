@@ -23,7 +23,6 @@
 - [发布 OPPO 小游戏](./publish-oppo-mini-game.md)
 - [发布华为快游戏](./publish-huawei-quick-game.md)
 - [发布 vivo 小游戏](./publish-vivo-mini-game.md)
-- [发布咪咕小游戏](./publish-migu-mini-game.md)
 - [发布荣耀小游戏](./publish-honor-mini-game.md)
 - [发布小米快游戏](./publish-xiaomi-quick-game.md)
 
