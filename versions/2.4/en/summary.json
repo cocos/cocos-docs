@@ -430,10 +430,6 @@
                         "link": "publish/publish-vivo-instant-games.md"
                     },
                     {
-                        "text": "Publish to Migu Mini Games",
-                        "link": "publish/publish-migu-mini-game.md"
-                    },
-                    {
                         "text": "Publish to Honor Mini Games",
                         "link": "publish/publish-honor-mini-game.md"
                     },
