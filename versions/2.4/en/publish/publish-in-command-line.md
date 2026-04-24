@@ -39,7 +39,7 @@ You can also to compile the native project of the native platform separately by 
 
   - `excludedModules`: The modules need remove from engine. Engine modules can find from [here](https://github.com/holycanvas/engine/blob/76460006e5046475cb714c48f801af8ea6a4fac9/modules.json)
   - `title` - Project title
-  - `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, xiaomi, alipay, qgame, quickgame, huawei, cocosplay, fb-instant-games, android-instant]
+  - `platform` - Publish platform [web-mobile, web-desktop, android, win32, ios, mac, wechatgame, wechatgame-subcontext, baidugame, baidugame-subcontext, alipay, qgame, quickgame, huawei, cocosplay, fb-instant-games, android-instant]
   - `buildPath` - Publish path
   - `startScene` - Start scene uuid
   - `debug` - Whether or not debug mode

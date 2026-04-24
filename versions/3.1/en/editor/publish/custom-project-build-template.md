@@ -49,7 +49,6 @@ The `JSON` files corresponding to the data fusion for each mini game are as foll
 | **WeChat Mini Game** | wechatgame | `game.ejs`, `game.json`, `project.config.json` |
 | **Web Mobile** | web-mobile | `index.ejs` |
 | **Web Desktop** | web-desktop | `index.ejs` |
-| **Xiaomi Quick Game** | xiaomi-quick-game | `manifest.json` |
 | **Huawei Quick Game** | huawei-quick-game | Use the Build Panel's|
 | **Cocos Play** | cocos-play | `game.config.json` |
 | **Baidu Mini Game** | baidu-mini-game | `game.json`, `project.swan.json` |

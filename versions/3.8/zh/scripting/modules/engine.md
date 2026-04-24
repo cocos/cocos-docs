@@ -51,7 +51,6 @@ log('Hello world!');
 | `BAIDU`     | 百度小游戏    | ✔️                   | ❌                | ✔️                  |
 | `BYTEDANCE` | 抖音小游戏 | ✔️                   | ❌                | ✔️                  |
 | `WECHAT`    | 微信小游戏    | ✔️                   | ❌                | ✔️                  |
-| `XIAOMI`    | 小米快游戏    | ✔️                   | ❌                | ✔️                  |
 | `COCOSPLAY` | Cocos Play  | ❌                   | ✔️                 | ✔️                 |
 | `HUAWEI`    | 华为快游戏    | ❌                   | ✔️                 | ✔️                 |
 | `OPPO`      | OPPO 小游戏  | ❌                   | ✔️                 | ✔️                 |

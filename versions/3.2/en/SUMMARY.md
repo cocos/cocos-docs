@@ -104,7 +104,6 @@
         - [Publish to Huawei Quick Game](editor/publish/publish-huawei-quick-game.md)
         - [Publish to OPPO Mini Game](editor/publish/publish-oppo-mini-game.md)
         - [Publish to vivo Mini Game](editor/publish/publish-vivo-mini-game.md)
-        - [Publish to Xiaomi Quick Game](editor/publish/publish-xiaomi-quick-game.md)
         - [Publish to Baidu Mini Game](editor/publish/publish-baidu-mini-game.md)
         - [Publish to WeChat Mini Game](editor/publish/publish-wechatgame.md)
             - [WeChat Engine Plugin](editor/publish/wechatgame-plugin.md)

@@ -471,10 +471,6 @@
                         "link": "publish/publish-honor-mini-game.md"
                     },
                     {
-                        "text": "发布到小米快游戏",
-                        "link": "publish/publish-xiaomi-quick-games.md"
-                    },
-                    {
                         "text": "命令行发布项目",
                         "link": "publish/publish-in-command-line.md"
                     },

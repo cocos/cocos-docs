@@ -109,7 +109,6 @@
         - [发布到华为快游戏](editor/publish/publish-huawei-quick-game.md)
         - [发布到 OPPO 小游戏](editor/publish/publish-oppo-mini-game.md)
         - [发布到 vivo 小游戏](editor/publish/publish-vivo-mini-game.md)
-        - [发布到小米快游戏](editor/publish/publish-xiaomi-quick-game.md)
         - [发布到百度小游戏](editor/publish/publish-baidu-mini-game.md)
         - [发布到微信小游戏](editor/publish/publish-wechatgame.md)
             - [启用微信小游戏引擎插件](editor/publish/wechatgame-plugin.md)

@@ -50,7 +50,6 @@ project-folder
 | 华为快游戏 | huawei-quick-game | 暂不支持 |
 | Cocos Play | cocos-play |  `game.config.json` |
 | vivo 小游戏 | vivo-mini-game | `project.config.json` |
-| 小米快游戏 | xiaomi-quick-game | `manifest.json` |
 | 百度小游戏 | baidu-mini-game | `game.json`、`project.swan.json` |
 | 微信小游戏 | wechatgame | `game.ejs`、`game.json`、`project.config.json` |
 | Web Desktop | web-desktop | `index.ejs` |

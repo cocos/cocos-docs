@@ -50,7 +50,6 @@ The supported file types for build templates by platform are as follows:
 | **Huawei Quick Game** | huawei-quick-game | not supported yet |
 | **Cocos Play** | cocos-play | `game.config.json` |
 | **vivo Mini Game** | vivo-mini-game | `project.config.json` |
-| **Xiaomi Quick Game** | xiaomi-quick-game | `manifest.json` |
 | **Baidu Mini Game** | baidu-mini-game | `game.json`, `project.swan.json` |
 | **WeChat Mini Game** | wechatgame | `game.ejs`, `game.json`, `project.config.json` |
 | **Web Desktop** | web-desktop | `index.ejs` |

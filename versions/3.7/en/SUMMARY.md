@@ -144,7 +144,6 @@
         - [Publish to Huawei Quick Games](editor/publish/publish-huawei-quick-game.md)
         - [Publish to OPPO Mini Games](editor/publish/publish-oppo-mini-game.md)
         - [Publish to vivo Mini Games](editor/publish/publish-vivo-mini-game.md)
-        - [Publish to Xiaomi Quick Games](editor/publish/publish-xiaomi-quick-game.md)
         - [Publish to Baidu Mini Games](editor/publish/publish-baidu-mini-game.md)
         - [Access to Open Data Context](editor/publish/build-open-data-context.md)
         - [Mini Game Subpackage](editor/publish/subpackage.md)

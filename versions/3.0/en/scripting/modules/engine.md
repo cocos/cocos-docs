@@ -51,7 +51,6 @@ The constants in the following table indicate whether the application is running
 | `BAIDU` | Baidu Mini Game | ✔️ | ❌ | ✔️ |
 | `BYTEDANCE` | ByteDance Mini Game | ✔️ | ❌ | ✔️ |
 | `WECHAT` | WeChat Mini Gamee | ✔️ | ❌ | ✔️ |
-| `XIAOMI` | Xiaomi Quick Game | ✔️ | ❌ | ✔️ |
 | `COCOSPLAY` | Cocos Play | ❌ | ✔️ | ✔️ |
 | `HUAWEI` | Huawei Quick Game | ❌ | ✔️ | ✔️ |
 | `OPPO` | OPPO Mini Game | ❌ | ✔️ | ✔️ |

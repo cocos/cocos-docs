@@ -112,7 +112,6 @@
     - [发布到 OPPO 小游戏](publish/publish-oppo-instant-games.md)
     - [发布到 vivo 小游戏](publish/publish-vivo-instant-games.md)
     - [发布到荣耀小游戏](publish/publish-honor-mini-game.md)
-    - [发布到小米快游戏](publish/publish-xiaomi-quick-games.md)  
     - [命令行发布项目](publish/publish-in-command-line.md)
     - [定制项目构建模板](publish/custom-project-build-template.md)
 
