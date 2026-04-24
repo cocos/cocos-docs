@@ -434,10 +434,6 @@
                         "link": "publish/publish-honor-mini-game.md"
                     },
                     {
-                        "text": "Publish to Xiaomi Quick Games",
-                        "link": "publish/publish-xiaomi-quick-games.md"
-                    },
-                    {
                         "text": "Publish to Baidu Mini Games",
                         "link": "publish/publish-baidugame.md",
                         "items": [

@@ -41,7 +41,6 @@ In addition to `JPG` and `PNG` which are supported across all platforms, the sup
 | OPPO Mini Game | ETC1 |
 | vivo Mini Game | ETC1 / ASTC |
 | Huawei Quick Game | ETC1 |
-| Xiaomi Quick Game | ETC1 |
 | iOS | ASTC / ETC1 / ETC2 / PVR / WEBP |
 | Android / Huawei AGC | ASTC / ETC1 / ETC2 / WEBP |
 

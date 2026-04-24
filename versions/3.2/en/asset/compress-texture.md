@@ -63,6 +63,5 @@ Except for the `JPG` and `PNG` supported by all platforms, the details of other 
 | vivo Mini Game    | ETC1                 |
 | Huawei Quick Game | ETC1                 |
 | Cocos Play        | ETC1                 |
-| Xiaomi Quick Game | ETC1                 |
 | iOS               | ASTC / PVR / WEBP / ETC1 / ETC2 |
 | Android           | ASTC / ETC2 / ETC1 / WEBP |

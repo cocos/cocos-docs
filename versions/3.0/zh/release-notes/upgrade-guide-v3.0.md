@@ -236,7 +236,6 @@ export class AudioController extends Component {
 | `VIVO_GAME`       | `VIVO_MINI_GAME`      |
 | `OPPO_GAME`       | `OPPO_MINI_GAME`      |
 | `HUAWEI_GAME`     | `HUAWEI_QUICK_GAME`   |
-| `XIAOMI_GAME`     | `XIAOMI_QUICK_GAME`   |
 | `JKW_GAME`        | `COCOSPLAY`           |
 | `ALIPAY_GAME`     | `ALIPAY_MINI_GAME`    |
 | `BYTEDANCE_GAME`  | `BYTEDANCE_MINI_GAME` |

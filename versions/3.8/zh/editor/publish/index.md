@@ -24,7 +24,6 @@
 - [发布华为快游戏](./publish-huawei-quick-game.md)
 - [发布 vivo 小游戏](./publish-vivo-mini-game.md)
 - [发布荣耀小游戏](./publish-honor-mini-game.md)
-- [发布小米快游戏](./publish-xiaomi-quick-game.md)
 
 ## 准备工作
 
