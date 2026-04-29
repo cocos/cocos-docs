@@ -1,0 +1,88 @@
+name: 全量发布到火山云
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: contains(github.event.head_commit.message, 'publish:all')
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        publish-version: ['3.8', '3.7', '3.6', '3.5', '3.4', '3.3', '3.2', '3.1', '3.0', '2.4']
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 设置 node 环境
+        uses: actions/setup-node@v4
+        with:
+            node-version: 20
+            cache: npm
+
+      - name: 安装依赖
+        run: npm install
+
+      - name: 构建项目 （测试环境）
+        if: contains(github.event.head_commit.message, 'publish:all:test')
+        run: node scripts/publish.js --version=versions/${{ matrix.publish-version }}
+
+      - name: 构建项目 （正式环境）
+        if: contains(github.event.head_commit.message, 'publish:all:pro')
+        run: node scripts/publish.js --version=versions/${{ matrix.publish-version }}
+
+      - name: 配置火山云 TOS 凭证
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.ACCESSKEY }}
+          aws configure set aws_secret_access_key ${{ secrets.SECRETACCESSKEY }}
+          aws configure set default.region cn-beijing
+
+      - name: 上传文件到火山云 TOS (测试环境)
+        if: contains(github.event.head_commit.message, 'publish:all:test')
+        run: |
+          aws s3 sync ./versions/${{ matrix.publish-version }}/.vitepress/dist/ \
+            s3://cocoscreator-docs-test/gitbook/creator/${{ matrix.publish-version }}/manual/ \
+            --endpoint-url https://tos-s3-cn-beijing.volces.com \
+            --addressing-style virtual
+
+      - name: 上传文件到火山云 TOS（正式环境）
+        if: contains(github.event.head_commit.message, 'publish:all:pro')
+        run: |
+          aws s3 sync ./versions/${{ matrix.publish-version }}/.vitepress/dist/ \
+            s3://cocoscreator-docs-pro/gitbook/creator/${{ matrix.publish-version }}/manual/ \
+            --endpoint-url https://tos-s3-cn-beijing.volces.com \
+            --addressing-style virtual
+
+      - name: 刷新火山引擎 CDN 缓存
+        env:
+          VOLC_ACCESSKEY: ${{ secrets.ACCESSKEY }}
+          VOLC_SECRETKEY: ${{ secrets.SECRETACCESSKEY }}
+        run: |
+          pip install --quiet volcenginesdkcdn volcenginesdkcore
+          python3 <<'EOF'
+          import os
+          import volcenginesdkcore
+          import volcenginesdkcdn
+          from volcenginesdkcore.rest import ApiException
+
+          configuration = volcenginesdkcore.Configuration()
+          configuration.ak = os.environ["VOLC_ACCESSKEY"]
+          configuration.sk = os.environ["VOLC_SECRETKEY"]
+          configuration.region = "cn-north-1"
+
+          api_instance = volcenginesdkcdn.CDNApi(volcenginesdkcdn.ApiClient(configuration))
+          body = volcenginesdkcdn.SubmitRefreshTaskRequest(
+              type="dir",
+              urls=["https://docs.cocos.com/"]
+          )
+          try:
+              resp = api_instance.submit_refresh_task(body)
+              print("CDN 缓存刷新成功:", resp)
+          except ApiException as e:
+              print(f"CDN 缓存刷新失败: {e}")
+              exit(1)
+          EOF

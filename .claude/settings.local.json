@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv deploy-huawei.yml deploy-volcengine.yml)",
+      "Bash(mv deploy-huawei-all.yml deploy-volcengine-all.yml)",
+      "Bash(ssh -o ConnectTimeout=5 root@192.168.63.191 \"cd /data/python-deployer && nohup python3 app.py > /data/python-deployer/app.log 2>&1 &\")",
+      "Bash(ssh -o ConnectTimeout=5 root@192.168.63.191 \"cat /data/python-deployer/app.log\")",
+      "Bash(ssh -o ConnectTimeout=5 root@192.168.63.191 \"nohup /data/python-deployer/venv/bin/python /data/python-deployer/app.py > /data/python-deployer/server.log 2>&1 &\")"
+    ]
+  }
+}

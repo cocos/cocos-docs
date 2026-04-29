@@ -1,0 +1,105 @@
+name: 发布到火山云
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  judge:
+    if: contains(github.event.head_commit.message, 'docs:')
+    runs-on: ubuntu-latest
+    steps:
+        - name: Extract version from commit message
+          run: |
+            COMMIT_MSG=$(echo '${{ github.event.head_commit.message }}' | grep -oP '(?<=docs:)\d+\.\d+')
+            if [ -z "$COMMIT_MSG" ]; then
+              echo "没有指定需要发布的版本"
+              exit 1
+            fi
+            echo "将构建版本： $COMMIT_MSG !"
+
+  deploy:
+    needs: judge
+    runs-on: ubuntu-latest
+    steps:
+      - name: 提取版本信息
+        id: extract
+        run: |
+            COMMIT_MSG=$(echo '${{ github.event.head_commit.message }}' | grep -oP '(?<=docs:)\d+\.\d+')
+            echo "version=$COMMIT_MSG" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+
+      - name: 设置 node 环境
+        uses: actions/setup-node@v4
+        with:
+            node-version: 22
+            cache: 'npm'
+
+      - name: 安装依赖
+        run: npm install
+
+      - name: 构建项目 （测试环境）
+        if: contains(github.event.head_commit.message, 'test:docs:')
+        run: node scripts/publish.js --version=versions/${{ steps.extract.outputs.version }}
+
+      - name: 构建项目 （正式环境）
+        if: contains(github.event.head_commit.message, 'publish:docs:')
+        run: node scripts/publish.js --version=versions/${{ steps.extract.outputs.version }}
+
+      - name: 配置火山云 TOS 凭证
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.ACCESSKEY }}
+          aws configure set aws_secret_access_key ${{ secrets.SECRETACCESSKEY }}
+          aws configure set default.region cn-beijing
+
+      - name: 上传文件到火山云 TOS (测试环境)
+        if: contains(github.event.head_commit.message, 'test:docs:')
+        run: |
+          aws s3 sync ./versions/${{ steps.extract.outputs.version }}/.vitepress/dist/ \
+            s3://cocoscreator-docs-test/gitbook/creator/${{ steps.extract.outputs.version }}/manual/ \
+            --endpoint-url https://tos-s3-cn-beijing.volces.com \
+            --addressing-style virtual
+
+      - name: 上传文件到火山云 TOS（正式环境）
+        if: contains(github.event.head_commit.message, 'publish:docs:')
+        run: |
+          aws s3 sync ./versions/${{ steps.extract.outputs.version }}/.vitepress/dist/ \
+            s3://cocoscreator-docs-pro/gitbook/creator/${{ steps.extract.outputs.version }}/manual/ \
+            --endpoint-url https://tos-s3-cn-beijing.volces.com \
+            --addressing-style virtual
+
+      - name: 刷新火山引擎 CDN 缓存
+        if: contains(github.event.head_commit.message, 'publish:docs:')
+        env:
+          VOLC_ACCESSKEY: ${{ secrets.ACCESSKEY }}
+          VOLC_SECRETKEY: ${{ secrets.SECRETACCESSKEY }}
+        run: |
+          pip install --quiet volcenginesdkcdn volcenginesdkcore
+          python3 <<'EOF'
+          import os
+          import volcenginesdkcore
+          import volcenginesdkcdn
+          from volcenginesdkcore.rest import ApiException
+
+          configuration = volcenginesdkcore.Configuration()
+          configuration.ak = os.environ["VOLC_ACCESSKEY"]
+          configuration.sk = os.environ["VOLC_SECRETKEY"]
+          configuration.region = "cn-north-1"
+
+          api_instance = volcenginesdkcdn.CDNApi(volcenginesdkcdn.ApiClient(configuration))
+          body = volcenginesdkcdn.SubmitRefreshTaskRequest(
+              type="dir",
+              urls=["https://docs.cocos.com/"]
+          )
+          try:
+              resp = api_instance.submit_refresh_task(body)
+              print("CDN 缓存刷新成功:", resp)
+          except ApiException as e:
+              print(f"CDN 缓存刷新失败: {e}")
+              exit(1)
+          EOF
