@@ -20,17 +20,16 @@ jobs:
           aws configure set aws_access_key_id ${{ secrets.ACCESSKEY }}
           aws configure set aws_secret_access_key ${{ secrets.SECRETACCESSKEY }}
           aws configure set default.region cn-beijing
+          aws configure set default.s3.addressing_style virtual
 
       - name: 上传文件到火山云 TOS (测试环境)
         if: contains(github.event.head_commit.message, 'test:versions')
         run: |
           aws s3 cp ./versions.json s3://cocoscreator-docs-test/gitbook/creator/versions/versions.json \
-            --endpoint-url https://tos-s3-cn-beijing.volces.com \
-            --addressing-style virtual
+            --endpoint-url https://tos-s3-cn-beijing.volces.com
 
       - name: 上传文件到火山云 TOS（正式环境）
         if: contains(github.event.head_commit.message, 'publish:versions')
         run: |
           aws s3 cp ./versions.json s3://cocoscreator-docs-pro/gitbook/creator/versions/versions.json \
-            --endpoint-url https://tos-s3-cn-beijing.volces.com \
-            --addressing-style virtual
+            --endpoint-url https://tos-s3-cn-beijing.volces.com
