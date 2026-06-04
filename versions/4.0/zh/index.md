@@ -12,12 +12,6 @@ Cocos Creator 既是一款高效、轻量、免费开源的跨平台 2D&3D 图�
 
 如果您已经熟悉其他引擎如 Unity，您可以查看 [Unity 开发者入门 Cocos Creator 快速指南](./guide/unity/index.md) 来快速上手 Cocos Creator。
 
-## v4.0 新增功能
-
-- 此版本中增加了 **程序化动画**、**高精度文本**、**全新的可定制渲染管线**、**角色控制器** 等全新特性。
-- 完整的更新列表请前往 [发布说明](https://www.cocos.com/creator-download)
-- 采用 Cocos Creator 旧版本的项目升级请参考 [升级指南](./release-notes/index.md)
-
 ## 用户手册主要模块
 
 - [场景制作](concepts/scene/index.md)
