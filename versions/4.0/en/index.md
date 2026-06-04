@@ -13,12 +13,6 @@ If you are the first time to use Cocos Creator, take a look at the [Getting Star
 
 If you're already familiar with other engines like Unity, you can check out the [Unity Developer's Quick Guide to Cocos Creator](./guide/unity/index.md) to get started with Cocos Creator.
 
-## v4.0 New Features
-
-- New features such as **Procedural Animation**, **High Precision Text**, **New Custom Render Pipeline**, **Character Controller**, etc. have been added in this version.
-- For a full list of updates go to [Release Notes](https://www.cocos.com/creator-download)
-- For projects using older versions of Cocos Creator, please refer to [Upgrade Guide](./release-notes/index.md)
-
 ## User Manual sections
 
 - [Cocos Creator Basic Usage](getting-started/index.md)
