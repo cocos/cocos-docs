@@ -1,0 +1,31 @@
+digraph G {
+    layout=dot splines=true compound=true overlap=false fontname="Noto Sans CJK SC"
+    node [shape=Mrecord fontname="Source Code Pro"]
+    edge [fontname="Noto Sans CJK SC"]
+
+    subgraph cluster_framework {
+        style=invis
+        ast [label="aaaaa"]
+        cmp [label="Component"]
+        lib [label="ProgramLib | { shader instances | <temp> shader templates }"]
+    }
+
+    mat [label="Material | { defines | properties | <efx> effect}"]
+
+    subgraph cluster_effect {
+        style=dotted label="auto-generated from *.effect file" labelloc=b
+        shd [label="ShaderInfo | { name | glsl3 | glsl1 | defines | blocks | samplers | dependencies }"]
+        efx [label="EffectAsset | { techniques | <shd> shader list }"]
+    }
+
+    ast -> mat [dir=back arrowtail=empty]
+    ast -> efx [dir=back arrowtail=empty]
+    lib:temp -> efx:shd [dir=back arrowtail=vee style=dashed label="  register to"]
+    efx:shd -> shd [dir=back arrowtail=ediamond]
+    mat:efx -> efx [dir=back arrowtail=ediamond]
+
+    rnd [label="<hd> Renderable | <mats> materials"]
+
+    cmp -> rnd:hd [dir=back arrowtail=empty]
+    rnd:mats -> mat [dir=back arrowtail=ediamond]
+}
