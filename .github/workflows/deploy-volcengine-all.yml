@@ -42,14 +42,14 @@ jobs:
           aws configure set default.region cn-beijing
           aws configure set default.s3.addressing_style virtual
 
-      - name: 上传文件到火山云 TOS (测试环境)
+      - name: 上传文件到火山云 TOS (测试环境docs)
         if: contains(github.event.head_commit.message, 'publish:all:test')
         run: |
           aws s3 sync ./versions/${{ matrix.publish-version }}/.vitepress/dist/ \
             s3://cocoscreator-docs-test/gitbook/creator/${{ matrix.publish-version }}/manual/ \
             --endpoint-url https://tos-s3-cn-beijing.volces.com
 
-      - name: 上传文件到火山云 TOS（正式环境）
+      - name: 上传文件到火山云 TOS（正式环境docs）
         if: contains(github.event.head_commit.message, 'publish:all:pro')
         run: |
           aws s3 sync ./versions/${{ matrix.publish-version }}/.vitepress/dist/ \
