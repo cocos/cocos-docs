@@ -11,17 +11,17 @@ npm install
 
 ## Generate Sidebar
 
-node ./scripts/create-sidebar.js versions/3.8/zh/SUMMARY.md
+node ./scripts/create-sidebar.js versions/4.0/zh/SUMMARY.md
 
-node ./scripts/create-sidebar.js versions/3.8/en/SUMMARY.md
+node ./scripts/create-sidebar.js versions/4.0/en/SUMMARY.md
 
 ## Run In Dev Mode
 
-npx vitepress dev versions/3.8
+npx vitepress dev versions/4.0
 
 ## Build
 
-node ./scripts/publish.js --version=versions/3.8
+node ./scripts/publish.js --version=versions/4.0
 
 ## Build All
 
@@ -29,6 +29,6 @@ node ./scripts/publish.js --version=versions/all
 
 ## Preview
 
-npx vitepress preview versions/3.8
+npx vitepress preview versions/4.0
 
-> Change the '3.8' above to operate another version.
+> Change the '4.0' above to operate another version.
