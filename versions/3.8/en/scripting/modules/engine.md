@@ -45,16 +45,16 @@ The constants in the following table indicate whether the application is running
 
 | Name | Platform | `MINIGAME` | `RUNTIME_BASED` | `SUPPORT_JIT` |
 | :---------- | :---------- | :----------------- | :----------------- | :----------------- |
-| `HTML5` | Web | ❌ | ❌ | ❌ |
-| `NATIVE` | Native Platforms | ❌ | ❌ | ❌ |
-| `ALIPAY` | Alipay Mini Game | ✔️ | ❌ | ✔️ |
-| `BAIDU` | Baidu Mini Game | ✔️ | ❌ | ✔️ |
-| `BYTEDANCE` | Douyin Mini Game | ✔️ | ❌ | ✔️ |
-| `WECHAT` | WeChat Mini Gamee | ✔️ | ❌ | ✔️ |
-| `COCOSPLAY` | Cocos Play | ❌ | ✔️ | ✔️ |
-| `HUAWEI` | Huawei Quick Game | ❌ | ✔️ | ✔️ |
-| `OPPO` | OPPO Mini Game | ❌ | ✔️ | ✔️ |
-| `VIVO` | vivo Mini Game | ❌ | ✔️ | ✔️ |
+| `HTML5` | Web | ❌ | ❌ | ✔️ |
+| `NATIVE` | Native Platforms | ❌ | ❌ | ✔️ |
+| `ALIPAY` | Alipay Mini Game | ✔️ | ❌ | ❌ |
+| `BAIDU` | Baidu Mini Game | ✔️ | ❌ | ❌ |
+| `BYTEDANCE` | Douyin Mini Game | ✔️ | ❌ | ❌ |
+| `WECHAT` | WeChat Mini Gamee | ✔️ | ❌ | ❌ |
+| `COCOSPLAY` | Cocos Play | ❌ | ✔️ | ❌ |
+| `HUAWEI` | Huawei Quick Game | ❌ | ✔️ | ❌ |
+| `OPPO` | OPPO Mini Game | ❌ | ✔️ | ❌ |
+| `VIVO` | vivo Mini Game | ❌ | ✔️ | ❌ |
 
 ### Output in Debug Mode
 
