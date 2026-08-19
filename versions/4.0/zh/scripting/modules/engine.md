@@ -45,16 +45,16 @@ log('Hello world!');
 
 | 名称        | 代表平台      | `MINIGAME` “小游戏” | `RUNTIME_BASED` 基于 Cocos Runtime | `SUPPORT_JIT` 支持 JIT |
 | :---------- | :---------- | :----------------- | :----------------- | :----------------- |
-| `HTML5`     | Web         | ❌                  | ❌                 | ❌                 |
-| `NATIVE`    | 原生平台     | ❌                  | ❌                 | ❌                 |
-| `ALIPAY`    | 支付宝小游戏  | ✔️                   | ❌                 | ✔️                 |
-| `BAIDU`     | 百度小游戏    | ✔️                   | ❌                | ✔️                  |
-| `BYTEDANCE` | 抖音小游戏 | ✔️                   | ❌                | ✔️                  |
-| `WECHAT`    | 微信小游戏    | ✔️                   | ❌                | ✔️                  |
-| `COCOSPLAY` | Cocos Play  | ❌                   | ✔️                 | ✔️                 |
-| `HUAWEI`    | 华为快游戏    | ❌                   | ✔️                 | ✔️                 |
-| `OPPO`      | OPPO 小游戏  | ❌                   | ✔️                 | ✔️                 |
-| `VIVO`      | vivo 小游戏  | ❌                   | ✔️                 | ✔️                 |
+| `HTML5`     | Web         | ❌                  | ❌                 | ✔️                 |
+| `NATIVE`    | 原生平台     | ❌                  | ❌                 | ✔️                 |
+| `ALIPAY`    | 支付宝小游戏  | ✔️                   | ❌                 | ❌                 |
+| `BAIDU`     | 百度小游戏    | ✔️                   | ❌                | ❌                  |
+| `BYTEDANCE` | 抖音小游戏 | ✔️                   | ❌                | ❌                  |
+| `WECHAT`    | 微信小游戏    | ✔️                   | ❌                | ❌                  |
+| `COCOSPLAY` | Cocos Play  | ❌                   | ✔️                 | ❌                 |
+| `HUAWEI`    | 华为快游戏    | ❌                   | ✔️                 | ❌                 |
+| `OPPO`      | OPPO 小游戏  | ❌                   | ✔️                 | ❌                 |
+| `VIVO`      | vivo 小游戏  | ❌                   | ✔️                 | ❌                 |
 
 ### 调试模式下的输出
 
