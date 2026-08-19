@@ -24,9 +24,16 @@
 
 分为两个节点的好处是，我们可以使用脚本控制 Player 节点来使主角进行水平方向移动，而在 Body 节点上做一些垂直方向上的动画（比如原地跳起后下落），两者叠加形成一个跳越动画。
 
+同时将3D效果切换至2D：
+
+<img width="1230" height="487" alt="image" src="https://github.com/user-attachments/assets/6b6ee8c5-2404-410e-9c0d-3a0156770076" />
+
 ### 创建跑道
 
-我们使用立方体（Cube）来表示跑道，创建三个 Cube 并依次摆放，作为跑道。
+我们使用立方体（Cube）来表示跑道，创建三个 Cube 并依次摆放，调整位置为 [ (0,-1.5,-2), (1,-1.5,-2), (2,-1.5,-2) ]，作为跑道。
+<img width="1647" height="625" alt="image" src="https://github.com/user-attachments/assets/779bf45f-96f7-4ea8-9b0d-74a27aeb6e16" />
+<img width="1635" height="613" alt="image" src="https://github.com/user-attachments/assets/4f1c4d4a-4b71-40ee-b1ab-2e2a9f906da8" />
+<img width="1638" height="692" alt="image" src="https://github.com/user-attachments/assets/32b36620-cc2e-4826-b42a-f0d97cde1504" />
 
 然后将 Player 节点设置在（0，0，0）位置，使得它能站在第一个方块上。效果如下：
 
