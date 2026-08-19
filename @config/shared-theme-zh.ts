@@ -1,6 +1,7 @@
 import { defineConfig, type DefaultTheme } from 'vitepress'
 import { github, branch } from './config'
 
+
 export default function(version: string) {
   return defineConfig({
     lang: 'zh-Hans',
