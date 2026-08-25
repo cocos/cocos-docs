@@ -79,7 +79,7 @@ jobs:
           VOLC_ACCESSKEY: ${{ secrets.ACCESSKEY }}
           VOLC_SECRETKEY: ${{ secrets.SECRETACCESSKEY }}
         run: |
-          pip install --quiet volcenginesdkcdn volcenginesdkcore
+          pip install --quiet volcengine-python-sdk
           python3 <<'EOF'
           import os
           import volcenginesdkcore
