@@ -77,7 +77,7 @@ export class PlayerController extends Component {
 
 #### 监听输入
 
-在游戏中，我们需要通过监听计算机的输入（鼠标、键盘或者手柄等）来操作角色，在 Cocos Crateor 中，您可以通过监听 `input` 的事件来完成：
+在游戏中，我们需要通过监听计算机的输入（鼠标、键盘或者手柄等）来操作角色，在 Cocos Creator 中，您可以通过监听 `input` 的事件来完成：
 
 ```ts
 input.on(Input.EventType.MOUSE_UP, this.onMouseUp, this);
