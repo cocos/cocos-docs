@@ -74,7 +74,44 @@ After chromium is opened, visit `chrome://flags` in the address bar, then enable
 
 ## Retina Settings
 
-Set whether to use high resolution through `view.enableRetina(true)` in the script. Retina display will be turned on by default when it is built on the Web platform. For details, please refer to the [enableRetina](%__APIDOC__%/en/class/View?id=enableRetina) API.
+Web caps the rendering DPR at **2** by default. The effective DPR is `min(browser DPR, configured cap)`. On high-DPR devices, raising the cap can improve text blurred by insufficient rendering resolution.
+
+This setting requires a 4.0 engine and matching PAL that support it. `view.enableRetina()` has been deprecated since v3.4.0 and cannot change this cap. There is currently no corresponding editor setting.
+
+### Configure the Maximum DPR
+
+Use `settingsPath` in the startup configuration to locate the [settings.json](build-guide.md) file being loaded. Add this field to its `screen` group and preserve the other settings:
+
+```json
+{
+    "screen": {
+        "maxDevicePixelRatio": 4
+    }
+}
+```
+
+- **Values**: finite numbers `>= 1`, including fractions. Invalid values cause Web initialization to fail.
+- **Default**: omission or `null` retains the cap of `2`; neither means unlimited.
+- **Platforms**: Web only. Native, mini game, and Node.js platforms ignore this field.
+- **Timing**: configure before startup and reload after changes. Runtime switching is not supported.
+
+`MaxDPR` provides these presets. Use their numeric values in JSON, or another valid number:
+
+| Preset | Value | Purpose |
+| :--- | :--- | :--- |
+| `MaxDPR.Performance` | `1` | Reduce rendering cost |
+| `MaxDPR.Balanced` | `2` | Default policy |
+| `MaxDPR.Quality` | `4` | Improve clarity, limited by the browser DPR |
+
+This is a runtime configuration field, not an exported build parameter or a writable property on `cc.screen`. Rebuilding overwrites generated files; use a [build extension](custom-build-plugin.md) to apply the setting automatically. [Editor preview](../preview/preview-guid.md) uses separate settings and requires its own integration.
+
+### Verification and Performance
+
+Import `screen` from `cc` and read `screen.devicePixelRatio` in a component's `start()`. A browser DPR of `3.25` with a cap of `4` should produce `3.25`. Changing the cap from `2` to `4` has no effect when the browser DPR is `2` or lower.
+
+If the result differs, check the configuration loaded in the Network panel, startup overrides, and the engine version. A startup override takes priority over the file value.
+
+Canvas pixel counts increase only when the effective DPR increases; the design resolution stays unchanged. With the same display size and other scaling settings, pixel counts grow with DPR squared: raising it from `2` to `3.25` produces about **2.64 times** as many pixels. Pixel-related GPU work and render-target memory increase, but total frame time may not grow proportionally. Check frame rate, memory, and thermal behavior on target devices. If text remains blurry, check font textures and node scaling.
 
 ## Publish to Web Server
 

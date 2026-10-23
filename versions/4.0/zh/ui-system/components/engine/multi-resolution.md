@@ -58,3 +58,7 @@ Cocos Creator 3.0 在整体设计上沿用了 Cocos Creator 2.x 一套资源适�
 当前的设计模式并没有加入多分辨率适配方式，所以在同一个项目里的多个 Canvas 的设计分辨率仍然采用同一套设计分辨率以及适配方案，开发者可以通过 **项目 -> 项目设置 -> 项目数据** 页面配置。
 
 ![resolution-config](multi-resolution/resolution_config.png)
+
+## Web 像素密度与文字清晰度
+
+设计分辨率控制布局尺度，DPR 控制画布像素密度，两者独立。Web 默认 DPR 上限为 `2`；高 DPR 设备上的文字若因渲染分辨率不足而模糊，可通过 `screen.maxDevicePixelRatio` 调整上限。配置与性能说明见 [Retina 与 DPR 设置](../../../editor/publish/publish-web.md#retina-设置)。

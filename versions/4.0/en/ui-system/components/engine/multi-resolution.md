@@ -58,3 +58,7 @@ If there is no strict requirement for the content that may be cropped down on th
 The current design mode does not allow multi-resolution coexistence, so the design resolution of multiple Canvas in the project still uses the same set of design resolution and adaptation scheme, and you can configure it in __Project -> Project Setting -> General -> Default canvas setting__.
 
 ![resolution-config](multi-resolution/resolution_config.png)
+
+## Web Pixel Density and Text Clarity
+
+Design resolution controls layout scale; DPR controls canvas pixel density. They are independent. Web caps DPR at `2` by default. For text blurred by insufficient rendering resolution on high-DPR devices, adjust `screen.maxDevicePixelRatio`. See [Retina and DPR Settings](../../../editor/publish/publish-web.md#retina-settings) for configuration and performance guidance.

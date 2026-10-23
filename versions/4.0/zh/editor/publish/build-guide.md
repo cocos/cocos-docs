@@ -111,7 +111,7 @@ Cocos Creator 的通用构建流程，主要包括以下内容：
 
 `settings.json` 记录了整个游戏包的基本配置信息，会直接影响到游戏包的运行初始化。
 
-关于 `settings.json` 配置的说明如下：
+以下为旧版平铺结构；v3.6 起改为模块分组，4.0 请使用 [升级指南](../../release-notes/build-template-settings-upgrade-guide-v3.6.md) 中的新结构。
 
 ```js
 {
@@ -133,6 +133,14 @@ Cocos Creator 的通用构建流程，主要包括以下内容：
     macros?: Record<string, any>; // 项目设置面板中的引擎宏配置值
 }
 ```
+
+4.0 的 Web DPR 上限配置位于 `screen` 分组：
+
+| 字段 | 类型 | 说明 |
+| :--- | :--- | :--- |
+| `screen.maxDevicePixelRatio` | 可选数字或 `null` | 有限数字且 `>= 1`；缺省或 `null` 保留默认上限 `2`。 |
+
+此项在启动时读取，仅 Web 生效。用法见 [Retina 与 DPR 设置](publish-web.md#retina-设置)。
 
 #### config.json
 

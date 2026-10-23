@@ -111,7 +111,7 @@ It is mainly to prepare the necessary configuration information for the game lau
 
 `settings.json` records the basic configuration information of the whole game package, which will directly affect the initialization of the game package.
 
-The description of the `settings.json` configuration is as follows:
+The example below uses the legacy flat layout. Since v3.6, settings are grouped by module. For 4.0, use the layout in the [Upgrade Guide](../../release-notes/build-template-settings-upgrade-guide-v3.6.md).
 
 ```js
 {
@@ -133,6 +133,14 @@ The description of the `settings.json` configuration is as follows:
     macros?: Record<string, any>; // Engine macro configuration values in the Project Settings panel.
 }
 ```
+
+In 4.0, the Web DPR cap is configured in the `screen` group:
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `screen.maxDevicePixelRatio` | Optional number or `null` | Finite number `>= 1`; omission or `null` retains the default cap of `2`. |
+
+This Web-only setting is read at startup. See [Retina and DPR Settings](publish-web.md#retina-settings) for usage.
 
 #### config.json
 
