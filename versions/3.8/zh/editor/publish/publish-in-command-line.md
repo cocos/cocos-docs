@@ -9,7 +9,7 @@
 - Mac
 
   ```bash
-  /Applications/CocosCreator/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath --build "platform=web-desktop;debug=true"
+  /Applications/Cocos/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath --build "platform=web-desktop;debug=true"
   ```
 
 - Windows
@@ -96,7 +96,7 @@ Cocos Creator 3.0 各个平台的构建会作为独立的扩展嵌入到 **构�
 - Mac
 
   ```bash
-  /Applications/CocosCreator/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
+  /Applications/Cocos/Creator/3.0.0/CocosCreator.app/Contents/MacOS/CocosCreator --project projectPath
   --build "stage=bundle;configPath=./bundle-build-config.json;"
   ```
 
