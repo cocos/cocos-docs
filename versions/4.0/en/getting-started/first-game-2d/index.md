@@ -151,8 +151,6 @@ Now, let's create a folder named Prefab in the Assets Manager window, which will
 
 Then, find the Box node and drag it to the Prefab folder, a prefab file named "Box" will be generated.
 
-The box node in the hierarchy can be deleted, because it won't be used when the game is running. Instead, we will create nodes in the script using Box.prefab to build the game map during gameplay.
-
 ![create-box-prefab.gif](images/create-box-prefab.gif)
 
 > **Tips:** Generally, We will use different folders to manage different types of resources. It's a good habit to keep your project well-organized.
@@ -861,6 +859,8 @@ start() {
 ```
 
 You can see the generated map when running the game.
+
+Now that the map is generated using `Box.prefab` in the `GameManager` script, you can delete the original `Box` node from the scene hierarchy. The ground blocks will be created from the prefab when the game runs.
 
 ![gen-road.png](images/gen-road.png)
 
