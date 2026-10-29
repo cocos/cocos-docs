@@ -10,6 +10,7 @@ Cocos Creator 脚本用于实现用户定义的（游戏）行为，支持 JavaS
 - [脚本基础](./script-basics.md)
 - [脚本使用](./usage.md)
 - [脚本进阶](./reference-class.md)
+- [Worker 与 WorkerPool](./worker.md)
 - [事件系统](../engine/event/index.md)
 - [模块规范与示例](./modules/index.md)
 - [插件脚本](./external-scripts.md)

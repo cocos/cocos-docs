@@ -441,6 +441,10 @@
                         "link": "scripting/reference-class.md"
                     },
                     {
+                        "text": "Worker 与 WorkerPool",
+                        "link": "scripting/worker.md"
+                    },
+                    {
                         "text": "事件系统",
                         "link": "engine/event/index.md",
                         "items": [
