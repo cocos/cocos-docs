@@ -166,6 +166,13 @@ The **Feature Cropping** tab is mainly for modules used in the engine when relea
 
 ![feature-core](./index/feature-crop.png)
 
+### Worker feature group
+
+The Worker group contains **Basic Worker** (`worker`) and **Worker Pool** (`worker-pool`), both disabled by default.
+Enable only the basic item to create and manage workers yourself. Enable Worker Pool for engine task scheduling; it also selects the basic item.
+The group checkbox selects or clears all items and is indeterminate when only the basic item is selected. Rebuild after changing settings.
+See [Workers and WorkerPool](../../scripting/worker.md) for usage, platform limits, and script packaging.
+
 ## Texture Compression
 
 ![compress-texture](./texture-compress/compress-texture.png)

@@ -10,6 +10,7 @@ During the component scripting process, developers can declare properties to map
 - [Scripting Basics](./script-basics.md)
 - [Using Scripts](./usage.md)
 - [Advanced Scripting](./reference-class.md)
+- [Workers and WorkerPool](./worker.md)
 - [Event System](../engine/event/index.md)
 - [Modules](./modules/index.md)
 - [Plugin Scripts](./external-scripts.md)

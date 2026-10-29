@@ -104,6 +104,7 @@
         - [Obtaining and Loading Assets](scripting/load-assets.md)
         - [tsconfig Configuration](scripting/tsconfig.md)
     - [Advanced Scripting](scripting/reference-class.md)
+    - [Workers and WorkerPool](scripting/worker.md)
     - [Events](engine/event/index.md)
         - [Listening to and Launching Events](engine/event/event-emit.md)
         - [Input Event System](engine/event/event-input.md)

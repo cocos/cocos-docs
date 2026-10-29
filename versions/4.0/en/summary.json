@@ -417,6 +417,10 @@
                         "link": "scripting/reference-class.md"
                     },
                     {
+                        "text": "Workers and WorkerPool",
+                        "link": "scripting/worker.md"
+                    },
+                    {
                         "text": "Events",
                         "link": "engine/event/index.md",
                         "items": [

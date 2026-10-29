@@ -109,6 +109,7 @@
         - [获取和加载资源](scripting/load-assets.md)
         - [tsconfig 配置](scripting/tsconfig.md)
     - [脚本进阶](scripting/reference-class.md)
+    - [Worker 与 WorkerPool](scripting/worker.md)
     - [事件系统](engine/event/index.md)
         - [发射和监听事件](engine/event/event-emit.md)
         - [输入事件系统](engine/event/event-input.md)

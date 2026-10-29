@@ -169,6 +169,13 @@
 
 ![feature-core](./index/feature-crop.png)
 
+### Worker 功能分组
+
+Worker 分组包含默认关闭的 **基础 Worker 功能**（`worker`）与 **Worker Pool**（`worker-pool`）。
+只启用基础项即可自行创建和管理 Worker；使用引擎任务池时额外启用 Worker Pool，它会关联开启基础项。
+分组标题用于全选/清空，只选基础项时显示半选。调整后重新构建项目。
+具体使用方式、平台限制与脚本打包见 [Worker 与 WorkerPool](../../scripting/worker.md)。
+
 ## 压缩纹理
 
 与 Cocos Creator 2.x 不同，Cocos Creator 3.0 的压缩纹理是在 **项目设置** 中配置预设，然后在 **属性检查器** 中选择图片资源的预设方式。旧版本的项目在升级到 v3.0 后，编辑器会自动扫描项目中所有的压缩纹理配置情况，整理出几个预设，由于是自动扫描的，所以预设名称可能不匹配项目，可以自行在此处修改。
