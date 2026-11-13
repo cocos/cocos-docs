@@ -54,4 +54,3 @@ export function setPanel(node: Node, frame: SpriteFrame, material: Material) {
 
 - Rectangular frames from static atlases are supported, including frames rotated during packing. A UI Sprite can use the same frame. When the UI packs it into a dynamic atlas, the world-space sprite continues sampling the source texture from before packing. You can keep the UI's **Packable** setting. UI dynamic atlasing does not automatically batch world-space sprites.
 - A Tiled sprite supports up to 16,383 quads, including borders. The component skips drawing if the limit is exceeded. If a large tiled area disappears, reduce the target size or increase the natural tile size.
-- **RenderTexture** has a known orientation issue. On Web and Windows Native, the built-in effect can display a camera's render texture upside down. Ordinary Texture2D assets are unaffected.

@@ -54,4 +54,3 @@ export function setPanel(node: Node, frame: SpriteFrame, material: Material) {
 
 - 可以使用静态图集中的矩形帧，包括打包时旋转的帧。同一帧也可以交给 UI Sprite。UI 动态合图后，世界精灵继续从合图前的源纹理取样。可以保留 UI 的 **Packable** 设置。世界精灵之间不会因 UI 动态合图而自动合批。
 - Tiled 单个精灵最多生成 16,383 个四边形，包含边框。超过上限时组件跳过绘制。若大面积平铺后图像消失，可减小目标尺寸或增大单块的自然尺寸。
-- **RenderTexture** 有已知方向问题。在 Web 和 Windows Native 上，内置 Effect 显示相机渲染纹理时可能上下颠倒。普通 Texture2D 不受此问题影响。
