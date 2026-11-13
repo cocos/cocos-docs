@@ -1137,6 +1137,10 @@
                 "link": "2d-object/index.md",
                 "items": [
                     {
+                        "text": "World-space sprites with SpriteRenderer",
+                        "link": "engine/renderable/sprite-renderer.md"
+                    },
+                    {
                         "text": "2D Render",
                         "link": "2d-object/2d-render/index.md",
                         "items": [

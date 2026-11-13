@@ -1,6 +1,6 @@
 # 精灵帧资源（SpriteFrame）
 
-Cocos Creator 的 SpriteFrame 是 UI 渲染基础图形的容器。其本身管理图像的裁剪和九宫格信息，默认持有一个与其同级的 Texture2D 资源引用。
+SpriteFrame 保存纹理引用、裁剪矩形和九宫格边距。同一帧可以用于 [UI Sprite](../ui-system/components/editor/sprite.md) 和 [世界空间精灵 SpriteRenderer](../engine/renderable/sprite-renderer.md)。
 
 ## 导入精灵帧资源
 
@@ -27,6 +27,8 @@ spriteFrame 资源属性如下：
 | Trim Threshold | 透明度阈值，默认为 1，取值范围为 0~1，会将透明度在设定值以下的像素裁减掉。当 Trim Type 设置为 **Auto** 时生效 |
 | Trim X、Y、Width、Height | 设置裁剪矩形框，当 Trim Type 设置为 **Custom** 时生效 |
 | Border Top、Bottom、Left、Right | 设置九宫格图边距，可点击下方的 **编辑** 按钮进行可视化编辑  |
+| Pixels To Unit | 世界精灵每个局部单位对应的像素数，默认 100。在 **Mesh Options** 中设置。 |
+| Pivot X / Y | 世界精灵的归一化支点，默认 (0.5, 0.5)。在 **Mesh Options** 中设置。 |
 
 ### Packable
 

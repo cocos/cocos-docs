@@ -267,6 +267,7 @@
     - [Geometry Renderer](geometry-renderer/index.md)
 
 - [2D Objects](2d-object/index.md)
+    - [World-space sprites with SpriteRenderer](engine/renderable/sprite-renderer.md)
     - [2D Render](2d-object/2d-render/index.md)
         - [Rendering Order](ui-system/components/engine/priority.md)
         - [2D Renderable Component Batching Rules](ui-system/components/engine/ui-batch.md)

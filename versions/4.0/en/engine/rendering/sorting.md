@@ -6,7 +6,7 @@ Click the **Add Component** button inside the **Inspector** panel and select **S
 
 ![sorting](sorting/sorting.png)
 
-> **Note**: This component is only available for nodes holding **MeshRenderer** and **SpriteRenderer** components.
+> **Note**: This component is only available for nodes holding **MeshRenderer** and [SpriteRenderer](../renderable/sprite-renderer.md) components.
 
 ## Properties
 
