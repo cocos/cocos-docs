@@ -1,6 +1,6 @@
 # Sprite Frame Assets
 
-**Sprite Frame** is a container for UI rendering and basic graphics, which manages the clipping and tiling data. It by default holds a reference to a Texture2D asset of the same level as it.
+A SpriteFrame stores a texture reference, a trimmed rectangle, and borders for nine-slicing. The same frame can be used by a [UI Sprite](../ui-system/components/editor/sprite.md) and a [world-space SpriteRenderer](../engine/renderable/sprite-renderer.md).
 
 ## Importing Sprite Frame Assets
 
@@ -27,6 +27,8 @@ The `spriteFrame` has the following properties:
 | Trim Threshold | Set the transparency threshold, trim off the pixels whose transparency is below the set value.<br>The default value is 1, and the range of values is 0~1.<br>Only takes effect when **Trim Type** is set to **Auto**.  |
 | Trim X, Y, Width, Height | Sets the trim rect, only takes effect when **Trim Type** is set to **Custom**. |
 | Border Top, Bottom, Left, Right | Set the texture margins of the 9-sliced, which can be edited visually by clicking on the **Edit** button below.  |
+| Pixels To Unit | Pixels per local unit for world-space sprites. The default is 100. Set this value under **Mesh Options**. |
+| Pivot X / Y | Normalized pivot for world-space sprites. The default is (0.5, 0.5). Set these values under **Mesh Options**. |
 
 ### Packable
 

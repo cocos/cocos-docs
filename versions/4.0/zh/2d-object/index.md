@@ -2,6 +2,8 @@
 
 区别于 3D 模型对象，我们将不涉及模型的图片渲染体统称为 2D 渲染对象。2D 渲染对象的处理在底层的数据提交上与 3D 模型存在差异，其遵循自己的规则做出了一些针对性的调整以实现更好的效率表现和使用体验。
 
+要在 3D 场景中显示精灵，请使用 [SpriteRenderer](../engine/renderable/sprite-renderer.md)。它由场景相机渲染。下文的 RenderRoot2D 和 UITransform 要求适用于 UI 渲染组件。
+
 ## 2D 对象渲染结构说明
 
 2D 渲染对象的收集采用树状结构，RenderRoot 节点（带有 RenderRoot2D 组件的节点）为 2D 对象数据收集的入口节点，所有的 2D渲染对象需在 RenderRoot 节点下才可以被渲染。由于 Canvas 组件本身继承 RenderRoot2D 组件，所以 Canvas 组件也可以作为数据收集的入口。2D 渲染节点必须带有 UITransform 组件作为渲染顶点数据、点击或者对齐策略等功能生效的必要条件。
