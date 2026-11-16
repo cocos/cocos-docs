@@ -6,7 +6,7 @@
 
 ![sorting](sorting/sorting.png)
 
-> **注意**：该组件只对持有 **MeshRenderer** 和 **SpriteRenderer** 组件的节点生效。
+> **注意**：该组件只对持有 **MeshRenderer** 和 [SpriteRenderer](../renderable/sprite-renderer.md) 组件的节点生效。
 
 ## 属性
 

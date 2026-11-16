@@ -2,6 +2,8 @@
 
 Unlike 3D model objects, 2D rendering objects are referred to as the rendering of images that do not involve models. 2D rendering objects are handled differently from 3D models in terms of the underlying data submission, and follow their own rules with some specific adjustments for better efficiency and experience.
 
+To display a sprite in a 3D scene, use [SpriteRenderer](../engine/renderable/sprite-renderer.md). The scene camera renders the sprite. The RenderRoot2D and UITransform requirements below apply to UI rendering components.
+
 ## 2D Object Rendering Structure Description
 
 The RenderRoot node (the node with the RenderRoot2D component) is the entry point for 2D object data collection, and all 2D rendering objects must be rendered under the RenderRoot node. Since the Canvas component inherits from the RenderRoot2D component, the Canvas component can also be the entry point for data collection. 2D rendering nodes must have a UITransform component as a requirement for rendering vertex data, click or alignment policies, etc.

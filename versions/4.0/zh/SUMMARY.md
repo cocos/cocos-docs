@@ -274,6 +274,7 @@
     - [调试渲染器（Debug-Renderer）](debug-renderer/index.md)
 
 - [2D 对象](2d-object/index.md)
+    - [世界空间精灵（SpriteRenderer）](engine/renderable/sprite-renderer.md)
     - [2D 渲染](2d-object/2d-render/index.md)
         - [渲染排序规则](ui-system/components/engine/priority.md)
         - [2D 渲染组件合批说明](ui-system/components/engine/ui-batch.md)
