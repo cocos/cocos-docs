@@ -65,7 +65,6 @@ jobs:
             s3://cocoscreator-docs-test/gitbook/creator/${{ steps.extract.outputs.version }}/manual/ \
             --endpoint-url https://tos-s3-cn-beijing.volces.com
 
-
       - name: 上传文件到火山云 TOS（正式环境）
         if: contains(github.event.head_commit.message, 'publish:docs:')
         run: |
