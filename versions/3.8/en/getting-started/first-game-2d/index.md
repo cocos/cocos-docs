@@ -92,7 +92,7 @@ Creating a script component in Cocos Creator is very simple. All you need to do 
 
 <img src='./images/create-fist-script.png' width='64%' height='64%'></img>
 
-For ease of management, it is often recommended to create a folder named `Script` to put all of your scripts in.
+For ease of management, it is often recommended to create a folder named `Scripts` to put all of your scripts in.
 
 Next, right-click on the `Scripts` folder, and create a new script component named `PlayerController` to control the player.
 
